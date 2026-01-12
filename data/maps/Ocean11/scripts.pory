@@ -34,8 +34,17 @@ script GreatSea_LuvdiscHint {
 	release
 }
 
+script GreatSea_EggDeliverySign {
+	msgbox(
+	"KANTO EGG DELIVERY SERVICE\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
 script GreatSea_EggDeliveryHint {
 	setflag(FLAG_HEART_SWAP_HINT)
+	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 1)
 	msgbox(
 	"Hi! I'm a representative for the\n"
 	"KANTO EGG DELIVERY SERVICE.\p"
@@ -103,6 +112,8 @@ script GreatSea_Mantyke {
 	release
 	end
 }
+
+
 script GreatSea_BabyRemoraid {
 	lock
 	playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
@@ -110,4 +121,29 @@ script GreatSea_BabyRemoraid {
 	waitmoncry
 	release
 	end
+}
+
+
+script GreatSea_BabyGrowlithe {
+	lock
+	playmoncry(SPECIES_GROWLITHE, CRY_MODE_DEFAULT)
+	msgbox(
+	"GROWLITHE: Grwwooo-!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(20)
+	msgbox(
+	"He wants to join in on the fun.\n"
+	"", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+
+script GreatSea_ManaphyTrade {
+	msgbox(
+	"Hi I have an egg but I'm looking\n"
+	"for someone else with an egg\l"
+	"placeholder", MSGBOX_NPC)
 }

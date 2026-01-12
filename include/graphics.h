@@ -12687,3 +12687,17 @@ extern const u8 gMonIcon_ZAPMOLCUNO[];
 
 extern const u32 gItemIcon_Top[];
 extern const u32 gItemIconPalette_Top[];
+
+extern const u32 gTrainerFrontPic_LightGary[];
+extern const u32 gTrainerPalette_LightGary[];
+
+extern const u32 gTrainerFrontPic_Larry[];
+extern const u32 gTrainerPalette_Larry[];
+// UNITED_KINGDOM
+extern const u32 gMonFrontPic_UNITEDKINGDOM[];
+extern const u32 gMonPalette_UNITEDKINGDOM[];
+extern const u32 gMonBackPic_UNITEDKINGDOM[];
+extern const u32 gMonShinyPalette_UNITEDKINGDOM[];
+extern const u8 gMonFootprint_UNITEDKINGDOM[];
+extern const u8 gMonIcon_UNITEDKINGDOM[];
+

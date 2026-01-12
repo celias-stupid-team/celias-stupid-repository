@@ -26,7 +26,7 @@
     },
     {
       "map": "MAP_OCEAN3",
-      "offset": -15,
+      "offset": -13,
       "direction": "right"
     },
     {
@@ -48,6 +48,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_SkittyBitty",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 10,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_Buoy_ShrineIsland",
       "flag": "0"
     }
   ],
@@ -189,6 +203,16 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GreatSea_ShrineIslandSign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 10,
+      "y": 20,
+      "elevation": 0,
+      "item": "ITEM_NOTHING",
+      "flag": "FLAG_HIDDEN_ITEM_SHRINE_ISLAND_NOTHING",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }

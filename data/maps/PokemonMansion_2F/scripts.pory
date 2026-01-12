@@ -28,3 +28,26 @@ PokemonMansion_2F_EventScript_Arnie::
 	msgbox PokemonMansion_1F_Text_ArniePostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+
+script PokemonMansion_Diary1 {
+	msgbox(
+	"Diary 1, May 6th:\n"
+	"MEW had sex.", MSGBOX_SIGN)
+
+}
+
+script PokemonMansion_Diary2 {
+	msgbox(
+	"Diary 1, June 6th:\n"
+	"MEW is pregnant", MSGBOX_SIGN)
+
+}
+
+script PokemonMansion_Diary3 {
+	msgbox(
+	"Diary 3, February 6th:\n"
+	"Wait! No!\l"
+	"This baby is a demon child!", MSGBOX_SIGN)
+
+}

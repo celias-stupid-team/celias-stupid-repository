@@ -253,6 +253,7 @@ script FourIsland_RockClimbDown {
 }
 
 script FourIsland_Rock {
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 3)
 	msgbox(
 	"It's a rock.\p"
 
@@ -271,7 +272,7 @@ script FourIsland_CenterOfTown {
 }
 
 script FourIsland_CombeeSign {
-	msgbox("TRAINER TIPS\pCATERPIE evolves into a butterfly,\nand WEEDLE evovles into a bee!", MSGBOX_SIGN)
+	msgbox("TRAINER TIPS\pCATERPIE evolves into a butterfly,\nand WEEDLE evolves into a bee!", MSGBOX_SIGN)
 }
 
 script FourIsland_OldLady {
@@ -487,6 +488,7 @@ script FourIsland_DrFootstep {
 script FourIsland_SealCase {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 1)
 	if(flag(FLAG_GOT_SEAL_CASE)) {
 		msgbox(
 		"after message\n"
@@ -609,6 +611,7 @@ script FourIsland_TurnbackCaveSign {
 script FourIsland_AmitySquareLady {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 4)
 	msgbox(
 	"Hello!\n"
 	"Welcome to AMITY SQUARE.\p"
@@ -859,7 +862,7 @@ script FourIsland_TalkingOnPhone {
 	"I'm talking on the phone with my\n"
 	"friend.\p"
 
-	"She's playing POKéMON JADE!\n"
+	"She's playing POKéMON DIAMOND!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
@@ -870,4 +873,45 @@ script FourIsland_TalkingOnPhone {
 	"So anyway like I was saying…\n"
 	"", MSGBOX_DEFAULT)
 	release
+}
+
+
+script FourIsland_MyPokemonRanch {
+	msgbox(
+	"Welcome to MY POKéMON RANCH!\n"
+	"placeholder", MSGBOX_NPC)
+}
+
+
+script FourIsland_RanchBreeder {
+	msgbox(
+	"I have been breeding for 20 hours.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script FourIsland_ExcitedAboutMTCoronet {
+	msgbox(
+	"Oh, boy!\n"
+	"MT. CORONET!\p"
+
+	"That's my favorite part of living\n"
+	"on FOUR ISLAND!", MSGBOX_NPC)
+}
+
+
+script FourIsland_SkippedSomething {
+	msgbox(
+	"Hmm…\n"
+	"I feel like we skipped something.", MSGBOX_NPC)
+}
+
+
+script FourIsland_CoronetSign {
+	msgbox(
+	"MT CORONET\p"
+
+	"A vital part of the FOUR ISLAND\n"
+	"experience", MSGBOX_SIGN)
+
 }

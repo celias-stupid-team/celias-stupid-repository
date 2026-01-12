@@ -130,7 +130,16 @@ script CopycatHouse_Child {
 
 script CopycatHouse_Game {
 	msgbox(
-	"placeholder dialogue\n"
+	"Dear BIPPI,\n"
+	"I hope you're doing well.\p"
+
+	"Here in SAFFRON, we're facing a\n"
+	"major NES shortage.\p"
+
+	"I had to play SUPER MARIO BROS\n"
+	"on this sheet of paper.\p"
+
+	"I hope to see you soon!\n"
 	"", MSGBOX_SIGN)
 
 }

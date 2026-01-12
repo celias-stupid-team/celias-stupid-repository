@@ -62,15 +62,15 @@
       "local_id": "LOCALID_LEAGUE_DOOR_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
-      "x": 6,
-      "y": 14,
+      "x": 16,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "IndigoPlateau_PokemonCenter_1F_EventScript_DoorGuard",
+      "script": "PokemonLeague_GiveCandyDispenser",
       "flag": "0"
     },
     {
@@ -85,7 +85,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonLeague_GiveHistoryBook",
-      "flag": "FLAG_HIDE_POSTGAME_GOSSIPERS"
+      "flag": "0"
     },
     {
       "type": "object",
@@ -183,6 +183,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",
       "script": "IndigoPlateau_Bed"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonLeague_FinalBookshelf"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonLeague_FinalBookshelf"
     }
   ]
 }

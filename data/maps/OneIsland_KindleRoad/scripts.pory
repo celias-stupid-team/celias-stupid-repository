@@ -1,6 +1,5 @@
 raw `
-OneIsland_KindleRoad_MapScripts::
-	.byte 0
+
 
 OneIsland_KindleRoad_EventScript_RouteSign::
 	msgbox OneIsland_KindleRoad_Text_RouteSign, MSGBOX_SIGN
@@ -10,3 +9,10 @@ OneIsland_KindleRoad_EventScript_EmberSpaSign::
 	msgbox OneIsland_KindleRoad_Text_EmberSpaSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts OneIsland_KindleRoad_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setrespawn(HEAL_LOCATION_ONE_ISLAND_KINDLE_ROAD)
+
+	}
+}

@@ -400,6 +400,7 @@ static const u8 sText_AlomomolaEvo[] = _("Look! LUVDISC is evolving!");
 static const u8 sText_AlomomolaEvolved[] = _("LUVDISC evolved to ALOMOMOLA!");
 static const u8 sText_PkmnSwitchedStatChanges[] = _("{B_ATK_NAME_WITH_PREFIX} switched stat changes\nwith the target!");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
+static const u8 sText_LightGaryAndDarkGary[] = _("LIGHT GARY & DARK GARY\nwould like to battle!\p");
 static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nwants to battle!");
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
 static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME}!{PAUSE 60}");
@@ -560,6 +561,8 @@ static const u8 sText_PkmnRevived[] = _("{B_BUFF1} was revived and is ready\nto 
 static const u8 sText_VanishedFromExistence[] = _("{B_ATK_NAME_WITH_PREFIX} vanished\nfrom existence!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_FuckingDied[] = _("{B_DEF_NAME_WITH_PREFIX}\nfucking died!\p");
 static const u8 sText_ButItMist[] = _("But it mist!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_SealHasBeenBroken[] = _("The Seal has been broken!");
+static const u8 sText_HoopaHasBeenReleased[] = _("HOOPA\nwas released!\p");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_START] = {
     [STRINGID_TRAINER1LOSETEXT - BATTLESTRINGS_TABLE_START]              = sText_Trainer1LoseText,
@@ -999,6 +1002,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_NOTAFFECTEDBYSEEDING - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The seeds don't affect\n{B_DEF_NAME_WITH_PREFIX}…"),
     [STRINGID_PKMNIMMUNETOPOISON - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is immune to\nbeing poisoned!"),
     [STRINGID_PKMNALREADYSTATUSED - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is already\nstatused!"),
+    [STRINGID_SEAL_HAS_BEEN_BROKEN - BATTLESTRINGS_TABLE_START]         = sText_SealHasBeenBroken,
+    [STRINGID_HOOPA_WAS_RELEASED - BATTLESTRINGS_TABLE_START]         = sText_HoopaHasBeenReleased,
+    [STRINGID_EARTH_EATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s\nEARTH EATER!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1237,7 +1243,8 @@ const u16 gGotDefrostedStringIds[] =
 const u16 gKOFailedStringIds[] =
 {
     [B_MSG_KO_MISS]       = STRINGID_ATTACKMISSED,
-    [B_MSG_KO_UNAFFECTED] = STRINGID_PKMNUNAFFECTED
+    [B_MSG_KO_UNAFFECTED] = STRINGID_PKMNUNAFFECTED,
+    [B_MSG_EARTH_EATER] = STRINGID_EARTH_EATER
 };
 
 const u16 gAttractUsedStringIds[] =
@@ -1737,7 +1744,10 @@ void BufferStringBattle(u16 stringId)
             }
             else
             {
-                stringPtr = sText_Trainer1WantsToBattle;
+                if(gTrainerBattleOpponent_A == TRAINER_DMCA_ERIKA)
+                    stringPtr = sText_LightGaryAndDarkGary;
+                else
+                    stringPtr = sText_Trainer1WantsToBattle;
             }
         }
         else

@@ -653,7 +653,7 @@ static const u16 sDexCategory_SeventhBadgePkmn_Page1[] = {
 static const u16 sDexCategory_SeventhBadgePkmn_Page2[] = {
     SPECIES_LUVDISC,
     SPECIES_ALOMOMOLA,
-    SPECIES_LUMINEON,
+    SPECIES_WOOBAT,
 };
 
 static const u16 sDexCategory_SeventhBadgePkmn_Page3[] = {
@@ -680,7 +680,6 @@ static const u16 sDexCategory_SeventhBadgePkmn_Page6[] = {
 };
 
 static const u16 sDexCategory_SeventhBadgePkmn_Page7[] = {
-    SPECIES_CHANSEY,
     SPECIES_PINSIR,
     SPECIES_SUDOWOODO,
 };
@@ -727,8 +726,8 @@ static const u16 sDexCategory_FinalBadgePkmn_Page3[] = {
 
 static const u16 sDexCategory_FinalBadgePkmn_Page4[] = {
     SPECIES_VICTINI,
-    SPECIES_WOOBAT,
     SPECIES_MELMETAL,
+    SPECIES_CHANSEY,
 };
 
 static const u16 sDexCategory_FinalBadgePkmn_Page5[] = {

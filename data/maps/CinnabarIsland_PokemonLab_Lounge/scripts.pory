@@ -117,6 +117,7 @@ script CinnabarIslandLab_StevenStone {
 
 
 script CinnabarIslandLab_AmberTree {
+	famechecker(FAMECHECKER_GREAT_SEA_WEST, 2)
 	msgbox(
 	"Have you heard of OLD AMBER?\n"
 	"PEWTER MUSEUM has some.\p"

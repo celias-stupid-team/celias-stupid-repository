@@ -409,19 +409,16 @@ script SeafoamIslands_B3F_CaptainGetsTheSpheals {
 	applymovement(LOCALID_SPHEAL_LAND_1, moves(
 		jump_2_left
 	))
-	delay(20)
+	delay(40)
 	applymovement(LOCALID_B3F_CAPTAIN, moves(
-		walk_left
+		walk_left * 2
 	))
 	waitmovement(LOCALID_SPHEAL_LAND_1)
 	removeobject(LOCALID_SPHEAL_LAND_1)
 	addobject(LOCALID_SPHEAL_6)
 	setobjectxy(LOCALID_SPHEAL_6, 23, 11)
 	playse(SE_M_WATERFALL)
-	waitse
-	applymovement(LOCALID_B3F_CAPTAIN, moves(
-		walk_left
-	))
+	delay(20)
 	waitmovement(LOCALID_B3F_CAPTAIN)
 	playse(SE_LEDGE)
 	applymovement(LOCALID_B3F_CAPTAIN, moves(
@@ -433,23 +430,119 @@ script SeafoamIslands_B3F_CaptainGetsTheSpheals {
 	applymovement(LOCALID_SPHEAL_6, moves(
 		face_right
 	))
+	delay(16)
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
 	waitmovement(LOCALID_B3F_CAPTAIN)
 	delay(30)
 	applymovement(LOCALID_SPHEAL_6, moves(
-		walk_left * 5
+		walk_left * 7
 	))
 	applymovement(LOCALID_B3F_CAPTAIN, moves(
+		walk_left * 7
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		walk_left * 4
+	))
+	applymovement(LOCALID_SPHEAL_LAND_2, moves(
+		delay_16
+		walk_left * 3
+	))
+	applymovement(LOCALID_SPHEAL_LAND_3, moves(
+		delay_16
+		walk_up
 		walk_left * 5
 	))
-	waitmovement(LOCALID_B3F_CAPTAIN)
-	fadedefaultbgm
+	applymovement(LOCALID_SPHEAL_LAND_4, moves(
+		delay_16 * 3
+		walk_down
+		walk_left * 5
+	))
+	applymovement(LOCALID_SPHEAL_LAND_5, moves(
+		delay_16 * 4
+		walk_left * 12
+		walk_down * 3
+		walk_left * 3
+	))
+	applymovement(LOCALID_SPHEAL_LAND_6, moves(
+		delay_16 * 4
+		walk_up
+		walk_left * 7
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_2)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_2, moves(
+		jump_2_left
+		face_down
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_2)
+	playse(SE_M_WATERFALL)
+	removeobject(LOCALID_SPHEAL_LAND_2)
+	addobject(LOCALID_SPHEAL_1)
+
+	waitmovement(LOCALID_SPHEAL_LAND_3)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_3, moves(
+		jump_2_left
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_3)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_4, moves(
+		jump_2_left
+	))
+	applymovement(LOCALID_SPHEAL_LAND_3, moves(
+		jump_2_left
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_3)
+	playse(SE_M_WATERFALL)
+	removeobject(LOCALID_SPHEAL_LAND_3)
+	addobject(LOCALID_SPHEAL_2)
+	applymovement(LOCALID_SPHEAL_LAND_4, moves(
+		jump_2_left
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_6)
+	applymovement(LOCALID_SPHEAL_LAND_6, moves(
+		jump_2_left
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_4)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_4, moves(
+		jump_2_left
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_6)
+	applymovement(LOCALID_SPHEAL_LAND_6, moves(
+		jump_2_left
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_4)
+	playse(SE_M_WATERFALL)
+	removeobject(LOCALID_SPHEAL_LAND_4)
+	addobject(LOCALID_SPHEAL_3)
+	waitmovement(LOCALID_SPHEAL_LAND_6)
+	applymovement(LOCALID_SPHEAL_LAND_6, moves(
+		jump_2_left
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		walk_right * 3
+	))
+	playse(SE_LEDGE)
+	waitmovement(LOCALID_SPHEAL_LAND_6)
+	applymovement(LOCALID_SPHEAL_LAND_6, moves(
+		jump_2_left
+	))
 	applymovement(LOCALID_PLAYER, moves(
 		walk_down
 		jump_2_down
-		walk_down * 2
+		walk_down
 		walk_left * 3
 	))
+	playse(SE_LEDGE)
+	waitmovement(LOCALID_SPHEAL_LAND_6)
+	playse(SE_M_WATERFALL)
+	removeobject(LOCALID_SPHEAL_LAND_6)
+	addobject(LOCALID_SPHEAL_4)
+
+	fadedefaultbgm
 	waitmovement(LOCALID_PLAYER)
+	waitmovement(LOCALID_CAMERA)
 	removeobject(LOCALID_SPHEAL_LAND_1)
 	removeobject(LOCALID_SPHEAL_LAND_2)
 	removeobject(LOCALID_SPHEAL_LAND_3)
@@ -623,4 +716,10 @@ script Seafoam3F_DummyWarp1 {
 script Seafoam3F_DummyWarp2 {
 	lock
 	warp(MAP_SEAFOAM_ISLANDS_B4F, 1)
+}
+
+script Seafoam3F_CaptainAfter {
+	msgbox(
+	"CAPTAIN: Ah…\n"
+	"Just like old times.", MSGBOX_NPC)
 }

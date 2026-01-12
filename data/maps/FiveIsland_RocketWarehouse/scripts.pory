@@ -12,6 +12,7 @@ FiveIsland_RocketWarehouse_OnTransition::
 	end
 
 FiveIsland_RocketWarehouse_OnLoad::
+	setrespawn HEAL_LOCATION_GREAT_SEA_PIRATE_BAY
 	call_if_defeated TRAINER_TEAM_ROCKET_ADMIN, FiveIsland_RocketWarehouse_EventScript_SetArrowsForReEntry
 	end
 
@@ -66,7 +67,7 @@ FiveIsland_RocketWarehouse_EventScript_Grunt2::
 	end
 
 FiveIsland_RocketWarehouse_EventScript_Grunt3::
-	trainerbattle_single TRAINER_DMCA_GRUNT_48, FiveIsland_RocketWarehouse_Text_Grunt3Intro, FiveIsland_RocketWarehouse_Text_Grunt3Defeat
+	trainerbattle_single TRAINER_DMCA_QW, FiveIsland_RocketWarehouse_Text_Grunt3Intro, FiveIsland_RocketWarehouse_Text_Grunt3Defeat
 	msgbox FiveIsland_RocketWarehouse_Text_Grunt3PostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -222,4 +223,17 @@ script DMCAWarehouse_AZStory {
 	delay(60)
 	fadedefaultbgm
 	release
+}
+
+script DMCAWarehouse_MirorB {
+	msgbox(
+	"they kidnapped us because we have\n"
+	"letters in our name", MSGBOX_NPC)
+}
+
+script DMCAWarehouse_N {
+	famechecker(FAMECHECKER_GREAT_BAY, 5)
+	msgbox(
+	"They're holding a letter hostage\n"
+	"", MSGBOX_NPC)
 }

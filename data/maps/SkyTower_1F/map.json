@@ -17,16 +17,16 @@
   "object_events": [],
   "warp_events": [
     {
-      "x": 8,
-      "y": 3,
+      "x": 24,
+      "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_NAVEL_ROCK_SUMMIT_PATH_2F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SKY_TOWER_2F",
+      "dest_warp_id": "1"
     },
     {
       "warp_id": "WARPID_SKY_TOWER_INSIDE",
-      "x": 8,
-      "y": 11,
+      "x": 12,
+      "y": 29,
       "elevation": 0,
       "dest_map": "MAP_GREAT_BAY_NORTH",
       "dest_warp_id": "WARPID_SKY_TOWER_OUTSIDE"

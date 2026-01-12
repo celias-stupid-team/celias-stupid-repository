@@ -6,8 +6,8 @@ mapscripts FourIsland_AmitySquare_MapScripts {
 
 script FourIsland_AmitySquare_Bows {
 	textcolor(NPC_TEXT_COLOR_RED)
-	if(flag(FLAG_BOWS_GIVES_SHINY_PINSIR)) {
-		clearflag(FLAG_BOWS_GIVES_SHINY_PINSIR)
+	if(flag(FLAG_SHINY_MEWTWO)) {
+		clearflag(FLAG_SHINY_MEWTWO)
 		setflag(FLAG_SHINY_CREATION)
 		msgbox(
 		"BOWS: Hey!\n"
@@ -49,6 +49,15 @@ script FourIsland_AmitySquare_Trapinch {
 }
 
 
+script AmitySquare_PokeKid {
+	msgbox(
+	"Shhh…\p"
+
+	"Don't tell anyone I snuck in!\n"
+	"", MSGBOX_NPC)
+}
+
+
 
 script AmitySquare_PokemonStatue {
 	lock
@@ -75,5 +84,30 @@ script AmitySquare_CaveSign {
 	msgbox(
 	"SIX ISLAND CAVE\n"
 	"", MSGBOX_SIGN)
+
+}
+
+
+script AmitySquare_MainSign {
+	msgbox(
+	"AMITY SQUARE\p"
+
+	"We sure are a square!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script AmitySquare_NineIsland {
+	lock
+	msgbox(
+	"N-NE ISL--D\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	msgbox(
+	"The message is faded.\n"
+	"", MSGBOX_DEFAULT)
+	release
 
 }

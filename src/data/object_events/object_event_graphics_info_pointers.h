@@ -463,6 +463,17 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPINDAS;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AQUA_MEMBER_M;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UNAGI;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_POKEBALL_STORAGE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_entei_gun;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GROWLITHE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORTHWORM_SIDE_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORTHWORM_SIDE_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROGGENROLA;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TOEDSCOOL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DESERT_BUS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ALIEN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOY_CLOTHES;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GIRL_CLOTHES;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SOPHACLES;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -927,4 +938,15 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_AQUA_MEMBER_M] = &gObjectEventGraphicsInfo_AQUA_MEMBER_M,
     [OBJ_EVENT_GFX_UNAGI] = &gObjectEventGraphicsInfo_UNAGI,
     [OBJ_EVENT_GFX_POKEBALL_STORAGE] = &gObjectEventGraphicsInfo_POKEBALL_STORAGE,
+    [OBJ_EVENT_GFX_ENTEI_GUN] = &gObjectEventGraphicsInfo_entei_gun,
+    [OBJ_EVENT_GFX_GROWLITHE] = &gObjectEventGraphicsInfo_GROWLITHE,
+    [OBJ_EVENT_GFX_ORTHWORM_SIDE_1] = &gObjectEventGraphicsInfo_ORTHWORM_SIDE_1,
+    [OBJ_EVENT_GFX_ORTHWORM_SIDE_2] = &gObjectEventGraphicsInfo_ORTHWORM_SIDE_2,
+    [OBJ_EVENT_GFX_ROGGENROLA] = &gObjectEventGraphicsInfo_ROGGENROLA,
+    [OBJ_EVENT_GFX_TOEDSCOOL] = &gObjectEventGraphicsInfo_TOEDSCOOL,
+    [OBJ_EVENT_GFX_DESERT_BUS] = &gObjectEventGraphicsInfo_DESERT_BUS,
+    [OBJ_EVENT_GFX_ALIEN] = &gObjectEventGraphicsInfo_ALIEN,
+    [OBJ_EVENT_GFX_BOY_CLOTHES] = &gObjectEventGraphicsInfo_BOY_CLOTHES,
+    [OBJ_EVENT_GFX_GIRL_CLOTHES] = &gObjectEventGraphicsInfo_GIRL_CLOTHES,
+    [OBJ_EVENT_GFX_SOPHACLES] = &gObjectEventGraphicsInfo_SOPHACLES,
 };

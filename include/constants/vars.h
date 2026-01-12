@@ -176,7 +176,7 @@
 #define VAR_CSR_DUMMY_15                             0x4076
 #define VAR_CSR_BILLS_TAKEN                                                             0x4077
 #define VAR_CSR_DUMMY_16                                               0x4078
-#define VAR_CSR_DUMMY_17                            0x4079
+#define VAR_FESTIVAL_PLAZA_TRIGGER                            0x4079
 #define VAR_MAP_SCENE_CSR_LASS_1                                                             0x407A
 #define VAR_CSR_JIRACHI_STATUS                                             0x407B
 #define VAR_CSR_DUMMY_19                                     0x407C
@@ -276,7 +276,7 @@ It is reset after every battle.
 #define VAR_START_SILPH_MUSIC                 0x40B0
 #define VAR_TWO_ISLAND_STARMAN                 0x40B1
 #define VAR_FINAL_BATTLE_PHASE                 0x40B2
-#define VAR_0x40B3                 0x40B3
+#define VAR_EARTH_EATER                 0x40B3
 #define VAR_PORTHOLE               0x40B4
 #define VAR_EVENT_PICHU_SLOT       0x40B5
 #define VAR_MYSTERY_GIFT_1         0x40B6

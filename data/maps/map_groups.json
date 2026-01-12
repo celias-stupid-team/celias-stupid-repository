@@ -597,7 +597,9 @@
     "FiveIsland_PokemonCenter_2F",
     "FiveIsland_Harbor",
     "FiveIsland_House1",
-    "FiveIsland_House2"
+    "FiveIsland_House2",
+    "Yes_House3",
+    "FiveIsland_House4"
   ],
   "gMapGroup_IndoorSixIsland": [
     "SixIsland_PokemonCenter_1F",

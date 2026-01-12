@@ -32,18 +32,21 @@ FiveIsland_RocketWarehouse_Text_Grunt1PostBattle::
     .string "Sell us your POKéMON!$"
 
 FiveIsland_RocketWarehouse_Text_Grunt3Intro::
-    .string "I got word about you from the\n"
-    .string "others.\p"
-    .string "But there's no way a kid like you'd\n"
-    .string "know our BOSS GIOVANNI!$"
+	.string "Grr…\p"
+	.string "Every MEGA POKéMON is shaped like\n"
+	.string "a letter!$"
 
 FiveIsland_RocketWarehouse_Text_Grunt3Defeat::
-    .string "Don't…you…dare…laugh…$"
+    .string "What do you think you're doing?!$"
 
 FiveIsland_RocketWarehouse_Text_Grunt3PostBattle::
-    .string "Don't mess in the doings of adults,\n"
-    .string "you jumped-up pip-squeak!$"
+	.string "Why are we, the D{PAUSE 20} M{PAUSE 20} C{PAUSE 20} A,{PAUSE 20} allowed\n"
+	.string "to exist?\l"
+	.string "Pahahah!\p"
+	.string "It's hilarious if you honestly\n"
+	.string "believe the rules apply to us too!$"
 
+    
 FiveIsland_RocketWarehouse_Text_Admin1Intro::
 	.string "copyright\n$"
 

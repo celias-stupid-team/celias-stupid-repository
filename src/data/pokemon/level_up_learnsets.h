@@ -855,6 +855,7 @@ static const struct LevelUpMove sKadabraLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sAlakazamLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(0, MOVE_DOUBLE_DIP),
     LEVEL_UP_MOVE(1, MOVE_TELEPORT),
     LEVEL_UP_MOVE(1, MOVE_KINESIS),
     LEVEL_UP_MOVE(1, MOVE_CONFUSION),
@@ -1625,6 +1626,7 @@ LEVEL_UP_MOVE(1, MOVE_PSY_BEAM),
 };
 
 static const struct LevelUpMove sMrMimeLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(0, MOVE_REST),
     LEVEL_UP_MOVE(1, MOVE_POPULATION_BOMB),
     LEVEL_UP_MOVE(1, MOVE_HEAL_BLOCK),
     LEVEL_UP_MOVE(1, MOVE_REST),
@@ -8534,7 +8536,7 @@ static const struct LevelUpMove sCyclizarLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sOrthwormLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_EARTHQUAKE),
 	LEVEL_UP_END
 };
 
@@ -10019,6 +10021,11 @@ static const struct LevelUpMove sHOOTLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sZAPMOLCUNOLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sUNITEDKINGDOMLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };

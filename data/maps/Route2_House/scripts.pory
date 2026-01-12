@@ -31,6 +31,9 @@ Route2_House_EventScript_AlreadyTraded::
 `
 
 mapscripts Route2_House_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_1)
+	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_1, 1 {
 			checkpartymonslot(SPECIES_ALAKAZAM)
@@ -58,9 +61,28 @@ script Route2_House_EventScript_Reyley {
 	call(EventScript_GetInGameTradeSpecies)
 	goto_if_ne(VAR_RESULT, VAR_0x8009, Route2_House_EventScript_NotRequestedMon)
 	setvar(VAR_TEMP_1, 1)
+	clearflag(FLAG_TEMP_1)
+	addobject(LOCALID_ROUTE2_HOUSE_DAD)
 	setflag(FLAG_DID_MIMIEN_TRADE)
 	call(EventScript_DoInGameTrade)
-	debugprintf("Alakazam's slot is checked")
+	
 	
 	release
+}
+
+script Route2_House_BonusDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"{STR_VAR_1}: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"dad text\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
 }

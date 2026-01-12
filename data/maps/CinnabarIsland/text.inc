@@ -15,7 +15,7 @@ CinnabarIsland_Text_ScientistsExperimentInMansion::
 
 CinnabarIsland_Text_IslandSign::
 	.string "CINNEBAR ISLAND\n"
-	.string "We spelled the name wrong\p"
+	.string "We spelled the name\l"
 	.string "NEW WILD POKéMON: 1\n$"
 
 CinnabarIsland_Text_PokemonLab::

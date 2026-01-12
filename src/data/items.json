@@ -2241,7 +2241,7 @@
       "secondaryId": 0
     },
     {
-      "english": "VERI BRERRY",
+      "english": "VERI BERRY",
       "itemId": "ITEM_PERSIM_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_CONFUSION",
@@ -5739,7 +5739,7 @@
       "secondaryId": 0
     },
     {
-      "english": "CARD KEY",
+      "english": "KEY CARD",
       "itemId": "ITEM_CARD_KEY",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6061,7 +6061,7 @@
     {
       "english": "FOCUS SASH",
       "itemId": "ITEM_FOCUS_SASH",
-      "price": 4000,
+      "price": 50,
       "holdEffect": "HOLD_EFFECT_FOCUS_SASH",
       "holdEffectParam": 10,
       "description_english": "If the holder has\\nfull HP, it endures\\nKO hits with 1 HP.",
@@ -6875,12 +6875,12 @@
       "secondaryId": 0
     },
     {
-      "english": "CASTELIACONE",
+      "english": "RAGECANDYBAR",
       "itemId": "ITEM_CASTELIACONE",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "CASTELIA CITY's local ice cream.\\nHolding it during a trade may\\ninduce an evolution.",
+      "description_english": "There's a universe where this\\nitem was instead called the\\n“CAKE OF RAGE.”",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -6928,7 +6928,7 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A case for holding seals.",
+      "description_english": "A case for holding Seals.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_POKE_BALLS",

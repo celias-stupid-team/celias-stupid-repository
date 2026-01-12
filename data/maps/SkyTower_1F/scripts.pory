@@ -1,3 +1,27 @@
 mapscripts SkyTower_1F_MapScripts {
 
 }
+
+
+
+script SkyTower_Froslass {
+	msgbox(
+	"FROSLASS: Don't look at me!\n"
+	"", MSGBOX_NPC)
+}
+
+
+script SkyTower_MonsterHouseSign {
+	msgbox(
+	"MONSTER HOUSE\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script SkyTower_MonsterHousePlaceholder {
+	msgbox(
+	"There's like frankenstein and shit\n"
+	"", MSGBOX_SIGN)
+
+}

@@ -213,15 +213,15 @@ const u8 gClefablePokedexText[] = _(
 const u8 gClefablePokedexTextUnused[] = _("");
 
 const u8 gVulpixPokedexText[] = _(
-	"Good thing I brought my umbrella!");
+	"This infinite storm represents\n"
+	"my unending pain and suffering.");
 
 
 const u8 gVulpixPokedexTextUnused[] = _("");
 
 const u8 gNinetalesPokedexText[] = _(
-	"This infinite storm represents\n"
-	"my unending pain and suffering.");
-
+	"I want my wife back, TALES.");
+    
 const u8 gNinetalesPokedexTextUnused[] = _("");
 
 const u8 gJigglypuffPokedexText[] = _(
@@ -309,9 +309,10 @@ const u8 gMeowthPokedexText[] = _(
 const u8 gMeowthPokedexTextUnused[] = _("");
 
 const u8 gPersianPokedexText[] = _(
-	"Wait if this guy is here, what about\n"
-	"the other statues?");
+	"Wait if this guy's here, then\n"
+	"what about…?");
 
+    
 const u8 gPersianPokedexTextUnused[] = _("");
 
 const u8 gPsyduckPokedexText[] = _( //The Blue One
@@ -346,8 +347,8 @@ const u8 gGrowlithePokedexText[] = _(
 const u8 gGrowlithePokedexTextUnused[] = _("");
 
 const u8 gArcaninePokedexText[] = _(
-	"The Forbidden Fourth Box Legendary");
-
+	"The Gen 1 legendary POKéMON really\n"
+	"like ending names in numbers.");
     
 const u8 gArcaninePokedexTextUnused[] = _("");
 
@@ -384,8 +385,8 @@ const u8 gKadabraPokedexText[] = _(
 const u8 gKadabraPokedexTextUnused[] = _("");
 
 const u8 gAlakazamPokedexText[] = _(
-	"Where's KADABRA? Uh, look.\n"
-	"I didn't wanna get sued.");
+	"Unfortunately blacklisted for\n"
+	"creating Al-generated music.");
 
 const u8 gAlakazamPokedexTextUnused[] = _("");
 
@@ -2737,3 +2738,7 @@ const u8 gPokemonGunPokedexText[] = _(
 	"Fun fact:\n"
 	"This joke pre-dates PALWORLD by\n"
 	"over a year.");
+
+
+const u8 gWoobatPokedexText[] = _(
+	"Waaa");

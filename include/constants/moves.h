@@ -638,8 +638,10 @@
 #define MOVE_THORN_WHIP 633
 #define MOVE_RAINBOW_BEAM 634
 #define MOVE_TRIPLE_WINGBEAT 635
+#define MOVE_DOUBLE_DIP 636
+#define MOVE_DOUBLE_DAD 637
 
-#define MOVES_COUNT 636
+#define MOVES_COUNT 638
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

@@ -3,7 +3,7 @@
   "name": "TrainerTower_Elevator",
   "layout": "LAYOUT_TRAINER_TOWER_ELEVATOR",
   "music": "MUS_TRAINER_TOWER",
-  "region_map_section": "MAPSEC_TRAINER_TOWER_2",
+  "region_map_section": "MAPSEC_VIRIDIAN_GYM_2",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

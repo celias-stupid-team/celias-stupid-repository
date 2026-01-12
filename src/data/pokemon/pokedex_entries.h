@@ -1446,7 +1446,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_RHYDON] =
     {
-        .categoryName = _("DRILL"),
+        .categoryName = _("LIGMA"),
         .height = 19,
         .weight = 1200,
         .description = gRhydonPokedexText,
@@ -5466,6 +5466,18 @@ const struct PokedexEntry gPokedexEntries[] =
         .height = 50,
         .weight = 620,
         .description = gHoopaPokedexText,
+        .unusedDescription = gDummyPokedexTextUnused,
+        .pokemonScale = 100,
+        .pokemonOffset = 0,
+        .trainerScale = 359,
+        .trainerOffset = 1,
+    },
+    [NATIONAL_DEX_WOOBAT] =
+    {
+        .categoryName = _("WAA"),
+        .height = 50,
+        .weight = 620,
+        .description = gWoobatPokedexText,
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 100,
         .pokemonOffset = 0,

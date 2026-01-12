@@ -24,7 +24,18 @@ script Route2_EventScript_Dad {
 	lock
 	faceplayer
 	textcolor(0)
-	if(var(VAR_ROUTE2_SHINY_MIME) == 1) {
+	if(checkmoncaught(SPECIES_MR_MIME)) {
+		msgbox(
+		"DAD: {PLAYER}!\n"
+		"What are you doing out here?\p"
+
+		"Hey, I just saw you catch one of\n"
+		"my sisters in the grass here.\l"
+		"Didn't someone want a trade?\p"
+
+		"Well, never mind that.\n"
+		"How about you take a rest?", MSGBOX_DEFAULT)
+	} elif(var(VAR_ROUTE2_SHINY_MIME) == 1) {
 		msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHey, did you run into a shiny a\nminute ago?\lWow, you must be lucky!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 		setvar(VAR_ROUTE2_SHINY_MIME, 2)
 	} else {

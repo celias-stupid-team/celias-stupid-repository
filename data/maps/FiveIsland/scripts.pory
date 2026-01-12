@@ -45,6 +45,7 @@ script Yes_WhereAreYouFrom {
 script Yes_ChanseyNPC {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_GREAT_BAY, 2)
 	msgbox(
 	"Hi, there!\n"
 	"I'm giving away a free CHANSEY!\l"
@@ -214,13 +215,14 @@ script Yes_Brendan {
 
 script Yes_BrendanShirt {
 	msgbox(
-	"They didn't even leave him a\n"
-	"copy of his favorite shirt…", MSGBOX_SIGN)
+	"Twelve identical copies of his\n"
+	"favorite hat.", MSGBOX_SIGN)
 
 }
 
 
 script Yes_BrendanHouseSign {
+	famechecker(FAMECHECKER_GREAT_BAY, 4)
 	msgbox(
 	"BRENDAN's house.\n"
 	"", MSGBOX_SIGN)
@@ -264,4 +266,29 @@ script Yes_CenterNPC2 {
 	}
 	release
 	end
+}
+
+
+script Yes_IslandSign {
+	lock
+	msgbox(
+	"YES\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Exactly!\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"That's not quite it.\n"
+		"", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script Yes_Mailbox {
+	msgbox(
+	"Mailbox on Yes\n"
+	"", MSGBOX_SIGN)
+
 }

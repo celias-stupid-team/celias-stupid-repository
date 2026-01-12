@@ -433,6 +433,22 @@
       "respawn_npc": "1"
     },
     {
+      "id": "HEAL_LOCATION_MINNESOTA",
+      "map": "MAP_MINNESOTA",
+      "x": 22,
+      "y": 35,
+      "respawn_map": "MAP_MINNESOTA",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_AETHER_PARADISE_ENTRANCE",
+      "map": "MAP_AETHER_PARADISE_ENTRANCE",
+      "x": 9,
+      "y": 15,
+      "respawn_map": "MAP_AETHER_PARADISE_ENTRANCE",
+      "respawn_npc": "1"
+    },
+    {
       "id": "HEAL_LOCATION_GREAT_SEA_PIRATE_BAY",
       "map": "MAP_GREAT_SEA_PIRATE_BAY",
       "x": 41,
@@ -441,11 +457,99 @@
       "respawn_npc": "1"
     },
     {
-      "id": "HEAL_LOCATION_MINNESOTA",
-      "map": "MAP_MINNESOTA",
-      "x": 22,
-      "y": 35,
-      "respawn_map": "MAP_MINNESOTA",
+      "id": "HEAL_LOCATION_ONE_ISLAND_KINDLE_ROAD",
+      "map": "MAP_ONE_ISLAND_KINDLE_ROAD",
+      "x": 8,
+      "y": 11,
+      "respawn_map": "MAP_ONE_ISLAND_KINDLE_ROAD",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_SILPH_CO_11F",
+      "map": "MAP_SILPH_CO_11F",
+      "x": 6,
+      "y": 18,
+      "respawn_map": "MAP_SILPH_CO_11F",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_SSANNE_KITCHEN",
+      "map": "MAP_SSANNE_KITCHEN",
+      "x": 4,
+      "y": 5,
+      "respawn_map": "MAP_SSANNE_KITCHEN",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_GYM_BLAINE",
+      "map": "MAP_VIRIDIAN_GYM_BLAINE",
+      "x": 5,
+      "y": 12,
+      "respawn_map": "MAP_VIRIDIAN_GYM_BLAINE",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_GYM_DMCA_BROCK",
+      "map": "MAP_VIRIDIAN_GYM_DMCA_BROCK",
+      "x": 9,
+      "y": 16,
+      "respawn_map": "MAP_VIRIDIAN_GYM_DMCA_BROCK",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_GYM_ERIKA",
+      "map": "MAP_VIRIDIAN_GYM_ERIKA",
+      "x": 5,
+      "y": 8,
+      "respawn_map": "MAP_VIRIDIAN_GYM_ERIKA",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_GYM_FALKNER",
+      "map": "MAP_VIRIDIAN_GYM_FALKNER",
+      "x": 5,
+      "y": 7,
+      "respawn_map": "MAP_VIRIDIAN_GYM_FALKNER",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_GYM_KOGA",
+      "map": "MAP_VIRIDIAN_GYM_KOGA",
+      "x": 5,
+      "y": 7,
+      "respawn_map": "MAP_VIRIDIAN_GYM_KOGA",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_GYM_MISTY",
+      "map": "MAP_VIRIDIAN_GYM_MISTY",
+      "x": 5,
+      "y": 9,
+      "respawn_map": "MAP_VIRIDIAN_GYM_MISTY",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_GYM_SABRINA",
+      "map": "MAP_VIRIDIAN_GYM_SABRINA",
+      "x": 9,
+      "y": 16,
+      "respawn_map": "MAP_VIRIDIAN_GYM_SABRINA",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_GYM_SURGE",
+      "map": "MAP_VIRIDIAN_GYM_SURGE",
+      "x": 6,
+      "y": 21,
+      "respawn_map": "MAP_VIRIDIAN_GYM_SURGE",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_WORMHOLE_ENTRANCE",
+      "map": "MAP_WORMHOLE_ENTRANCE",
+      "x": 9,
+      "y": 10,
+      "respawn_map": "MAP_WORMHOLE_ENTRANCE",
       "respawn_npc": "1"
     }
   ]

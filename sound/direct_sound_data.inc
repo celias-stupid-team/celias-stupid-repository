@@ -319,12 +319,12 @@ DirectSoundWaveData_Rollout::
 
 	.align 2
 DirectSoundWaveData_Deskslam::
-	.incbin "sound/direct_sound_samples/rollout.bin"
+	.incbin "sound/direct_sound_samples/sfx-deskslam.bin"
 
 
 	.align 2
 DirectSoundWaveData_Guilty::
-	.incbin "sound/direct_sound_samples/rollout.bin"
+	.incbin "sound/direct_sound_samples/sfx-guilty.bin"
 
 
 	.align 2
@@ -5374,5 +5374,9 @@ Cry_HOOT::
 	.align 2
 Cry_ZAPMOLCUNO::
 	.incbin "sound/direct_sound_samples/cries/zapmolcuno.bin"
+
+	.align 2
+Cry_UNITEDKINGDOM::
+	.incbin "sound/direct_sound_samples/cries/unitedkingdom.bin"
 
 	.align 2

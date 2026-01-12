@@ -87,6 +87,7 @@ FiveIsland_MemorialPillar_EventScript_MemorialLemonadeAlreadyPlaced::
 
 script MemorialPillar_OnixSign {
 	lock
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 0)
 	if(flag(FLAG_ONIX_TAIL_SIGN)) {
 		msgbox(
 		"The butt of an extraordinarily\n"

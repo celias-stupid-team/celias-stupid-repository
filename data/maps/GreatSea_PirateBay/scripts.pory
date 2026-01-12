@@ -40,6 +40,7 @@ script PirateBay_Pokey {
 
 
 script PirateBay_PrePatchedPirate {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"Arr…\n"
 	"What happened to me eye, ye ask?\p"
@@ -49,6 +50,7 @@ script PirateBay_PrePatchedPirate {
 }
 
 script PirateBay_BreakTheSealHint {
+	famechecker(FAMECHECKER_GREAT_BAY, 3)
 	setflag(FLAG_HOOPA_HINT)
 	msgbox(
 	"Hello, dearie.\n"
@@ -62,7 +64,7 @@ script PirateBay_BreakTheSealHint {
 	"world, and no one knows where.\p"
 
 	"Some day, someone may come along\n"
-	"and Break the Seal themselves…", MSGBOX_NPC)
+	"and break the Seal themselves…", MSGBOX_NPC)
 }
 
 

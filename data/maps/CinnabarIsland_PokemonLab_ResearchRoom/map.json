@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
       "x": -5,
-      "y": -2,
+      "y": -1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -33,7 +33,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WORKER_M",
       "x": 7,
-      "y": 4,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -62,7 +62,7 @@
   "warp_events": [
     {
       "x": 7,
-      "y": 9,
+      "y": 10,
       "elevation": 3,
       "dest_map": "MAP_CINNABAR_ISLAND_POKEMON_LAB_ENTRANCE",
       "dest_warp_id": "4"
@@ -73,7 +73,7 @@
     {
       "type": "sign",
       "x": 0,
-      "y": 0,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CinnabarIsland_PokemonLab_ResearchRoom_EventScript_AmberPipe"
@@ -81,7 +81,7 @@
     {
       "type": "sign",
       "x": 1,
-      "y": 0,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CinnabarIsland_PokemonLab_ResearchRoom_EventScript_Computer"
@@ -89,14 +89,6 @@
     {
       "type": "sign",
       "x": 2,
-      "y": 4,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_AidsResearch"
-    },
-    {
-      "type": "sign",
-      "x": 2,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -104,7 +96,7 @@
     },
     {
       "type": "sign",
-      "x": 3,
+      "x": 2,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -112,32 +104,24 @@
     },
     {
       "type": "sign",
+      "x": 0,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonLab_AidsResearch"
+    },
+    {
+      "type": "sign",
       "x": 2,
-      "y": 6,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonLab_Keyboard"
     },
     {
       "type": "sign",
-      "x": 12,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_BackupReactor"
-    },
-    {
-      "type": "sign",
-      "x": 12,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_BackupReactor"
-    },
-    {
-      "type": "sign",
-      "x": 13,
-      "y": 1,
+      "x": 14,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonLab_BackupReactor"
@@ -152,14 +136,6 @@
     },
     {
       "type": "sign",
-      "x": 14,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_BackupReactor"
-    },
-    {
-      "type": "sign",
       "x": 13,
       "y": 2,
       "elevation": 0,
@@ -168,24 +144,40 @@
     },
     {
       "type": "sign",
-      "x": 11,
-      "y": 6,
+      "x": 14,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonLab_BackupReactor"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonLab_BackupReactor"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonLab_BackupReactor"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonLab_Keyboard"
     },
     {
       "type": "sign",
-      "x": 11,
-      "y": 5,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_AidsResearch"
-    },
-    {
-      "type": "sign",
-      "x": 11,
-      "y": 4,
+      "x": 12,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonLab_AidsResearch"
@@ -193,7 +185,15 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 6,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonLab_AidsResearch"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonLab_AidsResearch"

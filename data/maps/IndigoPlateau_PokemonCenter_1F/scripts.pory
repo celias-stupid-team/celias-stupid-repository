@@ -196,3 +196,7 @@ script EventScript_CantCutFinalTree {
 	"", MSGBOX_SIGN)
 	releaseall
 }
+
+script PokemonLeague_FinalBookshelf {
+	msgbox(IndigoPlateau_FinalChapter, MSGBOX_SIGN)
+}

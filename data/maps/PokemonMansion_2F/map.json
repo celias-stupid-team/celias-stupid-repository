@@ -174,7 +174,7 @@
       "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonMansion_2F_EventScript_DiaryJuly10th"
+      "script": "PokemonMansion_Diary1"
     },
     {
       "type": "sign",

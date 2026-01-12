@@ -102,3 +102,14 @@ script PokemonTower_LostTowerBit {
 	msgbox("Stay tuned!\n", MSGBOX_NPC)
 }
 
+
+
+script PokemonTower_GhostReceptionist {
+	msgbox(
+	"This is the reception desk for\n"
+	"ghosts.\p"
+
+	"If your heartrate is above 3,\n"
+	"please use the other desk.\l"
+	"Thank you!", MSGBOX_NPC)
+}

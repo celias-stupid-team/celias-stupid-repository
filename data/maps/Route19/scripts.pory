@@ -393,7 +393,7 @@ script GreatSea_WetFloor {
 script GreatSea_Route19_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -406,7 +406,7 @@ script GreatSea_Route19_Bouy {
 script GreatSea_Seafoam_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -420,7 +420,7 @@ script GreatSea_Seafoam_Bouy {
 script GreatSea_MemorialPillar_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -433,7 +433,7 @@ script GreatSea_MemorialPillar_Bouy {
 script GreatSea_FourIslandNorth_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -446,7 +446,7 @@ script GreatSea_FourIslandNorth_Bouy {
 script GreatSea_MinnesotaNorth_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -470,4 +470,567 @@ script GreatSea_PokeBallStorage {
 	"FEMININE POKéBALL STORAGE DEVICE\n"
 	"", MSGBOX_SIGN)
 
+}
+
+
+
+script GreatSea_MinnesotaNorth_Buoy {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} THIRTY EIGHT ISLAND\n"
+	"{DOWN_ARROW} MINNESOTA", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+
+script GreatSea_Buoy_TrendySayings {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} FOUR ISLAND\n"
+	"{DOWN_ARROW} MEMORIAL PILLAR", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+
+script GreatSea_Buoy_FourIslandTop {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} FOUR ISLAND\n"
+	"{UP_ARROW} KANTO SHORELINE", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_KantoShorelineRight {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} KANTO SHORELINE\n"
+	"{DOWN_ARROW} FOUR ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_MinnesotaLeft {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} MINNESOTA\n"
+	"{LEFT_ARROW} FOUR ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_MinnesotaNorth {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} MINNESOTA\n"
+	"{UP_ARROW} THIRTY EIGHT ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_CinnabarWest {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} CINNABAR ISLAND\n"
+	"{LEFT_ARROW} MINNESOTA", MSGBOX_DEFAULT)
+		
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_CinnabarNorth {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} CINNABAR ISLAND\n"
+	"{UP_ARROW} THIRTY EIGHT ISLAND", MSGBOX_DEFAULT)
+		
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_CinnabarSouth {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} CINNABAR ISLAND\n"
+	"{RIGHT_ARROW} POKéMON ISLAND", MSGBOX_DEFAULT)
+		
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_CinnabarEast {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} CINNABAR ISLAND\n"
+	"{RIGHT_ARROW} KANTO EGG DELIVERY SERVICE", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_PokemonIslandLeft {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} POKéMON ISLAND\n"
+	"{LEFT_ARROW} CINNABAR ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_ShrineIsland {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} POKéMON ISLAND\n"
+	"{DOWN_ARROW} Some Rocks", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+
+script GreatSea_Buoy_PokemonIslandRight {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} ZERO ISLAND\n"
+	"{RIGHT_ARROW} A rock\p"
+
+	"But, like, it's a cool rock.\n"
+	"", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_Whirlpool {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} ONE ISLAND\n"
+	"{DOWN_ARROW} SEAFOAM ISLANDS"
+	"", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_SpindaHouse {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} ZERO ISLAND\n"
+	"{UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW}\l"
+	"SPINDA HOUSE", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_ZeroIslandRight {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} ZERO ISLAND\n"
+	"{RIGHT_ARROW} ONE ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_ZeroIslandUp {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} ZERO ISLAND\n"
+	"{UP_ARROW} TWO ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_ZeroIslandLeft {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} ZERO ISLAND\n"
+	"{DOWN_ARROW} POKéMON ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_ZeroIslandMiddle {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} ZERO ISLAND\n"
+	"{LEFT_ARROW} KANTO EGG DELIVERY SERVICE", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_ZeroIslandUpRight {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} ZERO ISLAND\n"
+	"{UP_ARROW} ROUTE 18", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_Route18Down {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} ZERO ISLAND\n"
+	"{LEFT_ARROW} TWO ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+
+script GreatSea_Buoy_TwoIslandBottomLeft {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} KANTO EGG DELIVERY SERVICE\n"
+	"{DOWN_ARROW} POKéMON ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_TwoIslandLeft {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} TWO ISLAND\n"
+	"{LEFT_ARROW} THIRTY EIGHT ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_Mudkips {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} TWO ISLAND\n"
+	"{LEFT_ARROW} PALLET TOWN", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_PalletSouth {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} PALLET TOWN\n"
+	"{LEFT_ARROW} THIRTY EIGHT ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_PalletSouthCentral {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} PALLET TOWN\n"
+	"{RIGHT_ARROW} TWO ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_PalletUpDown {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} PALLET TOWN\n"
+	"{DOWN_ARROW} CINNABAR ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_CapeBrinkNorth {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} AETHER PARADISE\n"
+	"{DOWN_ARROW} TWO ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_OneIsland {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} SEAFOAM ISLANDS\n"
+	"{RIGHT_ARROW} ROUTE 19", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_CapeBrinkSide {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} TWO ISLAND\n"
+	"{RIGHT_ARROW} CYCLING ROAD", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_TwoIslandSoutheast {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} KANTO EGG DELIVERY SERVICE\n"
+	"{RIGHT_ARROW} ROUTE 18", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_ThirtyEightRight {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{DOWN_ARROW} CINNABAR ISLAND\n"
+	"{RIGHT_ARROW} TWO ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_ThirtyEightLeft {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} ROUTE 15\n"
+	"{DOWN_ARROW} MINNESOTA", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Buoy_AetherSouth {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} AETHER PARADISE\n"
+	"{DOWN_ARROW} TWO ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+script GreatSea_Buoy_AetherLeft {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} KANTO MAINLAND\n"
+	"{RIGHT_ARROW} AETHER PARADISE", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+script GreatSea_Buoy_AetherRight {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} YES\n"
+	"{LEFT_ARROW} AETHER PARADISE", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+script GreatSea_Buoy_AetherTop {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} KANTO MAINLAND\n"
+	"{DOWN_ARROW} AETHER PARADISE", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+script GreatSea_Buoy_SkyTowerLeft {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} YES\n"
+	"{DOWN_ARROW} SKY TOWER", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+script GreatSea_Buoy_Route18Left {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} SKY TOWER\n"
+	"{RIGHT_ARROW} PIRATE BAY", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+script GreatSea_Buoy_Route18Up {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} SKY TOWER\n"
+	"{DOWN_ARROW} ROUTE 18", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+script GreatSea_Buoy_PirateBaySouth {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} SKY TOWER\n"
+	"{LEFT_ARROW} VERMILION HARBOR", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+script GreatSea_Buoy_DesertLeft {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+msgbox(
+	"{LEFT_ARROW} YES\n"
+	"{DOWN_ARROW} PIRATE BAY", MSGBOX_DEFAULT)	normalmsg
+	release
+}
+script GreatSea_Buoy_VermilionCity {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{RIGHT_ARROW} VERMILION CITY\n"
+	"{DOWN_ARROW} PIRATE BAY", MSGBOX_DEFAULT)
+	normalmsg
+	release
 }

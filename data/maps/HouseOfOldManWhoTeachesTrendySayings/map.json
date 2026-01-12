@@ -1,7 +1,7 @@
 {
   "id": "MAP_HOUSE_OF_OLD_MAN_WHO_TEACHES_TRENDY_SAYINGS",
   "name": "HouseOfOldManWhoTeachesTrendySayings",
-  "layout": "LAYOUT_HOUSE_OF_OLD_MAN_WHO_TEACHES_TRENDY_SAYINGS",
+  "layout": "LAYOUT_HOUSE5",
   "music": "MUS_CELADON",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
       "x": 7,
-      "y": 5,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -33,7 +33,7 @@
   "warp_events": [
     {
       "x": 4,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_OCEAN2",
       "dest_warp_id": "0"
