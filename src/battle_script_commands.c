@@ -4291,7 +4291,7 @@ static void Cmd_playanimation(void)
         //create Hoopa right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
         {
-            gBattleMons[gBattlerTarget].species = SPECIES_HOOPA;
+            gBattleMons[gActiveBattler].species = SPECIES_HOOPA;
 
             if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
                 CreateMonWithGenderNatureLetter(gPlayerParty, SPECIES_HOOPA, GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
@@ -4301,7 +4301,11 @@ static void Cmd_playanimation(void)
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 7;
+
+        // set Pokédex flags
         HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
+        if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_CAUGHT, gBattleMons[gActiveBattler].personality);
     }
     else if (gHitMarker & HITMARKER_NO_ANIMATIONS)
     {
