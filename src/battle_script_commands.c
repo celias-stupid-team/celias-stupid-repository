@@ -8521,6 +8521,7 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_STRUGGLE
         && gLastPrintedMoves[gBattlerTarget] != MOVE_NONE
         && gLastPrintedMoves[gBattlerTarget] != MOVE_UNAVAILABLE
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
     {
         s32 i;

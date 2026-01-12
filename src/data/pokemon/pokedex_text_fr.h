@@ -347,7 +347,8 @@ const u8 gGrowlithePokedexText[] = _(
 const u8 gGrowlithePokedexTextUnused[] = _("");
 
 const u8 gArcaninePokedexText[] = _(
-	"The ninth legendary bird");
+	"The Gen 1 legendary POKéMON really\n"
+	"like ending names in numbers.");
     
 const u8 gArcaninePokedexTextUnused[] = _("");
 

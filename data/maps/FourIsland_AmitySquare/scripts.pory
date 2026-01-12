@@ -86,3 +86,28 @@ script AmitySquare_CaveSign {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script AmitySquare_MainSign {
+	msgbox(
+	"AMITY SQUARE\p"
+
+	"We sure are a square!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script AmitySquare_NineIsland {
+	lock
+	msgbox(
+	"N-NE ISL--D\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	msgbox(
+	"The message is faded.\n"
+	"", MSGBOX_DEFAULT)
+	release
+
+}
