@@ -3205,6 +3205,9 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) // https://gith
     else
         CreateMonWithNature(&mon, species, level, 32, nature);
 
+    if (isShiny == 1)
+        SetMonData(&mon, MON_DATA_CSR_SHINY, &isShiny);
+
     // IVs
     for (i = 0; i < NUM_STATS; i++)
     {

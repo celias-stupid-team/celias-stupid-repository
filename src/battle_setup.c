@@ -359,7 +359,7 @@ void StartMarowakBattle(void)
         //FlagClear(FLAG_HIDE_CLEFAIRY_DOLL_GIRL);
         //FlagClear(FLAG_TEMP_4);
         
-        CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_GHOST, 30, 31, MON_GENDERLESS, NATURE_SERIOUS, 0);
+        CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_GHOST, 30, 31, MON_GENDERLESS, NATURE_SERIOUS);
     }
     else
     {

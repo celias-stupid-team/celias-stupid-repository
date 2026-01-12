@@ -1954,6 +1954,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     {
         value = TRUE;
         SetBoxMonData(boxMon, MON_DATA_CSR_SHINY, &value);
+        FlagClear(FLAG_SHINY_CREATION);
     }
     
     GiveBoxMonInitialMoveset(boxMon);
@@ -1972,22 +1973,17 @@ void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV,
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
 
-void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter)
+void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature)
 {
     u32 personality;
 
-    if ((u8)(unownLetter - 1) < NUM_UNOWN_FORMS)
+    if (gSpeciesInfo[species].genderRatio == MON_GENDERLESS)
     {
-        u16 actualLetter;
-
         do
         {
             personality = Random32();
-            actualLetter = GET_UNOWN_LETTER(personality);
         }
-        while (nature != GetNatureFromPersonality(personality)
-            || gender != GetGenderFromSpeciesAndPersonality(species, personality)
-            || actualLetter != unownLetter - 1);
+        while (nature != GetNatureFromPersonality(personality));
     }
     else
     {
@@ -1998,6 +1994,10 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
         while (nature != GetNatureFromPersonality(personality)
             || gender != GetGenderFromSpeciesAndPersonality(species, personality));
     }
+
+    // handle shininess for Alomomola and Hoopa transformations
+    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA) && GetMonData(mon, MON_DATA_CSR_SHINY))
+        FlagSet(FLAG_SHINY_CREATION);
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }

@@ -4268,13 +4268,20 @@ static void Cmd_playanimation(void)
 {
     const u16 *argumentPtr;
     struct Pokemon *mon;
+    struct Pokemon *party;
     
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     argumentPtr = T2_READ_PTR(gBattlescriptCurrInstr + 3);
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
-        mon = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
-    else
+
+    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
         mon = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
+    else
+        mon = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
+
+    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+        party = gPlayerParty;
+    else
+        party = gEnemyParty;
 
     if (gBattlescriptCurrInstr[2] == B_ANIM_STATS_CHANGE
      || gBattlescriptCurrInstr[2] == B_ANIM_SNATCH_MOVE
@@ -4286,22 +4293,16 @@ static void Cmd_playanimation(void)
         //create Alomomola right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
         {
-            gBattleMons[gActiveBattler].species = SPECIES_ALOMOMOLA;
-
-            if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
-                CreateMonWithGenderNatureLetter(gPlayerParty, SPECIES_ALOMOMOLA, GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
-            else
-                CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_ALOMOMOLA, GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
+            u16 species = SPECIES_ALOMOMOLA;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         //create Hoopa right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
         {
-            gBattleMons[gActiveBattler].species = SPECIES_HOOPA;
-
-            if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
-                CreateMonWithGenderNatureLetter(gPlayerParty, SPECIES_HOOPA, GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
-            else
-                CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_HOOPA, GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
+            u16 species = SPECIES_HOOPA;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
