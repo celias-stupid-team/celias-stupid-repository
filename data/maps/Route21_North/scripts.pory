@@ -17,6 +17,7 @@ script Route21_AroundTheWorld {
 	lock
 	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
 	applymovement(LOCALID_AROUND_WORLD_LASS, moves(
+		face_right
 		emote_exclamation_mark
 		delay_16 * 5
 		walk_right * 5
@@ -34,6 +35,7 @@ script Route21_AroundTheWorld {
 	applymovement(LOCALID_PLAYER, moves(
 		face_left
 	))
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
 	"Hey!\n"
 	"Don't look at me!", MSGBOX_DEFAULT)

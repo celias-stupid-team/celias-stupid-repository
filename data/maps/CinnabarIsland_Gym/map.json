@@ -16,39 +16,40 @@
   "connections": null,
   "object_events": [
     {
-      "local_id": "LOCALID_QUINN",
+      "local_id": "LOCALID_BLAINE_LASS",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
-      "x": 28,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 6,
+      "y": 10,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CinnabarGym_FifthTrainer",
-      "flag": "0"
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_5"
     },
     {
+      "local_id": "LOCALID_BLAINE_TRAINER_3",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 7,
-      "y": 16,
+      "x": 12,
+      "y": 20,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CinnabarGym_SixthTrainer",
-      "flag": "0"
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_4"
     },
     {
-      "local_id": "LOCALID_AVERY",
+      "local_id": "LOCALID_BLAINE_TRAINER_2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 17,
+      "x": 18,
       "y": 28,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -57,10 +58,10 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CinnabarGym_Skiier",
-      "flag": "0"
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_2"
     },
     {
-      "local_id": "LOCALID_RAMON",
+      "local_id": "LOCALID_BLAINE_TRAINER_1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
       "x": 6,
@@ -72,13 +73,13 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CinnabarGym_Flint",
-      "flag": "0"
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_1"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMNERD",
-      "x": 7,
-      "y": 22,
+      "x": 17,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -89,11 +90,11 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_DUSTY",
+      "local_id": "LOCALID_BLAINE_TRAINER_5",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
       "x": 17,
-      "y": 20,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -101,13 +102,13 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CinnabarGym_ThirdTrainer",
-      "flag": "0"
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_6"
     },
     {
-      "local_id": "LOCALID_ZAC",
+      "local_id": "LOCALID_BLAINE_DAD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
-      "x": 10,
+      "x": 7,
       "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -116,7 +117,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CinnabarGym_Dad",
-      "flag": "0"
+      "flag": "FLAG_CINNABAR_GYM_QUIZ_3"
     },
     {
       "type": "object",
@@ -150,8 +151,8 @@
       "local_id": "LOCALID_DEREK",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMNERD",
-      "x": 16,
-      "y": 14,
+      "x": 9,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -160,6 +161,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CinnabarIsland_Gym_EventScript_Derek",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_BLAINE_CHUCKSTER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
+      "x": 14,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BlaineGym_Chuckster",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
@@ -262,6 +278,69 @@
       "var": "VAR_BLAINE_GYM_QUESTION",
       "var_value": "0",
       "script": "CinnabarGym_BoardGameQuestion1"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 28,
+      "elevation": 0,
+      "var": "VAR_BLAINE_GYM_QUESTION",
+      "var_value": "1",
+      "script": "CinnabarGym_BoardGameQuestion2"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_BLAINE_GYM_QUESTION",
+      "var_value": "2",
+      "script": "CinnabarGym_DadQuestion"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_BLAINE_GYM_QUESTION",
+      "var_value": "3",
+      "script": "CinnabarGym_BoardGameQuestion3"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_BLAINE_GYM_QUESTION",
+      "var_value": "4",
+      "script": "CinnabarGym_BoardGameQuestion4"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_BLAINE_GYM_QUESTION",
+      "var_value": "5",
+      "script": "CinnabarGym_BoardGameQuestion5"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "0",
+      "script": "CinnabarGym_AddChuckster"
     }
   ],
   "bg_events": [
@@ -299,8 +378,8 @@
     },
     {
       "type": "sign",
-      "x": 25,
-      "y": 23,
+      "x": 29,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "CinnabarIsland_Gym_EventScript_Quiz2Left"
@@ -315,15 +394,15 @@
     },
     {
       "type": "sign",
-      "x": 24,
-      "y": 26,
+      "x": 27,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "CinnabarIsland_Gym_EventScript_Quiz3Left"
     },
     {
       "type": "sign",
-      "x": 25,
+      "x": 27,
       "y": 25,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -371,8 +450,8 @@
     },
     {
       "type": "sign",
-      "x": 22,
-      "y": 30,
+      "x": 30,
+      "y": 33,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "CinnabarIsland_Gym_EventScript_Quiz6Right"
