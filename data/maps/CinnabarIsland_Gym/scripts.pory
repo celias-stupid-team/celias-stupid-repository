@@ -4,7 +4,6 @@ CinnabarIsland_Gym_MapScripts::
 	.byte 0
 
 CinnabarIsland_Gym_OnLoad::
-	goto_if_set FLAG_DEFEATED_BLAINE, CinnabarIsland_Gym_OnLoadOpenAllDoors
 	call_if_set FLAG_CINNABAR_GYM_QUIZ_1, CinnabarIsland_Gym_OnLoadOpenDoor1
 	call_if_set FLAG_CINNABAR_GYM_QUIZ_2, CinnabarIsland_Gym_OnLoadOpenDoor2
 	call_if_set FLAG_CINNABAR_GYM_QUIZ_3, CinnabarIsland_Gym_OnLoadOpenDoor3
@@ -1044,4 +1043,124 @@ script CinnabarGym_SixthTrainer {
 	msgbox(
 	"Placeholder gym dad\n"
 	"", MSGBOX_NPC)
+}
+
+
+script CinnabarGym_BoardGameQuestion1 {
+	lock
+	msgbox(
+	"BLAINE'S FURNACE FUN{PAUSE 10}\n"
+	"Question 1:\p"
+
+	"How many holes{PAUSE 30} in a polo?\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		waitse
+		playse(SE_SUCCESS)
+		setvar(VAR_BLAINE_GYM_QUESTION, 1)
+
+
+	} else {
+		waitse
+		playse(SE_BOO)
+		waitse
+		closemessage
+		delay(30)
+		playse(SE_CLICK)
+		setmetatile(10, 32, 0x2C3, TRUE)
+		setmetatile(10, 33, 0x29F, TRUE)
+		setmetatile(10, 34, 0x280, TRUE)
+		special(DrawWholeMapView)
+		delay(30)
+		special(SpawnCameraObject)
+		playse(SE_FALL)
+		applymovement(LOCALID_PLAYER, moves(
+			lock_facing_direction
+			slide_down * 3
+			set_invisible
+		))
+		waitmovement(LOCALID_PLAYER)
+		fadescreeninstant(FADE_TO_BLACK)
+		waitse
+		playse(SE_M_ACID_ARMOR)
+		waitse
+		warpsilent(MAP_CINNABAR_ISLAND_GYM, 1)
+		release
+		end
+
+	}
+}
+
+
+script CinnabarGym_BoardGameQuestion2 {
+	lock
+	msgbox(
+	"BLAINE'S FURNACE FUN{PAUSE 10}\n"
+	"Question 2:\p"
+
+	"TM28 contains TOMBSTONIFIER?\n"
+	"", MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		waitse
+		playse(SE_SUCCESS)
+		
+
+	} else {
+		
+	}
+}
+
+script CinnabarGym_BoardGameQuestion3 {
+	lock
+	msgbox(
+	"BLAINE'S FURNACE FUN{PAUSE 10}\n"
+	"Question 3:\p"
+
+	"Aren't POKéMON of different kinds\n"
+	"or levels not unidentical?\l"
+	"Or is it the other way around?", MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		waitse
+		playse(SE_SUCCESS)
+		
+
+	} else {
+		
+	}
+}
+
+script CinnabarGym_BoardGameQuestion4 {
+	lock
+	msgbox(
+		"BLAINE'S FURNACE FUN{PAUSE 10}\n"
+		"Question 5:\p"
+
+		"In which city can the POKéMON\n"
+		"CHANSEY be found?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		waitse
+		playse(SE_SUCCESS)
+		
+
+	} else {
+		
+	}
+}
+
+script CinnabarGym_BoardGameQuestion5 {
+	lock
+	msgbox(
+	"BLAINE'S FURNACE FUN{PAUSE 10}\n"
+	"Question 5:\p"
+
+	"Are you having fun?\n"
+	"", MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		waitse
+		playse(SE_SUCCESS)
+		
+
+	} else {
+		
+	}
 }

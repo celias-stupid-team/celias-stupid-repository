@@ -14,6 +14,9 @@ mapscripts SilphCo_1F_MapScripts {
 		if(var(VAR_CURRENT_CHAPTER) == 7 && !flag(FLAG_CHAPTER_7_CHAPTER_2)) {
 			getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
 		}
+		if(var(VAR_TEMP_B) == 20) {
+			warpsilent(MAP_CHAPTER7_CHAPTER2, 0)
+		}
 	}
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_WORLD_MAP_SILPH_CO_1F)

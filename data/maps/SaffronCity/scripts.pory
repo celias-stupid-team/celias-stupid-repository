@@ -119,7 +119,11 @@ SaffronCity_EventScript_TrainerFanClubSign::
 const SneakyGuy = 20
 mapscripts SaffronCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		
+	if(var(VAR_CURRENT_CHAPTER) == 7 && !flag(FLAG_CHAPTER_7_CHAPTER_2)) {
+		setdynamicwarp(MAP_CHAPTER7_CHAPTER2, 1)
+	} else {
+		setdynamicwarp(MAP_SILPH_CO_1F, 1)
+	}
 	setworldmapflag(FLAG_WORLD_MAP_SAFFRON_CITY)
 	if(flag(FLAG_SAFFRON_IS_TRAINS)) {
 		setmaplayoutindex(LAYOUT_SAFFRON_CITY_TRAINS)
@@ -132,11 +136,8 @@ mapscripts SaffronCity_MapScripts {
 
 	}
 	MAP_SCRIPT_ON_LOAD {
-		if(checkmoncaught(SPECIES_GEODUDE) && checkmoncaught(SPECIES_MACHOKE)) {
-			//oops did the logic backwards again
-		} else {
-			setflag(FLAG_TEMP_1)
-		}
+
+
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_9, 1 {
