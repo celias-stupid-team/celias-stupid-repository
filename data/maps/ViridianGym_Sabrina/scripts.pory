@@ -45,3 +45,19 @@ text ViridianGym_SabrinaBattle_End {
    "oh no\n"
 	"death"
 }
+
+
+script ViridianGym_SabrinaGrandpaDead {
+	msgbox(
+	"Oh no!\n"
+	"Grandpa's dead!", MSGBOX_SIGN)
+
+}
+
+
+script ViridianGym_SabrinaGrandpaHead {
+	msgbox(
+	"Oh no!\n"
+	"Grandpa's head!", MSGBOX_SIGN)
+
+}

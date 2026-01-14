@@ -5105,3 +5105,14 @@ const struct SpriteFrameImage gObjectEventPicTable_LEON[] = {
     overworld_frame(gObjectEventPic_LEON, 2, 4, 7),
     overworld_frame(gObjectEventPic_LEON, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_GRANDPAS_HEAD[] = {
+    overworld_frame(gObjectEventPic_GRANDPAS_HEAD, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GRANDPAS_HEAD, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GRANDPAS_HEAD, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GRANDPAS_HEAD, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GRANDPAS_HEAD, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GRANDPAS_HEAD, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GRANDPAS_HEAD, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GRANDPAS_HEAD, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GRANDPAS_HEAD, 2, 4, 2),
+};

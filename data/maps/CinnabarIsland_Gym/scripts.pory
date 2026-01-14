@@ -725,15 +725,21 @@ script CinnabarGym_Blaine {
 	if(!flag(FLAG_TALKED_TO_BLAINE)) {
 		setflag(FLAG_TALKED_TO_BLAINE)
 		msgbox(
-		"Welcome to the gym\p"
+		"Hmm!?\n"
+		"Is that a new contestant I see?\l"
+		"Ohohoho-!\p"
 
-		"here's a quiz\n"
-	"", MSGBOX_DEFAULT)
+		"Welcome to BLAINE'S FURNACE FUN!\p"
+
+		"Are you ready to test your wits\n"
+		"and whet your mettle?\l"
+		"Let's begin!", MSGBOX_DEFAULT)
 		addvar(VAR_CINNABAR_GYM_PHASE, 1)
 	} else {
 		msgbox(
-		"Ready for quiz\n"
-		"", MSGBOX_DEFAULT)
+		"Welcome back!\n"
+		"Are you ready to continue?\l"
+		"Let's go!", MSGBOX_DEFAULT)
 	}
 	goto(CinnabarGym_GymQuestionLoop)
 }
@@ -940,12 +946,34 @@ script CinnabarGym_CheckBattleOutcome {
 		if(var(VAR_CINNABAR_GYM_PHASE) == 9) {
 			msgbox(
 			"That's absolutely CORRECT!\n"
-			"Nicely done!", MSGBOX_DEFAULT)
+			"Nicely done!\p"
+
+			"You've done it!\n"
+			"You've cleared all my questions!\p"
+
+			"And for that, you've earned\n"
+			"yourself a lovely prize!\l"
+			"Take it!", MSGBOX_DEFAULT)
+			closemessage
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
 			msgbox(
 			"{PLAYER} obtained the\n"
-			"VOLCANOBAKEMEAT BADGE!", MSGBOX_DEFAULT)
+			"VOLCANOBAKEMEAT BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}", MSGBOX_DEFAULT)
 			setflag(FLAG_BADGE07_GET)
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox(
+			"And here, take this as well!\n"
+			"", MSGBOX_DEFAULT)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			giveitem_msg("{PLAYER} obtained the\nTM00 from BLAINE!", ITEM_NONE)
 			waitfanfare
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox(
+			"That TM contains HYDRO PUMP!\p"
+
+			"Don't teach it to a WATER POKéMON!\n"
+			"", MSGBOX_DEFAULT)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
 			setvar(VAR_TEMP_C, 1) //For the shakey ground
 			release
 			end

@@ -18,7 +18,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SABRINA",
-      "x": 9,
+      "x": 21,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -28,39 +28,81 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ViridianGym_SabrinaBattle",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GRANDPAS_HEAD",
+      "x": 11,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ViridianGym_SabrinaGrandpaDead",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GRANDPAS_HEAD",
+      "x": 16,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ViridianGym_SabrinaGrandpaHead",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 6,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 9,
+      "x": 21,
       "y": 23,
       "elevation": 0,
       "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     },
     {
-      "x": 9,
+      "x": 21,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_BLAINE",
       "dest_warp_id": "0"
     },
     {
-      "x": 5,
+      "x": 17,
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
       "dest_warp_id": "3"
     },
     {
-      "x": 5,
+      "x": 17,
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
       "dest_warp_id": "4"
     },
     {
-      "x": 14,
+      "x": 26,
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
@@ -68,17 +110,33 @@
     },
     {
       "warp_id": "WARP_ID_SABRINA_SILPH_HUB",
-      "x": 14,
+      "x": 26,
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND"
+    },
+    {
+      "warp_id": "WARP_ID_SAFFRON_GYM_SILPH",
+      "x": 4,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CALL_CENTER",
+      "dest_warp_id": "WARP_ID_SILPH_CALLCENTER_BACKROOMS1"
+    },
+    {
+      "warp_id": "WARP_ID_SAFFRON_GYM_DMCA",
+      "x": 10,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
+      "dest_warp_id": "WARP_ID_DMCA_HIDEOUT"
     }
   ],
   "coord_events": [
     {
       "type": "trigger",
-      "x": 14,
+      "x": 26,
       "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -87,7 +145,7 @@
     },
     {
       "type": "trigger",
-      "x": 13,
+      "x": 25,
       "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -96,7 +154,7 @@
     },
     {
       "type": "trigger",
-      "x": 14,
+      "x": 26,
       "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -105,7 +163,7 @@
     },
     {
       "type": "trigger",
-      "x": 15,
+      "x": 27,
       "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -116,16 +174,16 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 1,
-      "y": 21,
+      "x": 5,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_Gym_EventScript_GymStatue"
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 21,
+      "x": 9,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_Gym_EventScript_GymStatue"

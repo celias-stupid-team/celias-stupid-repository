@@ -531,7 +531,7 @@
     {
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_SABRINA",
       "map": "MAP_VIRIDIAN_GYM_SABRINA",
-      "x": 9,
+      "x": 21,
       "y": 16,
       "respawn_map": "MAP_VIRIDIAN_GYM_SABRINA",
       "respawn_npc": "1"
