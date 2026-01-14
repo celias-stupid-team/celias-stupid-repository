@@ -9,9 +9,17 @@ mapscripts Ocean11_MapScripts {
 	MAP_SCRIPT_ON_RESUME {
 		if(checkmoncaught(SPECIES_LUVDISC)) {
 			clearflag(FLAG_TEMP_1)
-			//addobject(LOCALID_LUVDISC_SWIMMER)
+			setvar(VAR_TEMP_1, 1)
+			
 		}
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_1, 1 {
+			addobject(LOCALID_LUVDISC_SWIMMER, MAP_OCEAN11)
+			setvar(VAR_TEMP_1, 0)
+			release
+		}
+	]
 }
 
 script Route21_StartAlomomolaBattle {

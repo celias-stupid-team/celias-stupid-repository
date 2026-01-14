@@ -6172,11 +6172,11 @@
     {
       "id": "LAYOUT_SKY_TOWER_1F",
       "name": "SkyTower_1F_Layout",
-      "width": 29,
-      "height": 33,
+      "width": 41,
+      "height": 51,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/SkyTower_1F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_1F/map.bin"

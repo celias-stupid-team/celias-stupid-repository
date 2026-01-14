@@ -2,6 +2,28 @@ mapscripts SkyTower_1F_MapScripts {
 
 }
 
+script SkyTower_UnderConstruction {
+	msgbox(
+	"Under Construction!\n"
+	"-Celia", MSGBOX_SIGN)
+
+}
+
+script SkyTower_PersonalityQuiz {
+	msgbox(
+	"PERSONALITY QUIZ\n"
+	"Check-In!\p"
+
+	"Please take a number!\n"
+	"", MSGBOX_NPC)
+}
+
+
+script SkyTower_Psyduck {
+	msgbox(
+	"My innermost nature is being\n"
+	"WEIGHED as PROF. OAK's POKéMON.", MSGBOX_NPC)
+}
 
 
 script SkyTower_Froslass {

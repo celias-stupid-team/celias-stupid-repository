@@ -342,7 +342,7 @@
     {
       "x": 31,
       "y": 17,
-      "elevation": 4,
+      "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "6"
     },
@@ -456,7 +456,7 @@
     {
       "type": "trigger",
       "x": 31,
-      "y": 17,
+      "y": 19,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
