@@ -644,6 +644,7 @@ script TwoIsland_BurnHeal {
 	applymovement(VAR_LAST_TALKED, moves(
 		set_invisible
 	))
+	setrespawn(HEAL_LOCATION_TWO_ISLAND)
 	msgbox(
 	"{PLAYER} found a\n"
 	"BURN HEAL!", MSGBOX_DEFAULT)
@@ -699,12 +700,8 @@ script TwoIsland_BurnHeal {
 		msgbox(
 		"{FONT_COMIC_SANS}eat shit and die, thief\n"
 		"", MSGBOX_DEFAULT)
-		playbgm(MUS_MEGALOVANIA, TRUE)
-		closemessage
-		delay(120)
-		msgbox(
-		"(fight here)\n"
-		"", MSGBOX_DEFAULT)
+		
+		trainerbattle_no_intro(TRAINER_SANS, "darn")
 		if(checkpartymove(MOVE_MAGICAL_LEAF) != PARTY_SIZE) {
 			fadedefaultbgm
 			msgbox(
@@ -715,10 +712,16 @@ script TwoIsland_BurnHeal {
 			end
 		}
 		msgbox(
+		"Foe KECLEON dodges all of your\n"
+		"attacks.", MSGBOX_DEFAULT)
+		closemessage
+		delay(120)
+		msgbox(
 		"{FONT_COMIC_SANS}you lose\p"
 
 		"no burn heal for you\n"
 		"", MSGBOX_DEFAULT)
+		goto(EventScript_FieldWhiteOut)
 		release
 		end
 	} else {
@@ -939,7 +942,7 @@ script TwoIsland_RunawayFiveHDoduo {
 
 script TwoIsland_RunawayFiveVenonat {
 	lock
-	playmoncry(SPECIES_SLOWPOKE, CRY_MODE_DEFAULT)
+	playmoncry(SPECIES_EEVEE, CRY_MODE_DEFAULT)
 	waitmoncry
 	release
 	end

@@ -6113,6 +6113,8 @@ static u16 GetBattleBGM(void)
             return MUS_CSR_DMCA_BATTLE;
         case TRAINER_CLASS_ELITE_FOUR_CYNTHIA:
             return MUS_CYNTHIA_BATTLE;
+        case TRAINER_CLASS_MYSTERIOUS:
+            return MUS_MEGALOVANIA;
 
             
         case TRAINER_CLASS_DMCA:

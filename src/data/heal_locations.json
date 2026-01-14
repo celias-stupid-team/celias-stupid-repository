@@ -117,7 +117,7 @@
       "map": "MAP_TWO_ISLAND",
       "x": 24,
       "y": 16,
-      "respawn_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
+      "respawn_map": "MAP_TWO_ISLAND",
       "respawn_npc": "LOCALID_TWO_ISLAND_NURSE"
     },
     {

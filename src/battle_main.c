@@ -473,6 +473,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_RADICAL, 50},
     {TRAINER_CLASS_SHORT, 50},
     {TRAINER_CLASS_ELITE_FOUR_CYNTHIA, 50},
+    {TRAINER_CLASS_MYSTERIOUS, 50},
     
     { 0xFF, 5},
 };

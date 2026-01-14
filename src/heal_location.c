@@ -179,6 +179,7 @@ bool8 DoesHealLocationSkipCutscene(void) {
         HEAL_LOCATION_VIRIDIAN_GYM_SURGE,
         HEAL_LOCATION_WORMHOLE_ENTRANCE,
         HEAL_LOCATION_ROUTE19,
+        HEAL_LOCATION_TWO_ISLAND,
         // HEAL_LOCATION_NONE,
     };
     u32 i;

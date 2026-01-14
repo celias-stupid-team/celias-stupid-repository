@@ -12701,3 +12701,6 @@ extern const u32 gMonShinyPalette_UNITEDKINGDOM[];
 extern const u8 gMonFootprint_UNITEDKINGDOM[];
 extern const u8 gMonIcon_UNITEDKINGDOM[];
 
+
+extern const u32 gTrainerFrontPic_SansTrainer[];
+extern const u32 gTrainerPalette_SansTrainer[];
