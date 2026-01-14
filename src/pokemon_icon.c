@@ -1780,6 +1780,7 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_SOLACEON] = 0,
     [SPECIES_MIMIKYU]         = 0,
     [SPECIES_HOOPA]         = 0,
+    [SPECIES_MELTAN]         = 2,
 
 };
 
