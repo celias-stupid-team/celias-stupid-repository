@@ -668,3 +668,4 @@ const u16 gObjectEventPal_ROTOM_POKEDEX[] = INCBIN_U16("graphics/object_events/p
 const u32 gObjectEventPic_LEON[] = INCBIN_U32("graphics/object_events/pics/stupid/LEON.4bpp");
 const u16 gObjectEventPal_LEON[] = INCBIN_U16("graphics/object_events/palettes/LEON.gbapal");
 const u32 gObjectEventPic_GRANDPAS_HEAD[] = INCBIN_U32("graphics/object_events/pics/stupid/GRANDPAS_HEAD.4bpp");
+const u32 gObjectEventPic_SPHEALIA_WALK[] = INCBIN_U32("graphics/object_events/pics/stupid/SPHEALIA_WALK.4bpp");

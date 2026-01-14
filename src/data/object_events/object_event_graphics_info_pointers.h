@@ -477,6 +477,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SOPHACLES;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_POKEDEX;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LEON;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GRANDPAS_HEAD;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPHEALIA_WALK;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -955,4 +956,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROTOM_POKEDEX] = &gObjectEventGraphicsInfo_ROTOM_POKEDEX,
     [OBJ_EVENT_GFX_LEON] = &gObjectEventGraphicsInfo_LEON,
     [OBJ_EVENT_GFX_GRANDPAS_HEAD] = &gObjectEventGraphicsInfo_GRANDPAS_HEAD,
+    [OBJ_EVENT_GFX_SPHEALIA_WALK] = &gObjectEventGraphicsInfo_SPHEALIA_WALK,
 };

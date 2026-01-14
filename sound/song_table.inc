@@ -208,7 +208,7 @@ gSongTable::
 	song se_m_charge, 1, 1
 	song se_m_strength, 1, 1
 	song se_m_hyper_beam, 1, 1
-	song se_m_waterfall, 1, 1
+	song se_m_waterfall, 2, 2
 	song se_m_reversal, 1, 1
 	song se_m_acid_armor, 1, 1
 	song se_m_sandstorm, 1, 1

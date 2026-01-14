@@ -191,7 +191,7 @@
     {
       "local_id": "LOCALID_SPHEAL_5",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SPHEALIA",
+      "graphics_id": "OBJ_EVENT_GFX_SPHEALIA_WALK",
       "x": 17,
       "y": 13,
       "elevation": 0,
@@ -216,7 +216,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SeafoamIslands_B3F_CaptainGetsTheSpheals",
-      "flag": "FLAG_CAPTAIN_DIRECTS_SPHEALS"
+      "flag": "FLAG_SEAFOAM_B3F_CAPTAIN"
     },
     {
       "local_id": "LOCALID_SPHEAL_LAND_1",
@@ -296,7 +296,7 @@
     {
       "local_id": "LOCALID_SPHEAL_LAND_5",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SPHEALIA",
+      "graphics_id": "OBJ_EVENT_GFX_SPHEALIA_WALK",
       "x": 30,
       "y": 1,
       "elevation": 0,
