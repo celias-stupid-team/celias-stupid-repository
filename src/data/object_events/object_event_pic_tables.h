@@ -5083,3 +5083,14 @@ const struct SpriteFrameImage gObjectEventPicTable_SOPHACLES[] = {
     overworld_frame(gObjectEventPic_SOPHACLES, 2, 4, 7),
     overworld_frame(gObjectEventPic_SOPHACLES, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_ROTOM_POKEDEX[] = {
+    overworld_frame(gObjectEventPic_ROTOM_POKEDEX, 2, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_POKEDEX, 2, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_POKEDEX, 2, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_POKEDEX, 2, 4, 3),
+    overworld_frame(gObjectEventPic_ROTOM_POKEDEX, 2, 4, 4),
+    overworld_frame(gObjectEventPic_ROTOM_POKEDEX, 2, 4, 5),
+    overworld_frame(gObjectEventPic_ROTOM_POKEDEX, 2, 4, 6),
+    overworld_frame(gObjectEventPic_ROTOM_POKEDEX, 2, 4, 7),
+    overworld_frame(gObjectEventPic_ROTOM_POKEDEX, 2, 4, 8),
+};

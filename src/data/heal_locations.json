@@ -524,7 +524,7 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_MISTY",
       "map": "MAP_VIRIDIAN_GYM_MISTY",
       "x": 5,
-      "y": 9,
+      "y": 11,
       "respawn_map": "MAP_VIRIDIAN_GYM_MISTY",
       "respawn_npc": "1"
     },
@@ -550,6 +550,14 @@
       "x": 9,
       "y": 10,
       "respawn_map": "MAP_WORMHOLE_ENTRANCE",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE19",
+      "map": "MAP_ROUTE19",
+      "x": 6,
+      "y": 14,
+      "respawn_map": "MAP_ROUTE19",
       "respawn_npc": "1"
     }
   ]
