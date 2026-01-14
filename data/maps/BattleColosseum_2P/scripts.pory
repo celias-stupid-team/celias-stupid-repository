@@ -442,7 +442,7 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_ZYGARDE) // 144
 	}
 	if(flag(FLAG_BADGE08_GET)) { //TODO figure out logic
-		setobtainable(SPECIES_MELMETAL) // 145
+		setobtainable(SPECIES_MELTAN) // 145
 	}
 	if(checkmoncaught(SPECIES_SEAKING)) { //TODO figure out logic
 		setobtainable(SPECIES_ARCANINE) // 146
@@ -780,7 +780,7 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintEternatus)
 		case SPECIES_ZYGARDE: 
 			 msgbox(PokedexRating_Text_HintZygarde)
-		case SPECIES_MELMETAL: 
+		case SPECIES_MELTAN: 
 			 msgbox(PokedexRating_Text_HintMelmanure)
 		case SPECIES_ARCANINE: 
 			 msgbox(PokedexRating_Text_HintArcanine)

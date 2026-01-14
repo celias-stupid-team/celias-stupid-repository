@@ -252,7 +252,7 @@ script Route22_EventScript_OddCandyMan {
 		msgbox(
 		"Melmanure\n"
 		"", MSGBOX_DEFAULT)
-		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MELMETAL)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MELTAN)
 		call(Common_Script_GiftPokemon)
 		release
 		end

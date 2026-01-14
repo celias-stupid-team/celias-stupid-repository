@@ -152,7 +152,7 @@ enum
     NATIONAL_DEX_PHIONE,      // 142
     NATIONAL_DEX_ETERNATUS,   // 143
     NATIONAL_DEX_ZYGARDE,     // 144
-    NATIONAL_DEX_MELMETAL,    // 145
+    NATIONAL_DEX_MELTAN,    // 145
     NATIONAL_DEX_ARCANINE,    // 146
     NATIONAL_DEX_POKEMON_GUN, // 147
                               // 148
