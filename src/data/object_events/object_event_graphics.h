@@ -665,3 +665,5 @@ const u32 gObjectEventPic_SOPHACLES[] = INCBIN_U32("graphics/object_events/pics/
 const u16 gObjectEventPal_SOPHACLES[] = INCBIN_U16("graphics/object_events/palettes/SOPHACLES.gbapal");
 const u32 gObjectEventPic_ROTOM_POKEDEX[] = INCBIN_U32("graphics/object_events/pics/stupid/ROTOM_POKEDEX.4bpp");
 const u16 gObjectEventPal_ROTOM_POKEDEX[] = INCBIN_U16("graphics/object_events/palettes/ROTOM_POKEDEX.gbapal");
+const u32 gObjectEventPic_LEON[] = INCBIN_U32("graphics/object_events/pics/stupid/LEON.4bpp");
+const u16 gObjectEventPal_LEON[] = INCBIN_U16("graphics/object_events/palettes/LEON.gbapal");
