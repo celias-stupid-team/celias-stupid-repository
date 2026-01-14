@@ -631,6 +631,7 @@ const u8 gMoveDescription_MagnetRise[] = _("Dummy");
 const u8 gMoveDescription_Shoot[] = _("bang");
 const u8 gMoveDescription_108TupleTeam[] = _("Dummy");
 const u8 gMoveDescription_ThornWhip[] = _("Dummy");
+const u8 gMoveDescription_FreezeDry[] = _("Dummy");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -1269,4 +1270,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_THUNDER_WAVE_CYNTHIA - 1] = gMoveDescription_ThunderWave,
     [MOVE_THORN_WHIP - 1] = gMoveDescription_ThornWhip,
     [MOVE_FLY_CYNTHIA - 1] = gMoveDescription_Fly,
+    [MOVE_FREEZE_DRY - 1] = gMoveDescription_FreezeDry,
 };

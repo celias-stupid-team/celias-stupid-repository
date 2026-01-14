@@ -659,6 +659,7 @@ gBattleAnims_Moves::
 	.4byte Move_THUNDER_WAVE_CYNTHIA
 	.4byte Move_THORN_WHIP
 	.4byte Move_FLY_CYNTHIA
+	.4byte Move_FREEZE_DRY
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -16870,4 +16871,40 @@ PowerWhipContinue:
 	restorebg
 	waitbgfadein
 	waitforvisualfinish
+	end
+
+Move_FREEZE_DRY:
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS
+	loadspritegfx ANIM_TAG_IMPACT
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 0, 7, RGB_BLACK
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 2, 0, 9, RGB(12, 26, 31)
+	delay 20
+	playsewithpan SE_M_STRING_SHOT, SOUND_PAN_TARGET
+	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 0
+	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 64
+	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 128
+	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 192
+	delay 5
+	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 32
+	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 96
+	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 160
+	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 224
+	delay 17
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 3, 1
+	waitforvisualfinish
+	delay 15
+	call IceCrystalEffectShort
+	delay 5
+	loadspritegfx ANIM_TAG_ICE_CUBE
+	createvisualtask AnimTask_FrozenIceCube, 2
+	waitplaysewithpan SE_M_HAIL, SOUND_PAN_TARGET, 17
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 2, 9, 0, RGB(12, 26, 31)
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7, 0, RGB_BLACK
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
 	end

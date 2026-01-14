@@ -637,8 +637,9 @@
 #define MOVE_THUNDER_WAVE_CYNTHIA 632 // always goes first
 #define MOVE_THORN_WHIP 633
 #define MOVE_FLY_CYNTHIA 634
+#define MOVE_FREEZE_DRY 635
 
-#define MOVES_COUNT 635
+#define MOVES_COUNT 636
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
