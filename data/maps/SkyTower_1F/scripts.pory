@@ -22,7 +22,7 @@ script SkyTower_PersonalityQuiz {
 script SkyTower_Psyduck {
 	msgbox(
 	"My innermost nature is being\n"
-	"WEIGHED as PROF. OAK's POKéMON.", MSGBOX_NPC)
+	"WEIGHED{PAUSE 30} as PROF. OAK's POKéMON.", MSGBOX_NPC)
 }
 
 

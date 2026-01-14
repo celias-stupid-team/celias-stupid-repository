@@ -136,8 +136,8 @@
       "x": 6,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
-      "dest_warp_id": "WARP_ID_SAFFRON_GYM_SILPH"
+      "dest_map": "MAP_SILPH_CO_2F",
+      "dest_warp_id": "5"
     },
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_BALLS",

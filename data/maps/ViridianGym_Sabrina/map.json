@@ -121,8 +121,8 @@
       "x": 4,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_SILPH_CALL_CENTER",
-      "dest_warp_id": "WARP_ID_SILPH_CALLCENTER_BACKROOMS1"
+      "dest_map": "MAP_SILPH_CO_2F",
+      "dest_warp_id": "6"
     },
     {
       "warp_id": "WARP_ID_SAFFRON_GYM_DMCA",
