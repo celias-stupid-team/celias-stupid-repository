@@ -6141,7 +6141,7 @@
     {
       "english": "DAWN STONE",
       "itemId": "ITEM_DAWN_STONE",
-      "price": 2100,
+      "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A peculiar stone that makes\\nPOKéMON evolve. It seems to be\\nconnected to the creator.",

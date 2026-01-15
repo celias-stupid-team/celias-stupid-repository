@@ -551,14 +551,14 @@
 #define FLAG_0x1F4        0x1F4
 #define FLAG_0x1F5             0x1F5
 #define FLAG_0x1F6            0x1F6
-#define FLAG_0x1F7         0x1F7
-#define FLAG_0x1F8       0x1F8
-#define FLAG_0x1F9      0x1F9
-#define FLAG_0x1FA      0x1FA
-#define FLAG_0x1FB       0x1FB
-#define FLAG_0x1FC       0x1FC
-#define FLAG_0x1FD 0x1FD
-#define FLAG_0x1FE                              0x1FE
+#define FLAG_CINNABAR_QUESTION_SECRET_1         0x1F7
+#define FLAG_CINNABAR_QUESTION_SECRET_2       0x1F8
+#define FLAG_CINNABAR_QUESTION_SECRET_3      0x1F9
+#define FLAG_CINNABAR_QUESTION_SECRET_4      0x1FA
+#define FLAG_CINNABAR_QUESTION_SECRET_5       0x1FB
+#define FLAG_CINNABAR_QUESTION_SECRET_6       0x1FC
+#define FLAG_CINNABAR_QUESTION_SECRET_7 0x1FD
+#define FLAG_CINNABAR_QUESTION_SECRET_8                              0x1FE
 
 // Unused?
 // Let's use these for item pickups
@@ -601,9 +601,9 @@
 #define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1               0x223
 #define FLAG_TALKED_TO_NATIONAL_PARK_HINT               0x224
 #define FLAG_SAFFRON_IS_TRAINS               0x225
-#define FLAG_0x226               0x226
-#define FLAG_0x227               0x227
-#define FLAG_0x228               0x228
+#define FLAG_SEAFOAM_B2F_CAPTAIN               0x226
+#define FLAG_SEAFOAM_B3F_CAPTAIN               0x227
+#define FLAG_SEAFOAM_B1F_CAPTAIN               0x228
 #define FLAG_0x229               0x229
 #define FLAG_0x22A               0x22A
 #define FLAG_0x22B               0x22B

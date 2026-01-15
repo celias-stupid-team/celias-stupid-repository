@@ -193,6 +193,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TwoIsland_GluedGuy"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TwoIsland_WaitThreeMinutes"
     }
   ]
 }

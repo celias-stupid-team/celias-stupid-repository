@@ -125,17 +125,15 @@ CinnabarIsland_Gym_Text_ZacPostBattle::
     .string "type beats ICE-type POKéMON.$"
 
 CinnabarIsland_Gym_Text_GymGuyAdvice::
-    .string "Yo!\n"
-    .string "Champ in the making!\p"
-    .string "The hotheaded BLAINE is a FIRE\n"
-    .string "POKéMON pro.\p"
-    .string "Douse his spirits with water!\p"
-    .string "You'd better take some\n"
-    .string "BURN HEALS, too.$"
+	.string "Yo!\n"
+	.string "Champ in the making!\p"
+	.string "Welcome to BLAINE'S FURNACE FUN!\n"
+	.string "The premier POKéMON TRIVIA QUIZ!\p"
+	.string "Hope you've been studying up!\n$"
 
 CinnabarIsland_Gym_Text_GymGuyPostVictory::
-    .string "{PLAYER}!\n"
-    .string "You beat that firebrand!$"
+	.string "Hm?\n"
+	.string "What was that sound?$"
 
 CinnabarIsland_Gym_Text_GymStatue::
     .string "CINNABAR POKéMON GYM\n"

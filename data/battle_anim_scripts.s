@@ -9784,83 +9784,38 @@ Move_ROCK_BLAST:
 	end
 
 Move_OVERHEAT:
-	loadspritegfx ANIM_TAG_SMALL_EMBER
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_DEF_PARTNER
-	setalpha 12, 18
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 5, RGB(28, 0, 0)
-	waitforvisualfinish
-	createvisualtask AnimTask_AllocBackupPalBuffer, 5
-	waitforvisualfinish
-	createvisualtask AnimTask_CopyPalUnfadedToBackup, 5, 0, 1
-	delay 1
-	createvisualtask AnimTask_CopyPalFadedToUnfaded, 5, 0
-	delay 1
-	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
-	createvisualtask AnimTask_CopyPalUnfadedToBackup, 5, 1, 0
-	delay 1
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, 1, 0, 13, RGB(28, 0, 0)
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 2, 0, 15, 1
-	waitforvisualfinish
-	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 30, 25, -20
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 32, 30, 25, -20
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 64, 30, 25, -20
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 96, 30, 25, -20
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 128, 30, 25, -20
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 66, 1, 160, 30, 25, -20
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 66, 1, 192, 30, 25, -20
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 66, 1, 224, 30, 25, -20
-	delay 5
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 30, 25, 0
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 32, 30, 25, 0
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 64, 30, 25, 0
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 96, 30, 25, 0
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 128, 30, 25, 0
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 66, 1, 160, 30, 25, 0
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 66, 1, 192, 30, 25, 0
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 66, 1, 224, 30, 25, 0
-	delay 5
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 30, 25, 10
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 32, 30, 25, 10
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 64, 30, 25, 10
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 96, 30, 25, 10
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 2, 1, 128, 30, 25, 10
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 66, 1, 160, 30, 25, 10
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 66, 1, 192, 30, 25, 10
-	createsprite gOverheatFlameSpriteTemplate, ANIM_ATTACKER, 66, 1, 224, 30, 25, 10
-	delay 5
-	waitforvisualfinish
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, -5, 3, ANIM_TARGET, 0
-	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 10, 0, 25, 1
+	loadspritegfx ANIM_TAG_GLOWY_RED_ORB
+	loadspritegfx ANIM_TAG_GLOWY_GREEN_ORB
+	loadspritegfx ANIM_TAG_DUCK
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 25, 1
 	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 8, -5, ANIM_TARGET, 0
-	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
-	delay 8
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 10, 10, ANIM_TARGET, 0
-	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
-	delay 8
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 0
-	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
-	createvisualtask AnimTask_CopyPalFadedToUnfaded, 5, 1
-	delay 1
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, -1, 0, 13, RGB(18, 18, 18)
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 3, 0, 15, 1
-	waitforvisualfinish
-	createvisualtask AnimTask_CopyPalUnfadedFromBackup, 5, 0, 1
-	delay 1
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 5, 0, RGB(28, 0, 0)
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
-	blendoff
-	waitforvisualfinish
-	delay 15
-	createvisualtask AnimTask_CopyPalUnfadedFromBackup, 5, 1, 0
-	delay 1
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, 0, 13, 0, RGB(18, 18, 18)
-	waitforvisualfinish
-	createvisualtask AnimTask_FreeBackupPalBuffer, 5
+	panse SE_M_BUBBLE_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +1, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 25, 1
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_TARGET, 8, 5, RGB_RED, 8, RGB(1, 30, 0), 8
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
+	call SignalBeamOrbs
 	waitforvisualfinish
 	end
 

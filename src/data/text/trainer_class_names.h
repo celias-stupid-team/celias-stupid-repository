@@ -125,4 +125,5 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_RADICAL]             = _("RADICAL"),
     [TRAINER_CLASS_SHORT]             = _("SHORT"),
     [TRAINER_CLASS_ELITE_FOUR_CYNTHIA]             = _("ELITE FOUR"),
+    [TRAINER_CLASS_MYSTERIOUS]             = _("MYSTERIOUS"),
 };

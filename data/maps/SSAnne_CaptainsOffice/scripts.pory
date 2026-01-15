@@ -172,5 +172,6 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 	playse(SE_EXIT)
 	removeobject(VAR_LAST_TALKED)
 	setflag(FLAG_GOT_HM01)
+	setvar(VAR_SEAFOAM_CAPTAIN_FLOOR, 2)
 	release
 }

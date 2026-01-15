@@ -1,4 +1,15 @@
 raw `
-SeafoamIslands_B1F_MapScripts::
-	.byte 0
+
 `
+
+
+mapscripts SeafoamIslands_B1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if((var(VAR_SEAFOAM_CAPTAIN_FLOOR) == 2 || var(VAR_SEAFOAM_CAPTAIN_FLOOR) == 1) && flag(FLAG_SEAFOAM_B2F_CAPTAIN)) {
+			setvar(VAR_SEAFOAM_CAPTAIN_FLOOR, 1)
+			clearflag(FLAG_SEAFOAM_B1F_CAPTAIN)
+		} else {
+			setflag(FLAG_SEAFOAM_B1F_CAPTAIN)
+		}
+	}
+}

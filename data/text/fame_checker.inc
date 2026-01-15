@@ -605,8 +605,8 @@ gFameCheckerFlavorText_GreatSeaCenter4:: @ 0x81AFA20
 
 gFameCheckerFlavorText_GreatSeaCenter5:: @ 0x81AFAB9
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-	.string "W\n$"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+	.string "{BRAILLE_W}\n$"
 
 gFameCheckerFlavorText_GreatBay0:: @ 0x81AFB0C
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"

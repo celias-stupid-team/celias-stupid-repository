@@ -2331,8 +2331,6 @@ bool8 CapeBrinkGetMoveToTeachLeadPokemon(void)
             break;
         }
     }
-    if (i == NELEMS(sCapeBrinkCompatibleSpecies) || GetMonData(&gPlayerParty[leadMonSlot], MON_DATA_FRIENDSHIP) != 255)
-        return FALSE;
     if (tutorMonId == 0)
     {
         StringCopy(gStringVar2, gLongMoveNames[MOVE_GRASS_PLEDGE]);

@@ -1,6 +1,9 @@
 #ifndef GUARD_METATILE_LABELS_H
 #define GUARD_METATILE_LABELS_H
 
+// gTileset_BlaineFurnaceFun
+#define METATILE_BlaineFurnaceFun_Lava  0x280
+
 // gTileset_Building
 #define METATILE_Building_PCOff  0x062
 #define METATILE_Building_PCOn   0x063

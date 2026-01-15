@@ -8,12 +8,6 @@ FiveIsland_PokemonCenter_1F_OnTransition::
 	setrespawn HEAL_LOCATION_FIVE_ISLAND
 	end
 
-FiveIsland_PokemonCenter_1F_EventScript_Nurse::
-	lock
-	faceplayer
-	call EventScript_PkmnCenterNurse
-	release
-	end
 
 FiveIsland_PokemonCenter_1F_EventScript_Chef::
 	msgbox FiveIsland_PokemonCenter_1F_Text_OnMyWayToPrepareMeal, MSGBOX_NPC
@@ -23,3 +17,67 @@ FiveIsland_PokemonCenter_1F_EventScript_CooltrainerF::
 	msgbox FiveIsland_PokemonCenter_1F_Text_YoureOnQuestToCatchEveryMon, MSGBOX_NPC
 	end
 `
+
+
+script FiveIsland_PokemonCenter_1F_EventScript_Nurse {
+	lock
+	faceplayer
+	goto_if_questlog(EventScript_ReleaseEnd)
+	message(Text_WelcomeWantToHealPkmn)
+	waitmessage
+	multichoice(19, 8, MULTICHOICE_YES_NO, FALSE | (TRUE << 1))
+	switch(var(VAR_RESULT)) {
+	case 0:
+		msgbox("Are you sure?", MSGBOX_YESNO)
+		switch(var(VAR_RESULT)) {
+			case 1:
+				msgbox("Are you REALLY sure?", MSGBOX_YESNO)
+				switch(var(VAR_RESULT)) {
+					case 1:
+						msgbox("Are you just mashing A right now?", MSGBOX_YESNO)
+						switch(var(VAR_RESULT)) {
+							case 1:
+								fadenewbgm(MUS_NONE)
+								delay(180)
+								msgbox(
+								"NURSE: …\n"
+								"I see.\p"
+
+								"Do you want to know what we do to\n"
+								"those who waste our time here?", MSGBOX_YESNO)
+								if(var(VAR_RESULT)) {
+									fadedefaultbgm
+									msgbox(
+									"(there is a battle here)\n"
+									"", MSGBOX_DEFAULT)
+									release
+									end
+								} else {
+									msgbox(
+									"Oh, all right then.\n"
+									"", MSGBOX_DEFAULT)
+									call(EventScript_PkmnCenterNurse_Goodbye)
+								}
+							case 0:
+								call(EventScript_PkmnCenterNurse_HealPkmn)
+						}
+						
+					default:
+						msgbox("Okay, that's what I thought.\n", MSGBOX_DEFAULT)
+						call(EventScript_PkmnCenterNurse_Goodbye)
+				}
+			default:
+					msgbox("Okay, that's what I thought.\n", MSGBOX_DEFAULT)
+					call(EventScript_PkmnCenterNurse_Goodbye)
+					
+
+		}
+		
+	case 1: 
+		call(EventScript_PkmnCenterNurse_Goodbye)
+	case SCR_MENU_CANCEL:
+		call(EventScript_PkmnCenterNurse_Goodbye)
+	}
+	release
+	end
+}

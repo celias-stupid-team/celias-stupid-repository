@@ -144,11 +144,11 @@
   ],
   "warp_events": [
     {
-      "x": 27,
-      "y": 0,
+      "x": 26,
+      "y": 17,
       "elevation": 3,
-      "dest_map": "MAP_SILPH_CO_3F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SILPH_CO_2F",
+      "dest_warp_id": "4"
     },
     {
       "x": 4,
@@ -173,25 +173,25 @@
       "dest_warp_id": "3"
     },
     {
-      "x": 21,
-      "y": 1,
+      "x": 32,
+      "y": 14,
       "elevation": 3,
-      "dest_map": "MAP_SILPH_CO_6F",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 22,
-      "y": 1,
-      "elevation": 3,
-      "dest_map": "MAP_SILPH_CO_8F",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 20,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_SILPH_CO_ELEVATOR",
+      "dest_map": "MAP_SILPH_CO_2F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 32,
+      "y": 11,
+      "elevation": 3,
+      "dest_map": "MAP_SILPH_CALL_CENTER",
+      "dest_warp_id": "WARP_ID_SILPH_CALLCENTER_BACKROOMS1"
+    },
+    {
+      "x": 17,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
+      "dest_warp_id": "WARP_ID_SAFFRON_GYM_SILPH"
     }
   ],
   "coord_events": [
@@ -267,40 +267,40 @@
     },
     {
       "type": "sign",
-      "x": 5,
-      "y": 17,
+      "x": 12,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_2F_EventScript_Door2"
     },
     {
       "type": "sign",
-      "x": 6,
-      "y": 17,
+      "x": 13,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_2F_EventScript_Door2"
     },
     {
       "type": "sign",
-      "x": 5,
-      "y": 16,
+      "x": 12,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_2F_EventScript_Door2"
     },
     {
       "type": "sign",
-      "x": 6,
-      "y": 16,
+      "x": 13,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_2F_EventScript_Door2"
     },
     {
       "type": "hidden_item",
-      "x": 11,
-      "y": 21,
+      "x": 12,
+      "y": 22,
       "elevation": 0,
       "item": "ITEM_ULTRA_BALL",
       "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_2F_ULTRA_BALL",

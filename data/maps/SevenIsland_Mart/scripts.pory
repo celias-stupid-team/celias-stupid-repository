@@ -156,6 +156,22 @@ script Walmart_Jumpluff {
 	msgbox(
 	"It's a funny JUMPLUFF!\n"
 	"", MSGBOX_DEFAULT)
+	if(checkitem(ITEM_PEPSI)) {
+		msgbox(
+		"Feed it a PEPSI?\n"
+		"", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			waitse
+			playmoncry(SPECIES_SKIPLOOM, CRY_MODE_DEFAULT)
+			waitmoncry
+			msgbox(
+			"He's a baby boy!\n"
+			"", MSGBOX_DEFAULT)
+			removeitem(ITEM_PEPSI)
+			release
+			end
+		}
+	}
 	release
 	end
 }

@@ -450,6 +450,7 @@ FONT_NORMAL = FC 06 02
 FONT_NORMAL_COPY_2 = FC 06 03
 FONT_MALE = FC 06 04
 FONT_FEMALE = FC 06 05
+FONT_BRAILLE = FC 06 06
 FONT_COMIC_SANS = FC 06 08
 
 @ colors
@@ -895,6 +896,7 @@ TCG_NORMAL_1       = F9 1D
 TCG_NORMAL_2       = F9 1E
 MU                  = F9 1F
 UWU                  = F9 20
+BRAILLE_W                  = F9 2A
 
 
 EMOJI_UNDERSCORE = F9 D0

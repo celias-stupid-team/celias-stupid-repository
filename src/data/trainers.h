@@ -6980,6 +6980,17 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_HyperDrill),
     },
 
+    [TRAINER_SANS] = {
+        .trainerClass = TRAINER_CLASS_MYSTERIOUS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SANS_TRAINER,
+        .trainerName = _("SHOPKEEPER"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_Sans),
+    },
+
         
 
 };
