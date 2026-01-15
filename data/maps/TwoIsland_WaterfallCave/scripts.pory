@@ -3,7 +3,43 @@ mapscripts TwoIsland_WaterfallCave_MapScripts {
 }
 
 script WaterfallCave_MoveTutor {
+	lock
+	faceplayer
 	msgbox(
-	"I teach the starters GRASS PLEDGE,\n"
-	"FIRE PLEDGE, and WATER PLEDGE.", MSGBOX_NPC)
+	"Hmm…?\n"
+	"You've found my secret retreat!\p"
+
+	"Then… Then you may be the one\n"
+	"I've been waiting for!\p"
+
+	"I have secret, powerful moves for\n"
+	"use in DOUBLE BATTLES.\l"
+	"Only the STARTERS can use them.", MSGBOX_DEFAULT)
+	if(checkpartymon(SPECIES_BULBASAUR) ||
+	checkpartymon(SPECIES_IVYSAUR) ||
+	checkpartymon(SPECIES_VENUSAUR) ||
+	checkpartymon(SPECIES_SQUIRTLE) ||
+	checkpartymon(SPECIES_CHARMANDER) ||
+	checkpartymon(SPECIES_CHARMELEON) ||
+	checkpartymon(SPECIES_CHARIZARD)) { //This is actually very complicated
+		msgbox(
+		"Here, to whom shall I teach one?\n"
+		"", MSGBOX_DEFAULT)
+		msgbox(
+		"DISCLAIMER THIS SCRIPT IS FUCKY\n"
+		"PUT THE STARTER FIRST PARTY SLOT", MSGBOX_DEFAULT)
+
+		specialvar (VAR_RESULT, CapeBrinkGetMoveToTeachLeadPokemon)
+
+		call(EventScript_ChooseMoveTutorMon)
+		goto_if_eq(VAR_RESULT, FALSE, CapeBrinkTutor_EventScript_DeclineMove)
+		goto(CapeBrinkTutor_EventScript_TaughtMove)
+	} else {
+		msgbox(
+		"Come back if you have a POKéMON\n"
+		"who can learn these moves.\p"
+
+		"I'm sure you'll need them someday.\n"
+		"", MSGBOX_DEFAULT)
+	}
 }

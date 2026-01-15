@@ -61,10 +61,11 @@
       "flag": "FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED"
     },
     {
+      "local_id": "LOCALID_AETHER_DMCA_GRUNT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 11,
-      "y": 7,
+      "x": 9,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

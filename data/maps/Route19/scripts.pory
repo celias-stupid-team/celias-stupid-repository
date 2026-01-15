@@ -351,6 +351,8 @@ script GreatSea_LoveTirtouga {
 
 
 script GreatSea_FontTest {
+	lock
+	callnative(FullyUnlockFameChecker)
 	msgbox(
 	"{FONT_SMALL}SURF WATERFALL ROCK CLIMB\n"
 	"STRENGTH CUT FLY\p"

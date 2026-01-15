@@ -947,3 +947,21 @@ script TwoIsland_RunawayFiveVenonat {
 	release
 	end
 }
+
+
+script TwoIsland_WaitThreeMinutes {
+	lock
+	if(var(VAR_TEMP_5) < 5) {
+		addvar(VAR_TEMP_5, 1)
+	} else {
+		delay(10800)
+		msgbox(
+		"Hey!\n"
+		"That's the secret code!\p"
+
+		"C'mon in!\n"
+		"", MSGBOX_DEFAULT)
+		warp(MAP_TWO_ISLAND_WATERFALL_CAVE, 0)
+	}
+	release
+}
