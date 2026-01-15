@@ -100,6 +100,7 @@ mapscripts PokemonLeague_AgathasRoom_MapScripts {
 		
 		VAR_TEMP_1, 0 {
 			setvar(VAR_TEMP_1, 1)
+			additem(ITEM_RARE_CANDY, 2)
 			if(!flag(FLAG_DEFEATED_AGATHA)) {
 					lockall
 					applymovement(LOCALID_PLAYER, moves(
