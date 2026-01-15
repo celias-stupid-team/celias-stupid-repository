@@ -243,14 +243,50 @@ script Route22_EventScript_CeliaLarry {
 script Route22_EventScript_OddCandyMan {
 	lock
 	faceplayer
+	if(checkmoncaught(SPECIES_MELTAN)) {
+		msgbox(
+		"Thank you so much for your help.\p"
+
+		"Now that we've collected all the\n"
+		"candy, there's NOTHING more I need.", MSGBOX_DEFAULT)
+	}
 	famechecker(FAMECHECKER_VIRIDIAN, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
 	if(flag(FLAG_BADGE08_GET)) {
 		msgbox(
-		"Placeholder\n"
-		"here", MSGBOX_DEFAULT)
+		"Why, hello!\p"
+
+		"You're the young soul who's on the\n"
+		"hunt for my lost ODD CANDIES!\p"
+
+		"I have excellent news!\n"
+		"I found quite a few of them myself.\l"
+		"Here, let's take inventory.", MSGBOX_DEFAULT)
+		closemessage
+		msgbox(
+		"(he has the rest of them)\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		msgbox(
+		"Excellent!\n"
+		"Now I just have to…", MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, moves(
+			walk_down
+			jump_2_down
+		))
+		msgbox(
+		"he falls\p"
+
+		"and then some other stuff happens\n"
+		"idfk", MSGBOX_DEFAULT)
+		closemessage
+		msgbox(
+		"remaining candies are on the ground\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(60)
 		playfanfare(MUS_LEVEL_UP)
 		msgbox(
-		"Melmanure\n"
+		"Meltan!\n"
 		"", MSGBOX_DEFAULT)
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MELTAN)
 		call(Common_Script_GiftPokemon)
@@ -287,6 +323,7 @@ script Route22_EventScript_RouteSign {
 script Route22_MapScripts_SetDexMons {
 	setbench(BENCH_ROUTE1)
 	setflag(FLAG_TEMP_1)
+	setflag(FLAG_TEMP_2)
 	if(checkmoncaught(SPECIES_MELMETAL)) {
 		clearflag(FLAG_TEMP_1)
 	}
@@ -301,6 +338,19 @@ script Route22_MankeySpot {
 		setvar(VAR_ROUTE22_MANKEY, 1)
 		if(!checkmoncaught(SPECIES_MANKEY)) {
 			setwildbattle(SPECIES_MANKEY, 2, ITEM_NONE)
+			dowildbattle
+		}
+	}
+	release
+}
+
+script Route22_MankeySpot2 {
+	if(flag(FLAG_SYS_POKEDEX_GET)) {
+		addvar(VAR_TEMP_2, 1)
+		if(!checkmoncaught(SPECIES_MANKEY) && !checkmoncaught(SPECIES_NIDORAN_M) && !checkmoncaught(SPECIES_NIDORAN_F) && var(VAR_TEMP_2) > 8) {
+			setvar(VAR_ROUTE22_MANKEY, 1)
+			setflag(FLAG_SHINY_CREATION)
+			setwildbattle(SPECIES_NIDORAN_F, 6, ITEM_NONE)
 			dowildbattle
 		}
 	}
