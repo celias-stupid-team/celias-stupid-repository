@@ -123,7 +123,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLAINE",
       "x": 12,
-      "y": 5,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -201,14 +201,14 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 9,
+      "x": 8,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "5"
     },
     {
-      "x": 9,
+      "x": 8,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_CINNABAR_ISLAND",
@@ -218,7 +218,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 11,
+      "x": 10,
       "y": 3,
       "elevation": 0,
       "var": "VAR_TEMP_C",
@@ -236,17 +236,8 @@
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_C",
-      "var_value": "1",
-      "script": "CinnabarGym_IslandAppears"
-    },
-    {
-      "type": "trigger",
       "x": 9,
-      "y": 5,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_C",
       "var_value": "1",
@@ -255,7 +246,7 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_C",
       "var_value": "1",
@@ -264,6 +255,15 @@
     {
       "type": "trigger",
       "x": 7,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_C",
+      "var_value": "1",
+      "script": "CinnabarGym_IslandAppears"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
       "y": 3,
       "elevation": 0,
       "var": "VAR_TEMP_C",
@@ -466,7 +466,7 @@
     },
     {
       "type": "sign",
-      "x": 9,
+      "x": 8,
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

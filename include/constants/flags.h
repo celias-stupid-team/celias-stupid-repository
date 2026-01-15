@@ -551,14 +551,14 @@
 #define FLAG_0x1F4        0x1F4
 #define FLAG_0x1F5             0x1F5
 #define FLAG_0x1F6            0x1F6
-#define FLAG_0x1F7         0x1F7
-#define FLAG_0x1F8       0x1F8
-#define FLAG_0x1F9      0x1F9
-#define FLAG_0x1FA      0x1FA
-#define FLAG_0x1FB       0x1FB
-#define FLAG_0x1FC       0x1FC
-#define FLAG_0x1FD 0x1FD
-#define FLAG_0x1FE                              0x1FE
+#define FLAG_CINNABAR_QUESTION_SECRET_1         0x1F7
+#define FLAG_CINNABAR_QUESTION_SECRET_2       0x1F8
+#define FLAG_CINNABAR_QUESTION_SECRET_3      0x1F9
+#define FLAG_CINNABAR_QUESTION_SECRET_4      0x1FA
+#define FLAG_CINNABAR_QUESTION_SECRET_5       0x1FB
+#define FLAG_CINNABAR_QUESTION_SECRET_6       0x1FC
+#define FLAG_CINNABAR_QUESTION_SECRET_7 0x1FD
+#define FLAG_CINNABAR_QUESTION_SECRET_8                              0x1FE
 
 // Unused?
 // Let's use these for item pickups

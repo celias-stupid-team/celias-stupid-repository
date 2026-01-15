@@ -777,14 +777,14 @@ script CinnabarGym_GymQuestionLoop {
 
 			"According to the 2023 Census, this\n"
 			"POKéMON has a population of over\l"
-			"23 Million!", MSGBOX_DEFAULT)
+			"10 Million!", MSGBOX_DEFAULT)
 		case 5:
 			setvar(VAR_CURRENT_BLAINE_ANSWER, 5)
 			msgbox(
 			"QUESTION 5!\p"
 
-			"Who was the winner in the SMASH\n"
-			"SUMMIT 7 WINNERS QUARTERFINALS?", MSGBOX_DEFAULT)
+			"Who defeated ZAIN during SMASH\n"
+			"SUMMIT 7?", MSGBOX_DEFAULT)
 		
 		case 6:
 			setvar(VAR_CURRENT_BLAINE_ANSWER, 6)
@@ -810,6 +810,7 @@ script CinnabarGym_GymQuestionLoop {
 
 			"Who is{PAUSE 30} the last POKéMON?", MSGBOX_DEFAULT)
 	}
+	clearflag(FLAG_TEMP_3)
 	special(ChoosePartyMon)
 	closemessage
 	waitstate
@@ -827,6 +828,9 @@ script CinnabarGym_GymQuestionLoop {
 	switch(var(VAR_CINNABAR_GYM_PHASE)) {
 		case 1:
 			if(var(VAR_RESULT) == SPECIES_BULBASAUR || var(VAR_RESULT) == SPECIES_RHYDON) {
+				if(var(VAR_RESULT) == SPECIES_RHYDON) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -839,7 +843,10 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 2:
-			if(var(VAR_RESULT) == SPECIES_HITMONCHAN_SHIT || var(VAR_RESULT) == SPECIES_HITMONCHIN) {
+			if(var(VAR_RESULT) == SPECIES_HITMONCHAN_SHIT || var(VAR_RESULT) == SPECIES_CHANSEY) {
+				if(var(VAR_RESULT) == SPECIES_CHANSEY) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -853,6 +860,9 @@ script CinnabarGym_GymQuestionLoop {
 			}
 		case 3:
 			if(var(VAR_RESULT) == SPECIES_ALOMOMOLA || var(VAR_RESULT) == SPECIES_EEVEE) {
+				if(var(VAR_RESULT) == SPECIES_EEVEE) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -865,7 +875,10 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 4:
-			if(var(VAR_RESULT) == SPECIES_KENYA || var(VAR_RESULT) == SPECIES_DUGTRIO) {
+			if(var(VAR_RESULT) == SPECIES_KENYA || var(VAR_RESULT) == SPECIES_PARAS) {
+				if(var(VAR_RESULT) == SPECIES_PARAS) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -878,7 +891,10 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 5:
-			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_JIGGLYPUFF_ABOVE) {
+			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_PIKABLU) {
+				if(var(VAR_RESULT) == SPECIES_PIKABLU) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -891,7 +907,10 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 6:
-			if(var(VAR_RESULT) == SPECIES_AMOONGUSS || var(VAR_RESULT) == SPECIES_DITTO_MEW) {
+			if(var(VAR_RESULT) == SPECIES_AMOONGUSS || var(VAR_RESULT) == SPECIES_NIDOKING) {
+				if(var(VAR_RESULT) == SPECIES_NIDOKING) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -905,6 +924,9 @@ script CinnabarGym_GymQuestionLoop {
 			}
 		case 7:
 			if(var(VAR_RESULT) == SPECIES_MEOWTH || var(VAR_RESULT) == SPECIES_MEOWTH) {
+				if(var(VAR_RESULT) == SPECIES_RHYDON) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -918,6 +940,9 @@ script CinnabarGym_GymQuestionLoop {
 			}
 		case 8:
 			if(var(VAR_RESULT) == SPECIES_VENUSAUR || var(VAR_RESULT) == SPECIES_KRABBY) {
+				if(var(VAR_RESULT) == SPECIES_KRABBY) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -978,7 +1003,9 @@ script CinnabarGym_CheckBattleOutcome {
 			release
 			end
 		}
+		//update the wall
 		playse(SE_SUCCESS)
+		call(CinnabarGym_UpdatePointsWall)
 		waitse
 		msgbox(
 		"That's absolutely CORRECT!\n"
@@ -1020,7 +1047,7 @@ script CinnabarGym_IslandAppears {
 	delay(120)
 	setvar(VAR_TEMP_C, 0)
 	setflag(FLAG_MIRAGE_ISLAND_APPEARS)
-	setmetatile(9, 2, 0x16B, TRUE)
+	setmetatile(8, 2, 0x16B, TRUE)
 	release
 }
 
@@ -1490,6 +1517,14 @@ script CinnabarGym_BoardGameQuestion5 {
 
 		release
 		end
+
+	}
+}
+
+
+script CinnabarGym_UpdatePointsWall {
+	//This is actually way more complicated than I gave it credit for no thanks
+	if(flag(FLAG_TEMP_3)) {
 
 	}
 }

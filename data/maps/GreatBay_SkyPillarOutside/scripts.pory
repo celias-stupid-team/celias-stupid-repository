@@ -214,6 +214,8 @@ script GreatBay_LookGirl {
         msgbox(
         "She went in the square hole.\n"
         "", MSGBOX_DEFAULT)
+        
+        call(GreatBay_OpenDoor)
         release
 
     }
