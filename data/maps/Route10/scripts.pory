@@ -197,6 +197,8 @@ script Route10_DrifloonHbox {
 }
 
 script Route10_PowerGridRepair {
+	
+	famechecker(FAMECHECKER_ROCK_TUNNEL, 3)
 	msgbox("Hello!\nAre you in charge around here?\pI'm from the KANTO LIGHTHOUSE\nPOWER GRID REPAIR SERVICE.\lI'm here to fix the electricity.\p…Oh, you've already fixed the\npower problem?\lUh\pGreat to hear!\nLess work for me.\pI'm sure the folks down at the\nLIGHTHOUSE are back in business!", MSGBOX_NPC)
 	end
 }

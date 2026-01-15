@@ -244,6 +244,7 @@ script PokemonIslandLab_GSBallCutscene {
 script PokemonIslandLab_Todd {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_BLUE)
     famechecker(FAMECHECKER_GREAT_SEA_WEST, 0)
     if(flag(FLAG_DUGTRIO_SIGN) && flag(FLAG_GROWLITHE_SIGN) && flag(FLAG_ELECTIVIRE_SIGN) && flag(FLAG_AMBIGUOUS_STATUE_SIGN) && flag(FLAG_ONIX_TAIL_SIGN) && flag(FLAG_KINGLER_SIGN) && flag(FLAG_IVY_SIGN)) {
         msgbox(
@@ -262,18 +263,28 @@ script PokemonIslandLab_Todd {
 
     if(flag(FLAG_TALKED_TO_TODD)) {
         msgbox(
-        "TODD: find 7 signs\p"
+        "TODD: We've been documenting\n"
+        "POKéMON SIGNS across KANTO.\l"
+        "There's 7 to see in total.\p"
 
-        "placeholder\n"
-        "", MSGBOX_DEFAULT)
+        "I can't wait to learn where they\n"
+        "all point!", MSGBOX_DEFAULT)
     } else {
         setflag(FLAG_TALKED_TO_TODD)
         msgbox(
-        "TODD: we're looking for signs\p"
+        "Heya, I'm TODD.\n"
+        "Photographer extraordinaire!\p"
 
-        "talk to partner in other room\n"
-        "", MSGBOX_DEFAULT)
+        "Say, have you ever heard of a\n"
+        "“POKéMON SIGN”?\l"
+        "We've been documenting them.\p"
 
+        "Across KANTO, there's said to be\n"
+        "seven POKéMON SIGNS to find.\p"
+
+        "My partner, PROFESSOR IVY, is in\n"
+        "the room to the right.\l"
+        "She'll be able to give more info.", MSGBOX_DEFAULT)
     }
     applymovement(LOCALID_TODD, Common_Movement_FaceOriginalDirection)
     waitmovement(0)

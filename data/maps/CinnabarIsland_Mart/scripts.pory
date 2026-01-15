@@ -36,6 +36,7 @@ CinnabarIsland_Mart_Items::
 
 
 script CinnabarIsland_Pokemart_BurnHeal {
+	famechecker(FAMECHECKER_GREAT_SEA_WEST, 3)
 	msgbox(
 	"You're looking for BURN HEAL?\n"
 	"I don't think they have it here.\p"

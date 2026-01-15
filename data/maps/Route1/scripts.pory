@@ -28,7 +28,6 @@ Route1_EventScript_AlreadyGotPotion::
 	end
 
 Route1_EventScript_Boy::
-	famechecker FAMECHECKER_VIRIDIAN, 3
 	msgbox Route1_Text_CanJumpFromLedges, MSGBOX_NPC
 	end
 

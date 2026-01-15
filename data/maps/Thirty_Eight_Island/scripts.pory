@@ -301,7 +301,6 @@ script ThirtyEightIsland_MiltankPhilosophy {
 script ThirtyEightIsland_GoldenRod {
     lock
     faceplayer
-	famechecker(FAMECHECKER_GREAT_SEA_WEST, 3)
 	if(flag(FLAG_CSR_GOT_GOLDEN_ROD)) {
 		msgbox(
 		"goldenrod\n"

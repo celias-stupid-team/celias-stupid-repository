@@ -60,7 +60,7 @@ script MinnesotaGym_NoCuttingLeft {
     textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
 	"Hey!\n"
-	"No Cutting!", MSGBOX_DEFAULT)
+	"Get in line!", MSGBOX_DEFAULT)
     closemessage
     delay(30)
     applymovement(LOCALID_PLAYER, moves(

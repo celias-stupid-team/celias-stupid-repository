@@ -1,7 +1,7 @@
 {
   "id": "MAP_SAFFRON_CITY",
   "name": "SaffronCity",
-  "layout": "LAYOUT_SAFFRON_CITY_TRAINS",
+  "layout": "LAYOUT_SAFFRON_CITY",
   "music": "MUS_NONE",
   "region_map_section": "MAPSEC_SAFFRON_CITY",
   "requires_flash": false,
@@ -474,7 +474,7 @@
       "dest_warp_id": "5"
     },
     {
-      "x": 24,
+      "x": 25,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_THIRTY_EIGHT_ISLAND",
@@ -550,7 +550,7 @@
     {
       "type": "sign",
       "x": 24,
-      "y": 13,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SaffronCity_TrainHouses"
@@ -622,7 +622,7 @@
     {
       "type": "sign",
       "x": 25,
-      "y": 14,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SaffronCity_TrainHouses"
