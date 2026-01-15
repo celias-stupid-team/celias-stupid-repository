@@ -2,7 +2,11 @@ mapscripts Route20_SeafoamIslands_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
 		
 		setworldmapflag(FLAG_WORLD_MAP_SEAFOAM_ISLANDS_1F)
+		if(!flag(FLAG_HIDE_HARRY_RAT)) {
+			setflag(FLAG_TEMP_1)
+		}
 	}
+	
 }
 
 
@@ -11,4 +15,13 @@ script Route20_SeafoamIslands_Sign {
 	"SEAFOAM ISLANDS\n"
 	"", MSGBOX_SIGN)
 
+}
+
+
+script Route20_DeadRatFisher {
+	msgbox(
+	"Look what I fished up!\p"
+
+	"battle with dead rat\n"
+	"", MSGBOX_NPC)
 }

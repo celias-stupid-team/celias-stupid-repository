@@ -1043,6 +1043,10 @@ static u16 GetLocationMusic(struct WarpData * warp)
     || (warp->mapGroup == MAP_GROUP(MAP_AETHER_PARADISE_SKULL_ROOM) && warp->mapNum == MAP_NUM(MAP_AETHER_PARADISE_SKULL_ROOM)))) {
         return MUS_IKI_TOWN_TEST;
     }
+    if(FlagGet(FLAG_DEFEATED_CHAMP) // don't make fun of me
+    && ((warp->mapGroup == MAP_GROUP(MAP_POKEMON_LEAGUE_HALL_OF_FAME) && warp->mapNum == MAP_NUM(MAP_POKEMON_LEAGUE_HALL_OF_FAME)))) {
+        return MUS_SLOW_PALLET;
+    }
     return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }
 

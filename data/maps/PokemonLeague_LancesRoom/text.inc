@@ -26,8 +26,10 @@ PokemonLeague_LancesRoom_Text_Defeat::
 	.string "You're better than I expected!$"
 
 PokemonLeague_LancesRoom_Text_PostBattle::
-	.string "MAY: {PLAYER}, you've been busy\n"
-	.string "training, too, haven't you?\p"
-	.string "I think you deserve a reward!\n"
-	.string "This is from me!$"
+	.string "MAY: I know it's a little silly\n"
+	.string "coming from me, but I think you\l"
+	.string "should train a lot harder.\p"
+	.string "I mean, your STARTER isn't even\n"
+	.string "fully evolved yet!\l"
+	.string "Could you imagine?$"
 

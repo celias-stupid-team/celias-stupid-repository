@@ -24500,7 +24500,17 @@
               {
                 "min_level": 25,
                 "max_level": 25,
-                "species": "SPECIES_SCYTHER"
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
               },
               {
                 "min_level": 25,
@@ -24520,32 +24530,22 @@
               {
                 "min_level": 25,
                 "max_level": 25,
-                "species": "SPECIES_CATERPIE"
-              },
-              {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_CATERPIE"
-              },
-              {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_SCYTHER"
+                "species": "SPECIES_PINSIR"
               },
               {
                 "min_level": 25,
                 "max_level": 52,
-                "species": "SPECIES_SCYTHER"
+                "species": "SPECIES_PINSIR"
               },
               {
                 "min_level": 25,
                 "max_level": 52,
-                "species": "SPECIES_METAPOD"
+                "species": "SPECIES_PINSIR"
               },
               {
                 "min_level": 25,
                 "max_level": 25,
-                "species": "SPECIES_METAPOD"
+                "species": "SPECIES_PINSIR"
               },
               {
                 "min_level": 25,

@@ -771,6 +771,7 @@ script FourIsland_LassAttack {
 	"Huff…{PAUSE 30} At…{PAUSE 30} Puff…{PAUSE 30} Me!", MSGBOX_DEFAULT)
 	playbgm(MUS_FOUR_ISLAND, TRUE)
 	//battle
+	trainerbattle_no_intro(TRAINER_FOUR_ISLAND_LASS, "Huff…")
 	closemessage
 	delay(60)
 	closemessage

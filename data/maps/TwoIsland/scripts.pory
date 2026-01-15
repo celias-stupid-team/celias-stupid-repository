@@ -819,6 +819,10 @@ script TwoIsland_TerritorialOak {
 	removeobject(LOCALID_TWOISLAND_TERRITORIALOAK)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_1)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_2)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_1)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_2)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_3)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_4)
 	release
 }
 

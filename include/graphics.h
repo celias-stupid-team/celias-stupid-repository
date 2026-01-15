@@ -12704,3 +12704,6 @@ extern const u8 gMonIcon_UNITEDKINGDOM[];
 
 extern const u32 gTrainerFrontPic_SansTrainer[];
 extern const u32 gTrainerPalette_SansTrainer[];
+
+extern const u32 gItemIcon_Ragecandybar[];
+extern const u32 gItemIconPalette_Ragecandybar[];

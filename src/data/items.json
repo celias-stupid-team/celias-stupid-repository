@@ -7385,6 +7385,23 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "RAGECANDYBAR",
+      "itemId": "ITEM_RAGECANDYBAR",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "There's a universe where this\\nitem was instead called the\\n“CAKE OF RAGE.”",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_Medicine",
+      "battleUsage": 1,
+      "battleUseFunc": "BattleUseFunc_Medicine",
+      "secondaryId": 0
+    },
     }
   ]
 }

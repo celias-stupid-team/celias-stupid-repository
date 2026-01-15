@@ -4134,7 +4134,6 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM27_VACUUM_CUT)
                                         | TMHM(TM28_TOMBSTONER)
                                         | TMHM(TM31_MUD_SLAP)
-                                        | TMHM(TM32_BRICK_BREAK)
                                         | TMHM(TM37_KNOCK_OFF)
                                         | TMHM(TM39_FAINT_ATTACK)
                                         | TMHM(TM42_CRABHAMMER)
@@ -9345,7 +9344,7 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_ROGGENROLA]    = TMHM_LEARNSET(0),
 	[SPECIES_BOLDORE]    = TMHM_LEARNSET(0),
 	[SPECIES_GIGALITH]    = TMHM_LEARNSET(0),
-	[SPECIES_WOOBAT]    = TMHM_LEARNSET(0),
+	[SPECIES_WOOBAT]    = TMHM_LEARNSET(TMHM(TM42_CRABHAMMER)),
 	[SPECIES_SWOOBAT]    = TMHM_LEARNSET(0),
 	[SPECIES_DRILBUR]    = TMHM_LEARNSET(0),
 	[SPECIES_EXCADRILL]    = TMHM_LEARNSET(0),
@@ -10326,7 +10325,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_MIMIC)),
-	[SPECIES_DITTO_MEW]    = TMHM_LEARNSET(0),
+	[SPECIES_DITTO_MEW]    = TMHM_LEARNSET(TMHM(TM42_CRABHAMMER)),
     [SPECIES_UNOWN_LOSS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
                                         TMHM(TM06_TOXIC) |

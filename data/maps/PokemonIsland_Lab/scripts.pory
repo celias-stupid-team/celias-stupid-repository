@@ -325,3 +325,24 @@ script PokemonIslandLab_Dad {
 	release
 	end
 }
+
+script PokemonIslandLab_Computer {
+	msgbox(
+	"There's an e-mail message.\p"
+
+	"Skimming it, you find that Mr.\n"
+	"Gadaffi is after IVY too.", MSGBOX_SIGN)
+
+}
+
+
+script PokemonIslandLab_Computer2 {
+    lock
+	msgbox(
+	"A collection of Photographs!\n"
+	"", MSGBOX_DEFAULT)
+    msgbox(
+	"There will be something funny\n"
+	"trust me", MSGBOX_DEFAULT)
+    release
+}

@@ -11607,7 +11607,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_BIDOOF] = // Dex Mon
     {
         .baseHP = 59,
-        .baseAttack = 150,
+        .baseAttack = 200,
         .baseDefense = 40,
         .baseSpeed = 31,
         .baseSpAttack = 100,
@@ -12962,7 +12962,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
-        .abilities = {ABILITY_ROUGH_SKIN, ABILITY_NONE},
+        .abilities = {ABILITY_SPEED_BOOST, ABILITY_NONE},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,

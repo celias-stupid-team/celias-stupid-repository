@@ -246,3 +246,16 @@ script GreatSea_GrandpasRed {
 	"-CELIA", MSGBOX_SIGN)
 
 }
+
+script GreatSea_TriangleHole {
+	msgbox(
+	"It's a triangle hole.\n"
+	"", MSGBOX_SIGN)
+
+}
+script GreatSea_GirlHole {
+	msgbox(
+	"It's a girl hole.\n"
+	"", MSGBOX_SIGN)
+
+}

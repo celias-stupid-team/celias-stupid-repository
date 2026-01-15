@@ -942,3 +942,6 @@ const u32 gItemIconPalette_CopycatTm[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_Top[] = INCBIN_U32("graphics/items/icons/top.4bpp.lz");
 const u32 gItemIconPalette_Top[] = INCBIN_U32("graphics/items/icon_palettes/top.gbapal.lz");
+
+const u32 gItemIcon_Ragecandybar[] = INCBIN_U32("graphics/items/icons/ragecandybar.4bpp.lz");
+const u32 gItemIconPalette_Ragecandybar[] = INCBIN_U32("graphics/items/icon_palettes/ragecandybar.gbapal.lz");

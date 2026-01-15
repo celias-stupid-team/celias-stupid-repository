@@ -203,14 +203,6 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sRocketWarehouseMapPreviewTilemap,
         .palptr = sRocketWarehouseMapPreviewPalette
     },
-    [MPS_MONEAN_CHAMBER] = {
-        .mapsec = MAPSEC_THIRTY_EIGHT_ISLAND,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    },
     [MPS_DOTTED_HOLE] = {
         .mapsec = MAPSEC_PRIZE_EXCHANGE,
         .type = MPS_TYPE_CAVE,

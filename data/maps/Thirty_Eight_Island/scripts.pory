@@ -375,10 +375,16 @@ script ThirtyEightIsland_thirdberry {
 
 script ThirtyEightIsland_HeadbuttMan {
 	lock
+	playmoncry(SPECIES_MAGMAR, CRY_MODE_DEFAULT)
 	msgbox(
-	"headbutt joke\n"
+	"MAGMAR: Mrrrarh!\n"
 	"", MSGBOX_DEFAULT)
+	waitmoncry
 	closemessage
+	delay(20)
+	msgbox(
+	"He's using his favorite move:\n"
+	"{PAUSE 30}HEAD{PAUSE 10} BUTT!", MSGBOX_DEFAULT)
 	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	if(var(VAR_RESULT) == DIR_SOUTH || var(VAR_RESULT) == DIR_NORTH) {
 		applymovement(LOCALID_PLAYER, moves(
@@ -547,12 +553,21 @@ script ThirtyEightIsland_LassMazeJumpscare {
 	msgbox(
 	"LASS: Guh… … …\n"
 	"", MSGBOX_DEFAULT)
-	closemessage
 	fadedefaultbgm
+	trainerbattle_no_intro(TRAINER_WATER_MAZE_LASS, "Blub blub…")
+	msgbox(
+	"Y'know, I'm really not a fan of\n"
+	"this{PAUSE 20} “GREAT SEE” business.", MSGBOX_DEFAULT)
+	closemessage
+	playse(SE_LEDGE)
+	applymovement(LOCALID_OCEAN_MAZE_JUMPSCARE, moves(
+		jump_in_place_left
+	))
+	waitmovement(0)
+	playse(SE_M_WATERFALL)
 	setvar(VAR_CSR_OCEAN_LASS_MAZE, 2)
 	removeobject(LOCALID_OCEAN_MAZE_JUMPSCARE)
 	release
-
 
 }
 
@@ -589,6 +604,7 @@ script ThirtyEightIsland_CalmHoothoot {
 	showmonpic(SPECIES_HOOTHOOT, 10, 3)
 	waitbuttonpress
 	hidemonpic
+	closemessage
 	delay(30)
 	msgbox(
 	"HOOTHOOT's SP. ATK and SP. DEF\n"
@@ -671,4 +687,49 @@ script ThirtyEightIsland_NorthDad {
 	call(EventScript_DadHeal)
 	release
 	end
+}
+
+script LassMazeWater_Fences {
+	lock
+	msgbox(
+	"The water has been intricately\n"
+	"painted to resemble grass that\l"
+	"has been intricately painted to\l"
+	"resemble a fence.", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	msgbox(
+	"Your head hurts,{PAUSE 30} but nonetheless\n"
+	"you're impressed.", MSGBOX_DEFAULT)
+	release
+}
+
+script LassMazeWater_Nothing {
+	lock
+	msgbox(
+	"…Nope!\n"
+	"Nothing but NOTHING!", MSGBOX_DEFAULT)
+	if(!flag(FLAG_LASS_MAZE_WATER_NOTHING)) {
+		setflag(FLAG_LASS_MAZE_WATER_NOTHING)
+		finditem(ITEM_NOTHING)
+	}
+}
+
+script LassMazeWater_NothingSign {
+	msgbox(
+	"TRAINER TIPS!\p"
+
+	"There is SOMETHING up here!\n"
+	"{PAUSE 30}…maybe.", MSGBOX_SIGN)
+
+}
+
+
+script LassMazeWater_WaterSign {
+	msgbox(
+	"TRAINER TIPS!\p"
+
+	"Don't fall into the water!\n"
+	"", MSGBOX_SIGN)
+
 }

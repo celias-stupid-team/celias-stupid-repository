@@ -21,8 +21,11 @@ script NationalPark_TrashCan {
 }
 script NationalPark_TrashCan2 {
 	msgbox(
-	"It's the JOHTO level curve!\n"
-	"", MSGBOX_SIGN)
+	"{PLAYER} looked through the\n"
+	"trash…\p"
+
+	"Wow!\n"
+	"It's the JOHTO level curve!", MSGBOX_SIGN)
 
 }
 

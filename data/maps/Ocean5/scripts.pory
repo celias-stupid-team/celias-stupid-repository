@@ -54,3 +54,14 @@ script GreatSea_HalfWasland {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script GreatSea_HalfIsland_999 {
+	msgbox(
+	"Oh, wow!\p"
+
+	"It's the Steam port of Zero Escape\n"
+	"9 Hours 9 Persons 9 Doors!\l"
+	"In Adventure mode!", MSGBOX_SIGN)
+
+}

@@ -138,7 +138,7 @@ script VermilionHarbor_Item {
 			applymovement(VAR_LAST_TALKED, moves(
 				set_invisible
 			))
-			giveitem_msg("{PLAYER} found one RAGECANDYBAR!\n", ITEM_CASTELIACONE)
+			giveitem_msg("{PLAYER} found one RAGECANDYBAR!\n", ITEM_RAGECANDYBAR)
 		case 3:
 			goto(VermilionHarbor_FuckingFuck)
 	}

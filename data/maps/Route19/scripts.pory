@@ -265,23 +265,43 @@ script Route19_LookerScene {
 }
 
 script Route19_CeliaAsksYouNotToGo {
-	msgbox(
-	"CELIA: Psssst…!\p"
+	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
+		msgbox(
+		"Don't worry!\n"
+		"You don't need to go back!\p"
 
-	"Just play along for a little bit\n"
-	"longer!\l"
-	"Trust me!", MSGBOX_NPC)
+		"Look through your ITEMS carefully!\n"
+		"", MSGBOX_NPC)
+	} else {
+	msgbox(
+		"CELIA: Psssst…!\p"
+
+		"Just play along for a little bit\n"
+		"longer!\l"
+		"Trust me!", MSGBOX_NPC)
+
+	}
 }
 
 script Route19_CeliaTurnsYouAround {
 	lock
 	textcolor(NPC_TEXT_COLOR_RED)
-	msgbox(
-	"CELIA: Psssst…!\p"
+	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
+		msgbox(
+		"Don't worry!\n"
+		"You don't need to go back!\p"
 
-	"Just play along for a little bit\n"
-	"longer!\l"
-	"Trust me!", MSGBOX_DEFAULT)
+		"Look through your ITEMS carefully!\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"CELIA: Psssst…!\p"
+
+		"Just play along for a little bit\n"
+		"longer!\l"
+		"Trust me!", MSGBOX_DEFAULT)
+
+	}
 	closemessage
 	applymovement(LOCALID_PLAYER, moves(
 		walk_down
@@ -487,11 +507,13 @@ script GreatSea_MinnesotaNorth_Bouy {
 
 
 script GreatSea_WomensSecret { // Swimmer Victoria
+	trainerbattle_single(TRAINER_BACKPACK_SWIMMER, "If I'm wearing a bikini…\n"
+	"where do I put my POKé BALLS?", "Ah!")
 	msgbox(
 	"Where do I keep my POKé BALLS?\p"
 
 	"Tee hee!\n"
-	"Women's secret!", MSGBOX_NPC)
+	"Woman's secret!", MSGBOX_NPC)
 }
 
 script GreatSea_PokeBallStorage {
