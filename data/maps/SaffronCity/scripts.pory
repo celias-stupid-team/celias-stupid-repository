@@ -421,3 +421,23 @@ script SaffronCity_TrainHouses {
 	}
 
 }
+
+
+script SaffronCity_TrainSign {
+	if(!flag(FLAG_SAFFRON_IS_TRAINS)) {
+		lock
+		msgbox(
+		"A particularly un-noteworthy\n"
+		"patch of tiles.\l"
+		"There is nothing here.", MSGBOX_DEFAULT)
+		if(!flag(FLAG_SAFFRON_NOTHING)) {
+			finditem(ITEM_NOTHING)
+			setflag(FLAG_SAFFRON_NOTHING)
+		}
+		release
+	}
+	msgbox(
+	"MAGNET TRAIN\n"
+	"SAFFRON CITY - GOLDEN ROD", MSGBOX_SIGN)
+
+}

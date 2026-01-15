@@ -129,8 +129,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 42,
-      "y": 33,
+      "x": 46,
+      "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -213,10 +213,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 46,
+      "x": 48,
       "y": 22,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -372,6 +372,13 @@
       "elevation": 0,
       "dest_map": "MAP_THIRTY_EIGHT_ISLAND",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 44,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_SAFFRON_CITY",
+      "dest_warp_id": "16"
     }
   ],
   "coord_events": [],
