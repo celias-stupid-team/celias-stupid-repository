@@ -170,7 +170,7 @@ bool8 SetUpFieldMove_Guillotine(void)
 {
     s16 x, y;
     u8 i, j;
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK))
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK) || IsObjectInFrontOfPlayerCuttable())
     {
         VarSet(VAR_USED_CUT, 1);
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;

@@ -406,8 +406,8 @@ script CinnabarIsland_ReviveFossils {
 script CinnabarIsland_Pigmask {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"yeah I love putting stuff together\n"
-	"placeholder", MSGBOX_NPC)
+	"Yeah I love putting stuff together.\n"
+	"", MSGBOX_NPC)
 }
 
 

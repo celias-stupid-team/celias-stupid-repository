@@ -3075,7 +3075,7 @@ static bool32 SetupFunc_Guillotine(void)
         return TRUE;
     }
 
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK))
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK) || IsObjectInFrontOfPlayerCuttable())
     {
         VarSet(VAR_USED_CUT, 1);
         sFieldMoveData = CUT_TYPE_TREE;

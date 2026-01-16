@@ -1005,7 +1005,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route12Again",
+      "secondary_tileset": "gTileset_Route12",
       "border_filepath": "data/layouts/Route13/border.bin",
       "blockdata_filepath": "data/layouts/Route13/map.bin"
     },
@@ -6153,7 +6153,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route12",
+      "secondary_tileset": "gTileset_Route12Again",
       "border_filepath": "data/layouts/GreatSea_PirateBay/border.bin",
       "blockdata_filepath": "data/layouts/GreatSea_PirateBay/map.bin"
     },
@@ -6705,7 +6705,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route12",
+      "secondary_tileset": "gTileset_Route12Again",
       "border_filepath": "data/layouts/Ocean16/border.bin",
       "blockdata_filepath": "data/layouts/Ocean16/map.bin"
     },
