@@ -897,6 +897,12 @@ TCG_NORMAL_2       = F9 1E
 MU                  = F9 1F
 UWU                  = F9 20
 BRAILLE_W                  = F9 2A
+SATURN_B                  = F9 2B
+SATURN_O                  = F9 2C
+SATURN_I                  = F9 2D
+SATURN_N                  = F9 2E
+SATURN_G                  = F9 2F
+SATURN_BANG                  = F9 30
 
 
 EMOJI_UNDERSCORE = F9 D0

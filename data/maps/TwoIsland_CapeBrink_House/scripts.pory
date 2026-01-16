@@ -1,12 +1,16 @@
 raw `
-TwoIsland_CapeBrink_House_MapScripts::
+::
 	.byte 0
 
 
 
 @ See move_tutors.inc
 `
-
+mapscripts TwoIsland_CapeBrink_House_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_TWO_ISLAND_CAVE)
+	}
+}
 
 script TwoIsland_CapeBrink_House_EventScript_StarterTutor {
 	goto_if_questlog (EventScript_ReleaseEnd)

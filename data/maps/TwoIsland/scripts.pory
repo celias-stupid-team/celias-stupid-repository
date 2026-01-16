@@ -758,12 +758,12 @@ script TwoIsland_BurnHeal {
 script TwoIsland_EventScript_SansTest {
 	lock
 	faceplayer
-	fadenewbgm(MUS_NONE)
+	
 	msgbox(
 	"{FONT_COMIC_SANS}sup\n"
 	"", MSGBOX_DEFAULT)
-	closemessage
-	fadedefaultbgm
+	
+	
 	release
 	end
 }

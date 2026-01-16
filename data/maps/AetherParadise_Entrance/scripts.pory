@@ -151,7 +151,7 @@ script AetherParadise_SkuntankBattle {
 	//setflag(FLAG_SYS_KANGA_FIGHT)
 	//setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARIANA)
 	special(StartLegendaryBattle)
-	delay(40)
+	delay(150)
 	specialvar(VAR_RESULT, GetBattleOutcome)
 	switch(var(VAR_RESULT)) {
 		case B_OUTCOME_WON:
@@ -163,6 +163,8 @@ script AetherParadise_SkuntankBattle {
 			removeobject(LOCALID_SKUNTANK)
 			removeobject(LOCALID_KOFFING)
 			removeobject(LOCALID_AETHER_ZUBAT)
+			closemessage
+			delay(60)
 			playbgm(MUS_IKI_TOWN_TEST, TRUE)
 			setvar(VAR_TEMP_0, 2)
 			release

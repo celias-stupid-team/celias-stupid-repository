@@ -213,6 +213,7 @@ script AetherParadise_FestivalPlazaEstablishments {
 }
 
 script FestivalPlaza_Sophacles {
+    textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"Hey, hey!\n"
 	"I don't suppose you'd like to have\l"
