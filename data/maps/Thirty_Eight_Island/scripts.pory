@@ -635,8 +635,12 @@ script ThirtyEightIsland_HoothootWoman {
 
 script ThirtyEightIsland_GoldenRodPointer {
 	msgbox(
-	"Down by shore\n"
-	"placeholder", MSGBOX_NPC)
+	"I hear they're building a fancy\n"
+	"TRAIN STATION in SAFFRON CITY.\l"
+	"I hear it'll connect us together.\p"
+
+	"(stinger)\n"
+	"", MSGBOX_NPC)
 }
 
 

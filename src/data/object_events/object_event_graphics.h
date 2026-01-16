@@ -676,3 +676,5 @@ const u16 gObjectEventPal_BERRY_TREE[] = INCBIN_U16("graphics/object_events/pale
 const u32 gObjectEventPic_MAGMAR[] = INCBIN_U32("graphics/object_events/pics/stupid/MAGMAR.4bpp");
 const u16 gObjectEventPal_MAGMAR[] = INCBIN_U16("graphics/object_events/palettes/MAGMAR.gbapal");
 const u16 gObjectEventPal_FLINT[] = INCBIN_U16("graphics/object_events/palettes/FLINT.gbapal");
+const u32 gObjectEventPic_SURF_DAD[] = INCBIN_U32("graphics/object_events/pics/stupid/SURF_DAD.4bpp");
+const u16 gObjectEventPal_SURF_DAD[] = INCBIN_U16("graphics/object_events/palettes/SURF_DAD.gbapal");

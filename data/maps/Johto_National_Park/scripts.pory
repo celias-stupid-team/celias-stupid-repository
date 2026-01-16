@@ -30,16 +30,41 @@ script NationalPark_TrashCan2 {
 }
 
 script NationalPark_Woman {
+	lock
+	faceplayer
 	msgbox(
 	"My friend in school moved away a\n"
 	"little while ago.\l"
 	"This stinks!\p"
 
 	"He was bad at spelling, but he was\n"
-	"way better than me at HISTORY.\p"
+	"way better than me at HISTORY.", MSGBOX_DEFAULT)
+	random(6)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(
+			"I'm in big trouble now, like in\n"
+			"1963 when ABRAHAM LINCOLN went to\l"
+			"DALLAS!", MSGBOX_DEFAULT)
+		case 1:
+			msgbox(
+			"This is just like in the year 1947\n"
+			"when the BYZANTINES lost to CHINA!", MSGBOX_DEFAULT)
+		case 2:
+			msgbox(
+			"My grades have been falling worse\n"
+			"than OTTOMAN von BISMARCH post-WWI!", MSGBOX_DEFAULT)
+		case 3:
+			msgbox(
+			"I'm losing my head, like MARIE\n"
+			"CURIE in the MEXICAN REVOLUTION.", MSGBOX_DEFAULT)
+		case 4:
+			msgbox(
+			"I'm gonna need a miracle, like when\n"
+			"NELDON MANDELA fought at TRAFALGAR!", MSGBOX_DEFAULT)
+		case 5:
+	}
 
-	"This is just like in the year 1947\n"
-	"when the BYZANTINES lost to CHINA!", MSGBOX_NPC)
 }
 
 script NationalPark_ContestNPC {

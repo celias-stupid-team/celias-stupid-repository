@@ -481,6 +481,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPHEALIA_WALK;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EEVEE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BERRY_TREE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MAGMAR;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SURF_DAD;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -963,4 +964,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_EEVEE] = &gObjectEventGraphicsInfo_EEVEE,
     [OBJ_EVENT_GFX_BERRY_TREE] = &gObjectEventGraphicsInfo_BERRY_TREE,
     [OBJ_EVENT_GFX_MAGMAR] = &gObjectEventGraphicsInfo_MAGMAR,
+    [OBJ_EVENT_GFX_SURF_DAD] = &gObjectEventGraphicsInfo_SURF_DAD,
 };

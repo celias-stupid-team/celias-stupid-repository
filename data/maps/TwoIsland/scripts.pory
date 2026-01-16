@@ -238,6 +238,15 @@ script TwoIsland_OnTransition {
 	if(flag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)) {
 		setobjectmovementtype(LOCALID_DRAGONITE_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
 	}
+	if(flag(FLAG_TWO_ISLAND_FUCK_PRESENT)) {
+		setobjectmovementtype(LOCALID_HBOX_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
+	}
+	if(flag(FLAG_TWO_ISLAND_OTHER_PRESENT)) {
+		setobjectmovementtype(LOCALID_MUSIC_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
+	}
+	if(flag(FLAG_TWO_ISLAND_BOMB_PRESENT)) {
+		setobjectmovementtype(LOCALID_BOMB_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
+	}
 }
 
 script TwoIsland_PencilStatue {
@@ -269,27 +278,50 @@ script TwoIsland_DragonitePresent {
 	lock
 	if(flag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)) {
 		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
 	}
 	applymovement(VAR_LAST_TALKED, moves(
 		face_left
 	))
 	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
 	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox(
+	"There was a\n"
+	"BAG OF DRAGONITE!", MSGBOX_DEFAULT)
+	waitfanfare
 	setflag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)
 	release
 	end
 }
+
 script TwoIsland_BombPresent {
 	lock
 	if(flag(FLAG_TWO_ISLAND_BOMB_PRESENT)) {
 		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
 	}
 	applymovement(VAR_LAST_TALKED, moves(
 		face_left
 	))
 	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
 	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	msgbox(
+	"There was a BOMB inside!\n"
+	"", MSGBOX_DEFAULT)
+	playbgm(MUS_NONE, TRUE)
+	fadescreeninstant(FADE_TO_WHITE)
+	closemessage
+	playse(SE_M_EXPLOSION)
+	waitse
 	setflag(FLAG_TWO_ISLAND_BOMB_PRESENT)
+	msgbox(
+	"{PLAYER} fucking died!\n"
+	"", MSGBOX_DEFAULT)
+	warpsilent(MAP_TWO_ISLAND, 2)
+
 	release
 	end
 }
@@ -297,12 +329,22 @@ script TwoIsland_MusicPresent {
 	lock
 	if(flag(FLAG_TWO_ISLAND_OTHER_PRESENT)) {
 		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
 	}
 	applymovement(VAR_LAST_TALKED, moves(
 		face_left
 	))
 	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
 	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	msgbox(
+	"(insert good music here)\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(60)
+	msgbox(
+	"Ah.\n"
+	"", MSGBOX_DEFAULT)
 	setflag(FLAG_TWO_ISLAND_OTHER_PRESENT)
 	release
 	end
@@ -311,6 +353,8 @@ script TwoIsland_HboxPresent {
 	lock
 	if(flag(FLAG_TWO_ISLAND_FUCK_PRESENT)) {
 		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
 	}
 	applymovement(VAR_LAST_TALKED, moves(
 		face_left
@@ -318,7 +362,9 @@ script TwoIsland_HboxPresent {
 	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
 	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
 	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
-
+	waitmoncry
+	setwildbattle(SPECIES_JIGGLYPUFF, 30)
+	dowildbattle
 	setflag(FLAG_TWO_ISLAND_FUCK_PRESENT)
 	release
 	end
@@ -326,7 +372,17 @@ script TwoIsland_HboxPresent {
 
 script TwoIsland_PsyduckSeller {
 	textcolor(NPC_TEXT_COLOR_RED)
-	msgbox("I'm selling LEMONADE as PROF.\nOAK's POKéMON.", MSGBOX_NPC)
+	lock
+	faceplayer
+	msgbox("I'm selling LEMONADE as PROF.\nOAK's POKéMON.", MSGBOX_DEFAULT)
+	pokemart(PirateBay_Lemonade)
+	release
+}
+
+
+mart PirateBay_Lemonade {
+	ITEM_LEMONADE
+	ITEM_NONE
 }
 
 script TwoIsland_GluedGuy {
