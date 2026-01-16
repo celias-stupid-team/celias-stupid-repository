@@ -31,8 +31,15 @@ script NationalPark_TrashCan2 {
 
 script NationalPark_Woman {
 	msgbox(
-	"National Park\n"
-	"Placeholder NPC", MSGBOX_NPC)
+	"My friend in school moved away a\n"
+	"little while ago.\l"
+	"This stinks!\p"
+
+	"He was bad at spelling, but he was\n"
+	"way better than me at HISTORY.\p"
+
+	"This is just like in the year 1947\n"
+	"when the BYZANTINES lost to CHINA!", MSGBOX_NPC)
 }
 
 script NationalPark_ContestNPC {

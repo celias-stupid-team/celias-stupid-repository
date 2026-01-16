@@ -137,8 +137,8 @@ script Walmart_NPC1 {
 
 script Walmart_NPC2 {
 	msgbox(
-	"walmart placeholder npc 2\n"
-	"", MSGBOX_NPC)
+	"Y'know they call it WAL-MART, but\n"
+	"I can't seem to buy any walls…", MSGBOX_NPC)
 }
 
 script Walmart_Jumpluff {

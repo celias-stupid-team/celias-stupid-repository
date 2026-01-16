@@ -7224,6 +7224,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Chapter7_Chapter2_Chapter7_Chapter_2_Cease_and_desist/border.bin",
       "blockdata_filepath": "data/layouts/Chapter7_Chapter2_Chapter7_Chapter_2_Cease_and_desist/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_PIT",
+      "name": "TwoIsland_PIT",
+      "width": 69,
+      "height": 29,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TwoIsland",
+      "border_filepath": "data/layouts/TwoIsland_PIT/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_PIT/map.bin"
     }
   ]
 }

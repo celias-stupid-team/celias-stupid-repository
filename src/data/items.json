@@ -2369,12 +2369,12 @@
       "secondaryId": 0
     },
     {
-      "english": "RAZZ BERRY",
+      "english": "SALTCUREBRRY",
       "itemId": "ITEM_RAZZ_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Can be ground up into a powder as\\nan ingredient for medicine.",
+      "description_english": "A BERRY for curing salt.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -2385,12 +2385,12 @@
       "secondaryId": 0
     },
     {
-      "english": "BLUK BERRY",
+      "english": "SLTCURCURBRY",
       "itemId": "ITEM_BLUK_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Can be ground up into a powder as\\nan ingredient for medicine.",
+      "description_english": "A BERRY for curing SALT CURE.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -2401,12 +2401,12 @@
       "secondaryId": 0
     },
     {
-      "english": "LIE BRERRY",
+      "english": "HPCBCIDLBBRY",
       "itemId": "ITEM_NANAB_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Can be ground up into a powder as\\nan ingredient for medicine.",
+      "description_english": "“HP CURE BUT CONFUSES IF DISLIKES\\nBITTER” BERRY.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -2465,7 +2465,7 @@
       "secondaryId": 0
     },
     {
-      "english": "KELPSY BERRY",
+      "english": "LIE BRERRY",
       "itemId": "ITEM_KELPSY_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -2481,7 +2481,7 @@
       "secondaryId": 0
     },
     {
-      "english": "QUALOT BERRY",
+      "english": "SWALOT BERRY",
       "itemId": "ITEM_QUALOT_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -2497,7 +2497,7 @@
       "secondaryId": 0
     },
     {
-      "english": "HONDEW BERRY",
+      "english": "HONDWEM BRRY",
       "itemId": "ITEM_HONDEW_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -2513,7 +2513,7 @@
       "secondaryId": 0
     },
     {
-      "english": "GREPA BERRY",
+      "english": "GRETA BERRY",
       "itemId": "ITEM_GREPA_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",

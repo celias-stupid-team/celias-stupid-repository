@@ -145,7 +145,7 @@
     {
       "type": "hidden_item",
       "x": 11,
-      "y": 1,
+      "y": -1,
       "elevation": 3,
       "item": "ITEM_BASCI_BERRY_WHITE",
       "flag": "FLAG_HIDDEN_ITEM_POKEMON_TOWER_7F_SOOTHE_BELL",
@@ -159,6 +159,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonTower_Trailer"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTower_CeliaRoom_BerryPowder"
     }
   ]
 }

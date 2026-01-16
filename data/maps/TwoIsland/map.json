@@ -124,6 +124,7 @@
       "flag": "NULL"
     },
     {
+      "local_id": "LOCALID_TWO_ISLAND_MUSHROOM_KID",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
       "x": 49,
@@ -140,8 +141,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MR_T",
-      "x": 27,
-      "y": 7,
+      "x": 29,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -152,6 +153,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_TWO_ISLAND_PENCIL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PENCIL",
       "x": 47,
@@ -180,6 +182,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_HBOX_PRESENT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PRESENT",
       "x": 53,
@@ -190,8 +193,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwoIsland_EventScript_ItemRevive",
-      "flag": "FLAG_HIDE_TWO_ISLAND_REVIVE"
+      "script": "TwoIsland_HboxPresent",
+      "flag": "0"
     },
     {
       "type": "object",
@@ -397,8 +400,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
-      "x": 30,
-      "y": 16,
+      "x": 28,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -493,6 +496,36 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_Buoy_TwoIslandLeft",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_BOMB_PRESENT",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PRESENT",
+      "x": 32,
+      "y": 1,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TwoIsland_DragonitePresent",
+      "flag": "NULL"
+    },
+    {
+      "local_id": "LOCALID_MUSIC_PRESENT",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PRESENT",
+      "x": 28,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TwoIsland_MusicPresent",
+      "flag": "NULL"
     }
   ],
   "warp_events": [
@@ -539,15 +572,88 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TwoIsland_ThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "TwoIsland_NoThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "TwoIsland_NoThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "TwoIsland_NoThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "TwoIsland_NoThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "TwoIsland_NoThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "TwoIsland_NoThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "2",
+      "script": "TwoIsland_NoThePit"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 35,
-      "y": 16,
+      "x": 43,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "TwoIsland_EventScript_IslandSign"
+      "script": "TwoIsland_FallingObjects"
     },
     {
       "type": "sign",

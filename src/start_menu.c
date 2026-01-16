@@ -39,6 +39,7 @@
 #include "config/debug.h"
 #include "constants/songs.h"
 #include "constants/field_weather.h"
+#include "constants/maps.h"
 
 enum StartMenuOption
 {
@@ -857,7 +858,15 @@ static u8 SaveDialogCB_AskOverwriteOrReplacePreviousFileHandleInput(void)
 static u8 SaveDialogCB_PrintSavingDontTurnOffPower(void)
 {
     SaveQuestLogData();
-    PrintSaveTextWithFollowupFunc(gText_SavingDontTurnOffThePower, SaveDialogCB_DoSave);
+    if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FOUR_ISLAND) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND)) 
+    {
+        PrintSaveTextWithFollowupFunc(gText_SavingALotOfDataDontTurnOffThePower, SaveDialogCB_DoSave);
+
+    } else
+    {
+
+        PrintSaveTextWithFollowupFunc(gText_SavingDontTurnOffThePower, SaveDialogCB_DoSave);
+    }
     return SAVECB_RETURN_CONTINUE;
 }
 

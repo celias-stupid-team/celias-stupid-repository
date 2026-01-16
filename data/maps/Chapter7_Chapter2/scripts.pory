@@ -1,7 +1,9 @@
 mapscripts Chapter7_Chapter2_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_0, 0 {
-            setflag(FLAG_CHAPTER_7_CHAPTER_2)
+            if(flag(FLAG_CHAPTER_7_CHAPTER_2)) {
+                warpsilent(MAP_SILPH_CO_1F, 0)
+            }
             delay(60)
             playse(SE_SWITCH)
             setlayouttiles(LAYOUT_CHAPTER7_CHAPTER2_C, 0, 0, 0, 0, 14, 10)
@@ -74,6 +76,7 @@ mapscripts Chapter7_Chapter2_MapScripts {
             delay(90)
             playse(SE_CLICK)
             setlayouttiles(LAYOUT_CHAPTER7_CHAPTER2, 0, 0, 0, 0, 14, 10)
+            setflag(FLAG_CHAPTER_7_CHAPTER_2)
             delay(60)
             warpsilent(MAP_SILPH_CO_1F, 1)
             release

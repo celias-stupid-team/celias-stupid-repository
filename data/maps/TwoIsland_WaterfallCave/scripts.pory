@@ -44,4 +44,5 @@ script WaterfallCave_MoveTutor {
 		"I'm sure you'll need them someday.\n"
 		"", MSGBOX_DEFAULT)
 	}
+	release
 }

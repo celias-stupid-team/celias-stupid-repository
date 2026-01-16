@@ -2185,7 +2185,15 @@ static u8 SaveFileExistsCallback(void)
 
 static u8 SaveSavingMessageCallback(void)
 {
-    ShowSaveMessage(gText_SavingDontTurnOffThePower, SaveDoSaveCallback);
+    if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FOUR_ISLAND) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND)) 
+    {
+        ShowSaveMessage(gText_SavingALotOfDataDontTurnOffThePower, SaveDoSaveCallback);
+
+    } else
+    {
+        ShowSaveMessage(gText_SavingDontTurnOffThePower, SaveDoSaveCallback);
+    }
+    
     return SAVE_IN_PROGRESS;
 }
 

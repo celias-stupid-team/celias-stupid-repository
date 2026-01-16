@@ -10514,3 +10514,12 @@ static const struct TrainerMonItemCustomMoves sParty_Sans[] = {
         .moves = {MOVE_FURY_SWIPES, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+static const struct TrainerMonItemCustomMoves sParty_TerritorialOak[] = {
+    {
+        .iv = 0,
+        .lvl = 100,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_SUDOWOODO,
+        .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};

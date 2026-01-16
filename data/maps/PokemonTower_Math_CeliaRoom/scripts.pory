@@ -79,6 +79,16 @@ script PokemonTower_CeliaRoom_Shorts {
 }
 
 
+script PokemonTower_CeliaRoom_Smitty {
+	msgbox(
+	"HERE LIES SMITTY WERBENMANJENSEN\p"
+
+	"HE WAS {PAUSE 30}THE ONE.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
 script PokemonTower_CeliaRoom_BerryPowder {
     lock
 	msgbox("Here lies the BERRY POWDER MAN.\pMay he rest in peace.\n", MSGBOX_DEFAULT)

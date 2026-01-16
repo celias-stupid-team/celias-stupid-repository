@@ -607,7 +607,7 @@
 #define FLAG_0x229               0x229
 #define FLAG_0x22A               0x22A
 #define FLAG_0x22B               0x22B
-#define FLAG_0x22C               0x22C
+#define FLAG_TWO_ISLAND_BOMB_PRESENT               0x22C
 #define FLAG_CAUGHT_MR_FUJI               0x22D
 #define FLAG_CAUGHT_VERMILION_SEAL               0x22E
 #define FLAG_CSR_CELIA_DEV_CREW               0x22F

@@ -344,9 +344,10 @@ script ThirtyEightIsland_Saltcureberry {
 	removeobject(VAR_LAST_TALKED)
 	playfanfare(MUS_LEVEL_UP)
 	msgbox(
-	"you found\n"
+	"{PLAYER} found\n"
 	"SALTCURBERRY", MSGBOX_DEFAULT)
 	waitfanfare
+	additem(ITEM_RAZZ_BERRY)
 	release
 }
 script ThirtyEightIsland_otherberry {
@@ -354,9 +355,10 @@ script ThirtyEightIsland_otherberry {
 	removeobject(VAR_LAST_TALKED)
 	playfanfare(MUS_LEVEL_UP)
 	msgbox(
-	"you found\n"
+	"{PLAYER} found\n"
 	"SALTCURECUREBERRY", MSGBOX_DEFAULT)
 	waitfanfare
+	additem(ITEM_BLUK_BERRY)
 	release
 }
 script ThirtyEightIsland_thirdberry {
@@ -364,9 +366,10 @@ script ThirtyEightIsland_thirdberry {
 	removeobject(VAR_LAST_TALKED)
 	playfanfare(MUS_LEVEL_UP)
 	msgbox(
-	"you found\n"
+	"{PLAYER} found\n"
 	"HPCURECONFUSEIFDISLIKEBITTERBERRY!", MSGBOX_DEFAULT)
 	waitfanfare
+	additem(ITEM_NANAB_BERRY)
 	release
 
 }
