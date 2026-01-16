@@ -7236,6 +7236,18 @@
       "secondary_tileset": "gTileset_TwoIsland",
       "border_filepath": "data/layouts/TwoIsland_PIT/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland_PIT/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOOTOPOLIS_NO_CENTER",
+      "name": "Sootopolis_NoCenter",
+      "width": 60,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands123",
+      "border_filepath": "data/layouts/Sootopolis_NoCenter/border.bin",
+      "blockdata_filepath": "data/layouts/Sootopolis_NoCenter/map.bin"
     }
   ]
 }

@@ -1,6 +1,4 @@
 raw `
-PokemonMansion_B1F_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, PokemonMansion_B1F_OnLoad
 	.byte 0
 
 PokemonMansion_B1F_OnLoad::
@@ -30,7 +28,25 @@ PokemonMansion_B1F_EventScript_Ivan::
 	msgbox PokemonMansion_B1F_Text_IvanPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
-
+mapscripts PokemonMansion_B1F_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_POKEMON_MANSION_LAVAFALL, 1 {
+			delay(20)
+			playbgm(MUS_NONE, TRUE)
+			playse(SE_M_EMBER)
+			fadescreeninstant(FADE_TO_WHITE)
+			waitse
+			delay(60)
+			msgbox(
+			"{PLAYER} fucking died!\n"
+			"", MSGBOX_DEFAULT)
+			closemessage
+			setvar(VAR_POKEMON_MANSION_LAVAFALL, 0)
+			warpsilent(MAP_POKEMON_MANSION_2F, 4)
+			release
+		}
+	]
+}
 
 script PokemonMansion_Regice {
 	lock

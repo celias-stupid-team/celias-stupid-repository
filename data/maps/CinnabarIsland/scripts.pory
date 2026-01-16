@@ -706,3 +706,32 @@ script CinnabarIsland_Camper {
 	"Say, wasn't there a MANSION here\n"
 	"a minute ago?", MSGBOX_NPC)
 }
+
+script CinnabarIsland_BlueFridge {
+	msgbox(
+	"The BLUE fridge is full of BLUE\n"
+	"cheese.\p"
+
+	"There are no bodies.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script CinnabarIsland_BlueBookshelf {
+	lock
+	msgbox(
+	"Let's see if the BLUE bookshelf\n"
+	"has anything interesting…", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(Text_Bookshelf)
+	closemessage
+	delay(60)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"Well, the text was blue.\n"
+	"", MSGBOX_DEFAULT)
+	release
+}

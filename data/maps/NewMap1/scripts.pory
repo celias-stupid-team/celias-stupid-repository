@@ -5,6 +5,12 @@ mapscripts NewMap1_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_CSR_MAP_SOOTOPOLIS)
 		call(SetPlayerPokedexValues)
+		
+		if(!flag(FLAG_BADGE07_GET)) {
+			setmaplayoutindex(LAYOUT_SOOTOPOLIS_NO_CENTER)
+		}
+	}
+	MAP_SCRIPT_ON_LOAD {
 	}
 }
 script Sootopolis_EventScript_Dad {

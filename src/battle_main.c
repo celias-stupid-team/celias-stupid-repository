@@ -462,7 +462,6 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_TEAM, 25},
     {TRAINER_CLASS_CHAMPION_2, 50},
     {TRAINER_CLASS_IMPOSTER, 50},
-    {TRAINER_CLASS_MASTER, 25},
     {TRAINER_CLASS_RAPPER, 50},
     {TRAINER_CLASS_COP, 50},
     {TRAINER_CLASS_SKIRT, 50},
@@ -475,6 +474,8 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_ELITE_FOUR_CYNTHIA, 50},
     {TRAINER_CLASS_MYSTERIOUS, 50},
     {TRAINER_CLASS_TERRITORIAL, 50},
+    {TRAINER_CLASS_RIVAL_MAY, 50},
+    {TRAINER_CLASS_MASTER, 50},
     
     { 0xFF, 5},
 };

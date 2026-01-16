@@ -1051,6 +1051,7 @@ SECTIONS {
         sound/songs/midi/mus_se_deskslam.o(.rodata);
         sound/songs/midi/mus_se_guilty.o(.rodata);
         sound/songs/midi/mus_dragon_ball.o(.rodata);
+        sound/songs/midi/mus_mus_vs_rival.o(.rodata);
 
     } > ROM =0
 

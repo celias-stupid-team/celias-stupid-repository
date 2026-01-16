@@ -5148,6 +5148,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc func)
     if (GetMonData(mon, MON_DATA_LEVEL) != MAX_LEVEL && GetMonData(mon, MON_DATA_LEVEL) < GetCurrentLevelCap(GetMonData(mon, MON_DATA_SPECIES, NULL)))
         noEffect = PokemonItemUseNoEffect(mon, item, gPartyMenu.slotId, 0);
     else
+        
         noEffect = TRUE;
     //PlaySE(SE_SELECT);
     if (noEffect)
@@ -5172,6 +5173,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc func)
         else
         {
             gPartyMenuUseExitCallback = FALSE;
+            
             DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
             ScheduleBgCopyTilemapToVram(2);
             gTasks[taskId].func = func;

@@ -4046,7 +4046,7 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_EliteFourAgatha),
     },
     [TRAINER_ELITE_FOUR_LANCE] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_EARLY,
+        .trainerClass = TRAINER_CLASS_RIVAL_MAY,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_RS_MAY_2,
         .trainerName = _("MAY"),
@@ -4066,7 +4066,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_LeaderBrock),
     },
     [TRAINER_LEADER_MISTY] = {
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE | F_TRAINER_FEMALE,
         .trainerPic = TRAINER_PIC_LEADER_MISTY,
         .trainerName = _("MISTY"),
@@ -6930,6 +6930,17 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_LASS,
         .trainerName = _("MILLY"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_OceanMazeLass),
+    },
+
+    [TRAINER_AROUND_WORLD_LASS] = {
+        .trainerClass = TRAINER_CLASS_LASS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_LASS,
+        .trainerName = _("NINA"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,

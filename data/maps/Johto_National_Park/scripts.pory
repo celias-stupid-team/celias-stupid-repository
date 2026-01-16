@@ -39,13 +39,13 @@ script NationalPark_Woman {
 
 	"He was bad at spelling, but he was\n"
 	"way better than me at HISTORY.", MSGBOX_DEFAULT)
-	random(6)
+	random(5)
 	switch(var(VAR_RESULT)) {
 		case 0:
 			msgbox(
-			"I'm in big trouble now, like in\n"
-			"1963 when ABRAHAM LINCOLN went to\l"
-			"DALLAS!", MSGBOX_DEFAULT)
+			"I'm in big trouble, like in 1963\n"
+			"when ABRAHAM LINCOLN went to DALLAS!"
+			"", MSGBOX_DEFAULT)
 		case 1:
 			msgbox(
 			"This is just like in the year 1947\n"
@@ -63,7 +63,11 @@ script NationalPark_Woman {
 			"I'm gonna need a miracle, like when\n"
 			"NELDON MANDELA fought at TRAFALGAR!", MSGBOX_DEFAULT)
 		case 5:
+			msgbox(
+			"I'll be struggling like CAESER when\n"
+			"he invaded VIETNAM in the winter!", MSGBOX_DEFAULT)
 	}
+	release
 
 }
 

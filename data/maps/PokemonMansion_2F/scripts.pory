@@ -51,3 +51,13 @@ script PokemonMansion_Diary3 {
 	"This baby is a demon child!", MSGBOX_SIGN)
 
 }
+
+
+script PokemonMansion_SetFallInLava {
+	setvar(VAR_POKEMON_MANSION_LAVAFALL, 1)
+	release
+}
+script PokemonMansion_ClearFallInLava {
+	setvar(VAR_POKEMON_MANSION_LAVAFALL, 0)
+	release
+}

@@ -498,6 +498,9 @@ script TwoIsland_ForSaleMan {
 		msgbox(
 		"{PLAYER} purchased the\n"
 		"FOR SALE sign!", MSGBOX_DEFAULT)
+		if(var(VAR_NUMBER_FOR_SALES) < 8) {
+			addvar(VAR_NUMBER_FOR_SALES, 1)
+		}
 		waitfanfare
 		closemessage
 		delay(30)
@@ -1127,6 +1130,14 @@ script TwoIsland_NoThePit {
 script TwoIsland_Trees {
 	msgbox(
 	"That's not DR. ANDONUTS, silly!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script TwoIsland_NoProblem {
+	msgbox(
+	"No problem here.\n"
 	"", MSGBOX_SIGN)
 
 }

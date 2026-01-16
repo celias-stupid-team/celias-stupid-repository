@@ -12707,3 +12707,6 @@ extern const u32 gTrainerPalette_SansTrainer[];
 
 extern const u32 gItemIcon_Ragecandybar[];
 extern const u32 gItemIconPalette_Ragecandybar[];
+
+extern const u32 gItemIcon_Meat[];
+extern const u32 gItemIconPalette_Meat[];

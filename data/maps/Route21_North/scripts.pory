@@ -39,7 +39,8 @@ script Route21_AroundTheWorld {
 	msgbox(
 	"Hey!\n"
 	"Don't look at me!", MSGBOX_DEFAULT)
-	fadedefaultbgm
+	playbgm(MUS_ROUTE11, TRUE)
+	trainerbattle_no_intro(TRAINER_AROUND_WORLD_LASS, "After I came all this way-!")
 	msgbox(
 	"after battle\n"
 	"", MSGBOX_DEFAULT)

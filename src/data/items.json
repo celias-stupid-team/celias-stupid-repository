@@ -5259,10 +5259,10 @@
       "price": 5500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "The foe is incinerated with an\\nintense flame. It may leave the\\ntarget with a burn.",
+      "description_english": "STEVEN STONE's favorite move.\\nIt may help a certain desert\\nman remember something.",
       "importance": 0,
       "registrability": 0,
-      "pocket": "POCKET_TM_CASE",
+      "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
       "fieldUseFunc": "NULL",
       "battleUsage": 0,
@@ -7401,7 +7401,22 @@
       "battleUsage": 1,
       "battleUseFunc": "BattleUseFunc_Medicine",
       "secondaryId": 0
-    
+    },
+    {
+      "english": "MEAT",
+      "itemId": "ITEM_MEAT",
+      "price": 500,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A lump of prime meat.\\nNo one knows what the original\\nsource was…",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

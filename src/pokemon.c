@@ -6122,8 +6122,9 @@ static u16 GetBattleBGM(void)
             return MUS_CYNTHIA_BATTLE;
         case TRAINER_CLASS_MYSTERIOUS:
             return MUS_MEGALOVANIA;
+        case TRAINER_CLASS_RIVAL_MAY:
+            return MUS_MUS_VS_RIVAL;
 
-            
         case TRAINER_CLASS_DMCA:
         case TRAINER_CLASS_BUTTERFINGERS:
             return MUS_CSR_DMCA_BATTLE;

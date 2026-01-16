@@ -945,3 +945,6 @@ const u32 gItemIconPalette_Top[] = INCBIN_U32("graphics/items/icon_palettes/top.
 
 const u32 gItemIcon_Ragecandybar[] = INCBIN_U32("graphics/items/icons/ragecandybar.4bpp.lz");
 const u32 gItemIconPalette_Ragecandybar[] = INCBIN_U32("graphics/items/icon_palettes/ragecandybar.gbapal.lz");
+
+const u32 gItemIcon_Meat[] = INCBIN_U32("graphics/items/icons/meat.4bpp.lz");
+const u32 gItemIconPalette_Meat[] = INCBIN_U32("graphics/items/icon_palettes/meat.gbapal.lz");
