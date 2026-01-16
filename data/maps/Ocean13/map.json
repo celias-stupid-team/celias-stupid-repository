@@ -1701,6 +1701,62 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LassMazeWater_WaterSign"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LassMazeWater_Fences"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LassMazeWater_Fences"
+    },
+    {
+      "type": "sign",
+      "x": 49,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LassMazeWater_Fences"
+    },
+    {
+      "type": "sign",
+      "x": 49,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LassMazeWater_Fences"
+    },
+    {
+      "type": "sign",
+      "x": 49,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LassMazeWater_Fences"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LassMazeWater_Fences"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LassMazeWater_Fences"
     }
   ]
 }
