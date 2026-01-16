@@ -2333,14 +2333,14 @@ bool8 CapeBrinkGetMoveToTeachLeadPokemon(void)
             break;
         }
     }
-    if (tutorMonId > 3)
+    if (tutorMonId < 3)
     {
         StringCopy(gStringVar2, gLongMoveNames[MOVE_GRASS_PLEDGE]);
         gSpecialVar_0x8005 = MOVETUTOR_GRASS_PLEDGE;
         if (FlagGet(FLAG_TUTOR_GRASS_PLEDGE) == TRUE)
             return FALSE;
     }
-    else if (tutorMonId < 3)
+    else if (tutorMonId > 3)
     {
         StringCopy(gStringVar2, gLongMoveNames[MOVE_FIRE_PLEDGE]);
         gSpecialVar_0x8005 = MOVETUTOR_FIRE_PLEDGE;

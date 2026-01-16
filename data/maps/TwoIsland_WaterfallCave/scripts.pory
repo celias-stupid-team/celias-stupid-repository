@@ -1,5 +1,7 @@
 mapscripts TwoIsland_WaterfallCave_MapScripts {
-
+	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_TWO_ISLAND_CAVE)
+	}
 }
 
 script WaterfallCave_MoveTutor {
