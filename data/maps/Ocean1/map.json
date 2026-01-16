@@ -13,33 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE19",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN2",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_FUSHCIA_CITY",
-      "offset": -55,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE15",
-      "offset": -34,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_FOUR_ISLAND",
-      "offset": 12,
-      "direction": "down"
-    }
-  ],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

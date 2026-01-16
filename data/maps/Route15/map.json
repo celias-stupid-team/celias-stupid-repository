@@ -25,9 +25,9 @@
       "direction": "right"
     },
     {
-      "map": "MAP_OCEAN1",
-      "offset": 34,
-      "direction": "left"
+      "map": "MAP_OCEAN9",
+      "offset": 28,
+      "direction": "right"
     },
     {
       "map": "MAP_FOUR_ISLAND",
@@ -38,11 +38,6 @@
       "map": "MAP_OCEAN2",
       "offset": -9,
       "direction": "down"
-    },
-    {
-      "map": "MAP_OCEAN9",
-      "offset": 28,
-      "direction": "right"
     }
   ],
   "object_events": [

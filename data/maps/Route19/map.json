@@ -26,23 +26,18 @@
     },
     {
       "map": "MAP_ONE_ISLAND",
-      "offset": 1,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN1",
       "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_OCEAN2",
-      "offset": 6,
-      "direction": "right"
+      "direction": "left"
     },
     {
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
       "offset": -44,
       "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN2",
+      "offset": 5,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -168,7 +163,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FLAMES_BETTER",
       "x": 24,
-      "y": 3,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -182,7 +177,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
       "x": 25,
-      "y": 3,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
