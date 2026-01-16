@@ -5255,3 +5255,4 @@ BattleScript_EffectMultiHitThree::
 	setmultihitcounter 3
 	initmultihitstring
 	goto BattleScript_MultiHitLoop
+

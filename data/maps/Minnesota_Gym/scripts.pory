@@ -125,6 +125,17 @@ script MinnesotaGym_WeightLine {
     waitmovement(0)
     release
 }
+script MinnesotaGym_WeightLineBack {
+    lock
+    faceplayer
+    msgbox(
+	"Line starts back here, bub.\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+}
 
 script MinnesotaGym_BikingKid {
     lock
@@ -137,10 +148,11 @@ script MinnesotaGym_BikingKid {
     closemessage
     //sound effect
     applymovement(VAR_LAST_TALKED, moves(
-        walk_in_place_faster_right * 20
+        walk_in_place_faster_right * 25
     ))
     delay(60)
     playse(SE_M_TAKE_DOWN)
+    waitse
     waitmovement(0)
     applymovement(VAR_LAST_TALKED, moves(
         walk_faster_right * 9

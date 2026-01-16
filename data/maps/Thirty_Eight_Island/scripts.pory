@@ -385,6 +385,7 @@ script ThirtyEightIsland_HeadbuttMan {
 	msgbox(
 	"He's using his favorite move:\n"
 	"{PAUSE 30}HEAD{PAUSE 10} BUTT!", MSGBOX_DEFAULT)
+	closemessage
 	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	if(var(VAR_RESULT) == DIR_SOUTH || var(VAR_RESULT) == DIR_NORTH) {
 		applymovement(LOCALID_PLAYER, moves(
@@ -553,7 +554,7 @@ script ThirtyEightIsland_LassMazeJumpscare {
 	msgbox(
 	"LASS: Guh… … …\n"
 	"", MSGBOX_DEFAULT)
-	fadedefaultbgm
+	playbgm(MUS_SURF, TRUE)
 	trainerbattle_no_intro(TRAINER_WATER_MAZE_LASS, "Blub blub…")
 	msgbox(
 	"Y'know, I'm really not a fan of\n"
@@ -713,6 +714,7 @@ script LassMazeWater_Nothing {
 		setflag(FLAG_LASS_MAZE_WATER_NOTHING)
 		finditem(ITEM_NOTHING)
 	}
+	release
 }
 
 script LassMazeWater_NothingSign {

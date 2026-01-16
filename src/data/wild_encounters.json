@@ -26128,14 +26128,14 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_POLIWAG"
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_LUVDISC"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_POLIWAG"
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_LUVDISC"
               },
               {
                 "min_level": 15,
