@@ -372,6 +372,13 @@
       "elevation": 0,
       "dest_map": "MAP_THIRTY_EIGHT_ISLAND",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 44,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SAFFRON_CITY",
+      "dest_warp_id": "16"
     }
   ],
   "coord_events": [],
