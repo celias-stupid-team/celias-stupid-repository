@@ -1061,7 +1061,6 @@ static const struct LevelUpMove sMagnemiteLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_METAL_SOUND),
     LEVEL_UP_MOVE(1, MOVE_TACKLE),
     LEVEL_UP_MOVE(6, MOVE_THUNDER_SHOCK),
-    LEVEL_UP_MOVE(11, MOVE_SUPERSONIC),
     LEVEL_UP_MOVE(16, MOVE_SONIC_BOOM),
     LEVEL_UP_MOVE(21, MOVE_THUNDER_WAVE),
     LEVEL_UP_MOVE(26, MOVE_SPARK),
@@ -1190,7 +1189,6 @@ static const struct LevelUpMove sShellderLevelUpLearnset[] = {
 
 static const struct LevelUpMove sCloysterLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_WITHDRAW),
-    LEVEL_UP_MOVE(1, MOVE_SUPERSONIC),
     LEVEL_UP_MOVE(1, MOVE_AURORA_BEAM),
     LEVEL_UP_MOVE(1, MOVE_PROTECT),
     LEVEL_UP_MOVE(36, MOVE_SPIKES),
@@ -1587,7 +1585,6 @@ static const struct LevelUpMove sSeakingLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_PECK),
     LEVEL_UP_MOVE(0, MOVE_TAIL_WHIP),
     LEVEL_UP_MOVE(0, MOVE_WATER_SPORT),
-    LEVEL_UP_MOVE(0, MOVE_SUPERSONIC),
     LEVEL_UP_MOVE(0, MOVE_HORN_ATTACK),
     LEVEL_UP_MOVE(0, MOVE_FLAIL),
     LEVEL_UP_MOVE(0, MOVE_WATERFALL),

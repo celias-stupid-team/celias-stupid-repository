@@ -1,5 +1,10 @@
 mapscripts FourIsland_AmitySquare_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_OPENED_SKY_TOWER)) {
+			setflag(FLAG_TEMP_5)
 
+		}
+	}
 }
 
 
@@ -109,5 +114,14 @@ script AmitySquare_NineIsland {
 	"The message is faded.\n"
 	"", MSGBOX_DEFAULT)
 	release
+
+}
+
+script AmitySquare_SquareHole {
+	msgbox(
+	"Oh, hey!\p"
+
+	"It's the stuff from the square\n"
+	"hole!", MSGBOX_SIGN)
 
 }
