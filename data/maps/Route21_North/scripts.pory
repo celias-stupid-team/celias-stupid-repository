@@ -64,6 +64,6 @@ script Route21_AroundTheWorld {
 
 script Route21_Lass {
 	msgbox(
-	"Hey!\n"
-	"Stop looking at me!", MSGBOX_NPC)
+	"It's a small, small world…\n"
+	"", MSGBOX_NPC)
 }

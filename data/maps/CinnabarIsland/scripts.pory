@@ -699,3 +699,10 @@ script CinnabarIsland_AbsolFisher {
 	"AND IF I CHANGE IT, I WILL PROBABLY\n"
 	"CHANGE IT{PAUSE 30} TO ABSOL.", MSGBOX_NPC)
 }
+
+
+script CinnabarIsland_Camper {
+	msgbox(
+	"Say, wasn't there a MANSION here\n"
+	"a minute ago?", MSGBOX_NPC)
+}

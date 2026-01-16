@@ -427,8 +427,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 8,
-      "y": 9,
+      "x": 6,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -536,6 +536,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_Buoy_CinnabarWest",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ABSOL_HUNTER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 12,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CinnabarIsland_Camper",
+      "flag": "FLAG_TEMP_6"
     }
   ],
   "warp_events": [
