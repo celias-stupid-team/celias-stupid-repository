@@ -74,7 +74,7 @@ static void SpriteCB_PartySummaryBar_Exit(struct Sprite *sprite);
 static void SpriteCB_PartySummaryBall_Exit(struct Sprite *sprite);
 static void Task_HidePartyStatusSummary_DuringBattle(u8 taskId);
 static void SpriteCB_PartySummaryBall_OnSwitchout(struct Sprite *sprite);
-static void UpdateStatusIconInHealthbox(u8 spriteId);
+// static void UpdateStatusIconInHealthbox(u8 spriteId);
 static void SpriteCB_PartySummaryBar(struct Sprite *sprite);
 static void SpriteCB_PartySummaryBall_OnBattleStart(struct Sprite *sprite);
 static u8 GetStatusIconForBattlerId(u8 statusElementId, u8 battlerId);
@@ -696,11 +696,16 @@ static void UpdateSpritePos(u8 spriteId, s16 x, s16 y)
     gSprites[spriteId].y = y;
 }
 
-void DestoryHealthboxSprite(u8 healthboxSpriteId)
+void DestroyHealthboxSprite(u8 battler)
 {
-    DestroySprite(&gSprites[gSprites[healthboxSpriteId].sHealthboxOtherSpriteId]);
-    DestroySprite(&gSprites[gSprites[healthboxSpriteId].sHealthBarSpriteId]);
-    DestroySprite(&gSprites[healthboxSpriteId]);
+    if (battler < gBattlersCount)
+    {
+        u8 healthboxSpriteId = gHealthboxSpriteIds[battler];
+    
+        DestroySprite(&gSprites[gSprites[healthboxSpriteId].sHealthboxOtherSpriteId]);
+        DestroySprite(&gSprites[gSprites[healthboxSpriteId].sHealthBarSpriteId]);
+        DestroySprite(&gSprites[healthboxSpriteId]);
+    }
 }
 
 void DummyBattleInterfaceFunc(u8 healthboxSpriteId, bool8 isDoubleBattleBattlerOnly)
@@ -1595,7 +1600,7 @@ static const u16 sStatusIconColors[] = {
     [PAL_STATUS_BRN] = RGB(28, 14, 10)
 };
 
-static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
+void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
 {
     s32 i;
     u8 battlerId, healthBarSpriteId;

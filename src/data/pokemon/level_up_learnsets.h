@@ -7270,8 +7270,8 @@ static const struct LevelUpMove sDiancieLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sHoopaLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(0, MOVE_TRUMP_CARD),
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_BELLY_DRUM),
+    LEVEL_UP_MOVE(1, MOVE_TRUMP_CARD),
 	LEVEL_UP_END
 };
 

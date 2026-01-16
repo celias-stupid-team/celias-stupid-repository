@@ -5225,14 +5225,7 @@ static const struct TrainerMonItemCustomMoves sParty_EliteFourAgatha[] = {
         .lvl = 61,
         .species = SPECIES_SPIRITOMB,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_108_TUPLE_TEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-    },
-    {
-        .iv = 250,
-        .lvl = 63,
-        .species = SPECIES_LUCARIO,
-        .heldItem = ITEM_NONE,
-        .moves = {MOVE_AURA_SPHERE_2, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_108_TUPLE_TEAM, MOVE_DARK_PULSE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 250,
@@ -5244,9 +5237,16 @@ static const struct TrainerMonItemCustomMoves sParty_EliteFourAgatha[] = {
     {
         .iv = 250,
         .lvl = 63,
+        .species = SPECIES_LUCARIO,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_AURA_SPHERE_2, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 250,
+        .lvl = 63,
         .species = SPECIES_MILOTIC,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_RECOVER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_FREEZE_DRY, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 250,
@@ -5260,7 +5260,7 @@ static const struct TrainerMonItemCustomMoves sParty_EliteFourAgatha[] = {
         .lvl = 66,
         .species = SPECIES_GARCHOMP,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_FLY, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_FLY_CYNTHIA, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 

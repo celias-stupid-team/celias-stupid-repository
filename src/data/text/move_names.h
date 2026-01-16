@@ -639,6 +639,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_TRIPLE_WINGBEAT]     = _("FALSE"),
     [MOVE_DOUBLE_DIP]     = _("DOUBLE DIP"),
     [MOVE_DOUBLE_DAD]     = _("DOUBLE DAD"),
+    [MOVE_FLY_CYNTHIA]           = _("FLY"),
+    [MOVE_FREEZE_DRY]   = _("FREEZE-DRY"),
 };
 
 
@@ -1284,5 +1286,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_TRIPLE_WINGBEAT]     = _("TRIPLE WINGBEAT"),
     [MOVE_DOUBLE_DIP]     = _("DOUBLE DIP"),
     [MOVE_DOUBLE_DAD]     = _("DOUBLE DAD"),
+    [MOVE_FLY_CYNTHIA]           = _("FLY"),
+    [MOVE_FREEZE_DRY]   = _("FREEZE-DRY"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

@@ -976,8 +976,6 @@ static const bool8 sMultiBattlePartnersPartyMask[PARTY_SIZE + 2] =
 
 static const u16 sTMHMMoves_Duplicate[] =
 {
-    
-    
     MOVE_WHIRLWIND,
     MOVE_CSR_DUMMY,
     MOVE_SECRET_POWER,

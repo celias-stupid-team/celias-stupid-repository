@@ -1418,7 +1418,7 @@ u8 AtkCanceller_UnableToUseMove(void)
         case CANCELLER_FROZEN: // check being frozen
             if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE)
             {
-                if (TRUE) //Cannot unfreeze SNOWGRAVE CHECK
+                if (TRUE) // always stay frozen
                 {
                     if (gBattleMoves[gCurrentMove].effect != EFFECT_THAW_HIT) // unfreezing via a move effect happens in case 13
                     {
@@ -3649,6 +3649,9 @@ uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
     //  DebugPrintf("GetTypeModifier atkType = %S", gTypeNames[atkType]);
     //  DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
     //  DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
+
+    if (gCurrentMove == MOVE_FREEZE_DRY && defType == TYPE_WATER)
+        return UQ_4_12(2.0);
 
     return sTypeEffectivenessTable[atkType][defType];
 }

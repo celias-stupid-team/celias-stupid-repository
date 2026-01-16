@@ -1005,6 +1005,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_SEAL_HAS_BEEN_BROKEN - BATTLESTRINGS_TABLE_START]         = sText_SealHasBeenBroken,
     [STRINGID_HOOPA_WAS_RELEASED - BATTLESTRINGS_TABLE_START]         = sText_HoopaHasBeenReleased,
     [STRINGID_EARTH_EATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s\nEARTH EATER!"),
+    [STRINGID_SEELHOOPATRANSFORMSTART - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("The Seal has been broken!"),
+    [STRINGID_SEELHOOPATRANSFORMEND - BATTLESTRINGS_TABLE_START]         = sText_HoopaHasBeenReleased,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1759,8 +1761,6 @@ void BufferStringBattle(u16 stringId)
                 else
                     stringPtr = sText_GhostAppearedCantId;
             }
-            else if (gBattleTypeFlags & BATTLE_TYPE_ALOMOMOLA)
-                stringPtr = sText_LuvdiscAppeared;
             else if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
                 stringPtr = sText_WildPkmnAppeared2;
             else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) // interesting, looks like they had something planned for wild double battles

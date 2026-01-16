@@ -65,7 +65,7 @@
 #define BATTLE_TYPE_WILD_SCRIPTED      (1 << 17) // Used in pokeemerald as BATTLE_TYPE_PALACE.
 #define BATTLE_TYPE_LEGENDARY_FRLG     (1 << 18) // Used in pokeemerald as BATTLE_TYPE_ARENA.
 #define BATTLE_TYPE_TRAINER_TOWER      (1 << 19) // Used in pokeemerald as BATTLE_TYPE_FACTORY.
-#define BATTLE_TYPE_ALOMOMOLA          (1 << 20) // Used for Alomomola special fight
+#define BATTLE_TYPE_UNUSED             (1 << 20) // unused
 #define BATTLE_TYPE_INGAME_PARTNER     (1 << 21)
 #define BATTLE_TYPE_TWO_OPPONENTS      (1 << 22)
 #define BATTLE_TYPE_ARENA              (1 << 23)
@@ -165,8 +165,7 @@
 #define STATUS3_SEMI_INVULNERABLE       (STATUS3_UNDERGROUND | STATUS3_ON_AIR | STATUS3_UNDERWATER)
 #define STATUS3_ELECTRIFIED             (1 << 21)
 #define STATUS3_TOXIC_SEED              (1 << 22)
-#define STATUS3_108_EVATION             (1 << 23)
-#define STATUS3_PERMA_PARA              (1 << 24)
+#define STATUS3_PERMA_PARA              (1 << 23)
 
 // Not really sure what a "hitmarker" is.
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.

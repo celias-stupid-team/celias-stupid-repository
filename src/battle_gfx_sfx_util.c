@@ -685,16 +685,30 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
     const u32 *lzPaletteData;
     void *buffer;
 
-    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution
+    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution OR Seel->Hoopa transformation
     {
         const void *src;
         void *dst;
+        struct Pokemon *mon;
+        const struct CompressedSpriteSheet *picTable;
+    
+        if (GetBattlerSide(battlerAtk) == B_SIDE_OPPONENT)
+        {
+            mon = &gEnemyParty[gBattlerPartyIndexes[battlerAtk]];
+            targetSpecies = GetMonData(mon, MON_DATA_SPECIES);
+            picTable = &gMonFrontPicTable[targetSpecies];
+        }
+        else
+        {
+            mon = &gPlayerParty[gBattlerPartyIndexes[battlerAtk]];
+            targetSpecies = GetMonData(mon, MON_DATA_SPECIES);
+            picTable = &gMonBackPicTable[targetSpecies];
+        }
 
         position = GetBattlerPosition(battlerAtk);
-        targetSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_SPECIES);
-        personalityValue = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_PERSONALITY);
-        otId = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_OT_ID);
-        HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[targetSpecies],
+        personalityValue = GetMonData(mon, MON_DATA_PERSONALITY);
+        otId = GetMonData(mon, MON_DATA_OT_ID);
+        HandleLoadSpecialPokePic_DontHandleDeoxys(picTable,
                                                   gMonSpritesGfxPtr->sprites[position],
                                                   targetSpecies,
                                                   personalityValue);
@@ -709,8 +723,8 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
         Free(buffer);
         gSprites[gBattlerSpriteIds[battlerAtk]].y = GetBattlerSpriteDefault_Y(battlerAtk);
         StartSpriteAnim(&gSprites[gBattlerSpriteIds[battlerAtk]], gBattleMonForms[battlerAtk]);
-        SetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_NICKNAME, gSpeciesNames[targetSpecies]);
-        UpdateNickInHealthbox(gHealthboxSpriteIds[battlerAtk], &gEnemyParty[gBattlerPartyIndexes[battlerAtk]]);
+        SetMonData(mon, MON_DATA_NICKNAME, gSpeciesNames[targetSpecies]);
+        UpdateNickInHealthbox(gHealthboxSpriteIds[battlerAtk], mon);
         TryAddPokeballIconToHealthbox(gHealthboxSpriteIds[battlerAtk], 1);
     }
     else if (transformType) // Castform form change

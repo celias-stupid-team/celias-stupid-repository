@@ -3263,9 +3263,22 @@ static void Cmd_tryfaintmon(void)
             else
                 BS_ptr = BattleScript_FaintTarget;
         }
+
         if (!(gAbsentBattlerFlags & gBitTable[gActiveBattler])
          && gBattleMons[gActiveBattler].hp == 0)
         {
+            // special handling for Seel -> Hoopa transformation
+            if ((GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER && GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES) == SPECIES_SEEL)
+              || (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES) == SPECIES_SEEL))
+            {
+                gBattlerFainted = gActiveBattler;
+                gBattleMons[gActiveBattler].species = SPECIES_HOOPA;
+                gBattleMoveDamage = -1000; // force full HP after transformation
+                BattleScriptPush(gBattlescriptCurrInstr);
+                gBattlescriptCurrInstr = BattleScript_SeelHoopaTransform;
+                return;
+            }
+
             gHitMarker |= HITMARKER_FAINTED(gActiveBattler);
             BattleScriptPush(gBattlescriptCurrInstr + 7);
             gBattlescriptCurrInstr = BS_ptr;
@@ -4254,26 +4267,51 @@ static void Cmd_endselectionscript(void)
 static void Cmd_playanimation(void)
 {
     const u16 *argumentPtr;
-    struct Pokemon *mon = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
+    struct Pokemon *mon;
+    struct Pokemon *party;
     
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     argumentPtr = T2_READ_PTR(gBattlescriptCurrInstr + 3);
+
+    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+        mon = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
+    else
+        mon = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
+
+    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+        party = gPlayerParty;
+    else
+        party = gEnemyParty;
 
     if (gBattlescriptCurrInstr[2] == B_ANIM_STATS_CHANGE
      || gBattlescriptCurrInstr[2] == B_ANIM_SNATCH_MOVE
      || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE
      || gBattlescriptCurrInstr[2] == B_ANIM_SILPH_SCOPED
-     || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
+     || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE
+     || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
     {
         //create Alomomola right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
         {
-            CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_ALOMOMOLA, GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
+            u16 species = SPECIES_ALOMOMOLA;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+        }
+        //create Hoopa right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
+        {
+            u16 species = SPECIES_HOOPA;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 7;
+
+        // set Pokédex flags
         HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
+        if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_CAUGHT, gBattleMons[gActiveBattler].personality);
     }
     else if (gHitMarker & HITMARKER_NO_ANIMATIONS)
     {
@@ -9378,6 +9416,7 @@ static void Cmd_setsemiinvulnerablebit(void)
 {
     switch (gCurrentMove)
     {
+    case MOVE_FLY_CYNTHIA:
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
@@ -9401,6 +9440,7 @@ static void Cmd_clearsemiinvulnerablebit(void)
 {
     switch (gCurrentMove)
     {
+    case MOVE_FLY_CYNTHIA:
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
@@ -10759,17 +10799,23 @@ static void Cmd_jumpifnotspeciescondition(void)
 {
     CMD_ARGS(u8 battler, u32 species, bool8 jumpIfTrue, const u8 *jumpInstr);
 
+    struct Pokemon *mon;
     u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
+    else
+        mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
     if (cmd->jumpIfTrue)
     {
-        if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
+        if (GetMonData(mon, MON_DATA_SPECIES) != cmd->species)
             gBattlescriptCurrInstr = cmd->nextInstr;
         else
             gBattlescriptCurrInstr = cmd->jumpInstr;
     }
     else
     {
-        if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
+        if (GetMonData(mon, MON_DATA_SPECIES) != cmd->species)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
@@ -11208,7 +11254,6 @@ void BS_TrainerSlideOut(void)
 void BS_TryTrainerSlideMsgSwitchIn(void)
 {
     NATIVE_ARGS();
-
     
     if ((ShouldDoTrainerSlide(gBattlerFainted, TRAINER_SLIDE_AFTER_SWITCHIN)))
     {
@@ -11220,4 +11265,54 @@ void BS_TryTrainerSlideMsgSwitchIn(void)
     {
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
+}
+
+void BS_UpdateBattlerData(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    struct Pokemon *mon;
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+    u8 i;
+
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
+    else
+        mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
+
+    gBattleMons[battler].attack = GetMonData(mon, MON_DATA_ATK);
+    gBattleMons[battler].defense = GetMonData(mon, MON_DATA_DEF);
+    gBattleMons[battler].speed = GetMonData(mon, MON_DATA_SPEED);
+    gBattleMons[battler].spAttack = GetMonData(mon, MON_DATA_SPATK);
+    gBattleMons[battler].spDefense = GetMonData(mon, MON_DATA_SPDEF);
+    gBattleMons[battler].hp = GetMonData(mon, MON_DATA_MAX_HP);
+    gBattleMons[battler].maxHP = GetMonData(mon, MON_DATA_MAX_HP);
+    gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
+    gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
+    gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, FALSE);
+
+    for (i = 0; i < MAX_MON_MOVES; ++i)
+    {
+        gBattleMons[battler].moves[i] = GetMonData(mon, MON_DATA_MOVE1 + i);
+        gBattleMons[battler].pp[i] = GetMonData(mon, MON_DATA_PP1 + i);
+    }
+    
+    //set party mon data
+    SetMonData(mon, MON_DATA_STATUS, &gBattleMons[battler].status1);
+    SetMonData(mon, MON_DATA_HELD_ITEM, &gBattleMons[battler].item);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_RedrawHealthbox(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+    
+    DestroyHealthboxSprite(battler);
+    CreateHealthboxSprite(battler);
+    UpdateStatusIconInHealthbox(gHealthboxSpriteIds[battler]);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }

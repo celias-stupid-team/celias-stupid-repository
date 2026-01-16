@@ -6903,20 +6903,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_DARK_PULSE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
-        .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
-        .pp = 35,
-        .secondaryEffectChance = 10,
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 80,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED
     },
     
-
-    
-
 [MOVE_DRAGON_PULSE] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
@@ -8096,5 +8093,30 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_KINGS_ROCK_AFFECTED,
+    },
+    [MOVE_FLY_CYNTHIA] =
+    {
+        .effect = EFFECT_SEMI_INVULNERABLE,
+        .power = 30000,
+        .type = TYPE_FLYING,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_FREEZE_DRY] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 };

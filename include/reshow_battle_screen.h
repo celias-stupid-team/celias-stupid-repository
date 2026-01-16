@@ -5,5 +5,6 @@
 
 void ReshowBattleScreenDummy(void);
 void ReshowBattleScreenAfterMenu(void);
+void CreateHealthboxSprite(u8 battler);
 
 #endif // GUARD_RESHOW_BATTLE_SCREEN_H

@@ -121,9 +121,11 @@ Debug_EventScript_Script_6::
 	end
 
 Debug_EventScript_Script_7::
+	setwildbattle SPECIES_SEEL, 10
+	dowildbattle
 	end
 
-Debug_EventScript_Script_8::
+Debug_EventScript_Script_8:: @ directly used in C code
 	end
 
 Debug_CheckSaveBlock::

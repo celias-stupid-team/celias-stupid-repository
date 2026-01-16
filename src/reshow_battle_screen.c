@@ -8,11 +8,11 @@
 #include "battle_interface.h"
 #include "battle_anim.h"
 #include "battle_controllers.h"
+#include "reshow_battle_screen.h"
 
 static void CB2_ReshowBattleScreenAfterMenu(void);
 static void ReshowBattleScreen_TurnOnDisplay(void);
 static void CreateBattlerSprite(u8 battlerId);
-static void CreateHealthboxSprite(u8 battlerId);
 
 void ReshowBattleScreenDummy(void)
 {
@@ -275,7 +275,7 @@ static void CreateBattlerSprite(u8 battler)
     }
 }
 
-static void CreateHealthboxSprite(u8 battler)
+void CreateHealthboxSprite(u8 battler)
 {
     if (battler < gBattlersCount)
     {

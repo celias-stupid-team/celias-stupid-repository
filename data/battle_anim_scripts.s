@@ -662,6 +662,8 @@ gBattleAnims_Moves::
 	.4byte Move_TRIPLE_WINGBEAT
 	.4byte Move_DOUBLE_DIP
 	.4byte Move_DOUBLE_DAD
+	.4byte Move_FLY_CYNTHIA
+	.4byte Move_FREEZE_DRY
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -711,6 +713,7 @@ gBattleAnims_General::
 	.4byte General_TeraCharge               @ B_ANIM_TERA_CHARGE
 	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
 	.4byte General_TrickRoom                @ B_ANIM_TRICK_ROOM_CONTINUES
+	.4byte General_SeelHoopaTransform       @ B_ANIM_SEEL_HOOPA_TRANSFORM
 
 	.align 2
 gBattleAnims_Special::
@@ -6843,6 +6846,7 @@ WhirlpoolEffect:
 	delay 2
 	return
 
+Move_FLY_CYNTHIA:
 Move_FLY:
 	loadspritegfx ANIM_TAG_ROUND_SHADOW
 	loadspritegfx ANIM_TAG_IMPACT
@@ -11250,6 +11254,16 @@ General_AlomomolaEvolve:
 	clearmonbg ANIM_ATTACKER
 	end
 
+General_SeelHoopaTransform:
+	monbg ANIM_ATTACKER
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
+	createvisualtask AnimTask_TransformMon, 2, 255
+	waitsound
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+
 General_HangedOn:
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_ATTACKER, 7, 0, 9, RGB_RED
 	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
@@ -15284,19 +15298,39 @@ Move_SHADOW_FORCE:
 	end
 
 
-Move_DARK_PULSE:
-	loadspritegfx ANIM_TAG_IMPACT
+Move_DARK_PULSE:loadspritegfx ANIM_TAG_PURPLE_RING
 	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	fadetobg BG_DARK
+	waitbgfadein
+	loopsewithpan SE_M_PSYBEAM, SOUND_PAN_TARGET, 20, 3
+	createvisualtask AnimTask_SwayMon, ANIM_TARGET, 0, 6, 0x0800, 8, ANIM_TARGET
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 4, 0, 12, RGB(30, 10, 13)
+	call DarkPulseParticle
+	call DarkPulseParticle
+	call DarkPulseParticle
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
 	blendoff
+	clearmonbg ANIM_TARGET
+	restorebg
+	waitbgfadein
 	end
+DarkPulseParticle:
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	return
 
 
 Move_TRUMP_CARD:
@@ -16874,6 +16908,42 @@ Move_TRIPLE_WINGBEAT:
 	loopsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET, 5, 2
 	waitforvisualfinish
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 11
+		waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
+Move_FREEZE_DRY:
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS
+	loadspritegfx ANIM_TAG_IMPACT
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 0, 7, RGB_BLACK
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 2, 0, 9, RGB(12, 26, 31)
+	delay 20
+	playsewithpan SE_M_STRING_SHOT, SOUND_PAN_TARGET
+	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 0
+	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 64
+	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 128
+	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 192
+	delay 5
+	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 32
+	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 96
+	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 160
+	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 224
+	delay 17
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 3, 1
+	waitforvisualfinish
+	delay 15
+	call IceCrystalEffectShort
+	delay 5
+	loadspritegfx ANIM_TAG_ICE_CUBE
+	createvisualtask AnimTask_FrozenIceCube, 2
+	waitplaysewithpan SE_M_HAIL, SOUND_PAN_TARGET, 17
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 2, 9, 0, RGB(12, 26, 31)
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7, 0, RGB_BLACK
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff

@@ -359,11 +359,8 @@ BattleScript_EffectHeartSwap::
 	waitanimation
 	printstring STRINGID_PKMNSWITCHEDSTATCHANGES
 	waitmessage B_WAIT_TIME_LONG
-	//only trigger form change effect, when Battle Type is BATTLE_TYPE_ALOMOMOLA
-	jumpifbattletype BATTLE_TYPE_ALOMOMOLA, BattleScript_EvolveAlomomola
-	goto BattleScript_MoveEnd
 BattleScript_EvolveAlomomola::
-	//only trigger form change effect, when opponent is SPECIES_LUVDISC
+	@ only trigger form change effect, when opponent is SPECIES_LUVDISC
 	jumpifnotspecies BS_TARGET, SPECIES_LUVDISC, BattleScript_MoveEnd
 	call BattleScript_AlomomolaMidBattleEvo
 	goto BattleScript_MoveEnd
@@ -2124,6 +2121,7 @@ BattleScript_EffectSemiInvulnerable::
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerable
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerable
 	jumpifmove MOVE_FLY, BattleScript_FirstTurnFly
+	jumpifmove MOVE_FLY_CYNTHIA, BattleScript_FirstTurnFly
 	jumpifmove MOVE_DIVE, BattleScript_FirstTurnDive
 	jumpifmove MOVE_BOUNCE, BattleScript_FirstTurnBounce
 	jumpifmove MOVE_DOUBLE_JUMP, BattleScript_FirstTurnBounce
@@ -4118,10 +4116,28 @@ BattleScript_AlomomolaMidBattleEvo::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_ALOMOMOLAEVO
 	waitstate
-	playanimation BS_OPPONENT1, B_ANIM_ALOMOMOLA_EVOLVE
+	playanimation BS_TARGET, B_ANIM_ALOMOMOLA_EVOLVE
 	pause B_WAIT_TIME_LONG
 	printstring STRINGID_ALOMOMOLAEVOLVED
 	waitmessage B_WAIT_TIME_LONG
+    updatebattlerdata BS_TARGET
+	redrawhealthbox BS_TARGET
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	end2
+
+BattleScript_SeelHoopaTransform::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_SEELHOOPATRANSFORMSTART
+	waitstate
+	playanimation BS_FAINTED, B_ANIM_SEEL_HOOPA_TRANSFORM
+	pause B_WAIT_TIME_LONG
+    updatebattlerdata BS_FAINTED
+	redrawhealthbox BS_FAINTED
+	healthbarupdate BS_FAINTED
+	datahpupdate BS_FAINTED
+	@ printstring STRINGID_SEELHOOPATRANSFORMEND
+	@ waitmessage B_WAIT_TIME_LONG
 	end2
 
 BattleScript_MoveEffectSleep::
