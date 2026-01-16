@@ -304,7 +304,7 @@
 #define EVO_ALONE            20 // Pokemon is alone :(
 #define EVO_STONE_EXEGGUTOR  21
 #define EVO_STONE_SHEDINJA   22
-#define EVO_LEVEL_ON_FOUR_ISLAND   23
+#define EVO_LEVEL_ON_LOCATION   23
 
 
 

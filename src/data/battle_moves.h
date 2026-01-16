@@ -1199,7 +1199,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FISSURE] =
     {
         .effect = EFFECT_HIT,
-        .power = 1,
+        .power = 9999,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 5,

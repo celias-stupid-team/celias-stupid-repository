@@ -28,10 +28,31 @@ mapscripts ViridianGym_Misty_MapScripts {
 }
 
 script ViridianGym_MistyBattle {
-    trainerbattle_single(TRAINER_DMCA_MISTY, ViridianGym_MistyBattle_Start, ViridianGym_MistyBattle_End)
+    lock
+    textcolor(NPC_TEXT_COLOR_FEMALE)
     msgbox(
-	"i'm dead\n"
-	"", MSGBOX_DEFAULT)
+	"It is implied that this is a\n"
+	"YUGIOH arena.", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_DMCA_MISTY, ViridianGym_MistyBattle_End)
+    if(!checkpartymove(MOVE_TRUMP_CARD)) {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(
+        "She sends out three BLUE EYES\n"
+        "WHITE DRAGONS.\p"
+
+        "Her WHITE LIGHTNING ATTACK will\n"
+        "destroy all POKéMON you use.\p"
+
+        "You did not have the solution to\n"
+        "the fight.\l"
+        "You will die now.", MSGBOX_DEFAULT)
+        goto(EventScript_FieldWhiteOutNoMoney)
+    } else {
+        msgbox(
+        "Exodia fucking obliterates her\n"
+        "", MSGBOX_DEFAULT)
+        release
+    }
 }
 
 text ViridianGym_MistyBattle_Start {
@@ -40,6 +61,5 @@ text ViridianGym_MistyBattle_Start {
 
 
 text ViridianGym_MistyBattle_End {
-   "oh no\n"
-	"exodia"
+	"i'm dead\n"
 }

@@ -30,10 +30,80 @@ mapscripts ViridianGym_Blaine_MapScripts {
 
 
 script ViridianGym_BlaineBattle {
-    trainerbattle_single(TRAINER_DMCA_BLAINE, ViridianGym_BlaineBattle_Start, ViridianGym_BlaineBattle_End)
+    lock
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    if(!flag(FLAG_TEMP_1)) {
+        msgbox(
+        "I'm PAUL, the favorite of all!\p"
+
+        "There is a cool quiz game show\n"
+        "here.\p"
+
+        "Every time they get a question\n"
+        "wrong, they get crushed.\l"
+        "Like this.", MSGBOX_DEFAULT)
+        closemessage
+        delay(30)
+        addobject(LOCALID_BLAINE_SNORLAX_1)
+        playse(SE_FALL)
+        applymovement(LOCALID_BLAINE_SNORLAX_1, moves(
+            set_visible
+            slide_down * 7
+        ))
+        waitmovement(0)
+        removeobject(LOCALID_BLAINE_DMCA_1)
+        playse(SE_BANG)
+        delay(60)
+        applymovement(LOCALID_BLAINE_SNORLAX_1, moves(
+            lock_facing_direction
+            walk_fast_up * 7
+            set_invisible
+        ))
+        waitmovement(0)
+    }
+    
     msgbox(
-	"i'm dead\n"
+	"Then you fight me and I say\p"
+
+	"Your answer had better be RIGHT!\n"
 	"", MSGBOX_DEFAULT)
+
+
+    trainerbattle_no_intro(TRAINER_DMCA_BLAINE, ViridianGym_BlaineBattle_End)
+    if(!checkpartymon(SPECIES_SEVIPER)) {
+        msgbox(
+        "I don't know the mechanical\n"
+        "justification for this one\l"
+        "yet, but…\p"
+
+        "Your answer needs to be right.\n"
+        "", MSGBOX_DEFAULT)
+        goto(EventScript_FieldWhiteOutNoMoney)
+        
+    }
+    msgbox(
+	"Oh no\n"
+	"", MSGBOX_DEFAULT)
+    
+    closemessage
+    delay(30)
+    addobject(LOCALID_BLAINE_SNORLAX_3)
+    playse(SE_FALL)
+    applymovement(LOCALID_BLAINE_SNORLAX_3, moves(
+        set_visible
+        slide_down * 7
+    ))
+    waitmovement(0)
+    removeobject(LOCALID_BLAINE_DMCA_3)
+    playse(SE_BANG)
+    delay(60)
+    applymovement(LOCALID_BLAINE_SNORLAX_3, moves(
+        lock_facing_direction
+        walk_fast_up * 7
+        set_invisible
+    ))
+    waitmovement(0)
+    end
 }
 
 text ViridianGym_BlaineBattle_Start {
@@ -42,6 +112,5 @@ text ViridianGym_BlaineBattle_Start {
 
 
 text ViridianGym_BlaineBattle_End {
-   "oh no\n"
-	"death"
+   "you were right\n"
 }

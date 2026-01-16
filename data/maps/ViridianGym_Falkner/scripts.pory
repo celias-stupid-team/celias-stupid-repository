@@ -29,11 +29,35 @@ mapscripts ViridianGym_Falkner_MapScripts {
 
 
 script ViridianGym_Falkner {
+    lock
     textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
 	"Your silly bullets won't work on\n"
 	"me!\p"
 
 	"You'll need something with REAL\n"
-	"IP infringement to take me down!", MSGBOX_NPC)
+	"IP infringement to take me down!", MSGBOX_DEFAULT)
+    if(checkpartymon(SPECIES_POKEMON_GUN)) {
+        playbgm(MUS_NONE, TRUE)
+        delay(20)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        delay(20)
+        playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
+        delay(60)
+        playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
+        delay(30)
+        playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
+        delay(120)
+        removeobject(LOCALID_DMCA_SILVER)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        delay(60)
+        setweather(WEATHER_RAIN_THUNDERSTORM)
+        doweather
+        delay(60)
+        release
+        end
+
+    } else {
+        release
+    }
 }

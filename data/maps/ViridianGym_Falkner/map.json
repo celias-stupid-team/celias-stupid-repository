@@ -5,7 +5,7 @@
   "music": "MUS_GYM",
   "region_map_section": "MAPSEC_VIRIDIAN_GYM_2",
   "requires_flash": false,
-  "weather": "WEATHER_RAIN_THUNDERSTORM",
+  "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -16,10 +16,11 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_DMCA_SILVER",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SILVER_2",
       "x": 5,
-      "y": 4,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -27,7 +28,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ViridianGym_Falkner",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [

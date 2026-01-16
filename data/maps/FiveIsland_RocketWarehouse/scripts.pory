@@ -185,7 +185,21 @@ script DMCAWarehouse_LetterW {
 script DMCAWarehouse_ThievulFight {
 	lock
 	faceplayer
-	trainerbattle_single(TRAINER_DMCA_THIEVUL, FiveIsland_RocketWarehouse_Text_Admin1Intro, FiveIsland_RocketWarehouse_Text_Admin1Defeat, DMCAWarehouse_AdminLeaves)
+	msgbox(FiveIsland_RocketWarehouse_Text_Admin1Intro)
+	trainerbattle_no_intro(TRAINER_DMCA_THIEVUL, FiveIsland_RocketWarehouse_Text_Admin1Defeat)
+	if(checkpartymon(SPECIES_VICTINI)) {
+		goto(DMCAWarehouse_AdminLeaves)
+	} else {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"The THIE UL is inexplicably\n"
+		"immune to every attack you have.\p"
+
+		"You lose.\n"
+		"", MSGBOX_DEFAULT)
+		
+        goto(EventScript_FieldWhiteOutNoMoney)
+	}
 	msgbox(FiveIsland_RocketWarehouse_Text_MadeItSoYouCanComeBackThrough, MSGBOX_AUTOCLOSE)
 	end
 

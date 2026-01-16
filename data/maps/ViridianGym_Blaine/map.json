@@ -16,6 +16,7 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_BLAINE_DMCA_3",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAZZLE",
       "x": 5,
@@ -27,13 +28,14 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ViridianGym_BlaineBattle",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
+      "local_id": "LOCALID_BLAINE_SNORLAX_2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SNORLAX",
       "x": 8,
-      "y": -1,
+      "y": -3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -44,10 +46,11 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BLAINE_SNORLAX_1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SNORLAX",
       "x": 2,
-      "y": -1,
+      "y": -3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -58,6 +61,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BLAINE_DMCA_2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 8,
@@ -69,15 +73,31 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
+      "local_id": "LOCALID_BLAINE_DMCA_1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 2,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "local_id": "LOCALID_BLAINE_SNORLAX_3",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SNORLAX",
+      "x": 5,
+      "y": -5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",

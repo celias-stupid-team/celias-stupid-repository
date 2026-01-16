@@ -4371,27 +4371,6 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM08_DIVE)),
 
     [SPECIES_ESPEON]      = TMHM_LEARNSET(TMHM(TM04_FOURSIGHT)
-                                        | TMHM(TM06_TOXIC)
-                                        | TMHM(TM10_STEAMROLLER)
-                                        | TMHM(TM11_WATER_GUN)
-                                        | TMHM(TM15_SPLASH)
-                                        | TMHM(TM16_PAY_DAY)
-                                        | TMHM(TM17_SUBMISSION)
-                                        | TMHM(TM18_RAIN_DANCE)
-                                        | TMHM(TM21_THUNDERJOLT)
-                                        | TMHM(TM23_WONDER_SEED)
-                                        | TMHM(TM27_VACUUM_CUT)
-                                        | TMHM(TM28_TOMBSTONER)
-                                        | TMHM(TM29_STEEL_WING)
-                                        | TMHM(TM30_MAGICAL_LEAF)
-                                        | TMHM(TM32_BRICK_BREAK)
-                                        | TMHM(TM33_WAKE_UP_SLAP)
-                                        | TMHM(TM42_CRABHAMMER)
-                                        | TMHM(TM43_FOCUS_MISS)
-                                        | TMHM(TM44_REST)
-                                        | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(HM01_CUT)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_UMBREON]     = TMHM_LEARNSET(TMHM(TM06_TOXIC)

@@ -30,10 +30,23 @@ mapscripts ViridianGym_Sabrina_MapScripts {
 
 
 script ViridianGym_SabrinaBattle {
-    trainerbattle_single(TRAINER_DMCA_SABRINA, ViridianGym_SabrinaBattle_Start, ViridianGym_SabrinaBattle_End)
+    lock
+    faceplayer
     msgbox(
-	"i'm dead\n"
+	"SABRINA: I can't believe this…\n"
+	"They shut down my GYM!\p"
+
+	"You! Foolish challenger!\n"
+	"You think you're more powerful\l"
+	"than copyright infringement?\p"
+
+	"Then let's put that to the test.\n"
 	"", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_DMCA_SABRINA, ViridianGym_SabrinaBattle_End)
+    msgbox(
+	"I get inexplicably decapitated\n"
+	"", MSGBOX_DEFAULT)
+    release
 }
 
 text ViridianGym_SabrinaBattle_Start {

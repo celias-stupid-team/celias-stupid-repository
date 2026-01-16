@@ -1783,7 +1783,8 @@ u32 GetPlayerTrainerId(void)
 
 u8 GetUnlockedSeviiAreas(void)
 {
-    u8 result = 0;
+    u8 result = 0; //No Sevii areas in dex
+    /*
     if (FlagGet(FLAG_WORLD_MAP_ONE_ISLAND) == TRUE)
         result |= 1 << 0;
     if (FlagGet(FLAG_WORLD_MAP_TWO_ISLAND) == TRUE)
@@ -1798,6 +1799,7 @@ u8 GetUnlockedSeviiAreas(void)
         result |= 1 << 5;
     if (FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND) == TRUE)
         result |= 1 << 6;
+    */
     return result;
 }
 
