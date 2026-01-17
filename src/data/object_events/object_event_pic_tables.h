@@ -5182,3 +5182,14 @@ const struct SpriteFrameImage gObjectEventPicTable_PIRATE_JOY[] = {
     overworld_frame(gObjectEventPic_PIRATE_JOY, 2, 4, 7),
     overworld_frame(gObjectEventPic_PIRATE_JOY, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_GRANDPA_DAD[] = {
+    overworld_frame(gObjectEventPic_GRANDPA_DAD, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GRANDPA_DAD, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GRANDPA_DAD, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GRANDPA_DAD, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GRANDPA_DAD, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GRANDPA_DAD, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GRANDPA_DAD, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GRANDPA_DAD, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GRANDPA_DAD, 2, 4, 2),
+};
