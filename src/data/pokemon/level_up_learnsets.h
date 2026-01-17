@@ -6606,7 +6606,7 @@ static const struct LevelUpMove sFoongusLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sAmoongussLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_CROSS_CHOP),
 	LEVEL_UP_END
 };
 
