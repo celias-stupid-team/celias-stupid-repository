@@ -7248,6 +7248,18 @@
       "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/Sootopolis_NoCenter/border.bin",
       "blockdata_filepath": "data/layouts/Sootopolis_NoCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_ZERO_ISLAND_LIBERTY_GARDEN_OPEN",
+      "name": "ZeroIsland_LibertyGarden_Open",
+      "width": 47,
+      "height": 38,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MoonAltar",
+      "border_filepath": "data/layouts/ZeroIsland_LibertyGarden_Open/border.bin",
+      "blockdata_filepath": "data/layouts/ZeroIsland_LibertyGarden_Open/map.bin"
     }
   ]
 }

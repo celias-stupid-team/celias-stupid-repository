@@ -200,7 +200,7 @@ script AetherParadise_SkullGruntDmca {
 
 script AetherParadise_WimpOut {
 	msgbox(
-	"It's labeled WIMP OUT!”\n"
+	"It's labeled “WIMP OUT!”\n"
 	"", MSGBOX_SIGN)
 
 }

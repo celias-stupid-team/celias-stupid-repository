@@ -7890,15 +7890,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_LION_LADDER] =
     {
-        .effect = EFFECT_HIGH_CRITICAL,
-        .power = 200,
+        .effect = EFFECT_MULTI_HIT_FIVE,
+        .power = 1000,
         .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 25,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
     [MOVE_STRANGE_STEAM] =
     {

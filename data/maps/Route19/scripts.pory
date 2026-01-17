@@ -311,24 +311,25 @@ script Route19_CeliaTurnsYouAround {
 
 
 script Route19_DrawThePit {
-	setlayouttiles(LAYOUT_ROUTE19_PIT_LOW, 0, 0, 0, 0, 35, 34)
+	setlayouttiles(LAYOUT_ROUTE19_PIT_LOW, 0, 0, 0, 0, 33, 33)
 
 	setvar(VAR_TEMP_0, 1)
 }
 
 
 script Route19_DrawThePitHigh {
-	setlayouttiles(LAYOUT_ROUTE19_PIT_HIGH, 0, 0, 0, 0, 35, 34)
+	setlayouttiles(LAYOUT_ROUTE19_PIT_HIGH, 0, 0, 0, 0, 33, 33)
 
 	setvar(VAR_TEMP_0, 1)
 }
 
 script Route19_DestroyThePit {
-	setlayouttiles(LAYOUT_ROUTE19, 0, 0, 0, 0, 34, 34)
+	setlayouttiles(LAYOUT_ROUTE19, 0, 0, 0, 0, 33, 33)
 	setvar(VAR_TEMP_0, 0)
 }
 
 script Route19_ChapterConfusion {
+	//special(DrawWholeMapView)
 	msgbox(
 	"You might be asking yourself,\n"
 	"“What about Chapters 4, 5, and 6?”\p"

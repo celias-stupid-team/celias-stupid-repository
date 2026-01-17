@@ -59,3 +59,17 @@ script ZeroIsland_ShinyVictiniEnd {
 	setflag(FLAG_TEMP_2)
 	goto(EventScript_RemoveStaticMon)
 }
+
+script ZeroIsland_OpenSecret {
+	lock
+	if(flag(FLAG_TEMP_5)) {
+		msgbox(
+		"Neat!\n"
+		"", MSGBOX_DEFAULT)
+		release
+	}
+	setflag(FLAG_TEMP_5)
+	playse(SE_CLICK)
+	setlayouttiles(LAYOUT_ZERO_ISLAND_LIBERTY_GARDEN_OPEN, 0,0,0,0,46,37)
+	release
+}

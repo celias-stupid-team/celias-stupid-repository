@@ -428,6 +428,7 @@ gSongTable::
 	song mus_se_guilty, 0, 0
 	song mus_dragon_ball, 0, 0
 	song mus_mus_vs_rival, 0, 0
+	song mus_trumpets, 1, 1
 
 
 

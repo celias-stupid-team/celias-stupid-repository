@@ -1023,6 +1023,8 @@ script TwoIsland_TrumpetPlayer {
 	msgbox(
 	"I play hoenn trumpet\n"
 	"", MSGBOX_DEFAULT)
+	waitse
+	playse(MUS_TRUMPETS)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction

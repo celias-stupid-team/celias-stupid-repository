@@ -760,7 +760,11 @@ PokedexRating_Text_HintZygarde::
 
 
 PokedexRating_Text_HintMelmanure::
-	.string "Placeholder!$"
+	.string "An old man on ROUTE 22 asked for\n"
+	.string "help finding his CANDIES, no?\p"
+	.string "I believe he said he'd help you\n"
+	.string "after collecting all your badges.\l"
+	.string "Maybe you should pay a visit!$"
 
 PokedexRating_Text_HintEternatus::
 	.string "With FLY, you can truly travel\n"
@@ -803,10 +807,20 @@ PokedexRating_Text_HintPikablu::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintLuvdisc::
-	.string "Placeholder!$"
+	.string "Northeast of CINNABAR, a fisherman\n"
+	.string "mentioned finding a POKéMON in but\l"
+	.string "one single tile in the OCEAN.\p"
+	.string "Maybe you should return there and\n"
+	.string "see if you could narrow it down.$"
+
 
 PokedexRating_Text_HintAlomomola::
-	.string "Placeholder!$"
+	.string "The special POKéMON found in just\n"
+	.string "one tile was LUVDISK of all things?\l"
+	.string "What a shame!\p"
+	.string "I wonder if you have a way to swap\n"
+	.string "it for something else.$"
+
 
 PokedexRating_Text_HintAlcreamie::
 	.string "The CREAM DROP you were given seems\n"

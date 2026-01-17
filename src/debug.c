@@ -3797,7 +3797,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_SE_DESKSLAM) \
     X(MUS_SE_GUILTY) \
     X(MUS_DRAGON_BALL) \
-    X(MUS_MUS_VS_RIVAL)
+    X(MUS_MUS_VS_RIVAL) \
+    X(MUS_TRUMPETS)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

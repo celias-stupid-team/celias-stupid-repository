@@ -15,13 +15,13 @@ script SilphCo_RD_ApplinKid {
 	faceplayer
 	if(flag(FLAG_GOT_PENCIL_ERASER)) {
 		msgbox(
-		"I am applin kid\n"
+		"I am APPLIN KID.\n"
 		"", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"I am applin kid\p"
+		"I am APPLIN KID.\p"
 
-		"here\n"
+		"Here!\n"
 		"", MSGBOX_DEFAULT)
 		giveitem_msg(
 		"{PLAYER} obtained the\n"
@@ -35,7 +35,7 @@ script SilphCo_RD_ApplinKid {
 
 script SilphCo_RD_OranKid {
 	msgbox(
-	"I am oran kid\n"
+	"I am ORAN KID.\n"
 	"", MSGBOX_NPC)
 }
 

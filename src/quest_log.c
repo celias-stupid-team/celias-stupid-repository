@@ -31,6 +31,7 @@
 #include "constants/field_weather.h"
 #include "constants/event_object_movement.h"
 #include "config/overworld.h"
+#include "constants/songs.h"
 
 enum {
     WIN_TOP_BAR,      // Contains the "Previously on..." text
@@ -1128,6 +1129,7 @@ static bool8 FieldCB2_FinalScene(void)
     LoadPalette(GetTextWindowPalette(4), BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     DrawPreviouslyOnQuestHeader(0);
     FieldCB_WarpExitFadeFromBlack();
+    
     CreateTask(Task_FinalScene_WaitFade, 0xFF);
     return TRUE;
 }
@@ -1138,6 +1140,7 @@ static void Task_FinalScene_WaitFade(u8 taskId)
 
     if (ArePlayerFieldControlsLocked() != TRUE)
     {
+        
         FreezeObjectEvents();
         HandleEnforcedLookDirectionOnPlayerStopMoving();
         StopPlayerAvatar();
@@ -1166,6 +1169,7 @@ static void Task_QuestLogScene_SavedGame(u8 taskId)
     {
         if (sPlaybackControl.endMode != END_MODE_FINISH)
         {
+            
             GetMapNameGeneric(gStringVar1, gMapHeader.regionMapSectionId);
             StringExpandPlaceholders(gStringVar4, gText_QuestLog_SavedGameAtLocation);
             DrawSceneDescription();
