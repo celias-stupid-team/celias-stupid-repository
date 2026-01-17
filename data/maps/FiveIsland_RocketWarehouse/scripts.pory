@@ -280,3 +280,21 @@ script DMCAWarehouse_GrnadpaDad {
 	release
 	end
 }
+
+
+script DMCAWarehouse_Polio {
+	lock
+	faceplayer
+	playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
+	msgbox(
+	"POLIO: Pla-plaaah!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(10)
+	msgbox(
+	"POLIO's PP dropped!\n"
+	"", MSGBOX_DEFAULT)
+	release
+	end
+}

@@ -218,10 +218,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 8,
-      "y": 6,
+      "x": 2,
+      "y": 7,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -232,7 +232,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GRANDPA_DAD",
-      "x": 5,
+      "x": 7,
       "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -246,7 +246,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
-      "x": 5,
+      "x": 7,
       "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -256,6 +256,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "DMCAWarehouse_GrandpaWoman",
       "flag": "FLAG_DEFEATED_WAREHOUSE_ADMIN"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_POLIO",
+      "x": 3,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DMCAWarehouse_Polio",
+      "flag": "0"
     }
   ],
   "warp_events": [

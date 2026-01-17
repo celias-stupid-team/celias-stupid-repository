@@ -484,6 +484,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MAGMAR;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SURF_DAD;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PIRATE_JOY;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GRANDPA_DAD;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_POLIO;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -969,4 +970,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SURF_DAD] = &gObjectEventGraphicsInfo_SURF_DAD,
     [OBJ_EVENT_GFX_PIRATE_JOY] = &gObjectEventGraphicsInfo_PIRATE_JOY,
     [OBJ_EVENT_GFX_GRANDPA_DAD] = &gObjectEventGraphicsInfo_GRANDPA_DAD,
+    [OBJ_EVENT_GFX_POLIO] = &gObjectEventGraphicsInfo_POLIO,
 };

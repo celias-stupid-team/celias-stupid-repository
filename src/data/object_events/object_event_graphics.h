@@ -681,3 +681,5 @@ const u16 gObjectEventPal_SURF_DAD[] = INCBIN_U16("graphics/object_events/palett
 const u32 gObjectEventPic_PIRATE_JOY[] = INCBIN_U32("graphics/object_events/pics/stupid/PIRATE_JOY.4bpp");
 const u32 gObjectEventPic_GRANDPA_DAD[] = INCBIN_U32("graphics/object_events/pics/stupid/GRANDPA_DAD.4bpp");
 const u16 gObjectEventPal_GRANDPA_DAD[] = INCBIN_U16("graphics/object_events/palettes/GRANDPA_DAD.gbapal");
+const u32 gObjectEventPic_POLIO[] = INCBIN_U32("graphics/object_events/pics/stupid/POLIO.4bpp");
+const u16 gObjectEventPal_POLIO[] = INCBIN_U16("graphics/object_events/palettes/POLIO.gbapal");
