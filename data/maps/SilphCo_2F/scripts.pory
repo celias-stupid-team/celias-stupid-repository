@@ -101,3 +101,42 @@ script SilphCo_2F_EventScript_BlockedSign {
 	"", MSGBOX_SIGN)
 
 }
+
+script SilphCo_2F_EventScript_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Golly, this building sure is\n"
+	"confusing.\l"
+	"These warp panels make my head spin!\p"
+
+	"Well, never mind that\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+
+script SilphCo_DMCADad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Shh-!\n"
+	"I'm in disguise!\l"
+	"The DMCA thinks I'm one of them!\p"
+
+	"Well, never mind that\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

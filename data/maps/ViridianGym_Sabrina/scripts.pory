@@ -25,6 +25,11 @@ mapscripts ViridianGym_Sabrina_MapScripts {
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 6)
         }
     }
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_SILPH_WARP_THREE_ISLAND)) {
+            setmetatile(7, 12, 0x293, FALSE)
+        }
+    }
 }
 
 
