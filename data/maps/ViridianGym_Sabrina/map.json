@@ -89,29 +89,29 @@
     },
     {
       "x": 17,
-      "y": 18,
+      "y": 19,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
       "dest_warp_id": "3"
     },
     {
       "x": 17,
-      "y": 13,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
       "dest_warp_id": "4"
     },
     {
-      "x": 26,
-      "y": 18,
+      "x": 25,
+      "y": 19,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
       "dest_warp_id": "2"
     },
     {
       "warp_id": "WARP_ID_SABRINA_SILPH_HUB",
-      "x": 26,
-      "y": 13,
+      "x": 25,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND"
@@ -136,7 +136,16 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 26,
+      "x": 25,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_ThreeIsland"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
       "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -155,16 +164,7 @@
     {
       "type": "trigger",
       "x": 26,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "SilphCo_Activate_Warp_ThreeIsland"
-    },
-    {
-      "type": "trigger",
-      "x": 27,
-      "y": 13,
+      "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",

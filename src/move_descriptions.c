@@ -636,6 +636,7 @@ const u8 gMoveDescription_TripleWingbeat[] = _("Dummy");
 const u8 gMoveDescription_DoubleDip[] = _("Hits once before\nthe foe, then\nonce more at the\nend of the turn.");
 const u8 gMoveDescription_DoubleDad[] = _("Hits once before\nthe foe, then\nonce more at the\nend of the turn.");
 const u8 gMoveDescription_FreezeDry[] = _("Dummy");
+const u8 gMoveDescription_Leafage[] = _("Eat shit and\ndie");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -1279,4 +1280,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_DOUBLE_DAD     -1 ] = gMoveDescription_DoubleDad,
     [MOVE_FLY_CYNTHIA - 1] = gMoveDescription_Fly,
     [MOVE_FREEZE_DRY - 1] = gMoveDescription_FreezeDry,
+    [MOVE_LEAFAGE - 1] = gMoveDescription_Leafage,
 };

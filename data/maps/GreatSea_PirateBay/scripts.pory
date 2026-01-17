@@ -187,7 +187,7 @@ script PirateBay_Copperajah {
 
 
 script PirateBay_Sailor {
-    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
+    trainerbattle_single(TRAINER_FAG_SAILOR, "FUCK intro", "FUCK")
     msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
 
 }

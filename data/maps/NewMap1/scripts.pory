@@ -118,3 +118,19 @@ script Sootopolis_LuvdiscClue {
 	"", MSGBOX_DEFAULT)
 	release
 }
+
+script Sootopolis_NPC1 {
+	msgbox(
+	"Sootopolis placeholder 1\n"
+	"", MSGBOX_NPC)
+}
+
+
+script Sootopolis_ContestHallSign {
+	msgbox(
+	"CONTEST HALL\p"
+
+	"Coming soon!\n"
+	"(it'll be funny)", MSGBOX_SIGN)
+
+}

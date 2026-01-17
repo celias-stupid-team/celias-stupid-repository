@@ -24,7 +24,7 @@ script Desert_DMCAFuckhead {
 
 script Desert_DavidHasselhoff {
 	msgbox(
-	"I am david hasselhoff\n"
+	"I am David Hasselhoff.\n"
 	"", MSGBOX_NPC)
 }
 
