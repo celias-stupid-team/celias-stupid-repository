@@ -125,9 +125,9 @@ script AetherParadise_DMCA_StopsYou {
 		face_down
 	))
 	waitmovement(0)
-	applymovement(LOCALID_AETHER_DMCA_GRUNT, moves(
-		walk_up * 5
-	))
+	removeobject(LOCALID_AETHER_ZUBAT)
+	removeobject(LOCALID_KOFFING)
+	removeobject(LOCALID_AETHER_DMCA_GRUNT)
 	removeobject(LOCALID_AETHER_DMCA_GRUNT)
 	release
 

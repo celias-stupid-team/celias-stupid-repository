@@ -109,6 +109,11 @@ mapscripts SeafoamIslands_B3F_MapScripts {
 		}
 
 	}
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_CAPTAIN_DIRECTS_SPHEALS)) {
+			setmetatile(24, 11, 0x387, FALSE)
+		}
+	}
 }
 
 script SeafoamIslands_B3F_CaptainGetsTheSpheals {
@@ -553,6 +558,7 @@ script SeafoamIslands_B3F_CaptainGetsTheSpheals {
 	fadedefaultbgm
 	waitmovement(LOCALID_PLAYER)
 	waitmovement(LOCALID_CAMERA)
+	
 	removeobject(LOCALID_SPHEAL_LAND_1)
 	removeobject(LOCALID_SPHEAL_LAND_2)
 	removeobject(LOCALID_SPHEAL_LAND_3)
@@ -571,6 +577,8 @@ script SeafoamIslands_B3F_CaptainGetsTheSpheals {
 	special(RemoveCameraObject)
 	setvar(VAR_SEAFOAM_CAPTAIN_FLOOR, 4)
 	setflag(FLAG_CAPTAIN_DIRECTS_SPHEALS)
+	setmetatile(24, 11, 0x387, FALSE)
+	special(DrawWholeMapView)
 	release
 }
 
