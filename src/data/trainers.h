@@ -6762,7 +6762,7 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_ABSOL_FISHER] = {
-        .trainerClass = FACILITY_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_FISHERMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FISHERMAN,
         .trainerName = _("WADE"),
