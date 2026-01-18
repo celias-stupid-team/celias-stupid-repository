@@ -940,11 +940,11 @@ PokedexRating_Text_HintFlareon::
 
 
 PokedexRating_Text_HintGoldeen::
-	.string "You were given a GOLDEN ROD on\n"
-	.string "THIRTY EIGHT ISLAND?\p"
-	.string "I wonder what POKéMON it might\n"
-	.string "fish up!$"
-
+	.string "I heard SAFFRON CITY installed a\n"
+	.string "new TRAIN STATION!\l"
+	.string "How lovely!\p"
+	.string "I hear it connects to GOLDENROD?\n"
+	.string "You should try taking it!$"
 
 PokedexRating_Text_HintSeaking::
 	.string "Your GOLDEEN can still evolve.\n"

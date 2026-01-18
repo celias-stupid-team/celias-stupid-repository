@@ -6970,9 +6970,9 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_BERRIED_ALIVE] = {
-        .trainerClass = FACILITY_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_BERRIED,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_FISHERMAN,
+        .trainerPic = TRAINER_PIC_BERRIED_ALIVE,
         .trainerName = _("ALIVE"),
         .items = {},
         .doubleBattle = FALSE,

@@ -12718,3 +12718,6 @@ extern const u32 gMonShinyPalette_FIRETYPES[];
 extern const u8 gMonFootprint_FIRETYPES[];
 extern const u8 gMonIcon_FIRETYPES[];
 
+
+extern const u32 gTrainerFrontPic_BerriedAlive[];
+extern const u32 gTrainerPalette_BerriedAlive[];
