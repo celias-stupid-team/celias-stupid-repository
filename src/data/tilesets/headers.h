@@ -1172,3 +1172,14 @@ const struct Tileset gTileset_Chapter7Chaper2 =
     .metatileAttributes = gMetatileAttributes_Chapter7Chaper2,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FinalBossCutscene =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_FinalBossCutscene,
+    .palettes = gTilesetPalettes_FinalBossCutscene,
+    .metatiles = gMetatiles_FinalBossCutscene,
+    .metatileAttributes = gMetatileAttributes_FinalBossCutscene,
+    .callback = NULL,
+};

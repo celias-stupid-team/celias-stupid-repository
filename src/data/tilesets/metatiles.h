@@ -316,3 +316,6 @@ const u32 gMetatileAttributes_Route12Again[] = INCBIN_U32("data/tilesets/seconda
 
 const u16 gMetatiles_Chapter7Chaper2[] = INCBIN_U16("data/tilesets/primary/chapter_7chaper_2/metatiles.bin");
 const u32 gMetatileAttributes_Chapter7Chaper2[] = INCBIN_U32("data/tilesets/primary/chapter_7chaper_2/metatile_attributes.bin");
+
+const u16 gMetatiles_FinalBossCutscene[] = INCBIN_U16("data/tilesets/primary/final_boss_cutscene/metatiles.bin");
+const u32 gMetatileAttributes_FinalBossCutscene[] = INCBIN_U32("data/tilesets/primary/final_boss_cutscene/metatile_attributes.bin");
