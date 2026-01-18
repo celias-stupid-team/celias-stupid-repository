@@ -406,6 +406,7 @@ script TwoIsland_SmallChild {
 		"I can't wait to write about this\n"
 		"in my notebook!\l"
 		"Good thing I always keep one handy.", MSGBOX_NPC)
+		end
 	}
 	msgbox(
 	"Oh no-!\n"
@@ -907,11 +908,10 @@ script TwoIsland_PaulaBakemeat {
 
 script TwoIsland_StinkyBed {
 	msgbox(
-	"{PLAYER} laid in the bed.\p"
+	"{PLAYER} laid in the bed…\p"
 
 	"Mmm…\n"
-	"Smells like pizza-scented\l"
-	"air fresheners!", MSGBOX_SIGN)
+	"Pizza-scented air fresheners!", MSGBOX_SIGN)
 
 }
 

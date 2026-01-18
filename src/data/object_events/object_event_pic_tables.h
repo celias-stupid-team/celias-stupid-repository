@@ -5204,3 +5204,14 @@ const struct SpriteFrameImage gObjectEventPicTable_POLIO[] = {
     overworld_frame(gObjectEventPic_POLIO, 4, 4, 7),
     overworld_frame(gObjectEventPic_POLIO, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_RIVAL_OF_AETHER[] = {
+    overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 0),
+    overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 1),
+    overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 2),
+    overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 0),
+    overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 0),
+    overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 1),
+    overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 1),
+    overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 2),
+    overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 2),
+};

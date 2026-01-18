@@ -6856,9 +6856,9 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_BLAINE_OPPONENT_1] = {
-        .trainerClass = FACILITY_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_FISHERMAN,
+        .trainerPic = TRAINER_PIC_FLINT,
         .trainerName = _("FLINT"),
         .items = {},
         .doubleBattle = FALSE,

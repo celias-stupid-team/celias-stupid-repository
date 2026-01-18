@@ -10390,27 +10390,20 @@ static const struct TrainerMonItemCustomMoves sParty_Flint[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_DRIFLOON,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 30,
-        .heldItem = ITEM_NONE,
-        .species = SPECIES_LOPUNNY,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
+        .species = SPECIES_FIRETYPES,
+        .moves = {MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }, 
 };
 static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer2[] = {
     {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_MEOWTH,
+        .species = SPECIES_DARMANITAN,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
-static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer3[] = {
+static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer3[] = { //Yes?
     {
         .iv = 0,
         .lvl = 30,
@@ -10424,8 +10417,8 @@ static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer4[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_MEOWTH,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_CLEFAIRY,
+        .moves = {MOVE_METRONOME, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer5[] = {

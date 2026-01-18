@@ -405,7 +405,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_CINNABAR_ISLAND)) { //TODO figure out logic
 		setobtainable(SPECIES_SUDOWOODO) // 132
 	}
-	if(flag(FLAG_COPYCAT_TM) && flag(FLAG_ENTERED_COPYCAT_HOUSE)) { //TODO figure out logic
+	if(flag(FLAG_COPYCAT_TM)) { //TODO figure out logic
 		setobtainable(SPECIES_MIMIKYU) // 133
 	}
 	if(flag(FLAG_CSR_MAP_MINNESOTA) && flag(FLAG_HOOPA_HINT) || flag(FLAG_BADGE08_GET)) { //TODO figure out logic

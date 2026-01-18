@@ -12710,3 +12710,11 @@ extern const u32 gItemIconPalette_Ragecandybar[];
 
 extern const u32 gItemIcon_Meat[];
 extern const u32 gItemIconPalette_Meat[];
+// FIRE_TYPES
+extern const u32 gMonFrontPic_FIRETYPES[];
+extern const u32 gMonPalette_FIRETYPES[];
+extern const u32 gMonBackPic_FIRETYPES[];
+extern const u32 gMonShinyPalette_FIRETYPES[];
+extern const u8 gMonFootprint_FIRETYPES[];
+extern const u8 gMonIcon_FIRETYPES[];
+

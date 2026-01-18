@@ -334,8 +334,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FURRET",
-      "x": 23,
-      "y": 31,
+      "x": 41,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 3,
@@ -348,8 +348,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FURRET",
-      "x": 19,
-      "y": 32,
+      "x": 39,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 3,

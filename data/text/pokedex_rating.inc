@@ -863,10 +863,11 @@ PokedexRating_Text_HintHoopa::
 	.string "Seal, it would be released.$"
 
 PokedexRating_Text_HintMimikyu::
-	.string "The COPYCAT household in SAFFRON\n"
-	.string "is going through some troubles.\p"
-	.string "Say, have you looked through your\n"
-	.string "items lately?$"
+	.string "Now that the DMCA are gone, you\n"
+	.string "should be free to explore SAFFRON!\p"
+	.string "There was a house with a young\n"
+	.string "girl living in it.\l"
+	.string "Perhaps you should check on her?$"
 
 
 PokedexRating_Text_HintOmanyte::

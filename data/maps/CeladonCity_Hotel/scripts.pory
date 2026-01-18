@@ -34,7 +34,7 @@ script CeladonHotel_WomanWhoAsks {
 	"", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 		msgbox(
-		"Ohhh, it's YES?\n"
+		"Ohhh…"
 		"That{PAUSE 30} makes sense.\p"
 
 		"Thank you!\n"

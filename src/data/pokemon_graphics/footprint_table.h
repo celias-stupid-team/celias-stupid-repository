@@ -1276,4 +1276,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_HOOT]    = gMonFootprint_HOOT,
 	[SPECIES_ZAPMOLCUNO]    = gMonFootprint_ZAPMOLCUNO,
 	[SPECIES_UNITEDKINGDOM]    = gMonFootprint_UNITEDKINGDOM,
+	[SPECIES_FIRETYPES]    = gMonFootprint_FIRETYPES,
 };

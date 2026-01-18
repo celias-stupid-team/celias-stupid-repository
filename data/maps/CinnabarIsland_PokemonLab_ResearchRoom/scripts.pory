@@ -58,7 +58,7 @@ script PokemonLab_AmberGuardian {
 	} else {
 		msgbox(
 		"Heya, there!\n"
-		"Welcome to the lab.\l"
+		"Welcome to the LAB.\l"
 		"I'm a new intern here.\p"
 
 		"My capstone project has been to\n"

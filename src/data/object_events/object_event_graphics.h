@@ -683,3 +683,5 @@ const u32 gObjectEventPic_GRANDPA_DAD[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_GRANDPA_DAD[] = INCBIN_U16("graphics/object_events/palettes/GRANDPA_DAD.gbapal");
 const u32 gObjectEventPic_POLIO[] = INCBIN_U32("graphics/object_events/pics/stupid/POLIO.4bpp");
 const u16 gObjectEventPal_POLIO[] = INCBIN_U16("graphics/object_events/palettes/POLIO.gbapal");
+const u32 gObjectEventPic_RIVAL_OF_AETHER[] = INCBIN_U32("graphics/object_events/pics/stupid/RIVAL_OF_AETHER.4bpp");
+const u16 gObjectEventPal_RIVAL_OF_AETHER[] = INCBIN_U16("graphics/object_events/palettes/RIVAL_OF_AETHER.gbapal");

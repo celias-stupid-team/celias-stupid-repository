@@ -5380,3 +5380,7 @@ Cry_UNITEDKINGDOM::
 	.incbin "sound/direct_sound_samples/cries/unitedkingdom.bin"
 
 	.align 2
+Cry_FIRETYPES::
+	.incbin "sound/direct_sound_samples/cries/firetypes.bin"
+
+	.align 2

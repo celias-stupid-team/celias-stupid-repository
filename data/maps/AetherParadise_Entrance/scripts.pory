@@ -224,3 +224,18 @@ script AetherParadise_NebbyGuy {
 	"POKéMON there and hold it up,\l"
 	"something incredible may happen.", MSGBOX_NPC)
 }
+
+
+
+script AetherParadise_RivalOfAether {
+	lock
+	faceplayer
+	playmoncry(SPECIES_SWELLOW, CRY_MODE_DEFAULT)
+	msgbox(
+	"Oh, cool!\p"
+
+	"It's a RIVAL of AETHER!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}

@@ -6406,7 +6406,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_TAX_FRAUD] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_PAY_DAY, // Placeholder Effect
         .power = 110,
         .type = TYPE_DARK,
         .accuracy = 100,

@@ -731,7 +731,11 @@ script ViridianCity_EventScript_Woman {
 	lock
 	faceplayer
 	if(flag(FLAG_TEMP_4)) {
-		msgbox(ViridianCity_Text_WeakenMonsFirstToCatch)
+		msgbox(
+		"Oop, there he goes again.\p"
+
+		"Time to get a new one!\n"
+		"", MSGBOX_DEFAULT)
 		release
 		end
 

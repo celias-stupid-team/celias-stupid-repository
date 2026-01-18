@@ -1127,6 +1127,7 @@ script CinnabarGym_BoardGameQuestion1 {
 		msgbox(
 		"battle happens here\n"
 		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_1, "Woah, there!")
 		closemessage
 		delay(30)
 		playse(SE_CLICK)
@@ -1218,6 +1219,7 @@ script CinnabarGym_BoardGameQuestion2 {
 		msgbox(
 		"battle happens here\n"
 		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_2, "after!")
 		closemessage
 		delay(30)
 		playse(SE_CLICK)
@@ -1329,6 +1331,7 @@ script CinnabarGym_BoardGameQuestion3 {
 		msgbox(
 		"battle happens here\n"
 		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_3, "after!")
 		closemessage
 		delay(30)
 		playse(SE_CLICK)
@@ -1415,6 +1418,7 @@ script CinnabarGym_BoardGameQuestion4 {
 	msgbox(
 	"battle happens here\n"
 	"", MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_4, "after!")
 	fadedefaultbgm
 	closemessage
 	delay(30)
@@ -1465,6 +1469,7 @@ script CinnabarGym_BoardGameQuestion5 {
 		msgbox(
 		"battle happens here\n"
 		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_5, "after!")
 		closemessage
 		delay(30)
 		playse(SE_CLICK)

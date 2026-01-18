@@ -1273,4 +1273,5 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_HOOT] = _("HOOT"),
     [SPECIES_ZAPMOLCUNO] = _("ZAPMOLCUNO"),
     [SPECIES_UNITEDKINGDOM] = _("THE UK"),
+    [SPECIES_FIRETYPES] = _("FIRE TYPES"),
 };
