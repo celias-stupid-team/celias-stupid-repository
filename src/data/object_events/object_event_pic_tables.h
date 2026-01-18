@@ -5215,3 +5215,58 @@ const struct SpriteFrameImage gObjectEventPicTable_RIVAL_OF_AETHER[] = {
     overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 2),
     overworld_frame(gObjectEventPic_RIVAL_OF_AETHER, 6, 6, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_FINALBOSS_ZAP[] = {
+    overworld_frame(gObjectEventPic_FINALBOSS_ZAP, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_ZAP, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_ZAP, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_ZAP, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_ZAP, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_ZAP, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_ZAP, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_ZAP, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_ZAP, 8, 8, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_FINALBOSS_MOL[] = {
+    overworld_frame(gObjectEventPic_FINALBOSS_MOL, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_MOL, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_MOL, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_MOL, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_MOL, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_MOL, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_MOL, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_MOL, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_MOL, 8, 8, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_FINALBOSS_CUNO[] = {
+    overworld_frame(gObjectEventPic_FINALBOSS_CUNO, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_CUNO, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_CUNO, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_CUNO, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_CUNO, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_CUNO, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_CUNO, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_CUNO, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_CUNO, 8, 8, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_FINALBOSS_OH[] = {
+    overworld_frame(gObjectEventPic_FINALBOSS_OH, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_OH, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_OH, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_OH, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_OH, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_OH, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_OH, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_OH, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_OH, 8, 8, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_FINALBOSS_GIA[] = {
+    overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 1),
+    overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 2),
+    overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 2),
+};

@@ -6812,7 +6812,7 @@
       "height": 11,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Chapter8",
+      "primary_tileset": "gTileset_FinalBossCutscene",
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/FinalBossCutscene/border.bin",
       "blockdata_filepath": "data/layouts/FinalBossCutscene/map.bin"

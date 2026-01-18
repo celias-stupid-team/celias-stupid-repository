@@ -555,6 +555,11 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_GRANDPA_DAD  0x1180
 #define OBJ_EVENT_PAL_TAG_POLIO  0x1181
 #define OBJ_EVENT_PAL_TAG_RIVAL_OF_AETHER  0x1182
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_ZAP  0x1183
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_MOL  0x1184
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_CUNO  0x1185
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_OH  0x1186
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_GIA  0x1187
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -683,6 +688,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_GRANDPA_DAD,             OBJ_EVENT_PAL_TAG_GRANDPA_DAD},
     {gObjectEventPal_POLIO,             OBJ_EVENT_PAL_TAG_POLIO},
     {gObjectEventPal_RIVAL_OF_AETHER,             OBJ_EVENT_PAL_TAG_RIVAL_OF_AETHER},
+    {gObjectEventPal_FINALBOSS_ZAP,             OBJ_EVENT_PAL_TAG_FINALBOSS_ZAP},
+    {gObjectEventPal_FINALBOSS_MOL,             OBJ_EVENT_PAL_TAG_FINALBOSS_MOL},
+    {gObjectEventPal_FINALBOSS_CUNO,             OBJ_EVENT_PAL_TAG_FINALBOSS_CUNO},
+    {gObjectEventPal_FINALBOSS_OH,             OBJ_EVENT_PAL_TAG_FINALBOSS_OH},
+    {gObjectEventPal_FINALBOSS_GIA,             OBJ_EVENT_PAL_TAG_FINALBOSS_GIA},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
