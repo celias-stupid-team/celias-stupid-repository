@@ -2,6 +2,8 @@ raw `
 CinnabarIsland_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CinnabarIsland_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, CinnabarIsland_OnFrame
+	map_script MAP_SCRIPT_ON_LOAD, CinnabarIsland_OnLoad
+
 	.byte 0
 
 
@@ -347,7 +349,9 @@ script CinnabarIsland_OnTransition {
 	} else {
 		setflag(FLAG_TEMP_5)
 		if(flag(FLAG_UNLOCKED_CINNABAR_GYM)) {
-			setmetatile(37, 20, 0x283, FALSE)
+			//debugprintf("Unlocked, setting metatile?")
+			
+			//special(DrawWholeMapView)
 		}
 	}
 	
@@ -359,6 +363,11 @@ script CinnabarIsland_OnTransition {
 	}
 }
 
+script CinnabarIsland_OnLoad {
+	if(flag(FLAG_UNLOCKED_CINNABAR_GYM) && !flag(FLAG_BADGE07_GET)) {
+		setmetatile(37, 20, 0x283, FALSE)
+	}
+}
 
 script CinnabarIsland_MansionImprint {
 	msgbox(
@@ -403,6 +412,7 @@ script CinnabarIsland_GymDoor {
 		setvar(VAR_TEMP_1, 1)
 		setflag(FLAG_UNLOCKED_CINNABAR_GYM)
 		setmetatile(37, 20, 0x283, FALSE)
+		special(DrawWholeMapView)
 	} else {
 		closemessage
 		delay(30)
