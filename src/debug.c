@@ -392,7 +392,7 @@ static const u8 sDebugText_Util_Script_3[] = _("Toggle Rotom Menu");
 static const u8 sDebugText_Util_Script_4[] = _("Script 4");
 static const u8 sDebugText_Util_Script_5[] = _("Script 5");
 static const u8 sDebugText_Util_Script_6[] = _("Script 6");
-static const u8 sDebugText_Util_Script_7[] = _("start Seel battle");
+static const u8 sDebugText_Util_Script_7[] = _("start final battle");
 static const u8 sDebugText_Util_Script_8[] = _("toggle battle PC switch");
 // Util Menu
 static const u8 sDebugText_Util_FlyToMap[] = _("Fly to map…{CLEAR_TEXT_TO 110}{RIGHT_ARROW}");
