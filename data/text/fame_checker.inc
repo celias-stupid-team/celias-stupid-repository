@@ -101,9 +101,11 @@ gFameCheckerFlavorText_Pewter3:: @ 0x81AD908
 
 gFameCheckerFlavorText_Pewter4:: @ 0x81AD99A
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}KABUTOPS, eh?\p"
-	.string "I hear scientists are working on a\n"
-	.string "mechanical POKéMON just like it.$"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+	.string "MOON STONE, huh?\n"
+	.string "Those are extremely rare!\p"
+	.string "I hear you can't even find them\n"
+	.string "in MT. MOON anymore!$"
 
 gFameCheckerFlavorText_Pewter5:: @ 0x81ADA27
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
