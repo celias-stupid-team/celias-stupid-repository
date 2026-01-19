@@ -163,13 +163,13 @@ script Minnesota_FootballPlayer {
 	"Nah, we're the GOLDEN GOPHERS.\p"
 
 	"The VIKINGS are on the other side\n"
-	"of town!", MSGBOX_NPC)
+	"of town.", MSGBOX_NPC)
 }
 
 script Minnesota_Townsign {
 	msgbox(
 	"MINNESOTA\n"
-	"One fiftyith of the freest country!\l"
+	"One fiftieth of the freest country!\l"
 	"NEW WILD POKéMON: 1", MSGBOX_SIGN)
 
 }
