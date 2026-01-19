@@ -5281,3 +5281,14 @@ const struct SpriteFrameImage gObjectEventPicTable_NURSE_DUCK[] = {
     overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 2),
     overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_STUNFISK[] = {
+    overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 0),
+    overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 1),
+    overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 2),
+    overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 0),
+    overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 0),
+    overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 1),
+    overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 1),
+    overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 2),
+    overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 2),
+};

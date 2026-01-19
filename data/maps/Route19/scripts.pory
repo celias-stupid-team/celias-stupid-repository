@@ -73,13 +73,16 @@ script Route19_LookerScene {
 		face_up
 		delay_16 * 2
 		face_down
-		delay_16 * 4
-		face_right
+		delay_16 * 2
+		face_up
+		delay_16 * 3
+		
 	))
 	
 	waitmovement(LOCALID_LOOKER_UP)
 	playse(SE_PIN)
 	applymovement(LOCALID_LOOKER_UP, moves(
+		face_right
 		emote_exclamation_mark
 	))
 	delay(60)
@@ -124,6 +127,7 @@ script Route19_LookerScene {
 	"Wow!\n"
 	"It's a special ROTOM!", MSGBOX_DEFAULT)
 	closemessage
+	delay(30)
 	applymovement(LOCALID_ROUTE19_ROTOM, moves(
 		walk_right
 		set_invisible
@@ -266,6 +270,7 @@ script Route19_LookerScene {
 
 script Route19_CeliaAsksYouNotToGo {
 	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
+		giveitem(ITEM_RARE_CANDY, 1)
 		msgbox(
 		"Don't worry!\n"
 		"You don't need to go back!\p"
@@ -273,12 +278,23 @@ script Route19_CeliaAsksYouNotToGo {
 		"Look through your ITEMS carefully!\n"
 		"", MSGBOX_NPC)
 	} else {
-	msgbox(
-		"CELIA: Psssst…!\p"
+		if(!checkmoncaught(SPECIES_GHOLDENGO)) {
+			giveitem(ITEM_RARE_CANDY, 1)
+			msgbox(
+			"Pssst!\n"
+			"Check your POKéMON carefully!\p"
 
-		"Just play along for a little bit\n"
-		"longer!\l"
-		"Trust me!", MSGBOX_NPC)
+			"There's one you gotta evolve\n"
+			"real fast!", MSGBOX_NPC)
+		} else {
+			msgbox(
+				"CELIA: Psssst…!\p"
+
+				"Just play along for a little bit\n"
+				"longer!\l"
+				"Trust me!", MSGBOX_NPC)
+
+		}
 
 	}
 }
@@ -287,6 +303,7 @@ script Route19_CeliaTurnsYouAround {
 	lock
 	textcolor(NPC_TEXT_COLOR_RED)
 	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
+		giveitem(ITEM_RARE_CANDY, 1)
 		msgbox(
 		"Don't worry!\n"
 		"You don't need to go back!\p"
@@ -294,12 +311,23 @@ script Route19_CeliaTurnsYouAround {
 		"Look through your ITEMS carefully!\n"
 		"", MSGBOX_DEFAULT)
 	} else {
-		msgbox(
-		"CELIA: Psssst…!\p"
+		if(!checkmoncaught(SPECIES_GHOLDENGO)) {
+			giveitem(ITEM_RARE_CANDY, 1)
+			msgbox(
+			"Pssst!\n"
+			"Check your POKéMON carefully!\p"
 
-		"Just play along for a little bit\n"
-		"longer!\l"
-		"Trust me!", MSGBOX_DEFAULT)
+			"There's one you gotta evolve\n"
+			"real fast!", MSGBOX_DEFAULT)
+		} else {
+			msgbox(
+				"CELIA: Psssst…!\p"
+
+				"Just play along for a little bit\n"
+				"longer!\l"
+				"Trust me!", MSGBOX_DEFAULT)
+
+		}
 
 	}
 	closemessage

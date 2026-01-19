@@ -149,3 +149,17 @@ script Hospital_Gentleman {
 	"I'm sure no one will install a\n"
 	"virus on you!", MSGBOX_NPC)
 }
+
+script Hospital_Stunfisk {
+	msgbox(
+	"Oh, no!\n"
+	"The patient is flat{PAUSE 30} !", MSGBOX_SIGN)
+
+}
+
+script Hospital_Duck {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"I'm giving FIRST AID as PROF.\n"
+	"OAK's POKéMON.", MSGBOX_NPC)
+}

@@ -60,6 +60,7 @@ mapscripts FinalBossCutscene_MapScripts {
             ))
             delay(30)
             playse(MUS_SE_GUILTY)
+            special(ShakeScreen)
             applymovement(LOCALID_GIA, moves(
                 set_visible
             ))
