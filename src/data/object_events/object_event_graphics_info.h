@@ -8809,7 +8809,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NURSE_DUCK = {
     .tileTag = 0xFFFF,
     .paletteTag = OBJ_EVENT_PAL_TAG_NURSE_DUCK,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 120,
+    .size = 128,
     .width = 16,
     .height = 16,
     .paletteSlot = PALSLOT_NPC_2,
@@ -8841,6 +8841,26 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_STUNFISK = {
     .subspriteTables = gObjectEventSpriteOamTables_32x32,
     .anims = sAnimTable_Standard,
     .images = gObjectEventPicTable_STUNFISK,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NURSE_DUCK_BUT_IM_LAZY = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NURSE_DUCK_BUT_IM_LAZY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 128,
+    .width = 16,
+    .height = 16,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x16,
+    .subspriteTables = gObjectEventSpriteOamTables_16x16,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_NURSE_DUCK_BUT_IM_LAZY,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 

@@ -562,6 +562,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_FINALBOSS_GIA  0x1187
 #define OBJ_EVENT_PAL_TAG_NURSE_DUCK  0x1188
 #define OBJ_EVENT_PAL_TAG_STUNFISK  0x1189
+#define OBJ_EVENT_PAL_TAG_NURSE_DUCK_BUT_IM_LAZY  0x118A
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -697,6 +698,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_FINALBOSS_GIA,             OBJ_EVENT_PAL_TAG_FINALBOSS_GIA},
     {gObjectEventPal_NURSE_DUCK,             OBJ_EVENT_PAL_TAG_NURSE_DUCK},
     {gObjectEventPal_STUNFISK,             OBJ_EVENT_PAL_TAG_STUNFISK},
+    {gObjectEventPal_NURSE_DUCK_BUT_IM_LAZY,             OBJ_EVENT_PAL_TAG_NURSE_DUCK_BUT_IM_LAZY},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

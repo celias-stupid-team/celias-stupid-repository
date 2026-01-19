@@ -699,3 +699,5 @@ const u32 gObjectEventPic_NURSE_DUCK[] = INCBIN_U32("graphics/object_events/pics
 const u16 gObjectEventPal_NURSE_DUCK[] = INCBIN_U16("graphics/object_events/palettes/NURSE_DUCK.gbapal");
 const u32 gObjectEventPic_STUNFISK[] = INCBIN_U32("graphics/object_events/pics/stupid/STUNFISK.4bpp");
 const u16 gObjectEventPal_STUNFISK[] = INCBIN_U16("graphics/object_events/palettes/STUNFISK.gbapal");
+const u32 gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY[] = INCBIN_U32("graphics/object_events/pics/stupid/NURSE_DUCK_BUT_IM_LAZY.4bpp");
+const u16 gObjectEventPal_NURSE_DUCK_BUT_IM_LAZY[] = INCBIN_U16("graphics/object_events/palettes/NURSE_DUCK_BUT_IM_LAZY.gbapal");

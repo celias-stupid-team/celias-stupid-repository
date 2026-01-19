@@ -5271,15 +5271,15 @@ const struct SpriteFrameImage gObjectEventPicTable_FINALBOSS_GIA[] = {
     overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 2),
 };
 const struct SpriteFrameImage gObjectEventPicTable_NURSE_DUCK[] = {
-    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 0),
-    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 1),
-    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 2),
-    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 0),
-    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 0),
-    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 1),
-    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 1),
-    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 2),
-    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 2),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 2, 0),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 2, 1),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 2, 2),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 2, 0),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 2, 0),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 2, 1),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 2, 1),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 2, 2),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 2, 2),
 };
 const struct SpriteFrameImage gObjectEventPicTable_STUNFISK[] = {
     overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 0),
@@ -5291,4 +5291,15 @@ const struct SpriteFrameImage gObjectEventPicTable_STUNFISK[] = {
     overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 1),
     overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 2),
     overworld_frame(gObjectEventPic_STUNFISK, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_NURSE_DUCK_BUT_IM_LAZY[] = {
+    overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 0),
+    overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 1),
+    overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 2),
+    overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 0),
+    overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 0),
+    overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 1),
+    overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 1),
+    overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 2),
+    overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 2),
 };
