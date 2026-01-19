@@ -695,3 +695,5 @@ const u32 gObjectEventPic_FINALBOSS_OH[] = INCBIN_U32("graphics/object_events/pi
 const u16 gObjectEventPal_FINALBOSS_OH[] = INCBIN_U16("graphics/object_events/palettes/FINALBOSS_OH.gbapal");
 const u32 gObjectEventPic_FINALBOSS_GIA[] = INCBIN_U32("graphics/object_events/pics/stupid/FINALBOSS_GIA.4bpp");
 const u16 gObjectEventPal_FINALBOSS_GIA[] = INCBIN_U16("graphics/object_events/palettes/FINALBOSS_GIA.gbapal");
+const u32 gObjectEventPic_NURSE_DUCK[] = INCBIN_U32("graphics/object_events/pics/stupid/NURSE_DUCK.4bpp");
+const u16 gObjectEventPal_NURSE_DUCK[] = INCBIN_U16("graphics/object_events/palettes/NURSE_DUCK.gbapal");

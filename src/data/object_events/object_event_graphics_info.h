@@ -8804,3 +8804,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_GIA = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NURSE_DUCK = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NURSE_DUCK,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 120,
+    .width = 16,
+    .height = 15,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x15,
+    .subspriteTables = gObjectEventSpriteOamTables_16x15,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_NURSE_DUCK,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+

@@ -491,6 +491,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_MOL;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_CUNO;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_OH;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_GIA;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NURSE_DUCK;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -983,4 +984,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_FINALBOSS_CUNO] = &gObjectEventGraphicsInfo_FINALBOSS_CUNO,
     [OBJ_EVENT_GFX_FINALBOSS_OH] = &gObjectEventGraphicsInfo_FINALBOSS_OH,
     [OBJ_EVENT_GFX_FINALBOSS_GIA] = &gObjectEventGraphicsInfo_FINALBOSS_GIA,
+    [OBJ_EVENT_GFX_NURSE_DUCK] = &gObjectEventGraphicsInfo_NURSE_DUCK,
 };

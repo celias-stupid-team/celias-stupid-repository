@@ -1155,3 +1155,5 @@ $(OBJEVENTGFXDIR)/stupid/FINALBOSS_OH.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
 $(OBJEVENTGFXDIR)/stupid/FINALBOSS_GIA.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
+$(OBJEVENTGFXDIR)/stupid/NURSE_DUCK.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 1

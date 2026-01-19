@@ -5270,3 +5270,14 @@ const struct SpriteFrameImage gObjectEventPicTable_FINALBOSS_GIA[] = {
     overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 2),
     overworld_frame(gObjectEventPic_FINALBOSS_GIA, 8, 8, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_NURSE_DUCK[] = {
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 0),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 1),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 2),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 0),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 0),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 1),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 1),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 2),
+    overworld_frame(gObjectEventPic_NURSE_DUCK, 2, 1, 2),
+};
