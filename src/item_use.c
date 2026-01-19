@@ -1137,6 +1137,7 @@ void FieldUseFunc_LWPEmblem(u8 taskId)
         sTriggerZubatEvo = TRUE;
     }    
     
+    LockPlayerFieldControls();
     PlaySE(SE_SELECT);
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
     StringExpandPlaceholders(gStringVar4, gText_UsedTheItem);
@@ -1166,7 +1167,6 @@ static void Task_UseLWPEmblemOnField(u8 taskId)
 
 static void StartLWPEmblemFieldEffect(void)
 {
-    LockPlayerFieldControls();
     FreezeObjectEvents();
     CreateTask(Task_LWPEmblemWarpOut, 80);
 }
@@ -1245,6 +1245,7 @@ void FieldUseFunc_GenderFluid(u8 taskId)
     
     if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
     {
+        LockPlayerFieldControls();
         StringExpandPlaceholders(gStringVar4, gText_UsedTheItem);
         sItemUseOnFieldCB = ItemUseOnFieldCB_GenderFluid;
         SetUpItemUseOnFieldCallback(taskId);
@@ -1347,7 +1348,6 @@ static void Task_UseGenderFluidOnField(u8 taskId)
 
 static void StartGenderFluidFieldEffect(void)
 {
-    LockPlayerFieldControls();
     FreezeObjectEvents();
     CreateTask(Task_GenderFluidWarpOut, 80);
 }
@@ -1425,6 +1425,7 @@ void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon *pokemon, u16 itemId, u
 
 void FieldUseFunc_MoveRelearner(u8 taskId)
 {
+    LockPlayerFieldControls();
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
     StringExpandPlaceholders(gStringVar4, gText_UnzippedTheItem);
     sItemUseOnFieldCB = ItemUseOnFieldCB_MoveRelearner;
