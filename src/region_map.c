@@ -4007,6 +4007,12 @@ static void Task_FlyMap(u8 taskId)
                     sFlyMap->state++;
                     break;
                 }
+                if (FlagGet(FLAG_TEMP_F)) // temporary flag to indicate fly from debug menu)
+                {
+                    PlaySE(SE_USE_ITEM);
+                    sFlyMap->selectedDestination = TRUE;
+                    sFlyMap->state++;
+                }
             }
             break;
         case MAP_INPUT_SWITCH:
@@ -4075,6 +4081,7 @@ static void FreeFlyMap(u8 taskId)
 static void SetFlyWarpDestination(u16 mapsec)
 {
     u16 idx = mapsec - KANTO_MAPSEC_START;
+    DebugPrintf("Fly to mapsec: %u", mapsec);
     if (sMapFlyDestinations[idx][2])
     {
         SetWarpDestinationToHealLocation(sMapFlyDestinations[idx][2]);
