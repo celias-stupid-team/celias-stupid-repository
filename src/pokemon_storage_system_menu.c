@@ -37,7 +37,7 @@ static const u8 sChooseBoxMenuCorners_Gfx[];
 struct {
     const u8 *text;
     const u8 *desc;
-} static const sMainMenuTexts[OPTIONS_COUNT] = {
+} static const sMainMenuTexts[OPTIONS_COUNT - 1] = {
     [OPTION_WITHDRAW]   = {gText_WithdrawPokemon, gText_WithdrawMonDescription},
     [OPTION_DEPOSIT]    = {gText_DepositPokemon,  gText_DepositMonDescription},
     [OPTION_MOVE_MONS]  = {gText_MovePokemon,     gText_MoveMonDescription},
@@ -270,8 +270,8 @@ static void Task_PCMainMenu(u8 taskId)
         case MENU_NOTHING_CHOSEN:
             task->tNextOption = task->tSelectedOption;
             if (JOY_NEW(DPAD_UP) && --task->tNextOption < 0)
-                task->tNextOption = OPTIONS_COUNT - 1;
-            if (JOY_NEW(DPAD_DOWN) && ++task->tNextOption > OPTIONS_COUNT - 1)
+                task->tNextOption = OPTIONS_COUNT - 2;
+            if (JOY_NEW(DPAD_DOWN) && ++task->tNextOption > OPTIONS_COUNT - 2)
                 task->tNextOption = 0;
 
             if (task->tSelectedOption != task->tNextOption)
