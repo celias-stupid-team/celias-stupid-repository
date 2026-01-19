@@ -39,7 +39,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 31,
+      "x": 36,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
