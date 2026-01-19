@@ -98,6 +98,27 @@ mart Walmart_Mart {
 
 
 script Walmart_HamburgerGuy {
+	if(checkitem(ITEM_HAMBURGER) && flag(FLAG_TEMP_5)) {
+		msgbox(
+		"Oh, you brought a HAMBURGER here\n"
+		"for me?\p"
+
+		"Thanks, but…\n"
+		"I'm just a one-off gag.\l"
+		"My existence has no deeper meaning.\p"
+
+		"Frankly, it's a little bif of a\n"
+		"terrifying concept for me to grasp.\l"
+		"I try not to think about it.\p"
+
+		"Oh, right! HAMBURGER!\n"
+		"Uhh\p"
+
+		"You can keep it.\n"
+		"", MSGBOX_NPC)
+		end
+	}
+	setflag(FLAG_TEMP_5)
 	msgbox(
 	"I've been trying to stock up on\n"
 	"HAMBURGERS since I ran out, but…\p"
