@@ -331,7 +331,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_A",
       "var_value": "0",
-      "script": "NULL"
+      "script": "CinnabarGym_AddChuckster"
     },
     {
       "type": "trigger",
