@@ -636,38 +636,33 @@ void FieldUseFunc_Repel(u8 taskId)
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RepelEffectsLingered, Task_ReturnToBagFromContextMenu);
 }
 
+static void ItemUseOnFieldCB_Unlock(u8 taskId)
+{
+    ClearPlayerHeldMovementAndUnfreezeObjectEvents();
+    UnlockPlayerFieldControls();
+    DestroyTask(taskId);
+}
+
+void Task_ReturnToFieldFromBagMenu(u8 taskId)
+{
+    gFieldCallback = FieldCB_FadeInFromBlack;
+    sItemUseOnFieldCB = ItemUseOnFieldCB_Unlock;
+    ItemMenu_SetExitCallback(CB2_ReturnToField);
+    Bag_BeginCloseWin0Animation();
+    ItemMenu_StartFadeToExitCallback(taskId);
+}
 
 void FieldUseFunc_CopycatTM(u8 taskId)
 {
     VarSet(VAR_COPYCAT_USED, 1);
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SAFFRON_CITY_COPYCATS_HOUSE_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SAFFRON_CITY_COPYCATS_HOUSE_1F)) {
         PlaySE(SE_PC_LOGIN);
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu); // ???
-
-        sItemUseOnFieldCB = Task_ItemUse_CloseMessageBoxAndReturnToField; //I don't udnerstand which part of this CB puts you back in the field
-        SetUpItemUseOnFieldCallback(taskId);
-
-        // Attempts:
-        
-        // DisplayItemMessageOnField(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ItemUse_CloseMessageBoxAndReturnToField); No, because I want the message in the bag
-        
-        //DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_TMContainedCopycat); This one doesn't have a callback argument
-        
-        /*
-        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
-        */
-
-
         RemoveUsedItem();
-
-
-
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToFieldFromBagMenu);
     } else {
         PlaySE(SE_PC_LOGIN);
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu);
-
     }
-
 }
 
 static void Task_UseRepel(u8 taskId)
