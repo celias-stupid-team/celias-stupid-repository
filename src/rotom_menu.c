@@ -408,8 +408,9 @@ struct RotomStartMenu
     u8 rotomEyesState;
     u8 rotomMoveMsgID;
     u8 iconAnimStarted:1;
+    u8 unlockAndUnfreeze:1;
     u8 storedMenuOption:4;
-    u8 filler:3;
+    u8 filler:2;
     u8 fieldMoveCursor:4;
     u8 comfyAnimStatus:2;
     u8 screenWraparoundCounter:2;
@@ -1499,6 +1500,7 @@ void RotomStartMenu_Init(void)
     gKeyRepeatStartDelay = ROTOM_MENU_REPEAT_DELAY;
     sFieldMoveData = 0;
     sRotomStartMenu->iconAnimStarted = FALSE;
+    sRotomStartMenu->unlockAndUnfreeze = FALSE;
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
     sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NONE;
 
@@ -1915,6 +1917,12 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
 
     RotomStartMenu_DestroySprites();
 
+    if (sRotomStartMenu->unlockAndUnfreeze)
+    {
+        ClearPlayerHeldMovementAndUnfreezeObjectEvents();
+        UnlockPlayerFieldControls();
+    }
+
     if (sRotomStartMenu != NULL)
     {
         FreeSpriteTilesByTag(TAG_ICON_GFX);
@@ -1926,9 +1934,6 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
         Free(sRotomStartMenu);
         sRotomStartMenu = NULL;
     }
-
-    ClearPlayerHeldMovementAndUnfreezeObjectEvents();
-    UnlockPlayerFieldControls();
 }
 
 static void DoCleanUpAndChangeCallback(u8 taskId, MainCallback callback)
@@ -2299,13 +2304,7 @@ static void Task_HandleSave(u8 taskId)
         break;
     case SAVE_CANCELED: // Back to start menu
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
-        // ClearPlayerHeldMovementAndUnfreezeObjectEvents();
-        // UnlockPlayerFieldControls();
-        // FieldClearVBlankHBlankCallbacks();
         RotomStartMenu_Init();
-        // CB2_ReturnToField();
-        // SetMainCallback2(CB2_ReturnToField);
-        // CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
         DestroyTask(taskId);
         break;
     case SAVE_SUCCESS:
@@ -2335,8 +2334,6 @@ static void Task_WaitForPreSaveCleanup(u8 taskId)
 static void DoCleanUpAndStartSaveMenu(u8 taskId)
 {
     RotomStartMenu_ExitAndClearTilemap();
-    FreezeObjectEvents();
-    LockPlayerFieldControls();
     gTasks[taskId].tWaitFrames = 5;
     gTasks[taskId].func = Task_WaitForPreSaveCleanup;
 }
@@ -2796,6 +2793,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
     else if (JOY_NEW(B_BUTTON))
     {
         PlaySE(ROTOMSE_MENU_CLOSE);
+        sRotomStartMenu->unlockAndUnfreeze = TRUE;
         RotomStartMenu_ExitAndClearTilemap();
         DestroyTask(taskId);
     }
