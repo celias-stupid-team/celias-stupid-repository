@@ -5303,3 +5303,14 @@ const struct SpriteFrameImage gObjectEventPicTable_NURSE_DUCK_BUT_IM_LAZY[] = {
     overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 2),
     overworld_frame(gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY, 2, 2, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_BRAILLE[] = {
+    overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 2),
+};

@@ -212,7 +212,7 @@ TwoIsland_EventScript_FastCurrentSign::
 `
 mapscripts TwoIsland_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		if(flag(FLAG_CSR_HINT_MOVE_REMINDER) && !flag(FLAG_CSR_BERRY_POWDER_MAN) && !flag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1)) {
+		if(flag(FLAG_CSR_HINT_MOVE_REMINDER) && !checkmoncaught(SPECIES_ODDISH) && !flag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1)) {
 			setvar(VAR_TEMP_A, 1)
 			setflag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1)
 		}
@@ -224,7 +224,7 @@ mapscripts TwoIsland_MapScripts {
 			"Chapter 7 -{PAUSE 30} Chapter 2\n"
 			"{PAUSE 60}Intermission 1")
 			delay(200)
-			message("The Quest for the\nBERRY POWDER MAN!")
+			message("The Search for the\nBERRY POWDER MAN!")
 			delay(200)
 			setvar(VAR_TEMP_A, 0)
 			release
