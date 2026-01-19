@@ -392,7 +392,7 @@ static const u8 sDebugText_Util_Script_3[] = _("Toggle Rotom Menu");
 static const u8 sDebugText_Util_Script_4[] = _("Script 4");
 static const u8 sDebugText_Util_Script_5[] = _("Script 5");
 static const u8 sDebugText_Util_Script_6[] = _("Script 6");
-static const u8 sDebugText_Util_Script_7[] = _("Script 7");
+static const u8 sDebugText_Util_Script_7[] = _("start Seel battle");
 static const u8 sDebugText_Util_Script_8[] = _("toggle battle PC switch");
 // Util Menu
 static const u8 sDebugText_Util_FlyToMap[] = _("Fly to map…{CLEAR_TEXT_TO 110}{RIGHT_ARROW}");
@@ -1333,6 +1333,7 @@ static void DebugAction_Util_Fly(u8 taskId)
 {
     Debug_DestroyMenu_Full(taskId);
     gMain.savedCallback = CB2_ReturnToField;
+    FlagSet(FLAG_TEMP_F); // temporary flag to indicate fly from debug menu
     SetMainCallback2(CB2_OpenFlyMap);
 }
 
@@ -3206,6 +3207,9 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) // https://gith
     else
         CreateMonWithNature(&mon, species, level, 32, nature);
 
+    if (isShiny == 1)
+        SetMonData(&mon, MON_DATA_CSR_SHINY, &isShiny);
+
     // IVs
     for (i = 0; i < NUM_STATS; i++)
     {
@@ -3225,12 +3229,17 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) // https://gith
     }
 
     // Ability
-    if (abilityNum == 0xFF || GetAbilityBySpecies(species, abilityNum, lockedAbility) == 0)
+    if (GetAbilityBySpecies(species, 0, 0) == 0 && GetAbilityBySpecies(species, 1, 0) == 0 && GetAbilityBySpecies(species, 2, 0) == 0)
+        abilityNum = 0; // no ability
+    else
     {
-        do
+        if (abilityNum == 0xFF || GetAbilityBySpecies(species, abilityNum, lockedAbility) == 0)
         {
-            abilityNum = Random() % 3; // includes hidden abilities
-        } while (GetAbilityBySpecies(species, abilityNum, 0) == 0);
+            do
+            {
+                abilityNum = Random() % 3; // includes hidden abilities
+            } while (GetAbilityBySpecies(species, abilityNum, 0) == 0);
+        }
     }
 
     SetMonData(&mon, MON_DATA_ABILITY_NUM, &abilityNum);
@@ -3787,7 +3796,10 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_GRAND_FINALE) \
     X(MUS_STUPID_ENDING) \
     X(MUS_SE_DESKSLAM) \
-    X(MUS_SE_GUILTY)
+    X(MUS_SE_GUILTY) \
+    X(MUS_DRAGON_BALL) \
+    X(MUS_MUS_VS_RIVAL) \
+    X(MUS_TRUMPETS)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

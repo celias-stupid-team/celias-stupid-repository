@@ -173,7 +173,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 37,
-      "y": 9,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -200,8 +200,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SHORTS_DAD",
-      "x": 30,
-      "y": 8,
+      "x": 31,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -221,9 +221,9 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeruleanCave_B1F_EventScript_ItemMaxRevive",
-      "flag": "NULL"
+      "trainer_sight_or_berry_tree_id": "SPECIES_JIGGLYPUFF",
+      "script": "Common_EventScript_StaticEncounter",
+      "flag": "FLAG_TEMP_A"
     },
     {
       "type": "object",

@@ -1245,6 +1245,8 @@ gCryTable::
 	cry Cry_HOOT
 	cry Cry_ZAPMOLCUNO
 	cry Cry_UNITEDKINGDOM
+	cry Cry_FIRETYPES
+	cry Cry_RATICATEGHOST
 
 
 
@@ -2500,6 +2502,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_HOOT
 	cry_reverse Cry_ZAPMOLCUNO
 	cry_reverse Cry_UNITEDKINGDOM
+	cry_reverse Cry_FIRETYPES
+	cry_reverse Cry_RATICATEGHOST
 
 
 

@@ -29,9 +29,49 @@ mapscripts ViridianGym_Erika_MapScripts {
 
 
 script ViridianGym_ErikaBattle {
-    trainerbattle_single(TRAINER_DMCA_ERIKA, ViridianGym_ErikaBattle_Start, ViridianGym_ErikaBattle_End)
+    lock
+    textcolor(NPC_TEXT_COLOR_TREE)
     msgbox(
-	"i'm dead\n"
+        "straight people\n"
+        "", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_DMCA_ERIKA, ViridianGym_ErikaBattle_End)
+    if(!(checkpartymove(MOVE_WATER_PLEDGE) != PARTY_SIZE && checkpartymove(MOVE_FIRE_PLEDGE) != PARTY_SIZE)) {
+        msgbox(
+        "The BRAVIARY uses the move\n"
+        "“PLEDGE OF ALLEGIANCE.”\l"
+        "This “makes FREEDOM rain!”\p"
+
+        "The BUTTERFREE then uses SHOOT.\p"
+
+        "You did not have the solution to\n"
+        "the fight.\l"
+        "You will die now.", MSGBOX_DEFAULT)
+        goto(EventScript_FieldWhiteOutNoMoney)
+
+    }
+    checkpartymove(MOVE_WATER_PLEDGE)
+    copyvar(VAR_TEMP_0, VAR_RESULT)
+    checkpartymove(MOVE_FIRE_PLEDGE)
+    copyvar(VAR_TEMP_1, VAR_RESULT)
+    compare_var_to_var(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_RESULT)) {
+        msgbox(
+                "The BRAVIARY uses the move\n"
+                "“PLEDGE OF ALLEGIANCE.”\l"
+                "This “makes FREEDOM rain!”\p"
+
+                "The BUTTERFREE then uses SHOOT.\p"
+
+                "You technically did not have\n"
+                "the solution to the fight.\p"
+
+                "Yes, I am going to be anal about\n"
+                "this.", MSGBOX_DEFAULT)
+                goto(EventScript_FieldWhiteOutNoMoney)
+
+    }
+    msgbox(
+	"Too much gay\n"
 	"", MSGBOX_DEFAULT)
 }
 
@@ -42,5 +82,4 @@ text ViridianGym_ErikaBattle_Start {
 
 text ViridianGym_ErikaBattle_End {
    "oh no\n"
-	"gay"
 }

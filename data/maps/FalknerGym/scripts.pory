@@ -76,30 +76,41 @@ script FalknerGym_Falkner {
     if(flag(FLAG_FOUGHT_FALKNER)) {
         if(flag(FLAG_OBTAINED_ZEPHYRBADGE)) {
             msgbox(
-            "birds\n"
-            "", MSGBOX_DEFAULT)
+            "Perhaps…{PAUSE 30} evolving my PIDGEY\n"
+            "wasn't actually a very good idea.", MSGBOX_DEFAULT)
             release
             end
         } elif (checkmoncaught(SPECIES_PIDGEY)) {
             msgbox(
-            "Darn you did it already\n"
-            "", MSGBOX_DEFAULT)
+            "You… You've done it.\n"
+            "You found the great BIRD POKéMON.\p"
+
+            "I was wrong to doubt you.\p"
+
+            "Take this.\n"
+            "You've earned it.", MSGBOX_DEFAULT)
             playfanfare(MUS_OBTAIN_BADGE)
             msgbox(
             "{PLAYER} obtained the\n"
             "FEATHERBADGE!", MSGBOX_DEFAULT)
             waitfanfare
             setflag(FLAG_OBTAINED_ZEPHYRBADGE)
+            msgbox(
+            "Perhaps…{PAUSE 30} evolving my PIDGEY\n"
+            "wasn't actually a very good idea.", MSGBOX_DEFAULT)
             release
             end
 
         } else {
             
             msgbox(
-            "I refuse to believe this!\p"
+            "Behind this GYM is a cave.\p"
 
-            "Go to the cave behind the city.\n"
-            "something something start a quest", MSGBOX_DEFAULT)
+            "This cave is the start to finding\n"
+            "a BIRD POKéMON spoken in legends.\p"
+
+            "Meet with this POKéMON, and I'll\n"
+            "relent and admit defeat.", MSGBOX_DEFAULT)
             release
             end
 
@@ -107,28 +118,64 @@ script FalknerGym_Falkner {
         }
     }
     msgbox(
-	"FALKNER: words\p"
+	"FALKNER: Hello, challenger!\n"
+	"I am the leader of VIOLET CITY GYM.\p"
 
-	"I've found the secret to making\n"
-	"my POKéMON more powerful:\l"
+	"Some say that I am the weakest\n"
+	"LEADER in POKéMON history.\p"
+
+	"Pah!\n"
+	"I won't allow such insults!\p"
+
+	"I've finally found the secret to\n"
+	"making my PKOéMON more powerful:\l"
 	"Actually evolving them!", MSGBOX_DEFAULT)
-    trainerbattle_no_intro(TRAINER_LEADER_FALKNER, "damn")
+    trainerbattle_no_intro(TRAINER_LEADER_FALKNER, "No!\n"
+	"My father's precious BIRD POKéMON!\p"
+
+	"He gave them to me with such care…\n"
+	"I cannot believe that I lost!")
+
     msgbox(
+	"FALKNER: No!\n"
 	"I refuse to believe this!\p"
 
-	"Go to the cave behind the city.\n"
-	"something something start a quest", MSGBOX_DEFAULT)
+	"My father cherished these POKéMON\n"
+	"before passing them on to me.\l"
+	"I can't have lost so readily!\p"
+
+	"Thus, I'll partake in the honored\n"
+	"tradition of the JOHTO region:\l"
+	"Not fucking giving you the BADGE.", MSGBOX_DEFAULT)
+    closemessage
+    delay(60)
+    msgbox(
+	"FALKNER: Ahem.\n"
+	"Behind this GYM is a cave.\p"
+
+	"This cave is the start to finding\n"
+	"a BIRD POKéMON spoken in legends.\p"
+
+	"Meet with this POKéMON, and I'll\n"
+	"relent and admit defeat.", MSGBOX_DEFAULT)
     setflag(FLAG_FOUGHT_FALKNER)
     if(checkmoncaught(SPECIES_PIDGEY)) {
         msgbox(
-        "Darn you did it already\n"
-        "", MSGBOX_DEFAULT)
+        "…What!?\n"
+        "You've already been to SKY TOWER?\p"
+
+        "For pity's sake…\n"
+        "But a deal is a deal.\l"
+        "Take this.", MSGBOX_DEFAULT)
         playfanfare(MUS_OBTAIN_BADGE)
         msgbox(
         "{PLAYER} obtained the\n"
         "FEATHERBADGE!", MSGBOX_DEFAULT)
         waitfanfare
         setflag(FLAG_OBTAINED_ZEPHYRBADGE)
+        msgbox(
+        "Perhaps…{PAUSE 30} evolving my PIDGEY\n"
+        "wasn't actually a very good idea.", MSGBOX_DEFAULT)
     }
     release
 }

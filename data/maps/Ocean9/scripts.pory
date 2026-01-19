@@ -120,7 +120,7 @@ script GreatSea_Mudkip_2 {
     lock
     faceplayer
     textcolor(NPC_TEXT_COLOR_RED)
-    playmoncry(SPECIES_MUDKIP, CRY_MODE_ENCOUNTER)
+    playmoncry(SPECIES_MARSHTOMP, CRY_MODE_ENCOUNTER)
     msgbox(
 	"Kip!\n"
 	"", MSGBOX_DEFAULT)
@@ -131,7 +131,7 @@ script GreatSea_Mudkip_3 {
     lock
     faceplayer
     textcolor(NPC_TEXT_COLOR_GREEN)
-    playmoncry(SPECIES_MUDKIP, CRY_MODE_FAINT)
+    playmoncry(SPECIES_SWAMPERT, CRY_MODE_FAINT)
     msgbox(
 	"Thomas Jefferson.\n"
 	"", MSGBOX_DEFAULT)

@@ -28,9 +28,24 @@ script DMCABrock_OrthwormEats {
     waitmovement(0)
     delay(40)
     msgbox("WOLFF: Grr…\pThat joke was used in a different\nromhack!\lYou'll pay for this!", MSGBOX_DEFAULT)
-    trainerbattle_no_intro(TRAINER_DMCA_BROCK, "lol")
+    trainerbattle_no_intro(TRAINER_DMCA_BROCK, "Ahh-!")
     delay(60)
     setvar(VAR_EARTH_EATER, 0)
+    if(!checkpartymon(SPECIES_ORTHWORM)) {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(
+        "This fight takes place in GRAVITY,\n"
+        "making GROUND moves hit FLYING.\p"
+
+        "The STEELIX uses FISSURE, killing\n"
+        "all POKéMON in one hit.\p"
+
+        "You did not have the solution to\n"
+        "the fight.\l"
+        "You will die now.", MSGBOX_DEFAULT)
+        goto(EventScript_FieldWhiteOutNoMoney)
+        end
+    }
     addobject(LOCALID_HUNGRY_ORTHWORM)
     addobject(LOCALID_ORTHWORM_BUTT)
     applymovement(LOCALID_HUNGRY_ORTHWORM, moves(

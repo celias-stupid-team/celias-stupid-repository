@@ -117,7 +117,7 @@
       "map": "MAP_TWO_ISLAND",
       "x": 24,
       "y": 16,
-      "respawn_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
+      "respawn_map": "MAP_TWO_ISLAND",
       "respawn_npc": "LOCALID_TWO_ISLAND_NURSE"
     },
     {
@@ -452,7 +452,7 @@
       "id": "HEAL_LOCATION_GREAT_SEA_PIRATE_BAY",
       "map": "MAP_GREAT_SEA_PIRATE_BAY",
       "x": 41,
-      "y": 6,
+      "y": 7,
       "respawn_map": "MAP_GREAT_SEA_PIRATE_BAY",
       "respawn_npc": "1"
     },
@@ -524,14 +524,14 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_MISTY",
       "map": "MAP_VIRIDIAN_GYM_MISTY",
       "x": 5,
-      "y": 9,
+      "y": 11,
       "respawn_map": "MAP_VIRIDIAN_GYM_MISTY",
       "respawn_npc": "1"
     },
     {
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_SABRINA",
       "map": "MAP_VIRIDIAN_GYM_SABRINA",
-      "x": 9,
+      "x": 21,
       "y": 16,
       "respawn_map": "MAP_VIRIDIAN_GYM_SABRINA",
       "respawn_npc": "1"
@@ -550,6 +550,14 @@
       "x": 9,
       "y": 10,
       "respawn_map": "MAP_WORMHOLE_ENTRANCE",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE19",
+      "map": "MAP_ROUTE19",
+      "x": 6,
+      "y": 14,
+      "respawn_map": "MAP_ROUTE19",
       "respawn_npc": "1"
     }
   ]

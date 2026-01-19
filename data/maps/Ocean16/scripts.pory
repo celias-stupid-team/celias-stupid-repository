@@ -24,7 +24,7 @@ script Desert_DMCAFuckhead {
 
 script Desert_DavidHasselhoff {
 	msgbox(
-	"I am david hasselhoff\n"
+	"I am David Hasselhoff.\n"
 	"", MSGBOX_NPC)
 }
 
@@ -37,7 +37,7 @@ script Desert_AlienInDisguise {
 
 	"Bring me STEEL WING so I can\n"
 	"remember", MSGBOX_DEFAULT)
-	if(checkitem(ITEM_TM02)) {
+	if(checkitem(ITEM_TM38)) {
 		msgbox(
 		"That's STEEL WING\p"
 
@@ -60,7 +60,7 @@ script Desert_AlienInDisguise {
 		
 		closemessage
 		delay(30)
-		removeitem(ITEM_TM02)
+		removeitem(ITEM_TM38)
 		giveitem_msg("{PLAYER} got a\nHOUSE VOUCHER!", ITEM_HOUSEVOUCHER)
 		waitfanfare
 		removeobject(VAR_LAST_TALKED)

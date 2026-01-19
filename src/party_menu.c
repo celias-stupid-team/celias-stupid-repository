@@ -1965,17 +1965,23 @@ static bool8 CanLearnTutorMove(u16 species, u8 tutor)
     switch (tutor)
     {
     case TUTOR_MOVE_GRASS_PLEDGE:
-        if (species == SPECIES_VENUSAUR)
+        if (species == SPECIES_VENUSAUR
+            || species == SPECIES_IVYSAUR 
+            || species == SPECIES_BULBASAUR )
             return TRUE;
         else
             return FALSE;
     case TUTOR_MOVE_FIRE_PLEDGE:
-        if (species == SPECIES_CHARIZARD)
+        if (species == SPECIES_CHARMANDER
+            || species == SPECIES_CHARMELEON 
+            || species == SPECIES_CHARIZARD )
             return TRUE;
         else
             return FALSE;
     case TUTOR_MOVE_WATER_PLEDGE:
-        if (species == SPECIES_BLASTOISE)
+        if (species == SPECIES_SQUIRTLE
+            || species == SPECIES_WARTORTLE 
+            || species == SPECIES_BLASTOISE )
             return TRUE;
         else
             return FALSE;
@@ -5166,6 +5172,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc func)
         else
         {
             gPartyMenuUseExitCallback = FALSE;
+            
             DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
             ScheduleBgCopyTilemapToVram(2);
             gTasks[taskId].func = func;

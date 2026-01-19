@@ -359,7 +359,7 @@ void StartMarowakBattle(void)
         //FlagClear(FLAG_HIDE_CLEFAIRY_DOLL_GIRL);
         //FlagClear(FLAG_TEMP_4);
         
-        CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_GHOST, 30, 31, MON_GENDERLESS, NATURE_SERIOUS, 0);
+        CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_GHOST, 30, 31, MON_GENDERLESS, NATURE_SERIOUS);
     }
     else
     {
@@ -367,17 +367,6 @@ void StartMarowakBattle(void)
     }
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, gText_Ghost);
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
-}
-
-void StartAlomomolaBattle(void)
-{
-    LockPlayerFieldControls();
-    gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_ALOMOMOLA;
-    CreateBattleStartTask(GetWildBattleTransition(), 0);
-    //SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, gText_Luvdisc);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
 }

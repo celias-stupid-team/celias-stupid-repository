@@ -217,6 +217,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
 	if_effect EFFECT_SUBSTITUTE_2, AI_CBM_Substitute_2
 	if_Effect EFFECT_REVIVAL_BLESSING, AI_CBM_RevivalBlessing
+	if_Effect EFFECT_EVASION_MAX, AI_CBM_108TupleTeam
 	end
 
 AI_CBM_Sleep::
@@ -619,6 +620,11 @@ AI_CBM_DragonDance::
 AI_CBM_RevivalBlessing::
 	get_fainted_mons AI_USER
 	if_equal PARTY_SIZE, Score_Minus10
+	end
+
+AI_CBM_108TupleTeam::
+	if_has108evasion AI_USER, Score_Minus10
+	goto Score_Plus5
 	end
 
 Score_Minus1::

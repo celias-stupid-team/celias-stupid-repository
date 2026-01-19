@@ -8,7 +8,7 @@
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": true,
-  "allow_escaping": true,
+  "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
   "floor_number": 0,
@@ -191,7 +191,7 @@
     {
       "local_id": "LOCALID_SPHEAL_5",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SPHEALIA",
+      "graphics_id": "OBJ_EVENT_GFX_SPHEALIA_WALK",
       "x": 17,
       "y": 13,
       "elevation": 0,
@@ -216,7 +216,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SeafoamIslands_B3F_CaptainGetsTheSpheals",
-      "flag": "FLAG_CAPTAIN_DIRECTS_SPHEALS"
+      "flag": "FLAG_SEAFOAM_B3F_CAPTAIN"
     },
     {
       "local_id": "LOCALID_SPHEAL_LAND_1",
@@ -296,7 +296,7 @@
     {
       "local_id": "LOCALID_SPHEAL_LAND_5",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SPHEALIA",
+      "graphics_id": "OBJ_EVENT_GFX_SPHEALIA_WALK",
       "x": 30,
       "y": 1,
       "elevation": 0,
@@ -342,7 +342,7 @@
     {
       "x": 31,
       "y": 17,
-      "elevation": 4,
+      "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "6"
     },
@@ -456,7 +456,7 @@
     {
       "type": "trigger",
       "x": 31,
-      "y": 17,
+      "y": 19,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",

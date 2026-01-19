@@ -1624,3 +1624,13 @@
 	.macro trytrainerslidemsgswitchin
 	callnative BS_TryTrainerSlideMsgSwitchIn
 	.endm
+
+	.macro updatebattlerdata battler:req
+	callnative BS_UpdateBattlerData
+	.byte \battler
+	.endm
+
+	.macro redrawhealthbox battler:req
+	callnative BS_RedrawHealthbox
+	.byte \battler
+	.endm

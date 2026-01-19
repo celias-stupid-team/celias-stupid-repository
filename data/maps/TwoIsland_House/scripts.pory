@@ -180,7 +180,10 @@ script TwoIsland_MushroomManiac {
 			msgbox(
 			"That POKéMON was always one of\n"
 			"our favorites.\l"
-			"I just can't believe he's gone…", MSGBOX_DEFAULT)
+			"I just can't believe he's gone.\p"
+
+			"I should go soon to pay my last\n"
+			"respects at his grave.", MSGBOX_DEFAULT)
 		}
 
 	}

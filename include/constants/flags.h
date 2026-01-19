@@ -548,17 +548,17 @@
 #define FLAG_0x1F1        0x1F1
 #define FLAG_0x1F2 0x1F2
 #define FLAG_0x1F3 0x1F3
-#define FLAG_0x1F4        0x1F4
-#define FLAG_0x1F5             0x1F5
-#define FLAG_0x1F6            0x1F6
-#define FLAG_0x1F7         0x1F7
-#define FLAG_0x1F8       0x1F8
-#define FLAG_0x1F9      0x1F9
-#define FLAG_0x1FA      0x1FA
-#define FLAG_0x1FB       0x1FB
-#define FLAG_0x1FC       0x1FC
-#define FLAG_0x1FD 0x1FD
-#define FLAG_0x1FE                              0x1FE
+#define FLAG_GROUDON_NOTHING        0x1F4
+#define FLAG_LASS_MAZE_WATER_NOTHING             0x1F5
+#define FLAG_SAFFRON_NOTHING            0x1F6
+#define FLAG_CINNABAR_QUESTION_SECRET_1         0x1F7
+#define FLAG_CINNABAR_QUESTION_SECRET_2       0x1F8
+#define FLAG_CINNABAR_QUESTION_SECRET_3      0x1F9
+#define FLAG_CINNABAR_QUESTION_SECRET_4      0x1FA
+#define FLAG_CINNABAR_QUESTION_SECRET_5       0x1FB
+#define FLAG_CINNABAR_QUESTION_SECRET_6       0x1FC
+#define FLAG_CINNABAR_QUESTION_SECRET_7 0x1FD
+#define FLAG_CINNABAR_QUESTION_SECRET_8                              0x1FE
 
 // Unused?
 // Let's use these for item pickups
@@ -601,13 +601,13 @@
 #define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1               0x223
 #define FLAG_TALKED_TO_NATIONAL_PARK_HINT               0x224
 #define FLAG_SAFFRON_IS_TRAINS               0x225
-#define FLAG_0x226               0x226
-#define FLAG_0x227               0x227
-#define FLAG_0x228               0x228
+#define FLAG_SEAFOAM_B2F_CAPTAIN               0x226
+#define FLAG_SEAFOAM_B3F_CAPTAIN               0x227
+#define FLAG_SEAFOAM_B1F_CAPTAIN               0x228
 #define FLAG_0x229               0x229
 #define FLAG_0x22A               0x22A
 #define FLAG_0x22B               0x22B
-#define FLAG_0x22C               0x22C
+#define FLAG_TWO_ISLAND_BOMB_PRESENT               0x22C
 #define FLAG_CAUGHT_MR_FUJI               0x22D
 #define FLAG_CAUGHT_VERMILION_SEAL               0x22E
 #define FLAG_CSR_CELIA_DEV_CREW               0x22F
@@ -1274,7 +1274,7 @@
 #define FLAG_HIDDEN_ITEM_SIX_ISLAND_WATER_PATH_ASPEAR_BERRY                (FLAG_HIDDEN_ITEMS_START + 181)
 #define FLAG_HIDDEN_ITEM_SIX_ISLAND_WATER_PATH_ORAN_BERRY                  (FLAG_HIDDEN_ITEMS_START + 182)
 #define FLAG_HIDDEN_ITEM_SIX_ISLAND_WATER_PATH_PINAP_BERRY                 (FLAG_HIDDEN_ITEMS_START + 183)
-#define FLAG_HIDDEN_ITEM_SIX_ISLAND_LEPPA_BERRY                            (FLAG_HIDDEN_ITEMS_START + 184)
+#define FLAG_HIDDEN_ITEM_VICTINI_CAVE_NOTHING                            (FLAG_HIDDEN_ITEMS_START + 184)
 #define FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_BIG_PEARL              (FLAG_HIDDEN_ITEMS_START + 185)
 #define FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_PEARL                  (FLAG_HIDDEN_ITEMS_START + 186)
 #define FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TRAINER_TOWER_NANAB_BERRY            (FLAG_HIDDEN_ITEMS_START + 187)

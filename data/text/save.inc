@@ -9,6 +9,9 @@ gText_SavingDontTurnOffThePower::
 	.string "SAVING…\n"
 	.string "DON'T TURN OFF THE POWER.$"
 
+gText_SavingALotOfDataDontTurnOffThePower::
+	.string "SAVING A LOT OF DATA…\n"
+	.string "DON'T TURN OFF THE POWER.{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}{PAUSE 60}$"
 gText_PlayerSavedTheGame::
 	.string "{PLAYER} saved the game.$"
 

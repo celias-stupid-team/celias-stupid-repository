@@ -221,13 +221,13 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_DAD",
-      "x": 42,
-      "y": 4,
+      "graphics_id": "OBJ_EVENT_GFX_SURF_DAD",
+      "x": 25,
+      "y": 40,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
+      "movement_range_x": 4,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PirateBay_Dad",
@@ -279,7 +279,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 27,
-      "y": 4,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -414,6 +414,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_Buoy_PirateBaySouth",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PIRATE_JOY",
+      "x": 42,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PirateBay_Nurse",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -447,7 +461,7 @@
     },
     {
       "x": 28,
-      "y": 3,
+      "y": 1,
       "elevation": 0,
       "dest_map": "MAP_FIVE_ISLAND_ROCKET_WAREHOUSE",
       "dest_warp_id": "0"
@@ -535,16 +549,16 @@
     },
     {
       "type": "sign",
-      "x": 35,
-      "y": 6,
+      "x": 34,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PirateBay_RockClimbUp"
     },
     {
       "type": "sign",
-      "x": 35,
-      "y": 5,
+      "x": 34,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PirateBay_RockClimbDown"

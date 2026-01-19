@@ -760,7 +760,11 @@ PokedexRating_Text_HintZygarde::
 
 
 PokedexRating_Text_HintMelmanure::
-	.string "Placeholder!$"
+	.string "An old man on ROUTE 22 asked for\n"
+	.string "help finding his CANDIES, no?\p"
+	.string "I believe he said he'd help you\n"
+	.string "after collecting all your badges.\l"
+	.string "Maybe you should pay a visit!$"
 
 PokedexRating_Text_HintEternatus::
 	.string "With FLY, you can truly travel\n"
@@ -803,10 +807,20 @@ PokedexRating_Text_HintPikablu::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintLuvdisc::
-	.string "Placeholder!$"
+	.string "Northeast of CINNABAR, a fisherman\n"
+	.string "mentioned finding a POKéMON in but\l"
+	.string "one single tile in the OCEAN.\p"
+	.string "Maybe you should return there and\n"
+	.string "see if you could narrow it down.$"
+
 
 PokedexRating_Text_HintAlomomola::
-	.string "Placeholder!$"
+	.string "The special POKéMON found in just\n"
+	.string "one tile was LUVDISK of all things?\l"
+	.string "What a shame!\p"
+	.string "I wonder if you have a way to swap\n"
+	.string "it for something else.$"
+
 
 PokedexRating_Text_HintAlcreamie::
 	.string "The CREAM DROP you were given seems\n"
@@ -849,10 +863,11 @@ PokedexRating_Text_HintHoopa::
 	.string "Seal, it would be released.$"
 
 PokedexRating_Text_HintMimikyu::
-	.string "The COPYCAT household in SAFFRON\n"
-	.string "is going through some troubles.\p"
-	.string "Say, have you looked through your\n"
-	.string "items lately?$"
+	.string "Now that the DMCA are gone, you\n"
+	.string "should be free to explore SAFFRON!\p"
+	.string "There was a house with a young\n"
+	.string "girl living in it.\l"
+	.string "Perhaps you should check on her?$"
 
 
 PokedexRating_Text_HintOmanyte::
@@ -925,11 +940,11 @@ PokedexRating_Text_HintFlareon::
 
 
 PokedexRating_Text_HintGoldeen::
-	.string "You were given a GOLDEN ROD on\n"
-	.string "THIRTY EIGHT ISLAND?\p"
-	.string "I wonder what POKéMON it might\n"
-	.string "fish up!$"
-
+	.string "I heard SAFFRON CITY installed a\n"
+	.string "new TRAIN STATION!\l"
+	.string "How lovely!\p"
+	.string "I hear it connects to GOLDENROD?\n"
+	.string "You should try taking it!$"
 
 PokedexRating_Text_HintSeaking::
 	.string "Your GOLDEEN can still evolve.\n"

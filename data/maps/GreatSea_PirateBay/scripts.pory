@@ -104,9 +104,28 @@ script PirateBay_PotionShop {
 	lock
 	faceplayer
 	msgbox(
-	"I am a merchant\n"
-	"", MSGBOX_DEFAULT)
+	"Heyyyyyyyyy there, kid!\n"
+	"Wanna check out my shop?", MSGBOX_DEFAULT)
 	pokemart(PirateBay_Potions)
+	if(checkitem(ITEM_POTION_EXE)) {
+		while(checkitem(ITEM_POTION_EXE)) {
+			removeitem(ITEM_POTION_EXE)
+		}
+		closemessage
+		playse(SE_ITEMFINDER)
+		waitse
+		playse(SE_ITEMFINDER)
+		waitse
+		playse(SE_ITEMFINDER)
+		waitse
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"{PLAYER}'s ANTIVIRUS is going off!\p"
+
+		"POTION.exe was uninstalled.\n"
+		"", MSGBOX_DEFAULT)
+	}
+
 	release
 }
 
@@ -168,7 +187,7 @@ script PirateBay_Copperajah {
 
 
 script PirateBay_Sailor {
-    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
+    trainerbattle_single(TRAINER_FAG_SAILOR, "FUCK intro", "FUCK")
     msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
 
 }
@@ -247,7 +266,9 @@ script PirateBay_Dad {
 	"DAD: {PLAYER}!\n"
 	"What are you doing out here?\p"
 
-	"dad text\p"
+	"I'm just out here SURFING the\n"
+	"WEB!\l"
+	"I hope I don't get a virus!\p"
 
 	"Well, never mind that.\n"
 	"How about you take a rest?", MSGBOX_DEFAULT)
@@ -339,4 +360,80 @@ script PirateBay_GluedToATree {
 	"He's glued to a tree.\n"
 	"", MSGBOX_SIGN)
 
+}
+
+script PirateBay_Nurse {
+	lock
+	textcolor(NPC_TEXT_COLOR_RED)
+	message(
+	"Ahoy, matey!\n"
+	"Welcome to the POKéMON HUT!\p"
+
+	"Would you like to heal your\n"
+	"POKéMON?")
+	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "AYE", "NAY")
+	if(!var(VAR_RESULT)) {
+		message(
+		"Do ye be sure?\n"
+		"")
+		dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "AYE", "NAY")
+		if(!var(VAR_RESULT)) {
+			message(
+			"Do ye be REALLY sure?\n"
+			"")
+			dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "AYE", "NAY")
+			if(!var(VAR_RESULT)) {
+				msgbox(
+				"If ye insist…\n"
+				"", MSGBOX_DEFAULT)
+					fadescreenswapbuffers(FADE_TO_BLACK)
+					closemessage
+					playfanfare(MUS_HEAL)
+					waitfanfare
+					special(HealPlayerParty)
+					fadescreenswapbuffers(FADE_FROM_BLACK)
+					msgbox(
+					"Aye!\n"
+					"Yer POKéMON are fully healed!", MSGBOX_DEFAULT)
+					applymovement(VAR_LAST_TALKED, moves(
+							nurse_joy_bow
+							delay_4
+
+					))
+					waitmovement(0)
+					
+					msgbox(
+					"I hope yer POKéMON be trounced\n"
+					"again!", MSGBOX_DEFAULT)
+					release
+					end
+
+
+
+			} else {
+				
+				msgbox(
+				"I hope yer POKéMON be trounced\n"
+				"again!", MSGBOX_DEFAULT)
+				release
+				end
+
+			}
+
+		} else {
+				
+			msgbox(
+			"I hope yer POKéMON be trounced\n"
+			"again!", MSGBOX_DEFAULT)
+			release
+			end
+		}
+
+	} else {
+		msgbox(
+		"I hope yer POKéMON be trounced\n"
+		"again!", MSGBOX_DEFAULT)
+		release
+		end
+	}
 }

@@ -185,7 +185,21 @@ script DMCAWarehouse_LetterW {
 script DMCAWarehouse_ThievulFight {
 	lock
 	faceplayer
-	trainerbattle_single(TRAINER_DMCA_THIEVUL, FiveIsland_RocketWarehouse_Text_Admin1Intro, FiveIsland_RocketWarehouse_Text_Admin1Defeat, DMCAWarehouse_AdminLeaves)
+	msgbox(FiveIsland_RocketWarehouse_Text_Admin1Intro)
+	trainerbattle_no_intro(TRAINER_DMCA_THIEVUL, FiveIsland_RocketWarehouse_Text_Admin1Defeat)
+	if(checkpartymon(SPECIES_VICTINI)) {
+		goto(DMCAWarehouse_AdminLeaves)
+	} else {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"The THIE UL is inexplicably\n"
+		"immune to every attack you have.\p"
+
+		"You lose.\n"
+		"", MSGBOX_DEFAULT)
+		
+        goto(EventScript_FieldWhiteOutNoMoney)
+	}
 	msgbox(FiveIsland_RocketWarehouse_Text_MadeItSoYouCanComeBackThrough, MSGBOX_AUTOCLOSE)
 	end
 
@@ -236,4 +250,51 @@ script DMCAWarehouse_N {
 	msgbox(
 	"They're holding a letter hostage\n"
 	"", MSGBOX_NPC)
+}
+
+
+script DMCAWarehouse_GrandpaWoman {
+	msgbox(
+	"Oh no!\n"
+	"Grandpa's dad!", MSGBOX_NPC)
+}
+
+script DMCAWarehouse_Ass {
+	msgbox(
+	"ASS: Hey!{PAUSE 30}\n"
+	"Don't ook at me!", MSGBOX_NPC)
+}
+
+
+script DMCAWarehouse_GrnadpaDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"Grandpa: Hmm? Who are you?\n"
+	"What are you doing here?\p"
+
+	"Well, never mind.\n"
+	"I think I'm due for a rest.", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+
+script DMCAWarehouse_Polio {
+	lock
+	faceplayer
+	playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
+	msgbox(
+	"POLIO: Pla-plaaah!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(10)
+	msgbox(
+	"POLIO's PP dropped!\n"
+	"", MSGBOX_DEFAULT)
+	release
+	end
 }

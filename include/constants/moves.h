@@ -640,8 +640,11 @@
 #define MOVE_TRIPLE_WINGBEAT 635
 #define MOVE_DOUBLE_DIP 636
 #define MOVE_DOUBLE_DAD 637
+#define MOVE_FLY_CYNTHIA 638
+#define MOVE_FREEZE_DRY 639
+#define MOVE_LEAFAGE 640
 
-#define MOVES_COUNT 638
+#define MOVES_COUNT 641
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

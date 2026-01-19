@@ -51,9 +51,7 @@ BirthIsland_Exterior_EventScript_Triangle::
 	case 3, BirthIsland_Exterior_EventScript_NotSolved3
 	end
 
-BirthIsland_Exterior_EventScript_NotSolved1::
-	release
-	end
+
 
 BirthIsland_Exterior_EventScript_NotSolved2::
 	release
@@ -110,13 +108,56 @@ Movement_DeoxysApproach:
 	step_end
 `
 
+script BirthIsland_Exterior_EventScript_NotSolved1 {
+	addvar(VAR_TEMP_A, 1)
+	if(var(VAR_TEMP_A) > 7) {
+		waitse
+		playbgm(MUS_NONE, TRUE)
+		playse(SE_M_EXPLOSION)
+		msgbox(
+		"OH MY FUCKING GOD.\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		addobject(LOCALID_BIRTH_ISLAND_DEOXYS)
+		applymovement(LOCALID_BIRTH_ISLAND_DEOXYS, moves(
+			walk_fast_down * 8	
+		))
+		waitmovement(LOCALID_BIRTH_ISLAND_DEOXYS)
+		delay(60)
+		playse(SE_FLEE)
+		applymovement(LOCALID_BIRTH_ISLAND_DEOXYS, moves(
+			walk_faster_up * 8
+		))
+		applymovement(LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK, moves(
+			walk_faster_up * 8
+		))
+		waitmovement(VAR_LAST_TALKED)
+		waitmovement(0)
+		removeobject(VAR_LAST_TALKED)
+		setflag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)
+		delay(30)
+		msgbox(
+		"The triangle flew away…\n"
+		"", MSGBOX_DEFAULT)
+			fadedefaultbgm
+	}
+	release
+	end
+}
+
 script BirthIsland_StoneFlewAway {
+	playse(SE_FLEE)
 	applymovement(VAR_LAST_TALKED, moves(
 		walk_faster_up * 8
 	))
+	waitmovement(VAR_LAST_TALKED)
 	removeobject(VAR_LAST_TALKED)
 	setflag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)
+	delay(30)
 	msgbox(
-	"It flew away…\n"
+	"The triangle flew away…\n"
 	"", MSGBOX_DEFAULT)
+	release
+	end
 }

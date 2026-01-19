@@ -92,7 +92,7 @@
 #define VAR_PSYDUCK_PAIL_COUNTER                         0x4029
 #define VAR_GLITCH_CITY_STATUS                         0x402A
 #define VAR_GLITCH_CITY_STEP_COUNT                         0x402B
-#define VAR_0x402C                         0x402C
+#define VAR_NUMBER_FOR_SALES                         0x402C
 #define VAR_0x402D                         0x402D
 #define VAR_0x402E                         0x402E
 
@@ -103,7 +103,7 @@
 #define VAR_RESET_RTC_ENABLE               0x4032
 #define VAR_ENIGMA_BERRY_AVAILABLE         0x4033
 
-#define VAR_0x4034                         0x4034
+#define VAR_POKEMON_MANSION_LAVAFALL                         0x4034
 #define VAR_RESORT_GOREGEOUS_STEP_COUNTER  0x4035
 #define VAR_RESORT_GORGEOUS_REQUESTED_MON  0x4036
 #define VAR_PC_BOX_TO_SEND_MON             0x4037
@@ -286,8 +286,8 @@ It is reset after every battle.
 #define VAR_MYSTERY_GIFT_5         0x40BA
 #define VAR_MYSTERY_GIFT_6         0x40BB
 #define VAR_MYSTERY_GIFT_7         0x40BC
-#define VAR_0x40BD                 0x40BD
-#define VAR_0x40BE                 0x40BE
+#define VAR_BLAINE_GYM_QUESTION                 0x40BD
+#define VAR_SEAFOAM_CAPTAIN_FLOOR                 0x40BE
 #define VAR_0x40BF                 0x40BF
 #define VAR_0x40C0                 0x40C0
 #define VAR_0x40C1                 0x40C1

@@ -483,7 +483,7 @@ const u8 gSlowbroPokedexTextUnused[] = _("");
 
 const u8 gMagnemitePokedexText[] = _(
 	"You ever notice how the POKéDEX\n"
-	"considers the screws to be its feet?");
+	"says the screws are its feet?");
 
 const u8 gMagnemitePokedexTextUnused[] = _("");
 

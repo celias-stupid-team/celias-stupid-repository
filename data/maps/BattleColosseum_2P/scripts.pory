@@ -318,7 +318,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_COMBEE) && flag(FLAG_FOUR_ISLAND_ROCK_CLIMB)) { //TODO figure out this logic
 		setobtainable(SPECIES_SMEARGLE) // 103
 	}
-	if(flag(FLAG_CSR_GOT_GOLDEN_ROD) && flag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)) { 
+	if(flag(FLAG_SAFFRON_IS_TRAINS)) { 
 		setobtainable(SPECIES_GOLDEEN) // 104
 	}
 	if(checkmoncaught(SPECIES_GOLDEEN) && checkmoncaught(SPECIES_GOLDEEN)) { //and if Goldeen
@@ -405,7 +405,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_CINNABAR_ISLAND)) { //TODO figure out logic
 		setobtainable(SPECIES_SUDOWOODO) // 132
 	}
-	if(flag(FLAG_COPYCAT_TM) && flag(FLAG_ENTERED_COPYCAT_HOUSE)) { //TODO figure out logic
+	if(flag(FLAG_COPYCAT_TM)) { //TODO figure out logic
 		setobtainable(SPECIES_MIMIKYU) // 133
 	}
 	if(flag(FLAG_CSR_MAP_MINNESOTA) && flag(FLAG_HOOPA_HINT) || flag(FLAG_BADGE08_GET)) { //TODO figure out logic
@@ -442,7 +442,7 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_ZYGARDE) // 144
 	}
 	if(flag(FLAG_BADGE08_GET)) { //TODO figure out logic
-		setobtainable(SPECIES_MELMETAL) // 145
+		setobtainable(SPECIES_MELTAN) // 145
 	}
 	if(checkmoncaught(SPECIES_SEAKING)) { //TODO figure out logic
 		setobtainable(SPECIES_ARCANINE) // 146
@@ -780,7 +780,7 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintEternatus)
 		case SPECIES_ZYGARDE: 
 			 msgbox(PokedexRating_Text_HintZygarde)
-		case SPECIES_MELMETAL: 
+		case SPECIES_MELTAN: 
 			 msgbox(PokedexRating_Text_HintMelmanure)
 		case SPECIES_ARCANINE: 
 			 msgbox(PokedexRating_Text_HintArcanine)

@@ -296,7 +296,7 @@ script CinnabarIsland_ReviveFossils {
 	switch(var(VAR_RESULT)) {
 		case 0: //dome
 		case 1: //helix
-			copyvar(VAR_RESULT, VAR_TEMP_9)
+			copyvar(VAR_TEMP_9, VAR_RESULT)
 		default:
 			msgbox(
 			"What?\n"
@@ -317,9 +317,11 @@ script CinnabarIsland_ReviveFossils {
 	if(checkitem(ITEM_HELIX_FOSSIL)) {
 		switch(var(VAR_TEMP_9)) {
 			case 0:
+				//msgbox("first option")
 				multichoice(0,0, MULTICHOICE_HELIX, FALSE)
 			case 1:
-				multichoice(0,0, MULTICHOICE_AMBER, FALSE)
+				//msgbox("second option")
+				multichoice(0,0, MULTICHOICE_DOME, FALSE)
 		}
 		if(var(VAR_RESULT) != 0) {
 			msgbox(
@@ -406,8 +408,8 @@ script CinnabarIsland_ReviveFossils {
 script CinnabarIsland_Pigmask {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"yeah I love putting stuff together\n"
-	"placeholder", MSGBOX_NPC)
+	"Yeah I love putting stuff together.\n"
+	"", MSGBOX_NPC)
 }
 
 

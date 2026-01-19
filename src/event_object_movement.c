@@ -545,6 +545,24 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_BOY_CLOTHES  0x1176
 #define OBJ_EVENT_PAL_TAG_GIRL_CLOTHES  0x1177
 #define OBJ_EVENT_PAL_TAG_SOPHACLES  0x1178
+#define OBJ_EVENT_PAL_TAG_ROTOM_POKEDEX  0x1179
+#define OBJ_EVENT_PAL_TAG_LEON  0x117A
+#define OBJ_EVENT_PAL_TAG_EEVEE  0x117B
+#define OBJ_EVENT_PAL_TAG_BERRY_TREE  0x117C
+#define OBJ_EVENT_PAL_TAG_MAGMAR  0x117D
+#define OBJ_EVENT_PAL_TAG_FLINT  0x117E
+#define OBJ_EVENT_PAL_TAG_SURF_DAD  0x117F
+#define OBJ_EVENT_PAL_TAG_GRANDPA_DAD  0x1180
+#define OBJ_EVENT_PAL_TAG_POLIO  0x1181
+#define OBJ_EVENT_PAL_TAG_RIVAL_OF_AETHER  0x1182
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_ZAP  0x1183
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_MOL  0x1184
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_CUNO  0x1185
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_OH  0x1186
+#define OBJ_EVENT_PAL_TAG_FINALBOSS_GIA  0x1187
+#define OBJ_EVENT_PAL_TAG_NURSE_DUCK  0x1188
+#define OBJ_EVENT_PAL_TAG_STUNFISK  0x1189
+#define OBJ_EVENT_PAL_TAG_NURSE_DUCK_BUT_IM_LAZY  0x118A
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -663,6 +681,24 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_BOY_CLOTHES,             OBJ_EVENT_PAL_TAG_BOY_CLOTHES},
     {gObjectEventPal_GIRL_CLOTHES,             OBJ_EVENT_PAL_TAG_GIRL_CLOTHES},
     {gObjectEventPal_SOPHACLES,             OBJ_EVENT_PAL_TAG_SOPHACLES},
+    {gObjectEventPal_ROTOM_POKEDEX,             OBJ_EVENT_PAL_TAG_ROTOM_POKEDEX},
+    {gObjectEventPal_LEON,             OBJ_EVENT_PAL_TAG_LEON},
+    {gObjectEventPal_EEVEE,             OBJ_EVENT_PAL_TAG_EEVEE},
+    {gObjectEventPal_BERRY_TREE,             OBJ_EVENT_PAL_TAG_BERRY_TREE},
+    {gObjectEventPal_MAGMAR,             OBJ_EVENT_PAL_TAG_MAGMAR},
+    {gObjectEventPal_FLINT,             OBJ_EVENT_PAL_TAG_FLINT},
+    {gObjectEventPal_SURF_DAD,             OBJ_EVENT_PAL_TAG_SURF_DAD},
+    {gObjectEventPal_GRANDPA_DAD,             OBJ_EVENT_PAL_TAG_GRANDPA_DAD},
+    {gObjectEventPal_POLIO,             OBJ_EVENT_PAL_TAG_POLIO},
+    {gObjectEventPal_RIVAL_OF_AETHER,             OBJ_EVENT_PAL_TAG_RIVAL_OF_AETHER},
+    {gObjectEventPal_FINALBOSS_ZAP,             OBJ_EVENT_PAL_TAG_FINALBOSS_ZAP},
+    {gObjectEventPal_FINALBOSS_MOL,             OBJ_EVENT_PAL_TAG_FINALBOSS_MOL},
+    {gObjectEventPal_FINALBOSS_CUNO,             OBJ_EVENT_PAL_TAG_FINALBOSS_CUNO},
+    {gObjectEventPal_FINALBOSS_OH,             OBJ_EVENT_PAL_TAG_FINALBOSS_OH},
+    {gObjectEventPal_FINALBOSS_GIA,             OBJ_EVENT_PAL_TAG_FINALBOSS_GIA},
+    {gObjectEventPal_NURSE_DUCK,             OBJ_EVENT_PAL_TAG_NURSE_DUCK},
+    {gObjectEventPal_STUNFISK,             OBJ_EVENT_PAL_TAG_STUNFISK},
+    {gObjectEventPal_NURSE_DUCK_BUT_IM_LAZY,             OBJ_EVENT_PAL_TAG_NURSE_DUCK_BUT_IM_LAZY},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

@@ -944,11 +944,11 @@ Text_GiveNicknameToThisMon::
 
 Text_CardKeyOpenedDoor::
 	.string "Bingo!\n"
-	.string "The CARD KEY opened the door!$"
+	.string "The KEY CARD opened the door!$"
 
 Text_ItNeedsCardKey::
 	.string "No!\n"
-	.string "It needs a CARD KEY!$"
+	.string "It needs a KEY CARD!$"
 
 Text_AccessedProfOaksPC::
 	.string "Accessed PROF. OAK's PC…\p"
@@ -1886,3 +1886,6 @@ Text_TestMsg::
 
 	.include "data/maps/FiveIsland_House4/scripts.inc"
 	.include "data/maps/FiveIsland_House4/text.inc"
+
+	.include "data/maps/Chapter7_Chapter2/scripts.inc"
+	.include "data/maps/Chapter7_Chapter2/text.inc"

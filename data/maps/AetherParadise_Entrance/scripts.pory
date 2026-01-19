@@ -71,11 +71,17 @@ script AetherParadise_DMCA_StopsYou {
 	"", MSGBOX_DEFAULT)
 	//cutscene stuff
 	msgbox(
-	"team skull is a ripoff\p"
+	"These guys have been calling\n"
+	"themselves TEAM SKULL.\l"
+	"Ha!\p"
 
-	"here's the real one\n"
+	"We all know that's a poor, illegal\n"
+	"imitation.\p"
+
+	"Here's the REAL one!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
+	delay(30)
 	applymovement(LOCALID_AETHER_ZUBAT, moves(
 		walk_down * 3
 		walk_right
@@ -88,13 +94,23 @@ script AetherParadise_DMCA_StopsYou {
 
 	))
 	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"we're team skull hahaha\n"
-	"", MSGBOX_DEFAULT)
+	"KOFFING: Ahaha!\n"
+	"We're the original TEAM SKULL!", MSGBOX_DEFAULT)
 	// battle
 	msgbox(
-	"oh no we lose\n"
+	"(there is a battle here)\n"
 	"", MSGBOX_DEFAULT)
+	msgbox(
+	"ZUBAT: cough…\n"
+	"We… lost…", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	msgbox(
+	"KOFFING: Let's get outta here.\n"
+	"Our boss'll take care of this.", MSGBOX_DEFAULT)
+	closemessage
 	setflag(FLAG_DMCA_SKULL_FIGHT_1)
 	setvar(VAR_TEMP_0, 1)
 	closemessage
@@ -108,7 +124,11 @@ script AetherParadise_DMCA_StopsYou {
 		walk_fast_left
 		face_down
 	))
-	waitmovement
+	waitmovement(0)
+	removeobject(LOCALID_AETHER_ZUBAT)
+	removeobject(LOCALID_KOFFING)
+	removeobject(LOCALID_AETHER_DMCA_GRUNT)
+	removeobject(LOCALID_AETHER_DMCA_GRUNT)
 	release
 
 }
@@ -121,6 +141,7 @@ script AetherParadise_SkuntankBattle {
 		walk_down
 
 	))
+	waitmovement(0)
 	msgbox(
 	"I am skuntank\n"
 	"fuck you", MSGBOX_DEFAULT)
@@ -130,9 +151,11 @@ script AetherParadise_SkuntankBattle {
 	//setflag(FLAG_SYS_KANGA_FIGHT)
 	//setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARIANA)
 	special(StartLegendaryBattle)
+	delay(150)
 	specialvar(VAR_RESULT, GetBattleOutcome)
 	switch(var(VAR_RESULT)) {
 		case B_OUTCOME_WON:
+			fadenewbgm(MUS_NONE)
 			msgbox(
 			"you win\n"
 			"", MSGBOX_DEFAULT)
@@ -140,13 +163,22 @@ script AetherParadise_SkuntankBattle {
 			removeobject(LOCALID_SKUNTANK)
 			removeobject(LOCALID_KOFFING)
 			removeobject(LOCALID_AETHER_ZUBAT)
+			closemessage
+			delay(60)
+			playbgm(MUS_IKI_TOWN_TEST, TRUE)
 			setvar(VAR_TEMP_0, 2)
 			release
 			end
-		case B_OUTCOME_RAN:
+		default:
+			msgbox(
+			"you lose\n"
+			"", MSGBOX_DEFAULT)
+			closemessage
+			applymovement(LOCALID_PLAYER, moves(
+				walk_down
+			))
+			waitmovement(0)
 			warp(MAP_AETHER_PARADISE_ENTRANCE, 0)
-		case B_OUTCOME_PLAYER_TELEPORTED:
-			break
 	}
 	release
 }
@@ -168,7 +200,7 @@ script AetherParadise_SkullGruntDmca {
 
 script AetherParadise_WimpOut {
 	msgbox(
-	"It's labeled WIMP OUT!”\n"
+	"It's labeled “WIMP OUT!”\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -191,4 +223,19 @@ script AetherParadise_NebbyGuy {
 	"Legends say if you bring this\n"
 	"POKéMON there and hold it up,\l"
 	"something incredible may happen.", MSGBOX_NPC)
+}
+
+
+
+script AetherParadise_RivalOfAether {
+	lock
+	faceplayer
+	playmoncry(SPECIES_SWELLOW, CRY_MODE_DEFAULT)
+	msgbox(
+	"Oh, cool!\p"
+
+	"It's a RIVAL of AETHER!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	release
 }

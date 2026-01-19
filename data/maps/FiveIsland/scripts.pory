@@ -101,6 +101,8 @@ script Yes_Brendan {
 		msgbox(
 		"BRENDAN: I love my hat.\n"
 		"", MSGBOX_DEFAULT)
+		release
+		end
 	}
 	if(flag(FLAG_TALKED_TO_BRENDAN)) {
 		if(checkitem(ITEM_HAT)) {

@@ -1,12 +1,31 @@
 mapscripts Ocean11_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
+		if(!checkmoncaught(SPECIES_LUVDISC)) {
+			setflag(FLAG_TEMP_1)
+		} else {
+			clearflag(FLAG_TEMP_1)
+		}
     }
+	MAP_SCRIPT_ON_RESUME {
+		if(checkmoncaught(SPECIES_LUVDISC)) {
+			clearflag(FLAG_TEMP_1)
+			setvar(VAR_TEMP_1, 1)
+			
+		}
+	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_1, 1 {
+			addobject(LOCALID_LUVDISC_SWIMMER, MAP_OCEAN11)
+			setvar(VAR_TEMP_1, 0)
+			release
+		}
+	]
 }
 
 script Route21_StartAlomomolaBattle {
 	lock
 	setwildbattle(SPECIES_LUVDISC, 5)
-	special(StartAlomomolaBattle)
+	//special(StartAlomomolaBattle)
 	release
 }
 
@@ -14,16 +33,6 @@ script GreatSea_LuvdiscHint {
 	setflag(FLAG_LUVDISC_HINT)
 	lock
 	faceplayer
-    if(checkmoncaught(SPECIES_LUVDISC)) {
-        msgbox(
-        "Oh, man.\n"
-        "THAT'S what was lurking here?\p"
-
-        "Too bad you couldn't swap that\n"
-        "encounter out for a different one.", MSGBOX_DEFAULT)
-        release
-        end
-    }
 	msgbox(
 	"I've heard there's a rare POKéMON\n"
 	"somewhere in the GREAT SEA, but only\l"
@@ -32,6 +41,20 @@ script GreatSea_LuvdiscHint {
 	"I wonder where that might be…\n"
 	"", MSGBOX_DEFAULT)
 	release
+}
+
+script GreatSea_LuvdiscSwimmer {
+	lock
+	faceplayer
+	
+	msgbox(
+	"Oh, man.\n"
+	"THAT'S what was lurking here?\p"
+
+	"Too bad you couldn't swap that\n"
+	"encounter out for a different one.", MSGBOX_DEFAULT)
+	release
+	end
 }
 
 script GreatSea_EggDeliverySign {

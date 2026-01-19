@@ -616,3 +616,9 @@ const u32 gTrainerPalette_LightGary[] = INCBIN_U32("graphics/trainers/palettes/l
 
 const u32 gTrainerFrontPic_Larry[] = INCBIN_U32("graphics/trainers/front_pics/larry_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Larry[] = INCBIN_U32("graphics/trainers/palettes/larry.gbapal.lz");
+
+const u32 gTrainerFrontPic_SansTrainer[] = INCBIN_U32("graphics/trainers/front_pics/sans_trainer_front_pic.4bpp.lz");
+const u32 gTrainerPalette_SansTrainer[] = INCBIN_U32("graphics/trainers/palettes/sans_trainer.gbapal.lz");
+
+const u32 gTrainerFrontPic_BerriedAlive[] = INCBIN_U32("graphics/trainers/front_pics/berried_alive_front_pic.4bpp.lz");
+const u32 gTrainerPalette_BerriedAlive[] = INCBIN_U32("graphics/trainers/palettes/berried_alive.gbapal.lz");

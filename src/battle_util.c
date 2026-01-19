@@ -66,7 +66,7 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
 	[TYPE_SHIT]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
 	[TYPE_FAIRY_TRANS]   = {	______, 	X(2.0), 	______, 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
 	[TYPE_SOUND]   = {	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_FIGHTING_SPECIAL]   = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	X(0.2), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	______ 	},
+	[TYPE_FIGHTING_SPECIAL]   = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	X(0.2), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	______ 	},
 };
 
 #undef ______
@@ -1418,7 +1418,7 @@ u8 AtkCanceller_UnableToUseMove(void)
         case CANCELLER_FROZEN: // check being frozen
             if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE)
             {
-                if (TRUE) //Cannot unfreeze SNOWGRAVE CHECK
+                if (TRUE) // always stay frozen
                 {
                     if (gBattleMoves[gCurrentMove].effect != EFFECT_THAW_HIT) // unfreezing via a move effect happens in case 13
                     {
@@ -3649,6 +3649,9 @@ uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
     //  DebugPrintf("GetTypeModifier atkType = %S", gTypeNames[atkType]);
     //  DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
     //  DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
+
+    if (gCurrentMove == MOVE_FREEZE_DRY && defType == TYPE_WATER)
+        return UQ_4_12(2.0);
 
     return sTypeEffectivenessTable[atkType][defType];
 }

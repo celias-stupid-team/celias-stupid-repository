@@ -1229,6 +1229,7 @@ extern const u8 EventScript_AfterWhiteOutReleaseEnd[];
 extern const u8 gText_WouldYouLikeToSaveTheGame[];
 extern const u8 gText_AlreadySaveFile_WouldLikeToOverwrite[];
 extern const u8 gText_SavingDontTurnOffThePower[];
+extern const u8 gText_SavingALotOfDataDontTurnOffThePower[];
 extern const u8 gText_PlayerSavedTheGame[];
 extern const u8 gText_DifferentGameFile[];
 

@@ -4,6 +4,7 @@ mapscripts GreatBay_SkyPillarOutside_MapScripts {
             setflag(FLAG_TEMP_1)
         }
         setvar(VAR_TEMP_5, 19)
+        setflag(FLAG_TEMP_A)
     }
 }
 
@@ -56,6 +57,8 @@ script GreatBay_SkyPillarOutside_LookingOut {
     ))
     waitmovement(0)
     special(DrawWholeMapView)
+    addobject(LOCALID_GRANDPA_RED)
+    clearflag(FLAG_TEMP_A)
     fadescreenswapbuffers(FADE_FROM_BLACK)
     if(var(VAR_RESULT) == DIR_SOUTH) {
         applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
@@ -211,6 +214,8 @@ script GreatBay_LookGirl {
         msgbox(
         "She went in the square hole.\n"
         "", MSGBOX_DEFAULT)
+        
+        call(GreatBay_OpenDoor)
         release
 
     }
@@ -230,4 +235,27 @@ script GreatSea_Buoy_SkyTowerLookGirl {
 		
 	normalmsg
 	release
+}
+
+script GreatSea_GrandpasRed {
+	msgbox(
+	"Oh no!\n"
+	"Grandpa's red!\p"
+
+	"I don't know how to fix this.\n"
+	"-CELIA", MSGBOX_SIGN)
+
+}
+
+script GreatSea_TriangleHole {
+	msgbox(
+	"It's a triangle hole.\n"
+	"", MSGBOX_SIGN)
+
+}
+script GreatSea_GirlHole {
+	msgbox(
+	"It's a girl hole.\n"
+	"", MSGBOX_SIGN)
+
 }

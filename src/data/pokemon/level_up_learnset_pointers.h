@@ -1272,6 +1272,8 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_HOOT] = sHOOTLevelUpLearnset,
 	[SPECIES_ZAPMOLCUNO] = sZAPMOLCUNOLevelUpLearnset,
 	[SPECIES_UNITEDKINGDOM] = sUNITEDKINGDOMLevelUpLearnset,
+	[SPECIES_FIRETYPES] = sFIRETYPESLevelUpLearnset,
+	[SPECIES_RATICATEGHOST] = sRATICATEGHOSTLevelUpLearnset,
 
 
 };

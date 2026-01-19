@@ -58,7 +58,7 @@ script PokemonLab_AmberGuardian {
 	} else {
 		msgbox(
 		"Heya, there!\n"
-		"Welcome to the lab.\l"
+		"Welcome to the LAB.\l"
 		"I'm a new intern here.\p"
 
 		"My capstone project has been to\n"
@@ -172,8 +172,8 @@ script PokemonLab_AidsResearch {
 	"AIDS Research Committee\n"
 	"{PAUSE 30}Now hiring!\p"
 
-	"Looking for POKéMON with 3-5\n"
-	"years experience!\l"
+	"Looking for POKéMON with 1-8\n"
+	"generations experience!\l"
 	"Apply now!", MSGBOX_SIGN)
 
 }
@@ -197,5 +197,15 @@ script PokemonLab_BusyResearcher {
 	msgbox(
 	"This researcher looks busy.\n"
 	"It's best not to bother him.", MSGBOX_SIGN)
+
+}
+
+
+script PokemonLab_AuthenticCup {
+	msgbox(
+	"A cup sits on the table.\p"
+
+	"…Nope!\n"
+	"It's not authentic.", MSGBOX_SIGN)
 
 }

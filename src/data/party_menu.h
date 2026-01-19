@@ -665,6 +665,7 @@ static const u8 *const sFieldMoveDescriptionTable[] =
     [FIELD_MOVE_SOFT_BOILED] = gText_ShareHp,
     [FIELD_MOVE_SWEET_SCENT] = gText_LureWildPokemon,
     [FIELD_MOVE_RETREAT]     = gText_ReturnToABench,
+    [FIELD_MOVE_GUILLOTINE]         = gText_CutATreeOrGrass,
 };
 
 static const u32 sHeldItemGfx[] = INCBIN_U32("graphics/party_menu/hold_icons.4bpp");
@@ -975,8 +976,6 @@ static const bool8 sMultiBattlePartnersPartyMask[PARTY_SIZE + 2] =
 
 static const u16 sTMHMMoves_Duplicate[] =
 {
-    
-    
     MOVE_WHIRLWIND,
     MOVE_CSR_DUMMY,
     MOVE_SECRET_POWER,
@@ -1097,6 +1096,7 @@ static struct
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_SOFT_BOILED] = {gMoveNames[MOVE_SOFT_BOILED], CursorCB_FieldMove},
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_SWEET_SCENT] = {gMoveNames[MOVE_SWEET_SCENT], CursorCB_FieldMove},
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_RETREAT]     = {gMoveNames[MOVE_RETREAT],     CursorCB_FieldMove},
+    [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_GUILLOTINE]     = {gMoveNames[MOVE_GUILLOTINE],     CursorCB_FieldMove},
 };
 
 static const u8 sPartyMenuAction_SummarySwitchCancel[]   = {CURSOR_OPTION_SUMMARY,  CURSOR_OPTION_SWITCH,    CURSOR_OPTION_CANCEL1};
@@ -1178,7 +1178,8 @@ static const u16 sFieldMoves[] =
     MOVE_MILK_DRINK,
     MOVE_SOFT_BOILED,
     MOVE_SWEET_SCENT,
-    MOVE_RETREAT, 
+    MOVE_RETREAT,
+    MOVE_GUILLOTINE, 
     //MOVE_GUILLOTINE, MOVE_RAZOR_WIND, MOVE_ROCK_CLIMB, MOVE_ODOR_SLEUTH, MOVE_TAIL_GLOW, MOVE_GROUND_POUND, //For some reason it doesn't like these
     FIELD_MOVE_END // this may be misuse of enum. same in emerald
 };
@@ -1202,6 +1203,7 @@ static struct
     [FIELD_MOVE_SOFT_BOILED]  = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
     [FIELD_MOVE_SWEET_SCENT]  = {SetUpFieldMove_SweetScent,  PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_RETREAT]      = {SetUpFieldMove_Retreat,     PARTY_MSG_CANT_USE_HERE},
+    [FIELD_MOVE_GUILLOTINE]      = {SetUpFieldMove_Retreat,     PARTY_MSG_NOTHING_TO_CUT},
 };
 
 static const u8 *const sUnionRoomTradeMessages[] =

@@ -60,8 +60,8 @@
   ],
   "warp_events": [
     {
-      "x": 7,
-      "y": 21,
+      "x": 8,
+      "y": 20,
       "elevation": 0,
       "dest_map": "MAP_SAFFRON_CITY",
       "dest_warp_id": "0"
@@ -74,7 +74,7 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 9,
+      "x": 8,
       "y": 20,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY",

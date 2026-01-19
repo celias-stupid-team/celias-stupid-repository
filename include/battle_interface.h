@@ -73,7 +73,7 @@ u8 CreateSafariPlayerHealthboxSprites(void);
 void SetBattleBarStruct(u8 battlerId, u8 healthboxSpriteId, s32 maxVal, s32 currVal, s32 receivedValue);
 void SetHealthboxSpriteInvisible(u8 healthboxSpriteId);
 void SetHealthboxSpriteVisible(u8 healthboxSpriteId);
-void DestoryHealthboxSprite(u8 healthboxSpriteId);
+void DestroyHealthboxSprite(u8 battler);
 void DummyBattleInterfaceFunc(u8 healthboxSpriteId, bool8 isDoubleBattleBankOnly);
 void UpdateOamPriorityInAllHealthboxes(u8 priority);
 void InitBattlerHealthboxCoords(u8 battlerId);
@@ -86,5 +86,6 @@ u8 GetHPBarLevel(s16 hp, s16 maxhp);
 void UpdateNickInHealthbox(u8 spriteId, struct Pokemon *mon);
 void TryAddPokeballIconToHealthbox(u8 spriteId, u8);
 s32 MoveBattleBar(u8 battler, u8 healthboxSpriteId, u8 whichBar, u8 arg3);
+void UpdateStatusIconInHealthbox(u8 healthboxSpriteId);
 
 #endif // GUARD_BATTLE_INTERFACE_H

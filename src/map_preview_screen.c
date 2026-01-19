@@ -155,14 +155,6 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sRocketHideoutMapPreviewTilemap,
         .palptr = sRocketHideoutMapPreviewPalette
     },
-    [MPS_SILPH_CO] = {
-        .mapsec = MAPSEC_SILPH_CO,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SILPH_CO_1F,
-        .tilesptr = sSilphCoMapPreviewTiles,
-        .tilemapptr = sSilphCoMapPreviewTilemap,
-        .palptr = sSilphCoMapPreviewPalette
-    },
     [MPS_VICTORY_ROAD] = {
         .mapsec = MAPSEC_KANTO_VICTORY_ROAD,
         .type = MPS_TYPE_CAVE,
@@ -202,14 +194,6 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilesptr = sRocketWarehouseMapPreviewTiles,
         .tilemapptr = sRocketWarehouseMapPreviewTilemap,
         .palptr = sRocketWarehouseMapPreviewPalette
-    },
-    [MPS_MONEAN_CHAMBER] = {
-        .mapsec = MAPSEC_THIRTY_EIGHT_ISLAND,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
     },
     [MPS_DOTTED_HOLE] = {
         .mapsec = MAPSEC_PRIZE_EXCHANGE,

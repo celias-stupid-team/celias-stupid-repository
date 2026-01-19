@@ -9708,3 +9708,19 @@ const u32 gMonShinyPalette_UNITEDKINGDOM[] = INCBIN_U32("graphics/pokemon/united
 const u8 gMonIcon_UNITEDKINGDOM[] = INCBIN_U8("graphics/pokemon/unitedkingdom/icon.4bpp");
 const u8 gMonFootprint_UNITEDKINGDOM[] = INCBIN_U8("graphics/pokemon/unitedkingdom/footprint.1bpp");
 
+// FIRE_TYPES
+const u32 gMonFrontPic_FIRETYPES[] = INCBIN_U32("graphics/pokemon/firetypes/front.4bpp.lz");
+const u32 gMonPalette_FIRETYPES[] = INCBIN_U32("graphics/pokemon/firetypes/normal.gbapal.lz");
+const u32 gMonBackPic_FIRETYPES[] = INCBIN_U32("graphics/pokemon/firetypes/back.4bpp.lz");
+const u32 gMonShinyPalette_FIRETYPES[] = INCBIN_U32("graphics/pokemon/firetypes/shiny.gbapal.lz");
+const u8 gMonIcon_FIRETYPES[] = INCBIN_U8("graphics/pokemon/firetypes/icon.4bpp");
+const u8 gMonFootprint_FIRETYPES[] = INCBIN_U8("graphics/pokemon/firetypes/footprint.1bpp");
+
+// RATICATE_GHOST
+const u32 gMonFrontPic_RATICATEGHOST[] = INCBIN_U32("graphics/pokemon/raticateghost/front.4bpp.lz");
+const u32 gMonPalette_RATICATEGHOST[] = INCBIN_U32("graphics/pokemon/raticateghost/normal.gbapal.lz");
+const u32 gMonBackPic_RATICATEGHOST[] = INCBIN_U32("graphics/pokemon/raticateghost/back.4bpp.lz");
+const u32 gMonShinyPalette_RATICATEGHOST[] = INCBIN_U32("graphics/pokemon/raticateghost/shiny.gbapal.lz");
+const u8 gMonIcon_RATICATEGHOST[] = INCBIN_U8("graphics/pokemon/raticateghost/icon.4bpp");
+const u8 gMonFootprint_RATICATEGHOST[] = INCBIN_U8("graphics/pokemon/raticateghost/footprint.1bpp");
+

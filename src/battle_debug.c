@@ -900,12 +900,16 @@ static void Task_DebugMenuFadeOut(u8 taskId)
 static void PrintOnBattlerWindow(u8 windowId, u8 battlerId)
 {
     u8 text[POKEMON_NAME_LENGTH + 10];
+    u8 speciesName[POKEMON_NAME_LENGTH + 1];
 
     text[0] = CHAR_0 + battlerId;
     text[1] = CHAR_SPACE;
     text[2] = CHAR_HYPHEN;
     text[3] = CHAR_SPACE;
-    StringCopy(&text[4], gBattleMons[battlerId].nickname);
+
+    GetSpeciesName(speciesName, gBattleMons[battlerId].species);
+    StringExpandPlaceholders(&text[4], speciesName);
+    // StringCopy(&text[4], GetSpeciesName(text, gBattleMons[battlerId].species));
 
     FillWindowPixelBuffer(windowId, 0x11);
     AddTextPrinterParameterized(windowId, FONT_NORMAL, text, 0, 0, 0, NULL);

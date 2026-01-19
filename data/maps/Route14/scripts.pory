@@ -183,7 +183,12 @@ script Route15_PokeRap_Trainer9_Defeat {
 
 script Route15_PokeRap_Trainer10 {
     trainerbattle_single(TRAINER_POKERAP_10, Rapper_10_Intro, "Nice!", Route15_PokeRap_Trainer10_Defeat)
-    msgbox("GEODUDE by Plasto\nMagneton by Crow\lSnorlax by Swiwious", MSGBOX_DEFAULT)
+    msgbox(
+	"GEODUDE by Plasto (and celia)\n"
+	"Rapidash by OriginalGRE\p"
+
+	"MAGNETON by Crow\n"
+	"SNORLAX by Swiwious", MSGBOX_DEFAULT)
     release
 }
 
@@ -247,7 +252,10 @@ script Route15_PokeRap_Trainer13_Defeat {
 
 script Route15_PokeRap_Trainer14 {
     trainerbattle_single(TRAINER_POKERAP_14, Rapper_14_Intro, "Nice!", Route15_PokeRap_Trainer14_Defeat)
-    msgbox("RATICATE by Elliot\nWEEPINBELL by SimplyMary", MSGBOX_DEFAULT)
+    msgbox(
+	"RATICATE by Elliot\n"
+	"KADABRA by Ankou\l"
+	"WEEPINBELL by SimplyMary", MSGBOX_DEFAULT)
     release
 }
 

@@ -1,16 +1,7 @@
 raw `
-CinnabarIsland_Gym_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, CinnabarIsland_Gym_OnLoad
-	.byte 0
+
 
 CinnabarIsland_Gym_OnLoad::
-	goto_if_set FLAG_DEFEATED_BLAINE, CinnabarIsland_Gym_OnLoadOpenAllDoors
-	call_if_set FLAG_CINNABAR_GYM_QUIZ_1, CinnabarIsland_Gym_OnLoadOpenDoor1
-	call_if_set FLAG_CINNABAR_GYM_QUIZ_2, CinnabarIsland_Gym_OnLoadOpenDoor2
-	call_if_set FLAG_CINNABAR_GYM_QUIZ_3, CinnabarIsland_Gym_OnLoadOpenDoor3
-	call_if_set FLAG_CINNABAR_GYM_QUIZ_4, CinnabarIsland_Gym_OnLoadOpenDoor4
-	call_if_set FLAG_CINNABAR_GYM_QUIZ_5, CinnabarIsland_Gym_OnLoadOpenDoor5
-	call_if_set FLAG_CINNABAR_GYM_QUIZ_6, CinnabarIsland_Gym_OnLoadOpenDoor6
 	end
 
 CinnabarIsland_Gym_OnLoadOpenAllDoors::
@@ -262,14 +253,10 @@ CinnabarIsland_Gym_EventScript_BattleQuinn::
 	end
 
 CinnabarIsland_Gym_EventScript_QuinnApproachLeft::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_QUINN, CinnabarIsland_Gym_Movement_QuinnApproachLeft
 	waitmovement 0
 	return
 
 CinnabarIsland_Gym_EventScript_QuinnApproachRight::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_QUINN, CinnabarIsland_Gym_Movement_QuinnApproachRight
 	waitmovement 0
 	return
 
@@ -334,14 +321,10 @@ CinnabarIsland_Gym_EventScript_BattleAvery::
 	end
 
 CinnabarIsland_Gym_EventScript_AveryApproachLeft::
-	applymovement LOCALID_PLAYER, CinnabarIsland_Gym_Movement_PlayerFaceAvery
-	applymovement LOCALID_AVERY, CinnabarIsland_Gym_Movement_AveryApproachLeft
 	waitmovement 0
 	return
 
 CinnabarIsland_Gym_EventScript_AveryApproachRight::
-	applymovement LOCALID_PLAYER, CinnabarIsland_Gym_Movement_PlayerFaceAvery
-	applymovement LOCALID_AVERY, CinnabarIsland_Gym_Movement_AveryApproachRight
 	waitmovement 0
 	return
 
@@ -415,15 +398,9 @@ CinnabarIsland_Gym_EventScript_BattleRamon::
 	end
 
 CinnabarIsland_Gym_EventScript_RamonApproachLeft::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_RAMON, CinnabarIsland_Gym_Movement_RamonApproachLeft
-	waitmovement 0
 	return
 
 CinnabarIsland_Gym_EventScript_RamonApproachRight::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_RAMON, CinnabarIsland_Gym_Movement_RamonApproachRight
-	waitmovement 0
 	return
 
 CinnabarIsland_Gym_Movement_RamonApproachLeft::
@@ -448,53 +425,28 @@ CinnabarIsland_Gym_EventScript_Quiz4Right::
 	end
 
 CinnabarIsland_Gym_EventScript_Quiz4::
-	msgbox CinnabarIsland_Gym_Text_PokemonQuizRules
-	msgbox CinnabarIsland_Gym_Text_QuizQuestion4, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, CinnabarIsland_Gym_EventScript_Quiz4Incorrect
-	goto_if_eq VAR_RESULT, NO, CinnabarIsland_Gym_EventScript_Quiz4Correct
 	end
 
 CinnabarIsland_Gym_EventScript_Quiz4Correct::
-	call CinnabarIsland_Gym_EventScript_CorrectAnswer
-	goto_if_set FLAG_CINNABAR_GYM_QUIZ_4, CinnabarIsland_Gym_EventScript_DoorAlreadyOpen
-	call CinnabarIsland_Gym_EventScript_Quiz4Complete
 	releaseall
 	end
 
 CinnabarIsland_Gym_EventScript_Quiz4Complete::
-	playse SE_UNLOCK
-	waitse
-	call CinnabarIsland_Gym_EventScript_OpenDoor4
-	special DrawWholeMapView
-	setflag FLAG_CINNABAR_GYM_QUIZ_4
 	return
 
 CinnabarIsland_Gym_EventScript_Quiz4Incorrect::
-	call CinnabarIsland_Gym_EventScript_IncorrectAnswer
-	goto_if_not_defeated TRAINER_SUPER_NERD_DEREK, CinnabarIsland_Gym_EventScript_BattleDerek
 	releaseall
 	end
 
 CinnabarIsland_Gym_EventScript_BattleDerek::
-	call_if_eq VAR_TEMP_1, 0, CinnabarIsland_Gym_EventScript_DerekApproachLeft
-	call_if_eq VAR_TEMP_1, 1, CinnabarIsland_Gym_EventScript_DerekApproachRight
-	textcolor NPC_TEXT_COLOR_MALE
-	msgbox CinnabarIsland_Gym_Text_DerekIntro
-	trainerbattle_no_intro TRAINER_SUPER_NERD_DEREK, CinnabarIsland_Gym_Text_DerekDefeat
-	goto_if_set FLAG_CINNABAR_GYM_QUIZ_4, CinnabarIsland_Gym_EventScript_DoorAlreadyOpen
-	call CinnabarIsland_Gym_EventScript_Quiz4Complete
 	releaseall
 	end
 
 CinnabarIsland_Gym_EventScript_DerekApproachLeft::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_DEREK, CinnabarIsland_Gym_Movement_DerekApproachLeft
 	waitmovement 0
 	return
 
 CinnabarIsland_Gym_EventScript_DerekApproachRight::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_DEREK, CinnabarIsland_Gym_Movement_DerekApproachRight
 	waitmovement 0
 	return
 
@@ -559,14 +511,10 @@ CinnabarIsland_Gym_EventScript_BattleDusty::
 	end
 
 CinnabarIsland_Gym_EventScript_DustyApproachLeft::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_DUSTY, CinnabarIsland_Gym_Movement_DustyApproachLeft
 	waitmovement 0
 	return
 
 CinnabarIsland_Gym_EventScript_DustyApproachRight::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_DUSTY, CinnabarIsland_Gym_Movement_DustyApproachRight
 	waitmovement 0
 	return
 
@@ -631,14 +579,10 @@ CinnabarIsland_Gym_EventScript_BattleZac::
 	end
 
 CinnabarIsland_Gym_EventScript_ZacApproachLeft::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_ZAC, CinnabarIsland_Gym_Movement_ZacApproachLeft
 	waitmovement 0
 	return
 
 CinnabarIsland_Gym_EventScript_ZacApproachRight::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_ZAC, CinnabarIsland_Gym_Movement_ZacApproachRight
 	waitmovement 0
 	return
 
@@ -707,6 +651,67 @@ CinnabarIsland_Gym_EventScript_OpenDoor6::
 	setmetatile  7, 10, METATILE_CinnabarGym_Floor_ShadeDiagonal, 0
 	return
 `
+mapscripts CinnabarIsland_Gym_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_1)
+	}
+}
+
+script BlaineGym_Chuckster {
+	lock
+	faceplayer
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_left
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_left
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, moves(
+		lock_facing_direction
+		walk_slow_down
+		face_up
+		delay_16 * 2
+		walk_fast_up
+	))
+	applymovement(VAR_LAST_TALKED, moves(
+		lock_facing_direction
+		walk_slow_down
+		face_up
+		delay_16 * 2
+		walk_fast_up
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(30)
+	release
+
+}
+
+
+
 script CinnabarGym_Blaine {
 	lock
 	faceplayer
@@ -720,15 +725,21 @@ script CinnabarGym_Blaine {
 	if(!flag(FLAG_TALKED_TO_BLAINE)) {
 		setflag(FLAG_TALKED_TO_BLAINE)
 		msgbox(
-		"Welcome to the gym\p"
+		"Hmm!?\n"
+		"Is that a new contestant I see?\l"
+		"Ohohoho-!\p"
 
-		"here's a quiz\n"
-	"", MSGBOX_DEFAULT)
+		"Welcome to BLAINE'S FURNACE FUN!\p"
+
+		"Are you ready to test your wits\n"
+		"and whet your mettle?\l"
+		"Let's begin!", MSGBOX_DEFAULT)
 		addvar(VAR_CINNABAR_GYM_PHASE, 1)
 	} else {
 		msgbox(
-		"Ready for quiz\n"
-		"", MSGBOX_DEFAULT)
+		"Welcome back!\n"
+		"Are you ready to continue?\l"
+		"Let's go!", MSGBOX_DEFAULT)
 	}
 	goto(CinnabarGym_GymQuestionLoop)
 }
@@ -766,14 +777,14 @@ script CinnabarGym_GymQuestionLoop {
 
 			"According to the 2023 Census, this\n"
 			"POKéMON has a population of over\l"
-			"23 Million!", MSGBOX_DEFAULT)
+			"10 Million!", MSGBOX_DEFAULT)
 		case 5:
 			setvar(VAR_CURRENT_BLAINE_ANSWER, 5)
 			msgbox(
 			"QUESTION 5!\p"
 
-			"Who was the winner in the SMASH\n"
-			"SUMMIT 7 WINNERS QUARTERFINALS?", MSGBOX_DEFAULT)
+			"Who defeated ZAIN during SMASH\n"
+			"SUMMIT 7?", MSGBOX_DEFAULT)
 		
 		case 6:
 			setvar(VAR_CURRENT_BLAINE_ANSWER, 6)
@@ -799,6 +810,7 @@ script CinnabarGym_GymQuestionLoop {
 
 			"Who is{PAUSE 30} the last POKéMON?", MSGBOX_DEFAULT)
 	}
+	clearflag(FLAG_TEMP_3)
 	special(ChoosePartyMon)
 	closemessage
 	waitstate
@@ -816,6 +828,9 @@ script CinnabarGym_GymQuestionLoop {
 	switch(var(VAR_CINNABAR_GYM_PHASE)) {
 		case 1:
 			if(var(VAR_RESULT) == SPECIES_BULBASAUR || var(VAR_RESULT) == SPECIES_RHYDON) {
+				if(var(VAR_RESULT) == SPECIES_RHYDON) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -828,7 +843,10 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 2:
-			if(var(VAR_RESULT) == SPECIES_HITMONCHAN_SHIT || var(VAR_RESULT) == SPECIES_HITMONCHIN) {
+			if(var(VAR_RESULT) == SPECIES_HITMONCHAN_SHIT || var(VAR_RESULT) == SPECIES_CHANSEY) {
+				if(var(VAR_RESULT) == SPECIES_CHANSEY) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -842,6 +860,9 @@ script CinnabarGym_GymQuestionLoop {
 			}
 		case 3:
 			if(var(VAR_RESULT) == SPECIES_ALOMOMOLA || var(VAR_RESULT) == SPECIES_EEVEE) {
+				if(var(VAR_RESULT) == SPECIES_EEVEE) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -854,7 +875,10 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 4:
-			if(var(VAR_RESULT) == SPECIES_KENYA || var(VAR_RESULT) == SPECIES_DUGTRIO) {
+			if(var(VAR_RESULT) == SPECIES_KENYA || var(VAR_RESULT) == SPECIES_PARAS) {
+				if(var(VAR_RESULT) == SPECIES_PARAS) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -867,7 +891,10 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 5:
-			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_JIGGLYPUFF_ABOVE) {
+			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_PIKABLU) {
+				if(var(VAR_RESULT) == SPECIES_PIKABLU) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -880,7 +907,10 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 6:
-			if(var(VAR_RESULT) == SPECIES_AMOONGUSS || var(VAR_RESULT) == SPECIES_DITTO_MEW) {
+			if(var(VAR_RESULT) == SPECIES_AMOONGUSS || var(VAR_RESULT) == SPECIES_NIDOKING) {
+				if(var(VAR_RESULT) == SPECIES_NIDOKING) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -894,6 +924,9 @@ script CinnabarGym_GymQuestionLoop {
 			}
 		case 7:
 			if(var(VAR_RESULT) == SPECIES_MEOWTH || var(VAR_RESULT) == SPECIES_MEOWTH) {
+				if(var(VAR_RESULT) == SPECIES_RHYDON) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -907,6 +940,9 @@ script CinnabarGym_GymQuestionLoop {
 			}
 		case 8:
 			if(var(VAR_RESULT) == SPECIES_VENUSAUR || var(VAR_RESULT) == SPECIES_KRABBY) {
+				if(var(VAR_RESULT) == SPECIES_KRABBY) {
+					setflag(FLAG_TEMP_3)
+				}
 				msgbox(
 				"Ah, so that's your answer?\p"
 
@@ -935,17 +971,41 @@ script CinnabarGym_CheckBattleOutcome {
 		if(var(VAR_CINNABAR_GYM_PHASE) == 9) {
 			msgbox(
 			"That's absolutely CORRECT!\n"
-			"Nicely done!", MSGBOX_DEFAULT)
+			"Nicely done!\p"
+
+			"You've done it!\n"
+			"You've cleared all my questions!\p"
+
+			"And for that, you've earned\n"
+			"yourself a lovely prize!\l"
+			"Take it!", MSGBOX_DEFAULT)
+			closemessage
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
 			msgbox(
 			"{PLAYER} obtained the\n"
-			"VOLCANOBAKEMEAT BADGE!", MSGBOX_DEFAULT)
+			"VOLCANOBAKEMEAT BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}", MSGBOX_DEFAULT)
 			setflag(FLAG_BADGE07_GET)
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox(
+			"And here, take this as well!\n"
+			"", MSGBOX_DEFAULT)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			giveitem_msg("{PLAYER} obtained the\nTM00 from BLAINE!", ITEM_NONE)
 			waitfanfare
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox(
+			"That TM contains HYDRO PUMP!\p"
+
+			"Don't teach it to a WATER POKéMON!\n"
+			"", MSGBOX_DEFAULT)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
 			setvar(VAR_TEMP_C, 1) //For the shakey ground
 			release
 			end
 		}
+		//update the wall
 		playse(SE_SUCCESS)
+		call(CinnabarGym_UpdatePointsWall)
 		waitse
 		msgbox(
 		"That's absolutely CORRECT!\n"
@@ -987,7 +1047,7 @@ script CinnabarGym_IslandAppears {
 	delay(120)
 	setvar(VAR_TEMP_C, 0)
 	setflag(FLAG_MIRAGE_ISLAND_APPEARS)
-	setmetatile(9, 2, 0x16B, TRUE)
+	setmetatile(8, 2, 0x16B, TRUE)
 	release
 }
 
@@ -1044,4 +1104,432 @@ script CinnabarGym_SixthTrainer {
 	msgbox(
 	"Placeholder gym dad\n"
 	"", MSGBOX_NPC)
+}
+
+
+script CinnabarGym_BoardGameQuestion1 {
+	lock
+	msgbox(
+	"BLAINE'S FURNACE FUN{PAUSE 10}\n"
+	"Question 1:\p"
+
+	"How many holes{PAUSE 30} in a polo?\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		waitse
+		playse(SE_SUCCESS)
+		setvar(VAR_BLAINE_GYM_QUESTION, 1)
+		waitse
+		applymovement(LOCALID_BLAINE_TRAINER_1, moves(
+			walk_right * 3
+		))
+		waitmovement(LOCALID_BLAINE_TRAINER_1)
+		msgbox(
+		"battle happens here\n"
+		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_1, "Woah, there!")
+		closemessage
+		delay(30)
+		playse(SE_CLICK)
+		setmetatile(9, 32, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(9, 33, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(9, 34, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		special(DrawWholeMapView)
+		delay(30)
+		playse(SE_FALL)
+		applymovement(LOCALID_BLAINE_TRAINER_1, moves(
+			lock_facing_direction
+			slide_down * 3
+			set_invisible
+		))
+		waitmovement(LOCALID_BLAINE_TRAINER_1)
+		waitse
+		playse(SE_M_ACID_ARMOR)
+		removeobject(LOCALID_BLAINE_TRAINER_1)
+		waitse
+		release
+		end
+
+
+	} else {
+		waitse
+		playse(SE_BOO)
+		waitse
+		closemessage
+		delay(30)
+		playse(SE_CLICK)
+		setmetatile(10, 32, 0x2C3, TRUE)
+		setmetatile(10, 33, 0x29F, TRUE)
+		setmetatile(10, 34, 0x280, TRUE)
+		special(DrawWholeMapView)
+		delay(30)
+		special(SpawnCameraObject)
+		playse(SE_FALL)
+		applymovement(LOCALID_PLAYER, moves(
+			lock_facing_direction
+			slide_down * 3
+			set_invisible
+		))
+		waitmovement(LOCALID_PLAYER)
+		fadescreeninstant(FADE_TO_BLACK)
+		waitse
+		playse(SE_M_ACID_ARMOR)
+		waitse
+		warpsilent(MAP_CINNABAR_ISLAND_GYM, 1)
+		release
+		end
+
+	}
+}
+
+script CinnabarGym_ClearQuestionFloors {
+	if(var(VAR_BLAINE_GYM_QUESTION) > 0) {
+		setmetatile(9, 32, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(9, 33, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(9, 34, METATILE_BlaineFurnaceFun_Lava, TRUE)
+
+	}
+	if(var(VAR_BLAINE_GYM_QUESTION) > 1) {
+		setmetatile(16, 28, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(16, 29, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(16, 30, METATILE_BlaineFurnaceFun_Lava, TRUE)
+
+	}
+}
+
+
+script CinnabarGym_BoardGameQuestion2 {
+	lock
+	msgbox(
+	"BLAINE'S FURNACE FUN{PAUSE 10}\n"
+	"Question 2:\p"
+
+	"Aren't POKéMON of different kinds\n"
+	"or levels not unidentical?\l"
+	"Or is it the other way around?", MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		waitse
+		playse(SE_SUCCESS)
+		setvar(VAR_BLAINE_GYM_QUESTION, 2)
+		waitse
+		applymovement(LOCALID_BLAINE_TRAINER_2, moves(
+			walk_left * 2
+		))
+		waitmovement(LOCALID_BLAINE_TRAINER_2)
+		msgbox(
+		"battle happens here\n"
+		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_2, "after!")
+		closemessage
+		delay(30)
+		playse(SE_CLICK)
+		setmetatile(16, 28, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(16, 29, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(16, 30, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		special(DrawWholeMapView)
+		delay(30)
+		playse(SE_FALL)
+		applymovement(LOCALID_BLAINE_TRAINER_2, moves(
+			lock_facing_direction
+			slide_down * 3
+			set_invisible
+		))
+		waitmovement(LOCALID_BLAINE_TRAINER_2)
+		waitse
+		playse(SE_M_ACID_ARMOR)
+		removeobject(LOCALID_BLAINE_TRAINER_2)
+		waitse
+		release
+		end
+
+
+	} else {
+		waitse
+		playse(SE_BOO)
+		waitse
+		closemessage
+		delay(30)
+		playse(SE_CLICK)
+		setmetatile(15, 28, 0x2C7, TRUE)
+		setmetatile(15, 29, 0x29F, TRUE)
+		setmetatile(15, 30, 0x280, TRUE)
+		special(DrawWholeMapView)
+		delay(30)
+		special(SpawnCameraObject)
+		playse(SE_FALL)
+		applymovement(LOCALID_PLAYER, moves(
+			lock_facing_direction
+			slide_down * 3
+			set_invisible
+		))
+		waitmovement(LOCALID_PLAYER)
+		fadescreeninstant(FADE_TO_BLACK)
+		waitse
+		playse(SE_M_ACID_ARMOR)
+		waitse
+		warpsilent(MAP_CINNABAR_ISLAND_GYM, 1)
+		release
+		end
+
+	}
+}
+
+script CinnabarGym_DadQuestion {
+	lock
+	faceplayer
+	setvar(VAR_BLAINE_GYM_QUESTION, 3)
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"dad text\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	closemessage
+	delay(30)
+	playse(SE_CLICK)
+	setmetatile(7, 24, METATILE_BlaineFurnaceFun_Lava, TRUE)
+	setmetatile(7, 25, METATILE_BlaineFurnaceFun_Lava, TRUE)
+	setmetatile(7, 26, METATILE_BlaineFurnaceFun_Lava, TRUE)
+	special(DrawWholeMapView)
+	delay(30)
+	playse(SE_FALL)
+	applymovement(LOCALID_BLAINE_DAD, moves(
+		lock_facing_direction
+		slide_down * 3
+		set_invisible
+	))
+	waitmovement(LOCALID_BLAINE_DAD)
+	waitse
+	playse(SE_M_ACID_ARMOR)
+	removeobject(LOCALID_BLAINE_DAD)
+	waitse
+	release
+	end
+}
+
+script CinnabarGym_BoardGameQuestion3 {
+	lock
+	msgbox(
+		"BLAINE'S FURNACE FUN{PAUSE 10}\n"
+		"Question 3:\p"
+
+		"Which city can the POKéMON\n"
+		"CHANSEY be found in?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		waitse
+		playse(SE_SUCCESS)
+		setvar(VAR_BLAINE_GYM_QUESTION, 4)
+		waitse
+		applymovement(LOCALID_BLAINE_TRAINER_3, moves(
+			walk_left * 2
+		))
+		waitmovement(LOCALID_BLAINE_TRAINER_3)
+		msgbox(
+		"battle happens here\n"
+		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_3, "after!")
+		closemessage
+		delay(30)
+		playse(SE_CLICK)
+		setmetatile(10, 20, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(10, 21, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(10, 22, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		special(DrawWholeMapView)
+		delay(30)
+		playse(SE_FALL)
+		applymovement(LOCALID_BLAINE_TRAINER_3, moves(
+			lock_facing_direction
+			slide_down * 3
+			set_invisible
+		))
+		waitmovement(LOCALID_BLAINE_TRAINER_3)
+		waitse
+		playse(SE_M_ACID_ARMOR)
+		removeobject(LOCALID_BLAINE_TRAINER_3)
+		waitse
+		release
+		end
+
+
+	} else {
+		waitse
+		playse(SE_BOO)
+		waitse
+		closemessage
+		delay(30)
+		playse(SE_CLICK)
+		setmetatile(9, 20, 0x2C5, TRUE)
+		setmetatile(9, 21, 0x29F, TRUE)
+		setmetatile(9, 22, 0x280, TRUE)
+		special(DrawWholeMapView)
+		delay(30)
+		special(SpawnCameraObject)
+		playse(SE_FALL)
+		applymovement(LOCALID_PLAYER, moves(
+			lock_facing_direction
+			slide_down * 3
+			set_invisible
+		))
+		waitmovement(LOCALID_PLAYER)
+		fadescreeninstant(FADE_TO_BLACK)
+		waitse
+		playse(SE_M_ACID_ARMOR)
+		waitse
+		warpsilent(MAP_CINNABAR_ISLAND_GYM, 1)
+		release
+		end
+
+	}
+}
+
+script CinnabarGym_BoardGameQuestion4 {
+	lock
+	msgbox(
+	"BLAINE'S FURNACE FUN{PAUSE 30}\n"
+	"Question 4:\p"
+
+	"Eek!{PAUSE 30}\n"
+	"Did you just look at me?", MSGBOX_YESNO)
+	closemessage
+	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+	delay(60)
+	addobject(LOCALID_BLAINE_LASS)
+	applymovement(LOCALID_BLAINE_LASS, moves(
+		walk_down * 6
+		walk_right * 2
+	))
+	waitmovement(0)
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"I knew it!\n"
+		"", MSGBOX_DEFAULT)
+
+	} else {
+		msgbox(
+		"Don't lie to me!\n"
+		"", MSGBOX_DEFAULT)
+	}
+	msgbox(
+	"battle happens here\n"
+	"", MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_4, "after!")
+	fadedefaultbgm
+	closemessage
+	delay(30)
+	playse(SE_CLICK)
+	setmetatile(8, 16, METATILE_BlaineFurnaceFun_Lava, TRUE)
+	setmetatile(8, 17, METATILE_BlaineFurnaceFun_Lava, TRUE)
+	setmetatile(8, 18, METATILE_BlaineFurnaceFun_Lava, TRUE)
+	special(DrawWholeMapView)
+	delay(30)
+	playse(SE_FALL)
+	applymovement(LOCALID_BLAINE_LASS, moves(
+		lock_facing_direction
+		slide_down * 3
+		set_invisible
+	))
+	waitmovement(LOCALID_BLAINE_LASS)
+	waitse
+	playse(SE_M_ACID_ARMOR)
+	removeobject(LOCALID_BLAINE_LASS)
+	waitse
+	setvar(VAR_BLAINE_GYM_QUESTION, 5)
+
+
+}
+
+script CinnabarGym_AddChuckster {
+	addobject(LOCALID_BLAINE_CHUCKSTER)
+	clearflag(FLAG_TEMP_1)
+	release
+}
+
+script CinnabarGym_BoardGameQuestion5 {
+	lock
+	msgbox(
+	"BLAINE'S FURNACE FUN{PAUSE 10}\n"
+	"Question 5:\p"
+
+	"TM28 contains TOMBSTONIFIER?\n"
+	"", MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		waitse
+		playse(SE_SUCCESS)
+		waitse
+		applymovement(LOCALID_BLAINE_TRAINER_5, moves(
+			walk_left * 2
+		))
+		waitmovement(LOCALID_BLAINE_TRAINER_5)
+		msgbox(
+		"battle happens here\n"
+		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_5, "after!")
+		closemessage
+		delay(30)
+		playse(SE_CLICK)
+		setmetatile(15, 16, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(15, 17, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		setmetatile(15, 18, METATILE_BlaineFurnaceFun_Lava, TRUE)
+		special(DrawWholeMapView)
+		delay(30)
+		playse(SE_FALL)
+		applymovement(LOCALID_BLAINE_TRAINER_5, moves(
+			lock_facing_direction
+			slide_down * 3
+			set_invisible
+		))
+		waitmovement(LOCALID_BLAINE_TRAINER_5)
+		waitse
+		playse(SE_M_ACID_ARMOR)
+		removeobject(LOCALID_BLAINE_TRAINER_5)
+		waitse
+		release
+		end
+
+
+	} else {
+		waitse
+		playse(SE_BOO)
+		waitse
+		closemessage
+		delay(30)
+		playse(SE_CLICK)
+		setmetatile(14, 16, 0x2C2, TRUE)
+		setmetatile(14, 17, 0x29F, TRUE)
+		setmetatile(14, 18, 0x29C, TRUE)
+		special(DrawWholeMapView)
+		delay(30)
+		playse(SE_FALL)
+		applymovement(LOCALID_PLAYER, moves(
+			lock_facing_direction
+			slide_down * 3
+			unlock_facing_direction
+			face_down
+		))
+		waitmovement(LOCALID_PLAYER)
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 4)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+		special(ShakeScreen)
+		delay(30)
+
+		release
+		end
+
+	}
+}
+
+
+script CinnabarGym_UpdatePointsWall {
+	//This is actually way more complicated than I gave it credit for no thanks
+	if(flag(FLAG_TEMP_3)) {
+
+	}
 }

@@ -116,7 +116,9 @@ const u32 gProtectedMoves[] = {
     MOVE_GULP,
     MOVE_WHIRLPOOL,
     MOVE_MAGICAL_LEAF,
-    MOVE_BRICK_BREAK
+    MOVE_BRICK_BREAK,
+    MOVE_HEART_SWAP,
+    MOVE_FLY_CYNTHIA
 };
 
 // NOTE: The order of the elements in the 3 arrays below is irrelevant.
@@ -686,7 +688,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(PHIONE), // 142
     SPECIES_TO_NATIONAL(ETERNATUS), // 143
     SPECIES_TO_NATIONAL(ZYGARDE), // 144
-    SPECIES_TO_NATIONAL(MELMETAL), // 145
+    SPECIES_TO_NATIONAL(MELTAN), // 145
     SPECIES_TO_NATIONAL(ARCANINE), // 146
     SPECIES_TO_NATIONAL(POKEMON_GUN), // 147 NOT IN YET
     SPECIES_TO_NATIONAL(DITTO_MEW), // 148 NOT IN YET
@@ -1808,6 +1810,12 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
     arg = MAIL_NONE;
     SetMonData(mon, MON_DATA_MAIL, &arg);
     CalculateMonStats(mon);
+
+    if (species == SPECIES_HOOPA) // Hoopa starts at 1 HP to allow the HP bar animation to play properly
+    {
+        u32 hp = 1;
+        SetMonData(mon, MON_DATA_HP, &hp);
+    }
 }
 
 void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
@@ -1947,6 +1955,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     {
         value = TRUE;
         SetBoxMonData(boxMon, MON_DATA_CSR_SHINY, &value);
+        FlagClear(FLAG_SHINY_CREATION);
     }
     
     GiveBoxMonInitialMoveset(boxMon);
@@ -1965,22 +1974,17 @@ void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV,
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
 
-void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter)
+void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature)
 {
     u32 personality;
 
-    if ((u8)(unownLetter - 1) < NUM_UNOWN_FORMS)
+    if (gSpeciesInfo[species].genderRatio == MON_GENDERLESS)
     {
-        u16 actualLetter;
-
         do
         {
             personality = Random32();
-            actualLetter = GET_UNOWN_LETTER(personality);
         }
-        while (nature != GetNatureFromPersonality(personality)
-            || gender != GetGenderFromSpeciesAndPersonality(species, personality)
-            || actualLetter != unownLetter - 1);
+        while (nature != GetNatureFromPersonality(personality));
     }
     else
     {
@@ -1991,6 +1995,10 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
         while (nature != GetNatureFromPersonality(personality)
             || gender != GetGenderFromSpeciesAndPersonality(species, personality));
     }
+
+    // handle shininess for Alomomola and Hoopa transformations
+    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA) && GetMonData(mon, MON_DATA_CSR_SHINY))
+        FlagSet(FLAG_SHINY_CREATION);
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
@@ -5311,8 +5319,8 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 if (gEvolutionTable[species][i].param <= beauty)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
-            case EVO_LEVEL_ON_FOUR_ISLAND:
-                if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FOUR_ISLAND))
+            case EVO_LEVEL_ON_LOCATION:
+                if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(gEvolutionTable[species][i].param) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(gEvolutionTable[species][i].param))
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_PARTY: //Have Gun in party
@@ -6113,8 +6121,11 @@ static u16 GetBattleBGM(void)
             return MUS_CSR_DMCA_BATTLE;
         case TRAINER_CLASS_ELITE_FOUR_CYNTHIA:
             return MUS_CYNTHIA_BATTLE;
+        case TRAINER_CLASS_MYSTERIOUS:
+            return MUS_MEGALOVANIA;
+        case TRAINER_CLASS_RIVAL_MAY:
+            return MUS_MUS_VS_RIVAL;
 
-            
         case TRAINER_CLASS_DMCA:
         case TRAINER_CLASS_BUTTERFINGERS:
             return MUS_CSR_DMCA_BATTLE;

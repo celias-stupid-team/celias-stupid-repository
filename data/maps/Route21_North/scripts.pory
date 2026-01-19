@@ -17,6 +17,7 @@ script Route21_AroundTheWorld {
 	lock
 	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
 	applymovement(LOCALID_AROUND_WORLD_LASS, moves(
+		face_right
 		emote_exclamation_mark
 		delay_16 * 5
 		walk_right * 5
@@ -34,10 +35,12 @@ script Route21_AroundTheWorld {
 	applymovement(LOCALID_PLAYER, moves(
 		face_left
 	))
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
 	"Hey!\n"
 	"Don't look at me!", MSGBOX_DEFAULT)
-	fadedefaultbgm
+	playbgm(MUS_ROUTE11, TRUE)
+	trainerbattle_no_intro(TRAINER_AROUND_WORLD_LASS, "After I came all this way-!")
 	msgbox(
 	"after battle\n"
 	"", MSGBOX_DEFAULT)
@@ -62,6 +65,6 @@ script Route21_AroundTheWorld {
 
 script Route21_Lass {
 	msgbox(
-	"Hey!\n"
-	"Stop looking at me!", MSGBOX_NPC)
+	"It's a small, small world…\n"
+	"", MSGBOX_NPC)
 }

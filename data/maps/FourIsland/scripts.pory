@@ -462,6 +462,19 @@ script FourIsland_DrFootstep {
 		delay(30)
 		fadescreenswapbuffers(FADE_FROM_BLACK)
 		//walk back and forth
+		if(!flag(FLAG_WORLD_MAP_FOUR_ISLAND)) { //Placeholder conditional for no footprint
+			msgbox(
+			"Hrrm…\p"
+
+			"It seems your POKéMON does not\n"
+			"leave any footsteps.\p"
+
+			"As such{PAUSE 30} I cannot ascertain whether\n"
+			"or not it has feet.\p"
+
+			"{PAUSE 30}Please come again.\n"
+			"", MSGBOX_DEFAULT)
+		}
 		msgbox(
 		"Hmm, yes.\n"
 		"I see.\p"
@@ -771,6 +784,7 @@ script FourIsland_LassAttack {
 	"Huff…{PAUSE 30} At…{PAUSE 30} Puff…{PAUSE 30} Me!", MSGBOX_DEFAULT)
 	playbgm(MUS_FOUR_ISLAND, TRUE)
 	//battle
+	trainerbattle_no_intro(TRAINER_FOUR_ISLAND_LASS, "Huff…")
 	closemessage
 	delay(60)
 	closemessage
@@ -913,5 +927,13 @@ script FourIsland_CoronetSign {
 
 	"A vital part of the FOUR ISLAND\n"
 	"experience", MSGBOX_SIGN)
+
+}
+
+
+script FourIsland_TowerSoil {
+	msgbox(
+	"A notably TOWER-less patch of\n"
+	"ground.", MSGBOX_SIGN)
 
 }

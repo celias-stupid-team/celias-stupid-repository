@@ -11,6 +11,7 @@ mapscripts Route19_MapScripts {
 		if(flag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE) && !flag(FLAG_LOOKER_SCENE)) {
 			clearflag(FLAG_TEMP_1)
 		}
+		setflag(FLAG_TEMP_2)
 	}
 }
 
@@ -72,13 +73,16 @@ script Route19_LookerScene {
 		face_up
 		delay_16 * 2
 		face_down
-		delay_16 * 4
-		face_right
+		delay_16 * 2
+		face_up
+		delay_16 * 3
+		
 	))
 	
 	waitmovement(LOCALID_LOOKER_UP)
 	playse(SE_PIN)
 	applymovement(LOCALID_LOOKER_UP, moves(
+		face_right
 		emote_exclamation_mark
 	))
 	delay(60)
@@ -123,6 +127,7 @@ script Route19_LookerScene {
 	"Wow!\n"
 	"It's a special ROTOM!", MSGBOX_DEFAULT)
 	closemessage
+	delay(30)
 	applymovement(LOCALID_ROUTE19_ROTOM, moves(
 		walk_right
 		set_invisible
@@ -253,8 +258,9 @@ script Route19_LookerScene {
 	removeobject(LOCALID_LOOKER_UP)
 	removeobject(LOCALID_LOOKER_LAYING)
 	setflag(FLAG_LOOKER_SCENE)
-	clearflag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE) //TEMPORARY
-	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)	  //TEMPORARY
+	clearflag(FLAG_TEMP_2)
+	setvar(VAR_TEMP_1, 1)
+	setrespawn(HEAL_LOCATION_ROUTE19)
 	release
 
 
@@ -262,26 +268,96 @@ script Route19_LookerScene {
 
 }
 
+script Route19_CeliaAsksYouNotToGo {
+	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
+		giveitem(ITEM_RARE_CANDY, 1)
+		msgbox(
+		"Don't worry!\n"
+		"You don't need to go back!\p"
+
+		"Look through your ITEMS carefully!\n"
+		"", MSGBOX_NPC)
+	} else {
+		if(!checkmoncaught(SPECIES_GHOLDENGO)) {
+			giveitem(ITEM_RARE_CANDY, 1)
+			msgbox(
+			"Pssst!\n"
+			"Check your POKéMON carefully!\p"
+
+			"There's one you gotta evolve\n"
+			"real fast!", MSGBOX_NPC)
+		} else {
+			msgbox(
+				"CELIA: Psssst…!\p"
+
+				"Just play along for a little bit\n"
+				"longer!\l"
+				"Trust me!", MSGBOX_NPC)
+
+		}
+
+	}
+}
+
+script Route19_CeliaTurnsYouAround {
+	lock
+	textcolor(NPC_TEXT_COLOR_RED)
+	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
+		giveitem(ITEM_RARE_CANDY, 1)
+		msgbox(
+		"Don't worry!\n"
+		"You don't need to go back!\p"
+
+		"Look through your ITEMS carefully!\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		if(!checkmoncaught(SPECIES_GHOLDENGO)) {
+			giveitem(ITEM_RARE_CANDY, 1)
+			msgbox(
+			"Pssst!\n"
+			"Check your POKéMON carefully!\p"
+
+			"There's one you gotta evolve\n"
+			"real fast!", MSGBOX_DEFAULT)
+		} else {
+			msgbox(
+				"CELIA: Psssst…!\p"
+
+				"Just play along for a little bit\n"
+				"longer!\l"
+				"Trust me!", MSGBOX_DEFAULT)
+
+		}
+
+	}
+	closemessage
+	applymovement(LOCALID_PLAYER, moves(
+		walk_down
+	))
+}
+
+
 
 script Route19_DrawThePit {
-	setlayouttiles(LAYOUT_ROUTE19_PIT_LOW, 0, 0, 0, 0, 34, 34)
+	setlayouttiles(LAYOUT_ROUTE19_PIT_LOW, 0, 0, 0, 0, 33, 33)
 
 	setvar(VAR_TEMP_0, 1)
 }
 
 
 script Route19_DrawThePitHigh {
-	setlayouttiles(LAYOUT_ROUTE19_PIT_HIGH, 0, 0, 0, 0, 34, 34)
+	setlayouttiles(LAYOUT_ROUTE19_PIT_HIGH, 0, 0, 0, 0, 33, 33)
 
 	setvar(VAR_TEMP_0, 1)
 }
 
 script Route19_DestroyThePit {
-	setlayouttiles(LAYOUT_ROUTE19, 0, 0, 0, 0, 34, 34)
+	setlayouttiles(LAYOUT_ROUTE19, 0, 0, 0, 0, 33, 33)
 	setvar(VAR_TEMP_0, 0)
 }
 
 script Route19_ChapterConfusion {
+	//special(DrawWholeMapView)
 	msgbox(
 	"You might be asking yourself,\n"
 	"“What about Chapters 4, 5, and 6?”\p"
@@ -324,6 +400,8 @@ script GreatSea_LoveTirtouga {
 
 
 script GreatSea_FontTest {
+	lock
+	callnative(FullyUnlockFameChecker)
 	msgbox(
 	"{FONT_SMALL}SURF WATERFALL ROCK CLIMB\n"
 	"STRENGTH CUT FLY\p"
@@ -458,11 +536,13 @@ script GreatSea_MinnesotaNorth_Bouy {
 
 
 script GreatSea_WomensSecret { // Swimmer Victoria
+	trainerbattle_single(TRAINER_BACKPACK_SWIMMER, "If I'm wearing a bikini…\n"
+	"where do I put my POKé BALLS?", "Ah!")
 	msgbox(
 	"Where do I keep my POKé BALLS?\p"
 
 	"Tee hee!\n"
-	"Women's secret!", MSGBOX_NPC)
+	"Woman's secret!", MSGBOX_NPC)
 }
 
 script GreatSea_PokeBallStorage {

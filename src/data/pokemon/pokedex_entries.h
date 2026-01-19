@@ -5400,7 +5400,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 359,
         .trainerOffset = 1,
     },
-    [NATIONAL_DEX_MELMETAL] =
+    [NATIONAL_DEX_MELTAN] =
     {
         .categoryName = _("HESTU'S"),
         .height = 25,

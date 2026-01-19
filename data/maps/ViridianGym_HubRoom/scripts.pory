@@ -21,8 +21,14 @@ script ViridianGym_HintManSwitch {
                 "on the warp panel.", MSGBOX_DEFAULT)
             case 1:
                 msgbox(
-                "Aether paradise\n"
-                "", MSGBOX_DEFAULT)
+                "That warp tile sent you ten\n"
+                "thousand light years away!\p"
+
+                "Have you been to an area that looks\n"
+                "like that before?\p"
+
+                "If not, maybe AETHER PARADISE has\n"
+                "something you need…", MSGBOX_DEFAULT)
             case 2:
                 msgbox(
                 "Legends speak of a POKéMON so\n"
@@ -32,12 +38,20 @@ script ViridianGym_HintManSwitch {
                 "Seal, you'd be able to get through!", MSGBOX_DEFAULT)
             case 3:
                 msgbox(
-                "Virus\n"
-                "", MSGBOX_DEFAULT)
+                "Did you ever talk to the PHISHING\n"
+                "GURU in VERMILION CITY?\l"
+                "He'll give you something neat!\p"
+
+                "Only thing is, I hear it might be\n"
+                "infected with a virus…", MSGBOX_DEFAULT)
             case 4:
                 msgbox(
-                "House on top of Two Island\n"
-                "", MSGBOX_DEFAULT)
+                "Have you traveled up the waterfall\n"
+                "on TWO ISLAND?\l"
+                "There's a lone house up there.\p"
+
+                "I hear the owner can teach your\n"
+                "POKéMON some very special moves.", MSGBOX_DEFAULT)
             case 5:
                 msgbox(
                 "Hey!\n"
@@ -50,21 +64,43 @@ script ViridianGym_HintManSwitch {
                 "Maybe you could block him in?", MSGBOX_DEFAULT)
             case 6:
                 msgbox(
-                "Spin\n"
-                "", MSGBOX_DEFAULT)
+                "There's a milk farm on THIRTY EIGHT\n"
+                "ISLAND you should check out.\p"
+
+                "If you get something from them,\n"
+                "there may be a way to churn it.", MSGBOX_DEFAULT)
             case 7:
                 msgbox(
                 "You were right!\n"
                 "", MSGBOX_DEFAULT)
             case 8:
                 msgbox(
-                "Remember everything you've seen.\n"
-                "The answer won't be easy.", MSGBOX_DEFAULT)
+                "Think back to everything you've\n"
+                "seen in the GREAT SEA.\l"
+                "Put all the pieces together.\p"
+
+                "You're looking for an undeniable\n"
+                "violation of copyright.\p"
+
+                "Incidentally, have you visited\n"
+                "CERULEAN CAVE yet?", MSGBOX_DEFAULT)
             case 9:
                 msgbox(
                 "I don't think I'm supposed to be\n"
                 "in this room.", MSGBOX_DEFAULT)
         }
+        msgbox(
+        "Well, never mind that.\n"
+        "Why don't you take a rest?", MSGBOX_DEFAULT)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        closemessage
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        special(HealPlayerParty)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        msgbox(("HINT MAN: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
+        release
+        end
     }
     msgbox(
 	"Okay, then never mind that.\n"

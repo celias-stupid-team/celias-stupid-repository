@@ -584,6 +584,12 @@
 	.4byte \ptr
 	.endm
 
+	.macro if_has108evasion battler:req, ptr:req
+	.byte 0x63
+	.byte \battler
+	.4byte \ptr
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE

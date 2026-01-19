@@ -1783,7 +1783,8 @@ u32 GetPlayerTrainerId(void)
 
 u8 GetUnlockedSeviiAreas(void)
 {
-    u8 result = 0;
+    u8 result = 0; //No Sevii areas in dex
+    /*
     if (FlagGet(FLAG_WORLD_MAP_ONE_ISLAND) == TRUE)
         result |= 1 << 0;
     if (FlagGet(FLAG_WORLD_MAP_TWO_ISLAND) == TRUE)
@@ -1798,6 +1799,7 @@ u8 GetUnlockedSeviiAreas(void)
         result |= 1 << 5;
     if (FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND) == TRUE)
         result |= 1 << 6;
+    */
     return result;
 }
 
@@ -2303,12 +2305,14 @@ void StopPokemonLeagueLightingEffectTask(void)
     }
 }
 
-static const u8 sCapeBrinkCompatibleSpecies[] = {
+static const u16 sCapeBrinkCompatibleSpecies[] = {
     SPECIES_BULBASAUR,
-    SPECIES_CHARMANDER,
+    SPECIES_IVYSAUR,
+    SPECIES_VENUSAUR,
     SPECIES_SQUIRTLE,
+    SPECIES_CHARMANDER,
     SPECIES_CHARMELEON,
-    SPECIES_CHARIZARD
+    SPECIES_CHARIZARD,
 };
 
 bool8 CapeBrinkGetMoveToTeachLeadPokemon(void)
@@ -2331,16 +2335,14 @@ bool8 CapeBrinkGetMoveToTeachLeadPokemon(void)
             break;
         }
     }
-    if (i == NELEMS(sCapeBrinkCompatibleSpecies) || GetMonData(&gPlayerParty[leadMonSlot], MON_DATA_FRIENDSHIP) != 255)
-        return FALSE;
-    if (tutorMonId == 0)
+    if (tutorMonId < 3)
     {
         StringCopy(gStringVar2, gLongMoveNames[MOVE_GRASS_PLEDGE]);
         gSpecialVar_0x8005 = MOVETUTOR_GRASS_PLEDGE;
         if (FlagGet(FLAG_TUTOR_GRASS_PLEDGE) == TRUE)
             return FALSE;
     }
-    else if (tutorMonId == 1)
+    else if (tutorMonId > 3)
     {
         StringCopy(gStringVar2, gLongMoveNames[MOVE_FIRE_PLEDGE]);
         gSpecialVar_0x8005 = MOVETUTOR_FIRE_PLEDGE;
@@ -2371,11 +2373,11 @@ bool8 HasLearnedAllMovesFromCapeBrinkTutor(void)
     // 8005 is set by CapeBrinkGetMoveToTeachLeadPokemon
     u8 r4 = 0;
     if (gSpecialVar_0x8005 == MOVETUTOR_GRASS_PLEDGE)
-        FlagSet(FLAG_TUTOR_GRASS_PLEDGE);
+        FlagClear(FLAG_TUTOR_GRASS_PLEDGE);
     else if (gSpecialVar_0x8005 == MOVETUTOR_FIRE_PLEDGE)
-        FlagSet(FLAG_TUTOR_FIRE_PLEDGE);
+        FlagClear(FLAG_TUTOR_FIRE_PLEDGE);
     else
-        FlagSet(FLAG_TUTOR_WATER_PLEDGE);
+        FlagClear(FLAG_TUTOR_WATER_PLEDGE);
     if (FlagGet(FLAG_TUTOR_GRASS_PLEDGE) == TRUE)
         r4++;
     if (FlagGet(FLAG_TUTOR_FIRE_PLEDGE) == TRUE)

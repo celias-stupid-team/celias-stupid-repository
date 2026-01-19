@@ -56,6 +56,15 @@ script AetherParadise_FoundGroudon {
 
 
 script AetherParadise_Groudon {
+    msgbox(
+	"Hmm…\n"
+	"Nope!\l"
+	"Nothing here!", MSGBOX_DEFAULT)
+    if(!flag(FLAG_GROUDON_NOTHING)) {
+        setflag(FLAG_GROUDON_NOTHING)
+        giveitem_msg("", ITEM_NOTHING)
+
+    }
     release
 }
 
@@ -204,6 +213,7 @@ script AetherParadise_FestivalPlazaEstablishments {
 }
 
 script FestivalPlaza_Sophacles {
+    textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"Hey, hey!\n"
 	"I don't suppose you'd like to have\l"

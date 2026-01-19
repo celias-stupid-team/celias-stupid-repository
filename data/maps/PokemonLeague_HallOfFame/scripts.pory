@@ -76,6 +76,6 @@ script PokemonLeague_HallOfFame_EventScript_TurnPlayerNorth {
 	turnobject(LOCALID_PLAYER, DIR_NORTH)
 	if(flag(FLAG_DEFEATED_CHAMP)) { //At some point make this a better flag, but it'll do for now
 		setvar(VAR_TEMP_1, 2)
-		playbgm(MUS_SLOW_PALLET, TRUE)
+		//playbgm(MUS_SLOW_PALLET, TRUE)
 	}
 }

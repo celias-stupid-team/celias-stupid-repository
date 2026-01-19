@@ -1183,7 +1183,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_TYROGUE] =
     {
         .size = MON_COORDS_SIZE(32, 48),
-        .y_offset = 9,
+        .y_offset = 0,
     },
     [SPECIES_HITMONTOP] =
     {

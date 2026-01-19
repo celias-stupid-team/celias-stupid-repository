@@ -238,6 +238,15 @@ script TwoIsland_OnTransition {
 	if(flag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)) {
 		setobjectmovementtype(LOCALID_DRAGONITE_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
 	}
+	if(flag(FLAG_TWO_ISLAND_FUCK_PRESENT)) {
+		setobjectmovementtype(LOCALID_HBOX_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
+	}
+	if(flag(FLAG_TWO_ISLAND_OTHER_PRESENT)) {
+		setobjectmovementtype(LOCALID_MUSIC_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
+	}
+	if(flag(FLAG_TWO_ISLAND_BOMB_PRESENT)) {
+		setobjectmovementtype(LOCALID_BOMB_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
+	}
 }
 
 script TwoIsland_PencilStatue {
@@ -269,20 +278,111 @@ script TwoIsland_DragonitePresent {
 	lock
 	if(flag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)) {
 		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
 	}
 	applymovement(VAR_LAST_TALKED, moves(
 		face_left
 	))
 	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
 	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox(
+	"There was a\n"
+	"BAG OF DRAGONITE!", MSGBOX_DEFAULT)
+	waitfanfare
 	setflag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)
+	release
+	end
+}
+
+script TwoIsland_BombPresent {
+	lock
+	if(flag(FLAG_TWO_ISLAND_BOMB_PRESENT)) {
+		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+	))
+	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	msgbox(
+	"There was a BOMB inside!\n"
+	"", MSGBOX_DEFAULT)
+	playbgm(MUS_NONE, TRUE)
+	fadescreeninstant(FADE_TO_WHITE)
+	closemessage
+	playse(SE_M_EXPLOSION)
+	waitse
+	setflag(FLAG_TWO_ISLAND_BOMB_PRESENT)
+	msgbox(
+	"{PLAYER} fucking died!\n"
+	"", MSGBOX_DEFAULT)
+	warpsilent(MAP_TWO_ISLAND, 2)
+
+	release
+	end
+}
+script TwoIsland_MusicPresent {
+	lock
+	if(flag(FLAG_TWO_ISLAND_OTHER_PRESENT)) {
+		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+	))
+	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	msgbox(
+	"(insert good music here)\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(60)
+	msgbox(
+	"Ah.\n"
+	"", MSGBOX_DEFAULT)
+	setflag(FLAG_TWO_ISLAND_OTHER_PRESENT)
+	release
+	end
+}
+script TwoIsland_HboxPresent {
+	lock
+	if(flag(FLAG_TWO_ISLAND_FUCK_PRESENT)) {
+		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+	))
+	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+	waitmoncry
+	setwildbattle(SPECIES_JIGGLYPUFF, 30)
+	dowildbattle
+	setflag(FLAG_TWO_ISLAND_FUCK_PRESENT)
 	release
 	end
 }
 
 script TwoIsland_PsyduckSeller {
 	textcolor(NPC_TEXT_COLOR_RED)
-	msgbox("I'm selling LEMONADE as PROF.\nOAK's POKéMON.", MSGBOX_NPC)
+	lock
+	faceplayer
+	msgbox("I'm selling LEMONADE as PROF.\nOAK's POKéMON.", MSGBOX_DEFAULT)
+	pokemart(PirateBay_Lemonade)
+	release
+}
+
+
+mart PirateBay_Lemonade {
+	ITEM_LEMONADE
+	ITEM_NONE
 }
 
 script TwoIsland_GluedGuy {
@@ -306,6 +406,7 @@ script TwoIsland_SmallChild {
 		"I can't wait to write about this\n"
 		"in my notebook!\l"
 		"Good thing I always keep one handy.", MSGBOX_NPC)
+		end
 	}
 	msgbox(
 	"Oh no-!\n"
@@ -398,6 +499,9 @@ script TwoIsland_ForSaleMan {
 		msgbox(
 		"{PLAYER} purchased the\n"
 		"FOR SALE sign!", MSGBOX_DEFAULT)
+		if(var(VAR_NUMBER_FOR_SALES) < 8) {
+			addvar(VAR_NUMBER_FOR_SALES, 1)
+		}
 		waitfanfare
 		closemessage
 		delay(30)
@@ -570,7 +674,25 @@ script TwoIsland_GenevaConvention {
 script TwoIsland_DadPhone {
 	lock
 	textcolor(0)
-	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI've deposited ¥5000 into your\nbank account.\lWould you like to SAVE your game?\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_in_place_down * 8
+	))
+	playse(SE_ITEMFINDER)
+	waitse
+	playse(SE_ITEMFINDER)
+	waitse
+	playse(SE_ITEMFINDER)
+	waitse
+	waitmovement(0)
+	delay(20)
+	addmoney(5000)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI've deposited ¥5000 into your\nbank account.\lWould you like to SAVE your game?", MSGBOX_YESNO) 
+	if(var(VAR_RESULT)) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		call(EventScript_AskSaveGame)
+	}
+	textcolor(0)
+	msgbox("Well, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
 	release
 	end
@@ -644,6 +766,7 @@ script TwoIsland_BurnHeal {
 	applymovement(VAR_LAST_TALKED, moves(
 		set_invisible
 	))
+	setrespawn(HEAL_LOCATION_TWO_ISLAND)
 	msgbox(
 	"{PLAYER} found a\n"
 	"BURN HEAL!", MSGBOX_DEFAULT)
@@ -699,12 +822,8 @@ script TwoIsland_BurnHeal {
 		msgbox(
 		"{FONT_COMIC_SANS}eat shit and die, thief\n"
 		"", MSGBOX_DEFAULT)
-		playbgm(MUS_MEGALOVANIA, TRUE)
-		closemessage
-		delay(120)
-		msgbox(
-		"(fight here)\n"
-		"", MSGBOX_DEFAULT)
+		
+		trainerbattle_no_intro(TRAINER_SANS, "darn")
 		if(checkpartymove(MOVE_MAGICAL_LEAF) != PARTY_SIZE) {
 			fadedefaultbgm
 			msgbox(
@@ -715,10 +834,16 @@ script TwoIsland_BurnHeal {
 			end
 		}
 		msgbox(
+		"Foe KECLEON dodges all of your\n"
+		"attacks.", MSGBOX_DEFAULT)
+		closemessage
+		delay(120)
+		msgbox(
 		"{FONT_COMIC_SANS}you lose\p"
 
 		"no burn heal for you\n"
 		"", MSGBOX_DEFAULT)
+		goto(EventScript_FieldWhiteOut)
 		release
 		end
 	} else {
@@ -755,12 +880,12 @@ script TwoIsland_BurnHeal {
 script TwoIsland_EventScript_SansTest {
 	lock
 	faceplayer
-	fadenewbgm(MUS_NONE)
+	
 	msgbox(
 	"{FONT_COMIC_SANS}sup\n"
 	"", MSGBOX_DEFAULT)
-	closemessage
-	fadedefaultbgm
+	
+	
 	release
 	end
 }
@@ -783,11 +908,10 @@ script TwoIsland_PaulaBakemeat {
 
 script TwoIsland_StinkyBed {
 	msgbox(
-	"{PLAYER} laid in the bed.\p"
+	"{PLAYER} laid in the bed…\p"
 
 	"Mmm…\n"
-	"Smells like pizza-scented\l"
-	"air fresheners!", MSGBOX_SIGN)
+	"Pizza-scented air fresheners!", MSGBOX_SIGN)
 
 }
 
@@ -810,12 +934,23 @@ script TwoIsland_TerritorialOak {
 	textcolor(NPC_TEXT_COLOR_TREE)
 	delay(60)
 	msgbox(
-	"territorial oak\n"
+	"{FONT_SMALL}Whazzat?\n"
+	"Hey!\p"
+
+	"Get off my property!\n"
 	"", MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_TERRITORIAL_OAK, "{FONT_SMALL}ow")
 	closemessage
+	delay(30)
+	playse(SE_M_EXPLOSION)
 	removeobject(LOCALID_TWOISLAND_TERRITORIALOAK)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_1)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_2)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_1)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_2)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_3)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_4)
+	waitse
 	release
 }
 
@@ -888,6 +1023,8 @@ script TwoIsland_TrumpetPlayer {
 	msgbox(
 	"I play hoenn trumpet\n"
 	"", MSGBOX_DEFAULT)
+	waitse
+	playse(MUS_TRUMPETS)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
@@ -939,8 +1076,70 @@ script TwoIsland_RunawayFiveHDoduo {
 
 script TwoIsland_RunawayFiveVenonat {
 	lock
-	playmoncry(SPECIES_SLOWPOKE, CRY_MODE_DEFAULT)
+	playmoncry(SPECIES_EEVEE, CRY_MODE_DEFAULT)
 	waitmoncry
 	release
 	end
+}
+
+
+script TwoIsland_WaitThreeMinutes {
+	lock
+	if(var(VAR_TEMP_5) < 5) {
+		addvar(VAR_TEMP_5, 1)
+	} else {
+		delay(10800)
+		msgbox(
+		"Hey!\n"
+		"That's the secret code!\p"
+
+		"C'mon in!\n"
+		"", MSGBOX_DEFAULT)
+		warp(MAP_TWO_ISLAND_WATERFALL_CAVE, 0)
+	}
+	release
+}
+
+script TwoIsland_FallingObjects {
+	setvar(VAR_TEMP_1, 1)
+	msgbox(
+	"WARNING!\n"
+	"Beware of falling objects!", MSGBOX_SIGN)
+
+}
+
+
+script TwoIsland_ThePit {
+	setvar(VAR_TEMP_1, 2)
+	hideobjectat(LOCALID_TWO_ISLAND_PENCIL, MAP_TWO_ISLAND)
+	hideobjectat(LOCALID_TWO_ISLAND_MUSHROOM_KID, MAP_TWO_ISLAND)
+	setlayouttiles(LAYOUT_TWO_ISLAND_PIT, 0, 0, 0, 0, 67, 28)
+	release
+}
+
+script TwoIsland_NoThePit {
+	setvar(VAR_TEMP_1, 0)
+	if(!flag(FLAG_TWO_ISLAND_PENCIL)) {
+		showobjectat(LOCALID_TWO_ISLAND_PENCIL, MAP_TWO_ISLAND)
+	}
+	showobjectat(LOCALID_TWO_ISLAND_MUSHROOM_KID, MAP_TWO_ISLAND)
+
+	setlayouttiles(LAYOUT_TWO_ISLAND, 0, 0, 0, 0, 67, 28)
+	release
+}
+
+
+script TwoIsland_Trees {
+	msgbox(
+	"That's not DR. ANDONUTS, silly!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script TwoIsland_NoProblem {
+	msgbox(
+	"No problem here.\n"
+	"", MSGBOX_SIGN)
+
 }

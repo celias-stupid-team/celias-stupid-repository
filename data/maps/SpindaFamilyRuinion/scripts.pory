@@ -8,3 +8,25 @@ script SpindaFamilyReunion_Spinda {
     release
     end
 }
+
+script SpindaFamilyReunion_Fridge {
+	msgbox(
+	"The fridge is stuffed full\n"
+	"of SPINDAS.", MSGBOX_SIGN)
+
+}
+
+script SpindaFamilyReunion_Tree {
+	msgbox(
+	"Oh, wow!\n"
+	"It's the SPINDA family tree!", MSGBOX_SIGN)
+
+}
+
+script SpindaFamilyReunion_Bakebeat {
+	msgbox(
+	"This arranging for SPINDA is\n"
+	"quite adept!\l"
+	"Volcano Bakemeat!", MSGBOX_SIGN)
+
+}

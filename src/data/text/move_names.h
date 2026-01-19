@@ -318,7 +318,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_AROMATHERAPY]  = _("AROMATHERAPY"),
     [MOVE_FAKE_TEARS]    = _("FAKE TEARS"),
     [MOVE_AIR_CUTTER]    = _("AIR CUTTER"),
-    [MOVE_OVERHEAT]      = _("OVERHEAT"),
+    [MOVE_OVERHEAT]      = _("TECHNO BLAST"),
     [MOVE_ODOR_SLEUTH]   = _("ODOR SLEUTH"),
     [MOVE_ROCK_TOMB]     = _("ROCK TOMB"), //We already have a MOVE_TOMBSTONER designated :)
     [MOVE_SILVER_WIND]   = _("SILVER WIND"),
@@ -639,6 +639,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_TRIPLE_WINGBEAT]     = _("FALSE"),
     [MOVE_DOUBLE_DIP]     = _("DOUBLE DIP"),
     [MOVE_DOUBLE_DAD]     = _("DOUBLE DAD"),
+    [MOVE_FLY_CYNTHIA]           = _("FLY"),
+    [MOVE_FREEZE_DRY]   = _("FREEZE-DRY"),
+    [MOVE_LEAFAGE]   = _("LEA---E"),
 };
 
 
@@ -962,7 +965,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_AROMATHERAPY]  = _("AROMATHERAPY"),
     [MOVE_FAKE_TEARS]    = _("FAKE TEARS"),
     [MOVE_AIR_CUTTER]    = _("AIR CUTTER"),
-    [MOVE_OVERHEAT]      = _("OVERHEAT"),
+    [MOVE_OVERHEAT]      = _("TECHNO BLAST"),
     [MOVE_ODOR_SLEUTH]   = _("ODOR SLEUTH"),
     [MOVE_ROCK_TOMB]     = _("ROCK TOMB"),
     [MOVE_SILVER_WIND]   = _("SILVER WIND"),
@@ -1284,5 +1287,8 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_TRIPLE_WINGBEAT]     = _("TRIPLE WINGBEAT"),
     [MOVE_DOUBLE_DIP]     = _("DOUBLE DIP"),
     [MOVE_DOUBLE_DAD]     = _("DOUBLE DAD"),
+    [MOVE_FLY_CYNTHIA]           = _("FLY"),
+    [MOVE_FREEZE_DRY]   = _("FREEZE-DRY"),
+    [MOVE_LEAFAGE]   = _("LEA---E"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

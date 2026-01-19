@@ -5,6 +5,12 @@ mapscripts NewMap1_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_CSR_MAP_SOOTOPOLIS)
 		call(SetPlayerPokedexValues)
+		
+		if(!flag(FLAG_BADGE07_GET)) {
+			setmaplayoutindex(LAYOUT_SOOTOPOLIS_NO_CENTER)
+		}
+	}
+	MAP_SCRIPT_ON_LOAD {
 	}
 }
 script Sootopolis_EventScript_Dad {
@@ -89,8 +95,8 @@ script Sootopolis_GymSign {
 
 script Sootopolis_LeaveTown {
 	msgbox(
-	"If you want to leave town, we need\n"
-	"to DIVE underwater.\p"
+	"If you want to leave town, you\n"
+	"need to DIVE underwater.\p"
 
 	"In order to use DIVE, you must\n"
 	"defeat the MOSSDEEP CITY GYM.\p"
@@ -111,4 +117,20 @@ script Sootopolis_LuvdiscClue {
 	"Maybe I'm not understanding…\n"
 	"", MSGBOX_DEFAULT)
 	release
+}
+
+script Sootopolis_NPC1 {
+	msgbox(
+	"Sootopolis placeholder 1\n"
+	"", MSGBOX_NPC)
+}
+
+
+script Sootopolis_ContestHallSign {
+	msgbox(
+	"CONTEST HALL\p"
+
+	"Coming soon!\n"
+	"(it'll be funny)", MSGBOX_SIGN)
+
 }

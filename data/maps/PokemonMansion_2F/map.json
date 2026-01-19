@@ -116,7 +116,7 @@
       "dest_warp_id": "2"
     },
     {
-      "x": 27,
+      "x": 16,
       "y": 17,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_MANSION_3F",
@@ -126,22 +126,22 @@
       "x": 15,
       "y": 22,
       "elevation": 3,
-      "dest_map": "MAP_POKEMON_MANSION_1F",
-      "dest_warp_id": "7"
+      "dest_map": "MAP_POKEMON_MANSION_B1F",
+      "dest_warp_id": "1"
     },
     {
       "x": 16,
       "y": 22,
       "elevation": 3,
-      "dest_map": "MAP_POKEMON_MANSION_1F",
-      "dest_warp_id": "8"
+      "dest_map": "MAP_POKEMON_MANSION_B1F",
+      "dest_warp_id": "1"
     },
     {
       "x": 17,
       "y": 22,
       "elevation": 3,
-      "dest_map": "MAP_POKEMON_MANSION_1F",
-      "dest_warp_id": "8"
+      "dest_map": "MAP_POKEMON_MANSION_B1F",
+      "dest_warp_id": "1"
     },
     {
       "x": 20,
@@ -158,7 +158,62 @@
       "dest_warp_id": "10"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PokemonMansion_SetFallInLava"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PokemonMansion_ClearFallInLava"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PokemonMansion_SetFallInLava"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PokemonMansion_SetFallInLava"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PokemonMansion_ClearFallInLava"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PokemonMansion_ClearFallInLava"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

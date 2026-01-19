@@ -44,9 +44,10 @@
 #define FIELD_MOVE_SOFT_BOILED  10
 #define FIELD_MOVE_SWEET_SCENT  11
 #define FIELD_MOVE_RETREAT      12
+#define FIELD_MOVE_GUILLOTINE   13
 // CSR
 
-#define FIELD_MOVE_END          13
+#define FIELD_MOVE_END          14
 
 /*
 #For CSR we're also going to need:

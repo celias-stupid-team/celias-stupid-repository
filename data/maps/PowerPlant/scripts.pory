@@ -104,6 +104,7 @@ const ELECTRODE_4 = 4
 script PowerPlant_MagnemiteMan {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_ROCK_TUNNEL, 2)
 	if(checkmoncaught(SPECIES_MAGNALONE)) {
 		msgbox(
 		"Hey, man!\n"
@@ -123,7 +124,7 @@ script PowerPlant_MagnemiteMan {
 		if(!flag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY) && !flag(FLAG_TEMP_10)) {
 			
 			setflag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY)
-			msgbox("Here, there!\nDo you happen to have a MAGNEMITE?\pI actually have two MAGNEMITE here\nwith me right now.\lWe're just one away from evolving!\pOh!\nYou have one with you!\pGreat news!\nThat means we can… … …", MSGBOX_DEFAULT)
+			msgbox("Hey, there!\nDo you happen to have a MAGNEMITE?\pI actually have two MAGNEMITE here\nwith me right now.\lWe're just one away from evolving!\pOh!\nYou have one with you!\pGreat news!\nThat means we can… … …", MSGBOX_DEFAULT)
 			closemessage
 			playse(SE_PIN)
 			applymovement(VAR_LAST_TALKED, moves(
@@ -233,6 +234,8 @@ script PowerPlant_Trees {
 script PowerPlant_Dazzle {
 	lock
 	faceplayer
+	
+	famechecker(FAMECHECKER_ROCK_TUNNEL, 4)
 	if(flag(FLAG_CSR_TRADED_WITH_DAZZLE)) {
 		msgbox("DAZZLE: Thank you for trading with\nme, guy!", MSGBOX_DEFAULT)
 	} else {
