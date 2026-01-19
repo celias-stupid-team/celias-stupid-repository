@@ -4048,7 +4048,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_RECHARGE,
         .power = 150,
-        .type = TYPE_WATER,
+        .type = TYPE_FLYING,
         .accuracy = 90,
         .pp = 5,
         .secondaryEffectChance = 0,
@@ -4451,7 +4451,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_RECHARGE,
         .power = 150,
-        .type = TYPE_WATER,
+        .type = TYPE_POISON,
         .accuracy = 90,
         .pp = 5,
         .secondaryEffectChance = 0,
