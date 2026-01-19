@@ -3992,10 +3992,8 @@ static void Task_FlyMap(u8 taskId)
             }
             break;
         case MAP_INPUT_A_BUTTON:
-            DebugPrintf("MAP_INPUT_A_BUTTON");
             if ((GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_VISITED || GetSelectedMapsecType(LAYER_MAP) == MAPSECTYPE_UNKNOWN) && GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS) == TRUE)
             {
-                DebugPrintf("Map Type = %d", GetMapTypeByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum));
                 switch (GetMapTypeByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum))
                 {
                 case MAP_TYPE_UNDERGROUND:
@@ -4036,7 +4034,6 @@ static void Task_FlyMap(u8 taskId)
         {
             if (sFlyMap->selectedDestination == TRUE)
                 SetFlyWarpDestination(GetMapsecUnderCursor());
-            DebugPrintf("FreeFlyMap");
             FreeFlyMap(taskId);
         }
         break;
