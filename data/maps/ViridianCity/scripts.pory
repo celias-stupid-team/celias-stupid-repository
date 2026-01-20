@@ -211,10 +211,7 @@ ViridianCity_EventScript_OldMan::
 	release
 	end
 
-ViridianCity_EventScript_OldManGymLeaderReturned::
-	msgbox ViridianCity_Text_ViridiansGymLeaderReturned
-	release
-	end
+
 
 ViridianCity_EventScript_TutorialOldMan::
 	lock
@@ -801,4 +798,18 @@ script ViridianCity_TradeKid {
 	release
 	end
 
+}
+
+
+script ViridianCity_EventScript_OldManGymLeaderReturned {
+	if(flag(FLAG_BADGE08_GET)) {
+		msgbox(
+		"Oh, no!\n"
+		"GIOVANNI's dead!", MSGBOX_DEFAULT)
+		release
+	} else {
+		msgbox(ViridianCity_Text_ViridiansGymLeaderReturned)
+		release
+
+	}
 }
