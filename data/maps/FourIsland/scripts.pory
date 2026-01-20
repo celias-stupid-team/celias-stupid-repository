@@ -644,7 +644,7 @@ script FourIsland_AmitySquareLady {
 		"You're a welcome guest!", MSGBOX_DEFAULT)
 		closemessage
 		//movement
-		warp(MAP_FOUR_ISLAND_AMITY_SQUARE, 12, 18)
+		warp(MAP_FOUR_ISLAND_AMITY_SQUARE, 0)
 		release
 		end
 	}

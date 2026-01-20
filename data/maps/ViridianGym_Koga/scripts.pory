@@ -52,6 +52,7 @@ script ViridianGym_KogaBattle {
     msgbox(
 	"i'm dead\n"
 	"", MSGBOX_DEFAULT)
+    release
 }
 
 text ViridianGym_KogaBattle_Start {

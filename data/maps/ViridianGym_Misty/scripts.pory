@@ -34,7 +34,7 @@ script ViridianGym_MistyBattle {
 	"It is implied that this is a\n"
 	"YUGIOH arena.", MSGBOX_DEFAULT)
     trainerbattle_no_intro(TRAINER_DMCA_MISTY, ViridianGym_MistyBattle_End)
-    if(!checkpartymove(MOVE_TRUMP_CARD)) {
+    if(checkpartymove(MOVE_TRUMP_CARD) == PARTY_SIZE) {
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
         msgbox(
         "She sends out three BLUE EYES\n"

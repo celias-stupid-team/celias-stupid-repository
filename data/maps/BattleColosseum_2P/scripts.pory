@@ -351,7 +351,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) {
 		setobtainable(SPECIES_TANGELA) // 114
 	}
-	if((flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) && checkmoncaught(SPECIES_TANGELA) && checkmoncaught(SPECIES_AMPHAROS_MEGA)) { //and if Tangela
+	if((flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) && checkmoncaught(SPECIES_TANGELA) && checkmoncaught(SPECIES_AMPHAROS)) { //and if Tangela
 		setobtainable(SPECIES_TRUBBISH_HAIRCUT) // 115
 	}
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { //and if Persian
