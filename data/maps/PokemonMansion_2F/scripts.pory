@@ -39,7 +39,7 @@ script PokemonMansion_Diary1 {
 
 script PokemonMansion_Diary2 {
 	msgbox(
-	"Diary 1, June 6th:\n"
+	"Diary 2, June 6th:\n"
 	"MEW is pregnant", MSGBOX_SIGN)
 
 }

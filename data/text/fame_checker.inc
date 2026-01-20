@@ -640,7 +640,7 @@ gFameCheckerFlavorText_GreatBay1:: @ 0x81AFB76
 	.string "My BUG-TYPES haven't been able to\n"
 	.string "stand up to those POISON-TYPES.\l"
 	.string "We're weak to their attacks now!\p"
-	.string "I wish tehre was something we could\n"
+	.string "I wish there was something we could\n"
 	.string "do to turn the tables on them…$"
 
 gFameCheckerFlavorText_GreatBay2:: @ 0x81AFC38

@@ -1076,7 +1076,7 @@ script TwoIsland_RunawayFiveHDoduo {
 
 script TwoIsland_RunawayFiveVenonat {
 	lock
-	playmoncry(SPECIES_EEVEE, CRY_MODE_DEFAULT)
+	playmoncry(SPECIES_KENYA, CRY_MODE_DEFAULT)
 	waitmoncry
 	release
 	end

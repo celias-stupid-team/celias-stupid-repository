@@ -703,3 +703,4 @@ const u32 gObjectEventPic_NURSE_DUCK_BUT_IM_LAZY[] = INCBIN_U32("graphics/object
 const u16 gObjectEventPal_NURSE_DUCK_BUT_IM_LAZY[] = INCBIN_U16("graphics/object_events/palettes/NURSE_DUCK_BUT_IM_LAZY.gbapal");
 const u32 gObjectEventPic_BRAILLE[] = INCBIN_U32("graphics/object_events/pics/stupid/BRAILLE.4bpp");
 const u16 gObjectEventPal_BRAILLE[] = INCBIN_U16("graphics/object_events/palettes/BRAILLE.gbapal");
+const u32 gObjectEventPic_KENYA[] = INCBIN_U32("graphics/object_events/pics/stupid/KENYA.4bpp");

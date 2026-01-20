@@ -825,9 +825,8 @@ const u8 gJolteonPokedexText[] = _(
 const u8 gJolteonPokedexTextUnused[] = _("");
 
 const u8 gFlareonPokedexText[] = _(
-    "It has a flame bag inside its body. After\n"
-    "inhaling deeply, it blows out flames of\n"
-    "nearly 3,100 degrees Fahrenheit.");
+	"No, no! We can't!\n"
+	"This baby is a demon child!");
 
 const u8 gFlareonPokedexTextUnused[] = _("");
 

@@ -5314,3 +5314,14 @@ const struct SpriteFrameImage gObjectEventPicTable_BRAILLE[] = {
     overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 2),
     overworld_frame(gObjectEventPic_BRAILLE, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_KENYA[] = {
+    overworld_frame(gObjectEventPic_KENYA, 4, 4, 0),
+    overworld_frame(gObjectEventPic_KENYA, 4, 4, 1),
+    overworld_frame(gObjectEventPic_KENYA, 4, 4, 2),
+    overworld_frame(gObjectEventPic_KENYA, 4, 4, 0),
+    overworld_frame(gObjectEventPic_KENYA, 4, 4, 0),
+    overworld_frame(gObjectEventPic_KENYA, 4, 4, 1),
+    overworld_frame(gObjectEventPic_KENYA, 4, 4, 1),
+    overworld_frame(gObjectEventPic_KENYA, 4, 4, 2),
+    overworld_frame(gObjectEventPic_KENYA, 4, 4, 2),
+};
