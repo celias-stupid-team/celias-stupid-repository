@@ -492,6 +492,7 @@ script PowerPlant_Console {
 			goto(PowerPlant_MinigameStart)
 		}
 	}
+	release
 }
 
 movement Eternatus_WalkSlowDown {
