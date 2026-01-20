@@ -34,7 +34,6 @@ void ChooseMonForMoveRelearner(void)
 void ChooseMonForMoveRelearnerItem(void)
 {
     u8 taskId;
-    LockPlayerFieldControls();
     taskId = CreateTask(Task_ChoosePartyMon, 10);
     gSpecialVar_0x8005 = 0;
     gTasks[taskId].data[0] = PARTY_MENU_TYPE_MOVE_RELEARNER_ITEM;

@@ -81,6 +81,7 @@ static void SpriteCB_Arrow(struct Sprite *sprite);
 /* TASKs */
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId);
 static void Task_HandleSave(u8 taskId);
+static void Task_RotomStartMenu_OpenMenu(u8 taskId);
 
 /* OTHER FUNCTIONS */
 static void RotomStartMenu_LoadSprites(void);
@@ -407,7 +408,7 @@ struct RotomStartMenu
     u8 rotomEyesState;
     u8 rotomMoveMsgID;
     u8 iconAnimStarted:1;
-    u8 optionSelected:1;
+    u8 unlockAndUnfreeze:1;
     u8 storedMenuOption:4;
     u8 filler:2;
     u8 fieldMoveCursor:4;
@@ -1498,8 +1499,8 @@ void RotomStartMenu_Init(void)
     sRotomStartMenu->keyRepeatStartDelayBackup = gKeyRepeatStartDelay;
     gKeyRepeatStartDelay = ROTOM_MENU_REPEAT_DELAY;
     sFieldMoveData = 0;
-    sRotomStartMenu->optionSelected = FALSE;
     sRotomStartMenu->iconAnimStarted = FALSE;
+    sRotomStartMenu->unlockAndUnfreeze = FALSE;
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
     sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NONE;
 
@@ -1916,6 +1917,12 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
 
     RotomStartMenu_DestroySprites();
 
+    if (sRotomStartMenu->unlockAndUnfreeze)
+    {
+        ClearPlayerHeldMovementAndUnfreezeObjectEvents();
+        UnlockPlayerFieldControls();
+    }
+
     if (sRotomStartMenu != NULL)
     {
         FreeSpriteTilesByTag(TAG_ICON_GFX);
@@ -1927,30 +1934,26 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
         Free(sRotomStartMenu);
         sRotomStartMenu = NULL;
     }
-
-    ClearPlayerHeldMovementAndUnfreezeObjectEvents();
-    UnlockPlayerFieldControls();
 }
 
-static void DoCleanUpAndChangeCallback(MainCallback callback)
+static void DoCleanUpAndChangeCallback(u8 taskId, MainCallback callback)
 {
     if (!gPaletteFade.active)
     {
-        DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
         PlayRainStoppingSoundEffect();
         RotomStartMenu_ExitAndClearTilemap();
         CleanupOverworldWindowsAndTilemaps();
         SetMainCallback2(callback);
         gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
+        DestroyTask(taskId);
     }
 }
 
-static void DoCleanUpAndOpenTrainerCard(void)
+static void DoCleanUpAndOpenTrainerCard(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
         RotomStartMenu_ExitAndClearTilemap();
-        DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
         if (Overworld_GetFlashLevel())
         {
             ScriptContext_SetupScript(EventScript_TooDarkToSee);
@@ -1961,10 +1964,11 @@ static void DoCleanUpAndOpenTrainerCard(void)
             CleanupOverworldWindowsAndTilemaps();
             ShowPlayerTrainerCard(CB2_ReturnToFieldWithOpenMenu); // Display trainer card
         }
+        DestroyTask(taskId);
     }
 }
 
-static void DoCleanUpAndOpenPC(void)
+static void DoCleanUpAndOpenPC(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
@@ -1973,7 +1977,7 @@ static void DoCleanUpAndOpenPC(void)
         CleanupOverworldWindowsAndTilemaps();
         gOpenedPCFromRotomMenu = TRUE;
         EnterPokeStorage(OPTION_MOVE_MONS);
-        DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
+        DestroyTask(taskId);
     }
 }
 
@@ -1988,7 +1992,6 @@ static void Task_DoCleanUpAndExecuteFieldMove(u8 taskId)
             PlayRainStoppingSoundEffect();
             CleanupOverworldWindowsAndTilemaps();
         }
-        DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
         RotomStartMenu_ExitAndClearTilemap();
         sRotomMoves[gTasks[taskId].tRotomMove].fieldMoveFunc();
         DestroyTask(taskId);
@@ -2301,13 +2304,7 @@ static void Task_HandleSave(u8 taskId)
         break;
     case SAVE_CANCELED: // Back to start menu
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
-        // ClearPlayerHeldMovementAndUnfreezeObjectEvents();
-        // UnlockPlayerFieldControls();
-        // FieldClearVBlankHBlankCallbacks();
         RotomStartMenu_Init();
-        // CB2_ReturnToField();
-        // SetMainCallback2(CB2_ReturnToField);
-        // CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
         DestroyTask(taskId);
         break;
     case SAVE_SUCCESS:
@@ -2334,41 +2331,37 @@ static void Task_WaitForPreSaveCleanup(u8 taskId)
     gTasks[taskId].tWaitFrames--;
 }
 
-static void DoCleanUpAndStartSaveMenu(void)
+static void DoCleanUpAndStartSaveMenu(u8 taskId)
 {
-    u8 taskId;
-    DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
     RotomStartMenu_ExitAndClearTilemap();
-    FreezeObjectEvents();
-    LockPlayerFieldControls();
-    taskId = CreateTask(Task_WaitForPreSaveCleanup, 0x80);
     gTasks[taskId].tWaitFrames = 5;
+    gTasks[taskId].func = Task_WaitForPreSaveCleanup;
 }
 
-static void RotomStartMenu_OpenMenu(void)
+static void Task_RotomStartMenu_OpenMenu(u8 taskId)
 {
     switch (sMenuSelected)
     {
     case MENU_POKEDEX:
-        DoCleanUpAndChangeCallback(CB2_OpenPokedexFromStartMenu);
+        DoCleanUpAndChangeCallback(taskId, CB2_OpenPokedexFromStartMenu);
         break;
     case MENU_PARTY:
-        DoCleanUpAndChangeCallback(CB2_PartyMenuFromStartMenu);
+        DoCleanUpAndChangeCallback(taskId, CB2_PartyMenuFromStartMenu);
         break;
     case MENU_BAG:
-        DoCleanUpAndChangeCallback(CB2_BagMenuFromStartMenu);
+        DoCleanUpAndChangeCallback(taskId, CB2_BagMenuFromStartMenu);
         break;
     case MENU_PC:
-        DoCleanUpAndOpenPC();
+        DoCleanUpAndOpenPC(taskId);
         break;
     case MENU_TRAINER_CARD:
-        DoCleanUpAndOpenTrainerCard();
+        DoCleanUpAndOpenTrainerCard(taskId);
         break;
     case MENU_SAVE:
-        DoCleanUpAndStartSaveMenu();
+        DoCleanUpAndStartSaveMenu(taskId);
         break;
     case MENU_OPTIONS:
-        DoCleanUpAndChangeCallback(CB2_OptionsMenuFromStartMenu);
+        DoCleanUpAndChangeCallback(taskId, CB2_OptionsMenuFromStartMenu);
         break;
     }
 }
@@ -2757,33 +2750,28 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
     u32 index, fieldMoveTask;
 
     AdvanceComfyAnimations();
-    
+
     // stifle all input while invalid message is showing, which handles A press to close
     if (FindTaskIdByFunc(Task_ShowInvalidMoveMessage) != TASK_NONE) return;
 
-    if (!sRotomStartMenu->optionSelected && !gPaletteFade.active)
-    {
-        index = IndexOfSpritePaletteTag(TAG_ICON_PAL);
-        LoadPalette(sIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
-    }
-
     if (JOY_NEW(A_BUTTON))
     {
+        // player is selecting a menu option
         if (sMenuSelected != MENU_NONE)
         {
             PlaySE(ROTOMSE_MENU_SELECTION);
-            if (!sRotomStartMenu->optionSelected)
+            // don't fade when selecting trainer card in flash cave for
+            // not able to see bit
+            if (sMenuSelected != MENU_SAVE
+                && (sMenuSelected != MENU_TRAINER_CARD || !Overworld_GetFlashLevel()))
             {
-                // don't fade when selecting trainer card in flash cave for
-                // not able to see bit
-                if (sMenuSelected != MENU_SAVE
-                    && (sMenuSelected != MENU_TRAINER_CARD || !Overworld_GetFlashLevel()))
-                {
-                    FadeScreen(FADE_TO_BLACK, 0);
-                }
-                sRotomStartMenu->optionSelected = TRUE;
+                FadeScreen(FADE_TO_BLACK, 0);
             }
+
+            CreateTask(Task_RotomStartMenu_OpenMenu, 0);
+            DestroyTask(taskId);
         }
+        // player is selecting a field move
         else if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE // wait for move selector anims to finish 
                  && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
                  && CheckValidFieldMoveInput())
@@ -2796,35 +2784,34 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
             {
                 FadeScreen(FADE_TO_BLACK, 0);
             }
+
             fieldMoveTask = CreateTask(Task_DoCleanUpAndExecuteFieldMove, 0);
             gTasks[fieldMoveTask].tRotomMove = sRotomStartMenu->fieldMoveCursor;
+            DestroyTask(taskId);
         }
     }
-    else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected)
+    else if (JOY_NEW(B_BUTTON))
     {
         PlaySE(ROTOMSE_MENU_CLOSE);
+        sRotomStartMenu->unlockAndUnfreeze = TRUE;
         RotomStartMenu_ExitAndClearTilemap();
         DestroyTask(taskId);
     }
-    else if (JOY_REPT(DPAD_DOWN) && !sRotomStartMenu->optionSelected)
+    else if (JOY_REPT(DPAD_DOWN))
     {
         RotomStartMenu_HandleInput_DPadDown();
     }
-    else if (JOY_REPT(DPAD_UP) && !sRotomStartMenu->optionSelected)
+    else if (JOY_REPT(DPAD_UP))
     {
         RotomStartMenu_HandleInput_DPadUp();
     }
-    else if (JOY_REPT(DPAD_LEFT) && !sRotomStartMenu->optionSelected)
+    else if (JOY_REPT(DPAD_LEFT))
     {
         RotomStartMenu_HandleInput_DPadLeft();
     }
-    else if (JOY_REPT(DPAD_RIGHT) && !sRotomStartMenu->optionSelected)
+    else if (JOY_REPT(DPAD_RIGHT))
     {
         RotomStartMenu_HandleInput_DPadRight();
-    }
-    else if (sRotomStartMenu->optionSelected)
-    {
-        RotomStartMenu_OpenMenu();
     }
 
     if (JOY_REPT(DPAD_ANY))
