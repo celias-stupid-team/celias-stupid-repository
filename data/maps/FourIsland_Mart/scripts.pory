@@ -11,7 +11,6 @@ FourIsland_Mart_Items::
 	.2byte ITEM_GROWTH_MULCH
 	.2byte ITEM_RICH_MULCH
 	.2byte ITEM_ODD_MULCH
-	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_NONE
 	release
 	end
@@ -21,7 +20,6 @@ FourIsland_Mart_Items_NoOddMulch::
 	.2byte ITEM_X_SPDEF
 	.2byte ITEM_GROWTH_MULCH
 	.2byte ITEM_RICH_MULCH
-	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_NONE
 	release
 	end

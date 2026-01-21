@@ -19,9 +19,12 @@ script Route20_SeafoamIslands_Sign {
 
 
 script Route20_DeadRatFisher {
+	trainerbattle_single(TRAINER_DEAD_RAT_FISHER,
+	"Woah!\n"
+	"Look what I fished up!",
+	"Rats!"
+	)
 	msgbox(
-	"Look what I fished up!\p"
-
-	"battle with dead rat\n"
+	"after dialogue\n"
 	"", MSGBOX_NPC)
 }

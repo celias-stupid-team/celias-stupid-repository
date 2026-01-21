@@ -6515,7 +6515,7 @@ static const struct LevelUpMove sMinccinoLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sCinccinoLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_BONE_RUSH),
 	LEVEL_UP_END
 };
 
@@ -10027,6 +10027,11 @@ static const struct LevelUpMove sUNITEDKINGDOMLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sFIRETYPESLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sRATICATEGHOSTLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };

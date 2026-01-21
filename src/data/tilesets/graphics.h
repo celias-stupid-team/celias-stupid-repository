@@ -2145,3 +2145,22 @@ const u16 gTilesetPalettes_Chapter7Chaper2[][16] =
 };
 
 const u32 gTilesetTiles_Chapter7Chaper2[] = INCBIN_U32("data/tilesets/primary/chapter_7chaper_2/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_FinalBossCutscene[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/final_boss_cutscene/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_FinalBossCutscene[] = INCBIN_U32("data/tilesets/primary/final_boss_cutscene/tiles.4bpp.lz");

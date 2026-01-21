@@ -755,7 +755,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "1",
-      "script": "NULL"
+      "script": "Route19_CeliaTurnsYouAround"
     },
     {
       "type": "trigger",
@@ -764,7 +764,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "1",
-      "script": "NULL"
+      "script": "Route19_CeliaTurnsYouAround"
     }
   ],
   "bg_events": [

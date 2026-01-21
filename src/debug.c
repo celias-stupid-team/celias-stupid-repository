@@ -1333,6 +1333,7 @@ static void DebugAction_Util_Fly(u8 taskId)
 {
     Debug_DestroyMenu_Full(taskId);
     gMain.savedCallback = CB2_ReturnToField;
+    FlagSet(FLAG_TEMP_F); // temporary flag to indicate fly from debug menu
     SetMainCallback2(CB2_OpenFlyMap);
 }
 

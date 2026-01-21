@@ -486,6 +486,14 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PIRATE_JOY;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GRANDPA_DAD;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_POLIO;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RIVAL_OF_AETHER;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_ZAP;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_MOL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_CUNO;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_OH;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_GIA;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NURSE_DUCK;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_STUNFISK;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NURSE_DUCK_BUT_IM_LAZY;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -973,4 +981,12 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GRANDPA_DAD] = &gObjectEventGraphicsInfo_GRANDPA_DAD,
     [OBJ_EVENT_GFX_POLIO] = &gObjectEventGraphicsInfo_POLIO,
     [OBJ_EVENT_GFX_RIVAL_OF_AETHER] = &gObjectEventGraphicsInfo_RIVAL_OF_AETHER,
+    [OBJ_EVENT_GFX_FINALBOSS_ZAP] = &gObjectEventGraphicsInfo_FINALBOSS_ZAP,
+    [OBJ_EVENT_GFX_FINALBOSS_MOL] = &gObjectEventGraphicsInfo_FINALBOSS_MOL,
+    [OBJ_EVENT_GFX_FINALBOSS_CUNO] = &gObjectEventGraphicsInfo_FINALBOSS_CUNO,
+    [OBJ_EVENT_GFX_FINALBOSS_OH] = &gObjectEventGraphicsInfo_FINALBOSS_OH,
+    [OBJ_EVENT_GFX_FINALBOSS_GIA] = &gObjectEventGraphicsInfo_FINALBOSS_GIA,
+    [OBJ_EVENT_GFX_NURSE_DUCK] = &gObjectEventGraphicsInfo_NURSE_DUCK,
+    [OBJ_EVENT_GFX_STUNFISK] = &gObjectEventGraphicsInfo_STUNFISK,
+    [OBJ_EVENT_GFX_NURSE_DUCK_BUT_IM_LAZY] = &gObjectEventGraphicsInfo_NURSE_DUCK_BUT_IM_LAZY,
 };

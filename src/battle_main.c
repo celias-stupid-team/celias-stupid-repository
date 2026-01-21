@@ -476,6 +476,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_TERRITORIAL, 50},
     {TRAINER_CLASS_RIVAL_MAY, 50},
     {TRAINER_CLASS_MASTER, 50},
+    {TRAINER_CLASS_BERRIED, 50},
     
     { 0xFF, 5},
 };

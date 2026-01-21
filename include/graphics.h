@@ -12718,3 +12718,14 @@ extern const u32 gMonShinyPalette_FIRETYPES[];
 extern const u8 gMonFootprint_FIRETYPES[];
 extern const u8 gMonIcon_FIRETYPES[];
 
+
+extern const u32 gTrainerFrontPic_BerriedAlive[];
+extern const u32 gTrainerPalette_BerriedAlive[];
+// RATICATE_GHOST
+extern const u32 gMonFrontPic_RATICATEGHOST[];
+extern const u32 gMonPalette_RATICATEGHOST[];
+extern const u32 gMonBackPic_RATICATEGHOST[];
+extern const u32 gMonShinyPalette_RATICATEGHOST[];
+extern const u8 gMonFootprint_RATICATEGHOST[];
+extern const u8 gMonIcon_RATICATEGHOST[];
+

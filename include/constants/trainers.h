@@ -212,6 +212,7 @@
 #define TRAINER_PIC_LIGHT_GARY   190
 #define TRAINER_PIC_LARRY   191
 #define TRAINER_PIC_SANS_TRAINER   192
+#define TRAINER_PIC_BERRIED_ALIVE   193
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
@@ -356,6 +357,7 @@
 #define TRAINER_CLASS_MYSTERIOUS 126
 #define TRAINER_CLASS_TERRITORIAL 127
 #define TRAINER_CLASS_RIVAL_MAY 128
+#define TRAINER_CLASS_BERRIED 129
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0
