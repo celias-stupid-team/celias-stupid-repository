@@ -121,9 +121,7 @@ Debug_EventScript_Script_6::
 	end
 
 Debug_EventScript_Script_7::
-	@ setwildbattle SPECIES_SEEL, 10
-	@ dowildbattle
-	special StartZapmolticunoohgiaBattle
+	trainerbattle_no_intro_battletype TRAINER_CHAMPION_FIRST_SQUIRTLE, SPECIAL_BATTLE_TYPE_ZAPMOLTICUNOOHGIA, PokemonLeague_AgathasRoom_Text_Defeat
 	end
 
 Debug_EventScript_Script_8:: @ directly used in C code

@@ -459,5 +459,4 @@ gSpecials::
 	def_special CreateMail
 	def_special ForcePlayerOffBike
 	def_special TryPrepareSecondApproachingTrainer
-	def_special StartZapmolticunoohgiaBattle
 gSpecialsEnd::

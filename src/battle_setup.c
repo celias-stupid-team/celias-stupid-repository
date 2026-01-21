@@ -371,16 +371,6 @@ void StartMarowakBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
 }
 
-void StartZapmolticunoohgiaBattle(void)
-{
-    LockPlayerFieldControls();
-    gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_ZAPMOLTICUNOOHGIA | BATTLE_TYPE_TRAINER;
-    CreateBattleStartTask(GetWildBattleTransition(), 0);
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
-}
-
 void StartSouthernIslandBattle(void)
 {
     LockPlayerFieldControls();
@@ -1208,6 +1198,9 @@ void AddBattletypeFlags(void)
     {
     case SPECIAL_BATTLE_TYPE_CYNTHIA:
         gBattleTypeFlags |= BATTLE_TYPE_CYNTHIA;
+        break;
+    case SPECIAL_BATTLE_TYPE_ZAPMOLTICUNOOHGIA:
+        gBattleTypeFlags |= BATTLE_TYPE_ZAPMOLTICUNOOHGIA;
         break;
     default:
         break;

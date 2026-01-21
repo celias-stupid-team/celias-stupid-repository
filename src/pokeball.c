@@ -415,6 +415,8 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
         gBattlerTarget = battlerId;
         gSprites[ballSpriteId].data[0] = 0;
         gSprites[ballSpriteId].callback = SpriteCB_OpponentMonSendOut;
+        if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+            gSprites[ballSpriteId].invisible = TRUE;
         break;
     default:
         gBattlerTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
@@ -773,7 +775,8 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
 
     StartSpriteAnim(sprite, 1);
     ballId = GetBattlerPokeballItemId(battlerId);
-    AnimateBallOpenParticles(sprite->x, sprite->y - 5, 1, 28, ballId);
+    if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA))
+        AnimateBallOpenParticles(sprite->x, sprite->y - 5, 1, 28, ballId);
     sprite->data[0] = LaunchBallFadeMonTask(TRUE, sprite->sBattler, 14, ballId);
     sprite->callback = HandleBallAnimEnd;
 

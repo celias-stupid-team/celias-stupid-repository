@@ -82,7 +82,8 @@
 #define RIVAL_BATTLE_TUTORIAL    3
 
 // special battle type IDs for trainerbattle_no_intro_battletype macro
-#define SPECIAL_BATTLE_TYPE_CYNTHIA       1
+#define SPECIAL_BATTLE_TYPE_CYNTHIA           1
+#define SPECIAL_BATTLE_TYPE_ZAPMOLTICUNOOHGIA 2
 
 // Battle Outcome defines
 #define B_OUTCOME_WON                  1
