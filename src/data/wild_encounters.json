@@ -15562,8 +15562,8 @@
             "encounter_rate": 21,
             "mons": [
               {
-                "min_level": 10,
-                "max_level": 10,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_MEOWTH"
               },
               {
@@ -15572,8 +15572,8 @@
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_MEOWTH"
               },
               {

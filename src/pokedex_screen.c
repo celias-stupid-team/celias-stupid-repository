@@ -2935,8 +2935,10 @@ void DexScreen_PrintMonHeight(u8 windowId, u16 species, u8 x, u8 y)
     if (DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, FALSE))
     {
         inches = 10000 * height / 254; // actually tenths of inches here
+        DebugPrintf("Species is %d",species);
         switch(species) {
-            case SPECIES_KENYA:
+            
+            case SPECIES_UNOWN_LOSS: // ?????? I have literally no clue why 
                 buffer[i++] = CHAR_6;
                 buffer[i++] = CHAR_5;
                 buffer[i++] = CHAR_6;
@@ -2949,7 +2951,7 @@ void DexScreen_PrintMonHeight(u8 windowId, u16 species, u8 x, u8 y)
                 buffer[i++] = CHAR_PERIOD;
                 break;
 
-            case SPECIES_UNOWN_LOSS:
+            case SPECIES_KENYA:
                 buffer[i++] = CHAR_1;
                 buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
                 buffer[i++] = CHAR_1;
@@ -3030,7 +3032,7 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
         lbs = (weight * 100000) / 4536; // Convert to hundredths of lb
 
         switch(species) {
-            case SPECIES_KENYA:
+            case SPECIES_UNOWN_LOSS: // I have literally no clue why I have to switch these   
                 buffer[i++] = CHAR_9;
                 buffer[i++] = CHAR_7;
                 buffer[i++] = CHAR_2;
@@ -3045,7 +3047,7 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
                 buffer[i++] = CHAR_s;
                 break;
             
-            case SPECIES_UNOWN_LOSS:
+            case SPECIES_KENYA:
                 buffer[i++] = CHAR_1;
                 buffer[i++] = CHAR_1;
                 buffer[i++] = CHAR_PERIOD;
@@ -3119,7 +3121,7 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
     buffer[i++] = EXT_CTRL_CODE_MIN_LETTER_SPACING;
     buffer[i++] = 0;
 
-    if (species != SPECIES_KENYA) {
+    if (species != SPECIES_UNOWN_LOSS) {
         for (j = 0; j < 33 - i && lbsText[j] != EOS; j++)
             buffer[i + j] = lbsText[j];
     }

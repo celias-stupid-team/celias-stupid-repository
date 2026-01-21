@@ -158,11 +158,11 @@ PokedexRating_Text_HintIvysaur::
 	.string "I wonder why…\n$"
 
 PokedexRating_Text_HintHitmonchin::
-	.string "You found a PERSIAN by fishing in\n"
-	.string "the VIRIDIAN GYM statues?\l"
-	.string "Incredible!\p"
-	.string "So wait, what about the other\n"
-	.string "GYMS' statues?$"
+	.string "You've gone to every GYM to fish\n"
+	.string "in the STATUES for POKéMON?\p"
+	.string "Isn't there one more GYM you're\n"
+	.string "forgetting about, though?\l"
+	.string "Where's the blank spot in the DEX?$"
 
 PokedexRating_Text_HintCaterpie::
 	.string "VIRIDIAN FOREST has a wild POKéMON\n"
@@ -208,7 +208,12 @@ PokedexRating_Text_HintCombee::
 	.string "Try leveling it up!$"
 
 PokedexRating_Text_HintPidgey::
-	.string "Placeholder!$"
+	.string "After visiting BIRTH ISLAND, the\n"
+	.string "mysterious TRIANGLE flew away.\p"
+	.string "I think it would be prudent to\n"
+	.string "chase it down.\l"
+	.string "Where do you think it ended up?$"
+
 
 PokedexRating_Text_HintPidgeotto::
 	.string "ROUTE 3 has a wild POKéMON\n"
@@ -225,7 +230,9 @@ PokedexRating_Text_HintRattata::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintRaticate::
-	.string "Placeholder!$"
+	.string "No, there's no sneaky way to keep\n"
+	.string "your MEWTWO.$"
+
 
 PokedexRating_Text_HintEkans::
 	.string "ROUTE 3 has a wild POKéMON\n"
@@ -333,10 +340,10 @@ PokedexRating_Text_HintJigglypuff::
 
 PokedexRating_Text_HintVenonat::
 	.string "You found a PERSIAN by fishing in\n"
-	.string "the VIRIDIAN GYM statues?\l"
+	.string "a statue in VIRIDIAN GYM?\l"
 	.string "Incredible!\p"
-	.string "So wait, what about the other\n"
-	.string "GYMS' statues?$"
+	.string "Haven't there been other POKéMON\n"
+	.string "listed you've been unable to find?$"
 
 PokedexRating_Text_HintZubat::
 	.string "Placeholder!$"
@@ -374,10 +381,12 @@ PokedexRating_Text_HintParas::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintParasect::
-	.string "It seems that PARAS now harnesses\n"
-	.string "the power of the SUN!\p"
-	.string "Perhaps there's a way to focus that\n"
-	.string "power further?$"
+	.string "It seems some POKéMON are evolving\n"
+	.string "differently than they normally do.\p"
+	.string "Don't assume that levels are all\n"
+	.string "it'll take.\p"
+	.string "Instead, read the POKéDEX entries\n"
+	.string "and consider what else you can do.$"
 
 PokedexRating_Text_HintJirachi::
 	.string "In the CELADON CITY GAME STORE,\n"
@@ -498,17 +507,18 @@ PokedexRating_Text_HintTentacool::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintToedscool::
-	.string "I heard my AIDE delivered RUNNING\n"
-	.string "SHOES, but you didn't need them.\p"
-	.string "Maybe you could try giving them to\n"
-	.string "a POKéMON instead!$"
+	.string "Sometimes, ITEMS may function\n"
+	.string "differently than you expect.\p"
+	.string "You should double-check your BAG\n"
+	.string "and read everything carefully.\l"
+	.string "There may be something you missed.$"
 
 PokedexRating_Text_HintGeodude::
 	.string "You found a PERSIAN by fishing in\n"
-	.string "the VIRIDIAN GYM statues?\l"
+	.string "a statue in VIRIDIAN GYM?\l"
 	.string "Incredible!\p"
-	.string "So wait, what about the other\n"
-	.string "GYMS' statues?$"
+	.string "Haven't there been other POKéMON\n"
+	.string "listed you've been unable to find?$"
 
 PokedexRating_Text_HintGraveler::
 	.string "Your GEODUDE can still evolve.\n"
@@ -540,7 +550,11 @@ PokedexRating_Text_HintMagnemite::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintMagnalone::
-	.string "Placeholder!$"
+	.string "Wasn't there a man in the POWER\n"
+	.string "PLANT who was waiting for a third\l"
+	.string "MAGNEMITE?\p"
+	.string "You should bring yours over!\n$"
+
 
 PokedexRating_Text_HintDoduo::
 	.string "ROUTE 7 has a wild POKéMON\n"
@@ -674,9 +688,12 @@ PokedexRating_Text_HintGolurk::
 	.string "Be sure to go back for it!$"
 
 PokedexRating_Text_HintBidoof::
-	.string "There's an NPC in SILPH CO. you\n"
-	.string "forgot to talk to.$"
-
+	.string "I don't believe you explored SILPH\n"
+	.string "CO as thoroughly as you think.\p"
+	.string "\n"
+	.string "One branch of the WARP TILE maze\l"
+	.string "led to an undesirable end, but\l"
+	.string "you never tried exploring further.$"
 
 PokedexRating_Text_HintSmeargle::
 	.string "The yellow trees on FOUR ISLAND\n"
@@ -688,10 +705,10 @@ PokedexRating_Text_HintSmeargle::
 
 PokedexRating_Text_HintTangela::
 	.string "You found a PERSIAN by fishing in\n"
-	.string "the VIRIDIAN GYM statues?\l"
+	.string "a statue in VIRIDIAN GYM?\l"
 	.string "Incredible!\p"
-	.string "So wait, what about the other\n"
-	.string "GYMS' statues?$"
+	.string "Haven't there been other POKéMON\n"
+	.string "listed you've been unable to find?$"
 
 PokedexRating_Text_HintTrubbish_Trash::
 	.string "The older HAIRCUT brother says\n"
@@ -719,10 +736,10 @@ PokedexRating_Text_HintAmoongus::
 
 PokedexRating_Text_HintRhydon::
 	.string "You found a PERSIAN by fishing in\n"
-	.string "the VIRIDIAN GYM statues?\l"
+	.string "a statue in VIRIDIAN GYM?\l"
 	.string "Incredible!\p"
-	.string "So wait, what about the other\n"
-	.string "GYMS' statues?$"
+	.string "Haven't there been other POKéMON\n"
+	.string "listed you've been unable to find?$"
 
 PokedexRating_Text_HintChansey::
 	.string "Why, it seems you can finally\n"
@@ -775,10 +792,10 @@ PokedexRating_Text_HintEternatus::
 
 PokedexRating_Text_HintStarmie::
 	.string "You found a PERSIAN by fishing in\n"
-	.string "the VIRIDIAN GYM statues?\l"
+	.string "a statue in VIRIDIAN GYM?\l"
 	.string "Incredible!\p"
-	.string "So wait, what about the other\n"
-	.string "GYMS' statues?$"
+	.string "Haven't there been other POKéMON\n"
+	.string "listed you've been unable to find?$"
 
 PokedexRating_Text_HintMrMime::
 	.string "The SILPH CO President was quite\n"
@@ -804,7 +821,8 @@ PokedexRating_Text_HintScyther::
 	.string "can take it!$"
 
 PokedexRating_Text_HintPikablu::
-	.string "Placeholder!$"
+	.string "solve Bil's PC\n$"
+
 
 PokedexRating_Text_HintLuvdisc::
 	.string "Northeast of CINNABAR, a fisherman\n"
@@ -844,10 +862,10 @@ PokedexRating_Text_HintSylveon::
 PokedexRating_Text_HintLatias::
 	.string "That cool floaty rock you found\n"
 	.string "seems to induce EVOLUTION!\p"
-	.string "If you look carefully at it, it\n"
-	.string "should seem familiar.\p"
-	.string "What POKéMON normally holds it?\n"
-	.string "Your POKéDEX might give a clue.$"
+	.string "Doesn't it seem to resemble a\n"
+	.string "certain other ITEM?\p"
+	.string "Look at your POKéDEX carefully\n"
+	.string "to piece it all together.$"
 
 PokedexRating_Text_HintSolaceon::
 	.string "The top of the cliff on FOUR ISLAND\n"
@@ -859,8 +877,9 @@ PokedexRating_Text_HintSolaceon::
 PokedexRating_Text_HintHoopa::
 	.string "There's legends of a POKéMON so\n"
 	.string "powerful, it had to be Sealed away.\p"
-	.string "Maybe if you were to destroy the\n"
-	.string "Seal, it would be released.$"
+	.string "How might you go about releasing\n"
+	.string "it?$"
+
 
 PokedexRating_Text_HintMimikyu::
 	.string "Now that the DMCA are gone, you\n"
@@ -876,10 +895,7 @@ PokedexRating_Text_HintOmanyte::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintTyranastar::
-	.string "Wasn't there a man in the POWER\n"
-	.string "PLANT who was waiting for a third\l"
-	.string "MAGNEMITE?\p"
-	.string "You should bring yours over!\n$"
+	.string "give fossils to fossil person\n$"
 
 	
 PokedexRating_Text_HintBuzzwole::
@@ -961,8 +977,15 @@ PokedexRating_Text_HintArcanine::
 	.string "can climb WATERFALLS, have a look!$"
 	
 PokedexRating_Text_HintPokemonGun::
-	.string "Placeholder!$"
-
+	.string "Your RUMOR LOG is very helpful, but\n"
+	.string "even it has its limits.\p"
+	.string "Think carefully about everything\n"
+	.string "you've seen across the GREAT SEA.\p"
+	.string "\n"
+	.string "There was a common thread across\l"
+	.string "every location that will lead\l"
+	.string "you to what you need.$"
+	
 PokedexRating_Text_HintOrthworm::
 	.string "That stubborn NEBBY just won't\n"
 	.string "stay in your BAG, will he?\p"

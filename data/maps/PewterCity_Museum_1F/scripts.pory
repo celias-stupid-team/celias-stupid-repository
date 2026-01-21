@@ -232,7 +232,7 @@ script PewterCity_Museum_1F_EventScript_Bones {
 script PewterCity_Museum_1F_EventScript_Amber_Tree {
 	lock
 	famechecker(FAMECHECKER_PEWTER, 5)
-	textcolor(0)
+	textcolor(NPC_TEXT_COLOR_TREE)
 	msgbox("Look at this beautiful piece of\nAMBER we found!\pIt's one of our finest specimens.\p...What?\nNo, of course you can't have it!\lWhy would you think you could?")
 	release
 	end
@@ -240,7 +240,7 @@ script PewterCity_Museum_1F_EventScript_Amber_Tree {
 
 script PewterCity_Museum_1F_EventScript_Rowan {
 	lock
-	textcolor(0)
+	textcolor(NPC_TEXT_COLOR_TREE)
 	msgbox("Hello, there!\nIt's so very nice to meet you.\pMy name is ROWAN.\pBut everyone calls me the\nPOKéMON PROFESSOR!\l...Wait, what's that?\pThere are others with that title\nas well?\lHrrrm.")
 	release
 	end
@@ -248,7 +248,7 @@ script PewterCity_Museum_1F_EventScript_Rowan {
 
 script PewterCity_Museum_1F_EventScript_Birch {
 	lock
-	textcolor(0)
+	textcolor(NPC_TEXT_COLOR_TREE)
 	//Rumor Log 2,5
 	msgbox("Hi, there!\nMy name is BIRCH!\pBut everyone calls me the\nPOKéMON PROFESSOR!\pMy associate ELM was waiting\njust outside.\lDid you speak to him?")
 	release

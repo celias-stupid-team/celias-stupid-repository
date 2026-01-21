@@ -44,7 +44,7 @@
     {
       "local_id": "LOCALID_MEMORIAL_MAN",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_BOY",
       "x": 25,
       "y": 12,
       "elevation": 4,
