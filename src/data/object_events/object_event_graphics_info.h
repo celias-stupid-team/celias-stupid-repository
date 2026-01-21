@@ -8904,3 +8904,43 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KENYA = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MUSHROOM_KID = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_MUSHROOM_KID,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HAKARI = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_HAKARI,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_HAKARI,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+

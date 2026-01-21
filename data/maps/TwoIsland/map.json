@@ -126,7 +126,7 @@
     {
       "local_id": "LOCALID_TWO_ISLAND_MUSHROOM_KID",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_MUSHROOM_KID",
       "x": 49,
       "y": 16,
       "elevation": 3,

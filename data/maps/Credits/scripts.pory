@@ -224,21 +224,25 @@ mapscripts Credits_MapScripts {
             ))
             waitmovement(LOCALID_CREDITS_CELIA)
             delay(60)
-            applymovement(LOCALID_CREDITS_CHRIS, moves(
+            applymovement(LOCALID_HAKARI, moves(
                 walk_down * 4
+
                 delay_16 * 6
-                face_left
-                lock_facing_direction
-                walk_right
-                delay_16
-                walk_right
-                delay_16
-                unlock_facing_direction
-                face_up
-                lock_facing_direction
+                walk_right * 2
                 walk_down
-                delay_16
-                unlock_facing_direction
+                face_down
+            ))
+            message(
+            "      Hakari and Blizihguh{PAUSE 30}\n"
+            "         like a bunch of shit")
+
+            waitmovement(LOCALID_HAKARI)
+            delay(30)
+            closemessage
+            delay(40)
+            applymovement(LOCALID_CREDITS_CHRIS, moves(
+                walk_slow_down * 4
+                delay_16 * 6
 
             ))
             delay(30)
@@ -246,6 +250,7 @@ mapscripts Credits_MapScripts {
             "            MasterFoF{PAUSE 30}\n"
             "        Closing the Parade!")
             waitmovement(LOCALID_CREDITS_CHRIS)
+            delay(40)
             closemessage
             applymovement(LOCALID_CREDITS_CHRIS, moves(
                 face_left
@@ -282,9 +287,72 @@ mapscripts Credits_MapScripts {
             delay(200)
             message(
             "Celia's Stupid Romhack!\n")
-            delay(120)
+            delay(60)
+            applymovement(LOCALID_CREDITS_CHRIS, moves(
+                walk_slow_up * 5
+            ))
+            applymovement(LOCALID_CREDITS_STARLIGHT, moves(
+                delay_16 * 3
+                walk_right
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_STARLIGHT, moves(
+                delay_16 * 3
+                walk_right
+                walk_up * 6
+            ))
+            applymovement(LOCALID_HAKARI, moves(
+                delay_16 * 3
+                walk_left
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_LICHEN_2, moves(
+                delay_16 * 8
+                walk_right
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_RAVE, moves(
+                delay_16 * 8
+                walk_left
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_SWI, moves(
+                delay_16 * 5
+                lock_facing_direction
+                walk_right * 4
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_PLASTO, moves(
+                delay_16 * 5
+                walk_slowest_left
+                walk_fastest_left * 3
+                walk_fastest_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_WIZ, moves(
+                delay_16 * 12
+                walk_left * 2
+                emote_exclamation_mark
+                delay_16 * 3
+                walk_left * 2
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_CELIA, moves(
+                delay_16 * 12
+                walk_slow_right * 5
+                face_up
+                delay_16 * 4
+                walk_slow_down
+                face_down
+                delay_16 * 3
+            ))
+            //Everyone walks up
+            waitmovement(LOCALID_CREDITS_CELIA)
             message("Thank you for playing!")
-            delay(120)            
+            delay(150)
+            applymovement(LOCALID_CREDITS_CELIA, moves(
+                walk_slow_up * 5
+            ))
+            delay(30)
             fadescreenspeed(FADE_TO_BLACK, 10) //Make this fade music too
             fadenewbgm(MUS_NONE)
             //goto title screen

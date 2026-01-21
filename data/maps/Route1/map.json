@@ -196,8 +196,8 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 5,
+      "graphics_id": "OBJ_EVENT_GFX_RAVEPOSSUM",
+      "x": 6,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
