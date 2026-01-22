@@ -1638,3 +1638,7 @@
 	.macro trysetshadowspikes
 	callnative BS_TrySetShadowSpikes
 	.endm
+
+	.macro setshadowshield
+	callnative BS_SetShadowShield
+	.endm

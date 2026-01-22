@@ -5679,7 +5679,7 @@ static const struct TrainerMonItemCustomMoves sParty_ChampionFirstSquirtle[] = {
         .lvl = 70,
         .heldItem = ITEM_NONE,
         .species = SPECIES_KINGAMBIT,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SHADOW_SHIELD, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,

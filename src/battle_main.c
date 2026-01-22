@@ -3754,6 +3754,8 @@ static void TurnValuesCleanUp(bool8 var0)
 
     gSideStatuses[0] &= ~(SIDE_STATUS_SPIKY_SHIELD);
     gSideStatuses[1] &= ~(SIDE_STATUS_SPIKY_SHIELD);
+    gSideStatuses[0] &= ~(SIDE_STATUS_SHADOW_SHIELD);
+    gSideStatuses[1] &= ~(SIDE_STATUS_SHADOW_SHIELD);
     gSideTimers[0].followmeTimer = 0;
     gSideTimers[1].followmeTimer = 0;
 }

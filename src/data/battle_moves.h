@@ -8132,4 +8132,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
+
+    [MOVE_SHADOW_SHIELD] =
+    {
+        .effect = EFFECT_SHADOW_SHIELD,
+        .power = 0,
+        .type = TYPE_SHADOW,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 6,
+        .flags = 0,
+    },
 };

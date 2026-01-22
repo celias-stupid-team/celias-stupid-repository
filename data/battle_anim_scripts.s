@@ -665,6 +665,7 @@ gBattleAnims_Moves::
 	.4byte Move_FLY_CYNTHIA
 	.4byte Move_FREEZE_DRY
 	.4byte Move_LEAFAGE
+	.4byte Move_SHADOW_SHIELD
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -17028,3 +17029,6 @@ Move_LEAFAGE:
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end
+
+Move_SHADOW_SHIELD:
+	goto Move_PROTECT

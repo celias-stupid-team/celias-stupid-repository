@@ -642,6 +642,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_FLY_CYNTHIA]           = _("FLY"),
     [MOVE_FREEZE_DRY]   = _("FREEZE-DRY"),
     [MOVE_LEAFAGE]   = _("LEA---E"),
+    [MOVE_SHADOW_SHIELD]   = _("SHADOW SHLD"),
 };
 
 
@@ -1290,5 +1291,6 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_FLY_CYNTHIA]           = _("FLY"),
     [MOVE_FREEZE_DRY]   = _("FREEZE-DRY"),
     [MOVE_LEAFAGE]   = _("LEA---E"),
+    [MOVE_SHADOW_SHIELD]   = _("SHADOW SHIELD"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

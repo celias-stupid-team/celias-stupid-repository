@@ -267,7 +267,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectMultiHitFive           @ EFFECT_MULTI_HIT_FIVE
 	.4byte BattleScript_EffectEvasionMax             @ EFFECT_EVASION_MAX
 	.4byte BattleScript_EffectToxicSeed              @ EFFECT_TOXIC_SEED
-	.4byte BattleScript_EffectMultiHitThree              @ EFFECT_TOXIC_SEED
+	.4byte BattleScript_EffectMultiHitThree          @ EFFECT_MULTI_HIT_THREE
+	.4byte BattleScript_EffectShadowShield           @ EFFECT_SHADOW_SHIELD
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5276,3 +5277,14 @@ BattleScript_ShadowSpikes_End3::
 	printstring STRINGID_SHADOWSPIKESSCATTERED
 	waitmessage B_WAIT_TIME_LONG
 	end3
+
+BattleScript_EffectShadowShield::
+	attackcanceler
+	attackstring
+	ppreduce
+	setshadowshield
+	attackanimation
+	waitanimation
+	printfromtable gProtectLikeUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
