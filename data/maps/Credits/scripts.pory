@@ -53,7 +53,7 @@ mapscripts Credits_MapScripts {
             ))
             closemessage
             waitmovement(LOCALID_CREDITS_CELIA)
-            delay(60)
+            delay(40)
             applymovement(LOCALID_CREDITS_WIZ, moves(
                 walk_down * 4
                 face_down
@@ -233,13 +233,13 @@ mapscripts Credits_MapScripts {
                 face_down
             ))
             message(
-            "      Hakari and Blizihguh{PAUSE 30}\n"
-            "         like a bunch of shit")
+            "       Hakari and Blizihguh{PAUSE 30}\n"
+            "       like a bunch of shit")
 
             waitmovement(LOCALID_HAKARI)
             delay(30)
             closemessage
-            delay(40)
+            delay(20)
             applymovement(LOCALID_CREDITS_CHRIS, moves(
                 walk_slow_down * 4
                 delay_16 * 6
@@ -250,7 +250,7 @@ mapscripts Credits_MapScripts {
             "            MasterFoF{PAUSE 30}\n"
             "        Closing the Parade!")
             waitmovement(LOCALID_CREDITS_CHRIS)
-            delay(40)
+            delay(20)
             closemessage
             applymovement(LOCALID_CREDITS_CHRIS, moves(
                 face_left
@@ -266,15 +266,15 @@ mapscripts Credits_MapScripts {
                 face_up
                 delay_4
                 face_right
-                delay_4
+                delay_2
                 face_down
-                delay_4
+                delay_2
                 face_left
-                delay_4
+                delay_2
                 face_up
-                delay_4
+                delay_2
                 face_right
-                delay_4
+                delay_2
                 jump_in_place_down
 
             ))
@@ -284,7 +284,7 @@ mapscripts Credits_MapScripts {
             message(
             "Indulge your inner childlike glee!\n"
             "{PAUSE 30}Unshackle yourself from irony!")
-            delay(200)
+            delay(180)
             message(
             "Celia's Stupid Romhack!\n")
             delay(60)
@@ -329,15 +329,18 @@ mapscripts Credits_MapScripts {
                 walk_fastest_up * 6
             ))
             applymovement(LOCALID_CREDITS_WIZ, moves(
-                delay_16 * 12
-                walk_left * 2
-                emote_exclamation_mark
+                delay_16 * 10
+                walk_left * 4
+                walk_up
+                face_left
+                lock_facing_direction
+                jump_right
+                unlock_facing_direction
                 delay_16 * 3
-                walk_left * 2
                 walk_up * 6
             ))
             applymovement(LOCALID_CREDITS_CELIA, moves(
-                delay_16 * 12
+                delay_16 * 10
                 walk_slow_right * 5
                 face_up
                 delay_16 * 4
