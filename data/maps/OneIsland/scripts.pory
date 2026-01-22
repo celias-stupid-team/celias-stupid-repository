@@ -111,6 +111,10 @@ OneIsland_EventScript_PokemonNetCenterSign::
 
 script OneIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_ONE_ISLAND)
+	setflag(FLAG_TEMP_5)
+	if(checkmoncaught(SPECIES_ARTICUNO)) {
+		clearflag(FLAG_TEMP_5)
+	}
 }
 
 script OneIsland_OnLoad {
@@ -119,6 +123,25 @@ script OneIsland_OnLoad {
 		call(OneIsland_SetArticunoStatue)
 	}
 }
+
+script OneIsland_BirdCultist {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"This island is the resting place\n"
+	"of one of the LEGENDARY BIRDS!\l"
+	"We stand upon hallowed ground!\p"
+
+	"Across the whirlpools yonder lies\n"
+	"the fabeled ZERO ISLAND.\p"
+
+	"It's said to be the final stop for\n"
+	"one who has encountered all three.\p"
+
+	"Steel your nerves, and make the\n"
+	"pilgrimage west.\l"
+	"Your final prize awaits.", MSGBOX_NPC)
+}
+
 
 
 script OneIsland_MysticCrestPedestal {

@@ -392,7 +392,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_FAT_MAN,
     // Great Bay
     OBJ_EVENT_GFX_SCIENTIST,
-    OBJ_EVENT_GFX_NEW_GUZMA,
+    OBJ_EVENT_GFX_NEW_NEW_GUZMA,
     OBJ_EVENT_GFX_SAMSON_OAK,
     OBJ_EVENT_GFX_OLD_WOMAN,
     OBJ_EVENT_GFX_WOMAN_2,

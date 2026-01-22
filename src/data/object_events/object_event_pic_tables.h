@@ -5347,3 +5347,14 @@ const struct SpriteFrameImage gObjectEventPicTable_HAKARI[] = {
     overworld_frame(gObjectEventPic_HAKARI, 4, 4, 7),
     overworld_frame(gObjectEventPic_HAKARI, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_NEW_NEW_GUZMA[] = {
+    overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 0),
+    overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 1),
+    overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 2),
+    overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 0),
+    overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 0),
+    overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 1),
+    overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 1),
+    overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 2),
+    overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 2),
+};
