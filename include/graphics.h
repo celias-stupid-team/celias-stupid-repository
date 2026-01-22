@@ -12729,3 +12729,51 @@ extern const u32 gMonShinyPalette_RATICATEGHOST[];
 extern const u8 gMonFootprint_RATICATEGHOST[];
 extern const u8 gMonIcon_RATICATEGHOST[];
 
+// FINAL_LUGIA
+extern const u32 gMonFrontPic_FINALLUGIA[];
+extern const u32 gMonPalette_FINALLUGIA[];
+extern const u32 gMonBackPic_FINALLUGIA[];
+extern const u32 gMonShinyPalette_FINALLUGIA[];
+extern const u8 gMonFootprint_FINALLUGIA[];
+extern const u8 gMonIcon_FINALLUGIA[];
+
+// FINAL_ARTICUNO
+extern const u32 gMonFrontPic_FINALARTICUNO[];
+extern const u32 gMonPalette_FINALARTICUNO[];
+extern const u32 gMonBackPic_FINALARTICUNO[];
+extern const u32 gMonShinyPalette_FINALARTICUNO[];
+extern const u8 gMonFootprint_FINALARTICUNO[];
+extern const u8 gMonIcon_FINALARTICUNO[];
+
+// FINAL_HOOH
+extern const u32 gMonFrontPic_FINALHOOH[];
+extern const u32 gMonPalette_FINALHOOH[];
+extern const u32 gMonBackPic_FINALHOOH[];
+extern const u32 gMonShinyPalette_FINALHOOH[];
+extern const u8 gMonFootprint_FINALHOOH[];
+extern const u8 gMonIcon_FINALHOOH[];
+
+// FINAL_ZAPDOS
+extern const u32 gMonFrontPic_FINALZAPDOS[];
+extern const u32 gMonPalette_FINALZAPDOS[];
+extern const u32 gMonBackPic_FINALZAPDOS[];
+extern const u32 gMonShinyPalette_FINALZAPDOS[];
+extern const u8 gMonFootprint_FINALZAPDOS[];
+extern const u8 gMonIcon_FINALZAPDOS[];
+
+// FINAL_MOLTRES
+extern const u32 gMonFrontPic_FINALMOLTRES[];
+extern const u32 gMonPalette_FINALMOLTRES[];
+extern const u32 gMonBackPic_FINALMOLTRES[];
+extern const u32 gMonShinyPalette_FINALMOLTRES[];
+extern const u8 gMonFootprint_FINALMOLTRES[];
+extern const u8 gMonIcon_FINALMOLTRES[];
+
+// FINAL_WARTORTLE
+extern const u32 gMonFrontPic_FINALWARTORTLE[];
+extern const u32 gMonPalette_FINALWARTORTLE[];
+extern const u32 gMonBackPic_FINALWARTORTLE[];
+extern const u32 gMonShinyPalette_FINALWARTORTLE[];
+extern const u8 gMonFootprint_FINALWARTORTLE[];
+extern const u8 gMonIcon_FINALWARTORTLE[];
+

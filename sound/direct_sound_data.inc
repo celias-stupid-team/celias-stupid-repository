@@ -5388,3 +5388,27 @@ Cry_RATICATEGHOST::
 	.incbin "sound/direct_sound_samples/cries/raticateghost.bin"
 
 	.align 2
+Cry_FINALLUGIA::
+	.incbin "sound/direct_sound_samples/cries/finallugia.bin"
+
+	.align 2
+Cry_FINALARTICUNO::
+	.incbin "sound/direct_sound_samples/cries/finalarticuno.bin"
+
+	.align 2
+Cry_FINALHOOH::
+	.incbin "sound/direct_sound_samples/cries/finalhooh.bin"
+
+	.align 2
+Cry_FINALZAPDOS::
+	.incbin "sound/direct_sound_samples/cries/finalzapdos.bin"
+
+	.align 2
+Cry_FINALMOLTRES::
+	.incbin "sound/direct_sound_samples/cries/finalmoltres.bin"
+
+	.align 2
+Cry_FINALWARTORTLE::
+	.incbin "sound/direct_sound_samples/cries/finalwartortle.bin"
+
+	.align 2
