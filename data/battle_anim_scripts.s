@@ -715,6 +715,7 @@ gBattleAnims_General::
 	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
 	.4byte General_TrickRoom                @ B_ANIM_TRICK_ROOM_CONTINUES
 	.4byte General_SeelHoopaTransform       @ B_ANIM_SEEL_HOOPA_TRANSFORM
+	.4byte General_ShadowSky    			@ B_ANIM_SHADOW_SKY_CONTINUES
 
 	.align 2
 gBattleAnims_Special::
@@ -11039,6 +11040,9 @@ General_Sun:
 
 General_Sandstorm:
 	goto Move_SANDSTORM
+
+General_ShadowSky:
+	goto Move_SANDSTORM @ wiz1989, needs a new anim
 
 General_Hail:
 	goto Move_HAIL

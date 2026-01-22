@@ -5256,3 +5256,13 @@ BattleScript_EffectMultiHitThree::
 	initmultihitstring
 	goto BattleScript_MultiHitLoop
 
+BattleScript_ShadowSky_End3::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_LUGIA_USED_SHADOW_SKY
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_STARTEDSHADOW_SKY
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_BATTLER_0, B_ANIM_SANDSTORM_CONTINUES
+	printstring STRINGID_SHADOW_SKY_CONTINUES
+	waitmessage B_WAIT_TIME_LONG
+	end3

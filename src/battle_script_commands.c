@@ -4322,7 +4322,8 @@ static void Cmd_playanimation(void)
     else if (gBattlescriptCurrInstr[2] == B_ANIM_RAIN_CONTINUES
           || gBattlescriptCurrInstr[2] == B_ANIM_SUN_CONTINUES
           || gBattlescriptCurrInstr[2] == B_ANIM_SANDSTORM_CONTINUES
-          || gBattlescriptCurrInstr[2] == B_ANIM_HAIL_CONTINUES)
+          || gBattlescriptCurrInstr[2] == B_ANIM_HAIL_CONTINUES
+          || gBattlescriptCurrInstr[2] == B_ANIM_SHADOW_SKY_CONTINUES)
     {
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -4365,7 +4366,8 @@ static void Cmd_playanimation_var(void)
     else if (*animationIdPtr == B_ANIM_RAIN_CONTINUES
           || *animationIdPtr == B_ANIM_SUN_CONTINUES
           || *animationIdPtr == B_ANIM_SANDSTORM_CONTINUES
-          || *animationIdPtr == B_ANIM_HAIL_CONTINUES)
+          || *animationIdPtr == B_ANIM_HAIL_CONTINUES
+          || *animationIdPtr == B_ANIM_SHADOW_SKY_CONTINUES)
     {
         BtlController_EmitBattleAnimation(BUFFER_A, *animationIdPtr, *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -8018,7 +8020,7 @@ static void Cmd_weatherdamage(void)
         gBattlescriptCurrInstr++;
         return;
     }
-    if (WEATHER_HAS_EFFECT)
+    if (WEATHER_HAS_EFFECT || (gBattleWeather & B_WEATHER_SHADOW_SKY))
     {
         if (gBattleWeather & B_WEATHER_SANDSTORM)
         {
@@ -8035,6 +8037,17 @@ static void Cmd_weatherdamage(void)
                 gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
+            }
+            else
+            {
+                gBattleMoveDamage = 0;
+            }
+        }
+        if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+        {
+            if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_SHADOW))
+            {
+                gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP;
             }
             else
             {

@@ -453,8 +453,8 @@ struct BattleStruct
     u8 field_89; // unused
     u8 field_8A; // unused
     u8 playerPartyIdx;
-    u8 field_8C; // unused
-    u8 field_8D; // unused
+    u8 lugiaShadowSkyDone;
+    u8 lugiaShadowSpikesDone;
     u8 stringMoveType;
     u8 expGetterBattlerId;
     u8 introMessagesDone;

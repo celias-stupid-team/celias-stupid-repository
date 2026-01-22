@@ -2875,6 +2875,25 @@ static void TryDoEventsBeforeFirstTurn(void)
         if (effect != 0)
             return;
     }
+    // trigger unfair battle scripts for final battle
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+    {
+        if (!gBattleStruct->lugiaShadowSkyDone)
+        {
+            gBattleStruct->lugiaShadowSkyDone = TRUE;
+            gBattleWeather = B_WEATHER_SHADOW_SKY;
+            gBattleScripting.battler = 1;
+            BattleScriptPushCursorAndCallback(BattleScript_ShadowSky_End3);
+            return;
+        }
+        if (!gBattleStruct->lugiaShadowSpikesDone)
+        {
+            gBattleStruct->lugiaShadowSpikesDone = TRUE;
+            // BattleScriptPushCursorAndCallback(BattleScript_ShadowSpikes_End3);
+            return;
+        }
+    }
+
     for (i = 0; i < gBattlersCount; i++) // pointless, ruby leftover
         ;
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)

@@ -449,6 +449,8 @@ static const u8 sText_GmaxMove[] = _("But it failed!\pThere's no GMAX energy in 
 static const u8 sText_ExtremeEvoboost[] = _("But it failed!\p{B_PLAYER_MON1_NAME} isn't holding a\nZ CRYSTAL!");
 static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\lIt doesn't love {B_PLAYER_NAME} enough!");
 static const u8 sText_FickleBeam[] = _("But it failed!\p{B_PLAYER_MON1_NAME} doesn't have any heads!");
+static const u8 sText_SentOutZapmolcuno[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY sent out ZAPMOLCUNO-OHGIA!{PAUSE 60}");
+static const u8 sText_AllArrysWannaBattle[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY want to battle!\p");
 
 
 static const u8 sText_PkmnMadeSubstitute_2[] = _("{B_ATK_NAME_WITH_PREFIX}'s SUBSTITUTE\nmade a SUBSTITUTE!");
@@ -1002,11 +1004,16 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_NOTAFFECTEDBYSEEDING - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The seeds don't affect\n{B_DEF_NAME_WITH_PREFIX}…"),
     [STRINGID_PKMNIMMUNETOPOISON - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is immune to\nbeing poisoned!"),
     [STRINGID_PKMNALREADYSTATUSED - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is already\nstatused!"),
-    [STRINGID_SEAL_HAS_BEEN_BROKEN - BATTLESTRINGS_TABLE_START]         = sText_SealHasBeenBroken,
-    [STRINGID_HOOPA_WAS_RELEASED - BATTLESTRINGS_TABLE_START]         = sText_HoopaHasBeenReleased,
-    [STRINGID_EARTH_EATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s\nEARTH EATER!"),
+    [STRINGID_SEAL_HAS_BEEN_BROKEN - BATTLESTRINGS_TABLE_START]          = sText_SealHasBeenBroken,
+    [STRINGID_HOOPA_WAS_RELEASED - BATTLESTRINGS_TABLE_START]            = sText_HoopaHasBeenReleased,
+    [STRINGID_EARTH_EATER - BATTLESTRINGS_TABLE_START]                   = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s\nEARTH EATER!"),
     [STRINGID_SEELHOOPATRANSFORMSTART - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("The Seal has been broken!"),
     [STRINGID_SEELHOOPATRANSFORMEND - BATTLESTRINGS_TABLE_START]         = sText_HoopaHasBeenReleased,
+    [STRINGID_STARTEDSHADOW_SKY - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("A SHADOW SKY surrounds\nthe battlefield!"),
+    [STRINGID_SHADOW_SKY_CONTINUES - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The SHADOW SKY is tormenting\nall non SHADOW TYPE Pokémon!"),
+    [STRINGID_SHADOW_SKY_ENDS - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("The SHADOW SKY receded!"),
+    [STRINGID_PKMNBUFFETEDBYSHADOW_SKY - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is buffeted\nby the SHADOW SKY!"),
+    [STRINGID_LUGIA_USED_SHADOW_SKY - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("LUGIA used SHADOW SKY!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1041,20 +1048,23 @@ const u16 gMoveWeatherChangeStringIds[] =
 
 const u16 gSandstormHailContinuesStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_SANDSTORMRAGES,
-    [B_MSG_HAIL]      = STRINGID_HAILCONTINUES
+    [B_MSG_SANDSTORM]  = STRINGID_SANDSTORMRAGES,
+    [B_MSG_HAIL]       = STRINGID_HAILCONTINUES,
+    [B_MSG_SHADOW_SKY] = STRINGID_SHADOW_SKY_CONTINUES
 };
 
 const u16 gSandstormHailDmgStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_PKMNBUFFETEDBYSANDSTORM,
-    [B_MSG_HAIL]      = STRINGID_PKMNPELTEDBYHAIL
+    [B_MSG_SANDSTORM]  = STRINGID_PKMNBUFFETEDBYSANDSTORM,
+    [B_MSG_HAIL]       = STRINGID_PKMNPELTEDBYHAIL,
+    [B_MSG_SHADOW_SKY] = STRINGID_PKMNBUFFETEDBYSHADOW_SKY
 };
 
 const u16 gSandstormHailEndStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_SANDSTORMSUBSIDED,
-    [B_MSG_HAIL]      = STRINGID_HAILSTOPPED
+    [B_MSG_SANDSTORM]  = STRINGID_SANDSTORMSUBSIDED,
+    [B_MSG_HAIL]       = STRINGID_HAILSTOPPED,
+    [B_MSG_SHADOW_SKY] = STRINGID_SHADOW_SKY_ENDS
 };
 
 const u16 gRainContinuesStringIds[] =
@@ -1746,8 +1756,10 @@ void BufferStringBattle(u16 stringId)
             }
             else
             {
-                if(gTrainerBattleOpponent_A == TRAINER_DMCA_ERIKA)
+                if (gTrainerBattleOpponent_A == TRAINER_DMCA_ERIKA)
                     stringPtr = sText_LightGaryAndDarkGary;
+                else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+                    stringPtr = sText_AllArrysWannaBattle;
                 else
                     stringPtr = sText_Trainer1WantsToBattle;
             }
@@ -1800,12 +1812,14 @@ void BufferStringBattle(u16 stringId)
             else
             {
                 if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
-                    if(FlagGet(FLAG_LION_BATTLE)) {
+                {
+                    if(FlagGet(FLAG_LION_BATTLE))
                         stringPtr = sText_Trainer1SentOutLions;
-                    } else {
+                    else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+                        stringPtr = sText_SentOutZapmolcuno;
+                    else
                         stringPtr = sText_Trainer1SentOutPkmn;
-
-                    }
+                }
                 else if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
                     stringPtr = sText_Trainer1SentOutPkmn;
                 else
