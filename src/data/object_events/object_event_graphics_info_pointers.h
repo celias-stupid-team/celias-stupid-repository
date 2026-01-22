@@ -498,6 +498,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BRAILLE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KENYA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MUSHROOM_KID;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HAKARI;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NEW_NEW_GUZMA;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -997,4 +998,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KENYA] = &gObjectEventGraphicsInfo_KENYA,
     [OBJ_EVENT_GFX_MUSHROOM_KID] = &gObjectEventGraphicsInfo_MUSHROOM_KID,
     [OBJ_EVENT_GFX_HAKARI] = &gObjectEventGraphicsInfo_HAKARI,
+    [OBJ_EVENT_GFX_NEW_NEW_GUZMA] = &gObjectEventGraphicsInfo_NEW_NEW_GUZMA,
 };

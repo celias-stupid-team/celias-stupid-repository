@@ -2,7 +2,7 @@
   "id": "MAP_CREDITS",
   "name": "Credits",
   "layout": "LAYOUT_CREDITS_Frame1",
-  "music": "MUS_TITLE",
+  "music": "MUS_STUPID_ENDING",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
