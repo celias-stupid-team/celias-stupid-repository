@@ -5,10 +5,10 @@ mapscripts Credits_MapScripts {
             lock
             setlayouttiles(LAYOUT_CREDITS_FRAME2, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
-            delay(50)
+            delay(45)
             setlayouttiles(LAYOUT_CREDITS_FRAME3, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
-            delay(45)
+            delay(43)
             setlayouttiles(LAYOUT_CREDITS_FRAME4, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
             delay(20)
@@ -37,6 +37,9 @@ mapscripts Credits_MapScripts {
             applymovement(LOCALID_CREDITS_CELIA, moves(
                 walk_down * 4
                 face_down
+                delay_4
+                delay_2
+                delay_1
                 delay_16 * 6
                 walk_left * 3
                 jump_2_left
@@ -354,7 +357,7 @@ mapscripts Credits_MapScripts {
             waitmovement(LOCALID_CREDITS_CELIA)
             delay(5)
             message("Thank you for playing!")
-            delay(150)
+            delay(153)
             applymovement(LOCALID_CREDITS_CELIA, moves(
                 walk_slow_up * 5
             ))
