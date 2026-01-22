@@ -1319,7 +1319,7 @@ bool8 HandleFaintedMonActions(void)
             gBattleStruct->faintedActionsState = 6;
             break;
         case 5:
-            if (++gBattleStruct->faintedActionsBattlerId == gBattlersCount)
+            if (++gBattleStruct->faintedActionsBattlerId == gBattlersCount || gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM)
                 gBattleStruct->faintedActionsState = 6;
             else
                 gBattleStruct->faintedActionsState = 4;
@@ -1336,6 +1336,9 @@ bool8 HandleFaintedMonActions(void)
             break;
         }
     } while (gBattleStruct->faintedActionsState != FAINTED_ACTIONS_MAX_CASE);
+    DebugPrintf("### HandleFaintedMonActions done\n");
+    // reset state for next time
+    gCheckedContinueRotomBattle = FALSE;
     return FALSE;
 }
 

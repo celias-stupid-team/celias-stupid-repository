@@ -3831,7 +3831,15 @@ static void Cmd_checkteamslost(void)
             HP_count += GetMonData(&gPlayerParty[i], MON_DATA_HP);
         }
     }
-    if (HP_count == 0)
+
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+    {
+        if (!gCheckedContinueRotomBattle && HP_count == 0)
+            gBattleOutcome |= B_OUTCOME_CONTINUE_ROTOM;
+        else if (HP_count == 0)
+            gBattleOutcome |= B_OUTCOME_LOST;
+    }
+    else if (HP_count == 0)
         gBattleOutcome |= B_OUTCOME_LOST;
     HP_count = 0;
 

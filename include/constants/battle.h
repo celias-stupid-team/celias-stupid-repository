@@ -95,8 +95,7 @@
 #define B_OUTCOME_CAUGHT               7
 #define B_OUTCOME_NO_SAFARI_BALLS      8
 #define B_OUTCOME_FORFEITED            9
-#define B_OUTCOME_MON_TELEPORTED       10
-#define B_OUTCOME_LINK_BATTLE_RAN      (1 << 7) // 128
+#define B_OUTCOME_CONTINUE_ROTOM       (1 << 7) // used for final battle
 
 // Non-volatile status conditions
 // These persist remain outside of battle and after switching out

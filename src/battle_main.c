@@ -225,6 +225,7 @@ EWRAM_DATA struct MonSpritesGfx *gMonSpritesGfxPtr = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
+EWRAM_DATA u8 gCheckedContinueRotomBattle = 0;
 
 COMMON_DATA void (*gPreBattleCallback1)(void) = NULL;
 COMMON_DATA void (*gBattleMainFunc)(void) = NULL;
@@ -2953,6 +2954,7 @@ static void HandleEndTurn_ContinueBattle(void)
 void BattleTurnPassed(void)
 {
     s32 i;
+    DebugPrintf("BattleTurnPassed");
 
     TurnValuesCleanUp(TRUE);
     if (gBattleOutcome == 0)
@@ -2979,11 +2981,19 @@ void BattleTurnPassed(void)
     gMoveResultFlags = 0;
     for (i = 0; i < 5; i++)
         gBattleCommunication[i] = 0;
-    if (gBattleOutcome != 0)
+    if (gBattleOutcome != 0 && gBattleOutcome < 128) // 128 = B_OUTCOME_CONTINUE_ROTOM
     {
         gCurrentActionFuncId = B_ACTION_FINISHED;
         gBattleMainFunc = RunTurnActionsFunctions;
         return;
+    }
+    if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM))// && !gCheckedContinueRotomBattle)
+    {
+        // ToDo: Activate Rotom Battle UI
+        FlagSet(FLAG_SYS_ROTOM_BATTLE_UI);
+        gBattleSwitchFromPSS = TRUE;
+        gBattleOutcome &= ~B_OUTCOME_CONTINUE_ROTOM;
+        gCheckedContinueRotomBattle = TRUE;
     }
     if (gBattleResults.battleTurnCounter < 0xFF)
         ++gBattleResults.battleTurnCounter;
@@ -3837,7 +3847,7 @@ static void HandleEndTurn_BattleWon(void)
         gBattleTextBuff1[0] = gBattleOutcome;
         gBattlerAttacker = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
         gBattlescriptCurrInstr = BattleScript_LinkBattleWonOrLost;
-        gBattleOutcome &= ~(B_OUTCOME_LINK_BATTLE_RAN);
+        // gBattleOutcome &= ~(B_OUTCOME_LINK_BATTLE_RAN);
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_BATTLE_TOWER))
     {
@@ -3885,7 +3895,7 @@ static void HandleEndTurn_BattleLost(void)
         gBattleTextBuff1[0] = gBattleOutcome;
         gBattlerAttacker = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
         gBattlescriptCurrInstr = BattleScript_LinkBattleWonOrLost;
-        gBattleOutcome &= ~(B_OUTCOME_LINK_BATTLE_RAN);
+        // gBattleOutcome &= ~(B_OUTCOME_LINK_BATTLE_RAN);
     }
     else
     {
@@ -3901,6 +3911,7 @@ static void HandleEndTurn_BattleLost(void)
         {
             gBattleCommunication[MULTISTRING_CHOOSER] = 0;
         }
+        DebugPrintf("Battle Lost");
         gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
     }
     gBattleMainFunc = HandleEndTurn_FinishBattle;
@@ -4466,7 +4477,7 @@ static void HandleAction_Run(void)
                     gBattleOutcome |= B_OUTCOME_WON;
             }
         }
-        gBattleOutcome |= B_OUTCOME_LINK_BATTLE_RAN;
+        // gBattleOutcome |= B_OUTCOME_LINK_BATTLE_RAN;
     }
     else
     {
@@ -4600,6 +4611,7 @@ static void HandleAction_OldManBallThrow(void)
 
 static void HandleAction_TryFinish(void)
 {
+    DebugPrintf("HandleAction_TryFinish");
     if (!HandleFaintedMonActions())
     {
         gBattleStruct->faintedActionsState = 0;

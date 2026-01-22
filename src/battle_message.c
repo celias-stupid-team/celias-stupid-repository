@@ -1977,23 +1977,23 @@ void BufferStringBattle(u16 stringId)
         };
         break;
     case STRINGID_BATTLEEND: // battle end
-        if (gBattleTextBuff1[0] & B_OUTCOME_LINK_BATTLE_RAN)
-        {
-            gBattleTextBuff1[0] &= ~(B_OUTCOME_LINK_BATTLE_RAN);
-            if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleTextBuff1[0] != B_OUTCOME_DREW)
-                gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
+        // if (gBattleTextBuff1[0] & B_OUTCOME_LINK_BATTLE_RAN)
+        // {
+        //     gBattleTextBuff1[0] &= ~(B_OUTCOME_LINK_BATTLE_RAN);
+        //     if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleTextBuff1[0] != B_OUTCOME_DREW)
+        //         gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
 
-            if (gBattleTextBuff1[0] == B_OUTCOME_LOST || gBattleTextBuff1[0] == B_OUTCOME_DREW)
-                stringPtr = sText_GotAwaySafely;
-            else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-                stringPtr = sText_TwoWildFled;
-            else if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
-                stringPtr = sText_Trainer1Fled;
-            else
-                stringPtr = sText_WildFled;
-        }
-        else
-        {
+        //     if (gBattleTextBuff1[0] == B_OUTCOME_LOST || gBattleTextBuff1[0] == B_OUTCOME_DREW)
+        //         stringPtr = sText_GotAwaySafely;
+        //     else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+        //         stringPtr = sText_TwoWildFled;
+        //     else if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
+        //         stringPtr = sText_Trainer1Fled;
+        //     else
+        //         stringPtr = sText_WildFled;
+        // }
+        // else
+        // {
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleTextBuff1[0] != B_OUTCOME_DREW)
                 gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
 
@@ -2042,7 +2042,7 @@ void BufferStringBattle(u16 stringId)
                     break;
                 }
             }
-        }
+        // }
         break;
     case STRINGID_TRAINERSLIDE:
         stringPtr = gBattleStruct->trainerSlideMsg;
