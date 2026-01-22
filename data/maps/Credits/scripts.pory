@@ -176,7 +176,7 @@ mapscripts Credits_MapScripts {
             applymovement(LOCALID_CREDITS_STARLIGHT, moves(
                 walk_down * 4
                 face_down
-                delay_16 * 6
+                delay_16 * 5
                 walk_left
                 face_left
                 delay_16
@@ -279,12 +279,12 @@ mapscripts Credits_MapScripts {
 
             ))
             waitmovement(LOCALID_CREDITS_CHRIS)
-            delay(60)
+            delay(40)
             textcolor(NPC_TEXT_COLOR_FEMALE)
             message(
             "Indulge your inner childlike glee!\n"
-            "{PAUSE 30}Unshackle yourself from irony!")
-            delay(180)
+            "{PAUSE 40}Unshackle yourself from irony!")
+            delay(200)
             message(
             "Celia's Stupid Romhack!\n")
             delay(60)
@@ -342,14 +342,17 @@ mapscripts Credits_MapScripts {
             applymovement(LOCALID_CREDITS_CELIA, moves(
                 delay_16 * 10
                 walk_slow_right * 5
+                face_right
+                delay_16 * 2
                 face_up
                 delay_16 * 4
                 walk_slow_down
                 face_down
-                delay_16 * 3
+                delay_16 * 2
             ))
             //Everyone walks up
             waitmovement(LOCALID_CREDITS_CELIA)
+            delay(5)
             message("Thank you for playing!")
             delay(150)
             applymovement(LOCALID_CREDITS_CELIA, moves(
@@ -359,7 +362,7 @@ mapscripts Credits_MapScripts {
             fadescreenspeed(FADE_TO_BLACK, 10) //Make this fade music too
             fadenewbgm(MUS_NONE)
             //goto title screen
-            delay(120)
+            delay(90)
             special(DoSoftReset)
 
         }
