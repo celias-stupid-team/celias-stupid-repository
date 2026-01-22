@@ -1400,7 +1400,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_VENONAT] =
     {
-        .baseHP = 60,
+        .baseHP = 50,
         .baseAttack = 55,
         .baseDefense = 50,
         .baseSpeed = 45,
@@ -1420,7 +1420,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = 70,
-        .growthRate = GROWTH_MEDIUM_FAST,
+        .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_BUG, EGG_GROUP_BUG},
         .abilities = {ABILITY_COMPOUND_EYES, ABILITY_NONE},
         .safariZoneFleeRate = 50,

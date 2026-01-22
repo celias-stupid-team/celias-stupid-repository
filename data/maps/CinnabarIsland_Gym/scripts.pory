@@ -923,8 +923,8 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 7:
-			if(var(VAR_RESULT) == SPECIES_MEOWTH || var(VAR_RESULT) == SPECIES_MEOWTH) {
-				if(var(VAR_RESULT) == SPECIES_RHYDON) {
+			if(var(VAR_RESULT) == SPECIES_MEOWTH || var(VAR_RESULT) == SPECIES_SEAKING) {
+				if(var(VAR_RESULT) == SPECIES_SEAKING) {
 					setflag(FLAG_TEMP_3)
 				}
 				msgbox(
