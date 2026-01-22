@@ -40,6 +40,11 @@ mapscripts FinalBossCutscene_MapScripts {
             waitmoncry
             delay(30)
             playse(MUS_SE_DESKSLAM)
+            setobjectsubpriority(LOCALID_ZAP, MAP_FINAL_BOSS_CUTSCENE, 6)
+            setobjectsubpriority(LOCALID_MOL, MAP_FINAL_BOSS_CUTSCENE, 5)
+            setobjectsubpriority(LOCALID_CUNO, MAP_FINAL_BOSS_CUTSCENE, 4)
+            setobjectsubpriority(LOCALID_OH, MAP_FINAL_BOSS_CUTSCENE, 1)
+            setobjectsubpriority(LOCALID_GIA, MAP_FINAL_BOSS_CUTSCENE, 0)
             applymovement(LOCALID_ZAP, moves(
                 set_visible
             ))

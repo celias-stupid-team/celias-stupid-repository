@@ -90,7 +90,7 @@ script BrendanMay_ImposterOak {
             setflag(FLAG_WATERED_BRENDANMAY_OAK)
             removeitem(ITEM_WAILMER_PAIL)
 		    additem(ITEM_EMPTY_PAIL)
-            setmetatile(8, 2, 0x2DF, TRUE)
+            setmetatile(8, 2, 0x2DF, FALSE)
             setmetatile(8, 3, 0x2E7, TRUE)
             special(DrawWholeMapView)
             playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)

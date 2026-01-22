@@ -89,14 +89,14 @@ CeruleanCity_Gym_Text_PsychicTrainerIntro::
 	.string "Hey there!\n"
 	.string "Welcome to the CLUB!\p"
 	.string "I use PSYCHIC-ENERGY POKéMON.\n"
-	.string "Wanna duel?$"
+	.string "Wanna play?$"
 
 CeruleanCity_Gym_Text_PsychicTrainerDefeat::
 	.string "Good job!\n$"
 
 CeruleanCity_Gym_Text_ElectricTrainerIntro::
 	.string "Hey!\n"
-	.string "One quick thing before we duel:\p"
+	.string "One quick thing before we play:\p"
 	.string "Do you have a legal copy of your\n"
 	.string "birth certificate?\p"
 	.string "We'll need it present while we\n"

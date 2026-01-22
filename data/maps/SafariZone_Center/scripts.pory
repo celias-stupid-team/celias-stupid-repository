@@ -35,6 +35,11 @@ mapscripts SafariZone_Center_MapScripts {
 		if(flag(FLAG_NO_TM_CASE) || flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
 			setflag(FLAG_TEMP_3)
 		}
+		setvar(VAR_0x8004, SPECIES_DRAGONITE)
+		special(SetSeenMon)
+		setvar(VAR_0x8004, SPECIES_HORSEA)
+		special(SetSeenMon)
+		
 		
 		if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
 			setflag(FLAG_TEMP_4)

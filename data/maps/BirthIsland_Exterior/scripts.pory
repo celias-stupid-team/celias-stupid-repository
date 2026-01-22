@@ -127,10 +127,10 @@ script BirthIsland_Exterior_EventScript_NotSolved1 {
 		delay(60)
 		playse(SE_FLEE)
 		applymovement(LOCALID_BIRTH_ISLAND_DEOXYS, moves(
-			walk_faster_up * 8
+			walk_faster_up * 10
 		))
 		applymovement(LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK, moves(
-			walk_faster_up * 8
+			walk_faster_up * 10
 		))
 		waitmovement(VAR_LAST_TALKED)
 		waitmovement(0)
@@ -138,8 +138,8 @@ script BirthIsland_Exterior_EventScript_NotSolved1 {
 		setflag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)
 		delay(30)
 		msgbox(
-		"The triangle flew away…\n"
-		"", MSGBOX_DEFAULT)
+		"The triangle flew off to the\n"
+		"GREAT BAY.", MSGBOX_DEFAULT)
 			fadedefaultbgm
 	}
 	release
@@ -155,9 +155,9 @@ script BirthIsland_StoneFlewAway {
 	removeobject(VAR_LAST_TALKED)
 	setflag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)
 	delay(30)
-	msgbox(
-	"The triangle flew away…\n"
-	"", MSGBOX_DEFAULT)
+		msgbox(
+		"The triangle flew off to the\n"
+		"GREAT BAY.", MSGBOX_DEFAULT)
 	release
 	end
 }

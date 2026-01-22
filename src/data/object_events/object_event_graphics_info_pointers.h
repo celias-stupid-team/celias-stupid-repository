@@ -494,6 +494,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FINALBOSS_GIA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NURSE_DUCK;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_STUNFISK;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NURSE_DUCK_BUT_IM_LAZY;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BRAILLE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KENYA;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MUSHROOM_KID;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HAKARI;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -989,4 +993,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_NURSE_DUCK] = &gObjectEventGraphicsInfo_NURSE_DUCK,
     [OBJ_EVENT_GFX_STUNFISK] = &gObjectEventGraphicsInfo_STUNFISK,
     [OBJ_EVENT_GFX_NURSE_DUCK_BUT_IM_LAZY] = &gObjectEventGraphicsInfo_NURSE_DUCK_BUT_IM_LAZY,
+    [OBJ_EVENT_GFX_BRAILLE] = &gObjectEventGraphicsInfo_BRAILLE,
+    [OBJ_EVENT_GFX_KENYA] = &gObjectEventGraphicsInfo_KENYA,
+    [OBJ_EVENT_GFX_MUSHROOM_KID] = &gObjectEventGraphicsInfo_MUSHROOM_KID,
+    [OBJ_EVENT_GFX_HAKARI] = &gObjectEventGraphicsInfo_HAKARI,
 };

@@ -726,7 +726,7 @@ static const u16 sDexCategory_FinalBadgePkmn_Page3[] = {
 
 static const u16 sDexCategory_FinalBadgePkmn_Page4[] = {
     SPECIES_VICTINI,
-    SPECIES_MELMETAL,
+    SPECIES_MELTAN,
     SPECIES_CHANSEY,
 };
 

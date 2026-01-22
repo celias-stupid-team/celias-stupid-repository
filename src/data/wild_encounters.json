@@ -15562,8 +15562,8 @@
             "encounter_rate": 21,
             "mons": [
               {
-                "min_level": 10,
-                "max_level": 10,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_MEOWTH"
               },
               {
@@ -15572,8 +15572,8 @@
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_MEOWTH"
               },
               {
@@ -21277,27 +21277,27 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PSYDUCK"
+                "species": "SPECIES_JIRACHI"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PSYDUCK"
+                "species": "SPECIES_ONIX"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PSYDUCK"
+                "species": "SPECIES_TANGELA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_JIGGLYPUFF"
+                "species": "SPECIES_EEVEE"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_JIGGLYPUFF"
+                "species": "SPECIES_PORYGON"
               },
               {
                 "min_level": 5,
@@ -21352,32 +21352,32 @@
             ]
           },
           "rock_smash_mons": {
-            "encounter_rate": 50,
+            "encounter_rate": 100,
             "mons": [
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_TANGELA"
+                "species": "SPECIES_JIGGLYPUFF"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_JIRACHI"
+                "species": "SPECIES_JIGGLYPUFF"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_JIGGLYPUFF"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_EEVEE"
+                "species": "SPECIES_JIGGLYPUFF"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PORYGON"
+                "species": "SPECIES_JIGGLYPUFF"
               }
             ]
           },
