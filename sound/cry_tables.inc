@@ -1247,6 +1247,12 @@ gCryTable::
 	cry Cry_UNITEDKINGDOM
 	cry Cry_FIRETYPES
 	cry Cry_RATICATEGHOST
+	cry Cry_FINALLUGIA
+	cry Cry_FINALARTICUNO
+	cry Cry_FINALHOOH
+	cry Cry_FINALZAPDOS
+	cry Cry_FINALMOLTRES
+	cry Cry_FINALWARTORTLE
 
 
 
@@ -2504,6 +2510,12 @@ gCryTable_Reverse::
 	cry_reverse Cry_UNITEDKINGDOM
 	cry_reverse Cry_FIRETYPES
 	cry_reverse Cry_RATICATEGHOST
+	cry_reverse Cry_FINALLUGIA
+	cry_reverse Cry_FINALARTICUNO
+	cry_reverse Cry_FINALHOOH
+	cry_reverse Cry_FINALZAPDOS
+	cry_reverse Cry_FINALMOLTRES
+	cry_reverse Cry_FINALWARTORTLE
 
 
 
