@@ -1634,3 +1634,7 @@
 	callnative BS_RedrawHealthbox
 	.byte \battler
 	.endm
+
+	.macro trysetshadowspikes
+	callnative BS_TrySetShadowSpikes
+	.endm

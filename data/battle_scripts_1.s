@@ -5266,3 +5266,13 @@ BattleScript_ShadowSky_End3::
 	printstring STRINGID_SHADOW_SKY_CONTINUES
 	waitmessage B_WAIT_TIME_LONG
 	end3
+
+BattleScript_ShadowSpikes_End3::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_LUGIA_USED_SHADOW_SPIKES
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_BATTLER_0, B_ANIM_SHADOW_SPIKES
+	trysetshadowspikes
+	printstring STRINGID_SHADOWSPIKESSCATTERED
+	waitmessage B_WAIT_TIME_LONG
+	end3

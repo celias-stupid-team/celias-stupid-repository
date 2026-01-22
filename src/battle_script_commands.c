@@ -3233,6 +3233,8 @@ static void Cmd_tryfaintmon(void)
                 gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_SPIKES_DAMAGED;
             if (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK)
                 gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_STEALTH_ROCK_DAMAGED;
+            if (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SHADOW_SPIKES)
+                gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_SPIKES_DAMAGED;
         }
         else
         {
@@ -5443,7 +5445,7 @@ static void Cmd_switchineffects(void)
         gBattlescriptCurrInstr = BattleScript_SwitchInAbilityMsgRet;
     }
     else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
-        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
+        && (((gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES) || (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SHADOW_SPIKES)))
         && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
         && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
         && gBattleMons[gActiveBattler].item != ITEM_AIR_BALLOON)
@@ -5456,8 +5458,14 @@ static void Cmd_switchineffects(void)
         // gBattleMons[gActiveBattler].status2 &= ~STATUS2_DESTINY_BOND;
         // gHitMarker &= ~HITMARKER_DESTINYBOND;
 
-        spikesDmg = (5 - gSideTimers[GetBattlerSide(gActiveBattler)].spikesAmount) * 2;
-        gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / (spikesDmg);
+        if (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SHADOW_SPIKES)
+            gBattleMoveDamage = (gBattleMons[gActiveBattler].maxHP * 12) / 100;
+        else
+        {
+            spikesDmg = (5 - gSideTimers[GetBattlerSide(gActiveBattler)].spikesAmount) * 2;
+            gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / spikesDmg;
+        }
+
         if (gBattleMoveDamage == 0)
             gBattleMoveDamage = 1;
 
@@ -11327,6 +11335,16 @@ void BS_RedrawHealthbox(void)
     DestroyHealthboxSprite(battler);
     CreateHealthboxSprite(battler);
     UpdateStatusIconInHealthbox(gHealthboxSpriteIds[battler]);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_TrySetShadowSpikes(void)
+{
+    NATIVE_ARGS();
+
+    u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
+    gSideStatuses[targetSide] |= SIDE_STATUS_SHADOW_SPIKES;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

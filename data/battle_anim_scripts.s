@@ -716,6 +716,7 @@ gBattleAnims_General::
 	.4byte General_TrickRoom                @ B_ANIM_TRICK_ROOM_CONTINUES
 	.4byte General_SeelHoopaTransform       @ B_ANIM_SEEL_HOOPA_TRANSFORM
 	.4byte General_ShadowSky    			@ B_ANIM_SHADOW_SKY_CONTINUES
+	.4byte General_ShadowSpikes 			@ B_ANIM_SHADOW_SPIKES
 
 	.align 2
 gBattleAnims_Special::
@@ -11043,6 +11044,9 @@ General_Sandstorm:
 
 General_ShadowSky:
 	goto Move_SANDSTORM @ wiz1989, needs a new anim
+
+General_ShadowSpikes:
+	goto Move_SPIKES
 
 General_Hail:
 	goto Move_HAIL

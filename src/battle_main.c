@@ -2889,7 +2889,8 @@ static void TryDoEventsBeforeFirstTurn(void)
         if (!gBattleStruct->lugiaShadowSpikesDone)
         {
             gBattleStruct->lugiaShadowSpikesDone = TRUE;
-            // BattleScriptPushCursorAndCallback(BattleScript_ShadowSpikes_End3);
+            gBattlerAttacker = 1;
+            BattleScriptPushCursorAndCallback(BattleScript_ShadowSpikes_End3);
             return;
         }
     }
