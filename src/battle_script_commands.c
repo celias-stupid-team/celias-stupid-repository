@@ -5470,7 +5470,10 @@ static void Cmd_switchineffects(void)
             gBattleMoveDamage = 1;
 
         gBattleScripting.battler = gActiveBattler;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PKMNHURTBYSPIKES;
+        if (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SHADOW_SPIKES)
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PKMNHURTBYSHADOWSPIKES;
+        else
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PKMNHURTBYSPIKES;
         BattleScriptPushCursor();
 
         if (gBattlescriptCurrInstr[1] == BS_TARGET)

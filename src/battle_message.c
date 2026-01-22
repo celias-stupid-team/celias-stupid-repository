@@ -204,6 +204,7 @@ static const u8 sText_PkmnLaidCurse[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own 
 static const u8 sText_PkmnAfflictedByCurse[] = _("{B_ATK_NAME_WITH_PREFIX} is afflicted\nby the CURSE!");
 static const u8 sText_SpikesScattered[] = _("SPIKES were scattered all around\nthe opponent's side!");
 static const u8 sText_PkmnHurtBySpikes[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is hurt\nby SPIKES!");
+static const u8 sText_PkmnHurtByShadowSpikes[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is hurt\nby SHADOW SPIKES!");
 static const u8 sText_PointedStonesDugInto[] = _("Stoned tombs dig into {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PointedStonesFloat[] = _("Stoned tombs float around\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnIdentified[] = _("{B_ATK_NAME_WITH_PREFIX} identified\n{B_DEF_NAME_WITH_PREFIX}!");
@@ -1016,6 +1017,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_LUGIA_USED_SHADOW_SKY - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("LUGIA used SHADOW SKY!"),
     [STRINGID_LUGIA_USED_SHADOW_SPIKES - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("LUGIA used SHADOW SPIKES!"),
     [STRINGID_SHADOWSPIKESSCATTERED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("SHADOW SPIKES were scattered all\naround the opponent's side!!"),
+    [STRINGID_PKMNHURTBYSHADOWSPIKES - BATTLESTRINGS_TABLE_START]        = sText_PkmnHurtByShadowSpikes,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1420,12 +1422,13 @@ const u16 gTrappingMoves[NUM_TRAPPING_MOVES + 1] =
 
 const u16 gDmgHazardsStringIds[] =
 {
-    [B_MSG_PKMNHURTBYSPIKES]   = STRINGID_PKMNHURTBYSPIKES,
-    [B_MSG_STEALTHROCKDMG]     = STRINGID_STEALTHROCKDMG,
-    [B_MSG_SHARPSTEELDMG]      = STRINGID_PKMNHURTBYSPIKES, //not implemented
-    [B_MSG_POINTEDSTONESFLOAT] = STRINGID_POINTEDSTONESFLOAT,
-    [B_MSG_SPIKESSCATTERED]    = STRINGID_SPIKESSCATTERED,
-    [B_MSG_SHARPSTEELFLOATS]   = STRINGID_PKMNHURTBYSPIKES, //not implemented
+    [B_MSG_PKMNHURTBYSPIKES]       = STRINGID_PKMNHURTBYSPIKES,
+    [B_MSG_STEALTHROCKDMG]         = STRINGID_STEALTHROCKDMG,
+    [B_MSG_SHARPSTEELDMG]          = STRINGID_PKMNHURTBYSPIKES, //not implemented
+    [B_MSG_POINTEDSTONESFLOAT]     = STRINGID_POINTEDSTONESFLOAT,
+    [B_MSG_SPIKESSCATTERED]        = STRINGID_SPIKESSCATTERED,
+    [B_MSG_SHARPSTEELFLOATS]       = STRINGID_PKMNHURTBYSPIKES, //not implemented
+    [B_MSG_PKMNHURTBYSHADOWSPIKES] = STRINGID_PKMNHURTBYSHADOWSPIKES,
 };
 
 const u16 gDoNothingStringIds[] =
