@@ -825,8 +825,8 @@ const u8 gJolteonPokedexText[] = _(
 const u8 gJolteonPokedexTextUnused[] = _("");
 
 const u8 gFlareonPokedexText[] = _(
-	"No, no! We can't!\n"
-	"This baby is a demon child!");
+	"¡No podemos!\n"
+	"¡Este bebé es un niño demonio!");
 
 const u8 gFlareonPokedexTextUnused[] = _("");
 
