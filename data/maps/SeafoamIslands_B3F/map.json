@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 21,
-      "y": -2,
+      "y": -5,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -33,7 +33,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 22,
-      "y": -2,
+      "y": -5,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -46,8 +46,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 20,
-      "y": 19,
+      "x": 18,
+      "y": -5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -60,8 +60,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 21,
-      "y": 19,
+      "x": 17,
+      "y": -5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -75,7 +75,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 19,
-      "y": 19,
+      "y": -5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -88,8 +88,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 18,
-      "y": 19,
+      "x": 20,
+      "y": -5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -117,8 +117,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CABLE_CLUB_RECEPTIONIST",
-      "x": 17,
-      "y": 6,
+      "x": 16,
+      "y": -5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -361,32 +361,46 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 22,
-      "y": 4,
+      "x": 24,
+      "y": -5,
       "elevation": 1,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B2F",
       "dest_warp_id": "7"
     },
     {
-      "x": 25,
-      "y": 4,
+      "x": 23,
+      "y": -5,
       "elevation": 1,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B2F",
       "dest_warp_id": "8"
     },
     {
-      "x": 6,
-      "y": 19,
+      "x": 17,
+      "y": 27,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B4F",
       "dest_warp_id": "2"
     },
     {
-      "x": 9,
-      "y": 19,
+      "x": 18,
+      "y": 27,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B4F",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 25,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 26,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [
@@ -455,8 +469,8 @@
     },
     {
       "type": "trigger",
-      "x": 31,
-      "y": 19,
+      "x": 19,
+      "y": 27,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
