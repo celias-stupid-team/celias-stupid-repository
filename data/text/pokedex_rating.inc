@@ -661,7 +661,7 @@ PokedexRating_Text_HintExeggcute::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintExeggutor::
-	.string "A man on ROUTE 8 said he evolved his\n"
+	.string "A man on ROUTE 7 said he evolved his\n"
 	.string "EXEGGCUTE wrong.\p"
 	.string "No wonder he wasn't able to find\n"
 	.string "CUT!$"

@@ -923,8 +923,8 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 7:
-			if(var(VAR_RESULT) == SPECIES_MEOWTH || var(VAR_RESULT) == SPECIES_MEOWTH) {
-				if(var(VAR_RESULT) == SPECIES_RHYDON) {
+			if(var(VAR_RESULT) == SPECIES_MEOWTH || var(VAR_RESULT) == SPECIES_SEAKING) {
+				if(var(VAR_RESULT) == SPECIES_SEAKING) {
 					setflag(FLAG_TEMP_3)
 				}
 				msgbox(
@@ -963,7 +963,12 @@ script CinnabarGym_GymQuestionLoop {
 
 script CinnabarGym_CheckBattleOutcome {
 	specialvar(VAR_TEMP_F, GetBattleOutcome)
-	setvar(VAR_TEMP_F, B_OUTCOME_WON) // TEMPORARY!!!! SWITCH THIS OUT YOU IDIOT
+	//setvar(VAR_TEMP_F, B_OUTCOME_WON) // TEMPORARY!!!! SWITCH THIS OUT YOU IDIOT
+	if(var(VAR_CINNABAR_GYM_PHASE) == 3 && flag(FLAG_TEMP_3) && var(VAR_TEMP_F) != B_OUTCOME_WON) {
+		addobject(LOCALID_BLAINE_CAMPER)
+	} else {
+		removeobject(LOCALID_BLAINE_CAMPER)
+	}
 	if(var(VAR_TEMP_F) == B_OUTCOME_WON) {
 		playse(SE_SUCCESS)
 		waitse
@@ -1532,4 +1537,14 @@ script CinnabarGym_UpdatePointsWall {
 	if(flag(FLAG_TEMP_3)) {
 
 	}
+}
+
+
+script CinnabarGym_NoEeveeCamper {
+	msgbox(
+	"Aww, man!\n"
+	"I thought for sure it was EEVEE!\p"
+
+	"Maybe there's a different POKéMON\n"
+	"who might be an answer…", MSGBOX_NPC)
 }

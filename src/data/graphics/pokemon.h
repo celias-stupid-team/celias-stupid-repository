@@ -9724,3 +9724,51 @@ const u32 gMonShinyPalette_RATICATEGHOST[] = INCBIN_U32("graphics/pokemon/ratica
 const u8 gMonIcon_RATICATEGHOST[] = INCBIN_U8("graphics/pokemon/raticateghost/icon.4bpp");
 const u8 gMonFootprint_RATICATEGHOST[] = INCBIN_U8("graphics/pokemon/raticateghost/footprint.1bpp");
 
+// FINAL_LUGIA
+const u32 gMonFrontPic_FINALLUGIA[] = INCBIN_U32("graphics/pokemon/finallugia/front.4bpp.lz");
+const u32 gMonPalette_FINALLUGIA[] = INCBIN_U32("graphics/pokemon/finallugia/normal.gbapal.lz");
+const u32 gMonBackPic_FINALLUGIA[] = INCBIN_U32("graphics/pokemon/finallugia/back.4bpp.lz");
+const u32 gMonShinyPalette_FINALLUGIA[] = INCBIN_U32("graphics/pokemon/finallugia/shiny.gbapal.lz");
+const u8 gMonIcon_FINALLUGIA[] = INCBIN_U8("graphics/pokemon/finallugia/icon.4bpp");
+const u8 gMonFootprint_FINALLUGIA[] = INCBIN_U8("graphics/pokemon/finallugia/footprint.1bpp");
+
+// FINAL_ARTICUNO
+const u32 gMonFrontPic_FINALARTICUNO[] = INCBIN_U32("graphics/pokemon/finalarticuno/front.4bpp.lz");
+const u32 gMonPalette_FINALARTICUNO[] = INCBIN_U32("graphics/pokemon/finalarticuno/normal.gbapal.lz");
+const u32 gMonBackPic_FINALARTICUNO[] = INCBIN_U32("graphics/pokemon/finalarticuno/back.4bpp.lz");
+const u32 gMonShinyPalette_FINALARTICUNO[] = INCBIN_U32("graphics/pokemon/finalarticuno/shiny.gbapal.lz");
+const u8 gMonIcon_FINALARTICUNO[] = INCBIN_U8("graphics/pokemon/finalarticuno/icon.4bpp");
+const u8 gMonFootprint_FINALARTICUNO[] = INCBIN_U8("graphics/pokemon/finalarticuno/footprint.1bpp");
+
+// FINAL_HOOH
+const u32 gMonFrontPic_FINALHOOH[] = INCBIN_U32("graphics/pokemon/finalhooh/front.4bpp.lz");
+const u32 gMonPalette_FINALHOOH[] = INCBIN_U32("graphics/pokemon/finalhooh/normal.gbapal.lz");
+const u32 gMonBackPic_FINALHOOH[] = INCBIN_U32("graphics/pokemon/finalhooh/back.4bpp.lz");
+const u32 gMonShinyPalette_FINALHOOH[] = INCBIN_U32("graphics/pokemon/finalhooh/shiny.gbapal.lz");
+const u8 gMonIcon_FINALHOOH[] = INCBIN_U8("graphics/pokemon/finalhooh/icon.4bpp");
+const u8 gMonFootprint_FINALHOOH[] = INCBIN_U8("graphics/pokemon/finalhooh/footprint.1bpp");
+
+// FINAL_ZAPDOS
+const u32 gMonFrontPic_FINALZAPDOS[] = INCBIN_U32("graphics/pokemon/finalzapdos/front.4bpp.lz");
+const u32 gMonPalette_FINALZAPDOS[] = INCBIN_U32("graphics/pokemon/finalzapdos/normal.gbapal.lz");
+const u32 gMonBackPic_FINALZAPDOS[] = INCBIN_U32("graphics/pokemon/finalzapdos/back.4bpp.lz");
+const u32 gMonShinyPalette_FINALZAPDOS[] = INCBIN_U32("graphics/pokemon/finalzapdos/shiny.gbapal.lz");
+const u8 gMonIcon_FINALZAPDOS[] = INCBIN_U8("graphics/pokemon/finalzapdos/icon.4bpp");
+const u8 gMonFootprint_FINALZAPDOS[] = INCBIN_U8("graphics/pokemon/finalzapdos/footprint.1bpp");
+
+// FINAL_MOLTRES
+const u32 gMonFrontPic_FINALMOLTRES[] = INCBIN_U32("graphics/pokemon/finalmoltres/front.4bpp.lz");
+const u32 gMonPalette_FINALMOLTRES[] = INCBIN_U32("graphics/pokemon/finalmoltres/normal.gbapal.lz");
+const u32 gMonBackPic_FINALMOLTRES[] = INCBIN_U32("graphics/pokemon/finalmoltres/back.4bpp.lz");
+const u32 gMonShinyPalette_FINALMOLTRES[] = INCBIN_U32("graphics/pokemon/finalmoltres/shiny.gbapal.lz");
+const u8 gMonIcon_FINALMOLTRES[] = INCBIN_U8("graphics/pokemon/finalmoltres/icon.4bpp");
+const u8 gMonFootprint_FINALMOLTRES[] = INCBIN_U8("graphics/pokemon/finalmoltres/footprint.1bpp");
+
+// FINAL_WARTORTLE
+const u32 gMonFrontPic_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/finalwartortle/front.4bpp.lz");
+const u32 gMonPalette_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/finalwartortle/normal.gbapal.lz");
+const u32 gMonBackPic_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/finalwartortle/back.4bpp.lz");
+const u32 gMonShinyPalette_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/finalwartortle/shiny.gbapal.lz");
+const u8 gMonIcon_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/finalwartortle/icon.4bpp");
+const u8 gMonFootprint_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/finalwartortle/footprint.1bpp");
+

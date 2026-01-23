@@ -44,7 +44,7 @@ mapscripts Route8_MapScripts {
 
 
 script Route8_RouteSign {
-	msgbox("ROUTE 8\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
+	msgbox("ROUTE 7\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
 	end
 }
 
