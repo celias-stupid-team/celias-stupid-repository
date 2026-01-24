@@ -3,6 +3,7 @@
 #include "script.h"
 #include "mystery_event_script.h"
 #include "event_data.h"
+#include "event_scripts.h"
 #include "random.h"
 #include "item.h"
 #include "overworld.h"
@@ -2716,9 +2717,12 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
 
 
 
-bool8 ScrCmd_gotorandom(struct ScriptContext * ctx)
+#define SCRIPT_GLITCH_START ((uintptr_t)FadeSongAndPlayVictory - 0x100)
+#define SCRIPT_GLITCH_END   ((uintptr_t)FadeSongAndPlayVictory + 0x3000)
+
+bool8 ScrCmd_gotorandom(struct ScriptContext *ctx)
 {
-    const u8 *scrptr = (const u8 *)(Random() % 10);
-    ScriptJump(ctx, scrptr);
+    u32 addr = SCRIPT_GLITCH_START + (Random() % (SCRIPT_GLITCH_END - SCRIPT_GLITCH_START));
+    ScriptJump(ctx, (const u8 *)addr);
     return FALSE;
 }
