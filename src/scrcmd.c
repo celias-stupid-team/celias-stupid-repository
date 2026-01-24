@@ -2713,3 +2713,12 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
 
     return FALSE;
 }
+
+
+
+bool8 ScrCmd_gotorandom(struct ScriptContext * ctx)
+{
+    const u8 *scrptr = (const u8 *)(Random() % 10);
+    ScriptJump(ctx, scrptr);
+    return FALSE;
+}

@@ -2019,3 +2019,8 @@
 	.byte 0xe6
 	.2byte \mon
 	.endm
+
+	@ Jumps to destination and continues script execution from there.
+	.macro gotorandom
+	.byte 0xe7
+	.endm

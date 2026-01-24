@@ -62,6 +62,7 @@ script TwoIsland_SideOfWall {
 				"It's not OAK.\n"
 				"", MSGBOX_DEFAULT)
 			case 6:
+				setflag(FLAG_TEMP_5)
 				finditem(ITEM_NONE)
 			case 7:
 				waitse
@@ -98,7 +99,8 @@ script TwoIsland_SideOfWall {
 				"before going further!\l"
 				"-Celia, the creator", MSGBOX_DEFAULT)
 			case 11:
-				goto(1)
+				
+				gotorandom
 				
 
 	}
