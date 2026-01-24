@@ -821,10 +821,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_SANDSLASH] =
     {
         .baseHP = 75,
-        .baseAttack = 110,
+        .baseAttack = 130,
         .baseDefense = 110,
         .baseSpeed = 65,
-        .baseSpAttack = 95,
+        .baseSpAttack = 110,
         .baseSpDefense = 55,
         .types = {TYPE_GROUND, TYPE_GROUND},
         .catchRate = 255,
