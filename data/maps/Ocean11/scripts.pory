@@ -165,8 +165,72 @@ script GreatSea_BabyGrowlithe {
 
 
 script GreatSea_ManaphyTrade {
+	lock
+	faceplayer
+	if(flag(FLAG_SHINY_PHIONE)) {
+		msgbox(
+		"Good luck with that one!\p"
+
+		"I have a good feeling that we'll\n"
+		"finally find its rightful owner.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+
 	msgbox(
-	"Hi I have an egg but I'm looking\n"
-	"for someone else with an egg\l"
-	"placeholder", MSGBOX_NPC)
+	"Heya, friend!\n"
+	"I'm looking for a very special EGG.\p"
+
+	"Or rather, I have an EGG here which\n"
+	"I know is not special.\l"
+	"At least, it's not special for me.", MSGBOX_DEFAULT)
+	if(checkmoncaught(SPECIES_PHIONE)) {
+		msgbox(
+		"You've hatched an EGG before, no?\n"
+		"But you weren't the one for it.\p"
+
+		"Maybe this one here would've been\n"
+		"yours, and yours mine.\l"
+		"It seems we'll never know.", MSGBOX_DEFAULT)
+	} else {
+		if(checkpartymonslotegg(SPECIES_PHIONE) == PARTY_SIZE) {
+			msgbox(
+			"If you find a cool EGG somewhere,\n"
+			"why don't you bring it here?\p"
+
+			"Who knows? Maybe this one here is\n"
+			"yours and yours mine.", MSGBOX_DEFAULT)
+
+		} else {
+			msgbox(
+			"Oh! Oh!\n"
+			"You have an EGG too!\p"
+
+			"Here - let's trade them!\n"
+			"Maybe your ID is what mine needs.", MSGBOX_DEFAULT)
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			playse(SE_BALL_TRADE)
+			setflag(FLAG_SHINY_PHIONE)
+			fadescreen(FADE_FROM_BLACK)
+			playfanfare(MUS_LEVEL_UP)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			msgbox(
+			"{PLAYER} traded the ODD EGG\n"
+			"for a new one!", MSGBOX_DEFAULT)
+			waitfanfare
+			closemessage
+			delay(30)
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox(
+			"Good luck with that one!\p"
+
+			"I have a good feeling that we'll\n"
+			"finally find its rightful owner.", MSGBOX_DEFAULT)
+			
+		}
+	}
+
+	release
+
 }

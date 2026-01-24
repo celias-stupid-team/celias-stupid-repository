@@ -2638,6 +2638,33 @@ bool8 ScrCmd_checkpartymonslot(struct ScriptContext * ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_checkpartymonslotegg(struct ScriptContext * ctx)
+{
+    u8 i;
+    u16 speciesId = ScriptReadHalfword(ctx);
+    u16 species;
+    gSpecialVar_Result = PARTY_SIZE;
+    DebugPrintf("Hi test");
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species) {
+            DebugPrintf("Species %d", species);
+            DebugPrintf("Not species %d", GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL));
+            break;
+        }
+        
+        if (GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == speciesId)
+        {
+            DebugPrintf("Yes");
+            gSpecialVar_Result = i;
+            DebugPrintf("Var Result %d", gSpecialVar_Result);
+            break;
+        }
+    }
+    return FALSE;
+}
+
 bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
 {
     u32 i, box, monPos, partySlot;

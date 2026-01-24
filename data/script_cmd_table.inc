@@ -231,6 +231,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_checkpartymon					 @ 0xe3
 	.4byte ScrCmd_checkfieldmove				 @ 0xe4
 	.4byte ScrCmd_checkpartymonslot				 @ 0xe5
+	.4byte ScrCmd_checkpartymonslotegg				 @ 0xe6
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

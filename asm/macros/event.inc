@@ -2014,3 +2014,8 @@
 	.byte 0xe5
 	.2byte \mon
 	.endm
+
+	.macro checkpartymonslotegg mon:req
+	.byte 0xe6
+	.2byte \mon
+	.endm
