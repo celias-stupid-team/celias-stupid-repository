@@ -499,6 +499,11 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KENYA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MUSHROOM_KID;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HAKARI;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NEW_NEW_GUZMA;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_FAN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_WASH;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_FROST;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_MOW;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_HEAT;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -999,4 +1004,9 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MUSHROOM_KID] = &gObjectEventGraphicsInfo_MUSHROOM_KID,
     [OBJ_EVENT_GFX_HAKARI] = &gObjectEventGraphicsInfo_HAKARI,
     [OBJ_EVENT_GFX_NEW_NEW_GUZMA] = &gObjectEventGraphicsInfo_NEW_NEW_GUZMA,
+    [OBJ_EVENT_GFX_ROTOM_FAN] = &gObjectEventGraphicsInfo_ROTOM_FAN,
+    [OBJ_EVENT_GFX_ROTOM_WASH] = &gObjectEventGraphicsInfo_ROTOM_WASH,
+    [OBJ_EVENT_GFX_ROTOM_FROST] = &gObjectEventGraphicsInfo_ROTOM_FROST,
+    [OBJ_EVENT_GFX_ROTOM_MOW] = &gObjectEventGraphicsInfo_ROTOM_MOW,
+    [OBJ_EVENT_GFX_ROTOM_HEAT] = &gObjectEventGraphicsInfo_ROTOM_HEAT,
 };

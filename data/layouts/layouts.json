@@ -3041,7 +3041,7 @@
       "id": "LAYOUT_TWO_ISLAND_JOYFUL_GAME_CORNER",
       "name": "TwoIsland_JoyfulGameCorner_Layout",
       "width": 12,
-      "height": 10,
+      "height": 12,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",

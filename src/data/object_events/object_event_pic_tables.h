@@ -5358,3 +5358,58 @@ const struct SpriteFrameImage gObjectEventPicTable_NEW_NEW_GUZMA[] = {
     overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 2),
     overworld_frame(gObjectEventPic_NEW_NEW_GUZMA, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_ROTOM_FAN[] = {
+    overworld_frame(gObjectEventPic_ROTOM_FAN, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_FAN, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_FAN, 4, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_FAN, 4, 4, 3),
+    overworld_frame(gObjectEventPic_ROTOM_FAN, 4, 4, 4),
+    overworld_frame(gObjectEventPic_ROTOM_FAN, 4, 4, 5),
+    overworld_frame(gObjectEventPic_ROTOM_FAN, 4, 4, 6),
+    overworld_frame(gObjectEventPic_ROTOM_FAN, 4, 4, 7),
+    overworld_frame(gObjectEventPic_ROTOM_FAN, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_ROTOM_WASH[] = {
+    overworld_frame(gObjectEventPic_ROTOM_WASH, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_WASH, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_WASH, 4, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_WASH, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_WASH, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_WASH, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_WASH, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_WASH, 4, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_WASH, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_ROTOM_FROST[] = {
+    overworld_frame(gObjectEventPic_ROTOM_FROST, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_FROST, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_FROST, 4, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_FROST, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_FROST, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_FROST, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_FROST, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_FROST, 4, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_FROST, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_ROTOM_MOW[] = {
+    overworld_frame(gObjectEventPic_ROTOM_MOW, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_MOW, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_MOW, 4, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_MOW, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_MOW, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_MOW, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_MOW, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_MOW, 4, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_MOW, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_ROTOM_HEAT[] = {
+    overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 0),
+    overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 1),
+    overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 2),
+    overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 2),
+};

@@ -566,6 +566,11 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_BRAILLE  0x118B
 #define OBJ_EVENT_PAL_TAG_HAKARI  0x118C
 #define OBJ_EVENT_PAL_TAG_NEW_NEW_GUZMA  0x118D
+#define OBJ_EVENT_PAL_TAG_ROTOM_FAN  0x118E
+#define OBJ_EVENT_PAL_TAG_ROTOM_WASH  0x118F
+#define OBJ_EVENT_PAL_TAG_ROTOM_FROST  0x1190
+#define OBJ_EVENT_PAL_TAG_ROTOM_MOW  0x1191
+#define OBJ_EVENT_PAL_TAG_ROTOM_HEAT  0x1192
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -705,6 +710,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_BRAILLE,             OBJ_EVENT_PAL_TAG_BRAILLE},
     {gObjectEventPal_HAKARI,             OBJ_EVENT_PAL_TAG_HAKARI},
     {gObjectEventPal_NEW_NEW_GUZMA,             OBJ_EVENT_PAL_TAG_NEW_NEW_GUZMA},
+    {gObjectEventPal_ROTOM_FAN,             OBJ_EVENT_PAL_TAG_ROTOM_FAN},
+    {gObjectEventPal_ROTOM_WASH,             OBJ_EVENT_PAL_TAG_ROTOM_WASH},
+    {gObjectEventPal_ROTOM_FROST,             OBJ_EVENT_PAL_TAG_ROTOM_FROST},
+    {gObjectEventPal_ROTOM_MOW,             OBJ_EVENT_PAL_TAG_ROTOM_MOW},
+    {gObjectEventPal_ROTOM_HEAT,             OBJ_EVENT_PAL_TAG_ROTOM_HEAT},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

@@ -1,5 +1,10 @@
 mapscripts Route19_SurfHouse_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        
+		if(flag(FLAG_FOUND_ROTOM_FROST) || !flag(FLAG_SYS_ROTOM_MENU)) {
+			setflag(FLAG_TEMP_1)
+		}
+    }
 }
 
 script Route19_SurfHouse_Rhydon {
@@ -63,4 +68,28 @@ script Route19_SurfHouse_SurfGuy {
     famechecker(FAMECHECKER_FUSHCIA, 0)
     msgbox("Aight, listen up!\nHere's the perfect SANDWICH:\pA fresh loaf of BREAD!\nCoated in SESAME SEEDS!\pHearty cuts of MEAT, alongside a\nlovely slice of CHEESE!\pSome LETTUCE that's been very\nfreshly CUT!\pAnd to top it off: Crunchy,\nflavorful PICKLES!\pBring all of these together, and\nyou'll have the perfect food!", MSGBOX_DEFAULT)
     release
+}
+
+
+
+
+script SandwichHouse_Rotom {
+	lock
+	faceplayer
+	playmoncry(SPECIES_ROTOM, CRY_MODE_FAINT)
+	waitmoncry
+	applymovement(VAR_LAST_TALKED, moves(
+		emote_question_mark
+	))
+	waitmovement(0)
+	delay(60)
+	msgbox(
+	"Why do you need a third fridge?\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_FOUND_ROTOM_FROST)
+    fadescreen(FADE_FROM_BLACK)
+	release
 }

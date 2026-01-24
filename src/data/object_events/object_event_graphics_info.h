@@ -8964,3 +8964,103 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NEW_NEW_GUZMA = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_FAN = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ROTOM_FAN,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_ROTOM_FAN,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_WASH = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ROTOM_WASH,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_ROTOM_WASH,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_FROST = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ROTOM_FROST,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_ROTOM_FROST,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_MOW = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ROTOM_MOW,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_ROTOM_MOW,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_HEAT = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ROTOM_HEAT,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_ROTOM_HEAT,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+

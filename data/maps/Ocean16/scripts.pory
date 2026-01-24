@@ -104,3 +104,12 @@ script Desert_Bus {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script Desert_Dessert {
+	msgbox(
+	"Confound those DMCA!\p"
+
+	"This place was supposed to be\n"
+	"DESSERT before they showed up!", MSGBOX_NPC)
+}

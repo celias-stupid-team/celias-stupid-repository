@@ -451,11 +451,11 @@
 #define FLAG_0x190                           0x190
 #define FLAG_0x191                              0x191
 #define FLAG_HIDE_SILPH_CO_5F_CARD_KEY                          0x192
-#define FLAG_0x193                             0x193
-#define FLAG_0x194                         0x194
-#define FLAG_0x195                           0x195
-#define FLAG_0x196                              0x196
-#define FLAG_0x197                           0x197
+#define FLAG_FOUND_ROTOM_WASH                             0x193
+#define FLAG_FOUND_ROTOM_MOW                         0x194
+#define FLAG_FOUND_ROTOM_FROST                           0x195
+#define FLAG_FOUND_ROTOM_FAN                              0x196
+#define FLAG_FOUND_ROTOM_HEAT                           0x197
 #define FLAG_0x198                       0x198
 #define FLAG_0x199                       0x199
 #define FLAG_0x19A                        0x19A
