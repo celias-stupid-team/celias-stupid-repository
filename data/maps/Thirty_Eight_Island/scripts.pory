@@ -637,10 +637,10 @@ script ThirtyEightIsland_GoldenRodPointer {
 	msgbox(
 	"I hear they're building a fancy\n"
 	"TRAIN STATION in SAFFRON CITY.\l"
-	"I hear it'll connect us together.\p"
+	"They say it'll connect us together.\p"
 
-	"(stinger)\n"
-	"", MSGBOX_NPC)
+	"I'm not sure how they plan to make\n"
+	"a TRAIN cross the water, but hey!", MSGBOX_NPC)
 }
 
 

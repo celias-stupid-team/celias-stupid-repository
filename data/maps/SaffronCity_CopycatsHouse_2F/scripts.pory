@@ -106,11 +106,7 @@ script CopycatHouse_Child {
 	flag(FLAG_TEMP_B) && 
 	flag(FLAG_TEMP_C) && 
 	flag(FLAG_TEMP_D)) {
-		msgbox(
-		"COPYCAT: Wha- Hey!\p"
-
-		"Where'd my dolls go?\n"
-		"", MSGBOX_DEFAULT)
+		finditem(ITEM_COPYCAT_TM)
 		release
 		end
 	}
