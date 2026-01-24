@@ -29557,12 +29557,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 },
 [SPECIES_DITTO_MEW] =
 {
-    .baseHP = 60,
-    .baseAttack = 60,
-    .baseDefense = 60,
-    .baseSpeed = 60,
-    .baseSpAttack = 60,
-    .baseSpDefense = 60,
+    .baseHP = 100,
+    .baseAttack = 100,
+    .baseDefense = 100,
+    .baseSpeed = 100,
+    .baseSpAttack = 100,
+    .baseSpDefense = 100,
     .types = {TYPE_NORMAL, TYPE_NORMAL},
     .catchRate = 255,
     .expYield = 150,

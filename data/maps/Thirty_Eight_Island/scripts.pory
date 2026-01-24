@@ -345,7 +345,7 @@ script ThirtyEightIsland_Saltcureberry {
 	playfanfare(MUS_LEVEL_UP)
 	msgbox(
 	"{PLAYER} found\n"
-	"SALTCURBERRY", MSGBOX_DEFAULT)
+	"SALTCURBERRY!", MSGBOX_DEFAULT)
 	waitfanfare
 	additem(ITEM_RAZZ_BERRY)
 	release
@@ -356,7 +356,7 @@ script ThirtyEightIsland_otherberry {
 	playfanfare(MUS_LEVEL_UP)
 	msgbox(
 	"{PLAYER} found\n"
-	"SALTCURECUREBERRY", MSGBOX_DEFAULT)
+	"SALTCURECUREBERRY!", MSGBOX_DEFAULT)
 	waitfanfare
 	additem(ITEM_BLUK_BERRY)
 	release

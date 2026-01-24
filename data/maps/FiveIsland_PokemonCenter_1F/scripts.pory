@@ -46,10 +46,10 @@ script FiveIsland_PokemonCenter_1F_EventScript_Nurse {
 								"Do you want to know what we do to\n"
 								"those who waste our time here?", MSGBOX_YESNO)
 								if(var(VAR_RESULT)) {
-									fadedefaultbgm
 									msgbox(
 									"(there is a battle here)\n"
 									"", MSGBOX_DEFAULT)
+									playbgm(MUS_POKE_CENTER, TRUE)
 									release
 									end
 								} else {

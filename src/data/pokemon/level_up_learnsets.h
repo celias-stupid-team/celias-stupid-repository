@@ -1128,7 +1128,7 @@ static const struct LevelUpMove sDodrioLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSeelLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_BELLY_DRUM),
+    LEVEL_UP_MOVE(1, MOVE_IMPRISON),
     LEVEL_UP_END
 };
 
