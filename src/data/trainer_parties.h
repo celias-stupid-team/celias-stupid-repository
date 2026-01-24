@@ -10495,7 +10495,7 @@ static const struct TrainerMonItemCustomMoves sParty_BerriedAlive[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_HAUNTER,
-        .moves = {MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_TOMBSTONER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_Sans[] = {

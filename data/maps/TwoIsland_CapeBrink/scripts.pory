@@ -52,6 +52,7 @@ script TwoIsland_StarmanEncounter {
 	msgbox(
 	"Farewell.\n"
 	"", MSGBOX_DEFAULT)
+	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
 	closemessage
 	applymovement(LOCALID_TWO_ISLAND_STARMAN, moves(
 		face_left

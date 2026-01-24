@@ -91,10 +91,70 @@ script PokemonTower_CeliaRoom_Smitty {
 
 script PokemonTower_CeliaRoom_BerryPowder {
     lock
-	msgbox("Here lies the BERRY POWDER MAN.\pMay he rest in peace.\n", MSGBOX_DEFAULT)
-    if(checkitem(ITEM_BERRYLEGION)) {
-        textcolor(NPC_TEXT_COLOR_FEMALE)
-        msgbox("Hey!\nI see you've found BERRYLEGION!\lBut…\pThis isn't implemented yet.\nSorry!\pStay tuned!\n", MSGBOX_DEFAULT)
+    if(flag(FLAG_BERRIED_ALIVE)) {
+	    msgbox("Here lied the BERRY POWDER MAN.\pMay his jest increase.\n", MSGBOX_DEFAULT)
+
+    } else {
+	    msgbox("Here lies the BERRY POWDER MAN.\pMay he rest in peace.\n", MSGBOX_DEFAULT)
+
+    }
+
+    if(checkitem(ITEM_BERRYLEGION) && !flag(FLAG_BERRIED_ALIVE)) {
+        msgbox(
+        "{PLAYER} laid the BERRYLEGION\n"
+        "at the grave to pay LAST RESPECTS.", MSGBOX_DEFAULT)
+        closemessage
+        removeitem(ITEM_BERRYLEGION)
+        fadenewbgm(MUS_NONE)
+        setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+        setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+        setvar(VAR_SHAKESCREEN_NUM_SHAKES, 10)
+        setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+        special(ShakeScreen)
+        textcolor(NPC_TEXT_COLOR_BLUE)
+        msgbox(
+        "I… … …{PAUSE 30}\n"
+        "AM… … …\l"
+        "{PAUSE 30}A {PAUSE 20}L {PAUSE 20}I {PAUSE 20}V {PAUSE 20}E {PAUSE 20} !", MSGBOX_DEFAULT)
+        playbgm(MUS_POKE_TOWER, TRUE)
+        setflag(FLAG_SHINY_CREATION)
+        trainerbattle_no_intro(TRAINER_BERRIED_ALIVE, "AaaAaAAAaaAHhHHHHH-!")
+        delay(60)
+        applymovement(LOCALID_BERRY_POWDER_MAN, moves(
+            walk_fastest_down
+            set_visible
+            jump_in_place_down
+        ))
+        delay(5)
+        playse(SE_LEDGE)
+        waitmovement(0)
+        delay(30)
+        msgbox(
+        "Aha!\n"
+        "There we go!\l"
+        "Thank you for digging me back up.\p"
+
+        "Everyone kept saying, “Oh, no!\n"
+        "Grandpa's dead!”\p"
+
+        "Nobody listened to my arguments\n"
+        "to the contrary.\p"
+
+        "Anyway, I suppose I'll be off now.\p"
+
+        "I wonder what my good friend the\n"
+        "MUSHROOM MANIAC has been up to?", MSGBOX_DEFAULT)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        setflag(FLAG_BERRIED_ALIVE)
+        clearflag(FLAG_SHINY_CREATION)
+        removeobject(LOCALID_BERRY_POWDER_MAN)
+        fadescreen(FADE_FROM_BLACK)
+        release
+        end
+
+
+
     }
     release
 	end

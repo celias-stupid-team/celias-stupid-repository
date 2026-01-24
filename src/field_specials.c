@@ -79,6 +79,7 @@ static void ChangeBoxPokemonNickname_CB(void);
 static void ChangePokemonNickname_CB(void);
 static void SocialSecurity_CB(void);
 static void BerryPowderManDeath_CB(void);
+static void BerryPowderManAlive_CB(void);
 static void SayYes_CB(void);
 static void Task_RunPokemonLeagueLightingEffect(u8 taskId);
 static void Task_CancelPokemonLeagueLightingEffect(u8 taskId);
@@ -1704,7 +1705,12 @@ bool8 SocialSecurityCheck(void) {
 
 bool8 BerryPowderManCheck(void) {
     
-    DoNamingScreen(NAMING_SCREEN_BERRY_POWDER, gStringVar1, gSaveBlock2Ptr->playerGender, MON_MALE, 0, BerryPowderManDeath_CB);
+    if(FlagGet(FLAG_BERRIED_ALIVE)) {
+        DoNamingScreen(NAMING_SCREEN_BERRY_POWDER_ALIVE, gStringVar1, gSaveBlock2Ptr->playerGender, MON_MALE, 0, BerryPowderManAlive_CB);
+    } else {
+        DoNamingScreen(NAMING_SCREEN_BERRY_POWDER, gStringVar1, gSaveBlock2Ptr->playerGender, MON_MALE, 0, BerryPowderManDeath_CB);
+
+    }
     return FALSE;
 }
 
@@ -1735,6 +1741,15 @@ static void BerryPowderManDeath_CB(void) {
         !StringCompare(gText_DeadLower, gStringVar1) ||
         !StringCompare(gText_DIED, gStringVar1) ||
         !StringCompare(gText_DiedLower, gStringVar1)) {
+        VarSet(VAR_RESULT, 1);
+
+    } else 
+        VarSet(VAR_RESULT, 0);
+    CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
+static void BerryPowderManAlive_CB(void) {
+    if(!StringCompare(gText_ALIVE, gStringVar1) ||
+        !StringCompare(gText_AliveLower, gStringVar1)) {
         VarSet(VAR_RESULT, 1);
 
     } else 

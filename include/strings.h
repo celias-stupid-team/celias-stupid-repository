@@ -214,6 +214,8 @@ extern const u8 gText_Luvdisc[];
 extern const u8 gText_Leekd[];
 extern const u8 gText_DEAD[];
 extern const u8 gText_DeadLower[];
+extern const u8 gText_ALIVE[];
+extern const u8 gText_AliveLower[];
 extern const u8 gText_DIED[];
 extern const u8 gText_DiedLower[];
 extern const u8 gText_YesLower[];

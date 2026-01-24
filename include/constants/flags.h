@@ -446,7 +446,7 @@
 #define FLAG_HIDE_SAFARI_ZONE_WEST_MAX_REVIVE                   0x18B
 #define FLAG_GOT_SHINY_SYLVEON                      0x18C
 #define FLAG_STOLE_COPYCAT                        0x18D
-#define FLAG_0x18E                       0x18E
+#define FLAG_BERRIED_ALIVE                       0x18E
 #define FLAG_0x18F                         0x18F
 #define FLAG_0x190                           0x190
 #define FLAG_0x191                              0x191

@@ -1723,6 +1723,7 @@ static void (*const sDrawTextEntryBoxFuncs[])(void) =
     [NAMING_SCREEN_RIVAL]      = DrawNormalTextEntryBox,
     [NAMING_SCREEN_SOCIAL]     = DrawNormalTextEntryBox,
     [NAMING_SCREEN_BERRY_POWDER]     = DrawNormalTextEntryBox,
+    [NAMING_SCREEN_BERRY_POWDER_ALIVE]     = DrawNormalTextEntryBox,
     [NAMING_SCREEN_YES]     = DrawNormalTextEntryBox,
 };
 
@@ -2119,6 +2120,14 @@ static const struct NamingScreenTemplate sBerryPowderNamingScreenTemplate = {
     .initialPage = KBPAGE_LETTERS_UPPER, 
     .title = gText_BerryPowderManFate,
 };
+static const struct NamingScreenTemplate sBerryPowderAliveNamingScreenTemplate = {
+    .copyExistingString = FALSE,
+    .maxChars = 5,
+    .iconFunction = 1,
+    .addGenderIcon = 0,
+    .initialPage = KBPAGE_LETTERS_UPPER, 
+    .title = gText_BerryPowderManFate,
+};
 
 static const struct NamingScreenTemplate sSayYesNamingScreenTemplate = {
     .copyExistingString = FALSE,
@@ -2166,6 +2175,7 @@ static const struct NamingScreenTemplate *const sNamingScreenTemplates[] =
     [NAMING_SCREEN_SOCIAL]     = &sSocialSecurityNamingScreenTemplate,
     [NAMING_SCREEN_BERRY_POWDER]     = &sBerryPowderNamingScreenTemplate,
     [NAMING_SCREEN_YES]     = &sSayYesNamingScreenTemplate,
+    [NAMING_SCREEN_BERRY_POWDER_ALIVE]     = &sBerryPowderAliveNamingScreenTemplate,
 };
 
 static const struct OamData sOam_8x8 = {

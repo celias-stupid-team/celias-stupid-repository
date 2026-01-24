@@ -11,6 +11,7 @@
 #define NAMING_SCREEN_SOCIAL        5
 #define NAMING_SCREEN_BERRY_POWDER        6
 #define NAMING_SCREEN_YES        7
+#define NAMING_SCREEN_BERRY_POWDER_ALIVE        8
 
 void DoNamingScreen(u8 templateNum, u8 *destBuffer, u16 monSpecies, u16 monGender, u32 monPersonality, MainCallback returnCallback);
 

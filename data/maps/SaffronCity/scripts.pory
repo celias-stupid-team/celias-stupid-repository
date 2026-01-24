@@ -400,7 +400,7 @@ script SaffronCity_NPC4 {
 
 script SaffronCity_NPC5 {
 	msgbox(
-	"Copycat's house exists\n"
+	"go inside the fucking houses dumbass\n"
 	"", MSGBOX_NPC)
 }
 
