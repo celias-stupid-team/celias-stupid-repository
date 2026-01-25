@@ -655,7 +655,7 @@ struct MonSpritesGfx
     void *firstDecompressed; // ptr to the decompressed sprite of the first pokemon
     void *sprites[MAX_BATTLERS_COUNT];
     struct SpriteTemplate templates[MAX_BATTLERS_COUNT];
-    struct SpriteFrameImage images[MAX_BATTLERS_COUNT][4];
+    struct SpriteFrameImage images[MAX_BATTLERS_COUNT][MAX_MON_PIC_FRAMES];
     u8 field_F4[0x80]; // unused
     u8 *barFontGfx;
     void *field_178; // freed but never allocated

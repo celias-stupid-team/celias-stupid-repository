@@ -428,7 +428,7 @@ struct PokemonStorageSystemData
     struct Sprite *displayMonSprite;
     u16 displayMonPalBuffer[0x20];
     u8 unusedBuffer1[0x40];
-    u8 tileBuffer[0x800];
+    u8 tileBuffer[MON_PIC_SIZE * MAX_MON_PIC_FRAMES];
     u8 unusedBuffer2[0x1800];
     u8 itemIconBuffer[0x200];
     u8 unusedBuffer3[0x600];

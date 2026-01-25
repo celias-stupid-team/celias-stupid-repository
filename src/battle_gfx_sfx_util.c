@@ -212,10 +212,11 @@ void InitAndLaunchChosenStatusAnimation(bool8 isStatus2, u32 status)
 bool8 TryHandleLaunchBattleTableAnimation(u8 activeBattler, u8 atkBattler, u8 defBattler, u8 tableId, u16 argument)
 {
     u8 taskId;
+    u8 castformPals = (NUM_CASTFORM_FORMS * 16 * 2); // 16 colors, two bytes per color
 
-    if (tableId == B_ANIM_CASTFORM_CHANGE && (argument & 0x80))
+    if (tableId == B_ANIM_CASTFORM_CHANGE && (argument & castformPals))
     {
-        gBattleMonForms[activeBattler] = (argument & ~(0x80));
+        gBattleMonForms[activeBattler] = (argument & ~(castformPals));
         return TRUE;
     }
     else if (gBattleSpritesDataPtr->battlerData[activeBattler].behindSubstitute
