@@ -28548,7 +28548,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed = 50,
         .baseSpAttack = 60,
         .baseSpDefense = 85,
-        .types = {TYPE_DARK, TYPE_SHADOW}, // wiz1989 test entry, was TYPE_STEEL
+        .types = {TYPE_DARK, TYPE_STEEL},
         .catchRate = 255,
         .expYield = 150,
         .evYield_HP = 1,
@@ -28568,6 +28568,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
+        .isShadowType = TRUE, // wiz1989 test entry
     },
     [SPECIES_GREAT_TUSK] =
     {

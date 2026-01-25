@@ -484,7 +484,7 @@ struct BattleStruct
     u8 fillerDC[0xDF-0xDC];
     u8 givenExpMons;
     u8 lastTakenMoveFrom[MAX_BATTLERS_COUNT * MAX_BATTLERS_COUNT * 2];
-    u16 castformPalette[MAX_BATTLERS_COUNT][16];
+    u16 castformPalette[NUM_CASTFORM_FORMS][16];
     u8 wishPerishSongState;
     u8 wishPerishSongBattlerId;
     u8 lastAttackerToFaintOpponent;

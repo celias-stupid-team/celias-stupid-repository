@@ -239,6 +239,8 @@ struct SpeciesInfo
  /* 0x18 */ u8 safariZoneFleeRate;
  /* 0x19 */ u8 bodyColor : 7;
             u8 noFlip : 1;
+ /* 0x1A */ u8 isShadowType : 1;
+            u8 padding_1A : 7;
 };
 
 struct BattleMove

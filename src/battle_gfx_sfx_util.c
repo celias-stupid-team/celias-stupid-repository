@@ -212,11 +212,10 @@ void InitAndLaunchChosenStatusAnimation(bool8 isStatus2, u32 status)
 bool8 TryHandleLaunchBattleTableAnimation(u8 activeBattler, u8 atkBattler, u8 defBattler, u8 tableId, u16 argument)
 {
     u8 taskId;
-    u8 castformPals = (NUM_CASTFORM_FORMS * 16 * 2); // 16 colors, two bytes per color
-
-    if (tableId == B_ANIM_CASTFORM_CHANGE && (argument & castformPals))
+    
+    if (tableId == B_ANIM_CASTFORM_CHANGE && (argument & CASTFORM_SUBSTITUTE))
     {
-        gBattleMonForms[activeBattler] = (argument & ~(castformPals));
+        gBattleMonForms[activeBattler] = (argument & ~(CASTFORM_SUBSTITUTE));
         return TRUE;
     }
     else if (gBattleSpritesDataPtr->battlerData[activeBattler].behindSubstitute
@@ -1107,16 +1106,16 @@ void AllocateMonSpritesGfx(void)
 
     gMonSpritesGfxPtr = NULL;
     gMonSpritesGfxPtr = AllocZeroed(sizeof(*gMonSpritesGfxPtr));
-    gMonSpritesGfxPtr->firstDecompressed = AllocZeroed(0x8000);
+    gMonSpritesGfxPtr->firstDecompressed = AllocZeroed(MAX_BATTLERS_COUNT * MAX_MON_PIC_FRAMES * MON_PIC_SIZE);
     for (i = 0; i < MAX_BATTLERS_COUNT; ++i)
     {
-        gMonSpritesGfxPtr->sprites[i] = gMonSpritesGfxPtr->firstDecompressed + (i * 0x2000);
+        gMonSpritesGfxPtr->sprites[i] = gMonSpritesGfxPtr->firstDecompressed + (i * MAX_MON_PIC_FRAMES * MON_PIC_SIZE);
         *(gMonSpritesGfxPtr->templates + i) = gSpriteTemplates_Battlers[i];
 
-        for (j = 0; j < 4; ++j)
+        for (j = 0; j < MAX_MON_PIC_FRAMES; ++j)
         {
-            gMonSpritesGfxPtr->images[i][j].data = gMonSpritesGfxPtr->sprites[i] + (j * 0x800);
-            gMonSpritesGfxPtr->images[i][j].size = 0x800;
+            gMonSpritesGfxPtr->images[i][j].data = gMonSpritesGfxPtr->sprites[i] + (j * MON_PIC_SIZE);
+            gMonSpritesGfxPtr->images[i][j].size = MON_PIC_SIZE;
         }
 
         gMonSpritesGfxPtr->templates[i].images = gMonSpritesGfxPtr->images[i];

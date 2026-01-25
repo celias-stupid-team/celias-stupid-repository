@@ -1730,23 +1730,26 @@ enum
     CASTFORM_TO_FIRE,
     CASTFORM_TO_WATER,
     CASTFORM_TO_ICE,
+    CASTFORM_TO_SHADOW,
 };
 
 u8 CastformDataTypeChange(u8 battler)
 {
     u8 formChange = 0;
+    u8 baseType = gSpeciesInfo[SPECIES_CASTFORM].types[0];
+    
     if (gBattleMons[battler].species != SPECIES_CASTFORM || gBattleMons[battler].ability != ABILITY_FORECAST || gBattleMons[battler].hp == 0)
         return CASTFORM_NO_CHANGE;
-    if (!WEATHER_HAS_EFFECT && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))
+    if (!WEATHER_HAS_EFFECT && !IS_BATTLER_OF_TYPE(battler, baseType))
     {
-        SET_BATTLER_TYPE(battler, TYPE_NORMAL);
+        SET_BATTLER_TYPE(battler, baseType);
         return CASTFORM_TO_NORMAL;
     }
     if (!WEATHER_HAS_EFFECT)
         return CASTFORM_NO_CHANGE;
-    if (!(gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SUN | B_WEATHER_HAIL)) && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))
+    if (!(gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SUN | B_WEATHER_HAIL | B_WEATHER_SHADOW_SKY)) && !IS_BATTLER_OF_TYPE(battler, baseType))
     {
-        SET_BATTLER_TYPE(battler, TYPE_NORMAL);
+        SET_BATTLER_TYPE(battler, baseType);
         formChange = CASTFORM_TO_NORMAL;
     }
     if (gBattleWeather & B_WEATHER_SUN && !IS_BATTLER_OF_TYPE(battler, TYPE_FIRE))
@@ -1763,6 +1766,11 @@ u8 CastformDataTypeChange(u8 battler)
     {
         SET_BATTLER_TYPE(battler, TYPE_ICE);
         formChange = CASTFORM_TO_ICE;
+    }
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY && !IS_BATTLER_OF_TYPE(battler, TYPE_SHADOW))
+    {
+        SET_BATTLER_TYPE(battler, TYPE_SHADOW);
+        formChange = CASTFORM_TO_SHADOW;
     }
     return formChange;
 }
