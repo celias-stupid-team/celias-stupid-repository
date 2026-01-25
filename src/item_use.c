@@ -92,8 +92,8 @@ static void StartGenderFluidFieldEffect(void);
 static void Task_GenderFluidWarpOut(u8 taskId);
 static void GenderFluidWarpOutEffect_Init(struct Task *task);
 static void GenderFluidWarpOutEffect_Spin(struct Task *task);
-static void TryToTransTheNidotrans(void);
-static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx);
+static void TryToTransTheNidotrans(u8 taskId);
+static void TransTheNidotrans(u8 taskId);
 static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
 static void Task_UseMoveRelearnerOnField(u8 taskId);
@@ -1172,12 +1172,14 @@ static void (*const sLWPEmblemWarpOutEffectFuncs[])(struct Task *task) =
     LWPEmblemWarpOutEffect_Spin
 };
 
-#define tState       data[0]
-#define tSpinDelay   data[1]
-#define tNumTurns    data[2]
-#define tTimer       data[3]
-#define tSpinEnded   data[4]
-#define tCurrentDir  data[5]
+// the first 6 task data slots are used for storing party species that are nidotran family
+// for the genderfluid item
+#define tState       data[6]
+#define tSpinDelay   data[7]
+#define tNumTurns    data[8]
+#define tTimer       data[9]
+#define tSpinEnded   data[10]
+#define tCurrentDir  data[11]
 #define tDirection   data[15]
 
 static void Task_LWPEmblemWarpOut(u8 taskId)
@@ -1265,56 +1267,87 @@ static void ItemUseOnFieldCB_GenderFluid(u8 taskId)
         gPlayerAvatar.gender = MALE;
     }
 
-    TryToTransTheNidotrans();
+    TryToTransTheNidotrans(taskId);
     
     DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_UseGenderFluidOnField);
 }
 
-static void TryToTransTheNidotrans(void)
+static inline bool32 IsMonInNidotranFamily(u16 species)
 {
-    u16 nidoFIdx, nidoMIdx;
-    nidoFIdx = FindSpeciesInParty(SPECIES_NIDORAN_M); 
-    nidoMIdx = FindSpeciesInParty(SPECIES_NIDORAN_F); 
-
-    // only trans 'em if they're both present
-    if (nidoFIdx == SPECIES_NONE || nidoMIdx == SPECIES_NONE)
-    {
-        return;    
-    }
-
-    TransTheNidotrans(nidoFIdx, nidoMIdx);
+    return species == SPECIES_NIDORAN_M
+            || species == SPECIES_NIDORINO  
+            || species == SPECIES_NIDOKING  
+            || species == SPECIES_NIDORAN_F  
+            || species == SPECIES_NIDORINA  
+            || species == SPECIES_NIDOQUEEN;  
 }
 
-static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx)
+static void TryToTransTheNidotrans(u8 taskId)
 {
-    u32 newPersonality, otID, i;
+    u32 i;
+    u16 species;
+    bool32 atLeastOne = FALSE;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        if (IsMonInNidotranFamily(species))
+        {
+            gTasks[taskId].data[i] = species;
+            atLeastOne = TRUE;
+        }
+        else
+        {
+            gTasks[taskId].data[i] = SPECIES_NONE;
+        }
+    }
+
+    if (atLeastOne) TransTheNidotrans(taskId);
+}
+
+static const u16 sNidotranCounterparts[6][2] = {
+    {SPECIES_NIDORAN_F, SPECIES_NIDORAN_M},
+    {SPECIES_NIDORINA, SPECIES_NIDORINO},
+    {SPECIES_NIDOQUEEN, SPECIES_NIDOKING},
+    {SPECIES_NIDORAN_M, SPECIES_NIDORAN_F},
+    {SPECIES_NIDORINO, SPECIES_NIDORINA},
+    {SPECIES_NIDOKING, SPECIES_NIDOQUEEN},
+};
+
+static void TransTheNidotrans(u8 taskId)
+{
+    u32 i, j;
     u16 newSpecies, oldSpecies;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     struct Pokemon *mon;
-    bool32 thisIsTrue = TRUE;
+    s16 *data = gTasks[taskId].data;
 
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < PARTY_SIZE; i++)
     {
-        mon = &gPlayerParty[i == 0 ? nidoFIdx : nidoMIdx];
-        newSpecies = i == 0 ? SPECIES_NIDORAN_F : SPECIES_NIDORAN_M;
-        oldSpecies = i == 0 ? SPECIES_NIDORAN_M : SPECIES_NIDORAN_F;
+        j = 0;
+        if (data[i] == SPECIES_NONE) continue;
 
-        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+        oldSpecies = data[i];
+        while (sNidotranCounterparts[j][0] != oldSpecies && j < 6) j++; // the bound here is just a softlock/memory failsafe
+        newSpecies = sNidotranCounterparts[j][1];
+
+        mon = &gPlayerParty[i];
+
         GetMonNickname(mon, nickname);
-        newPersonality = Random32();
 
-        // force the mon to be shiny
-        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-        
         // if player has nicknamed their nidotran, don't overwrite it
         if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
         {
             SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
         }
+
         SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
-        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
-        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
-        UpdateMonPersonality(&mon->box, newPersonality);
+
+        if (GetMonData(mon, MON_DATA_CSR_SHINY))
+        {
+            GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+        }
+
         CalculateMonStats(mon);
     } 
 }
