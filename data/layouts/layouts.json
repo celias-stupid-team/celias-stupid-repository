@@ -7260,6 +7260,18 @@
       "secondary_tileset": "gTileset_MoonAltar",
       "border_filepath": "data/layouts/ZeroIsland_LibertyGarden_Open/border.bin",
       "blockdata_filepath": "data/layouts/ZeroIsland_LibertyGarden_Open/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_CAPE_BRINK_UNDER_WATERFALL",
+      "name": "TwoIsland_CapeBrink_UnderWaterfall",
+      "width": 45,
+      "height": 30,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TwoIsland",
+      "border_filepath": "data/layouts/TwoIsland_CapeBrink_UnderWaterfall/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_CapeBrink_UnderWaterfall/map.bin"
     }
   ]
 }

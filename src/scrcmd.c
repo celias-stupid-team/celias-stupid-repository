@@ -2717,8 +2717,8 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
 
 
 
-#define SCRIPT_GLITCH_START ((uintptr_t)FadeSongAndPlayVictory - 0x100)
-#define SCRIPT_GLITCH_END   ((uintptr_t)FadeSongAndPlayVictory + 0x3000)
+#define SCRIPT_GLITCH_START ((uintptr_t)FadeSongAndPlayVictory - 0x100) //Arbitrary "seed" script
+#define SCRIPT_GLITCH_END   ((uintptr_t)FadeSongAndPlayVictory + 0x23400)
 
 bool8 ScrCmd_gotorandom(struct ScriptContext *ctx)
 {
