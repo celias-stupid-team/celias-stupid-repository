@@ -80,7 +80,11 @@ script MtMoon_EventScript_AetherShortcut {
 
 
 script MtMoon_EventScript_HyperDrill {
+	trainerbattle_single(TRAINER_PORYGON22, "I learned this neat move\ncalled HYPER DRILL.\pCheck out the POKéMON I evolved!", "Whoa now!")
 	msgbox(
-	"porygon22\n"
-	"", MSGBOX_NPC)
+	"I've been stuck in this part of\n"
+	"the cave for weeks.\p"
+
+	"No clue how I'm supposed to get\n"
+	"out.", MSGBOX_NPC)
 }

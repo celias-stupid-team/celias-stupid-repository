@@ -279,6 +279,7 @@ script MayRoom_LassAttack {
 	delay(40)
 	removeobject(LANCE_LASS)
 	addobject(LOCALID_LANCE_FALLENLASS)
+	clearflag(FLAG_TEMP_6)
 	//add fallen lass
 	playse(SE_EFFECTIVE)
 	fadescreeninstant(FADE_FROM_WHITE)

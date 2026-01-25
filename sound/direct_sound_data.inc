@@ -5412,3 +5412,7 @@ Cry_FINALWARTORTLE::
 	.incbin "sound/direct_sound_samples/cries/finalwartortle.bin"
 
 	.align 2
+Cry_DODODUO::
+	.incbin "sound/direct_sound_samples/cries/dododuo.bin"
+
+	.align 2

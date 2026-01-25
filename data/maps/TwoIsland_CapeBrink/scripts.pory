@@ -38,8 +38,11 @@ script TwoIsland_StarmanEncounter {
 	}
 	waitmovement(0)
 	msgbox(
-	"you're really            pissing\n"
-	"                         me off", MSGBOX_DEFAULT)
+	"{PLAYER}.\n"
+	"You stand in our way.\p"
+
+	"I'll stomp you hard.{PAUSE 20}\n"
+	"Don't go to heaven!", MSGBOX_DEFAULT)
 
 	trainerbattle_no_intro(TRAINER_STARMAN, "heck")
 	msgbox(
