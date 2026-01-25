@@ -1,6 +1,7 @@
 mapscripts AetherParadise_Island_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_TEMP_9)
+        setflag(FLAG_CSR_MAP_AETHER_PARADISE)
     }
 }
 

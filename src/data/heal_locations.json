@@ -559,6 +559,14 @@
       "y": 14,
       "respawn_map": "MAP_ROUTE19",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_AETHER_PARADISE_ISLAND",
+      "map": "MAP_AETHER_PARADISE_ISLAND",
+      "x": 49,
+      "y": 41,
+      "respawn_map": "MAP_AETHER_PARADISE_ISLAND",
+      "respawn_npc": "1"
     }
   ]
 }
