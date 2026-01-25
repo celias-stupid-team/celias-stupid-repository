@@ -1550,7 +1550,7 @@
 #define FLAG_WORLD_MAP_PIRATE_BAY                                                  (SYS_FLAGS + 0xDA)
 #define FLAG_WORLD_MAP_OCEAN_11                                                  (SYS_FLAGS + 0xDB)
 #define FLAG_CSR_MAP_PRIZE_EXCHANGE                                                  (SYS_FLAGS + 0xDC)
-#define FLAG_CSR_MAP_DUMMY_7                                                  (SYS_FLAGS + 0xDD)
+#define FLAG_WORLD_MAP_MEMORIAL_PILLAR                                                  (SYS_FLAGS + 0xDD)
 #define FLAG_CSR_MAP_CAVE_OF_ORIGIN                                                 (SYS_FLAGS + 0xDE)
 #define FLAG_CSR_MAP_DUMMY_8                                                  (SYS_FLAGS + 0xDF)
 #define FLAG_CSR_MAP_GAME_SHOP                                                  (SYS_FLAGS + 0xE0)

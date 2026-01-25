@@ -2,6 +2,7 @@ raw `
 FiveIsland_MemorialPillar_MapScripts::
 	.byte 0
 
+
 FiveIsland_MemorialPillar_EventScript_MemorialMan::
 	lock
 	goto_if_set FLAG_GOT_TM42_AT_MEMORIAL_PILLAR, FiveIsland_MemorialPillar_EventScript_AlreadyGotTM42
@@ -87,6 +88,7 @@ FiveIsland_MemorialPillar_EventScript_MemorialLemonadeAlreadyPlaced::
 
 script MemorialPillar_OnixSign {
 	lock
+	setflag(FLAG_WORLD_MAP_MEMORIAL_PILLAR)
 	famechecker(FAMECHECKER_GREAT_SEA_EAST, 0)
 	if(flag(FLAG_ONIX_TAIL_SIGN)) {
 		msgbox(

@@ -142,21 +142,26 @@ script GreatBay_TriangleGoesInHole {
         delay_16 * 3
         walk_faster_left * 10
         delay_16
-        walk_fastest_down * 4
 
     ))
     waitmovement(VAR_LAST_TALKED)
     playse(SE_FALL)
     applymovement(VAR_LAST_TALKED, moves(
         walk_fastest_down * 4
+        set_invisible
 
     ))
     waitmovement(VAR_LAST_TALKED)
     removeobject(VAR_LAST_TALKED)
     delay(60)
+    msgbox(
+	"It went in the square hole.\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
     applymovement(LOCALID_CAMERA, moves(
-        walk_right * 10
-        walk_up
+        walk_fast_right * 10
+        walk_fast_up
     ))
     delay(60)
     fadedefaultbgm
