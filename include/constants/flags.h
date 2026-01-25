@@ -1547,7 +1547,7 @@
 #define FLAG_CSR_MAP_BALL_SHOP                                                  (SYS_FLAGS + 0xD8)
 #define FLAG_CSR_VIRIDIAN_GYM_BACK_ROOM                                                  (SYS_FLAGS + 0xD9)
 #define FLAG_WORLD_MAP_PIRATE_BAY                                                  (SYS_FLAGS + 0xDA)
-#define FLAG_CSR_MAP_DUMMY_6                                                  (SYS_FLAGS + 0xDB)
+#define FLAG_WORLD_MAP_OCEAN_11                                                  (SYS_FLAGS + 0xDB)
 #define FLAG_CSR_MAP_PRIZE_EXCHANGE                                                  (SYS_FLAGS + 0xDC)
 #define FLAG_CSR_MAP_DUMMY_7                                                  (SYS_FLAGS + 0xDD)
 #define FLAG_CSR_MAP_CAVE_OF_ORIGIN                                                 (SYS_FLAGS + 0xDE)
