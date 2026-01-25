@@ -65,3 +65,52 @@ script TwoIsland_StarmanEncounter {
 	setvar(VAR_TWO_ISLAND_STARMAN, 2)
 	release
 }
+
+
+script TwoIsland_SoftSandGirl {
+	lock
+	if(flag(FLAG_SOFT_SAND_GIRL)) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"You have plenty of sand.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	faceplayer
+	msgbox(
+	"Wowie!\n"
+	"Look what I found here!\p"
+
+	"Here, take it!\n"
+	"", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	giveitem_msg("{PLAYER} was given a handful\nof SAND.", ITEM_SOFT_SAND)
+	waitfanfare
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Oooh, lookie!\n"
+	"Here's some more!", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	giveitem_msg("{PLAYER} was given another\nhandful of SAND.", ITEM_SOFT_SAND)
+	waitfanfare
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Oh! Oh!\n"
+	"And there's some over here!\l"
+	"Take it!", MSGBOX_DEFAULT)
+	giveitem_msg("{PLAYER} was given a third fucking\nhandful of SAND.", ITEM_SOFT_SAND)
+	waitfanfare
+	closemessage
+	delay(60)
+	msgbox(
+	"You decide to leave her alone.\n"
+	"", MSGBOX_DEFAULT)
+	setflag(FLAG_SOFT_SAND_GIRL)
+	release
+	end
+}

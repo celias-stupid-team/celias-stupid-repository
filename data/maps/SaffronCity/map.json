@@ -222,7 +222,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 25,
+      "x": 26,
       "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",

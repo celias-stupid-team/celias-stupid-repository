@@ -481,7 +481,7 @@
 #define FLAG_0x1AE                          0x1AE
 #define FLAG_0x1AF                    0x1AF
 #define FLAG_GOT_TM50                          0x1B0
-#define FLAG_0x1B1                   0x1B1
+#define FLAG_SOFT_SAND_GIRL                   0x1B1
 #define FLAG_0x1B2                       0x1B2
 #define FLAG_0x1B3                 0x1B3
 #define FLAG_0x1B4                 0x1B4
