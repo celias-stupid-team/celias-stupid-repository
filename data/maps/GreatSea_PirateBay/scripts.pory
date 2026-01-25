@@ -31,6 +31,14 @@ script PirateBay_PokeharborSign {
 
 }
 
+script PirateBay_Sign {
+	msgbox(
+	"PIRATE BAY\n"
+	"Boosts WATER moves in a pinch!", MSGBOX_SIGN)
+
+}
+
+
 script PirateBay_Pokey {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(

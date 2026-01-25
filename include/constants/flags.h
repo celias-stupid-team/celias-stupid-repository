@@ -501,7 +501,7 @@
 #define FLAG_HIDE_ROUTE9_BURN_HEAL                              0x1C2
 #define FLAG_HIDE_ROCK_TUNNEL_1F_REPEL                          0x1C3
 #define FLAG_FOUND_W                          0x1C4
-#define FLAG_0x1C5                    0x1C5
+#define FLAG_CELIA_SECRET_PIT                    0x1C5
 #define FLAG_0x1C6                        0x1C6
 #define FLAG_0x1C7                     0x1C7
 #define FLAG_0x1C8                              0x1C8
@@ -818,6 +818,7 @@
 #define CELIA_SECRET_FUCHSIA 6
 #define CELIA_SECRET_CINNABAR 7
 #define CELIA_SECRET_PALLET 8
+#define CELIA_SECRET_PIT 9
 
 
 

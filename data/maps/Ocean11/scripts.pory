@@ -35,8 +35,8 @@ script GreatSea_LuvdiscHint {
 	faceplayer
 	msgbox(
 	"I've heard there's a rare POKéMON\n"
-	"somewhere in the GREAT SEA, but only\l"
-	"by fishing in one, single tile.\p"
+	"somewhere in the GREAT SEA, but\l"
+	"only by fishing in one, single tile.\p"
 
 	"I wonder where that might be…\n"
 	"", MSGBOX_DEFAULT)
