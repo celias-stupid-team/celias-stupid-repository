@@ -8,6 +8,9 @@ Route2_EventScript_DiglettsCaveSign::
 mapscripts Route2_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setbench(BENCH_ROUTE1)
+		if(flag(FLAG_FOUND_ROTOM_MOW) || !flag(FLAG_SYS_ROTOM_MENU)) {
+			setflag(FLAG_TEMP_1)
+		}
 	}
 }
 script Route2_EventScript_CeliaGrass {
@@ -88,4 +91,27 @@ script Route2_ClearShiny {
 	clearflag(FLAG_SHINY_CREATION)
 	release
 
+}
+
+
+
+script Route2_Rotom {
+	lock
+	faceplayer
+	playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
+	waitmoncry
+	applymovement(VAR_LAST_TALKED, moves(
+		emote_exclamation_mark
+	))
+	waitmovement(0)
+	delay(60)
+	msgbox(
+	"It's the KANTO LAWN MAINTENANCE\n"
+	"SERVICE!", MSGBOX_DEFAULT)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_FOUND_ROTOM_MOW)
+    fadescreen(FADE_FROM_BLACK)
+	release
 }

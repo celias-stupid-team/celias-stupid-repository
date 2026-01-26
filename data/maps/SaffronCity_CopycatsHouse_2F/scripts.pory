@@ -106,11 +106,7 @@ script CopycatHouse_Child {
 	flag(FLAG_TEMP_B) && 
 	flag(FLAG_TEMP_C) && 
 	flag(FLAG_TEMP_D)) {
-		msgbox(
-		"COPYCAT: Wha- Hey!\p"
-
-		"Where'd my dolls go?\n"
-		"", MSGBOX_DEFAULT)
+		finditem(ITEM_COPYCAT_TM)
 		release
 		end
 	}
@@ -141,5 +137,52 @@ script CopycatHouse_Game {
 
 	"I hope to see you soon!\n"
 	"", MSGBOX_SIGN)
+
+}
+
+
+script CopycatHouse_ChildDelivery {
+	msgbox(
+	"Dear MR. and MRS. COPYCAT,\p"
+
+	"We have confirmed the annulment\n"
+	"of your recent REPLACEMENT order.\p"
+
+	"Do note that our refund policy\n"
+	"does not cover cancellations\l"
+	"within one (1) business day.\p"
+
+	"As such, your order remains on\n"
+	"file if you'd like a new sibling.\l"
+	"We have a special going for twins!\p"
+
+	"Thank you,\n"
+	"KANTO CHILD DELIVER SERVICE", MSGBOX_SIGN)
+
+}
+
+script CopycatHouse_FavoriteShirt {
+	msgbox(
+	"Twelve identical copies of your\n"
+	"favorite copies of your favorite\l"
+	"shirt!", MSGBOX_SIGN)
+
+}
+
+script CopycatHouse_Painting {
+	msgbox(
+	"It looks like a picture of a\n"
+	"painting, but it's actually a\l"
+	"copy of a picture of a painting.", MSGBOX_SIGN)
+
+}
+
+
+script CopycatHouse_Bookshelf {
+	msgbox(
+	"My Secret Life, chapter three\p"
+
+	"Looks like it's copying every\n"
+	"other bookshelf.", MSGBOX_SIGN)
 
 }

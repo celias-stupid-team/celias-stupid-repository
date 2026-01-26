@@ -201,7 +201,36 @@ script DanceTheater_Pikachu {
 script DanceTheater_FluteMan {
     lock
     faceplayer
-    if(!checkitem(ITEM_SOOT_SACK)) {
+    if(checkitem(ITEM_SACRED_ASH)) {
+        msgbox(
+        "Hello, again!\n"
+        "Would you like another GLASS ITEM?\p"
+
+        "Ah, some SACRED ASH?\n"
+        "Lovely!\l"
+        "I'll craft something with this.", MSGBOX_DEFAULT)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeitem(ITEM_SACRED_ASH)
+        setflag(FLAG_SHINY_CREATION)
+        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PIDGEY)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(
+        "Ohohoho!\n"
+        "This item is particularly lovely.\p"
+
+        "Take it - I hope you enjoy!\n"
+        "", MSGBOX_DEFAULT)
+        playfanfare(MUS_LEVEL_UP)
+        msgbox(
+        "{PLAYER} recieved the\n"
+        "expertly-crafted PIDGEY!", MSGBOX_DEFAULT)
+        waitfanfare
+        call(Common_Script_GiftPokemon30)
+        release
+        end
+    }
+    if(!checkitem(ITEM_SOOT_SACK) && !flag(FLAG_CRAFTED_BLUE_FLUTE)) {
         msgbox("Why hello, there!\nWhat an excellent show, huff-puff!\pBack in my home region, I was an\nesteemed glassworker, huff-puff.\pSeeing such a beautiful performance\ninspired my inner craftsman.\lI wish to create again, huff-puff.\pHere!\nTake this, huff-puff!", MSGBOX_DEFAULT)
         giveitem(ITEM_SOOT_SACK)
         msgbox("Fill that SOOT SACK with ash and\nbring it back to me.\lI'll craft you a present, huff-puff!", MSGBOX_DEFAULT)

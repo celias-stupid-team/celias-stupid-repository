@@ -152,7 +152,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 5,
+      "x": 4,
       "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -198,8 +198,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 3,
-      "y": 22,
+      "x": 1,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GreatSea_WetFloor"

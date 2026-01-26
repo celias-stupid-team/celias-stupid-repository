@@ -31,6 +31,14 @@ script PirateBay_PokeharborSign {
 
 }
 
+script PirateBay_Sign {
+	msgbox(
+	"PIRATE BAY\n"
+	"Boosts WATER moves in a pinch!", MSGBOX_SIGN)
+
+}
+
+
 script PirateBay_Pokey {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
@@ -371,16 +379,19 @@ script PirateBay_Nurse {
 
 	"Would you like to heal your\n"
 	"POKéMON?")
+	waitmessage
 	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "AYE", "NAY")
 	if(!var(VAR_RESULT)) {
 		message(
 		"Do ye be sure?\n"
 		"")
+		waitmessage
 		dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "AYE", "NAY")
 		if(!var(VAR_RESULT)) {
 			message(
 			"Do ye be REALLY sure?\n"
 			"")
+			waitmessage
 			dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "AYE", "NAY")
 			if(!var(VAR_RESULT)) {
 				msgbox(

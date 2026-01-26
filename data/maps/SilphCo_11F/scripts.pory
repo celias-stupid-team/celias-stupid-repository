@@ -120,16 +120,37 @@ script SilphCo_11F_EventScript_BattleGiovanni {
 	waitmovement(0)
 	delay(25)
 	msgbox(
-	"GIOVANNI: copyright\n"
-	"", MSGBOX_DEFAULT)
+	"GIOVANNI: Oh?\n"
+	"You again?\p"
+
+	"I was simply discussing my plans\n"
+	"with the PRESIDENT of SILPH.\l"
+	"He's a brainless ideologue.\p"
+
+	"But soon, I'll be in control of this\n"
+	"company's intellectual property!", MSGBOX_DEFAULT)
 	closemessage
 	call_if_eq(VAR_TEMP_1, 0, SilphCo_11F_EventScript_GiovanniApproachLeft)
 	call_if_eq(VAR_TEMP_1, 1, SilphCo_11F_EventScript_GiovanniApproachRight)
 	setvar(VAR_LAST_TALKED, LOCALID_SILPH_CO_GIOVANNI)
 	trainerbattle_no_intro(TRAINER_BOSS_GIOVANNI_2, SilphCo_11F_Text_GiovanniDefeat)
 	msgbox(
-	"GIOVANNI: you copied me\n"
-	"damn", MSGBOX_DEFAULT)
+	"GIOVANNI: Foolish child!\n"
+	"Can you not see the world as it is?\p"
+
+	"Art isn't owed to those who create\n"
+	"and consume it!\l"
+	"It belongs solely to corporations!\p"
+
+	"What is the purpose of creation if\n"
+	"not to amass wealth and power!?\p"
+
+	"Hmph.\n"
+	"You're young and naive.\l"
+	"You can't possibly understand us.\p"
+
+	"I'm wasting my time on you.\n"
+	"", MSGBOX_DEFAULT)
 	closemessage
 	fadenewbgm(MUS_NONE)
 	fadescreenswapbuffers(FADE_TO_BLACK)

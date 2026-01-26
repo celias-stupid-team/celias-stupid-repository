@@ -255,7 +255,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 51,
+      "x": 54,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",

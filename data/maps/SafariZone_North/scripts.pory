@@ -110,7 +110,7 @@ script SafariZone_North_DMCA_3 {
 script SafariZone_North_DMCA_4 {
 	trainerbattle_single(TRAINER_DMCA_GRUNT_22, "Graaah!\nWhy won't this POKéMON just change?", "It's violating its own copyright!")
 	famechecker(FAMECHECKER_FUSHCIA, 2)
-	msgbox("We found an ITEM here that induced\nan illegal EVOLUTION.\pWe passed it to our team in the\nCELADON DMCA LAW OFFICES.\lOne of our ADMINS is guarding it.\p…What's that?\nYou took it from him!?\lNo!", MSGBOX_NPC)
+	msgbox("We found an ITEM here that induced\nan illegal evolution in DRAGONITE.\pWe passed it to our team in the\nCELADON DMCA LAW OFFICES.\lOne of our ADMINS is guarding it.\p…What's that?\nYou took it from him!?\lNo!", MSGBOX_NPC)
 
 }
 

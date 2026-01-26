@@ -382,6 +382,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route17_DickBridge"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 107,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_WetFloor"
     }
   ]
 }

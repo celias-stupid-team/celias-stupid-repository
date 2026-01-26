@@ -427,7 +427,8 @@
     "SecretRoom",
     "FalknerGym",
     "CaveOfOrigin_1F",
-    "CaveOfOrigin_2F"
+    "CaveOfOrigin_2F",
+    "ContestHall"
   ],
   "gMapGroup_IndoorFushcia": [
     "FushciaCity_SafariZone_Entrance",
@@ -474,7 +475,8 @@
     "SaffronCity_PokemonCenter_1F",
     "SaffronCity_PokemonCenter_2F",
     "SaffronCity_MrPsychicsHouse",
-    "SaffronCity_PokemonTrainerFanClub"
+    "SaffronCity_PokemonTrainerFanClub",
+    "BrunoBackRoom"
   ],
   "gMapGroup_IndoorRoute2": [
     "Route2_ViridianForest_SouthEntrance",

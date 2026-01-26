@@ -825,8 +825,8 @@ const u8 gJolteonPokedexText[] = _(
 const u8 gJolteonPokedexTextUnused[] = _("");
 
 const u8 gFlareonPokedexText[] = _(
-	"No, no! We can't!\n"
-	"This baby is a demon child!");
+	"¡No podemos!\n"
+	"¡Este bebé es un niño demonio!");
 
 const u8 gFlareonPokedexTextUnused[] = _("");
 
@@ -2741,3 +2741,14 @@ const u8 gPokemonGunPokedexText[] = _(
 
 const u8 gWoobatPokedexText[] = _(
 	"Waaa");
+
+
+const u8 gSolaceonPokedexText[] = _(
+	"Technically only the\n"
+	"second-largest POKéMON\n"
+	"you own.");
+
+
+const u8 gAmoongussPokedexText[] = _(
+	"I hate that this thing\n"
+	"has two S's in its name.");

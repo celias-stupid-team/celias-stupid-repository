@@ -539,7 +539,8 @@
 #define ITEM_TOP 457
 #define ITEM_RAGECANDYBAR 458
 #define ITEM_MEAT 459
-#define ITEMS_COUNT 460
+#define ITEM_RUNNINGSCREWS 460
+#define ITEMS_COUNT 461
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

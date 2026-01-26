@@ -559,6 +559,30 @@
       "y": 14,
       "respawn_map": "MAP_ROUTE19",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_AETHER_PARADISE_ISLAND",
+      "map": "MAP_AETHER_PARADISE_ISLAND",
+      "x": 49,
+      "y": 41,
+      "respawn_map": "MAP_AETHER_PARADISE_ISLAND",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_POKEMON_ISLAND_SOUTH",
+      "map": "MAP_POKEMON_ISLAND_SOUTH",
+      "x": 17,
+      "y": 17,
+      "respawn_map": "MAP_POKEMON_ISLAND_SOUTH",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE20_SEAFOAM_ISLANDS",
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "x": 26,
+      "y": 18,
+      "respawn_map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "respawn_npc": "1"
     }
   ]
 }

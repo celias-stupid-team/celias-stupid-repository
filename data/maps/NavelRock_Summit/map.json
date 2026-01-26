@@ -75,7 +75,7 @@
       "item": "ITEM_SACRED_ASH",
       "flag": "FLAG_HIDDEN_ITEM_NAVEL_ROCK_SUMMIT_SACRED_ASH",
       "quantity": 1,
-      "underfoot": true
+      "underfoot": false
     }
   ]
 }

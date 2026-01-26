@@ -787,6 +787,13 @@ bool8 MetatileBehavior_IsPokeMartShelf(u8 metatileBehavior)
     else
         return FALSE;
 }
+bool8 MetatileBehavior_IsWalMartShelf(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_MINNESOTA_MART)
+        return TRUE;
+    else
+        return FALSE;
+}
 
 bool8 MetatileBehavior_IsPlayerFacingPokemonCenterSign(u8 metatileBehavior, u8 playerDirection)
 {

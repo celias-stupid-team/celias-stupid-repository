@@ -51,9 +51,6 @@ script ViridianGym_Falkner {
         removeobject(LOCALID_DMCA_SILVER)
         fadescreenswapbuffers(FADE_FROM_BLACK)
         delay(60)
-        setweather(WEATHER_RAIN_THUNDERSTORM)
-        doweather
-        delay(60)
         release
         end
 

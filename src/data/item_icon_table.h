@@ -488,5 +488,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_TOP]      =  {gItemIcon_Top, gItemIconPalette_Top},
     [ITEM_RAGECANDYBAR]      =  {gItemIcon_Ragecandybar, gItemIconPalette_Ragecandybar},
     [ITEM_MEAT]      =  {gItemIcon_Meat, gItemIconPalette_Meat},
+    [ITEM_RUNNINGSCREWS]      =  {gItemIcon_Runningscrews, gItemIconPalette_Runningscrews},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

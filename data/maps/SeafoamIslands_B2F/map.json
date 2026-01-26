@@ -18,7 +18,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 25,
+      "x": 27,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -32,7 +32,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 26,
+      "x": 25,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -56,34 +56,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SeafoamIslands_B2F_EventScript_ItemBigPearl",
       "flag": "NULL"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 27,
-      "y": 11,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_2",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_HIDE_SEAFOAM_B2F_BOULDER_2"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 44,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_2",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_HIDE_SEAFOAM_B2F_BOULDER_2"
     },
     {
       "type": "object",
@@ -112,6 +84,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 26,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_2",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_HIDE_SEAFOAM_B2F_BOULDER_2"
     }
   ],
   "warp_events": [
@@ -137,7 +123,7 @@
       "dest_warp_id": "2"
     },
     {
-      "x": 17,
+      "x": 12,
       "y": 4,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",

@@ -1,0 +1,46 @@
+mapscripts ContestHall_MapScripts {
+
+}
+
+
+script ContestHall_Explosion {
+    lock
+    msgbox(
+	"FORRETRESS used\n"
+	"EXPLOSION!", MSGBOX_DEFAULT)
+    closemessage
+    playse(SE_M_EXPLOSION)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(VAR_LAST_TALKED)
+    waitse
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    delay(60)
+    playse(SE_CONTEST_HEART)
+    applymovement(LOCALID_CONTEST_HEART_1, moves(
+        face_up
+    ))
+    waitse
+    delay(10)
+    playse(SE_CONTEST_HEART)
+    applymovement(LOCALID_CONTEST_HEART_1, moves(
+        face_left
+    ))
+    waitse
+    delay(10)
+    playse(SE_CONTEST_HEART)
+    applymovement(LOCALID_CONTEST_HEART_2, moves(
+        face_up
+    ))
+    waitse
+    delay(10)
+    playse(SE_CONTEST_HEART)
+    applymovement(LOCALID_CONTEST_HEART_2, moves(
+        face_left
+    ))
+    waitse
+    delay(10)
+    playse(SE_APPLAUSE)
+    delay(60)
+    release
+
+}

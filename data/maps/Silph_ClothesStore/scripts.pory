@@ -67,6 +67,7 @@ script ClothesStore_MaleClothes {
         "wearing clothes the programmers\l"
         "didn't account for?", MSGBOX_DEFAULT)
     }
+    release
 }
 script ClothesStore_FemaleClothes {
     lock
@@ -97,4 +98,5 @@ script ClothesStore_FemaleClothes {
         "wearing clothes the programmers\l"
         "didn't account for?", MSGBOX_DEFAULT)
     }
+    release
 }
