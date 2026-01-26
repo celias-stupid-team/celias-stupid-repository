@@ -406,7 +406,7 @@ static void OpenStartMenuWithFollowupFunc(TaskFunc func)
 
 static bool8 FieldCB2_DrawStartMenu(void)
 {
-    if (!FlagGet(FLAG_SYS_ROTOM_MENU))
+    if (!(FlagGet(FLAG_SYS_ROTOM_MENU) && !flag(FLAG_IN_FUSHCIA_GYM)))
     {
         if (!DoDrawStartMenu())
             return FALSE;
