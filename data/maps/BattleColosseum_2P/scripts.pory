@@ -221,7 +221,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_MOVE_REMINDER)) {
 		setobtainable(SPECIES_ODDISH) // 71
 	}
-	if(flag(FLAG_RELEASED_ZUBAT)) {
+	if((checkmoncaught(SPECIES_BIDOOF) && checkitem(ITEM_HM04)) || checkmoncaught(SPECIES_ZUBAT)) {
 		setobtainable(SPECIES_ZUBAT) // 72
 	}
 	if(flag(FLAG_HIDE_W_EMBLEM) && checkmoncaught(SPECIES_ZUBAT)) {
@@ -786,7 +786,8 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintArcanine)
 		case SPECIES_POKEMON_GUN: 
 			 msgbox(PokedexRating_Text_HintPokemonGun)
-		case SPECIES_MEWTWO: 
+		case SPECIES_MEWTWO:
+			setflag(FLAG_SHINY_MEWTWO) 
 			 msgbox(PokedexRating_Text_HintMewtwo)
 		case SPECIES_VENUSAUR: 
 			 msgbox(PokedexRating_Text_HintVenusaur)

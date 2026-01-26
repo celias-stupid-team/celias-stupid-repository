@@ -594,6 +594,8 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_ShitWall;        
     if (MetatileBehavior_IsPokeMartShelf(metatileBehavior) == TRUE)
         return EventScript_PokeMartShelf;
+    if (MetatileBehavior_IsWalMartShelf(metatileBehavior) == TRUE)
+        return EventScript_WalMartShelf;
     if (MetatileBehavior_IsFood(metatileBehavior) == TRUE)
         return EventScript_Food;
     if (MetatileBehavior_IsImpressiveMachine(metatileBehavior) == TRUE)

@@ -346,7 +346,10 @@ PokedexRating_Text_HintVenonat::
 	.string "listed you've been unable to find?$"
 
 PokedexRating_Text_HintZubat::
-	.string "Placeholder!$"
+	.string "Have you visited SEAFOAM ISLANDS\n"
+	.string "yet?\p"
+	.string "You may be able to find something\n"
+	.string "there.$"
 
 PokedexRating_Text_HintWoobat::
 	.string "When you released ZUBAT across the\n"
@@ -1005,7 +1008,13 @@ PokedexRating_Text_HintDachsbun::
 
 
 PokedexRating_Text_HintMewtwo::
-	.string "Placeholder!$"
+	.string "You saw the MEWTWO in that room,\n"
+	.string "but you didn't want to catch it?\p"
+	.string "Hrmm… That's very concerning\n"
+	.string "behavior for someone who's trying\l"
+	.string "to complete the POKéDEX.\p"
+	.string "Next time you go back there, I'll\n"
+	.string "have an extra incentive waiting.$"
 
 PokedexRating_Text_HintVenusaur::
 	.string "Did you know that POKéMON evolve?\n$"

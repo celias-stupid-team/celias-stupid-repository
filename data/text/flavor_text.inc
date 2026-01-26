@@ -37,6 +37,9 @@ Text_ATownMap::
 Text_PokeMartShelf::
 	.string "The POTION section is suspiciously\n"
 	.string "empty.$"
+Text_WalMartShelf::
+	.string "The HAMBURGER section is\n"
+	.string "suspiciously empty.$"
 
 Text_DishesPlatesNeatlyLinedUp::
 	.string "This arranging for mother is\n"

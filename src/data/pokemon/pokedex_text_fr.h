@@ -2741,3 +2741,14 @@ const u8 gPokemonGunPokedexText[] = _(
 
 const u8 gWoobatPokedexText[] = _(
 	"Waaa");
+
+
+const u8 gSolaceonPokedexText[] = _(
+	"Technically only the\n"
+	"second-largest POKéMON\n"
+	"you own.");
+
+
+const u8 gAmoongussPokedexText[] = _(
+	"I hate that this thing\n"
+	"has two S's in its name.");

@@ -12,7 +12,7 @@ script ZeroIsland_Victini {
 	delay(40)
 	waitmoncry
 	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
-	dowildbattle
+	special(DoLegendaryBattle)
 	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
 	special(QuestLog_CutRecording)
 	specialvar(VAR_RESULT, GetBattleOutcome)

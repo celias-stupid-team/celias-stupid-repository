@@ -248,8 +248,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
-      "y": 20,
+      "x": 18,
+      "y": 23,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_WATERFALL_CAVE",
       "dest_warp_id": "0"
@@ -295,18 +295,18 @@
       "x": 18,
       "y": 23,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
-      "script": "NULL"
+      "script": "TwoIsland_DrawOverWaterfall"
     },
     {
       "type": "trigger",
       "x": 18,
-      "y": 21,
+      "y": 22,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
-      "script": "NULL"
+      "script": "TwoIsland_DrawOverWaterfall"
     }
   ],
   "bg_events": [
