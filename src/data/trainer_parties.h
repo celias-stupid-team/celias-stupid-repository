@@ -5678,14 +5678,14 @@ static const struct TrainerMonItemCustomMoves sParty_ChampionFirstSquirtle[] = {
         .iv = 0,
         .lvl = 70,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_KINGAMBIT,
+        .species = SPECIES_FINALLUGIA,
         .moves = {MOVE_SHADOW_SHIELD, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 6,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_WARTORTLE,
+        .species = SPECIES_FINALWARTORTLE,
         .moves = {MOVE_HYPER_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };

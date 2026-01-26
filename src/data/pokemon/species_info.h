@@ -28568,7 +28568,6 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
-        .isShadowType = TRUE, // wiz1989 test entry
     },
     [SPECIES_GREAT_TUSK] =
     {
@@ -36294,6 +36293,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALARTICUNO] =
@@ -36324,6 +36324,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALHOOH] =
@@ -36354,6 +36355,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALZAPDOS] =
@@ -36384,6 +36386,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALMOLTRES] =
@@ -36414,6 +36417,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALWARTORTLE] =
