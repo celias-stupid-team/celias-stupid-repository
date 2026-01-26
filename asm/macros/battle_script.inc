@@ -1615,6 +1615,10 @@
 	.macro trytrainerslidemsglaston
 	callnative BS_TryTrainerSlideMsgLastOn
 	.endm
+
+	.macro trytrainerslidemsgdefeatfinalbattle
+	callnative BS_TryTrainerSlideMsgDefeatFinalBattle
+	.endm
 	
 	.macro trainerslideout position:req
 	callnative BS_TrainerSlideOut

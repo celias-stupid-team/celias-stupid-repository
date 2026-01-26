@@ -3027,8 +3027,9 @@ BattleScript_GiveExp::
 
 BattleScript_HandleFaintedMon::
 	checkteamslost BattleScript_LinkHandleFaintedMonMultiple
+	jumpifbyte CMP_EQUAL, gBattleOutcome, B_OUTCOME_CONTINUE_ROTOM, BattleScript_TrainerSlideAfterDefeat
+BattleScript_HandleFaintedMonContinue::
 	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_FaintedMonEnd
-	@ jumpifbyte CMP_EQUAL, gBattleOutcome, B_OUTCOME_CONTINUE_ROTOM, BattleScript_FaintedMonEnd
 	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_FaintedMonTryChoose
 	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonTryChoose
 	printstring STRINGID_USENEXTPKMN
@@ -5290,3 +5291,7 @@ BattleScript_EffectShadowShield::
 	printfromtable gProtectLikeUsedStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_TrainerSlideAfterDefeat::
+	trytrainerslidemsgdefeatfinalbattle
+	goto BattleScript_HandleFaintedMonContinue

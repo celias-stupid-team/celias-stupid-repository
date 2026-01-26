@@ -11289,6 +11289,24 @@ void BS_TryTrainerSlideMsgLastOn(void)
     }
 }
 
+void BS_TryTrainerSlideMsgDefeatFinalBattle(void)
+{
+    NATIVE_ARGS();
+    
+    u32 battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+
+    if ((ShouldDoTrainerSlide(battler, TRAINER_SLIDE_AFTER_DEFEAT)))
+    {
+        gBattleScripting.battler = battler;
+        BattleScriptPush(cmd->nextInstr);
+        gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
 void BS_TrainerSlideOut(void)
 {
     NATIVE_ARGS(u8 position);
