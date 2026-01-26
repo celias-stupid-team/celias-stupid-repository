@@ -1199,8 +1199,8 @@ void AddBattletypeFlags(void)
     case SPECIAL_BATTLE_TYPE_CYNTHIA:
         gBattleTypeFlags |= BATTLE_TYPE_CYNTHIA;
         break;
-    case SPECIAL_BATTLE_TYPE_ZAPMOLTICUNOOHGIA:
-        gBattleTypeFlags |= BATTLE_TYPE_ZAPMOLTICUNOOHGIA;
+    case SPECIAL_BATTLE_TYPE_ZAPMOLCUNOOHGIA:
+        gBattleTypeFlags |= BATTLE_TYPE_ZAPMOLCUNOOHGIA;
         break;
     default:
         break;

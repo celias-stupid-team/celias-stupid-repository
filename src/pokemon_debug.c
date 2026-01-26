@@ -728,9 +728,9 @@ static void LoadBattleBg(u8 battleBgType, u8 battleTerrain)
             LoadCompressedPalette(gBattleTerrainPalette_Champion, 0x20, 0x60);
             break;
         case MAP_BATTLE_SCENE_ZAPMOLTI:
-            LZDecompressVram(gBattleTerrainTiles_Zapmolticunoohgia, (void*)(BG_CHAR_ADDR(2)));
-            LZDecompressVram(gBattleTerrainTilemap_Zapmolticunoohgia, (void*)(BG_SCREEN_ADDR(26)));
-            LoadCompressedPalette(gBattleTerrainPalette_Zapmolticunoohgia, 10 * 16, 5* PLTT_SIZE_4BPP);
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia, 10 * 16, 5* PLTT_SIZE_4BPP);
             break;
     }
 }

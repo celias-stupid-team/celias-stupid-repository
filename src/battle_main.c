@@ -2877,7 +2877,7 @@ static void TryDoEventsBeforeFirstTurn(void)
             return;
     }
     // trigger unfair battle scripts for final battle
-    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
     {
         if (!gBattleStruct->lugiaShadowSkyDone)
         {
@@ -4662,6 +4662,10 @@ static void HandleAction_ActionFinished(void)
         ResetPartyData(RESET_OPTION_ALL);
         gMadePSSSwitch = FALSE;
     }
+
+    // reset battle phase variable
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+        VarSet(VAR_CSR_FINAL_BATTLE_PHASE, 0);
 }
 
 void DebugPrintBattlePartyData(void)

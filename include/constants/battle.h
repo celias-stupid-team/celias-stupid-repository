@@ -73,7 +73,7 @@
 #define BATTLE_TYPE_KANGA              (1 << 25)
 #define BATTLE_TYPE_SHEDINJA_TERA      (1 << 26)
 #define BATTLE_TYPE_CYNTHIA            (1 << 27)
-#define BATTLE_TYPE_ZAPMOLTICUNOOHGIA  (1 << 28)
+#define BATTLE_TYPE_ZAPMOLCUNOOHGIA  (1 << 28)
 
 #define IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && !((flags) & BATTLE_TYPE_GHOST_UNVEILED))
 #define IS_BATTLE_TYPE_GHOST_WITH_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && (flags) & BATTLE_TYPE_GHOST_UNVEILED)
@@ -83,7 +83,7 @@
 
 // special battle type IDs for trainerbattle_no_intro_battletype macro
 #define SPECIAL_BATTLE_TYPE_CYNTHIA           1
-#define SPECIAL_BATTLE_TYPE_ZAPMOLTICUNOOHGIA 2
+#define SPECIAL_BATTLE_TYPE_ZAPMOLCUNOOHGIA 2
 
 // Battle Outcome defines
 #define B_OUTCOME_WON                  1
@@ -328,7 +328,7 @@
 #define BATTLE_TERRAIN_AGATHA      17
 #define BATTLE_TERRAIN_LANCE       18
 #define BATTLE_TERRAIN_CHAMPION    19
-#define BATTLE_TERRAIN_ZAPMOLTICUNOOHGIA 20
+#define BATTLE_TERRAIN_ZAPMOLCUNOOHGIA 20
 
 #define B_WAIT_TIME_LONGEST 96
 #define B_WAIT_TIME_LONG    64

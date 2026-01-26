@@ -850,7 +850,7 @@ static const u16 sNaturePowerMoves[] =
     [BATTLE_TERRAIN_CAVE]       = MOVE_SHADOW_BALL,
     [BATTLE_TERRAIN_BUILDING]   = MOVE_SWIFT,
     [BATTLE_TERRAIN_PLAIN]      = MOVE_SWIFT,
-    [BATTLE_TERRAIN_ZAPMOLTICUNOOHGIA]      = MOVE_SWIFT
+    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA]      = MOVE_SWIFT
 };
 
 // format: min. weight (hectograms), base power
@@ -3836,7 +3836,7 @@ static void Cmd_checkteamslost(void)
         }
     }
 
-    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
     {
         if (!gCheckedContinueRotomBattle && HP_count == 0)
             gBattleOutcome |= B_OUTCOME_CONTINUE_ROTOM;

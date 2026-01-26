@@ -1764,7 +1764,7 @@ void BufferStringBattle(u16 stringId)
             {
                 if (gTrainerBattleOpponent_A == TRAINER_DMCA_ERIKA)
                     stringPtr = sText_LightGaryAndDarkGary;
-                else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+                else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
                     stringPtr = sText_AllArrysWannaBattle;
                 else
                     stringPtr = sText_Trainer1WantsToBattle;
@@ -1821,7 +1821,7 @@ void BufferStringBattle(u16 stringId)
                 {
                     if(FlagGet(FLAG_LION_BATTLE))
                         stringPtr = sText_Trainer1SentOutLions;
-                    else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+                    else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
                         stringPtr = sText_SentOutZapmolcuno;
                     else
                         stringPtr = sText_Trainer1SentOutPkmn;

@@ -12167,9 +12167,9 @@ extern const u32 gBattleTerrainPalette_Agatha[];
 extern const u32 gBattleTerrainPalette_Lance[];
 extern const u32 gBattleTerrainPalette_Champion[];
 extern const u32 gBattleTerrainPalette_Plain[];
-extern const u32 gBattleTerrainPalette_Zapmolticunoohgia[];
-extern const u32 gBattleTerrainTiles_Zapmolticunoohgia[];
-extern const u32 gBattleTerrainTilemap_Zapmolticunoohgia[];
+extern const u32 gBattleTerrainPalette_Zapmolcunoohgia[];
+extern const u32 gBattleTerrainTiles_Zapmolcunoohgia[];
+extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia[];
 extern const u32 gBattleTerrainTiles_Indoor[];
 extern const u32 gBattleTerrainTilemap_Indoor[];
 
