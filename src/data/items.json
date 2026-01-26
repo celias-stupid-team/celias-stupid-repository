@@ -3249,12 +3249,12 @@
       "secondaryId": 0
     },
     {
-      "english": "SOFT SAND",
+      "english": "SAND",
       "itemId": "ITEM_SOFT_SAND",
       "price": 100,
       "holdEffect": "HOLD_EFFECT_GROUND_POWER",
       "holdEffectParam": 10,
-      "description_english": "I don't like sand.\\nIt's coarse, rough, and\\nirritating; and it gets everywhere",
+      "description_english": "I don't like sand.\\nIt's coarse, rough, and\\nirritating; and it gets everywhere.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

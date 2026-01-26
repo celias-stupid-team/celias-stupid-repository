@@ -1053,6 +1053,7 @@ SECTIONS {
         sound/songs/midi/mus_dragon_ball.o(.rodata);
         sound/songs/midi/mus_mus_vs_rival.o(.rodata);
         sound/songs/midi/mus_trumpets.o(.rodata);
+        sound/songs/midi/mus_mus_vs_regi.o(.rodata);
 
     } > ROM =0
 

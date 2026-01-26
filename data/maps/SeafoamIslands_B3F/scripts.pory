@@ -596,27 +596,198 @@ script SeafoamIslands_ZubatWall {
 	delay(20)
 	playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
 	waitmoncry
+	fadenewbgm(MUS_NONE)
 	msgbox(
 	"Would you like to break it, even\n"
 	"despite knowing the consequences?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
-		msgbox(
-		"wall breaks\n"
-		"", MSGBOX_DEFAULT)
+		checkfieldmove(MOVE_BRICK_BREAK)
+		bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+		buffermovename(STR_VAR_2, MOVE_BRICK_BREAK)
+		msgbox(Text_MonUsedMove)
 		closemessage
-		
+		setfieldeffectargument(0, VAR_RESULT)
+		dofieldeffect(FLDEFF_USE_ROCK_SMASH)
+		waitstate
 		removeobject(LOCALID_ZUBAT_WALL)
-		delay(30)
-		msgbox(
-		"it is implied that zubat comes out\n"
-		"", MSGBOX_DEFAULT)
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 3)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+		special(ShakeScreen)
+		delay(45)
 		closemessage
-		playmoncry(SPECIES_ZUBAT, CRY_MODE_ENCOUNTER)
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 20)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+		special(ShakeScreen)
+		delay(90)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_1, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_left
+			walk_fastest_down * 7
+		))
+		applymovement(LOCALID_PLAYER, moves(
+			delay_4
+			lock_facing_direction
+			jump_down
+			unlock_facing_direction
+		))
+		delay(8)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_2, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_right
+			walk_fastest_down * 7
+		))
+		delay(8)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_3, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_left
+			walk_fastest_down * 7
+		))
+		delay(8)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_4, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_right
+			walk_fastest_down * 7
+		))
+		delay(8)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_5, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_left
+			walk_fastest_down * 7
+		))
+		delay(8)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_6, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_right
+			walk_fastest_down * 7
+		))
+		delay(8)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_7, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_left
+			walk_fastest_down * 7
+		))
+		delay(8)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_8, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_right
+			walk_fastest_down * 7
+		))
+		delay(8)
+		setobjectxy(LOCALID_SEAFOAMZUBAT_1, 10, 0)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_1, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_left
+			walk_fastest_down * 7
+		))
+		delay(8)
+		setobjectxy(LOCALID_SEAFOAMZUBAT_2, 10, 0)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_2, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_right
+			walk_fastest_down * 7
+		))
+		delay(8)
+		setobjectxy(LOCALID_SEAFOAMZUBAT_3, 10, 0)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_3, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_left
+			walk_fastest_down * 7
+		))
+		delay(8)
+		setobjectxy(LOCALID_ZUBAT_PUFF, 10, 0)
+		playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_ZUBAT_PUFF, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_right
+			walk_fastest_down * 7
+		))
+		delay(8)
+		setobjectxy(LOCALID_SEAFOAMZUBAT_4, 10, 0)
+		applymovement(LOCALID_SEAFOAMZUBAT_4, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_left
+			walk_fastest_down * 7
+		))
+		delay(8)
+		setobjectxy(LOCALID_SEAFOAMZUBAT_5, 10, 0)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_5, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_right
+			walk_fastest_down * 7
+		))
+		delay(8)
+		setobjectxy(LOCALID_SEAFOAMZUBAT_6, 10, 0)
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_6, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_left
+			walk_fastest_down * 7
+		))
+		waitmoncry
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		applymovement(LOCALID_SEAFOAMZUBAT_9, moves(
+			walk_fastest_down
+			set_visible
+			walk_fastest_down
+			walk_fastest_left
+			walk_fastest_down * 7
+		))
+		waitmovement(LOCALID_SEAFOAMZUBAT_9)
+
+
+		delay(45)
 		setwildbattle(SPECIES_ZUBAT, 30)
-		dowildbattle
+		special(StartLegendaryBattle)
 		release
 		end
 	} else {
+		fadedefaultbgm
 		release
 		end
 	}
