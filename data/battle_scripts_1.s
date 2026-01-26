@@ -5267,6 +5267,7 @@ BattleScript_ShadowSky_End3::
 	playanimation BS_BATTLER_0, B_ANIM_SANDSTORM_CONTINUES
 	printstring STRINGID_SHADOW_SKY_CONTINUES
 	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_WeatherFormChanges
 	end3
 
 BattleScript_ShadowSpikes_End3::
