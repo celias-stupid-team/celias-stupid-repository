@@ -401,10 +401,27 @@ void CB2_ExitPokeStorage(void)
     sPreviousBoxOption = GetCurrentBoxOption();
     if (gMain.inBattle)
     {
+        // ### PSS battle switches - step 6 ###
+        u8 i = 0;
         // reallocate battle sprite data before returning
         AllocateBattleResources();
         AllocateBattleSpritesData();
         AllocateMonSpritesGfx(); // --> gives a malloc 174
+
+        // restore AI flags
+        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+            gBattleResources->ai->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
+
+        // reset Switch IDs to PARTY_SIZE because they were reset to 0
+        for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+        {
+            *(gBattleStruct->monToSwitchIntoId + i) = PARTY_SIZE;
+            *(gBattleStruct->AI_monToSwitchIntoId + i) = PARTY_SIZE;
+        }
+
+        // restore absent battler flags
+        *(&gBattleStruct->absentBattlerFlags) = gAbsentBattlerFlags;
+
 
         gMain.callback1 = BattleMainCB1;
         SetMainCallback2(ReshowBattleScreenAfterMenu);

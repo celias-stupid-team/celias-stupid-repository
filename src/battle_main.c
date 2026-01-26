@@ -2247,8 +2247,12 @@ static void BattleStartClearSetData(void)
         *(i + 2 * 8 + (u8 *)(gBattleStruct->lastTakenMoveFrom) + 0) = 0;
         *(i + 3 * 8 + (u8 *)(gBattleStruct->lastTakenMoveFrom) + 0) = 0;
     }
-    *(gBattleStruct->AI_monToSwitchIntoId + 0) = PARTY_SIZE;
-    *(gBattleStruct->AI_monToSwitchIntoId + 1) = PARTY_SIZE;
+    
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+    {
+        *(gBattleStruct->AI_monToSwitchIntoId + i) = PARTY_SIZE;
+    }
+
     *(&gBattleStruct->givenExpMons) = 0;
     for (i = 0; i < 11; i++)
         gBattleResults.catchAttempts[i] = 0;
@@ -2987,7 +2991,7 @@ void BattleTurnPassed(void)
         gBattleMainFunc = RunTurnActionsFunctions;
         return;
     }
-    if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM))// && !gCheckedContinueRotomBattle)
+    if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM))
     {
         DebugPrintf("### activate Rotom Battle UI ###\n");
         // ToDo wiz1989: Activate Rotom Battle UI
@@ -4300,8 +4304,6 @@ static void HandleAction_Switch(void)
         ++gBattleResults.playerSwitchesCounter;
 }
 
- 
-
 static void HandleAction_UseItem(void)
 {
     gBattlerAttacker = gBattlerTarget = gBattlerByTurnOrder[gCurrentTurnActionNumber];
@@ -4656,7 +4658,7 @@ static void HandleAction_ActionFinished(void)
     gBattleScripting.multihitMoveEffect = 0;
     gBattleResources->battleScriptsStack->size = 0;
 
-    // ### PSS battle switches - step 6 ###
+    // ### PSS battle switches - step 7 ###
     //reset party data after a PSS switch
     if (gMadePSSSwitch)
     {
