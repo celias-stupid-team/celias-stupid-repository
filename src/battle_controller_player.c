@@ -235,20 +235,38 @@ static void HandleInputChooseAction(void)
     DoBounceEffect(gActiveBattler, BOUNCE_MON, 7, 1);
     if (JOY_NEW(A_BUTTON))
     {
-        PlaySE(SE_SELECT);
-
         switch (gActionSelectionCursor[gActiveBattler])
         {
         case 0:
-            BtlController_EmitTwoReturnValues(1, B_ACTION_USE_MOVE, 0);
+            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCheckedContinueRotomBattle && gBattleMons[gActiveBattler].hp == 0)
+            {
+                PlaySE(SE_BOO);
+                return;
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(1, B_ACTION_USE_MOVE, 0);
+            }
             break;
         case 1:
-            BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
+            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCheckedContinueRotomBattle && gBattleMons[gActiveBattler].hp == 0)
+            {
+                PlaySE(SE_BOO);
+                return;
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
+            }
             break;
         case 2:
+            PlaySE(SE_SELECT);
             BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
             break;
         case 3:
+            PlaySE(SE_SELECT);
             BtlController_EmitTwoReturnValues(1, B_ACTION_RUN, 0);
             break;
         }
