@@ -3840,8 +3840,7 @@ static void Cmd_checkteamslost(void)
     {
         if (!gCheckedContinueRotomBattle && HP_count == 0)
             gBattleOutcome |= B_OUTCOME_CONTINUE_ROTOM;
-        else if (HP_count == 0)
-            gBattleOutcome |= B_OUTCOME_LOST;
+        // else will call B_ACTION_SWITCH and trigger a PC switch
     }
     else if (HP_count == 0)
         gBattleOutcome |= B_OUTCOME_LOST;

@@ -1364,7 +1364,7 @@ bool8 HandleFaintedMonActions(void)
     } while (gBattleStruct->faintedActionsState != FAINTED_ACTIONS_MAX_CASE);
     DebugPrintf("### HandleFaintedMonActions done\n");
     // reset state for next time
-    gCheckedContinueRotomBattle = FALSE;
+    // gCheckedContinueRotomBattle = FALSE; // wiz1989 DELETE when feature is finished
     return FALSE;
 }
 

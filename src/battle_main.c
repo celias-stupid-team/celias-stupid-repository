@@ -2989,7 +2989,8 @@ void BattleTurnPassed(void)
     }
     if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM))// && !gCheckedContinueRotomBattle)
     {
-        // ToDo: Activate Rotom Battle UI
+        DebugPrintf("### activate Rotom Battle UI ###\n");
+        // ToDo wiz1989: Activate Rotom Battle UI
         FlagSet(FLAG_SYS_ROTOM_BATTLE_UI);
         gBattleSwitchFromPSS = TRUE;
         gBattleOutcome &= ~B_OUTCOME_CONTINUE_ROTOM;
