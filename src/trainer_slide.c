@@ -96,7 +96,9 @@ static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)
 
 static bool32 DoesTrainerHaveSlideMessage(u32 slideId)
 {
-    if ((gBattleTypeFlags & BATTLE_TYPE_CYNTHIA) || sTrainerSlides[slideId] != NULL)
+    if ((gBattleTypeFlags & BATTLE_TYPE_CYNTHIA) && slideId == TRAINER_SLIDE_AFTER_SWITCHIN)
+        return TRUE;
+    else if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && slideId == TRAINER_SLIDE_AFTER_DEFEAT)
         return TRUE;
     else
         return FALSE;
