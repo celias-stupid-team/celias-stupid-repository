@@ -12785,3 +12785,6 @@ extern const u32 gMonShinyPalette_DODODUO[];
 extern const u8 gMonFootprint_DODODUO[];
 extern const u8 gMonIcon_DODODUO[];
 
+
+extern const u32 gItemIcon_Runningscrews[];
+extern const u32 gItemIconPalette_Runningscrews[];
