@@ -2513,7 +2513,7 @@
       "id": "LAYOUT_SAFFRON_CITY_DOJO",
       "name": "SaffronCity_Dojo_Layout",
       "width": 13,
-      "height": 16,
+      "height": 24,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -7272,6 +7272,30 @@
       "secondary_tileset": "gTileset_TwoIsland",
       "border_filepath": "data/layouts/TwoIsland_CapeBrink_UnderWaterfall/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland_CapeBrink_UnderWaterfall/map.bin"
+    },
+    {
+      "id": "LAYOUT_BRUNO_BACK_ROOM",
+      "name": "BrunoBackRoom_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonLeague",
+      "border_filepath": "data/layouts/BrunoBackRoom/border.bin",
+      "blockdata_filepath": "data/layouts/BrunoBackRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_CONTEST_HALL",
+      "name": "ContestHall_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RestaurantHotel",
+      "border_filepath": "data/layouts/ContestHall/border.bin",
+      "blockdata_filepath": "data/layouts/ContestHall/map.bin"
     }
   ]
 }

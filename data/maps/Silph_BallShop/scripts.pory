@@ -32,7 +32,7 @@ script SilphCo_BallShop_Sign {
 	lock
 	msgbox(
 	"SILPH CO\n"
-	"POKéBALL SHOP", MSGBOX_SIGN)
+	"POKé BALL SHOP", MSGBOX_SIGN)
 
 }
 

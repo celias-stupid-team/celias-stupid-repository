@@ -447,9 +447,9 @@
 #define FLAG_GOT_SHINY_SYLVEON                      0x18C
 #define FLAG_STOLE_COPYCAT                        0x18D
 #define FLAG_BERRIED_ALIVE                       0x18E
-#define FLAG_0x18F                         0x18F
-#define FLAG_0x190                           0x190
-#define FLAG_0x191                              0x191
+#define FLAG_RUN_AWAY_FIVE                         0x18F
+#define FLAG_JASON_IS_IN_ROOM                           0x190
+#define FLAG_JASON_WAS_KILLED                              0x191
 #define FLAG_HIDE_SILPH_CO_5F_CARD_KEY                          0x192
 #define FLAG_FOUND_ROTOM_WASH                             0x193
 #define FLAG_FOUND_ROTOM_MOW                         0x194

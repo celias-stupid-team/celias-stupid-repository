@@ -547,7 +547,7 @@ script GreatSea_WomensSecret { // Swimmer Victoria
 
 script GreatSea_PokeBallStorage {
 	msgbox(
-	"FEMININE POKéBALL STORAGE DEVICE\n"
+	"FEMININE POKé BALL STORAGE DEVICE\n"
 	"", MSGBOX_SIGN)
 
 }

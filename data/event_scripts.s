@@ -1889,3 +1889,9 @@ Text_TestMsg::
 
 	.include "data/maps/Chapter7_Chapter2/scripts.inc"
 	.include "data/maps/Chapter7_Chapter2/text.inc"
+
+	.include "data/maps/BrunoBackRoom/scripts.inc"
+	.include "data/maps/BrunoBackRoom/text.inc"
+
+	.include "data/maps/ContestHall/scripts.inc"
+	.include "data/maps/ContestHall/text.inc"

@@ -571,6 +571,10 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_ROTOM_FROST  0x1190
 #define OBJ_EVENT_PAL_TAG_ROTOM_MOW  0x1191
 #define OBJ_EVENT_PAL_TAG_ROTOM_HEAT  0x1192
+#define OBJ_EVENT_PAL_TAG_SUIT_GIRL  0x1193
+#define OBJ_EVENT_PAL_TAG_CONTEST_HEART_2  0x1194
+#define OBJ_EVENT_PAL_TAG_FORRETRESS_HAT_1  0x1195
+#define OBJ_EVENT_PAL_TAG_FORRETRESS  0x1196
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -715,6 +719,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_ROTOM_FROST,             OBJ_EVENT_PAL_TAG_ROTOM_FROST},
     {gObjectEventPal_ROTOM_MOW,             OBJ_EVENT_PAL_TAG_ROTOM_MOW},
     {gObjectEventPal_ROTOM_HEAT,             OBJ_EVENT_PAL_TAG_ROTOM_HEAT},
+    {gObjectEventPal_SUIT_GIRL,             OBJ_EVENT_PAL_TAG_SUIT_GIRL},
+    {gObjectEventPal_CONTEST_HEART_2,             OBJ_EVENT_PAL_TAG_CONTEST_HEART_2},
+    {gObjectEventPal_FORRETRESS_HAT_1,             OBJ_EVENT_PAL_TAG_FORRETRESS_HAT_1},
+    {gObjectEventPal_FORRETRESS,             OBJ_EVENT_PAL_TAG_FORRETRESS},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

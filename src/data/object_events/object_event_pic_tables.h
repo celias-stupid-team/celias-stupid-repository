@@ -5413,3 +5413,69 @@ const struct SpriteFrameImage gObjectEventPicTable_ROTOM_HEAT[] = {
     overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 2),
     overworld_frame(gObjectEventPic_ROTOM_HEAT, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_SUIT_GIRL[] = {
+    overworld_frame(gObjectEventPic_SUIT_GIRL, 2, 2, 0),
+    overworld_frame(gObjectEventPic_SUIT_GIRL, 2, 2, 1),
+    overworld_frame(gObjectEventPic_SUIT_GIRL, 2, 2, 2),
+    overworld_frame(gObjectEventPic_SUIT_GIRL, 2, 2, 3),
+    overworld_frame(gObjectEventPic_SUIT_GIRL, 2, 2, 4),
+    overworld_frame(gObjectEventPic_SUIT_GIRL, 2, 2, 5),
+    overworld_frame(gObjectEventPic_SUIT_GIRL, 2, 2, 6),
+    overworld_frame(gObjectEventPic_SUIT_GIRL, 2, 2, 7),
+    overworld_frame(gObjectEventPic_SUIT_GIRL, 2, 2, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_CONTEST_HEART_1[] = {
+    overworld_frame(gObjectEventPic_CONTEST_HEART_1, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_1, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_1, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_1, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_1, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_1, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_1, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_1, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_1, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_CONTEST_HEART_2[] = {
+    overworld_frame(gObjectEventPic_CONTEST_HEART_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_2, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_2, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CONTEST_HEART_2, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_FORRETRESS_HAT_1[] = {
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_1, 4, 4, 0),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_1, 4, 4, 1),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_1, 4, 4, 2),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_1, 4, 4, 3),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_1, 4, 4, 4),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_1, 4, 4, 5),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_1, 4, 4, 6),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_1, 4, 4, 7),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_1, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_FORRETRESS_HAT_2[] = {
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_2, 4, 4, 2),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_2, 4, 4, 3),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_2, 4, 4, 4),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_2, 4, 4, 5),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_2, 4, 4, 6),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_2, 4, 4, 7),
+    overworld_frame(gObjectEventPic_FORRETRESS_HAT_2, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_FORRETRESS[] = {
+    overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 0),
+    overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 1),
+    overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 2),
+    overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 3),
+    overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 4),
+    overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 5),
+    overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 6),
+    overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 7),
+    overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 8),
+};

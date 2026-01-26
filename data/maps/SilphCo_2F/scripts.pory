@@ -84,8 +84,11 @@ script SilphCo_2F_EventScript_JohnCage {
 
 script SilphCo_2F_EventScript_FireMove {
 	msgbox(
-	"first line\p"
-	"If only MR. FLAMETHROWER was here…\n"
+	"The PRESIDENT is meeting with the\n"
+	"DMCA's BOSS…\l"
+	"Who knows what'll come of this?\p"
+
+	"If only MR. FLAMETHROWER were here…\n"
 	"He'd know what to do!", MSGBOX_NPC)
 }
 

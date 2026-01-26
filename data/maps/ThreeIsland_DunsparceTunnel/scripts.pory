@@ -39,7 +39,11 @@ mapscripts ThreeIsland_DunsparceTunnel_MapScripts {
 			call(ThreeIsland_DunsparceTunnel_EventScript_MoveProspectorToWall)
 		}
 	}
-
+	MAP_SCRIPT_ON_LOAD {
+		if(checkitem(ITEM_P_EMBLEM)) {
+			playbgm(MUS_TUNNEL, TRUE)
+		}
+	}
 }
 
 

@@ -504,6 +504,12 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_WASH;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_FROST;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_MOW;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_HEAT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SUIT_GIRL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_HEART_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_HEART_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS_HAT_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS_HAT_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1009,4 +1015,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROTOM_FROST] = &gObjectEventGraphicsInfo_ROTOM_FROST,
     [OBJ_EVENT_GFX_ROTOM_MOW] = &gObjectEventGraphicsInfo_ROTOM_MOW,
     [OBJ_EVENT_GFX_ROTOM_HEAT] = &gObjectEventGraphicsInfo_ROTOM_HEAT,
+    [OBJ_EVENT_GFX_SUIT_GIRL] = &gObjectEventGraphicsInfo_SUIT_GIRL,
+    [OBJ_EVENT_GFX_CONTEST_HEART_1] = &gObjectEventGraphicsInfo_CONTEST_HEART_1,
+    [OBJ_EVENT_GFX_CONTEST_HEART_2] = &gObjectEventGraphicsInfo_CONTEST_HEART_2,
+    [OBJ_EVENT_GFX_FORRETRESS_HAT_1] = &gObjectEventGraphicsInfo_FORRETRESS_HAT_1,
+    [OBJ_EVENT_GFX_FORRETRESS_HAT_2] = &gObjectEventGraphicsInfo_FORRETRESS_HAT_2,
+    [OBJ_EVENT_GFX_FORRETRESS] = &gObjectEventGraphicsInfo_FORRETRESS,
 };
