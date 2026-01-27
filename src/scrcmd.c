@@ -928,6 +928,8 @@ bool8 ScrCmd_getplayerxy(struct ScriptContext * ctx)
 
     *pX = gSaveBlock1Ptr->pos.x;
     *pY = gSaveBlock1Ptr->pos.y;
+    DebugPrintf(" X = %d", gSaveBlock1Ptr->pos.x);
+    DebugPrintf(" Y = %d", gSaveBlock1Ptr->pos.y);
     return FALSE;
 }
 

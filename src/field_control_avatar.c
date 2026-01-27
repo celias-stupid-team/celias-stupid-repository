@@ -301,7 +301,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         gFieldInputRecord.pressedStartButton = TRUE;
         FlagSet(FLAG_OPENED_START_MENU);
         PlaySE(SE_WIN_OPEN);
-        if (FlagGet(FLAG_SYS_ROTOM_MENU) && !flag(FLAG_IN_FUSHCIA_GYM))
+        if (FlagGet(FLAG_SYS_ROTOM_MENU) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
         {
             
             RunScriptImmediately(SetPlayerPokedexValues);

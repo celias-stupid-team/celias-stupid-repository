@@ -89,11 +89,49 @@ script SecretGarden_PCMonitor {
 
 script SecretGarden_LeavePC {
     lock
+    special(RemoveCameraObject)
+    msgbox(
+	"leave monitor\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
     setvar(VAR_VIEWING_PC, 0)
+    getplayerxy(VAR_TEMP_6, VAR_TEMP_7)
     special(SpawnCameraObject)
-    applymovement(LOCALID_CAMERA, moves(
-        walk_fast_down * 4
-    ))
+    waitmovement(0)
+    while(var(VAR_TEMP_6) != 19) {
+        msgbox(
+        "while loop\n"
+        "", MSGBOX_DEFAULT)
+        while(var(VAR_TEMP_7) != 8) {
+            if(var(VAR_TEMP_6) < 19) {
+                msgbox(
+                "moveleft\n"
+                "", MSGBOX_DEFAULT)
+                applymovement(LOCALID_CAMERA, moves(
+                    walk_faster_left
+                ))
+                waitmovement(0)
+                addvar(VAR_TEMP_6, 1)
+            } elif(var(VAR_TEMP_6) > 19) {msgbox(
+                "moveright\n"
+                "", MSGBOX_DEFAULT)
+                applymovement(LOCALID_CAMERA, moves(
+                    walk_faster_right
+                ))
+                waitmovement(0)
+                subvar(VAR_TEMP_6, 1)
+            } else {
+                msgbox(
+                    "movedown\n"
+                    "", MSGBOX_DEFAULT)
+                applymovement(LOCALID_CAMERA, moves(
+                    walk_faster_down
+                ))
+                waitmovement(0)
+                addvar(VAR_TEMP_7, 1)
+            }
+        }
+    }
     waitmovement(0)
     special(RemoveCameraObject)
     release
@@ -104,6 +142,7 @@ script SecretGarden_PCRightButton {
 	msgbox(
 	"PC Scroll Right\n"
 	"", MSGBOX_DEFAULT)
+
     release
 }
 
