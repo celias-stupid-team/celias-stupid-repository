@@ -47,3 +47,159 @@ script SkyTower_MonsterHousePlaceholder {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script SkyTower_Frankenstein {
+	msgbox(
+	"DR. FRANKENSTEIN: Hmm…\p"
+
+	"I seem to have misunderstood the\n"
+	"invitation.", MSGBOX_NPC)
+}
+
+
+script SkyTower_Dracula {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+		"Man… It seems that humans are\n"
+		"the real monsters after all.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"One…{PAUSE 30}\n"
+		"Two…\p"
+
+		"Three!{PAUSE 30}\n"
+		"Three chapters, ah ha ha!", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(VAR_LAST_TALKED, moves(
+			face_original_direction
+		))
+		waitmovement(0)
+	}
+	release
+}
+script SkyTower_Werewolf {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+		"Man… It seems that humans are\n"
+		"the real monsters after all.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"WEREWOLF: Hiya!\n"
+		"Welcome to the MONSTER HOUSE!\p"
+
+		"Have you met my cousin SEBASTIAN?\n"
+		"He's quite successful.", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+
+script SkyTower_MonsterMashFridge {
+	msgbox(
+	"{PLAYER} looked in the fridge…\p"
+
+	"Yum!\n"
+	"There's some MONSTER MASH!", MSGBOX_SIGN)
+
+}
+
+
+script SkyTower_Bookshelf {
+	lock
+	msgbox(
+	"My Spooky Life, chapter three.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	msgbox(
+	"You skip to the end…\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	msgbox(
+	"No! No! You can't!\n"
+	"This demon is a baby child!", MSGBOX_DEFAULT)
+	release
+}
+
+script SkyTower_NotFrankenstein {
+	lock
+	if(flag(FLAG_TEMP_3)) {
+		msgbox(
+		"Hey, where's the wolf?\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	switch(var(VAR_TEMP_1)) {
+		case 0:
+			msgbox(
+			"That's not FRANKENSTEIN, silly!\n"
+			"", MSGBOX_DEFAULT)
+
+		case 1:
+			msgbox(
+			"It's not FRANKENSTEIN's {PAUSE 20}MONSTER\n"
+			"either, you pedant.", MSGBOX_DEFAULT)
+		case 2:
+			msgbox(
+			"Actually, I think it's WOLFBANE.\n"
+			"", MSGBOX_DEFAULT)
+			closemessage
+			delay(45)
+			playse(SE_M_EMBER)
+			removeobject(LOCALID_WEREWOLF)
+			delay(60)
+			msgbox(
+			"Oops.\n"
+			"", MSGBOX_DEFAULT)
+
+	}
+	addvar(VAR_TEMP_1, 1)
+	release
+}
+
+script SkyTower_HumanHouse {
+	msgbox(
+	"A movie is on TV.\p"
+
+	"It's the classic film,\n"
+	"“HUMAN HOUSE!”", MSGBOX_SIGN)
+
+}
+
+
+
+script SkyTower_Sink {
+	msgbox(
+	"This arranging for MUMMY is quite\n"
+	"adept!\l"
+	"Volcano Bakemeat!", MSGBOX_SIGN)
+
+}
+
+
+script SkyTower_MonGettingRescued {
+	lock
+	playmoncry(SPECIES_NIDORAN_M, CRY_MODE_DEFAULT)
+	msgbox(
+	"Oh, no! I'm trapped!\n"
+	"Please someone save me!", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}
+
+script SkyTower_MonDoingRescue {
+	lock
+	playmoncry(SPECIES_PIDGEOT, CRY_MODE_DEFAULT)
+	msgbox(
+	"FOR GOD'S SAKE I'M TRYING TO SAVE\n"
+	"YOU. STOP RUNNING AWAY.", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}

@@ -209,3 +209,12 @@ script SecretGarden_BillDiary {
 	"", MSGBOX_SIGN)
 
 }
+
+
+
+script SecretGarden_PCSystem {
+	msgbox(
+	"This area is a work in progress!\n"
+	"-Celia", MSGBOX_SIGN)
+
+}

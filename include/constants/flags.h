@@ -502,7 +502,7 @@
 #define FLAG_HIDE_ROCK_TUNNEL_1F_REPEL                          0x1C3
 #define FLAG_FOUND_W                          0x1C4
 #define FLAG_CELIA_SECRET_PIT                    0x1C5
-#define FLAG_0x1C6                        0x1C6
+#define FLAG_ONE_ISLAND_WALL                        0x1C6
 #define FLAG_0x1C7                     0x1C7
 #define FLAG_0x1C8                              0x1C8
 #define FLAG_0x1C9                             0x1C9

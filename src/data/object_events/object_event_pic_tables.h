@@ -5479,3 +5479,14 @@ const struct SpriteFrameImage gObjectEventPicTable_FORRETRESS[] = {
     overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 7),
     overworld_frame(gObjectEventPic_FORRETRESS, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_DAD_STATUE[] = {
+    overworld_frame(gObjectEventPic_DAD_STATUE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DAD_STATUE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DAD_STATUE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_DAD_STATUE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DAD_STATUE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DAD_STATUE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DAD_STATUE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DAD_STATUE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_DAD_STATUE, 4, 4, 2),
+};
