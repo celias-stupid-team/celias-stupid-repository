@@ -779,11 +779,19 @@ script SeafoamIslands_ZubatWall {
 			walk_fastest_down * 7
 		))
 		waitmovement(LOCALID_SEAFOAMZUBAT_9)
+		applymovement(LOCALID_PLAYER, moves(
+			face_up
+		))
 
 
 		delay(45)
 		setwildbattle(SPECIES_ZUBAT, 30)
+		//setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
 		special(StartLegendaryBattle)
+		waitstate
+		clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+		delay(30)
+		giveitem_msg("{PLAYER} got a\nBRICK PIECE!", ITEM_BRICK_PIECE)
 		release
 		end
 	} else {

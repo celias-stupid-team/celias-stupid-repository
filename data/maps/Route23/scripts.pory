@@ -396,6 +396,17 @@ script IndigoPlateau_Lucca {
 		walk_faster_down * 5
 
 	))
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if(var(VAR_RESULT) == DIR_NORTH) {
+		applymovement(LOCALID_PLAYER, moves(
+			delay_16
+			face_right
+			lock_facing_direction
+			walk_left
+			face_right
+		))
+	}
+
 	waitmovement(VAR_LAST_TALKED)
 	playse(SE_LEDGE)
 	applymovement(VAR_LAST_TALKED, moves(

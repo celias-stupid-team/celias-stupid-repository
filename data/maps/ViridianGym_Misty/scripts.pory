@@ -31,8 +31,13 @@ script ViridianGym_MistyBattle {
     lock
     textcolor(NPC_TEXT_COLOR_FEMALE)
     msgbox(
-	"It is implied that this is a\n"
-	"YUGIOH arena.", MSGBOX_DEFAULT)
+	"ARIANA: You say that you've proven\n"
+	"yourself an expert in POKéMON TCG?\p"
+
+	"Ha. Very well.\p"
+
+	"How about you try THIS game on\n"
+	"for size?", MSGBOX_DEFAULT)
     trainerbattle_no_intro(TRAINER_DMCA_MISTY, ViridianGym_MistyBattle_End)
     if(checkpartymove(MOVE_TRUMP_CARD) == PARTY_SIZE) {
         textcolor(NPC_TEXT_COLOR_NEUTRAL)

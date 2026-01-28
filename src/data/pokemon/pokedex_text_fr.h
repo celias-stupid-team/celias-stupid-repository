@@ -536,10 +536,10 @@ const u8 gGrimerPokedexText[] = _(
 const u8 gGrimerPokedexTextUnused[] = _("");
 
 const u8 gMukPokedexText[] = _(
-"     ti esuaceb elbatcetednu yllausu si tI\n"
-"nac ti gnihcuoT .dnuorg eht htiw ni sdnelb\n"
-"                .gninosiop elbirret esuac");
-
+	"Did you know\n"
+	"MUK backwards\n"
+	"spells KOBRA?");
+    
 const u8 gMukPokedexTextUnused[] = _("");
 
 const u8 gShellderPokedexText[] = _(

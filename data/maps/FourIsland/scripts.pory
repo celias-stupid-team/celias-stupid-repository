@@ -504,8 +504,8 @@ script FourIsland_SealCase {
 	famechecker(FAMECHECKER_GREAT_SEA_EAST, 1)
 	if(flag(FLAG_GOT_SEAL_CASE)) {
 		msgbox(
-		"after message\n"
-		"", MSGBOX_DEFAULT)
+		"Alternatively, you can always call\n"
+		"your PALKIA a DICK HEAD!", MSGBOX_DEFAULT)
 		release
 		end
 	} else {

@@ -129,7 +129,7 @@ script Walmart_HamburgerGuy {
 }
 
 script Walmart_GunClue {
-	famechecker(FAMECHECKER_GREAT_SEA_EAST, 5)
+	//famechecker(FAMECHECKER_GREAT_SEA_EAST, 5) //We'll see if I keep this
 	msgbox(
 	"If you ask me, second amendment\n"
 	"rights aren't going far enough!\p"
