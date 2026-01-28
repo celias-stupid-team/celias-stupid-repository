@@ -6176,7 +6176,7 @@
       "height": 63,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/SkyTower_1F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_1F/map.bin"
@@ -7308,6 +7308,18 @@
       "secondary_tileset": "gTileset_BurgledHouse",
       "border_filepath": "data/layouts/MonsterHouse/border.bin",
       "blockdata_filepath": "data/layouts/MonsterHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_YES_HOUSE",
+      "name": "YesHouse",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/YesHouse/border.bin",
+      "blockdata_filepath": "data/layouts/YesHouse/map.bin"
     }
   ]
 }

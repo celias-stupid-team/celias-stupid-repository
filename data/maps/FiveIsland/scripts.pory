@@ -3,9 +3,6 @@ FiveIsland_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FiveIsland_OnTransition
 	.byte 0
 
-FiveIsland_OnTransition::
-	setworldmapflag FLAG_CSR_MAP_YES
-	end
 
 FiveIsland_EventScript_IslandSign::
 	msgbox FiveIsland_Text_IslandSign, MSGBOX_SIGN
@@ -20,6 +17,73 @@ FiveIsland_EventScript_Fisher::
 	end
 `
 
+script FiveIsland_OnTransition {
+	setworldmapflag(FLAG_CSR_MAP_YES)
+	if(!flag(FLAG_YES_MAN_TRAVELING)){
+		setflag(FLAG_TEMP_1)
+
+	}
+	end
+}
+
+
+script Yes_CenterNPC1 {
+	lock
+	faceplayer
+	msgbox(
+	"Ah, I've spent so much of my\n"
+	"life here in this town.\p"
+
+	"Perhaps I should finally stretch\n"
+	"my wings and travel the world!\l"
+	"What do you think, young one?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Excellent idea!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
+		if(var(VAR_RESULT) == DIR_NORTH) {
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_left * 2
+				walk_down * 3
+			))
+		} else {
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_down
+				walk_left * 2
+				walk_down * 3
+			))
+
+		}
+		waitmovement(VAR_LAST_TALKED)
+		delay(20)
+		playse(SE_EXIT)
+		removeobject(VAR_LAST_TALKED)
+
+	} else {
+		msgbox(
+		"Hmm…\n"
+		"That's quite far away.\p"
+
+		"I don't know if I'm ready for\n"
+		"such a journey.", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
+
+script Yes_Adventurer {
+	msgbox(
+	"Phew!\n"
+	"What an adventure!\p"
+
+	"Thanks for the suggestion, young\n"
+	"one!\l"
+	"It was worth the journey.", MSGBOX_NPC)
+}
+
+
 
 script Yes_WhereAreYouFrom {
 	lock
@@ -33,11 +97,11 @@ script Yes_WhereAreYouFrom {
 		"You don't strike me as a local.", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"Oh, yeah?\n"
-		"I've heard about that place.\p"
+		"Oh, you're from NO?\n"
+		"I've heard about that place!\p"
 
-		"They say it's got beautiful\n"
-		"beaches!", MSGBOX_DEFAULT)
+		"I hear it's lovely this time of\n"
+		"year.", MSGBOX_DEFAULT)
 	}
 	release
 }
@@ -288,9 +352,103 @@ script Yes_IslandSign {
 	release
 }
 
+
+script Yes_Nerd {
+	lock
+	message(
+	"I dropped a rare TM…\n"
+	"Can you help me find it?")
+	waitmessage
+	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "YES ", "YES ")
+	
+	msgbox(
+	"Yeah, somewhere around here at\n"
+	"least.", MSGBOX_DEFAULT)
+	release
+}
+
+script Yes_TM {
+	lock
+	playfanfare(MUS_LEVEL_UP)
+	msgbox(
+	"{PLAYER} found TM12!\n"
+	"It contains TAUNT!", MSGBOX_DEFAULT)
+	waitfanfare
+	closemessage
+	delay(10)
+	playse(SE_PIN)
+	applymovement(LOCALID_YES_NERD, moves(
+		face_left
+		emote_exclamation_mark
+	))
+	waitmovement(0)
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Hey!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(LOCALID_YES_NERD, moves(
+		walk_left * 2
+	))
+	waitmovement(0)
+	delay(30)
+	message(
+	"That's my TM!\n"
+	"Thanks for finding it!\p"
+
+	"Here, give it back.\n"
+	"")
+	waitmessage
+	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "YES ", "YES ")
+	msgbox(
+	"Thanks!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_YES_NERD, moves(
+		walk_left * 6
+		walk_down * 3
+	))
+	waitmovement(LOCALID_YES_NERD)
+	applymovement(LOCALID_YES_NERD, moves(
+		walk_down * 4
+	))
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	waitmovement(LOCALID_YES_NERD)
+	removeobject(LOCALID_YES_NERD)
+	delay(10)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	release
+	end
+
+}
+
+
 script Yes_Mailbox {
 	msgbox(
 	"Mailbox on Yes\n"
 	"", MSGBOX_SIGN)
 
+}
+
+
+
+script Yes_YesterdayWoman {
+	lock
+	faceplayer
+	msgbox(
+	"Placeholder NPC 2\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Yes dialogue\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"No dialogue\n"
+		"", MSGBOX_DEFAULT)
+	}
+	release
+	end
 }

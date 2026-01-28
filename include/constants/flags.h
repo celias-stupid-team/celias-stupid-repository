@@ -503,8 +503,8 @@
 #define FLAG_FOUND_W                          0x1C4
 #define FLAG_CELIA_SECRET_PIT                    0x1C5
 #define FLAG_ONE_ISLAND_WALL                        0x1C6
-#define FLAG_0x1C7                     0x1C7
-#define FLAG_0x1C8                              0x1C8
+#define FLAG_YES_MAN_TRAVELING                     0x1C7
+#define FLAG_YES_NERD_TM                              0x1C8
 #define FLAG_0x1C9                             0x1C9
 #define FLAG_0x1CA                    0x1CA
 #define FLAG_0x1CB                       0x1CB
