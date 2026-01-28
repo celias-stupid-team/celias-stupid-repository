@@ -510,6 +510,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_HEART_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS_HAT_1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS_HAT_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DAD_STATUE;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1021,4 +1022,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_FORRETRESS_HAT_1] = &gObjectEventGraphicsInfo_FORRETRESS_HAT_1,
     [OBJ_EVENT_GFX_FORRETRESS_HAT_2] = &gObjectEventGraphicsInfo_FORRETRESS_HAT_2,
     [OBJ_EVENT_GFX_FORRETRESS] = &gObjectEventGraphicsInfo_FORRETRESS,
+    [OBJ_EVENT_GFX_DAD_STATUE] = &gObjectEventGraphicsInfo_DAD_STATUE,
 };

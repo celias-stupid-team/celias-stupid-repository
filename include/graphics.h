@@ -12788,3 +12788,6 @@ extern const u8 gMonIcon_DODODUO[];
 
 extern const u32 gItemIcon_Runningscrews[];
 extern const u32 gItemIconPalette_Runningscrews[];
+
+extern const u32 gItemIcon_OnePiece[];
+extern const u32 gItemIconPalette_OnePiece[];

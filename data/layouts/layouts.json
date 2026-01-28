@@ -6172,11 +6172,11 @@
     {
       "id": "LAYOUT_SKY_TOWER_1F",
       "name": "SkyTower_1F_Layout",
-      "width": 41,
-      "height": 51,
+      "width": 60,
+      "height": 63,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/SkyTower_1F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_1F/map.bin"
@@ -6184,8 +6184,8 @@
     {
       "id": "LAYOUT_SKY_TOWER_2F",
       "name": "SkyTower_2F_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 64,
+      "height": 43,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6208,8 +6208,8 @@
     {
       "id": "LAYOUT_SKY_TOWER_3F",
       "name": "SkyTower_3F_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 68,
+      "height": 63,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7296,6 +7296,30 @@
       "secondary_tileset": "gTileset_RestaurantHotel",
       "border_filepath": "data/layouts/ContestHall/border.bin",
       "blockdata_filepath": "data/layouts/ContestHall/map.bin"
+    },
+    {
+      "id": "LAYOUT_MONSTER_HOUSE",
+      "name": "MonsterHouse",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BurgledHouse",
+      "border_filepath": "data/layouts/MonsterHouse/border.bin",
+      "blockdata_filepath": "data/layouts/MonsterHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_YES_HOUSE",
+      "name": "YesHouse",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/YesHouse/border.bin",
+      "blockdata_filepath": "data/layouts/YesHouse/map.bin"
     }
   ]
 }

@@ -109,7 +109,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 19,
-      "y": 12,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -118,6 +118,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SecretGarden_GivePikabluPlaceholder",
       "flag": "FLAG_TEMP_A"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 19,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SecretGarden_PCSystem",
+      "flag": "0"
     }
   ],
   "warp_events": [],
@@ -127,7 +141,7 @@
       "x": 23,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "VAR_VIEWING_PC",
       "var_value": "1",
       "script": "SecretGarden_LeavePC"
     },
@@ -136,25 +150,79 @@
       "x": 23,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "VAR_VIEWING_PC",
+      "var_value": "1",
+      "script": "SecretGarden_LeavePC"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_VIEWING_PC",
       "var_value": "1",
       "script": "SecretGarden_LeavePC"
     },
     {
       "type": "trigger",
       "x": 22,
-      "y": 13,
+      "y": 14,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "VAR_VIEWING_PC",
       "var_value": "1",
       "script": "SecretGarden_LeavePC"
     },
     {
       "type": "trigger",
       "x": 21,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "VAR_VIEWING_PC",
+      "var_value": "1",
+      "script": "SecretGarden_LeavePC"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_VIEWING_PC",
+      "var_value": "1",
+      "script": "SecretGarden_LeavePC"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_VIEWING_PC",
+      "var_value": "1",
+      "script": "SecretGarden_LeavePC"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_VIEWING_PC",
+      "var_value": "1",
+      "script": "SecretGarden_LeavePC"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_VIEWING_PC",
+      "var_value": "1",
+      "script": "SecretGarden_LeavePC"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_VIEWING_PC",
       "var_value": "1",
       "script": "SecretGarden_LeavePC"
     },
@@ -163,7 +231,7 @@
       "x": 15,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "VAR_VIEWING_PC",
       "var_value": "1",
       "script": "SecretGarden_LeavePC"
     },
@@ -172,52 +240,16 @@
       "x": 15,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "VAR_VIEWING_PC",
       "var_value": "1",
       "script": "SecretGarden_LeavePC"
     },
     {
       "type": "trigger",
       "x": 16,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_5",
-      "var_value": "1",
-      "script": "SecretGarden_LeavePC"
-    },
-    {
-      "type": "trigger",
-      "x": 17,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
-      "var_value": "1",
-      "script": "SecretGarden_LeavePC"
-    },
-    {
-      "type": "trigger",
-      "x": 18,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_5",
-      "var_value": "1",
-      "script": "SecretGarden_LeavePC"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_5",
-      "var_value": "1",
-      "script": "SecretGarden_LeavePC"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "VAR_VIEWING_PC",
       "var_value": "1",
       "script": "SecretGarden_LeavePC"
     }
@@ -226,7 +258,7 @@
     {
       "type": "sign",
       "x": 19,
-      "y": 11,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "SecretGarden_PCMonitor"
@@ -234,7 +266,7 @@
     {
       "type": "sign",
       "x": 21,
-      "y": 10,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SecretGarden_PCRightButton"
@@ -242,7 +274,7 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 10,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SecretGarden_PCLeftButton"
@@ -250,7 +282,7 @@
     {
       "type": "sign",
       "x": 29,
-      "y": 11,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SecretGarden_PCTerminal"
@@ -258,7 +290,7 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 10,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SecretGarden_PCBoxPallet"
@@ -274,7 +306,7 @@
     {
       "type": "sign",
       "x": 27,
-      "y": 9,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SecretGarden_RetrievalChute"
@@ -282,7 +314,7 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 9,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SecretGarden_PCBoxDock"
@@ -306,7 +338,7 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 10,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SecretGarden_PCBoxPallet"
@@ -334,6 +366,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SecretGarden_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SecretGarden_ExportBoxDock"
     }
   ]
 }

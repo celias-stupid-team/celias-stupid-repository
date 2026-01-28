@@ -422,3 +422,32 @@ script OneIsland_ClamperlGirl {
 	"He knows how to cross WHIRLPOOLS,\n"
 	"but he won't teach anyone else!", MSGBOX_NPC)
 }
+
+
+script OneIsland_BrickBreak {
+	lock
+	if(flag(FLAG_ONE_ISLAND_WALL)) {
+		msgbox("The BRICKS have been BREAKED.\n", MSGBOX_DEFAULT)
+		release
+		end
+		
+	}
+	call(Common_Script_BrickBreak)
+	//wall breaks
+	if(var(VAR_RESULT) == 1) {
+		
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+		special(DrawWholeMapView)
+		special(ShakeScreen)
+		removeobject(VAR_LAST_TALKED)
+		setflag(FLAG_ONE_ISLAND_WALL)
+		delay(60)
+		giveitem_msg("{PLAYER} found the\nONE PIECE!\n", ITEM_ONE_PIECE, 1)
+		release
+		end
+	}
+	release
+}
