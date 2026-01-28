@@ -145,7 +145,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
       "x": 29,
-      "y": 43,
+      "y": 44,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -167,7 +167,7 @@
     {
       "warp_id": "WARPID_SKY_TOWER_INSIDE",
       "x": 28,
-      "y": 57,
+      "y": 58,
       "elevation": 0,
       "dest_map": "MAP_GREAT_BAY_NORTH",
       "dest_warp_id": "WARPID_SKY_TOWER_OUTSIDE"

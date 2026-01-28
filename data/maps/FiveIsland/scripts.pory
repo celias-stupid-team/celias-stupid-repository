@@ -27,7 +27,7 @@ script FiveIsland_OnTransition {
 }
 
 
-script Yes_CenterNPC1 {
+script Yes_TravelerInside {
 	lock
 	faceplayer
 	msgbox(
@@ -355,15 +355,18 @@ script Yes_IslandSign {
 
 script Yes_Nerd {
 	lock
-	message(
-	"I dropped a rare TM…\n"
-	"Can you help me find it?")
-	waitmessage
-	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "YES ", "YES ")
-	
 	msgbox(
-	"Yeah, somewhere around here at\n"
-	"least.", MSGBOX_DEFAULT)
+	"I dropped a rare TM…\n"
+	"Can you help me find it?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Yeah, somewhere around here at\n"
+		"least.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Hrrm…\n"
+		"", MSGBOX_DEFAULT)
+	}
 	release
 }
 
@@ -401,7 +404,7 @@ script Yes_TM {
 	"Here, give it back.\n"
 	"")
 	waitmessage
-	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "YES ", "YES ")
+	dynmultichoice(19, 8, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "YES  ", "YES  ")
 	msgbox(
 	"Thanks!\n"
 	"", MSGBOX_DEFAULT)

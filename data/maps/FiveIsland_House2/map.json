@@ -26,7 +26,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FiveIsland_House2_EventScript_OldMan",
+      "script": "Yes_TravelerInside",
       "flag": "FLAG_YES_MAN_TRAVELING"
     }
   ],
