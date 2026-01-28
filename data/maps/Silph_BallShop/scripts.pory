@@ -7,8 +7,8 @@ script SilphCo_BallShop_Kurt {
 	lock
 	setflag(FLAG_CSR_MAP_BALL_SHOP)
 	msgbox(
-	"KURT: buy my balls\n"
-	"", MSGBOX_DEFAULT)
+	"KURT: Hello, there.\n"
+	"Are you a fan of BALLS?", MSGBOX_DEFAULT)
 	waitmessage
 	pokemart(SilphCo_BallShop_Mart)
 	msgbox(Text_PleaseComeAgain)
@@ -32,7 +32,7 @@ script SilphCo_BallShop_Sign {
 	lock
 	msgbox(
 	"SILPH CO\n"
-	"POKéBALL SHOP", MSGBOX_SIGN)
+	"POKé BALL SHOP", MSGBOX_SIGN)
 
 }
 

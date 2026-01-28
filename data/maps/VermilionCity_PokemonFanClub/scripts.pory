@@ -127,6 +127,9 @@ script VermilionCity_FanClub_RaichuGuy {
 mapscripts VermilionCity_PokemonFanClub_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setescapewarp(MAP_VERMILION_CITY_FAN_CLUB_BASEMENT, 0)
+		if(flag(FLAG_FOUND_ROTOM_FAN) || !flag(FLAG_SYS_ROTOM_MENU)) {
+			setflag(FLAG_TEMP_5)
+		}
 	}
 }
 
@@ -155,5 +158,27 @@ script VermilionCity_PokemonFanClub_EventScript_Seel {
 
 		}
 	}
+	release
+}
+
+
+script VermilionFanClub_Rotom {
+	lock
+	faceplayer
+	playmoncry(SPECIES_ROTOM, CRY_MODE_FAINT)
+	waitmoncry
+	applymovement(VAR_LAST_TALKED, moves(
+		emote_question_mark
+	))
+	waitmovement(0)
+	delay(60)
+	msgbox(
+	"It seems that he's misunderstood\n"
+	"this club's objective.", MSGBOX_DEFAULT)
+	closemessage
+    fadescreen(FADE_TO_BLACK)
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_FOUND_ROTOM_FAN)
+    fadescreen(FADE_FROM_BLACK)
 	release
 }

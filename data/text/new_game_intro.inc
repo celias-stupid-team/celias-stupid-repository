@@ -172,23 +172,23 @@ gPikachuIntro_Text_Page1::
     .string "the POKéDEX as you play!$"
 
 gPikachuIntro_Text_Page2::
-	.string "This hack will require a fair amount\n"
-	.string "of prior knowledge on the POKéMON\n"
-	.string "series to be fully enjoyed.\n"
+	.string "This game will require prior\n"
+	.string "knowledge on the POKéMON series\n"
+	.string "to be fully enjoyed.\n"
     .string "\n"
 	.string "It's an equal blend of\n"
 	.string "puzzles, trivia, comedy,\n"
 	.string "and absolute nonsense!$"
 
 gPikachuIntro_Text_Page3::
-    .string "Savestate frequently!\n"
-    .string "There is a lot in this hack\n"
-    .string "that will be completely unfair.\n"
+	.string "Savestate frequently!\n"
+	.string "There's a lot in this hack that'll\n"
+	.string "seem completely unfair.\n"
     .string "\n"
-    .string "The point of it isn't to provide\n"
-    .string "a challenge, but to enjoy\n"
-    .string "the absurdity of it.\n"
-    .string "Have fun!$"
+	.string "If you talk to everyone and read\n"
+	.string "carefully, I know you'll be\n"
+	.string "able to make it through.\n"
+	.string "Have fun!$"
 
 gOakSpeech_Text_WelcomeToTheWorld::
     .string "Hello, there!\n"

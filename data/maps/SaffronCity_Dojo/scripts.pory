@@ -175,9 +175,60 @@ script SaffronDojo_Toaster {
 	"actually very a fancy NES!\l"
 	"Wanna jump in?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
-		msgbox(
-		"here is where a cool sequence\n"
-		"would go", MSGBOX_DEFAULT)
+		closemessage
+		special(SpawnCameraObject)
+		delay(30)
+		playse(SE_LEDGE)
+		setobjectsubpriority(LOCALID_PLAYER, MAP_BRUNO_BACK_ROOM, 0)
+		applymovement(LOCALID_PLAYER, moves(
+			jump_up
+			set_invisible
+		))
+		waitmovement(0)
+		if(flag(FLAG_JASON_IS_IN_ROOM)) {
+			warp(MAP_BRUNO_BACK_ROOM, 0)
+			end
+		}
+		fadenewbgm(MUS_NONE)
+		delay(120)
+		applymovement(LOCALID_CAMERA, moves(
+			walk_slow_down * 10
+		))
+		delay(60)
+		playse(SE_PIN)
+		applymovement(LOCALID_KARATE_MASTER, moves(
+			emote_exclamation_mark
+		))
+		delay(60)
+		playse(SE_PIN)
+		applymovement(LOCALID_ANGRY_NERD_3, moves(
+			face_down
+			emote_exclamation_mark
+		))
+		delay(20)
+		playse(SE_PIN)
+		applymovement(LOCALID_ANGRY_NERD_2, moves(
+			face_down
+			emote_exclamation_mark
+		))
+		delay(40)
+		playse(SE_PIN)
+		applymovement(LOCALID_ANGRY_NERD_1, moves(
+			face_down
+			emote_exclamation_mark
+		))
+		waitmovement(LOCALID_CAMERA)
+		delay(90)
+		playse(SE_EXIT)
+		delay(5)
+		fadescreeninstant(FADE_TO_BLACK)
+		applymovement(LOCALID_CAMERA, moves(
+			walk_fastest_down * 10
+		))
+		setflag(FLAG_JASON_IS_IN_ROOM)
+		waitmovement(LOCALID_CAMERA)
+		delay(30)
+		warpsilent(MAP_BRUNO_BACK_ROOM, 0)
 	}
 	release
 	end
@@ -185,7 +236,7 @@ script SaffronDojo_Toaster {
 
 script SaffronDojo_IrateGamer {
 	msgbox(
-	"I am the IRATE GAMER\n"
+	"I am the IRATE GAMER.\n"
 	"", MSGBOX_NPC)
 }
 

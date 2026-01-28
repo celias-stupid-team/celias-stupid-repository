@@ -547,7 +547,7 @@ script GreatSea_WomensSecret { // Swimmer Victoria
 
 script GreatSea_PokeBallStorage {
 	msgbox(
-	"FEMININE POKéBALL STORAGE DEVICE\n"
+	"FEMININE POKé BALL STORAGE DEVICE\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -963,7 +963,7 @@ script GreatSea_Buoy_TwoIslandSoutheast {
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
-	"{DOWN_ARROW} KANTO EGG DELIVERY SERVICE\n"
+	"{LEFT_ARROW} KANTO EGG DELIVERY SERVICE\n"
 	"{RIGHT_ARROW} ROUTE 18", MSGBOX_DEFAULT)
 	normalmsg
 	release

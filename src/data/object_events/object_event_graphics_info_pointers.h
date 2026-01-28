@@ -499,6 +499,19 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KENYA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MUSHROOM_KID;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HAKARI;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NEW_NEW_GUZMA;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_FAN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_WASH;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_FROST;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_MOW;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ROTOM_HEAT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SUIT_GIRL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_HEART_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_HEART_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS_HAT_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS_HAT_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DAD_STATUE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DAVID;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -999,4 +1012,17 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MUSHROOM_KID] = &gObjectEventGraphicsInfo_MUSHROOM_KID,
     [OBJ_EVENT_GFX_HAKARI] = &gObjectEventGraphicsInfo_HAKARI,
     [OBJ_EVENT_GFX_NEW_NEW_GUZMA] = &gObjectEventGraphicsInfo_NEW_NEW_GUZMA,
+    [OBJ_EVENT_GFX_ROTOM_FAN] = &gObjectEventGraphicsInfo_ROTOM_FAN,
+    [OBJ_EVENT_GFX_ROTOM_WASH] = &gObjectEventGraphicsInfo_ROTOM_WASH,
+    [OBJ_EVENT_GFX_ROTOM_FROST] = &gObjectEventGraphicsInfo_ROTOM_FROST,
+    [OBJ_EVENT_GFX_ROTOM_MOW] = &gObjectEventGraphicsInfo_ROTOM_MOW,
+    [OBJ_EVENT_GFX_ROTOM_HEAT] = &gObjectEventGraphicsInfo_ROTOM_HEAT,
+    [OBJ_EVENT_GFX_SUIT_GIRL] = &gObjectEventGraphicsInfo_SUIT_GIRL,
+    [OBJ_EVENT_GFX_CONTEST_HEART_1] = &gObjectEventGraphicsInfo_CONTEST_HEART_1,
+    [OBJ_EVENT_GFX_CONTEST_HEART_2] = &gObjectEventGraphicsInfo_CONTEST_HEART_2,
+    [OBJ_EVENT_GFX_FORRETRESS_HAT_1] = &gObjectEventGraphicsInfo_FORRETRESS_HAT_1,
+    [OBJ_EVENT_GFX_FORRETRESS_HAT_2] = &gObjectEventGraphicsInfo_FORRETRESS_HAT_2,
+    [OBJ_EVENT_GFX_FORRETRESS] = &gObjectEventGraphicsInfo_FORRETRESS,
+    [OBJ_EVENT_GFX_DAD_STATUE] = &gObjectEventGraphicsInfo_DAD_STATUE,
+    [OBJ_EVENT_GFX_DAVID] = &gObjectEventGraphicsInfo_DAVID,
 };

@@ -12777,3 +12777,17 @@ extern const u32 gMonShinyPalette_FINALWARTORTLE[];
 extern const u8 gMonFootprint_FINALWARTORTLE[];
 extern const u8 gMonIcon_FINALWARTORTLE[];
 
+// DODODUO
+extern const u32 gMonFrontPic_DODODUO[];
+extern const u32 gMonPalette_DODODUO[];
+extern const u32 gMonBackPic_DODODUO[];
+extern const u32 gMonShinyPalette_DODODUO[];
+extern const u8 gMonFootprint_DODODUO[];
+extern const u8 gMonIcon_DODODUO[];
+
+
+extern const u32 gItemIcon_Runningscrews[];
+extern const u32 gItemIconPalette_Runningscrews[];
+
+extern const u32 gItemIcon_OnePiece[];
+extern const u32 gItemIconPalette_OnePiece[];

@@ -491,7 +491,7 @@ static void Task_WaitFadeAndCreateStartMenuTask(u8 taskId)
 void FadeTransition_FadeInOnReturnToStartMenu(void)
 {
     FadeInFromBlack();
-    if (!FlagGet(FLAG_SYS_ROTOM_MENU))
+    if (!(FlagGet(FLAG_SYS_ROTOM_MENU) && !FlagGet(FLAG_IN_FUSHCIA_GYM)))
         CreateTask(Task_WaitFadeAndCreateStartMenuTask, 80);
     LockPlayerFieldControls();
 }

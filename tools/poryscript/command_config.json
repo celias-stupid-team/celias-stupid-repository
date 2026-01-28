@@ -104,6 +104,9 @@
         },
         "checkfieldmove": {
             "var_name": "VAR_RESULT"
+        },
+        "checkpartymonslotegg": {
+            "var_name": "VAR_RESULT"
         }
     }
 }

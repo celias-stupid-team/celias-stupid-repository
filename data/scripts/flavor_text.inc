@@ -8,6 +8,11 @@ EventScript_PokeMartShelf::
 	msgbox Text_PokeMartShelf, MSGBOX_SIGN
 	end
 
+
+EventScript_WalMartShelf::
+	msgbox Text_WalMartShelf, MSGBOX_SIGN
+	end
+
 EventScript_Food::
 	msgbox Text_Food, MSGBOX_SIGN
 	end

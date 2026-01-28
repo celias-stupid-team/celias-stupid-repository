@@ -10,6 +10,12 @@ mapscripts Route18_SandwichShop_MapScripts {
 			release
 		}
 	]
+	MAP_SCRIPT_ON_TRANSITION {
+        
+		if(flag(FLAG_FOUND_ROTOM_HEAT) || !flag(FLAG_SYS_ROTOM_MENU)) {
+			setflag(FLAG_TEMP_1)
+		}
+    }
 }
 
 
@@ -83,4 +89,28 @@ script SandwichShop_CreateSandwich {
 	} else {
 		return
 	}
+}
+
+
+
+
+script SandwhichShop_Rotom {
+	lock
+	faceplayer
+	playmoncry(SPECIES_ROTOM, CRY_MODE_FAINT)
+	waitmoncry
+	applymovement(VAR_LAST_TALKED, moves(
+		emote_question_mark
+	))
+	waitmovement(0)
+	delay(60)
+	msgbox(
+	"Why do you of in the cold tom and\n"
+	"of out eat ro tom?", MSGBOX_DEFAULT)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_FOUND_ROTOM_HEAT)
+    fadescreen(FADE_FROM_BLACK)
+	release
 }

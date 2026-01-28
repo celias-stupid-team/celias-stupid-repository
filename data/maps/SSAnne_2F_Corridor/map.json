@@ -3,7 +3,7 @@
   "name": "SSAnne_2F_Corridor",
   "layout": "LAYOUT_SSANNE_2F_CORRIDOR",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_S_S_ANNE",
+  "region_map_section": "MAPSEC_SEAFOAM_ISLANDS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

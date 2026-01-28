@@ -4,11 +4,7 @@ IndigoPlateau_PokemonCenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
-IndigoPlateau_PokemonCenter_1F_OnTransition::
-	setrespawn HEAL_LOCATION_INDIGO_PLATEAU
-	specialvar VAR_RESULT, IsNationalPokedexEnabled
-	call_if_eq VAR_RESULT, TRUE, IndigoPlateau_PokemonCenter_1F_EventScript_CheckBlockDoor
-	end
+
 
 IndigoPlateau_PokemonCenter_1F_EventScript_CheckBlockDoor::
 	goto_if_set FLAG_SYS_CAN_LINK_WITH_RS, EventScript_Return
@@ -70,6 +66,32 @@ IndigoPlateau_PokemonCenter_1F_EventScript_Nurse::
 	release
 	end
 `
+
+script IndigoPlateau_PokemonCenter_1F_OnTransition {
+	setrespawn(HEAL_LOCATION_INDIGO_PLATEAU)
+	if(!checkpartymon(SPECIES_SMEARGLE)) {
+		setflag(FLAG_TEMP_A)
+	}
+	specialvar (VAR_RESULT, IsNationalPokedexEnabled)
+	call_if_eq (VAR_RESULT, TRUE, IndigoPlateau_PokemonCenter_1F_EventScript_CheckBlockDoor)
+}
+
+script PokemonLeague_SmeargleCelia {
+	msgbox(
+	"Hiya. I see that you've managed to\n"
+	"smuggle a SMEARGLE in!\p"
+
+	"Just be warned:\n"
+	"I hope you know what you're doing.\l"
+	"I will not save you from a softlock.\p"
+
+	"Make a backup savestate right here\n"
+	"just in case you're wrong.\p"
+
+	"Anyway, good luck!\n"
+	"", MSGBOX_NPC)
+}
+
 
 
 script PokemonLeague_GiveHistoryBook {

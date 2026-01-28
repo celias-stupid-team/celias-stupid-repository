@@ -1,6 +1,5 @@
 raw `
-TwoIsland_JoyfulGameCorner_MapScripts::
-	.byte 0
+
 
 TwoIsland_JoyfulGameCorner_OnTransition::
 	call_if_set FLAG_GOT_MOON_STONE_FROM_JOYFUL_GAME_CORNER, TwoIsland_JoyfulGameCorner_EventScript_SetLostelleReturnedPos
@@ -175,9 +174,56 @@ TwoIsland_JoyfulGameCorner_EventScript_Lostelle::
 	release
 	end
 `
+
+mapscripts TwoIsland_JoyfulGameCorner_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_FOUND_ROTOM_MOW)) {
+			setflag(FLAG_TEMP_1)
+		}
+		if(!flag(FLAG_FOUND_ROTOM_WASH)) {
+			setflag(FLAG_TEMP_2)
+		}
+		if(!flag(FLAG_FOUND_ROTOM_FAN)) {
+			setflag(FLAG_TEMP_3)
+		}
+		if(!flag(FLAG_FOUND_ROTOM_FROST)) {
+			setflag(FLAG_TEMP_4)
+		}
+		if(!flag(FLAG_FOUND_ROTOM_HEAT)) {
+			setflag(FLAG_TEMP_5)
+		}
+	}
+}
+
+
 script TwoIsland_Saturn {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox("SATURN: Mwahaha!\nTEAM GALACTIC cannot be stopped!\lBoing!", MSGBOX_NPC)
 }
 
 
+script TwoIsland_Rotoms {
+	lock
+	faceplayer
+	playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+}
+
+script TwoIsland_RotomHeat {
+	lock
+	faceplayer
+	playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
+	waitmoncry
+	msgbox(
+	"Hey, look!\n"
+	"It's NESS!", MSGBOX_DEFAULT)
+	release
+}
+
+script TwoIsland_NotDrSaturn {
+	msgbox(
+	"That's not DR. SATURN, silly!\n"
+	"", MSGBOX_SIGN)
+
+}

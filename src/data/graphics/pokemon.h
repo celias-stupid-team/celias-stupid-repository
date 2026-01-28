@@ -9772,3 +9772,11 @@ const u32 gMonShinyPalette_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/final
 const u8 gMonIcon_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/finalwartortle/icon.4bpp");
 const u8 gMonFootprint_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/finalwartortle/footprint.1bpp");
 
+// DODODUO
+const u32 gMonFrontPic_DODODUO[] = INCBIN_U32("graphics/pokemon/dododuo/front.4bpp.lz");
+const u32 gMonPalette_DODODUO[] = INCBIN_U32("graphics/pokemon/dododuo/normal.gbapal.lz");
+const u32 gMonBackPic_DODODUO[] = INCBIN_U32("graphics/pokemon/dododuo/back.4bpp.lz");
+const u32 gMonShinyPalette_DODODUO[] = INCBIN_U32("graphics/pokemon/dododuo/shiny.gbapal.lz");
+const u8 gMonIcon_DODODUO[] = INCBIN_U8("graphics/pokemon/dododuo/icon.4bpp");
+const u8 gMonFootprint_DODODUO[] = INCBIN_U8("graphics/pokemon/dododuo/footprint.1bpp");
+

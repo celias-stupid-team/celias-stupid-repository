@@ -301,7 +301,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         gFieldInputRecord.pressedStartButton = TRUE;
         FlagSet(FLAG_OPENED_START_MENU);
         PlaySE(SE_WIN_OPEN);
-        if (FlagGet(FLAG_SYS_ROTOM_MENU))
+        if (FlagGet(FLAG_SYS_ROTOM_MENU) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
         {
             
             RunScriptImmediately(SetPlayerPokedexValues);
@@ -594,6 +594,8 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_ShitWall;        
     if (MetatileBehavior_IsPokeMartShelf(metatileBehavior) == TRUE)
         return EventScript_PokeMartShelf;
+    if (MetatileBehavior_IsWalMartShelf(metatileBehavior) == TRUE)
+        return EventScript_WalMartShelf;
     if (MetatileBehavior_IsFood(metatileBehavior) == TRUE)
         return EventScript_Food;
     if (MetatileBehavior_IsImpressiveMachine(metatileBehavior) == TRUE)

@@ -331,7 +331,7 @@ script PokemonIslandLab_Computer {
 	"There's an e-mail message.\p"
 
 	"Skimming it, you find that Mr.\n"
-	"Gadaffi is after IVY too.", MSGBOX_SIGN)
+	"Gaddafi is after IVY too.", MSGBOX_SIGN)
 
 }
 

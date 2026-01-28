@@ -1128,7 +1128,7 @@ static const struct LevelUpMove sDodrioLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSeelLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_BELLY_DRUM),
+    LEVEL_UP_MOVE(1, MOVE_IMPRISON),
     LEVEL_UP_END
 };
 
@@ -6087,9 +6087,12 @@ static const struct LevelUpMove sPhioneLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_SOFT_BOILED),
     LEVEL_UP_MOVE(1, MOVE_DIZZY_PUNCH),
     LEVEL_UP_MOVE(7, MOVE_CHARM),
+    LEVEL_UP_MOVE(7, MOVE_HEART_SWAP),
     LEVEL_UP_MOVE(11, MOVE_ICEBEAM),
+    LEVEL_UP_MOVE(11, MOVE_HEART_SWAP),
     LEVEL_UP_MOVE(15, MOVE_ACID_ARMOR),
     LEVEL_UP_MOVE(20, MOVE_TAKE_HEART),
+    LEVEL_UP_MOVE(20, MOVE_HEART_SWAP),
     LEVEL_UP_MOVE(25, MOVE_ICEBEAM),
     LEVEL_UP_MOVE(20, MOVE_EGG_BOMB),
 	LEVEL_UP_END
@@ -10062,6 +10065,11 @@ static const struct LevelUpMove sFINALMOLTRESLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sFINALWARTORTLELevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sDODODUOLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };

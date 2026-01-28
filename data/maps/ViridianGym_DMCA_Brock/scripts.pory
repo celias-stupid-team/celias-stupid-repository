@@ -7,6 +7,7 @@ mapscripts ViridianGym_DMCA_Brock_MapScripts {
         if(var(VAR_CURRENT_DMCA_PHASE) > 1) {
             setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_DMCA_BROCK_LAYOUT_2)
             setflag(FLAG_TEMP_5)
+            setweather(WEATHER_RAIN)
         }
     }
 
@@ -127,5 +128,9 @@ script DMCABrock_OrthwormEats {
 
     ))
     waitmovement(LOCALID_HUNGRY_ORTHWORM)
+    delay(60)
+    setweather(WEATHER_RAIN)
+    doweather
+    delay(60)
     release
 }

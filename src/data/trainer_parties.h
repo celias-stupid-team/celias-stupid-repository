@@ -10478,15 +10478,22 @@ static const struct TrainerMonItemCustomMoves sParty_HyperDrill[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_HO_OWO,
-        .moves = {MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_DUDUNSPARCE,
+        .moves = {MOVE_BODY_SLAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_DODODUO,
+        .moves = {MOVE_TRIPLE_KICK, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_PORYGON22,
-        .moves = {MOVE_PSY_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_ROUNDEN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_BerriedAlive[] = {
@@ -10495,7 +10502,7 @@ static const struct TrainerMonItemCustomMoves sParty_BerriedAlive[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_HAUNTER,
-        .moves = {MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_TOMBSTONER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_Sans[] = {

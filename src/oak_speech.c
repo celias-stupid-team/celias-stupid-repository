@@ -18,7 +18,7 @@
 #include "constants/songs.h"
 #include "constants/event_object_movement.h"
 
-#define INTRO_SPECIES SPECIES_SUDOWOODO
+#define INTRO_SPECIES SPECIES_BONSLY
 
 enum
 {

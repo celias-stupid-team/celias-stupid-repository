@@ -14,6 +14,16 @@ script Desert_RelicCastle {
 
 }
 
+script Desert_Appletun {
+	lock
+	playmoncry(SPECIES_APPLETUN, CRY_MODE_DEFAULT)
+	waitmoncry
+	delay(10)
+	msgbox(
+	"The Life of Pie…\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
 
 script Desert_DMCAFuckhead {
 	msgbox(
@@ -103,4 +113,13 @@ script Desert_Bus {
 	"The counter reads{PAUSE 30} “572.”\n"
 	"", MSGBOX_SIGN)
 
+}
+
+
+script Desert_Dessert {
+	msgbox(
+	"Confound those DMCA!\p"
+
+	"This place was supposed to be\n"
+	"DESSERT before they showed up!", MSGBOX_NPC)
 }

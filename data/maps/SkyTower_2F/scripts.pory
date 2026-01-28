@@ -1,3 +1,24 @@
 mapscripts SkyTower_2F_MapScripts {
 
 }
+
+
+script SkyTower_TeamForretress {
+    lock
+    playmoncry(SPECIES_FORRETRESS, CRY_MODE_DEFAULT)
+    waitmoncry
+    msgbox(
+	"Woah!\n"
+	"It's TEAM FORRETRESS!", MSGBOX_DEFAULT)
+    release
+}
+
+script SkyTower_TeamForretress2 {
+    lock
+    playmoncry(SPECIES_FORRETRESS, CRY_MODE_DEFAULT)
+    waitmoncry
+    msgbox(
+	"Wow!\n"
+	"It's TEAM FORRETRESS 2!", MSGBOX_DEFAULT)
+    release
+}

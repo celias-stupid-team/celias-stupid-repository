@@ -1045,14 +1045,48 @@ script TwoIsland_RunawayFiveRat {
 	lock
 	playmoncry(SPECIES_RATTATA, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
+}
+
+script TwoIsland_RunawayFiveHorsea {
+	if(checkpartymon(SPECIES_HORSEA) && !flag(FLAG_RUN_AWAY_FIVE)) {
+		msgbox(
+		"Your HORSEA looks excited for the\n"
+		"show!", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+		msgbox(
+		"(another horsea appears)\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+		msgbox(
+		"Wow! Cool!\p"
+
+		"It's the sixth member of the\n"
+		"RUN AWAY Five!", MSGBOX_DEFAULT)
+		setflag(FLAG_SHINY_CREATION)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"The RUN AWAY FIVE HORSEA\n"
+		"joined your party!", MSGBOX_DEFAULT)
+		waitfanfare
+		setflag(FLAG_RUN_AWAY_FIVE)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_HORSEA)
+		call(Common_Script_GiftPokemon19)
+		
+
+	}
+	return
 }
 
 script TwoIsland_RunawayFiveToedscool {
 	lock
 	playmoncry(SPECIES_TOEDSCOOL, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
 }
@@ -1061,6 +1095,7 @@ script TwoIsland_RunawayFiveChansey {
 	lock
 	playmoncry(SPECIES_CHANSEY, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
 }
@@ -1070,6 +1105,7 @@ script TwoIsland_RunawayFiveHDoduo {
 	lock
 	playmoncry(SPECIES_DODUO, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
 }
@@ -1078,6 +1114,7 @@ script TwoIsland_RunawayFiveVenonat {
 	lock
 	playmoncry(SPECIES_KENYA, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
 }
@@ -1140,6 +1177,13 @@ script TwoIsland_Trees {
 script TwoIsland_NoProblem {
 	msgbox(
 	"No problem here.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_Paint {
+	msgbox(
+	"Paint: Blue Version\n"
 	"", MSGBOX_SIGN)
 
 }
