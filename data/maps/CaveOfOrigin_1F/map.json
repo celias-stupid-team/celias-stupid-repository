@@ -18,7 +18,7 @@
   "warp_events": [
     {
       "x": 9,
-      "y": 16,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_NEW_MAP1",
       "dest_warp_id": "3"
@@ -31,12 +31,130 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "0",
+      "script": "CaveOfOrigin_OnixEncounter1"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "0",
+      "script": "CaveOfOrigin_OnixEncounter1"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "0",
+      "script": "CaveOfOrigin_OnixEncounter1"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "0",
+      "script": "CaveOfOrigin_OnixEncounter1"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "0",
+      "script": "CaveOfOrigin_OnixEncounter1"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "1",
+      "script": "CaveOfOrigin_OnixEncounter2"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "1",
+      "script": "CaveOfOrigin_OnixEncounter2"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "1",
+      "script": "CaveOfOrigin_OnixEncounter2"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "2",
+      "script": "CaveOfOrigin_CloysterEncounter"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "2",
+      "script": "CaveOfOrigin_CloysterEncounter"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "2",
+      "script": "CaveOfOrigin_CloysterEncounter"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "2",
+      "script": "CaveOfOrigin_CloysterEncounter"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "2",
+      "script": "CaveOfOrigin_CloysterEncounter"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
       "x": 11,
-      "y": 13,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CaveOfOrigin_1F_Sign"
