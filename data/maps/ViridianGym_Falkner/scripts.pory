@@ -32,11 +32,20 @@ script ViridianGym_Falkner {
     lock
     textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
+	"SILVER: So.\n"
+	"You've come all this way.\p"
+
+	"The leader of the DMCA waits in\n"
+	"the room behind us.\l"
+	"I won't allow you to face him.\p"
+
 	"Your silly bullets won't work on\n"
-	"me!\p"
+	"me.\p"
 
 	"You'll need something with REAL\n"
-	"IP infringement to take me down!", MSGBOX_DEFAULT)
+	"IP Infringement to take me down!", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_DMCA_FALKNER, "W-wait-!\n"
+	"No! Don't-!")
     if(checkpartymon(SPECIES_POKEMON_GUN)) {
         playbgm(MUS_NONE, TRUE)
         delay(20)
