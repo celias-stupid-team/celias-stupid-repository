@@ -732,3 +732,4 @@ const u16 gObjectEventPal_FORRETRESS[] = INCBIN_U16("graphics/object_events/pale
 const u32 gObjectEventPic_DAD_STATUE[] = INCBIN_U32("graphics/object_events/pics/stupid/DAD_STATUE.4bpp");
 const u16 gObjectEventPal_DAD_STATUE[] = INCBIN_U16("graphics/object_events/palettes/DAD_STATUE.gbapal");
 const u32 gObjectEventPic_DAVID[] = INCBIN_U32("graphics/object_events/pics/stupid/DAVID.4bpp");
+const u32 gObjectEventPic_DEAD_NERD[] = INCBIN_U32("graphics/object_events/pics/stupid/DEAD_NERD.4bpp");

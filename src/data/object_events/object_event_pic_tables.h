@@ -5501,3 +5501,14 @@ const struct SpriteFrameImage gObjectEventPicTable_DAVID[] = {
     overworld_frame(gObjectEventPic_DAVID, 2, 4, 7),
     overworld_frame(gObjectEventPic_DAVID, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_DEAD_NERD[] = {
+    overworld_frame(gObjectEventPic_DEAD_NERD, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DEAD_NERD, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DEAD_NERD, 4, 4, 2),
+    overworld_frame(gObjectEventPic_DEAD_NERD, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DEAD_NERD, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DEAD_NERD, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DEAD_NERD, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DEAD_NERD, 4, 4, 2),
+    overworld_frame(gObjectEventPic_DEAD_NERD, 4, 4, 2),
+};

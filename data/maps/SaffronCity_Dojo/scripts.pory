@@ -1,20 +1,21 @@
 raw `
-SaffronCity_Dojo_MapScripts::
-	.byte 0
+
 
 SaffronCity_Dojo_EventScript_TriggerMasterBattleLeft::
 	lockall
-	setvar VAR_MAP_SCENE_SAFFRON_CITY_DOJO, 1
 	applymovement LOCALID_KARATE_MASTER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
+	textcolor NPC_TEXT_COLOR_BLUE
+	goto SaffronDojo_James
 	releaseall
 	end
 
 SaffronCity_Dojo_EventScript_TriggerMasterBattleRight::
 	lockall
-	setvar VAR_MAP_SCENE_SAFFRON_CITY_DOJO, 1
 	applymovement LOCALID_KARATE_MASTER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
+	textcolor NPC_TEXT_COLOR_BLUE
+	goto SaffronDojo_James
 	releaseall
 	end
 
@@ -151,6 +152,111 @@ SaffronCity_Dojo_EventScript_DefeatedMasterKoichi::
 	end
 `
 
+mapscripts SaffronCity_Dojo_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_JASON_IS_IN_ROOM) && !flag(FLAG_JASON_WAS_KILLED)) {
+			playbgm(MUS_NONE, TRUE)
+			
+			
+		} else {
+			setflag(FLAG_TEMP_1)
+			setflag(FLAG_TEMP_2)
+		}
+	}
+
+}
+
+script SaffronDojo_ApproachJason {
+	lock
+	getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+	if(var(VAR_TEMP_0) == 6) {
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down * 2
+		))
+	} else {
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+			walk_left
+			walk_down
+		))
+		
+	}
+	waitmovement(LOCALID_PLAYER)
+	delay(90)
+	applymovement(LOCALID_JASON_VORHEES, moves(
+		face_up
+		delay_16 * 6
+		face_up
+		walk_slower_up
+		face_up
+		delay_16 * 3
+		walk_slower_up
+		face_up
+		delay_16 * 3
+	))
+	waitmovement(LOCALID_JASON_VORHEES)
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slower_down
+		face_down
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		walk_slower_left
+		face_left
+		delay_16 * 3
+		walk_slower_down
+		face_down
+		delay_16 * 3
+		face_right
+	))
+	applymovement(LOCALID_JASON_VORHEES, moves(
+		walk_slower_right
+		face_right
+		delay_16 * 3
+		walk_slower_up
+		face_up
+		delay_16 * 3
+		face_left
+	))
+	waitmovement(LOCALID_PLAYER)
+	delay(60)
+	msgbox(
+	"(you are prompted to throw a Hadouken)\n"
+	"", MSGBOX_DEFAULT)
+	playmoncry(SPECIES_HITMONLEE, CRY_MODE_DEFAULT)
+
+	fadescreenswapbuffers(FADE_TO_WHITE)
+	delay(100)
+	removeobject(LOCALID_JASON_VORHEES)
+	fadescreeninstant(FADE_FROM_WHITE)
+	playse(MUS_SE_DESKSLAM)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+    special(ShakeScreen)
+	delay(90)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_left
+	))
+	setvar(VAR_MAP_SCENE_SAFFRON_CITY_DOJO, 3)
+	fadedefaultbgm
+	waitmovement(0)
+	setflag(FLAG_JASON_WAS_KILLED)
+	special(RemoveCameraObject)
+	release
+
+	
+}
+
+script SaffronDojo_DeadNerd {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"A pitiful mass of meat struggles\n"
+	"on the floor.", MSGBOX_SIGN)
+
+}
+
 
 script SaffronDojo_James {
 	lock
@@ -159,13 +265,18 @@ script SaffronDojo_James {
 	"there is a fight\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
-
+	setvar(VAR_MAP_SCENE_SAFFRON_CITY_DOJO, 1)
 	msgbox(
 	"But you've only just defeated me!\p"
 
 	"If you want the GYM BADGE, you'll\n"
 	"have to travel into the back room\l"
-	"and defeat the biggest nerd of all!", MSGBOX_NPC)
+	"and defeat the biggest nerd of all!", MSGBOX_DEFAULT)
+	applymovement(LOCALID_KARATE_MASTER, moves(
+		face_down
+	))
+	waitmovement(LOCALID_KARATE_MASTER)
+	release
 }
 
 script SaffronDojo_Toaster {
@@ -177,7 +288,7 @@ script SaffronDojo_Toaster {
 	if(var(VAR_RESULT)) {
 		closemessage
 		special(SpawnCameraObject)
-		delay(30)
+		delay(45)
 		playse(SE_LEDGE)
 		setobjectsubpriority(LOCALID_PLAYER, MAP_BRUNO_BACK_ROOM, 0)
 		applymovement(LOCALID_PLAYER, moves(
@@ -189,6 +300,7 @@ script SaffronDojo_Toaster {
 			warp(MAP_BRUNO_BACK_ROOM, 0)
 			end
 		}
+		setvar(VAR_MAP_SCENE_SAFFRON_CITY_DOJO, 2)
 		fadenewbgm(MUS_NONE)
 		delay(120)
 		applymovement(LOCALID_CAMERA, moves(
@@ -197,6 +309,7 @@ script SaffronDojo_Toaster {
 		delay(60)
 		playse(SE_PIN)
 		applymovement(LOCALID_KARATE_MASTER, moves(
+			face_down
 			emote_exclamation_mark
 		))
 		delay(60)

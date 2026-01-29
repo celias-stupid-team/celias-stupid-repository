@@ -106,8 +106,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 11,
-      "y": 0,
+      "x": 15,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -164,16 +164,72 @@
       "local_id": "LOCALID_JASON_VORHEES",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_JASONVORHEES",
-      "x": 10,
-      "y": 6,
+      "x": 6,
+      "y": 12,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DEAD_NERD",
+      "x": 5,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SaffronDojo_DeadNerd",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DEAD_NERD",
+      "x": 8,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SaffronDojo_DeadNerd",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DEAD_NERD",
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SaffronDojo_DeadNerd",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DEAD_NERD",
+      "x": 4,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SaffronDojo_DeadNerd",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
@@ -209,8 +265,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": -1,
-      "y": 6,
+      "x": 5,
+      "y": 5,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_SAFFRON_CITY_DOJO",
       "var_value": "0",
@@ -218,12 +274,39 @@
     },
     {
       "type": "trigger",
-      "x": -1,
+      "x": 7,
       "y": 5,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_SAFFRON_CITY_DOJO",
       "var_value": "0",
       "script": "SaffronCity_Dojo_EventScript_TriggerMasterBattleRight"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_SAFFRON_CITY_DOJO",
+      "var_value": "2",
+      "script": "SaffronDojo_ApproachJason"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_SAFFRON_CITY_DOJO",
+      "var_value": "2",
+      "script": "SaffronDojo_ApproachJason"
     }
   ],
   "bg_events": [
