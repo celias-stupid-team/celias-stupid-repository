@@ -12794,3 +12794,6 @@ extern const u32 gItemIconPalette_OnePiece[];
 
 extern const u32 gItemIcon_FUJIBALL[];
 extern const u32 gItemIconPalette_FUJIBALL[];
+
+extern const u32 gItemIcon_PatrickDoll[];
+extern const u32 gItemIconPalette_PatrickDoll[];

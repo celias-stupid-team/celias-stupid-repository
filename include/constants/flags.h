@@ -1124,7 +1124,7 @@
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_22                   (FLAG_HIDDEN_ITEMS_START +  30)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_23                     (FLAG_HIDDEN_ITEMS_START +  31)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_24                     (FLAG_HIDDEN_ITEMS_START +  32)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_25                        (FLAG_HIDDEN_ITEMS_START +  33)
+#define FLAG_HIDDEN_ITEM_CSR_PATRICK_DOLL                        (FLAG_HIDDEN_ITEMS_START +  33)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_26                              (FLAG_HIDDEN_ITEMS_START +  34)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_27                                (FLAG_HIDDEN_ITEMS_START +  35)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_28                                 (FLAG_HIDDEN_ITEMS_START +  36)

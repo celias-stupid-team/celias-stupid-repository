@@ -72,6 +72,7 @@ script TwoIsland_StarmanEncounter {
 
 script TwoIsland_SoftSandGirl {
 	lock
+	textcolor(NPC_TEXT_COLOR_RED)
 	if(flag(FLAG_SOFT_SAND_GIRL)) {
 		msgbox(
 		"Hmm…\n"

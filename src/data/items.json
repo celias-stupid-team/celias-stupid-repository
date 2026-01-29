@@ -1281,7 +1281,7 @@
       "secondaryId": 0
     },
     {
-      "english": "POKé DOLL",
+      "english": "c",
       "itemId": "ITEM_POKE_DOLL",
       "price": 9999,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -2241,7 +2241,7 @@
       "secondaryId": 0
     },
     {
-      "english": "VERI BERRY",
+      "english": "VARI BERRY",
       "itemId": "ITEM_PERSIM_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_CONFUSION",
@@ -7460,6 +7460,22 @@
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_POKE_BALLS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "POKé DOLL",
+      "itemId": "ITEM_PATRICK_DOLL",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Cool doll!\\nI wonder what it is…",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,
