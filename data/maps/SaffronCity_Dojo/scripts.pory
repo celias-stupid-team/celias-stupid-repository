@@ -154,6 +154,8 @@ SaffronCity_Dojo_EventScript_DefeatedMasterKoichi::
 
 mapscripts SaffronCity_Dojo_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
+		setflag(FLAG_TEMP_4)
+		setflag(FLAG_TEMP_5)
 		if(flag(FLAG_JASON_IS_IN_ROOM) && !flag(FLAG_JASON_WAS_KILLED)) {
 			playbgm(MUS_NONE, TRUE)
 			
@@ -161,6 +163,10 @@ mapscripts SaffronCity_Dojo_MapScripts {
 		} else {
 			setflag(FLAG_TEMP_1)
 			setflag(FLAG_TEMP_2)
+		}
+		if(flag(FLAG_JASON_WAS_KILLED)) {
+			clearflag(FLAG_TEMP_5)
+			setflag(FLAG_TEMP_6)
 		}
 	}
 
@@ -206,7 +212,7 @@ script SaffronDojo_ApproachJason {
 		delay_16 * 3
 		walk_slower_down
 		face_down
-		delay_16 * 3
+		delay_16 * 4
 		face_right
 	))
 	applymovement(LOCALID_JASON_VORHEES, moves(
@@ -215,25 +221,108 @@ script SaffronDojo_ApproachJason {
 		delay_16 * 3
 		walk_slower_up
 		face_up
-		delay_16 * 3
+		delay_16 * 4
 		face_left
 	))
 	waitmovement(LOCALID_PLAYER)
 	delay(60)
-	msgbox(
-	"(you are prompted to throw a Hadouken)\n"
-	"", MSGBOX_DEFAULT)
+	addobject(LOCALID_HADOUKEN_PROMPT)
+	delay(30)
+
+	waitbuttonpress
+	playse(SE_SELECT)
+	applymovement(LOCALID_HADOUKEN_PROMPT, moves(
+		face_left
+	))
+	delay(60)
+	removeobject(LOCALID_HADOUKEN_PROMPT)
+	delay(30)
+
+	applymovement(LOCALID_PLAYER, moves(
+		set_invisible
+	))
+	if(checkplayergender == MALE) {
+		addobject(LOCALID_HADOUKEN_BOY_1)
+		applymovement(LOCALID_HADOUKEN_BOY_1, moves(
+			set_visible
+			delay_16
+			face_up
+			delay_16
+			face_left
+			delay_16 * 2
+		))
+	} else {
+		addobject(LOCALID_HADOUKEN_GIRL_1)
+		applymovement(LOCALID_HADOUKEN_GIRL_1, moves(
+			set_visible
+			delay_16
+			face_up
+			delay_16
+			face_left
+			delay_16 * 2
+		))
+
+	}
+	waitmovement(LOCALID_HADOUKEN_BOY_1)
+	waitmovement(LOCALID_HADOUKEN_GIRL_1)
 	playmoncry(SPECIES_HITMONLEE, CRY_MODE_DEFAULT)
+	if(checkplayergender == MALE) {
+		addobject(LOCALID_HADOUKEN_BOY_2)
+		
+		applymovement(LOCALID_HADOUKEN_BOY_1, moves(
+			set_invisible
+		))
+		applymovement(LOCALID_HADOUKEN_BOY_2, moves(
+			set_visible
+			delay_16
+			face_up
+			delay_8
+			face_left
+		))
+	} else {
+		addobject(LOCALID_HADOUKEN_GIRL_2)
+		
+		applymovement(LOCALID_HADOUKEN_GIRL_1, moves(
+			set_invisible
+		))
+		applymovement(LOCALID_HADOUKEN_GIRL_2, moves(
+			set_visible
+			delay_16
+			face_up
+			delay_8
+			face_left
+		))
+
+	}
+	addobject(LOCALID_HADOUKEN_SPRITE)
+	setobjectsubpriority(LOCALID_HADOUKEN_SPRITE, MAP_SAFFRON_CITY_DOJO, 0)
+	applymovement(LOCALID_HADOUKEN_SPRITE, moves(
+			set_visible
+			walk_slower_right * 3
+	))
+	waitmovement(LOCALID_HADOUKEN_GIRL_2)
+	waitmovement(LOCALID_HADOUKEN_BOY_2)
+	delay(10)
 
 	fadescreenswapbuffers(FADE_TO_WHITE)
-	delay(100)
+	delay(80)
 	removeobject(LOCALID_JASON_VORHEES)
+	removeobject(LOCALID_HADOUKEN_BOY_1)
+	removeobject(LOCALID_HADOUKEN_BOY_2)
+	removeobject(LOCALID_HADOUKEN_GIRL_1)
+	removeobject(LOCALID_HADOUKEN_GIRL_2)
+	removeobject(LOCALID_HADOUKEN_SPRITE)
+	applymovement(LOCALID_PLAYER, moves(
+		set_visible
+	))
+	delay(7)
+	playse(SE_EFFECTIVE)
+	delay(3)
 	fadescreeninstant(FADE_FROM_WHITE)
-	playse(MUS_SE_DESKSLAM)
     setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
     setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
     setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
-    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
     special(ShakeScreen)
 	delay(90)
 	applymovement(LOCALID_CAMERA, moves(
@@ -348,9 +437,21 @@ script SaffronDojo_Toaster {
 }
 
 script SaffronDojo_IrateGamer {
+	if(flag(FLAG_JASON_IS_IN_ROOM)) {
+		msgbox(
+		"I am the IRATE GAMER.\n"
+		"{PAUSE 30}…Oh?\l"
+		"How am I still alive?\p"
+
+		"Ha! I never did an episode covering\n"
+		"FRIDAY THE 13th.", MSGBOX_NPC)
+		end
+	}
 	msgbox(
-	"I am the IRATE GAMER.\n"
-	"", MSGBOX_NPC)
+	"I am the IRATE GAMER.\p"
+
+	"Now that the DMCA are gone, I can\n"
+	"keep doing my show!", MSGBOX_NPC)
 }
 
 script SaffronDojo_Nerd1 {
@@ -363,4 +464,16 @@ script SaffronDojo_Nerd2 {
 	msgbox(
 	"SIXTY FOUR BIT\n"
 	"", MSGBOX_NPC)
+}
+
+
+
+script SaffronGym_CleaningLady {
+	msgbox(
+	"Huh?\n"
+	"Yeah, I'm the CLEANING LADY.\p"
+
+	"This room was a mess, so I moved\n"
+	"everything to storage.", MSGBOX_NPC)
+	end
 }

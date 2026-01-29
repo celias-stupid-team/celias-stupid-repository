@@ -456,7 +456,7 @@
 #define FLAG_FOUND_ROTOM_FROST                           0x195
 #define FLAG_FOUND_ROTOM_FAN                              0x196
 #define FLAG_FOUND_ROTOM_HEAT                           0x197
-#define FLAG_0x198                       0x198
+#define FLAG_GOT_SHINY_PINSIR                       0x198
 #define FLAG_0x199                       0x199
 #define FLAG_0x19A                        0x19A
 #define FLAG_0x19B                              0x19B
