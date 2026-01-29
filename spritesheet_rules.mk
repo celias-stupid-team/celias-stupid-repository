@@ -1197,3 +1197,21 @@ $(OBJEVENTGFXDIR)/stupid/DAD_STATUE.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/DAVID.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/DEAD_NERD.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/SNAP_GATE.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/HADOUKEN_SPRITE.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 2
+$(OBJEVENTGFXDIR)/stupid/HADOUKEN_GIRL_1.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/HADOUKEN_GIRL_2.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/PINEAPPLE.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 2
+$(OBJEVENTGFXDIR)/stupid/HADOUKEN_BOY_1.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/HADOUKEN_BOY_2.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/THROW_HADOUKEN.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8

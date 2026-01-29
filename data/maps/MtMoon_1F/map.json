@@ -413,7 +413,7 @@
     {
       "type": "trigger",
       "x": 15,
-      "y": 30,
+      "y": 29,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_MT_MOON_TENTACOOL",
       "var_value": "1",
@@ -422,7 +422,7 @@
     {
       "type": "trigger",
       "x": 19,
-      "y": 29,
+      "y": 28,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_MT_MOON_TENTACOOL",
       "var_value": "1",
@@ -431,7 +431,7 @@
     {
       "type": "trigger",
       "x": 18,
-      "y": 29,
+      "y": 28,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_MT_MOON_TENTACOOL",
       "var_value": "1",
@@ -440,7 +440,7 @@
     {
       "type": "trigger",
       "x": 17,
-      "y": 29,
+      "y": 28,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_MT_MOON_TENTACOOL",
       "var_value": "1",
@@ -449,7 +449,16 @@
     {
       "type": "trigger",
       "x": 16,
-      "y": 29,
+      "y": 28,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_MT_MOON_TENTACOOL",
+      "var_value": "1",
+      "script": "MtMoon_1F_Trigger_SecondTentacool"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 30,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_MT_MOON_TENTACOOL",
       "var_value": "1",

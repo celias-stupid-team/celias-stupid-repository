@@ -6161,7 +6161,7 @@
       "id": "LAYOUT_CAVE_OF_ORIGIN_1F",
       "name": "CaveOfOrigin_1F_Layout",
       "width": 20,
-      "height": 20,
+      "height": 28,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
