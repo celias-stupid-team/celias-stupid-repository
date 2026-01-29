@@ -5512,12 +5512,12 @@
     {
       "id": "LAYOUT_VIRIDIAN_GYM_KOGA",
       "name": "ViridianGym_Koga_Layout",
-      "width": 32,
-      "height": 27,
+      "width": 20,
+      "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_NewFuchsiaGym",
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_CeruleanGym",
       "border_filepath": "data/layouts/ViridianGym_Koga/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Koga/map.bin"
     },
@@ -6161,7 +6161,7 @@
       "id": "LAYOUT_CAVE_OF_ORIGIN_1F",
       "name": "CaveOfOrigin_1F_Layout",
       "width": 20,
-      "height": 28,
+      "height": 20,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7332,18 +7332,6 @@
       "secondary_tileset": "gTileset_Yugioh",
       "border_filepath": "data/layouts/ViridianGym_Misty_Bridge/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Misty_Bridge/map.bin"
-    },
-    {
-      "id": "LAYOUT_VIRIDIAN_GYM_KOGA_OPEN",
-      "name": "ViridianGym_Koga_Open",
-      "width": 28,
-      "height": 25,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_NewFuchsiaGym",
-      "border_filepath": "data/layouts/ViridianGym_Koga_Open/border.bin",
-      "blockdata_filepath": "data/layouts/ViridianGym_Koga_Open/map.bin"
     }
   ]
 }
