@@ -3,6 +3,7 @@ mapscripts Wormhole_OrthwormRoom_MapScripts {
         if(checkmoncaught(SPECIES_ORTHWORM)) {
             setvar(VAR_TEMP_0, 2)
         }
+        additem(ITEM_POKE_BALL)
         if(!flag(FLAG_ORTHWORM_POTION) && checkmoncaught(SPECIES_ORTHWORM)) {
             setobjectxyperm(LOCALID_ORTHWORM_POTION, 9, 12)
         }
@@ -53,6 +54,44 @@ script Wormhole_OrthwormRises {
         walk_slow_up * 2
     ))
     waitmovement(0)
+    if(!checkitem(ITEM_POKE_BALL)) {
+        delay(30)
+        applymovement(LOCALID_WORMHOLE_CELIA, moves(
+            set_visible
+            walk_down * 6
+            walk_right * 5
+            face_down
+        ))
+        waitmovement(LOCALID_WORMHOLE_CELIA)
+        textcolor(NPC_TEXT_COLOR_RED)
+        msgbox(
+        "CELIA: Hey, there!\n"
+        "I see what you just did!\p"
+
+        "I bet you thought you could get\n"
+        "yourself softlocked by doing that.\l"
+        "Very crafty!\p"
+
+        "Don't worry, though.\n"
+        "I've accounted for it.\p"
+
+        "Here!\n"
+        "", MSGBOX_DEFAULT)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        giveitem_msg("CELIA gave you\na POKé BALL!", ITEM_POKE_BALL)
+        textcolor(NPC_TEXT_COLOR_RED)
+        msgbox(
+        "CELIA: All right, then!\n"
+        "Back to the show!", MSGBOX_DEFAULT)
+        closemessage
+        applymovement(LOCALID_WORMHOLE_CELIA, moves(
+            set_visible
+            walk_right * 8
+            set_invisible
+        ))
+        waitmovement(LOCALID_WORMHOLE_CELIA)
+        setflag(FLAG_SHINY_CREATION)
+    }
     applymovement(LOCALID_CAMERA, moves(
         walk_slow_up * 6
     ))
