@@ -1,3 +1,5 @@
 mapscripts CaveOfOrigin_2F_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_UNDER_DICK_BRIDGE)
+    }
 }
