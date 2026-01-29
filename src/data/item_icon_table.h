@@ -490,5 +490,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_MEAT]      =  {gItemIcon_Meat, gItemIconPalette_Meat},
     [ITEM_RUNNINGSCREWS]      =  {gItemIcon_Runningscrews, gItemIconPalette_Runningscrews},
     [ITEM_ONE_PIECE]      =  {gItemIcon_OnePiece, gItemIconPalette_OnePiece},
+    [ITEM_FUJI_BALL]      =  {gItemIcon_FUJIBALL, gItemIconPalette_FUJIBALL},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

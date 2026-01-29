@@ -717,7 +717,7 @@ static void BagListMenuItemPrintFunc(u8 windowId, u32 itemId, u8 y)
     {
         bagItemId = BagGetItemIdByPocketPosition(gBagMenuState.pocket + 1, itemId);
         bagItemQuantity = BagGetQuantityByPocketPosition(gBagMenuState.pocket + 1, itemId);
-        if (((gBagMenuState.pocket != POCKET_KEY_ITEMS - 1 ) && ItemId_GetImportance(bagItemId) == 0) || bagItemId == ITEM_ODD_CANDY || bagItemId == ITEM_BRICK_PIECE || bagItemId == ITEM_NOTHING)
+        if (((gBagMenuState.pocket != POCKET_KEY_ITEMS - 1 ) && ItemId_GetImportance(bagItemId) == 0) || bagItemId == ITEM_ODD_CANDY || bagItemId == ITEM_BRICK_PIECE || (bagItemId == ITEM_NOTHING && bagItemQuantity > 1))
         {
             ConvertIntToDecimalStringN(gStringVar1, bagItemQuantity, STR_CONV_MODE_RIGHT_ALIGN, 3);
             StringExpandPlaceholders(gStringVar4, gText_TimesStrVar1);
@@ -1395,7 +1395,7 @@ static void OpenContextMenu(u8 taskId)
             switch (gBagMenuState.pocket)
             {
             case OPEN_BAG_ITEMS:
-                if (gSpecialVar_ItemId == ITEM_TM16)
+                if (gSpecialVar_ItemId == ITEM_TM16 || gSpecialVar_ItemId == ITEM_MOON_STONE)
                 {
                     sContextMenuItemsPtr = sContextMenuItems_PayDay;
                     sContextMenuNumItems = 2;

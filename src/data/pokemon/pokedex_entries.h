@@ -5474,7 +5474,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_WOOBAT] =
     {
-        .categoryName = _("WAA"),
+        .categoryName = _("BAT"),
         .height = 50,
         .weight = 620,
         .description = gWoobatPokedexText,

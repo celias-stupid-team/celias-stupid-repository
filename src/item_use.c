@@ -652,6 +652,8 @@ void Task_ReturnToFieldFromBagMenu(u8 taskId)
     ItemMenu_StartFadeToExitCallback(taskId);
 }
 
+
+
 void FieldUseFunc_CopycatTM(u8 taskId)
 {
     VarSet(VAR_COPYCAT_USED, 1);
@@ -663,6 +665,17 @@ void FieldUseFunc_CopycatTM(u8 taskId)
         PlaySE(SE_PC_LOGIN);
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu);
     }
+}
+
+
+void FieldUseFunc_Cigarette(u8 taskId)
+{
+
+        PlaySE(SE_M_EMBER);
+        RemoveUsedItem();
+
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PlayerCancer, Task_ReturnToBagFromContextMenu);
+    
 }
 
 static void Task_UseRepel(u8 taskId)
@@ -1064,7 +1077,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
 
     species = SPECIES_GIMMIGHOUL;
     
-    if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE))
+    if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
     {
 
         /*

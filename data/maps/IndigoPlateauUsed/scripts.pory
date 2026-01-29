@@ -24,20 +24,33 @@ script IndigoPlateau_CharmanderGrowl {
     lock
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox(
-	"A small girl is in the way.\n"
-	"She looks like she's afraid of\l"
-	"dragons and lizard-like creatures.", MSGBOX_DEFAULT)
+	"A small girl is in the way.\p"
+	"It looks like she's afraid of\n"
+	"dragons and dragon-adjacent creatures.", MSGBOX_DEFAULT)
     if(checkpartymove(MOVE_GROWL_CHARMANDER) != PARTY_SIZE) {
         msgbox(
         "Would you like to scare her away\n"
         "with GROWL?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
-            msgbox(
-            "used growl\n"
-            "", MSGBOX_DEFAULT)
             playmoncry(SPECIES_CHARIZARD, CRY_MODE_DEFAULT)
             waitmoncry
             closemessage
+            delay(10)
+            playse(SE_PIN)
+            applymovement(VAR_LAST_TALKED, moves(
+                emote_exclamation_mark
+                delay_16 * 3
+                lock_facing_direction
+                walk_slow_up
+                unlock_facing_direction
+                delay_16 * 3
+            ))
+            waitmovement(VAR_LAST_TALKED)
+            playse(SE_FLEE)
+            applymovement(VAR_LAST_TALKED, moves(
+                walk_fast_left * 10
+            ))
+            waitmovement(VAR_LAST_TALKED)
             removeobject(VAR_LAST_TALKED)
         }
     }

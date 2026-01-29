@@ -523,8 +523,8 @@
     {
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_MISTY",
       "map": "MAP_VIRIDIAN_GYM_MISTY",
-      "x": 5,
-      "y": 13,
+      "x": 6,
+      "y": 16,
       "respawn_map": "MAP_VIRIDIAN_GYM_MISTY",
       "respawn_npc": "1"
     },

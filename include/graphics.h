@@ -12791,3 +12791,6 @@ extern const u32 gItemIconPalette_Runningscrews[];
 
 extern const u32 gItemIcon_OnePiece[];
 extern const u32 gItemIconPalette_OnePiece[];
+
+extern const u32 gItemIcon_FUJIBALL[];
+extern const u32 gItemIconPalette_FUJIBALL[];

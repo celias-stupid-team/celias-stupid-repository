@@ -232,8 +232,10 @@ static void CreateBattleStartTask(u8 transition, u16 song) // song == 0 means de
     u8 taskId = CreateTask(Task_BattleStart, 1);
 
     gTasks[taskId].tTransition = transition;
-    if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER)
-        PlayMapChosenOrBattleBGM(song);
+    if(!(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE14) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE14)) && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD)))
+        {
+            PlayMapChosenOrBattleBGM(song);
+        }
 }
 
 static bool8 CheckSilphScopeInPokemonTower(u16 mapGroup, u16 mapNum)

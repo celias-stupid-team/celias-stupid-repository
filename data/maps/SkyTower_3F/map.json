@@ -60,15 +60,15 @@
   ],
   "warp_events": [
     {
-      "x": 50,
-      "y": 33,
+      "x": 33,
+      "y": 52,
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_SUMMIT_PATH_2F",
       "dest_warp_id": "0"
     },
     {
-      "x": 29,
-      "y": 13,
+      "x": 28,
+      "y": 57,
       "elevation": 0,
       "dest_map": "MAP_SKY_TOWER_2F",
       "dest_warp_id": "0"

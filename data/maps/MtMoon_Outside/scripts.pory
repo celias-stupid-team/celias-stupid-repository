@@ -25,30 +25,63 @@ script MoonAltar_CameraPan {
 		playse(SE_M_EARTHQUAKE)
 		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
 		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
-		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 15)
-		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 30)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
 		special(ShakeScreen)
 		waitmovement(0)
 		delay(90)
 		playmoncry(SPECIES_COSMOG, CRY_MODE_DEFAULT)
-		msgbox(
-		"nebby happens\n"
-		"", MSGBOX_DEFAULT)
-		closemessage
+		waitmoncry
+		setobjectxy(LOCALID_ALTAR_NEBBY, 17, 12)
+		applymovement(LOCALID_ALTAR_NEBBY, moves(
+			lock_facing_direction
+			set_visible
+			walk_up * 6
+		))
+		waitmovement(LOCALID_ALTAR_NEBBY)
+		delay(30)
 		fadescreeninstant(FADE_TO_WHITE)
-		setflag(FLAG_PUT_NEBBY_IN_ALTAR)
+		removeobject(LOCALID_ALTAR_NEBBY)
 		clearflag(FLAG_TEMP_5)
 		addobject(LOCALID_MOON_WORMHOLE)
-		delay(5)
+		delay(10)
 		fadescreeninstant(FADE_FROM_WHITE)
 		removeitem(ITEM_NEBBY)
-		msgbox(
-		"you get sucked\n"
-		"", MSGBOX_DEFAULT)
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 10)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+		special(ShakeScreen)
+		playse(SE_M_BLIZZARD)
+		delay(120)
+		setobjectsubpriority(LOCALID_MOON_WORMHOLE, MAP_MT_MOON_OUTSIDE, 255)
+		setobjectsubpriority(LOCALID_PLAYER, MAP_MT_MOON_OUTSIDE, 0)
+		applymovement(LOCALID_PLAYER, moves(
+			face_down
+			lock_facing_direction
+			slide_up * 5
+			walk_in_place_fast_down * 6
+			slide_up
+			walk_in_place_fast_down * 4
+			slide_up
+			unlock_facing_direction
+			walk_in_place_fast_down * 3
+			walk_in_place_fast_left
+			walk_in_place_fast_right
+			walk_in_place_fast_left
+			walk_in_place_fast_right
+			walk_in_place_fast_down * 5
+			lock_facing_direction
+			slide_up * 2
+			set_invisible
+		))
+		waitmovement(LOCALID_PLAYER)
+		playse(SE_M_SCREECH)
+		delay(60)
 		//Scene of you getting sucked in
 		// Warp to wormhole
 		setobjectxy(LOCALID_PLAYER, 9, 12)
-		warp(MAP_WORMHOLE_ENTRANCE, 1)
+		warpsilent(MAP_WORMHOLE_ENTRANCE, 1)
 		release
 		end
 

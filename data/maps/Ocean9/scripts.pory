@@ -145,3 +145,9 @@ script GreatSea_Mudkip_3 {
     setvar(VAR_TEMP_0, 0)
     release
 }
+
+script GreatSea_BillBoard {
+	msgbox(
+	"Dunno which company they are, but\n"
+	"they've put BILL BOARDS all over!", MSGBOX_NPC)
+}

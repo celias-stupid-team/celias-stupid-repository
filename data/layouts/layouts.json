@@ -5549,11 +5549,11 @@
       "id": "LAYOUT_VIRIDIAN_GYM_MISTY",
       "name": "ViridianGym_Misty_Layout",
       "width": 20,
-      "height": 20,
+      "height": 21,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_CeruleanGym",
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_Yugioh",
       "border_filepath": "data/layouts/ViridianGym_Misty/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Misty/map.bin"
     },
@@ -7320,6 +7320,18 @@
       "secondary_tileset": "gTileset_GenericBuilding1",
       "border_filepath": "data/layouts/YesHouse/border.bin",
       "blockdata_filepath": "data/layouts/YesHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_MISTY_BRIDGE",
+      "name": "ViridianGym_Misty_Bridge",
+      "width": 20,
+      "height": 21,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_Yugioh",
+      "border_filepath": "data/layouts/ViridianGym_Misty_Bridge/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Misty_Bridge/map.bin"
     }
   ]
 }

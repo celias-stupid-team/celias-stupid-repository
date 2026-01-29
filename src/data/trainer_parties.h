@@ -10020,10 +10020,10 @@ static const struct TrainerMonItemCustomMoves sParty_DMCABrock[] = {
 static const struct TrainerMonItemCustomMoves sParty_DMCAMisty[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 50,
         .heldItem = ITEM_NONE,
         .species = SPECIES_HYDREIGON,
-        .moves = {MOVE_DRAGON_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_CRUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -10077,20 +10077,20 @@ static const struct TrainerMonItemCustomMoves sParty_DMCASabrina[] = {
 static const struct TrainerMonItemCustomMoves sParty_DMCABlaine[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 50,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_ZANGOOSE,
-        .moves = {MOVE_SLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_GOLBAT,
+        .moves = {MOVE_PERISH_SONG, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
 static const struct TrainerMonItemCustomMoves sParty_DMCAFalkner[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 50,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_PIDGEOTTO,
-        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_REMORAID,
+        .moves = {MOVE_SHOOT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };

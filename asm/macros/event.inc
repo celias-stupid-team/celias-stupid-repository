@@ -1336,6 +1336,7 @@
 	.endm
 
 	@ Sets the specified object's sprite's subpriority, and sets fixedPriority to TRUE.
+	@ 0 is on top, higher numbers are below
 	@ Only used to hide the player and Briney behind the boat.
 	.macro setobjectsubpriority localId:req, map:req, subpriority:req
 	.byte 0xa8

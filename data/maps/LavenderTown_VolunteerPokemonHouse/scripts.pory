@@ -80,6 +80,20 @@ LavenderTown_VolunteerPokemonHouse_EventScript_Blackboard::
 script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji {
 	lock
 	faceplayer
+	if(checkitem(ITEM_MASTER_BALL)) {
+		setflag(FLAG_CAUGHT_MR_FUJI)
+		removeobject(VAR_LAST_TALKED)
+		removeitem(ITEM_MASTER_BALL)
+		additem(ITEM_FUJI_BALL)
+		playfanfare(MUS_LEVEL_UP)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"{PLAYER} caught MR. FUJI\n"
+		"in the MISTER BALL!", MSGBOX_DEFAULT)
+		release
+		end
+
+	}
 	if(flag(FLAG_GOT_HISTORY_BOOK)) {
 		goto(LavenderTown_VolunteerPokemonHouse_EventScript_AlreadyHavePokeFlute)
 	} else {

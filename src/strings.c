@@ -212,6 +212,7 @@ const u8 gText_PlayerUsedVar2[] = _("{PLAYER} used the\n{STR_VAR_2}.{PAUSE_UNTIL
 const u8 gText_RepelEffectsLingered[] = _("But the effects of a REPEL\nlingered from earlier.{PAUSE_UNTIL_PRESS}");
 const u8 gText_MaxRepelTurnedOff[] = _("{PLAYER} untoggled the\nMAX REPEL!\pWild POKéMON will now\nappear again!{PAUSE_UNTIL_PRESS}");
 const u8 gText_TMContainedCopycat[] = _("{PLAYER} booted up the TM!\pIt contained\nCOPYCAT!{PAUSE_UNTIL_PRESS}");
+const u8 gText_PlayerCancer[] = _("{PLAYER} got cancer!{PAUSE_UNTIL_PRESS}");
 const u8 gText_MaxRepelWorks[] = _("{PLAYER} used the MAX REPEL!\pWild POKéMON will no longer\nappear!{PAUSE_UNTIL_PRESS}");
 const u8 gText_MaxRepelDoesntWork[] = _("{PLAYER} used\n{STR_VAR_1}.\l...But it failed!\pThere's no DYNAMAX ENERGY in\nthe area!{PAUSE_UNTIL_PRESS}");
 const u8 gText_PayDayTM[] = _("Booted up the TM!{PAUSE_UNTIL_PRESS}");

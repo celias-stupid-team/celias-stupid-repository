@@ -17,14 +17,14 @@ script RainbowCloud_Thesis {
 
 	"Train yourself to see the world not\n"
 	"for what you think it is, but for\l"
-	"what you believe it can become!\p"
+	"what you believe it can become.\p"
 
 	"All art is an extension of your own\n"
 	"unique perspective, and your voice\l"
 	"is worth hearing regardless of skill!\p"
 
 	"I believe in the intrinsic value of\n"
-	"the audacity of creation, and I\l"
+	"of the audacity of creation, and I\l"
 	"will empower others to feel the same!", MSGBOX_SIGN)
 
 }

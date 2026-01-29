@@ -710,7 +710,7 @@ script GreatSea_Buoy_ShrineIsland {
 	signmsg
 	msgbox(
 	"{LEFT_ARROW} POKéMON ISLAND\n"
-	"{DOWN_ARROW} Some Rocks", MSGBOX_DEFAULT)
+	"{DOWN_ARROW} Nothing", MSGBOX_DEFAULT)
 	normalmsg
 	release
 }
