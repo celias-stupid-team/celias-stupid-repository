@@ -269,16 +269,6 @@
       "script": "PokemonMansion_B1F_EventScript_Statue"
     },
     {
-      "type": "hidden_item",
-      "x": 35,
-      "y": 15,
-      "elevation": 3,
-      "item": "ITEM_ELIXIR",
-      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_25",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 18,
       "y": 30,

@@ -304,6 +304,16 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Desert_Bus"
+    },
+    {
+      "type": "hidden_item",
+      "x": 40,
+      "y": 32,
+      "elevation": 0,
+      "item": "ITEM_PATRICK_DOLL",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_PATRICK_DOLL",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }

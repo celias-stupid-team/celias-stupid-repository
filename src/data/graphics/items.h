@@ -957,3 +957,6 @@ const u32 gItemIconPalette_OnePiece[] = INCBIN_U32("graphics/items/icon_palettes
 
 const u32 gItemIcon_FUJIBALL[] = INCBIN_U32("graphics/items/icons/fuji_ball.4bpp.lz");
 const u32 gItemIconPalette_FUJIBALL[] = INCBIN_U32("graphics/items/icon_palettes/fuji_ball.gbapal.lz");
+
+const u32 gItemIcon_PatrickDoll[] = INCBIN_U32("graphics/items/icons/patrick_doll.4bpp.lz");
+const u32 gItemIconPalette_PatrickDoll[] = INCBIN_U32("graphics/items/icon_palettes/patrick_doll.gbapal.lz");
