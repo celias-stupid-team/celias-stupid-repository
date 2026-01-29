@@ -273,7 +273,7 @@ script Route15_PokeRap_Trainer14_Defeat {
 
 script Route15_PokeRap_Trainer15 {
     trainerbattle_single(TRAINER_POKERAP_15, Rapper_15_Intro, "Nice!", Route15_PokeRap_Trainer15_Defeat)
-    msgbox("DITTO by Jogaklaa\n", MSGBOX_DEFAULT)
+    msgbox("DITTO by Jogaklaa\nCloyster by Sky Ankou", MSGBOX_DEFAULT)
     release
 }
 
@@ -303,7 +303,7 @@ script Route15_PokeRap_Trainer16_Defeat {
 
 script Route15_PokeRap_Trainer17 {
     trainerbattle_single(TRAINER_POKERAP_17, Rapper_17_Intro, "Nice!", Route15_PokeRap_Trainer17_Defeat)
-    msgbox("ALAKAZAM by Boba Tea\nDODUO by Boba Tea", MSGBOX_DEFAULT)
+    msgbox("ALAKAZAM by Boba Tea\nDODUO by Boba Tea\lMachoke by Sky Ankou", MSGBOX_DEFAULT)
     release
 }
 
@@ -441,7 +441,7 @@ script Route15_PokeRap_Trainer24_Defeat {
 
 script Route15_PokeRap_Trainer25 {
     trainerbattle_single(TRAINER_POKERAP_25, Rapper_25_Intro, "Nice!", Route15_PokeRap_Trainer25_Defeat)
-    msgbox("JYNX by FemboyPixelart\nNIDORINA by\lBEEDRILL by Beespoon!", MSGBOX_DEFAULT)
+    msgbox("JYNX by FemboyPixelart\nARTICUNO by danstrider6025\lBEEDRILL by Beespoon!", MSGBOX_DEFAULT)
     release
 }
 
@@ -487,7 +487,7 @@ script Route15_PokeRap_Trainer27_Defeat {
 
 script Route15_PokeRap_Trainer28 {
     trainerbattle_single(TRAINER_POKERAP_28, Rapper_28_Intro, "Nice!", Route15_PokeRap_Trainer28_Defeat)
-    msgbox("LAPRAS by Vissery\nVULPIX by Lichen", MSGBOX_DEFAULT)
+    msgbox("LAPRAS by Vissery\nVULPIX by Lichen\lPidgeotto by danstrider6025", MSGBOX_DEFAULT)
     release
 }
 
@@ -654,7 +654,7 @@ script Route15_PokeRap_Trainer36_Defeat {
 
 script Route15_PokeRap_Trainer37 {
     trainerbattle_single(TRAINER_POKERAP_37, Rapper_37_Intro, "Nice!", Route15_PokeRap_Trainer37_Defeat)
-    msgbox("(Both sprites done by Celia Dawn!)\n", MSGBOX_DEFAULT)
+    msgbox("Charmeleon by Sky Ankou\n", MSGBOX_DEFAULT)
     release
 }
 
