@@ -319,3 +319,6 @@ const u32 gMetatileAttributes_Chapter7Chaper2[] = INCBIN_U32("data/tilesets/prim
 
 const u16 gMetatiles_FinalBossCutscene[] = INCBIN_U16("data/tilesets/primary/final_boss_cutscene/metatiles.bin");
 const u32 gMetatileAttributes_FinalBossCutscene[] = INCBIN_U32("data/tilesets/primary/final_boss_cutscene/metatile_attributes.bin");
+
+const u16 gMetatiles_Yugioh[] = INCBIN_U16("data/tilesets/secondary/yugioh/metatiles.bin");
+const u32 gMetatileAttributes_Yugioh[] = INCBIN_U32("data/tilesets/secondary/yugioh/metatile_attributes.bin");

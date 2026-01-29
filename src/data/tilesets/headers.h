@@ -1183,3 +1183,14 @@ const struct Tileset gTileset_FinalBossCutscene =
     .metatileAttributes = gMetatileAttributes_FinalBossCutscene,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Yugioh =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Yugioh,
+    .palettes = gTilesetPalettes_Yugioh,
+    .metatiles = gMetatiles_Yugioh,
+    .metatileAttributes = gMetatileAttributes_Yugioh,
+    .callback = NULL,
+};

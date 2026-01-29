@@ -2164,3 +2164,22 @@ const u16 gTilesetPalettes_FinalBossCutscene[][16] =
 };
 
 const u32 gTilesetTiles_FinalBossCutscene[] = INCBIN_U32("data/tilesets/primary/final_boss_cutscene/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Yugioh[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/yugioh/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Yugioh[] = INCBIN_U32("data/tilesets/secondary/yugioh/tiles.4bpp.lz");
