@@ -431,6 +431,7 @@ gSongTable::
 	song mus_trumpets, 1, 1
 	song mus_mus_vs_regi, 0, 0
 	song mus_tunnel, 0, 0
+	song mus_pisces_gym, 0, 0
 
 
 
