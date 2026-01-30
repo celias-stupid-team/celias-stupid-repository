@@ -993,7 +993,8 @@ Text_TheDoorIsClosed::
 	.string "ドアは　しまっている‥$"
 
 Text_TheDoorIsOpen::
-	.string "The door is open…$"
+	.string "Who designs a door like that\n"
+	.string "anyway?$"
 
 	.include "data/text/pc_transfer.inc"
 	.include "data/text/white_out.inc"

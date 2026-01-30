@@ -112,9 +112,7 @@ Text_TastyFood::
 	.string "{PAUSE 30}{PLAYER}'s DEFENSE fell!\n$"
 
 Text_TrashBin::
-	.string "Inside this…\n"
-	.string "……\p"
-	.string "There's nothing here!$"
+	.string "The trash can is now empty.$"
 
 Text_Cup::
 	.string "It's a cup with a POKéMON mark\n"

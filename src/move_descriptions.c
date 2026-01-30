@@ -1281,4 +1281,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_FLY_CYNTHIA - 1] = gMoveDescription_Fly,
     [MOVE_FREEZE_DRY - 1] = gMoveDescription_FreezeDry,
     [MOVE_LEAFAGE - 1] = gMoveDescription_Leafage,
+    [MOVE_SHOOT_BIG - 1] = gMoveDescription_FreezeDry,
+    [MOVE_ADOBE_FLASH - 1] = gMoveDescription_FreezeDry,
+    
 };

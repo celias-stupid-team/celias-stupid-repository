@@ -258,9 +258,20 @@ script TwoIsland_PencilStatue {
 	} else {
 		msgbox("A large statue of a PENCIL blocks\nthe way.\pWould you like to use the PENCIL\nERASER?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			msgbox("{PLAYER} used the PENCIL ERASER.\n", MSGBOX_DEFAULT)
+			msgbox("{PLAYER} used the PENCIL ERASER!\n", MSGBOX_DEFAULT)
 			// sound effect
 			closemessage
+			delay(30)
+			playse(SE_WARP_OUT)
+			closemessage
+			applymovement(VAR_LAST_TALKED, moves(
+				face_left
+				delay_16 * 2
+				face_up
+				delay_16 * 2
+				set_invisible
+			))
+			waitmovement(VAR_LAST_TALKED)
 			setflag(FLAG_TWO_ISLAND_PENCIL)
 			//animation?
 			removeobject(VAR_LAST_TALKED)
@@ -823,13 +834,53 @@ script TwoIsland_BurnHeal {
 		"{FONT_COMIC_SANS}eat shit and die, thief\n"
 		"", MSGBOX_DEFAULT)
 		
+		setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_SANS)
 		trainerbattle_no_intro(TRAINER_SANS, "darn")
 		if(checkpartymove(MOVE_MAGICAL_LEAF) != PARTY_SIZE) {
-			fadedefaultbgm
+			
 			msgbox(
-			"{FONT_COMIC_SANS}I am dead\n"
+			"{FONT_COMIC_SANS}Oh.\n"
 			"", MSGBOX_DEFAULT)
-			giveitem(ITEM_BURN_HEAL)
+			closemessage
+			delay(30)
+			setobjectxy(LOCALID_TWO_ISLAND_SANS_DEAD, 15, 6)
+			playse(SE_M_CUT)
+			applymovement(LOCALID_TWO_ISLAND_SANS_DEAD, moves(
+				set_visible
+				delay_4
+				face_left
+				delay_4
+				face_up
+				delay_16
+				delay_8
+				set_invisible
+				delay_2
+				set_visible
+				delay_2
+				set_invisible
+				delay_2
+				set_visible
+				delay_2
+				set_invisible
+				delay_2
+				set_visible
+				delay_2
+				set_invisible
+				delay_2
+				set_visible
+				delay_2
+				set_invisible
+			))
+			applymovement(LOCALID_TWO_ISLAND_SANS, moves(
+				set_invisible
+			))
+			waitmovement(LOCALID_TWO_ISLAND_SANS_DEAD)
+			delay(16)
+			removeobject(LOCALID_TWO_ISLAND_SANS)
+			removeobject(LOCALID_TWO_ISLAND_SANS_DEAD)
+			delay(60)
+			fadedefaultbgm
+			additem(ITEM_BURN_HEAL)
 			release
 			end
 		}
@@ -1157,7 +1208,7 @@ script TwoIsland_ThePit {
 	hideobjectat(LOCALID_TWO_ISLAND_PENCIL, MAP_TWO_ISLAND)
 	hideobjectat(LOCALID_TWO_ISLAND_MUSHROOM_KID, MAP_TWO_ISLAND)
 	setlayouttiles(LAYOUT_TWO_ISLAND_PIT, 0, 0, 0, 0, 67, 28)
-	release
+	
 }
 
 script TwoIsland_NoThePit {

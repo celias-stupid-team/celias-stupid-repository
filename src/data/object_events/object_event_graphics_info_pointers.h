@@ -512,6 +512,18 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS_HAT_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FORRETRESS;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DAD_STATUE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DAVID;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DEAD_NERD;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SNAP_GATE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HADOUKEN_SPRITE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HADOUKEN_GIRL_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HADOUKEN_GIRL_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PINEAPPLE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HADOUKEN_BOY_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HADOUKEN_BOY_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_THROW_HADOUKEN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SANS_NESS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SANS_FULL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SANS_CUT;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1025,4 +1037,16 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_FORRETRESS] = &gObjectEventGraphicsInfo_FORRETRESS,
     [OBJ_EVENT_GFX_DAD_STATUE] = &gObjectEventGraphicsInfo_DAD_STATUE,
     [OBJ_EVENT_GFX_DAVID] = &gObjectEventGraphicsInfo_DAVID,
+    [OBJ_EVENT_GFX_DEAD_NERD] = &gObjectEventGraphicsInfo_DEAD_NERD,
+    [OBJ_EVENT_GFX_SNAP_GATE] = &gObjectEventGraphicsInfo_SNAP_GATE,
+    [OBJ_EVENT_GFX_HADOUKEN_SPRITE] = &gObjectEventGraphicsInfo_HADOUKEN_SPRITE,
+    [OBJ_EVENT_GFX_HADOUKEN_GIRL_1] = &gObjectEventGraphicsInfo_HADOUKEN_GIRL_1,
+    [OBJ_EVENT_GFX_HADOUKEN_GIRL_2] = &gObjectEventGraphicsInfo_HADOUKEN_GIRL_2,
+    [OBJ_EVENT_GFX_PINEAPPLE] = &gObjectEventGraphicsInfo_PINEAPPLE,
+    [OBJ_EVENT_GFX_HADOUKEN_BOY_1] = &gObjectEventGraphicsInfo_HADOUKEN_BOY_1,
+    [OBJ_EVENT_GFX_HADOUKEN_BOY_2] = &gObjectEventGraphicsInfo_HADOUKEN_BOY_2,
+    [OBJ_EVENT_GFX_THROW_HADOUKEN] = &gObjectEventGraphicsInfo_THROW_HADOUKEN,
+    [OBJ_EVENT_GFX_SANS_NESS] = &gObjectEventGraphicsInfo_SANS_NESS,
+    [OBJ_EVENT_GFX_SANS_FULL] = &gObjectEventGraphicsInfo_SANS_FULL,
+    [OBJ_EVENT_GFX_SANS_CUT] = &gObjectEventGraphicsInfo_SANS_CUT,
 };

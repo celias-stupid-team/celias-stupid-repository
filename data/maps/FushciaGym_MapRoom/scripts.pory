@@ -2,10 +2,51 @@ mapscripts FushciaGym_MapRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_MAP_ROOM)
+        if(!flag(FLAG_JASON_WAS_KILLED)) {
+            setflag(FLAG_TEMP_1)
+        }
     }
 }
 
 script FushciaGym_MapRoom_Sign {
 	msgbox("Storage\n", MSGBOX_SIGN)
 	end
+}
+
+script FushciaGym_IrateGamer {
+    lock
+    faceplayer
+    msgbox(
+	"IRATE GAMER: That lady shoved me\n"
+	"in this room with everyone else.\p"
+
+	"She said she was “taking care of\n"
+	"the trash”…", MSGBOX_DEFAULT)
+    if(!flag(FLAG_GOT_SHINY_PINSIR)) {
+        setflag(FLAG_GOT_SHINY_PINSIR)
+        msgbox(
+        "Here, you can have this.\p"
+
+        "He's been looking at my head\n"
+        "a little funny…", MSGBOX_DEFAULT)
+        playfanfare(MUS_LEVEL_UP)
+        setflag(FLAG_SHINY_CREATION)
+        msgbox(
+        "{PLAYER} got the bloodthirty\n"
+        "PINSIR!", MSGBOX_DEFAULT)
+        waitfanfare
+        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PINSIR)
+        call(Common_Script_GiftPokemon30)
+
+    }
+    release
+}
+
+
+script Storage_DeadNerd {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"Thankfully the blood seems to\n"
+	"blend in with the floor tiles!", MSGBOX_SIGN)
+
 }

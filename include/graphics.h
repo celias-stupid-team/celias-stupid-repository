@@ -12797,3 +12797,9 @@ extern const u32 gItemIconPalette_FUJIBALL[];
 
 extern const u32 gItemIcon_PatrickDoll[];
 extern const u32 gItemIconPalette_PatrickDoll[];
+
+extern const u32 gTrainerFrontPic_Ariana[];
+extern const u32 gTrainerPalette_Ariana[];
+
+extern const u32 gTrainerFrontPic_Uncle[];
+extern const u32 gTrainerPalette_Uncle[];

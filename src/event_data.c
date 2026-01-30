@@ -70,6 +70,8 @@ void ClearTempData_CSR(void)
     FlagClear(FLAG_SYS_KANGA_FIGHT);
     FlagClear(FLAG_SYS_CSR_VICTORY);
     FlagClear(FLAG_SYS_UNDER_WATERFALL);
+    FlagClear(FLAG_USED_GENDER_FLUID);
+    
     VarSet(VAR_USED_CUT, 0);
     RunScriptImmediately(SetPlayerPokedexValues);
 }

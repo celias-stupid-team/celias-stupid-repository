@@ -1,6 +1,7 @@
 #include "global.h"
 #include "gflib.h"
 #include "bike.h"
+#include "event_scripts.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
@@ -962,9 +963,14 @@ void PlayerTurnInPlace(u8 direction)
 
 void PlayerJumpLedge(u8 direction)
 {
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_TWO_ISLAND) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_TWO_ISLAND)) {
+        RunScriptImmediately(TwoIsland_ThePit);
+    }
     PlaySE(SE_LEDGE);
     PlayerSetAnimId(GetJump2MovementAction(direction), 8);
 }
+
+
 
 // Shakes head for male player character,
 // walk in place for female player character

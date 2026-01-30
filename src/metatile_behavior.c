@@ -66,7 +66,7 @@ bool8 MetatileBehavior_IsJumpNorth(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsJumpSouth(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_JUMP_SOUTH)
+    if (metatileBehavior == MB_JUMP_SOUTH || metatileBehavior == MB_FALLING_OBJECT)
         return TRUE;
     else
         return FALSE;

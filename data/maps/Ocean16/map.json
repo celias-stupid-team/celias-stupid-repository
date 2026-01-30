@@ -166,8 +166,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 47,
-      "y": 33,
+      "x": 50,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -218,6 +218,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Desert_Appletun",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PINEAPPLE",
+      "x": 43,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_PINAP_BERRY",
+      "script": "EventScript_FindItem",
+      "flag": "FLAG_HIDDEN_ITEM_SPONGEBOB"
     }
   ],
   "warp_events": [],
@@ -233,8 +247,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 44,
-      "y": 36,
+      "x": 48,
+      "y": 40,
       "elevation": 0,
       "item": "ITEM_PINAP_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_SPONGEBOB",

@@ -688,7 +688,9 @@ script ThirtyEightIsland_NorthDad {
 	"DAD: {PLAYER}!\n"
 	"What are you doing out here?\p"
 
-	"dad text\p"
+	"Say, aren't we right next to our\n"
+	"home in PALLET TOWN?\l"
+	"What a journey you've had!\p"
 
 	"Well, never mind that.\n"
 	"How about you take a rest?", MSGBOX_DEFAULT)

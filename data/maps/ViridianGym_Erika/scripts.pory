@@ -70,6 +70,7 @@ script ViridianGym_ErikaBattle {
                 goto(EventScript_FieldWhiteOutNoMoney)
 
     }
+    removeobject(LOCALID_ERIKA_ROADBLOCK)
     msgbox(
 	"Too much gay\n"
 	"", MSGBOX_DEFAULT)

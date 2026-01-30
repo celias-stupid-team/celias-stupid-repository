@@ -5512,12 +5512,12 @@
     {
       "id": "LAYOUT_VIRIDIAN_GYM_KOGA",
       "name": "ViridianGym_Koga_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 32,
+      "height": 27,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
-      "secondary_tileset": "gTileset_CeruleanGym",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_NewFuchsiaGym",
       "border_filepath": "data/layouts/ViridianGym_Koga/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Koga/map.bin"
     },
@@ -6141,7 +6141,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/CaveOfOrigin_2F/border.bin",
       "blockdata_filepath": "data/layouts/CaveOfOrigin_2F/map.bin"
     },
@@ -7332,6 +7332,18 @@
       "secondary_tileset": "gTileset_Yugioh",
       "border_filepath": "data/layouts/ViridianGym_Misty_Bridge/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Misty_Bridge/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE17_UNDERNEATH",
+      "name": "Route17_Underneath",
+      "width": 33,
+      "height": 110,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CeladonCity",
+      "border_filepath": "data/layouts/Route17_Underneath/border.bin",
+      "blockdata_filepath": "data/layouts/Route17_Underneath/map.bin"
     }
   ]
 }
