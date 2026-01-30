@@ -471,8 +471,8 @@
 #define FLAG_0x1A4                      0x1A4
 #define FLAG_0x1A5              0x1A5
 #define FLAG_HIDE_LIGMA                                              0x1A6
-#define FLAG_0x1A7                      0x1A7
-#define FLAG_0x1A8                0x1A8
+#define FLAG_KILLED_SANS                      0x1A7
+#define FLAG_USED_GENDER_FLUID                0x1A8
 #define FLAG_0x1A9                    0x1A9
 #define FLAG_0x1AA                          0x1AA
 #define FLAG_0x1AB                    0x1AB

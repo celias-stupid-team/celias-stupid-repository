@@ -133,6 +133,8 @@ script SilphCo_11F_EventScript_BattleGiovanni {
 	call_if_eq(VAR_TEMP_1, 0, SilphCo_11F_EventScript_GiovanniApproachLeft)
 	call_if_eq(VAR_TEMP_1, 1, SilphCo_11F_EventScript_GiovanniApproachRight)
 	setvar(VAR_LAST_TALKED, LOCALID_SILPH_CO_GIOVANNI)
+	
+	setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_GIOVANNI_2)
 	trainerbattle_no_intro(TRAINER_BOSS_GIOVANNI_2, SilphCo_11F_Text_GiovanniDefeat)
 	msgbox(
 	"GIOVANNI: Foolish child!\n"

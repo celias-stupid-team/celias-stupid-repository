@@ -103,15 +103,22 @@ script Desert_YamaskGuy {
 }
 
 script Desert_Bus {
-	msgbox(
-	"A bus is stalled on the side of\n"
-	"the road.\p"
+	if(flag(FLAG_USED_GENDER_FLUID)) {
+		msgbox(
+			"Down with the cis!\n"
+			"", MSGBOX_SIGN)
+	} else {
+		msgbox(
+		"A bus is stalled on the side of\n"
+		"the road.\p"
 
-	"A single fly is squished on the\n"
-	"windshield.\p"
+		"A single fly is squished on the\n"
+		"windshield.\p"
 
-	"The counter reads{PAUSE 30} “572.”\n"
-	"", MSGBOX_SIGN)
+		"The counter reads{PAUSE 30} “572.”\n"
+		"", MSGBOX_SIGN)
+
+	}
 
 }
 
