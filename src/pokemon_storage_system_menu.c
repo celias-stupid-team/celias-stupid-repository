@@ -18,6 +18,9 @@
 #include "battle_controllers.h"
 #include "reshow_battle_screen.h"
 
+extern u8 gSavedFaintedActionsState;
+extern u8 gSavedFaintedActionsBattlerId;
+
 static EWRAM_DATA u8 sPreviousBoxOption = 0;
 static EWRAM_DATA struct ChooseBoxMenu *sChooseBoxMenu = NULL;
 
@@ -398,6 +401,7 @@ static void CreatePCMainMenu(u8 whichMenu, s16 *windowIdPtr)
 
 void CB2_ExitPokeStorage(void)
 {
+    DebugPrintf("CB2_ExitPokeStorage");
     sPreviousBoxOption = GetCurrentBoxOption();
     if (gMain.inBattle)
     {
@@ -406,7 +410,7 @@ void CB2_ExitPokeStorage(void)
         // reallocate battle sprite data before returning
         AllocateBattleResources();
         AllocateBattleSpritesData();
-        AllocateMonSpritesGfx(); // --> gives a malloc 174
+        AllocateMonSpritesGfx();
 
         // restore AI flags
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
@@ -422,6 +426,9 @@ void CB2_ExitPokeStorage(void)
         // restore absent battler flags
         *(&gBattleStruct->absentBattlerFlags) = gAbsentBattlerFlags;
 
+        // restore faintedActionsState
+        gBattleStruct->faintedActionsState = gSavedFaintedActionsState;
+        gBattleStruct->faintedActionsBattlerId = gSavedFaintedActionsBattlerId;
 
         gMain.callback1 = BattleMainCB1;
         SetMainCallback2(ReshowBattleScreenAfterMenu);

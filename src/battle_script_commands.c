@@ -3824,6 +3824,7 @@ static void Cmd_checkteamslost(void)
 {
     u16 HP_count = 0;
     s32 i;
+    DebugPrintf("checkteamslost");
 
     if (gBattleControllerExecFlags)
         return;
@@ -3840,7 +3841,11 @@ static void Cmd_checkteamslost(void)
     {
         if (!gCheckedContinueRotomBattle && HP_count == 0)
             gBattleOutcome |= B_OUTCOME_CONTINUE_ROTOM;
-        // else will call B_ACTION_SWITCH and trigger a PC switch
+        // if battler fainted the system will call PlayerHandleChoosePokemon() later and trigger a PC switch
+    }
+    else if (gBattleSwitchFromPSS)
+    {
+        DebugPrintf("Do nothing!");
     }
     else if (HP_count == 0)
         gBattleOutcome |= B_OUTCOME_LOST;
@@ -4948,6 +4953,8 @@ static void Cmd_switchindataupdate(void)
     s32 i;
     u8 *monData;
 
+DebugPrintf("### Cmd_switchindataupdate ###\n");
+
     if (gBattleControllerExecFlags)
         return;
 
@@ -5107,6 +5114,7 @@ bool32 CanBattlerSwitch(u32 battler)
 // Note that this is not used by the Switch action, only replacing fainted Pokémon or Baton Pass
 static void ChooseMonToSendOut(u8 slotId)
 {
+    DebugPrintf("+++ ChooseMonToSendOut +++\n");
     *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
     BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_SEND_OUT, slotId, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
     MarkBattlerForControllerExec(gActiveBattler);
@@ -5118,6 +5126,8 @@ static void Cmd_openpartyscreen(void)
     u8 hitmarkerFaintBits;
     u8 battlerId;
     const u8 *jumpPtr;
+
+    DebugPrintf("+++ openpartyscreen +++");
 
     battlerId = 0;
     flags = 0;
@@ -5362,6 +5372,7 @@ static void Cmd_openpartyscreen(void)
         }
         else
         {
+            DebugPrintf("Choose Pokemon");
             gActiveBattler = battlerId;
             *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
 
@@ -5395,6 +5406,7 @@ static void Cmd_openpartyscreen(void)
             }
         }
     }
+    DebugPrintf("+++ End openpartyscreen +++");
 }
 
 static void Cmd_switchhandleorder(void)
@@ -5453,6 +5465,8 @@ static void Cmd_switchineffects(void)
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     UpdateSentPokesToOpponentValue(gActiveBattler);
+
+    DebugPrintf("Cmd_switchineffects for battler %d\n", gActiveBattler);
 
     gHitMarker &= ~HITMARKER_FAINTED(gActiveBattler);
     gSpecialStatuses[gActiveBattler].faintedHasReplacement = FALSE;
@@ -5547,6 +5561,7 @@ static void Cmd_switchineffects(void)
         if (!AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, gActiveBattler, 0, 0, 0)
             && !ItemBattleEffects(ITEMEFFECT_ON_SWITCH_IN, gActiveBattler, FALSE))
         {
+            DebugPrintf("Cmd_switchineffects");
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_SPIKES_DAMAGED;
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_STEALTH_ROCK_DAMAGED;
 
@@ -5579,6 +5594,7 @@ static void Cmd_switchineffects(void)
             gBattlescriptCurrInstr += 2;
         }
     }
+    DebugPrintf("### finished Cmd_switchineffects");
 }
 
 static void Cmd_trainerslidein(void)
@@ -6929,6 +6945,7 @@ static void Cmd_various(void)
         {
             VARIOUS_ARGS();
             u8 battler = GetBattlerForBattleScript(cmd->battler);
+            DebugPrintf("VARIOUS_SWITCHIN_ABILITIES");
 
             gBattlescriptCurrInstr = cmd->nextInstr;
             AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS, battler, 0, 0, 0);
@@ -10187,6 +10204,7 @@ static void Cmd_docastformchangeanimation(void)
 static void Cmd_trycastformdatachange(void)
 {
     u8 form;
+    DebugPrintf("Cmd_trycastformdatachange");
 
     gBattlescriptCurrInstr++;
     form = CastformDataTypeChange(gBattleScripting.battler);

@@ -2902,9 +2902,19 @@ static void UpdateBoxToSendMons(void)
 }
 
 // ### PSS battle switches - step 3 ###
+extern u8 gSavedFaintedActionsState;
+extern u8 gSavedFaintedActionsBattlerId;
 void ExternalLoadPC(void)
 {
     int i;
+
+    // Save critical BattleStruct state before freeing
+    if (gBattleStruct != NULL)
+    {
+        DebugPrintf("Restoring saved fainted actions state: %d, %d", gSavedFaintedActionsState, gSavedFaintedActionsBattlerId);
+        gSavedFaintedActionsState = gBattleStruct->faintedActionsState;
+        gSavedFaintedActionsBattlerId = gBattleStruct->faintedActionsBattlerId;
+    }
 
     //Free memory
     FreeAllWindowBuffers();

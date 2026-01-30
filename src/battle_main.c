@@ -102,7 +102,6 @@ static void BattleIntroOpponentSendsOutMonAnimation(void);
 static void BattleIntroPlayerSendsOutMonAnimation(void);
 static void TryDoEventsBeforeFirstTurn(void);
 static void HandleTurnActionSelectionState(void);
-static void RunTurnActionsFunctions(void);
 static void SetActionsAndBattlersTurnOrder(void);
 static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void);
 static void HandleEndTurn_FinishBattle(void);
@@ -188,6 +187,8 @@ EWRAM_DATA u8 gLastHitBy[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gChosenMoveByBattler[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gMoveResultFlags = 0;
 EWRAM_DATA u32 gHitMarker = 0;
+EWRAM_DATA u8 gSavedFaintedActionsState = 0;
+EWRAM_DATA u8 gSavedFaintedActionsBattlerId = 0;
 static EWRAM_DATA u8 sUnusedBattlersArray[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gTakenDmgByBattler[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gUnusedFirstBattleVar2 = 0;
@@ -2149,6 +2150,12 @@ void BeginBattleIntro(void)
 
 void BattleMainCB1(void)
 {
+    if (!gBattleMainFunc && gMadePSSSwitch)
+    {
+        DebugPrintf("Restoring gBattleMainFunc for %d battlers\n", gBattlersCount);
+        gBattleMainFunc = RunTurnActionsFunctions;
+        gCurrentTurnActionNumber = 0;
+    }
     gBattleMainFunc();
 
     for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
@@ -2935,8 +2942,10 @@ static void HandleEndTurn_ContinueBattle(void)
 {
     s32 i;
 
+    DebugPrintf("??? HandleEndTurn_ContinueBattle - gBattleControllerExecFlags = %d ###\n", gBattleControllerExecFlags);
     if (gBattleControllerExecFlags == 0)
     {
+        DebugPrintf("HandleEndTurn_ContinueBattle - call BattleTurnPassed");
         gBattleMainFunc = BattleTurnPassed;
         for (i = 0; i < BATTLE_COMMUNICATION_ENTRIES_COUNT; i++)
             gBattleCommunication[i] = 0;
@@ -2958,7 +2967,7 @@ static void HandleEndTurn_ContinueBattle(void)
 void BattleTurnPassed(void)
 {
     s32 i;
-    DebugPrintf("BattleTurnPassed");
+    DebugPrintf("### BattleTurnPassed() ###");
 
     TurnValuesCleanUp(TRUE);
     if (gBattleOutcome == 0)
@@ -2991,7 +3000,7 @@ void BattleTurnPassed(void)
         gBattleMainFunc = RunTurnActionsFunctions;
         return;
     }
-    if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM))
+    if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM) && gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
     {
         DebugPrintf("### activate Rotom Battle UI ###\n");
         // ToDo wiz1989: Activate Rotom Battle UI
@@ -3453,7 +3462,10 @@ static void HandleTurnActionSelectionState(void)
     }
     // Check if everyone chose actions.
     if (gBattleCommunication[ACTIONS_CONFIRMED_COUNT] == gBattlersCount)
+    {
+        DebugPrintf("everyone chose actions\n");
         gBattleMainFunc = SetActionsAndBattlersTurnOrder;
+    }
 }
 
 void SwapTurnOrder(u8 id1, u8 id2)
@@ -3650,6 +3662,8 @@ static void SetActionsAndBattlersTurnOrder(void)
     s32 turnOrderId = 0;
     s32 i, j;
 
+    DebugPrintf("SetActionsAndBattlersTurnOrder");
+
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
     {
         for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
@@ -3789,6 +3803,7 @@ static void SpecialStatusesClear(void)
 
 static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
 {
+    DebugPrintf("CheckFocusPunch_ClearVarsBeforeTurnStarts");
     if (!(gHitMarker & HITMARKER_RUN))
     {
         while (gBattleStruct->focusPunchBattlerId < gBattlersCount)
@@ -3822,7 +3837,7 @@ static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
     gBattleResources->battleScriptsStack->size = 0;
 }
 
-static void RunTurnActionsFunctions(void)
+void RunTurnActionsFunctions(void)
 {
     if (gBattleOutcome != 0)
         gCurrentActionFuncId = B_ACTION_FINISHED;
@@ -4614,12 +4629,14 @@ static void HandleAction_OldManBallThrow(void)
 
 static void HandleAction_TryFinish(void)
 {
-    DebugPrintf("HandleAction_TryFinish");
+    DebugPrintf("HandleAction_TryFinish ###");
     if (!HandleFaintedMonActions())
     {
         gBattleStruct->faintedActionsState = 0;
+        DebugPrintf("set B_ACTION_FINISHED");
         gCurrentActionFuncId = B_ACTION_FINISHED;
     }
+    DebugPrintf("\n");
 }
 
 static void HandleAction_NothingIsFainted(void)
@@ -4662,6 +4679,7 @@ static void HandleAction_ActionFinished(void)
     //reset party data after a PSS switch
     if (gMadePSSSwitch)
     {
+        DebugPrintf("### Resetting gMadePSSSwitch ###\n");
         ResetPartyData(RESET_OPTION_ALL);
         gMadePSSSwitch = FALSE;
     }

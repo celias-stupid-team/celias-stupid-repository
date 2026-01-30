@@ -516,6 +516,8 @@ u8 DoFieldEndTurnEffects(void)
     u8 effect = 0;
     s32 i;
 
+    DebugPrintf("DoFieldEndTurnEffects");
+
     for (gBattlerAttacker = 0; gBattlerAttacker < gBattlersCount && gAbsentBattlerFlags & gBitTable[gBattlerAttacker]; gBattlerAttacker++)
     {
     }
@@ -1293,6 +1295,7 @@ bool8 HandleFaintedMonActions(void)
 
     do
     {
+        DebugPrintf("faintedActionsState =%d", gBattleStruct->faintedActionsState);
         switch (gBattleStruct->faintedActionsState)
         {
         case 0:
@@ -1314,6 +1317,7 @@ bool8 HandleFaintedMonActions(void)
                 {
                     BattleScriptExecute(BattleScript_GiveExp);
                     gBattleStruct->faintedActionsState = 2;
+                    DebugPrintf("Give EXP - return TRUE");
                     return TRUE;
                 }
             } while (++gBattleStruct->faintedActionsBattlerId != gBattlersCount);
@@ -1362,9 +1366,7 @@ bool8 HandleFaintedMonActions(void)
             break;
         }
     } while (gBattleStruct->faintedActionsState != FAINTED_ACTIONS_MAX_CASE);
-    DebugPrintf("### HandleFaintedMonActions done\n");
-    // reset state for next time
-    // gCheckedContinueRotomBattle = FALSE; // wiz1989 DELETE when feature is finished
+    DebugPrintf("HandleFaintedMonActions End");
     return FALSE;
 }
 
@@ -1955,6 +1957,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 effect = CastformDataTypeChange(battler);
                 if (effect != 0)
                 {
+                    DebugPrintf("ABILITY_FORECAST");
                     BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
                     gBattleScripting.battler = battler;
                     *(&gBattleStruct->formToChangeInto) = effect - 1;
@@ -2419,6 +2422,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     effect = CastformDataTypeChange(battler);
                     if (effect != 0)
                     {
+                        DebugPrintf("ABILITYEFFECT_FORECAST");
                         BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
                         gBattleScripting.battler = battler;
                         *(&gBattleStruct->formToChangeInto) = effect - 1;

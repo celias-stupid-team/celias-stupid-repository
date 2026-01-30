@@ -2608,8 +2608,15 @@ static void PlayerHandleChoosePokemon(void)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 
         // ### PSS battle switches - step 1 ###
-        if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH && gBattleSwitchFromPSS)
+        if (gBattleSwitchFromPSS)
         {
+            DebugPrintf(" ### PSS Switch Out Detected ###\n");
+            gActionSelectionCursor[gActiveBattler] = 0;
+            gMoveSelectionCursor[gActiveBattler] = 0;
+            
+            if (gBattleResults.playerSwitchesCounter < 255)
+                ++gBattleResults.playerSwitchesCounter;
+
             CompactPartySlots();
             CalculatePlayerPartyCount();
 
