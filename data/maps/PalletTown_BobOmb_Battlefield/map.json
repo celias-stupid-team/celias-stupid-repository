@@ -191,6 +191,14 @@
       "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_4",
       "quantity": 5,
       "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BobOmb_Daisy"
     }
   ]
 }

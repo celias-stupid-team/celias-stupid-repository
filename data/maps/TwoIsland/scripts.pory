@@ -258,9 +258,20 @@ script TwoIsland_PencilStatue {
 	} else {
 		msgbox("A large statue of a PENCIL blocks\nthe way.\pWould you like to use the PENCIL\nERASER?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			msgbox("{PLAYER} used the PENCIL ERASER.\n", MSGBOX_DEFAULT)
+			msgbox("{PLAYER} used the PENCIL ERASER!\n", MSGBOX_DEFAULT)
 			// sound effect
 			closemessage
+			delay(30)
+			playse(SE_WARP_OUT)
+			closemessage
+			applymovement(VAR_LAST_TALKED, moves(
+				face_left
+				delay_16 * 2
+				face_up
+				delay_16 * 2
+				set_invisible
+			))
+			waitmovement(VAR_LAST_TALKED)
 			setflag(FLAG_TWO_ISLAND_PENCIL)
 			//animation?
 			removeobject(VAR_LAST_TALKED)

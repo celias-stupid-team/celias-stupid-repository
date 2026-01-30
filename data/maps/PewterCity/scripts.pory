@@ -841,7 +841,7 @@ script PewterCity_CeliaFuckup {
 const CELIA = 11
 mapscripts PewterCity_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		if(flag(FLAG_BADGE01_GET) && !checkmoncaught(SPECIES_BUTTERFREE) && !flag(FLAG_GOT_CATERPIE)) { //Make it check for grindy butterfree
+		if(flag(FLAG_BADGE01_GET) && (flag(FLAG_EVOLVED_CATERPIE_BEFORE_BROCK) || checkpartymove(MOVE_CONFUSION) == PARTY_SIZE) && !flag(FLAG_GOT_CATERPIE)) { //Make it check for grindy butterfree
 		//or checkaprty move > 6
 			setvar(VAR_PEWTER_CELIA_SCENE, 1)
 			setobjectxyperm(CELIA, 15, 19)

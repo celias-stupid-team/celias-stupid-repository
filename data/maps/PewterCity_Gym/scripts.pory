@@ -111,6 +111,9 @@ script PewterCity_EventScript_Dad {
 }
 
 script PewterGym_CheckForButterfree {
+	if(flag(FLAG_EVOLVED_CATERPIE_BEFORE_BROCK) || checkpartymove(MOVE_CONFUSION) == PARTY_SIZE) {
+		
+	}
 	return
 }
 
