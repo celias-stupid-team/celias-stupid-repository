@@ -4094,11 +4094,16 @@ static void SetFlyWarpDestination(u16 mapsec)
     DebugPrintf("Fly to mapsec: %u", mapsec);
     if (sMapFlyDestinations[idx][2])
     {
-        SetWarpDestinationToHealLocation(sMapFlyDestinations[idx][2]);
+        if(mapsec == MAPSEC_VIRIDIAN_CITY && VarGet(VAR_CURRENT_DMCA_PHASE) > 0 && VarGet(VAR_CURRENT_DMCA_PHASE) < 9) {
+            SetWarpDestinationToHealLocation(HEAL_LOCATION_VIRIDIAN_CITY_GYM);
+
+        } else 
+            SetWarpDestinationToHealLocation(sMapFlyDestinations[idx][2]);
         SetUsedFlyQuestLogEvent(sMapFlyDestinations[idx]);
     }
     else
     {
+        
         SetWarpDestinationToMapWarp(sMapFlyDestinations[idx][0], sMapFlyDestinations[idx][1], -1);
     }
     ReturnToFieldFromFlyMapSelect();
