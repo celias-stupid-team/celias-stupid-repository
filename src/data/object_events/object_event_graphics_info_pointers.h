@@ -521,6 +521,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PINEAPPLE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HADOUKEN_BOY_1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HADOUKEN_BOY_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_THROW_HADOUKEN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SANS_NESS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SANS_FULL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SANS_CUT;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1043,4 +1046,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HADOUKEN_BOY_1] = &gObjectEventGraphicsInfo_HADOUKEN_BOY_1,
     [OBJ_EVENT_GFX_HADOUKEN_BOY_2] = &gObjectEventGraphicsInfo_HADOUKEN_BOY_2,
     [OBJ_EVENT_GFX_THROW_HADOUKEN] = &gObjectEventGraphicsInfo_THROW_HADOUKEN,
+    [OBJ_EVENT_GFX_SANS_NESS] = &gObjectEventGraphicsInfo_SANS_NESS,
+    [OBJ_EVENT_GFX_SANS_FULL] = &gObjectEventGraphicsInfo_SANS_FULL,
+    [OBJ_EVENT_GFX_SANS_CUT] = &gObjectEventGraphicsInfo_SANS_CUT,
 };

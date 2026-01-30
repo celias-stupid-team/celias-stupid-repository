@@ -58,12 +58,16 @@ script ViridianGym_Falkner {
         playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
         delay(120)
         removeobject(LOCALID_DMCA_SILVER)
+        removeobject(LOCALID_SILVER_ROADBLOCK)
         fadescreenswapbuffers(FADE_FROM_BLACK)
         delay(60)
         release
         end
 
     } else {
+        msgbox(
+        "SHOOT kills you.\n"
+        "", MSGBOX_DEFAULT)
         release
     }
 }

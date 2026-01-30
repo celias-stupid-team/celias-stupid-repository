@@ -1215,3 +1215,9 @@ $(OBJEVENTGFXDIR)/stupid/HADOUKEN_BOY_2.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/THROW_HADOUKEN.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
+$(OBJEVENTGFXDIR)/stupid/SANS_NESS.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/SANS_FULL.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/SANS_CUT.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4

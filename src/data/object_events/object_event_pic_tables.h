@@ -5600,3 +5600,36 @@ const struct SpriteFrameImage gObjectEventPicTable_THROW_HADOUKEN[] = {
     overworld_frame(gObjectEventPic_THROW_HADOUKEN, 8, 8, 2),
     overworld_frame(gObjectEventPic_THROW_HADOUKEN, 8, 8, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_SANS_NESS[] = {
+    overworld_frame(gObjectEventPic_SANS_NESS, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SANS_NESS, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SANS_NESS, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SANS_NESS, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SANS_NESS, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SANS_NESS, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SANS_NESS, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SANS_NESS, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SANS_NESS, 2, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_SANS_FULL[] = {
+    overworld_frame(gObjectEventPic_SANS_FULL, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SANS_FULL, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SANS_FULL, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SANS_FULL, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SANS_FULL, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SANS_FULL, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SANS_FULL, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SANS_FULL, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SANS_FULL, 2, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_SANS_CUT[] = {
+    overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 2),
+};

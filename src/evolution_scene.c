@@ -641,6 +641,14 @@ static void Task_EvolutionScene(u8 taskId)
 {
     u32 var;
     struct Pokemon* mon = &gPlayerParty[gTasks[taskId].tPartyId];
+    if(!FlagGet(FLAG_BADGE01_GET)
+    && (gTasks[taskId].tPostEvoSpecies == SPECIES_METAPOD
+    || gTasks[taskId].tPostEvoSpecies == SPECIES_CHARMELEON
+    || gTasks[taskId].tPostEvoSpecies == SPECIES_NIDORINO
+    || gTasks[taskId].tPostEvoSpecies == SPECIES_NIDORINA
+    || gTasks[taskId].tPostEvoSpecies == SPECIES_METAPOD)) {
+        FlagSet(FLAG_EVOLVED_CATERPIE_BEFORE_BROCK);
+    }
 
     // Automatically cancel if the Pokemon would evolve into a species you have not
     // yet unlocked, such as Crobat.

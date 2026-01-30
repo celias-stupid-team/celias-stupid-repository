@@ -63,6 +63,10 @@ mapscripts SSAnne_Kitchen_MapScripts {
 			clearflag(FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_CHESTO_BERRY)
 			clearflag(FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_BERRY_7)
 		}
+		if(flag(FLAG_GOT_HM01)) {
+			setobjectxy(LOCALID_AURORA_BEAM, 4, 6)
+			setobjectxyperm(LOCALID_AURORA_BEAM, 4, 6)
+		}
 	}
 }
 

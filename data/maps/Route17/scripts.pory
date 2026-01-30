@@ -1,6 +1,5 @@
 raw `
-Route17_MapScripts::
-	.byte 0
+
 
 Route17_EventScript_ItemsNotice::
 	msgbox Route17_Text_WatchOutForDiscardedItems, MSGBOX_SIGN
@@ -26,6 +25,27 @@ Route17_EventScript_CyclingRoadSign::
 	msgbox Route17_Text_CyclingRoadSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts Route17_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_UNDER_DICK_BRIDGE)) {
+			clearflag(FLAG_UNDER_DICK_BRIDGE)
+			setmaplayoutindex(LAYOUT_ROUTE17_UNDERNEATH)
+		}
+	}
+}
+
+script Route17_GoUnderBridge {
+	setlayouttiles(LAYOUT_ROUTE17_UNDERNEATH,0,0,0,0,32, 88)
+	setvar(VAR_TEMP_0, 1)
+	release
+}
+script Route17_GoAboveBridge {
+	setlayouttiles(LAYOUT_ROUTE17,0,0,0,0,32, 88)
+	setvar(VAR_TEMP_0, 0)
+	release
+}
+
 
 script Route17_KoraidonNeedsSandwich {
 	lock

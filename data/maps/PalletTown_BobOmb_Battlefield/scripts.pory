@@ -183,3 +183,15 @@ movement JumpRight {
 	jump_right
 	set_invisible
 }
+
+
+script BobOmb_Daisy {
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"DAISY: Hello, {PLAYER}.\n"
+	"How are you?\p"
+
+	"Say, have you seen my cousin\n"
+	"PEACH around?", MSGBOX_SIGN)
+
+}

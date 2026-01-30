@@ -24931,7 +24931,7 @@
           "map": "MAP_CAVE_OF_ORIGIN_1F",
           "base_label": "gCaveOfOrigin_1F",
           "land_mons": {
-            "encounter_rate": 1,
+            "encounter_rate": 7,
             "mons": [
               {
                 "min_level": 30,
@@ -24941,7 +24941,7 @@
               {
                 "min_level": 30,
                 "max_level": 30,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_CLOYSTER"
               },
               {
                 "min_level": 30,
@@ -24951,7 +24951,7 @@
               {
                 "min_level": 30,
                 "max_level": 30,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_CLOYSTER"
               },
               {
                 "min_level": 30,
@@ -24961,7 +24961,7 @@
               {
                 "min_level": 30,
                 "max_level": 30,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_CLOYSTER"
               },
               {
                 "min_level": 30,

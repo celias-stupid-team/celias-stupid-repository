@@ -1288,7 +1288,9 @@ script CinnabarGym_DadQuestion {
 	"DAD: {PLAYER}!\n"
 	"What are you doing out here?\p"
 
-	"dad text\p"
+	"I volunteered to be a contestant\n"
+	"for BLAINE'S FURNACE FUN!\l"
+	"Hope I don't get an answer wrong!\p"
 
 	"Well, never mind that.\n"
 	"How about you take a rest?", MSGBOX_DEFAULT)

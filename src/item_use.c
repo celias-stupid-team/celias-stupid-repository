@@ -1330,6 +1330,7 @@ static void ItemUseOnFieldCB_GenderFluid(u8 taskId)
         gSaveBlock2Ptr->playerGender = MALE;
         gPlayerAvatar.gender = MALE;
     }
+    FlagSet(FLAG_USED_GENDER_FLUID);
 
     TryToTransTheNidotrans(taskId);
     

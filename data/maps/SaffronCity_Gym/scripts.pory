@@ -3,6 +3,8 @@ SaffronCity_Gym_MapScripts::
 	.byte 0
 
 SaffronCity_Gym_EventScript_Sabrina::
+
+	setvar VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_BRUNO
 	trainerbattle_single TRAINER_LEADER_SABRINA, SaffronCity_Gym_Text_SabrinaIntro, SaffronCity_Gym_Text_SabrinaDefeat, SaffronCity_Gym_EventScript_DefeatedSabrina, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM04_FROM_SABRINA, SaffronCity_Gym_EventScript_GiveTM04
 	msgbox SaffronCity_Gym_Text_ExplainTM04

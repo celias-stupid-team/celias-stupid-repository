@@ -744,3 +744,6 @@ const u16 gObjectEventPal_PINEAPPLE[] = INCBIN_U16("graphics/object_events/palet
 const u32 gObjectEventPic_HADOUKEN_BOY_1[] = INCBIN_U32("graphics/object_events/pics/stupid/HADOUKEN_BOY_1.4bpp");
 const u32 gObjectEventPic_HADOUKEN_BOY_2[] = INCBIN_U32("graphics/object_events/pics/stupid/HADOUKEN_BOY_2.4bpp");
 const u32 gObjectEventPic_THROW_HADOUKEN[] = INCBIN_U32("graphics/object_events/pics/stupid/THROW_HADOUKEN.4bpp");
+const u32 gObjectEventPic_SANS_NESS[] = INCBIN_U32("graphics/object_events/pics/stupid/SANS_NESS.4bpp");
+const u32 gObjectEventPic_SANS_FULL[] = INCBIN_U32("graphics/object_events/pics/stupid/SANS_FULL.4bpp");
+const u32 gObjectEventPic_SANS_CUT[] = INCBIN_U32("graphics/object_events/pics/stupid/SANS_CUT.4bpp");

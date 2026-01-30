@@ -1702,7 +1702,7 @@
       "price": 1400,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A relatively small pearl that\\nsparkles in a pretty silver color.\\nIt can be sold cheaply.",
+      "description_english": "The second version of the\\nGENERATION IV POKéMON games.\\nIt doesn't do anything noteworthy.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -4647,7 +4647,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Sharp, huge claws hook and slash\\nthe foe quickly and with great\\npower.",
+      "description_english": "AURORA BEAM?\\nAt this time of day? In this part\\nof KANTO?",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
@@ -4656,7 +4656,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "RazorWind"
+      "moveId": "AuroraBeam"
     },
     {
       "english": "TM03",

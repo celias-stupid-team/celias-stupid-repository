@@ -106,7 +106,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TwoIsland_EventScript_SansTest",
-      "flag": "NULL"
+      "flag": "FLAG_KILLED_SANS"
     },
     {
       "local_id": "LOCALID_DRAGONITE_PRESENT",
@@ -525,6 +525,51 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TwoIsland_MrT",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_TWO_ISLAND_SANS_DEAD",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SANS_CUT",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_KILLED_SANS"
+    },
+    {
+      "local_id": "LOCALID_TWO_ISLAND_SANS_ALIVE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SANS_FULL",
+      "x": 13,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_TWO_ISLAND_SANS_NESS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SANS_NESS",
+      "x": 14,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
       "flag": "0"
     }
   ],
