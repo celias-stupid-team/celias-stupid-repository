@@ -84,6 +84,7 @@ script ViridianGym_BlaineBattle {
     msgbox(
 	"Oh no\n"
 	"", MSGBOX_DEFAULT)
+    removeobject(LOCALID_BLAINE_ROADBLOCK)
     
     closemessage
     delay(30)
