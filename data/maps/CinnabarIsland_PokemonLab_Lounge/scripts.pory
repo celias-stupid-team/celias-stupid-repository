@@ -1,6 +1,5 @@
 raw `
-CinnabarIsland_PokemonLab_Lounge_MapScripts::
-	.byte 0
+
 
 CinnabarIsland_PokemonLab_Lounge_EventScript_Scientist::
 	msgbox CinnabarIsland_PokemonLab_Lounge_Text_FoundFossilInMtMoon, MSGBOX_NPC
@@ -58,6 +57,30 @@ CinnabarIsland_PokemonLab_Lounge_EventScript_NormaAlreadyTraded::
 	release
 	end
 `
+
+mapscripts CinnabarIsland_PokemonLab_Lounge_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_USED_ROCK_SMASH, 1 {
+			if(flag(FLAG_CELIA_SECRET_CINNABAR)) {
+				setvar(VAR_USED_ROCK_SMASH, 0)
+				release
+				end
+			}
+			setflag(FLAG_CELIA_SECRET_CINNABAR)
+			msgbox(
+			"Celia comes in\n"
+			"does some stuff", MSGBOX_DEFAULT)
+			setvar(VAR_CSR_CURRENT_CELIA_SECRET, CELIA_SECRET_CINNABAR)
+			call(CeliaSecrets_CeliaTellsYouNextHint)
+			msgbox(
+			"Celia leaves\n"
+			"", MSGBOX_DEFAULT)
+
+
+		}
+	]
+}
+
 script CinnabarIslandLab_Shelgon {
 	lock
 	playmoncry(SPECIES_SHELGON, CRY_MODE_DEFAULT)

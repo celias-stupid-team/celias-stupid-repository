@@ -13,6 +13,7 @@
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
 #include "constants/maps.h"
+#include "constants/vars.h"
 
 static void Task_FieldEffectShowMon_Init(u8 taskId);
 static void Task_FieldEffectShowMon_WaitFldeff(u8 taskId);
@@ -143,7 +144,7 @@ static void FieldCallback_UseRockSmash(void)
 bool8 FldEff_UseRockSmash(void)
 {
     u8 taskId = CreateFieldEffectShowMon();
-
+    VarSet(VAR_USED_ROCK_SMASH, 1);
     FLDEFF_SET_FUNC_TO_DATA(StartRockSmashFieldEffect);
     IncrementGameStat(GAME_STAT_USED_ROCK_SMASH);
     return FALSE;

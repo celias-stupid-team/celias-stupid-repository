@@ -1803,6 +1803,13 @@ void BufferStringBattle(u16 stringId)
                     if(FlagGet(FLAG_LION_BATTLE)) {
                         stringPtr = sText_Trainer1SentOutLions;
                     } else {
+                        if((VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_BRUNO || VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_LARRY_2) && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                        
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                        }
+
                         stringPtr = sText_Trainer1SentOutPkmn;
 
                     }
@@ -1946,6 +1953,34 @@ void BufferStringBattle(u16 stringId)
                     break;
                 case EVENT_BATTLE_DAD:
                     if(sBattleMsgDataPtr->currentMove == MOVE_BRICK_BREAK) { 
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_SKUNTANK: 
+                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_BUG )  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_GIOVANNI_2: 
+                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_FIRE )  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_THIEVUL: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_V_CREATE )  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_SANS: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_MAGICAL_LEAF )  {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
