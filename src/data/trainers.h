@@ -7035,6 +7035,50 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_RatFisher),
     },
 
+    [TRAINER_AVGN_1] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN1),
+    },
+
+    [TRAINER_AVGN_2] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN2),
+    },
+
+    [TRAINER_AVGN_3] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN3),
+    },
+
+    [TRAINER_AVGN_4] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN4),
+    },
+
         
 
 };

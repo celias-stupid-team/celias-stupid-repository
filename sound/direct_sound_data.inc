@@ -5416,3 +5416,7 @@ Cry_DODODUO::
 	.incbin "sound/direct_sound_samples/cries/dododuo.bin"
 
 	.align 2
+Cry_CELEBI2::
+	.incbin "sound/direct_sound_samples/cries/celebi2.bin"
+
+	.align 2

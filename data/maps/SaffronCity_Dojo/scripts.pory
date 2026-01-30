@@ -448,24 +448,41 @@ script SaffronDojo_IrateGamer {
 		end
 	}
 	msgbox(
-	"I am the IRATE GAMER.\p"
+	"THE IRATE GAMER: Oh, boy!\p"
 
-	"Now that the DMCA are gone, I can\n"
+	"Now that the DMCA is gone, I can\n"
 	"keep doing my show!", MSGBOX_NPC)
 }
 
 script SaffronDojo_Nerd1 {
+	trainerbattle_single(TRAINER_AVGN_1, "We're gonna take you back to the\n"
+	"past!",
+	
+	"Ouch!")
 	msgbox(
-	"my pokemon sing the AVGN theme\n"
+	"I am a nerd.\n"
 	"", MSGBOX_NPC)
 }
 
 script SaffronDojo_Nerd2 {
+	trainerbattle_single(TRAINER_AVGN_2, "Sixty-four bit...",
+	
+	"THE WRIST GAAAAAAAAAAAAMES!")
 	msgbox(
-	"SIXTY FOUR BIT\n"
+	"I am a nerd.\n"
 	"", MSGBOX_NPC)
 }
 
+script SaffronDojo_Nerd3 {
+	trainerbattle_single(TRAINER_AVGN_3, "Hoargh!\n"
+	"Take your shoes off!",
+	
+	"Oh my god!\pI'm drinking ROLLIN' ROCK...\n{PAUSE 30}on my ROGGENROLA!")
+	msgbox(
+	"Yeeeah!\n"
+	"ROLLIN ROCK!\l"
+	"On the ROGGENROLA!", MSGBOX_NPC)
+}
 
 
 script SaffronGym_CleaningLady {

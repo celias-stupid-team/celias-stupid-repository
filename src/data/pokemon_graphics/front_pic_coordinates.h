@@ -5493,7 +5493,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_PORIST_GAMES] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 0,
 	},
 	[SPECIES_MISCARRIAGE_KANGA] =
 	{

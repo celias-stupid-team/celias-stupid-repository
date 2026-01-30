@@ -12803,3 +12803,11 @@ extern const u32 gTrainerPalette_Ariana[];
 
 extern const u32 gTrainerFrontPic_Uncle[];
 extern const u32 gTrainerPalette_Uncle[];
+// CELEBI2
+extern const u32 gMonFrontPic_CELEBI2[];
+extern const u32 gMonPalette_CELEBI2[];
+extern const u32 gMonBackPic_CELEBI2[];
+extern const u32 gMonShinyPalette_CELEBI2[];
+extern const u8 gMonFootprint_CELEBI2[];
+extern const u8 gMonIcon_CELEBI2[];
+
