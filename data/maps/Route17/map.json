@@ -555,8 +555,8 @@
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 107,
+      "x": 30,
+      "y": 106,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GreatSea_WetFloor"
