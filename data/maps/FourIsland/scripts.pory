@@ -892,8 +892,18 @@ script FourIsland_TalkingOnPhone {
 
 script FourIsland_MyPokemonRanch {
 	msgbox(
-	"Welcome to MY POKéMON RANCH!\n"
-	"placeholder", MSGBOX_NPC)
+	"Howdy, there!\n"
+	"Welcome to MY POKéMON RANCH!\p"
+
+	"We have a special going on.\n"
+	"If you deposit enough POKéMON,\l"
+	"you'll get a special reward!\p"
+
+	"How many POKéMON do you need to\n"
+	"deposit for the prize?\p"
+
+	"{PAUSE 30}Sixteen thousand.\n"
+	"{PAUSE 45}and twenty.", MSGBOX_NPC)
 }
 
 
