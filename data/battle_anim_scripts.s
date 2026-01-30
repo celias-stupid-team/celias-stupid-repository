@@ -665,6 +665,8 @@ gBattleAnims_Moves::
 	.4byte Move_FLY_CYNTHIA
 	.4byte Move_FREEZE_DRY
 	.4byte Move_LEAFAGE
+	.4byte Move_SHOOT_BIG
+	.4byte Move_ADOBE_FLASH
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -3376,6 +3378,7 @@ SkyAttackUnleash:
 	call UnsetSkyBg
 	goto SkyAttackEnd
 
+Move_ADOBE_FLASH:
 Move_FLASH:
 	playsewithpan SE_M_LEER, SOUND_PAN_ATTACKER
 	createvisualtask AnimTask_Flash, 2
@@ -16801,7 +16804,7 @@ Move_MAGNET_RISE:
 	blendoff
 	end
 
-
+Move_SHOOT_BIG:
 Move_SHOOT:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_LOCK_ON

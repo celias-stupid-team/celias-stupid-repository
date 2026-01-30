@@ -10033,7 +10033,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCASurge[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_PORYGON2,
-        .moves = {MOVE_THUNDER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_ADOBE_FLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -10090,7 +10090,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAFalkner[] = {
         .lvl = 50,
         .heldItem = ITEM_NONE,
         .species = SPECIES_REMORAID,
-        .moves = {MOVE_SHOOT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SHOOT_BIG, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
