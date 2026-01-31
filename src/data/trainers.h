@@ -6856,7 +6856,7 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_BLAINE_OPPONENT_1] = {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .trainerClass = TRAINER_CLASS_RS_ELITE_FOUR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FLINT,
         .trainerName = _("FLINT"),
@@ -6892,10 +6892,10 @@ const struct Trainer gTrainers[] = {
 
 
     [TRAINER_BLAINE_OPPONENT_4] = {
-        .trainerClass = FACILITY_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_LASS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FISHERMAN,
-        .trainerName = _("WADE"),
+        .trainerName = _("JANE"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,

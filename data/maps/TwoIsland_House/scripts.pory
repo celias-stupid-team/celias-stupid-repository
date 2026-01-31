@@ -183,6 +183,9 @@ script TwoIsland_MushroomManiac {
 			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ODDISH)
 			playfanfare(MUS_LEVEL_UP)
 			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			if(!checkitem(ITEM_TM30)) {
+				additem(ITEM_TM30)
+			}
 			msgbox(
 			"{PLAYER} obtained the\n"
 			"heavily-used ODDISH!", MSGBOX_DEFAULT)

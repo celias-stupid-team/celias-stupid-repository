@@ -1,7 +1,7 @@
 static const struct InGameTrade sInGameTrades[] = {
     [INGAME_TRADE_MR_MIME] = 
     {
-        .nickname = _("DAD!"),
+        .nickname = _("DAD"),
         .species = SPECIES_ABRA,
         .ivs = {20, 15, 17, 24, 23, 22},
         .abilityNum = 0,

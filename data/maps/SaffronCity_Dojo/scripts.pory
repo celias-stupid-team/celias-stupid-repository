@@ -341,8 +341,25 @@ script SaffronDojo_ApproachJason {
 script SaffronDojo_DeadNerd {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"A pitiful mass of meat struggles\n"
-	"on the floor.", MSGBOX_SIGN)
+	"He's dead.\p"
+
+	"His friends are dead.\p"
+
+	"His family's dead.\p"
+
+	"His fucking pets are being skinned\n"
+	"alive.\p"
+
+	"His mom's a fucking whore.\p"
+
+	"He sucks at life.\p"
+
+	"The whole world hates him.\p"
+
+	"He's going to hell.\p"
+
+	"Deal with it.\n"
+	"", MSGBOX_SIGN)
 
 }
 

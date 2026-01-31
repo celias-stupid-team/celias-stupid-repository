@@ -10562,14 +10562,14 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN1[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_BOUFFALANT,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_MUD_SHOT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_STUNKY,
-        .moves = {MOVE_MUD_SHOT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 

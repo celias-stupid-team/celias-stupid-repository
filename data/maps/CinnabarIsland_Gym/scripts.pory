@@ -654,6 +654,7 @@ CinnabarIsland_Gym_EventScript_OpenDoor6::
 mapscripts CinnabarIsland_Gym_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_1)
+		setflag(FLAG_TEMP_2)
 	}
 }
 
@@ -1335,9 +1336,7 @@ script CinnabarGym_BoardGameQuestion3 {
 			walk_left * 2
 		))
 		waitmovement(LOCALID_BLAINE_TRAINER_3)
-		msgbox(
-		"battle happens here\n"
-		"", MSGBOX_DEFAULT)
+
 		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_3, "after!")
 		closemessage
 		delay(30)
@@ -1469,6 +1468,10 @@ script CinnabarGym_BoardGameQuestion5 {
 		waitse
 		playse(SE_SUCCESS)
 		waitse
+		if(checktrainerflag(TRAINER_BLAINE_OPPONENT_5)) {
+			release
+			end
+		}
 		applymovement(LOCALID_BLAINE_TRAINER_5, moves(
 			walk_left * 2
 		))

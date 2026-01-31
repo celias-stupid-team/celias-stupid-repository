@@ -144,7 +144,6 @@ static void FieldCallback_UseRockSmash(void)
 bool8 FldEff_UseRockSmash(void)
 {
     u8 taskId = CreateFieldEffectShowMon();
-    VarSet(VAR_USED_ROCK_SMASH, 1);
     FLDEFF_SET_FUNC_TO_DATA(StartRockSmashFieldEffect);
     IncrementGameStat(GAME_STAT_USED_ROCK_SMASH);
     return FALSE;
@@ -153,6 +152,7 @@ bool8 FldEff_UseRockSmash(void)
 static void StartRockSmashFieldEffect(void)
 {
     PlaySE(SE_M_ROCK_THROW);
+    VarSet(VAR_USED_ROCK_SMASH, 1);
     FieldEffectActiveListRemove(FLDEFF_USE_ROCK_SMASH);
     ScriptContext_Enable();
 }

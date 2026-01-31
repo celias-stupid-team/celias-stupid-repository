@@ -2684,7 +2684,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .power = 74,
         .type = TYPE_GRASS,
         .accuracy = 100,
-        .pp = 5,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -4046,10 +4046,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FIRE_PLEDGE] =
     {
-        .effect = EFFECT_RECHARGE,
+        .effect = EFFECT_HIT,
         .power = 150,
         .type = TYPE_FLYING,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -4059,10 +4059,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WATER_PLEDGE] =
     {
-        .effect = EFFECT_RECHARGE,
+        .effect = EFFECT_HIT,
         .power = 150,
         .type = TYPE_WATER,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -4449,10 +4449,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GRASS_PLEDGE] =
     {
-        .effect = EFFECT_RECHARGE,
+        .effect = EFFECT_HIT,
         .power = 150,
         .type = TYPE_POISON,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,

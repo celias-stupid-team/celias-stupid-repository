@@ -20,7 +20,7 @@ script Desert_IceCream {
 	msgbox(
 	"VANILISH: Vaa?\n"
 	"", MSGBOX_DEFAULT)
-	showmonpic(10, 3, SPECIES_VANILLISH)
+	showmonpic(SPECIES_VANILLISH, 10, 3)
 	waitbuttonpress
 	hidemonpic
 	release
