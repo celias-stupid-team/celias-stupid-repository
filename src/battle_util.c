@@ -528,6 +528,7 @@ u8 DoFieldEndTurnEffects(void)
     do
     {
         u8 side;
+        DebugPrintf("current EndTurn effect: %d", gBattleStruct->turnCountersTracker);
 
         switch (gBattleStruct->turnCountersTracker)
         {
@@ -815,6 +816,7 @@ u8 DoBattlerEndTurnEffects(void)
 {
     u8 effect = 0;
 
+    DebugPrintf("current EndTurn effect: %d", gBattleStruct->turnEffectsTracker);
     gHitMarker |= (HITMARKER_GRUDGE | HITMARKER_SKIP_DMG_TRACK);
     while (gBattleStruct->turnEffectsBattlerId < gBattlersCount && gBattleStruct->turnEffectsTracker <= ENDTURN_BATTLER_COUNT)
     {

@@ -20,7 +20,10 @@
 
 extern u8 gSavedFaintedActionsState;
 extern u8 gSavedFaintedActionsBattlerId;
+extern u8 gSavedTurnEffectsTracker;
+extern u8 gSavedTurnCountersTracker;
 extern struct BattleCallbacksStack gSavedBattleCallbackStack;
+extern struct BattleScriptsStack gSavedBattleScriptsStack;
 
 static EWRAM_DATA u8 sPreviousBoxOption = 0;
 static EWRAM_DATA struct ChooseBoxMenu *sChooseBoxMenu = NULL;
@@ -402,7 +405,7 @@ static void CreatePCMainMenu(u8 whichMenu, s16 *windowIdPtr)
 
 void CB2_ExitPokeStorage(void) //wiz1989
 {
-    DebugPrintf("CB2_ExitPokeStorage");
+    DebugPrintf("\nCB2_ExitPokeStorage - restore battle data ###");
     sPreviousBoxOption = GetCurrentBoxOption();
     if (gMain.inBattle)
     {
@@ -431,11 +434,23 @@ void CB2_ExitPokeStorage(void) //wiz1989
         gBattleStruct->faintedActionsState = gSavedFaintedActionsState;
         gBattleStruct->faintedActionsBattlerId = gSavedFaintedActionsBattlerId;
 
+        // restore turn effects and counters trackers
+        gBattleStruct->turnEffectsTracker = gSavedTurnEffectsTracker;
+        gBattleStruct->turnCountersTracker = gSavedTurnCountersTracker;
+        DebugPrintf("restore trackers = %d %d", gSavedTurnEffectsTracker, gSavedTurnCountersTracker);
+
         // restore BattleCallbackStack
         gBattleResources->battleCallbackStack->size = gSavedBattleCallbackStack.size;
         for (i = 0; i < gSavedBattleCallbackStack.size; i++)
         {
             gBattleResources->battleCallbackStack->function[i] = gSavedBattleCallbackStack.function[i];
+        }
+
+        // restore BattleScriptsStack
+        gBattleResources->battleScriptsStack->size = gSavedBattleScriptsStack.size;
+        for (i = 0; i < gSavedBattleScriptsStack.size; i++)
+        {
+            gBattleResources->battleScriptsStack->ptr[i] = gSavedBattleScriptsStack.ptr[i];
         }
 
         gMain.callback1 = BattleMainCB1;

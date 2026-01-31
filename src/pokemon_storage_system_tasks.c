@@ -45,8 +45,11 @@ static EWRAM_DATA u8 sLastUsedBox = 0;
 static EWRAM_DATA u16 sMovingItemId = ITEM_NONE;
 
 extern struct BattleCallbacksStack gSavedBattleCallbackStack;
+extern struct BattleScriptsStack gSavedBattleScriptsStack;
 extern u8 gSavedFaintedActionsState;
 extern u8 gSavedFaintedActionsBattlerId;
+extern u8 gSavedTurnEffectsTracker;
+extern u8 gSavedTurnCountersTracker;
 
 static void Task_InitPokeStorage(u8 taskId);
 static void Task_ShowPokeStorage(u8 taskId);
@@ -2910,11 +2913,12 @@ void ExternalLoadPC(void) //wiz1989
 {
     int i;
 
-    // Save critical BattleStruct state before freeing
+    // Save critical battle data before freeing
     if (gBattleStruct != NULL)
     {
-        DebugPrintf("save fainted actions state: %d, %d", gSavedFaintedActionsState, gSavedFaintedActionsBattlerId);
+        DebugPrintf("\nsave BattleStruct data - current action func ID = %d ###", gCurrentActionFuncId);
         gSavedFaintedActionsState = gBattleStruct->faintedActionsState;
+        DebugPrintf("save faintedActionsState = %d", gSavedFaintedActionsState);
         gSavedFaintedActionsBattlerId = gBattleStruct->faintedActionsBattlerId;
 
         gSavedBattleCallbackStack.size = gBattleResources->battleCallbackStack->size;
@@ -2922,6 +2926,16 @@ void ExternalLoadPC(void) //wiz1989
         {
             gSavedBattleCallbackStack.function[i] = gBattleResources->battleCallbackStack->function[i];
         }
+
+        gSavedBattleScriptsStack.size = gBattleResources->battleScriptsStack->size;
+        for (i = 0; i < gSavedBattleScriptsStack.size; i++)
+        {
+            gSavedBattleScriptsStack.ptr[i] = gBattleResources->battleScriptsStack->ptr[i];
+        }
+
+        gSavedTurnEffectsTracker = gBattleStruct->turnEffectsTracker;
+        gSavedTurnCountersTracker = gBattleStruct->turnCountersTracker;        
+        DebugPrintf("save trackers = %d %d", gSavedTurnEffectsTracker, gSavedTurnCountersTracker);
     }
 
     //Free memory

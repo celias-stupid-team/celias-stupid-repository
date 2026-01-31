@@ -189,7 +189,10 @@ EWRAM_DATA u16 gMoveResultFlags = 0;
 EWRAM_DATA u32 gHitMarker = 0;
 EWRAM_DATA u8 gSavedFaintedActionsState = 0;
 EWRAM_DATA u8 gSavedFaintedActionsBattlerId = 0;
+EWRAM_DATA u8 gSavedTurnEffectsTracker = 0;
+EWRAM_DATA u8 gSavedTurnCountersTracker = 0;
 EWRAM_DATA struct BattleCallbacksStack gSavedBattleCallbackStack = {0};
+EWRAM_DATA struct BattleScriptsStack gSavedBattleScriptsStack = {0};
 static EWRAM_DATA u8 sUnusedBattlersArray[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gTakenDmgByBattler[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gUnusedFirstBattleVar2 = 0;
@@ -2151,25 +2154,6 @@ void BeginBattleIntro(void)
 
 void BattleMainCB1(void)
 {
-    // if (gBattleMainFunc == HandleTurnActionSelectionState)
-    //     DebugPrintf("BattleMainCB1: HandleTurnActionSelectionState");
-    // else if (gBattleMainFunc == RunTurnActionsFunctions)
-    //     DebugPrintf("BattleMainCB1: RunTurnActionsFunctions");
-    // else if (gBattleMainFunc == RunBattleScriptCommands_PopCallbacksStack)
-    //     DebugPrintf("BattleMainCB1: RunBattleScriptCommands_PopCallbacksStack");
-    // else if (gBattleMainFunc == BattleTurnPassed)
-    //     DebugPrintf("BattleMainCB1: BattleTurnPassed");
-    // else if (gBattleMainFunc == RunBattleScriptCommands)
-    //     DebugPrintf("BattleMainCB1: RunBattleScriptCommands");
-    // else
-    //     DebugPrintf("BattleMainCB1: gBattleMainFunc = %d", gBattleMainFunc);
-
-    if (!gBattleMainFunc && gMadePSSSwitch)
-    {
-        DebugPrintf("Restoring gBattleMainFunc for %d battlers\n", gBattlersCount);
-        gBattleMainFunc = RunTurnActionsFunctions;
-        gCurrentTurnActionNumber = 0;
-    }
     gBattleMainFunc();
 
     for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
@@ -2981,7 +2965,7 @@ static void HandleEndTurn_ContinueBattle(void)
 void BattleTurnPassed(void)
 {
     s32 i;
-    DebugPrintf("### BattleTurnPassed() ###");
+    DebugPrintf("### BattleTurnPassed() - gBattleOutcome = %d, gBattleStruct->faintedActionsState = %d ###", gBattleOutcome, gBattleStruct->faintedActionsState);
 
     TurnValuesCleanUp(TRUE);
     if (gBattleOutcome == 0)
