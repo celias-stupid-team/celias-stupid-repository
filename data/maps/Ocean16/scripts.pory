@@ -14,6 +14,18 @@ script Desert_RelicCastle {
 
 }
 
+script Desert_IceCream {
+	lock
+	faceplayer
+	msgbox(
+	"VANILISH: Vaa?\n"
+	"", MSGBOX_DEFAULT)
+	showmonpic(10, 3, SPECIES_VANILLISH)
+	waitbuttonpress
+	hidemonpic
+	release
+}
+
 script Desert_Appletun {
 	lock
 	playmoncry(SPECIES_APPLETUN, CRY_MODE_DEFAULT)
