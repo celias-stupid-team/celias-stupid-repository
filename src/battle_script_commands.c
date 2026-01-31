@@ -4254,6 +4254,7 @@ static void Cmd_end(void)
 
 static void Cmd_end2(void)
 {
+    DebugPrintf("Cmd_end2");
     gActiveBattler = 0;
     gCurrentActionFuncId = B_ACTION_TRY_FINISH;
 }
@@ -4261,10 +4262,12 @@ static void Cmd_end2(void)
 // Pops the main function stack
 static void Cmd_end3(void)
 {
+    DebugPrintf("end3 - current script stack size = %d", gBattleResources->battleScriptsStack->size);
     BattleScriptPop();
     if (gBattleResources->battleCallbackStack->size != 0)
         gBattleResources->battleCallbackStack->size--;
     gBattleMainFunc = gBattleResources->battleCallbackStack->function[gBattleResources->battleCallbackStack->size];
+    DebugPrintf("callback size: %d, new main func = %d", gBattleResources->battleCallbackStack->size, gBattleMainFunc);
 }
 
 static void Cmd_call(void)
@@ -4953,7 +4956,7 @@ static void Cmd_switchindataupdate(void)
     s32 i;
     u8 *monData;
 
-DebugPrintf("### Cmd_switchindataupdate ###\n");
+    DebugPrintf("### Cmd_switchindataupdate - stack size = %d###\n", gBattleResources->battleCallbackStack->size);
 
     if (gBattleControllerExecFlags)
         return;

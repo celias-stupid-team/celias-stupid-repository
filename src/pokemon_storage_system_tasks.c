@@ -44,6 +44,10 @@ static EWRAM_DATA u8 sWhichToReshow = 0;
 static EWRAM_DATA u8 sLastUsedBox = 0;
 static EWRAM_DATA u16 sMovingItemId = ITEM_NONE;
 
+extern struct BattleCallbacksStack gSavedBattleCallbackStack;
+extern u8 gSavedFaintedActionsState;
+extern u8 gSavedFaintedActionsBattlerId;
+
 static void Task_InitPokeStorage(u8 taskId);
 static void Task_ShowPokeStorage(u8 taskId);
 static void Task_ReshowPokeStorage(u8 taskId);
@@ -2902,18 +2906,22 @@ static void UpdateBoxToSendMons(void)
 }
 
 // ### PSS battle switches - step 3 ###
-extern u8 gSavedFaintedActionsState;
-extern u8 gSavedFaintedActionsBattlerId;
-void ExternalLoadPC(void)
+void ExternalLoadPC(void) //wiz1989
 {
     int i;
 
     // Save critical BattleStruct state before freeing
     if (gBattleStruct != NULL)
     {
-        DebugPrintf("Restoring saved fainted actions state: %d, %d", gSavedFaintedActionsState, gSavedFaintedActionsBattlerId);
+        DebugPrintf("save fainted actions state: %d, %d", gSavedFaintedActionsState, gSavedFaintedActionsBattlerId);
         gSavedFaintedActionsState = gBattleStruct->faintedActionsState;
         gSavedFaintedActionsBattlerId = gBattleStruct->faintedActionsBattlerId;
+
+        gSavedBattleCallbackStack.size = gBattleResources->battleCallbackStack->size;
+        for (i = 0; i < gSavedBattleCallbackStack.size; i++)
+        {
+            gSavedBattleCallbackStack.function[i] = gBattleResources->battleCallbackStack->function[i];
+        }
     }
 
     //Free memory

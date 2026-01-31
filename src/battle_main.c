@@ -189,6 +189,7 @@ EWRAM_DATA u16 gMoveResultFlags = 0;
 EWRAM_DATA u32 gHitMarker = 0;
 EWRAM_DATA u8 gSavedFaintedActionsState = 0;
 EWRAM_DATA u8 gSavedFaintedActionsBattlerId = 0;
+EWRAM_DATA struct BattleCallbacksStack gSavedBattleCallbackStack = {0};
 static EWRAM_DATA u8 sUnusedBattlersArray[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gTakenDmgByBattler[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gUnusedFirstBattleVar2 = 0;
@@ -2150,6 +2151,19 @@ void BeginBattleIntro(void)
 
 void BattleMainCB1(void)
 {
+    // if (gBattleMainFunc == HandleTurnActionSelectionState)
+    //     DebugPrintf("BattleMainCB1: HandleTurnActionSelectionState");
+    // else if (gBattleMainFunc == RunTurnActionsFunctions)
+    //     DebugPrintf("BattleMainCB1: RunTurnActionsFunctions");
+    // else if (gBattleMainFunc == RunBattleScriptCommands_PopCallbacksStack)
+    //     DebugPrintf("BattleMainCB1: RunBattleScriptCommands_PopCallbacksStack");
+    // else if (gBattleMainFunc == BattleTurnPassed)
+    //     DebugPrintf("BattleMainCB1: BattleTurnPassed");
+    // else if (gBattleMainFunc == RunBattleScriptCommands)
+    //     DebugPrintf("BattleMainCB1: RunBattleScriptCommands");
+    // else
+    //     DebugPrintf("BattleMainCB1: gBattleMainFunc = %d", gBattleMainFunc);
+
     if (!gBattleMainFunc && gMadePSSSwitch)
     {
         DebugPrintf("Restoring gBattleMainFunc for %d battlers\n", gBattlersCount);
@@ -3844,6 +3858,7 @@ void RunTurnActionsFunctions(void)
     *(&gBattleStruct->savedTurnActionNumber) = gCurrentTurnActionNumber;
     sTurnActionsFuncsTable[gCurrentActionFuncId]();
 
+    // DebugPrintf("RunTurnActionsFunctions - CurrentTurnActionNumber: %d >= %d ?", gCurrentTurnActionNumber, gBattlersCount);
     if (gCurrentTurnActionNumber >= gBattlersCount) // everyone did their actions, turn finished
     {
         gHitMarker &= ~(HITMARKER_PASSIVE_DAMAGE);
@@ -3973,6 +3988,7 @@ static void HandleEndTurn_MonFled(void)
 
 static void HandleEndTurn_FinishBattle(void)
 {
+    DebugPrintf("HandleEndTurn_FinishBattle");
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
         if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_OLD_MAN_TUTORIAL | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_SAFARI | BATTLE_TYPE_FIRST_BATTLE | BATTLE_TYPE_LINK)))
@@ -4095,10 +4111,13 @@ static void ReturnFromBattleToOverworld(void)
 
 void RunBattleScriptCommands_PopCallbacksStack(void)
 {
+    // DebugPrintf("RunBattleScriptCommands_PopCallbacksStack");
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
+        DebugPrintf("gCurrentActionFuncId = %d", gCurrentActionFuncId);
         if (gBattleResources->battleCallbackStack->size != 0)
             gBattleResources->battleCallbackStack->size--;
+        DebugPrintf("Reset gBattleMainFunc from stack, new size: %d", gBattleResources->battleCallbackStack->size);
         gBattleMainFunc = gBattleResources->battleCallbackStack->function[gBattleResources->battleCallbackStack->size];
     }
     else

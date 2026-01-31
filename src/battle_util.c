@@ -2723,6 +2723,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 
 void BattleScriptExecute(const u8 *BS_ptr)
 {
+    DebugPrintf("BattleScriptExecute - REQUIRED!");
     gBattlescriptCurrInstr = BS_ptr;
     gBattleResources->battleCallbackStack->function[gBattleResources->battleCallbackStack->size++] = gBattleMainFunc;
     gBattleMainFunc = RunBattleScriptCommands_PopCallbacksStack;

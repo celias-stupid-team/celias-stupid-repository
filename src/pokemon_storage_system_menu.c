@@ -20,6 +20,7 @@
 
 extern u8 gSavedFaintedActionsState;
 extern u8 gSavedFaintedActionsBattlerId;
+extern struct BattleCallbacksStack gSavedBattleCallbackStack;
 
 static EWRAM_DATA u8 sPreviousBoxOption = 0;
 static EWRAM_DATA struct ChooseBoxMenu *sChooseBoxMenu = NULL;
@@ -399,7 +400,7 @@ static void CreatePCMainMenu(u8 whichMenu, s16 *windowIdPtr)
     *windowIdPtr = windowId;
 }
 
-void CB2_ExitPokeStorage(void)
+void CB2_ExitPokeStorage(void) //wiz1989
 {
     DebugPrintf("CB2_ExitPokeStorage");
     sPreviousBoxOption = GetCurrentBoxOption();
@@ -429,6 +430,13 @@ void CB2_ExitPokeStorage(void)
         // restore faintedActionsState
         gBattleStruct->faintedActionsState = gSavedFaintedActionsState;
         gBattleStruct->faintedActionsBattlerId = gSavedFaintedActionsBattlerId;
+
+        // restore BattleCallbackStack
+        gBattleResources->battleCallbackStack->size = gSavedBattleCallbackStack.size;
+        for (i = 0; i < gSavedBattleCallbackStack.size; i++)
+        {
+            gBattleResources->battleCallbackStack->function[i] = gSavedBattleCallbackStack.function[i];
+        }
 
         gMain.callback1 = BattleMainCB1;
         SetMainCallback2(ReshowBattleScreenAfterMenu);
