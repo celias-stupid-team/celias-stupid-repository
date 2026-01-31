@@ -749,3 +749,6 @@ const u32 gObjectEventPic_SANS_FULL[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_SANS_CUT[] = INCBIN_U32("graphics/object_events/pics/stupid/SANS_CUT.4bpp");
 const u32 gObjectEventPic_MILOTIC[] = INCBIN_U32("graphics/object_events/pics/stupid/MILOTIC.4bpp");
 const u16 gObjectEventPal_MILOTIC[] = INCBIN_U16("graphics/object_events/palettes/MILOTIC.gbapal");
+const u32 gObjectEventPic_QBERT[] = INCBIN_U32("graphics/object_events/pics/stupid/QBERT.4bpp");
+const u32 gObjectEventPic_VANILLISH[] = INCBIN_U32("graphics/object_events/pics/stupid/VANILLISH.4bpp");
+const u16 gObjectEventPal_VANILLISH[] = INCBIN_U16("graphics/object_events/palettes/VANILLISH.gbapal");

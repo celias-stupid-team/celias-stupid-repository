@@ -477,7 +477,14 @@ script SaffronDojo_Nerd3 {
 	trainerbattle_single(TRAINER_AVGN_3, "Hoargh!\n"
 	"Take your shoes off!",
 	
-	"Oh my god!\pI'm drinking ROLLIN' ROCK...\n{PAUSE 30}on my ROGGENROLA!")
+	"Oh my god!\pI'm drinking ROLLIN' ROCK...\n{PAUSE 30}on my ROGGENROLA!", SaffronDojo_RemoveShoes)
+	msgbox(
+	"Yeeeah!\n"
+	"ROLLIN ROCK!\l"
+	"On the ROGGENROLA!", MSGBOX_NPC)
+}
+
+script SaffronDojo_RemoveShoes {
 	if(checkpartymon(SPECIES_TOEDSCOOL)) {
 		msgbox(
 		"…But seriously.\n"
@@ -485,16 +492,28 @@ script SaffronDojo_Nerd3 {
 		closemessage
 		delay(30)
 		checkpartymonslot(SPECIES_TOEDSCOOL)
+		bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+		checkpartymonslot(SPECIES_TOEDSCOOL)
 		callnative(RemoveShoesFromToedy)
+		playfanfare(MUS_TOO_BAD)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"{PLAYER} removed the shoes from\n"
+		"{STR_VAR_1}…", MSGBOX_DEFAULT)
+		waitfanfare
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox(
+		"But anyway!\p"
 
+		"Yeeeah!\n"
+		"ROLLIN ROCK!\l"
+		"On the ROGGENROLA!", MSGBOX_DEFAULT)
+		
 
 	}
-	msgbox(
-	"Yeeeah!\n"
-	"ROLLIN ROCK!\l"
-	"On the ROGGENROLA!", MSGBOX_NPC)
+	release
+	end
 }
-
 
 script SaffronGym_CleaningLady {
 	msgbox(

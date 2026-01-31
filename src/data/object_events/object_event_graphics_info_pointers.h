@@ -525,6 +525,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SANS_NESS;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SANS_FULL;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SANS_CUT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MILOTIC;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_QBERT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_VANILLISH;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1051,4 +1053,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SANS_FULL] = &gObjectEventGraphicsInfo_SANS_FULL,
     [OBJ_EVENT_GFX_SANS_CUT] = &gObjectEventGraphicsInfo_SANS_CUT,
     [OBJ_EVENT_GFX_MILOTIC] = &gObjectEventGraphicsInfo_MILOTIC,
+    [OBJ_EVENT_GFX_QBERT] = &gObjectEventGraphicsInfo_QBERT,
+    [OBJ_EVENT_GFX_VANILLISH] = &gObjectEventGraphicsInfo_VANILLISH,
 };
