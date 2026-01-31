@@ -304,7 +304,22 @@ script PowerPlant_Max {
 }
 
 script PowerPlant_ShinyLock {
-	msgbox("Wow!\nThis LOCK is really shiny!\pIt seems to need a key.\n", MSGBOX_SIGN)
+	lock
+	if(flag(FLAG_NO_SHINY_LOCK)) {
+		msgbox(
+			"The SHINY LOCK has been undone.\n"
+			"", MSGBOX_DEFAULT)
+	} else {
+		setflag(FLAG_NO_SHINY_LOCK)
+		msgbox(
+		"Wow!\n"
+		"This LOCK is really shiny!\p"
+
+		"{PLAYER} turned the SHINY LOCK.\n"
+		"", MSGBOX_DEFAULT)
+
+	}
+	release
 	end
 }
 
@@ -429,6 +444,9 @@ script PowerPlant_MinigameStart {
 				waitmovement(0)
 				playmoncry(SPECIES_ETERNATUS, CRY_MODE_ENCOUNTER)
 				waitmoncry
+				if(flag(FLAG_NO_SHINY_LOCK)) {
+					setflag(FLAG_SHINY_CREATION)
+				}
 				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
 				dowildbattle
 				delay(40)

@@ -478,6 +478,17 @@ script SaffronDojo_Nerd3 {
 	"Take your shoes off!",
 	
 	"Oh my god!\pI'm drinking ROLLIN' ROCK...\n{PAUSE 30}on my ROGGENROLA!")
+	if(checkpartymon(SPECIES_TOEDSCOOL)) {
+		msgbox(
+		"…But seriously.\n"
+		"Take those shoes off!", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		checkpartymonslot(SPECIES_TOEDSCOOL)
+		callnative(RemoveShoesFromToedy)
+
+
+	}
 	msgbox(
 	"Yeeeah!\n"
 	"ROLLIN ROCK!\l"

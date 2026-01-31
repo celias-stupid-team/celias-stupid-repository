@@ -484,7 +484,7 @@
 #define FLAG_SOFT_SAND_GIRL                   0x1B1
 #define FLAG_GOT_SHINY_LATIAS                       0x1B2
 #define FLAG_GOT_SHINY_PSYDUCK                 0x1B3
-#define FLAG_0x1B4                 0x1B4
+#define FLAG_NO_SHINY_LOCK                 0x1B4
 #define FLAG_0x1B5                        0x1B5
 #define FLAG_0x1B6                   0x1B6
 #define FLAG_0x1B7                  0x1B7

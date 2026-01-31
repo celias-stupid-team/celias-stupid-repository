@@ -94,6 +94,8 @@ static void GenderFluidWarpOutEffect_Init(struct Task *task);
 static void GenderFluidWarpOutEffect_Spin(struct Task *task);
 static void TryToTransTheNidotrans(u8 taskId);
 static void TransTheNidotrans(u8 taskId);
+void RemoveShoesFromToedy();
+
 static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
 static void Task_UseMoveRelearnerOnField(u8 taskId);
@@ -1368,6 +1370,42 @@ static void TryToTransTheNidotrans(u8 taskId)
     }
 
     if (atLeastOne) TransTheNidotrans(taskId);
+}
+
+
+
+
+
+void RemoveShoesFromToedy()
+{
+    u32 i, j;
+    u16 newSpecies, oldSpecies;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    struct Pokemon *mon;
+    s16 slot = gSpecialVar_Result;
+
+
+        newSpecies = SPECIES_TENTACOOL;
+
+        mon = &gPlayerParty[slot];
+
+        GetMonNickname(mon, nickname);
+
+        // if player has nicknamed their nidotran, don't overwrite it
+        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+        {
+            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+        }
+
+        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+
+        if (GetMonData(mon, MON_DATA_CSR_SHINY))
+        {
+            GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+        }
+
+        CalculateMonStats(mon);
+    
 }
 
 static const u16 sNidotranCounterparts[6][2] = {
