@@ -1194,3 +1194,14 @@ const struct Tileset gTileset_Yugioh =
     .metatileAttributes = gMetatileAttributes_Yugioh,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_SilphCo2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SilphCo2,
+    .palettes = gTilesetPalettes_SilphCo2,
+    .metatiles = gMetatiles_SilphCo2,
+    .metatileAttributes = gMetatileAttributes_SilphCo2,
+    .callback = NULL,
+};
