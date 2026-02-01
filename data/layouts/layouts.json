@@ -1672,8 +1672,8 @@
     {
       "id": "LAYOUT_SEAFOAM_ISLANDS_B1F",
       "name": "SeafoamIslands_B1F_Layout",
-      "width": 21,
-      "height": 27,
+      "width": 54,
+      "height": 35,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
