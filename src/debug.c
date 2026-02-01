@@ -3802,7 +3802,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_TRUMPETS) \
     X(MUS_MUS_VS_REGI) \
     X(MUS_TUNNEL) \
-    X(MUS_PISCES_GYM)
+    X(MUS_PISCES_GYM) \
+    X(MUS_KENYA)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

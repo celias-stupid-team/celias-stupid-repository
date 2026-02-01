@@ -1227,3 +1227,5 @@ $(OBJEVENTGFXDIR)/stupid/QBERT.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
 $(OBJEVENTGFXDIR)/stupid/VANILLISH.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/KENYA_EGG.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 2

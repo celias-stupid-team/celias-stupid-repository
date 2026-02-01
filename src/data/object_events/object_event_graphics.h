@@ -752,3 +752,4 @@ const u16 gObjectEventPal_MILOTIC[] = INCBIN_U16("graphics/object_events/palette
 const u32 gObjectEventPic_QBERT[] = INCBIN_U32("graphics/object_events/pics/stupid/QBERT.4bpp");
 const u32 gObjectEventPic_VANILLISH[] = INCBIN_U32("graphics/object_events/pics/stupid/VANILLISH.4bpp");
 const u16 gObjectEventPal_VANILLISH[] = INCBIN_U16("graphics/object_events/palettes/VANILLISH.gbapal");
+const u32 gObjectEventPic_KENYA_EGG[] = INCBIN_U32("graphics/object_events/pics/stupid/KENYA_EGG.4bpp");

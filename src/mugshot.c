@@ -33,6 +33,53 @@ static const u32 sMugshotImg_BikeFrame2[] = INCBIN_U32("graphics/mugshots/bike_f
 static const u32 sMugshotImg_BikeFrame3[] = INCBIN_U32("graphics/mugshots/bike_frame3.4bpp.lz");
 static const u32 sMugshotImg_BikeFrame4[] = INCBIN_U32("graphics/mugshots/bike_frame4.4bpp.lz");
 
+
+static const u32 sMugshotImg_KenyaFrame1[]  = INCBIN_U32("graphics/mugshots/kenya_1.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame1[]  = INCBIN_U16("graphics/mugshots/kenya_1.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame2[]  = INCBIN_U32("graphics/mugshots/kenya_2.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame2[]  = INCBIN_U16("graphics/mugshots/kenya_2.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame3[]  = INCBIN_U32("graphics/mugshots/kenya_3.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame3[]  = INCBIN_U16("graphics/mugshots/kenya_3.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame4[]  = INCBIN_U32("graphics/mugshots/kenya_4.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame4[]  = INCBIN_U16("graphics/mugshots/kenya_4.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame5[]  = INCBIN_U32("graphics/mugshots/kenya_5.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame5[]  = INCBIN_U16("graphics/mugshots/kenya_5.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame6[]  = INCBIN_U32("graphics/mugshots/kenya_6.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame6[]  = INCBIN_U16("graphics/mugshots/kenya_6.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame7[]  = INCBIN_U32("graphics/mugshots/kenya_7.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame7[]  = INCBIN_U16("graphics/mugshots/kenya_7.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame8[]  = INCBIN_U32("graphics/mugshots/kenya_8.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame8[]  = INCBIN_U16("graphics/mugshots/kenya_8.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame9[]  = INCBIN_U32("graphics/mugshots/kenya_9.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame9[]  = INCBIN_U16("graphics/mugshots/kenya_9.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame10[] = INCBIN_U32("graphics/mugshots/kenya_10.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame10[] = INCBIN_U16("graphics/mugshots/kenya_10.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame11[] = INCBIN_U32("graphics/mugshots/kenya_11.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame11[] = INCBIN_U16("graphics/mugshots/kenya_11.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame12[] = INCBIN_U32("graphics/mugshots/kenya_12.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame12[] = INCBIN_U16("graphics/mugshots/kenya_12.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame13[] = INCBIN_U32("graphics/mugshots/kenya_13.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame13[] = INCBIN_U16("graphics/mugshots/kenya_13.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame14[] = INCBIN_U32("graphics/mugshots/kenya_14.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame14[] = INCBIN_U16("graphics/mugshots/kenya_14.gbapal");
+
+static const u32 sMugshotImg_KenyaFrame15[] = INCBIN_U32("graphics/mugshots/kenya_15.4bpp.lz");
+static const u16 sMugshotPal_KenyaFrame15[] = INCBIN_U16("graphics/mugshots/kenya_15.gbapal");
+
+
 static const struct Mugshot sMugshots[] = {
     //ADD YOUR MUGSHOTS HERE
     [MUGSHOT_CHAPTER1] = {.x = 0, .y = 0, .width = 176, .height = 96, .image = sMugshotImg_Chapter1, .palette = sMugshotPal_Chapter1},
@@ -40,6 +87,22 @@ static const struct Mugshot sMugshots[] = {
     [MUGSHOT_BIKE_FRAME_2] = {.x = 2, .y = 2, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame2, .palette = sMugshotPal_BikeFrame1},
     [MUGSHOT_BIKE_FRAME_3] = {.x = 2, .y = 2, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame3, .palette = sMugshotPal_BikeFrame1},
     [MUGSHOT_BIKE_FRAME_4] = {.x = 2, .y = 2, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame4, .palette = sMugshotPal_BikeFrame1},
+
+    [MUGSHOT_KENYA_FRAME_1]  = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame1,  .palette = sMugshotPal_KenyaFrame1},
+    [MUGSHOT_KENYA_FRAME_2]  = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame2,  .palette = sMugshotPal_KenyaFrame2},
+    [MUGSHOT_KENYA_FRAME_3]  = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame3,  .palette = sMugshotPal_KenyaFrame3},
+    [MUGSHOT_KENYA_FRAME_4]  = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame4,  .palette = sMugshotPal_KenyaFrame4},
+    [MUGSHOT_KENYA_FRAME_5]  = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame5,  .palette = sMugshotPal_KenyaFrame5},
+    [MUGSHOT_KENYA_FRAME_6]  = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame6,  .palette = sMugshotPal_KenyaFrame6},
+    [MUGSHOT_KENYA_FRAME_7]  = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame7,  .palette = sMugshotPal_KenyaFrame7},
+    [MUGSHOT_KENYA_FRAME_8]  = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame8,  .palette = sMugshotPal_KenyaFrame8},
+    [MUGSHOT_KENYA_FRAME_9]  = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame9,  .palette = sMugshotPal_KenyaFrame9},
+    [MUGSHOT_KENYA_FRAME_10] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame10, .palette = sMugshotPal_KenyaFrame10},
+    [MUGSHOT_KENYA_FRAME_11] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame11, .palette = sMugshotPal_KenyaFrame11},
+    [MUGSHOT_KENYA_FRAME_12] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame12, .palette = sMugshotPal_KenyaFrame12},
+    [MUGSHOT_KENYA_FRAME_13] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame13, .palette = sMugshotPal_KenyaFrame13},
+    [MUGSHOT_KENYA_FRAME_14] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame14, .palette = sMugshotPal_KenyaFrame14},
+    [MUGSHOT_KENYA_FRAME_15] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame15, .palette = sMugshotPal_KenyaFrame15},
 };
 
 
