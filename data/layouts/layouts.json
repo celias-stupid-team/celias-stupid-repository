@@ -7344,6 +7344,18 @@
       "secondary_tileset": "gTileset_CeladonCity",
       "border_filepath": "data/layouts/Route17_Underneath/border.bin",
       "blockdata_filepath": "data/layouts/Route17_Underneath/map.bin"
+    },
+    {
+      "id": "LAYOUT_STONEHENGE",
+      "name": "Stonehenge_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MoonAltar",
+      "border_filepath": "data/layouts/Stonehenge/border.bin",
+      "blockdata_filepath": "data/layouts/Stonehenge/map.bin"
     }
   ]
 }
