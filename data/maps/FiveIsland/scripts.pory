@@ -441,17 +441,50 @@ script Yes_YesterdayWoman {
 	lock
 	faceplayer
 	msgbox(
-	"Placeholder NPC 2\n"
-	"", MSGBOX_YESNO)
+	"Oh, that music they're playing is\n"
+	"so lovely.\p"
+
+	"I can't seem to place the name,\n"
+	"though.\l"
+	"Do you know how it starts?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 		msgbox(
-		"Yes dialogue\n"
-		"", MSGBOX_DEFAULT)
+		"Ah, yes!\n"
+		"I remember now!", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"No dialogue\n"
-		"", MSGBOX_DEFAULT)
+		"NOTERDAY…?\n"
+		"Hmm, that isn't quite it.", MSGBOX_DEFAULT)
 	}
+	release
+	end
+}
+
+script Yes_BrendanNeighbor {
+	msgbox(
+	"The family next door just moved\n"
+	"out.\p"
+
+	"It's a shame but honestly I don't\n"
+	"blame them given the… location.", MSGBOX_NPC)
+}
+
+
+script Yes_DadSecretBeach {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"It looks like you've found my\n"
+	"secret beach!\l"
+	"I like to come here to relax.\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
 	release
 	end
 }

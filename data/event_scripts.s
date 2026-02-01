@@ -1896,3 +1896,6 @@ Text_TestMsg::
 
 	.include "data/maps/ContestHall/scripts.inc"
 	.include "data/maps/ContestHall/text.inc"
+
+	.include "data/maps/Stonehenge/scripts.inc"
+	.include "data/maps/Stonehenge/text.inc"

@@ -94,6 +94,8 @@ static void GenderFluidWarpOutEffect_Init(struct Task *task);
 static void GenderFluidWarpOutEffect_Spin(struct Task *task);
 static void TryToTransTheNidotrans(u8 taskId);
 static void TransTheNidotrans(u8 taskId);
+void RemoveShoesFromToedy();
+
 static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
 static void Task_UseMoveRelearnerOnField(u8 taskId);
@@ -666,6 +668,19 @@ void FieldUseFunc_CopycatTM(u8 taskId)
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu);
     }
 }
+
+
+void FieldUseFunc_Ruby(u8 taskId)
+{
+    if(VarGet(VAR_READY_FOR_TORNADO) == 1) {
+        VarSet(VAR_READY_FOR_TORNADO, 2);
+        RemoveUsedItem();
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToFieldFromBagMenu);
+    } else {
+        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+    }
+}
+
 
 
 void FieldUseFunc_Cigarette(u8 taskId)
@@ -1368,6 +1383,44 @@ static void TryToTransTheNidotrans(u8 taskId)
     }
 
     if (atLeastOne) TransTheNidotrans(taskId);
+}
+
+
+
+
+
+void RemoveShoesFromToedy()
+{
+    u32 i, j;
+    u32 newPersonality, otID;
+    u16 newSpecies, oldSpecies;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    struct Pokemon *mon;
+    s16 slot = gSpecialVar_Result;
+    bool32 thisIsTrue = TRUE;
+
+        newSpecies = SPECIES_TENTACOOL;
+
+        mon = &gPlayerParty[slot];
+
+        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+        GetMonNickname(mon, nickname);
+        newPersonality = Random32();
+
+        // force the mon to be shiny
+        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
+        
+        // if player has nicknamed their nidotran, don't overwrite it
+        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+        {
+            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+        }
+        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+        UpdateMonPersonality(&mon->box, newPersonality);
+        CalculateMonStats(mon);
+    
 }
 
 static const u16 sNidotranCounterparts[6][2] = {

@@ -365,8 +365,22 @@ script Route8_PickUpPsyduck {
 }
 
 script Route8_BerryLady {
-	msgbox("BERRIES need water to grow.\nWithout it, they'll shrivel and die.\pI have a SPRAYBOTTLE that you could\nuse to water plants that need it.\lBut…\pSPRAYBOTTLES are actually extremely\ndangerous.\lI can't trust a stranger with one!\pI know! Come back after you've\ndefeated the ELITE FOUR.\pThat should prove that you can\nsafely handle a water bottle!", MSGBOX_NPC)
-	end
+    if(var(VAR_LANCE_LASS_ATTACK) == 2 && !flag(FLAG_GOT_SHINY_PSYDUCK)) {
+		setflag(FLAG_GOT_SHINY_PSYDUCK)
+		msgbox(
+		"Wow you beat the elite four\n"
+		"here's your pail", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GOLDUCK)
+		setflag(FLAG_SHINY_CREATION)
+		call(Common_Script_GiftPokemon30)
+		release
+		end
+
+	} else {
+		msgbox("BERRIES need water to grow.\nWithout it, they'll shrivel and die.\pI have a SPRAYBOTTLE that you could\nuse to water plants that need it.\lBut…\pSPRAYBOTTLES are actually extremely\ndangerous.\lI can't trust a stranger with one!\pI know! Come back after you've\ndefeated the ELITE FOUR.\pThat should prove that you can\nsafely handle a water bottle!", MSGBOX_NPC)
+	
+
+	}end
 }
 
 script Route8_FlowerShopSign {

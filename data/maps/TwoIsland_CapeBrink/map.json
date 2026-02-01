@@ -87,8 +87,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 8,
-      "y": 6,
+      "x": 10,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -304,7 +304,7 @@
       "item": "ITEM_PP_MAX",
       "flag": "FLAG_HIDDEN_ITEM_TWO_ISLAND_CAPE_BRINK_PP_MAX",
       "quantity": 1,
-      "underfoot": true
+      "underfoot": false
     },
     {
       "type": "hidden_item",

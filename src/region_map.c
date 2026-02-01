@@ -3852,7 +3852,7 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
     u8 *dst;
     u16 i;
     u16 idx;
-    if ((idx = mapsec - KANTO_MAPSEC_START) <= MAPSEC_SPECIAL_AREA - KANTO_MAPSEC_START)
+    if ((idx = mapsec - KANTO_MAPSEC_START) <= MAPSEC_NONE - KANTO_MAPSEC_START)
     {
         if (IsCeladonDeptStoreMapsec(mapsec) == TRUE)
             dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);
@@ -4094,11 +4094,16 @@ static void SetFlyWarpDestination(u16 mapsec)
     DebugPrintf("Fly to mapsec: %u", mapsec);
     if (sMapFlyDestinations[idx][2])
     {
-        SetWarpDestinationToHealLocation(sMapFlyDestinations[idx][2]);
+        if(mapsec == MAPSEC_VIRIDIAN_CITY && VarGet(VAR_CURRENT_DMCA_PHASE) > 0 && VarGet(VAR_CURRENT_DMCA_PHASE) < 9) {
+            SetWarpDestinationToHealLocation(HEAL_LOCATION_VIRIDIAN_CITY_GYM);
+
+        } else 
+            SetWarpDestinationToHealLocation(sMapFlyDestinations[idx][2]);
         SetUsedFlyQuestLogEvent(sMapFlyDestinations[idx]);
     }
     else
     {
+        
         SetWarpDestinationToMapWarp(sMapFlyDestinations[idx][0], sMapFlyDestinations[idx][1], -1);
     }
     ReturnToFieldFromFlyMapSelect();

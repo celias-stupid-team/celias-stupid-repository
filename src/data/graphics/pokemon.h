@@ -9780,3 +9780,11 @@ const u32 gMonShinyPalette_DODODUO[] = INCBIN_U32("graphics/pokemon/dododuo/shin
 const u8 gMonIcon_DODODUO[] = INCBIN_U8("graphics/pokemon/dododuo/icon.4bpp");
 const u8 gMonFootprint_DODODUO[] = INCBIN_U8("graphics/pokemon/dododuo/footprint.1bpp");
 
+// CELEBI2
+const u32 gMonFrontPic_CELEBI2[] = INCBIN_U32("graphics/pokemon/celebi2/front.4bpp.lz");
+const u32 gMonPalette_CELEBI2[] = INCBIN_U32("graphics/pokemon/celebi2/normal.gbapal.lz");
+const u32 gMonBackPic_CELEBI2[] = INCBIN_U32("graphics/pokemon/celebi2/back.4bpp.lz");
+const u32 gMonShinyPalette_CELEBI2[] = INCBIN_U32("graphics/pokemon/celebi2/shiny.gbapal.lz");
+const u8 gMonIcon_CELEBI2[] = INCBIN_U8("graphics/pokemon/celebi2/icon.4bpp");
+const u8 gMonFootprint_CELEBI2[] = INCBIN_U8("graphics/pokemon/celebi2/footprint.1bpp");
+

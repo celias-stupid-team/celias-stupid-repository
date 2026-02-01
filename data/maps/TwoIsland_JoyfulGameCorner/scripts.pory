@@ -192,6 +192,11 @@ mapscripts TwoIsland_JoyfulGameCorner_MapScripts {
 		if(!flag(FLAG_FOUND_ROTOM_HEAT)) {
 			setflag(FLAG_TEMP_5)
 		}
+		setflag(FLAG_TEMP_A)
+		if(flag(FLAG_FOUND_ROTOM_MOW) && flag(FLAG_FOUND_ROTOM_WASH) && flag(FLAG_FOUND_ROTOM_FAN) && flag(FLAG_FOUND_ROTOM_FROST) && flag(FLAG_FOUND_ROTOM_HEAT) && !flag(FLAG_SHINY_KENYA)) {
+			clearflag(FLAG_TEMP_A)
+		}
+		
 	}
 }
 
@@ -226,4 +231,87 @@ script TwoIsland_NotDrSaturn {
 	"That's not DR. SATURN, silly!\n"
 	"", MSGBOX_SIGN)
 
+}
+
+const KENYA_DELAY = 185
+const KENYA_START = 18
+const KENYA_BACK_TO_MEASURE = KENYA_DELAY - KENYA_START + 15
+const KENYA_FOUR_I_GUESS = KENYA_DELAY - 15
+
+script TwoIsland_KenyaEgg {
+	lock
+	fadenewbgm(MUS_NONE)
+	delay(60)
+	playbgm(MUS_KENYA, TRUE)
+	fadescreeninstant(FADE_TO_BLACK)
+	delay(KENYA_START)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_1)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_2)
+	callnative(DrawMugshot)
+	delay(KENYA_FOUR_I_GUESS)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_3)
+	callnative(DrawMugshot)
+	delay(KENYA_BACK_TO_MEASURE)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_4)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_5)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_6)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_7)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_8)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_9)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_10)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_11)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_12)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_13)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_14)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	setvar(VAR_0x8000, MUGSHOT_KENYA_FRAME_15)
+	callnative(DrawMugshot)
+	delay(KENYA_DELAY)
+	callnative(ClearMugshot)
+	delay(120)
+	playfanfare(MUS_LEVEL_UP)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_KENYA)
+	setflag(FLAG_SHINY_CREATION)
+	msgbox(
+	"{PLAYER} obtained\n"
+	"KENYA!", MSGBOX_DEFAULT)
+	waitfanfare
+	closemessage
+	removeobject(VAR_LAST_TALKED)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	fadedefaultbgm
+	delay(30)
+	setflag(FLAG_SHINY_KENYA)
+	call(Common_Script_GiftPokemon30)
+	release
+
+}
+
+script TwoIsland_GoToStonehenge {
+	lock
+	warp(MAP_STONEHENGE, 0)
+	release
 }

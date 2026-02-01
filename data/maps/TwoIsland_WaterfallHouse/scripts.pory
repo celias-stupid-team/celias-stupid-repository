@@ -76,9 +76,15 @@ script TwoIsland_SideOfWall {
 				))
 				waitmovement(0)
 			case 9:
-				setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MISSINGNO)
-				setflag(FLAG_SHINY_CREATION)
-				call(Common_Script_GiftPokemon19)
+				if(flag(FLAG_GOT_SHINY_MISSINGNO)) {
+					msgbox("no")
+				}else {
+					setflag(FLAG_GOT_SHINY_MISSINGNO)
+					setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MISSINGNO)
+					setflag(FLAG_SHINY_CREATION)
+					call(Common_Script_GiftPokemon19)
+
+				}
 			case 10:
 				textcolor(NPC_TEXT_COLOR_FEMALE)
 				msgbox(

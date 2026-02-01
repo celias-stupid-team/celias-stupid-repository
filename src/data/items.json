@@ -1281,7 +1281,7 @@
       "secondaryId": 0
     },
     {
-      "english": "c",
+      "english": "POKé DOLL",
       "itemId": "ITEM_POKE_DOLL",
       "price": 9999,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -2150,7 +2150,7 @@
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_SLP",
       "holdEffectParam": 0,
-      "description_english": "When held by a POKéMON, it will be\\nused in battle to wake up.",
+      "description_english": "Hey!\\nListen!",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -6037,7 +6037,7 @@
       "registrability": 1,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "fieldUseFunc": "FieldUseFunc_Ruby",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

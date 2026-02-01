@@ -474,6 +474,24 @@ script FourIsland_DrFootstep {
 
 			"{PAUSE 30}Please come again.\n"
 			"", MSGBOX_DEFAULT)
+		} elif (checkpartymonslot(SPECIES_TENTACOOL) == 0) {
+			msgbox(
+			"Hrrrm…\p"
+
+			"It seems your POKéMON does not\n"
+			"leave any footsteps.\l"
+			"But…\p"
+
+			"I can hear its heart begging for\n"
+			"the ability to walk.\p"
+
+			"Here, take these.\n"
+			"", MSGBOX_DEFAULT)
+			giveitem_msg("{PLAYER} received a pair\nof RUNNING SHOES!", ITEM_RUNNING_SHOES, 1, MUS_OBTAIN_KEY_ITEM)
+			waitfanfare
+			release
+			end
+
 		}
 		msgbox(
 		"Hmm, yes.\n"
@@ -892,8 +910,18 @@ script FourIsland_TalkingOnPhone {
 
 script FourIsland_MyPokemonRanch {
 	msgbox(
-	"Welcome to MY POKéMON RANCH!\n"
-	"placeholder", MSGBOX_NPC)
+	"Howdy, there!\n"
+	"Welcome to MY POKéMON RANCH!\p"
+
+	"We have a special going on.\n"
+	"If you deposit enough POKéMON,\l"
+	"you'll get a special reward!\p"
+
+	"How many POKéMON do you need to\n"
+	"deposit for the prize?\p"
+
+	"{PAUSE 30}Sixteen thousand.\n"
+	"{PAUSE 45}and twenty.", MSGBOX_NPC)
 }
 
 

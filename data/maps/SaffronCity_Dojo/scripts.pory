@@ -170,6 +170,51 @@ mapscripts SaffronCity_Dojo_MapScripts {
 		}
 	}
 
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_READY_FOR_TORNADO, 2 {
+			specialvar(VAR_RESULT, GetPlayerFacingDirection)
+			if(var(VAR_RESULT) != DIR_WEST) {
+				setvar(VAR_READY_FOR_TORNADO, 1)
+				release
+				end
+			}
+			fadenewbgm(MUS_NONE)
+			delay(60)
+			playse(SE_M_BLIZZARD)
+			applymovement(LOCALID_SIMON_TORNADO, moves(
+				walk_up * 2
+				walk_left * 8
+			))
+			waitmovement(LOCALID_SIMON_TORNADO)
+			applymovement(LOCALID_PLAYER, moves(
+				set_invisible
+			))
+			applymovement(LOCALID_SIMON_TORNADO, moves(
+				walk_left * 8
+			))
+			waitmovement(LOCALID_SIMON_TORNADO)
+			setvar(VAR_READY_FOR_TORNADO, 3)
+			msgbox(
+			"it brings you to a place and\n"
+			"you find", MSGBOX_DEFAULT)
+			setflag(FLAG_SHINY_CREATION)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ONIX)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER} got an ONIX!\n"
+			"", MSGBOX_DEFAULT)
+			givemon(SPECIES_ONIX, 30)
+			waitfanfare
+			applymovement(LOCALID_PLAYER, moves(
+				set_visible
+			))
+			waitmovement(0)
+			fadedefaultbgm
+			release
+			end
+		}
+	]
+
 }
 
 script SaffronDojo_ApproachJason {
@@ -341,11 +386,36 @@ script SaffronDojo_ApproachJason {
 script SaffronDojo_DeadNerd {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"A pitiful mass of meat struggles\n"
-	"on the floor.", MSGBOX_SIGN)
+	"He's dead.\p"
+
+	"His friends are dead.\p"
+
+	"His family's dead.\p"
+
+	"His fucking pets are being skinned\n"
+	"alive.\p"
+
+	"His mom's a fucking whore.\p"
+
+	"He sucks at life.\p"
+
+	"The whole world hates him.\p"
+
+	"He's going to hell.\p"
+
+	"Deal with it.\n"
+	"", MSGBOX_SIGN)
 
 }
 
+script SaffronDojo_ReadyForTornado {
+	setvar(VAR_READY_FOR_TORNADO, 1)
+	release
+}
+script SaffronDojo_NoTornado {
+	setvar(VAR_READY_FOR_TORNADO, 0)
+	release
+}
 
 script SaffronDojo_James {
 	lock
@@ -448,25 +518,72 @@ script SaffronDojo_IrateGamer {
 		end
 	}
 	msgbox(
-	"I am the IRATE GAMER.\p"
+	"THE IRATE GAMER: Oh, boy!\p"
 
-	"Now that the DMCA are gone, I can\n"
+	"Now that the DMCA is gone, I can\n"
 	"keep doing my show!", MSGBOX_NPC)
 }
 
 script SaffronDojo_Nerd1 {
+	trainerbattle_single(TRAINER_AVGN_1, "We're gonna take you back to the\n"
+	"past!",
+	
+	"Ouch!")
 	msgbox(
-	"my pokemon sing the AVGN theme\n"
+	"I am a nerd.\n"
 	"", MSGBOX_NPC)
 }
 
 script SaffronDojo_Nerd2 {
+	trainerbattle_single(TRAINER_AVGN_2, "Sixty-four bit...",
+	
+	"THE WRIST GAAAAAAAAAAAAMES!")
 	msgbox(
-	"SIXTY FOUR BIT\n"
+	"I am a nerd.\n"
 	"", MSGBOX_NPC)
 }
 
+script SaffronDojo_Nerd3 {
+	trainerbattle_single(TRAINER_AVGN_3, "Hoargh!\n"
+	"Take your shoes off!",
+	
+	"Oh my god!\pI'm drinking ROLLIN' ROCK...\n{PAUSE 30}on my ROGGENROLA!", SaffronDojo_RemoveShoes)
+	msgbox(
+	"Yeeeah!\n"
+	"ROLLIN ROCK!\l"
+	"On the ROGGENROLA!", MSGBOX_NPC)
+}
 
+script SaffronDojo_RemoveShoes {
+	if(checkpartymon(SPECIES_TOEDSCOOL)) {
+		msgbox(
+		"…But seriously.\n"
+		"Take those shoes off!", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		checkpartymonslot(SPECIES_TOEDSCOOL)
+		bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+		checkpartymonslot(SPECIES_TOEDSCOOL)
+		callnative(RemoveShoesFromToedy)
+		playfanfare(MUS_TOO_BAD)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"{PLAYER} removed the shoes from\n"
+		"{STR_VAR_1}…", MSGBOX_DEFAULT)
+		waitfanfare
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox(
+		"But anyway!\p"
+
+		"Yeeeah!\n"
+		"ROLLIN ROCK!\l"
+		"On the ROGGENROLA!", MSGBOX_DEFAULT)
+		
+
+	}
+	release
+	end
+}
 
 script SaffronGym_CleaningLady {
 	msgbox(

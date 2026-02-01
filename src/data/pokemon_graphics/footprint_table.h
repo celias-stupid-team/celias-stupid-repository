@@ -1285,4 +1285,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_FINALMOLTRES]    = gMonFootprint_FINALMOLTRES,
 	[SPECIES_FINALWARTORTLE]    = gMonFootprint_FINALWARTORTLE,
 	[SPECIES_DODODUO]    = gMonFootprint_DODODUO,
+	[SPECIES_CELEBI2]    = gMonFootprint_CELEBI2,
 };

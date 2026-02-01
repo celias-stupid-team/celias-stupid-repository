@@ -473,8 +473,8 @@
 #define FLAG_HIDE_LIGMA                                              0x1A6
 #define FLAG_KILLED_SANS                      0x1A7
 #define FLAG_USED_GENDER_FLUID                0x1A8
-#define FLAG_0x1A9                    0x1A9
-#define FLAG_0x1AA                          0x1AA
+#define FLAG_DANCED_FOR_ARTICUNO                    0x1A9
+#define FLAG_GOT_SHINY_MISSINGNO                          0x1AA
 #define FLAG_0x1AB                    0x1AB
 #define FLAG_0x1AC                          0x1AC
 #define FLAG_0x1AD                     0x1AD
@@ -482,10 +482,10 @@
 #define FLAG_0x1AF                    0x1AF
 #define FLAG_GOT_TM50                          0x1B0
 #define FLAG_SOFT_SAND_GIRL                   0x1B1
-#define FLAG_0x1B2                       0x1B2
-#define FLAG_0x1B3                 0x1B3
-#define FLAG_0x1B4                 0x1B4
-#define FLAG_0x1B5                        0x1B5
+#define FLAG_GOT_SHINY_LATIAS                       0x1B2
+#define FLAG_GOT_SHINY_PSYDUCK                 0x1B3
+#define FLAG_NO_SHINY_LOCK                 0x1B4
+#define FLAG_SHINY_KENYA                        0x1B5
 #define FLAG_0x1B6                   0x1B6
 #define FLAG_0x1B7                  0x1B7
 #define FLAG_0x1B8                  0x1B8

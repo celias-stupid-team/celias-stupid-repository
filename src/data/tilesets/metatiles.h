@@ -322,3 +322,6 @@ const u32 gMetatileAttributes_FinalBossCutscene[] = INCBIN_U32("data/tilesets/pr
 
 const u16 gMetatiles_Yugioh[] = INCBIN_U16("data/tilesets/secondary/yugioh/metatiles.bin");
 const u32 gMetatileAttributes_Yugioh[] = INCBIN_U32("data/tilesets/secondary/yugioh/metatile_attributes.bin");
+
+const u16 gMetatiles_SilphCo2[] = INCBIN_U16("data/tilesets/secondary/silph_co_2/metatiles.bin");
+const u32 gMetatileAttributes_SilphCo2[] = INCBIN_U32("data/tilesets/secondary/silph_co_2/metatile_attributes.bin");

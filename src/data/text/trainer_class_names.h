@@ -129,4 +129,5 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_TERRITORIAL]             = _("TERRITORIAL"),
     [TRAINER_CLASS_RIVAL_MAY]             = _("RIVAL"),
     [TRAINER_CLASS_BERRIED]             = _("BERRIED"),
+    [TRAINER_CLASS_FALKNER]             = _("LEADER"),
 };

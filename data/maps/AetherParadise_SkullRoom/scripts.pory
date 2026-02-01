@@ -1,3 +1,7 @@
 mapscripts AetherParadise_SkullRoom_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+        if(!flag(FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED)) {
+            setflag(FLAG_TEMP_1)
+        }
+    }
 }
