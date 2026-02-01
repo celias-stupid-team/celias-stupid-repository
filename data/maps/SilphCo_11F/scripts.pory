@@ -172,7 +172,16 @@ script SilphCo_11F_EventScript_BattleGiovanni {
 
 script SilphCo_11F_EventScript_AlreadyGotMasterBall {
 	if(!checkmoncaught(SPECIES_MR_MIME) && !checkitem(ITEM_MASTER_BALL)) { // and not victory road
+		msgbox(
+		"What's that?\n"
+		"You need another MISTER BALL?\p"
 
+		"How'd you manage to lose it?\n"
+		"Hrrm.\p"
+
+		"Well, fine.\n"
+		"Here's another!", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} got another\nMISTER BALL!",ITEM_MASTER_BALL)
 	} else {
 		msgbox(SilphCo_11F_Text_ThatsOurSecretPrototype) //Add logic if you wasted the Mister Ball
 

@@ -223,14 +223,14 @@ It is reset after every battle.
 #define EVENT_BATTLE_DAD  11
 
 
-#define EVENT_BATTLE_SKUNTANK  12
-#define EVENT_BATTLE_GIOVANNI_2  13
-#define EVENT_BATTLE_BRUNO  14
+#define EVENT_BATTLE_SKUNTANK  12 //check
+#define EVENT_BATTLE_GIOVANNI_2  13 //check
+#define EVENT_BATTLE_BRUNO  14 //check
 #define EVENT_BATTLE_CYNTHIA  15 //Unfinished
-#define EVENT_BATTLE_THIEVUL  16
-#define EVENT_BATTLE_SANS  17
-#define EVENT_BATTLE_LARRY_2  18
-#define EVENT_BATTLE_BARRY  19
+#define EVENT_BATTLE_THIEVUL  16 //check
+#define EVENT_BATTLE_SANS  17 //check
+#define EVENT_BATTLE_LARRY_2  18 //check
+#define EVENT_BATTLE_BARRY  19 //check
 
 #define VAR_VIEWING_PC VAR_TEMP_5
 
@@ -299,9 +299,9 @@ It is reset after every battle.
 #define VAR_BLAINE_GYM_QUESTION                 0x40BD
 #define VAR_SEAFOAM_CAPTAIN_FLOOR                 0x40BE
 #define VAR_CAVE_OF_ORIGIN                 0x40BF
-#define VAR_0x40C0                 0x40C0
+#define VAR_NUMBER_NUGGETS_BOUGHT                 0x40C0
 #define VAR_0x40C1                 0x40C1
-#define VAR_0x40C2                 0x40C2
+#define VAR_READY_FOR_TORNADO                 0x40C2
 #define VAR_0x40C3                 0x40C3
 #define VAR_0x40C4                 0x40C4
 #define VAR_0x40C5                 0x40C5
@@ -338,7 +338,7 @@ It is reset after every battle.
 #define VAR_ROUTE18_UPSTAIRS_HINT                 0x40E2
 #define VAR_USED_CUT                 0x40E3
 #define VAR_AROUND_THE_WORLD_LASS                 0x40E4
-#define VAR_0x40E5                 0x40E5
+#define VAR_TEST_THIS_HARDER                 0x40E5
 #define VAR_DAILY_SLOTS            0x40E6
 #define VAR_DAILY_WILDS            0x40E7
 #define VAR_DAILY_BLENDER          0x40E8
@@ -362,7 +362,7 @@ It is reset after every battle.
 #define VAR_0x40FA                 0x40FA
 #define VAR_0x40FB                 0x40FB
 #define VAR_0x40FC                 0x40FC
-#define VAR_0x40FD                 0x40FD
+#define VAR_USED_ROCK_SMASH                 0x40FD
 #define VAR_SYS_GIVE_ALCREMIE                 0x40FE
 #define VAR_FIRST_TRADED_MON_SPECIES                 0x40FF
 

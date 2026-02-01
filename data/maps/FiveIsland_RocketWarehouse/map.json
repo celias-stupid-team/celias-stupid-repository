@@ -19,7 +19,7 @@
       "local_id": "LOCALID_WAREHOUSE_GRUNT2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 31,
+      "x": 39,
       "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -34,7 +34,7 @@
       "local_id": "LOCALID_WAREHOUSE_GRUNT3",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 15,
+      "x": 23,
       "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -49,7 +49,7 @@
       "local_id": "LOCALID_WAREHOUSE_ADMIN1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
-      "x": 31,
+      "x": 39,
       "y": 1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -64,7 +64,7 @@
       "local_id": "LOCALID_WAREHOUSE_ADMIN2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 32,
+      "x": 40,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -78,7 +78,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
-      "x": 30,
+      "x": 38,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -92,7 +92,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 30,
+      "x": 38,
       "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -106,7 +106,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 31,
+      "x": 39,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -120,7 +120,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 29,
+      "x": 37,
       "y": -2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -134,7 +134,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 17,
+      "x": 25,
       "y": -1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -148,7 +148,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 18,
+      "x": 26,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -162,8 +162,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_AZ",
-      "x": 9,
-      "y": 17,
+      "x": 17,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -176,8 +176,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_N",
-      "x": 6,
-      "y": 18,
+      "x": 14,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -190,7 +190,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
-      "x": 18,
+      "x": 26,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -204,8 +204,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MIRROR_B",
-      "x": 12,
-      "y": 18,
+      "x": 20,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -218,7 +218,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 2,
+      "x": 10,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
@@ -232,7 +232,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GRANDPA_DAD",
-      "x": 7,
+      "x": 15,
       "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -246,7 +246,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
-      "x": 7,
+      "x": 15,
       "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -260,7 +260,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLIO",
-      "x": 3,
+      "x": 11,
       "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -274,7 +274,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN",
-      "x": 20,
+      "x": 28,
       "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -284,11 +284,25 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SecretGarden_PCSystem",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_QBERT",
+      "x": 7,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DMCAWarehouse_Qbert",
+      "flag": "FLAG_DEFEATED_WAREHOUSE_ADMIN"
     }
   ],
   "warp_events": [
     {
-      "x": 22,
+      "x": 30,
       "y": 25,
       "elevation": 3,
       "dest_map": "MAP_GREAT_SEA_PIRATE_BAY",
@@ -299,7 +313,7 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 27,
+      "x": 35,
       "y": 2,
       "elevation": 0,
       "item": "ITEM_NEST_BALL",

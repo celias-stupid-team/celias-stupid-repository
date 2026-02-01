@@ -241,31 +241,53 @@ script OneIsland_Whirlpool {
 
 script OneIsland_Kaylee {
 	lock
-	faceplayer
+	if(checkmoncaught(SPECIES_ARTICUNO)) {
+		faceplayer
+		msgbox(
+		"Treat that BELL as a gift from\n"
+		"one dancer to another.\p"
+
+		"Who knows?\n"
+		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	applymovement(LOCALID_KAYLEE, moves(
+		face_player
+	))
 	msgbox(
-	"KAYLEE: hello\n"
+	"KAYLEE: Why, hello!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
+	applymovement(LOCALID_KAILEE, moves(
+		face_player
+	))
 	delay(10)
 	msgbox(
-	"KAILEE: hello\n"
-	"", MSGBOX_DEFAULT)
+	"KAILEE: We're dancers from the\n"
+	"land of MINNESOTA.", MSGBOX_DEFAULT)
 	closemessage
+	applymovement(LOCALID_KAILIE, moves(
+		face_player
+	))
 	delay(10)
 	msgbox(
-	"KAILIE: hello\n"
-	"", MSGBOX_DEFAULT)
+	"KAILIE: We hear that if a crew of\n"
+	"five dancers comes together…", MSGBOX_DEFAULT)
 	closemessage
+	applymovement(LOCALID_KAYLEIGH, moves(
+		face_player
+	))
 	delay(10)
 	msgbox(
-	"KAYLEIGH: hello\n"
-	"", MSGBOX_DEFAULT)
+	"KAYLEIGH: …A rare POKéMON will\n"
+	"hatch from this egg.", MSGBOX_DEFAULT)
 	delay(10)
 	closemessage
 	if(checkpartymon(SPECIES_JYNX)) {
 		msgbox(
-		"our friend!\n"
-		"", MSGBOX_DEFAULT)
+		"KAYLEE: Oh, incredible!\n"
+		"A fifth dancer like us!", MSGBOX_DEFAULT)
 		closemessage
 		msgbox(
 		"We dance.\p"
@@ -286,16 +308,28 @@ script OneIsland_Kaylee {
 		delay(60)
 		removeobject(LOCALID_ONE_ISLAND_ARTICUNO)
 		msgbox(
-		"Wow articuno!\p"
+		"What an incredible sight!\n"
+		"Thank you for the show.\p"
 
-		"Take this\n"
+		"Take this as well.\n"
 		"", MSGBOX_DEFAULT)
 		giveitem_msg("{PLAYER} received the\nTIDAL BELL!", ITEM_SOOTHE_BELL)
 		waitfanfare
+		msgbox(
+		"Treat that BELL as a gift from\n"
+		"one dancer to another.\p"
+
+		"Who knows?\n"
+		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"we need another friend\n"
-		"", MSGBOX_DEFAULT)
+		"KAYLEE: We need one more friend\n"
+		"to join us in our dance.", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+		msgbox(
+		"KAILEE: Have you by chance found\n"
+		"someone like us?", MSGBOX_DEFAULT)
 	}
 	release
 }

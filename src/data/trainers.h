@@ -6511,7 +6511,7 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_ThunderArmorKid),
     },
     [TRAINER_LEADER_FALKNER] = {
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_FALKNER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FALKNER,
         .trainerName = _("FALKNER"),
@@ -6856,7 +6856,7 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_BLAINE_OPPONENT_1] = {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .trainerClass = TRAINER_CLASS_RS_ELITE_FOUR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FLINT,
         .trainerName = _("FLINT"),
@@ -6892,10 +6892,10 @@ const struct Trainer gTrainers[] = {
 
 
     [TRAINER_BLAINE_OPPONENT_4] = {
-        .trainerClass = FACILITY_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_LASS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FISHERMAN,
-        .trainerName = _("WADE"),
+        .trainerName = _("JANE"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
@@ -7033,6 +7033,50 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_RatFisher),
+    },
+
+    [TRAINER_AVGN_1] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN1),
+    },
+
+    [TRAINER_AVGN_2] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN2),
+    },
+
+    [TRAINER_AVGN_3] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN3),
+    },
+
+    [TRAINER_AVGN_4] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN4),
     },
 
         

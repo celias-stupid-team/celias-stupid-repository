@@ -102,6 +102,8 @@ script AetherParadise_DMCA_StopsYou {
 	msgbox(
 	"(there is a battle here)\n"
 	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
 	msgbox(
 	"ZUBAT: cough…\n"
 	"We… lost…", MSGBOX_DEFAULT)
@@ -135,16 +137,35 @@ script AetherParadise_DMCA_StopsYou {
 
 script AetherParadise_SkuntankBattle {
 	lock
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 15)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+    special(ShakeScreen)
+
+	msgbox(
+	"Oh?\n"
+	"Did someone knock out my crew?\p"
+
+	"That's not very polite.\p"
+
+	"How about I pay them a little visit\n"
+	"myself!\l"
+	"Chaw-haw-haw!", MSGBOX_DEFAULT)
+
 	applymovement(LOCALID_SKUNTANK, moves(
-		walk_down * 2
-		walk_left * 3
+		walk_slow_down * 2
+		walk_slow_left * 3
 		walk_down
 
 	))
 	waitmovement(0)
 	msgbox(
-	"I am skuntank\n"
-	"fuck you", MSGBOX_DEFAULT)
+	"I am SKUNTANK.\n"
+	"The rightful leader of TEAM SKULL!\p"
+
+	"Let's see how you stack up to me!\n"
+	"", MSGBOX_DEFAULT)
 	setflag(FLAG_SYS_KANGA_FIGHT)
 	setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_SKUNTANK)
 	setwildbattle(SPECIES_SKUNTANK, 40, ITEM_AIR_BALLOON)
@@ -158,14 +179,24 @@ script AetherParadise_SkuntankBattle {
 		case B_OUTCOME_WON:
 			fadenewbgm(MUS_NONE)
 			msgbox(
-			"you win\n"
+			"H-hrrrn…\n"
+			"You're…\l"
+			"You're the real deal…\p"
+
+			"G-gah-!\n"
+			"We can't stay here anymore.\p"
+
+			"Let's get out!\n"
 			"", MSGBOX_DEFAULT)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			setflag(FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED)
 			removeobject(LOCALID_SKUNTANK)
 			removeobject(LOCALID_KOFFING)
 			removeobject(LOCALID_AETHER_ZUBAT)
 			closemessage
-			delay(60)
+			delay(30)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
+			delay(20)
 			playbgm(MUS_IKI_TOWN_TEST, TRUE)
 			setvar(VAR_TEMP_0, 2)
 			release
@@ -187,9 +218,22 @@ script AetherParadise_SkuntankBattle {
 
 script AetherParadise_SkullGruntDmca {
 	textcolor(NPC_TEXT_COLOR_BLUE)
-	msgbox(
-	"be careful the dmca is here\n"
-	"", MSGBOX_NPC)
+	if(flag(FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED)) {
+		msgbox(
+			"Ayy!\n"
+			"That other TEAM SKULL is gone!\p"
+
+			"Now we can get back to taking all\n"
+			"their search engine results!", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Yo!\n"
+		"Watch out, you!\p"
+
+		"The DMCA broke in and took over!\n"
+		"We're not safe anymore!", MSGBOX_NPC)
+
+	}
 }
 
  script AetherParadise_EmergencyExit {
@@ -231,6 +275,7 @@ script AetherParadise_NebbyGuy {
 script AetherParadise_RivalOfAether {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_GREAT_BAY, 1)
 	playmoncry(SPECIES_SWELLOW, CRY_MODE_DEFAULT)
 	msgbox(
 	"Oh, cool!\p"

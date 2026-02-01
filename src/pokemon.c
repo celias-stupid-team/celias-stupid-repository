@@ -6125,6 +6125,8 @@ static u16 GetBattleBGM(void)
             return MUS_MEGALOVANIA;
         case TRAINER_CLASS_RIVAL_MAY:
             return MUS_MUS_VS_RIVAL;
+        case TRAINER_CLASS_FALKNER:
+            return MUS_PISCES_GYM;
 
         case TRAINER_CLASS_DMCA:
         case TRAINER_CLASS_BUTTERFINGERS:

@@ -87,7 +87,14 @@ script Route2_House_BonusDad {
 
 	"Well, never mind that.\n"
 	"Why don't you take a rest?", MSGBOX_DEFAULT)
-	call(EventScript_DadHeal)
+		fadescreenswapbuffers(FADE_TO_BLACK)
+	closemessage
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	special(HealPlayerParty)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	msgbox(("{STR_VAR_3}: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
+
 	release
 	end
 }

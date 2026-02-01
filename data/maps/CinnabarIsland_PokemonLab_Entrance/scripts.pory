@@ -52,6 +52,12 @@ script PokemonLab_WelcomeTree {
 
 script PokemonLab_OtherTree {
 	msgbox(
-	"tree\n"
-	"placeholder", MSGBOX_NPC)
+	"Hello!\n"
+	"I'm a researcher here.\p"
+
+	"This LAB is home to scientists from\n"
+	"across the world!\p"
+
+	"I'm so lucky to be a part of it.\n"
+	"", MSGBOX_NPC)
 }

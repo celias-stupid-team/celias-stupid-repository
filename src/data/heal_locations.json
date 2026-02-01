@@ -583,6 +583,14 @@
       "y": 18,
       "respawn_map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_CITY_GYM",
+      "map": "MAP_VIRIDIAN_CITY",
+      "x": 38,
+      "y": 11,
+      "respawn_map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_VIRIDIAN_NURSE"
     }
   ]
 }

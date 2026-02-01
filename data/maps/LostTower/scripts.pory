@@ -6,7 +6,20 @@ mapscripts LostTower_MapScripts {
 script LostTower_Gravestone {
 
 	if(checkitem(ITEM_PSYCHIC_KEY)) {
-		msgbox("I see you have the PSYCHIC KEY.\nBut…\p\nThis it not implemented yet.\pStay tuned!\n", MSGBOX_SIGN)
+		lock
+		msgbox(
+		"{PLAYER} inserted the\n"
+		"PSYCHIC KEY…", MSGBOX_DEFAULT)
+		setflag(FLAG_SHINY_CREATION)
+		removeitem(ITEM_PSYCHIC_KEY)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"Wow!\n"
+		"The LOST TOWER laid an EGG!", MSGBOX_DEFAULT)
+		waitfanfare
+		call(Common_Script_GiftPokemon)
+		release
+
 
 	} else {
 		msgbox("It appears to have been built\nlast Tuesday…", MSGBOX_SIGN)

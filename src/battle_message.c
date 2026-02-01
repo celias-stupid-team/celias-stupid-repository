@@ -245,7 +245,7 @@ static const u8 sText_PkmnAbsorbedNutrients[] = _("{B_ATK_NAME_WITH_PREFIX} abso
 static const u8 sText_PkmnAnchoredItself[] = _("{B_DEF_NAME_WITH_PREFIX} anchored\nitself with its roots!");
 static const u8 sText_PkmnWasMadeDrowsy[] = _("{B_ATK_NAME_WITH_PREFIX} made\n{B_DEF_NAME_WITH_PREFIX} drowsy!");
 static const u8 sText_PkmnKnockedOff[] = _("{B_ATK_NAME_WITH_PREFIX} knocked off\n{B_DEF_NAME_WITH_PREFIX}'s {B_LAST_ITEM}!");
-static const u8 sText_PkmnSwappedAbilities[] = _("{B_ATK_NAME_WITH_PREFIX} swapped abilities\nwith its opponent!");
+static const u8 sText_PkmnSwappedAbilities[] = _("{B_DEF_NAME_WITH_PREFIX} received\n{B_ATK_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}!");
 static const u8 sText_PkmnSealedOpponentMove[] = _("{B_ATK_NAME_WITH_PREFIX} sealed the\nopponent's move(s)!");
 static const u8 sText_PkmnWantsGrudge[] = _("{B_ATK_NAME_WITH_PREFIX} wants the\nopponent to bear a GRUDGE!");
 static const u8 sText_PkmnLostPPGrudge[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} lost\nall its PP due to the GRUDGE!");
@@ -1803,6 +1803,13 @@ void BufferStringBattle(u16 stringId)
                     if(FlagGet(FLAG_LION_BATTLE)) {
                         stringPtr = sText_Trainer1SentOutLions;
                     } else {
+                        if((VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_BRUNO || VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_LARRY_2) && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                        
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                        }
+
                         stringPtr = sText_Trainer1SentOutPkmn;
 
                     }
@@ -1946,6 +1953,34 @@ void BufferStringBattle(u16 stringId)
                     break;
                 case EVENT_BATTLE_DAD:
                     if(sBattleMsgDataPtr->currentMove == MOVE_BRICK_BREAK) { 
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_SKUNTANK: 
+                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_BUG )  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_GIOVANNI_2: 
+                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_FIRE )  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_THIEVUL: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_V_CREATE )  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_SANS: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_MAGICAL_LEAF )  {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);

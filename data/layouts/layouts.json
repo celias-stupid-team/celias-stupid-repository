@@ -1672,8 +1672,8 @@
     {
       "id": "LAYOUT_SEAFOAM_ISLANDS_B1F",
       "name": "SeafoamIslands_B1F_Layout",
-      "width": 21,
-      "height": 27,
+      "width": 54,
+      "height": 35,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -3280,7 +3280,7 @@
     {
       "id": "LAYOUT_FIVE_ISLAND_ROCKET_WAREHOUSE",
       "name": "FiveIsland_RocketWarehouse_Layout",
-      "width": 29,
+      "width": 37,
       "height": 27,
       "border_width": 2,
       "border_height": 2,
@@ -6161,7 +6161,7 @@
       "id": "LAYOUT_CAVE_OF_ORIGIN_1F",
       "name": "CaveOfOrigin_1F_Layout",
       "width": 20,
-      "height": 20,
+      "height": 32,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7344,6 +7344,18 @@
       "secondary_tileset": "gTileset_CeladonCity",
       "border_filepath": "data/layouts/Route17_Underneath/border.bin",
       "blockdata_filepath": "data/layouts/Route17_Underneath/map.bin"
+    },
+    {
+      "id": "LAYOUT_STONEHENGE",
+      "name": "Stonehenge_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MoonAltar",
+      "border_filepath": "data/layouts/Stonehenge/border.bin",
+      "blockdata_filepath": "data/layouts/Stonehenge/map.bin"
     }
   ]
 }

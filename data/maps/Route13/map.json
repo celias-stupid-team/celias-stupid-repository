@@ -1964,6 +1964,16 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route13_Fence"
+    },
+    {
+      "type": "hidden_item",
+      "x": 96,
+      "y": 11,
+      "elevation": 3,
+      "item": "ITEM_LEFTOVERS",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE12_LEFTOVERS",
+      "quantity": 1,
+      "underfoot": true
     }
   ]
 }

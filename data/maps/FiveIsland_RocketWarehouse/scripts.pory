@@ -224,14 +224,19 @@ script DMCAWarehouse_AZStory {
 	faceplayer
 	fadenewbgm(MUS_NONE)
 	msgbox(
-	"Please, listen to my tragic\n"
-	"tale.", MSGBOX_DEFAULT)
+	"AZ: Hm?\n"
+	"A trainer?\p"
+
+	"I've grown too old to simply let\n"
+	"the world pass me by.\l"
+	"Please, listen to my tragic tale.", MSGBOX_DEFAULT)
 	playbgm(MUS_LEDER_SONG, FALSE)
+	delay(30)
 	msgbox(
 	"A long time ago,{PAUSE 60} I killed a bunch\n"
 	"of POKéMON.\p"
 
-	"This made me very sad.\n"
+	"{PAUSE 30}This made me very sad.\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	playbgm(MUS_NONE, TRUE)
@@ -242,15 +247,28 @@ script DMCAWarehouse_AZStory {
 
 script DMCAWarehouse_MirorB {
 	msgbox(
-	"they kidnapped us because we have\n"
-	"letters in our name", MSGBOX_NPC)
+	"MIROR B: Heh…\n"
+	"Looks like I got caught.\p"
+
+	"The DMCA's been after everyone who\n"
+	"has a letter in their name.\p"
+
+	"I really can't get down to this…\n"
+	"", MSGBOX_NPC)
 }
 
 script DMCAWarehouse_N {
-	famechecker(FAMECHECKER_GREAT_BAY, 5)
+	//famechecker(FAMECHECKER_GREAT_BAY, 5)
 	msgbox(
-	"They're holding a letter hostage\n"
-	"", MSGBOX_NPC)
+	"N: The DMCA has taken me hostage…\n"
+	"It's such a shame.\p"
+
+	"There's another letter being held\n"
+	"here too.\l"
+	"The one you've been seeking.\p"
+
+	"Their POKéMON seems invincible.\n"
+	"I wonder if you will get through…", MSGBOX_NPC)
 }
 
 
@@ -282,6 +300,24 @@ script DMCAWarehouse_GrnadpaDad {
 	end
 }
 
+
+script DMCAWarehouse_Qbert {
+	lock
+	waitse
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+		delay_16 *2
+		face_up
+	))
+	waitmovement(0)
+	waitmoncry
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_down
+	))
+	waitmovement(0)
+}
 
 script DMCAWarehouse_Polio {
 	lock

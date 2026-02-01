@@ -26,6 +26,9 @@
 #include "constants/battle_move_effects.h"
 #include "constants/battle_script_commands.h"
 #include "fpmath.h"
+#include "event_scripts.h"
+#include "event_data.h"
+#include "script.h"
 
 #define X UQ_4_12
 #define ______ X(1.0) // Regular effectiveness.
@@ -3010,6 +3013,12 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             case HOLD_EFFECT_CURE_FRZ:
                 if (gBattleMons[battlerId].status1 & STATUS1_FREEZE)
                 {
+                    if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_BARRY && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                        
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
                     gBattleMons[battlerId].status1 &= ~STATUS1_FREEZE;
                     BattleScriptExecute(BattleScript_BerryCureFrzEnd2);
                     effect = ITEM_STATUS_CHANGE;
@@ -3176,6 +3185,13 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             case HOLD_EFFECT_CURE_FRZ:
                 if (gBattleMons[battlerId].status1 & STATUS1_FREEZE)
                 {
+                    if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_BARRY && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                        
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+
                     gBattleMons[battlerId].status1 &= ~STATUS1_FREEZE;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BerryCureFrzRet;
