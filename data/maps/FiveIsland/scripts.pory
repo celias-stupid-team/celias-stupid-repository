@@ -468,3 +468,23 @@ script Yes_BrendanNeighbor {
 	"It's a shame but honestly I don't\n"
 	"blame them given the… location.", MSGBOX_NPC)
 }
+
+
+script Yes_DadSecretBeach {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"It looks like you've found my\n"
+	"secret beach!\l"
+	"I like to come here to relax.\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
