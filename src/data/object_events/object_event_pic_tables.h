@@ -5633,3 +5633,14 @@ const struct SpriteFrameImage gObjectEventPicTable_SANS_CUT[] = {
     overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 2),
     overworld_frame(gObjectEventPic_SANS_CUT, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_KENYA_EGG[] = {
+    overworld_frame(gObjectEventPic_KENYA_EGG, 2, 2, 0),
+    overworld_frame(gObjectEventPic_KENYA_EGG, 2, 2, 1),
+    overworld_frame(gObjectEventPic_KENYA_EGG, 2, 2, 2),
+    overworld_frame(gObjectEventPic_KENYA_EGG, 2, 2, 0),
+    overworld_frame(gObjectEventPic_KENYA_EGG, 2, 2, 0),
+    overworld_frame(gObjectEventPic_KENYA_EGG, 2, 2, 1),
+    overworld_frame(gObjectEventPic_KENYA_EGG, 2, 2, 1),
+    overworld_frame(gObjectEventPic_KENYA_EGG, 2, 2, 2),
+    overworld_frame(gObjectEventPic_KENYA_EGG, 2, 2, 2),
+};

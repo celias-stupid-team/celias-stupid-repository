@@ -747,3 +747,4 @@ const u32 gObjectEventPic_THROW_HADOUKEN[] = INCBIN_U32("graphics/object_events/
 const u32 gObjectEventPic_SANS_NESS[] = INCBIN_U32("graphics/object_events/pics/stupid/SANS_NESS.4bpp");
 const u32 gObjectEventPic_SANS_FULL[] = INCBIN_U32("graphics/object_events/pics/stupid/SANS_FULL.4bpp");
 const u32 gObjectEventPic_SANS_CUT[] = INCBIN_U32("graphics/object_events/pics/stupid/SANS_CUT.4bpp");
+const u32 gObjectEventPic_KENYA_EGG[] = INCBIN_U32("graphics/object_events/pics/stupid/KENYA_EGG.4bpp");
