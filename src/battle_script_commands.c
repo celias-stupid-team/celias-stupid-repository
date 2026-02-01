@@ -40,6 +40,7 @@
 #include "party_menu.h"
 #include "trainer_pokemon_sprites.h"
 #include "field_specials.h"
+#include "field_weather.h"
 #include "pokemon_summary_screen.h"
 #include "data.h"
 #include "constants/abilities.h"
@@ -56,6 +57,7 @@
 #include "constants/party_menu.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/sound.h"
 #include "constants/trainers.h"
 #include "battle_util.h"
 #include "constants/pokemon.h"
@@ -11424,6 +11426,46 @@ void BS_SetShadowShield(void)
 
     gSideStatuses[side] |= SIDE_STATUS_SHADOW_SHIELD;
     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_FadeScreen(void)
+{
+    NATIVE_ARGS(u8 mode);
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    DebugPrintf("BS_FadeScreen mode: %d", cmd->mode);
+
+    switch (cmd->mode)
+    {
+        case FADE_TO_BLACK:
+            FadeScreen(FADE_TO_BLACK, 3);
+            break;
+        case FADE_TO_WHITE:
+            FadeScreen(FADE_TO_WHITE, 3);
+            break;
+        case FADE_FROM_BLACK:
+            FadeScreen(FADE_FROM_BLACK, 3);
+            break;
+        case FADE_FROM_WHITE:
+            FadeScreen(FADE_FROM_WHITE, 3);
+            break;
+    }
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_PlayMonCry(void)
+{
+    NATIVE_ARGS(u16 species);
+
+    // gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
+    // BtlController_EmitFaintingCry(BUFFER_A);
+    // MarkBattlerForControllerExec(gActiveBattler);
+
+    PlayCry_Script(cmd->species, CRY_MODE_NORMAL);
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

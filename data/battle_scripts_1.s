@@ -5294,4 +5294,20 @@ BattleScript_EffectShadowShield::
 
 BattleScript_TrainerSlideAfterDefeat::
 	trytrainerslidemsgdefeatfinalbattle
+	goto BattleScript_RunRotomAnimation
+
+BattleScript_RunRotomAnimation::
+	printstring STRINGID_RUNROTOMANIMATION1
+	playmoncry SPECIES_ROTOM
+	playanimation BS_BATTLER_0, B_ANIM_SUN_CONTINUES
+	waitanimation
+	fadescreen FADE_TO_WHITE
+	pause B_WAIT_TIME_LONG @ important to complete the fading if there is no follow up function with a wait
+	@ callnative LoadRotomBattleUI
+	@ waitstate
+	printstring STRINGID_DUMMY288 @ to clear the message box during the fade back
+	fadescreen FADE_FROM_WHITE
+	pause B_WAIT_TIME_LONG @ important to complete the fading
+	printstring STRINGID_RUNROTOMANIMATION2
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_HandleFaintedMonContinue

@@ -768,7 +768,7 @@ extern u8 gBattleTerrain;
 extern struct MultiBattlePokemonTx gMultiPartnerParty[3];
 extern u16 gRandomTurnNumber;
 extern u8 gCheckedContinueRotomBattle;
-
+extern u8 gTemporaryBattlePlayerText;
 
 struct Pokemon *GetSideParty(u8 side);
 struct Pokemon *GetBattlerParty(u8 battler);

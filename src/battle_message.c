@@ -1019,6 +1019,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_SHADOWSPIKESSCATTERED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("SHADOW SPIKES were scattered all\naround the opponent's side!"),
     [STRINGID_PKMNHURTBYSHADOWSPIKES - BATTLESTRINGS_TABLE_START]        = sText_PkmnHurtByShadowSpikes,
     [STRINGID_RAINBOWBEAMPIERCEDSHADOWSHIELD - BATTLESTRINGS_TABLE_START] = COMPOUND_STRING("RAINBOW BEAM pierced\nthe SHADOW SHIELD!"),
+    [STRINGID_RUNROTOMANIMATION1 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Dummy Message 1"),
+    [STRINGID_RUNROTOMANIMATION2 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Dummy Message 2"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1459,6 +1461,7 @@ const u8 gText_CongratsPkmnEvolved[] = _("Congratulations! Your {STR_VAR_1}\nevo
 const u8 gText_PkmnStoppedEvolving[] = _("Huh? {STR_VAR_1}\nstopped evolving!\p");
 const u8 gText_EllipsisQuestionMark[] = _("……?\p"); // Normal evolution locked by pokedex
 const u8 gText_WhatWillPkmnDo[] = _("What will\n{B_ACTIVE_NAME_WITH_PREFIX} do?");
+const u8 gText_WhatWillPlayerDo[] = _("What will\n{B_PLAYER_NAME} do?");
 const u8 gText_WhatWillPlayerThrow[] = _("What will {B_PLAYER_NAME}\nthrow?");
 const u8 gText_WhatWillOldManDo[] = _("What will the\nold man do?");
 const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");

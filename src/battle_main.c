@@ -231,6 +231,7 @@ EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gCheckedContinueRotomBattle = 0;
+EWRAM_DATA u8 gTemporaryBattlePlayerText = 0;
 
 COMMON_DATA void (*gPreBattleCallback1)(void) = NULL;
 COMMON_DATA void (*gBattleMainFunc)(void) = NULL;
@@ -3006,6 +3007,7 @@ void BattleTurnPassed(void)
         gBattleSwitchFromPSS = TRUE;
         gBattleOutcome &= ~B_OUTCOME_CONTINUE_ROTOM;
         gCheckedContinueRotomBattle = TRUE;
+        gTemporaryBattlePlayerText = TRUE;
     }
     if (gBattleResults.battleTurnCounter < 0xFF)
         ++gBattleResults.battleTurnCounter;

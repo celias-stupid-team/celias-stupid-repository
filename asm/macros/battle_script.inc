@@ -1646,3 +1646,13 @@
 	.macro setshadowshield
 	callnative BS_SetShadowShield
 	.endm
+
+	.macro fadescreen mode:req
+	callnative BS_FadeScreen
+	.byte \mode
+	.endm
+
+	.macro playmoncry species:req
+	callnative BS_PlayMonCry
+	.2byte \species
+	.endm

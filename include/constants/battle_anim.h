@@ -484,5 +484,11 @@
 #define BACK_ANIM_FADE_GREEN_WITH_SHAKE        0x18
 #define BACK_ANIM_FADE_BLUE_WITH_SHAKE         0x19
 
+// fade anim types
+#define FADE_FROM_BLACK  0
+#define FADE_TO_BLACK    1
+#define FADE_FROM_WHITE  2
+#define FADE_TO_WHITE    3
+
 
 #endif // GUARD_CONSTANTS_BATTLE_ANIM_H
