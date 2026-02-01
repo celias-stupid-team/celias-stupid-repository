@@ -299,9 +299,9 @@ It is reset after every battle.
 #define VAR_BLAINE_GYM_QUESTION                 0x40BD
 #define VAR_SEAFOAM_CAPTAIN_FLOOR                 0x40BE
 #define VAR_CAVE_OF_ORIGIN                 0x40BF
-#define VAR_0x40C0                 0x40C0
+#define VAR_NUMBER_NUGGETS_BOUGHT                 0x40C0
 #define VAR_0x40C1                 0x40C1
-#define VAR_0x40C2                 0x40C2
+#define VAR_READY_FOR_TORNADO                 0x40C2
 #define VAR_0x40C3                 0x40C3
 #define VAR_0x40C4                 0x40C4
 #define VAR_0x40C5                 0x40C5

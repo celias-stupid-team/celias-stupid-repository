@@ -670,6 +670,19 @@ void FieldUseFunc_CopycatTM(u8 taskId)
 }
 
 
+void FieldUseFunc_Ruby(u8 taskId)
+{
+    if(VarGet(VAR_READY_FOR_TORNADO) == 1) {
+        VarSet(VAR_READY_FOR_TORNADO, 2);
+        RemoveUsedItem();
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToFieldFromBagMenu);
+    } else {
+        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+    }
+}
+
+
+
 void FieldUseFunc_Cigarette(u8 taskId)
 {
 

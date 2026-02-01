@@ -6037,7 +6037,7 @@
       "registrability": 1,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "fieldUseFunc": "FieldUseFunc_Ruby",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

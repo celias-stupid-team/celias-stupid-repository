@@ -170,6 +170,51 @@ mapscripts SaffronCity_Dojo_MapScripts {
 		}
 	}
 
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_READY_FOR_TORNADO, 2 {
+			specialvar(VAR_RESULT, GetPlayerFacingDirection)
+			if(var(VAR_RESULT) != DIR_WEST) {
+				setvar(VAR_READY_FOR_TORNADO, 1)
+				release
+				end
+			}
+			fadenewbgm(MUS_NONE)
+			delay(60)
+			playse(SE_M_BLIZZARD)
+			applymovement(LOCALID_SIMON_TORNADO, moves(
+				walk_up * 2
+				walk_left * 8
+			))
+			waitmovement(LOCALID_SIMON_TORNADO)
+			applymovement(LOCALID_PLAYER, moves(
+				set_invisible
+			))
+			applymovement(LOCALID_SIMON_TORNADO, moves(
+				walk_left * 8
+			))
+			waitmovement(LOCALID_SIMON_TORNADO)
+			setvar(VAR_READY_FOR_TORNADO, 3)
+			msgbox(
+			"it brings you to a place and\n"
+			"you find", MSGBOX_DEFAULT)
+			setflag(FLAG_SHINY_CREATION)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ONIX)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER} got an ONIX!\n"
+			"", MSGBOX_DEFAULT)
+			givemon(SPECIES_ONIX, 30)
+			waitfanfare
+			applymovement(LOCALID_PLAYER, moves(
+				set_visible
+			))
+			waitmovement(0)
+			fadedefaultbgm
+			release
+			end
+		}
+	]
+
 }
 
 script SaffronDojo_ApproachJason {
@@ -363,6 +408,14 @@ script SaffronDojo_DeadNerd {
 
 }
 
+script SaffronDojo_ReadyForTornado {
+	setvar(VAR_READY_FOR_TORNADO, 1)
+	release
+}
+script SaffronDojo_NoTornado {
+	setvar(VAR_READY_FOR_TORNADO, 0)
+	release
+}
 
 script SaffronDojo_James {
 	lock

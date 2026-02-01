@@ -753,3 +753,5 @@ const u32 gObjectEventPic_QBERT[] = INCBIN_U32("graphics/object_events/pics/stup
 const u32 gObjectEventPic_VANILLISH[] = INCBIN_U32("graphics/object_events/pics/stupid/VANILLISH.4bpp");
 const u16 gObjectEventPal_VANILLISH[] = INCBIN_U16("graphics/object_events/palettes/VANILLISH.gbapal");
 const u32 gObjectEventPic_KENYA_EGG[] = INCBIN_U32("graphics/object_events/pics/stupid/KENYA_EGG.4bpp");
+const u32 gObjectEventPic_TORNADO[] = INCBIN_U32("graphics/object_events/pics/stupid/TORNADO.4bpp");
+const u16 gObjectEventPal_TORNADO[] = INCBIN_U16("graphics/object_events/palettes/TORNADO.gbapal");
