@@ -1660,3 +1660,16 @@
 	.macro waitforfade
 	callnative BS_WaitForFade
 	.endm
+
+	.macro fadenewbgm music:req
+	callnative BS_FadeNewBgm
+	.2byte \music
+	.endm
+
+	.macro stopbattlebgm
+	callnative BS_StopBattleBgm
+	.endm
+
+	.macro resetbattlebgm
+	callnative BS_ResetBattleBgm
+	.endm

@@ -11477,3 +11477,33 @@ void BS_WaitForFade(void)
     if (!gPaletteFade.active)
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_FadeNewBgm(void)
+{
+    NATIVE_ARGS(u16 music);
+
+    FadeOutMapMusic(5);
+    PlayBGM(cmd->music);
+    // Overworld_ChangeMusicTo(cmd->music);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_StopBattleBgm(void)
+{
+    NATIVE_ARGS();
+
+    FadeOutMapMusic(5);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_ResetBattleBgm(void)
+{
+    NATIVE_ARGS();
+
+    FadeOutMapMusic(5);
+    PlayBGM(GetBattleBGM());
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

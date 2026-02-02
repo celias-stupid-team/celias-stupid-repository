@@ -5297,18 +5297,25 @@ BattleScript_TrainerSlideAfterDefeat::
 	goto BattleScript_RunRotomAnimation
 
 BattleScript_RunRotomAnimation::
-	printstring STRINGID_RUNROTOMANIMATION1
 	playmoncry SPECIES_ROTOM
+	pause B_WAIT_TIME_LONG
+	fadenewbgm MUS_CSR_DRILL_DOZER @ MUS_PRELUDE_TO_FINALE not available yet
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_RUNROTOMANIMATION1
 	playanimation BS_BATTLER_0, B_ANIM_SUN_CONTINUES
 	waitanimation
+	printstring STRINGID_RUNROTOMANIMATION2
+	waitmessage B_WAIT_TIME_LONGEST
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	pause B_WAIT_TIME_LONG
+	stopbattlebgm
+	pause B_WAIT_TIME_LONGEST
 	@ callnative LoadRotomBattleUI
 	@ waitstate
 	printstring STRINGID_DUMMY288 @ to clear the message box during the fade back
 	fadescreen FADE_FROM_WHITE
 	waitforfade
-	printstring STRINGID_RUNROTOMANIMATION2
-	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_RUNROTOMANIMATION3
+	waitmessage B_WAIT_TIME_LONGEST
+	fadenewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue

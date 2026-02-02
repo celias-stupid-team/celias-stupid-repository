@@ -6096,7 +6096,7 @@ void ClearBattleMonForms(void)
         gBattleMonForms[i] = 0;
 }
 
-static u16 GetBattleBGM(void)
+u16 GetBattleBGM(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_KYOGRE_GROUDON)
         return MUS_VS_WILD;

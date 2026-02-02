@@ -1019,8 +1019,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_SHADOWSPIKESSCATTERED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("SHADOW SPIKES were scattered all\naround the opponent's side!"),
     [STRINGID_PKMNHURTBYSHADOWSPIKES - BATTLESTRINGS_TABLE_START]        = sText_PkmnHurtByShadowSpikes,
     [STRINGID_RAINBOWBEAMPIERCEDSHADOWSHIELD - BATTLESTRINGS_TABLE_START] = COMPOUND_STRING("RAINBOW BEAM pierced\nthe SHADOW SHIELD!"),
-    [STRINGID_RUNROTOMANIMATION1 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Dummy Message 1"),
-    [STRINGID_RUNROTOMANIMATION2 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Dummy Message 2"),
+    [STRINGID_RUNROTOMANIMATION1 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("...?"),
+    [STRINGID_RUNROTOMANIMATION2 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("It's your ROTOM POKéDEX!"),
+    [STRINGID_RUNROTOMANIMATION3 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Awesome!\pYou can now access your\nBOX during battle!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1840,7 +1841,15 @@ void BufferStringBattle(u16 stringId)
         if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
         {
             if (*(&gBattleStruct->hpScale) == 0)
-                stringPtr = sText_PkmnThatsEnough;
+            {
+                if (gTemporaryBattlePlayerText)
+                {
+                    stringPtr = sText_Empty1;
+                    gTemporaryBattlePlayerText = FALSE;
+                }
+                else
+                    stringPtr = sText_PkmnThatsEnough;
+            }
             else if (*(&gBattleStruct->hpScale) == 1 || gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
                 stringPtr = sText_PkmnComeBack;
             else if (*(&gBattleStruct->hpScale) == 2)

@@ -2487,10 +2487,7 @@ static void PlayerHandleChooseAction(void)
         ActionSelectionDestroyCursorAt(i);
     ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
     if (gTemporaryBattlePlayerText)
-    {
         BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPlayerDo);
-        gTemporaryBattlePlayerText = FALSE;
-    }
     else
         BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
