@@ -11469,3 +11469,11 @@ void BS_PlayMonCry(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_WaitForFade(void)
+{
+    NATIVE_ARGS();
+
+    if (!gPaletteFade.active)
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}

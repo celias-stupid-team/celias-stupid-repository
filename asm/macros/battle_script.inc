@@ -1656,3 +1656,7 @@
 	callnative BS_PlayMonCry
 	.2byte \species
 	.endm
+
+	.macro waitforfade
+	callnative BS_WaitForFade
+	.endm

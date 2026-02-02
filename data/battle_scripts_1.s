@@ -5302,12 +5302,13 @@ BattleScript_RunRotomAnimation::
 	playanimation BS_BATTLER_0, B_ANIM_SUN_CONTINUES
 	waitanimation
 	fadescreen FADE_TO_WHITE
-	pause B_WAIT_TIME_LONG @ important to complete the fading if there is no follow up function with a wait
+	waitforfade
+	pause B_WAIT_TIME_LONG
 	@ callnative LoadRotomBattleUI
 	@ waitstate
 	printstring STRINGID_DUMMY288 @ to clear the message box during the fade back
 	fadescreen FADE_FROM_WHITE
-	pause B_WAIT_TIME_LONG @ important to complete the fading
+	waitforfade
 	printstring STRINGID_RUNROTOMANIMATION2
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_HandleFaintedMonContinue
