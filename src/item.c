@@ -282,7 +282,7 @@ u32 FindItemSlot(u16 itemId)
         }
     }
 
-    return 0xFF;
+    return 127;
 }
 
 
