@@ -261,6 +261,30 @@ bool8 AddBagItem(u16 itemId, u16 count)
     return TRUE;
 }
 
+u32 FindItemSlot(u16 itemId)
+{
+    u32 i;
+    u32 pocket;
+
+    if (ItemId_GetPocket(itemId) == 0)
+        return FALSE;
+
+    if (itemId == ITEM_NONE)
+        return FALSE;
+
+    pocket = ItemId_GetPocket(itemId) - 1;
+
+    for (i = 0; i < gBagPockets[pocket].capacity; i++)
+    {
+        if (gBagPockets[pocket].itemSlots[i].itemId == itemId)
+        {
+            return i;
+        }
+    }
+
+    return 0xFF;
+}
+
 
 bool8 RemoveBagItem(u16 itemId, u16 count)
 {
