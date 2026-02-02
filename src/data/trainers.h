@@ -6650,9 +6650,9 @@ const struct Trainer gTrainers[] = {
     
     
     [TRAINER_DMCA_THIEVUL] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M,
+        .trainerPic = TRAINER_PIC_ARCHER,
         .trainerName = _("LUCIAN"),
         .items = {},
         .doubleBattle = FALSE,
@@ -7078,6 +7078,19 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_AVGN4),
     },
+
+    [TRAINER_YES_NURSE] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_RS_POKEMON_BREEDER_F,
+        .trainerName = _("YESSICA"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_YesNurse),
+    },
+
+    
 
         
 

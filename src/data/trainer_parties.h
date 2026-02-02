@@ -10635,3 +10635,12 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN4[] = {
         .moves = {MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+static const struct TrainerMonItemCustomMoves sParty_YesNurse[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_INDEEDEE,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};

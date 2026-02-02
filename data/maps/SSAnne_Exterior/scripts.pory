@@ -144,7 +144,7 @@ script VermilionHarbor_Item {
 	}
 	closemessage
 	addvar(VAR_LAVA_COOKIE, 1)
-	setobjectxy(VAR_LAST_TALKED, 66, 5)
+	setobjectxy(VAR_LAST_TALKED, 57, 4)
 	delay(30)
 	playse(SE_FALL)
 	applymovement(VAR_LAST_TALKED, moves(

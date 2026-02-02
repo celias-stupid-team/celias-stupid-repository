@@ -54,8 +54,8 @@ script NationalPark_Woman {
 	switch(var(VAR_RESULT)) {
 		case 0:
 			msgbox(
-			"I'm in big trouble, like in 1963\n"
-			"when ABRAHAM LINCOLN went to DALLAS!"
+			"I'm in big trouble, like in 1963 when\n"
+			"ABRAHAM LINCOLN went to DALLAS!"
 			"", MSGBOX_DEFAULT)
 		case 1:
 			msgbox(

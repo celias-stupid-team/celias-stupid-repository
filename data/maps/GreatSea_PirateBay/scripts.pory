@@ -195,7 +195,11 @@ script PirateBay_Copperajah {
 
 
 script PirateBay_Sailor {
-    trainerbattle_single(TRAINER_FAG_SAILOR, "FUCK intro", "FUCK")
+    trainerbattle_single(TRAINER_FAG_SAILOR, "{COLOR BLUE}Ahoy, there!\p"
+
+	"How the (censored in accordance\n"
+	"with NINTENDO policy) are ya?", "FUCK!")
+	textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
 
 }

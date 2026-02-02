@@ -204,6 +204,7 @@ script ThirtyEightIsland_MommyMilkers {
         setflag(FLAG_GOT_CREAM_DROP)
 		release
     }
+	release
 }
 
 script ThirtyEightIsland_Miltank {

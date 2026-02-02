@@ -175,16 +175,16 @@
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 28,
+      "x": 4,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourthTrial_Books"
     },
     {
       "type": "sign",
-      "x": 4,
-      "y": 27,
+      "x": 7,
+      "y": 28,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourthTrial_Books2"

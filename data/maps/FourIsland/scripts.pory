@@ -965,3 +965,10 @@ script FourIsland_TowerSoil {
 	"ground.", MSGBOX_SIGN)
 
 }
+
+script FourIsland_UglyTrees {
+	msgbox(
+	"The world's ugliest OAK.\n"
+	"", MSGBOX_SIGN)
+
+}
