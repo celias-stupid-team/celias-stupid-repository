@@ -1269,32 +1269,6 @@ bool8 HandleFaintedMonActions(void)
         }
     }
 
-    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
-    {
-        u8 final_battle_membersCount = 0;
-        u8 final_battle_membersCountAlive = 0;
-        u8 final_battle_state = VarGet(VAR_CSR_FINAL_BATTLE_PHASE);
-
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            u16 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, NULL);
-            if (!species)
-                continue;
-            if (!GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
-            {
-                final_battle_membersCount++;
-                if (GetMonData(&gEnemyParty[i], MON_DATA_HP, NULL) > 0)
-                    final_battle_membersCountAlive++;
-            }
-        }
-        
-        if (final_battle_membersCountAlive < (final_battle_membersCount - final_battle_state))
-        {
-            // party member fainted
-            VarSet(VAR_CSR_FINAL_BATTLE_PHASE, final_battle_state + 1);
-        }
-    }
-
     do
     {
         DebugPrintf("faintedActionsState =%d", gBattleStruct->faintedActionsState);

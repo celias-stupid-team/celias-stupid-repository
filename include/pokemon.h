@@ -452,5 +452,6 @@ bool32 CheckMonMovesFast(const struct Pokemon *mon, u16 *moves, u16 *outKnownFla
 u32 PartyHasMon(u16 species);
 void HealPokemon(struct Pokemon *mon);
 u16 GetBattleBGM(void);
+u16 GetCurrentZapmolcunoSpecies(void);
 
 #endif // GUARD_POKEMON_H

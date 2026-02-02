@@ -801,6 +801,10 @@ static void InitTrainerBattleVariables(void)
     sTrainerABattleScriptRetAddr = NULL;
     sRivalBattleFlags = 0;
     sBattleParameterFlags = 0;
+
+    // reset battle phase variable
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+        VarSet(VAR_CSR_FINAL_BATTLE_PHASE, 0);
 }
 
 static inline void SetU8(void *ptr, u8 value)

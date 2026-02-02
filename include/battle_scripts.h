@@ -263,6 +263,7 @@ extern const u8 BattleScript_SlowStartBeforeNeutralizingGas[];
 extern const u8 BattleScript_SeelHoopaTransform[];
 extern const u8 BattleScript_ShadowSky_End3[];
 extern const u8 BattleScript_ShadowSpikes_End3[];
+extern const u8 BattleScript_ZapmolcunoTransform[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];

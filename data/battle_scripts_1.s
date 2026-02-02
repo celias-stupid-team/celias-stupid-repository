@@ -4143,6 +4143,17 @@ BattleScript_SeelHoopaTransform::
 	@ waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_ZapmolcunoTransform::
+	@ wiz1989 ToDo - probably do a fade out here and replace the battler sprite
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM
+	pause B_WAIT_TIME_SHORT
+    updatebattlerdata BS_FAINTED
+	redrawhealthbox BS_FAINTED
+	healthbarupdate BS_FAINTED
+	datahpupdate BS_FAINTED
+	end2
+
 BattleScript_MoveEffectSleep::
 	statusanimation BS_EFFECT_BATTLER
 	printfromtable gFellAsleepStringIds

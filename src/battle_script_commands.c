@@ -3300,6 +3300,25 @@ static void Cmd_tryfaintmon(void)
                 gBattlescriptCurrInstr = BattleScript_SeelHoopaTransform;
                 return;
             }
+            
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
+            {
+                u8 final_battle_state = VarGet(VAR_CSR_FINAL_BATTLE_PHASE);
+                
+                // party member fainted
+                VarSet(VAR_CSR_FINAL_BATTLE_PHASE, final_battle_state + 1);
+            }
+
+            // special handling for switching the legendary birds during the Zapmolcuno fight
+            if ((GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) < 4)) // only replace opponent's Zapmolcuno during the first 4 phases
+            {
+                gBattlerFainted = gActiveBattler;
+                gBattleMons[gActiveBattler].species = GetCurrentZapmolcunoSpecies();
+                gBattleMoveDamage = -1000; // force full HP after transformation
+                BattleScriptPush(gBattlescriptCurrInstr);
+                gBattlescriptCurrInstr = BattleScript_ZapmolcunoTransform;
+                return;
+            }
 
             gHitMarker |= HITMARKER_FAINTED(gActiveBattler);
             BattleScriptPush(gBattlescriptCurrInstr + 7);
@@ -4325,7 +4344,8 @@ static void Cmd_playanimation(void)
      || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE
      || gBattlescriptCurrInstr[2] == B_ANIM_SILPH_SCOPED
      || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE
-     || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
+     || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM
+     || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM)
     {
         //create Alomomola right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
@@ -4338,6 +4358,14 @@ static void Cmd_playanimation(void)
         if (gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
         {
             u16 species = SPECIES_HOOPA;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+        }
+        //create Zapmolcuno birds right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM)
+        {
+            u16 species = GetCurrentZapmolcunoSpecies();
+            
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }

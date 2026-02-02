@@ -3974,7 +3974,6 @@ static void HandleEndTurn_MonFled(void)
 
 static void HandleEndTurn_FinishBattle(void)
 {
-    DebugPrintf("HandleEndTurn_FinishBattle");
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
         if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_OLD_MAN_TUTORIAL | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_SAFARI | BATTLE_TYPE_FIRST_BATTLE | BATTLE_TYPE_LINK)))
@@ -4688,10 +4687,6 @@ static void HandleAction_ActionFinished(void)
         ResetPartyData(RESET_OPTION_ALL);
         gMadePSSSwitch = FALSE;
     }
-
-    // reset battle phase variable
-    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
-        VarSet(VAR_CSR_FINAL_BATTLE_PHASE, 0);
 }
 
 void DebugPrintBattlePartyData(void)

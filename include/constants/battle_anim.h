@@ -397,6 +397,7 @@
 #define B_ANIM_SEEL_HOOPA_TRANSFORM     33
 #define B_ANIM_SHADOW_SKY_CONTINUES     34
 #define B_ANIM_SHADOW_SPIKES            35
+#define B_ANIM_ZAPMOLCUNO_TRANSFORM     36
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

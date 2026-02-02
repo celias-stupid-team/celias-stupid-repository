@@ -718,6 +718,7 @@ gBattleAnims_General::
 	.4byte General_SeelHoopaTransform       @ B_ANIM_SEEL_HOOPA_TRANSFORM
 	.4byte General_ShadowSky    			@ B_ANIM_SHADOW_SKY_CONTINUES
 	.4byte General_ShadowSpikes 			@ B_ANIM_SHADOW_SPIKES
+	.4byte General_ZapmolcunoTransform       @ B_ANIM_ZAPMOLCUNO_TRANSFORM
 
 	.align 2
 gBattleAnims_Special::
@@ -11272,6 +11273,9 @@ General_SeelHoopaTransform:
 	waitsound
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
+	end
+
+General_ZapmolcunoTransform: @ doesn't need an actual transformation since it won't be visible
 	end
 
 General_HangedOn:
