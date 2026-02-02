@@ -997,7 +997,7 @@ script CinnabarGym_CheckBattleOutcome {
 			"And here, take this as well!\n"
 			"", MSGBOX_DEFAULT)
 			textcolor(NPC_TEXT_COLOR_NEUTRAL)
-			giveitem_msg("{PLAYER} obtained the\nTM00 from BLAINE!", ITEM_NONE)
+			giveitem_msg("{PLAYER} obtained the\nTM35 from BLAINE!", ITEM_TM35)
 			waitfanfare
 			textcolor(NPC_TEXT_COLOR_BLUE)
 			msgbox(

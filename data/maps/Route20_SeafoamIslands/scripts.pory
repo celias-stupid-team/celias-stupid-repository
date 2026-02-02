@@ -25,6 +25,8 @@ script Route20_DeadRatFisher {
 	"Rats!"
 	)
 	msgbox(
-	"after dialogue\n"
-	"", MSGBOX_NPC)
+	"What a cool POKéMON!\p"
+
+	"I'm sure it won't be the fuel for\n"
+	"many poorly-written fanworks!", MSGBOX_NPC)
 }

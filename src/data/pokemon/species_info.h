@@ -14332,12 +14332,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_ARCEUS] =
     {
-        .baseHP = 120,
-        .baseAttack = 120,
-        .baseDefense = 120,
-        .baseSpeed = 120,
-        .baseSpAttack = 120,
-        .baseSpDefense = 120,
+        .baseHP = 40,
+        .baseAttack = 40,
+        .baseDefense = 40,
+        .baseSpeed = 40,
+        .baseSpAttack = 40,
+        .baseSpDefense = 40,
         .types = {TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 255,
         .expYield = 150,

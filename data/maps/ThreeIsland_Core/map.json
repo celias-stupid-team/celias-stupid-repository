@@ -196,6 +196,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourthTrial_LongRangeCuckChair"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FourthTrial_CuckChair"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FourthTrial_MidCuckChair"
     }
   ]
 }

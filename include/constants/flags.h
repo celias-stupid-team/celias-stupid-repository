@@ -514,7 +514,7 @@
 #define FLAG_MINNESOTA_GYM_STRENGTH                             0x1CF
 #define FLAG_BEEN_IN_WATERFALL_HOUSE                  0x1D0
 #define FLAG_HIDE_CELADON_CITY_ETHER                            0x1D1
-#define FLAG_0x1D2              0x1D2
+#define FLAG_TALKED_TO_SWORDFUCK              0x1D2
 #define FLAG_0x1D3                  0x1D3
 #define FLAG_0x1D4                   0x1D4
 #define FLAG_0x1D5               0x1D5
