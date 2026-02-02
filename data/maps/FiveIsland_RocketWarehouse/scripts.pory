@@ -246,6 +246,7 @@ script DMCAWarehouse_AZStory {
 }
 
 script DMCAWarehouse_MirorB {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"MIROR B: Heh…\n"
 	"Looks like I got caught.\p"
@@ -258,6 +259,7 @@ script DMCAWarehouse_MirorB {
 }
 
 script DMCAWarehouse_N {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	//famechecker(FAMECHECKER_GREAT_BAY, 5)
 	msgbox(
 	"N: The DMCA has taken me hostage…\n"

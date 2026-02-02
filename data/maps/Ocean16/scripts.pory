@@ -45,6 +45,7 @@ script Desert_DMCAFuckhead {
 
 
 script Desert_DavidHasselhoff {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"I am David Hasselhoff.\n"
 	"", MSGBOX_NPC)

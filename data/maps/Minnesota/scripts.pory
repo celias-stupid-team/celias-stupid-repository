@@ -176,7 +176,7 @@ script Minnesota_Townsign {
 
 script Minnesota_Pittsburg {
 	msgbox(
-	"Welcome to PITTSBURG!\n"
+	"Welcome to PITTSBURGH!\n"
 	"", MSGBOX_SIGN)
 
 }

@@ -8150,7 +8150,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_OHKO_FLASH,
         .power = 1,
-        .type = TYPE_STEEL,
+        .type = TYPE_ICE,
         .accuracy = 0,
         .pp = 40,
         .secondaryEffectChance = 0,

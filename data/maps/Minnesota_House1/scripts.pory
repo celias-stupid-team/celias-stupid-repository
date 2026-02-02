@@ -18,6 +18,7 @@ script Minnesota_SurgeTV {
 	"…{PAUSE 30}Let's watch!", MSGBOX_DEFAULT)
 	closemessage
 	delay(60)
+	removemoney(999999)
 	warpsilent(MAP_MINNESOTA_HOSPITAL, 1)
 	release
 }

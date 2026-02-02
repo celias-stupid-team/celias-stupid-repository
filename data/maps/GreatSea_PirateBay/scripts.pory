@@ -206,6 +206,7 @@ script PirateBay_Entrance {
 	playse(SE_PIN)
 	fadenewbgm(MUS_NONE)
 	applymovement(LOCALID_PIRATEBAY_SAILOR, moves(
+		face_down
 		emote_exclamation_mark
 		delay_16 * 2
 	))
