@@ -130,6 +130,8 @@ script Yes_ChanseyNPC {
 		release
 		end
 	} else {
+		lock
+		faceplayer
 		msgbox(
 		"…What was that?\n"
 		"I couldn't quite understand you.\p"
@@ -355,6 +357,7 @@ script Yes_IslandSign {
 
 script Yes_Nerd {
 	lock
+	faceplayer
 	msgbox(
 	"I dropped a rare TM…\n"
 	"Can you help me find it?", MSGBOX_YESNO)
