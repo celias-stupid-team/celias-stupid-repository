@@ -73,10 +73,17 @@ script RainbowCloud_CastformFight {
     lock
     faceplayer
 	setflag(FLAG_FOUGHT_CASTFORM)
-    msgbox(
-	"(fight starts)\n"
-	"", MSGBOX_DEFAULT)
-	setwildbattle(SPECIES_CASTFORM, 50)
+    setwildbattle(SPECIES_CASTFORM, 50)
+	dowildbattle
+    release
+    end
+}
+
+script RainbowCloud_ShinyCastformFight {
+    lock
+    faceplayer
+	setflag(FLAG_SHINY_CREATION)
+    setwildbattle(SPECIES_CASTFORM, 50)
 	dowildbattle
     release
     end

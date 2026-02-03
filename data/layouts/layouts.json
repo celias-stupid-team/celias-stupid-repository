@@ -6353,7 +6353,7 @@
       "id": "LAYOUT_RAINBOW_CLOUD",
       "name": "RainbowCloud_Layout",
       "width": 29,
-      "height": 35,
+      "height": 51,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7356,6 +7356,18 @@
       "secondary_tileset": "gTileset_MoonAltar",
       "border_filepath": "data/layouts/Stonehenge/border.bin",
       "blockdata_filepath": "data/layouts/Stonehenge/map.bin"
+    },
+    {
+      "id": "LAYOUT_RAINBOW_CLOUD_FINAL_SHINY",
+      "name": "RainbowCloud_FinalShiny",
+      "width": 29,
+      "height": 51,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RainbowCloud",
+      "border_filepath": "data/layouts/RainbowCloud_FinalShiny/border.bin",
+      "blockdata_filepath": "data/layouts/RainbowCloud_FinalShiny/map.bin"
     }
   ]
 }
