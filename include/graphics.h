@@ -12811,3 +12811,6 @@ extern const u32 gMonShinyPalette_CELEBI2[];
 extern const u8 gMonFootprint_CELEBI2[];
 extern const u8 gMonIcon_CELEBI2[];
 
+
+extern const u32 gItemIcon_BagOfDragonite[];
+extern const u32 gItemIconPalette_BagOfDragonite[];
