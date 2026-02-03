@@ -12,6 +12,10 @@ mapscripts Route19_MapScripts {
 			clearflag(FLAG_TEMP_1)
 		}
 		setflag(FLAG_TEMP_2)
+		if(flag(FLAG_LOOKER_SCENE) && !(var(VAR_CURRENT_CHAPTER) >= 7)) {
+			setvar(VAR_TEMP_1, 1)
+			clearflag(FLAG_TEMP_2)
+		}
 	}
 }
 

@@ -755,3 +755,5 @@ const u16 gObjectEventPal_VANILLISH[] = INCBIN_U16("graphics/object_events/palet
 const u32 gObjectEventPic_KENYA_EGG[] = INCBIN_U32("graphics/object_events/pics/stupid/KENYA_EGG.4bpp");
 const u32 gObjectEventPic_TORNADO[] = INCBIN_U32("graphics/object_events/pics/stupid/TORNADO.4bpp");
 const u16 gObjectEventPal_TORNADO[] = INCBIN_U16("graphics/object_events/palettes/TORNADO.gbapal");
+const u32 gObjectEventPic_GUNTHER[] = INCBIN_U32("graphics/object_events/pics/stupid/GUNTHER.4bpp");
+const u16 gObjectEventPal_GUNTHER[] = INCBIN_U16("graphics/object_events/palettes/GUNTHER.gbapal");

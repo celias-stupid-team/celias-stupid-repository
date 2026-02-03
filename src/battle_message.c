@@ -1965,13 +1965,15 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
+                /*
                 case EVENT_BATTLE_GIOVANNI_2: 
-                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_FIRE )  {
+                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_FIRE )  { //This one is wonky rn
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
+                 */
                 case EVENT_BATTLE_THIEVUL: 
                         if(sBattleMsgDataPtr->currentMove == MOVE_V_CREATE )  {
                         BattleStopLowHpSound();

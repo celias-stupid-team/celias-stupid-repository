@@ -142,3 +142,11 @@ CinnabarIsland_PokemonCenter_1F_Movement_PlayerExitWest::
 
 
 
+script CinnabarCenterTree {
+	msgbox(
+	"The CINNABAR ARBORATUM is the\n"
+	"finest scientific institute around.\p"
+
+	"They're always at the forefront\n"
+	"of research and development!", MSGBOX_NPC)
+}

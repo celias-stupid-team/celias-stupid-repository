@@ -2,7 +2,7 @@
   "id": "MAP_AETHER_PARADISE_ISLAND",
   "name": "AetherParadise_Island",
   "layout": "LAYOUT_AETHER_PARADISE_ISLAND",
-  "music": "MUS_SEVII_ROUTE",
+  "music": "MUS_ALOLA_ROUTE2",
   "region_map_section": "MAPSEC_GREAT_BAY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -280,6 +280,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AetherParadise_FestivalPlazaEstablishments"
+    },
+    {
+      "type": "sign",
+      "x": 55,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "StarlightIslandSign"
     }
   ]
 }

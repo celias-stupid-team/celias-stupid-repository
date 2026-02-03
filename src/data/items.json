@@ -5217,7 +5217,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Flamethrower"
+      "moveId": "HydroPump"
     },
     {
       "english": "TM36",
@@ -7478,6 +7478,22 @@
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "BAGoDRGNTE",
+      "itemId": "ITEM_BAG_OF_DRAGONITE",
+      "price": 500,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Sprinkle the powder on one of your\\nfriends during battle to turn\\nthem into a DRAGON!",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_DragoniteBag",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

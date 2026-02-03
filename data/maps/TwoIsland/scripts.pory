@@ -302,6 +302,7 @@ script TwoIsland_DragonitePresent {
 	"There was a\n"
 	"BAG OF DRAGONITE!", MSGBOX_DEFAULT)
 	waitfanfare
+	giveitem(ITEM_BAG_OF_DRAGONITE, 1)
 	setflag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)
 	release
 	end

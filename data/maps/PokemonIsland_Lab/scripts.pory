@@ -283,7 +283,7 @@ script PokemonIslandLab_Todd {
         "seven POKéMON SIGNS to find.\p"
 
         "My partner, PROFESSOR IVY, is in\n"
-        "the room to the right.\l"
+        "the room to the left.\l"
         "She'll be able to give more info.", MSGBOX_DEFAULT)
     }
     applymovement(LOCALID_TODD, Common_Movement_FaceOriginalDirection)

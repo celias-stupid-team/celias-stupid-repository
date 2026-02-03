@@ -220,3 +220,11 @@ script FestivalPlaza_Sophacles {
 	"I don't suppose you'd like to have\l"
 	"another tour?", MSGBOX_NPC)
 }
+
+
+script StarlightIslandSign {
+	msgbox(
+	"STARLIGHT ISLAND\n"
+	"", MSGBOX_SIGN)
+
+}

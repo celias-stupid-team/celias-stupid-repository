@@ -451,8 +451,8 @@
     {
       "id": "HEAL_LOCATION_GREAT_SEA_PIRATE_BAY",
       "map": "MAP_GREAT_SEA_PIRATE_BAY",
-      "x": 41,
-      "y": 7,
+      "x": 28,
+      "y": 4,
       "respawn_map": "MAP_GREAT_SEA_PIRATE_BAY",
       "respawn_npc": "1"
     },
