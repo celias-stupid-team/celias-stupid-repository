@@ -1057,6 +1057,7 @@ SECTIONS {
         sound/songs/midi/mus_tunnel.o(.rodata);
         sound/songs/midi/mus_pisces_gym.o(.rodata);
         sound/songs/midi/mus_kenya.o(.rodata);
+        sound/songs/midi/mus_alola_route2.o(.rodata);
 
     } > ROM =0
 
