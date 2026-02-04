@@ -10239,7 +10239,7 @@ static const struct TrainerMonItemCustomMoves sParty_RadicalRed[] = {
         .iv = 0,
         .lvl = 25,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_PIKACHU_SNAP_SURF,
+        .species = SPECIES_PIKACHUSURF,
         .moves = {MOVE_SURF, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
