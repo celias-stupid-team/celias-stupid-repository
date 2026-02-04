@@ -7080,7 +7080,7 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_YES_NURSE] = {
-        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .trainerClass = TRAINER_CLASS_DOCTOR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_RS_POKEMON_BREEDER_F,
         .trainerName = _("YESSICA"),
