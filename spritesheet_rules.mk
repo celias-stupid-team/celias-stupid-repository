@@ -1233,3 +1233,5 @@ $(OBJEVENTGFXDIR)/stupid/TORNADO.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/GUNTHER.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 6 -mheight 6
+$(OBJEVENTGFXDIR)/stupid/SAWK.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
