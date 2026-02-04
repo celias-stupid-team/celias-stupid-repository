@@ -5961,7 +5961,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding1",
+      "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/Minnesota_House2/border.bin",
       "blockdata_filepath": "data/layouts/Minnesota_House2/map.bin"
     },

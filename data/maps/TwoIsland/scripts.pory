@@ -1084,8 +1084,14 @@ script TwoIsland_TrumpetPlayer {
 	lock
 	faceplayer
 	msgbox(
-	"I play hoenn trumpet\n"
-	"", MSGBOX_DEFAULT)
+	"I must be the happiest man in\n"
+	"the world.\p"
+
+	"I can practice my trumpet in this\n"
+	"scenic spot.\p"
+
+	"Maybe they'll hire me for the next\n"
+	"HOENN remake!", MSGBOX_DEFAULT)
 	waitse
 	playse(MUS_TRUMPETS)
 	closemessage
