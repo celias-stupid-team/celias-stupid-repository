@@ -584,6 +584,9 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_TORNADO  0x119D
 #define OBJ_EVENT_PAL_TAG_GUNTHER  0x119E
 #define OBJ_EVENT_PAL_TAG_SAWK  0x119F
+#define OBJ_EVENT_PAL_TAG_RAINBOW_DMCA  0x11A0
+#define OBJ_EVENT_PAL_TAG_ALOLA_MEOWTH  0x11A1
+#define OBJ_EVENT_PAL_TAG_ALOLA_RAICHU  0x11A2
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -741,6 +744,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_TORNADO,             OBJ_EVENT_PAL_TAG_TORNADO},
     {gObjectEventPal_GUNTHER,             OBJ_EVENT_PAL_TAG_GUNTHER},
     {gObjectEventPal_SAWK,             OBJ_EVENT_PAL_TAG_SAWK},
+    {gObjectEventPal_RAINBOW_DMCA,             OBJ_EVENT_PAL_TAG_RAINBOW_DMCA},
+    {gObjectEventPal_ALOLA_MEOWTH,             OBJ_EVENT_PAL_TAG_ALOLA_MEOWTH},
+    {gObjectEventPal_ALOLA_RAICHU,             OBJ_EVENT_PAL_TAG_ALOLA_RAICHU},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

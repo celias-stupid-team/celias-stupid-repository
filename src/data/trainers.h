@@ -7090,6 +7090,17 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_YesNurse),
     },
 
+    [TRAINER_TEAM_SKULL] = {
+        .trainerClass = TRAINER_CLASS_TEAM,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_TEAM_SKULL,
+        .trainerName = _("SKULL"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_TeamSkull),
+    },
+
     
 
         

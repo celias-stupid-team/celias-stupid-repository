@@ -628,3 +628,6 @@ const u32 gTrainerPalette_Ariana[] = INCBIN_U32("graphics/trainers/palettes/aria
 
 const u32 gTrainerFrontPic_Uncle[] = INCBIN_U32("graphics/trainers/front_pics/uncle_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Uncle[] = INCBIN_U32("graphics/trainers/palettes/uncle.gbapal.lz");
+
+const u32 gTrainerFrontPic_TeamSkull[] = INCBIN_U32("graphics/trainers/front_pics/team_skull_front_pic.4bpp.lz");
+const u32 gTrainerPalette_TeamSkull[] = INCBIN_U32("graphics/trainers/palettes/team_skull.gbapal.lz");

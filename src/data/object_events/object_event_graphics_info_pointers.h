@@ -531,6 +531,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KENYA_EGG;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TORNADO;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GUNTHER;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SAWK;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RAINBOW_DMCA;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ALOLA_MEOWTH;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ALOLA_RAICHU;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1063,4 +1066,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_TORNADO] = &gObjectEventGraphicsInfo_TORNADO,
     [OBJ_EVENT_GFX_GUNTHER] = &gObjectEventGraphicsInfo_GUNTHER,
     [OBJ_EVENT_GFX_SAWK] = &gObjectEventGraphicsInfo_SAWK,
+    [OBJ_EVENT_GFX_RAINBOW_DMCA] = &gObjectEventGraphicsInfo_RAINBOW_DMCA,
+    [OBJ_EVENT_GFX_ALOLA_MEOWTH] = &gObjectEventGraphicsInfo_ALOLA_MEOWTH,
+    [OBJ_EVENT_GFX_ALOLA_RAICHU] = &gObjectEventGraphicsInfo_ALOLA_RAICHU,
 };

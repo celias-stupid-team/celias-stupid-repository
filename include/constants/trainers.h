@@ -215,6 +215,7 @@
 #define TRAINER_PIC_BERRIED_ALIVE   193
 #define TRAINER_PIC_ARIANA   194
 #define TRAINER_PIC_UNCLE   195
+#define TRAINER_PIC_TEAM_SKULL   196
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
