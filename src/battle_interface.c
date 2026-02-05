@@ -1491,19 +1491,79 @@ static void SpriteCB_PartySummaryBall_OnSwitchout(struct Sprite *sprite)
 #undef sEnterSpeed
 #undef sExitSpeed
 
+static const struct WindowTemplate sHealthboxWindowTemplate = {
+    .bg = 0,
+    .tilemapLeft = 0,
+    .tilemapTop = 0,
+    .width = 8,
+    .height = 2,
+    .paletteNum = 0,
+    .baseBlock = 0
+};
+
 static const u8 sText_HealthboxNickname[] = _("{HIGHLIGHT 02}");
+static const u8 sText_ZapmolcunoOhgia[] = _("ZAPMOLCUNO_OHGIA");
+
+// offset for second row text in healthbox (top 5 pixels are skipped)
+#define HEALTHBOX_TEXT_Y_SKIP 20
 
 void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
 {
-    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    u8 nickname[POKEMON_NAME_LENGTH_OPPONENT + 1];
     u8 *ptr;
     u32 windowId, spriteTileNum;
     u8 *windowTileData;
     u16 species;
     u8 gender;
+    s32 i;
 
     ptr = StringCopy(gDisplayedStringBattle, sText_HealthboxNickname);
     GetMonData(mon, MON_DATA_NICKNAME, nickname);
+    species = GetMonData(mon, MON_DATA_SPECIES);
+
+    if (species >= SPECIES_FINALLUGIA && species <= SPECIES_FINALMOLTRES
+      && GetBattlerSide(gSprites[healthboxSpriteId].sBattlerId) != B_SIDE_PLAYER)
+    {
+        struct WindowTemplate winTemplate = sHealthboxWindowTemplate;
+        u16 winNickname;
+        u8 color[3] = {2, 1, 3};
+        u8 *dst;
+
+        // overwrite the sub window size to fit the text
+        winTemplate.width = 12;
+        winNickname = AddWindow(&winTemplate);
+        FillWindowPixelBuffer(winNickname, PIXEL_FILL(2));
+
+        StringCopy(ptr, sText_ZapmolcunoOhgia);
+        AddTextPrinterParameterized4(winNickname, FONT_SMALL, 0, 3, 0, 0, color, -1, gDisplayedStringBattle);
+
+        windowTileData = (u8 *)(GetWindowAttribute(winNickname, WINDOW_TILE_DATA));
+        spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
+
+        // copy first 7 tiles to main healthbox sprite
+        dst = (u8 *)(OBJ_VRAM0 + TILE_SIZE_4BPP + spriteTileNum);
+        CpuCopy32(windowTileData + (winTemplate.width * TILE_SIZE_4BPP), dst + (8 * TILE_SIZE_4BPP), 7 * TILE_SIZE_4BPP);
+        for (i = 0; i < 7; i++)
+        {
+            CpuCopy32(windowTileData + (i * TILE_SIZE_4BPP) + HEALTHBOX_TEXT_Y_SKIP, dst + (i * TILE_SIZE_4BPP) + HEALTHBOX_TEXT_Y_SKIP, winTemplate.width);
+        }
+
+        // copy remaining 3 tiles to secondary healthbox sprite, keeping the original 2 tiles at the end
+        dst = (u8 *)(OBJ_VRAM0 + gSprites[gSprites[healthboxSpriteId].sHealthboxOtherSpriteId].oam.tileNum * TILE_SIZE_4BPP);
+        CpuCopy32(windowTileData + (winTemplate.width * TILE_SIZE_4BPP) + (7 * TILE_SIZE_4BPP), dst + (8 * TILE_SIZE_4BPP), 3 * TILE_SIZE_4BPP);
+        for (i = 0; i < 3; i++)
+        {
+            CpuCopy32(windowTileData + ((7 + i) * TILE_SIZE_4BPP) + HEALTHBOX_TEXT_Y_SKIP, dst + (i * TILE_SIZE_4BPP) + HEALTHBOX_TEXT_Y_SKIP, winTemplate.width);
+        }
+
+        RemoveWindowOnHealthbox(winNickname);
+        return;
+    }
+    else
+    {
+        StringGet_Nickname(nickname);
+    }
+
     StringGet_Nickname(nickname);
     ptr = StringCopy(ptr, nickname);
     *ptr++ = EXT_CTRL_CODE_BEGIN;
@@ -2229,16 +2289,6 @@ u8 GetHPBarLevel(s16 hp, s16 maxhp)
 
     return result;
 }
-
-static const struct WindowTemplate sHealthboxWindowTemplate = {
-    .bg = 0,
-    .tilemapLeft = 0,
-    .tilemapTop = 0,
-    .width = 8,
-    .height = 2,
-    .paletteNum = 0,
-    .baseBlock = 0
-};
 
 static u8 *AddTextPrinterAndCreateWindowOnHealthbox(const u8 *str, u32 x, u32 y, u32 *windowId)
 {
