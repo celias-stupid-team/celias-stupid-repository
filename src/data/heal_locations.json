@@ -444,7 +444,7 @@
       "id": "HEAL_LOCATION_AETHER_PARADISE_ENTRANCE",
       "map": "MAP_AETHER_PARADISE_ENTRANCE",
       "x": 9,
-      "y": 15,
+      "y": 22,
       "respawn_map": "MAP_AETHER_PARADISE_ENTRANCE",
       "respawn_npc": "1"
     },

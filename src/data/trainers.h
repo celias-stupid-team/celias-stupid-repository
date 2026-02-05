@@ -7080,7 +7080,7 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_YES_NURSE] = {
-        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .trainerClass = TRAINER_CLASS_DOCTOR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_RS_POKEMON_BREEDER_F,
         .trainerName = _("YESSICA"),
@@ -7088,6 +7088,17 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_YesNurse),
+    },
+
+    [TRAINER_TEAM_SKULL] = {
+        .trainerClass = TRAINER_CLASS_TEAM,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_TEAM_SKULL,
+        .trainerName = _("SKULL"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_TeamSkull),
     },
 
     

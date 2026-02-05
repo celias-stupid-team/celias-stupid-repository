@@ -5420,3 +5420,7 @@ Cry_CELEBI2::
 	.incbin "sound/direct_sound_samples/cries/celebi2.bin"
 
 	.align 2
+Cry_PIKACHUSURF::
+	.incbin "sound/direct_sound_samples/cries/pikachusurf.bin"
+
+	.align 2

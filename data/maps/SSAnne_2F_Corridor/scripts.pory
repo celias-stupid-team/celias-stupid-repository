@@ -300,3 +300,10 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	setvar(VAR_TEMP_0, 1)
 	releaseall
 }
+
+script SSAnne_RatHole {
+	msgbox(
+	"There is a 437-foot drop to the\n"
+	"water below.", MSGBOX_SIGN)
+
+}

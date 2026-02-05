@@ -302,11 +302,49 @@ script PokemonIslandLab_IvyLeagueSchool {
 
 
 script PokemonIslandLab_Cameron {
+    lock
+    textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"cameron the photographer\n"
-	"", MSGBOX_NPC)
+	"CAMERON: Yes!\n"
+	"Just like that!\l"
+	"Now lemme…", MSGBOX_DEFAULT)
+    playse(MUS_PHOTO)
+	dofieldeffect(FLDEFF_PHOTO_FLASH)
+	delay(60)
+    msgbox(
+	"Perfect!\n"
+	"", MSGBOX_DEFAULT)
+    release
 }
 
+script PokemonIsland_Pikachu1 {
+    lock
+    showmonpic(SPECIES_PIKACHU_SNAP_SURF, 10, 3)
+    waitbuttonpress
+    hidemonpic
+    release
+}
+script PokemonIsland_Pikachu2 {
+    lock
+    showmonpic(SPECIES_PIKACHU_SNAP_BALL, 10, 3)
+    waitbuttonpress
+    hidemonpic
+    release
+}
+script PokemonIsland_Pikachu3 {
+    lock
+    showmonpic(SPECIES_PIKACHU_SNAP_FLYING, 10, 3)
+    waitbuttonpress
+    hidemonpic
+    release
+}
+script PokemonIsland_Pikachu4 {
+    lock
+    showmonpic(SPECIES_PIKACHU_SNAP_CLOSE, 10, 3)
+    waitbuttonpress
+    hidemonpic
+    release
+}
 
 script PokemonIslandLab_Dad {
 	lock

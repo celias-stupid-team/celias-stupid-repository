@@ -1255,6 +1255,7 @@ gCryTable::
 	cry Cry_FINALWARTORTLE
 	cry Cry_DODODUO
 	cry Cry_CELEBI2
+	cry Cry_PIKACHUSURF
 
 
 
@@ -2520,6 +2521,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_FINALWARTORTLE
 	cry_reverse Cry_DODODUO
 	cry_reverse Cry_CELEBI2
+	cry_reverse Cry_PIKACHUSURF
 
 
 

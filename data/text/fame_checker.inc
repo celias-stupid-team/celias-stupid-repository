@@ -476,7 +476,7 @@ gFameCheckerFlavorText_Bruno5:: @ 0x81AF19A
 	.string "darkness of the UNDERGROUND PATH.$"
 
 gFameCheckerFlavorText_GreatSeaWest0:: @ 0x81AF200
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "We've been documenting POKéMON\n"
 	.string "SIGNS across KANTO.\l"
@@ -486,7 +486,7 @@ gFameCheckerFlavorText_GreatSeaWest0:: @ 0x81AF200
 
 
 gFameCheckerFlavorText_GreatSeaWest1:: @ 0x81AF248
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "This island is great, but I really\n"
 	.string "miss being home in JOHTO.\p"
@@ -496,7 +496,7 @@ gFameCheckerFlavorText_GreatSeaWest1:: @ 0x81AF248
 
 
 gFameCheckerFlavorText_GreatSeaWest2:: @ 0x81AF2B7
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Have you heard of OLD AMBER?\n"
 	.string "PEWTER MUSEUM has some.\p"
@@ -505,7 +505,7 @@ gFameCheckerFlavorText_GreatSeaWest2:: @ 0x81AF2B7
 	.string "No one's allowed in, though.$"
 
 gFameCheckerFlavorText_GreatSeaWest3:: @ 0x81AF34E
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "You're looking for BURN HEAL?\n"
 	.string "I don't think they have it here.\p"
@@ -515,14 +515,14 @@ gFameCheckerFlavorText_GreatSeaWest3:: @ 0x81AF34E
 
 
 gFameCheckerFlavorText_GreatSeaWest4:: @ 0x81AF3BE
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hi!\n"
 	.string "Do you have RAICHU?\p"
 	.string "Wnat to trade it for my HAUNTER?\n$"
 
 gFameCheckerFlavorText_GreatSeaWest5:: @ 0x81AF47C
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Behind this GYM is a cave.\p"
 	.string "This cave is the start to finding\n"
@@ -531,7 +531,7 @@ gFameCheckerFlavorText_GreatSeaWest5:: @ 0x81AF47C
 	.string "relent and admit defeat.$"
 
 gFameCheckerFlavorText_GreatSeaEast0:: @ 0x81AF4FD
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "A POKéMON is buried deep into\n"
 	.string "the ground.\p"
@@ -539,14 +539,14 @@ gFameCheckerFlavorText_GreatSeaEast0:: @ 0x81AF4FD
 	.string "wound up.$"
 
 gFameCheckerFlavorText_GreatSeaEast1:: @ 0x81AF567
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Have you ever wanted to call your\n"
 	.string "opponent a FUCKHEAD?\p"
 	.string "Take this!\n$"
 
 gFameCheckerFlavorText_GreatSeaEast2:: @ 0x81AF641
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "One thing I hate about this gym\n"
 	.string "is how crowded it gets.\p"
@@ -555,14 +555,14 @@ gFameCheckerFlavorText_GreatSeaEast2:: @ 0x81AF641
 
 
 gFameCheckerFlavorText_GreatSeaEast3:: @ 0x81AF6BA
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "It's a rock.\p"
 	.string "It feels normal to the touch.\n$"
 
 
 gFameCheckerFlavorText_GreatSeaEast4:: @ 0x81AF758
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Here, you can go on a stroll with\n"
 	.string "a cute POKéMON.\p"
@@ -571,7 +571,7 @@ gFameCheckerFlavorText_GreatSeaEast4:: @ 0x81AF758
 
 
 gFameCheckerFlavorText_GreatSeaEast5:: @ 0x81AF7CB
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "If you ask me, second amendment\n"
 	.string "rights aren't going far enough!\p"
@@ -579,7 +579,7 @@ gFameCheckerFlavorText_GreatSeaEast5:: @ 0x81AF7CB
 	.string "would be armed with a gun!$"
 
 gFameCheckerFlavorText_GreatSeaCenter0:: @ 0x81AF83E
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "That guy up there's a real\n"
 	.string "jerk!\p"
@@ -587,14 +587,14 @@ gFameCheckerFlavorText_GreatSeaCenter0:: @ 0x81AF83E
 	.string "but he won't teach anyone else!$"
 
 gFameCheckerFlavorText_GreatSeaCenter1:: @ 0x81AF8CA
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Say, one of our deliverymen got\n"
 	.string "stuck in CELADON CITY a while back.\l"
 	.string "I hear one of his eggs was ODD?$"
 
 gFameCheckerFlavorText_GreatSeaCenter2:: @ 0x81AF929
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "If you'd like to learn my secret\n"
 	.string "moves, fine me under the WATERFALL.\p"
@@ -602,7 +602,7 @@ gFameCheckerFlavorText_GreatSeaCenter2:: @ 0x81AF929
 	.string "falls for 3 Minutes without moving.$"
 
 gFameCheckerFlavorText_GreatSeaCenter3:: @ 0x81AF998
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hey, hey!\n"
 	.string "I'm selling PENCILS!\p"
@@ -610,7 +610,7 @@ gFameCheckerFlavorText_GreatSeaCenter3:: @ 0x81AF998
 	.string "SILPH CO just placed a huge order.$"
 
 gFameCheckerFlavorText_GreatSeaCenter4:: @ 0x81AFA20
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hey, hey!\n"
 	.string "Would you like to buy a HOUSE?\p"
@@ -619,12 +619,12 @@ gFameCheckerFlavorText_GreatSeaCenter4:: @ 0x81AFA20
 
 
 gFameCheckerFlavorText_GreatSeaCenter5:: @ 0x81AFAB9
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "{BRAILLE_W}\n$"
 
 gFameCheckerFlavorText_GreatBay0:: @ 0x81AFB0C
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Somehwere in KANTO, there exists\n"
 	.string "the ALTAR OF THE MOONE.\p"
@@ -633,7 +633,7 @@ gFameCheckerFlavorText_GreatBay0:: @ 0x81AFB0C
 	.string "something incredible may happen.$"
 
 gFameCheckerFlavorText_GreatBay1:: @ 0x81AFB76
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Ever since the Gen 1 TYPE CHART,\n"
 	.string "things have been real rough.\p"
@@ -644,7 +644,7 @@ gFameCheckerFlavorText_GreatBay1:: @ 0x81AFB76
 	.string "do to turn the tables on them…$"
 
 gFameCheckerFlavorText_GreatBay2:: @ 0x81AFC38
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "SAMSON: Hello, there!\n"
 	.string "My name is OAK!\p"
@@ -652,7 +652,7 @@ gFameCheckerFlavorText_GreatBay2:: @ 0x81AFC38
 	.string "day on this beautiful island!$"
 
 gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "There was once a POKéMON so greedy\n"
 	.string "and powerful, we humans had to\l"
@@ -661,14 +661,14 @@ gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
 	.string "and break the Seal themselves…$"
 
 gFameCheckerFlavorText_GreatBay4:: @ 0x81AFD49
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hi, there!\n"
 	.string "I'm giving away a free CHANSEY.\l"
 	.string "Would you like it?$"
 
 gFameCheckerFlavorText_GreatBay5:: @ 0x81AFDC4
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "BRENDAN's house\n$"
 
