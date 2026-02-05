@@ -2986,9 +2986,15 @@ BattleScript_FaintAttacker::
 	pause B_WAIT_TIME_LONG
 	dofaintanimation BS_ATTACKER
 	cleareffectsonfaint BS_ATTACKER
+	jumpifzapmolcunospecies BS_ATTACKER, BattleScript_FaintAttackerZapmolcuno
 	printstring STRINGID_ATTACKERFAINTED
+BattleScript_FaintAttacker_Continue::
 	printstring STRINGID_EMPTYSTRING3
 	return
+
+BattleScript_FaintAttackerZapmolcuno::
+	printstring STRINGID_ZAPMOLCUNOFAINTED
+	goto BattleScript_FaintAttacker_Continue
 
 BattleScript_FaintTarget::
 	tryendneutralizinggas BS_TARGET
@@ -2996,11 +3002,17 @@ BattleScript_FaintTarget::
 	pause B_WAIT_TIME_LONG
 	dofaintanimation BS_TARGET
 	cleareffectsonfaint BS_TARGET
+	jumpifzapmolcunospecies BS_TARGET, BattleScript_FaintTargetZapmolcuno
 	printstring STRINGID_TARGETFAINTED
+BattleScript_FaintTarget_Continue::
 	printstring STRINGID_EMPTYSTRING3
 	waitanimation
 	trytrainerslidemsgfirstoff
 	return
+
+BattleScript_FaintTargetZapmolcuno::
+	printstring STRINGID_ZAPMOLCUNOFAINTED
+	goto BattleScript_FaintTarget_Continue
 
 BattleScript_VanishedFromExistence::
 	playfaintcry BS_ATTACKER

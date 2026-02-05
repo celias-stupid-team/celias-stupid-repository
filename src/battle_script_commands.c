@@ -3310,7 +3310,7 @@ static void Cmd_tryfaintmon(void)
             }
 
             // special handling for switching the legendary birds during the Zapmolcuno fight
-            if ((GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) < B_FINAL_BATTLE_MOLTRES)) // only replace opponent's Zapmolcuno during the first 4 phases
+            if ((GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_MOLTRES)) // only replace opponent's Zapmolcuno during the first 4 phases
             {
                 gBattlerFainted = gActiveBattler;
                 gBattleMons[gActiveBattler].species = GetCurrentZapmolcunoSpecies();
@@ -11534,4 +11534,24 @@ void BS_ResetBattleBgm(void)
     PlayBGM(GetBattleBGM());
 
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfZapmolcunoSpecies(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+
+    struct Pokemon *mon;
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    u16 species;
+
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
+    else
+        mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
+    
+    species = GetMonData(mon, MON_DATA_SPECIES);
+    if (species >= SPECIES_FINALLUGIA && species <= SPECIES_FINALMOLTRES)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
 }

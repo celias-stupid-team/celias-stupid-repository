@@ -1673,3 +1673,10 @@
 	.macro resetbattlebgm
 	callnative BS_ResetBattleBgm
 	.endm
+
+	.macro jumpifzapmolcunospecies battler:req, jumpInstr:req
+	callnative BS_JumpIfZapmolcunoSpecies
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
