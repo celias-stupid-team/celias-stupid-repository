@@ -1,15 +1,19 @@
 #include "global.h"
 #include "gflib.h"
+#include "battle.h"
 #include "battle_anim.h"
 #include "battle_interface.h"
 #include "battle_message.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "graphics.h"
 #include "menu.h"
+#include "palette.h"
 #include "pokedex.h"
 #include "pokemon_summary_screen.h"
 #include "safari_zone.h"
 #include "constants/songs.h"
+#include "constants/vars.h"
 
 #undef abs
 #define abs(a) ((a) < 0 ? -(a) : (a))
@@ -74,7 +78,6 @@ static void SpriteCB_PartySummaryBar_Exit(struct Sprite *sprite);
 static void SpriteCB_PartySummaryBall_Exit(struct Sprite *sprite);
 static void Task_HidePartyStatusSummary_DuringBattle(u8 taskId);
 static void SpriteCB_PartySummaryBall_OnSwitchout(struct Sprite *sprite);
-// static void UpdateStatusIconInHealthbox(u8 spriteId);
 static void SpriteCB_PartySummaryBar(struct Sprite *sprite);
 static void SpriteCB_PartySummaryBall_OnBattleStart(struct Sprite *sprite);
 static u8 GetStatusIconForBattlerId(u8 statusElementId, u8 battlerId);
@@ -159,7 +162,7 @@ static const struct SpriteTemplate sHealthbarSpriteTemplates[] = {
     },
     [B_POSITION_OPPONENT_LEFT] = {
         .tileTag = TAG_HEALTHBAR_OPPONENT1_TILE,
-        .paletteTag = TAG_HEALTHBAR_PAL,
+        .paletteTag = TAG_HEALTHBAR_OPPONENT_PAL,
         .oam = &sOamData_Healthbar,
         .anims = gDummySpriteAnimTable,
         .affineAnims = gDummySpriteAffineAnimTable,
@@ -175,7 +178,7 @@ static const struct SpriteTemplate sHealthbarSpriteTemplates[] = {
     },
     [B_POSITION_OPPONENT_RIGHT] = {
         .tileTag = TAG_HEALTHBAR_OPPONENT2_TILE,
-        .paletteTag = TAG_HEALTHBAR_PAL,
+        .paletteTag = TAG_HEALTHBAR_OPPONENT_PAL,
         .oam = &sOamData_Healthbar,
         .anims = gDummySpriteAnimTable,
         .affineAnims = gDummySpriteAffineAnimTable,
@@ -1896,6 +1899,30 @@ s32 MoveBattleBar(u8 battlerId, u8 healthboxSpriteId, u8 whichBar, u8 unused)
     return currentBarValue;
 }
 
+static void UpdateHealthBarPalette(u16 paletteTag, u16 colorEmptyMain, u16 colorEmptyShadow, u16 colorMain, u16 colorShadow)
+{
+    u8 paletteIndex = IndexOfSpritePaletteTag(paletteTag);
+    if (paletteIndex != 0xFF)
+    {
+        u16 *palette = &gPlttBufferUnfaded[OBJ_PLTT_ID(paletteIndex)];
+        palette[1] = colorEmptyMain; // I changed the color index in healthbox_elements.png to 1 which was the only unused pal slot. Because it shared the color with the border before.
+        palette[5] = colorEmptyShadow;
+        palette[10] = colorMain;
+        palette[11] = colorShadow;
+        CpuCopy16(palette, &gPlttBufferFaded[OBJ_PLTT_ID(paletteIndex)], PLTT_SIZE_4BPP);
+    }
+}
+
+static void ResetHealthBarPalette(u16 paletteTag)
+{
+    u8 paletteIndex = IndexOfSpritePaletteTag(paletteTag);
+    if (paletteIndex != 0xFF)
+    {
+        u16 *palette = &gPlttBufferUnfaded[OBJ_PLTT_ID(paletteIndex)];
+        CpuCopy16(palette, &gPlttBufferFaded[OBJ_PLTT_ID(paletteIndex)], PLTT_SIZE_4BPP);
+    }
+}
+
 static void MoveBattleBarGraphically(u8 battlerId, u8 whichBar)
 {
     u8 filledPixels[B_HEALTHBAR_NUM_TILES > B_EXPBAR_NUM_TILES ? B_HEALTHBAR_NUM_TILES : B_EXPBAR_NUM_TILES];
@@ -1920,9 +1947,19 @@ static void MoveBattleBarGraphically(u8 battlerId, u8 whichBar)
         else
             barElementId = B_INTERFACE_GFX_HP_BAR_RED; // 20 % or less
 
+        // special health bar handling for Zapmolcuno-Ohgia
+        // it only loads the green health bar tiles and then adjusts the palette accordingly
+        if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && battlerId == 1)
+        {
+            SetHPBarColorsForZapmolcunoOhgia();
+            // barElementId defines the used tile map ids (= green bar tiles)
+            barElementId = B_INTERFACE_GFX_HP_BAR_GREEN;
+        }
+
         for (i = 0; i < B_HEALTHBAR_NUM_TILES; i++)
         {
             u8 healthbarSpriteId = gSprites[gBattleSpritesDataPtr->battleBars[battlerId].healthboxSpriteId].sHealthBarSpriteId;
+
             if (i < 2) // first 2 tiles are on left healthbar sprite
                 CpuCopy32(GetBattleInterfaceGfxPtr(barElementId) + filledPixels[i] * TILE_SIZE_4BPP,
                           (void *)(OBJ_VRAM0 + (gSprites[healthbarSpriteId].oam.tileNum + 2 + i) * TILE_SIZE_4BPP), // + 2 here is due to B_INTERFACE_GFX_HP_BAR_HP_TEXT
@@ -2246,4 +2283,49 @@ static void SafariTextIntoHealthboxObject(void *dest, u8 *windowTileData, u32 wi
 {
     CpuCopy32(windowTileData, dest, windowWidth * TILE_SIZE_4BPP);
     CpuCopy32(windowTileData + 256, dest + 256, windowWidth * TILE_SIZE_4BPP);
+}
+
+void SetHPBarColorsForZapmolcunoOhgia(void)
+{
+    u16 colorMain, colorShadow, colorEmptyMain, colorEmptyShadow;
+    u8 battlePhase = VarGet(VAR_CSR_FINAL_BATTLE_PHASE);
+
+    switch (battlePhase)
+    {
+    case B_FINAL_BATTLE_LUGIA:
+        colorMain = B_HEALTHBAR_COLOR_LUGIA_MAIN;
+        colorShadow = B_HEALTHBAR_COLOR_LUGIA_SHADOW;
+        colorEmptyMain = B_HEALTHBAR_COLOR_LUGIA_EMPTY_MAIN;
+        colorEmptyShadow = B_HEALTHBAR_COLOR_LUGIA_EMPTY_SHADOW;
+        break;
+    case B_FINAL_BATTLE_ARTICUNO:
+        colorMain = B_HEALTHBAR_COLOR_ARTICUNO_MAIN;
+        colorShadow = B_HEALTHBAR_COLOR_ARTICUNO_SHADOW;
+        colorEmptyMain = B_HEALTHBAR_COLOR_ARTICUNO_EMPTY_MAIN;
+        colorEmptyShadow = B_HEALTHBAR_COLOR_ARTICUNO_EMPTY_SHADOW;
+        break;
+    case B_FINAL_BATTLE_HOOH:
+        colorMain = B_HEALTHBAR_COLOR_HO_OH_MAIN;
+        colorShadow = B_HEALTHBAR_COLOR_HO_OH_SHADOW;
+        colorEmptyMain = B_HEALTHBAR_COLOR_HO_OH_EMPTY_MAIN;
+        colorEmptyShadow = B_HEALTHBAR_COLOR_HO_OH_EMPTY_SHADOW;
+        break;
+    case B_FINAL_BATTLE_ZAPDOS:
+        colorMain = B_HEALTHBAR_COLOR_ZAPDOS_MAIN;
+        colorShadow = B_HEALTHBAR_COLOR_ZAPDOS_SHADOW;
+        colorEmptyMain = B_HEALTHBAR_COLOR_ZAPDOS_EMPTY_MAIN;
+        colorEmptyShadow = B_HEALTHBAR_COLOR_ZAPDOS_EMPTY_SHADOW;
+        break;
+    case B_FINAL_BATTLE_MOLTRES:
+        colorMain = B_HEALTHBAR_COLOR_MOLTRES_MAIN;
+        colorShadow = B_HEALTHBAR_COLOR_MOLTRES_SHADOW;
+        colorEmptyMain = B_HEALTHBAR_COLOR_MOLTRES_EMPTY_MAIN;
+        colorEmptyShadow = B_HEALTHBAR_COLOR_MOLTRES_EMPTY_SHADOW;
+        break;
+    default: // default colors
+        ResetHealthBarPalette(TAG_HEALTHBAR_OPPONENT_PAL);
+        return;
+    }
+
+    UpdateHealthBarPalette(TAG_HEALTHBAR_OPPONENT_PAL, colorEmptyMain, colorEmptyShadow, colorMain, colorShadow);
 }

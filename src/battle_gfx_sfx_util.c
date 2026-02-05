@@ -99,7 +99,7 @@ static const struct CompressedSpriteSheet sSpriteSheets_HealthBar[MAX_BATTLERS_C
     },
 };
 
-const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2] =
+const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[3] =
 {
     {
         .data = gBattleInterface_Healthbox_Pal,
@@ -108,6 +108,10 @@ const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2] =
     {
         .data = gBattleInterface_Healthbar_Pal,
         .tag = TAG_HEALTHBAR_PAL,
+    },
+    {
+        .data = gBattleInterface_Healthbar_Pal,
+        .tag = TAG_HEALTHBAR_OPPONENT_PAL,
     },
 };
 
@@ -501,6 +505,7 @@ static void BattleLoadAllHealthBoxesGfxAtOnce(void)
 
     LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[0]);
     LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[1]);
+    LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[2]);
     if (!IsDoubleBattle())
     {
         LoadCompressedSpriteSheetUsingHeap(&sSpriteSheet_SinglesPlayerHealthbox);
@@ -529,6 +534,15 @@ bool8 BattleLoadAllHealthBoxesGfx(u8 state)
         {
             LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[0]);
             LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[1]);
+            LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[2]);
+
+            // special health bar handling for Zapmolcuno-Ohgia
+            // it only loads the green health bar tiles and then adjusts the palette accordingly
+            if (!gBattleStruct->hasLoadedBoxPalette && (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+            {
+                SetHPBarColorsForZapmolcunoOhgia();
+                gBattleStruct->hasLoadedBoxPalette = TRUE;
+            }
         }
         else if (!IsDoubleBattle())
         {

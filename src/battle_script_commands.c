@@ -3310,7 +3310,7 @@ static void Cmd_tryfaintmon(void)
             }
 
             // special handling for switching the legendary birds during the Zapmolcuno fight
-            if ((GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) < 4)) // only replace opponent's Zapmolcuno during the first 4 phases
+            if ((GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) < B_FINAL_BATTLE_MOLTRES)) // only replace opponent's Zapmolcuno during the first 4 phases
             {
                 gBattlerFainted = gActiveBattler;
                 gBattleMons[gActiveBattler].species = GetCurrentZapmolcunoSpecies();

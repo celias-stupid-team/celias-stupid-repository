@@ -438,7 +438,7 @@ struct BattleStruct
     u8 battlerPartyOrders[MAX_BATTLERS_COUNT][3];
     u8 runTries;
     u8 caughtMonNick[POKEMON_NAME_LENGTH + 1];
-    u8 field_78; // unused
+    u8 hasLoadedBoxPalette;
     u8 safariRockThrowCounter;
     u8 safariBaitThrowCounter;
     u8 safariEscapeFactor;
