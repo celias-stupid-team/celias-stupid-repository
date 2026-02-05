@@ -346,3 +346,48 @@ script PokemonIslandLab_Computer2 {
 	"trust me", MSGBOX_DEFAULT)
     release
 }
+
+
+script PokemonIsland_Signs {
+    lock
+    msgbox(
+	"POKéMON SIGNS that you've\n"
+	"found:", MSGBOX_DEFAULT)
+    if(flag(FLAG_KINGLER_SIGN)) {
+        msgbox(
+            "KINGLER ROCK\n"
+            "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_DUGTRIO_SIGN)) {
+        msgbox(
+        "MT. DUGTRIO\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_GROWLITHE_SIGN)) {
+        msgbox(
+        "ALOLAN GROWLITHE\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_ONIX_TAIL_SIGN)) {
+        msgbox(
+        "MEMORIAL PILLAR\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_IVY_SIGN)) {
+        msgbox(
+        "IVY'S INCREDIBLE EVENT\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_ELECTIVIRE_SIGN)) {
+        msgbox(
+        "SHADOW OF HIS FORMER SELF\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_AMBIGUOUS_STATUE_SIGN)) {
+        msgbox(
+        "LEGENDARY POKéMON STATUE\n"
+        "", MSGBOX_DEFAULT)
+    }
+    release
+
+}
