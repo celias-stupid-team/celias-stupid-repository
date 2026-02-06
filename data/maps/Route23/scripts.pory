@@ -72,53 +72,6 @@ Route23_EventScript_CascadeBadgeGuardTrigger::
 	goto Route23_EventScript_BadgeGuardTrigger
 	end
 
-Route23_EventScript_ThunderBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 3
-	setvar VAR_0x8009, LOCALID_THUNDER_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_THUNDER_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_RainbowBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 4
-	setvar VAR_0x8009, LOCALID_RAINBOW_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_RAINBOW_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_SoulBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 5
-	setvar VAR_0x8009, LOCALID_SOUL_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_SOUL_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_MarshBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 6
-	setvar VAR_0x8009, LOCALID_MARSH_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_MARSH_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_VolcanoBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 7
-	setvar VAR_0x8009, LOCALID_VOLCANO_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_VOLCANO_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_EarthBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 8
-	setvar VAR_0x8009, LOCALID_EARTH_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_EARTH_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
 
 Route23_EventScript_VictoryRoadGateSign::
 	msgbox Route23_Text_VictoryRoadGateSign, MSGBOX_SIGN
@@ -416,6 +369,247 @@ script IndigoPlateau_Lucca {
 	))
 	waitmovement(VAR_LAST_TALKED)
 	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_UP)
+	release
+	end
+}
+
+
+
+
+script Route23_EventScript_ThunderBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 3)
+	msgbox(
+	"You can pass here only if you have\n"
+	"the PHOTOSENSITIVE BADGE.", MSGBOX_DEFAULT)
+	if(flag(FLAG_BADGE03_GET)) {
+		msgbox(
+		"Oh!\n"
+		"That is the PHOTOSENSITIVE BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+
+		"Okay, then.\n"
+		"Please, go right ahead.", MSGBOX_DEFAULT)
+		setvar(VAR_MAP_SCENE_ROUTE23, 3)
+	} else {
+		msgbox(
+		"You don't have the\n"
+		"PHOTOSENSITIVE BADGE yet.\p"
+
+		"You have to have it to get to\n"
+		"the POKéMON LEAGUE.", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+script Route23_EventScript_RainbowBadgeGuardTrigger { 
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 4)
+
+	if(flag(FLAG_BADGE08_GET)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 4)
+		msgbox(
+		"Yes\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+
+script Route23_EventScript_SoulBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 5)
+	if(flag(FLAG_BADGE05_GET)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 5)
+		msgbox(
+		"Yes\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+
+script Route23_EventScript_MarshBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 6)
+	if(flag(FLAG_BADGE06_GET)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 6)
+		msgbox(
+		"Yes\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+
+script Route23_EventScript_VolcanoBadgeGuardTrigger { 
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 7)
+	if(flag(FLAG_BADGE07_GET)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 7)
+		msgbox(
+		"Yes\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+
+script Route23_EventScript_MinnesotaBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 8)
+	if(flag(FLAG_OBTAINED_ZEPHYRBADGE)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 8)
+		msgbox(
+		"Yes\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+script Route23_EventScript_FeatherBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 9)
+	if(flag(FLAG_OBTAINED_ZEPHYRBADGE)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 9)
+		msgbox(
+		"Yes\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+
+script Route23_EventScript_EarthBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 10)
+	if(flag(FLAG_BADGE08_GET)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 10)
+		msgbox(
+		"Yes\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
 	release
 	end
 }

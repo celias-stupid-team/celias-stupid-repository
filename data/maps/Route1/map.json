@@ -141,9 +141,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
-      "x": 2,
-      "y": 6,
+      "graphics_id": "OBJ_EVENT_GFX_PSYDUCK_SHADES",
+      "x": 4,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -156,7 +156,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LICHEN",
-      "x": 4,
+      "x": 2,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -198,10 +198,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RAVEPOSSUM",
-      "x": 6,
-      "y": 9,
+      "x": 3,
+      "y": 6,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -212,8 +212,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SLUGMA",
-      "x": 3,
-      "y": 6,
+      "x": 2,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -293,6 +293,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_ImposterOak",
       "flag": "FLAG_TEMP_6"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CHAIRRY",
+      "x": 2,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route1_CeliaCrew_Chairry",
+      "flag": "FLAG_TEMP_2"
     }
   ],
   "warp_events": [
