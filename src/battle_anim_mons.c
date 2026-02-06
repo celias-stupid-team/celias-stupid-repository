@@ -112,11 +112,41 @@ u8 GetBattlerSpriteCoord(u8 battlerId, u8 coordType)
     u16 species;
     struct BattleSpriteInfo *spriteInfo;
 
+    // get species for further usage lower down to enable species exceptions
+    if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
+    {
+        spriteInfo = gBattleSpritesDataPtr->battlerData;
+        if (!spriteInfo[battlerId].transformSpecies)
+            species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+        else
+            species = spriteInfo[battlerId].transformSpecies;
+    }
+    else
+    {
+        spriteInfo = gBattleSpritesDataPtr->battlerData;
+        if (!spriteInfo[battlerId].transformSpecies)
+            species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+        else
+            species = spriteInfo[battlerId].transformSpecies;
+    }
+
     switch (coordType)
     {
     case BATTLER_COORD_X:
     case BATTLER_COORD_X_2:
         retVal = sBattlerCoords[IS_DOUBLE_BATTLE()][GetBattlerPosition(battlerId)].x;
+        
+        // exception rules
+        if (species == SPECIES_FINALMOLTRES)
+        {
+            if (GetBattlerSide(battlerId) == B_SIDE_OPPONENT) 
+                retVal -= 3; // move left by 3 pixels
+        }
+        if (species == SPECIES_FINALZAPDOS)
+        {
+            if (GetBattlerSide(battlerId) == B_SIDE_OPPONENT) 
+                retVal -= 19; // move left by 19 pixels
+        }
         break;
     case BATTLER_COORD_Y:
         retVal = sBattlerCoords[IS_DOUBLE_BATTLE()][GetBattlerPosition(battlerId)].y;
@@ -124,22 +154,6 @@ u8 GetBattlerSpriteCoord(u8 battlerId, u8 coordType)
     case BATTLER_COORD_Y_PIC_OFFSET:
     case BATTLER_COORD_Y_PIC_OFFSET_DEFAULT:
     default:
-        if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
-        {
-            spriteInfo = gBattleSpritesDataPtr->battlerData;
-            if (!spriteInfo[battlerId].transformSpecies)
-                species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
-            else
-                species = spriteInfo[battlerId].transformSpecies;
-        }
-        else
-        {
-            spriteInfo = gBattleSpritesDataPtr->battlerData;
-            if (!spriteInfo[battlerId].transformSpecies)
-                species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
-            else
-                species = spriteInfo[battlerId].transformSpecies;
-        }
         if (coordType == BATTLER_COORD_Y_PIC_OFFSET)
             retVal = GetBattlerSpriteFinal_Y(battlerId, species, TRUE);
         else
@@ -280,6 +294,11 @@ u8 GetBattlerSpriteCoord2(u8 battlerId, u8 coordType)
     {
         return GetBattlerSpriteCoord(battlerId, coordType);
     }
+}
+
+u8 GetBattlerSpriteDefault_X(u8 battlerId)
+{
+    return GetBattlerSpriteCoord(battlerId, BATTLER_COORD_X_2);
 }
 
 u8 GetBattlerSpriteDefault_Y(u8 battlerId)

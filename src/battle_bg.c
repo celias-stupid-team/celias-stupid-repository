@@ -1011,7 +1011,10 @@ void DrawBattleEntryBackground(void)
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
-        LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_ZAPMOLCUNOOHGIA);
+        if (USE_TEST_TERRAIN)
+            LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_GRASS);
+        else
+            LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_ZAPMOLCUNOOHGIA);
     }
     else
     {
@@ -1055,8 +1058,16 @@ static u8 GetBattleTerrainOverride(void)
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
     {
-        gBattleTerrain = BATTLE_TERRAIN_ZAPMOLCUNOOHGIA;
-        return BATTLE_TERRAIN_ZAPMOLCUNOOHGIA;
+        if (USE_TEST_TERRAIN)
+        {
+            gBattleTerrain = BATTLE_TERRAIN_GRASS;
+            return BATTLE_TERRAIN_GRASS;
+        }
+        else
+        {
+            gBattleTerrain = BATTLE_TERRAIN_ZAPMOLCUNOOHGIA;
+            return BATTLE_TERRAIN_ZAPMOLCUNOOHGIA;
+        }
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {

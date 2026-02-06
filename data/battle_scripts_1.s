@@ -4160,10 +4160,15 @@ BattleScript_ZapmolcunoTransform::
 	pause B_WAIT_TIME_SHORT
 	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM
 	pause B_WAIT_TIME_SHORT
+	@ fadescreen FADE_TO_WHITE
+	@ waitforfade
+	handlespriteupdate BS_FAINTED
     updatebattlerdata BS_FAINTED
 	redrawhealthbox BS_FAINTED
 	healthbarupdate BS_FAINTED
 	datahpupdate BS_FAINTED
+	@ fadescreen FADE_FROM_WHITE
+	@ waitforfade
 	end2
 
 BattleScript_MoveEffectSleep::

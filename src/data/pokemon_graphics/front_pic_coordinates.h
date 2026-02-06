@@ -6325,5 +6325,35 @@ const struct MonCoords gMonFrontPicCoords[] =
 		.size = MON_COORDS_SIZE(48, 32),
 		.y_offset = 2,
 	},
+	[SPECIES_FINALLUGIA] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 2,
+	},
+	[SPECIES_FINALARTICUNO] =
+	{
+		.size = MON_COORDS_SIZE(20, 40),
+		.y_offset = 0,
+	},
+	[SPECIES_FINALHOOH] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 2,
+	},
+	[SPECIES_FINALZAPDOS] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 2,
+	},
+	[SPECIES_FINALMOLTRES] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 2,
+	},
+	[SPECIES_FINALWARTORTLE] =
+	{
+		.size = MON_COORDS_SIZE(56, 48),
+        .y_offset = 9,
+	},
 
 };

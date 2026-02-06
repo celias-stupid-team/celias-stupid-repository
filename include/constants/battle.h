@@ -330,6 +330,8 @@
 #define BATTLE_TERRAIN_CHAMPION    19
 #define BATTLE_TERRAIN_ZAPMOLCUNOOHGIA 20
 
+#define USE_TEST_TERRAIN FALSE // set to FALSE for public release, only used for Zapmolcuno testing
+
 #define B_WAIT_TIME_LONGEST 96
 #define B_WAIT_TIME_LONG    64
 #define B_WAIT_TIME_MED     48

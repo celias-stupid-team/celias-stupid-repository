@@ -733,6 +733,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
         LZDecompressWram(lzPaletteData, buffer);
         LoadPalette(buffer, paletteOffset, PLTT_SIZE_4BPP);
         Free(buffer);
+        gSprites[gBattlerSpriteIds[battlerAtk]].x = GetBattlerSpriteDefault_X(battlerAtk);
         gSprites[gBattlerSpriteIds[battlerAtk]].y = GetBattlerSpriteDefault_Y(battlerAtk);
         StartSpriteAnim(&gSprites[gBattlerSpriteIds[battlerAtk]], gBattleMonForms[battlerAtk]);
         SetMonData(mon, MON_DATA_NICKNAME, gSpeciesNames[targetSpecies]);
@@ -1039,8 +1040,12 @@ void SpriteCB_SetInvisible(struct Sprite *sprite)
 
 void SetBattlerShadowSpriteCallback(u8 battlerId, u16 species)
 {
+    DebugPrintf("SetBattlerShadowSpriteCallback");
     // The player's shadow is never seen.
     if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+        return;
+
+    if (IsZapmolcunoOhgiaSpecies(species))
         return;
 
     if (gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != SPECIES_NONE)

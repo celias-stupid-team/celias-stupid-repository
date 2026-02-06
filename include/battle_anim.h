@@ -217,6 +217,7 @@ void DoFreeHealthboxPalsForLevelUp(u8 batterId);
 void LaunchStatusAnimation(u8 battlerId, u8 statusAnimId);
 u8 GetBattlerSpriteCoord(u8 battlerId, u8 coordType);
 u8 GetBattlerSpriteCoord2(u8 battlerId, u8 coordType);
+u8 GetBattlerSpriteDefault_X(u8 battlerId);
 u8 GetBattlerSpriteDefault_Y(u8 battlerId);
 u8 GetSubstituteSpriteDefault_Y(u8 battlerId);
 u8 GetGhostSpriteDefault_Y(u8 battlerId);
