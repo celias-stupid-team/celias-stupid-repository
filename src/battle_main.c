@@ -2941,10 +2941,8 @@ static void HandleEndTurn_ContinueBattle(void)
 {
     s32 i;
 
-    DebugPrintf("??? HandleEndTurn_ContinueBattle - gBattleControllerExecFlags = %d ###\n", gBattleControllerExecFlags);
     if (gBattleControllerExecFlags == 0)
     {
-        DebugPrintf("HandleEndTurn_ContinueBattle - call BattleTurnPassed");
         gBattleMainFunc = BattleTurnPassed;
         for (i = 0; i < BATTLE_COMMUNICATION_ENTRIES_COUNT; i++)
             gBattleCommunication[i] = 0;
@@ -2966,8 +2964,7 @@ static void HandleEndTurn_ContinueBattle(void)
 void BattleTurnPassed(void)
 {
     s32 i;
-    DebugPrintf("### BattleTurnPassed() - gBattleOutcome = %d, gBattleStruct->faintedActionsState = %d ###", gBattleOutcome, gBattleStruct->faintedActionsState);
-
+    
     TurnValuesCleanUp(TRUE);
     if (gBattleOutcome == 0)
     {
@@ -3001,7 +2998,6 @@ void BattleTurnPassed(void)
     }
     if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM) && gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
     {
-        DebugPrintf("### activate Rotom Battle UI ###\n");
         // ToDo wiz1989: Activate Rotom Battle UI
         FlagSet(FLAG_SYS_ROTOM_BATTLE_UI);
         gBattleSwitchFromPSS = TRUE;
@@ -3462,10 +3458,7 @@ static void HandleTurnActionSelectionState(void)
     }
     // Check if everyone chose actions.
     if (gBattleCommunication[ACTIONS_CONFIRMED_COUNT] == gBattlersCount)
-    {
-        DebugPrintf("everyone chose actions\n");
         gBattleMainFunc = SetActionsAndBattlersTurnOrder;
-    }
 }
 
 void SwapTurnOrder(u8 id1, u8 id2)
@@ -3521,10 +3514,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
     // abilities
     if (gBattleMons[battler1].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
-    {
-        DebugPrintf("Cut Speed from Slow Start");
         speedBattler1 = speedBattler1 / 100;
-        }
     
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
@@ -3557,10 +3547,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
     // abilities
     if (gBattleMons[battler2].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
-            {
-        DebugPrintf("Cut Speed from Slow Start");
         speedBattler1 = speedBattler1 / 100;
-        }
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
      && FlagGet(FLAG_BADGE03_GET)
@@ -3661,8 +3648,6 @@ static void SetActionsAndBattlersTurnOrder(void)
 {
     s32 turnOrderId = 0;
     s32 i, j;
-
-    DebugPrintf("SetActionsAndBattlersTurnOrder");
 
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
     {
@@ -3803,7 +3788,6 @@ static void SpecialStatusesClear(void)
 
 static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
 {
-    DebugPrintf("CheckFocusPunch_ClearVarsBeforeTurnStarts");
     if (!(gHitMarker & HITMARKER_RUN))
     {
         while (gBattleStruct->focusPunchBattlerId < gBattlersCount)
@@ -3844,7 +3828,6 @@ void RunTurnActionsFunctions(void)
     *(&gBattleStruct->savedTurnActionNumber) = gCurrentTurnActionNumber;
     sTurnActionsFuncsTable[gCurrentActionFuncId]();
 
-    // DebugPrintf("RunTurnActionsFunctions - CurrentTurnActionNumber: %d >= %d ?", gCurrentTurnActionNumber, gBattlersCount);
     if (gCurrentTurnActionNumber >= gBattlersCount) // everyone did their actions, turn finished
     {
         gHitMarker &= ~(HITMARKER_PASSIVE_DAMAGE);
@@ -3932,7 +3915,6 @@ static void HandleEndTurn_BattleLost(void)
         {
             gBattleCommunication[MULTISTRING_CHOOSER] = 0;
         }
-        DebugPrintf("Battle Lost");
         gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
     }
     gBattleMainFunc = HandleEndTurn_FinishBattle;
@@ -4096,13 +4078,10 @@ static void ReturnFromBattleToOverworld(void)
 
 void RunBattleScriptCommands_PopCallbacksStack(void)
 {
-    // DebugPrintf("RunBattleScriptCommands_PopCallbacksStack");
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
-        DebugPrintf("gCurrentActionFuncId = %d", gCurrentActionFuncId);
         if (gBattleResources->battleCallbackStack->size != 0)
             gBattleResources->battleCallbackStack->size--;
-        DebugPrintf("Reset gBattleMainFunc from stack, new size: %d", gBattleResources->battleCallbackStack->size);
         gBattleMainFunc = gBattleResources->battleCallbackStack->function[gBattleResources->battleCallbackStack->size];
     }
     else
@@ -4302,8 +4281,6 @@ static void HandleAction_UseMove(void)
             }
         }
     }
-    //DebugPrintf("Move = %d", gCurrentMove);
-    //DebugPrintf("Move effect = %d", gBattleMoves[gCurrentMove].effect);
     gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
@@ -4633,14 +4610,11 @@ static void HandleAction_OldManBallThrow(void)
 
 static void HandleAction_TryFinish(void)
 {
-    DebugPrintf("HandleAction_TryFinish ###");
     if (!HandleFaintedMonActions())
     {
         gBattleStruct->faintedActionsState = 0;
-        DebugPrintf("set B_ACTION_FINISHED");
         gCurrentActionFuncId = B_ACTION_FINISHED;
     }
-    DebugPrintf("\n");
 }
 
 static void HandleAction_NothingIsFainted(void)
@@ -4683,7 +4657,6 @@ static void HandleAction_ActionFinished(void)
     //reset party data after a PSS switch
     if (gMadePSSSwitch)
     {
-        DebugPrintf("### Resetting gMadePSSSwitch ###\n");
         ResetPartyData(RESET_OPTION_ALL);
         gMadePSSSwitch = FALSE;
     }

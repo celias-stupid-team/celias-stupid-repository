@@ -516,8 +516,6 @@ u8 DoFieldEndTurnEffects(void)
     u8 effect = 0;
     s32 i;
 
-    DebugPrintf("DoFieldEndTurnEffects");
-
     for (gBattlerAttacker = 0; gBattlerAttacker < gBattlersCount && gAbsentBattlerFlags & gBitTable[gBattlerAttacker]; gBattlerAttacker++)
     {
     }
@@ -528,8 +526,7 @@ u8 DoFieldEndTurnEffects(void)
     do
     {
         u8 side;
-        DebugPrintf("current EndTurn effect: %d", gBattleStruct->turnCountersTracker);
-
+        
         switch (gBattleStruct->turnCountersTracker)
         {
         case ENDTURN_ORDER:
@@ -816,7 +813,6 @@ u8 DoBattlerEndTurnEffects(void)
 {
     u8 effect = 0;
 
-    DebugPrintf("current EndTurn effect: %d", gBattleStruct->turnEffectsTracker);
     gHitMarker |= (HITMARKER_GRUDGE | HITMARKER_SKIP_DMG_TRACK);
     while (gBattleStruct->turnEffectsBattlerId < gBattlersCount && gBattleStruct->turnEffectsTracker <= ENDTURN_BATTLER_COUNT)
     {
@@ -1271,7 +1267,6 @@ bool8 HandleFaintedMonActions(void)
 
     do
     {
-        DebugPrintf("faintedActionsState =%d", gBattleStruct->faintedActionsState);
         switch (gBattleStruct->faintedActionsState)
         {
         case 0:
@@ -1293,7 +1288,6 @@ bool8 HandleFaintedMonActions(void)
                 {
                     BattleScriptExecute(BattleScript_GiveExp);
                     gBattleStruct->faintedActionsState = 2;
-                    DebugPrintf("Give EXP - return TRUE");
                     return TRUE;
                 }
             } while (++gBattleStruct->faintedActionsBattlerId != gBattlersCount);
@@ -1342,7 +1336,7 @@ bool8 HandleFaintedMonActions(void)
             break;
         }
     } while (gBattleStruct->faintedActionsState != FAINTED_ACTIONS_MAX_CASE);
-    DebugPrintf("HandleFaintedMonActions End");
+    
     return FALSE;
 }
 
@@ -1933,7 +1927,6 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 effect = CastformDataTypeChange(battler);
                 if (effect != 0)
                 {
-                    DebugPrintf("ABILITY_FORECAST");
                     BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
                     gBattleScripting.battler = battler;
                     *(&gBattleStruct->formToChangeInto) = effect - 1;
@@ -2398,7 +2391,6 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     effect = CastformDataTypeChange(battler);
                     if (effect != 0)
                     {
-                        DebugPrintf("ABILITYEFFECT_FORECAST");
                         BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
                         gBattleScripting.battler = battler;
                         *(&gBattleStruct->formToChangeInto) = effect - 1;
@@ -2699,7 +2691,6 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 
 void BattleScriptExecute(const u8 *BS_ptr)
 {
-    DebugPrintf("BattleScriptExecute - REQUIRED!");
     gBattlescriptCurrInstr = BS_ptr;
     gBattleResources->battleCallbackStack->function[gBattleResources->battleCallbackStack->size++] = gBattleMainFunc;
     gBattleMainFunc = RunBattleScriptCommands_PopCallbacksStack;

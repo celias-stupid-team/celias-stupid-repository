@@ -2916,9 +2916,7 @@ void ExternalLoadPC(void) //wiz1989
     // Save critical battle data before freeing
     if (gBattleStruct != NULL)
     {
-        DebugPrintf("\nsave BattleStruct data - current action func ID = %d ###", gCurrentActionFuncId);
         gSavedFaintedActionsState = gBattleStruct->faintedActionsState;
-        DebugPrintf("save faintedActionsState = %d", gSavedFaintedActionsState);
         gSavedFaintedActionsBattlerId = gBattleStruct->faintedActionsBattlerId;
 
         gSavedBattleCallbackStack.size = gBattleResources->battleCallbackStack->size;
@@ -2935,7 +2933,6 @@ void ExternalLoadPC(void) //wiz1989
 
         gSavedTurnEffectsTracker = gBattleStruct->turnEffectsTracker;
         gSavedTurnCountersTracker = gBattleStruct->turnCountersTracker;        
-        DebugPrintf("save trackers = %d %d", gSavedTurnEffectsTracker, gSavedTurnCountersTracker);
     }
 
     //Free memory

@@ -2613,7 +2613,6 @@ static void PlayerHandleChoosePokemon(void)
         // ### PSS battle switches - step 1 ###
         if (gBattleSwitchFromPSS)
         {
-            DebugPrintf(" ### PSS Switch Out Detected ###\n");
             gActionSelectionCursor[gActiveBattler] = 0;
             gMoveSelectionCursor[gActiveBattler] = 0;
             

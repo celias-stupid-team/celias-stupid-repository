@@ -405,7 +405,6 @@ static void CreatePCMainMenu(u8 whichMenu, s16 *windowIdPtr)
 
 void CB2_ExitPokeStorage(void) //wiz1989
 {
-    DebugPrintf("\nCB2_ExitPokeStorage - restore battle data ###");
     sPreviousBoxOption = GetCurrentBoxOption();
     if (gMain.inBattle)
     {
@@ -437,8 +436,7 @@ void CB2_ExitPokeStorage(void) //wiz1989
         // restore turn effects and counters trackers
         gBattleStruct->turnEffectsTracker = gSavedTurnEffectsTracker;
         gBattleStruct->turnCountersTracker = gSavedTurnCountersTracker;
-        DebugPrintf("restore trackers = %d %d", gSavedTurnEffectsTracker, gSavedTurnCountersTracker);
-
+        
         // restore BattleCallbackStack
         gBattleResources->battleCallbackStack->size = gSavedBattleCallbackStack.size;
         for (i = 0; i < gSavedBattleCallbackStack.size; i++)

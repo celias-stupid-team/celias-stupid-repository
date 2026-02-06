@@ -3845,7 +3845,6 @@ static void Cmd_checkteamslost(void)
 {
     u16 HP_count = 0;
     s32 i;
-    DebugPrintf("checkteamslost");
 
     if (gBattleControllerExecFlags)
         return;
@@ -4275,7 +4274,6 @@ static void Cmd_end(void)
 
 static void Cmd_end2(void)
 {
-    DebugPrintf("Cmd_end2");
     gActiveBattler = 0;
     gCurrentActionFuncId = B_ACTION_TRY_FINISH;
 }
@@ -4283,12 +4281,10 @@ static void Cmd_end2(void)
 // Pops the main function stack
 static void Cmd_end3(void)
 {
-    DebugPrintf("end3 - current script stack size = %d", gBattleResources->battleScriptsStack->size);
     BattleScriptPop();
     if (gBattleResources->battleCallbackStack->size != 0)
         gBattleResources->battleCallbackStack->size--;
     gBattleMainFunc = gBattleResources->battleCallbackStack->function[gBattleResources->battleCallbackStack->size];
-    DebugPrintf("callback size: %d, new main func = %d", gBattleResources->battleCallbackStack->size, gBattleMainFunc);
 }
 
 static void Cmd_call(void)
@@ -4986,8 +4982,6 @@ static void Cmd_switchindataupdate(void)
     s32 i;
     u8 *monData;
 
-    DebugPrintf("### Cmd_switchindataupdate - stack size = %d###\n", gBattleResources->battleCallbackStack->size);
-
     if (gBattleControllerExecFlags)
         return;
 
@@ -5147,7 +5141,6 @@ bool32 CanBattlerSwitch(u32 battler)
 // Note that this is not used by the Switch action, only replacing fainted Pokémon or Baton Pass
 static void ChooseMonToSendOut(u8 slotId)
 {
-    DebugPrintf("+++ ChooseMonToSendOut +++\n");
     *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
     BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_SEND_OUT, slotId, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
     MarkBattlerForControllerExec(gActiveBattler);
@@ -5159,8 +5152,6 @@ static void Cmd_openpartyscreen(void)
     u8 hitmarkerFaintBits;
     u8 battlerId;
     const u8 *jumpPtr;
-
-    DebugPrintf("+++ openpartyscreen +++");
 
     battlerId = 0;
     flags = 0;
@@ -5405,7 +5396,6 @@ static void Cmd_openpartyscreen(void)
         }
         else
         {
-            DebugPrintf("Choose Pokemon");
             gActiveBattler = battlerId;
             *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
 
@@ -5439,7 +5429,6 @@ static void Cmd_openpartyscreen(void)
             }
         }
     }
-    DebugPrintf("+++ End openpartyscreen +++");
 }
 
 static void Cmd_switchhandleorder(void)
@@ -5498,8 +5487,6 @@ static void Cmd_switchineffects(void)
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     UpdateSentPokesToOpponentValue(gActiveBattler);
-
-    DebugPrintf("Cmd_switchineffects for battler %d\n", gActiveBattler);
 
     gHitMarker &= ~HITMARKER_FAINTED(gActiveBattler);
     gSpecialStatuses[gActiveBattler].faintedHasReplacement = FALSE;
@@ -5594,7 +5581,6 @@ static void Cmd_switchineffects(void)
         if (!AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, gActiveBattler, 0, 0, 0)
             && !ItemBattleEffects(ITEMEFFECT_ON_SWITCH_IN, gActiveBattler, FALSE))
         {
-            DebugPrintf("Cmd_switchineffects");
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_SPIKES_DAMAGED;
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_STEALTH_ROCK_DAMAGED;
 
@@ -5627,7 +5613,6 @@ static void Cmd_switchineffects(void)
             gBattlescriptCurrInstr += 2;
         }
     }
-    DebugPrintf("### finished Cmd_switchineffects");
 }
 
 static void Cmd_trainerslidein(void)
@@ -6978,7 +6963,6 @@ static void Cmd_various(void)
         {
             VARIOUS_ARGS();
             u8 battler = GetBattlerForBattleScript(cmd->battler);
-            DebugPrintf("VARIOUS_SWITCHIN_ABILITIES");
 
             gBattlescriptCurrInstr = cmd->nextInstr;
             AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS, battler, 0, 0, 0);
@@ -10237,7 +10221,6 @@ static void Cmd_docastformchangeanimation(void)
 static void Cmd_trycastformdatachange(void)
 {
     u8 form;
-    DebugPrintf("Cmd_trycastformdatachange");
 
     gBattlescriptCurrInstr++;
     form = CastformDataTypeChange(gBattleScripting.battler);
@@ -10493,12 +10476,12 @@ static void Cmd_handleballthrow(void)
                     ballMultiplier = 40;
                 break;
             case SEAL_CASE_BALL:
-                if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
-                    DebugPrintf("Species is seel");
+                if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL)
+                {
                     ballMultiplier = 100; //check if opponent is Seal
-
-                } else {
-                    DebugPrintf("Species is not seel");
+                }
+                else
+                {
                     AddBagItem(ITEM_SEAL_CASE, 1);
                     ballMultiplier = 0;
                 }
@@ -11079,7 +11062,7 @@ void SaveBattlerTarget(u32 battler)
 {
     if (gBattleStruct->savedTargetCount < NELEMS(gBattleStruct->savedBattlerTarget))
         gBattleStruct->savedBattlerTarget[gBattleStruct->savedTargetCount++] = battler;
-    // else
+    else
         DebugPrintf("Attempting to exceed savedBattlerTarget array size!");
 }
 
@@ -11087,7 +11070,7 @@ void SaveBattlerAttacker(u32 battler)
 {
     if (gBattleStruct->savedAttackerCount < NELEMS(gBattleStruct->savedBattlerAttacker))
         gBattleStruct->savedBattlerAttacker[gBattleStruct->savedAttackerCount++] = battler;
-    // else
+    else
         DebugPrintf("Attempting to exceed savedBattlerAttacker array size!");
 }
 
@@ -11464,8 +11447,6 @@ void BS_FadeScreen(void)
 
     if (gBattleControllerExecFlags)
         return;
-
-    DebugPrintf("BS_FadeScreen mode: %d", cmd->mode);
 
     switch (cmd->mode)
     {
