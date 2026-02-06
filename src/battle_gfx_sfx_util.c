@@ -537,12 +537,8 @@ bool8 BattleLoadAllHealthBoxesGfx(u8 state)
             LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[2]);
 
             // special health bar handling for Zapmolcuno-Ohgia
-            // it only loads the green health bar tiles and then adjusts the palette accordingly
-            if (!gBattleStruct->hasLoadedBoxPalette && (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
-            {
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
                 SetHPBarColorsForZapmolcunoOhgia();
-                gBattleStruct->hasLoadedBoxPalette = TRUE;
-            }
         }
         else if (!IsDoubleBattle())
         {

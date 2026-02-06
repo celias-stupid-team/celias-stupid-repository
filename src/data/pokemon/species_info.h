@@ -36448,6 +36448,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE, // probably wrong, but helpful for testing
     },
 
 };

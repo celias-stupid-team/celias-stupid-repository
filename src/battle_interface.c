@@ -2011,9 +2011,11 @@ static void MoveBattleBarGraphically(u8 battlerId, u8 whichBar)
         // it only loads the green health bar tiles and then adjusts the palette accordingly
         if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && battlerId == 1)
         {
+            u16 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
             SetHPBarColorsForZapmolcunoOhgia();
             // barElementId defines the used tile map ids (= green bar tiles)
-            barElementId = B_INTERFACE_GFX_HP_BAR_GREEN;
+            if (species >= SPECIES_FINALLUGIA && species <= SPECIES_FINALMOLTRES)
+                barElementId = B_INTERFACE_GFX_HP_BAR_GREEN;
         }
 
         for (i = 0; i < B_HEALTHBAR_NUM_TILES; i++)
