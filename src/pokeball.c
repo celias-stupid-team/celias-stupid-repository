@@ -366,6 +366,7 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
     bool8 notSendOut = FALSE;
     s16 x, y;
     u32 gender;
+    u16 species;
 
     if (gTasks[taskId].tFrames == 0)
     {
@@ -415,8 +416,12 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
         gBattlerTarget = battlerId;
         gSprites[ballSpriteId].data[0] = 0;
         gSprites[ballSpriteId].callback = SpriteCB_OpponentMonSendOut;
-        if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+
+        species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+        if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && IsZapmolcunoOhgiaSpecies(species))
             gSprites[ballSpriteId].invisible = TRUE;
+        else
+            gSprites[ballSpriteId].invisible = FALSE;
         break;
     default:
         gBattlerTarget = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
@@ -772,10 +777,11 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
 {
     u8 battlerId = sprite->sBattler;
     u32 ballId;
+    u16 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
 
     StartSpriteAnim(sprite, 1);
     ballId = GetBattlerPokeballItemId(battlerId);
-    if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+    if (!IsZapmolcunoOhgiaSpecies(species))
         AnimateBallOpenParticles(sprite->x, sprite->y - 5, 1, 28, ballId);
     sprite->data[0] = LaunchBallFadeMonTask(TRUE, sprite->sBattler, 14, ballId);
     sprite->callback = HandleBallAnimEnd;

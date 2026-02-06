@@ -348,10 +348,7 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
     otId = GetMonData(mon, MON_DATA_OT_ID);
     position = GetBattlerPosition(battlerId);
 
-    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) //wiz1989 - required? could use separate invisible front sprite when the species is created.
-        LZ77UnCompWram(gMonFrontPic_Invisible, gMonSpritesGfxPtr->sprites[position]);
-    else
-        HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species],
+    HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species],
                                               gMonSpritesGfxPtr->sprites[position],
                                               species, currentPersonality);
     paletteOffset = OBJ_PLTT_ID(battlerId);

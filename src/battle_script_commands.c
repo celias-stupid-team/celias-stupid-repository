@@ -11531,7 +11531,7 @@ void BS_JumpIfZapmolcunoSpecies(void)
         mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
     
     species = GetMonData(mon, MON_DATA_SPECIES);
-    if (species >= SPECIES_FINALLUGIA && species <= SPECIES_FINALMOLTRES)
+    if (IsZapmolcunoOhgiaSpecies(species))
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;

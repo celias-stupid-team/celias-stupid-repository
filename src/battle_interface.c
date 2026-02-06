@@ -1521,8 +1521,7 @@ void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
     GetMonData(mon, MON_DATA_NICKNAME, nickname);
     species = GetMonData(mon, MON_DATA_SPECIES);
 
-    if (species >= SPECIES_FINALLUGIA && species <= SPECIES_FINALMOLTRES
-      && GetBattlerSide(gSprites[healthboxSpriteId].sBattlerId) != B_SIDE_PLAYER)
+    if (IsZapmolcunoOhgiaSpecies(species) && GetBattlerSide(gSprites[healthboxSpriteId].sBattlerId) != B_SIDE_PLAYER)
     {
         struct WindowTemplate winTemplate = sHealthboxWindowTemplate;
         u16 winNickname;
@@ -2014,7 +2013,7 @@ static void MoveBattleBarGraphically(u8 battlerId, u8 whichBar)
             u16 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
             SetHPBarColorsForZapmolcunoOhgia();
             // barElementId defines the used tile map ids (= green bar tiles)
-            if (species >= SPECIES_FINALLUGIA && species <= SPECIES_FINALMOLTRES)
+            if (IsZapmolcunoOhgiaSpecies(species))
                 barElementId = B_INTERFACE_GFX_HP_BAR_GREEN;
         }
 

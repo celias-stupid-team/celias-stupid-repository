@@ -9767,10 +9767,10 @@ const u8 gMonIcon_FINALMOLTRES[] = INCBIN_U8("graphics/pokemon/finalmoltres/icon
 const u8 gMonFootprint_FINALMOLTRES[] = INCBIN_U8("graphics/pokemon/finalmoltres/footprint.1bpp");
 
 // FINAL_WARTORTLE
-const u32 gMonFrontPic_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/finalwartortle/front.4bpp.lz");
-const u32 gMonPalette_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/finalwartortle/normal.gbapal.lz");
-const u32 gMonBackPic_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/finalwartortle/back.4bpp.lz");
-const u32 gMonShinyPalette_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/finalwartortle/shiny.gbapal.lz");
-const u8 gMonIcon_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/finalwartortle/icon.4bpp");
-const u8 gMonFootprint_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/finalwartortle/footprint.1bpp");
-
+// was using path finalwartortle before
+const u32 gMonFrontPic_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/wartortle/front.4bpp.lz");
+const u32 gMonPalette_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/wartortle/normal.gbapal.lz");
+const u32 gMonBackPic_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/wartortle/back.4bpp.lz");
+const u32 gMonShinyPalette_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/wartortle/shiny.gbapal.lz");
+const u8 gMonIcon_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/wartortle/icon.4bpp");
+const u8 gMonFootprint_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/wartortle/footprint.1bpp");

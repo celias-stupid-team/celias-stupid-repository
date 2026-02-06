@@ -3751,3 +3751,11 @@ bool32 IsSingleWildRattata(void)
 
     return TRUE;
 }
+
+bool32 IsZapmolcunoOhgiaSpecies(u16 species)
+{
+    if (species >= SPECIES_FINALLUGIA && species <= SPECIES_FINALMOLTRES)
+        return TRUE;
+    else
+        return FALSE;
+}
