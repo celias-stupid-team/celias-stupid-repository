@@ -157,7 +157,7 @@ script CopycatHouse_ChildDelivery {
 	"We have a special going for twins!\p"
 
 	"Thank you,\n"
-	"KANTO CHILD DELIVER SERVICE", MSGBOX_SIGN)
+	"KANTO CHILD DELIVERY SERVICE", MSGBOX_SIGN)
 
 }
 

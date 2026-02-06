@@ -5744,3 +5744,14 @@ const struct SpriteFrameImage gObjectEventPicTable_ALOLA_RAICHU[] = {
     overworld_frame(gObjectEventPic_ALOLA_RAICHU, 4, 4, 7),
     overworld_frame(gObjectEventPic_ALOLA_RAICHU, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_CHAIRRY[] = {
+    overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 0),
+    overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 1),
+    overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 2),
+    overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 0),
+    overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 0),
+    overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 1),
+    overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 1),
+    overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 2),
+    overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 2),
+};

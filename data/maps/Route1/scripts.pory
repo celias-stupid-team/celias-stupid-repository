@@ -321,3 +321,11 @@ script Route1_CeliaCrew_Starlight {
 	"map to escape, but the PIT is too\l"
 	"powerful to leave…", MSGBOX_NPC)
 }
+
+script Route1_CeliaCrew_Chairry {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"CHAIRRY: Please don't piss in my\n"
+	"keys", MSGBOX_SIGN)
+
+}
