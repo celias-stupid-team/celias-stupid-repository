@@ -1040,7 +1040,6 @@ void SpriteCB_SetInvisible(struct Sprite *sprite)
 
 void SetBattlerShadowSpriteCallback(u8 battlerId, u16 species)
 {
-    DebugPrintf("SetBattlerShadowSpriteCallback");
     // The player's shadow is never seen.
     if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
         return;

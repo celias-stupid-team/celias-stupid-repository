@@ -329,6 +329,7 @@
 #define BATTLE_TERRAIN_LANCE       18
 #define BATTLE_TERRAIN_CHAMPION    19
 #define BATTLE_TERRAIN_ZAPMOLCUNOOHGIA 20
+#define BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS 21
 
 #define USE_TEST_TERRAIN FALSE // set to FALSE for public release, only used for Zapmolcuno testing
 

@@ -12170,6 +12170,9 @@ extern const u32 gBattleTerrainPalette_Plain[];
 extern const u32 gBattleTerrainPalette_Zapmolcunoohgia[];
 extern const u32 gBattleTerrainTiles_Zapmolcunoohgia[];
 extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia[];
+extern const u32 gBattleTerrainPalette_Zapmolcunoohgia_Platforms[];
+extern const u32 gBattleTerrainTiles_Zapmolcunoohgia_Platforms[];
+extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia_Platforms[];
 extern const u32 gBattleTerrainTiles_Indoor[];
 extern const u32 gBattleTerrainTilemap_Indoor[];
 

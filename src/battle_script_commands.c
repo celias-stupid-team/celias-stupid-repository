@@ -852,7 +852,8 @@ static const u16 sNaturePowerMoves[] =
     [BATTLE_TERRAIN_CAVE]       = MOVE_SHADOW_BALL,
     [BATTLE_TERRAIN_BUILDING]   = MOVE_SWIFT,
     [BATTLE_TERRAIN_PLAIN]      = MOVE_SWIFT,
-    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA]      = MOVE_SWIFT
+    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA] = MOVE_SWIFT,
+    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS] = MOVE_SWIFT
 };
 
 // format: min. weight (hectograms), base power
@@ -5023,8 +5024,15 @@ static void Cmd_switchindataupdate(void)
 
 static void Cmd_switchinanim(void)
 {
+    // extern const u8 BattleScript_FaintedMonSendOutNew[];
+    // extern const u8 BattleScript_FaintedMonEnd[];
+
     if (gBattleControllerExecFlags)
         return;
+
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+      && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
+        LoadDefaultBg();
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
@@ -6917,6 +6925,10 @@ static void Cmd_various(void)
             struct BattleAnimBgData animBg;
             u8 *dest;
             u8 *src;
+
+            // wiz1989: load updated battle backgrounds for each of the phases of the final battle
+            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+                LoadDefaultBg();
 
             HandleSpeciesGfxDataChange(gBattleAnimAttacker, gBattleAnimTarget, 255);
             GetBattleAnimBgDataByPriorityRank(&animBg, gBattleAnimAttacker);
