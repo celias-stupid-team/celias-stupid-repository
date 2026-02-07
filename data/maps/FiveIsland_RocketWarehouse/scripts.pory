@@ -395,3 +395,11 @@ script DMCAWarehouse_Martphone {
 	ITEM_X_DEFEND
 	ITEM_NONE
  }
+
+
+ script DMCAWarehouse_NotOak {
+	msgbox(
+	"Hat's not OAK, silly!\n"
+	"", MSGBOX_NPC)
+
+}

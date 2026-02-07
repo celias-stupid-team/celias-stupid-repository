@@ -5755,3 +5755,14 @@ const struct SpriteFrameImage gObjectEventPicTable_CHAIRRY[] = {
     overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 2),
     overworld_frame(gObjectEventPic_CHAIRRY, 2, 2, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_HAT_NOT_OAK[] = {
+    overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 0),
+    overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 1),
+    overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 2),
+    overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 0),
+    overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 0),
+    overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 1),
+    overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 1),
+    overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 2),
+    overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 2),
+};
