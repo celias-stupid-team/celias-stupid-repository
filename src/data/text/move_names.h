@@ -1293,6 +1293,6 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_FREEZE_DRY]   = _("FREEZE-DRY"),
     [MOVE_LEAFAGE]   = _("LEA---E"),
     [MOVE_SHADOW_SHIELD]   = _("SHADOW SHIELD"),
-    [MOVE_QUINTUPLE_WINGBEAT]     = _("QUINTUPL WINGBEAT"),
+    [MOVE_QUINTUPLE_WINGBEAT]     = _("QUINTUPLE WINGBEAT"),
 }; //For any move which needs its name lengthened, these will display in battle.
 
