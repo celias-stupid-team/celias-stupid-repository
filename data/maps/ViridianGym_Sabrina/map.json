@@ -90,7 +90,7 @@
   "warp_events": [
     {
       "x": 21,
-      "y": 23,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"

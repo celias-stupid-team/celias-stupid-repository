@@ -73,6 +73,13 @@
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_KOGA",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
+      "dest_warp_id": "6"
     }
   ],
   "coord_events": [],
@@ -92,6 +99,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_Gym_EventScript_GymStatue"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DMCAErika_CeladonSign"
     }
   ]
 }

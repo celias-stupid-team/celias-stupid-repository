@@ -84,3 +84,19 @@ text ViridianGym_ErikaBattle_Start {
 text ViridianGym_ErikaBattle_End {
    "oh no\n"
 }
+
+
+script DMCAErika_CeladonSign {
+	msgbox(
+	"CELADON CITY\n"
+	"This way!\l"
+	"(kinda)", MSGBOX_SIGN)
+
+}
+
+script DMCAErika_Savestate {
+	msgbox(
+	"TRAINER TIPS!\n"
+	"Rememeber to savestate frequently!", MSGBOX_SIGN)
+
+}
