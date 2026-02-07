@@ -100,3 +100,78 @@ script DMCAErika_Savestate {
 	"Rememeber to savestate frequently!", MSGBOX_SIGN)
 
 }
+
+
+script DMCAErika_Drink1 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script DMCAErika_Drink2 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink3 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink4 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink5 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink6 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink7 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink8 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink9 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink10 {
+	msgbox(
+	"CELESTEELA TEQUILA\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink11 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}
+script DMCAErika_Drink12 {
+	msgbox(
+	"SCOVILLAIN SCOTCH\n"
+	"", MSGBOX_SIGN)
+
+}

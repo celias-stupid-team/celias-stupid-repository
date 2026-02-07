@@ -131,7 +131,7 @@
     {
       "local_id": "LOCALID_SPHEAL_2",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SPHEAL_SWIMMING",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 21,
       "y": 11,
       "elevation": 0,
@@ -347,9 +347,9 @@
       "dest_warp_id": "6"
     },
     {
-      "x": 21,
+      "x": 20,
       "y": 2,
-      "elevation": 3,
+      "elevation": 0,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "11"
     },
@@ -370,7 +370,7 @@
     {
       "x": 5,
       "y": 3,
-      "elevation": 1,
+      "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_ERIKA",
       "dest_warp_id": "2"
     },

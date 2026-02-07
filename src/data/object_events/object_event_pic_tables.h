@@ -5766,3 +5766,14 @@ const struct SpriteFrameImage gObjectEventPicTable_HAT_NOT_OAK[] = {
     overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 2),
     overworld_frame(gObjectEventPic_HAT_NOT_OAK, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_sphealio_evolved[] = {
+    overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 0),
+    overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 1),
+    overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 2),
+    overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 3),
+    overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 4),
+    overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 5),
+    overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 6),
+    overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 7),
+    overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 8),
+};

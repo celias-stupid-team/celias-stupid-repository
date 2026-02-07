@@ -536,6 +536,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ALOLA_MEOWTH;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ALOLA_RAICHU;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CHAIRRY;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HAT_NOT_OAK;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sphealio_evolved;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1073,4 +1074,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ALOLA_RAICHU] = &gObjectEventGraphicsInfo_ALOLA_RAICHU,
     [OBJ_EVENT_GFX_CHAIRRY] = &gObjectEventGraphicsInfo_CHAIRRY,
     [OBJ_EVENT_GFX_HAT_NOT_OAK] = &gObjectEventGraphicsInfo_HAT_NOT_OAK,
+    [OBJ_EVENT_GFX_SPHEALIO_EVOLVED] = &gObjectEventGraphicsInfo_sphealio_evolved,
 };
