@@ -644,8 +644,9 @@
 #define MOVE_FREEZE_DRY 639
 #define MOVE_LEAFAGE 640
 #define MOVE_SHADOW_SHIELD 641
+#define MOVE_QUINTUPLE_WINGBEAT 642
 
-#define MOVES_COUNT 642
+#define MOVES_COUNT 643
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

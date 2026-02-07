@@ -666,6 +666,7 @@ gBattleAnims_Moves::
 	.4byte Move_FREEZE_DRY
 	.4byte Move_LEAFAGE
 	.4byte Move_SHADOW_SHIELD
+	.4byte Move_QUINTUPLE_WINGBEAT
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -13565,7 +13566,8 @@ Move_CONFIDE:
 	createvisualtask SoundTask_WaitForCry, 5
 	waitforvisualfinish
 	end
-	
+
+Move_QUINTUPLE_WINGBEAT:
 Move_DUAL_WINGBEAT:
 	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_IMPACT

@@ -8145,4 +8145,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 6,
         .flags = 0,
     },
+
+    [MOVE_QUINTUPLE_WINGBEAT] =
+    {
+        .effect = EFFECT_MULTI_HIT_FIVE,
+        .power = 40,
+        .type = TYPE_FLYING,
+        .accuracy = 0,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 6,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
 };

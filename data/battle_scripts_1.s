@@ -5238,7 +5238,7 @@ BattleScript_EffectMultiHitFive::
 	setbyte sMULTIHIT_EFFECT, MOVE_EFFECT_POISON
 	attackstring
 	ppreduce
-	setmultihitcounter 10
+	setmultihitcounter 5
 	initmultihitstring
 	goto BattleScript_MultiHitLoop
 
