@@ -53,7 +53,7 @@ script SandwichShop_DonutGirl {
 script Route18_SandwichChef {
 	lock
 	msgbox("Ah, hello!\nWelcome to our AMERICAN Bakery!", MSGBOX_DEFAULT)
-	if(!checkitem(ITEM_SANDWICH_CASE)) {
+	if(!flag(FLAG_GOT_SANDWICH_CASE)) {
 		msgbox("I'm sorry, but it appears you have\nnot brought your SANDWICH CASE.\lI cannot do business with you.\pTurning customers away for dumb\nreasons is how I choose to express\lmy traditional AMERICAN values!\pCome back once you have one!\n", MSGBOX_DEFAULT)
 		release
 		end

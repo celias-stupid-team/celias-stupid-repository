@@ -199,6 +199,7 @@ extern const u8 gText_MaxRepelTurnedOff[];
 extern const u8 gText_TMContainedCopycat[];
 extern const u8 gText_HeldRuby[];
 extern const u8 gText_PlayerCancer[];
+extern const u8 gText_CeliaMessage[];
 
 
 
