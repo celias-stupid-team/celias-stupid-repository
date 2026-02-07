@@ -942,7 +942,7 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 	waitmovement(LOCALID_FEATHER_BADGE_GUARD)
 	delay(60)
 	msgbox(
-	"…{PAUSE 30}Let's just start again.\n"
+	"…{PAUSE 30}Let's just start over.\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	fadescreenswapbuffers(FADE_TO_BLACK)
@@ -1017,12 +1017,6 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 		face_up
 	))
 	waitmovement(LOCALID_PLAYER)
-	msgbox(
-	"DAD BADGE.\n"
-	"", MSGBOX_DEFAULT)
-	playse(SE_SUCCESS)
-	waitse
-	closemessage
 	delay(10)
 	msgbox(
 	"WAIT!!!\n"
@@ -1063,7 +1057,11 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 	"…{PAUSE 30}Where were we?\p"
 
 	"Oh!\n"
-	"Right!", MSGBOX_DEFAULT)
+	"Right!\p"
+	"{PAUSE 10}DAD BADGE.\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
 	closemessage
 	applymovement(LOCALID_PLAYER, moves(
 		walk_fast_up

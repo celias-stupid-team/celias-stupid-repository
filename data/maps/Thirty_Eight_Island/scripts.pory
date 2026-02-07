@@ -675,8 +675,8 @@ script ThirtyEightIsland_CenterSign {
 
 script ThirtyEightIsland_FarmSign {
 	msgbox(
-	"Thirty Eight farm sign\n"
-	"", MSGBOX_SIGN)
+	"MOOMOO FARM\n"
+	"Enjoy our fresh, tasty something!", MSGBOX_SIGN)
 
 }
 

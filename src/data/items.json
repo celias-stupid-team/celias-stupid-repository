@@ -129,7 +129,7 @@
       "secondaryId": "DIVE_BALL"
     },
     {
-      "english": "NEST BALL",
+      "english": "NET BALL",
       "itemId": "ITEM_NEST_BALL",
       "price": 1000,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -257,12 +257,12 @@
       "secondaryId": 0
     },
     {
-      "english": "ICE HEAL",
+      "english": "PSYCHIC HEAL",
       "itemId": "ITEM_ICE_HEAL",
       "price": 250,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A spray-type medicine.\\nIt defrosts a frozen POKéMON.",
+      "description_english": "A spray-type medicine.\\nIt un-confuses a POKéMON.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -1201,7 +1201,7 @@
       "secondaryId": 0
     },
     {
-      "english": "X ATTACK",
+      "english": "ATTACK",
       "itemId": "ITEM_X_ATTACK",
       "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -1217,7 +1217,7 @@
       "secondaryId": 0
     },
     {
-      "english": "X DEFEND",
+      "english": "DEFEND",
       "itemId": "ITEM_X_DEFEND",
       "price": 550,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6947,7 +6947,7 @@
       "description_english": "An extremely important letter to\\nSTEVEN from the PRESIDENT of the\\nDEVON CORPORATION.",
       "importance": 0,
       "registrability": 0,
-      "pocket": "POCKET_ITEMS",
+      "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
       "fieldUseFunc": "FieldUseFunc_EvoItem",
       "battleUsage": 0,
@@ -7267,7 +7267,7 @@
       "description_english": "Hmm, what's this doing here?",
       "importance": 0,
       "registrability": 0,
-      "pocket": "POCKET_ITEMS",
+      "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_BalmMushroom",
       "battleUsage": 0,
@@ -7494,6 +7494,22 @@
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_DragoniteBag",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "SecretPage",
+      "itemId": "ITEM_SECRETPAGE",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A message from the creator has\\nmysteriously appeared in your\\nBAG. USE to read it.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_CeliaMessage",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

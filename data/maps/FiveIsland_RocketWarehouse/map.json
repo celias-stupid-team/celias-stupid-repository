@@ -134,8 +134,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 25,
-      "y": -1,
+      "x": 41,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -162,7 +162,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_AZ",
-      "x": 17,
+      "x": 18,
       "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -176,7 +176,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_N",
-      "x": 14,
+      "x": 15,
       "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -204,7 +204,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MIRROR_B",
-      "x": 20,
+      "x": 21,
       "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -218,7 +218,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 10,
+      "x": 11,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
@@ -260,8 +260,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLIO",
-      "x": 14,
-      "y": 7,
+      "x": 11,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -274,10 +274,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN",
-      "x": 28,
-      "y": 23,
+      "x": 37,
+      "y": 15,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -298,6 +298,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "DMCAWarehouse_Qbert",
       "flag": "FLAG_DEFEATED_WAREHOUSE_ADMIN"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_HAT_NOT_OAK",
+      "x": 29,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DMCAWarehouse_NotOak",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_HAT_NOT_OAK",
+      "x": 23,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DMCAWarehouse_NotOak",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -320,6 +348,30 @@
       "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_ROCKET_WAREHOUSE_NEST_BALL",
       "quantity": 1,
       "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DMCAWarehouse_Reactor"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DMCAWarehouse_Reactor"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
     }
   ]
 }

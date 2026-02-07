@@ -767,3 +767,4 @@ const u32 gObjectEventPic_ALOLA_RAICHU[] = INCBIN_U32("graphics/object_events/pi
 const u16 gObjectEventPal_ALOLA_RAICHU[] = INCBIN_U16("graphics/object_events/palettes/ALOLA_RAICHU.gbapal");
 const u32 gObjectEventPic_CHAIRRY[] = INCBIN_U32("graphics/object_events/pics/stupid/CHAIRRY.4bpp");
 const u16 gObjectEventPal_CHAIRRY[] = INCBIN_U16("graphics/object_events/palettes/CHAIRRY.gbapal");
+const u32 gObjectEventPic_HAT_NOT_OAK[] = INCBIN_U32("graphics/object_events/pics/stupid/HAT_NOT_OAK.4bpp");
