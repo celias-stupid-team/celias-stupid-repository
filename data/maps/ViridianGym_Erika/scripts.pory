@@ -104,7 +104,7 @@ script DMCAErika_Savestate {
 
 script DMCAErika_Drink1 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"RUSTY TAILOW\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -117,43 +117,43 @@ script DMCAErika_Drink2 {
 }
 script DMCAErika_Drink3 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"STOUTLAND STOUT\n"
 	"", MSGBOX_SIGN)
 
 }
 script DMCAErika_Drink4 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"DRAK & LOAK\n"
 	"", MSGBOX_SIGN)
 
 }
 script DMCAErika_Drink5 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"VICTINI MARTINI\n"
 	"", MSGBOX_SIGN)
 
 }
 script DMCAErika_Drink6 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"TINKATONIC & GIN\n"
 	"", MSGBOX_SIGN)
 
 }
 script DMCAErika_Drink7 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"PEACH BELLIBOLT\n"
 	"", MSGBOX_SIGN)
 
 }
 script DMCAErika_Drink8 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"MUDSDALE MUDSLIDE\n"
 	"", MSGBOX_SIGN)
 
 }
 script DMCAErika_Drink9 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"BAXCALIBU\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -165,13 +165,13 @@ script DMCAErika_Drink10 {
 }
 script DMCAErika_Drink11 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"LUDI COLADA\n"
 	"", MSGBOX_SIGN)
 
 }
 script DMCAErika_Drink12 {
 	msgbox(
-	"SCOVILLAIN SCOTCH\n"
+	"APPLINTINI\n"
 	"", MSGBOX_SIGN)
 
 }
