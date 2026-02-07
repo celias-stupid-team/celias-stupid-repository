@@ -126,10 +126,23 @@ mapscripts SeafoamIslands_B3F_MapScripts {
 			if(var(VAR_TEMP_0) > 15 && var(VAR_TEMP_1) < 4 ){
 				debugprintf("Test 2")
 				special(ForcePlayerToStartSurfing)
+				setvar(VAR_TEMP_5, 1)
 
 			}
 
 		
+		}
+	]
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_5, 1 {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_fast_down * 12
+				walk_fast_right * 5
+				walk_fast_up * 1
+			))
+			waitmovement(0)
+			setvar(VAR_TEMP_5, 2)
+			release
 		}
 	]
 }
@@ -840,10 +853,11 @@ script SeafoamIslands_SphealBounce_2 {
 		
 	} else {
 		playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+		delay(20)
 
 	}
 	call(Seafoam3F_DrawThingy)
-	delay(20)
+	
 	release
 }
 
