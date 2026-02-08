@@ -1519,14 +1519,6 @@ static void Cmd_typecalc(void)
     if (gMoveResultFlags & MOVE_RESULT_DOESNT_AFFECT_FOE)
         gProtectStructs[gBattlerAttacker].targetNotAffected = 1;
 
-    // special handling for FINALARTICUNO
-    if (gCurrentMove == MOVE_QUINTUPLE_WINGBEAT)
-    {
-        gBattleMoveDamage = (gBattleMons[gBattlerTarget].maxHP + 2) / 3; // rounded up
-        if (gBattleMoveDamage < 30) // random number so base damage doesn't get too low
-            gBattleMoveDamage = 30;
-    }
-
     gBattlescriptCurrInstr++;
 }
 
@@ -1805,6 +1797,14 @@ static void Cmd_adjustnormaldamage(void)
     u8 holdEffect, param;
 
     ApplyRandomDmgMultiplier();
+
+    // special handling for FINALARTICUNO
+    if (gCurrentMove == MOVE_QUINTUPLE_WINGBEAT)
+    {
+        gBattleMoveDamage = (gBattleMons[gBattlerTarget].maxHP + 2) / 3; // rounded up
+        if (gBattleMoveDamage < 30) // random number so base damage doesn't get too low
+            gBattleMoveDamage = 30;
+    }
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
