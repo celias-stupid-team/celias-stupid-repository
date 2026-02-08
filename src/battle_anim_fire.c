@@ -278,6 +278,69 @@ const struct SpriteTemplate gFireBlastRingSpriteTemplate =
     .callback = AnimFireRing,
 };
 
+//v create
+const struct SpriteTemplate gVCreateFlameTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FireBlastCross,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireRing
+};
+
+static const union AffineAnimCmd sThinRingShrinkingAffineAnimCmds[] =
+{
+    AFFINEANIMCMD_FRAME(512, 512, 0, 0),
+    AFFINEANIMCMD_FRAME(-16, -16, 0, 30),
+    AFFINEANIMCMD_END_ALT(1),
+};
+
+static const union AffineAnimCmd *const sThinRingShrinkingAffineAnimTable[] =
+{
+    sThinRingShrinkingAffineAnimCmds,
+};
+const struct SpriteTemplate gVCreateRedRingTemplate =
+{
+    .tileTag = ANIM_TAG_THIN_RING,
+    .paletteTag = ANIM_TAG_JAGGED_MUSIC_NOTE,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sThinRingShrinkingAffineAnimTable,
+    .callback = AnimSpriteOnMonPos
+};
+
+static const union AnimCmd sEclipsingOrbAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_FRAME(48, 3),
+    ANIMCMD_FRAME(32, 3, .hFlip = TRUE),
+    ANIMCMD_FRAME(16, 3, .hFlip = TRUE),
+    ANIMCMD_FRAME(0, 3, .hFlip = TRUE),
+    ANIMCMD_LOOP(1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sEclipsingOrbAnimTable[] =
+{
+    sEclipsingOrbAnimCmds,
+};
+
+const struct SpriteTemplate gVCreateRedOrbTemplate =
+{
+    .tileTag = ANIM_TAG_ECLIPSING_ORB,
+    .paletteTag = ANIM_TAG_JAGGED_MUSIC_NOTE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sEclipsingOrbAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpriteOnMonPos
+};
+
 static const union AnimCmd sAnim_FireBlastCross[] =
 {
     ANIMCMD_FRAME(32, 6),

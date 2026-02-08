@@ -308,6 +308,7 @@
 #define ANIM_TAG_WONDER_SEED                (ANIM_SPRITES_START + 298)
 #define ANIM_TAG_SMALL_CLOUD                (ANIM_SPRITES_START + 299)
 #define ANIM_TAG_PUNISHMENT_BLADES          (ANIM_SPRITES_START + 300)
+#define ANIM_TAG_ONE                        (ANIM_SPRITES_START + 301)
 
 // battlers
 #define ANIM_ATTACKER    0
@@ -359,6 +360,7 @@
 #define BG_SOLAR_BEAM_CONTESTS 26
 #define BG_DARK_VOID 27
 #define BG_TRICK_ROOM 28
+#define BG_FIRE 29
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
