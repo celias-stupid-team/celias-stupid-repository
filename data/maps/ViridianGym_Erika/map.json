@@ -16,32 +16,34 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_LIGHT_GARY",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_HUMANOAK",
+      "graphics_id": "OBJ_EVENT_GFX_LIGHT_GARY",
       "x": 4,
       "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ViridianGym_ErikaBattle",
-      "flag": "0"
+      "flag": "FLAG_BEAT_DMCA_ERIKA"
     },
     {
+      "local_id": "LOCALID_DARK_GARY",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_HUMANOAK",
+      "graphics_id": "OBJ_EVENT_GFX_DARK_GARY",
       "x": 6,
       "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ViridianGym_ErikaBattle",
-      "flag": "0"
+      "flag": "FLAG_BEAT_DMCA_ERIKA"
     },
     {
       "local_id": "LOCALID_ERIKA_ROADBLOCK",
@@ -49,6 +51,36 @@
       "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
       "x": 5,
       "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_BEAT_DMCA_ERIKA"
+    },
+    {
+      "local_id": "LOCALID_RAINBOW_1",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_RAINBOW",
+      "x": -6,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_BEAT_DMCA_ERIKA"
+    },
+    {
+      "local_id": "LOCALID_RAINBOW_2",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_RAINBOW",
+      "x": -9,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -76,13 +108,59 @@
     },
     {
       "x": 15,
-      "y": 9,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "6"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "ViridianGym_ErikaBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "ViridianGym_ErikaBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "ViridianGym_ErikaBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "ViridianGym_ErikaBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "ViridianGym_ErikaBattle"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -103,7 +181,7 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 9,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "DMCAErika_CeladonSign"

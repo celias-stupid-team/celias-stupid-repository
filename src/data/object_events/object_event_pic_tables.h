@@ -5777,3 +5777,36 @@ const struct SpriteFrameImage gObjectEventPicTable_sphealio_evolved[] = {
     overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 7),
     overworld_frame(gObjectEventPic_sphealio_evolved, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_RAINBOW[] = {
+    overworld_frame(gObjectEventPic_RAINBOW, 6, 6, 0),
+    overworld_frame(gObjectEventPic_RAINBOW, 6, 6, 1),
+    overworld_frame(gObjectEventPic_RAINBOW, 6, 6, 2),
+    overworld_frame(gObjectEventPic_RAINBOW, 6, 6, 0),
+    overworld_frame(gObjectEventPic_RAINBOW, 6, 6, 0),
+    overworld_frame(gObjectEventPic_RAINBOW, 6, 6, 1),
+    overworld_frame(gObjectEventPic_RAINBOW, 6, 6, 1),
+    overworld_frame(gObjectEventPic_RAINBOW, 6, 6, 2),
+    overworld_frame(gObjectEventPic_RAINBOW, 6, 6, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_LIGHT_GARY[] = {
+    overworld_frame(gObjectEventPic_LIGHT_GARY, 2, 2, 0),
+    overworld_frame(gObjectEventPic_LIGHT_GARY, 2, 2, 1),
+    overworld_frame(gObjectEventPic_LIGHT_GARY, 2, 2, 2),
+    overworld_frame(gObjectEventPic_LIGHT_GARY, 2, 2, 3),
+    overworld_frame(gObjectEventPic_LIGHT_GARY, 2, 2, 4),
+    overworld_frame(gObjectEventPic_LIGHT_GARY, 2, 2, 5),
+    overworld_frame(gObjectEventPic_LIGHT_GARY, 2, 2, 6),
+    overworld_frame(gObjectEventPic_LIGHT_GARY, 2, 2, 7),
+    overworld_frame(gObjectEventPic_LIGHT_GARY, 2, 2, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_DARK_GARY[] = {
+    overworld_frame(gObjectEventPic_DARK_GARY, 2, 2, 0),
+    overworld_frame(gObjectEventPic_DARK_GARY, 2, 2, 1),
+    overworld_frame(gObjectEventPic_DARK_GARY, 2, 2, 2),
+    overworld_frame(gObjectEventPic_DARK_GARY, 2, 2, 3),
+    overworld_frame(gObjectEventPic_DARK_GARY, 2, 2, 4),
+    overworld_frame(gObjectEventPic_DARK_GARY, 2, 2, 5),
+    overworld_frame(gObjectEventPic_DARK_GARY, 2, 2, 6),
+    overworld_frame(gObjectEventPic_DARK_GARY, 2, 2, 7),
+    overworld_frame(gObjectEventPic_DARK_GARY, 2, 2, 8),
+};

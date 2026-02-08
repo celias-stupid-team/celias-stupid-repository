@@ -24,16 +24,16 @@ mapscripts ViridianGym_Erika_MapScripts {
             case 9:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 4)
         }
+        if(flag(FLAG_BEAT_DMCA_ERIKA)) {
+            setvar(VAR_TEMP_1, 1)
+        }
     }
 }
 
 
 script ViridianGym_ErikaBattle {
     lock
-    textcolor(NPC_TEXT_COLOR_TREE)
-    msgbox(
-        "straight people\n"
-        "", MSGBOX_DEFAULT)
+    call(Viridian_ErikaBattleStartBegin)
     trainerbattle_no_intro(TRAINER_DMCA_ERIKA, ViridianGym_ErikaBattle_End)
     if(!(checkpartymove(MOVE_WATER_PLEDGE) != PARTY_SIZE && checkpartymove(MOVE_FIRE_PLEDGE) != PARTY_SIZE)) {
         msgbox(
@@ -70,10 +70,83 @@ script ViridianGym_ErikaBattle {
                 goto(EventScript_FieldWhiteOutNoMoney)
 
     }
-    removeobject(LOCALID_ERIKA_ROADBLOCK)
+    goto(Viridian_ErikaBattleEnd)
+    
+}
+script ViridianGym_Erika_Shortcut {
+    setvar(VAR_TEMP_1, 1)
+    call(Viridian_ErikaBattleStartBegin)
+    goto(Viridian_ErikaBattleEnd)
+}
+
+script Viridian_ErikaBattleStartBegin {
+    applymovement(LOCALID_PLAYER, moves(
+        face_up
+    ))
+    textcolor(NPC_TEXT_COLOR_TREE)
+    applymovement(LOCALID_LIGHT_GARY, moves(
+        walk_down
+        face_down
+    ))
+    waitmovement(0)
+    delay(10)
     msgbox(
-	"Too much gay\n"
+	"LIGHT GARY: Howdy there, little\n"
+	"rascal!\p"
+
+	"Welcome to JOSIE'S BAR & GRILL!\n"
 	"", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(LOCALID_DARK_GARY, moves(
+        walk_down
+        face_down
+    ))
+    waitmovement(0)
+    delay(10)
+    msgbox(
+	"DARK GARY: We have two rules 'round\n"
+	"these parts:\l"
+	"Love the U-S-of-A,{PAUSE 30} and no copyright!", MSGBOX_DEFAULT)
+    playbgm(MUS_NONE, TRUE)
+    return
+}
+
+script Viridian_ErikaBattleEnd {
+    closemessage
+    delay(60)
+    addobject(LOCALID_RAINBOW_1)
+    addobject(LOCALID_RAINBOW_2)
+    applymovement(LOCALID_RAINBOW_1, moves(
+        set_visible
+        walk_fast_right * 9
+    ))
+    applymovement(LOCALID_RAINBOW_2, moves(
+        set_visible
+        walk_fast_right * 9
+    ))
+    playse(SE_M_PETAL_DANCE)
+    waitmovement(LOCALID_RAINBOW_2)
+    removeobject(LOCALID_LIGHT_GARY)
+    playse(SE_M_CUT)
+    applymovement(LOCALID_RAINBOW_1, moves(
+        walk_fast_right * 2
+    ))
+    applymovement(LOCALID_RAINBOW_2, moves(
+        walk_fast_right * 2
+    ))
+    waitmovement(LOCALID_RAINBOW_2)
+    removeobject(LOCALID_DARK_GARY)
+    playse(SE_M_CUT)
+    applymovement(LOCALID_RAINBOW_1, moves(
+        walk_fast_right * 14
+    ))
+    applymovement(LOCALID_RAINBOW_2, moves(
+        walk_fast_right * 14
+    ))
+    waitmovement(LOCALID_RAINBOW_2)
+    removeobject(LOCALID_ERIKA_ROADBLOCK)
+    playbgm(MUS_MUS_STRAIGHT_PEOPLE, TRUE)
+    release
 }
 
 text ViridianGym_ErikaBattle_Start {
@@ -82,7 +155,7 @@ text ViridianGym_ErikaBattle_Start {
 
 
 text ViridianGym_ErikaBattle_End {
-   "oh no\n"
+   "Too… much… gay…-!\n"
 }
 
 
@@ -165,7 +238,7 @@ script DMCAErika_Drink10 {
 }
 script DMCAErika_Drink11 {
 	msgbox(
-	"LUDI COLADA\n"
+	"LUDICOLADA\n"
 	"", MSGBOX_SIGN)
 
 }
