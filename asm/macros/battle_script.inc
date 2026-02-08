@@ -1680,3 +1680,7 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro printbirdsfaintstring position:req
+	callnative BS_PrintBirdsFaintString
+	.byte \position
+	.endm

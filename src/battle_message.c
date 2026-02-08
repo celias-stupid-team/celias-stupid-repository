@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_interface.h"
 #include "strings.h"
 #include "battle_message.h"
 #include "link.h"
@@ -452,6 +453,11 @@ static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} w
 static const u8 sText_FickleBeam[] = _("But it failed!\p{B_PLAYER_MON1_NAME} doesn't have any heads!");
 static const u8 sText_SentOutZapmolcuno[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY sent out ZAPMOLCUNO-OHGIA!{PAUSE 60}");
 static const u8 sText_AllArrysWannaBattle[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY want to battle!\p");
+static const u8 sText_LugiaFainted[] = _("Foe LUGIA fainted!\p");
+static const u8 sText_ArticunoFainted[] = _("Foe ARTICUNO fainted!\p");
+static const u8 sText_HoohFainted[] = _("Foe HOOH fainted!\p");
+static const u8 sText_ZapdosFainted[] = _("Foe ZAPDOS fainted!\p");
+static const u8 sText_MoltresFainted[] = _("Foe MOLTRES fainted!\p");
 
 
 static const u8 sText_PkmnMadeSubstitute_2[] = _("{B_ATK_NAME_WITH_PREFIX}'s SUBSTITUTE\nmade a SUBSTITUTE!");
@@ -1022,7 +1028,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_RUNROTOMANIMATION1 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("...?"),
     [STRINGID_RUNROTOMANIMATION2 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("It's your ROTOM POKéDEX!"),
     [STRINGID_RUNROTOMANIMATION3 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Awesome!\pYou can now access your\nBOX during battle!"),
-    [STRINGID_ZAPMOLCUNOFAINTED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("FOE ZAPMOLCUNO-OHGIA\nfainted!\p"),
+    [STRINGID_ZAPMOLCUNOFAINTED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Foe ZAPMOLCUNO-OHGIA\nfainted!\p"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -2060,6 +2066,29 @@ void BufferStringBattle(u16 stringId)
         break;
     case STRINGID_TRAINERSLIDE:
         stringPtr = gBattleStruct->trainerSlideMsg;
+        break;
+    case STRINGID_BIRDFAINTED:
+        switch (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) - 1)
+        {
+        case B_FINAL_BATTLE_LUGIA:
+            stringPtr = sText_LugiaFainted;
+            break;  
+        case B_FINAL_BATTLE_ARTICUNO:
+            stringPtr = sText_ArticunoFainted;
+            break;  
+        case B_FINAL_BATTLE_HOOH:
+            stringPtr = sText_HoohFainted;
+            break;  
+        case B_FINAL_BATTLE_ZAPDOS:
+            stringPtr = sText_ZapdosFainted;
+            break;  
+        case B_FINAL_BATTLE_MOLTRES:
+            stringPtr = sText_MoltresFainted;
+            break;       
+        default:
+            stringPtr = sText_Empty1;
+            break;
+        }
         break;
     default: // load a string from the table
         if (stringId >= BATTLESTRINGS_COUNT)

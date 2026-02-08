@@ -3339,7 +3339,7 @@ static void Cmd_tryfaintmon(void)
             }
 
             // special handling for switching the legendary birds during the Zapmolcuno fight
-            if ((GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_MOLTRES)) // only replace opponent's Zapmolcuno during the first 4 phases
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_MOLTRES) // only replace opponent's Zapmolcuno during the first 4 phases
             {
                 gBattlerFainted = gActiveBattler;
                 gBattleMons[gActiveBattler].species = GetCurrentZapmolcunoSpecies();
@@ -11592,4 +11592,17 @@ void BS_JumpIfZapmolcunoSpecies(void)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_PrintBirdsFaintString(void)
+{
+    NATIVE_ARGS(u8 position);
+
+    gActiveBattler = GetBattlerAtPosition(cmd->position);
+    if (gBattleControllerExecFlags == 0)
+    {
+        PrepareStringBattle(STRINGID_BIRDFAINTED, gActiveBattler);
+        gBattlescriptCurrInstr = cmd->nextInstr;
+        gBattleCommunication[MSG_DISPLAY] = 1;
+    }
 }

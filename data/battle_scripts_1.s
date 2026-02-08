@@ -4160,6 +4160,8 @@ BattleScript_ZapmolcunoTransform::
 	pause B_WAIT_TIME_SHORT
 	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM
 	pause B_WAIT_TIME_SHORT
+	printbirdsfaintstring B_POSITION_OPPONENT_LEFT
+	waitmessage B_WAIT_TIME_LONG
 	@ fadescreen FADE_TO_WHITE
 	@ waitforfade
 	handlespriteupdate BS_FAINTED
