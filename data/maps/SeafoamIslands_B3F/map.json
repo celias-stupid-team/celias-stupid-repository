@@ -60,8 +60,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 17,
-      "y": -5,
+      "x": 7,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -131,7 +131,7 @@
     {
       "local_id": "LOCALID_SPHEAL_2",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SPHEAL_SWIMMING",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 21,
       "y": 11,
       "elevation": 0,
@@ -347,11 +347,11 @@
       "dest_warp_id": "6"
     },
     {
-      "x": 21,
+      "x": 20,
       "y": 2,
-      "elevation": 3,
-      "dest_map": "MAP_VIRIDIAN_GYM_ERIKA",
-      "dest_warp_id": "2"
+      "elevation": 0,
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
+      "dest_warp_id": "11"
     },
     {
       "x": 27,
@@ -368,11 +368,11 @@
       "dest_warp_id": "7"
     },
     {
-      "x": 23,
-      "y": -5,
-      "elevation": 1,
-      "dest_map": "MAP_SEAFOAM_ISLANDS_B2F",
-      "dest_warp_id": "8"
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_ERIKA",
+      "dest_warp_id": "2"
     },
     {
       "x": 25,
@@ -401,6 +401,13 @@
       "elevation": 0,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "5"
+    },
+    {
+      "x": 9,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [
@@ -496,6 +503,14 @@
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_21",
       "quantity": 1,
       "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DMCAErika_Savestate"
     }
   ]
 }

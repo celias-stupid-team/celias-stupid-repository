@@ -2202,3 +2202,22 @@ const u16 gTilesetPalettes_SilphCo2[][16] =
 };
 
 const u32 gTilesetTiles_SilphCo2[] = INCBIN_U32("data/tilesets/secondary/silph_co_2/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_DMCAErika[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcaerika/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_DMCAErika[] = INCBIN_U32("data/tilesets/secondary/dmcaerika/tiles.4bpp.lz");
