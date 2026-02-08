@@ -1829,6 +1829,11 @@ static void Cmd_adjustnormaldamage(void)
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
+    else if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+    {
+        RecordAbilityBattle(gBattlerTarget, ABILITY_REVENGE);
+        gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
+    }
     else if (holdEffect == HOLD_EFFECT_FOCUS_SASH && BATTLER_MAX_HP(gBattlerTarget))
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
@@ -1852,8 +1857,8 @@ static void Cmd_adjustnormaldamage(void)
     }
     else if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
      && (gSpecialStatuses[gBattlerTarget].focusSashed || gSpecialStatuses[gBattlerTarget].sturdied)
-     && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP
-     && gBattleMons[gBattlerTarget].maxHP <= gBattleMoveDamage)
+     && (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP || gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+     && (gBattleMons[gBattlerTarget].maxHP <= gBattleMoveDamage || gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE))
      {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
         if (gSpecialStatuses[gBattlerTarget].focusSashed)
@@ -1864,7 +1869,10 @@ static void Cmd_adjustnormaldamage(void)
         else if (gSpecialStatuses[gBattlerTarget].sturdied)
         {
             gMoveResultFlags |= MOVE_RESULT_STURDIED;
-            gLastUsedAbility = ABILITY_STURDY;
+            if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+                gLastUsedAbility = ABILITY_REVENGE;
+            else
+                gLastUsedAbility = ABILITY_STURDY;
         }
     }
     gBattlescriptCurrInstr++;
@@ -1905,6 +1913,11 @@ static void Cmd_adjustnormaldamage2(void)
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
+    else if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+    {
+        RecordAbilityBattle(gBattlerTarget, ABILITY_REVENGE);
+        gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
+    }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
      && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
@@ -1923,8 +1936,8 @@ static void Cmd_adjustnormaldamage2(void)
     }
     else if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
      && (gSpecialStatuses[gBattlerTarget].focusSashed || gSpecialStatuses[gBattlerTarget].sturdied)
-     && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP
-     && gBattleMons[gBattlerTarget].maxHP <= gBattleMoveDamage)
+     && (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP || gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+     && (gBattleMons[gBattlerTarget].maxHP <= gBattleMoveDamage || gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE))
      {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
         if (gSpecialStatuses[gBattlerTarget].focusSashed)
@@ -1935,7 +1948,10 @@ static void Cmd_adjustnormaldamage2(void)
         else if (gSpecialStatuses[gBattlerTarget].sturdied)
         {
             gMoveResultFlags |= MOVE_RESULT_STURDIED;
-            gLastUsedAbility = ABILITY_STURDY;
+            if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+                gLastUsedAbility = ABILITY_REVENGE;
+            else
+                gLastUsedAbility = ABILITY_STURDY;
         }
     }
     gBattlescriptCurrInstr++;
@@ -2341,8 +2357,11 @@ static void Cmd_resultmessage(void)
             }
             else if (gMoveResultFlags & MOVE_RESULT_STURDIED)
             {
-                gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
-                gSpecialStatuses[gBattlerTarget].sturdied = FALSE;
+                if (gLastUsedAbility != ABILITY_REVENGE)
+                {
+                    gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
+                    gSpecialStatuses[gBattlerTarget].sturdied = FALSE;
+                }
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_SturdiedMsg;
                 return;
@@ -2499,7 +2518,8 @@ void SetMoveEffect(bool8 primary, u8 certain)
         && GetBattlerSide(gEffectBattler) == B_SIDE_OPPONENT)
         INCREMENT_RETURN
 
-    if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY) && !(gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
+    if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE)
+        && !(gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
         && !primary && gBattleCommunication[MOVE_EFFECT_BYTE] <= 9)
         INCREMENT_RETURN
 
@@ -6227,6 +6247,11 @@ static void Cmd_adjustsetdamage(void)
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
+    else if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+    {
+        RecordAbilityBattle(gBattlerTarget, ABILITY_REVENGE);
+        gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
+    }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
      && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
@@ -6257,7 +6282,10 @@ static void Cmd_adjustsetdamage(void)
         else if (gSpecialStatuses[gBattlerTarget].sturdied)
         {
             gMoveResultFlags |= MOVE_RESULT_STURDIED;
-            gLastUsedAbility = ABILITY_STURDY;
+            if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+                gLastUsedAbility = ABILITY_REVENGE;
+            else
+                gLastUsedAbility = ABILITY_STURDY;
         }
     }
     gBattlescriptCurrInstr++;
@@ -7565,7 +7593,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY) && flags == 0)
+        else if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE) && flags == 0)
         {
             return STAT_CHANGE_DIDNT_WORK;
         }
@@ -7988,7 +8016,10 @@ static void Cmd_tryKO(void)
         {
             gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
             gMoveResultFlags |= MOVE_RESULT_STURDIED;
-            gLastUsedAbility = ABILITY_STURDY;
+            if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+                gLastUsedAbility = ABILITY_REVENGE;
+            else
+                gLastUsedAbility = ABILITY_STURDY;
         }
         else if (gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].focusSashed)
         {
@@ -8062,7 +8093,10 @@ static void Cmd_tryKO_Flash(void)
         {
             gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
             gMoveResultFlags |= MOVE_RESULT_STURDIED;
-            gLastUsedAbility = ABILITY_STURDY;
+            if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+                gLastUsedAbility = ABILITY_REVENGE;
+            else
+                gLastUsedAbility = ABILITY_STURDY;
         }
         //Move never procs Focus Band or Focus Sash
         else
@@ -11057,8 +11091,11 @@ void BS_MultihitResultMessage(void)
     {
         if (gMoveResultFlags & MOVE_RESULT_STURDIED)
         {
-            gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_HUNG_ON);
-            gSpecialStatuses[gBattlerTarget].sturdied = FALSE; // Delete this line to make Sturdy last for the duration of the whole move turn.
+            if (gLastUsedAbility != ABILITY_REVENGE)
+            {
+                gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_HUNG_ON);
+                gSpecialStatuses[gBattlerTarget].sturdied = FALSE; // Delete this line to make Sturdy last for the duration of the whole move turn.
+            }
             BattleScriptPushCursor();
             gBattlescriptCurrInstr = BattleScript_SturdiedMsg;
             return;
