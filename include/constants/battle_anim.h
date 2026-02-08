@@ -312,6 +312,7 @@
 #define ANIM_TAG_MIDDLE_FINGER              (ANIM_SPRITES_START + 302)
 #define ANIM_TAG_BROCKS                     (ANIM_SPRITES_START + 303)
 #define ANIM_TAG_BROCK_X_SIGN               (ANIM_SPRITES_START + 304)
+#define ANIM_TAG_ZEKROM_KICK                (ANIM_SPRITES_START + 305)
 
 // battlers
 #define ANIM_ATTACKER    0

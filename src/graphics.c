@@ -1091,6 +1091,9 @@ const u32 gBattleAnimBgTilemap_Fissure[] = INCBIN_U32("graphics/battle_anims/bac
 const u32 gBattleAnimSpriteGfx_Bird[] = INCBIN_U32("graphics/battle_anims/sprites/bird.4bpp.lz");
 const u32 gBattleAnimSpritePal_Bird[] = INCBIN_U32("graphics/battle_anims/sprites/bird.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_ZekromKick[] = INCBIN_U32("graphics/battle_anims/sprites/zekrom_kick.4bpp.lz");
+const u32 gBattleAnimSpritePal_ZekromKick[] = INCBIN_U32("graphics/battle_anims/sprites/zekrom_kick.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Tomato[] = INCBIN_U32("graphics/battle_anims/sprites/tomato.4bpp.lz");
 const u32 gBattleAnimSpritePal_Tomato[] = INCBIN_U32("graphics/battle_anims/sprites/tomato.gbapal.lz");
 
