@@ -637,6 +637,7 @@ const u8 gMoveDescription_DoubleDip[] = _("Hits once before\nthe foe, then\nonce
 const u8 gMoveDescription_DoubleDad[] = _("Hits once before\nthe foe, then\nonce more at the\nend of the turn.");
 const u8 gMoveDescription_FreezeDry[] = _("Dummy");
 const u8 gMoveDescription_Leafage[] = _("Eat shit and\ndie");
+const u8 gMoveDescription_BrockThrow[] = _("Dummy");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -1283,5 +1284,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_LEAFAGE - 1] = gMoveDescription_Leafage,
     [MOVE_SHOOT_BIG - 1] = gMoveDescription_FreezeDry,
     [MOVE_ADOBE_FLASH - 1] = gMoveDescription_FreezeDry,
+    [MOVE_BROCK_THROW    - 1] = gMoveDescription_BrockThrow,
     
 };

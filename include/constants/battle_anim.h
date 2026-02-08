@@ -309,6 +309,9 @@
 #define ANIM_TAG_SMALL_CLOUD                (ANIM_SPRITES_START + 299)
 #define ANIM_TAG_PUNISHMENT_BLADES          (ANIM_SPRITES_START + 300)
 #define ANIM_TAG_ONE                        (ANIM_SPRITES_START + 301)
+#define ANIM_TAG_MIDDLE_FINGER              (ANIM_SPRITES_START + 302)
+#define ANIM_TAG_BROCKS                     (ANIM_SPRITES_START + 303)
+#define ANIM_TAG_BROCK_X_SIGN               (ANIM_SPRITES_START + 304)
 
 // battlers
 #define ANIM_ATTACKER    0

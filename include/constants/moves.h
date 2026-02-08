@@ -645,8 +645,9 @@
 #define MOVE_LEAFAGE 640
 #define MOVE_SHOOT_BIG 641
 #define MOVE_ADOBE_FLASH 642
+#define MOVE_BROCK_THROW 643
 
-#define MOVES_COUNT 643
+#define MOVES_COUNT 644
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

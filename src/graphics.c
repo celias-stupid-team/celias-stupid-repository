@@ -209,6 +209,12 @@ const u32 gBattleAnimSpritePal_Ring[] = INCBIN_U32("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_Rocks[] = INCBIN_U32("graphics/battle_anims/sprites/rocks.4bpp.lz");
 const u32 gBattleAnimSpritePal_Rocks[] = INCBIN_U32("graphics/battle_anims/sprites/rocks.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Brocks[] = INCBIN_U32("graphics/battle_anims/sprites/brocks.4bpp.lz");
+const u32 gBattleAnimSpritePal_Brocks[] = INCBIN_U32("graphics/battle_anims/sprites/brocks.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BrockXSign[] = INCBIN_U32("graphics/battle_anims/sprites/brock_x_sign.4bpp.lz");
+const u32 gBattleAnimSpritePal_BrockXSign[] = INCBIN_U32("graphics/battle_anims/sprites/brock_x_sign.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Z[] = INCBIN_U32("graphics/battle_anims/sprites/z.4bpp.lz");
 const u32 gBattleAnimSpritePal_Z[] = INCBIN_U32("graphics/battle_anims/sprites/z.gbapal.lz");
 
@@ -714,6 +720,9 @@ const u32 gBattleAnimSpritePal_ThoughtBubble[] = INCBIN_U32("graphics/battle_ani
 
 const u32 gBattleAnimSpriteGfx_Finger[] = INCBIN_U32("graphics/battle_anims/sprites/finger.4bpp.lz");
 const u32 gBattleAnimSpritePal_Finger[] = INCBIN_U32("graphics/battle_anims/sprites/finger.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_MiddleFinger[] = INCBIN_U32("graphics/battle_anims/sprites/middle_finger.4bpp.lz");
+const u32 gBattleAnimSpritePal_MiddleFinger[] = INCBIN_U32("graphics/battle_anims/sprites/middle_finger.gbapal.lz");
 
 const u32 gBattleAnimSpriteGfx_MagentaHeart[] = INCBIN_U32("graphics/battle_anims/sprites/magenta_heart.4bpp.lz");
 

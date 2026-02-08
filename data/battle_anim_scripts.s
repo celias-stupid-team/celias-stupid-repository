@@ -667,6 +667,7 @@ gBattleAnims_Moves::
 	.4byte Move_LEAFAGE
 	.4byte Move_SHOOT_BIG
 	.4byte Move_ADOBE_FLASH
+	.4byte Move_BROCK_THROW
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -2456,6 +2457,57 @@ Move_ROCK_THROW:
 	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
 	waitforvisualfinish
 	end
+
+Move_BROCK_THROW:
+	loadspritegfx ANIM_TAG_BROCKS
+	monbg ANIM_DEF_PARTNER
+	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 7, 1, 11, 1
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, -5, 1, -5, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, 5, 0, 6, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, 19, 1, 10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, -23, 2, -10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 50, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 0, 5, 50, 1
+	delay 2
+	call BrockSlideBrocks
+	call BrockSlideBrocks
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
+
+BrockSlideBrocks:
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, -20, 0, -10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, 28, 1, 10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, -10, 1, -5, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, 10, 0, 6, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, 24, 1, 10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, -32, 2, -10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, -20, 0, -10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingBrockSpriteTemplate, ANIM_TARGET, 2, 30, 2, 10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	return
 
 Move_ROCK_SLIDE:
 	loadspritegfx ANIM_TAG_ROCKS
@@ -15332,16 +15384,16 @@ Move_BLOOD_MOON:
 
 
 Move_EVIL_METRONOME:
-	loadspritegfx ANIM_TAG_FINGER
+	loadspritegfx ANIM_TAG_MIDDLE_FINGER
 	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
 	delay 1
-	fadetobg BG_DARK
+	fadetobg BG_THUNDER
 	waitbgfadein
 	setalpha 12, 8
 	createsprite gThoughtBubbleSpriteTemplate, ANIM_ATTACKER, 11, 0, 100
 	playsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER
 	delay 6
-	createsprite gMetronomeFingerSpriteTemplate, ANIM_ATTACKER, 12, 0
+	createsprite gEvilMetronomeMiddleFingerSpriteTemplate, ANIM_ATTACKER, 12, 0
 	delay 24
 	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER, 22, 3
 	waitforvisualfinish
@@ -15601,17 +15653,35 @@ Move_FLASH_CANNON:
 
 
 Move_BROCK_TOMB:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_BROCK_X_SIGN
+	loadspritegfx ANIM_TAG_BROCKS
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 2, 0, 10, 1
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	createsprite gBrockTombRockSpriteTemplate, ANIM_TARGET, 2, 20, 12, 64, 114, 0
+	delay 8
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 0, 2, 3, 1
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	delay 8
+	createsprite gBrockTombRockSpriteTemplate, ANIM_TARGET, 2, -20, 12, 64, 98, 0
+	delay 8
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 0, 2, 3, 1
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	delay 8
+	createsprite gBrockTombRockSpriteTemplate, ANIM_TARGET, 66, 3, 6, 64, 82, 0
+	delay 8
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 0, 2, 3, 1
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	delay 8
+	createsprite gBrockTombRockSpriteTemplate, ANIM_TARGET, 2, -3, 13, 64, 66, 0
+	delay 8
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 0, 2, 3, 1
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	delay 24
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_TARGET
+	createsprite gBrockXSpriteTemplate, ANIM_TARGET, 5, ANIM_TARGET, 50
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 20, 1
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 2, 0, 10, 1
+	waitforvisualfinish
 	end
 
 
@@ -15631,17 +15701,20 @@ Move_BROCK_BLAST:
 
 
 Move_BROCK_WRECKER:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	monbg ANIM_DEF_PARTNER
+	call SetPsychicBackground
+	setalpha 8, 8
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 10, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 2, 0, 8, RGB_WHITE
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 15, 1
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -4, -4, 15, ANIM_TARGET, 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
 	blendoff
+	delay 1
+	call UnsetPsychicBackground
 	end
 
 
