@@ -42,8 +42,8 @@ script Route21_AroundTheWorld {
 	playbgm(MUS_ROUTE11, TRUE)
 	trainerbattle_no_intro(TRAINER_AROUND_WORLD_LASS, "After I came all this way-!")
 	msgbox(
-	"after battle\n"
-	"", MSGBOX_DEFAULT)
+	"No matter where you go, you'll\n"
+	"always be looking at me…", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(LOCALID_AROUND_WORLD_LASS, moves(
 		walk_left * 6

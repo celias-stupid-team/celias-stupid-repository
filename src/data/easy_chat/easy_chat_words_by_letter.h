@@ -1336,7 +1336,7 @@ static const u16 sEasyChatWordsByLetter_R[] = {
     EC_WORD_RIVAL,
     EC_MOVE2(ROAR),
     EC_WORD_ROCK,
-    EC_MOVE2(ROCK_BLAST),
+    EC_MOVE2(BOFFA),
     EC_WORD_ROCK_HEAD,
     EC_MOVE(ROCK_SLIDE),
     EC_MOVE(ROCK_SMASH),

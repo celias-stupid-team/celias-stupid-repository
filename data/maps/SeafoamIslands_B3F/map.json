@@ -347,11 +347,11 @@
       "dest_warp_id": "6"
     },
     {
-      "x": 8,
-      "y": 3,
+      "x": 21,
+      "y": 2,
       "elevation": 3,
-      "dest_map": "MAP_SIX_ISLAND_ALTERING_CAVE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_VIRIDIAN_GYM_ERIKA",
+      "dest_warp_id": "2"
     },
     {
       "x": 27,

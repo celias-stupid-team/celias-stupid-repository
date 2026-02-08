@@ -492,5 +492,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_ONE_PIECE]      =  {gItemIcon_OnePiece, gItemIconPalette_OnePiece},
     [ITEM_FUJI_BALL]      =  {gItemIcon_FUJIBALL, gItemIconPalette_FUJIBALL},
     [ITEM_PATRICK_DOLL]      =  {gItemIcon_PatrickDoll, gItemIconPalette_PatrickDoll},
+    [ITEM_BAG_OF_DRAGONITE]      =  {gItemIcon_BagOfDragonite, gItemIconPalette_BagOfDragonite},
+    [ITEM_SECRETPAGE]      =  {gItemIcon_SecretPage, gItemIconPalette_SecretPage},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

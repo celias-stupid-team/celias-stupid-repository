@@ -31,6 +31,18 @@ script FourthTrial_LongRangeCuckChair {
 	"", MSGBOX_SIGN)
 
 }
+script FourthTrial_CuckChair {
+	msgbox(
+	"Cuck chair\n"
+	"", MSGBOX_SIGN)
+
+}
+script FourthTrial_MidCuckChair {
+	msgbox(
+	"Medium range cuck chair\n"
+	"", MSGBOX_SIGN)
+
+}
 
 
 

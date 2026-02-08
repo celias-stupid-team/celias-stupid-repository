@@ -12,7 +12,7 @@ FiveIsland_RocketWarehouse_OnTransition::
 	end
 
 FiveIsland_RocketWarehouse_OnLoad::
-	setrespawn HEAL_LOCATION_GREAT_SEA_PIRATE_BAY
+	setrespawn HEAL_LOCATION_FIVE_ISLAND_ROCKET_WAREHOUSE
 	call_if_defeated TRAINER_TEAM_ROCKET_ADMIN, FiveIsland_RocketWarehouse_EventScript_SetArrowsForReEntry
 	end
 
@@ -246,6 +246,7 @@ script DMCAWarehouse_AZStory {
 }
 
 script DMCAWarehouse_MirorB {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"MIROR B: Heh…\n"
 	"Looks like I got caught.\p"
@@ -258,6 +259,7 @@ script DMCAWarehouse_MirorB {
 }
 
 script DMCAWarehouse_N {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	//famechecker(FAMECHECKER_GREAT_BAY, 5)
 	msgbox(
 	"N: The DMCA has taken me hostage…\n"
@@ -307,16 +309,18 @@ script DMCAWarehouse_Qbert {
 	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_left
-		delay_16 *2
+		delay_16 * 3
 		face_up
 	))
 	waitmovement(0)
 	waitmoncry
-	delay(30)
+	delay(45)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_down
 	))
 	waitmovement(0)
+	special(DrawWholeMapView)
+	release
 }
 
 script DMCAWarehouse_Polio {
@@ -334,4 +338,68 @@ script DMCAWarehouse_Polio {
 	"", MSGBOX_DEFAULT)
 	release
 	end
+}
+
+script DMCAWarehouse_Reactor {
+	lock
+	if(flag(FLAG_TEMP_3)) {
+		
+		msgbox(
+		"Oh, shoot!\n"
+		"The lights went out.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"“It is not wisdom but Authority\n"
+	"that makes a law.”", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	msgbox(
+	"It appears to be a HOBB-ist\n"
+	"nuclear reactor.", MSGBOX_DEFAULT)
+	closemessage
+	delay(45)
+	msgbox(
+	"“Now I am about to take my last\n"
+	"voyage,{PAUSE 20} a great leap in the dark.”", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	setweather(WEATHER_SHADE)
+	playse(SE_CLICK)
+	doweather
+	delay(60)
+	setflag(FLAG_TEMP_3)
+	release
+
+	
+
+}
+
+script DMCAWarehouse_Martphone {
+	lock
+	msgbox(
+	"It's a wall-mounted martphone.\n"
+	"", MSGBOX_DEFAULT)
+	pokemart(WarehouseMart)
+	msgbox(
+	"{PLAYER} hung up.\n"
+	"", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+ mart WarehouseMart {
+	ITEM_NEST_BALL
+	ITEM_X_ATTACK
+	ITEM_X_DEFEND
+	ITEM_NONE
+ }
+
+
+ script DMCAWarehouse_NotOak {
+	msgbox(
+	"Hat's not OAK, silly!\n"
+	"", MSGBOX_NPC)
+
 }

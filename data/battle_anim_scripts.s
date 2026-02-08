@@ -373,7 +373,7 @@ gBattleAnims_Moves::
 	.4byte Move_CALM_MIND
 	.4byte Move_LEAF_BLADE
 	.4byte Move_DRAGON_DANCE
-	.4byte Move_ROCK_BLAST
+	.4byte Move_BOFFA
 	.4byte Move_SHOCK_WAVE
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
@@ -401,7 +401,7 @@ gBattleAnims_Moves::
 	.4byte Move_ONE_CLAWS
 	.4byte Move_ONE_EDGE
 	.4byte Move_ONEMERANG
-	.4byte Move_1DER_ROOM
+	.4byte MOVE_BANEFUL_1NKER
 	.4byte Move_FINAL_GAMBIT
 	.4byte Move_DRAGON_ASCENT
 	.4byte Move_FLYING_CLAW
@@ -9773,7 +9773,7 @@ DiveAttackWaterDroplets:
 	createsprite gSprayWaterDropletSpriteTemplate, ANIM_TARGET, 5, 1, 1
 	return
 
-Move_ROCK_BLAST:
+Move_BOFFA:
 	loadspritegfx ANIM_TAG_ROCKS
 	loadspritegfx ANIM_TAG_IMPACT
 	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 6
@@ -11917,7 +11917,7 @@ Move_ONEMERANG:
 	blendoff
 	end
 	
-Move_1DER_ROOM:
+MOVE_BANEFUL_1NKER:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8

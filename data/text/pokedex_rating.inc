@@ -447,7 +447,10 @@ PokedexRating_Text_HintAbra::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintMissingno::
-	.string "Placeholder!$"
+	.string "A man in CINNABAR was strangely\n"
+	.string "surrounded by items.\p"
+	.string "What was he doing to cause that?\n"
+	.string "Perhaps you could try the same.$"
 
 PokedexRating_Text_HintKangaskhan::
 	.string "There was a poor POKéMON in the\n"
@@ -456,7 +459,7 @@ PokedexRating_Text_HintKangaskhan::
 	.string "What did that TM say?$"
 	
 PokedexRating_Text_HintAlakazam::
-	.string "Placeholder!$"
+	.string "Do the trade\n$"
 
 PokedexRating_Text_HintPlugOink::
 	.string "Looking for sandwich ingredients,\n"
@@ -880,8 +883,8 @@ PokedexRating_Text_HintSolaceon::
 PokedexRating_Text_HintHoopa::
 	.string "There's legends of a POKéMON so\n"
 	.string "powerful, it had to be Sealed away.\p"
-	.string "How might you go about releasing\n"
-	.string "it?$"
+	.string "How might you go about breaking the\n"
+	.string "Seal and unleashing it?$"
 
 
 PokedexRating_Text_HintMimikyu::

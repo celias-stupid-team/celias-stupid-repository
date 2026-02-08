@@ -914,7 +914,7 @@
     },
     {
       "id": "MAPSEC_SEVAULT_CANYON",
-      "name": "SEVAULT CANYON",
+      "name": "CAVE OF ORIGIN",
       "x": 6,
       "y": 9,
       "width": 1,
@@ -1149,7 +1149,7 @@
     },
     {
       "id": "MAPSEC_STONEHENGE",
-      "name": "STONEHENGE",
+      "name": "SPEARE PILLAR",
       "x": 0,
       "y": 0,
       "width": 0,

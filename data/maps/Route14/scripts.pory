@@ -76,6 +76,8 @@ script Route15_PokeRap_Trainer3_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_DRAGONITE)
     special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_HORSEA)
+    special(SetSeenMon)
     special(HealPlayerParty)
     special(DrawWholeMapView)
     release

@@ -283,7 +283,7 @@ script PokemonIslandLab_Todd {
         "seven POKéMON SIGNS to find.\p"
 
         "My partner, PROFESSOR IVY, is in\n"
-        "the room to the right.\l"
+        "the room to the left.\l"
         "She'll be able to give more info.", MSGBOX_DEFAULT)
     }
     applymovement(LOCALID_TODD, Common_Movement_FaceOriginalDirection)
@@ -302,11 +302,49 @@ script PokemonIslandLab_IvyLeagueSchool {
 
 
 script PokemonIslandLab_Cameron {
+    lock
+    textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"cameron the photographer\n"
-	"", MSGBOX_NPC)
+	"CAMERON: Yes!\n"
+	"Just like that!\l"
+	"Now lemme…", MSGBOX_DEFAULT)
+    playse(MUS_PHOTO)
+	dofieldeffect(FLDEFF_PHOTO_FLASH)
+	delay(60)
+    msgbox(
+	"Perfect!\n"
+	"", MSGBOX_DEFAULT)
+    release
 }
 
+script PokemonIsland_Pikachu1 {
+    lock
+    showmonpic(SPECIES_PIKACHU_SNAP_SURF, 10, 3)
+    waitbuttonpress
+    hidemonpic
+    release
+}
+script PokemonIsland_Pikachu2 {
+    lock
+    showmonpic(SPECIES_PIKACHU_SNAP_BALL, 10, 3)
+    waitbuttonpress
+    hidemonpic
+    release
+}
+script PokemonIsland_Pikachu3 {
+    lock
+    showmonpic(SPECIES_PIKACHU_SNAP_FLYING, 10, 3)
+    waitbuttonpress
+    hidemonpic
+    release
+}
+script PokemonIsland_Pikachu4 {
+    lock
+    showmonpic(SPECIES_PIKACHU_SNAP_CLOSE, 10, 3)
+    waitbuttonpress
+    hidemonpic
+    release
+}
 
 script PokemonIslandLab_Dad {
 	lock
@@ -345,4 +383,49 @@ script PokemonIslandLab_Computer2 {
 	"There will be something funny\n"
 	"trust me", MSGBOX_DEFAULT)
     release
+}
+
+
+script PokemonIsland_Signs {
+    lock
+    msgbox(
+	"POKéMON SIGNS that you've\n"
+	"found:", MSGBOX_DEFAULT)
+    if(flag(FLAG_KINGLER_SIGN)) {
+        msgbox(
+            "KINGLER ROCK\n"
+            "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_DUGTRIO_SIGN)) {
+        msgbox(
+        "MT. DUGTRIO\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_GROWLITHE_SIGN)) {
+        msgbox(
+        "ALOLAN GROWLITHE\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_ONIX_TAIL_SIGN)) {
+        msgbox(
+        "MEMORIAL PILLAR\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_IVY_SIGN)) {
+        msgbox(
+        "IVY'S INCREDIBLE EVENT\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_ELECTIVIRE_SIGN)) {
+        msgbox(
+        "SHADOW OF HIS FORMER SELF\n"
+        "", MSGBOX_DEFAULT)
+    }
+    if(flag(FLAG_AMBIGUOUS_STATUE_SIGN)) {
+        msgbox(
+        "LEGENDARY POKéMON STATUE\n"
+        "", MSGBOX_DEFAULT)
+    }
+    release
+
 }

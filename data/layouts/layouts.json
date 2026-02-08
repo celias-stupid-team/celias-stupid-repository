@@ -5249,7 +5249,7 @@
       "id": "LAYOUT_ROUTE19_LAYOUT_PIT",
       "name": "Route19_Layout_Pit",
       "width": 24,
-      "height": 88,
+      "height": 34,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5716,12 +5716,12 @@
     {
       "id": "LAYOUT_AETHER_PARADISE_ENTRANCE",
       "name": "AetherParadise_Entrance_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 25,
+      "height": 29,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/AetherParadise_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/AetherParadise_Entrance/map.bin"
     },
@@ -5961,7 +5961,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding1",
+      "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/Minnesota_House2/border.bin",
       "blockdata_filepath": "data/layouts/Minnesota_House2/map.bin"
     },
@@ -6353,7 +6353,7 @@
       "id": "LAYOUT_RAINBOW_CLOUD",
       "name": "RainbowCloud_Layout",
       "width": 29,
-      "height": 35,
+      "height": 51,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6653,7 +6653,7 @@
       "id": "LAYOUT_ROUTE19_PIT_LOW",
       "name": "Route19_Pit_Low",
       "width": 35,
-      "height": 35,
+      "height": 34,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7356,6 +7356,18 @@
       "secondary_tileset": "gTileset_MoonAltar",
       "border_filepath": "data/layouts/Stonehenge/border.bin",
       "blockdata_filepath": "data/layouts/Stonehenge/map.bin"
+    },
+    {
+      "id": "LAYOUT_RAINBOW_CLOUD_FINAL_SHINY",
+      "name": "RainbowCloud_FinalShiny",
+      "width": 29,
+      "height": 51,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RainbowCloud",
+      "border_filepath": "data/layouts/RainbowCloud_FinalShiny/border.bin",
+      "blockdata_filepath": "data/layouts/RainbowCloud_FinalShiny/map.bin"
     }
   ]
 }

@@ -38,7 +38,7 @@ script FiveIsland_PokemonCenter_1F_EventScript_Nurse {
 						switch(var(VAR_RESULT)) {
 							case 1:
 								fadenewbgm(MUS_NONE)
-								delay(180)
+								delay(300)
 								msgbox(
 								"NURSE: …\n"
 								"I see.\p"
@@ -46,10 +46,8 @@ script FiveIsland_PokemonCenter_1F_EventScript_Nurse {
 								"Do you want to know what we do to\n"
 								"those who waste our time here?", MSGBOX_YESNO)
 								if(var(VAR_RESULT)) {
-									msgbox(
-									"(there is a battle here)\n"
-									"", MSGBOX_DEFAULT)
 									playbgm(MUS_POKE_CENTER, TRUE)
+									trainerbattle_no_intro(TRAINER_YES_NURSE, "Ahh-\nNot yes!")
 									release
 									end
 								} else {

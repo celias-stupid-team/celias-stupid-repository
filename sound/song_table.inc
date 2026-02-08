@@ -433,6 +433,7 @@ gSongTable::
 	song mus_tunnel, 0, 0
 	song mus_pisces_gym, 0, 0
 	song mus_kenya, 0, 0
+	song mus_alola_route2, 0, 0
 
 
 

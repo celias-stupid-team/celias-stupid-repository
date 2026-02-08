@@ -505,7 +505,7 @@
 #define FLAG_ONE_ISLAND_WALL                        0x1C6
 #define FLAG_YES_MAN_TRAVELING                     0x1C7
 #define FLAG_YES_NERD_TM                              0x1C8
-#define FLAG_0x1C9                             0x1C9
+#define FLAG_HAMBURGER_GUY                             0x1C9
 #define FLAG_0x1CA                    0x1CA
 #define FLAG_0x1CB                       0x1CB
 #define FLAG_0x1CC                      0x1CC
@@ -514,7 +514,7 @@
 #define FLAG_MINNESOTA_GYM_STRENGTH                             0x1CF
 #define FLAG_BEEN_IN_WATERFALL_HOUSE                  0x1D0
 #define FLAG_HIDE_CELADON_CITY_ETHER                            0x1D1
-#define FLAG_0x1D2              0x1D2
+#define FLAG_TALKED_TO_SWORDFUCK              0x1D2
 #define FLAG_0x1D3                  0x1D3
 #define FLAG_0x1D4                   0x1D4
 #define FLAG_0x1D5               0x1D5

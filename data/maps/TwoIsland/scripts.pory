@@ -302,6 +302,7 @@ script TwoIsland_DragonitePresent {
 	"There was a\n"
 	"BAG OF DRAGONITE!", MSGBOX_DEFAULT)
 	waitfanfare
+	giveitem(ITEM_BAG_OF_DRAGONITE, 1)
 	setflag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)
 	release
 	end
@@ -473,6 +474,7 @@ script TwoIsland_Panpour {
 }
 
 script TwoIsland_MartHippie {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"I bought a RULER from the store,\n"
 	"but all the numbers washed off.\p"
@@ -1082,8 +1084,14 @@ script TwoIsland_TrumpetPlayer {
 	lock
 	faceplayer
 	msgbox(
-	"I play hoenn trumpet\n"
-	"", MSGBOX_DEFAULT)
+	"I must be the happiest man in\n"
+	"the world.\p"
+
+	"I can practice my trumpet in this\n"
+	"scenic spot.\p"
+
+	"Maybe they'll hire me for the next\n"
+	"HOENN remake!", MSGBOX_DEFAULT)
 	waitse
 	playse(MUS_TRUMPETS)
 	closemessage
@@ -1160,7 +1168,7 @@ script TwoIsland_RunawayFiveToedscool {
 
 script TwoIsland_RunawayFiveChansey {
 	lock
-	playmoncry(SPECIES_CHANSEY, CRY_MODE_DEFAULT)
+	playmoncry(SPECIES_CHANSEYBLANK, CRY_MODE_DEFAULT)
 	waitmoncry
 	call(TwoIsland_RunawayFiveHorsea)
 	release

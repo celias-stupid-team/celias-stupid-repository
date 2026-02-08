@@ -108,7 +108,7 @@ script MinnesotaGym_BenchClue {
 	"is how crowded it gets.\p"
 
 	"Everyone's hoping to get their\n"
-	"turn using the bench.\p"
+	"turn using the BENCH.\p"
 
 	"Why's there only one setup anyway?", MSGBOX_NPC)
 }

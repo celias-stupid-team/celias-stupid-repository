@@ -9788,3 +9788,11 @@ const u32 gMonShinyPalette_CELEBI2[] = INCBIN_U32("graphics/pokemon/celebi2/shin
 const u8 gMonIcon_CELEBI2[] = INCBIN_U8("graphics/pokemon/celebi2/icon.4bpp");
 const u8 gMonFootprint_CELEBI2[] = INCBIN_U8("graphics/pokemon/celebi2/footprint.1bpp");
 
+// PIKACHU_SURF
+const u32 gMonFrontPic_PIKACHUSURF[] = INCBIN_U32("graphics/pokemon/pikachusurf/front.4bpp.lz");
+const u32 gMonPalette_PIKACHUSURF[] = INCBIN_U32("graphics/pokemon/pikachusurf/normal.gbapal.lz");
+const u32 gMonBackPic_PIKACHUSURF[] = INCBIN_U32("graphics/pokemon/pikachusurf/back.4bpp.lz");
+const u32 gMonShinyPalette_PIKACHUSURF[] = INCBIN_U32("graphics/pokemon/pikachusurf/shiny.gbapal.lz");
+const u8 gMonIcon_PIKACHUSURF[] = INCBIN_U8("graphics/pokemon/pikachusurf/icon.4bpp");
+const u8 gMonFootprint_PIKACHUSURF[] = INCBIN_U8("graphics/pokemon/pikachusurf/footprint.1bpp");
+

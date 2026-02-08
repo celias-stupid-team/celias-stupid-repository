@@ -12811,3 +12811,20 @@ extern const u32 gMonShinyPalette_CELEBI2[];
 extern const u8 gMonFootprint_CELEBI2[];
 extern const u8 gMonIcon_CELEBI2[];
 
+
+extern const u32 gItemIcon_BagOfDragonite[];
+extern const u32 gItemIconPalette_BagOfDragonite[];
+
+extern const u32 gTrainerFrontPic_TeamSkull[];
+extern const u32 gTrainerPalette_TeamSkull[];
+// PIKACHU_SURF
+extern const u32 gMonFrontPic_PIKACHUSURF[];
+extern const u32 gMonPalette_PIKACHUSURF[];
+extern const u32 gMonBackPic_PIKACHUSURF[];
+extern const u32 gMonShinyPalette_PIKACHUSURF[];
+extern const u8 gMonFootprint_PIKACHUSURF[];
+extern const u8 gMonIcon_PIKACHUSURF[];
+
+
+extern const u32 gItemIcon_SecretPage[];
+extern const u32 gItemIconPalette_SecretPage[];

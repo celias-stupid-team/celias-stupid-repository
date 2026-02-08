@@ -105,8 +105,7 @@ script GreatSea_EggDeliveryBattle {
 		"", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"Hmm…\n"
-		"That's not quite it.", MSGBOX_DEFAULT)
+		"Yes!\n", MSGBOX_DEFAULT)
 	}
 	release
 }

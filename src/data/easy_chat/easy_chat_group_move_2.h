@@ -141,7 +141,7 @@ static const u16 sEasyChatGroup_Move2[] = {
     MOVE_REST,
     MOVE_REVENGE,
     MOVE_ROAR,
-    MOVE_ROCK_BLAST,
+    MOVE_BOFFA,
     MOVE_ROLE_PLAY,
     MOVE_ROLLING_KICK,
     MOVE_SCRATCH,

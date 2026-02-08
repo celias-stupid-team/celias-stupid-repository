@@ -63,7 +63,7 @@ script AetherParadise_Groudon {
 	"Nothing here!", MSGBOX_DEFAULT)
     if(!flag(FLAG_GROUDON_NOTHING)) {
         setflag(FLAG_GROUDON_NOTHING)
-        giveitem_msg("", ITEM_NOTHING)
+        giveitem(ITEM_NOTHING)
 
     }
     release
@@ -219,4 +219,12 @@ script FestivalPlaza_Sophacles {
 	"Hey, hey!\n"
 	"I don't suppose you'd like to have\l"
 	"another tour?", MSGBOX_NPC)
+}
+
+
+script StarlightIslandSign {
+	msgbox(
+	"STARLIGHT ISLAND\n"
+	"", MSGBOX_SIGN)
+
 }

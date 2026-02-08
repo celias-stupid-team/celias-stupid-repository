@@ -4603,9 +4603,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_SNATCH_AFFECTED,
     },
 
-    [MOVE_ROCK_BLAST] =
+    [MOVE_BOFFA] =
     {
-        .effect = EFFECT_MULTI_HIT,
+        .effect = EFFECT_DOUBLE_HIT,
         .power = 80,
         .type = TYPE_ROCK,
         .accuracy = 100,
@@ -4876,7 +4876,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ONE_CLUB] =    {
         .effect = EFFECT_HIT,
-        .power = 1,
+        .power = 60,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 35,
@@ -4900,7 +4900,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ONE_EDGE] =    {
         .effect = EFFECT_HIGH_CRITICAL,
-        .power = 1,
+        .power = 100,
         .type = TYPE_ROCK,
         .accuracy = 80,
         .pp = 35,
@@ -4912,7 +4912,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ONEMERANG] =    {
         .effect = EFFECT_DOUBLE_HIT,
-        .power = 1,
+        .power = 50,
         .type = TYPE_GROUND,
         .accuracy = 90,
         .pp = 35,
@@ -4922,17 +4922,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED
     },
 
-    [MOVE_1DER_ROOM] =    {
-        .effect = EFFECT_DO_NOTHING, 
+    [MOVE_BANEFUL_1NKER] =    {
+        .effect = EFFECT_SPIKY_SHIELD, 
         .power = 0,
-        .type = TYPE_PSYCHIC,
+        .type = TYPE_POISON,
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED,
-        .stringId = B_MSG_1DER_ROOM
+        //.stringId = B_MSG_1DER_ROOM
     },
 
     [MOVE_FINAL_GAMBIT] =    {
@@ -8137,7 +8137,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_OHKO_FLASH,
         .power = 70,
-        .type = TYPE_STEEL,
+        .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
@@ -8150,7 +8150,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_OHKO_FLASH,
         .power = 1,
-        .type = TYPE_STEEL,
+        .type = TYPE_ICE,
         .accuracy = 0,
         .pp = 40,
         .secondaryEffectChance = 0,
