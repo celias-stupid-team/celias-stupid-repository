@@ -74,7 +74,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
       "x": 38,
-      "y": 22,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 3,
