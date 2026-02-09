@@ -810,6 +810,9 @@ const u8 gMoveDescription_FlowerTrick[] = _("Dummy");
 const u8 gMoveDescription_PartingShot[] = _("Dummy");
 const u8 gMoveDescription_SparklingAria[] = _("Dummy");
 const u8 gMoveDescription_Cute[] = _("Dummy");
+const u8 gMoveDescription_ShadowShield[] = _("Dummy");
+const u8 gMoveDescription_QuintupleWingbeat[] = _("The user attacks\nwith all of its\nwings, hitting\nfive times.");
+
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -1628,4 +1631,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_PARTING_SHOT     -1 ] = gMoveDescription_PartingShot,
     [MOVE_SPARKLING_ARIA     -1 ] = gMoveDescription_SparklingAria,
     [MOVE_CUTE     -1 ] = gMoveDescription_Cute,
+    [MOVE_SHADOW_SHIELD - 1] = gMoveDescription_ShadowShield,
+    [MOVE_QUINTUPLE_WINGBEAT - 1] = gMoveDescription_QuintupleWingbeat,
 };

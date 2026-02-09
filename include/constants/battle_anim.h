@@ -313,6 +313,7 @@
 #define ANIM_TAG_BROCKS                     (ANIM_SPRITES_START + 303)
 #define ANIM_TAG_BROCK_X_SIGN               (ANIM_SPRITES_START + 304)
 #define ANIM_TAG_ZEKROM_KICK                (ANIM_SPRITES_START + 305)
+#define ANIM_TAG_RAINBOW                    (ANIM_SPRITES_START + 306)
 
 // battlers
 #define ANIM_ATTACKER    0
@@ -401,6 +402,9 @@
 #define B_ANIM_TERA_ACTIVATE            31
 #define B_ANIM_TRICK_ROOM_CONTINUES     32
 #define B_ANIM_SEEL_HOOPA_TRANSFORM     33
+#define B_ANIM_SHADOW_SKY_CONTINUES     34
+#define B_ANIM_SHADOW_SPIKES            35
+#define B_ANIM_ZAPMOLCUNO_TRANSFORM     36
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
@@ -487,6 +491,12 @@
 #define BACK_ANIM_FADE_RED_WITH_SHAKE          0x17
 #define BACK_ANIM_FADE_GREEN_WITH_SHAKE        0x18
 #define BACK_ANIM_FADE_BLUE_WITH_SHAKE         0x19
+
+// fade anim types
+#define FADE_FROM_BLACK  0
+#define FADE_TO_BLACK    1
+#define FADE_FROM_WHITE  2
+#define FADE_TO_WHITE    3
 
 
 #endif // GUARD_CONSTANTS_BATTLE_ANIM_H

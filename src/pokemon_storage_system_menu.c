@@ -18,6 +18,13 @@
 #include "battle_controllers.h"
 #include "reshow_battle_screen.h"
 
+extern u8 gSavedFaintedActionsState;
+extern u8 gSavedFaintedActionsBattlerId;
+extern u8 gSavedTurnEffectsTracker;
+extern u8 gSavedTurnCountersTracker;
+extern struct BattleCallbacksStack gSavedBattleCallbackStack;
+extern struct BattleScriptsStack gSavedBattleScriptsStack;
+
 static EWRAM_DATA u8 sPreviousBoxOption = 0;
 static EWRAM_DATA struct ChooseBoxMenu *sChooseBoxMenu = NULL;
 
@@ -396,15 +403,53 @@ static void CreatePCMainMenu(u8 whichMenu, s16 *windowIdPtr)
     *windowIdPtr = windowId;
 }
 
-void CB2_ExitPokeStorage(void)
+void CB2_ExitPokeStorage(void) //wiz1989
 {
     sPreviousBoxOption = GetCurrentBoxOption();
     if (gMain.inBattle)
     {
+        // ### PSS battle switches - step 6 ###
+        u8 i = 0;
         // reallocate battle sprite data before returning
         AllocateBattleResources();
         AllocateBattleSpritesData();
-        AllocateMonSpritesGfx(); // --> gives a malloc 174
+        AllocateMonSpritesGfx();
+
+        // restore AI flags
+        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+            gBattleResources->ai->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
+
+        // reset Switch IDs to PARTY_SIZE because they were reset to 0
+        for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+        {
+            *(gBattleStruct->monToSwitchIntoId + i) = PARTY_SIZE;
+            *(gBattleStruct->AI_monToSwitchIntoId + i) = PARTY_SIZE;
+        }
+
+        // restore absent battler flags
+        *(&gBattleStruct->absentBattlerFlags) = gAbsentBattlerFlags;
+
+        // restore faintedActionsState
+        gBattleStruct->faintedActionsState = gSavedFaintedActionsState;
+        gBattleStruct->faintedActionsBattlerId = gSavedFaintedActionsBattlerId;
+
+        // restore turn effects and counters trackers
+        gBattleStruct->turnEffectsTracker = gSavedTurnEffectsTracker;
+        gBattleStruct->turnCountersTracker = gSavedTurnCountersTracker;
+        
+        // restore BattleCallbackStack
+        gBattleResources->battleCallbackStack->size = gSavedBattleCallbackStack.size;
+        for (i = 0; i < gSavedBattleCallbackStack.size; i++)
+        {
+            gBattleResources->battleCallbackStack->function[i] = gSavedBattleCallbackStack.function[i];
+        }
+
+        // restore BattleScriptsStack
+        gBattleResources->battleScriptsStack->size = gSavedBattleScriptsStack.size;
+        for (i = 0; i < gSavedBattleScriptsStack.size; i++)
+        {
+            gBattleResources->battleScriptsStack->ptr[i] = gSavedBattleScriptsStack.ptr[i];
+        }
 
         gMain.callback1 = BattleMainCB1;
         SetMainCallback2(ReshowBattleScreenAfterMenu);

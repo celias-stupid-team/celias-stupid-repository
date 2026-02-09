@@ -10041,7 +10041,7 @@ static const struct LevelUpMove sFINALLUGIALevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sFINALARTICUNOLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_QUINTUPLE_WINGBEAT),
 	LEVEL_UP_END
 };
 

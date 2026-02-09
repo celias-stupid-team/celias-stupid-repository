@@ -30,6 +30,7 @@ extern const u32 gBallPal_Premier[];
 extern const u32 gOpenPokeballGfx[];
 
 // pokemon gfx
+extern const u32 gMonFrontPic_Invisible[];
 extern const u32 gMonFrontPic_Bulbasaur[];
 extern const u32 gMonPalette_Bulbasaur[];
 extern const u32 gMonBackPic_Bulbasaur[];
@@ -8697,6 +8698,7 @@ extern const u32 gBattleAnimSpriteGfx_MiddleFinger[];
 extern const u32 gBattleAnimSpriteGfx_Brocks[];
 extern const u32 gBattleAnimSpriteGfx_BrockXSign[];
 extern const u32 gBattleAnimSpriteGfx_ZekromKick[];
+extern const u32 gBattleAnimSpriteGfx_Rainbow[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -8957,6 +8959,7 @@ extern const u32 gBattleAnimSpritePal_MiddleFinger[];
 extern const u32 gBattleAnimSpritePal_Brocks[];
 extern const u32 gBattleAnimSpritePal_BrockXSign[];
 extern const u32 gBattleAnimSpritePal_ZekromKick[];
+extern const u32 gBattleAnimSpritePal_Rainbow[];
 
 //CSR Moves
 
@@ -12176,6 +12179,12 @@ extern const u32 gBattleTerrainPalette_Agatha[];
 extern const u32 gBattleTerrainPalette_Lance[];
 extern const u32 gBattleTerrainPalette_Champion[];
 extern const u32 gBattleTerrainPalette_Plain[];
+extern const u32 gBattleTerrainPalette_Zapmolcunoohgia[];
+extern const u32 gBattleTerrainTiles_Zapmolcunoohgia[];
+extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia[];
+extern const u32 gBattleTerrainPalette_Zapmolcunoohgia_Platforms[];
+extern const u32 gBattleTerrainTiles_Zapmolcunoohgia_Platforms[];
+extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia_Platforms[];
 extern const u32 gBattleTerrainTiles_Indoor[];
 extern const u32 gBattleTerrainTilemap_Indoor[];
 

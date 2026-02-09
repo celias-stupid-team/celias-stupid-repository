@@ -44,6 +44,13 @@ static EWRAM_DATA u8 sWhichToReshow = 0;
 static EWRAM_DATA u8 sLastUsedBox = 0;
 static EWRAM_DATA u16 sMovingItemId = ITEM_NONE;
 
+extern struct BattleCallbacksStack gSavedBattleCallbackStack;
+extern struct BattleScriptsStack gSavedBattleScriptsStack;
+extern u8 gSavedFaintedActionsState;
+extern u8 gSavedFaintedActionsBattlerId;
+extern u8 gSavedTurnEffectsTracker;
+extern u8 gSavedTurnCountersTracker;
+
 static void Task_InitPokeStorage(u8 taskId);
 static void Task_ShowPokeStorage(u8 taskId);
 static void Task_ReshowPokeStorage(u8 taskId);
@@ -2902,9 +2909,31 @@ static void UpdateBoxToSendMons(void)
 }
 
 // ### PSS battle switches - step 3 ###
-void ExternalLoadPC(void)
+void ExternalLoadPC(void) //wiz1989
 {
     int i;
+
+    // Save critical battle data before freeing
+    if (gBattleStruct != NULL)
+    {
+        gSavedFaintedActionsState = gBattleStruct->faintedActionsState;
+        gSavedFaintedActionsBattlerId = gBattleStruct->faintedActionsBattlerId;
+
+        gSavedBattleCallbackStack.size = gBattleResources->battleCallbackStack->size;
+        for (i = 0; i < gSavedBattleCallbackStack.size; i++)
+        {
+            gSavedBattleCallbackStack.function[i] = gBattleResources->battleCallbackStack->function[i];
+        }
+
+        gSavedBattleScriptsStack.size = gBattleResources->battleScriptsStack->size;
+        for (i = 0; i < gSavedBattleScriptsStack.size; i++)
+        {
+            gSavedBattleScriptsStack.ptr[i] = gBattleResources->battleScriptsStack->ptr[i];
+        }
+
+        gSavedTurnEffectsTracker = gBattleStruct->turnEffectsTracker;
+        gSavedTurnCountersTracker = gBattleStruct->turnCountersTracker;        
+    }
 
     //Free memory
     FreeAllWindowBuffers();

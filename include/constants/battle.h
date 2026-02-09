@@ -73,6 +73,7 @@
 #define BATTLE_TYPE_KANGA              (1 << 25)
 #define BATTLE_TYPE_SHEDINJA_TERA      (1 << 26)
 #define BATTLE_TYPE_CYNTHIA            (1 << 27)
+#define BATTLE_TYPE_ZAPMOLCUNOOHGIA  (1 << 28)
 
 #define IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && !((flags) & BATTLE_TYPE_GHOST_UNVEILED))
 #define IS_BATTLE_TYPE_GHOST_WITH_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && (flags) & BATTLE_TYPE_GHOST_UNVEILED)
@@ -81,7 +82,8 @@
 #define RIVAL_BATTLE_TUTORIAL    3
 
 // special battle type IDs for trainerbattle_no_intro_battletype macro
-#define SPECIAL_BATTLE_TYPE_CYNTHIA       1
+#define SPECIAL_BATTLE_TYPE_CYNTHIA           1
+#define SPECIAL_BATTLE_TYPE_ZAPMOLCUNOOHGIA 2
 
 // Battle Outcome defines
 #define B_OUTCOME_WON                  1
@@ -93,8 +95,7 @@
 #define B_OUTCOME_CAUGHT               7
 #define B_OUTCOME_NO_SAFARI_BALLS      8
 #define B_OUTCOME_FORFEITED            9
-#define B_OUTCOME_MON_TELEPORTED       10
-#define B_OUTCOME_LINK_BATTLE_RAN      (1 << 7) // 128
+#define B_OUTCOME_CONTINUE_ROTOM       (1 << 7) // used for final battle
 
 // Non-volatile status conditions
 // These persist remain outside of battle and after switching out
@@ -206,7 +207,9 @@
 #define SIDE_STATUS_SPIKES_DAMAGED   (1 << 9)
 #define SIDE_STATUS_STEALTH_ROCK     (1 << 10)
 #define SIDE_STATUS_STEALTH_ROCK_DAMAGED (1 << 11)
-#define SIDE_STATUS_SPIKY_SHIELD (1 << 12)
+#define SIDE_STATUS_SPIKY_SHIELD     (1 << 12)
+#define SIDE_STATUS_SHADOW_SPIKES    (1 << 13)
+#define SIDE_STATUS_SHADOW_SHIELD    (1 << 14)
 
 // Flags describing move's result
 #define MOVE_RESULT_MISSED             (1 << 0)
@@ -234,6 +237,7 @@
 #define B_WEATHER_HAIL_TEMPORARY      (1 << 7)
 #define B_WEATHER_HAIL                (B_WEATHER_HAIL_TEMPORARY)
 #define B_WEATHER_ANY                 (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_SUN | B_WEATHER_HAIL)
+#define B_WEATHER_SHADOW_SKY          (1 << 8)
 
 // Move Effects
 #define MOVE_EFFECT_SLEEP               1
@@ -324,17 +328,22 @@
 #define BATTLE_TERRAIN_AGATHA      17
 #define BATTLE_TERRAIN_LANCE       18
 #define BATTLE_TERRAIN_CHAMPION    19
+#define BATTLE_TERRAIN_ZAPMOLCUNOOHGIA 20
+#define BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS 21
 
-#define B_WAIT_TIME_LONGEST  96
-#define B_WAIT_TIME_LONG     64
-#define B_WAIT_TIME_MED      48
-#define B_WAIT_TIME_SHORT    32
+#define USE_TEST_TERRAIN FALSE // set to FALSE for public release, only used for Zapmolcuno testing
+
+#define B_WAIT_TIME_LONGEST 96
+#define B_WAIT_TIME_LONG    64
+#define B_WAIT_TIME_MED     48
+#define B_WAIT_TIME_SHORT   32
 
 #define CASTFORM_NORMAL     0
 #define CASTFORM_FIRE       1
 #define CASTFORM_WATER      2
 #define CASTFORM_ICE        3
-#define NUM_CASTFORM_FORMS  4
+#define CASTFORM_SHADOW     4
+#define NUM_CASTFORM_FORMS  5
 #define CASTFORM_SUBSTITUTE (1 << 7)
 
 #define FLEE_ITEM    1

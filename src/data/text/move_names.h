@@ -817,6 +817,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_PARTING_SHOT]     = _("PARTING SHOT"),
     [MOVE_SPARKLING_ARIA]     = _("SPARKLE ARIA"),
     [MOVE_CUTE]     = _("CUTE"),
+    [MOVE_SHADOW_SHIELD]   = _("SHADOW SHLD"),
+    [MOVE_QUINTUPLE_WINGBEAT]     = _("5X WINGBEAT"),
 };
 
 
@@ -1640,5 +1642,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_PARTING_SHOT]     = _("PARTING SHOT"),
     [MOVE_SPARKLING_ARIA]     = _("SPARKLING ARIA"),
     [MOVE_CUTE]     = _("CUTE"),
+    [MOVE_SHADOW_SHIELD]   = _("SHADOW SHIELD"),
+    [MOVE_QUINTUPLE_WINGBEAT]     = _("QUINTUPLE WINGBEAT"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

@@ -39,6 +39,8 @@ static void UpdateEruptionLaunchRockPos(struct Sprite *sprite);
 static void AnimEruptionFallingRock_Step(struct Sprite *sprite);
 static void AnimWillOWispOrb_Step(struct Sprite *sprite);
 static void AnimTask_MoveHeatWaveTargets_Step(u8 taskId);
+static void AnimRainbowRay(struct Sprite *sprite);
+static void AnimRainbowRay_Step(struct Sprite *sprite);
 
 static const union AnimCmd sAnim_FireSpiralSpread_0[] =
 {
@@ -593,17 +595,12 @@ static void AnimFirePlume(struct Sprite *sprite)
 
 static void AnimFirePlumeUnanchored(struct Sprite *sprite)
 {
-    // gBattleAnimArgs[7] is treated as an "anchor" flag:
-    // 0 = attacker (original behavior)
-    // non-zero = target
     bool8 anchorOnTarget = (gBattleAnimArgs[7] != 0);
     u8 battler = anchorOnTarget ? gBattleAnimTarget : gBattleAnimAttacker;
 
-    // Base position: use battler sprite coords directly (FRLG-safe).
     sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X);
     sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y);
 
-    // Preserve original mirroring behavior, but relative to the chosen battler.
     if (GetBattlerSide(battler) != B_SIDE_PLAYER)
     {
         sprite->x -= gBattleAnimArgs[0];
@@ -1402,4 +1399,96 @@ void AnimTask_ShakeTargetInPattern(u8 taskId)
         gSprites[spriteId].y2 = 0;
         DestroyAnimVisualTask(taskId);
     }
+}
+
+//Individual coloured rays for the rainbow effect
+static const union AnimCmd sAnim_RainbowRay_0[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_1[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_2[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_3[] =
+{
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_4[] =
+{
+    ANIMCMD_FRAME(64, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_5[] =
+{
+    ANIMCMD_FRAME(80, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_6[] =
+{
+    ANIMCMD_FRAME(96, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_RainbowRay[] =
+{
+    sAnim_RainbowRay_0,
+    sAnim_RainbowRay_1,
+    sAnim_RainbowRay_2,
+    sAnim_RainbowRay_3,
+    sAnim_RainbowRay_4,
+    sAnim_RainbowRay_5,
+    sAnim_RainbowRay_6,
+};
+
+const struct SpriteTemplate gRainbowRaySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RAINBOW,
+    .paletteTag = ANIM_TAG_RAINBOW,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = sAnims_RainbowRay,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SunlightRay,
+    .callback = AnimRainbowRay,
+};
+
+static void AnimRainbowRay(struct Sprite *sprite)
+{
+    u8 color = gBattleAnimArgs[0] % 7;
+    StartSpriteAnim(sprite, color);
+
+    sprite->x = 0;
+    sprite->y = 0;
+    sprite->data[0] = 60;
+    sprite->data[2] = 140;
+    sprite->data[4] = 80;
+    sprite->callback = StartAnimLinearTranslation;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+static void AnimRainbowRay_Step(struct Sprite *sprite)
+{
+    sprite->x += sprite->data[5];
+    sprite->data[0] = 192;
+    sprite->data[1] = sprite->data[5];
+    sprite->data[2] = 4;
+    sprite->data[3] = 32;
+    sprite->data[4] = -24;
+    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
+    sprite->callback = TranslateSpriteInEllipse;
+    sprite->callback(sprite);
 }

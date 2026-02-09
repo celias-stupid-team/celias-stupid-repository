@@ -840,6 +840,8 @@ gBattleAnims_Moves::
 	.4byte Move_SPARKLING_ARIA
 	.4byte Move_CUTE
 	.4byte Move_BROCK_THROW
+	.4byte Move_SHADOW_SHIELD
+	.4byte Move_QUINTUPLE_WINGBEAT
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -890,6 +892,9 @@ gBattleAnims_General::
 	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
 	.4byte General_TrickRoom                @ B_ANIM_TRICK_ROOM_CONTINUES
 	.4byte General_SeelHoopaTransform       @ B_ANIM_SEEL_HOOPA_TRANSFORM
+	.4byte General_ShadowSky    			@ B_ANIM_SHADOW_SKY_CONTINUES
+	.4byte General_ShadowSpikes 			@ B_ANIM_SHADOW_SPIKES
+	.4byte General_ZapmolcunoTransform      @ B_ANIM_ZAPMOLCUNO_TRANSFORM
 
 	.align 2
 gBattleAnims_Special::
@@ -11307,6 +11312,12 @@ General_Sun:
 General_Sandstorm:
 	goto Move_SANDSTORM
 
+General_ShadowSky:
+	goto Move_SANDSTORM @ wiz1989, needs a new anim
+
+General_ShadowSpikes:
+	goto Move_SPIKES
+
 General_Hail:
 	goto Move_HAIL
 
@@ -11530,6 +11541,9 @@ General_SeelHoopaTransform:
 	waitsound
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
+	end
+
+General_ZapmolcunoTransform: @ doesn't need an actual transformation since it won't be visible
 	end
 
 General_HangedOn:
@@ -13885,28 +13899,18 @@ Move_CONFIDE:
 	createvisualtask SoundTask_WaitForCry, 5
 	waitforvisualfinish
 	end
-	
+
+Move_QUINTUPLE_WINGBEAT:
 Move_DUAL_WINGBEAT:
-	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_DEF_PARTNER
-	splitbgprio ANIM_TARGET
+	monbg ANIM_TARGET
 	setalpha 12, 8
-	loopsewithpan SE_M_WING_ATTACK, SOUND_PAN_ATTACKER, 20, 2
-	createvisualtask AnimTask_TranslateMonElliptical, 2, 0, 12, 4, 1, 4
-	createvisualtask AnimTask_AnimateGustTornadoPalette, 5, 1, 70
-	createsprite gGustToTargetSpriteTemplate, ANIM_ATTACKER, 2, -25, 0, 0, 0, 20
-	createsprite gGustToTargetSpriteTemplate, ANIM_ATTACKER, 2, 25, 0, 0, 0, 20
-	delay 24
-	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 0, 24, 0, 0, 9
-	delay 17
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 16, 0, ANIM_TARGET, 1
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -16, 0, ANIM_TARGET, 1
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
+	delay 6
 	loopsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET, 5, 2
+	call WingbeatHitEffect
 	waitforvisualfinish
-	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 11
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
+	clearmonbg ANIM_TARGET
 	blendoff
 	end
 	
@@ -15400,26 +15404,15 @@ Move_SAVAGE_SPIN_OUT:
 	end
 
 Move_SINGLE_WINGBEAT:
-	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_DEF_PARTNER
-	splitbgprio ANIM_TARGET
+	monbg ANIM_TARGET
 	setalpha 12, 8
-	loopsewithpan SE_M_WING_ATTACK, SOUND_PAN_ATTACKER, 20, 2
-	createvisualtask AnimTask_TranslateMonElliptical, 2, 0, 12, 4, 1, 4
-	createvisualtask AnimTask_AnimateGustTornadoPalette, 5, 1, 70
-	createsprite gGustToTargetSpriteTemplate, ANIM_ATTACKER, 2, -25, 0, 0, 0, 20
-	createsprite gGustToTargetSpriteTemplate, ANIM_ATTACKER, 2, 25, 0, 0, 0, 20
-	delay 24
-	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 0, 24, 0, 0, 9
-	delay 17
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 16, 0, ANIM_TARGET, 1
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -16, 0, ANIM_TARGET, 1
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
+	delay 6
 	loopsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET, 5, 2
+	call WingbeatHitEffect
 	waitforvisualfinish
-	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 11
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
+	clearmonbg ANIM_TARGET
 	blendoff
 	end
 
@@ -17311,13 +17304,30 @@ Move_RAINBOW_BEAM:
 	end
 
 Move_TRIPLE_WINGBEAT:
-
 	loadspritegfx ANIM_TAG_IMPACT
-	playsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET
-	createvisualtask AnimTask_RotateMonToSideAndRestore, 2, 3, -768, ANIM_TARGET, 2
-	createsprite gFlashingHitSplatSpriteTemplate, ANIM_TARGET, 3, -12, 0, ANIM_TARGET, 3
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
+	delay 6
+	loopsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET, 5, 2
+	call WingbeatHitEffect
 	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
 	end
+
+WingbeatHitEffect:
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 4, 0, 17, 1
+	createsprite gFlashingHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 20, ANIM_TARGET, 1
+	delay 1
+	createsprite gFlashingHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 10, ANIM_TARGET, 1
+	delay 1
+	createsprite gFlashingHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
+	delay 1
+	createsprite gFlashingHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, -10, ANIM_TARGET, 1
+	delay 1
+	createsprite gFlashingHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, -20, ANIM_TARGET, 1
+	return
 
 
 Move_FREEZE_DRY:
@@ -17429,8 +17439,36 @@ Move_LEAFAGE:
 	blendoff
 	end
 
-
 Move_RAPID_WIN:
+	loadspritegfx ANIM_TAG_RAINBOW
+	monbg ANIM_ATK_PARTNER
+	setalpha 13, 3
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 1, 0, 6, RGB_WHITE
+	waitforvisualfinish
+	panse_adjustnone SE_M_PETAL_DANCE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +1, 0
+
+	createsprite gRainbowRaySpriteTemplate, ANIM_ATTACKER, 40, 0
+	delay 6
+	createsprite gRainbowRaySpriteTemplate, ANIM_ATTACKER, 40, 1
+	delay 6
+	createsprite gRainbowRaySpriteTemplate, ANIM_ATTACKER, 40, 2
+	delay 6
+	createsprite gRainbowRaySpriteTemplate, ANIM_ATTACKER, 40, 3
+	delay 6
+	createsprite gRainbowRaySpriteTemplate, ANIM_ATTACKER, 40, 4
+	delay 6
+	createsprite gRainbowRaySpriteTemplate, ANIM_ATTACKER, 40, 5
+	delay 6
+	createsprite gRainbowRaySpriteTemplate, ANIM_ATTACKER, 40, 6
+	delay 6
+
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 1, 6, 0, RGB_WHITE
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	end
+
 Move_ONEISHMENT:
 Move_ME_FIRST:
 Move_WEEDLE_ARM:
@@ -17614,3 +17652,5 @@ Move_CUTE:
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
+Move_SHADOW_SHIELD:
+	goto Move_PROTECT
