@@ -534,6 +534,12 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SAWK;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RAINBOW_DMCA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ALOLA_MEOWTH;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ALOLA_RAICHU;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CHAIRRY;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HAT_NOT_OAK;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sphealio_evolved;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RAINBOW;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LIGHT_GARY;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DARK_GARY;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1069,4 +1075,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RAINBOW_DMCA] = &gObjectEventGraphicsInfo_RAINBOW_DMCA,
     [OBJ_EVENT_GFX_ALOLA_MEOWTH] = &gObjectEventGraphicsInfo_ALOLA_MEOWTH,
     [OBJ_EVENT_GFX_ALOLA_RAICHU] = &gObjectEventGraphicsInfo_ALOLA_RAICHU,
+    [OBJ_EVENT_GFX_CHAIRRY] = &gObjectEventGraphicsInfo_CHAIRRY,
+    [OBJ_EVENT_GFX_HAT_NOT_OAK] = &gObjectEventGraphicsInfo_HAT_NOT_OAK,
+    [OBJ_EVENT_GFX_SPHEALIO_EVOLVED] = &gObjectEventGraphicsInfo_sphealio_evolved,
+    [OBJ_EVENT_GFX_RAINBOW] = &gObjectEventGraphicsInfo_RAINBOW,
+    [OBJ_EVENT_GFX_LIGHT_GARY] = &gObjectEventGraphicsInfo_LIGHT_GARY,
+    [OBJ_EVENT_GFX_DARK_GARY] = &gObjectEventGraphicsInfo_DARK_GARY,
 };

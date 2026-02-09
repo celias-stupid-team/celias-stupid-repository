@@ -72,53 +72,6 @@ Route23_EventScript_CascadeBadgeGuardTrigger::
 	goto Route23_EventScript_BadgeGuardTrigger
 	end
 
-Route23_EventScript_ThunderBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 3
-	setvar VAR_0x8009, LOCALID_THUNDER_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_THUNDER_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_RainbowBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 4
-	setvar VAR_0x8009, LOCALID_RAINBOW_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_RAINBOW_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_SoulBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 5
-	setvar VAR_0x8009, LOCALID_SOUL_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_SOUL_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_MarshBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 6
-	setvar VAR_0x8009, LOCALID_MARSH_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_MARSH_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_VolcanoBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 7
-	setvar VAR_0x8009, LOCALID_VOLCANO_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_VOLCANO_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
-
-Route23_EventScript_EarthBadgeGuardTrigger::
-	lockall
-	setvar VAR_TEMP_1, 8
-	setvar VAR_0x8009, LOCALID_EARTH_BADGE_GUARD
-	bufferstdstring STR_VAR_1, STDSTRING_EARTH_BADGE
-	goto Route23_EventScript_BadgeGuardTrigger
-	end
 
 Route23_EventScript_VictoryRoadGateSign::
 	msgbox Route23_Text_VictoryRoadGateSign, MSGBOX_SIGN
@@ -418,4 +371,909 @@ script IndigoPlateau_Lucca {
 	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_UP)
 	release
 	end
+}
+
+
+
+
+script Route23_EventScript_ThunderBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 3)
+	msgbox(
+	"You can pass here only if you have\n"
+	"the PHOTOSENSITIVE BADGE.", MSGBOX_DEFAULT)
+	if(flag(FLAG_BADGE03_GET)) {
+		msgbox(
+		"Oh!\n"
+		"That is the PHOTOSENSITIVE BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+
+		"Okay, then.\n"
+		"Please, go right ahead.", MSGBOX_DEFAULT)
+		setvar(VAR_MAP_SCENE_ROUTE23, 3)
+	} else {
+		msgbox(
+		"You don't have the\n"
+		"PHOTOSENSITIVE BADGE yet.\p"
+
+		"You have to have it to get to\n"
+		"the POKéMON LEAGUE.", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+script Route23_EventScript_RainbowBadgeGuardTrigger { 
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 4)
+	msgbox(
+	"You can pass here only if you have\n"
+	"the EARTH BADGE.", MSGBOX_DEFAULT)
+
+	if(flag(FLAG_BADGE08_GET)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 4)
+		msgbox(
+		"Oh!\n"
+		"That is the EARTH BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+
+		"Okay, then.\n"
+		"Please, go right ahead.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"You don't have the\n"
+		"EARTH BADGE yet.\p"
+
+		"You have to have it to get to\n"
+		"the POKéMON LEAGUE.", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+script DummyRoute23 {
+	msgbox("test")
+	release
+	end
+}
+
+
+script Route23_EventScript_SoulBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 5)
+
+	message(
+	"You can pass here only if you have\n"
+	"the-")
+	waitmessage
+	playse(SE_PIN)
+	applymovement(LOCALID_RAINBOW_BADGE_GUARD, moves(
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	waitmovement(LOCALID_RAINBOW_BADGE_GUARD)
+	closemessage
+	applymovement(LOCALID_RAINBOW_BADGE_GUARD, moves(
+		walk_left
+		face_up
+	))
+	waitmovement(LOCALID_RAINBOW_BADGE_GUARD)
+	msgbox(
+	"Wait!\n"
+	"That was wrong.\p"
+
+	"I'm supposed to check you for\n"
+	"the RAINBOW BADGE.", MSGBOX_DEFAULT)
+	playfanfare(MUS_LEVEL_UP)
+	waitfanfare
+	msgbox(
+		"…Oh, okay you already have\n"
+		"that one.\p"
+
+		"Carry on!\n"
+		"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_RAINBOW_BADGE_GUARD, moves(
+		walk_right
+		face_left
+	))
+	waitmovement(LOCALID_RAINBOW_BADGE_GUARD)
+	delay(60)
+	applymovement(LOCALID_SOUL_BADGE_GUARD, moves(
+		walk_in_place_left * 2
+		face_left
+	))
+	waitmovement(LOCALID_SOUL_BADGE_GUARD)
+	msgbox(
+	"Er…\n"
+	"Anyway, like I was saying.\p"
+
+	"You can pass here only if you have\n"
+	"the GYM MEMBERSHIP BADGE.", MSGBOX_DEFAULT)
+	setvar (VAR_TEMP_1, 5)
+	if(flag(FLAG_GOT_GYM_MEMBERSHIP_BADGE)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 5)
+		msgbox(
+		"Oh!\n"
+		"That is the GYM MEMBERSHIP BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+
+		"Okay, then.\n"
+		"Please, go right ahead.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"You don't have the\n"
+		"GYM MEMBERSHIP BADGE yet.\p"
+
+		"You have to have it to get to\n"
+		"the POKéMON LEAGUE.", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+
+script Route23_EventScript_MarshBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 6)
+	msgbox(
+	"You can pass here only if you have\n"
+	"the DAD BADGE.", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_VOLCANO_BADGE_GUARD, moves(
+		face_down
+		delay_16 * 2
+	))
+	waitmovement(0)
+	msgbox(
+	"DAD: Hey!\n"
+	"That's me!", MSGBOX_DEFAULT)
+	if(flag(FLAG_BADGE05_GET)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 6)
+		msgbox(
+		"Don't worry!\n"
+		"That one's taken care of.{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+
+		"It was a great fight, too!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_VOLCANO_BADGE_GUARD, moves(
+			face_left
+		))
+		waitmovement(0)
+		delay(30)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+
+script Route23_EventScript_VolcanoBadgeGuardTrigger { 
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 7)
+	setvar(VAR_MAP_SCENE_ROUTE23, 7)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"You can pass only if you have the\n"
+	"VOLCANO BAKEMEAT BADGE.\p"
+
+	"Oh!\n"
+	"That's the VOLCANO BAKEMEAT BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+
+script Route23_EventScript_MinnesotaBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 8)
+	msgbox(
+	"You can pass here only if you have\n"
+	"the BOULDER BADGE.", MSGBOX_DEFAULT)
+	closemessage
+	special(SpawnCameraObject)
+	delay(30)
+	msgbox(
+	"Hey!\n"
+	"Hold on!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fast_down * 6
+	))
+	delay(30)
+	addobject(LOCALID_OTHER_BOULDERBADGE_GUARD)
+	applymovement(LOCALID_OTHER_BOULDERBADGE_GUARD, moves(
+		set_visible
+		walk_up * 5
+	))
+	waitmovement(LOCALID_CAMERA)
+	waitmovement(LOCALID_OTHER_BOULDERBADGE_GUARD)
+	msgbox(
+	"I thought I was checking for the\n"
+	"BOULDERBADGE.\p"
+
+	"Wasn't that the whole idea?\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	addobject(LOCALID_MINNESOTA_BADGE_GUARD)
+	applymovement(LOCALID_MINNESOTA_BADGE_GUARD, moves(
+		walk_left
+		walk_down * 4
+
+	))
+	waitmovement(LOCALID_MINNESOTA_BADGE_GUARD)
+	msgbox(
+	"No no no, you're checking for the\n"
+	"first BOULDER BADGE.\l"
+	"There's two of 'em.\p"
+
+	"Mine's the sixth BADGE, I think.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_MARSH_BADGE_GUARD, moves(
+		walk_left
+		face_down
+	))
+	waitmovement(0)
+	applymovement(LOCALID_MINNESOTA_BADGE_GUARD, moves(
+		face_up
+	))
+	delay(30)
+	msgbox(
+	"Wait, you were supposed to be\n"
+	"the sixth BADGE?\l"
+	"I think we're out of order then.\p"
+
+	"There were two BADGE checks before\n"
+	"us, so you actually went eighth.", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_MINNESOTA_BADGE_GUARD, moves(
+		walk_in_place_up * 2
+		face_up
+	))
+	delay(10)
+	msgbox(
+	"Oh, that's my bad.\n"
+	"Hold on.", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(LOCALID_MINNESOTA_BADGE_GUARD, moves(
+		delay_8
+		walk_up
+		walk_up
+		walk_right
+		face_left
+	))
+	applymovement(LOCALID_MARSH_BADGE_GUARD, moves(
+		face_right
+		lock_facing_direction
+		walk_left
+	))
+	waitmovement(LOCALID_MINNESOTA_BADGE_GUARD)
+	applymovement(LOCALID_MARSH_BADGE_GUARD, moves(
+		unlock_facing_direction
+		walk_right
+		walk_down
+		delay_16 * 3
+		face_up
+		delay_16 * 2
+		face_down
+		delay_16 * 2
+		face_up
+		delay_16 * 2
+		face_down
+		delay_16 * 3
+		face_right
+	))
+	waitmovement(LOCALID_MARSH_BADGE_GUARD)
+	msgbox(
+	"Wait, then where am I supposed\n"
+	"to go?\p"
+
+	"I was the GYM MEMBERSHIP BADGE,\n"
+	"but they never gave me a number.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_CAMERA, moves(
+		walk_up
+	))
+	delay(30)
+	applymovement(LOCALID_VOLCANO_BADGE_GUARD, moves(
+		delay_16
+		face_down
+	))
+	waitmovement(LOCALID_VOLCANO_BADGE_GUARD)
+	msgbox(
+	"DAD: We needed SURF to get to\n"
+	"MINNESOTA, so you're after me.", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(LOCALID_MARSH_BADGE_GUARD, moves(
+		walk_slow_up
+	))
+	delay(30)
+	playse(SE_PIN)
+	applymovement(LOCALID_SOUL_BADGE_GUARD, moves(
+		face_up
+		emote_exclamation_mark
+		delay_16
+	))
+	waitmovement(LOCALID_SOUL_BADGE_GUARD)
+	msgbox(
+	"Wait, no!\p"
+
+	"It's after the DAD BADGE, not\n"
+	"after DAD in general.\p"
+
+	"So maybe you go after me, but then\n"
+	"before DAD?", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_MARSH_BADGE_GUARD, moves(
+		face_down
+	))
+	msgbox(
+	"Wait, wait.\p"
+
+	"I checked the DAD BADGE, not the\n"
+	"GYM MEMBERSHIP BADGE.\l"
+	"You were the one on that check.\p"
+
+	"So how about we just…\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_MARSH_BADGE_GUARD, moves(
+		walk_in_place_down * 2
+		delay_16 
+		walk_down
+		walk_right
+		face_left
+	))
+	applymovement(LOCALID_SOUL_BADGE_GUARD, moves(
+		walk_left * 2
+		face_right
+		delay_16 * 4
+		walk_right
+		walk_up
+		face_right
+	))
+	waitmovement(LOCALID_SOUL_BADGE_GUARD)
+	applymovement(LOCALID_VOLCANO_BADGE_GUARD, moves(
+		walk_up
+		face_left
+	))
+	applymovement(LOCALID_MINNESOTA_BADGE_GUARD, moves(
+		delay_8
+		walk_up
+		face_left
+	))
+	waitmovement(LOCALID_MINNESOTA_BADGE_GUARD)
+	applymovement(LOCALID_SOUL_BADGE_GUARD, moves(
+		walk_right
+		face_left
+	))
+	waitmovement(LOCALID_SOUL_BADGE_GUARD)
+	delay(60)
+	msgbox(
+	"So… hold on, which BADGES have\n"
+	"been checked so far?\l"
+	"I've lost track.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_THUNDER_BADGE_GUARD, moves(
+		delay_4
+		face_up
+		delay_16 * 2
+		face_left
+		delay_16
+		face_right
+		face_right
+		delay_16
+		delay_8
+		face_up
+		delay_16 * 2
+		face_left
+	))
+	applymovement(LOCALID_RAINBOW_BADGE_GUARD, moves(
+		face_right
+		delay_16
+		delay_8
+		face_up
+		delay_16 * 2
+		face_right
+		face_up
+		delay_16
+		face_left
+		delay_16 * 2
+		delay_8
+		face_left
+
+	))
+	applymovement(LOCALID_SOUL_BADGE_GUARD, moves(
+		face_up
+		delay_16
+		face_left
+		delay_16 * 2
+		delay_8
+		face_right
+		face_up
+		delay_16 * 2
+		face_left
+		delay_16
+		face_left
+
+	))
+	applymovement(LOCALID_MINNESOTA_BADGE_GUARD, moves(
+		delay_4
+		face_down
+		delay_16
+		delay_8
+		face_left
+		emote_question_mark
+		delay_16 * 2
+		face_right
+		face_down
+		delay_16
+		face_left
+		delay_16
+		delay_16 * 2
+		face_left
+
+	))
+	applymovement(LOCALID_MARSH_BADGE_GUARD, moves(
+		face_up
+		delay_16 * 2
+		delay_8
+		face_left
+		delay_16
+		face_right
+		face_down
+		emote_question_mark
+		delay_16
+		delay_8
+		face_left
+		delay_16 * 2
+		face_left
+
+	))
+	applymovement(LOCALID_VOLCANO_BADGE_GUARD, moves(
+		delay_4
+		face_down
+		delay_16
+		face_left
+		delay_16
+		delay_16 * 2
+		face_right
+		face_down
+		delay_16
+		delay_8
+		face_left
+		delay_16 * 2
+		face_left
+
+	))
+	applymovement(LOCALID_OTHER_BOULDERBADGE_GUARD, moves(
+		face_left
+		delay_16 * 2
+		delay_8
+		face_left
+		delay_16
+		face_right
+		face_right
+		delay_16
+		delay_8
+		face_up
+		emote_question_mark
+		delay_16 * 2
+		face_up
+
+	))
+	applymovement(LOCALID_FEATHER_BADGE_GUARD, moves(
+		delay_4
+		face_right
+		delay_16
+		delay_8
+		face_up
+		delay_16 * 2
+		face_down
+		face_up
+		delay_16 * 2
+		delay_8
+		face_left
+		delay_16
+		face_left
+
+	))
+	waitmovement(LOCALID_FEATHER_BADGE_GUARD)
+	delay(60)
+	msgbox(
+	"…{PAUSE 30}Let's just start over.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	delay(20)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_faster_down * 7
+		face_up
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fast_down * 2
+	))
+	applymovement(LOCALID_OTHER_BOULDERBADGE_GUARD, moves(
+		walk_fast_right
+		walk_fast_up
+		face_left
+	))
+	waitmovement(LOCALID_PLAYER)
+	special(RemoveCameraObject)
+	
+	removeobject(LOCALID_THUNDER_BADGE_GUARD)
+	removeobject(LOCALID_RAINBOW_BADGE_GUARD)
+	removeobject(LOCALID_SOUL_BADGE_GUARD)
+	removeobject(LOCALID_MARSH_BADGE_GUARD)
+	removeobject(LOCALID_VOLCANO_BADGE_GUARD)
+	removeobject(LOCALID_MINNESOTA_BADGE_GUARD)
+	removeobject(LOCALID_FEATHER_BADGE_GUARD)
+	removeobject(LOCALID_EARTH_BADGE_GUARD)
+	delay(10)
+	addobject(LOCALID_THUNDER_BADGE_GUARD)
+	addobject(LOCALID_RAINBOW_BADGE_GUARD)
+	addobject(LOCALID_SOUL_BADGE_GUARD)
+	addobject(LOCALID_MARSH_BADGE_GUARD)
+	addobject(LOCALID_VOLCANO_BADGE_GUARD)
+	addobject(LOCALID_MINNESOTA_BADGE_GUARD)
+	addobject(LOCALID_FEATHER_BADGE_GUARD)
+	addobject(LOCALID_EARTH_BADGE_GUARD)
+
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	delay(60)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(LOCALID_PLAYER)
+	msgbox(
+	"BOULDER BADGE.\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(LOCALID_PLAYER)
+	msgbox(
+	"PHOTOSENSITIVE BADGE.\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(LOCALID_PLAYER)
+	msgbox(
+	"RAINBOW BADGE.\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(LOCALID_PLAYER)
+	delay(10)
+	msgbox(
+	"WAIT!!!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	addobject(LOCALID_CASCADE_BADGE_GUARD)
+	setobjectxy(LOCALID_CASCADE_BADGE_GUARD, 14, 66)
+	applymovement(LOCALID_CASCADE_BADGE_GUARD, moves(
+		walk_faster_up * 2
+		walk_faster_right * 5
+		walk_faster_up * 2
+
+
+	))
+	waitmovement(LOCALID_CASCADE_BADGE_GUARD)
+	applymovement(LOCALID_PLAYER, moves(
+		face_down
+	))
+	delay(30)
+	msgbox(
+	"{PAUSE 30}WATER MEDAL!\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
+	closemessage
+	delay(30)
+	applymovement(LOCALID_CASCADE_BADGE_GUARD, moves(
+		walk_faster_down * 5
+
+
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		delay_16 * 2
+		face_up
+	))
+	waitmovement(LOCALID_CASCADE_BADGE_GUARD)
+	msgbox(
+	"…{PAUSE 30}Where were we?\p"
+
+	"Oh!\n"
+	"Right!\p"
+	"{PAUSE 10}DAD BADGE.\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
+	closemessage
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(LOCALID_PLAYER)
+	msgbox(
+	"GYM MEMBERSHIP BADGE.\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(LOCALID_PLAYER)
+	msgbox(
+	"BOULDER BADGE.\n"
+	"{PAUSE 30}Again.", MSGBOX_DEFAULT)
+		playse(SE_SUCCESS)
+	waitse
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(LOCALID_PLAYER)
+	msgbox(
+	"VOLCANO BAKEMEAT BADGE.\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(LOCALID_PLAYER)
+	msgbox(
+	"FEATHER BADGE.\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(LOCALID_PLAYER)
+	msgbox(
+	"EARTH BADGE.\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SUCCESS)
+	waitse
+	playse(SE_SUCCESS)
+	waitse
+	playse(SE_SUCCESS)
+	waitse
+	delay(30)
+	msgbox(
+	"OKAY!\n"
+	"That's all the BADGES!\p"
+
+	"Nice work, everyone!\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_APPLAUSE)
+	delay(60)
+	closemessage
+	
+	release
+	end
+}
+
+script Route23_EventScript_FeatherBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 9)
+	if(flag(FLAG_OBTAINED_ZEPHYRBADGE)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 9)
+		msgbox(
+		"Yes\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+
+script Route23_EventScript_EarthBadgeGuardTrigger {
+	lockall
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setvar (VAR_TEMP_1, 10)
+	if(flag(FLAG_BADGE08_GET)) {
+		setvar(VAR_MAP_SCENE_ROUTE23, 10)
+		msgbox(
+		"Yes\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+	msgbox(
+		"No\n"
+		"", MSGBOX_DEFAULT)
+		waitmessage
+		playse(SE_BOO)
+		waitbuttonpress
+		closemessage
+		waitse
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	setvar(VAR_MAP_SCENE_ROUTE23, 10)
+	release
+	end
+}
+
+
+script Route23_Badges {
+	setflag(FLAG_BADGE01_GET)
+	setflag(FLAG_BADGE02_GET)
+	setflag(FLAG_BADGE03_GET)
+	setflag(FLAG_BADGE04_GET)
+	setflag(FLAG_BADGE05_GET)
+	setflag(FLAG_BADGE06_GET)
+	setflag(FLAG_BADGE07_GET)
+	setflag(FLAG_BADGE08_GET)
+	setflag(FLAG_GOT_GYM_MEMBERSHIP_BADGE)
+	setflag(FLAG_OBTAINED_ZEPHYRBADGE)
+	release
+}
+
+script Route23_RainbowBadgeGuard {
+	msgbox(
+	"Sorry, I was demoted recently.\p"
+
+	"It's hard to remember that I'm not\n"
+	"the last BADGE anymore.", MSGBOX_NPC)
+}
+
+script Route23_SoulBadgeGuard {
+	msgbox(
+	"Honestly no one can keep up with\n"
+	"the BADGE changes anymore.\p"
+
+	"I just check the memo before I\n"
+	"clock in.\l"
+	"Easier that way.", MSGBOX_NPC)
+}
+
+script Route23_MarshBadgeGuard {
+	msgbox(
+	"So wait, am I supposed to be the\n"
+	"sixth BADGE or…", MSGBOX_NPC)
+}
+
+
+script Route23_VolcanoBadgeGuard {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Phew, working as a GUARD is\n"
+	"hard work.\l"
+	"Can't let anyone sneak through!\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script Route23_MinnesotaBadgeGuard {
+	msgbox(
+	"I'm not sure why they decided to\n"
+	"add a bunch of new BADGES.\p"
+
+	"It doesn't actually make the\n"
+	"LEAGUE any harder to get to.", MSGBOX_NPC)
+}
+
+
+script Route23_FeatherBadgeGuard {
+	msgbox(
+	"I hear that in the HOENN LEAGUE,\n"
+	"they only check the FEATHER BADGE.\p"
+
+	"I'm not sure if I'd call that\n"
+	"efficient or lazy!", MSGBOX_NPC)
+}
+
+script Route23_EarthBadgeGuard {
+	msgbox(
+	"I'm supposed to be the final\n"
+	"BADGE check, but that other guy\l"
+	"stole my thunder…\p"
+
+	"This stinks!\n"
+	"", MSGBOX_NPC)
 }

@@ -963,3 +963,6 @@ const u32 gItemIconPalette_PatrickDoll[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_BagOfDragonite[] = INCBIN_U32("graphics/items/icons/bag_of_dragonite.4bpp.lz");
 const u32 gItemIconPalette_BagOfDragonite[] = INCBIN_U32("graphics/items/icon_palettes/bag_of_dragonite.gbapal.lz");
+
+const u32 gItemIcon_SecretPage[] = INCBIN_U32("graphics/items/icons/secretpage.4bpp.lz");
+const u32 gItemIconPalette_SecretPage[] = INCBIN_U32("graphics/items/icon_palettes/secretpage.gbapal.lz");

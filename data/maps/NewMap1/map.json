@@ -116,7 +116,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN",
-      "x": 46,
+      "x": 48,
       "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -165,8 +165,8 @@
       "dest_warp_id": "5"
     },
     {
-      "x": 48,
-      "y": 25,
+      "x": 46,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_CONTEST_HALL",
       "dest_warp_id": "0"

@@ -23,8 +23,12 @@ script GreatSea_ShortFight {
 script GreatSea_ShortEnding {
     textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
-	"half short end\n"
-	"", MSGBOX_DEFAULT)
+	"I left to visit\n"
+	"the GREAT SEA a\l"
+	"while ago.\p"
+
+	"I haven't quite been\n"
+	"the same since…", MSGBOX_DEFAULT)
     closemessage
     //playerxy switch
     applymovement(LOCALID_SHORT, moves(
@@ -62,6 +66,6 @@ script GreatSea_HalfIsland_999 {
 
 	"It's the Steam port of Zero Escape\n"
 	"9 Hours 9 Persons 9 Doors!\l"
-	"In Adventure mode!", MSGBOX_SIGN)
+	"(in Adventure mode)", MSGBOX_SIGN)
 
 }

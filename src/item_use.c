@@ -668,6 +668,12 @@ void FieldUseFunc_CopycatTM(u8 taskId)
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu);
     }
 }
+void FieldUseFunc_CeliaMessage(u8 taskId)
+{
+    
+    RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_CeliaMessage, Task_ReturnToFieldFromBagMenu);
+}
 
 
 void FieldUseFunc_Ruby(u8 taskId)

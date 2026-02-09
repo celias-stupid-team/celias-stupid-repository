@@ -604,16 +604,12 @@ script ThirtyEightIsland_TalkingOnPhone {
 script ThirtyEightIsland_CalmHoothoot {
 	lock
 	msgbox(
-	"HOOTHOOT: Hoo?\n"
+	"A superb owl sits in the tree.\n"
 	"", MSGBOX_DEFAULT)
 	showmonpic(SPECIES_HOOTHOOT, 10, 3)
 	waitbuttonpress
 	hidemonpic
 	closemessage
-	delay(30)
-	msgbox(
-	"HOOTHOOT's SP. ATK and SP. DEF\n"
-	"rose!", MSGBOX_DEFAULT)
 	release
 }
 
@@ -675,8 +671,8 @@ script ThirtyEightIsland_CenterSign {
 
 script ThirtyEightIsland_FarmSign {
 	msgbox(
-	"Thirty Eight farm sign\n"
-	"", MSGBOX_SIGN)
+	"MOOMOO FARM\n"
+	"Enjoy our fresh, tasty something!", MSGBOX_SIGN)
 
 }
 

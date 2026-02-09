@@ -90,7 +90,7 @@
   "warp_events": [
     {
       "x": 21,
-      "y": 23,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
@@ -237,12 +237,12 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "ViridianCity_Gym_EventScript_GymStatue"
+      "script": "SaffronCity_Gym_EventScript_GymStatue"
     },
     {
       "type": "sign",
       "x": 11,
-      "y": 12,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SaffronCity_Gym_EventScript_GymStatue"

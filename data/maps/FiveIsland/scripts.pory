@@ -46,13 +46,13 @@ script Yes_TravelerInside {
 		if(var(VAR_RESULT) == DIR_NORTH) {
 			applymovement(VAR_LAST_TALKED, moves(
 				walk_left * 2
-				walk_down * 3
+				walk_down * 2
 			))
 		} else {
 			applymovement(VAR_LAST_TALKED, moves(
 				walk_down
 				walk_left * 2
-				walk_down * 3
+				walk_down * 2
 			))
 
 		}
