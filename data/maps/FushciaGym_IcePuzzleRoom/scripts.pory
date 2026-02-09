@@ -26,6 +26,7 @@ script FushciaGym_IcePuzzleRoom_ResetButton {
         setvar(VAR_FUCHSIA_LOOK_GIRL_LOCATION, 26)
             copyvar(VAR_TEMP_1, VAR_FUCHSIA_LOOK_GIRL_LOCATION)
             subvar(VAR_TEMP_1, 17)
+            setobjectxy(LOOK_GIRL, VAR_TEMP_1, 8)
             setobjectxyperm(LOOK_GIRL, VAR_TEMP_1, 8)
             setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
             setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
@@ -41,7 +42,8 @@ script FushciaGym_IcePuzzleRoom_ResetButton {
 }
 
 script FushciaGym_IcePuzzleRoom_TrickRoomSign {
-	msgbox("TRICK ROOM Room\p(It's a trick!)\n", MSGBOX_SIGN)
+	msgbox("TRICK ROOM Room\p"
+    "(Try pressing the UP button!)\n", MSGBOX_SIGN)
 	end
 }
 
