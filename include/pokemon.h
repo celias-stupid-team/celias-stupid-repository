@@ -239,6 +239,8 @@ struct SpeciesInfo
  /* 0x18 */ u8 safariZoneFleeRate;
  /* 0x19 */ u8 bodyColor : 7;
             u8 noFlip : 1;
+ /* 0x1A */ u8 isShadowType : 1;
+            u8 padding_1A : 7;
 };
 
 struct BattleMove
@@ -449,5 +451,7 @@ bool32 CheckBoxMonMovesFast(const struct BoxPokemon *boxMon, u16 *moves, u16 *ou
 bool32 CheckMonMovesFast(const struct Pokemon *mon, u16 *moves, u16 *outKnownFlags, u16 *outSpecies);
 u32 PartyHasMon(u16 species);
 void HealPokemon(struct Pokemon *mon);
+u16 GetBattleBGM(void);
+u16 GetCurrentZapmolcunoSpecies(void);
 
 #endif // GUARD_POKEMON_H

@@ -819,6 +819,10 @@
 #define MOVE_CUTE 814
 #define MOVE_BROCK_THROW 815
 #define MOVES_COUNT 816
+#define MOVE_SHADOW_SHIELD 817
+#define MOVE_QUINTUPLE_WINGBEAT 818
+
+#define MOVES_COUNT 819
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

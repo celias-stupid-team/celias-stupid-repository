@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_interface.h"
 #include "strings.h"
 #include "battle_message.h"
 #include "link.h"
@@ -204,6 +205,7 @@ static const u8 sText_PkmnLaidCurse[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own 
 static const u8 sText_PkmnAfflictedByCurse[] = _("{B_ATK_NAME_WITH_PREFIX} is afflicted\nby the CURSE!");
 static const u8 sText_SpikesScattered[] = _("SPIKES were scattered all around\nthe opponent's side!");
 static const u8 sText_PkmnHurtBySpikes[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is hurt\nby SPIKES!");
+static const u8 sText_PkmnHurtByShadowSpikes[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is hurt\nby SHADOW SPIKES!");
 static const u8 sText_PointedStonesDugInto[] = _("Stoned tombs dig into {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PointedStonesFloat[] = _("Stoned tombs float around\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnIdentified[] = _("{B_ATK_NAME_WITH_PREFIX} identified\n{B_DEF_NAME_WITH_PREFIX}!");
@@ -449,6 +451,13 @@ static const u8 sText_GmaxMove[] = _("But it failed!\pThere's no GMAX energy in 
 static const u8 sText_ExtremeEvoboost[] = _("But it failed!\p{B_PLAYER_MON1_NAME} isn't holding a\nZ CRYSTAL!");
 static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\lIt doesn't love {B_PLAYER_NAME} enough!");
 static const u8 sText_FickleBeam[] = _("But it failed!\p{B_PLAYER_MON1_NAME} doesn't have any heads!");
+static const u8 sText_SentOutZapmolcuno[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY sent out ZAPMOLCUNO-OHGIA!{PAUSE 60}");
+static const u8 sText_AllArrysWannaBattle[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY want to battle!\p");
+static const u8 sText_LugiaFainted[] = _("Foe LUGIA fainted!\p");
+static const u8 sText_ArticunoFainted[] = _("Foe ARTICUNO fainted!\p");
+static const u8 sText_HoohFainted[] = _("Foe HOOH fainted!\p");
+static const u8 sText_ZapdosFainted[] = _("Foe ZAPDOS fainted!\p");
+static const u8 sText_MoltresFainted[] = _("Foe MOLTRES fainted!\p");
 
 
 static const u8 sText_PkmnMadeSubstitute_2[] = _("{B_ATK_NAME_WITH_PREFIX}'s SUBSTITUTE\nmade a SUBSTITUTE!");
@@ -1002,11 +1011,24 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_NOTAFFECTEDBYSEEDING - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The seeds don't affect\n{B_DEF_NAME_WITH_PREFIX}…"),
     [STRINGID_PKMNIMMUNETOPOISON - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is immune to\nbeing poisoned!"),
     [STRINGID_PKMNALREADYSTATUSED - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is already\nstatused!"),
-    [STRINGID_SEAL_HAS_BEEN_BROKEN - BATTLESTRINGS_TABLE_START]         = sText_SealHasBeenBroken,
-    [STRINGID_HOOPA_WAS_RELEASED - BATTLESTRINGS_TABLE_START]         = sText_HoopaHasBeenReleased,
-    [STRINGID_EARTH_EATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s\nEARTH EATER!"),
+    [STRINGID_SEAL_HAS_BEEN_BROKEN - BATTLESTRINGS_TABLE_START]          = sText_SealHasBeenBroken,
+    [STRINGID_HOOPA_WAS_RELEASED - BATTLESTRINGS_TABLE_START]            = sText_HoopaHasBeenReleased,
+    [STRINGID_EARTH_EATER - BATTLESTRINGS_TABLE_START]                   = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s\nEARTH EATER!"),
     [STRINGID_SEELHOOPATRANSFORMSTART - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("The Seal has been broken!"),
     [STRINGID_SEELHOOPATRANSFORMEND - BATTLESTRINGS_TABLE_START]         = sText_HoopaHasBeenReleased,
+    [STRINGID_STARTEDSHADOW_SKY - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("A SHADOW SKY surrounds\nthe battlefield!"),
+    [STRINGID_SHADOW_SKY_CONTINUES - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The SHADOW SKY is tormenting\nall non SHADOW TYPE Pokémon!"),
+    [STRINGID_SHADOW_SKY_ENDS - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("The SHADOW SKY receded!"),
+    [STRINGID_PKMNBUFFETEDBYSHADOW_SKY - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is buffeted\nby the SHADOW SKY!"),
+    [STRINGID_LUGIA_USED_SHADOW_SKY - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("LUGIA used SHADOW SKY!"),
+    [STRINGID_LUGIA_USED_SHADOW_SPIKES - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("LUGIA used SHADOW SPIKES!"),
+    [STRINGID_SHADOWSPIKESSCATTERED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("SHADOW SPIKES were scattered all\naround the opponent's side!"),
+    [STRINGID_PKMNHURTBYSHADOWSPIKES - BATTLESTRINGS_TABLE_START]        = sText_PkmnHurtByShadowSpikes,
+    [STRINGID_RAINBOWBEAMPIERCEDSHADOWSHIELD - BATTLESTRINGS_TABLE_START] = COMPOUND_STRING("RAINBOW BEAM pierced\nthe SHADOW SHIELD!"),
+    [STRINGID_RUNROTOMANIMATION1 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("...?"),
+    [STRINGID_RUNROTOMANIMATION2 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("It's your ROTOM POKéDEX!"),
+    [STRINGID_RUNROTOMANIMATION3 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Awesome!\pYou can now access your\nBOX during battle!"),
+    [STRINGID_ZAPMOLCUNOFAINTED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Foe ZAPMOLCUNO-OHGIA\nfainted!\p"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1041,20 +1063,23 @@ const u16 gMoveWeatherChangeStringIds[] =
 
 const u16 gSandstormHailContinuesStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_SANDSTORMRAGES,
-    [B_MSG_HAIL]      = STRINGID_HAILCONTINUES
+    [B_MSG_SANDSTORM]  = STRINGID_SANDSTORMRAGES,
+    [B_MSG_HAIL]       = STRINGID_HAILCONTINUES,
+    [B_MSG_SHADOW_SKY] = STRINGID_SHADOW_SKY_CONTINUES
 };
 
 const u16 gSandstormHailDmgStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_PKMNBUFFETEDBYSANDSTORM,
-    [B_MSG_HAIL]      = STRINGID_PKMNPELTEDBYHAIL
+    [B_MSG_SANDSTORM]  = STRINGID_PKMNBUFFETEDBYSANDSTORM,
+    [B_MSG_HAIL]       = STRINGID_PKMNPELTEDBYHAIL,
+    [B_MSG_SHADOW_SKY] = STRINGID_PKMNBUFFETEDBYSHADOW_SKY
 };
 
 const u16 gSandstormHailEndStringIds[] =
 {
-    [B_MSG_SANDSTORM] = STRINGID_SANDSTORMSUBSIDED,
-    [B_MSG_HAIL]      = STRINGID_HAILSTOPPED
+    [B_MSG_SANDSTORM]  = STRINGID_SANDSTORMSUBSIDED,
+    [B_MSG_HAIL]       = STRINGID_HAILSTOPPED,
+    [B_MSG_SHADOW_SKY] = STRINGID_SHADOW_SKY_ENDS
 };
 
 const u16 gRainContinuesStringIds[] =
@@ -1408,12 +1433,13 @@ const u16 gTrappingMoves[NUM_TRAPPING_MOVES + 1] =
 
 const u16 gDmgHazardsStringIds[] =
 {
-    [B_MSG_PKMNHURTBYSPIKES]   = STRINGID_PKMNHURTBYSPIKES,
-    [B_MSG_STEALTHROCKDMG]     = STRINGID_STEALTHROCKDMG,
-    [B_MSG_SHARPSTEELDMG]      = STRINGID_PKMNHURTBYSPIKES, //not implemented
-    [B_MSG_POINTEDSTONESFLOAT] = STRINGID_POINTEDSTONESFLOAT,
-    [B_MSG_SPIKESSCATTERED]    = STRINGID_SPIKESSCATTERED,
-    [B_MSG_SHARPSTEELFLOATS]   = STRINGID_PKMNHURTBYSPIKES, //not implemented
+    [B_MSG_PKMNHURTBYSPIKES]       = STRINGID_PKMNHURTBYSPIKES,
+    [B_MSG_STEALTHROCKDMG]         = STRINGID_STEALTHROCKDMG,
+    [B_MSG_SHARPSTEELDMG]          = STRINGID_PKMNHURTBYSPIKES, //not implemented
+    [B_MSG_POINTEDSTONESFLOAT]     = STRINGID_POINTEDSTONESFLOAT,
+    [B_MSG_SPIKESSCATTERED]        = STRINGID_SPIKESSCATTERED,
+    [B_MSG_SHARPSTEELFLOATS]       = STRINGID_PKMNHURTBYSPIKES, //not implemented
+    [B_MSG_PKMNHURTBYSHADOWSPIKES] = STRINGID_PKMNHURTBYSHADOWSPIKES,
 };
 
 const u16 gDoNothingStringIds[] =
@@ -1443,6 +1469,7 @@ const u8 gText_CongratsPkmnEvolved[] = _("Congratulations! Your {STR_VAR_1}\nevo
 const u8 gText_PkmnStoppedEvolving[] = _("Huh? {STR_VAR_1}\nstopped evolving!\p");
 const u8 gText_EllipsisQuestionMark[] = _("……?\p"); // Normal evolution locked by pokedex
 const u8 gText_WhatWillPkmnDo[] = _("What will\n{B_ACTIVE_NAME_WITH_PREFIX} do?");
+const u8 gText_WhatWillPlayerDo[] = _("What will\n{B_PLAYER_NAME} do?");
 const u8 gText_WhatWillPlayerThrow[] = _("What will {B_PLAYER_NAME}\nthrow?");
 const u8 gText_WhatWillOldManDo[] = _("What will the\nold man do?");
 const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");
@@ -1746,8 +1773,10 @@ void BufferStringBattle(u16 stringId)
             }
             else
             {
-                if(gTrainerBattleOpponent_A == TRAINER_DMCA_ERIKA)
+                if (gTrainerBattleOpponent_A == TRAINER_DMCA_ERIKA)
                     stringPtr = sText_LightGaryAndDarkGary;
+                else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+                    stringPtr = sText_AllArrysWannaBattle;
                 else
                     stringPtr = sText_Trainer1WantsToBattle;
             }
@@ -1800,19 +1829,22 @@ void BufferStringBattle(u16 stringId)
             else
             {
                 if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
-                    if(FlagGet(FLAG_LION_BATTLE)) {
+                {
+                    if(FlagGet(FLAG_LION_BATTLE))
                         stringPtr = sText_Trainer1SentOutLions;
-                    } else {
-                        if((VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_BRUNO || VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_LARRY_2) && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                    else if((VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_BRUNO || VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_LARRY_2) && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
                         
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
-                        }
-
                         stringPtr = sText_Trainer1SentOutPkmn;
-
                     }
+
+                    else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+                        stringPtr = sText_SentOutZapmolcuno;
+                    else
+                        stringPtr = sText_Trainer1SentOutPkmn;
+                }
                 else if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
                     stringPtr = sText_Trainer1SentOutPkmn;
                 else
@@ -1824,7 +1856,15 @@ void BufferStringBattle(u16 stringId)
         if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
         {
             if (*(&gBattleStruct->hpScale) == 0)
-                stringPtr = sText_PkmnThatsEnough;
+            {
+                if (gTemporaryBattlePlayerText)
+                {
+                    stringPtr = sText_Empty1;
+                    gTemporaryBattlePlayerText = FALSE;
+                }
+                else
+                    stringPtr = sText_PkmnThatsEnough;
+            }
             else if (*(&gBattleStruct->hpScale) == 1 || gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
                 stringPtr = sText_PkmnComeBack;
             else if (*(&gBattleStruct->hpScale) == 2)
@@ -1995,23 +2035,23 @@ void BufferStringBattle(u16 stringId)
         };
         break;
     case STRINGID_BATTLEEND: // battle end
-        if (gBattleTextBuff1[0] & B_OUTCOME_LINK_BATTLE_RAN)
-        {
-            gBattleTextBuff1[0] &= ~(B_OUTCOME_LINK_BATTLE_RAN);
-            if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleTextBuff1[0] != B_OUTCOME_DREW)
-                gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
+        // if (gBattleTextBuff1[0] & B_OUTCOME_LINK_BATTLE_RAN)
+        // {
+        //     gBattleTextBuff1[0] &= ~(B_OUTCOME_LINK_BATTLE_RAN);
+        //     if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleTextBuff1[0] != B_OUTCOME_DREW)
+        //         gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
 
-            if (gBattleTextBuff1[0] == B_OUTCOME_LOST || gBattleTextBuff1[0] == B_OUTCOME_DREW)
-                stringPtr = sText_GotAwaySafely;
-            else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-                stringPtr = sText_TwoWildFled;
-            else if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
-                stringPtr = sText_Trainer1Fled;
-            else
-                stringPtr = sText_WildFled;
-        }
-        else
-        {
+        //     if (gBattleTextBuff1[0] == B_OUTCOME_LOST || gBattleTextBuff1[0] == B_OUTCOME_DREW)
+        //         stringPtr = sText_GotAwaySafely;
+        //     else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+        //         stringPtr = sText_TwoWildFled;
+        //     else if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
+        //         stringPtr = sText_Trainer1Fled;
+        //     else
+        //         stringPtr = sText_WildFled;
+        // }
+        // else
+        // {
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleTextBuff1[0] != B_OUTCOME_DREW)
                 gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
 
@@ -2060,10 +2100,33 @@ void BufferStringBattle(u16 stringId)
                     break;
                 }
             }
-        }
+        // }
         break;
     case STRINGID_TRAINERSLIDE:
         stringPtr = gBattleStruct->trainerSlideMsg;
+        break;
+    case STRINGID_BIRDFAINTED:
+        switch (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) - 1)
+        {
+        case B_FINAL_BATTLE_LUGIA:
+            stringPtr = sText_LugiaFainted;
+            break;  
+        case B_FINAL_BATTLE_ARTICUNO:
+            stringPtr = sText_ArticunoFainted;
+            break;  
+        case B_FINAL_BATTLE_HOOH:
+            stringPtr = sText_HoohFainted;
+            break;  
+        case B_FINAL_BATTLE_ZAPDOS:
+            stringPtr = sText_ZapdosFainted;
+            break;  
+        case B_FINAL_BATTLE_MOLTRES:
+            stringPtr = sText_MoltresFainted;
+            break;       
+        default:
+            stringPtr = sText_Empty1;
+            break;
+        }
         break;
     default: // load a string from the table
         if (stringId >= BATTLESTRINGS_COUNT)

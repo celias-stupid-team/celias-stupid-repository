@@ -240,6 +240,7 @@ const u8 gBattleBackgroundNames[][30] =
     [MAP_BATTLE_SCENE_AGATHA]   = _("AGATHA                  "),
     [MAP_BATTLE_SCENE_LANCE]    = _("LANCE                   "),
     [MAP_BATTLE_SCENE_CHAMPION] = _("CHAMPION                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI] = _("ZAPMOLTICUNO-OHGIA      "),
 };
 const u8 gBattleBackgroundTerrainNames[][26] =
 {
@@ -726,6 +727,11 @@ static void LoadBattleBg(u8 battleBgType, u8 battleTerrain)
             LZDecompressVram(gBattleTerrainTilemap_Indoor, (void*)(BG_SCREEN_ADDR(26)));
             LoadCompressedPalette(gBattleTerrainPalette_Champion, 0x20, 0x60);
             break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
     }
 }
 static void PrintBattleBgName(u8 taskId)
@@ -757,7 +763,7 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
         {
             if (data->battleTerrain == BATTLE_TERRAIN_GRASS)
             {
-                data->battleBgType = MAP_BATTLE_SCENE_CHAMPION;
+                data->battleBgType = MAP_BATTLE_SCENE_ZAPMOLTI;
             }
             else
                 data->battleTerrain -= 1;
@@ -775,7 +781,17 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
             data->battleTerrain = BATTLE_TERRAIN_PLAIN;
         }
     }
-    else if (data->battleBgType == MAP_BATTLE_SCENE_CHAMPION)
+    else if (data->battleBgType == MAP_BATTLE_SCENE_ZAPMOLTI)
+    {
+        if (increment)
+        {
+            data->battleBgType = MAP_BATTLE_SCENE_NORMAL;
+            data->battleTerrain = BATTLE_TERRAIN_GRASS;
+        }
+        else
+            data->battleBgType -= 1;
+    }
+    else if (data->battleBgType == MAP_BATTLE_SCENE_GYM || data->battleBgType == MAP_BATTLE_SCENE_LEADER)
     {
         if (increment)
         {

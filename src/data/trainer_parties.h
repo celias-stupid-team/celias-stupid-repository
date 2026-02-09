@@ -5675,47 +5675,19 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22LateCharmande
 
 static const struct TrainerMonItemCustomMoves sParty_ChampionFirstSquirtle[] = {
     {
-        .iv = 255,
-        .lvl = 59,
-        .species = SPECIES_PIDGEOT,
+        .iv = 0,
+        .lvl = 70,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_AERIAL_ACE, MOVE_FEATHER_DANCE, MOVE_SAND_ATTACK, MOVE_WHIRLWIND},
+        .species = SPECIES_FINALLUGIA,
+        .moves = {MOVE_SHADOW_SHIELD, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-        .iv = 255,
-        .lvl = 57,
-        .species = SPECIES_ALAKAZAM,
+        .iv = 0,
+        .lvl = 6,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_PSY_BEAM, MOVE_FUTURE_SIGHT, MOVE_RECOVER, MOVE_REFLECT},
-    },
-    {
-        .iv = 255,
-        .lvl = 59,
-        .species = SPECIES_RHYDON,
-        .heldItem = ITEM_NONE,
-        .moves = {MOVE_TAKE_DOWN, MOVE_EARTHQUAKE, MOVE_ROCK_TOMB, MOVE_SCARY_FACE},
-    },
-    {
-        .iv = 255,
-        .lvl = 59,
-        .species = SPECIES_ARCANINE,
-        .heldItem = ITEM_NONE,
-        .moves = {MOVE_EXTREME_SPEED, MOVE_FLAMETHROWER, MOVE_ROAR, MOVE_BITE},
-    },
-    {
-        .iv = 255,
-        .lvl = 61,
-        .species = SPECIES_EXEGGUTOR,
-        .heldItem = ITEM_NONE,
-        .moves = {MOVE_GIGA_DRAIN, MOVE_EGG_BOMB, MOVE_SLEEP_POWDER, MOVE_LIGHT_SCREEN},
-    },
-    {
-        .iv = 255,
-        .lvl = 63,
-        .species = SPECIES_BLASTOISE,
-        .heldItem = ITEM_SITRUS_BERRY,
-        .moves = {MOVE_HYDRO_PUMP, MOVE_RAIN_DANCE, MOVE_SKULL_BASH, MOVE_BITE},
-    },
+        .species = SPECIES_FINALWARTORTLE,
+        .moves = {MOVE_HYPER_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
 };
 
 static const struct TrainerMonItemCustomMoves sParty_ChampionFirstBulbasaur[] = {
@@ -10121,7 +10093,6 @@ static const struct TrainerMonItemCustomMoves sParty_RivalBarry[] = {
         .species = SPECIES_WARTORTLE,
         .moves = {MOVE_HYPER_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
-
 };
 
 

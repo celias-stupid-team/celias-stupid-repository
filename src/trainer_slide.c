@@ -50,10 +50,12 @@ static const u8 sText_SwitchInSlidePhase3[] = _("Another round.\nAre you beginni
 static const u8 sText_SwitchInSlidePhase4[] = _("Everything you needed, you've had all\nalong.\pTake a moment to collect yourself, and\ntake on the challenge anew!");
 static const u8 sText_SwitchInSlidePhase5[] = _("Your victory won't come easily.\nI won't let you through for free.\pRemember all that you've done.\nThink clearly and act decisively!");
 static const u8 sText_SwitchInSlidePhase6[] = _("It all comes down to this.\pYou've made it this far.\nI know you can taste the end.\pNow, step up!\nIt's time to end it!");
+static const u8 sText_AfterDefeat[]         = _("Yeah!\nAm I great or what?");
 
 const u8 *const sTrainerSlides[TRAINER_SLIDE_COUNT] =
 {
     [TRAINER_SLIDE_AFTER_SWITCHIN] = sText_SwitchInSlidePhase1, // default value, actual message is set in GetSlideMessage()
+    [TRAINER_SLIDE_AFTER_DEFEAT]  = sText_AfterDefeat,
 };
 
 static u32 BattlerHPPercentage(u32 battler, u32 operation, u32 threshold)
@@ -94,10 +96,12 @@ static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)
 
 static bool32 DoesTrainerHaveSlideMessage(u32 slideId)
 {
-    if (!(gBattleTypeFlags & BATTLE_TYPE_CYNTHIA) || sTrainerSlides[slideId] == NULL)
-        return FALSE;
-    else
+    if ((gBattleTypeFlags & BATTLE_TYPE_CYNTHIA) && slideId == TRAINER_SLIDE_AFTER_SWITCHIN)
         return TRUE;
+    else if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && slideId == TRAINER_SLIDE_AFTER_DEFEAT)
+        return TRUE;
+    else
+        return FALSE;
 }
 
 void SetTrainerSlideMessage(u32 slideId)
@@ -235,6 +239,7 @@ enum TrainerSlideTargets ShouldDoTrainerSlide(u32 battler, enum TrainerSlideType
         case TRAINER_SLIDE_MEGA_EVOLUTION:
         case TRAINER_SLIDE_Z_MOVE:
         case TRAINER_SLIDE_DYNAMAX:
+        case TRAINER_SLIDE_AFTER_DEFEAT:
             shouldRun = TRUE;
             break;
         default:

@@ -1615,6 +1615,10 @@
 	.macro trytrainerslidemsglaston
 	callnative BS_TryTrainerSlideMsgLastOn
 	.endm
+
+	.macro trytrainerslidemsgdefeatfinalbattle
+	callnative BS_TryTrainerSlideMsgDefeatFinalBattle
+	.endm
 	
 	.macro trainerslideout position:req
 	callnative BS_TrainerSlideOut
@@ -1633,4 +1637,50 @@
 	.macro redrawhealthbox battler:req
 	callnative BS_RedrawHealthbox
 	.byte \battler
+	.endm
+
+	.macro trysetshadowspikes
+	callnative BS_TrySetShadowSpikes
+	.endm
+
+	.macro setshadowshield
+	callnative BS_SetShadowShield
+	.endm
+
+	.macro fadescreen mode:req
+	callnative BS_FadeScreen
+	.byte \mode
+	.endm
+
+	.macro playmoncry species:req
+	callnative BS_PlayMonCry
+	.2byte \species
+	.endm
+
+	.macro waitforfade
+	callnative BS_WaitForFade
+	.endm
+
+	.macro fadenewbgm music:req
+	callnative BS_FadeNewBgm
+	.2byte \music
+	.endm
+
+	.macro stopbattlebgm
+	callnative BS_StopBattleBgm
+	.endm
+
+	.macro resetbattlebgm
+	callnative BS_ResetBattleBgm
+	.endm
+
+	.macro jumpifzapmolcunospecies battler:req, jumpInstr:req
+	callnative BS_JumpIfZapmolcunoSpecies
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
+	.macro printbirdsfaintstring position:req
+	callnative BS_PrintBirdsFaintString
+	.byte \position
 	.endm

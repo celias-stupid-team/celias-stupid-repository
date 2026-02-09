@@ -4,6 +4,7 @@
 #include "battle_controllers.h"
 #include "berry_pouch.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "event_scripts.h"
 #include "event_object_movement.h"
 #include "field_player_avatar.h"
@@ -344,6 +345,7 @@ void GoToBagMenu(u8 location, u8 pocket, MainCallback bagCallback)
         }
         if (pocket == OPEN_BAG_ITEMS || pocket == OPEN_BAG_KEYITEMS || pocket == OPEN_BAG_POKEBALLS)
             gBagMenuState.pocket = pocket;
+        gBagMenuState.bikePos = FindItemSlot(ITEM_BICYCLE);
         gTextFlags.autoScroll = FALSE;
         gSpecialVar_ItemId = ITEM_NONE;
         SetMainCallback2(CB2_OpenBagMenu);
@@ -675,7 +677,9 @@ static void Bag_BuildListMenuTemplate(u8 pocket)
 
 static void BagListMenuGetItemNameColored(u8 *dest, u16 itemId)
 {
-    if (itemId == ITEM_TM_CASE || itemId == ITEM_BERRY_POUCH)
+    if (itemId == ITEM_TM_CASE 
+        || itemId == ITEM_BERRY_POUCH
+        || (itemId == ITEM_BICYCLE && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == 4))
         StringCopy(dest, sListItemTextColor_TmCase_BerryPouch);
     else
         StringCopy(dest, sListItemTextColor_RegularItem);
@@ -1298,6 +1302,8 @@ static void ExecuteMoveItemInPocket(u8 taskId, u32 itemIndex)
         CreatePocketSwitchArrowPair();
         gTasks[taskId].func = Task_BagMenu_HandleInput;
     }
+
+    gBagMenuState.bikePos = FindItemSlot(ITEM_BICYCLE);
 }
 
 static void AbortMovingItemInPocket(u8 taskId, u32 itemIndex)

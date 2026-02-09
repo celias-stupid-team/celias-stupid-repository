@@ -438,7 +438,7 @@ struct BattleStruct
     u8 battlerPartyOrders[MAX_BATTLERS_COUNT][3];
     u8 runTries;
     u8 caughtMonNick[POKEMON_NAME_LENGTH + 1];
-    u8 field_78; // unused
+    u8 padding_01;
     u8 safariRockThrowCounter;
     u8 safariBaitThrowCounter;
     u8 safariEscapeFactor;
@@ -453,8 +453,8 @@ struct BattleStruct
     u8 field_89; // unused
     u8 field_8A; // unused
     u8 playerPartyIdx;
-    u8 field_8C; // unused
-    u8 field_8D; // unused
+    u8 lugiaShadowSkyDone;
+    u8 lugiaShadowSpikesDone;
     u8 stringMoveType;
     u8 expGetterBattlerId;
     u8 introMessagesDone;
@@ -484,7 +484,7 @@ struct BattleStruct
     u8 fillerDC[0xDF-0xDC];
     u8 givenExpMons;
     u8 lastTakenMoveFrom[MAX_BATTLERS_COUNT * MAX_BATTLERS_COUNT * 2];
-    u16 castformPalette[MAX_BATTLERS_COUNT][16];
+    u16 castformPalette[NUM_CASTFORM_FORMS][16];
     u8 wishPerishSongState;
     u8 wishPerishSongBattlerId;
     u8 lastAttackerToFaintOpponent;
@@ -655,7 +655,7 @@ struct MonSpritesGfx
     void *firstDecompressed; // ptr to the decompressed sprite of the first pokemon
     void *sprites[MAX_BATTLERS_COUNT];
     struct SpriteTemplate templates[MAX_BATTLERS_COUNT];
-    struct SpriteFrameImage images[MAX_BATTLERS_COUNT][4];
+    struct SpriteFrameImage images[MAX_BATTLERS_COUNT][MAX_MON_PIC_FRAMES];
     u8 field_F4[0x80]; // unused
     u8 *barFontGfx;
     void *field_178; // freed but never allocated
@@ -709,7 +709,6 @@ extern u16 gIntroSlideFlags;
 extern u32 gTransformedPersonalities[MAX_BATTLERS_COUNT];
 extern u8 gBattlerPositions[MAX_BATTLERS_COUNT];
 extern u8 gHealthboxSpriteIds[MAX_BATTLERS_COUNT];
-extern u8 gBattleOutcome;
 extern u8 gBattleMonForms[MAX_BATTLERS_COUNT];
 extern void (*gBattlerControllerFuncs[MAX_BATTLERS_COUNT])(void);
 extern u32 gBattleControllerExecFlags;
@@ -768,7 +767,8 @@ extern u8 gChosenActionByBattler[MAX_BATTLERS_COUNT];
 extern u8 gBattleTerrain;
 extern struct MultiBattlePokemonTx gMultiPartnerParty[3];
 extern u16 gRandomTurnNumber;
-
+extern u8 gCheckedContinueRotomBattle;
+extern u8 gTemporaryBattlePlayerText;
 
 struct Pokemon *GetSideParty(u8 side);
 struct Pokemon *GetBattlerParty(u8 battler);

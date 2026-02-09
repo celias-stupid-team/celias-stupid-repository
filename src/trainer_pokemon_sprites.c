@@ -15,6 +15,13 @@ struct PicData
 
 #define PICS_COUNT 8
 
+#define TRAINER_PIC_SIZE (64 * 64 / 2)
+#define MAX_TRAINER_PIC_FRAMES 4
+
+// Needs to be large enough to store either a decompressed Pokémon pic or trainer pic
+#define PIC_SPRITE_SIZE max(MON_PIC_SIZE, TRAINER_PIC_SIZE)
+#define MAX_PIC_FRAMES  max(MAX_MON_PIC_FRAMES, MAX_TRAINER_PIC_FRAMES)
+
 static EWRAM_DATA struct SpriteTemplate sCreatingSpriteTemplate = {};
 static EWRAM_DATA struct PicData sSpritePics[PICS_COUNT] = {};
 
@@ -150,11 +157,11 @@ u16 CreatePicSprite(u16 species, u32 otId, u32 personality, bool8 isFrontPic, s1
     if (i == PICS_COUNT)
         return 0xFFFF;
 
-    framePics = Alloc(4 * 0x800);
+    framePics = Alloc(PIC_SPRITE_SIZE * MAX_PIC_FRAMES);
     if (!framePics)
         return 0xFFFF;
 
-    images = Alloc(4 * sizeof(struct SpriteFrameImage));
+    images = Alloc(MAX_PIC_FRAMES * sizeof(struct SpriteFrameImage));
     if (!images)
     {
         Free(framePics);
@@ -165,10 +172,10 @@ u16 CreatePicSprite(u16 species, u32 otId, u32 personality, bool8 isFrontPic, s1
         // debug trap?
         return 0xFFFF;
     }
-    for (j = 0; j < 4; j ++)
+    for (j = 0; j < MAX_PIC_FRAMES; j ++)
     {
-        images[j].data = framePics + 0x800 * j;
-        images[j].size = 0x800;
+        images[j].data = framePics + PIC_SPRITE_SIZE * j;
+        images[j].size = PIC_SPRITE_SIZE;
     }
     sCreatingSpriteTemplate.tileTag = TAG_NONE;
     sCreatingSpriteTemplate.oam = &sOamData_Normal;

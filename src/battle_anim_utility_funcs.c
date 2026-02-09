@@ -126,6 +126,8 @@ void AnimTask_SetCamouflageBlend(u8 taskId)
     
     switch (gBattleTerrain)
     {
+    case BATTLE_TERRAIN_ZAPMOLCUNOOHGIA:
+    case BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS:
     case BATTLE_TERRAIN_GRASS:
         gBattleAnimArgs[4] = RGB(12, 24, 2);
         break;
@@ -843,7 +845,7 @@ void AnimTask_GetBattleTerrain(u8 taskId)
 
 void AnimTask_AllocBackupPalBuffer(u8 taskId)
 {
-    gMonSpritesGfxPtr->multiUseBuffer = AllocZeroed(0x2000);
+    gMonSpritesGfxPtr->multiUseBuffer = AllocZeroed(MON_PIC_SIZE * MAX_MON_PIC_FRAMES);
     DestroyAnimVisualTask(taskId);
 }
 
