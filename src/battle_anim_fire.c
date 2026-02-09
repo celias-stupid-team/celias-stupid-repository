@@ -11,6 +11,7 @@ static void AnimFireSpiralInward(struct Sprite *sprite);
 static void AnimFireSpread(struct Sprite *sprite);
 static void AnimLargeFlame(struct Sprite *sprite);
 static void AnimFirePlume(struct Sprite *sprite);
+static void AnimFirePlumeUnanchored(struct Sprite *sprite);
 static void AnimUnusedSmallEmber(struct Sprite *sprite);
 static void AnimSunlight(struct Sprite *sprite);
 static void AnimEmberFlare(struct Sprite *sprite);
@@ -160,6 +161,18 @@ const struct SpriteTemplate gFirePlumeSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFirePlume,
 };
+
+const struct SpriteTemplate gFirePlumeUnanchoredSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FIRE_PLUME,
+    .paletteTag = ANIM_TAG_FIRE_PLUME,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FirePlume,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFirePlumeUnanchored,
+};
+
 
 static const struct SpriteTemplate sUnusedEmberFirePlumeSpriteTemplate =
 {
@@ -572,6 +585,38 @@ static void AnimFirePlume(struct Sprite *sprite)
         sprite->y += gBattleAnimArgs[1];
         sprite->data[2] = gBattleAnimArgs[4];
     }
+    sprite->data[1] = gBattleAnimArgs[2];
+    sprite->data[4] = gBattleAnimArgs[3];
+    sprite->data[3] = gBattleAnimArgs[5];
+    sprite->callback = AnimLargeFlame_Step;
+}
+
+static void AnimFirePlumeUnanchored(struct Sprite *sprite)
+{
+    // gBattleAnimArgs[7] is treated as an "anchor" flag:
+    // 0 = attacker (original behavior)
+    // non-zero = target
+    bool8 anchorOnTarget = (gBattleAnimArgs[7] != 0);
+    u8 battler = anchorOnTarget ? gBattleAnimTarget : gBattleAnimAttacker;
+
+    // Base position: use battler sprite coords directly (FRLG-safe).
+    sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X);
+    sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y);
+
+    // Preserve original mirroring behavior, but relative to the chosen battler.
+    if (GetBattlerSide(battler) != B_SIDE_PLAYER)
+    {
+        sprite->x -= gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+        sprite->data[2] = -gBattleAnimArgs[4];
+    }
+    else
+    {
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+        sprite->data[2] = gBattleAnimArgs[4];
+    }
+
     sprite->data[1] = gBattleAnimArgs[2];
     sprite->data[4] = gBattleAnimArgs[3];
     sprite->data[3] = gBattleAnimArgs[5];
