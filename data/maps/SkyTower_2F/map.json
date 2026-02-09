@@ -116,15 +116,15 @@
   ],
   "warp_events": [
     {
-      "x": 21,
-      "y": 40,
+      "x": 5,
+      "y": 31,
       "elevation": 0,
       "dest_map": "MAP_SKY_TOWER_3F",
       "dest_warp_id": "1"
     },
     {
-      "x": 26,
-      "y": 35,
+      "x": 49,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_SKY_TOWER_1F",
       "dest_warp_id": "0"

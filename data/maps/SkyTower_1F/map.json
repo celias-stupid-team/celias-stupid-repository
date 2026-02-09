@@ -18,8 +18,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 51,
-      "y": 48,
+      "x": 29,
+      "y": 55,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -158,16 +158,16 @@
   ],
   "warp_events": [
     {
-      "x": 51,
-      "y": 44,
+      "x": 46,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_SKY_TOWER_2F",
       "dest_warp_id": "1"
     },
     {
       "warp_id": "WARPID_SKY_TOWER_INSIDE",
-      "x": 50,
-      "y": 50,
+      "x": 28,
+      "y": 58,
       "elevation": 0,
       "dest_map": "MAP_GREAT_BAY_NORTH",
       "dest_warp_id": "WARPID_SKY_TOWER_OUTSIDE"
