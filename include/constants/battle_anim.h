@@ -313,6 +313,7 @@
 #define ANIM_TAG_BROCKS                     (ANIM_SPRITES_START + 303)
 #define ANIM_TAG_BROCK_X_SIGN               (ANIM_SPRITES_START + 304)
 #define ANIM_TAG_ZEKROM_KICK                (ANIM_SPRITES_START + 305)
+#define ANIM_TAG_RAINBOW                    (ANIM_SPRITES_START + 306)
 
 // battlers
 #define ANIM_ATTACKER    0

@@ -523,6 +523,9 @@ const u32 gBattleAnimSpritePal_RoundShadow[] = INCBIN_U32("graphics/battle_anims
 const u32 gBattleAnimSpriteGfx_Sunlight[] = INCBIN_U32("graphics/battle_anims/sprites/sunlight.4bpp.lz");
 const u32 gBattleAnimSpritePal_Sunlight[] = INCBIN_U32("graphics/battle_anims/sprites/sunlight.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Rainbow[] = INCBIN_U32("graphics/battle_anims/sprites/rainbow_ray.4bpp.lz");
+const u32 gBattleAnimSpritePal_Rainbow[] = INCBIN_U32("graphics/battle_anims/sprites/rainbow_ray.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Spore[] = INCBIN_U32("graphics/battle_anims/sprites/spore.4bpp.lz");
 
 const u32 gBattleAnimSpritePal_Spore[] = INCBIN_U32("graphics/battle_anims/sprites/spore.gbapal.lz");
