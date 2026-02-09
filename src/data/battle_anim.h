@@ -1311,6 +1311,11 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_WonderSeed, 0x0200, ANIM_TAG_WONDER_SEED},
     {gBattleAnimSpriteGfx_SmallCloud, 0x0080, ANIM_TAG_SMALL_CLOUD},
     {gBattleAnimSpriteGfx_Punishment, 0xa00, ANIM_TAG_PUNISHMENT_BLADES},
+    {gBattleAnimSpriteGfx_One, 0x0200, ANIM_TAG_ONE},
+    {gBattleAnimSpriteGfx_MiddleFinger, 0x0200, ANIM_TAG_MIDDLE_FINGER},
+    {gBattleAnimSpriteGfx_Brocks, 0x0C00, ANIM_TAG_BROCKS},
+    {gBattleAnimSpriteGfx_BrockXSign, 0x0800, ANIM_TAG_BROCK_X_SIGN},
+    {gBattleAnimSpriteGfx_ZekromKick, 0x0800, ANIM_TAG_ZEKROM_KICK},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1616,6 +1621,11 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_WonderSeed, ANIM_TAG_WONDER_SEED},
     {gBattleAnimSpritePal_SmallCloud, ANIM_TAG_SMALL_CLOUD},
     {gBattleAnimSpritePal_Punishment, ANIM_TAG_PUNISHMENT_BLADES},
+    {gBattleAnimSpritePal_One, ANIM_TAG_ONE},
+    {gBattleAnimSpritePal_MiddleFinger, ANIM_TAG_MIDDLE_FINGER},
+    {gBattleAnimSpritePal_Brocks, ANIM_TAG_BROCKS},
+    {gBattleAnimSpritePal_BrockXSign, ANIM_TAG_BROCK_X_SIGN},
+    {gBattleAnimSpritePal_ZekromKick, ANIM_TAG_ZEKROM_KICK},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

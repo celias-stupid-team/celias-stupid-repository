@@ -817,7 +817,8 @@
 #define MOVE_PARTING_SHOT 812
 #define MOVE_SPARKLING_ARIA 813
 #define MOVE_CUTE 814
-#define MOVES_COUNT 815
+#define MOVE_BROCK_THROW 815
+#define MOVES_COUNT 816
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

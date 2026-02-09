@@ -5102,6 +5102,235 @@ void AnimTask_SnatchOpposingMonMove(u8 taskId)
     }
 }
 
+// Makes the mon run out of screen, run past the opposing mon with a duplicate, and return to its original position.
+// No args.
+#define TRAIL_SPACING 40
+void AnimTask_DoubleDad(u8 taskId)
+{
+    u8 spriteId, spriteId2;
+    u32 personality;
+    u32 otId;
+    u16 species;
+    u8 subpriority;
+    bool8 isBackPic;
+    s16 x;
+
+    switch (gTasks[taskId].data[0])
+    {
+    case 0:
+        spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+        gTasks[taskId].data[1] += 0x800;
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+            gSprites[spriteId].x2 += (gTasks[taskId].data[1] >> 8);
+        else
+            gSprites[spriteId].x2 -= (gTasks[taskId].data[1] >> 8);
+
+        gTasks[taskId].data[1] &= 0xFF;
+        x = gSprites[spriteId].x + gSprites[spriteId].x2;
+        if (x < -32 || x > DISPLAY_WIDTH + 32)
+        {
+            gTasks[taskId].data[1] = 0;
+            gTasks[taskId].data[0]++;
+        }
+        break;
+
+    case 1:
+        {
+            s16 xSpawn;
+            s16 xSpawnTrail;
+            s16 ySpawn;
+            u8 spriteIdTrail;
+            u8 subpriorityTrail;
+
+            if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+            {
+                personality = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_PERSONALITY);
+                otId = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_OT_ID);
+                if (gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies == SPECIES_NONE)
+                    species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_SPECIES);
+                else
+                    species = gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies;
+
+                subpriority = gSprites[GetAnimBattlerSpriteId(ANIM_TARGET)].subpriority + 1;
+                isBackPic = FALSE;
+
+                // Spawn on right edge, then move LEFT in state 2.
+                xSpawn = DISPLAY_WIDTH + 32;
+                xSpawnTrail = xSpawn + TRAIL_SPACING; // "behind" while moving left
+            }
+            else
+            {
+                personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_PERSONALITY);
+                otId = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_OT_ID);
+                if (gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies == SPECIES_NONE)
+                    species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_SPECIES);
+                else
+                    species = gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies;
+
+                subpriority = gSprites[GetAnimBattlerSpriteId(ANIM_TARGET)].subpriority - 1;
+                isBackPic = TRUE;
+
+                xSpawn = -32;
+                xSpawnTrail = xSpawn - TRAIL_SPACING;
+            }
+
+            ySpawn = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+
+            subpriorityTrail = subpriority;
+            if (subpriorityTrail > 0)
+                subpriorityTrail--;
+
+            spriteId2 = CreateAdditionalMonSpriteForMoveAnim(
+                species, isBackPic, 0,
+                xSpawn, ySpawn,
+                subpriority,
+                personality, otId,
+                gBattleAnimAttacker, 0);
+
+            spriteIdTrail = CreateAdditionalMonSpriteForMoveAnim(
+                species, isBackPic, 0,
+                xSpawnTrail, ySpawn,
+                subpriorityTrail,
+                personality, otId,
+                gBattleAnimAttacker, 0);
+                
+            if (spriteId2 == MAX_SPRITES)
+                spriteId2 = MAX_SPRITES;
+            if (spriteIdTrail == MAX_SPRITES)
+                spriteIdTrail = MAX_SPRITES;
+
+            if (gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies != SPECIES_NONE)
+            {
+                if (spriteId2 != MAX_SPRITES)
+                    BlendPalette(OBJ_PLTT_ID(gSprites[spriteId2].oam.paletteNum), 16, 6, RGB_WHITE);
+                if (spriteIdTrail != MAX_SPRITES)
+                    BlendPalette(OBJ_PLTT_ID(gSprites[spriteIdTrail].oam.paletteNum), 16, 6, RGB_WHITE);
+            }
+
+            gTasks[taskId].data[15] = spriteId2;
+            gTasks[taskId].data[13] = spriteIdTrail;
+            gTasks[taskId].data[0]++;
+            break;
+        }
+
+    case 2:
+        {
+            u8 spriteIdLead = gTasks[taskId].data[15];
+            u8 spriteIdTrail = gTasks[taskId].data[13];
+            s16 step;
+            s16 xLead = 0;
+            s16 xTrail = 0;
+            bool8 leadOff = TRUE;
+            bool8 trailOff = TRUE;
+
+            gTasks[taskId].data[1] += 0x800;
+            step = (gTasks[taskId].data[1] >> 8);
+
+            if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+            {
+                if (spriteIdLead != MAX_SPRITES)
+                    gSprites[spriteIdLead].x2 -= step;
+                if (spriteIdTrail != MAX_SPRITES)
+                    gSprites[spriteIdTrail].x2 -= step;
+            }
+            else
+            {
+                if (spriteIdLead != MAX_SPRITES)
+                    gSprites[spriteIdLead].x2 += step;
+                if (spriteIdTrail != MAX_SPRITES)
+                    gSprites[spriteIdTrail].x2 += step;
+            }
+
+            gTasks[taskId].data[1] &= 0xFF;
+
+            if (spriteIdLead != MAX_SPRITES)
+                xLead = gSprites[spriteIdLead].x + gSprites[spriteIdLead].x2;
+
+            if (gTasks[taskId].data[14] == 0 && spriteIdLead != MAX_SPRITES)
+            {
+                if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+                {
+                    if (xLead < GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X))
+                    {
+                        gTasks[taskId].data[14]++;
+                        gBattleAnimArgs[7] = 0xFFFF;
+                    }
+                }
+                else
+                {
+                    if (xLead > GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X))
+                    {
+                        gTasks[taskId].data[14]++;
+                        gBattleAnimArgs[7] = 0xFFFF;
+                    }
+                }
+            }
+
+            if (spriteIdLead != MAX_SPRITES)
+            {
+                leadOff = FALSE;
+                if (xLead < -32 || xLead > DISPLAY_WIDTH + 32)
+                    leadOff = TRUE;
+            }
+
+            if (spriteIdTrail != MAX_SPRITES)
+            {
+                xTrail = gSprites[spriteIdTrail].x + gSprites[spriteIdTrail].x2;
+                trailOff = FALSE;
+                if (xTrail < -32 || xTrail > DISPLAY_WIDTH + 32)
+                    trailOff = TRUE;
+            }
+
+            if (leadOff && trailOff)
+            {
+                gTasks[taskId].data[1] = 0;
+                gTasks[taskId].data[0]++;
+            }
+        }
+        break;
+
+    case 3:
+        spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+        
+        spriteId2 = gTasks[taskId].data[15];
+        if (spriteId2 != MAX_SPRITES)
+            DestroySpriteAndFreeResources_(&gSprites[spriteId2]);
+
+        spriteId2 = gTasks[taskId].data[13];
+        if (spriteId2 != MAX_SPRITES)
+            DestroySpriteAndFreeResources_(&gSprites[spriteId2]);
+        
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+            gSprites[spriteId].x2 = -gSprites[spriteId].x - 32;
+        else
+            gSprites[spriteId].x2 = DISPLAY_WIDTH + 32 - gSprites[spriteId].x;
+
+        gTasks[taskId].data[0]++;
+        break;
+
+    case 4:
+        spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+        gTasks[taskId].data[1] += 0x800;
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+        {
+            gSprites[spriteId].x2 += (gTasks[taskId].data[1] >> 8);
+            if (gSprites[spriteId].x2 + gSprites[spriteId].x >= GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X))
+                gSprites[spriteId].x2 = 0;
+        }
+        else
+        {
+            gSprites[spriteId].x2 -= (gTasks[taskId].data[1] >> 8);
+            if (gSprites[spriteId].x2 + gSprites[spriteId].x <= GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X))
+                gSprites[spriteId].x2 = 0;
+        }
+
+        gTasks[taskId].data[1] = (u8)gTasks[taskId].data[1];
+        if (gSprites[spriteId].x2 == 0)
+            DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
 static void AnimUnusedItemBagSteal(struct Sprite *sprite)
 {
     switch (sprite->data[7])

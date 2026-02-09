@@ -8692,6 +8692,11 @@ extern const u32 gBattleAnimSpriteGfx_TeraShatter[];
 extern const u32 gBattleAnimSpriteGfx_QuickGuard[];
 extern const u32 gBattleAnimSpriteGfx_WonderSeed[];
 extern const u32 gBattleAnimSpriteGfx_SmallCloud[];
+extern const u32 gBattleAnimSpriteGfx_One[];
+extern const u32 gBattleAnimSpriteGfx_MiddleFinger[];
+extern const u32 gBattleAnimSpriteGfx_Brocks[];
+extern const u32 gBattleAnimSpriteGfx_BrockXSign[];
+extern const u32 gBattleAnimSpriteGfx_ZekromKick[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -8947,6 +8952,11 @@ extern const u32 gBattleAnimSpritePal_TeraShatter[];
 extern const u32 gBattleAnimSpritePal_QuickGuard[];
 extern const u32 gBattleAnimSpritePal_WonderSeed[];
 extern const u32 gBattleAnimSpritePal_SmallCloud[];
+extern const u32 gBattleAnimSpritePal_One[];
+extern const u32 gBattleAnimSpritePal_MiddleFinger[];
+extern const u32 gBattleAnimSpritePal_Brocks[];
+extern const u32 gBattleAnimSpritePal_BrockXSign[];
+extern const u32 gBattleAnimSpritePal_ZekromKick[];
 
 //CSR Moves
 

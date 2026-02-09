@@ -2235,6 +2235,17 @@ const struct SpriteTemplate gMetronomeFingerSpriteTemplate =
     .callback = AnimMetronomeFinger,
 };
 
+const struct SpriteTemplate gEvilMetronomeMiddleFingerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MIDDLE_FINGER,
+    .paletteTag = ANIM_TAG_MIDDLE_FINGER,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimMetronomeFinger,
+};
+
 const struct SpriteTemplate gFollowMeFingerSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FINGER,
