@@ -14916,17 +14916,13 @@ Move_BREADBUTT:
 	end
 	
 Move_BUTTER_BLADE:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_BUTTER_BLADE
+	createsprite gButterSliceSpriteTemplate, ANIM_TARGET, 2, 1, 0, 0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	delay 4
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 18, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_DEF_SIDE, 2, 2, 0, 12, RGB(30, 30, 0)
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
 	end
 	
 Move_PICKLE_BEAM:
@@ -17467,47 +17463,33 @@ Move_RAPID_WIN:
 	blendoff
 	end
 
-Move_ONEISHMENT:
-	loadspritegfx ANIM_TAG_PICKLE_SPEAR
-	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+Move_SKETCHUP:
+	loadspritegfx ANIM_TAG_KETCHUP
 	monbg ANIM_TARGET
-	splitbgprio ANIM_TARGET
-	setalpha 12, 8
-	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
-	createsprite gPickleSpearSpriteTemplate, ANIM_ATTACKER, 2, 20, -8, -8, -8, 20, -32
-	delay 15
-	createsprite gPickleSpearSpriteTemplate, ANIM_ATTACKER, 2, 20, -8, 8, 8, 20, -40
-	delay 4
-	playsewithpan SE_M_BUBBLE3, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, -8, -8, ANIM_TARGET, 2
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 3, 0, 2, 1
-	delay 9
-	createsprite gPickleSpearSpriteTemplate, ANIM_ATTACKER, 2, 20, -8, 0, 0, 20, -32
-	delay 4
-	playsewithpan SE_M_BUBBLE3, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 8, 8, ANIM_TARGET, 2
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 3, 0, 2, 1
-	delay 14
-	playsewithpan SE_M_BUBBLE3, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 2
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createsprite gSmallDriftingBubblesSpriteTemplate, ANIM_ATTACKER, 4, 0, 0
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 3, 0, 2, 1
+	createvisualtask AnimTask_SketchupDrawMon, 2
+	createsprite gKetchupSpriteTemplate, ANIM_TARGET, 2
+	delay 10
+	playsewithpan SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER
+	delay 20
+	playsewithpan SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER
+	delay 20
+	playsewithpan SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
-	blendoff
+	waitforvisualfinish
 	end
+
+Move_CLICK_HERE:
+	loadspritegfx ANIM_TAG_ANGER
+	loadspritegfx ANIM_TAG_WINDOW_WARNING
+	createvisualtask AnimTask_WindowWarningAttacker, 2
+	waitforvisualfinish
+	playsewithpan SE_M_LEER, SOUND_PAN_TARGET
+	createvisualtask AnimTask_Glitch, 2, 20
+	waitforvisualfinish
+	end
+
+Move_ONEISHMENT:
 Move_ME_FIRST:
 Move_WEEDLE_ARM:
 Move_HYPER_BEE:
@@ -17564,7 +17546,6 @@ Move_FLING:
 Move_DUO_ATTACK:
 Move_LITTHBRNTHEYES:
 Move_SYSTEM32:
-Move_CLICK_HERE:
 Move_MOVIES_FREE:
 Move_GAMING_TOOLBARS:
 Move_ZIPBOMB:
@@ -17608,7 +17589,6 @@ Move_TASTY_PLOT:
 Move_DARKEST_LARIAT:
 Move_CHOC_WAVE:
 Move_DAZZLING_CREAM:
-Move_SKETCHUP:
 Move_TACHYONIONCTTR:
 Move_EXTREMESPEENUT:
 Move_DOUBLE_CHOCK:

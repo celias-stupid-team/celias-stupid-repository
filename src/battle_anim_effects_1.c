@@ -1638,12 +1638,45 @@ static const union AnimCmd *const sSlashSliceAnimTable[] =
     sSlashSliceAnimCmds2,
 };
 
+static const union AnimCmd sButterSliceAnimCmds1[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sButterSliceAnimCmds2[] =
+{
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sButterSliceAnimTable[] =
+{
+    sButterSliceAnimCmds1,
+    sButterSliceAnimCmds2,
+};
+
 const struct SpriteTemplate gSlashSliceSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_SLASH,
     .paletteTag = ANIM_TAG_SLASH,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sSlashSliceAnimTable,
+    .anims = sButterSliceAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSlashSlice,
+};
+
+const struct SpriteTemplate gButterSliceSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_BUTTER_BLADE,
+    .paletteTag = ANIM_TAG_BUTTER_BLADE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sButterSliceAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSlashSlice,
@@ -2182,6 +2215,17 @@ const struct SpriteTemplate gThoughtBubbleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_THOUGHT_BUBBLE,
     .paletteTag = ANIM_TAG_THOUGHT_BUBBLE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sMetronomeThroughtBubbleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThoughtBubble,
+};
+
+const struct SpriteTemplate gWindowWarningSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WINDOW_WARNING,
+    .paletteTag = ANIM_TAG_WINDOW_WARNING,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sMetronomeThroughtBubbleAnimTable,
     .images = NULL,

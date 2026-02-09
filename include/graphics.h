@@ -8699,6 +8699,27 @@ extern const u32 gBattleAnimSpriteGfx_BrockXSign[];
 extern const u32 gBattleAnimSpriteGfx_ZekromKick[];
 extern const u32 gBattleAnimSpriteGfx_Rainbow[];
 extern const u32 gBattleAnimSpriteGfx_PickleSpear[];
+extern const u32 gBattleAnimSpriteGfx_WinFlag[];
+extern const u32 gBattleAnimSpriteGfx_Cheese[];
+extern const u32 gBattleAnimSpriteGfx_Meatball[];
+extern const u32 gBattleAnimSpriteGfx_Normal[];
+extern const u32 gBattleAnimSpriteGfx_WeatherBallin[];
+extern const u32 gBattleAnimSpriteGfx_Lettuce[];
+extern const u32 gBattleAnimSpriteGfx_Sesame[];
+extern const u32 gBattleAnimSpriteGfx_Bread[];
+extern const u32 gBattleAnimSpriteGfx_ZygardeZ[];
+extern const u32 gBattleAnimSpriteGfx_Reverse[];
+extern const u32 gBattleAnimSpriteGfx_ThumbsUp[];
+extern const u32 gBattleAnimSpriteGfx_ThumbsDown[];
+extern const u32 gBattleAnimSpriteGfx_ButterBlade[];
+extern const u32 gBattleAnimSpriteGfx_WindowWarning[];
+extern const u32 gBattleAnimSpriteGfx_WindowError[];
+extern const u32 gBattleAnimSpriteGfx_Female[];
+extern const u32 gBattleAnimSpriteGfx_YoshiEgg[];
+extern const u32 gBattleAnimSpriteGfx_Fuzzy[];
+extern const u32 gBattleAnimSpriteGfx_Taxes[];
+extern const u32 gBattleAnimSpriteGfx_Money[];
+extern const u32 gBattleAnimSpriteGfx_Ketchup[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -8961,6 +8982,27 @@ extern const u32 gBattleAnimSpritePal_BrockXSign[];
 extern const u32 gBattleAnimSpritePal_ZekromKick[];
 extern const u32 gBattleAnimSpritePal_Rainbow[];
 extern const u32 gBattleAnimSpritePal_PickleSpear[];
+extern const u32 gBattleAnimSpritePal_WinFlag[];
+extern const u32 gBattleAnimSpritePal_Cheese[];
+extern const u32 gBattleAnimSpritePal_Meatball[];
+extern const u32 gBattleAnimSpritePal_Normal[];
+extern const u32 gBattleAnimSpritePal_WeatherBallin[];
+extern const u32 gBattleAnimSpritePal_Lettuce[];
+extern const u32 gBattleAnimSpritePal_Sesame[];
+extern const u32 gBattleAnimSpritePal_Bread[];
+extern const u32 gBattleAnimSpritePal_ZygardeZ[];
+extern const u32 gBattleAnimSpritePal_Reverse[];
+extern const u32 gBattleAnimSpritePal_ThumbsUp[];
+extern const u32 gBattleAnimSpritePal_ThumbsDown[];
+extern const u32 gBattleAnimSpritePal_ButterBlade[];
+extern const u32 gBattleAnimSpritePal_WindowWarning[];
+extern const u32 gBattleAnimSpritePal_WindowError[];
+extern const u32 gBattleAnimSpritePal_Female[];
+extern const u32 gBattleAnimSpritePal_YoshiEgg[];
+extern const u32 gBattleAnimSpritePal_Fuzzy[];
+extern const u32 gBattleAnimSpritePal_Taxes[];
+extern const u32 gBattleAnimSpritePal_Money[];
+extern const u32 gBattleAnimSpritePal_Ketchup[];
 
 //CSR Moves
 
