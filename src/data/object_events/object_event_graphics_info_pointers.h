@@ -540,6 +540,12 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sphealio_evolved;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RAINBOW;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LIGHT_GARY;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DARK_GARY;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOY_BOX;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOY_BOX_OPEN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GIRL_BOX;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GIRL_BOX_OPEN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOX_BOY;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOX_GIRL;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1081,4 +1087,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RAINBOW] = &gObjectEventGraphicsInfo_RAINBOW,
     [OBJ_EVENT_GFX_LIGHT_GARY] = &gObjectEventGraphicsInfo_LIGHT_GARY,
     [OBJ_EVENT_GFX_DARK_GARY] = &gObjectEventGraphicsInfo_DARK_GARY,
+    [OBJ_EVENT_GFX_BOY_BOX] = &gObjectEventGraphicsInfo_BOY_BOX,
+    [OBJ_EVENT_GFX_BOY_BOX_OPEN] = &gObjectEventGraphicsInfo_BOY_BOX_OPEN,
+    [OBJ_EVENT_GFX_GIRL_BOX] = &gObjectEventGraphicsInfo_GIRL_BOX,
+    [OBJ_EVENT_GFX_GIRL_BOX_OPEN] = &gObjectEventGraphicsInfo_GIRL_BOX_OPEN,
+    [OBJ_EVENT_GFX_BOX_BOY] = &gObjectEventGraphicsInfo_BOX_BOY,
+    [OBJ_EVENT_GFX_BOX_GIRL] = &gObjectEventGraphicsInfo_BOX_GIRL,
 };

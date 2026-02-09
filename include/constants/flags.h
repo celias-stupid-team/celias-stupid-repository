@@ -1409,7 +1409,7 @@
 #define FLAG_SYS_ROTOM_MENU                                         (SYS_FLAGS + 0x12)
 #define FLAG_DEFEATED_FINAL_BOSS                                    (SYS_FLAGS + 0x13)
 #define FLAG_SYS_ROTOM_BATTLE_UI                                    (SYS_FLAGS + 0x14)
-#define FLAG_0x815                                                  (SYS_FLAGS + 0x15)
+#define FLAG_SYS_CARRYING_OPEN_BOX                                                  (SYS_FLAGS + 0x15)
 #define FLAG_0x816                                                  (SYS_FLAGS + 0x16)
 #define FLAG_0x817                                                  (SYS_FLAGS + 0x17)
 #define FLAG_0x818                                                  (SYS_FLAGS + 0x18)
