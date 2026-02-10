@@ -219,6 +219,7 @@ void DoFreeHealthboxPalsForLevelUp(u8 batterId);
 void LaunchStatusAnimation(u8 battlerId, u8 statusAnimId);
 u8 GetBattlerSpriteCoord(u8 battlerId, u8 coordType);
 u8 GetBattlerSpriteCoord2(u8 battlerId, u8 coordType);
+u8 GetBattlerSpriteDefault_X(u8 battlerId);
 u8 GetBattlerSpriteDefault_Y(u8 battlerId);
 u8 GetSubstituteSpriteDefault_Y(u8 battlerId);
 u8 GetGhostSpriteDefault_Y(u8 battlerId);
@@ -325,6 +326,7 @@ void InitStatsChangeAnimation(u8 taskId);
 void StartMonScrollingBgMask(u8 taskId, s32 unused, u16 arg2, u8 battler1, u8 arg4, u8 arg5, u8 arg6, u8 arg7, const u32 *gfx, const u32 *tilemap, const u32 *palette);
 void SpriteCB_SurroundingRing(struct Sprite *sprite);
 bool8 LoadBattlerSpriteGfx(u8 battlerId);
+void LoadDefaultBg(void);
 
 extern const union AffineAnimCmd *const gThinRingShrinkingAffineAnimTable[];
 

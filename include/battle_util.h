@@ -104,5 +104,6 @@ uq4_12_t GetTypeModifier(u32 atkType, u32 defType);
 bool32 IsNeutralizingGasOnField(void);
 void TryRestoreHeldItems(void);
 bool32 IsSingleWildRattata(void);
+bool32 IsZapmolcunoOhgiaSpecies(u16 species);
 
 #endif // GUARD_BATTLE_UTIL_H

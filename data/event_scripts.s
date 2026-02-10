@@ -1021,6 +1021,22 @@ Text_MoveCanOnlyBeLearnedOnce::
 	.string "This move can be learned only\n"
 	.string "once. Is that okay?$"
 
+@ Debug strings
+Text_Debug_1::
+	.string "+++ DEBUG 1 +++.$"
+	
+Text_Debug_2::
+	.string "+++ DEBUG  2 +++.$"
+	
+Text_Debug_3::
+	.string "+++ DEBUG 3 +++.$"
+	
+Text_Debug_4::
+	.string "+++ DEBUG 4 +++.$"
+	
+Text_Debug_5::
+	.string "+++ DEBUG 5 +++.$"
+	
 EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_OAK_IN_HIS_LAB
 	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN

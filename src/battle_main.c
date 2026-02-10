@@ -102,7 +102,6 @@ static void BattleIntroOpponentSendsOutMonAnimation(void);
 static void BattleIntroPlayerSendsOutMonAnimation(void);
 static void TryDoEventsBeforeFirstTurn(void);
 static void HandleTurnActionSelectionState(void);
-static void RunTurnActionsFunctions(void);
 static void SetActionsAndBattlersTurnOrder(void);
 static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void);
 static void HandleEndTurn_FinishBattle(void);
@@ -188,6 +187,12 @@ EWRAM_DATA u8 gLastHitBy[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gChosenMoveByBattler[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gMoveResultFlags = 0;
 EWRAM_DATA u32 gHitMarker = 0;
+EWRAM_DATA u8 gSavedFaintedActionsState = 0;
+EWRAM_DATA u8 gSavedFaintedActionsBattlerId = 0;
+EWRAM_DATA u8 gSavedTurnEffectsTracker = 0;
+EWRAM_DATA u8 gSavedTurnCountersTracker = 0;
+EWRAM_DATA struct BattleCallbacksStack gSavedBattleCallbackStack = {0};
+EWRAM_DATA struct BattleScriptsStack gSavedBattleScriptsStack = {0};
 static EWRAM_DATA u8 sUnusedBattlersArray[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gTakenDmgByBattler[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u8 gUnusedFirstBattleVar2 = 0;
@@ -225,6 +230,8 @@ EWRAM_DATA struct MonSpritesGfx *gMonSpritesGfxPtr = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
+EWRAM_DATA u8 gCheckedContinueRotomBattle = 0;
+EWRAM_DATA u8 gTemporaryBattlePlayerText = 0;
 
 COMMON_DATA void (*gPreBattleCallback1)(void) = NULL;
 COMMON_DATA void (*gBattleMainFunc)(void) = NULL;
@@ -2247,8 +2254,12 @@ static void BattleStartClearSetData(void)
         *(i + 2 * 8 + (u8 *)(gBattleStruct->lastTakenMoveFrom) + 0) = 0;
         *(i + 3 * 8 + (u8 *)(gBattleStruct->lastTakenMoveFrom) + 0) = 0;
     }
-    *(gBattleStruct->AI_monToSwitchIntoId + 0) = PARTY_SIZE;
-    *(gBattleStruct->AI_monToSwitchIntoId + 1) = PARTY_SIZE;
+    
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+    {
+        *(gBattleStruct->AI_monToSwitchIntoId + i) = PARTY_SIZE;
+    }
+
     *(&gBattleStruct->givenExpMons) = 0;
     for (i = 0; i < 11; i++)
         gBattleResults.catchAttempts[i] = 0;
@@ -2876,6 +2887,26 @@ static void TryDoEventsBeforeFirstTurn(void)
         if (effect != 0)
             return;
     }
+    // trigger unfair battle scripts for final battle
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    {
+        if (!gBattleStruct->lugiaShadowSkyDone)
+        {
+            gBattleStruct->lugiaShadowSkyDone = TRUE;
+            gBattleWeather = B_WEATHER_SHADOW_SKY;
+            gBattleScripting.battler = 1;
+            BattleScriptPushCursorAndCallback(BattleScript_ShadowSky_End3);
+            return;
+        }
+        if (!gBattleStruct->lugiaShadowSpikesDone)
+        {
+            gBattleStruct->lugiaShadowSpikesDone = TRUE;
+            gBattlerAttacker = 1;
+            BattleScriptPushCursorAndCallback(BattleScript_ShadowSpikes_End3);
+            return;
+        }
+    }
+
     for (i = 0; i < gBattlersCount; i++) // pointless, ruby leftover
         ;
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
@@ -2934,7 +2965,7 @@ static void HandleEndTurn_ContinueBattle(void)
 void BattleTurnPassed(void)
 {
     s32 i;
-
+    
     TurnValuesCleanUp(TRUE);
     if (gBattleOutcome == 0)
     {
@@ -2960,11 +2991,20 @@ void BattleTurnPassed(void)
     gMoveResultFlags = 0;
     for (i = 0; i < 5; i++)
         gBattleCommunication[i] = 0;
-    if (gBattleOutcome != 0)
+    if (gBattleOutcome != 0 && gBattleOutcome < 128) // 128 = B_OUTCOME_CONTINUE_ROTOM
     {
         gCurrentActionFuncId = B_ACTION_FINISHED;
         gBattleMainFunc = RunTurnActionsFunctions;
         return;
+    }
+    if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM) && gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    {
+        // ToDo wiz1989: Activate Rotom Battle UI
+        FlagSet(FLAG_SYS_ROTOM_BATTLE_UI);
+        gBattleSwitchFromPSS = TRUE;
+        gBattleOutcome &= ~B_OUTCOME_CONTINUE_ROTOM;
+        gCheckedContinueRotomBattle = TRUE;
+        gTemporaryBattlePlayerText = TRUE;
     }
     if (gBattleResults.battleTurnCounter < 0xFF)
         ++gBattleResults.battleTurnCounter;
@@ -3475,10 +3515,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
     // abilities
     if (gBattleMons[battler1].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
-    {
-        DebugPrintf("Cut Speed from Slow Start");
         speedBattler1 = speedBattler1 / 100;
-        }
     
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
@@ -3511,10 +3548,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
     // abilities
     if (gBattleMons[battler2].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
-            {
-        DebugPrintf("Cut Speed from Slow Start");
         speedBattler1 = speedBattler1 / 100;
-        }
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
      && FlagGet(FLAG_BADGE03_GET)
@@ -3735,6 +3769,8 @@ static void TurnValuesCleanUp(bool8 var0)
 
     gSideStatuses[0] &= ~(SIDE_STATUS_SPIKY_SHIELD);
     gSideStatuses[1] &= ~(SIDE_STATUS_SPIKY_SHIELD);
+    gSideStatuses[0] &= ~(SIDE_STATUS_SHADOW_SHIELD);
+    gSideStatuses[1] &= ~(SIDE_STATUS_SHADOW_SHIELD);
     gSideTimers[0].followmeTimer = 0;
     gSideTimers[1].followmeTimer = 0;
 }
@@ -3786,7 +3822,7 @@ static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
     gBattleResources->battleScriptsStack->size = 0;
 }
 
-static void RunTurnActionsFunctions(void)
+void RunTurnActionsFunctions(void)
 {
     if (gBattleOutcome != 0)
         gCurrentActionFuncId = B_ACTION_FINISHED;
@@ -3816,7 +3852,7 @@ static void HandleEndTurn_BattleWon(void)
         gBattleTextBuff1[0] = gBattleOutcome;
         gBattlerAttacker = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
         gBattlescriptCurrInstr = BattleScript_LinkBattleWonOrLost;
-        gBattleOutcome &= ~(B_OUTCOME_LINK_BATTLE_RAN);
+        // gBattleOutcome &= ~(B_OUTCOME_LINK_BATTLE_RAN);
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_BATTLE_TOWER))
     {
@@ -3864,7 +3900,7 @@ static void HandleEndTurn_BattleLost(void)
         gBattleTextBuff1[0] = gBattleOutcome;
         gBattlerAttacker = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
         gBattlescriptCurrInstr = BattleScript_LinkBattleWonOrLost;
-        gBattleOutcome &= ~(B_OUTCOME_LINK_BATTLE_RAN);
+        // gBattleOutcome &= ~(B_OUTCOME_LINK_BATTLE_RAN);
     }
     else
     {
@@ -4246,8 +4282,6 @@ static void HandleAction_UseMove(void)
             }
         }
     }
-    //DebugPrintf("Move = %d", gCurrentMove);
-    //DebugPrintf("Move effect = %d", gBattleMoves[gCurrentMove].effect);
     gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
@@ -4266,8 +4300,6 @@ static void HandleAction_Switch(void)
     if (gBattleResults.playerSwitchesCounter < 255)
         ++gBattleResults.playerSwitchesCounter;
 }
-
- 
 
 static void HandleAction_UseItem(void)
 {
@@ -4445,7 +4477,7 @@ static void HandleAction_Run(void)
                     gBattleOutcome |= B_OUTCOME_WON;
             }
         }
-        gBattleOutcome |= B_OUTCOME_LINK_BATTLE_RAN;
+        // gBattleOutcome |= B_OUTCOME_LINK_BATTLE_RAN;
     }
     else
     {
@@ -4622,7 +4654,7 @@ static void HandleAction_ActionFinished(void)
     gBattleScripting.multihitMoveEffect = 0;
     gBattleResources->battleScriptsStack->size = 0;
 
-    // ### PSS battle switches - step 6 ###
+    // ### PSS battle switches - step 7 ###
     //reset party data after a PSS switch
     if (gMadePSSSwitch)
     {

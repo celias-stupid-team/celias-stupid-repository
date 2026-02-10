@@ -3,6 +3,8 @@
 #include "task.h"
 #include "decompress.h"
 #include "trig.h"
+#include "item_menu.h"
+#include "event_data.h"
 #include "list_menu.h"
 #include "menu_indicators.h"
 
@@ -120,12 +122,40 @@ static const union AnimCmd sSpriteAnim_ScrollArrowIndicator3[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sSpriteAnim_ScrollArrowIndicator4[] =
+{
+    ANIMCMD_FRAME(8, 30),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSpriteAnim_ScrollArrowIndicator5[] =
+{
+    ANIMCMD_FRAME(8, 30, 1, 0),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSpriteAnim_ScrollArrowIndicator6[] =
+{
+    ANIMCMD_FRAME(12, 30),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSpriteAnim_ScrollArrowIndicator7[] =
+{
+    ANIMCMD_FRAME(12, 30, 0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sSpriteAnimTable_ScrollArrowIndicator[] =
 {
     sSpriteAnim_ScrollArrowIndicator0,
     sSpriteAnim_ScrollArrowIndicator1,
     sSpriteAnim_ScrollArrowIndicator2,
     sSpriteAnim_ScrollArrowIndicator3,
+    sSpriteAnim_ScrollArrowIndicator4,
+    sSpriteAnim_ScrollArrowIndicator5,
+    sSpriteAnim_ScrollArrowIndicator6,
+    sSpriteAnim_ScrollArrowIndicator7,
 };
 
 static const struct SpriteTemplate sSpriteTemplate_ScrollArrowIndicator =
@@ -267,6 +297,57 @@ static const u32 sRedArrowGfx[] = INCBIN_U32("graphics/interface/red_arrow.4bpp.
 #define tFrequency data[4]
 #define tSinePos data[5]
 
+#define ARROW_ANIM_COLOR_OFFSET 4
+
+enum BagArrowAnim
+{
+    ANIM_LEFT_ARROW_RED,
+    ANIM_RIGHT_ARROW_RED,
+    ANIM_UP_ARROW_RED,
+    ANIM_DOWN_ARROW_RED,
+    ANIM_LEFT_ARROW_BLUE,
+    ANIM_RIGHT_ARROW_BLUE,
+    ANIM_UP_ARROW_BLUE,
+    ANIM_DOWN_ARROW_BLUE,
+};
+
+// yeah this is kinda gross
+// I can't be assed to make it less jank
+static void SetFinalBattleBagArrowColor(struct Sprite *sprite)
+{
+    u32 pocket = gBagMenuState.pocket;
+    u32 currSlot = gBagMenuState.cursorPos[pocket] +  gBagMenuState.itemsAbove[pocket];
+
+    // the constants for the pockets are offset by one for some reason
+    pocket++;
+
+    if ((pocket > POCKET_KEY_ITEMS && sprite->tAnimNum == ANIM_LEFT_ARROW_RED)
+        || (pocket < POCKET_KEY_ITEMS && sprite->tAnimNum == ANIM_RIGHT_ARROW_RED))
+    {
+        sprite->tAnimNum += ARROW_ANIM_COLOR_OFFSET;
+    }
+    else if ((pocket <= POCKET_KEY_ITEMS && sprite->tAnimNum == ANIM_LEFT_ARROW_BLUE)
+            || (pocket >= POCKET_KEY_ITEMS && sprite->tAnimNum == ANIM_RIGHT_ARROW_BLUE))
+    {
+        sprite->tAnimNum -= ARROW_ANIM_COLOR_OFFSET;
+    }
+    else if (pocket == POCKET_KEY_ITEMS)
+    {
+        if ((currSlot > gBagMenuState.bikePos && sprite->tAnimNum == ANIM_UP_ARROW_RED)
+            || (currSlot < gBagMenuState.bikePos && sprite->tAnimNum == ANIM_DOWN_ARROW_RED))
+        {
+            sprite->tAnimNum += ARROW_ANIM_COLOR_OFFSET;
+        }
+        else if ((currSlot <= gBagMenuState.bikePos && sprite->tAnimNum == ANIM_UP_ARROW_BLUE)
+                || (currSlot >= gBagMenuState.bikePos && sprite->tAnimNum == ANIM_DOWN_ARROW_BLUE))
+        {
+            sprite->tAnimNum -= ARROW_ANIM_COLOR_OFFSET;
+        }
+    }
+
+    StartSpriteAnim(sprite, sprite->tAnimNum);
+}
+
 static void SpriteCallback_ScrollIndicatorArrow(struct Sprite *sprite)
 {
     s32 multiplier;
@@ -291,6 +372,11 @@ static void SpriteCallback_ScrollIndicatorArrow(struct Sprite *sprite)
         }
         sprite->tSinePos += sprite->tFrequency;
         break;
+    }
+
+    if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == 4)
+    {
+        SetFinalBattleBagArrowColor(sprite);
     }
 }
 
@@ -328,7 +414,7 @@ u8 AddScrollIndicatorArrowPair(const struct ScrollArrowsTemplate *arrowInfo, u16
     u8 taskId;
 
     spriteSheet.data = sRedArrowOtherGfx;
-    spriteSheet.size = 0x100;
+    spriteSheet.size = ((16 * 64) / 2);
     spriteSheet.tag = arrowInfo->tileTag;
     LoadCompressedSpriteSheet(&spriteSheet);
     if (arrowInfo->palTag == TAG_NONE)

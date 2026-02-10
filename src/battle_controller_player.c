@@ -235,20 +235,38 @@ static void HandleInputChooseAction(void)
     DoBounceEffect(gActiveBattler, BOUNCE_MON, 7, 1);
     if (JOY_NEW(A_BUTTON))
     {
-        PlaySE(SE_SELECT);
-
         switch (gActionSelectionCursor[gActiveBattler])
         {
         case 0:
-            BtlController_EmitTwoReturnValues(1, B_ACTION_USE_MOVE, 0);
+            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCheckedContinueRotomBattle && gBattleMons[gActiveBattler].hp == 0)
+            {
+                PlaySE(SE_BOO);
+                return;
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(1, B_ACTION_USE_MOVE, 0);
+            }
             break;
         case 1:
-            BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
+            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCheckedContinueRotomBattle && gBattleMons[gActiveBattler].hp == 0)
+            {
+                PlaySE(SE_BOO);
+                return;
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
+            }
             break;
         case 2:
+            PlaySE(SE_SELECT);
             BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
             break;
         case 3:
+            PlaySE(SE_SELECT);
             BtlController_EmitTwoReturnValues(1, B_ACTION_RUN, 0);
             break;
         }
@@ -2468,7 +2486,10 @@ static void PlayerHandleChooseAction(void)
     for (i = 0; i < 4; ++i)
         ActionSelectionDestroyCursorAt(i);
     ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
-    BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
+    if (gTemporaryBattlePlayerText)
+        BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPlayerDo);
+    else
+        BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
 }
 
@@ -2590,8 +2611,14 @@ static void PlayerHandleChoosePokemon(void)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 
         // ### PSS battle switches - step 1 ###
-        if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH && gBattleSwitchFromPSS)
+        if (gBattleSwitchFromPSS)
         {
+            gActionSelectionCursor[gActiveBattler] = 0;
+            gMoveSelectionCursor[gActiveBattler] = 0;
+            
+            if (gBattleResults.playerSwitchesCounter < 255)
+                ++gBattleResults.playerSwitchesCounter;
+
             CompactPartySlots();
             CalculatePlayerPartyCount();
 

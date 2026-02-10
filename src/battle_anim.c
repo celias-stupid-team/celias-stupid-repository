@@ -52,7 +52,6 @@ static void Task_FadeToBg(u8 taskId);
 static void Task_PanFromInitialToTarget(u8 taskId);
 static void Task_InitUpdateMonBg(u8 taskId);
 static void LoadMoveBg(u16 bgId);
-static void LoadDefaultBg(void);
 static void Task_LoopAndPlaySE(u8 taskId);
 static void Task_WaitAndPlaySE(u8 taskId);
 static void Task_ClearMonBg(u8 taskId);
@@ -1140,7 +1139,7 @@ static void LoadMoveBg(u16 bgId)
     LoadCompressedPalette(gBattleAnimBackgroundTable[bgId].palette, BG_PLTT_ID(2), PLTT_SIZE_4BPP);
 }
 
-static void LoadDefaultBg(void)
+void LoadDefaultBg(void)
 {
     DrawMainBattleBackground();
 }

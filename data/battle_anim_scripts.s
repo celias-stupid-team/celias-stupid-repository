@@ -840,6 +840,8 @@ gBattleAnims_Moves::
 	.4byte Move_SPARKLING_ARIA
 	.4byte Move_CUTE
 	.4byte Move_BROCK_THROW
+	.4byte Move_SHADOW_SHIELD
+	.4byte Move_QUINTUPLE_WINGBEAT
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -890,6 +892,9 @@ gBattleAnims_General::
 	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
 	.4byte General_TrickRoom                @ B_ANIM_TRICK_ROOM_CONTINUES
 	.4byte General_SeelHoopaTransform       @ B_ANIM_SEEL_HOOPA_TRANSFORM
+	.4byte General_ShadowSky    			@ B_ANIM_SHADOW_SKY_CONTINUES
+	.4byte General_ShadowSpikes 			@ B_ANIM_SHADOW_SPIKES
+	.4byte General_ZapmolcunoTransform      @ B_ANIM_ZAPMOLCUNO_TRANSFORM
 
 	.align 2
 gBattleAnims_Special::
@@ -11307,6 +11312,12 @@ General_Sun:
 General_Sandstorm:
 	goto Move_SANDSTORM
 
+General_ShadowSky:
+	goto Move_SANDSTORM @ wiz1989, needs a new anim
+
+General_ShadowSpikes:
+	goto Move_SPIKES
+
 General_Hail:
 	goto Move_HAIL
 
@@ -11530,6 +11541,9 @@ General_SeelHoopaTransform:
 	waitsound
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
+	end
+
+General_ZapmolcunoTransform: @ doesn't need an actual transformation since it won't be visible
 	end
 
 General_HangedOn:
@@ -13885,7 +13899,8 @@ Move_CONFIDE:
 	createvisualtask SoundTask_WaitForCry, 5
 	waitforvisualfinish
 	end
-	
+
+Move_QUINTUPLE_WINGBEAT:
 Move_DUAL_WINGBEAT:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
@@ -17695,3 +17710,5 @@ Move_CUTE:
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
+Move_SHADOW_SHIELD:
+	goto Move_PROTECT
