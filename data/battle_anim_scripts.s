@@ -15871,17 +15871,42 @@ Move_SYRUP_BOMB:
 
 
 Move_MAKE_IT_RAIN:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	loadspritegfx ANIM_TAG_COIN_SMALL
+	createvisualtask AnimTask_Splash, 2, 0, 6
+	delay 24
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 0, -4, -16
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 0, 4, -12
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	delay 32
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 0, -3, -12
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 0, 5, -14
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	delay 32
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 0, -5, -18
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 0, 3, -14
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	delay 16
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 220, 60
+	waitplaysewithpan SE_MAKE_IT_RAIN, 0, 15
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 6, 0, 18, 1
+	delay 2
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 60, 100
+	delay 2
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 140, 55
+	delay 2
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 180, 50
+	delay 2
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 20, 90
+	delay 2
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 90, 90
+	delay 2
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 160, 60
+	delay 2
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 30, 90
+	delay 2
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 120, 60
+	delay 2
+	createsprite gMakeItRainSpriteTemplate, ANIM_TARGET, 2, 1, 200, 40
 	end
 
 

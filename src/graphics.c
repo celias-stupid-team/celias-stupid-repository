@@ -1194,6 +1194,9 @@ const u32 gBattleAnimSpritePal_Money[] = INCBIN_U32("graphics/battle_anims/sprit
 
 const u32 gBattleAnimSpriteGfx_Ketchup[] = INCBIN_U32("graphics/battle_anims/sprites/ketchup.4bpp.lz");
 const u32 gBattleAnimSpritePal_Ketchup[] = INCBIN_U32("graphics/battle_anims/sprites/ketchup.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_CoinSmall[] = INCBIN_U32("graphics/battle_anims/sprites/coin_small.4bpp.lz");
+const u32 gBattleAnimSpritePal_CoinSmall[] = INCBIN_U32("graphics/battle_anims/sprites/coin_small.gbapal.lz");
 // battle anims END
 
 const u32 gPartyMenuBg_Gfx[] = INCBIN_U32("graphics/party_menu/bg.4bpp.lz");
