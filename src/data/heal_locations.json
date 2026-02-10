@@ -500,7 +500,7 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_ERIKA",
       "map": "MAP_VIRIDIAN_GYM_ERIKA",
       "x": 5,
-      "y": 8,
+      "y": 16,
       "respawn_map": "MAP_VIRIDIAN_GYM_ERIKA",
       "respawn_npc": "1"
     },

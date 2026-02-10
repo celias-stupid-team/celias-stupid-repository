@@ -36284,7 +36284,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .evYield_SpDefense = 1,
         .itemCommon = ITEM_NONE,
         .itemRare = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(50),
+        .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
         .friendship = 70,
         .growthRate = GROWTH_FAST,
@@ -36293,6 +36293,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALARTICUNO] =
@@ -36314,7 +36315,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .evYield_SpDefense = 1,
         .itemCommon = ITEM_NONE,
         .itemRare = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(50),
+        .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
         .friendship = 70,
         .growthRate = GROWTH_FAST,
@@ -36323,6 +36324,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALHOOH] =
@@ -36344,15 +36346,16 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .evYield_SpDefense = 1,
         .itemCommon = ITEM_NONE,
         .itemRare = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(50),
+        .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
         .friendship = 70,
         .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
-        .abilities = {ABILITY_EARLY_BIRD, ABILITY_NONE},
+        .abilities = {ABILITY_REVENGE, ABILITY_NONE},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALZAPDOS] =
@@ -36374,7 +36377,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .evYield_SpDefense = 1,
         .itemCommon = ITEM_NONE,
         .itemRare = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(50),
+        .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
         .friendship = 70,
         .growthRate = GROWTH_FAST,
@@ -36383,6 +36386,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALMOLTRES] =
@@ -36404,7 +36408,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .evYield_SpDefense = 1,
         .itemCommon = ITEM_NONE,
         .itemRare = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(50),
+        .genderRatio = MON_GENDERLESS,
         .eggCycles = 20,
         .friendship = 70,
         .growthRate = GROWTH_FAST,
@@ -36413,6 +36417,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE,
     },
 
     [SPECIES_FINALWARTORTLE] =
@@ -36443,6 +36448,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .isShadowType = TRUE, // probably wrong, but helpful for testing
     },
 
     [SPECIES_DODODUO] =
@@ -36533,6 +36539,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+
     },
 
 };

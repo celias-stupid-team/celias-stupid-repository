@@ -13,7 +13,8 @@ struct BagStruct
 {
     MainCallback bagCallback;
     u8 location;
-    bool8 bagOpen;
+    u8 bagOpen:1;
+    u8 bikePos:7;
     u16 pocket;
     u16 itemsAbove[NUM_BAG_POCKETS_NO_CASES];
     u16 cursorPos[NUM_BAG_POCKETS_NO_CASES];

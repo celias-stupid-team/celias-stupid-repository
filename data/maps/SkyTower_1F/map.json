@@ -18,8 +18,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 51,
-      "y": 48,
+      "x": 29,
+      "y": 55,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -45,7 +45,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_NIDORAN_F",
+      "graphics_id": "OBJ_EVENT_GFX_ESPURR",
       "x": 27,
       "y": 37,
       "elevation": 0,
@@ -54,12 +54,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SkyTower_LookEspurr",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PIDGEOT",
+      "graphics_id": "OBJ_EVENT_GFX_NIDORAN_F",
       "x": 27,
       "y": 38,
       "elevation": 0,
@@ -73,7 +73,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MACHOP",
+      "graphics_id": "OBJ_EVENT_GFX_CUBONE",
       "x": 28,
       "y": 39,
       "elevation": 0,
@@ -115,7 +115,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CUBONE",
+      "graphics_id": "OBJ_EVENT_GFX_MACHOP",
       "x": 27,
       "y": 40,
       "elevation": 0,
@@ -154,20 +154,48 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SkyTower_PersonalityQuiz",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "x": 10,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WONDER_ORB",
+      "x": 12,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 51,
-      "y": 44,
+      "x": 46,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_SKY_TOWER_2F",
-      "dest_warp_id": "1"
+      "dest_warp_id": "0"
     },
     {
       "warp_id": "WARPID_SKY_TOWER_INSIDE",
-      "x": 50,
-      "y": 50,
+      "x": 28,
+      "y": 58,
       "elevation": 0,
       "dest_map": "MAP_GREAT_BAY_NORTH",
       "dest_warp_id": "WARPID_SKY_TOWER_OUTSIDE"

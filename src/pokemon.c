@@ -2777,7 +2777,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             }
 
             // Any weather except sun weakens solar beam
-            if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL_TEMPORARY)) && gCurrentMove == MOVE_SOLAR_BEAM)
+            if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL_TEMPORARY | B_WEATHER_SHADOW_SKY)) && gCurrentMove == MOVE_SOLAR_BEAM)
                 damage /= 2;
 
             // Sun boosts Fire, weakens Water
@@ -6097,7 +6097,7 @@ void ClearBattleMonForms(void)
         gBattleMonForms[i] = 0;
 }
 
-static u16 GetBattleBGM(void)
+u16 GetBattleBGM(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_KYOGRE_GROUDON)
         return MUS_VS_WILD;
@@ -7025,6 +7025,7 @@ u32 PartyHasMon(u16 species)
     
     return PARTY_SIZE;
 }
+
 void HealPokemon(struct Pokemon *mon)
 {
     u32 data;
@@ -7037,4 +7038,17 @@ void HealPokemon(struct Pokemon *mon)
 
     MonRestorePP(mon);
     CalculateMonStats(mon);
+}
+
+u16 GetCurrentZapmolcunoSpecies(void)
+{
+    u16 species = 0;
+    u8 offset = VarGet(VAR_CSR_FINAL_BATTLE_PHASE);
+
+    if (offset > 4) // 5 phases, indexed 0-4
+        offset = 4;
+
+    species = SPECIES_FINALLUGIA + offset;
+
+    return species;
 }

@@ -80,6 +80,7 @@ void BeginBattleIntro(void);
 void SwitchInClearSetData(void);
 void FaintClearSetData(void);
 void BattleTurnPassed(void);
+void RunTurnActionsFunctions(void);
 u8 IsRunningFromBattleImpossible(void);
 void UpdatePartyOwnerOnSwitch_NonMulti(u8 battler);
 void SwapTurnOrder(u8 id1, u8 id2);

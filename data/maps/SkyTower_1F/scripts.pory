@@ -203,3 +203,32 @@ script SkyTower_MonDoingRescue {
 	waitmoncry
 	release
 }
+
+
+
+
+script SkyTower_LookEspurr {
+	    lock
+	
+		msgbox(format("ESPURR: Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
+		waitmovement(0)
+		playse(SE_PIN)
+		applymovement(VAR_LAST_TALKED, DT_exclmark)
+		waitmovement(0)
+		delay(48)
+		msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
+		closemessage
+		switch(var(VAR_FACING)) {
+			case DIR_EAST:
+					applymovement(VAR_LAST_TALKED, DT_walkbackRight)
+					waitmovement(0)
+					break
+				default:
+					applymovement(VAR_LAST_TALKED, DT_walkbackLeft)
+					waitmovement(0)
+					break
+        }
+    copyobjectxytoperm(VAR_LAST_TALKED)
+	release
+}

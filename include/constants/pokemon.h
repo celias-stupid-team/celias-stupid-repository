@@ -1,6 +1,8 @@
 #ifndef GUARD_CONSTANTS_POKEMON_H
 #define GUARD_CONSTANTS_POKEMON_H
 
+#include "constants/battle.h"
+
 // For (Set|Get)(Box)?MonData
 #define MON_DATA_PERSONALITY               0
 #define MON_DATA_OT_ID                     1
@@ -320,9 +322,9 @@
 #define MON_PIC_SIZE (MON_PIC_WIDTH * MON_PIC_HEIGHT / 2)
 
 // Most pokemon have 1 frame. There are 2 exceptions:
-// - Castform has 4 frames, 1 for each form
+// - Castform has now 5 frames, 1 for each form incl. Shadow
 // - Deoxys has 2 frames, 1 for each form
-#define MAX_MON_PIC_FRAMES 4
+#define MAX_MON_PIC_FRAMES NUM_CASTFORM_FORMS
 
 // used by ShouldIgnoreDeoxysForm
 #define DEOXYS_CHECK_BATTLE_SPRITE      1

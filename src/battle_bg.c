@@ -2,8 +2,10 @@
 #include "gflib.h"
 #include "battle.h"
 #include "battle_bg.h"
+#include "battle_interface.h"
 #include "battle_message.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "graphics.h"
 #include "link.h"
 #include "new_menu_helpers.h"
@@ -13,6 +15,7 @@
 #include "constants/maps.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "constants/vars.h"
 
 #define TAG_VS_LETTERS 10000
 
@@ -571,6 +574,22 @@ const struct BattleBackground sBattleTerrainTable[] = {
         .entryTileset = sBattleTerrainAnimTiles_Building,
         .entryTilemap = sBattleTerrainAnimTilemap_Building,
         .palette = gBattleTerrainPalette_Champion
+    },
+    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA] =
+    {
+        .tileset = gBattleTerrainTiles_Zapmolcunoohgia,
+        .tilemap = gBattleTerrainTilemap_Zapmolcunoohgia,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Zapmolcunoohgia
+    },
+    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS] =
+    {
+        .tileset = gBattleTerrainTiles_Zapmolcunoohgia_Platforms,
+        .tilemap = gBattleTerrainTilemap_Zapmolcunoohgia_Platforms,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Zapmolcunoohgia_Platforms
     }
 };
 
@@ -621,9 +640,19 @@ static void LoadBattleTerrainGfx(u16 terrain)
     if (terrain >= NELEMS(sBattleTerrainTable))
         terrain = BATTLE_TERRAIN_PLAIN;
     // Copy to bg3
-    LZDecompressVram(sBattleTerrainTable[terrain].tileset, (void *)BG_CHAR_ADDR(2));
-    LZDecompressVram(sBattleTerrainTable[terrain].tilemap, (void *)BG_SCREEN_ADDR(26));
-    LoadCompressedPalette(sBattleTerrainTable[terrain].palette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+    if (terrain == BATTLE_TERRAIN_ZAPMOLCUNOOHGIA)
+    {
+        LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia, (void*)(BG_CHAR_ADDR(2)));
+        LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia, (void*)(BG_SCREEN_ADDR(26)));
+        // special handling for multiple palettes
+        LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia, 10 * 16, 5* PLTT_SIZE_4BPP);
+    }
+    else
+    {
+        LZDecompressVram(sBattleTerrainTable[terrain].tileset, (void *)BG_CHAR_ADDR(2));
+        LZDecompressVram(sBattleTerrainTable[terrain].tilemap, (void *)BG_SCREEN_ADDR(26));
+        LoadCompressedPalette(sBattleTerrainTable[terrain].palette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+    }
 }
 
 static void LoadBattleTerrainEntryGfx(u16 terrain)
@@ -992,6 +1021,13 @@ void DrawBattleEntryBackground(void)
             LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_WATER);
         }
     }
+    else if (gBattleTypeFlags & (BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+    {
+        if (USE_TEST_TERRAIN)
+            LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_GRASS);
+        else
+            LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_ZAPMOLCUNOOHGIA);
+    }
     else
     {
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
@@ -1031,6 +1067,31 @@ static u8 GetBattleTerrainOverride(void)
     {
         gBattleTerrain = BATTLE_TERRAIN_GRASS;
         return BATTLE_TERRAIN_GRASS;
+    }
+    else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    {
+        if (USE_TEST_TERRAIN)
+        {
+            gBattleTerrain = BATTLE_TERRAIN_GRASS;
+            return BATTLE_TERRAIN_GRASS;
+        }
+        else
+        {
+            switch (VarGet(VAR_CSR_FINAL_BATTLE_PHASE))
+            {
+                case B_FINAL_BATTLE_LUGIA:
+                case B_FINAL_BATTLE_ARTICUNO:
+                case B_FINAL_BATTLE_HOOH:
+                case B_FINAL_BATTLE_ZAPDOS:
+                case B_FINAL_BATTLE_MOLTRES:
+                    gBattleTerrain = BATTLE_TERRAIN_ZAPMOLCUNOOHGIA;
+                    return BATTLE_TERRAIN_ZAPMOLCUNOOHGIA;
+                case B_FINAL_BATTLE_WARTORTLE:
+                default:
+                    gBattleTerrain = BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS;
+                    return BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS;
+            }
+        }
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {

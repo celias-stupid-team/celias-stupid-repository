@@ -194,7 +194,7 @@ script FushciaGym_CheckRedCurtain {
         release
         end
     }
-    msgbox("A curtain depicting a FIRE\ninsignita.", MSGBOX_DEFAULT)
+    msgbox("A curtain depicting a FIRE\ninsignia.", MSGBOX_DEFAULT)
     release
 }
 

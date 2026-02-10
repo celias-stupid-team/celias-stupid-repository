@@ -301,6 +301,17 @@ const struct SpriteTemplate gRedXSpriteTemplate =
     .callback = AnimRedX,
 };
 
+const struct SpriteTemplate gBrockXSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BROCK_X_SIGN,
+    .paletteTag = ANIM_TAG_BROCK_X_SIGN,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRedX,
+};
+
 const struct SpriteTemplate gWeedSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEED,

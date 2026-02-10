@@ -148,6 +148,17 @@ const struct SpriteTemplate gFlyBallAttackSpriteTemplate =
     .callback = AnimFlyBallAttack,
 };
 
+const struct SpriteTemplate gZekromKickSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ZEKROM_KICK,
+    .paletteTag = ANIM_TAG_ZEKROM_KICK,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
+
 static const union AnimCmd sAnim_FallingFeather_0[] =
 {
     ANIMCMD_FRAME(0, 0),

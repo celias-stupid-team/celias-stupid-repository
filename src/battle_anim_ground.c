@@ -32,6 +32,12 @@ static const union AffineAnimCmd sAffineAnim_Bonemerang[] =
     AFFINEANIMCMD_JUMP(0),
 };
 
+static const union AffineAnimCmd sAffineAnim_Onemerang[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 15, 1),
+    AFFINEANIMCMD_JUMP(0),
+};
+
 static const union AffineAnimCmd sAffineAnim_SpinningBone[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, 20, 1),
@@ -43,6 +49,11 @@ static const union AffineAnimCmd *const sAffineAnims_Bonemerang[] =
     sAffineAnim_Bonemerang,
 };
 
+static const union AffineAnimCmd *const sAffineAnims_Onemerang[] =
+{
+    sAffineAnim_Onemerang,
+};
+
 const union AffineAnimCmd *const gAffineAnims_SpinningBone[] =
 {
     sAffineAnim_SpinningBone,
@@ -52,6 +63,17 @@ const struct SpriteTemplate gBonemerangSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BONE,
     .paletteTag = ANIM_TAG_BONE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
+const struct SpriteTemplate gOnemerangSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ONE,
+    .paletteTag = ANIM_TAG_ONE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

@@ -63,6 +63,17 @@ const struct SpriteTemplate gFallingRockSpriteTemplate =
     .callback = AnimFallingRock,
 };
 
+const struct SpriteTemplate gFallingBrockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BROCKS,
+    .paletteTag = ANIM_TAG_BROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FlyingRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingRock,
+};
+
 const struct SpriteTemplate gRockFragmentSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROCKS,
@@ -250,6 +261,17 @@ const struct SpriteTemplate gRockTombRockSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROCKS,
     .paletteTag = ANIM_TAG_ROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_BasicRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockTomb,
+};
+
+const struct SpriteTemplate gBrockTombRockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BROCKS,
+    .paletteTag = ANIM_TAG_BROCKS,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_BasicRock,
     .images = NULL,

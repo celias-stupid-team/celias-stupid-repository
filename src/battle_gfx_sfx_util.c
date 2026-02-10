@@ -99,7 +99,7 @@ static const struct CompressedSpriteSheet sSpriteSheets_HealthBar[MAX_BATTLERS_C
     },
 };
 
-const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2] =
+const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[3] =
 {
     {
         .data = gBattleInterface_Healthbox_Pal,
@@ -108,6 +108,10 @@ const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2] =
     {
         .data = gBattleInterface_Healthbar_Pal,
         .tag = TAG_HEALTHBAR_PAL,
+    },
+    {
+        .data = gBattleInterface_Healthbar_Pal,
+        .tag = TAG_HEALTHBAR_OPPONENT_PAL,
     },
 };
 
@@ -212,10 +216,10 @@ void InitAndLaunchChosenStatusAnimation(bool8 isStatus2, u32 status)
 bool8 TryHandleLaunchBattleTableAnimation(u8 activeBattler, u8 atkBattler, u8 defBattler, u8 tableId, u16 argument)
 {
     u8 taskId;
-
-    if (tableId == B_ANIM_CASTFORM_CHANGE && (argument & 0x80))
+    
+    if (tableId == B_ANIM_CASTFORM_CHANGE && (argument & CASTFORM_SUBSTITUTE))
     {
-        gBattleMonForms[activeBattler] = (argument & ~(0x80));
+        gBattleMonForms[activeBattler] = (argument & ~(CASTFORM_SUBSTITUTE));
         return TRUE;
     }
     else if (gBattleSpritesDataPtr->battlerData[activeBattler].behindSubstitute
@@ -260,6 +264,7 @@ static bool8 ShouldAnimBeDoneRegardlessOfSubsitute(u8 animId)
     case B_ANIM_SUN_CONTINUES:
     case B_ANIM_SANDSTORM_CONTINUES:
     case B_ANIM_HAIL_CONTINUES:
+    case B_ANIM_SHADOW_SKY_CONTINUES:
     case B_ANIM_SNATCH_MOVE:
         return TRUE;
     default:
@@ -342,6 +347,7 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
     }
     otId = GetMonData(mon, MON_DATA_OT_ID);
     position = GetBattlerPosition(battlerId);
+
     HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species],
                                               gMonSpritesGfxPtr->sprites[position],
                                               species, currentPersonality);
@@ -496,6 +502,7 @@ static void BattleLoadAllHealthBoxesGfxAtOnce(void)
 
     LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[0]);
     LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[1]);
+    LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[2]);
     if (!IsDoubleBattle())
     {
         LoadCompressedSpriteSheetUsingHeap(&sSpriteSheet_SinglesPlayerHealthbox);
@@ -524,6 +531,11 @@ bool8 BattleLoadAllHealthBoxesGfx(u8 state)
         {
             LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[0]);
             LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[1]);
+            LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[2]);
+
+            // special health bar handling for Zapmolcuno-Ohgia
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+                SetHPBarColorsForZapmolcunoOhgia();
         }
         else if (!IsDoubleBattle())
         {
@@ -721,6 +733,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
         LZDecompressWram(lzPaletteData, buffer);
         LoadPalette(buffer, paletteOffset, PLTT_SIZE_4BPP);
         Free(buffer);
+        gSprites[gBattlerSpriteIds[battlerAtk]].x = GetBattlerSpriteDefault_X(battlerAtk);
         gSprites[gBattlerSpriteIds[battlerAtk]].y = GetBattlerSpriteDefault_Y(battlerAtk);
         StartSpriteAnim(&gSprites[gBattlerSpriteIds[battlerAtk]], gBattleMonForms[battlerAtk]);
         SetMonData(mon, MON_DATA_NICKNAME, gSpeciesNames[targetSpecies]);
@@ -1031,6 +1044,9 @@ void SetBattlerShadowSpriteCallback(u8 battlerId, u16 species)
     if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
         return;
 
+    if (IsZapmolcunoOhgiaSpecies(species))
+        return;
+
     if (gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != SPECIES_NONE)
         species = gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies;
 
@@ -1101,16 +1117,16 @@ void AllocateMonSpritesGfx(void)
 
     gMonSpritesGfxPtr = NULL;
     gMonSpritesGfxPtr = AllocZeroed(sizeof(*gMonSpritesGfxPtr));
-    gMonSpritesGfxPtr->firstDecompressed = AllocZeroed(0x8000);
+    gMonSpritesGfxPtr->firstDecompressed = AllocZeroed(MAX_BATTLERS_COUNT * MAX_MON_PIC_FRAMES * MON_PIC_SIZE);
     for (i = 0; i < MAX_BATTLERS_COUNT; ++i)
     {
-        gMonSpritesGfxPtr->sprites[i] = gMonSpritesGfxPtr->firstDecompressed + (i * 0x2000);
+        gMonSpritesGfxPtr->sprites[i] = gMonSpritesGfxPtr->firstDecompressed + (i * MAX_MON_PIC_FRAMES * MON_PIC_SIZE);
         *(gMonSpritesGfxPtr->templates + i) = gSpriteTemplates_Battlers[i];
 
-        for (j = 0; j < 4; ++j)
+        for (j = 0; j < MAX_MON_PIC_FRAMES; ++j)
         {
-            gMonSpritesGfxPtr->images[i][j].data = gMonSpritesGfxPtr->sprites[i] + (j * 0x800);
-            gMonSpritesGfxPtr->images[i][j].size = 0x800;
+            gMonSpritesGfxPtr->images[i][j].data = gMonSpritesGfxPtr->sprites[i] + (j * MON_PIC_SIZE);
+            gMonSpritesGfxPtr->images[i][j].size = MON_PIC_SIZE;
         }
 
         gMonSpritesGfxPtr->templates[i].images = gMonSpritesGfxPtr->images[i];

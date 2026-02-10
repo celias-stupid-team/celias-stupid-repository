@@ -187,9 +187,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_MAGIC_SHELL] = COMPOUND_STRING("Cannot be pierced with a SPOON."),
     [ABILITY_NO_GUARD] = COMPOUND_STRING("Ensures that all moves hit."),
     [ABILITY_EARTH_EATER] = COMPOUND_STRING("The user EATS the EARTH."),
-    [ABILITY_AS_ONE_MAGNEMITE] = COMPOUND_STRING("MAGNET PULL and -------"),
+    [ABILITY_AS_ONE_MAGNEMITE] = COMPOUND_STRING("MAGNET PULL and -------."),
     [ABILITY_BULLETPROOF] = COMPOUND_STRING("Immunity to being shot."),
-    
+    [ABILITY_REVENGE] = COMPOUND_STRING("Always survives at 1HP."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -296,4 +296,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_AS_ONE_MAGNEMITE] = _("AS ONE"),
     [ABILITY_BULLETPROOF] = _("BULLETPROOF"),
     
+    [ABILITY_REVENGE] = _("REVENGE"),
 };
