@@ -232,7 +232,6 @@ It is reset after every battle.
 #define EVENT_BATTLE_LARRY_2  18 //check
 #define EVENT_BATTLE_BARRY  19 //check
 
-#define VAR_VIEWING_PC VAR_TEMP_5
 
 
 #define VAR_TEMP_START_EVENT_BATTLE    0x408C

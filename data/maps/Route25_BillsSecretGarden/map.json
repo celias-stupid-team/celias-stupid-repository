@@ -110,10 +110,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 19,
-      "y": 13,
+      "x": 10,
+      "y": 3,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -124,8 +124,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN",
-      "x": 32,
-      "y": 15,
+      "x": 19,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -158,7 +158,7 @@
       "x": 23,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile13"
     },
@@ -167,7 +167,7 @@
       "x": 23,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile12"
     },
@@ -176,7 +176,7 @@
       "x": 23,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile11"
     },
@@ -185,7 +185,7 @@
       "x": 22,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile10"
     },
@@ -194,7 +194,7 @@
       "x": 21,
       "y": 15,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile9"
     },
@@ -203,7 +203,7 @@
       "x": 19,
       "y": 15,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile7"
     },
@@ -212,7 +212,7 @@
       "x": 20,
       "y": 15,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile8"
     },
@@ -221,7 +221,7 @@
       "x": 18,
       "y": 15,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile6"
     },
@@ -230,7 +230,7 @@
       "x": 17,
       "y": 15,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile5"
     },
@@ -239,7 +239,7 @@
       "x": 15,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile3"
     },
@@ -248,7 +248,7 @@
       "x": 15,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile1"
     },
@@ -257,7 +257,7 @@
       "x": 15,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile2"
     },
@@ -266,7 +266,7 @@
       "x": 16,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_VIEWING_PC",
+      "var": "VAR_TEMP_9",
       "var_value": "1",
       "script": "SecretGarden_LeavePCTile4"
     }

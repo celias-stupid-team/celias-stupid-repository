@@ -11,6 +11,7 @@ Route25_EventScript_Man::
 `
 script Route25_TransitionScripts {
 	setbench(BENCH_ROUTE25)
+	clearflag(FLAG_SYS_BILL_GARDEN)
 	call(SetPlayerPokedexValues)
 }
 

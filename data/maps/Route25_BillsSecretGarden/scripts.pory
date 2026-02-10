@@ -1,21 +1,32 @@
 raw `
 .equ RIGHT_BOX_NUMBER,  VAR_TEMP_1
 .equ RIGHT_BOX_OPEN,  FLAG_TEMP_1
+.equ RIGHT_BOX_THERE, FLAG_TEMP_5
+
 
 .equ LEFT_BOX_NUMBER,  VAR_TEMP_2
 .equ LEFT_BOX_OPEN,  FLAG_TEMP_2
+.equ LEFT_BOX_THERE, FLAG_TEMP_6
+.equ LEFT_BOX_IN_PC, FLAG_TEMP_9
+
+
 
 .equ CRIMP_BOX_NUMBER,  VAR_TEMP_3
 .equ CRIM_BOX_OPEN,  FLAG_TEMP_3
+.equ CRIMP_BOX_THERE, FLAG_TEMP_7
 
-.equ PLAYER_STARTER_SPECIES,  VAR_TEMP_2
-.equ RIVAL_STARTER_SPECIES,   VAR_TEMP_3
-.equ RIVAL_STARTER_ID,        VAR_TEMP_4
-.equ RIVAL_STARTER_ID,        VAR_TEMP_5
 
+.equ PLAYER_BOX_NUMBER,  VAR_TEMP_4
+.equ PLAYER_BOX_OPEN,  FLAG_TEMP_4
+.equ PLAYER_BOX_THERE, FLAG_TEMP_8
+
+
+.equ PC_CURRENT_POKEMON, VAR_TEMP_5
 .equ PC_CAMERA_X_VALUE,        VAR_TEMP_6
 .equ PC_CAMERA_Y_VALUE,        VAR_TEMP_7
 .equ PC_BOX_SLOT_NUMBER,      VAR_TEMP_8
+
+.equ VAR_VIEWING_PC, VAR_TEMP_9
 
 
 
@@ -70,6 +81,9 @@ script SecretGarden_PCTerminal {
         "Kick the PC?\n"
         "", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
+            if(checkpartymove(MOVE_MEGA_KICK) != PARTY_SIZE) {
+                
+            }
             playse(SE_PC_ON)
             msgbox(
             "{PLAYER} kicked the PC!\n"
@@ -81,6 +95,14 @@ script SecretGarden_PCTerminal {
 
         }
         setflag(FLAG_SYS_BILL_GARDEN)
+        setvar(RIGHT_BOX_NUMBER, 0)
+        clearflag(RIGHT_BOX_OPEN)
+        setvar(LEFT_BOX_NUMBER, 1)
+        setflag(RIGHT_BOX_OPEN)
+        setvar(RIGHT_BOX_NUMBER, 0)
+        clearflag(RIGHT_BOX_OPEN)
+        setflag(LEFT_BOX_IN_PC)
+        setflag(LEFT_BOX_THERE)
         release
         end 
     }
@@ -96,12 +118,20 @@ script SecretGarden_RetrievalChute {
 
 }
 
- 
+
+
+
+
 script SecretGarden_PCMonitor {
     lock
-	msgbox(
-	"PC Monitor\n"
-	"", MSGBOX_DEFAULT)
+    if(!flag(FLAG_SYS_BILL_GARDEN)) {
+        msgbox(
+        "A large, complicated machine sits\n"
+        "in the field.", MSGBOX_DEFAULT)
+        release
+        end
+        
+    }
     closemessage
     if(var(VAR_VIEWING_PC) == 0) {
         special(SpawnCameraObject)
@@ -110,14 +140,40 @@ script SecretGarden_PCMonitor {
         ))
         waitmovement(0)
         delay(30)
-        showmonpic(SPECIES_ABRA, 10, 3)
+        call(SecretGarden_GetCurrentPCPokemon)
+        showmonpic(PC_CURRENT_POKEMON, 10, 3)
         //waitbuttonpress
         //hidemonpic
         setvar(VAR_VIEWING_PC, 1)
 
+    } else {
+        msgbox(
+	"Withdraw POKéMON?\n"
+	"", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        closemessage
+        hidemonpic
+        setvar(VAR_TEMP_6, 19)
+        setvar(VAR_TEMP_7, 12)
+        setvar(PC_BOX_SLOT_NUMBER, 0)
+        call(SecretGarden_LeavePC)
+        delay(30)
+        playse(SE_BALL_TRADE)
+        delay(30)
+        bufferspeciesname(STR_VAR_1, PC_CURRENT_POKEMON)
+        playfanfare(MUS_LEVEL_UP)
+        msgbox(
+        "{PLAYER} withdrew the\n"
+        "{STR_VAR_1}!", MSGBOX_DEFAULT)
+        waitfanfare
+        copyvar(VAR_CSR_GIFT_POKEMON, PC_CURRENT_POKEMON)
+        call(Common_Script_GiftPokemon)
+    }
     }
     release
 }
+
+
 
 
 script SecretGarden_LeavePC {
@@ -128,8 +184,18 @@ script SecretGarden_LeavePC {
     hidemonpic
     special(SpawnCameraObject)
     waitmovement(0)
+    while(var(VAR_TEMP_7) != 8) {
+        applymovement(LOCALID_CAMERA, moves(
+            walk_faster_down
+        ))
+        waitmovement(0)
+        subvar(VAR_TEMP_7, 1)
+
+    }
+    waitmovement(0)
+
     while(var(VAR_TEMP_6) != 19) {
-        while(var(VAR_TEMP_7) != 8) {
+        
             if(var(VAR_TEMP_6) < 19) {
                 applymovement(LOCALID_CAMERA, moves(
                     walk_faster_left
@@ -143,34 +209,57 @@ script SecretGarden_LeavePC {
                 waitmovement(0)
                 subvar(VAR_TEMP_6, 1)
             } else {
-                applymovement(LOCALID_CAMERA, moves(
-                    walk_faster_down
-                ))
-                waitmovement(0)
-                subvar(VAR_TEMP_7, 1)
+
             }
-        }
+        
     }
     waitmovement(0)
     special(RemoveCameraObject)
-    release
+    return
 }
 
 script SecretGarden_PCRightButton {
     lock
-	msgbox(
-	"PC Scroll Right\n"
-	"", MSGBOX_DEFAULT)
+    if(flag(FLAG_SYS_BILL_GARDEN)) {
+        if(var(PC_BOX_SLOT_NUMBER) < 8) {
+            addvar(PC_BOX_SLOT_NUMBER, 1)
+            hidemonpic
+            call(SecretGarden_GetCurrentPCPokemon)
+            showmonpic(PC_CURRENT_POKEMON, 10, 3)
+        } else {
+            waitse
+            playse(SE_BOO)
+            waitse
+        }
+    } else {
+        msgbox(
+        "A large, complicated machine sits\n"
+        "in the field.", MSGBOX_DEFAULT)
 
+    }
     release
 }
 
 
 script SecretGarden_PCLeftButton {
     lock
-	msgbox(
-	"PC Scroll Left\n"
-	"", MSGBOX_DEFAULT)
+    if(flag(FLAG_SYS_BILL_GARDEN)) {
+        if(var(PC_BOX_SLOT_NUMBER) > 0) {
+            subvar(PC_BOX_SLOT_NUMBER, 1)
+            hidemonpic
+            call(SecretGarden_GetCurrentPCPokemon)
+            showmonpic(PC_CURRENT_POKEMON, 10, 3)
+        } else {
+            waitse
+            playse(SE_BOO)
+            waitse
+        }
+    } else {
+        msgbox(
+        "A large, complicated machine sits\n"
+        "in the field.", MSGBOX_DEFAULT)
+
+    }
     release
 }
 
@@ -220,12 +309,23 @@ script SecretGarden_BoxCrimperControl {
 
 script SecretGarden_BillDiary {
 	msgbox(
-	"dear diary\p"
+	"Dearest Diary,\p"
 
-	"there is something good in a box\p"
+	"I discovered a most rare and\n"
+	"wonderful new POKéMON today.\p"
 
-	"love bill\n"
-	"", MSGBOX_SIGN)
+	"I have it stored in BOX 4 of my\n"
+	"old PC SYSTEM.\l"
+	"Thankfully it's all still kicking!\p"
+
+	"It's a shame the instruction book\n"
+	"got destroyed in that experiment.\p"
+
+	"Oh well!\n"
+	"Not like anyone else has to use it!\p"
+
+	"Love,\n"
+	"BILL", MSGBOX_SIGN)
 
 }
 
@@ -240,68 +340,187 @@ script SecretGarden_PCSystem {
 
 
 
+script SecretGarden_GetCurrentPCPokemon {
+    switch(var(LEFT_BOX_NUMBER)) {
+        case 0:
+            switch(var(PC_BOX_SLOT_NUMBER)) {
+                case 0:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 1:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
+                case 2:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
+                case 3:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 4:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CHARMANDER)
+                case 5:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SANDSHREW)
+                case 6:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 7:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 8:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_TENTACOOL)
+            }
+        case 1:
+            switch(var(PC_BOX_SLOT_NUMBER)) {
+                case 0:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 1:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
+                case 2:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
+                case 3:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 4:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CHARMANDER)
+                case 5:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_PIKABLU)
+                case 6:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
+                case 7:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 8:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_TENTACOOL)
+            }
+        case 2:
+            switch(var(PC_BOX_SLOT_NUMBER)) {
+                case 0:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+                case 1:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+                case 2:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+                case 3:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+                case 4:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+                case 5:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+                case 6:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+                case 7:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+                case 8:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+            }
+        case 3:
+        case 4:
+            switch(var(PC_BOX_SLOT_NUMBER)) {
+                case 0:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 1:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
+                case 2:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
+                case 3:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 4:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CHARMANDER)
+                case 5:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SANDSHREW)
+                case 6:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_PIKABLU)
+                case 7:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 8:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_TENTACOOL)
+            }
+        case 5:
+    }
+}
+
+
+
 script SecretGarden_LeavePCTile1 {
     setvar(VAR_TEMP_6, 15)
     setvar(VAR_TEMP_7, 11)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile2 {
     setvar(VAR_TEMP_6, 15)
     setvar(VAR_TEMP_7, 12)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile3 {
     setvar(VAR_TEMP_6, 15)
     setvar(VAR_TEMP_7, 13)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile4 {
     setvar(VAR_TEMP_6, 16)
     setvar(VAR_TEMP_7, 14)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile5 {
     setvar(VAR_TEMP_6, 17)
     setvar(VAR_TEMP_7, 15)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile6 {
     setvar(VAR_TEMP_6, 18)
     setvar(VAR_TEMP_7, 15)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile7 {
     setvar(VAR_TEMP_6, 19)
     setvar(VAR_TEMP_7, 15)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile8 {
     setvar(VAR_TEMP_6, 20)
     setvar(VAR_TEMP_7, 15)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile9 {
     setvar(VAR_TEMP_6, 21)
     setvar(VAR_TEMP_7, 15)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile10 {
     setvar(VAR_TEMP_6, 22)
     setvar(VAR_TEMP_7, 14)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile11 {
     setvar(VAR_TEMP_6, 23)
     setvar(VAR_TEMP_7, 13)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile12 {
     setvar(VAR_TEMP_6, 23)
     setvar(VAR_TEMP_7, 12)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
 script SecretGarden_LeavePCTile13 {
     setvar(VAR_TEMP_6, 23)
     setvar(VAR_TEMP_7, 11)
-    goto(SecretGarden_LeavePC)
+    call(SecretGarden_LeavePC)
+    release
+    end
 }
