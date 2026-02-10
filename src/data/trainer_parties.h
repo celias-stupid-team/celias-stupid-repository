@@ -6030,9 +6030,9 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HikerJeremy[] = {
 static const struct TrainerMonItemDefaultMoves sParty_PicnickerAlma[] = {
     {
         .iv = 0,
-        .lvl = 1,
-        .heldItem = ITEM_FOCUS_SASH,
-        .species = SPECIES_RATTATA,
+        .lvl = 20,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_ZUBAT,
     },
 };
 
