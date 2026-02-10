@@ -791,3 +791,4 @@ const u32 gObjectEventPic_DRAMPA[] = INCBIN_U32("graphics/object_events/pics/stu
 const u16 gObjectEventPal_DRAMPA[] = INCBIN_U16("graphics/object_events/palettes/DRAMPA.gbapal");
 const u32 gObjectEventPic_WONDER_ORB[] = INCBIN_U32("graphics/object_events/pics/stupid/WONDER_ORB.4bpp");
 const u16 gObjectEventPal_WONDER_ORB[] = INCBIN_U16("graphics/object_events/palettes/WONDER_ORB.gbapal");
+const u32 gObjectEventPic_SWIM_CAPTAIN[] = INCBIN_U32("graphics/object_events/pics/stupid/SWIM_CAPTAIN.4bpp");

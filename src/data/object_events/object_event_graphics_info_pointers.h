@@ -551,6 +551,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KECLEON;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KECLEON_PURPLE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DRAMPA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WONDER_ORB;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SWIM_CAPTAIN;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1103,4 +1104,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KECLEON_PURPLE] = &gObjectEventGraphicsInfo_KECLEON_PURPLE,
     [OBJ_EVENT_GFX_DRAMPA] = &gObjectEventGraphicsInfo_DRAMPA,
     [OBJ_EVENT_GFX_WONDER_ORB] = &gObjectEventGraphicsInfo_WONDER_ORB,
+    [OBJ_EVENT_GFX_SWIM_CAPTAIN] = &gObjectEventGraphicsInfo_SWIM_CAPTAIN,
 };

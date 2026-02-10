@@ -5931,3 +5931,14 @@ const struct SpriteFrameImage gObjectEventPicTable_WONDER_ORB[] = {
     overworld_frame(gObjectEventPic_WONDER_ORB, 2, 2, 2),
     overworld_frame(gObjectEventPic_WONDER_ORB, 2, 2, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_SWIM_CAPTAIN[] = {
+    overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 2),
+};

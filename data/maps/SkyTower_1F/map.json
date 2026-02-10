@@ -59,7 +59,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PIDGEOT",
+      "graphics_id": "OBJ_EVENT_GFX_NIDORAN_F",
       "x": 27,
       "y": 38,
       "elevation": 0,
@@ -73,7 +73,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MACHOP",
+      "graphics_id": "OBJ_EVENT_GFX_CUBONE",
       "x": 28,
       "y": 39,
       "elevation": 0,
@@ -115,7 +115,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CUBONE",
+      "graphics_id": "OBJ_EVENT_GFX_MACHOP",
       "x": 27,
       "y": 40,
       "elevation": 0,
