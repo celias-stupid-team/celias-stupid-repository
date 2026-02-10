@@ -6852,7 +6852,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     
 [MOVE_COPYCAT] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -6940,7 +6940,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
 [MOVE_HEAL_PULSE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -6953,7 +6953,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_ORIGIN_PULSE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -6966,7 +6966,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_WICKED_TORQUE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -6979,7 +6979,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_NOXIOUS_TORQUE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -6992,7 +6992,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_MAGICAL_TORQUE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -7005,7 +7005,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_COMBAT_TORQUE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -7018,7 +7018,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_SPARKLY_SWIRL] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -7031,7 +7031,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_SYRUP_BOMB] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -7044,7 +7044,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_MAKE_IT_RAIN] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -7057,7 +7057,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_FLASH_CANNON] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -7109,7 +7109,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_UPPER_HAND] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -7124,7 +7124,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_HORN_LEECH] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -7137,7 +7137,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_FISHIOUS_REND] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,
@@ -7150,10 +7150,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_BRAVE_BIRD] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_RECOIL, // Placeholder Effect
         .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
+        .type = TYPE_FLYING,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -7163,7 +7163,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_MAX_AIRSTREAM] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 80,

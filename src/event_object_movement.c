@@ -591,6 +591,11 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_RAINBOW  0x11A4
 #define OBJ_EVENT_PAL_TAG_LIGHT_GARY  0x11A5
 #define OBJ_EVENT_PAL_TAG_DARK_GARY  0x11A6
+#define OBJ_EVENT_PAL_TAG_ESPURR  0x11A7
+#define OBJ_EVENT_PAL_TAG_KECLEON  0x11A8
+#define OBJ_EVENT_PAL_TAG_KECLEON_PURPLE  0x11A9
+#define OBJ_EVENT_PAL_TAG_DRAMPA  0x11AA
+#define OBJ_EVENT_PAL_TAG_WONDER_ORB  0x11AB
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -755,6 +760,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_RAINBOW,             OBJ_EVENT_PAL_TAG_RAINBOW},
     {gObjectEventPal_LIGHT_GARY,             OBJ_EVENT_PAL_TAG_LIGHT_GARY},
     {gObjectEventPal_DARK_GARY,             OBJ_EVENT_PAL_TAG_DARK_GARY},
+    {gObjectEventPal_ESPURR,             OBJ_EVENT_PAL_TAG_ESPURR},
+    {gObjectEventPal_KECLEON,             OBJ_EVENT_PAL_TAG_KECLEON},
+    {gObjectEventPal_KECLEON_PURPLE,             OBJ_EVENT_PAL_TAG_KECLEON_PURPLE},
+    {gObjectEventPal_DRAMPA,             OBJ_EVENT_PAL_TAG_DRAMPA},
+    {gObjectEventPal_WONDER_ORB,             OBJ_EVENT_PAL_TAG_WONDER_ORB},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
