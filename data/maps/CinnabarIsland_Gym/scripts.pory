@@ -656,6 +656,9 @@ mapscripts CinnabarIsland_Gym_MapScripts {
 		setflag(FLAG_TEMP_1)
 		setflag(FLAG_TEMP_2)
 	}
+	MAP_SCRIPT_ON_LOAD {
+		call(CinnabarGym_UpdatePointsWall)
+	}
 }
 
 script BlaineGym_Chuckster {
@@ -973,8 +976,32 @@ script CinnabarGym_CheckBattleOutcome {
 	}
 	if(var(VAR_TEMP_F) == B_OUTCOME_WON) {
 		playse(SE_SUCCESS)
-		waitse
+		
+		
+		if(flag(FLAG_TEMP_3)) {
+			switch(var(VAR_CINNABAR_GYM_PHASE)) {
+				case 1:
+					setflag(FLAG_CINNABAR_GYM_BONUS_1)
+				case 2:
+					setflag(FLAG_CINNABAR_GYM_BONUS_2)
+				case 3:
+					setflag(FLAG_CINNABAR_GYM_BONUS_3)
+				case 4:
+					setflag(FLAG_CINNABAR_GYM_BONUS_4)
+				case 5:
+					setflag(FLAG_CINNABAR_GYM_BONUS_5)
+				case 6:
+					setflag(FLAG_CINNABAR_GYM_BONUS_6)
+				case 7:
+					setflag(FLAG_CINNABAR_GYM_BONUS_7)
+				case 8:
+					setflag(FLAG_CINNABAR_GYM_BONUS_8)
+			}
+		}
 		addvar(VAR_CINNABAR_GYM_PHASE, 1)
+		call(CinnabarGym_UpdatePointsWall)
+		special(DrawWholeMapView)
+		waitse
 		if(var(VAR_CINNABAR_GYM_PHASE) == 9) {
 			msgbox(
 			"That's absolutely CORRECT!\n"
@@ -1011,8 +1038,8 @@ script CinnabarGym_CheckBattleOutcome {
 			end
 		}
 		//update the wall
-		playse(SE_SUCCESS)
-		call(CinnabarGym_UpdatePointsWall)
+		
+		
 		waitse
 		msgbox(
 		"That's absolutely CORRECT!\n"
@@ -1537,9 +1564,63 @@ script CinnabarGym_BoardGameQuestion5 {
 
 script CinnabarGym_UpdatePointsWall {
 	//This is actually way more complicated than I gave it credit for no thanks
-	if(flag(FLAG_TEMP_3)) {
-
+	if(var(VAR_CINNABAR_GYM_PHASE) > 1) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_1)) {
+			setmetatile(10, 1, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(10, 1, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
 	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 2) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_2)) {
+			setmetatile(11, 1, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(11, 1, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 3) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_3)) {
+			setmetatile(12, 1, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(12, 1, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 4) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_4)) {
+			setmetatile(13, 1, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(13, 1, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 5) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_5)) {
+			setmetatile(10, 2, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(10, 2, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 6) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_2)) {
+			setmetatile(11, 2, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(11, 2, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 7) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_3)) {
+			setmetatile(12, 2, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(12, 2, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 8) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_4)) {
+			setmetatile(13, 2, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(13, 2, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	return
 }
 
 
@@ -1551,3 +1632,4 @@ script CinnabarGym_NoEeveeCamper {
 	"Maybe there's a different POKéMON\n"
 	"who might be an answer…", MSGBOX_NPC)
 }
+

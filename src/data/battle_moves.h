@@ -4930,7 +4930,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_USER,
-        .priority = 0,
+        .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED,
         //.stringId = B_MSG_1DER_ROOM
     },

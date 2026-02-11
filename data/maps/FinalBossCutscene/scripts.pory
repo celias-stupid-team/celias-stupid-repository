@@ -36,7 +36,7 @@ mapscripts FinalBossCutscene_MapScripts {
             setvar(VAR_SHAKESCREEN_NUM_SHAKES, 10)
             setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
             special(ShakeScreen)
-            playmoncry(SPECIES_ZAPDOS, CRY_MODE_DEFAULT)
+            playmoncry(SPECIES_FINALLUGIA, CRY_MODE_DEFAULT)
             waitmoncry
             delay(30)
             playse(MUS_SE_DESKSLAM)
