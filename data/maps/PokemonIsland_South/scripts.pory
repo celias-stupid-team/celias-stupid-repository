@@ -1,5 +1,7 @@
 mapscripts PokemonIsland_South_MapScripts {
-
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_CSR_MAP_POKEMON_ISLAND)
+	}
 }
 
 

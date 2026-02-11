@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MEW",
       "x": 17,
-      "y": 22,
+      "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -33,7 +33,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 18,
-      "y": 7,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -42,19 +42,33 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RainbowCloud_JourneysEnd",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MEW",
+      "x": 17,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RainbowCloud_ShinyCastformFight",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
       "x": 17,
-      "y": 31,
+      "y": 47,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_ISLAND_LAB",
       "dest_warp_id": "0"
     },
     {
       "x": 17,
-      "y": 32,
+      "y": 48,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_ISLAND_LAB",
       "dest_warp_id": "0"
@@ -65,7 +79,7 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 15,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RainbowCloud_FindTheShinies"
@@ -73,7 +87,7 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 5,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RainbowCloud_Thesis"

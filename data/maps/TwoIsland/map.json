@@ -106,7 +106,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TwoIsland_EventScript_SansTest",
-      "flag": "NULL"
+      "flag": "FLAG_KILLED_SANS"
     },
     {
       "local_id": "LOCALID_DRAGONITE_PRESENT",
@@ -126,7 +126,7 @@
     {
       "local_id": "LOCALID_TWO_ISLAND_MUSHROOM_KID",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_MUSHROOM_KID",
       "x": 49,
       "y": 16,
       "elevation": 3,
@@ -141,10 +141,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MR_T",
-      "x": 29,
-      "y": 3,
+      "x": 31,
+      "y": -2,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -179,7 +179,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TwoIsland_BurnHeal",
-      "flag": "0"
+      "flag": "FLAG_KILLED_SANS"
     },
     {
       "local_id": "LOCALID_HBOX_PRESENT",
@@ -282,7 +282,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_EEVEE",
+      "graphics_id": "OBJ_EVENT_GFX_KENYA",
       "x": 59,
       "y": 10,
       "elevation": 0,
@@ -385,20 +385,6 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
-      "x": 53,
-      "y": 0,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
       "x": 28,
       "y": 15,
@@ -459,7 +445,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
       "x": 58,
-      "y": 27,
+      "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -486,7 +472,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 4,
+      "x": 6,
       "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -526,6 +512,65 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TwoIsland_MusicPresent",
       "flag": "NULL"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MR_T",
+      "x": 31,
+      "y": -2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TwoIsland_MrT",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_TWO_ISLAND_SANS_DEAD",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SANS_CUT",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_KILLED_SANS"
+    },
+    {
+      "local_id": "LOCALID_TWO_ISLAND_SANS_ALIVE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SANS_FULL",
+      "x": 13,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_TWO_ISLAND_SANS_NESS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SANS_NESS",
+      "x": 14,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -575,8 +620,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 43,
-      "y": 10,
+      "x": 44,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "1",
@@ -585,7 +630,7 @@
     {
       "type": "trigger",
       "x": 38,
-      "y": 12,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "2",
@@ -594,7 +639,7 @@
     {
       "type": "trigger",
       "x": 39,
-      "y": 12,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "2",
@@ -603,7 +648,7 @@
     {
       "type": "trigger",
       "x": 40,
-      "y": 12,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "2",
@@ -612,7 +657,7 @@
     {
       "type": "trigger",
       "x": 41,
-      "y": 12,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "2",
@@ -621,7 +666,7 @@
     {
       "type": "trigger",
       "x": 42,
-      "y": 12,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "2",
@@ -630,7 +675,7 @@
     {
       "type": "trigger",
       "x": 44,
-      "y": 12,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "2",
@@ -639,7 +684,7 @@
     {
       "type": "trigger",
       "x": 43,
-      "y": 12,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "2",
@@ -694,6 +739,30 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TwoIsland_BrokenPot"
+    },
+    {
+      "type": "sign",
+      "x": 56,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TwoIsland_Paint"
+    },
+    {
+      "type": "sign",
+      "x": 56,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TwoIsland_Paint"
+    },
+    {
+      "type": "sign",
+      "x": 57,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TwoIsland_Paint"
     }
   ]
 }

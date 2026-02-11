@@ -80,10 +80,10 @@ gFameCheckerFlavorText_Pewter0:: @ 0x81AD705
 
 gFameCheckerFlavorText_Pewter1:: @ 0x81AD771
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Everyone here's struggling to get a\n"
-	.string "BUTTERFREE.\p"
-	.string "Not me, though!\n"
-	.string "I found a shortcut!$"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+	.string "I hear if you log onto OAK's PC,\n"
+	.string "he'll give some hints on what to do.\p"
+	.string "You should try it!\n$"
 
 gFameCheckerFlavorText_Pewter2:: @ 0x81AD840
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
@@ -101,9 +101,11 @@ gFameCheckerFlavorText_Pewter3:: @ 0x81AD908
 
 gFameCheckerFlavorText_Pewter4:: @ 0x81AD99A
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}KABUTOPS, eh?\p"
-	.string "I hear scientists are working on a\n"
-	.string "mechanical POKéMON just like it.$"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+	.string "MOON STONE, huh?\n"
+	.string "Those are extremely rare!\p"
+	.string "I hear you can't even find them\n"
+	.string "in MT. MOON anymore!$"
 
 gFameCheckerFlavorText_Pewter5:: @ 0x81ADA27
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
@@ -474,7 +476,7 @@ gFameCheckerFlavorText_Bruno5:: @ 0x81AF19A
 	.string "darkness of the UNDERGROUND PATH.$"
 
 gFameCheckerFlavorText_GreatSeaWest0:: @ 0x81AF200
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "We've been documenting POKéMON\n"
 	.string "SIGNS across KANTO.\l"
@@ -484,7 +486,7 @@ gFameCheckerFlavorText_GreatSeaWest0:: @ 0x81AF200
 
 
 gFameCheckerFlavorText_GreatSeaWest1:: @ 0x81AF248
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "This island is great, but I really\n"
 	.string "miss being home in JOHTO.\p"
@@ -494,7 +496,7 @@ gFameCheckerFlavorText_GreatSeaWest1:: @ 0x81AF248
 
 
 gFameCheckerFlavorText_GreatSeaWest2:: @ 0x81AF2B7
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Have you heard of OLD AMBER?\n"
 	.string "PEWTER MUSEUM has some.\p"
@@ -503,7 +505,7 @@ gFameCheckerFlavorText_GreatSeaWest2:: @ 0x81AF2B7
 	.string "No one's allowed in, though.$"
 
 gFameCheckerFlavorText_GreatSeaWest3:: @ 0x81AF34E
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "You're looking for BURN HEAL?\n"
 	.string "I don't think they have it here.\p"
@@ -513,14 +515,14 @@ gFameCheckerFlavorText_GreatSeaWest3:: @ 0x81AF34E
 
 
 gFameCheckerFlavorText_GreatSeaWest4:: @ 0x81AF3BE
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hi!\n"
 	.string "Do you have RAICHU?\p"
 	.string "Wnat to trade it for my HAUNTER?\n$"
 
 gFameCheckerFlavorText_GreatSeaWest5:: @ 0x81AF47C
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Behind this GYM is a cave.\p"
 	.string "This cave is the start to finding\n"
@@ -529,7 +531,7 @@ gFameCheckerFlavorText_GreatSeaWest5:: @ 0x81AF47C
 	.string "relent and admit defeat.$"
 
 gFameCheckerFlavorText_GreatSeaEast0:: @ 0x81AF4FD
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "A POKéMON is buried deep into\n"
 	.string "the ground.\p"
@@ -537,14 +539,14 @@ gFameCheckerFlavorText_GreatSeaEast0:: @ 0x81AF4FD
 	.string "wound up.$"
 
 gFameCheckerFlavorText_GreatSeaEast1:: @ 0x81AF567
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Have you ever wanted to call your\n"
 	.string "opponent a FUCKHEAD?\p"
 	.string "Take this!\n$"
 
 gFameCheckerFlavorText_GreatSeaEast2:: @ 0x81AF641
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "One thing I hate about this gym\n"
 	.string "is how crowded it gets.\p"
@@ -553,14 +555,14 @@ gFameCheckerFlavorText_GreatSeaEast2:: @ 0x81AF641
 
 
 gFameCheckerFlavorText_GreatSeaEast3:: @ 0x81AF6BA
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "It's a rock.\p"
 	.string "It feels normal to the touch.\n$"
 
 
 gFameCheckerFlavorText_GreatSeaEast4:: @ 0x81AF758
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Here, you can go on a stroll with\n"
 	.string "a cute POKéMON.\p"
@@ -569,7 +571,7 @@ gFameCheckerFlavorText_GreatSeaEast4:: @ 0x81AF758
 
 
 gFameCheckerFlavorText_GreatSeaEast5:: @ 0x81AF7CB
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "If you ask me, second amendment\n"
 	.string "rights aren't going far enough!\p"
@@ -577,7 +579,7 @@ gFameCheckerFlavorText_GreatSeaEast5:: @ 0x81AF7CB
 	.string "would be armed with a gun!$"
 
 gFameCheckerFlavorText_GreatSeaCenter0:: @ 0x81AF83E
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "That guy up there's a real\n"
 	.string "jerk!\p"
@@ -585,14 +587,14 @@ gFameCheckerFlavorText_GreatSeaCenter0:: @ 0x81AF83E
 	.string "but he won't teach anyone else!$"
 
 gFameCheckerFlavorText_GreatSeaCenter1:: @ 0x81AF8CA
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Say, one of our deliverymen got\n"
 	.string "stuck in CELADON CITY a while back.\l"
 	.string "I hear one of his eggs was ODD?$"
 
 gFameCheckerFlavorText_GreatSeaCenter2:: @ 0x81AF929
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "If you'd like to learn my secret\n"
 	.string "moves, fine me under the WATERFALL.\p"
@@ -600,7 +602,7 @@ gFameCheckerFlavorText_GreatSeaCenter2:: @ 0x81AF929
 	.string "falls for 3 Minutes without moving.$"
 
 gFameCheckerFlavorText_GreatSeaCenter3:: @ 0x81AF998
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hey, hey!\n"
 	.string "I'm selling PENCILS!\p"
@@ -608,7 +610,7 @@ gFameCheckerFlavorText_GreatSeaCenter3:: @ 0x81AF998
 	.string "SILPH CO just placed a huge order.$"
 
 gFameCheckerFlavorText_GreatSeaCenter4:: @ 0x81AFA20
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hey, hey!\n"
 	.string "Would you like to buy a HOUSE?\p"
@@ -617,12 +619,12 @@ gFameCheckerFlavorText_GreatSeaCenter4:: @ 0x81AFA20
 
 
 gFameCheckerFlavorText_GreatSeaCenter5:: @ 0x81AFAB9
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "{BRAILLE_W}\n$"
 
 gFameCheckerFlavorText_GreatBay0:: @ 0x81AFB0C
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Somehwere in KANTO, there exists\n"
 	.string "the ALTAR OF THE MOONE.\p"
@@ -631,18 +633,18 @@ gFameCheckerFlavorText_GreatBay0:: @ 0x81AFB0C
 	.string "something incredible may happen.$"
 
 gFameCheckerFlavorText_GreatBay1:: @ 0x81AFB76
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Ever since the Gen 1 TYPE CHART,\n"
 	.string "things have been real rough.\p"
 	.string "My BUG-TYPES haven't been able to\n"
 	.string "stand up to those POISON-TYPES.\l"
 	.string "We're weak to their attacks now!\p"
-	.string "I wish tehre was something we could\n"
+	.string "I wish there was something we could\n"
 	.string "do to turn the tables on them…$"
 
 gFameCheckerFlavorText_GreatBay2:: @ 0x81AFC38
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "SAMSON: Hello, there!\n"
 	.string "My name is OAK!\p"
@@ -650,7 +652,7 @@ gFameCheckerFlavorText_GreatBay2:: @ 0x81AFC38
 	.string "day on this beautiful island!$"
 
 gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "There was once a POKéMON so greedy\n"
 	.string "and powerful, we humans had to\l"
@@ -659,14 +661,14 @@ gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
 	.string "and break the Seal themselves…$"
 
 gFameCheckerFlavorText_GreatBay4:: @ 0x81AFD49
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hi, there!\n"
 	.string "I'm giving away a free CHANSEY.\l"
 	.string "Would you like it?$"
 
 gFameCheckerFlavorText_GreatBay5:: @ 0x81AFDC4
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "BRENDAN's house\n$"
 
@@ -897,46 +899,46 @@ gRumorLogFlavorTextIntoLine1_Pallet2::
     .string "Bedroom$"
 
 gRumorLogFlavorTextIntoLine1_Pallet3::
-    .string "Loving$"
+    .string "Faithful$"
 
 gRumorLogFlavorTextIntoLine1_Pallet4::
     .string "Meaningful$"
 
 gRumorLogFlavorTextIntoLine1_Pallet5::
-    .string "Strongly$"
+    .string "Polite$"
 
 gRumorLogFlavorTextIntoLine1_Viridian0::
     .string "Forlorn$"
 
 gRumorLogFlavorTextIntoLine1_Viridian1::
-    .string "Mysterious$"
+    .string "Recognizable$"
 
 gRumorLogFlavorTextIntoLine1_Viridian2::
-    .string "Staring into$"
+    .string "Pit$"
 
 gRumorLogFlavorTextIntoLine1_Viridian3::
     .string "Candy$"
 
 gRumorLogFlavorTextIntoLine1_Viridian4::
-    .string "Anxious$"
+    .string "Ridiculous$"
 
 gRumorLogFlavorTextIntoLine1_Viridian5::
-    .string "Family$"
+    .string "Rigged$"
 
 gRumorLogFlavorTextIntoLine1_Pewter0::
-    .string "Kind$"
+    .string "Absurdity$"
 
 gRumorLogFlavorTextIntoLine1_Pewter1::
-    .string "Clever$"
+    .string "Digital$"
 
 gRumorLogFlavorTextIntoLine1_Pewter2::
     .string "Garishly$"
 
 gRumorLogFlavorTextIntoLine1_Pewter3::
-	.string "A Father's$"
+	.string "Paternal$"
 
 gRumorLogFlavorTextIntoLine1_Pewter4::
-    .string "Technology is$"
+    .string "Lunar$"
 
 gRumorLogFlavorTextIntoLine1_Pewter5::
     .string "Austere$"
@@ -948,19 +950,19 @@ gRumorLogFlavorTextIntoLine1_MtMoon1::
 	.string "Loose-Fitting$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon2::
-	.string "Concerned$"
+	.string "Aquatic$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon3::
 	.string "Severe$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon4::
-	.string "Empathetic$"
+	.string "Jogging$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon5::
-	.string "Guarded$"
+	.string "One-Time$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean0::
-	.string "Always Vying$"
+	.string "Competitive$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean1::
 	.string "Confection$"
@@ -972,10 +974,10 @@ gRumorLogFlavorTextIntoLine1_Cerulean3::
 	.string "Spry$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean4::
-	.string "Burgeoning$"
+	.string "Revenue$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean5::
-	.string "Wistful$"
+	.string "Garden$"
 
 gRumorLogFlavorTextIntoLine1_Vermilion0::
 	.string "Harbor$"
@@ -1005,7 +1007,7 @@ gRumorLogFlavorTextIntoLine1_RockTunnel2::
 	.string "Magnetic$"
 
 gRumorLogFlavorTextIntoLine1_RockTunnel3::
-	.string "Sinister$"
+	.string "Network$"
 
 gRumorLogFlavorTextIntoLine1_RockTunnel4::
 	.string "Badge$"
@@ -1086,76 +1088,76 @@ gRumorLogFlavorTextIntoLine1_KantoShoreline5::
 	.string "Tunnel$"
 
 gRumorLogFlavorTextIntoLine1_Agatha0::
-	.string "WEST SEA 0$"
+	.string "Curious$"
 
 gRumorLogFlavorTextIntoLine1_Agatha1::
-	.string "WEST SEA 1$"
+	.string "Parkside$"
 
 gRumorLogFlavorTextIntoLine1_Agatha2::
-	.string "WEST SEA 2$"
+	.string "Arboreal$"
 
 gRumorLogFlavorTextIntoLine1_Agatha3::
-	.string "WEST SEA 3$"
+	.string "Aloe$"
 
 gRumorLogFlavorTextIntoLine1_Agatha4::
-	.string "WEST SEA 4$"
+	.string "Sinister$"
 
 gRumorLogFlavorTextIntoLine1_Agatha5::
-	.string "WEST SEA 5$"
+	.string "Conferred$"
 
 gRumorLogFlavorTextIntoLine1_Lance0::
-	.string "GREAT SEA 0$"
+	.string "Withheld$"
 
 gRumorLogFlavorTextIntoLine1_Lance1::
-	.string "GREAT SEA 1$"
+	.string "Shellin' Out$"
 
 gRumorLogFlavorTextIntoLine1_Lance2::
-	.string "GREAT SEA 2$"
+	.string "Stillness$"
 
 gRumorLogFlavorTextIntoLine1_Lance3::
-	.string "GREAT SEA 3$"
+	.string "Graphite$"
 
 gRumorLogFlavorTextIntoLine1_Lance4::
-	.string "GREAT SEA 4$"
+	.string "Dubious$"
 
 gRumorLogFlavorTextIntoLine1_Lance5::
-	.string "GREAT SEA 5$"
+	.string "Tactile$"
 
 gRumorLogFlavorTextIntoLine1_Bill0::
-	.string "EAST SEA 0$"
+	.string "Bungled$"
 
 gRumorLogFlavorTextIntoLine1_Bill1::
-	.string "EAST SEA 1$"
+	.string "Mockery$"
 
 gRumorLogFlavorTextIntoLine1_Bill2::
-	.string "EAST SEA 2$"
+	.string "Workout$"
 
 gRumorLogFlavorTextIntoLine1_Bill3::
-	.string "EAST SEA 3$"
+	.string "Rock$"
 
 gRumorLogFlavorTextIntoLine1_Bill4::
-	.string "EAST SEA 4$"
+	.string "Allure$"
 
 gRumorLogFlavorTextIntoLine1_Bill5::
-	.string "EAST SEA 5$"
+	.string "Patriotic$"
 
 gRumorLogFlavorTextIntoLine1_MrFuji0::
-	.string "GREAT BAY$"
+	.string "Lunar$"
 
 gRumorLogFlavorTextIntoLine1_MrFuji1::
-	.string "GREAT BAY$"
+	.string "Toxic$"
 
 gRumorLogFlavorTextIntoLine1_MrFuji2::
-	.string "GREAT BAY$"
+	.string "Tidal$"
 
 gRumorLogFlavorTextIntoLine1_MrFuji3::
-	.string "GREAT BAY$"
+	.string "Pinniped$"
 
 gRumorLogFlavorTextIntoLine1_MrFuji4::
-	.string "GREAT BAY$"
+	.string "Consent$"
 
 gRumorLogFlavorTextIntoLine1_MrFuji5::
-	.string "GREAT BAY$"
+	.string "Courier$"
 
 gRumorLogFlavorTextIntoLine1_Giovanni0::
 	.string "SAFFRON$"
@@ -1185,46 +1187,46 @@ gFameCheckerFlavorTextOriginObjectName_Pallet2::
 	.string "Breadmaker$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet3::
-	.string "Guardian$"
+	.string "Father$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet4::
 	.string "Macguffin$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet5::
-	.string "Recommended$"
+	.string "Proposal$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian0::
 	.string "Franchiser$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian1::
-	.string "Stranger$"
+	.string "Rando$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian2::
-	.string "The Abyss$"
+	.string "Proclamation$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian3::
 	.string "Collector$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian4::
-	.string "Barterer$"
+	.string "Request$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian5::
-	.string "Reuinion$"
+	.string "Reunion$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter0::
-	.string "Encouragement$"
+	.string "Advisory$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter1::
-	.string "Rascal$"
+	.string "Directions$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter2::
 	.string "Gardening$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter3::
-	.string "Warning$"
+	.string "Precaution$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter4::
-	.string "Incredible!$"
+	.string "Larceny$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter5::
 	.string "Arbor$"
@@ -1233,22 +1235,22 @@ gFameCheckerFlavorTextOriginObjectName_MtMoon0::
 	.string "Consortium$"
 
 gFameCheckerFlavorTextOriginObjectName_MtMoon1::
-	.string "and Breathable$"
+	.string "Legwear$"
 
 gFameCheckerFlavorTextOriginObjectName_MtMoon2::
-	.string "Explorer$"
+	.string "Anxiety$"
 
 gFameCheckerFlavorTextOriginObjectName_MtMoon3::
 	.string "Scopophobia$"
 
 gFameCheckerFlavorTextOriginObjectName_MtMoon4::
-	.string "Legwear$"
+	.string "Jealousy$"
 
 gFameCheckerFlavorTextOriginObjectName_MtMoon5::
-	.string "Wonders$"
+	.string "Wonder$"
 
 gFameCheckerFlavorTextOriginObjectName_Cerulean0::
-	.string "to be the Best$"
+	.string "Community$"
 
 gFameCheckerFlavorTextOriginObjectName_Cerulean1::
 	.string "Curator$"
@@ -1260,10 +1262,10 @@ gFameCheckerFlavorTextOriginObjectName_Cerulean3::
 	.string "Spelunker$"
 
 gFameCheckerFlavorTextOriginObjectName_Cerulean4::
-	.string "Entrepreneur$"
+	.string "Recommendation$"
 
 gFameCheckerFlavorTextOriginObjectName_Cerulean5::
-	.string "Dreamer$"
+	.string "Gossip$"
 
 gFameCheckerFlavorTextOriginObjectName_Vermilion0::
 	.string "Historian$"
@@ -1293,7 +1295,7 @@ gFameCheckerFlavorTextOriginObjectName_RockTunnel2:: @ Unfinished
 	.string "Melodrama$"
 
 gFameCheckerFlavorTextOriginObjectName_RockTunnel3:: @ Unfinished
-	.string "Soliciter$"
+	.string "Neglector$"
 
 gFameCheckerFlavorTextOriginObjectName_RockTunnel4:: @ Unfinished
 	.string "Broker$"
@@ -1374,76 +1376,76 @@ gFameCheckerFlavorTextOriginObjectName_Bruno5::
 	.string "Troubled$"
 
 gFameCheckerFlavorTextOriginObjectName_Agatha0::
-	.string "WEST SEA$"
+	.string "Cartography$"
 
 gFameCheckerFlavorTextOriginObjectName_Agatha1::
-	.string "WEST SEA$"
+	.string "Pining$"
 
 gFameCheckerFlavorTextOriginObjectName_Agatha2::
-	.string "WEST SEA$"
+	.string "Awe$"
 
 gFameCheckerFlavorTextOriginObjectName_Agatha3::
-	.string "WEST SEA$"
+	.string "Allegation$"
 
 gFameCheckerFlavorTextOriginObjectName_Agatha4::
-	.string "WEST SEA$"
+	.string "Soliciter$"
 
 gFameCheckerFlavorTextOriginObjectName_Agatha5::
-	.string "WEST SEA$"
+	.string "Conditionally$"
 
 gFameCheckerFlavorTextOriginObjectName_Lance0::
-	.string "GREAT SEA$"
+	.string "Wisdom$"
 
 gFameCheckerFlavorTextOriginObjectName_Lance1::
-	.string "GREAT SEA$"
+	.string "Shells$"
 
 gFameCheckerFlavorTextOriginObjectName_Lance2::
-	.string "GREAT SEA$"
+	.string "Secret$"
 
 gFameCheckerFlavorTextOriginObjectName_Lance3::
-	.string "GREAT SEA$"
+	.string "Guru$"
 
 gFameCheckerFlavorTextOriginObjectName_Lance4::
-	.string "GREAT SEA$"
+	.string "Dwelling$"
 
 gFameCheckerFlavorTextOriginObjectName_Lance5::
-	.string "GREAT SEA$"
+	.string "Tip$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill0::
-	.string "EAST SEA$"
+	.string "Burial$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill1::
-	.string "EAST SEA$"
+	.string "Mentor$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill2::
-	.string "EAST SEA$"
+	.string "Woes$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill3::
-	.string "EAST SEA$"
+	.string "$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill4::
-	.string "EAST SEA$"
+	.string "Arbiter$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill5::
-	.string "EAST SEA$"
+	.string "Pundit$"
 
 gFameCheckerFlavorTextOriginObjectName_MrFuji0::
-	.string "GREAT BAY$"
+	.string "Legends$"
 
 gFameCheckerFlavorTextOriginObjectName_MrFuji1::
-	.string "GREAT BAY$"
+	.string "Torment$"
 
 gFameCheckerFlavorTextOriginObjectName_MrFuji2::
-	.string "GREAT BAY$"
+	.string "Timber$"
 
 gFameCheckerFlavorTextOriginObjectName_MrFuji3::
-	.string "GREAT BAY$"
+	.string "Parable$"
 
 gFameCheckerFlavorTextOriginObjectName_MrFuji4::
-	.string "GREAT BAY$"
+	.string "Conundrum$"
 
 gFameCheckerFlavorTextOriginObjectName_MrFuji5::
-	.string "GREAT BAY$"
+	.string "Concealment$"
 
 gFameCheckerFlavorTextOriginObjectName_Giovanni0::
 	.string "SAFFRON$"

@@ -70,12 +70,27 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_SABRINA_ROADBLOCK",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "x": 21,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_BEAT_DMCA_SABRINA"
     }
   ],
   "warp_events": [
     {
       "x": 21,
-      "y": 23,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
@@ -214,7 +229,7 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "ViridianCity_Gym_EventScript_GymStatue"
+      "script": "SaffronCity_Gym_EventScript_GymStatue"
     },
     {
       "type": "sign",
@@ -222,15 +237,15 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "ViridianCity_Gym_EventScript_GymStatue"
+      "script": "SaffronCity_Gym_EventScript_GymStatue"
     },
     {
       "type": "sign",
       "x": 11,
-      "y": 12,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "ViridianCity_Gym_EventScript_GymStatue"
+      "script": "SaffronCity_Gym_EventScript_GymStatue"
     },
     {
       "type": "sign",
@@ -238,7 +253,7 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "ViridianCity_Gym_EventScript_GymStatue"
+      "script": "SaffronCity_Gym_EventScript_GymStatue"
     },
     {
       "type": "sign",
@@ -246,7 +261,7 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "ViridianCity_Gym_EventScript_GymStatue"
+      "script": "SaffronCity_Gym_EventScript_GymStatue"
     }
   ]
 }

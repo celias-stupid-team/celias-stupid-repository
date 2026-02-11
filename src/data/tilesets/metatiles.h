@@ -319,3 +319,12 @@ const u32 gMetatileAttributes_Chapter7Chaper2[] = INCBIN_U32("data/tilesets/prim
 
 const u16 gMetatiles_FinalBossCutscene[] = INCBIN_U16("data/tilesets/primary/final_boss_cutscene/metatiles.bin");
 const u32 gMetatileAttributes_FinalBossCutscene[] = INCBIN_U32("data/tilesets/primary/final_boss_cutscene/metatile_attributes.bin");
+
+const u16 gMetatiles_Yugioh[] = INCBIN_U16("data/tilesets/secondary/yugioh/metatiles.bin");
+const u32 gMetatileAttributes_Yugioh[] = INCBIN_U32("data/tilesets/secondary/yugioh/metatile_attributes.bin");
+
+const u16 gMetatiles_SilphCo2[] = INCBIN_U16("data/tilesets/secondary/silph_co_2/metatiles.bin");
+const u32 gMetatileAttributes_SilphCo2[] = INCBIN_U32("data/tilesets/secondary/silph_co_2/metatile_attributes.bin");
+
+const u16 gMetatiles_DMCAErika[] = INCBIN_U16("data/tilesets/secondary/dmcaerika/metatiles.bin");
+const u32 gMetatileAttributes_DMCAErika[] = INCBIN_U32("data/tilesets/secondary/dmcaerika/metatile_attributes.bin");

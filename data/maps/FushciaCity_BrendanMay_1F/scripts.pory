@@ -90,7 +90,7 @@ script BrendanMay_ImposterOak {
             setflag(FLAG_WATERED_BRENDANMAY_OAK)
             removeitem(ITEM_WAILMER_PAIL)
 		    additem(ITEM_EMPTY_PAIL)
-            setmetatile(8, 2, 0x2DF, TRUE)
+            setmetatile(8, 2, 0x2DF, FALSE)
             setmetatile(8, 3, 0x2E7, TRUE)
             special(DrawWholeMapView)
             playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
@@ -122,4 +122,73 @@ script BrendanMay_DrawStaircase {
     setmetatile(8, 2, 0x28B, FALSE)
     setmetatile(8, 3, 0x280, FALSE)
     return
+}
+
+script BrendanMay_Fridge {
+	msgbox(
+	"It's a refrigerator.\p"
+
+	"Two and a half cheeses are stored\n"
+	"inside.\p"
+
+	"There is nobody.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script BrendanMay_Arranging {
+    lock
+    waitse
+    playse(SE_PIN)
+    applymovement(LOCALID_BRENDAN_MOM, moves(
+        face_up
+        emote_exclamation_mark
+        delay_16 * 3
+    ))
+    waitmovement(0)
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(
+	"That's the arranging we have\n"
+	"for me. Quite adept, no?\l"
+	"Volcano Bakemeat!", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(LOCALID_BRENDAN_MOM, moves(
+        face_original_direction
+    ))
+    waitmovement(0)
+    release
+}
+
+script BrendanMay_TVDownstairs {
+    if(var(VAR_LANCE_LASS_ATTACK) == 2 && !flag(FLAG_GOT_SHINY_LATIAS)) {
+        waitse
+        playse(SE_PIN)
+        applymovement(LOCALID_BRENDAN_MOM, moves(
+            face_up
+            emote_exclamation_mark
+            delay_16 * 3
+        ))
+        waitmovement(0)
+        textcolor(NPC_TEXT_COLOR_FEMALE)
+        msgbox(
+        "Oh, what color was that?\n"
+        "", MSGBOX_DEFAULT)
+        setflag(FLAG_SHINY_CREATION)
+        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_LATIAS)
+        playfanfare(MUS_LEVEL_UP)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(
+        "latias happens\n"
+        "", MSGBOX_DEFAULT)
+        setflag(FLAG_GOT_SHINY_LATIAS)
+        call(Common_Script_GiftPokemon30)
+        release
+        end
+    } else {
+        msgbox(
+        "It's a TV, but all the channels\n"
+        "are different.", MSGBOX_SIGN)
+
+    }
+
 }

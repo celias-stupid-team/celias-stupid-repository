@@ -33,29 +33,15 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 14,
-      "y": 6,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "FourIsland_BarryHater",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
       "x": 4,
-      "y": 5,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FourIsland_BidoofHint",
+      "script": "FourIsland_BarryHater",
       "flag": "0"
     },
     {
@@ -75,7 +61,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAWN",
-      "x": 11,
+      "x": 12,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -101,6 +87,13 @@
       "elevation": 4,
       "dest_map": "MAP_FOUR_ISLAND_POKEMON_CENTER_1F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 12,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_STONEHENGE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

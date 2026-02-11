@@ -114,7 +114,7 @@ script SilphCo_Warp_Balls_Label {
     if(flag(FLAG_SILPH_WARP_BALLS)) {
         msgbox(
         "SILPH CO\n"
-        "POKéBALL Shop", MSGBOX_SIGN)
+        "POKé BALL Shop", MSGBOX_SIGN)
     } else {
         msgbox(
         "This warp is dead.\p"

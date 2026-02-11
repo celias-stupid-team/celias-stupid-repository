@@ -117,6 +117,7 @@ const u32 gProtectedMoves[] = {
     MOVE_WHIRLPOOL,
     MOVE_MAGICAL_LEAF,
     MOVE_BRICK_BREAK,
+    MOVE_HEART_SWAP,
     MOVE_FLY_CYNTHIA
 };
 
@@ -2231,7 +2232,7 @@ void CalculateMonStats(struct Pokemon *mon)
 
 
 
-    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_SHEDINJA_ELECTRIC)
+    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_SHEDINJA_ELECTRIC || species == SPECIES_ARCEUS)
     {
         newMaxHP = 1;
     }
@@ -2253,7 +2254,7 @@ void CalculateMonStats(struct Pokemon *mon)
     CALC_STAT(baseSpAttack, spAttackIV, spAttackEV, STAT_SPATK, MON_DATA_SPATK)
     CALC_STAT(baseSpDefense, spDefenseIV, spDefenseEV, STAT_SPDEF, MON_DATA_SPDEF)
 
-    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_RATICATE_DEAD || species == SPECIES_SHEDINJA_ELECTRIC)
+    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_RATICATE_DEAD || species == SPECIES_SHEDINJA_ELECTRIC || species == SPECIES_ARCEUS)
     {
         if (currentHP != 0 || oldMaxHP == 0)
             currentHP = 1;
@@ -6111,7 +6112,7 @@ u16 GetBattleBGM(void)
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_CHAMPION:
-            return MUS_VS_CHAMPION;
+            return MUS_SV_ELITE_FOUR;
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_ELITE_FOUR:
         case TRAINER_CLASS_MASTER:
@@ -6124,6 +6125,8 @@ u16 GetBattleBGM(void)
             return MUS_MEGALOVANIA;
         case TRAINER_CLASS_RIVAL_MAY:
             return MUS_MUS_VS_RIVAL;
+        case TRAINER_CLASS_FALKNER:
+            return MUS_PISCES_GYM;
 
         case TRAINER_CLASS_DMCA:
         case TRAINER_CLASS_BUTTERFINGERS:

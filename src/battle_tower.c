@@ -37,6 +37,10 @@ static void ValidateBattleTowerRecordChecksums(void);
 static void SetBattleTowerRecordChecksum(struct BattleTowerRecord * record);
 static void ClearBattleTowerRecord(struct BattleTowerRecord * record);
 static void PopulateBravoTrainerBattleTowerLostData(void);
+void SaveDadTradeNickname(void);
+void GetDadTradeNickname(void);
+
+
 static u16 GetCurrentBattleTowerWinStreak(u8 levelType);
 static void SetEReaderTrainerChecksum(struct BattleTowerEReaderTrainer * eReaderTrainer);
 static void PrintEReaderTrainerFarewellMessage(void);
@@ -1217,6 +1221,25 @@ static void PopulateBravoTrainerBattleTowerLostData(void)
 
     for (i = 0; i < POKEMON_NAME_LENGTH; i++)
         gSaveBlock2Ptr->battleTower.firstMonNickname[i] = gBattleMons[0].nickname[i];
+}
+
+void SaveDadTradeNickname(void) {
+    s32 i;
+    u32 partySlot = gSpecialVar_0x8004;
+    u8 nickname[20];
+
+    //StringCopy_Nickname(nickname, StringGet_Nickname(GetMonData(&gPlayerParty[partySlot], MON_DATA_NICKNAME, NULL)));
+
+
+    GetMonData(&gPlayerParty[partySlot], MON_DATA_NICKNAME, nickname);
+    StringCopy_Nickname(gSaveBlock2Ptr->battleTower.firstMonNickname, nickname);
+
+
+
+}
+
+void GetDadTradeNickname(void) {
+    StringCopy_Nickname(gStringVar3, gSaveBlock2Ptr->battleTower.firstMonNickname);
 }
 
 static u16 GetCurrentBattleTowerWinStreak(u8 battleTowerLevelType)

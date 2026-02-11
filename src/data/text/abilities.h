@@ -7,10 +7,10 @@ static const u8 sSturdyDescription[] = _("Negates 1-hit KO attacks.");
 static const u8 sDampDescription[] = _("Prevents self-destruction.");
 static const u8 sLimberDescription[] = _("Prevents paralysis.");
 static const u8 sSandVeilDescription[] = _("Ups evasion in a sandstorm.");
-static const u8 sStaticDescription[] = _("Paralyzes on contact.");
+static const u8 sStaticDescription[] = _("The user is unchanging.");
 static const u8 sVoltAbsorbDescription[] = _("Turns electricity into HP.");
 static const u8 sWaterAbsorbDescription[] = _("Changes water into HP.");
-static const u8 sObliviousDescription[] = _("User's MIND cannot be read.");
+static const u8 sObliviousDescription[] = _("Asexual pride");
 static const u8 sCloudNineDescription[] = _("Negates weather effects.");
 static const u8 sCompoundEyesDescription[] = _("Raises accuracy.");
 static const u8 sInsomniaDescription[] = _("Prevents sleep.");
@@ -84,6 +84,8 @@ static const u8 sBeastBoostDescription[] = _("I thought you said WEAST BOOST.");
 static const u8 sNormalizeDescription[] = _("User's moves become NORMAL.");
 static const u8 sFairyTagDescription[] = _("Allows the foe to switch if it wants.");
 static const u8 sBakedBodyDescription[] = _("Gives immunity to FIRE moves.");
+
+
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 {
@@ -186,6 +188,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_NO_GUARD] = COMPOUND_STRING("Ensures that all moves hit."),
     [ABILITY_EARTH_EATER] = COMPOUND_STRING("The user EATS the EARTH."),
     [ABILITY_AS_ONE_MAGNEMITE] = COMPOUND_STRING("MAGNET PULL and -------."),
+    [ABILITY_BULLETPROOF] = COMPOUND_STRING("Immunity to being shot."),
     [ABILITY_REVENGE] = COMPOUND_STRING("Always survives at 1HP."),
 };
 
@@ -282,7 +285,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SLOW_START] = _("SLOW START"),
     [ABILITY_NEUTRALIZING_GAS] = _("NEUTRAL. GAS"),
     [ABILITY_HTML5] = _("HTML5"),
-    [ABILITY_BLIND_AS_A_BAT] = _("WICTORY STAR"),
+    [ABILITY_BLIND_AS_A_BAT] = _("WEAST BOOST"),
     [ABILITY_FRIED_CHICKEN] = _("GHOLDENBROWN"),
     [ABILITY_IMPECKABLE] = _("IMPECKABLE"),
     [ABILITY_BIG_PECKS] = _("BIG PECKS"),
@@ -291,5 +294,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_NO_GUARD] = _("NO GUARD"),
     [ABILITY_EARTH_EATER] = _("EARTH EATER"),
     [ABILITY_AS_ONE_MAGNEMITE] = _("AS ONE"),
+    [ABILITY_BULLETPROOF] = _("BULLETPROOF"),
+    
     [ABILITY_REVENGE] = _("REVENGE"),
 };

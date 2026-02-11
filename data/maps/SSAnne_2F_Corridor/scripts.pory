@@ -215,6 +215,8 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	applymovement(LOCALID_SS_ANNE_RIVAL, Common_Movement_WalkInPlaceFasterDown)
 	waitmovement(0)
 	delay(20)
+	
+	setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_BARRY)
 	//change this so that the player gets bumpted
 	switch(var(VAR_TEMP_1)) {
 		case 0:
@@ -297,4 +299,11 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	setobjectmovementtype(LOCALID_SS_ANNE_HARRY, MOVEMENT_TYPE_FACE_LEFT)
 	setvar(VAR_TEMP_0, 1)
 	releaseall
+}
+
+script SSAnne_RatHole {
+	msgbox(
+	"There is a 437-foot drop to the\n"
+	"water below.", MSGBOX_SIGN)
+
 }

@@ -98,6 +98,27 @@ mart Walmart_Mart {
 
 
 script Walmart_HamburgerGuy {
+	if(checkitem(ITEM_HAMBURGER) && flag(FLAG_HAMBURGER_GUY)) {
+		msgbox(
+		"Oh, you brought a HAMBURGER here\n"
+		"for me?\p"
+
+		"Thanks, but…\n"
+		"I'm just a one-off gag.\l"
+		"My existence has no deeper meaning.\p"
+
+		"Frankly, it's a little bit of a\n"
+		"terrifying concept for me to grasp.\l"
+		"I try not to think about it.\p"
+
+		"Oh, right! HAMBURGER!\n"
+		"Uhh\p"
+
+		"You can keep it.\n"
+		"", MSGBOX_NPC)
+		end
+	}
+	setflag(FLAG_HAMBURGER_GUY)
 	msgbox(
 	"I've been trying to stock up on\n"
 	"HAMBURGERS since I ran out, but…\p"
@@ -108,7 +129,7 @@ script Walmart_HamburgerGuy {
 }
 
 script Walmart_GunClue {
-	famechecker(FAMECHECKER_GREAT_SEA_EAST, 5)
+	//famechecker(FAMECHECKER_GREAT_SEA_EAST, 5) //We'll see if I keep this
 	msgbox(
 	"If you ask me, second amendment\n"
 	"rights aren't going far enough!\p"
@@ -174,4 +195,75 @@ script Walmart_Jumpluff {
 	}
 	release
 	end
+}
+
+script Walmart_CashRegister {
+	lock
+	playse(SE_PIN)
+	applymovement(LOCALID_WALMART_CLERK, moves(
+		face_right
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Uh, hey.\n"
+	"Please don't touch the register.\p"
+
+	"My boss expects me to literally\n"
+	"risk my life to protect it, and\l"
+	"I'd really rather, uh, not.\p"
+
+	"My life is literally worth less\n"
+	"to this corporation than ¥247.\p"
+
+	"So, uh…\n"
+	"yeah.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_WALMART_CLERK, moves(
+		face_down
+	))
+	release
+
+}
+
+script Walmart_Counter {
+	lock
+	waitse
+	applymovement(LOCALID_WALMART_CLERK, moves(
+		walk_right
+	))
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	waitmovement(0)
+	goto_if_questlog(EventScript_ReleaseEnd)
+	faceplayer
+	msgbox(
+	"Hi, welcome to WAL-MART.\n"
+	"What do you want?", MSGBOX_DEFAULT)
+	waitmessage
+	pokemart(Walmart_Mart)
+	if(checkitem(ITEM_GUN)) {
+		while(checkitem(ITEM_GUN)) {
+			removeitem(ITEM_GUN)
+		}
+		closemessage
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} bought a GUN!\n"
+		"", MSGBOX_DEFAULT)
+		waitfanfare
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
+		call(Common_Script_GiftPokemon)
+	}
+	msgbox(
+	"I really wish I had a chair.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_WALMART_CLERK, moves(
+		walk_left
+		face_down
+	))
+	waitmovement(0)
+	release
 }

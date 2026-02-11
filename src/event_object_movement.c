@@ -560,6 +560,42 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_FINALBOSS_CUNO  0x1185
 #define OBJ_EVENT_PAL_TAG_FINALBOSS_OH  0x1186
 #define OBJ_EVENT_PAL_TAG_FINALBOSS_GIA  0x1187
+#define OBJ_EVENT_PAL_TAG_NURSE_DUCK  0x1188
+#define OBJ_EVENT_PAL_TAG_STUNFISK  0x1189
+#define OBJ_EVENT_PAL_TAG_NURSE_DUCK_BUT_IM_LAZY  0x118A
+#define OBJ_EVENT_PAL_TAG_BRAILLE  0x118B
+#define OBJ_EVENT_PAL_TAG_HAKARI  0x118C
+#define OBJ_EVENT_PAL_TAG_NEW_NEW_GUZMA  0x118D
+#define OBJ_EVENT_PAL_TAG_ROTOM_FAN  0x118E
+#define OBJ_EVENT_PAL_TAG_ROTOM_WASH  0x118F
+#define OBJ_EVENT_PAL_TAG_ROTOM_FROST  0x1190
+#define OBJ_EVENT_PAL_TAG_ROTOM_MOW  0x1191
+#define OBJ_EVENT_PAL_TAG_ROTOM_HEAT  0x1192
+#define OBJ_EVENT_PAL_TAG_SUIT_GIRL  0x1193
+#define OBJ_EVENT_PAL_TAG_CONTEST_HEART_2  0x1194
+#define OBJ_EVENT_PAL_TAG_FORRETRESS_HAT_1  0x1195
+#define OBJ_EVENT_PAL_TAG_FORRETRESS  0x1196
+#define OBJ_EVENT_PAL_TAG_DAD_STATUE  0x1197
+#define OBJ_EVENT_PAL_TAG_SNAP_GATE  0x1198
+#define OBJ_EVENT_PAL_TAG_HADOUKEN_SPRITE  0x1199
+#define OBJ_EVENT_PAL_TAG_PINEAPPLE  0x119A
+#define OBJ_EVENT_PAL_TAG_MILOTIC  0x119B
+#define OBJ_EVENT_PAL_TAG_VANILLISH  0x119C
+#define OBJ_EVENT_PAL_TAG_TORNADO  0x119D
+#define OBJ_EVENT_PAL_TAG_GUNTHER  0x119E
+#define OBJ_EVENT_PAL_TAG_SAWK  0x119F
+#define OBJ_EVENT_PAL_TAG_RAINBOW_DMCA  0x11A0
+#define OBJ_EVENT_PAL_TAG_ALOLA_MEOWTH  0x11A1
+#define OBJ_EVENT_PAL_TAG_ALOLA_RAICHU  0x11A2
+#define OBJ_EVENT_PAL_TAG_CHAIRRY  0x11A3
+#define OBJ_EVENT_PAL_TAG_RAINBOW  0x11A4
+#define OBJ_EVENT_PAL_TAG_LIGHT_GARY  0x11A5
+#define OBJ_EVENT_PAL_TAG_DARK_GARY  0x11A6
+#define OBJ_EVENT_PAL_TAG_ESPURR  0x11A7
+#define OBJ_EVENT_PAL_TAG_KECLEON  0x11A8
+#define OBJ_EVENT_PAL_TAG_KECLEON_PURPLE  0x11A9
+#define OBJ_EVENT_PAL_TAG_DRAMPA  0x11AA
+#define OBJ_EVENT_PAL_TAG_WONDER_ORB  0x11AB
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -693,6 +729,42 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_FINALBOSS_CUNO,             OBJ_EVENT_PAL_TAG_FINALBOSS_CUNO},
     {gObjectEventPal_FINALBOSS_OH,             OBJ_EVENT_PAL_TAG_FINALBOSS_OH},
     {gObjectEventPal_FINALBOSS_GIA,             OBJ_EVENT_PAL_TAG_FINALBOSS_GIA},
+    {gObjectEventPal_NURSE_DUCK,             OBJ_EVENT_PAL_TAG_NURSE_DUCK},
+    {gObjectEventPal_STUNFISK,             OBJ_EVENT_PAL_TAG_STUNFISK},
+    {gObjectEventPal_NURSE_DUCK_BUT_IM_LAZY,             OBJ_EVENT_PAL_TAG_NURSE_DUCK_BUT_IM_LAZY},
+    {gObjectEventPal_BRAILLE,             OBJ_EVENT_PAL_TAG_BRAILLE},
+    {gObjectEventPal_HAKARI,             OBJ_EVENT_PAL_TAG_HAKARI},
+    {gObjectEventPal_NEW_NEW_GUZMA,             OBJ_EVENT_PAL_TAG_NEW_NEW_GUZMA},
+    {gObjectEventPal_ROTOM_FAN,             OBJ_EVENT_PAL_TAG_ROTOM_FAN},
+    {gObjectEventPal_ROTOM_WASH,             OBJ_EVENT_PAL_TAG_ROTOM_WASH},
+    {gObjectEventPal_ROTOM_FROST,             OBJ_EVENT_PAL_TAG_ROTOM_FROST},
+    {gObjectEventPal_ROTOM_MOW,             OBJ_EVENT_PAL_TAG_ROTOM_MOW},
+    {gObjectEventPal_ROTOM_HEAT,             OBJ_EVENT_PAL_TAG_ROTOM_HEAT},
+    {gObjectEventPal_SUIT_GIRL,             OBJ_EVENT_PAL_TAG_SUIT_GIRL},
+    {gObjectEventPal_CONTEST_HEART_2,             OBJ_EVENT_PAL_TAG_CONTEST_HEART_2},
+    {gObjectEventPal_FORRETRESS_HAT_1,             OBJ_EVENT_PAL_TAG_FORRETRESS_HAT_1},
+    {gObjectEventPal_FORRETRESS,             OBJ_EVENT_PAL_TAG_FORRETRESS},
+    {gObjectEventPal_DAD_STATUE,             OBJ_EVENT_PAL_TAG_DAD_STATUE},
+    {gObjectEventPal_SNAP_GATE,             OBJ_EVENT_PAL_TAG_SNAP_GATE},
+    {gObjectEventPal_HADOUKEN_SPRITE,             OBJ_EVENT_PAL_TAG_HADOUKEN_SPRITE},
+    {gObjectEventPal_PINEAPPLE,             OBJ_EVENT_PAL_TAG_PINEAPPLE},
+    {gObjectEventPal_MILOTIC,             OBJ_EVENT_PAL_TAG_MILOTIC},
+    {gObjectEventPal_VANILLISH,             OBJ_EVENT_PAL_TAG_VANILLISH},
+    {gObjectEventPal_TORNADO,             OBJ_EVENT_PAL_TAG_TORNADO},
+    {gObjectEventPal_GUNTHER,             OBJ_EVENT_PAL_TAG_GUNTHER},
+    {gObjectEventPal_SAWK,             OBJ_EVENT_PAL_TAG_SAWK},
+    {gObjectEventPal_RAINBOW_DMCA,             OBJ_EVENT_PAL_TAG_RAINBOW_DMCA},
+    {gObjectEventPal_ALOLA_MEOWTH,             OBJ_EVENT_PAL_TAG_ALOLA_MEOWTH},
+    {gObjectEventPal_ALOLA_RAICHU,             OBJ_EVENT_PAL_TAG_ALOLA_RAICHU},
+    {gObjectEventPal_CHAIRRY,             OBJ_EVENT_PAL_TAG_CHAIRRY},
+    {gObjectEventPal_RAINBOW,             OBJ_EVENT_PAL_TAG_RAINBOW},
+    {gObjectEventPal_LIGHT_GARY,             OBJ_EVENT_PAL_TAG_LIGHT_GARY},
+    {gObjectEventPal_DARK_GARY,             OBJ_EVENT_PAL_TAG_DARK_GARY},
+    {gObjectEventPal_ESPURR,             OBJ_EVENT_PAL_TAG_ESPURR},
+    {gObjectEventPal_KECLEON,             OBJ_EVENT_PAL_TAG_KECLEON},
+    {gObjectEventPal_KECLEON_PURPLE,             OBJ_EVENT_PAL_TAG_KECLEON_PURPLE},
+    {gObjectEventPal_DRAMPA,             OBJ_EVENT_PAL_TAG_DRAMPA},
+    {gObjectEventPal_WONDER_ORB,             OBJ_EVENT_PAL_TAG_WONDER_ORB},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

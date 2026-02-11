@@ -141,7 +141,7 @@ script TwoIsland_MushroomManiac {
 		"Say, have you heard of my good\n"
 		"friend the BERRY POWDER MAN?\l"
 		"I haven't seen him in a while.", MSGBOX_DEFAULT)
-		if(flag(FLAG_CSR_BERRY_POWDER_MAN)) {
+		if(flag(FLAG_CSR_BERRY_POWDER_MAN) || flag(FLAG_BERRIED_ALIVE)) {
 			msgbox(
 			"Oh, you know him?\n"
 			"Could you tell me how he is?", MSGBOX_DEFAULT)
@@ -160,30 +160,57 @@ script TwoIsland_MushroomManiac {
 				release
 				end
 			}
-			msgbox(
-			"He's…\n"
-			"…Gracious me.\p"
+			if(flag(FLAG_BERRIED_ALIVE)) {
+				msgbox(
+				"Ah, delightful!\n"
+				"I'm glad he's doing well.\p"
 
-			"He was such a close friend.\n"
-			"I'm sad to hear of his passing.\p"
+				"Thank you for telling me.\n"
+				"Take this as a gift!", MSGBOX_DEFAULT)
+				setflag(FLAG_SHINY_CREATION)
+			} else {
+				msgbox(
+				"He's…\n"
+				"…Gracious me.\p"
 
-			"Thank you for telling me.\n"
-			"Let me give you a gift.", MSGBOX_DEFAULT)
+				"He was such a close friend.\n"
+				"I'm sad to hear of his passing.\p"
+
+				"Thank you for telling me.\n"
+				"Let me give you a gift.", MSGBOX_DEFAULT)
+
+			}
 			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ODDISH)
 			playfanfare(MUS_LEVEL_UP)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			if(!checkitem(ITEM_TM30)) {
+				additem(ITEM_TM30)
+			}
 			msgbox(
 			"{PLAYER} obtained the\n"
 			"heavily-used ODDISH!", MSGBOX_DEFAULT)
 			setflag(FLAG_GOT_ODDISH)
 			waitfanfare
 			call(Common_Script_GiftPokemon)
-			msgbox(
-			"That POKéMON was always one of\n"
-			"our favorites.\l"
-			"I just can't believe he's gone.\p"
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			if(flag(FLAG_BERRIED_ALIVE)) {
+				msgbox(
+				"That POKéMON is one of our\n"
+				"favorites.\l"
+				"I hope to see him again soon.\p"
 
-			"I should go soon to pay my last\n"
-			"respects at his grave.", MSGBOX_DEFAULT)
+				"I should go pay him a visit in\n"
+				"CERULEAN.", MSGBOX_DEFAULT)
+			} else {
+				msgbox(
+				"That POKéMON was always one of\n"
+				"our favorites.\l"
+				"I just can't believe he's gone.\p"
+
+				"I should go soon to pay my LAST\n"
+				"RESPECTS at his grave.", MSGBOX_DEFAULT)
+
+			}
 		}
 
 	}

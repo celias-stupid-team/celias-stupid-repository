@@ -149,3 +149,103 @@ script Hospital_Gentleman {
 	"I'm sure no one will install a\n"
 	"virus on you!", MSGBOX_NPC)
 }
+
+script Hospital_Stunfisk {
+	msgbox(
+	"Oh, no!\n"
+	"The patient is flat", MSGBOX_SIGN)
+
+}
+
+script Hospital_Duck {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"I'm giving FIRST AID as PROF.\n"
+	"OAK's POKéMON.", MSGBOX_NPC)
+}
+
+
+script Hospital_GrandpaWoman {
+	lock
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+		"…{PAUSE 30}Oh, no!\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"C'mon, grandpa!\n"
+		"I know you can make it!", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script Hospital_Grandpa {
+	lock
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+			"The old man is now dead."
+			"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"An old man lays in the bed.\p"
+
+		"It appears he's suffering from\n"
+		"severe EXPLOSION wounds.", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script Hospital_GrandpaMachine {
+	lock
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+		"The fancy medical device seems to\n"
+		"have stopped working.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"A fancy medical device is hooked\n"
+	"up to the patient.", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	playse(SE_PC_LOGIN)
+	specialvar(VAR_TEMP_0, GetPlayerFacingDirection)
+	switch(var(VAR_TEMP_0)) {
+		case DIR_NORTH: 
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_up * 2
+				face_up
+			))
+
+		
+		case DIR_SOUTH: 
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_down * 2
+				face_up
+			))
+
+		
+		case DIR_WEST: 
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_left * 2
+				face_up
+			))
+
+		
+		case DIR_EAST: 
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_right * 2
+				face_up
+			))
+
+		
+	}
+	msgbox(
+	"{PLAYER} kicked the machine.\n"
+	"", MSGBOX_DEFAULT)
+	setflag(FLAG_TEMP_1)
+	waitmovement(0)
+	release
+}

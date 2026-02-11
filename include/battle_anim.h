@@ -173,6 +173,7 @@ extern const struct SpriteTemplate gWaterHitSplatSpriteTemplate;
 extern const struct SpriteTemplate gWishStarSpriteTemplate;
 extern const struct SpriteTemplate gMiniTwinklingStarSpriteTemplate;
 extern const struct SpriteTemplate gThoughtBubbleSpriteTemplate;
+extern const struct SpriteTemplate gWindowWarningSpriteTemplate;
 extern const union AffineAnimCmd *const gAffineAnims_Bite[];
 extern const union AffineAnimCmd *const gAffineAnims_Droplet[];
 extern const union AffineAnimCmd *const gGrowingRingAffineAnimTable[];
@@ -180,6 +181,7 @@ extern const union AffineAnimCmd *const gGuardRingAffineAnimTable[];
 extern const union AffineAnimCmd *const gAffineAnims_SpinningBone[];
 extern const union AnimCmd *const gAnims_SmallBubblePair[];
 extern const union AnimCmd *const gAnims_BasicFire[];
+extern const union AnimCmd *const sAnims_FireBlastCross[];
 extern const union AnimCmd *const gAnims_WaterMudOrb[];
 extern const union AnimCmd *const gAnims_WaterBubble[];
 extern const union AnimCmd *const gMusicNotesAnimTable[];
@@ -325,5 +327,7 @@ void StartMonScrollingBgMask(u8 taskId, s32 unused, u16 arg2, u8 battler1, u8 ar
 void SpriteCB_SurroundingRing(struct Sprite *sprite);
 bool8 LoadBattlerSpriteGfx(u8 battlerId);
 void LoadDefaultBg(void);
+
+extern const union AffineAnimCmd *const gThinRingShrinkingAffineAnimTable[];
 
 #endif // GUARD_BATTLE_ANIM_H

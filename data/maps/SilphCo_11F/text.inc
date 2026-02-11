@@ -1,10 +1,26 @@
 SilphCo_11F_Text_ThanksForSavingMeDearBoy::
-	.string "PRESIDENT: thank you\n"
-	.string "take this$"
+	.string "PRESIDENT: Oh, is the board meeting\n"
+	.string "over?\l"
+	.string "I was getting bored anyway.\p"
+	.string "Oh, did you think I was threatened?\n"
+	.string "Ohoho, how silly!\p"
+	.string "That man was going to make me lots\n"
+	.string "of money!\l"
+	.string "I really like money.\p"
+	.string "But here, have a nice trinket.\n"
+	.string "We had some extras in production.$"
 
 SilphCo_11F_Text_ThanksForSavingMeDearGirl::
-	.string "PRESIDENT: thank you\n"
-	.string "take this$"
+	.string "PRESIDENT: Oh, is the board meeting\n"
+	.string "over?\l"
+	.string "I was getting bored anyway.\p"
+	.string "Oh, did you think I was threatened?\n"
+	.string "Ohoho, how silly!\p"
+	.string "That man was going to make me lots\n"
+	.string "of money!\l"
+	.string "I really like money.\p"
+	.string "But here, have a nice trinket.\n"
+	.string "We had some extras in production.$"
 
 SilphCo_11F_Text_ObtainedMasterBallFromPresident::
     .string "{PLAYER} obtained a MISTER BALL\n"
@@ -16,20 +32,19 @@ SilphCo_11F_Text_ThatsOurSecretPrototype::
     .string "It's our secret prototype MISTER\n"
     .string "BALL.\p"
     .string "It will catch any MISTER without\n"
-	.string "fail!\l"
-	.string "Quite an extraordinary invention.$"
+	.string "fail!$"
 
 SilphCo_11F_Text_YouHaveNoRoomForThis::
     .string "You have no room for this.$"
 
 SilphCo_11F_Text_ThanksForRescuingUs::
-	.string "SECRETARY: Thank you for rescuing\n"
-	.string "us!\p"
+	.string "SECRETARY: Now that our meeting is\n"
+	.string "finished, I can get back to work.\p"
 	.string "Feel free to explore the rest of\n"
 	.string "the building.\l"
 	.string "There's plenty to see!\p"
 	.string "Maybe you'll come across our\n"
-	.string "facility for POKéBALL development!$"
+	.string "facility for POKé BALL development!$"
 
 SilphCo_11F_Text_GiovanniIntro::
     .string "Ah, {PLAYER}!\n"
@@ -41,8 +56,8 @@ SilphCo_11F_Text_GiovanniIntro::
     .string "Or, experience a world of pain!$"
 
 SilphCo_11F_Text_GiovanniDefeat::
-    .string "Arrgh!!\n"
-    .string "I lost again!?$"
+	.string "Arrgh!!\n"
+	.string "You copied me!$"
 
 SilphCo_11F_Text_GiovanniPostBattle::
     .string "Blast it all!\n"

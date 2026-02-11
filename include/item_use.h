@@ -24,6 +24,8 @@ void BattleUseFunc_BerryPouch(u8 taskId);
 void FieldUseFunc_TeachyTv(u8 taskId);
 void FieldUseFunc_Repel(u8 taskId);
 void FieldUseFunc_CopycatTM(u8 taskId);
+void FieldUseFunc_CeliaMessage(u8 taskId);
+void FieldUseFunc_Ruby(u8 taskId);
 void FieldUseFunc_BlackWhiteFlute(u8 taskId);
 void FieldUseFunc_TownMap(u8 taskId);
 void FieldUseFunc_FameChecker(u8 taskId);
@@ -46,9 +48,12 @@ u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 void FieldUseFunc_LWPEmblem(u8 taskId);
 void FieldUseFunc_GenderFluid(u8 taskId);
 void FieldUseFunc_MoveRelearner(u8 taskId);
+void FieldUseFunc_Cigarette(u8 taskId);
 
 
 void FieldUseFunc_PayDayTM(u8 taskId);
+void FieldUseFunc_BalmMushroom(u8 taskId);
+void FieldUseFunc_DragoniteBag(u8 taskId);
 
 extern bool8 gUsingRegisteredPartyMenuItem;
 

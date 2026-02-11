@@ -24,7 +24,10 @@ mapscripts ViridianGym_Surge_MapScripts {
             case 9:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 3)
         }
+    }
+    MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_DMCA_SURGE_FIRST_GATE)) {
+            setvar(VAR_TEMP_3, 1)
             call(ViridianGym_Surge_DrawFirstGateOpen)
         }
         if(flag(FLAG_DMCA_SURGE_SECOND_GATE)) {
@@ -46,7 +49,7 @@ script ViridianGym_Surge_TrashCan {
     lock
     if(flag(FLAG_DMCA_SURGE_FIRST_GATE)) {
         msgbox(
-        "trash\n"
+        "Nope!\nNothing but trash!"
         "", MSGBOX_DEFAULT)
         release
         end

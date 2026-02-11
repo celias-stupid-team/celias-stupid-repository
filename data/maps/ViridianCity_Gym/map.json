@@ -206,7 +206,7 @@
       "item": "ITEM_MACHO_BRACE",
       "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_CITY_GYM_MACHO_BRACE",
       "quantity": 1,
-      "underfoot": true
+      "underfoot": false
     }
   ]
 }

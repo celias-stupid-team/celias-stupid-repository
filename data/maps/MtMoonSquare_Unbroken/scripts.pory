@@ -185,6 +185,7 @@ script MtMoonSquare_StartDance {
     addobject(EMBLEM)
     applymovement(LOCALID_CAMERA, MtMoonSquare_CameraRepositions)
     waitmovement(0)
+    special(DrawWholeMapView)
     setvar(VAR_MAP_SCENE_CLEFAIRY_DANCE, 2)
     fadescreenswapbuffers(FADE_FROM_BLACK)
     delay(30)

@@ -1314,7 +1314,10 @@ These used to be dex mons; now they're random mons that I've dexited
 #define SPECIES_FINALZAPDOS 1277
 #define SPECIES_FINALMOLTRES 1278
 #define SPECIES_FINALWARTORTLE 1279
-#define SPECIES_EGG 1280
+#define SPECIES_DODODUO 1280
+#define SPECIES_CELEBI2 1281
+#define SPECIES_PIKACHUSURF 1282
+#define SPECIES_EGG 1283
 
 #define NUM_SPECIES SPECIES_EGG
 

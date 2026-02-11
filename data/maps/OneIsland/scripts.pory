@@ -111,6 +111,10 @@ OneIsland_EventScript_PokemonNetCenterSign::
 
 script OneIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_ONE_ISLAND)
+	setflag(FLAG_TEMP_5)
+	if(checkmoncaught(SPECIES_ARTICUNO)) {
+		clearflag(FLAG_TEMP_5)
+	}
 }
 
 script OneIsland_OnLoad {
@@ -119,6 +123,25 @@ script OneIsland_OnLoad {
 		call(OneIsland_SetArticunoStatue)
 	}
 }
+
+script OneIsland_BirdCultist {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"This island is the resting place\n"
+	"of one of the LEGENDARY BIRDS!\l"
+	"We stand upon hallowed ground!\p"
+
+	"Across the whirlpools yonder lies\n"
+	"the fabeled ZERO ISLAND.\p"
+
+	"It's said to be the final stop for\n"
+	"one who has encountered all three.\p"
+
+	"Steel your nerves, and make the\n"
+	"pilgrimage west.\l"
+	"Your final prize awaits.", MSGBOX_NPC)
+}
+
 
 
 script OneIsland_MysticCrestPedestal {
@@ -218,31 +241,53 @@ script OneIsland_Whirlpool {
 
 script OneIsland_Kaylee {
 	lock
-	faceplayer
+	if(checkmoncaught(SPECIES_ARTICUNO)) {
+		faceplayer
+		msgbox(
+		"Treat that BELL as a gift from\n"
+		"one dancer to another.\p"
+
+		"Who knows?\n"
+		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	applymovement(LOCALID_KAYLEE, moves(
+		face_player
+	))
 	msgbox(
-	"KAYLEE: hello\n"
+	"KAYLEE: Why, hello!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
+	applymovement(LOCALID_KAILEE, moves(
+		face_player
+	))
 	delay(10)
 	msgbox(
-	"KAILEE: hello\n"
-	"", MSGBOX_DEFAULT)
+	"KAILEE: We're dancers from the\n"
+	"land of MINNESOTA.", MSGBOX_DEFAULT)
 	closemessage
+	applymovement(LOCALID_KAILIE, moves(
+		face_player
+	))
 	delay(10)
 	msgbox(
-	"KAILIE: hello\n"
-	"", MSGBOX_DEFAULT)
+	"KAILIE: We hear that if a crew of\n"
+	"five dancers comes together…", MSGBOX_DEFAULT)
 	closemessage
+	applymovement(LOCALID_KAYLEIGH, moves(
+		face_player
+	))
 	delay(10)
 	msgbox(
-	"KAYLEIGH: hello\n"
-	"", MSGBOX_DEFAULT)
+	"KAYLEIGH: …A rare POKéMON will\n"
+	"hatch from this egg.", MSGBOX_DEFAULT)
 	delay(10)
 	closemessage
 	if(checkpartymon(SPECIES_JYNX)) {
 		msgbox(
-		"our friend!\n"
-		"", MSGBOX_DEFAULT)
+		"KAYLEE: Oh, incredible!\n"
+		"A fifth dancer like us!", MSGBOX_DEFAULT)
 		closemessage
 		msgbox(
 		"We dance.\p"
@@ -263,16 +308,28 @@ script OneIsland_Kaylee {
 		delay(60)
 		removeobject(LOCALID_ONE_ISLAND_ARTICUNO)
 		msgbox(
-		"Wow articuno!\p"
+		"What an incredible sight!\n"
+		"Thank you for the show.\p"
 
-		"Take this\n"
+		"Take this as well.\n"
 		"", MSGBOX_DEFAULT)
 		giveitem_msg("{PLAYER} received the\nTIDAL BELL!", ITEM_SOOTHE_BELL)
 		waitfanfare
+		msgbox(
+		"Treat that BELL as a gift from\n"
+		"one dancer to another.\p"
+
+		"Who knows?\n"
+		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"we need another friend\n"
-		"", MSGBOX_DEFAULT)
+		"KAYLEE: We need one more friend\n"
+		"to join us in our dance.", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+		msgbox(
+		"KAILEE: Have you by chance found\n"
+		"someone like us?", MSGBOX_DEFAULT)
 	}
 	release
 }
@@ -398,4 +455,33 @@ script OneIsland_ClamperlGirl {
 
 	"He knows how to cross WHIRLPOOLS,\n"
 	"but he won't teach anyone else!", MSGBOX_NPC)
+}
+
+
+script OneIsland_BrickBreak {
+	lock
+	if(flag(FLAG_ONE_ISLAND_WALL)) {
+		msgbox("The BRICKS have been BREAKED.\n", MSGBOX_DEFAULT)
+		release
+		end
+		
+	}
+	call(Common_Script_BrickBreak)
+	//wall breaks
+	if(var(VAR_RESULT) == 1) {
+		
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+		special(DrawWholeMapView)
+		special(ShakeScreen)
+		removeobject(VAR_LAST_TALKED)
+		setflag(FLAG_ONE_ISLAND_WALL)
+		delay(60)
+		giveitem_msg("{PLAYER} found the\nONE PIECE!\n", ITEM_ONE_PIECE, 1)
+		release
+		end
+	}
+	release
 }

@@ -9,7 +9,7 @@ CinnabarIsland_PokemonLab_ExperimentRoom_MapScripts::
 CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_Garett::
 	lock
 	faceplayer
-	setvar VAR_0x8008, INGAME_TRADE_SEEL
+	setvar VAR_0x8008, INGAME_TRADE_GOLDEEN
 	call EventScript_GetInGameTradeSpeciesInfo
 	goto_if_set FLAG_DID_SEELOR_TRADE, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_AlreadyTraded
 	msgbox Trade_Text_LookingForMonWannaTradeForMon, MSGBOX_YESNO
@@ -408,8 +408,8 @@ script CinnabarIsland_ReviveFossils {
 script CinnabarIsland_Pigmask {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"Yeah I love putting stuff together.\n"
-	"", MSGBOX_NPC)
+	"Aww yeah!\n"
+	"I love this job!", MSGBOX_NPC)
 }
 
 
@@ -483,4 +483,30 @@ script CinnabarIsland_Shield {
 	))
 	waitmovement(0)
 	release
+}
+
+
+script Cinnabar_Sword {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setflag(FLAG_TALKED_TO_SWORDFUCK)
+	msgbox(
+	"Hi, I'm SWORDBERT.\n"
+	"", MSGBOX_NPC)
+}
+
+script Cinnabar_Shield {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Hi, I'm SHIELDFUCK.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script Cinnabar_Gunther {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Hi, I'm GUNTHER.\p"
+
+	"My friends are dickheads.\n"
+	"", MSGBOX_NPC)
 }

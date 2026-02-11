@@ -1275,6 +1275,7 @@ extern const u8 EventScript_Bookshelf[];
 extern const u8 EventScript_DaisyTile[];
 extern const u8 EventScript_ShitWall[];
 extern const u8 EventScript_PokeMartShelf[];
+extern const u8 EventScript_WalMartShelf[];
 extern const u8 EventScript_Food[];
 extern const u8 EventScript_ImpressiveMachine[];
 extern const u8 EventScript_Blueprints[];
@@ -1341,6 +1342,8 @@ extern const u8 GetOakPCPokedexMessage[];
 extern const u8 EventScript_DrainPsyduckPail[];
 extern const u8 EventScript_FillPsyduckPail[];
 extern const u8 SafariZone_GlitchCityActivates[];
+extern const u8 TwoIsland_ThePit[];
+
 #endif //GUARD_EVENT_SCRIPTS_H
 
 //The Bible

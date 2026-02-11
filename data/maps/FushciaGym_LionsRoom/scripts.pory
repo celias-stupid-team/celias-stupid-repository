@@ -31,6 +31,12 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
             setmetatile(11, 12, 0x3C3, FALSE)
             setvar(VAR_TEMP_0, 1)
         }
+
+        if(checkpartymon(SPECIES_HITMONCHIN)) {
+            setflag(FLAG_TEMP_A)
+        } else {
+            setflag(FLAG_TEMP_B)
+        }
     }
 }
 
@@ -39,6 +45,18 @@ script FushciaGym_LionsRoom_DrawStatue {
     setmetatile(9, 9, 0x3EF, TRUE)
     return
 
+}
+
+script FushciaGym_HitmonChin {
+    lock
+    msgbox(
+	"Hitmonchin kill all 1.2 BILLION\n"
+	"of FUCKIN UGLY REDS!", MSGBOX_DEFAULT)
+    closemessage
+    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_HITMONCHIN)
+    setflag(FLAG_SHINY_CREATION)
+    call(Common_Script_GiftPokemon30)
+    release
 }
 
 script FushciaGym_LionsRoom_Vulpix {
@@ -89,6 +107,8 @@ movement FushciaGym_ThrowVulpix {
 
 script FushciaGym_LionsRoom_Trainer {
     trainerbattle_single(TRAINER_BATTLE_FRONTIER_NOLAND, "{COLOR BLUE}Hey, hey!\nI'm NOLAND of the BATTLE FACTORY!\pAt my place, I got access to all\nof the POKéMON.\pAnd yet! Even all the POKéMON at\nonce can't take me down!", "lol")
+
+
     release
 }
 

@@ -948,3 +948,21 @@ const u32 gItemIconPalette_Ragecandybar[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_Meat[] = INCBIN_U32("graphics/items/icons/meat.4bpp.lz");
 const u32 gItemIconPalette_Meat[] = INCBIN_U32("graphics/items/icon_palettes/meat.gbapal.lz");
+
+const u32 gItemIcon_Runningscrews[] = INCBIN_U32("graphics/items/icons/runningscrews.4bpp.lz");
+const u32 gItemIconPalette_Runningscrews[] = INCBIN_U32("graphics/items/icon_palettes/runningscrews.gbapal.lz");
+
+const u32 gItemIcon_OnePiece[] = INCBIN_U32("graphics/items/icons/one_piece.4bpp.lz");
+const u32 gItemIconPalette_OnePiece[] = INCBIN_U32("graphics/items/icon_palettes/one_piece.gbapal.lz");
+
+const u32 gItemIcon_FUJIBALL[] = INCBIN_U32("graphics/items/icons/fuji_ball.4bpp.lz");
+const u32 gItemIconPalette_FUJIBALL[] = INCBIN_U32("graphics/items/icon_palettes/fuji_ball.gbapal.lz");
+
+const u32 gItemIcon_PatrickDoll[] = INCBIN_U32("graphics/items/icons/patrick_doll.4bpp.lz");
+const u32 gItemIconPalette_PatrickDoll[] = INCBIN_U32("graphics/items/icon_palettes/patrick_doll.gbapal.lz");
+
+const u32 gItemIcon_BagOfDragonite[] = INCBIN_U32("graphics/items/icons/bag_of_dragonite.4bpp.lz");
+const u32 gItemIconPalette_BagOfDragonite[] = INCBIN_U32("graphics/items/icon_palettes/bag_of_dragonite.gbapal.lz");
+
+const u32 gItemIcon_SecretPage[] = INCBIN_U32("graphics/items/icons/secretpage.4bpp.lz");
+const u32 gItemIconPalette_SecretPage[] = INCBIN_U32("graphics/items/icon_palettes/secretpage.gbapal.lz");

@@ -298,6 +298,7 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
     if(rod != GOOD_ROD) {
         GenerateWildMon(info->wildPokemon[slot].species, level, slot);
     } else {
+        FlagClear(FLAG_SHINY_CREATION);
         GenerateWildMon(SPECIES_GOLDEEN, level, slot);
 
     }

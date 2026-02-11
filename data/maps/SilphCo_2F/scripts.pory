@@ -36,7 +36,7 @@ script SilphCo_2F_OnLoad {
 }
 
 script SilphCo_2F_EventScript_Grunt2 {
-	trainerbattle_single(TRAINER_DMCA_GRUNT_24, "Grr!\pAll these staircases were identical\ncopies of each other.\pI did this place a favor by taking\nthem out!", "You'll never get through!\n")
+	trainerbattle_single(TRAINER_DMCA_GRUNT_24, "Grr!\pAll these staircases were identical\ncopies of each other.\pI did this place a favor and\ntook them out!", "You'll never get through!\n")
 	msgbox("We're staging an executive\ntakeover of SILPH CO!\pAll copyrighted materials are\ngetting deleted.\lIncluding stairs!", MSGBOX_NPC)
 }
 
@@ -84,8 +84,11 @@ script SilphCo_2F_EventScript_JohnCage {
 
 script SilphCo_2F_EventScript_FireMove {
 	msgbox(
-	"first line\p"
-	"If only MR. FLAMETHROWER was here…\n"
+	"The PRESIDENT is meeting with the\n"
+	"DMCA's BOSS…\l"
+	"Who knows what'll come of this?\p"
+
+	"If only MR. FLAMETHROWER were here…\n"
 	"He'd know what to do!", MSGBOX_NPC)
 }
 

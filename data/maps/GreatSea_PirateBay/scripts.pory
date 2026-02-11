@@ -31,6 +31,14 @@ script PirateBay_PokeharborSign {
 
 }
 
+script PirateBay_Sign {
+	msgbox(
+	"PIRATE BAY\n"
+	"Boosts WATER moves in a pinch!", MSGBOX_SIGN)
+
+}
+
+
 script PirateBay_Pokey {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
@@ -187,7 +195,11 @@ script PirateBay_Copperajah {
 
 
 script PirateBay_Sailor {
-    trainerbattle_single(TRAINER_FAG_SAILOR, "FUCK intro", "FUCK")
+    trainerbattle_single(TRAINER_FAG_SAILOR, "{COLOR BLUE}Ahoy, there!\p"
+
+	"How the (censored in accordance\n"
+	"with NINTENDO policy) are ya?", "FUCK!")
+	textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
 
 }
@@ -198,6 +210,7 @@ script PirateBay_Entrance {
 	playse(SE_PIN)
 	fadenewbgm(MUS_NONE)
 	applymovement(LOCALID_PIRATEBAY_SAILOR, moves(
+		face_down
 		emote_exclamation_mark
 		delay_16 * 2
 	))
@@ -371,16 +384,19 @@ script PirateBay_Nurse {
 
 	"Would you like to heal your\n"
 	"POKéMON?")
+	waitmessage
 	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "AYE", "NAY")
 	if(!var(VAR_RESULT)) {
 		message(
 		"Do ye be sure?\n"
 		"")
+		waitmessage
 		dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "AYE", "NAY")
 		if(!var(VAR_RESULT)) {
 			message(
 			"Do ye be REALLY sure?\n"
 			"")
+			waitmessage
 			dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "AYE", "NAY")
 			if(!var(VAR_RESULT)) {
 				msgbox(

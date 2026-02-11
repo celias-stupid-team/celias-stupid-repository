@@ -9,6 +9,25 @@ mapscripts CaveOfOrigin_1F_MapScripts {
 script CaveOfOrigin_1F_Sign {
 	msgbox(
 	"CAVE OF ORIGIN OF LIFE\n"
-	"NEW WILD POKéMON: 2", MSGBOX_SIGN)
+	"", MSGBOX_SIGN)
 
+}
+
+script CaveOfOrigin_OnixEncounter1 {
+	lock
+	setvar(VAR_CAVE_OF_ORIGIN, 1)
+	setwildbattle(SPECIES_ONIX, 30)
+	dowildbattle
+}
+script CaveOfOrigin_OnixEncounter2 {
+	lock
+	setvar(VAR_CAVE_OF_ORIGIN, 2)
+	setwildbattle(SPECIES_ONIX, 30)
+	dowildbattle
+}
+script CaveOfOrigin_CloysterEncounter {
+	lock
+	setvar(VAR_CAVE_OF_ORIGIN, 2)
+	setwildbattle(SPECIES_CLOYSTER, 30)
+	dowildbattle
 }

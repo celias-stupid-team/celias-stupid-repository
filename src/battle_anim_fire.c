@@ -11,6 +11,7 @@ static void AnimFireSpiralInward(struct Sprite *sprite);
 static void AnimFireSpread(struct Sprite *sprite);
 static void AnimLargeFlame(struct Sprite *sprite);
 static void AnimFirePlume(struct Sprite *sprite);
+static void AnimFirePlumeUnanchored(struct Sprite *sprite);
 static void AnimUnusedSmallEmber(struct Sprite *sprite);
 static void AnimSunlight(struct Sprite *sprite);
 static void AnimEmberFlare(struct Sprite *sprite);
@@ -38,6 +39,8 @@ static void UpdateEruptionLaunchRockPos(struct Sprite *sprite);
 static void AnimEruptionFallingRock_Step(struct Sprite *sprite);
 static void AnimWillOWispOrb_Step(struct Sprite *sprite);
 static void AnimTask_MoveHeatWaveTargets_Step(u8 taskId);
+static void AnimRainbowRay(struct Sprite *sprite);
+static void AnimRainbowRay_Step(struct Sprite *sprite);
 
 static const union AnimCmd sAnim_FireSpiralSpread_0[] =
 {
@@ -161,6 +164,18 @@ const struct SpriteTemplate gFirePlumeSpriteTemplate =
     .callback = AnimFirePlume,
 };
 
+const struct SpriteTemplate gFirePlumeUnanchoredSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FIRE_PLUME,
+    .paletteTag = ANIM_TAG_FIRE_PLUME,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FirePlume,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFirePlumeUnanchored,
+};
+
+
 static const struct SpriteTemplate sUnusedEmberFirePlumeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SMALL_EMBER,
@@ -276,6 +291,69 @@ const struct SpriteTemplate gFireBlastRingSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFireRing,
+};
+
+//v create
+const struct SpriteTemplate gVCreateFlameTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FireBlastCross,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireRing
+};
+
+static const union AffineAnimCmd sThinRingShrinkingAffineAnimCmds[] =
+{
+    AFFINEANIMCMD_FRAME(512, 512, 0, 0),
+    AFFINEANIMCMD_FRAME(-16, -16, 0, 30),
+    AFFINEANIMCMD_END_ALT(1),
+};
+
+static const union AffineAnimCmd *const sThinRingShrinkingAffineAnimTable[] =
+{
+    sThinRingShrinkingAffineAnimCmds,
+};
+const struct SpriteTemplate gVCreateRedRingTemplate =
+{
+    .tileTag = ANIM_TAG_THIN_RING,
+    .paletteTag = ANIM_TAG_JAGGED_MUSIC_NOTE,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sThinRingShrinkingAffineAnimTable,
+    .callback = AnimSpriteOnMonPos
+};
+
+static const union AnimCmd sEclipsingOrbAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_FRAME(48, 3),
+    ANIMCMD_FRAME(32, 3, .hFlip = TRUE),
+    ANIMCMD_FRAME(16, 3, .hFlip = TRUE),
+    ANIMCMD_FRAME(0, 3, .hFlip = TRUE),
+    ANIMCMD_LOOP(1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sEclipsingOrbAnimTable[] =
+{
+    sEclipsingOrbAnimCmds,
+};
+
+const struct SpriteTemplate gVCreateRedOrbTemplate =
+{
+    .tileTag = ANIM_TAG_ECLIPSING_ORB,
+    .paletteTag = ANIM_TAG_JAGGED_MUSIC_NOTE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sEclipsingOrbAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpriteOnMonPos
 };
 
 static const union AnimCmd sAnim_FireBlastCross[] =
@@ -509,6 +587,33 @@ static void AnimFirePlume(struct Sprite *sprite)
         sprite->y += gBattleAnimArgs[1];
         sprite->data[2] = gBattleAnimArgs[4];
     }
+    sprite->data[1] = gBattleAnimArgs[2];
+    sprite->data[4] = gBattleAnimArgs[3];
+    sprite->data[3] = gBattleAnimArgs[5];
+    sprite->callback = AnimLargeFlame_Step;
+}
+
+static void AnimFirePlumeUnanchored(struct Sprite *sprite)
+{
+    bool8 anchorOnTarget = (gBattleAnimArgs[7] != 0);
+    u8 battler = anchorOnTarget ? gBattleAnimTarget : gBattleAnimAttacker;
+
+    sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X);
+    sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y);
+
+    if (GetBattlerSide(battler) != B_SIDE_PLAYER)
+    {
+        sprite->x -= gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+        sprite->data[2] = -gBattleAnimArgs[4];
+    }
+    else
+    {
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+        sprite->data[2] = gBattleAnimArgs[4];
+    }
+
     sprite->data[1] = gBattleAnimArgs[2];
     sprite->data[4] = gBattleAnimArgs[3];
     sprite->data[3] = gBattleAnimArgs[5];
@@ -1294,4 +1399,96 @@ void AnimTask_ShakeTargetInPattern(u8 taskId)
         gSprites[spriteId].y2 = 0;
         DestroyAnimVisualTask(taskId);
     }
+}
+
+//Individual coloured rays for the rainbow effect
+static const union AnimCmd sAnim_RainbowRay_0[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_1[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_2[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_3[] =
+{
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_4[] =
+{
+    ANIMCMD_FRAME(64, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_5[] =
+{
+    ANIMCMD_FRAME(80, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RainbowRay_6[] =
+{
+    ANIMCMD_FRAME(96, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_RainbowRay[] =
+{
+    sAnim_RainbowRay_0,
+    sAnim_RainbowRay_1,
+    sAnim_RainbowRay_2,
+    sAnim_RainbowRay_3,
+    sAnim_RainbowRay_4,
+    sAnim_RainbowRay_5,
+    sAnim_RainbowRay_6,
+};
+
+const struct SpriteTemplate gRainbowRaySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RAINBOW,
+    .paletteTag = ANIM_TAG_RAINBOW,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = sAnims_RainbowRay,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SunlightRay,
+    .callback = AnimRainbowRay,
+};
+
+static void AnimRainbowRay(struct Sprite *sprite)
+{
+    u8 color = gBattleAnimArgs[0] % 7;
+    StartSpriteAnim(sprite, color);
+
+    sprite->x = 0;
+    sprite->y = 0;
+    sprite->data[0] = 60;
+    sprite->data[2] = 140;
+    sprite->data[4] = 80;
+    sprite->callback = StartAnimLinearTranslation;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+static void AnimRainbowRay_Step(struct Sprite *sprite)
+{
+    sprite->x += sprite->data[5];
+    sprite->data[0] = 192;
+    sprite->data[1] = sprite->data[5];
+    sprite->data[2] = 4;
+    sprite->data[3] = 32;
+    sprite->data[4] = -24;
+    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
+    sprite->callback = TranslateSpriteInEllipse;
+    sprite->callback(sprite);
 }

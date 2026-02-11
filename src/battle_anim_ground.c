@@ -9,6 +9,7 @@ static void AnimBonemerangProjectile(struct Sprite *sprite);
 static void AnimBoneHitProjectile(struct Sprite *sprite);
 static void AnimDirtScatter(struct Sprite *sprite);
 static void AnimMudSportDirt(struct Sprite *sprite);
+static void AnimMakeItRain(struct Sprite *sprite);
 static void AnimDirtPlumeParticle(struct Sprite *sprite);
 static void AnimDigDirtMound(struct Sprite *sprite);
 static void AnimBonemerangProjectile_Step(struct Sprite *sprite);
@@ -32,6 +33,12 @@ static const union AffineAnimCmd sAffineAnim_Bonemerang[] =
     AFFINEANIMCMD_JUMP(0),
 };
 
+static const union AffineAnimCmd sAffineAnim_Onemerang[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 15, 1),
+    AFFINEANIMCMD_JUMP(0),
+};
+
 static const union AffineAnimCmd sAffineAnim_SpinningBone[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, 20, 1),
@@ -43,6 +50,11 @@ static const union AffineAnimCmd *const sAffineAnims_Bonemerang[] =
     sAffineAnim_Bonemerang,
 };
 
+static const union AffineAnimCmd *const sAffineAnims_Onemerang[] =
+{
+    sAffineAnim_Onemerang,
+};
+
 const union AffineAnimCmd *const gAffineAnims_SpinningBone[] =
 {
     sAffineAnim_SpinningBone,
@@ -52,6 +64,17 @@ const struct SpriteTemplate gBonemerangSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BONE,
     .paletteTag = ANIM_TAG_BONE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
+const struct SpriteTemplate gOnemerangSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ONE,
+    .paletteTag = ANIM_TAG_ONE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -134,6 +157,17 @@ const struct SpriteTemplate gMudsportMudSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimMudSportDirt,
+};
+
+const struct SpriteTemplate gMakeItRainSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_COIN_SMALL,
+    .paletteTag = ANIM_TAG_COIN_SMALL,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
 };
 
 const struct SpriteTemplate gDirtPlumeSpriteTemplate =
@@ -246,6 +280,25 @@ static void AnimDirtScatter(struct Sprite *sprite)
 // arg 0: 0 = dirt is rising into the air, 1 = dirt is falling down
 // arg 1: initial x pixel offset
 // arg 2: initial y pixel offset
+
+static void AnimMakeItRain(struct Sprite *sprite)
+{
+    if (gBattleAnimArgs[0] == 0)
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2) + gBattleAnimArgs[1];
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[2];
+        sprite->data[0] = gBattleAnimArgs[1] > 0 ? 1 : -1;
+        sprite->callback = AnimMudSportDirtRising;
+    }
+    else
+    {
+        sprite->x = gBattleAnimArgs[1];
+        sprite->y = gBattleAnimArgs[2];
+        sprite->y2 = -gBattleAnimArgs[2];
+        sprite->callback = AnimMudSportDirtFalling;
+    }
+}
+
 static void AnimMudSportDirt(struct Sprite *sprite)
 {
     ++sprite->oam.tileNum;

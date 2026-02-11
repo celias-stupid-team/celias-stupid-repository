@@ -550,8 +550,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 14,
-      "y": 59,
+      "x": 17,
+      "y": 65,
       "elevation": 3,
       "item": "ITEM_LEFTOVERS",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE12_LEFTOVERS",

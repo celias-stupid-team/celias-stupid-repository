@@ -2751,7 +2751,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 				{
 					.species = SPECIES_RHYDON,
 					.heldItem = ITEM_SHELL_BELL,
-					.moves = {MOVE_MEGAHORN, MOVE_ROCK_BLAST, MOVE_BRICK_BREAK, MOVE_PROTECT},
+					.moves = {MOVE_MEGAHORN, MOVE_BOFFA, MOVE_BRICK_BREAK, MOVE_PROTECT},
 					.hpEV = 255,
 					.attackEV = 255,
 					.defenseEV = 0,
@@ -2773,7 +2773,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 				{
 					.species = SPECIES_GOLEM,
 					.heldItem = ITEM_SCOPE_LENS,
-					.moves = {MOVE_BRICK_BREAK, MOVE_ROCK_BLAST, MOVE_DIG, MOVE_PROTECT},
+					.moves = {MOVE_BRICK_BREAK, MOVE_BOFFA, MOVE_DIG, MOVE_PROTECT},
 					.hpEV = 255,
 					.attackEV = 255,
 					.defenseEV = 0,
@@ -3411,7 +3411,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 				{
 					.species = SPECIES_GOLEM,
 					.heldItem = ITEM_SOFT_SAND,
-					.moves = {MOVE_EARTHQUAKE, MOVE_ROCK_BLAST, MOVE_BRICK_BREAK, MOVE_EXPLOSION},
+					.moves = {MOVE_EARTHQUAKE, MOVE_BOFFA, MOVE_BRICK_BREAK, MOVE_EXPLOSION},
 					.hpEV = 0,
 					.attackEV = 255,
 					.defenseEV = 0,

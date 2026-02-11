@@ -212,7 +212,7 @@ TwoIsland_EventScript_FastCurrentSign::
 `
 mapscripts TwoIsland_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		if(flag(FLAG_CSR_HINT_MOVE_REMINDER) && !flag(FLAG_CSR_BERRY_POWDER_MAN) && !flag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1)) {
+		if(flag(FLAG_CSR_HINT_MOVE_REMINDER) && !checkmoncaught(SPECIES_ODDISH) && !flag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1)) {
 			setvar(VAR_TEMP_A, 1)
 			setflag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1)
 		}
@@ -224,7 +224,7 @@ mapscripts TwoIsland_MapScripts {
 			"Chapter 7 -{PAUSE 30} Chapter 2\n"
 			"{PAUSE 60}Intermission 1")
 			delay(200)
-			message("The Quest for the\nBERRY POWDER MAN!")
+			message("The Search for the\nBERRY POWDER MAN!")
 			delay(200)
 			setvar(VAR_TEMP_A, 0)
 			release
@@ -258,9 +258,20 @@ script TwoIsland_PencilStatue {
 	} else {
 		msgbox("A large statue of a PENCIL blocks\nthe way.\pWould you like to use the PENCIL\nERASER?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			msgbox("{PLAYER} used the PENCIL ERASER.\n", MSGBOX_DEFAULT)
+			msgbox("{PLAYER} used the PENCIL ERASER!\n", MSGBOX_DEFAULT)
 			// sound effect
 			closemessage
+			delay(30)
+			playse(SE_WARP_OUT)
+			closemessage
+			applymovement(VAR_LAST_TALKED, moves(
+				face_left
+				delay_16 * 2
+				face_up
+				delay_16 * 2
+				set_invisible
+			))
+			waitmovement(VAR_LAST_TALKED)
 			setflag(FLAG_TWO_ISLAND_PENCIL)
 			//animation?
 			removeobject(VAR_LAST_TALKED)
@@ -291,6 +302,7 @@ script TwoIsland_DragonitePresent {
 	"There was a\n"
 	"BAG OF DRAGONITE!", MSGBOX_DEFAULT)
 	waitfanfare
+	giveitem(ITEM_BAG_OF_DRAGONITE, 1)
 	setflag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)
 	release
 	end
@@ -431,13 +443,18 @@ script TwoIsland_Stufful {
 	lock
 	faceplayer
 	playmoncry(SPECIES_STUFFUL, CRY_MODE_DEFAULT)
-	msgbox("PLACEHOLDER\nStufful", MSGBOX_DEFAULT)
 	waitmoncry
 	release
 }
 
 script TwoIsland_MartAttendant {
-	msgbox("PLACEHOLDER\nneed money dollars", MSGBOX_NPC)
+	msgbox(
+	"Hi, there!\n"
+	"Welcome to the DRUGSTORE!\p"
+
+	"…Hey!\n"
+	"You don't have any MONEY!\l"
+	"I can't help you, then.", MSGBOX_NPC)
 }
 
 script TwoIsland_MonkeyGuy {
@@ -457,7 +474,13 @@ script TwoIsland_Panpour {
 }
 
 script TwoIsland_MartHippie {
-	msgbox("PLACEHOLDER\nif only I had a way to find the\llength of things easily", MSGBOX_NPC)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"I bought a RULER from the store,\n"
+	"but all the numbers washed off.\p"
+
+	"If only I had a way to find the\n"
+	"length of things easily…", MSGBOX_NPC)
 }
 
 script TwoIsland_ForSaleMan {
@@ -823,13 +846,53 @@ script TwoIsland_BurnHeal {
 		"{FONT_COMIC_SANS}eat shit and die, thief\n"
 		"", MSGBOX_DEFAULT)
 		
+		setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_SANS)
 		trainerbattle_no_intro(TRAINER_SANS, "darn")
 		if(checkpartymove(MOVE_MAGICAL_LEAF) != PARTY_SIZE) {
-			fadedefaultbgm
+			
 			msgbox(
-			"{FONT_COMIC_SANS}I am dead\n"
+			"{FONT_COMIC_SANS}Oh.\n"
 			"", MSGBOX_DEFAULT)
-			giveitem(ITEM_BURN_HEAL)
+			closemessage
+			delay(30)
+			setobjectxy(LOCALID_TWO_ISLAND_SANS_DEAD, 15, 6)
+			playse(SE_M_CUT)
+			applymovement(LOCALID_TWO_ISLAND_SANS_DEAD, moves(
+				set_visible
+				delay_4
+				face_left
+				delay_4
+				face_up
+				delay_16
+				delay_8
+				set_invisible
+				delay_2
+				set_visible
+				delay_2
+				set_invisible
+				delay_2
+				set_visible
+				delay_2
+				set_invisible
+				delay_2
+				set_visible
+				delay_2
+				set_invisible
+				delay_2
+				set_visible
+				delay_2
+				set_invisible
+			))
+			applymovement(LOCALID_TWO_ISLAND_SANS, moves(
+				set_invisible
+			))
+			waitmovement(LOCALID_TWO_ISLAND_SANS_DEAD)
+			delay(16)
+			removeobject(LOCALID_TWO_ISLAND_SANS)
+			removeobject(LOCALID_TWO_ISLAND_SANS_DEAD)
+			delay(60)
+			fadedefaultbgm
+			additem(ITEM_BURN_HEAL)
 			release
 			end
 		}
@@ -1021,8 +1084,14 @@ script TwoIsland_TrumpetPlayer {
 	lock
 	faceplayer
 	msgbox(
-	"I play hoenn trumpet\n"
-	"", MSGBOX_DEFAULT)
+	"I must be the happiest man in\n"
+	"the world.\p"
+
+	"I can practice my trumpet in this\n"
+	"scenic spot.\p"
+
+	"Maybe they'll hire me for the next\n"
+	"HOENN remake!", MSGBOX_DEFAULT)
 	waitse
 	playse(MUS_TRUMPETS)
 	closemessage
@@ -1036,8 +1105,14 @@ script TwoIsland_TrumpetPlayer {
 script TwoIsalnd_WaterfallNPC {
 	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
-	"waterfalls exist\n"
-	"", MSGBOX_NPC)
+	"Just upstream is the beautiful\n"
+	"GRAPEFRUIT FALLS.\p"
+
+	"I could just sit here, letting time\n"
+	"melt away as I watch it flow.\p"
+
+	"Whoever lives in that cabin up\n"
+	"top must be real lucky!", MSGBOX_NPC)
 }
 
 
@@ -1045,22 +1120,57 @@ script TwoIsland_RunawayFiveRat {
 	lock
 	playmoncry(SPECIES_RATTATA, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
+}
+
+script TwoIsland_RunawayFiveHorsea {
+	if(checkpartymon(SPECIES_HORSEA) && !flag(FLAG_RUN_AWAY_FIVE)) {
+		msgbox(
+		"Your HORSEA looks excited for the\n"
+		"show!", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+		msgbox(
+		"(another horsea appears)\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+		msgbox(
+		"Wow! Cool!\p"
+
+		"It's the sixth member of the\n"
+		"RUN AWAY Five!", MSGBOX_DEFAULT)
+		setflag(FLAG_SHINY_CREATION)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"The RUN AWAY FIVE HORSEA\n"
+		"joined your party!", MSGBOX_DEFAULT)
+		waitfanfare
+		setflag(FLAG_RUN_AWAY_FIVE)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_HORSEA)
+		call(Common_Script_GiftPokemon19)
+		
+
+	}
+	return
 }
 
 script TwoIsland_RunawayFiveToedscool {
 	lock
 	playmoncry(SPECIES_TOEDSCOOL, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
 }
 
 script TwoIsland_RunawayFiveChansey {
 	lock
-	playmoncry(SPECIES_CHANSEY, CRY_MODE_DEFAULT)
+	playmoncry(SPECIES_CHANSEYBLANK, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
 }
@@ -1070,14 +1180,16 @@ script TwoIsland_RunawayFiveHDoduo {
 	lock
 	playmoncry(SPECIES_DODUO, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
 }
 
 script TwoIsland_RunawayFiveVenonat {
 	lock
-	playmoncry(SPECIES_EEVEE, CRY_MODE_DEFAULT)
+	playmoncry(SPECIES_KENYA, CRY_MODE_DEFAULT)
 	waitmoncry
+	call(TwoIsland_RunawayFiveHorsea)
 	release
 	end
 }
@@ -1114,7 +1226,7 @@ script TwoIsland_ThePit {
 	hideobjectat(LOCALID_TWO_ISLAND_PENCIL, MAP_TWO_ISLAND)
 	hideobjectat(LOCALID_TWO_ISLAND_MUSHROOM_KID, MAP_TWO_ISLAND)
 	setlayouttiles(LAYOUT_TWO_ISLAND_PIT, 0, 0, 0, 0, 67, 28)
-	release
+	
 }
 
 script TwoIsland_NoThePit {
@@ -1140,6 +1252,13 @@ script TwoIsland_Trees {
 script TwoIsland_NoProblem {
 	msgbox(
 	"No problem here.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_Paint {
+	msgbox(
+	"Paint: Blue Version\n"
 	"", MSGBOX_SIGN)
 
 }

@@ -302,16 +302,16 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     // Viridian
     OBJ_EVENT_GFX_CLERK,
     OBJ_EVENT_GFX_BLUE,
-    OBJ_EVENT_GFX_SIGN,
+    OBJ_EVENT_GFX_TRAINER_TIPS,
     OBJ_EVENT_GFX_OLD_MAN_2,
     OBJ_EVENT_GFX_YOUNGSTER,
     OBJ_EVENT_GFX_SCIENTIST,
     // Pewter
     OBJ_EVENT_GFX_SIGN,
-    OBJ_EVENT_GFX_BUG_CATCHER,
+    OBJ_EVENT_GFX_OLD_MAN_1,
     OBJ_EVENT_GFX_FAT_MAN,
     OBJ_EVENT_GFX_CLIPBOARD,
-    OBJ_EVENT_GFX_OLD_MAN_1,
+    OBJ_EVENT_GFX_MAN,
     OBJ_EVENT_GFX_CUT_TREE,
     // Mt Moon
     OBJ_EVENT_GFX_ROCKET_M,
@@ -382,17 +382,17 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_HIPPIE,
     OBJ_EVENT_GFX_OLD_MAN_2,
-    OBJ_EVENT_GFX_CLIPBOARD,
+    OBJ_EVENT_GFX_BRAILLE,
     // Great Sea East
-    OBJ_EVENT_GFX_MAN,
-    OBJ_EVENT_GFX_WOMAN_2,
+    OBJ_EVENT_GFX_BOY,
+    OBJ_EVENT_GFX_BEAUTY,
     OBJ_EVENT_GFX_BATTLE_GIRL,
-    OBJ_EVENT_GFX_PUSHABLE_BOULDER,
+    OBJ_EVENT_GFX_ROCK_SMASH_ROCK,
     OBJ_EVENT_GFX_WOMAN_2,
     OBJ_EVENT_GFX_FAT_MAN,
     // Great Bay
     OBJ_EVENT_GFX_SCIENTIST,
-    OBJ_EVENT_GFX_GUZMA,
+    OBJ_EVENT_GFX_NEW_NEW_GUZMA,
     OBJ_EVENT_GFX_SAMSON_OAK,
     OBJ_EVENT_GFX_OLD_WOMAN,
     OBJ_EVENT_GFX_WOMAN_2,
@@ -1397,7 +1397,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FlagGet(FLAG_CSR_DID_MINDY_TRADE))
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_AMPHAROS, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
@@ -1530,27 +1530,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(FALSE) //Lighthouse
+                    if(FlagGet(FLAG_FOUGHT_CASTFORM)) // Signs
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE) //Crispy Donut
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_PINSIR, FLAG_GET_CAUGHT, TRUE)) //National Park
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(FALSE) // Seashells
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_SUDOWOODO, FLAG_GET_CAUGHT, TRUE)) // Old Amber
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE) // Trade between each other
+                    if(FlagGet(FLAG_CINNABAR_GYM_QUIZ_1)) // Burn Heal 
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(FALSE) // Golurk dex 
+                    if(FlagGet(FLAG_CSR_DID_MINDY_TRADE)) // Mindy
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE) //Ampharos
+                    if(FlagGet(FLAG_OBTAINED_ZEPHYRBADGE)) // Falkner
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1559,27 +1559,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FlagGet(FLAG_ONE_ISLAND_WALL)) //Whirlpool
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ALOMOMOLA, FLAG_GET_CAUGHT, TRUE)) //odd egg
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(FlagGet(FLAG_BEEN_IN_WATERFALL_HOUSE)) //waterfall 
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(FlagGet(FLAG_TWO_ISLAND_PENCIL)) //pencil eraser
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(FlagGet(FLAG_BOUGHT_A_HOUSE)) // house voucher
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_WOOBAT, FLAG_GET_CAUGHT, TRUE)) //w
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1588,27 +1588,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(FALSE) //Conditions go here
+                    if(FlagGet(FLAG_ONIX_TAIL_SIGN)) // Onix Sign
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_SEEL, FLAG_GET_CAUGHT, TRUE)) // Seal Case
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(FALSE)
+                    if(FlagGet(FLAG_MINNESOTA_GYM_STRENGTH)) //Bench Press
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_SOLACEON, FLAG_GET_CAUGHT, TRUE)) //Eevee
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ZYGARDE, FLAG_GET_CAUGHT, TRUE)) //Amity
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_POKEMON_GUN, FLAG_GET_CAUGHT, TRUE)) //Gun
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1617,27 +1617,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(FALSE) //Conditions go here
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ORTHWORM, FLAG_GET_CAUGHT, TRUE)) //Nebby
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(FlagGet(FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED)) //bug type
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(FALSE)
+                    if(FlagGet(FLAG_CUT_SAMSON_OAK)) //oak
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_HOOPA, FLAG_GET_CAUGHT, TRUE)) //seal
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_CHANSEY, FLAG_GET_CAUGHT, TRUE)) //chansey
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(VarGet(VAR_TRADING_QUEST_PHASE) > 0) //brendan
                         isQuestCompleted = TRUE;
                     break;
             }

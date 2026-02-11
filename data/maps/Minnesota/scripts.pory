@@ -115,9 +115,13 @@ script MinnesotaZoo_FirstCage {
 }
 
 script MinnesotaZoo_Mongoose {
+	lock
+	playmoncry(SPECIES_ZANGOOSE, CRY_MODE_DEFAULT)
 	msgbox(
-	"(Mongoose dialogue)\n"
-	"", MSGBOX_SIGN)
+	"If there were more of me,{PAUSE 30} we'd\n"
+	"be MONGEESE.", MSGBOX_DEFAULT)
+	waitmoncry
+	release
 
 }
 
@@ -163,20 +167,20 @@ script Minnesota_FootballPlayer {
 	"Nah, we're the GOLDEN GOPHERS.\p"
 
 	"The VIKINGS are on the other side\n"
-	"of town!", MSGBOX_NPC)
+	"of town.", MSGBOX_NPC)
 }
 
 script Minnesota_Townsign {
 	msgbox(
 	"MINNESOTA\n"
-	"One fiftyith of the freest country!\l"
+	"One fiftieth of the freest country!\l"
 	"NEW WILD POKéMON: 1", MSGBOX_SIGN)
 
 }
 
 script Minnesota_Pittsburg {
 	msgbox(
-	"Welcome to PITTSBURG!\n"
+	"Welcome to PITTSBURGH!\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -259,8 +263,8 @@ script Minnesota_LaundromatSign {
 
 script Minnesota_GouldenSam {
 	msgbox(
-	"GOULDEN SAM\n"
-	"placeholder", MSGBOX_SIGN)
+	"Cool!\n"
+	"It's CAGE: GOULD VERSION!", MSGBOX_SIGN)
 
 }
 
@@ -318,6 +322,33 @@ script Minnesota_Giraffe {
 script Minnesota_Farig {
 	msgbox(
 	"It's a farig!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script Minnesota_Sawks {
+	msgbox(
+	"A pair of SAWKS.\n"
+	"", MSGBOX_NPC)
+}
+
+script MinnesotaShorts {
+	msgbox(
+	"I'm SHORTS!\n"
+	"I'm here to get squeaky-clean!", MSGBOX_NPC)
+}
+
+script MinnesotaWashingMachine {
+	lock
+	playmoncry(SPECIES_WISHIWASHI, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+}
+
+script Minnesota_CleanOak {
+	msgbox(
+	"An exceptionally clean OAK!\n"
 	"", MSGBOX_SIGN)
 
 }

@@ -3,6 +3,7 @@
 #include "script.h"
 #include "mystery_event_script.h"
 #include "event_data.h"
+#include "event_scripts.h"
 #include "random.h"
 #include "item.h"
 #include "overworld.h"
@@ -927,6 +928,8 @@ bool8 ScrCmd_getplayerxy(struct ScriptContext * ctx)
 
     *pX = gSaveBlock1Ptr->pos.x;
     *pY = gSaveBlock1Ptr->pos.y;
+    DebugPrintf(" X = %d", gSaveBlock1Ptr->pos.x);
+    DebugPrintf(" Y = %d", gSaveBlock1Ptr->pos.y);
     return FALSE;
 }
 
@@ -2638,6 +2641,33 @@ bool8 ScrCmd_checkpartymonslot(struct ScriptContext * ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_checkpartymonslotegg(struct ScriptContext * ctx)
+{
+    u8 i;
+    u16 speciesId = ScriptReadHalfword(ctx);
+    u16 species;
+    gSpecialVar_Result = PARTY_SIZE;
+    DebugPrintf("Hi test");
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species) {
+            DebugPrintf("Species %d", species);
+            DebugPrintf("Not species %d", GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL));
+            break;
+        }
+        
+        if (GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == speciesId)
+        {
+            DebugPrintf("Yes");
+            gSpecialVar_Result = i;
+            DebugPrintf("Var Result %d", gSpecialVar_Result);
+            break;
+        }
+    }
+    return FALSE;
+}
+
 bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
 {
     u32 i, box, monPos, partySlot;
@@ -2684,5 +2714,17 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
         }
     }
 
+    return FALSE;
+}
+
+
+
+#define SCRIPT_GLITCH_START ((uintptr_t)FadeSongAndPlayVictory - 0x100) //Arbitrary "seed" script
+#define SCRIPT_GLITCH_END   ((uintptr_t)FadeSongAndPlayVictory + 0x22000)
+
+bool8 ScrCmd_gotorandom(struct ScriptContext *ctx)
+{
+    u32 addr = SCRIPT_GLITCH_START + (Random() % (SCRIPT_GLITCH_END - SCRIPT_GLITCH_START));
+    ScriptJump(ctx, (const u8 *)addr);
     return FALSE;
 }

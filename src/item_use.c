@@ -92,8 +92,10 @@ static void StartGenderFluidFieldEffect(void);
 static void Task_GenderFluidWarpOut(u8 taskId);
 static void GenderFluidWarpOutEffect_Init(struct Task *task);
 static void GenderFluidWarpOutEffect_Spin(struct Task *task);
-static void TryToTransTheNidotrans(void);
-static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx);
+static void TryToTransTheNidotrans(u8 taskId);
+static void TransTheNidotrans(u8 taskId);
+void RemoveShoesFromToedy();
+
 static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
 static void Task_UseMoveRelearnerOnField(u8 taskId);
@@ -636,38 +638,65 @@ void FieldUseFunc_Repel(u8 taskId)
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RepelEffectsLingered, Task_ReturnToBagFromContextMenu);
 }
 
+static void ItemUseOnFieldCB_Unlock(u8 taskId)
+{
+    ClearPlayerHeldMovementAndUnfreezeObjectEvents();
+    UnlockPlayerFieldControls();
+    DestroyTask(taskId);
+}
+
+void Task_ReturnToFieldFromBagMenu(u8 taskId)
+{
+    gFieldCallback = FieldCB_FadeInFromBlack;
+    sItemUseOnFieldCB = ItemUseOnFieldCB_Unlock;
+    ItemMenu_SetExitCallback(CB2_ReturnToField);
+    Bag_BeginCloseWin0Animation();
+    ItemMenu_StartFadeToExitCallback(taskId);
+}
+
+
 
 void FieldUseFunc_CopycatTM(u8 taskId)
 {
     VarSet(VAR_COPYCAT_USED, 1);
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SAFFRON_CITY_COPYCATS_HOUSE_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SAFFRON_CITY_COPYCATS_HOUSE_1F)) {
         PlaySE(SE_PC_LOGIN);
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu); // ???
-
-        sItemUseOnFieldCB = Task_ItemUse_CloseMessageBoxAndReturnToField; //I don't udnerstand which part of this CB puts you back in the field
-        SetUpItemUseOnFieldCallback(taskId);
-
-        // Attempts:
-        
-        // DisplayItemMessageOnField(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ItemUse_CloseMessageBoxAndReturnToField); No, because I want the message in the bag
-        
-        //DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_TMContainedCopycat); This one doesn't have a callback argument
-        
-        /*
-        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
-        */
-
-
         RemoveUsedItem();
-
-
-
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToFieldFromBagMenu);
     } else {
         PlaySE(SE_PC_LOGIN);
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu);
-
     }
+}
+void FieldUseFunc_CeliaMessage(u8 taskId)
+{
+    
+    RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_CeliaMessage, Task_ReturnToFieldFromBagMenu);
+}
 
+
+void FieldUseFunc_Ruby(u8 taskId)
+{
+    if(VarGet(VAR_READY_FOR_TORNADO) == 1) {
+        VarSet(VAR_READY_FOR_TORNADO, 2);
+        RemoveUsedItem();
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToFieldFromBagMenu);
+    } else {
+        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+    }
+}
+
+
+
+void FieldUseFunc_Cigarette(u8 taskId)
+{
+
+        PlaySE(SE_M_EMBER);
+        RemoveUsedItem();
+
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PlayerCancer, Task_ReturnToBagFromContextMenu);
+    
 }
 
 static void Task_UseRepel(u8 taskId)
@@ -1069,7 +1098,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
 
     species = SPECIES_GIMMIGHOUL;
     
-    if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE))
+    if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
     {
 
         /*
@@ -1108,6 +1137,66 @@ void FieldUseFunc_PayDayTM(u8 taskId)
     }
 }
 
+
+void FieldUseFunc_BalmMushroom(u8 taskId)
+{
+    //ToDo: messages not working correctly
+    u16 species;
+    u8 speciesName[POKEMON_NAME_LENGTH + 1];
+
+    species = SPECIES_AMOONGUSS;
+    FlagSet(FLAG_SHINY_CREATION);
+    
+    gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
+
+    switch (gSpecialVar_Result)
+    {
+    case MON_CANT_GIVE: // no space in PC
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_AllBoxesFull);
+        break;
+    case MON_GIVEN_TO_PARTY:
+    case MON_GIVEN_TO_PC:
+        PlayCry_Normal(species, CRY_MODE_DEFAULT);
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
+        GetSpeciesName(speciesName, species);
+        StringExpandPlaceholders(gStringVar1, speciesName);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_PayDayTM;
+        SetUpItemUseOnFieldCallback(taskId);
+        break;
+    }
+}
+
+
+void FieldUseFunc_DragoniteBag(u8 taskId)
+{
+    //ToDo: messages not working correctly
+    u16 species;
+    u8 speciesName[POKEMON_NAME_LENGTH + 1];
+
+    species = SPECIES_DRAGONITE;
+    
+    
+    gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
+
+    switch (gSpecialVar_Result)
+    {
+    case MON_CANT_GIVE: // no space in PC
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_AllBoxesFull);
+        break;
+    case MON_GIVEN_TO_PARTY:
+    case MON_GIVEN_TO_PC:
+        PlayCry_Normal(species, CRY_MODE_DEFAULT);
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
+        GetSpeciesName(speciesName, species);
+        StringExpandPlaceholders(gStringVar1, speciesName);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_PayDayTM;
+        SetUpItemUseOnFieldCallback(taskId);
+        break;
+    }
+}
+
+
+
 static void LWPEmblem_EquipOutfit(void)
 {
     u8 outfit = OUTFIT_NONE;
@@ -1137,6 +1226,7 @@ void FieldUseFunc_LWPEmblem(u8 taskId)
         sTriggerZubatEvo = TRUE;
     }    
     
+    LockPlayerFieldControls();
     PlaySE(SE_SELECT);
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
     StringExpandPlaceholders(gStringVar4, gText_UsedTheItem);
@@ -1166,7 +1256,6 @@ static void Task_UseLWPEmblemOnField(u8 taskId)
 
 static void StartLWPEmblemFieldEffect(void)
 {
-    LockPlayerFieldControls();
     FreezeObjectEvents();
     CreateTask(Task_LWPEmblemWarpOut, 80);
 }
@@ -1177,12 +1266,14 @@ static void (*const sLWPEmblemWarpOutEffectFuncs[])(struct Task *task) =
     LWPEmblemWarpOutEffect_Spin
 };
 
-#define tState       data[0]
-#define tSpinDelay   data[1]
-#define tNumTurns    data[2]
-#define tTimer       data[3]
-#define tSpinEnded   data[4]
-#define tCurrentDir  data[5]
+// the first 6 task data slots are used for storing party species that are nidotran family
+// for the genderfluid item
+#define tState       data[6]
+#define tSpinDelay   data[7]
+#define tNumTurns    data[8]
+#define tTimer       data[9]
+#define tSpinEnded   data[10]
+#define tCurrentDir  data[11]
 #define tDirection   data[15]
 
 static void Task_LWPEmblemWarpOut(u8 taskId)
@@ -1245,6 +1336,7 @@ void FieldUseFunc_GenderFluid(u8 taskId)
     
     if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
     {
+        LockPlayerFieldControls();
         StringExpandPlaceholders(gStringVar4, gText_UsedTheItem);
         sItemUseOnFieldCB = ItemUseOnFieldCB_GenderFluid;
         SetUpItemUseOnFieldCallback(taskId);
@@ -1268,40 +1360,63 @@ static void ItemUseOnFieldCB_GenderFluid(u8 taskId)
         gSaveBlock2Ptr->playerGender = MALE;
         gPlayerAvatar.gender = MALE;
     }
+    FlagSet(FLAG_USED_GENDER_FLUID);
 
-    TryToTransTheNidotrans();
+    TryToTransTheNidotrans(taskId);
     
     DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_UseGenderFluidOnField);
 }
 
-static void TryToTransTheNidotrans(void)
+static inline bool32 IsMonInNidotranFamily(u16 species)
 {
-    u16 nidoFIdx, nidoMIdx;
-    nidoFIdx = FindSpeciesInParty(SPECIES_NIDORAN_M); 
-    nidoMIdx = FindSpeciesInParty(SPECIES_NIDORAN_F); 
-
-    // only trans 'em if they're both present
-    if (nidoFIdx == SPECIES_NONE || nidoMIdx == SPECIES_NONE)
-    {
-        return;    
-    }
-
-    TransTheNidotrans(nidoFIdx, nidoMIdx);
+    return species == SPECIES_NIDORAN_M
+            || species == SPECIES_NIDORINO  
+            || species == SPECIES_NIDOKING  
+            || species == SPECIES_NIDORAN_F  
+            || species == SPECIES_NIDORINA  
+            || species == SPECIES_NIDOQUEEN;  
 }
 
-static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx)
+static void TryToTransTheNidotrans(u8 taskId)
 {
-    u32 newPersonality, otID, i;
+    u32 i;
+    u16 species;
+    bool32 atLeastOne = FALSE;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        if (IsMonInNidotranFamily(species))
+        {
+            gTasks[taskId].data[i] = species;
+            atLeastOne = TRUE;
+        }
+        else
+        {
+            gTasks[taskId].data[i] = SPECIES_NONE;
+        }
+    }
+
+    if (atLeastOne) TransTheNidotrans(taskId);
+}
+
+
+
+
+
+void RemoveShoesFromToedy()
+{
+    u32 i, j;
+    u32 newPersonality, otID;
     u16 newSpecies, oldSpecies;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     struct Pokemon *mon;
+    s16 slot = gSpecialVar_Result;
     bool32 thisIsTrue = TRUE;
 
-    for (i = 0; i < 2; i++)
-    {
-        mon = &gPlayerParty[i == 0 ? nidoFIdx : nidoMIdx];
-        newSpecies = i == 0 ? SPECIES_NIDORAN_F : SPECIES_NIDORAN_M;
-        oldSpecies = i == 0 ? SPECIES_NIDORAN_M : SPECIES_NIDORAN_F;
+        newSpecies = SPECIES_TENTACOOL;
+
+        mon = &gPlayerParty[slot];
 
         otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
         GetMonNickname(mon, nickname);
@@ -1319,6 +1434,53 @@ static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx)
         SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
         GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
         UpdateMonPersonality(&mon->box, newPersonality);
+        CalculateMonStats(mon);
+    
+}
+
+static const u16 sNidotranCounterparts[6][2] = {
+    {SPECIES_NIDORAN_F, SPECIES_NIDORAN_M},
+    {SPECIES_NIDORINA, SPECIES_NIDORINO},
+    {SPECIES_NIDOQUEEN, SPECIES_NIDOKING},
+    {SPECIES_NIDORAN_M, SPECIES_NIDORAN_F},
+    {SPECIES_NIDORINO, SPECIES_NIDORINA},
+    {SPECIES_NIDOKING, SPECIES_NIDOQUEEN},
+};
+
+static void TransTheNidotrans(u8 taskId)
+{
+    u32 i, j;
+    u16 newSpecies, oldSpecies;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    struct Pokemon *mon;
+    s16 *data = gTasks[taskId].data;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        j = 0;
+        if (data[i] == SPECIES_NONE) continue;
+
+        oldSpecies = data[i];
+        while (sNidotranCounterparts[j][0] != oldSpecies && j < 6) j++; // the bound here is just a softlock/memory failsafe
+        newSpecies = sNidotranCounterparts[j][1];
+
+        mon = &gPlayerParty[i];
+
+        GetMonNickname(mon, nickname);
+
+        // if player has nicknamed their nidotran, don't overwrite it
+        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+        {
+            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+        }
+
+        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+
+        if (GetMonData(mon, MON_DATA_CSR_SHINY))
+        {
+            GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+        }
+
         CalculateMonStats(mon);
     } 
 }
@@ -1347,7 +1509,6 @@ static void Task_UseGenderFluidOnField(u8 taskId)
 
 static void StartGenderFluidFieldEffect(void)
 {
-    LockPlayerFieldControls();
     FreezeObjectEvents();
     CreateTask(Task_GenderFluidWarpOut, 80);
 }
@@ -1425,6 +1586,7 @@ void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon *pokemon, u16 itemId, u
 
 void FieldUseFunc_MoveRelearner(u8 taskId)
 {
+    LockPlayerFieldControls();
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
     StringExpandPlaceholders(gStringVar4, gText_UnzippedTheItem);
     sItemUseOnFieldCB = ItemUseOnFieldCB_MoveRelearner;

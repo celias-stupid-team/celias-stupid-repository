@@ -993,7 +993,8 @@ Text_TheDoorIsClosed::
 	.string "ドアは　しまっている‥$"
 
 Text_TheDoorIsOpen::
-	.string "The door is open…$"
+	.string "Who designs a door like that\n"
+	.string "anyway?$"
 
 	.include "data/text/pc_transfer.inc"
 	.include "data/text/white_out.inc"
@@ -1905,3 +1906,12 @@ Text_TestMsg::
 
 	.include "data/maps/Chapter7_Chapter2/scripts.inc"
 	.include "data/maps/Chapter7_Chapter2/text.inc"
+
+	.include "data/maps/BrunoBackRoom/scripts.inc"
+	.include "data/maps/BrunoBackRoom/text.inc"
+
+	.include "data/maps/ContestHall/scripts.inc"
+	.include "data/maps/ContestHall/text.inc"
+
+	.include "data/maps/Stonehenge/scripts.inc"
+	.include "data/maps/Stonehenge/text.inc"

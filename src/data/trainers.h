@@ -6511,7 +6511,7 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_ThunderArmorKid),
     },
     [TRAINER_LEADER_FALKNER] = {
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_FALKNER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FALKNER,
         .trainerName = _("FALKNER"),
@@ -6536,8 +6536,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DMCA_MISTY] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_PROTON,
-        .trainerName = _("ARIANA"),
+        .trainerPic = TRAINER_PIC_ARIANA,
+        .trainerName = _("SUSAN"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -6548,8 +6548,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DMCA_SURGE] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_PROTON,
-        .trainerName = _("PETREL"),
+        .trainerPic = TRAINER_PIC_ARCHER,
+        .trainerName = _("DAUMAN"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -6574,7 +6574,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DMCA_KOGA] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerPic = TRAINER_PIC_UNCLE,
         .trainerName = _("UNCLE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -6587,8 +6587,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DMCA_SABRINA] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_PROTON,
-        .trainerName = _("WOLFF"),
+        .trainerPic = TRAINER_PIC_LEADER_SABRINA,
+        .trainerName = _("SABRINA"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -6650,9 +6650,9 @@ const struct Trainer gTrainers[] = {
     
     
     [TRAINER_DMCA_THIEVUL] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M,
+        .trainerPic = TRAINER_PIC_ARCHER,
         .trainerName = _("LUCIAN"),
         .items = {},
         .doubleBattle = FALSE,
@@ -6856,7 +6856,7 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_BLAINE_OPPONENT_1] = {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .trainerClass = TRAINER_CLASS_RS_ELITE_FOUR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FLINT,
         .trainerName = _("FLINT"),
@@ -6892,10 +6892,10 @@ const struct Trainer gTrainers[] = {
 
 
     [TRAINER_BLAINE_OPPONENT_4] = {
-        .trainerClass = FACILITY_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_LASS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FISHERMAN,
-        .trainerName = _("WADE"),
+        .trainerName = _("JANE"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
@@ -7034,6 +7034,74 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_RatFisher),
     },
+
+    [TRAINER_AVGN_1] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN1),
+    },
+
+    [TRAINER_AVGN_2] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN2),
+    },
+
+    [TRAINER_AVGN_3] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN3),
+    },
+
+    [TRAINER_AVGN_4] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SUPER_NERD,
+        .trainerName = _("JAMES"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_AVGN4),
+    },
+
+    [TRAINER_YES_NURSE] = {
+        .trainerClass = TRAINER_CLASS_DOCTOR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_RS_POKEMON_BREEDER_F,
+        .trainerName = _("YESSICA"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_YesNurse),
+    },
+
+    [TRAINER_TEAM_SKULL] = {
+        .trainerClass = TRAINER_CLASS_TEAM,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_TEAM_SKULL,
+        .trainerName = _("SKULL"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_TeamSkull),
+    },
+
+    
 
         
 

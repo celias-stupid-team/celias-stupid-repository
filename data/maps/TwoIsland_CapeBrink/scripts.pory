@@ -38,8 +38,11 @@ script TwoIsland_StarmanEncounter {
 	}
 	waitmovement(0)
 	msgbox(
-	"you're really            pissing\n"
-	"                         me off", MSGBOX_DEFAULT)
+	"{PLAYER}.\n"
+	"You stand in our way.\p"
+
+	"I'll stomp you hard.{PAUSE 20}\n"
+	"Don't go to heaven!", MSGBOX_DEFAULT)
 
 	trainerbattle_no_intro(TRAINER_STARMAN, "heck")
 	msgbox(
@@ -52,6 +55,7 @@ script TwoIsland_StarmanEncounter {
 	msgbox(
 	"Farewell.\n"
 	"", MSGBOX_DEFAULT)
+	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
 	closemessage
 	applymovement(LOCALID_TWO_ISLAND_STARMAN, moves(
 		face_left
@@ -63,4 +67,68 @@ script TwoIsland_StarmanEncounter {
 	removeobject(LOCALID_TWO_ISLAND_STARMAN)
 	setvar(VAR_TWO_ISLAND_STARMAN, 2)
 	release
+}
+
+
+script TwoIsland_SoftSandGirl {
+	lock
+	textcolor(NPC_TEXT_COLOR_RED)
+	if(flag(FLAG_SOFT_SAND_GIRL)) {
+		msgbox(
+		"Hmm…\n"
+		"Nope!\l"
+		"Can't seem to find any more!", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	faceplayer
+	msgbox(
+	"Wowie!\n"
+	"Look what I found here!\p"
+
+	"Here, take it!\n"
+	"", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	giveitem_msg("{PLAYER} was given a handful\nof SAND.", ITEM_SOFT_SAND)
+	waitfanfare
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Oooh, lookie!\n"
+	"Here's some more!", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	giveitem_msg("{PLAYER} was given another\nhandful of SAND.", ITEM_SOFT_SAND)
+	waitfanfare
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Oh! Oh!\n"
+	"And there's some over here!\l"
+	"Take it!", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	giveitem_msg("{PLAYER} was given a third fucking\nhandful of SAND.", ITEM_SOFT_SAND)
+	waitfanfare
+	closemessage
+	delay(60)
+	msgbox(
+	"You no longer need sand.\n"
+	"", MSGBOX_DEFAULT)
+	setflag(FLAG_SOFT_SAND_GIRL)
+	release
+	end
+}
+
+
+script TwoIsland_DrawUnderWaterfall {
+	setflag(FLAG_SYS_UNDER_WATERFALL)
+	setlayouttiles(LAYOUT_TWO_ISLAND_CAPE_BRINK_UNDER_WATERFALL, 0, 0, 0, 0, 44, 29)
+	release
+}
+script TwoIsland_DrawOverWaterfall {
+	clearflag(FLAG_SYS_UNDER_WATERFALL)
+	setlayouttiles(LAYOUT_TWO_ISLAND_CAPE_BRINK, 0, 0, 0, 0, 44, 29)
+	release
+	
 }

@@ -536,10 +536,10 @@ const u8 gGrimerPokedexText[] = _(
 const u8 gGrimerPokedexTextUnused[] = _("");
 
 const u8 gMukPokedexText[] = _(
-"     ti esuaceb elbatcetednu yllausu si tI\n"
-"nac ti gnihcuoT .dnuorg eht htiw ni sdnelb\n"
-"                .gninosiop elbirret esuac");
-
+	"Did you know\n"
+	"MUK backwards\n"
+	"spells KOBRA?");
+    
 const u8 gMukPokedexTextUnused[] = _("");
 
 const u8 gShellderPokedexText[] = _(
@@ -825,9 +825,8 @@ const u8 gJolteonPokedexText[] = _(
 const u8 gJolteonPokedexTextUnused[] = _("");
 
 const u8 gFlareonPokedexText[] = _(
-    "It has a flame bag inside its body. After\n"
-    "inhaling deeply, it blows out flames of\n"
-    "nearly 3,100 degrees Fahrenheit.");
+	"¡No podemos!\n"
+	"¡Este bebé es un niño demonio!");
 
 const u8 gFlareonPokedexTextUnused[] = _("");
 
@@ -2742,3 +2741,14 @@ const u8 gPokemonGunPokedexText[] = _(
 
 const u8 gWoobatPokedexText[] = _(
 	"Waaa");
+
+
+const u8 gSolaceonPokedexText[] = _(
+	"Technically only the\n"
+	"second-largest POKéMON\n"
+	"you own.");
+
+
+const u8 gAmoongussPokedexText[] = _(
+	"I hate that this thing\n"
+	"has two S's in its name.");

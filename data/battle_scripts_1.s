@@ -5292,12 +5292,13 @@ BattleScript_EffectMultiHitThree::
 BattleScript_ShadowSky_End3::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_LUGIA_USED_SHADOW_SKY
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_LONGEST
 	printstring STRINGID_STARTEDSHADOW_SKY
 	waitmessage B_WAIT_TIME_LONG
-	playanimation BS_BATTLER_0, B_ANIM_SANDSTORM_CONTINUES
-	printstring STRINGID_SHADOW_SKY_CONTINUES
+	playanimation BS_BATTLER_0, B_ANIM_SHADOW_SKY_CONTINUES
 	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_SHADOW_SKY_STARTS
+	waitmessage B_WAIT_TIME_LONGEST
 	call BattleScript_WeatherFormChanges
 	end3
 
@@ -5323,22 +5324,31 @@ BattleScript_EffectShadowShield::
 	goto BattleScript_MoveEnd
 
 BattleScript_TrainerSlideAfterDefeat::
+	printstring STRINGID_DUMMY288
 	trytrainerslidemsgdefeatfinalbattle
+	printstring STRINGID_DUMMY288
 	goto BattleScript_RunRotomAnimation
 
 BattleScript_RunRotomAnimation::
+	fadenewbgm MUS_NONE
+	pause B_WAIT_TIME_LONGEST
+	pause B_WAIT_TIME_LONGEST
 	playmoncry SPECIES_ROTOM
-	pause B_WAIT_TIME_LONG
-	fadenewbgm MUS_CSR_DRILL_DOZER @ MUS_PRELUDE_TO_FINALE not available yet
+	pause B_WAIT_TIME_LONGEST
+	playnewbgm MUS_PRELUDE_TO_FINALE @ MUS_PRELUDE_TO_FINALE not available yet
 	pause B_WAIT_TIME_LONGEST
 	printstring STRINGID_RUNROTOMANIMATION1
-	playanimation BS_BATTLER_0, B_ANIM_SUN_CONTINUES
+	pause B_WAIT_TIME_LONGEST
+	playanimation BS_BATTLER_0, B_ANIM_ROTOM_APPEARS
 	waitanimation
+	pause B_WAIT_TIME_LONG
 	printstring STRINGID_RUNROTOMANIMATION2
 	waitmessage B_WAIT_TIME_LONGEST
+	playanimation BS_BATTLER_0, B_ANIM_ROTOM_COMES_DOWN
+	waitanimation
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	stopbattlebgm
+	fadenewbgm MUS_NONE
 	pause B_WAIT_TIME_LONGEST
 	@ callnative LoadRotomBattleUI
 	@ waitstate
@@ -5346,6 +5356,5 @@ BattleScript_RunRotomAnimation::
 	fadescreen FADE_FROM_WHITE
 	waitforfade
 	printstring STRINGID_RUNROTOMANIMATION3
-	waitmessage B_WAIT_TIME_LONGEST
-	fadenewbgm MUS_THE_GAME_IS_AFOOT
+	playnewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue

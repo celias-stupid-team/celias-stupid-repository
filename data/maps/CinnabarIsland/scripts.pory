@@ -2,6 +2,8 @@ raw `
 CinnabarIsland_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CinnabarIsland_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, CinnabarIsland_OnFrame
+	map_script MAP_SCRIPT_ON_LOAD, CinnabarIsland_OnLoad
+
 	.byte 0
 
 
@@ -347,7 +349,9 @@ script CinnabarIsland_OnTransition {
 	} else {
 		setflag(FLAG_TEMP_5)
 		if(flag(FLAG_UNLOCKED_CINNABAR_GYM)) {
-			setmetatile(37, 20, 0x283, FALSE)
+			//debugprintf("Unlocked, setting metatile?")
+			
+			//special(DrawWholeMapView)
 		}
 	}
 	
@@ -359,6 +363,11 @@ script CinnabarIsland_OnTransition {
 	}
 }
 
+script CinnabarIsland_OnLoad {
+	if(flag(FLAG_UNLOCKED_CINNABAR_GYM) && !flag(FLAG_BADGE07_GET)) {
+		setmetatile(37, 20, 0x283, FALSE)
+	}
+}
 
 script CinnabarIsland_MansionImprint {
 	msgbox(
@@ -403,6 +412,7 @@ script CinnabarIsland_GymDoor {
 		setvar(VAR_TEMP_1, 1)
 		setflag(FLAG_UNLOCKED_CINNABAR_GYM)
 		setmetatile(37, 20, 0x283, FALSE)
+		special(DrawWholeMapView)
 	} else {
 		closemessage
 		delay(30)
@@ -619,6 +629,16 @@ script CinnabarIsland_ValorCrestPedestal {
 script CinnabarIsland_ThatsGrandpa {
 	lock
 	faceplayer
+	if(flag(FLAG_BADGE07_GET)) {
+		msgbox(
+		"Oh no!\p"
+
+		"CHESTER's dead!\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+
+	}
 	msgbox(
 	"That's old man CHESTER up there.\p"
 
@@ -684,20 +704,21 @@ script CinnabarIsland_AbsolFisher {
 		"Hoo, nelly!"
 	)
 	msgbox(
-	"I KNOW ABSOL SUCKS ASS.{PAUSE 30}\n"
+	"I KNOW ABSOL SUCKS ASS.\p"
+
 	"I KNOW THE OTHER ABSOL SUCKS ASS.\p"
 
 	"I KNOW USING THEM PUTS ME AT A\n"
-	"DISADVANTAGE FOR NO REASON AT ALL.\p"
+	"DISADVANTAGE FOR NO REASON AT ALL.  \p"
 
-	"I WILL NOT BE CHANGING THE SPECIES.\n"
-	"I KNOW MY TEAM SUCKS ASS.\p"
+	"I KNOW MY TEAM SUCKS ASS.\n"
+	"{PAUSE 30}I WILL NOT BE CHANGING THE SPECIES.\p"
 
 	"I MIGHT CHANGE DRAGAPULT.\n"
-	"AND ONLY DRAGAPULT.\p"
+	"{PAUSE 30}AND ONLY DRAGAPULT.\p"
 
-	"AND IF I CHANGE IT, I WILL PROBABLY\n"
-	"CHANGE IT{PAUSE 30} TO ABSOL.", MSGBOX_NPC)
+	"AND IF I CHANGE IT, I WILL\n"
+	"PROBABLY CHANGE IT{PAUSE 30} TO ABSOL.", MSGBOX_NPC)
 }
 
 

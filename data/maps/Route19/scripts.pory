@@ -12,12 +12,153 @@ mapscripts Route19_MapScripts {
 			clearflag(FLAG_TEMP_1)
 		}
 		setflag(FLAG_TEMP_2)
+		if(flag(FLAG_LOOKER_SCENE) && !(var(VAR_CURRENT_CHAPTER) >= 7)) {
+			setvar(VAR_TEMP_1, 1)
+			clearflag(FLAG_TEMP_2)
+		}
 	}
+}
+
+script EventScript_RemoveUselessItems {
+	while(checkitem(ITEM_ANTIDOTE)) {
+		removeitem(ITEM_ANTIDOTE)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_PARALYZE_HEAL)) {
+		removeitem(ITEM_PARALYZE_HEAL)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_SODA_POP)) {
+		removeitem(ITEM_SODA_POP)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_ELIXIR)) {
+		removeitem(ITEM_ELIXIR)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_MAX_ELIXIR)) {
+		removeitem(ITEM_MAX_ELIXIR)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_MAX_ETHER)) {
+		removeitem(ITEM_MAX_ETHER)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_NUGGET)) {
+		removeitem(ITEM_NUGGET)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_DAWN_STONE)) {
+		removeitem(ITEM_DAWN_STONE)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_LEAF_STONE)) {
+		removeitem(ITEM_LEAF_STONE)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_TINY_MUSHROOM)) {
+		removeitem(ITEM_TINY_MUSHROOM)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_REVIVE)) {
+		removeitem(ITEM_REVIVE)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_HP_UP)) {
+		removeitem(ITEM_HP_UP)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_WATER_STONE)) {
+		removeitem(ITEM_WATER_STONE)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_SUPER_REPEL)) {
+		removeitem(ITEM_SUPER_REPEL)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_X_SPECIAL)) {
+		removeitem(ITEM_X_SPECIAL)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_TINY_MUSHROOM)) {
+		removeitem(ITEM_TINY_MUSHROOM)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_RETRO_MAIL)) {
+		removeitem(ITEM_RETRO_MAIL)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_CHOICE_BAND)) {
+		removeitem(ITEM_CHOICE_BAND)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_GRASS_ENERGY)) {
+		removeitem(ITEM_GRASS_ENERGY)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_FIGHTING_ENERGY)) {
+		removeitem(ITEM_FIGHTING_ENERGY)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_LIGHTNING_ENERGY)) {
+		removeitem(ITEM_LIGHTNING_ENERGY)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_FIRE_ENERGY)) {
+		removeitem(ITEM_FIRE_ENERGY)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_PSYCHIC_ENERGY)) {
+		removeitem(ITEM_PSYCHIC_ENERGY)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_METRONOME)) {
+		removeitem(ITEM_METRONOME)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_AWAKENING_DUNE)) {
+		removeitem(ITEM_AWAKENING_DUNE)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_AWAKENING)) {
+		removeitem(ITEM_AWAKENING)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_AWAKENING_FIRE_EMBLEM)) {
+		removeitem(ITEM_AWAKENING_FIRE_EMBLEM)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_SECRETETHER)) {
+		removeitem(ITEM_SECRETETHER)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_MAGIC_MUFFLER)) {
+		removeitem(ITEM_MAGIC_MUFFLER)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_LIFT_KEY)) {
+		removeitem(ITEM_LIFT_KEY)
+	}
+	while(checkitem(ITEM_WADDED_NOTE_METAPOD)) {
+		removeitem(ITEM_WADDED_NOTE_METAPOD)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_TORN_PAPER_GEODUDE)) {
+		removeitem(ITEM_TORN_PAPER_GEODUDE)
+		addvar(VAR_TEMP_5, 1)
+	}
+	if(var(VAR_TEMP_5) > 10) {
+		additem(ITEM_SECRETPAGE)
+	}
+	//additem(ITEM_SECRETPAGE)
+	return
+
 }
 
 script Route19_LookerScene {
 	lock
 	fadenewbgm(MUS_NONE)
+	call(EventScript_RemoveUselessItems)
 	//player walks to right side
 	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	switch(var(VAR_RESULT)) {
@@ -73,13 +214,16 @@ script Route19_LookerScene {
 		face_up
 		delay_16 * 2
 		face_down
-		delay_16 * 4
-		face_right
+		delay_16 * 2
+		face_up
+		delay_16 * 3
+		
 	))
 	
 	waitmovement(LOCALID_LOOKER_UP)
 	playse(SE_PIN)
 	applymovement(LOCALID_LOOKER_UP, moves(
+		face_right
 		emote_exclamation_mark
 	))
 	delay(60)
@@ -124,6 +268,7 @@ script Route19_LookerScene {
 	"Wow!\n"
 	"It's a special ROTOM!", MSGBOX_DEFAULT)
 	closemessage
+	delay(30)
 	applymovement(LOCALID_ROUTE19_ROTOM, moves(
 		walk_right
 		set_invisible
@@ -266,6 +411,7 @@ script Route19_LookerScene {
 
 script Route19_CeliaAsksYouNotToGo {
 	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
+		giveitem(ITEM_RARE_CANDY, 1)
 		msgbox(
 		"Don't worry!\n"
 		"You don't need to go back!\p"
@@ -273,12 +419,23 @@ script Route19_CeliaAsksYouNotToGo {
 		"Look through your ITEMS carefully!\n"
 		"", MSGBOX_NPC)
 	} else {
-	msgbox(
-		"CELIA: Psssst…!\p"
+		if(!checkmoncaught(SPECIES_GHOLDENGO)) {
+			giveitem(ITEM_RARE_CANDY, 1)
+			msgbox(
+			"Pssst!\n"
+			"Check your POKéMON carefully!\p"
 
-		"Just play along for a little bit\n"
-		"longer!\l"
-		"Trust me!", MSGBOX_NPC)
+			"There's one you gotta evolve\n"
+			"real fast!", MSGBOX_NPC)
+		} else {
+			msgbox(
+				"CELIA: Psssst…!\p"
+
+				"Just play along for a little bit\n"
+				"longer!\l"
+				"Trust me!", MSGBOX_NPC)
+
+		}
 
 	}
 }
@@ -287,6 +444,7 @@ script Route19_CeliaTurnsYouAround {
 	lock
 	textcolor(NPC_TEXT_COLOR_RED)
 	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
+		giveitem(ITEM_RARE_CANDY, 1)
 		msgbox(
 		"Don't worry!\n"
 		"You don't need to go back!\p"
@@ -294,12 +452,23 @@ script Route19_CeliaTurnsYouAround {
 		"Look through your ITEMS carefully!\n"
 		"", MSGBOX_DEFAULT)
 	} else {
-		msgbox(
-		"CELIA: Psssst…!\p"
+		if(!checkmoncaught(SPECIES_GHOLDENGO)) {
+			giveitem(ITEM_RARE_CANDY, 1)
+			msgbox(
+			"Pssst!\n"
+			"Check your POKéMON carefully!\p"
 
-		"Just play along for a little bit\n"
-		"longer!\l"
-		"Trust me!", MSGBOX_DEFAULT)
+			"There's one you gotta evolve\n"
+			"real fast!", MSGBOX_DEFAULT)
+		} else {
+			msgbox(
+				"CELIA: Psssst…!\p"
+
+				"Just play along for a little bit\n"
+				"longer!\l"
+				"Trust me!", MSGBOX_DEFAULT)
+
+		}
 
 	}
 	closemessage
@@ -311,20 +480,20 @@ script Route19_CeliaTurnsYouAround {
 
 
 script Route19_DrawThePit {
-	setlayouttiles(LAYOUT_ROUTE19_PIT_LOW, 0, 0, 0, 0, 33, 33)
+	setlayouttiles(LAYOUT_ROUTE19_PIT_LOW, 0, 0, 0, 0, 20, 20)
 
 	setvar(VAR_TEMP_0, 1)
 }
 
 
 script Route19_DrawThePitHigh {
-	setlayouttiles(LAYOUT_ROUTE19_PIT_HIGH, 0, 0, 0, 0, 33, 33)
+	setlayouttiles(LAYOUT_ROUTE19_PIT_HIGH, 0, 0, 0, 0, 20, 20)
 
 	setvar(VAR_TEMP_0, 1)
 }
 
 script Route19_DestroyThePit {
-	setlayouttiles(LAYOUT_ROUTE19, 0, 0, 0, 0, 33, 33)
+	setlayouttiles(LAYOUT_ROUTE19, 0, 0, 0, 0, 20, 20)
 	setvar(VAR_TEMP_0, 0)
 }
 
@@ -374,6 +543,7 @@ script GreatSea_LoveTirtouga {
 script GreatSea_FontTest {
 	lock
 	callnative(FullyUnlockFameChecker)
+	call(EventScript_RemoveUselessItems)
 	msgbox(
 	"{FONT_SMALL}SURF WATERFALL ROCK CLIMB\n"
 	"STRENGTH CUT FLY\p"
@@ -519,7 +689,7 @@ script GreatSea_WomensSecret { // Swimmer Victoria
 
 script GreatSea_PokeBallStorage {
 	msgbox(
-	"FEMININE POKéBALL STORAGE DEVICE\n"
+	"FEMININE POKé BALL STORAGE DEVICE\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -682,7 +852,7 @@ script GreatSea_Buoy_ShrineIsland {
 	signmsg
 	msgbox(
 	"{LEFT_ARROW} POKéMON ISLAND\n"
-	"{DOWN_ARROW} Some Rocks", MSGBOX_DEFAULT)
+	"{DOWN_ARROW} Nothing", MSGBOX_DEFAULT)
 	normalmsg
 	release
 }
@@ -935,7 +1105,7 @@ script GreatSea_Buoy_TwoIslandSoutheast {
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
-	"{DOWN_ARROW} KANTO EGG DELIVERY SERVICE\n"
+	"{LEFT_ARROW} KANTO EGG DELIVERY SERVICE\n"
 	"{RIGHT_ARROW} ROUTE 18", MSGBOX_DEFAULT)
 	normalmsg
 	release
@@ -1059,7 +1229,7 @@ script GreatSea_Buoy_PirateBaySouth {
 	signmsg
 	msgbox(
 	"{LEFT_ARROW} SKY TOWER\n"
-	"{LEFT_ARROW} VERMILION HARBOR", MSGBOX_DEFAULT)
+	"{RIGHT_ARROW} VERMILION HARBOR", MSGBOX_DEFAULT)
 	normalmsg
 	release
 }

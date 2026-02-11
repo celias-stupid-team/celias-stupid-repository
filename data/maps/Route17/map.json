@@ -242,7 +242,15 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 12,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_CAVE_OF_ORIGIN_2F",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [
     {
       "type": "trigger",
@@ -324,6 +332,168 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Route17_KoraidonNeedsSandwich"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route17_GoAboveBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 28,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 28,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_GoUnderBridge"
     }
   ],
   "bg_events": [
@@ -382,6 +552,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route17_DickBridge"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 106,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_WetFloor"
     }
   ]
 }

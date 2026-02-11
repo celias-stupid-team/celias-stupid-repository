@@ -444,7 +444,7 @@
       "id": "HEAL_LOCATION_AETHER_PARADISE_ENTRANCE",
       "map": "MAP_AETHER_PARADISE_ENTRANCE",
       "x": 9,
-      "y": 15,
+      "y": 22,
       "respawn_map": "MAP_AETHER_PARADISE_ENTRANCE",
       "respawn_npc": "1"
     },
@@ -452,7 +452,7 @@
       "id": "HEAL_LOCATION_GREAT_SEA_PIRATE_BAY",
       "map": "MAP_GREAT_SEA_PIRATE_BAY",
       "x": 41,
-      "y": 7,
+      "y": 6,
       "respawn_map": "MAP_GREAT_SEA_PIRATE_BAY",
       "respawn_npc": "1"
     },
@@ -500,7 +500,7 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_ERIKA",
       "map": "MAP_VIRIDIAN_GYM_ERIKA",
       "x": 5,
-      "y": 8,
+      "y": 16,
       "respawn_map": "MAP_VIRIDIAN_GYM_ERIKA",
       "respawn_npc": "1"
     },
@@ -508,7 +508,7 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_FALKNER",
       "map": "MAP_VIRIDIAN_GYM_FALKNER",
       "x": 5,
-      "y": 7,
+      "y": 8,
       "respawn_map": "MAP_VIRIDIAN_GYM_FALKNER",
       "respawn_npc": "1"
     },
@@ -523,8 +523,8 @@
     {
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_MISTY",
       "map": "MAP_VIRIDIAN_GYM_MISTY",
-      "x": 5,
-      "y": 11,
+      "x": 6,
+      "y": 16,
       "respawn_map": "MAP_VIRIDIAN_GYM_MISTY",
       "respawn_npc": "1"
     },
@@ -558,6 +558,46 @@
       "x": 6,
       "y": 14,
       "respawn_map": "MAP_ROUTE19",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_AETHER_PARADISE_ISLAND",
+      "map": "MAP_AETHER_PARADISE_ISLAND",
+      "x": 49,
+      "y": 41,
+      "respawn_map": "MAP_AETHER_PARADISE_ISLAND",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_POKEMON_ISLAND_SOUTH",
+      "map": "MAP_POKEMON_ISLAND_SOUTH",
+      "x": 17,
+      "y": 17,
+      "respawn_map": "MAP_POKEMON_ISLAND_SOUTH",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE20_SEAFOAM_ISLANDS",
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "x": 26,
+      "y": 18,
+      "respawn_map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_VIRIDIAN_CITY_GYM",
+      "map": "MAP_VIRIDIAN_CITY",
+      "x": 38,
+      "y": 11,
+      "respawn_map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_VIRIDIAN_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_FIVE_ISLAND_ROCKET_WAREHOUSE",
+      "map": "MAP_FIVE_ISLAND_ROCKET_WAREHOUSE",
+      "x": 26,
+      "y": 24,
+      "respawn_map": "MAP_FIVE_ISLAND_ROCKET_WAREHOUSE",
       "respawn_npc": "1"
     }
   ]

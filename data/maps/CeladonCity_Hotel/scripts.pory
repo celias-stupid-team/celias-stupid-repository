@@ -2,9 +2,7 @@ raw `
 CeladonCity_Hotel_MapScripts::
 	.byte 0
 
-CeladonCity_Hotel_EventScript_Receptionist::
-	msgbox CeladonCity_Hotel_Text_ThisHotelIsForPeople, MSGBOX_NPC
-	end
+
 
 CeladonCity_Hotel_EventScript_Beauty::
 	msgbox CeladonCity_Hotel_Text_OnVacationWithBrotherAndBoyfriend, MSGBOX_NPC
@@ -19,6 +17,13 @@ CeladonCity_Hotel_EventScript_BeautyBrother::
 	end
 `
 
+script CeladonCity_Hotel_EventScript_Receptionist {
+	special(GetPlayerFacingDirection)
+	if(var(VAR_RESULT) == DIR_NORTH) {
+		goto(CeladonHotel_AcrossCounter)
+	}
+	msgbox(CeladonCity_Hotel_Text_ThisHotelIsForPeople, MSGBOX_NPC)
+}
 
 script CeladonHotel_WomanWhoAsks {
 	lock

@@ -429,6 +429,11 @@ gSongTable::
 	song mus_dragon_ball, 0, 0
 	song mus_mus_vs_rival, 0, 0
 	song mus_trumpets, 1, 1
+	song mus_mus_vs_regi, 0, 0
+	song mus_tunnel, 0, 0
+	song mus_pisces_gym, 0, 0
+	song mus_kenya, 0, 0
+	song mus_alola_route2, 0, 0
 
 
 

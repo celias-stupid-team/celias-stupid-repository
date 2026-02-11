@@ -29,6 +29,17 @@ script NationalPark_TrashCan2 {
 
 }
 
+script NationalPark_TrashCan3 {
+	msgbox(
+	"{PLAYER} looked through the\n"
+	"trash…\p"
+
+	"Wow!\n"
+	"It's the decision to lock certain\l"
+	"new POKéMON to the postgame!", MSGBOX_SIGN)
+
+}
+
 script NationalPark_Woman {
 	lock
 	faceplayer
@@ -43,8 +54,8 @@ script NationalPark_Woman {
 	switch(var(VAR_RESULT)) {
 		case 0:
 			msgbox(
-			"I'm in big trouble, like in 1963\n"
-			"when ABRAHAM LINCOLN went to DALLAS!"
+			"I'm in big trouble, like in 1963 when\n"
+			"ABRAHAM LINCOLN went to DALLAS!"
 			"", MSGBOX_DEFAULT)
 		case 1:
 			msgbox(
@@ -73,8 +84,15 @@ script NationalPark_Woman {
 
 script NationalPark_ContestNPC {
 	msgbox(
-	"Bug catching contest\n"
-	"placeholder NPC", MSGBOX_NPC)
+	"The BUG CATCHING CONTEST is going\n"
+	"on right now.\l"
+	"I think it's just wrapping up.\p"
+
+	"They make sure to release a bunch\n"
+	"of rare BUGS into the park for it.\p"
+
+	"I'm sure doing this has no side\n"
+	"effects on the environment at all!", MSGBOX_NPC)
 }
 
 
@@ -292,6 +310,7 @@ script NationalPark_FirstSteps {
     }
     waitmovement(0)
     textcolor(NPC_TEXT_COLOR_BLUE)
+	copyobjectxytoperm(LOCALID_JOHTO_HIKER)
     msgbox(
 	"Hey, you!\n"
 	"Do you know what you just did?\p"
@@ -312,4 +331,26 @@ script NationalPark_ExcitedHiker {
 	"I get really excited about people\n"
 	"going to new regions.\p"
 	"Please don't make fun of me.", MSGBOX_NPC)
+}
+
+
+script NationalPark_ContestGoer {
+	msgbox(
+	"I seem to have misunderstood the\n"
+	"purpose of the CONTEST here.", MSGBOX_NPC)
+}
+
+script NationalPark_Milotic {
+	lock
+	playmoncry(SPECIES_MILOTIC, CRY_MODE_DEFAULT)
+	msgbox(
+	"MILOTIC: Looooo-!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(10)
+	msgbox(
+	"Wow!\n"
+	"It's beautiful!", MSGBOX_DEFAULT)
+	release
 }

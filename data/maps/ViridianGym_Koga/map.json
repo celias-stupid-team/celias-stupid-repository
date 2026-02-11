@@ -5,7 +5,7 @@
   "music": "MUS_TRICK_HOUSE",
   "region_map_section": "MAPSEC_VIRIDIAN_GYM_2",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_NONE",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -18,22 +18,22 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_UNCLE",
-      "x": 5,
-      "y": 5,
+      "x": 13,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ViridianGym_KogaBattle_Start",
+      "script": "ViridianGym_KogaBattle",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SNOVER",
-      "x": 9,
-      "y": 4,
+      "x": 25,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -46,15 +46,15 @@
   ],
   "warp_events": [
     {
-      "x": 5,
-      "y": 13,
+      "x": 13,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     },
     {
-      "x": 5,
-      "y": 1,
+      "x": 13,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
       "dest_warp_id": "0"
@@ -64,16 +64,16 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 2,
-      "y": 11,
+      "x": 10,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_Gym_EventScript_GymStatue"
     },
     {
       "type": "sign",
-      "x": 8,
-      "y": 11,
+      "x": 16,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_Gym_EventScript_GymStatue"

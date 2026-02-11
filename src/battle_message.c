@@ -247,7 +247,7 @@ static const u8 sText_PkmnAbsorbedNutrients[] = _("{B_ATK_NAME_WITH_PREFIX} abso
 static const u8 sText_PkmnAnchoredItself[] = _("{B_DEF_NAME_WITH_PREFIX} anchored\nitself with its roots!");
 static const u8 sText_PkmnWasMadeDrowsy[] = _("{B_ATK_NAME_WITH_PREFIX} made\n{B_DEF_NAME_WITH_PREFIX} drowsy!");
 static const u8 sText_PkmnKnockedOff[] = _("{B_ATK_NAME_WITH_PREFIX} knocked off\n{B_DEF_NAME_WITH_PREFIX}'s {B_LAST_ITEM}!");
-static const u8 sText_PkmnSwappedAbilities[] = _("{B_ATK_NAME_WITH_PREFIX} swapped abilities\nwith its opponent!");
+static const u8 sText_PkmnSwappedAbilities[] = _("{B_DEF_NAME_WITH_PREFIX} received\n{B_ATK_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}!");
 static const u8 sText_PkmnSealedOpponentMove[] = _("{B_ATK_NAME_WITH_PREFIX} sealed the\nopponent's move(s)!");
 static const u8 sText_PkmnWantsGrudge[] = _("{B_ATK_NAME_WITH_PREFIX} wants the\nopponent to bear a GRUDGE!");
 static const u8 sText_PkmnLostPPGrudge[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} lost\nall its PP due to the GRUDGE!");
@@ -997,7 +997,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_TARGETELECTRIFIED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s moves have been\nelectrified!"),
     [STRINGID_WONDER_SEED - BATTLESTRINGS_TABLE_START]                   = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s ABILITY became\nWONDER GUARD!"),   
     [STRINGID_PROTEAN - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s PROTEAN made it\nGHOST-TYPE!"),   
-    [STRINGID_MEMENTO - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} asks to be\nremembered!"),  
+    [STRINGID_MEMENTO - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} asks to be\nremembered!"),  
     [STRINGID_MISSED_FROM_AIR_BALLOON - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} avoided damage\nwith its AIR BALLOON!"),
     [STRINGID_DIMENSIONSARETWISTED - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The dimensions are twisted!"),
     [STRINGID_GOING_TOO_FAST - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("It's going too fast!\n{PAUSE 30}The TRICK ROOM can't contain it!"),
@@ -1016,19 +1016,20 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_EARTH_EATER - BATTLESTRINGS_TABLE_START]                   = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s\nEARTH EATER!"),
     [STRINGID_SEELHOOPATRANSFORMSTART - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("The Seal has been broken!"),
     [STRINGID_SEELHOOPATRANSFORMEND - BATTLESTRINGS_TABLE_START]         = sText_HoopaHasBeenReleased,
-    [STRINGID_STARTEDSHADOW_SKY - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("A SHADOW SKY surrounds\nthe battlefield!"),
-    [STRINGID_SHADOW_SKY_CONTINUES - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The SHADOW SKY is tormenting\nall non SHADOW TYPE Pokémon!"),
+    [STRINGID_STARTEDSHADOW_SKY - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("A SHADOW SKY engulfs\nthe battlefield!"),
+    [STRINGID_SHADOW_SKY_CONTINUES - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The SHADOW SKY thickens…"),
     [STRINGID_SHADOW_SKY_ENDS - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("The SHADOW SKY receded!"),
-    [STRINGID_PKMNBUFFETEDBYSHADOW_SKY - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is buffeted\nby the SHADOW SKY!"),
+    [STRINGID_PKMNBUFFETEDBYSHADOW_SKY - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is afflicted\nby the shadows!"),
     [STRINGID_LUGIA_USED_SHADOW_SKY - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("LUGIA used SHADOW SKY!"),
     [STRINGID_LUGIA_USED_SHADOW_SPIKES - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("LUGIA used SHADOW SPIKES!"),
-    [STRINGID_SHADOWSPIKESSCATTERED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("SHADOW SPIKES were scattered all\naround the opponent's side!"),
+    [STRINGID_SHADOWSPIKESSCATTERED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("SHADOW SPIKES were scattered\nunder your feet!"),
     [STRINGID_PKMNHURTBYSHADOWSPIKES - BATTLESTRINGS_TABLE_START]        = sText_PkmnHurtByShadowSpikes,
     [STRINGID_RAINBOWBEAMPIERCEDSHADOWSHIELD - BATTLESTRINGS_TABLE_START] = COMPOUND_STRING("RAINBOW BEAM pierced\nthe SHADOW SHIELD!"),
     [STRINGID_RUNROTOMANIMATION1 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("...?"),
-    [STRINGID_RUNROTOMANIMATION2 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("It's your ROTOM POKéDEX!"),
-    [STRINGID_RUNROTOMANIMATION3 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Awesome!\pYou can now access your\nBOX during battle!"),
+    [STRINGID_RUNROTOMANIMATION2 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("It's your ROTOM POKéDEX!{PAUSE 120}"),
+    [STRINGID_RUNROTOMANIMATION3 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Awesome!\pYou can now access your\nBOX during battle!{PAUSE_UNTIL_PRESS}"),
     [STRINGID_ZAPMOLCUNOFAINTED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Foe ZAPMOLCUNO-OHGIA\nfainted!\p"),
+    [STRINGID_SHADOW_SKY_STARTS - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Non-SHADOW POKéMON will\nlose all health!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1065,7 +1066,8 @@ const u16 gSandstormHailContinuesStringIds[] =
 {
     [B_MSG_SANDSTORM]  = STRINGID_SANDSTORMRAGES,
     [B_MSG_HAIL]       = STRINGID_HAILCONTINUES,
-    [B_MSG_SHADOW_SKY] = STRINGID_SHADOW_SKY_CONTINUES
+    [B_MSG_SHADOW_SKY] = STRINGID_SHADOW_SKY_CONTINUES,
+    [B_MSG_SHADOW_SKY_STARTS] = STRINGID_SHADOW_SKY_STARTS
 };
 
 const u16 gSandstormHailDmgStringIds[] =
@@ -1832,6 +1834,14 @@ void BufferStringBattle(u16 stringId)
                 {
                     if(FlagGet(FLAG_LION_BATTLE))
                         stringPtr = sText_Trainer1SentOutLions;
+                    else if((VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_BRUNO || VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_LARRY_2) && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                        
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                        stringPtr = sText_Trainer1SentOutPkmn;
+                    }
+
                     else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
                         stringPtr = sText_SentOutZapmolcuno;
                     else
@@ -1985,6 +1995,36 @@ void BufferStringBattle(u16 stringId)
                     break;
                 case EVENT_BATTLE_DAD:
                     if(sBattleMsgDataPtr->currentMove == MOVE_BRICK_BREAK) { 
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_SKUNTANK: 
+                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_BUG )  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                /*
+                case EVENT_BATTLE_GIOVANNI_2: 
+                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_FIRE )  { //This one is wonky rn
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                 */
+                case EVENT_BATTLE_THIEVUL: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_V_CREATE )  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_SANS: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_MAGICAL_LEAF )  {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);

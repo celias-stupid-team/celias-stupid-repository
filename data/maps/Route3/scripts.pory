@@ -260,7 +260,6 @@ script Route3_Blackglasses {
 				break
 
 		}
-		playse(SE_SELECT)
 		msgbox("These are my GLASSES!\nThanks so much for finding them!\p... ... ...\pUh, why'd you put them in your\nBAG?\lAren't you gonna give them back?", MSGBOX_DEFAULT)
 		closemessage
 		delay(20)
@@ -292,12 +291,10 @@ script Route3_Blackglasses {
 		
 		}
 		
-		playse(SE_SELECT)
 		msgbox("C'mon, man...\nThat's not cool.", MSGBOX_DEFAULT)
 		closemessage
 		delay(20)
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
-		playse(SE_SELECT)
 		msgbox("{PLAYER} reluctantly returned the\nBLACKGLASSES to the dumb NERD…", MSGBOX_DEFAULT)
 		closemessage
 		delay(45)

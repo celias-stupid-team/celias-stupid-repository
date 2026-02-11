@@ -8070,7 +8070,9 @@ static void Cmd_tryKO_Flash(void)
     gPotentialItemEffectBattler = gBattlerTarget;
 
     //Squirtle with Sick Shades Lt. Surge battle solution
-    if (gBattleMons[gBattlerTarget].ability == ABILITY_SICK_SHADES)
+
+    //Actually I'm gonna make this more complicated
+    if (gCurrentMove == MOVE_FLASH && gBattleMons[gBattlerTarget].ability == ABILITY_SICK_SHADES)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gLastUsedAbility = ABILITY_SICK_SHADES;
@@ -8081,6 +8083,52 @@ static void Cmd_tryKO_Flash(void)
             DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
         }
     }
+    else if (gCurrentMove == MOVE_KINESIS && gBattleMons[gBattlerTarget].ability == ABILITY_MAGIC_SHELL)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_MAGIC_SHELL;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_MAGIC_SHELL);
+        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
+            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
+        }
+    }
+    else if (gCurrentMove == MOVE_FISSURE && gBattleMons[gBattlerTarget].ability == ABILITY_EARTH_EATER)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_EARTH_EATER;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_EARTH_EATER);
+        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
+            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
+        }
+    }
+    else if (gCurrentMove == MOVE_SHOOT_BIG && gBattleMons[gBattlerTarget].ability == ABILITY_BULLETPROOF)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_BULLETPROOF;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_BULLETPROOF);
+        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
+            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
+        }
+    }
+    else if (gCurrentMove == MOVE_ADOBE_FLASH && gBattleMons[gBattlerTarget].ability == ABILITY_HTML5)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_HTML5;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_HTML5);
+        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
+            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
+        }
+    }
+
+
     else
     {
         //move always hits without restrictions
@@ -11548,12 +11596,25 @@ void BS_FadeNewBgm(void)
 {
     NATIVE_ARGS(u16 music);
 
-    FadeOutMapMusic(5);
+    //FadeOutMapMusic(1);
+    //PlayBGM(cmd->music);
+    FadeOutAndPlayNewMapMusic(cmd->music, 8);
+    // Overworld_ChangeMusicTo(cmd->music);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_PlayNewBgm(void)
+{
+    NATIVE_ARGS(u16 music);
+
+    //FadeOutMapMusic(1);
     PlayBGM(cmd->music);
     // Overworld_ChangeMusicTo(cmd->music);
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
 
 void BS_StopBattleBgm(void)
 {

@@ -221,7 +221,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_MOVE_REMINDER)) {
 		setobtainable(SPECIES_ODDISH) // 71
 	}
-	if(flag(FLAG_RELEASED_ZUBAT)) {
+	if((checkmoncaught(SPECIES_BIDOOF) && checkitem(ITEM_HM04)) || checkmoncaught(SPECIES_ZUBAT)) {
 		setobtainable(SPECIES_ZUBAT) // 72
 	}
 	if(flag(FLAG_HIDE_W_EMBLEM) && checkmoncaught(SPECIES_ZUBAT)) {
@@ -294,7 +294,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_FED_SANDWICH)) {
 		setobtainable(SPECIES_GOLURK) // 95
 	}
-	if(flag(FLAG_HIDE_SILPH_RIVAL)) { // 
+	if(flag(FLAG_COPYCAT_TM)) { // 
 		setobtainable(SPECIES_BIDOOF) // 96
 	}
 	if((flag(FLAG_CSR_HINT_PEWTER_GRASS) && checkmoncaught(SPECIES_COMBEE)) || flag(FLAG_WORLD_MAP_CERULEAN_CITY) || checkmoncaught(SPECIES_GRIMER)) { //and if Combee
@@ -351,7 +351,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) {
 		setobtainable(SPECIES_TANGELA) // 114
 	}
-	if((flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) && checkmoncaught(SPECIES_TANGELA) && checkmoncaught(SPECIES_AMPHAROS_MEGA)) { //and if Tangela
+	if((flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) && checkmoncaught(SPECIES_TANGELA) && checkmoncaught(SPECIES_AMPHAROS)) { //and if Tangela
 		setobtainable(SPECIES_TRUBBISH_HAIRCUT) // 115
 	}
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { //and if Persian
@@ -447,7 +447,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_SEAKING)) { //TODO figure out logic
 		setobtainable(SPECIES_ARCANINE) // 146
 	}
-	if(checkmoncaught(SPECIES_ARCANINE) || checkmoncaught(SPECIES_POKEMON_GUN)) { //I need to figure out which one is THE hint. Probably multiple.
+	if(checkmoncaught(SPECIES_ARCANINE) && var(VAR_CURRENT_DMCA_PHASE) > 7 || checkmoncaught(SPECIES_POKEMON_GUN)) { //I need to figure out which one is THE hint. Probably multiple.
 		setobtainable(SPECIES_POKEMON_GUN) // 147
 	}
 	if(flag(FLAG_DITTO_MEW_HINT) || checkmoncaught(SPECIES_DITTO_MEW)) { //TODO figure out logic
@@ -786,7 +786,8 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintArcanine)
 		case SPECIES_POKEMON_GUN: 
 			 msgbox(PokedexRating_Text_HintPokemonGun)
-		case SPECIES_MEWTWO: 
+		case SPECIES_MEWTWO:
+			setflag(FLAG_SHINY_MEWTWO) 
 			 msgbox(PokedexRating_Text_HintMewtwo)
 		case SPECIES_VENUSAUR: 
 			 msgbox(PokedexRating_Text_HintVenusaur)

@@ -47,7 +47,7 @@ Route22_Text_LateRivalDefeat::
 	
 Route22_Text_LateRivalPostBattle::
 	.string "MARY: I thought for sure my unholy\n"
-	.string "amalgom could beat you!\l"
+	.string "amalgam could beat you!\l"
 	.string "Stupid rat!\p"
 	.string "Well anyway, that's all from me.\n"
 	.string "Hope you do well!\l"

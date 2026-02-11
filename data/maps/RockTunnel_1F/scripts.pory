@@ -217,7 +217,7 @@ const CLEFAIRY3 = 20
 script RockTunnel_MerchSeller {
 	lock
 	faceplayer
-	msgbox("Hey hey!\nWelcome to the MERCH table!\pWanna buy a life-sized CLEFAIRY\ndoll?\lThey're perfect for snuggling!\pWe've got a discount right now.\nOnly ¥100,000,000 each!", MSGBOX_YESNO)
+	msgbox("Hey hey!\nWelcome to the MERCH table!\pWanna buy a life-sized CLEFAIRY\ndoll?\lThey're perfect for snuggling!\pWe've got a discount right now.\nOnly ¥3,000,000 each!", MSGBOX_YESNO)
 	closemessage
 	
 	setobjectxy(BUYER, 16, 27)

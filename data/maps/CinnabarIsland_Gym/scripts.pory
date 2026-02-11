@@ -654,6 +654,7 @@ CinnabarIsland_Gym_EventScript_OpenDoor6::
 mapscripts CinnabarIsland_Gym_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_1)
+		setflag(FLAG_TEMP_2)
 	}
 }
 
@@ -923,8 +924,8 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 7:
-			if(var(VAR_RESULT) == SPECIES_MEOWTH || var(VAR_RESULT) == SPECIES_MEOWTH) {
-				if(var(VAR_RESULT) == SPECIES_RHYDON) {
+			if(var(VAR_RESULT) == SPECIES_MEOWTH || var(VAR_RESULT) == SPECIES_SEAKING) {
+				if(var(VAR_RESULT) == SPECIES_SEAKING) {
 					setflag(FLAG_TEMP_3)
 				}
 				msgbox(
@@ -963,6 +964,7 @@ script CinnabarGym_GymQuestionLoop {
 
 script CinnabarGym_CheckBattleOutcome {
 	specialvar(VAR_TEMP_F, GetBattleOutcome)
+	special(HealPlayerParty)
 	//setvar(VAR_TEMP_F, B_OUTCOME_WON) // TEMPORARY!!!! SWITCH THIS OUT YOU IDIOT
 	if(var(VAR_CINNABAR_GYM_PHASE) == 3 && flag(FLAG_TEMP_3) && var(VAR_TEMP_F) != B_OUTCOME_WON) {
 		addobject(LOCALID_BLAINE_CAMPER)
@@ -995,7 +997,7 @@ script CinnabarGym_CheckBattleOutcome {
 			"And here, take this as well!\n"
 			"", MSGBOX_DEFAULT)
 			textcolor(NPC_TEXT_COLOR_NEUTRAL)
-			giveitem_msg("{PLAYER} obtained the\nTM00 from BLAINE!", ITEM_NONE)
+			giveitem_msg("{PLAYER} obtained the\nTM35 from BLAINE!", ITEM_TM35)
 			waitfanfare
 			textcolor(NPC_TEXT_COLOR_BLUE)
 			msgbox(
@@ -1288,7 +1290,9 @@ script CinnabarGym_DadQuestion {
 	"DAD: {PLAYER}!\n"
 	"What are you doing out here?\p"
 
-	"dad text\p"
+	"I volunteered to be a contestant\n"
+	"for BLAINE'S FURNACE FUN!\l"
+	"Hope I don't get an answer wrong!\p"
 
 	"Well, never mind that.\n"
 	"How about you take a rest?", MSGBOX_DEFAULT)
@@ -1333,9 +1337,7 @@ script CinnabarGym_BoardGameQuestion3 {
 			walk_left * 2
 		))
 		waitmovement(LOCALID_BLAINE_TRAINER_3)
-		msgbox(
-		"battle happens here\n"
-		"", MSGBOX_DEFAULT)
+
 		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_3, "after!")
 		closemessage
 		delay(30)
@@ -1420,10 +1422,7 @@ script CinnabarGym_BoardGameQuestion4 {
 		"Don't lie to me!\n"
 		"", MSGBOX_DEFAULT)
 	}
-	msgbox(
-	"battle happens here\n"
-	"", MSGBOX_DEFAULT)
-	trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_4, "after!")
+	trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_4, "Oh, no!")
 	fadedefaultbgm
 	closemessage
 	delay(30)
@@ -1467,6 +1466,10 @@ script CinnabarGym_BoardGameQuestion5 {
 		waitse
 		playse(SE_SUCCESS)
 		waitse
+		if(checktrainerflag(TRAINER_BLAINE_OPPONENT_5)) {
+			release
+			end
+		}
 		applymovement(LOCALID_BLAINE_TRAINER_5, moves(
 			walk_left * 2
 		))

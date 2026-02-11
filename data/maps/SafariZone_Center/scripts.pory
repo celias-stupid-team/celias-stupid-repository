@@ -31,10 +31,16 @@ mapscripts SafariZone_Center_MapScripts {
 		}
 	}
 	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_SAFARIZONE_EAST)
 		setworldmapflag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER)
 		if(flag(FLAG_NO_TM_CASE) || flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
 			setflag(FLAG_TEMP_3)
 		}
+		setvar(VAR_0x8004, SPECIES_DRAGONITE)
+		special(SetSeenMon)
+		setvar(VAR_0x8004, SPECIES_HORSEA)
+		special(SetSeenMon)
+		
 		
 		if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
 			setflag(FLAG_TEMP_4)

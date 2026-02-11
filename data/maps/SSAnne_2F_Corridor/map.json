@@ -3,7 +3,7 @@
   "name": "SSAnne_2F_Corridor",
   "layout": "LAYOUT_SSANNE_2F_CORRIDOR",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_S_S_ANNE",
+  "region_map_section": "MAPSEC_SEAFOAM_ISLANDS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -169,5 +169,14 @@
       "script": "SSAnne_2F_Corridor_EventScript_RivalTriggerRight"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SSAnne_RatHole"
+    }
+  ]
 }

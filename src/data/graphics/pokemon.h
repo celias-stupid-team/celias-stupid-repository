@@ -9767,6 +9767,32 @@ const u8 gMonIcon_FINALMOLTRES[] = INCBIN_U8("graphics/pokemon/finalmoltres/icon
 const u8 gMonFootprint_FINALMOLTRES[] = INCBIN_U8("graphics/pokemon/finalmoltres/footprint.1bpp");
 
 // FINAL_WARTORTLE
+
+
+// DODODUO
+const u32 gMonFrontPic_DODODUO[] = INCBIN_U32("graphics/pokemon/dododuo/front.4bpp.lz");
+const u32 gMonPalette_DODODUO[] = INCBIN_U32("graphics/pokemon/dododuo/normal.gbapal.lz");
+const u32 gMonBackPic_DODODUO[] = INCBIN_U32("graphics/pokemon/dododuo/back.4bpp.lz");
+const u32 gMonShinyPalette_DODODUO[] = INCBIN_U32("graphics/pokemon/dododuo/shiny.gbapal.lz");
+const u8 gMonIcon_DODODUO[] = INCBIN_U8("graphics/pokemon/dododuo/icon.4bpp");
+const u8 gMonFootprint_DODODUO[] = INCBIN_U8("graphics/pokemon/dododuo/footprint.1bpp");
+
+// CELEBI2
+const u32 gMonFrontPic_CELEBI2[] = INCBIN_U32("graphics/pokemon/celebi2/front.4bpp.lz");
+const u32 gMonPalette_CELEBI2[] = INCBIN_U32("graphics/pokemon/celebi2/normal.gbapal.lz");
+const u32 gMonBackPic_CELEBI2[] = INCBIN_U32("graphics/pokemon/celebi2/back.4bpp.lz");
+const u32 gMonShinyPalette_CELEBI2[] = INCBIN_U32("graphics/pokemon/celebi2/shiny.gbapal.lz");
+const u8 gMonIcon_CELEBI2[] = INCBIN_U8("graphics/pokemon/celebi2/icon.4bpp");
+const u8 gMonFootprint_CELEBI2[] = INCBIN_U8("graphics/pokemon/celebi2/footprint.1bpp");
+
+// PIKACHU_SURF
+const u32 gMonFrontPic_PIKACHUSURF[] = INCBIN_U32("graphics/pokemon/pikachusurf/front.4bpp.lz");
+const u32 gMonPalette_PIKACHUSURF[] = INCBIN_U32("graphics/pokemon/pikachusurf/normal.gbapal.lz");
+const u32 gMonBackPic_PIKACHUSURF[] = INCBIN_U32("graphics/pokemon/pikachusurf/back.4bpp.lz");
+const u32 gMonShinyPalette_PIKACHUSURF[] = INCBIN_U32("graphics/pokemon/pikachusurf/shiny.gbapal.lz");
+const u8 gMonIcon_PIKACHUSURF[] = INCBIN_U8("graphics/pokemon/pikachusurf/icon.4bpp");
+const u8 gMonFootprint_PIKACHUSURF[] = INCBIN_U8("graphics/pokemon/pikachusurf/footprint.1bpp");
+
 // was using path finalwartortle before
 const u32 gMonFrontPic_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/wartortle/front.4bpp.lz");
 const u32 gMonPalette_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/wartortle/normal.gbapal.lz");

@@ -70,15 +70,21 @@ script AetherParadise_DMCA_StopsYou {
 	"Stop in the name of the DMCA!\n"
 	"", MSGBOX_DEFAULT)
 	//cutscene stuff
+	closemessage
+	applymovement(LOCALID_AETHER_DMCA_GRUNT, moves(
+		walk_down * 2
+	))
+	waitmovement(LOCALID_AETHER_DMCA_GRUNT)
+	delay(30)
 	msgbox(
 	"These guys have been calling\n"
 	"themselves TEAM SKULL.\l"
 	"Ha!\p"
 
-	"We all know that's a poor, illegal\n"
-	"imitation.\p"
+	"We all know they're a poor,\n"
+	"illegal imitation.\p"
 
-	"Here's the REAL one!\n"
+	"Here's the real TEAM SKULL!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	delay(30)
@@ -94,39 +100,63 @@ script AetherParadise_DMCA_StopsYou {
 
 	))
 	waitmovement(0)
-	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	delay(30)
 	msgbox(
-	"KOFFING: Ahaha!\n"
+	"ZUBAT: Ahaha!\n"
 	"We're the original TEAM SKULL!", MSGBOX_DEFAULT)
-	// battle
+	closemessage
 	msgbox(
-	"(there is a battle here)\n"
-	"", MSGBOX_DEFAULT)
+	"KOFFING: Here, how about you\n"
+	"have a little…{PAUSE 30} gift!", MSGBOX_DEFAULT)
+	// battle
+	trainerbattle_no_intro(TRAINER_TEAM_SKULL, "Oh, this was a bad plan.")
+	closemessage
+	delay(30)
 	msgbox(
 	"ZUBAT: cough…\n"
 	"We… lost…", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
 	msgbox(
-	"KOFFING: Let's get outta here.\n"
-	"Our boss'll take care of this.", MSGBOX_DEFAULT)
+	"KOFFING: Let's skedaddle.\n"
+	"The boss'll take care of this.", MSGBOX_DEFAULT)
 	closemessage
 	setflag(FLAG_DMCA_SKULL_FIGHT_1)
 	setvar(VAR_TEMP_0, 1)
 	closemessage
+	delay(30)
+	playse(SE_FLEE)
 	applymovement(LOCALID_AETHER_ZUBAT, moves(
-		walk_fast_up * 4
+		walk_fast_up * 5
 		walk_fast_left
 		face_down
 	))
 	applymovement(LOCALID_KOFFING, moves(
-		walk_fast_up * 4
+		walk_fast_up * 5
 		walk_fast_left
 		face_down
 	))
 	waitmovement(0)
 	removeobject(LOCALID_AETHER_ZUBAT)
 	removeobject(LOCALID_KOFFING)
+	applymovement(LOCALID_AETHER_DMCA_GRUNT, moves(
+		face_up
+		delay_16 * 2
+		face_down 
+		delay_16 * 2
+		face_up
+		delay_16 * 2
+		face_down
+		delay_16 * 4
+
+	))
+	waitmovement(LOCALID_AETHER_DMCA_GRUNT)
+	playse(SE_FLEE)
+	applymovement(LOCALID_AETHER_DMCA_GRUNT, moves(
+		walk_fast_up * 5
+	))
+	waitmovement(LOCALID_AETHER_DMCA_GRUNT)
 	removeobject(LOCALID_AETHER_DMCA_GRUNT)
 	removeobject(LOCALID_AETHER_DMCA_GRUNT)
 	release
@@ -135,49 +165,77 @@ script AetherParadise_DMCA_StopsYou {
 
 script AetherParadise_SkuntankBattle {
 	lock
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 15)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+    special(ShakeScreen)
+	delay(60)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Oh?\n"
+	"Did someone knock out my crew?\p"
+
+	"That's not very polite.\p"
+
+	"How about I pay them a little visit\n"
+	"myself?\l"
+	"Chaw-haw-haw!", MSGBOX_DEFAULT)
+	closemessage
+
 	applymovement(LOCALID_SKUNTANK, moves(
-		walk_down * 2
-		walk_left * 3
-		walk_down
+		
+		
+		walk_slow_down * 4
 
 	))
 	waitmovement(0)
+	delay(30)
 	msgbox(
-	"I am skuntank\n"
-	"fuck you", MSGBOX_DEFAULT)
+	"I am SKUNTANK.\n"
+	"The rightful leader of TEAM SKULL!\p"
+
+	"Let's see how you stack up to me!\n"
+	"", MSGBOX_DEFAULT)
 	setflag(FLAG_SYS_KANGA_FIGHT)
+	setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_SKUNTANK)
 	setwildbattle(SPECIES_SKUNTANK, 40, ITEM_AIR_BALLOON)
-	playbgm(MUS_DUMMY, TRUE)
+	//playbgm(MUS_DUMMY, TRUE)
 	//setflag(FLAG_SYS_KANGA_FIGHT)
 	//setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARIANA)
+	playbgm(MUS_NONE, TRUE)
 	special(StartLegendaryBattle)
 	delay(150)
 	specialvar(VAR_RESULT, GetBattleOutcome)
 	switch(var(VAR_RESULT)) {
 		case B_OUTCOME_WON:
-			fadenewbgm(MUS_NONE)
 			msgbox(
-			"you win\n"
+			"H-hrrrn…\n"
+			"You're…\l"
+			"You're the real deal…\p"
+
+			"G-gah-!\n"
+			"We can't stay here anymore.\p"
+
+			"Let's get out!\n"
 			"", MSGBOX_DEFAULT)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			setflag(FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED)
 			removeobject(LOCALID_SKUNTANK)
 			removeobject(LOCALID_KOFFING)
 			removeobject(LOCALID_AETHER_ZUBAT)
 			closemessage
-			delay(60)
+			playse(SE_EXIT)
+			waitse
+			delay(30)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
+			delay(20)
 			playbgm(MUS_IKI_TOWN_TEST, TRUE)
 			setvar(VAR_TEMP_0, 2)
 			release
 			end
 		default:
-			msgbox(
-			"you lose\n"
-			"", MSGBOX_DEFAULT)
-			closemessage
-			applymovement(LOCALID_PLAYER, moves(
-				walk_down
-			))
-			waitmovement(0)
+			delay(30)
 			warp(MAP_AETHER_PARADISE_ENTRANCE, 0)
 	}
 	release
@@ -186,9 +244,22 @@ script AetherParadise_SkuntankBattle {
 
 script AetherParadise_SkullGruntDmca {
 	textcolor(NPC_TEXT_COLOR_BLUE)
-	msgbox(
-	"be careful the dmca is here\n"
-	"", MSGBOX_NPC)
+	if(flag(FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED)) {
+		msgbox(
+			"Ayy!\n"
+			"That other TEAM SKULL is gone!\p"
+
+			"Now we can get back to taking all\n"
+			"their search engine results!", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Yo!\n"
+		"Watch out, you!\p"
+
+		"The DMCA broke in and took over!\n"
+		"We're not safe anymore!", MSGBOX_NPC)
+
+	}
 }
 
  script AetherParadise_EmergencyExit {
@@ -230,12 +301,122 @@ script AetherParadise_NebbyGuy {
 script AetherParadise_RivalOfAether {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_GREAT_BAY, 1)
 	playmoncry(SPECIES_SWELLOW, CRY_MODE_DEFAULT)
 	msgbox(
 	"Oh, cool!\p"
 
 	"It's a RIVAL of AETHER!\n"
 	"", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}
+
+
+script AetherParadise_RainbowDMCA {
+	msgbox(
+	"RAINBOW DMCA: Woah!\n"
+	"Hey now!\p"
+
+	"I'm one of the good guys!\n"
+	"See?\l"
+	"I'm okay with GAY people!\p"
+
+	"…{PAUSE 30}But you'd still better not\n"
+	"be infringing copyright!", MSGBOX_NPC)
+}
+
+
+script Aether_Window {
+	msgbox(
+	"Looking through the window, you\n"
+	"see the other side of the wall.\p"
+
+	"I don't know what you expected.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Aether_Trees {
+	msgbox(
+	"That's not ALOLAN OAK, silly!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script Aether_Trader {
+	lock
+	faceplayer
+	msgbox(
+	"I'm trading with my friend to\n"
+	"complete my POKéDEX!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script Aether_Trader2 {
+	lock
+	msgbox(
+	"Okay!\n"
+	"Let's trade!", MSGBOX_DEFAULT)
+	closemessage
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	playmoncry(SPECIES_RAICHU, CRY_MODE_DEFAULT)
+	waitmoncry
+	playse(SE_BALL_TRADE)
+	waitse
+	delay(30)
+	playmoncry(SPECIES_PERSIAN, CRY_MODE_DEFAULT)
+	waitmoncry
+	setobjectxy(LOCALID_AETHER_RAICHU, 18, 8)
+	setobjectxy(LOCALID_AETHER_MEOWTH, 14, 8)
+	applymovement(LOCALID_AETHER_RAICHU, moves(
+		face_left
+	))
+	applymovement(LOCALID_AETHER_MEOWTH, moves(
+		face_right
+	))
+	waitmovement(0)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	delay(30)
+	msgbox(
+	"Wow!\n"
+	"Thanks!", MSGBOX_DEFAULT)
+	closemessage
+	delay(40)
+	playse(SE_M_SPIT_UP)
+	setobjectxy(LOCALID_AETHER_MEOWTH, 18, 8)
+	setobjectxy(LOCALID_AETHER_RAICHU, 14, 8)
+	applymovement(LOCALID_AETHER_RAICHU, moves(
+		face_right
+	))
+	applymovement(LOCALID_AETHER_MEOWTH, moves(
+		face_left
+	))
+	delay(40)
+	playfanfare(MUS_EVOLVED)
+	waitfanfare
+	release
+	end
+}
+
+
+script Aether_Meowth {
+	lock
+	faceplayer
+	playmoncry(SPECIES_PERSIAN, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+}
+script Aether_Raichu {
+	lock
+	faceplayer
+	playmoncry(SPECIES_RAICHU, CRY_MODE_DEFAULT)
 	waitmoncry
 	release
 }

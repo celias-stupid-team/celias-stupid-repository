@@ -197,6 +197,11 @@ extern const u8 gText_MaxRepelDoesntWork[];
 extern const u8 gText_PayDayTM[];
 extern const u8 gText_MaxRepelTurnedOff[];
 extern const u8 gText_TMContainedCopycat[];
+extern const u8 gText_HeldRuby[];
+extern const u8 gText_PlayerCancer[];
+extern const u8 gText_CeliaMessage[];
+
+
 
 extern const u8 gText_MaxRepelWorks[];
 extern const u8 gText_UsedVar2WildLured[];
@@ -214,6 +219,8 @@ extern const u8 gText_Luvdisc[];
 extern const u8 gText_Leekd[];
 extern const u8 gText_DEAD[];
 extern const u8 gText_DeadLower[];
+extern const u8 gText_ALIVE[];
+extern const u8 gText_AliveLower[];
 extern const u8 gText_DIED[];
 extern const u8 gText_DiedLower[];
 extern const u8 gText_YesLower[];

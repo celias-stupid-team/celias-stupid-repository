@@ -755,7 +755,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "1",
-      "script": "NULL"
+      "script": "Route19_CeliaTurnsYouAround"
     },
     {
       "type": "trigger",
@@ -764,7 +764,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "1",
-      "script": "NULL"
+      "script": "Route19_CeliaTurnsYouAround"
     }
   ],
   "bg_events": [
@@ -798,8 +798,8 @@
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 17,
+      "x": 19,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GreatSea_FontTest"

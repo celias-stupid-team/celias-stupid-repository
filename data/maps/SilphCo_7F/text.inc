@@ -14,10 +14,10 @@ SilphCo_7F_Text_ExplainLapras::
 	.string "with any HM you want to teach it.$"
 
 SilphCo_7F_Text_RocketBossWentToBoardroom::
-    .string "TEAM ROCKET's BOSS went to the\n"
-    .string "boardroom!\p"
-    .string "Is our PRESIDENT okay?\n"
-    .string "I'm worried.$"
+    .string "This BIDOOF is a very special\n"
+	.string "POKéMON.\p"
+	.string "It's designed to be compatible\n"
+	.string "with any HM you want to teach it.$"
 
 SilphCo_7F_Text_OhNo::
     .string "あ‥　もう　もてないぞ$"

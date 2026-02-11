@@ -66,7 +66,7 @@ bool8 MetatileBehavior_IsJumpNorth(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsJumpSouth(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_JUMP_SOUTH)
+    if (metatileBehavior == MB_JUMP_SOUTH || metatileBehavior == MB_FALLING_OBJECT)
         return TRUE;
     else
         return FALSE;
@@ -783,6 +783,13 @@ bool8 MetatileBehavior_IsShitWall(u8 metatileBehavior)
 bool8 MetatileBehavior_IsPokeMartShelf(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_POKEMART_SHELF)
+        return TRUE;
+    else
+        return FALSE;
+}
+bool8 MetatileBehavior_IsWalMartShelf(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_MINNESOTA_MART)
         return TRUE;
     else
         return FALSE;

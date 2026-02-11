@@ -308,6 +308,36 @@
 #define ANIM_TAG_WONDER_SEED                (ANIM_SPRITES_START + 298)
 #define ANIM_TAG_SMALL_CLOUD                (ANIM_SPRITES_START + 299)
 #define ANIM_TAG_PUNISHMENT_BLADES          (ANIM_SPRITES_START + 300)
+#define ANIM_TAG_ONE                        (ANIM_SPRITES_START + 301)
+#define ANIM_TAG_MIDDLE_FINGER              (ANIM_SPRITES_START + 302)
+#define ANIM_TAG_BROCKS                     (ANIM_SPRITES_START + 303)
+#define ANIM_TAG_BROCK_X_SIGN               (ANIM_SPRITES_START + 304)
+#define ANIM_TAG_ZEKROM_KICK                (ANIM_SPRITES_START + 305)
+#define ANIM_TAG_RAINBOW                    (ANIM_SPRITES_START + 306)
+#define ANIM_TAG_PICKLE_SPEAR               (ANIM_SPRITES_START + 307)
+#define ANIM_TAG_WIN_FLAG                   (ANIM_SPRITES_START + 308)
+#define ANIM_TAG_CHEESE                     (ANIM_SPRITES_START + 309)
+#define ANIM_TAG_MEATBALL                   (ANIM_SPRITES_START + 310)
+#define ANIM_TAG_NORMAL                     (ANIM_SPRITES_START + 311)
+#define ANIM_TAG_WEATHER_BALLIN             (ANIM_SPRITES_START + 312)
+#define ANIM_TAG_LETTUCE                    (ANIM_SPRITES_START + 313)
+#define ANIM_TAG_SESAME                     (ANIM_SPRITES_START + 314)
+#define ANIM_TAG_BREAD                      (ANIM_SPRITES_START + 315)
+#define ANIM_TAG_ZYGARDE_Z                  (ANIM_SPRITES_START + 316)
+#define ANIM_TAG_REVERSE                    (ANIM_SPRITES_START + 317)
+#define ANIM_TAG_THUMBS_UP                  (ANIM_SPRITES_START + 318)
+#define ANIM_TAG_THUMBS_DOWN                (ANIM_SPRITES_START + 319)
+#define ANIM_TAG_BUTTER_BLADE               (ANIM_SPRITES_START + 320)
+#define ANIM_TAG_WINDOW_WARNING             (ANIM_SPRITES_START + 321)
+#define ANIM_TAG_WINDOW_ERROR               (ANIM_SPRITES_START + 322)
+#define ANIM_TAG_FEMALE                     (ANIM_SPRITES_START + 323)
+#define ANIM_TAG_YOSHI_EGG                  (ANIM_SPRITES_START + 324)
+#define ANIM_TAG_FUZZY                      (ANIM_SPRITES_START + 325)
+#define ANIM_TAG_TAXES                      (ANIM_SPRITES_START + 326)
+#define ANIM_TAG_MONEY                      (ANIM_SPRITES_START + 327)
+#define ANIM_TAG_KETCHUP                    (ANIM_SPRITES_START + 328)
+#define ANIM_TAG_COIN_SMALL                 (ANIM_SPRITES_START + 329)
+#define ANIM_TAG_WEED_SMALL                 (ANIM_SPRITES_START + 330)
 
 // battlers
 #define ANIM_ATTACKER    0
@@ -359,6 +389,7 @@
 #define BG_SOLAR_BEAM_CONTESTS 26
 #define BG_DARK_VOID 27
 #define BG_TRICK_ROOM 28
+#define BG_FIRE 29
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
@@ -398,6 +429,8 @@
 #define B_ANIM_SHADOW_SKY_CONTINUES     34
 #define B_ANIM_SHADOW_SPIKES            35
 #define B_ANIM_ZAPMOLCUNO_TRANSFORM     36
+#define B_ANIM_ROTOM_APPEARS     37
+#define B_ANIM_ROTOM_COMES_DOWN     38
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

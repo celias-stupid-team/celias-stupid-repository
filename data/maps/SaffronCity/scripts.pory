@@ -209,6 +209,24 @@ script SaffronCity_EventScript_HiddenDad {
 }
 
 script SaffronCity_EventScript_CenterSign {
+	if(flag(FLAG_HIDE_SAFFRON_ROCKETS)) {
+		lock
+		msgbox(
+		"NOTICE!\n"
+		"The DMCA have been defeated!\p"
+
+		"However, due to the shutdown it was\n"
+		"discovered that this POKéMON CENTER\l"
+		"was embezzling funding for years!\p"
+
+		"As such, SAFFRON CITY has demanded\n"
+		"the end of its operations.\p"
+
+		"Thank you for understanding.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	msgbox("NOTICE!\pThis POKéMON Center has been found\nto be an illegal copy of all other\lPOKéMON Centers.\pAs such, the DMCA has demanded the\nend of its operations.\pThank you for understanding.\n", MSGBOX_SIGN)
 	end
 }
@@ -343,7 +361,7 @@ script TheLeek_Report3 {
 
 script SaffronCity_NPC1 {
 	msgbox(
-	"Saffron NPC 1\n"
+	"Seafoam exists\n"
 	"", MSGBOX_NPC)
 }
 
@@ -356,22 +374,45 @@ script SaffronCity_NPC2 {
 
 
 script SaffronCity_NPC3 {
-	msgbox(
-	"Saffron NPC 3\n"
-	"", MSGBOX_NPC)
+	if(flag(FLAG_SAFFRON_IS_TRAINS)) {
+		msgbox(
+			"Wow, neat!\n"
+			"A new TRAIN STATION!", MSGBOX_NPC)
+	} else {
+		msgbox(
+		"I hear they're building a fancy\n"
+		"TRAIN STATION here soon.\l"
+		"Soon, we'll be more connected!\p"
+
+		"I'm not totally sure where they\n"
+		"plan to put it, but hey!\l"
+		"They'll find room for it somehow.", MSGBOX_NPC)
+	}
 }
 
 
 script SaffronCity_NPC4 {
 	msgbox(
-	"Saffron NPC 4\n"
+	"the gym exists\n"
 	"", MSGBOX_NPC)
 }
 
 
 script SaffronCity_NPC5 {
 	msgbox(
-	"Saffron NPC 5\n"
+	"This house is fucking weird.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script SaffronCity_HouseNPC1 {
+	msgbox(
+	"Saffron House NPC 1\n"
+	"", MSGBOX_NPC)
+}
+script SaffronCity_HouseNPC2 {
+	msgbox(
+	"Saffron House NPC 2\n"
 	"", MSGBOX_NPC)
 }
 

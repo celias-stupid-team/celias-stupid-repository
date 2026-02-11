@@ -117,7 +117,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN",
       "x": 48,
-      "y": 26,
+      "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -163,6 +163,13 @@
       "elevation": 0,
       "dest_map": "MAP_POKEMON_MANSION_1F",
       "dest_warp_id": "5"
+    },
+    {
+      "x": 46,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_CONTEST_HALL",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

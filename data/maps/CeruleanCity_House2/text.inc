@@ -9,17 +9,15 @@ CeruleanCity_House2_Text_RocketsStoleTMForDig::
 
 CeruleanCity_House2_Text_TeachDiglettDigWithoutTM::
     .string "I figure what's lost is lost.\p"
-    .string "Maybe I can go back to BROCK and\n"
-    .string "he'll give me the original TM\l"
-    .string "instead…\p"
-    .string "…What?\n"
-    .string "That's been changed in this hack too?\p"
-    .string "Darn.$"
+	.string "Maybe I'll go to BROCK and he'll\n"
+	.string "give me the original TM instead.\p"
+	.string "…What?\n"
+	.string "It isn't ROCK TOMB in this hack?\p"
+	.string "Darn.\n$"
 
 CeruleanCity_House2_Text_TeamRocketTryingToDigIntoNoGood::
-    .string "The DMCA barged in and claimed\n"
-    .string "a TM I created for fun with my\l"
-    .string "friends!$"
+	.string "The DMCA barged in and claimed a\n"
+	.string "TM I made for fun with my friends…$"
 
 CeruleanCity_House2_Text_TeamRocketLeftWayOut::
     .string "The DMCA left a way out!$"

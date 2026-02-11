@@ -1752,6 +1752,9 @@ static void VBlankCB_EggHatch(void)
 
 void EggHatch(void)
 {
+    if(FlagGet(FLAG_SHINY_PHIONE)) {
+        FlagSet(FLAG_SHINY_CREATION);
+    }
     LockPlayerFieldControls();
     CreateTask(Task_EggHatch, 10);
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, 0);

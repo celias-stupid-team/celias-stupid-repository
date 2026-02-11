@@ -6,3 +6,14 @@ mapscripts Ocean13_MapScripts {
         }
     }
 }
+
+
+script LassMaze_PreLass {
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"Her eyes are locked straight down.\p"
+
+	"She's waiting.\n"
+	"", MSGBOX_SIGN)
+
+}

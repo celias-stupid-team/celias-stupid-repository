@@ -2,9 +2,9 @@ EventScript_ItemfinderDigUpUnderfootItem::
 	lockall
 	textcolor NPC_TEXT_COLOR_NEUTRAL
 	waitse
-	call EventScript_TryPickUpHiddenItem
-	goto_if_eq VAR_0x8007, TRUE, EventScript_DigUpItemPutInPocket
-	goto_if_eq VAR_0x8007, FALSE, EventScript_DigUpItemBagIsFull
+	setflag FLAG_HIDDEN_ITEM_ROUTE12_LEFTOVERS
+	setflag FLAG_SHINY_CREATION
+	goto Route25_Hbox
 	end
 
 EventScript_DigUpItemPutInPocket::

@@ -418,7 +418,7 @@
     },
     {
       "id": "MAPSEC_ROUTE_7",
-      "name": "ROUTE 9",
+      "name": "ROUTE 8",
       "x": 14,
       "y": 6,
       "width": 2,
@@ -426,7 +426,7 @@
     },
     {
       "id": "MAPSEC_ROUTE_8",
-      "name": "ROUTE 8",
+      "name": "ROUTE 7",
       "x": 17,
       "y": 6,
       "width": 3,
@@ -914,7 +914,7 @@
     },
     {
       "id": "MAPSEC_SEVAULT_CANYON",
-      "name": "SEVAULT CANYON",
+      "name": "CAVE OF ORIGIN",
       "x": 6,
       "y": 9,
       "width": 1,
@@ -986,7 +986,7 @@
     },
     {
       "id": "MAPSEC_ROCKET_WAREHOUSE",
-      "name": "ROCKET WAREHOUSE",
+      "name": "DMCA WAREHOUSE",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1042,7 +1042,7 @@
     },
     {
       "id": "MAPSEC_THREE_ISLE_PATH",
-      "name": "THREE ISLE PATH",
+      "name": "TUNNEL",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1146,6 +1146,14 @@
     },
     {
       "id": "MAPSEC_"
+    },
+    {
+      "id": "MAPSEC_STONEHENGE",
+      "name": "SPEARE PILLAR",
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
     }
   ]
 }

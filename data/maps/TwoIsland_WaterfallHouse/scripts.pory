@@ -10,6 +10,7 @@ mapscripts TwoIsland_WaterfallHouse_MapScripts {
 script TwoIsland_WaterfallHouse_Message {
 	if(var(VAR_TWO_ISLAND_STARMAN) == 0) {
 		setvar(VAR_TWO_ISLAND_STARMAN, 1)
+		setflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
 	}
 	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 2)
 	msgbox(
@@ -31,5 +32,83 @@ script TwoIsland_WaterfallStarwalker {
 
 	"{COLOR DARK_GRAY}I'm the original\n"
 	"                 {COLOR DYNAMIC_COLOR5}water-psychic type", MSGBOX_DEFAULT)
+	release
+}
+
+
+script TwoIsland_SideOfWall {
+	lock
+	if(var(VAR_TEMP_2) < 11) {
+		addvar(VAR_TEMP_2, 1)
+		
+	}
+	switch(var(VAR_TEMP_2)) {
+			case 1:
+				goto(0)
+			case 2:
+				msgbox(
+				"No problem here.\n"
+				"", MSGBOX_DEFAULT)
+			case 3:
+				msgbox(
+				"No problem here.\n"
+				"", MSGBOX_DEFAULT)
+			case 4:
+				msgbox(
+				"No problem he{PAUSE 90}re.\n"
+				"", MSGBOX_DEFAULT)
+			case 5:
+				msgbox(
+				"It's not OAK.\n"
+				"", MSGBOX_DEFAULT)
+			case 6:
+				setflag(FLAG_TEMP_5)
+				finditem(ITEM_NONE)
+			case 7:
+				waitse
+				playse(SE_NOTE_G)
+				waitse
+			case 8:
+				applymovement(LOCALID_PLAYER, moves(
+					lock_facing_direction
+					walk_fastest_left * 6
+					unlock_facing_direction
+				))
+				waitmovement(0)
+			case 9:
+				if(flag(FLAG_GOT_SHINY_MISSINGNO)) {
+					msgbox("no")
+				}else {
+					setflag(FLAG_GOT_SHINY_MISSINGNO)
+					setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MISSINGNO)
+					setflag(FLAG_SHINY_CREATION)
+					call(Common_Script_GiftPokemon19)
+
+				}
+			case 10:
+				textcolor(NPC_TEXT_COLOR_FEMALE)
+				msgbox(
+				"Hi!\n"
+				"Quick heads up before you continue!\p"
+
+				"In the spirit of the original, I'm\n"
+				"going to let this point to random\l"
+				"places in memory.\p"
+
+				"What happens next will be entirely\n"
+				"random. I have no control over it.\p"
+
+				"Your game will probably corrupt\n"
+				"itself, and that's okay.\p"
+
+				"Please remember to savestate\n"
+				"before going further!\l"
+				"-Celia, the creator", MSGBOX_DEFAULT)
+			case 11:
+				
+				gotorandom
+				
+
+	}
 	release
 }

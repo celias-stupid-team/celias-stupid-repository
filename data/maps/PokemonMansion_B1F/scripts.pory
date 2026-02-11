@@ -112,6 +112,28 @@ script PokemonMansion_FujiPhoto {
 }
 
 script PokemonMansion_Pedestal {
+	if(checkitem(ITEM_FUJI_BALL)) {
+		lock
+		msgbox(
+		"A pedestal sits on the wall.\p"
+
+		"{PLAYER} set MR. FUJI into the\n"
+		"indent.", MSGBOX_DEFAULT)
+		playse(SE_CLICK)
+		waitse
+		closemessage
+		msgbox(
+		"It is implied that the wall opens.\p"
+
+		"Moltres is there.\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		setflag(FLAG_SHINY_CREATION)
+		setwildbattle(SPECIES_MOLTRES, 50)
+		dowildbattle
+		release
+		end
+	}
 	msgbox(
 	"A pedestal sits on the wall.\p"
 

@@ -1,10 +1,6 @@
 raw `
-CinnabarIsland_PokemonLab_Entrance_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, CinnabarIsland_PokemonLab_Entrance_OnTransition
-	.byte 0
+::
 
-CinnabarIsland_PokemonLab_Entrance_OnTransition::
-	end
 
 CinnabarIsland_PokemonLab_Entrance_EventScript_ReadyFossil::
 	return
@@ -29,6 +25,16 @@ CinnabarIsland_PokemonLab_Entrance_EventScript_TestingRoomSign::
 	msgbox CinnabarIsland_PokemonLab_Entrance_Text_TestingRoomSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts CinnabarIsland_PokemonLab_Entrance_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_TALKED_TO_SWORDFUCK)) {
+			setflag(FLAG_TEMP_5)
+		}
+
+	}
+}
+
 script PokemonLab_BlockingTree {
 	msgbox(
 	"Hello!\n"
@@ -52,6 +58,12 @@ script PokemonLab_WelcomeTree {
 
 script PokemonLab_OtherTree {
 	msgbox(
-	"tree\n"
-	"placeholder", MSGBOX_NPC)
+	"Hello!\n"
+	"I'm a researcher here.\p"
+
+	"This LAB is home to scientists from\n"
+	"across the world!\p"
+
+	"I'm so lucky to be a part of it.\n"
+	"", MSGBOX_NPC)
 }

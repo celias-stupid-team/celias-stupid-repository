@@ -48,3 +48,10 @@ script CinnabarIsland_Pokemart_BurnHeal {
 	"Maybe they'll have what you need!\n"
 	"", MSGBOX_NPC)
 }
+
+script CinnabarShelvess {
+	msgbox(
+	"The BURN HEAL section is\n"
+	"suspiciously empty.", MSGBOX_SIGN)
+
+}

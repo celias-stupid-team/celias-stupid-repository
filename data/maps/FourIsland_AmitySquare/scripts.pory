@@ -4,6 +4,7 @@ mapscripts FourIsland_AmitySquare_MapScripts {
 			setflag(FLAG_TEMP_5)
 
 		}
+		setflag(FLAG_SHINY_CREATION)
 	}
 }
 

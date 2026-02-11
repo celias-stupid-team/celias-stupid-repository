@@ -48,10 +48,15 @@ mapscripts Route1_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setbench(BENCH_ROUTE1)
 		setflag(FLAG_TEMP_1)
+		setflag(FLAG_TEMP_6)
 		setflag(FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT)
 		setflag(FLAG_TEMP_2)
 		if(flag(FLAG_BADGE02_GET)) {
 			clearflag(FLAG_TEMP_1)
+			if(!flag(FLAG_CELIA_SECRET_PIT)) {
+				clearflag(FLAG_TEMP_6)
+
+			}
 			if(!flag(FLAG_ROUTE_1_CANDY)) {
 				clearflag(FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT)
 			}
@@ -59,6 +64,7 @@ mapscripts Route1_MapScripts {
 		if(var(VAR_CELIA_DEV_CREW) == 1) {
 			clearflag(FLAG_TEMP_2)
 			setflag(FLAG_TEMP_1)
+			setflag(FLAG_TEMP_6)
 			setvar(VAR_CELIA_DEV_CREW, 0)
 		}
 	} 
@@ -115,11 +121,96 @@ script Route1_EventScript_PitEscaped {
 
 script Route1_ImposterOak {
 	lock
-	msgbox("For some reason, this tree in\nparticular feels… off.", MSGBOX_DEFAULT)
-	playmoncry(SPECIES_SUDOWOODO, CRY_MODE_DEFAULT)
-	waitmoncry
+	if(!checkitem(ITEM_WAILMER_PAIL)) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Something about this tree in\nparticular feels... off.", MSGBOX_DEFAULT)
+		playmoncry(SPECIES_SUDOWOODO, CRY_MODE_NORMAL)
+		waitmoncry
+	} else {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Something about this tree in\nparticular feels... off.\pWould you like to WATER it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+			fadeoutbgm(1)
+			removeitem(ITEM_WAILMER_PAIL)
+			additem(ITEM_EMPTY_PAIL)
+			closemessage
+			delay(10)
+			playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+			delay(20)
+			applymovement(LOCALID_PIT_OAK, Common_Movement_FaceUp) // open eyes
+			waitmovement(0)
+			delay(60)
+			applymovement(LOCALID_PIT_OAK, Common_Movement_FaceLeft)
+			delay(10)
+			applymovement(LOCALID_PIT_OAK, Common_Movement_FaceUp)
+			delay(20)
+			applymovement(LOCALID_PIT_OAK, Common_Movement_FaceLeft)
+			delay(10)
+			applymovement(LOCALID_PIT_OAK, Common_Movement_FaceUp)
+			delay(60)
+			textcolor(NPC_TEXT_COLOR_TREE)
+			msgbox("{FONT_SMALL}OAK: Hm?\n"
+			"Whaddya want?\p"
+
+			"Can't a guy get some shut-eye in\n"
+			"peace around here?\p"
+
+			"Bah, to heck with it.\n"
+			"I'm outta here!", MSGBOX_DEFAULT)
+			closemessage
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setflag(FLAG_CELIA_SECRET_PIT)
+			removeobject(LOCALID_PIT_OAK)
+			playse(SE_EXIT)
+			fadeoutbgm(1)
+			waitse
+			fadescreenswapbuffers(FADE_FROM_BLACK)
+			delay(90)
+			addobject(LOCALID_ROUTE1_CELIA)
+			setobjectxy(LOCALID_ROUTE1_CELIA, 9, 24)
+			applymovement(LOCALID_ROUTE1_CELIA, moves(
+
+			))
+			waitmovement(0)
+			playse(SE_LEDGE)
+			applymovement(LOCALID_ROUTE1_CELIA, moves(
+
+			))
+			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			delay(30)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
+			waitmovement(0)
+			msgbox(
+			"Hi, there!\n"
+			"I'm CELIA, the creator!\p"
+
+			"I bet you thought you found a\n"
+			"sneaky way out of the Pit!\l"
+			"Nope - sorry!\p"
+
+			"But if you like to find the sneaky\n"
+			"secrets, how about you try this…", MSGBOX_DEFAULT)
+			setvar(VAR_CSR_CURRENT_CELIA_SECRET, 9)
+			call(CeliaSecrets_CeliaTellsYouNextHint)
+			applymovement(LOCALID_ROUTE1_CELIA, moves(
+
+			))
+			waitmovement(0)
+			playbgm(MUS_ROUTE1, TRUE)
+			
+		}
+	}
 	release
+	end
 }
+
+
+
+
+
+
 
 script Route1_EventScript_LittleBoy {
 	lock
@@ -229,4 +320,12 @@ script Route1_CeliaCrew_Starlight {
 	"STARLIGHT: I tried to modify this\n"
 	"map to escape, but the PIT is too\l"
 	"powerful to leave…", MSGBOX_NPC)
+}
+
+script Route1_CeliaCrew_Chairry {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"CHAIRRY: Please don't piss in my\n"
+	"keys", MSGBOX_SIGN)
+
 }

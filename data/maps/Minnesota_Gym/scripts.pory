@@ -26,6 +26,7 @@ mapscripts Minnesota_Gym_MapScripts {
             setvar(VAR_TEMP_2, 1)
             clearflag(FLAG_TEMP_1)
             setflag(FLAG_TEMP_4)
+            setflag(FLAG_MINNESOTA_GYM_STRENGTH)
             removeobject(LOCALID_PURPLE_RAT)
             msgbox(
             "Wow!\n"
@@ -107,7 +108,7 @@ script MinnesotaGym_BenchClue {
 	"is how crowded it gets.\p"
 
 	"Everyone's hoping to get their\n"
-	"turn using the bench.\p"
+	"turn using the BENCH.\p"
 
 	"Why's there only one setup anyway?", MSGBOX_NPC)
 }

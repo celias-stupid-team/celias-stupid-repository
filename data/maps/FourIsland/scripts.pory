@@ -462,6 +462,37 @@ script FourIsland_DrFootstep {
 		delay(30)
 		fadescreenswapbuffers(FADE_FROM_BLACK)
 		//walk back and forth
+		if(!flag(FLAG_WORLD_MAP_FOUR_ISLAND)) { //Placeholder conditional for no footprint
+			msgbox(
+			"Hrrm…\p"
+
+			"It seems your POKéMON does not\n"
+			"leave any footsteps.\p"
+
+			"As such{PAUSE 30} I cannot ascertain whether\n"
+			"or not it has feet.\p"
+
+			"{PAUSE 30}Please come again.\n"
+			"", MSGBOX_DEFAULT)
+		} elif (checkpartymonslot(SPECIES_TENTACOOL) == 0) {
+			msgbox(
+			"Hrrrm…\p"
+
+			"It seems your POKéMON does not\n"
+			"leave any footsteps.\l"
+			"But…\p"
+
+			"I can hear its heart begging for\n"
+			"the ability to walk.\p"
+
+			"Here, take these.\n"
+			"", MSGBOX_DEFAULT)
+			giveitem_msg("{PLAYER} received a pair\nof RUNNING SHOES!", ITEM_RUNNING_SHOES, 1, MUS_OBTAIN_KEY_ITEM)
+			waitfanfare
+			release
+			end
+
+		}
 		msgbox(
 		"Hmm, yes.\n"
 		"I see.\p"
@@ -491,8 +522,8 @@ script FourIsland_SealCase {
 	famechecker(FAMECHECKER_GREAT_SEA_EAST, 1)
 	if(flag(FLAG_GOT_SEAL_CASE)) {
 		msgbox(
-		"after message\n"
-		"", MSGBOX_DEFAULT)
+		"Alternatively, you can always call\n"
+		"your PALKIA a DICK HEAD!", MSGBOX_DEFAULT)
 		release
 		end
 	} else {
@@ -631,7 +662,7 @@ script FourIsland_AmitySquareLady {
 		"You're a welcome guest!", MSGBOX_DEFAULT)
 		closemessage
 		//movement
-		warp(MAP_FOUR_ISLAND_AMITY_SQUARE, 12, 18)
+		warp(MAP_FOUR_ISLAND_AMITY_SQUARE, 0)
 		release
 		end
 	}
@@ -879,8 +910,18 @@ script FourIsland_TalkingOnPhone {
 
 script FourIsland_MyPokemonRanch {
 	msgbox(
-	"Welcome to MY POKéMON RANCH!\n"
-	"placeholder", MSGBOX_NPC)
+	"Howdy, there!\n"
+	"Welcome to MY POKéMON RANCH!\p"
+
+	"We have a special going on.\n"
+	"If you deposit enough POKéMON,\l"
+	"you'll get a special reward!\p"
+
+	"How many POKéMON do you need to\n"
+	"deposit for the prize?\p"
+
+	"{PAUSE 30}Sixteen thousand.\n"
+	"{PAUSE 45}and twenty.", MSGBOX_NPC)
 }
 
 
@@ -914,5 +955,20 @@ script FourIsland_CoronetSign {
 
 	"A vital part of the FOUR ISLAND\n"
 	"experience", MSGBOX_SIGN)
+
+}
+
+
+script FourIsland_TowerSoil {
+	msgbox(
+	"A notably TOWER-less patch of\n"
+	"ground.", MSGBOX_SIGN)
+
+}
+
+script FourIsland_UglyTrees {
+	msgbox(
+	"The world's ugliest OAK.\n"
+	"", MSGBOX_SIGN)
 
 }

@@ -13,6 +13,7 @@ PokemonLeague_LancesRoom_OnResume::
 
 PokemonLeague_LancesRoom_OnLoad::
 	setflag FLAG_TEMP_6
+	setflag FLAG_SHINY_CREATION
 	call_if_eq VAR_POKEMON_LEAGUE_PHASE, 4, PokemonLeague_LancesRoom_EventScript_CloseEntry
 	call_if_set FLAG_DEFEATED_LANCE, PokemonLeague_LancesRoom_EventScript_SetDoorOpen
 	end
@@ -147,6 +148,7 @@ PokemonLeague_LancesRoom_Movement_LanceMoveOutOfWayRight::
 script PokemonLeague_LancesRoom_EventScript_Lance {
 	lock
 	faceplayer
+	clearflag(FLAG_SHINY_CREATION)
 	playbgm(MUS_ENCOUNTER_MAY, TRUE)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	goto_if_set(FLAG_DEFEATED_LANCE, PokemonLeague_LancesRoom_EventScript_PostBattle)
@@ -163,7 +165,7 @@ script PokemonLeague_LancesRoom_EventScript_Lance {
 script PokemonLeague_LancesRoom_EventScript_DefeatedLance {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	setvar(VAR_0x8004, 0)
-	special(Script_TryGainNewFanFromCounter)
+	//special(Script_TryGainNewFanFromCounter)
 	setflag(FLAG_DEFEATED_LANCE)
 	call(PokemonLeague_EventScript_OpenDoorLance)
 	msgbox(PokemonLeague_LancesRoom_Text_PostBattle)
@@ -182,6 +184,7 @@ script PokemonLeague_LancesRoom_EventScript_DefeatedLance {
 	"me, but I think you should train a\l"
 	"lot harder for the next time.", MSGBOX_DEFAULT)
 	fadenewbgm(MUS_NONE)
+	setflag(FLAG_SHINY_CREATION)
 	closemessage
 	release
 }
@@ -276,6 +279,7 @@ script MayRoom_LassAttack {
 	delay(40)
 	removeobject(LANCE_LASS)
 	addobject(LOCALID_LANCE_FALLENLASS)
+	clearflag(FLAG_TEMP_6)
 	//add fallen lass
 	playse(SE_EFFECTIVE)
 	fadescreeninstant(FADE_FROM_WHITE)

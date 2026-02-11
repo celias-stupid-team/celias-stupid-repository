@@ -119,6 +119,9 @@ script NavelRock_Summit_OnTransition {
 	call_if_set(FLAG_FOUGHT_HO_OH, NavelRock_Summit_EventScript_HideHoOh)
 	call_if_unset(FLAG_FOUGHT_HO_OH, NavelRock_Summit_EventScript_TryShowHoOh)
 	setflag(FLAG_TEMP_1)
+	if(checkmoncaught(SPECIES_PIDGEY)) {
+		clearflag(FLAG_TEMP_1)
+	}
 	setflag(FLAG_CSR_MAP_SKY_TOWER)
 }
 

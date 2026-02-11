@@ -800,7 +800,7 @@ const u16 gEggMoves[] = {
               MOVE_HAZE,
               MOVE_SCREECH,
               MOVE_THUNDER_WAVE,
-              MOVE_ROCK_BLAST),
+              MOVE_BOFFA),
 
     egg_moves(DELIBIRD,
               MOVE_AURORA_BEAM,

@@ -5,10 +5,10 @@ mapscripts Credits_MapScripts {
             lock
             setlayouttiles(LAYOUT_CREDITS_FRAME2, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
-            delay(50)
+            delay(45)
             setlayouttiles(LAYOUT_CREDITS_FRAME3, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
-            delay(45)
+            delay(43)
             setlayouttiles(LAYOUT_CREDITS_FRAME4, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
             delay(20)
@@ -37,6 +37,9 @@ mapscripts Credits_MapScripts {
             applymovement(LOCALID_CREDITS_CELIA, moves(
                 walk_down * 4
                 face_down
+                delay_4
+                delay_2
+                delay_1
                 delay_16 * 6
                 walk_left * 3
                 jump_2_left
@@ -53,7 +56,7 @@ mapscripts Credits_MapScripts {
             ))
             closemessage
             waitmovement(LOCALID_CREDITS_CELIA)
-            delay(60)
+            delay(40)
             applymovement(LOCALID_CREDITS_WIZ, moves(
                 walk_down * 4
                 face_down
@@ -176,7 +179,7 @@ mapscripts Credits_MapScripts {
             applymovement(LOCALID_CREDITS_STARLIGHT, moves(
                 walk_down * 4
                 face_down
-                delay_16 * 6
+                delay_16 * 5
                 walk_left
                 face_left
                 delay_16
@@ -224,21 +227,25 @@ mapscripts Credits_MapScripts {
             ))
             waitmovement(LOCALID_CREDITS_CELIA)
             delay(60)
-            applymovement(LOCALID_CREDITS_CHRIS, moves(
+            applymovement(LOCALID_HAKARI, moves(
                 walk_down * 4
+
                 delay_16 * 6
-                face_left
-                lock_facing_direction
-                walk_right
-                delay_16
-                walk_right
-                delay_16
-                unlock_facing_direction
-                face_up
-                lock_facing_direction
+                walk_right * 2
                 walk_down
-                delay_16
-                unlock_facing_direction
+                face_down
+            ))
+            message(
+            "       Hakari and Blizihguh{PAUSE 30}\n"
+            "       like a bunch of shit")
+
+            waitmovement(LOCALID_HAKARI)
+            delay(30)
+            closemessage
+            delay(20)
+            applymovement(LOCALID_CREDITS_CHRIS, moves(
+                walk_slow_down * 4
+                delay_16 * 6
 
             ))
             delay(30)
@@ -246,6 +253,7 @@ mapscripts Credits_MapScripts {
             "            MasterFoF{PAUSE 30}\n"
             "        Closing the Parade!")
             waitmovement(LOCALID_CREDITS_CHRIS)
+            delay(20)
             closemessage
             applymovement(LOCALID_CREDITS_CHRIS, moves(
                 face_left
@@ -261,34 +269,103 @@ mapscripts Credits_MapScripts {
                 face_up
                 delay_4
                 face_right
-                delay_4
+                delay_2
                 face_down
-                delay_4
+                delay_2
                 face_left
-                delay_4
+                delay_2
                 face_up
-                delay_4
+                delay_2
                 face_right
-                delay_4
+                delay_2
                 jump_in_place_down
 
             ))
             waitmovement(LOCALID_CREDITS_CHRIS)
-            delay(60)
+            delay(40)
             textcolor(NPC_TEXT_COLOR_FEMALE)
             message(
             "Indulge your inner childlike glee!\n"
-            "{PAUSE 30}Unshackle yourself from irony!")
+            "{PAUSE 40}Unshackle yourself from irony!")
             delay(200)
             message(
             "Celia's Stupid Romhack!\n")
-            delay(120)
+            delay(60)
+            applymovement(LOCALID_CREDITS_CHRIS, moves(
+                walk_slow_up * 5
+            ))
+            applymovement(LOCALID_CREDITS_STARLIGHT, moves(
+                delay_16 * 3
+                walk_right
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_STARLIGHT, moves(
+                delay_16 * 3
+                walk_right
+                walk_up * 6
+            ))
+            applymovement(LOCALID_HAKARI, moves(
+                delay_16 * 3
+                walk_left
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_LICHEN_2, moves(
+                delay_16 * 8
+                walk_right
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_RAVE, moves(
+                delay_16 * 8
+                walk_left
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_SWI, moves(
+                delay_16 * 5
+                lock_facing_direction
+                walk_right * 4
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_PLASTO, moves(
+                delay_16 * 5
+                walk_slowest_left
+                walk_fastest_left * 3
+                walk_fastest_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_WIZ, moves(
+                delay_16 * 10
+                walk_left * 4
+                walk_up
+                face_left
+                lock_facing_direction
+                jump_right
+                unlock_facing_direction
+                delay_16 * 3
+                walk_up * 6
+            ))
+            applymovement(LOCALID_CREDITS_CELIA, moves(
+                delay_16 * 10
+                walk_slow_right * 5
+                face_right
+                delay_16 * 2
+                face_up
+                delay_16 * 4
+                walk_slow_down
+                face_down
+                delay_16 * 2
+            ))
+            //Everyone walks up
+            waitmovement(LOCALID_CREDITS_CELIA)
+            delay(5)
             message("Thank you for playing!")
-            delay(120)            
+            delay(153)
+            applymovement(LOCALID_CREDITS_CELIA, moves(
+                walk_slow_up * 5
+            ))
+            delay(30)
             fadescreenspeed(FADE_TO_BLACK, 10) //Make this fade music too
             fadenewbgm(MUS_NONE)
             //goto title screen
-            delay(120)
+            delay(90)
             special(DoSoftReset)
 
         }

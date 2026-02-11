@@ -1183,3 +1183,36 @@ const struct Tileset gTileset_FinalBossCutscene =
     .metatileAttributes = gMetatileAttributes_FinalBossCutscene,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Yugioh =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Yugioh,
+    .palettes = gTilesetPalettes_Yugioh,
+    .metatiles = gMetatiles_Yugioh,
+    .metatileAttributes = gMetatileAttributes_Yugioh,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_SilphCo2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SilphCo2,
+    .palettes = gTilesetPalettes_SilphCo2,
+    .metatiles = gMetatiles_SilphCo2,
+    .metatileAttributes = gMetatileAttributes_SilphCo2,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_DMCAErika =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_DMCAErika,
+    .palettes = gTilesetPalettes_DMCAErika,
+    .metatiles = gMetatiles_DMCAErika,
+    .metatileAttributes = gMetatileAttributes_DMCAErika,
+    .callback = NULL,
+};

@@ -204,6 +204,7 @@ script ThirtyEightIsland_MommyMilkers {
         setflag(FLAG_GOT_CREAM_DROP)
 		release
     }
+	release
 }
 
 script ThirtyEightIsland_Miltank {
@@ -345,7 +346,7 @@ script ThirtyEightIsland_Saltcureberry {
 	playfanfare(MUS_LEVEL_UP)
 	msgbox(
 	"{PLAYER} found\n"
-	"SALTCURBERRY", MSGBOX_DEFAULT)
+	"SALTCURBERRY!", MSGBOX_DEFAULT)
 	waitfanfare
 	additem(ITEM_RAZZ_BERRY)
 	release
@@ -356,7 +357,7 @@ script ThirtyEightIsland_otherberry {
 	playfanfare(MUS_LEVEL_UP)
 	msgbox(
 	"{PLAYER} found\n"
-	"SALTCURECUREBERRY", MSGBOX_DEFAULT)
+	"SALTCURECUREBERRY!", MSGBOX_DEFAULT)
 	waitfanfare
 	additem(ITEM_BLUK_BERRY)
 	release
@@ -603,16 +604,12 @@ script ThirtyEightIsland_TalkingOnPhone {
 script ThirtyEightIsland_CalmHoothoot {
 	lock
 	msgbox(
-	"HOOTHOOT: Hoo?\n"
+	"A superb owl sits in the tree.\n"
 	"", MSGBOX_DEFAULT)
 	showmonpic(SPECIES_HOOTHOOT, 10, 3)
 	waitbuttonpress
 	hidemonpic
 	closemessage
-	delay(30)
-	msgbox(
-	"HOOTHOOT's SP. ATK and SP. DEF\n"
-	"rose!", MSGBOX_DEFAULT)
 	release
 }
 
@@ -636,11 +633,11 @@ script ThirtyEightIsland_HoothootWoman {
 script ThirtyEightIsland_GoldenRodPointer {
 	msgbox(
 	"I hear they're building a fancy\n"
-	"TRAIN STATION in SAFFRON CITY.\l"
-	"I hear it'll connect us together.\p"
+	"TRAIN STATION in SAFFRON CITY.\p"
+	""
 
-	"(stinger)\n"
-	"", MSGBOX_NPC)
+	"I'm not sure how they plan to make\n"
+	"a TRAIN cross the water, but hey!", MSGBOX_NPC)
 }
 
 
@@ -674,8 +671,8 @@ script ThirtyEightIsland_CenterSign {
 
 script ThirtyEightIsland_FarmSign {
 	msgbox(
-	"Thirty Eight farm sign\n"
-	"", MSGBOX_SIGN)
+	"MOOMOO FARM\n"
+	"Enjoy our fresh, tasty something!", MSGBOX_SIGN)
 
 }
 
@@ -688,7 +685,9 @@ script ThirtyEightIsland_NorthDad {
 	"DAD: {PLAYER}!\n"
 	"What are you doing out here?\p"
 
-	"dad text\p"
+	"Say, aren't we right next to our\n"
+	"home in PALLET TOWN?\l"
+	"What a journey you've had!\p"
 
 	"Well, never mind that.\n"
 	"How about you take a rest?", MSGBOX_DEFAULT)

@@ -1053,6 +1053,11 @@ SECTIONS {
         sound/songs/midi/mus_dragon_ball.o(.rodata);
         sound/songs/midi/mus_mus_vs_rival.o(.rodata);
         sound/songs/midi/mus_trumpets.o(.rodata);
+        sound/songs/midi/mus_mus_vs_regi.o(.rodata);
+        sound/songs/midi/mus_tunnel.o(.rodata);
+        sound/songs/midi/mus_pisces_gym.o(.rodata);
+        sound/songs/midi/mus_kenya.o(.rodata);
+        sound/songs/midi/mus_alola_route2.o(.rodata);
 
     } > ROM =0
 

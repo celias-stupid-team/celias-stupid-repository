@@ -41,6 +41,7 @@ static void AnimRapidSpin(struct Sprite *);
 static void AnimRapidSpin_Step(struct Sprite *);
 static void RapinSpinMonElevation_Step(u8);
 static void TormentAttacker_Step(u8);
+static void WindowWarningAttacker_Step(u8);
 static void TormentAttacker_Callback(struct Sprite *);
 static void AnimWishStar(struct Sprite *);
 static void AnimWishStar_Step(struct Sprite *);
@@ -109,6 +110,8 @@ static void AnimAssistPawprint(struct Sprite *);
 static void AnimMeteorMashStar(struct Sprite *);
 static void AnimUnusedItemBagSteal(struct Sprite *);
 static void AnimKnockOffStrike(struct Sprite *);
+static void AnimTask_Glitch_Step(u8 taskId);
+static u8 CreateGlitchQuadrantSprite(u8 battlerSpriteId, s16 x, s16 y, u8 subpriority, u16 tileOffset);
 
 static const union AnimCmd sScratchAnimCmds[] =
 {
@@ -1977,6 +1980,125 @@ static void TormentAttacker_Step(u8 taskId)
     }
 }
 
+void AnimTask_WindowWarningAttacker(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[0] = 0;
+    task->data[1] = 0;
+    task->data[2] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[3] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[4] = 32;
+    task->data[5] = -20;
+    task->data[6] = 0;
+    task->data[15] = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    task->func = WindowWarningAttacker_Step;
+}
+
+static void WindowWarningAttacker_Step(u8 taskId)
+{
+    int var0, var1;
+    s16 x, y;
+    u16 i, j;
+    u8 spriteId;
+    struct Task *task = &gTasks[taskId];
+
+    switch (task->data[0])
+    {
+    case 0:
+        var0 = task->data[2];
+        if (task->data[1] & 1)
+        {
+            var1 = task->data[4];
+            x = var0 - var1;
+        }
+        else
+        {
+            var1 = task->data[4];
+            x = var0 + var1;
+        }
+
+        y = task->data[3] + task->data[5];
+
+        spriteId = CreateSprite(&gWindowWarningSpriteTemplate, x, y, 6 - task->data[1]);
+        PlaySE12WithPanning(SE_M_METRONOME, BattleAnimAdjustPanning(SOUND_PAN_ATTACKER));
+
+        if (spriteId != MAX_SPRITES)
+        {
+            gSprites[spriteId].hFlip = FALSE;
+            gSprites[spriteId].callback = SpriteCallbackDummy;
+        }
+
+        if (task->data[1] & 1)
+        {
+            task->data[4] -= 6;
+            task->data[5] -= 6;
+        }
+
+        PrepareAffineAnimInTaskData(task, task->data[15], sAffineAnims_Torment);
+        task->data[1]++;
+        task->data[0] = 1;
+        break;
+
+    case 1:
+        if (!RunAffineAnimFromTaskData(task))
+        {
+            if (task->data[1] == 6)
+            {
+                task->data[6] = 8;
+                task->data[0] = 3;
+            }
+            else
+            {
+                if (task->data[1] <= 2)
+                    task->data[6] = 10;
+                else
+                    task->data[6] = 0;
+
+                task->data[0] = 2;
+            }
+        }
+        break;
+
+    case 2:
+        if (task->data[6] != 0)
+            task->data[6]--;
+        else
+            task->data[0] = 0;
+        break;
+
+    case 3:
+        if (task->data[6] != 0)
+            task->data[6]--;
+        else
+            task->data[0] = 4;
+        break;
+
+    case 4:
+        for (i = 0, j = 0; i < MAX_SPRITES; i++)
+        {
+            if (gSprites[i].template == &gWindowWarningSpriteTemplate)
+            {
+                gSprites[i].data[0] = taskId;
+                gSprites[i].data[1] = 6;
+                StartSpriteAnim(&gSprites[i], 2);
+                gSprites[i].callback = TormentAttacker_Callback;
+                if (++j == 6)
+                    break;
+            }
+        }
+
+        task->data[6] = j;
+        task->data[0] = 5;
+        break;
+
+    case 5:
+        if (task->data[6] == 0)
+            DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
 static void TormentAttacker_Callback(struct Sprite *sprite)
 {
     if (sprite->animEnded)
@@ -1985,6 +2107,143 @@ static void TormentAttacker_Callback(struct Sprite *sprite)
         DestroySprite(sprite);
     }
 }
+
+//=====DISCLAIMER: The following code is written by generative AI===========
+static const struct SpriteTemplate sGlitchQuadrantSpriteTemplate =
+{
+    .tileTag = TAG_NONE,
+    .paletteTag = TAG_NONE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+static u8 CreateGlitchQuadrantSprite(u8 battlerSpriteId, s16 x, s16 y, u8 subpriority, u16 tileOffset)
+{
+    u8 id = CreateSprite(&sGlitchQuadrantSpriteTemplate, x, y, subpriority);
+    if (id != MAX_SPRITES)
+    {
+        struct Sprite *src = &gSprites[battlerSpriteId];
+        struct Sprite *dst = &gSprites[id];
+
+        dst->oam.paletteNum = src->oam.paletteNum;
+        dst->oam.priority   = src->oam.priority;
+        dst->subpriority    = subpriority;
+
+        dst->oam.tileNum = src->oam.tileNum + tileOffset;
+    }
+    return id;
+}
+
+void AnimTask_Glitch(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 battlerSpriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
+    struct Sprite *battlerSprite = &gSprites[battlerSpriteId];
+
+    task->data[0] = battlerSpriteId;
+
+    task->data[1] = (gBattleAnimArgs[0] != 0) ? gBattleAnimArgs[0] : 20;
+
+    //Store original visibility and hide battler sprite
+    task->data[2] = battlerSprite->invisible;
+    battlerSprite->invisible = TRUE;
+
+    {
+        s16 cx = battlerSprite->x + battlerSprite->x2;
+        s16 cy = battlerSprite->y + battlerSprite->y2;
+
+        s16 tlx = cx - 16, tly = cy - 16;
+        s16 trx = cx + 16, try_ = cy - 16;
+        s16 blx = cx - 16, bly = cy + 16;
+        s16 brx = cx + 16, bry = cy + 16;
+
+        const u16 TL = 0;
+        const u16 TR = 4;
+        const u16 BL = 32;
+        const u16 BR = 36;
+
+        u8 sub = battlerSprite->subpriority;
+
+        task->data[3] = CreateGlitchQuadrantSprite(battlerSpriteId, tlx, tly, sub, TR);
+        task->data[4] = CreateGlitchQuadrantSprite(battlerSpriteId, trx, try_, sub, BR);
+        task->data[5] = CreateGlitchQuadrantSprite(battlerSpriteId, brx, bry, sub, BL);
+        task->data[6] = CreateGlitchQuadrantSprite(battlerSpriteId, blx, bly, sub, TL);
+    }
+
+    task->func = AnimTask_Glitch_Step;
+}
+
+static void AnimTask_Glitch_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 battlerSpriteId = (u8)task->data[0];
+
+    u8 sTL = task->data[3];
+    u8 sTR = task->data[4];
+    u8 sBR = task->data[5];
+    u8 sBL = task->data[6];
+
+    //If any sprite failed to create, restore immediately.
+    if (sTL == MAX_SPRITES || sTR == MAX_SPRITES || sBR == MAX_SPRITES || sBL == MAX_SPRITES)
+    {
+        if (sTL != MAX_SPRITES) DestroySprite(&gSprites[sTL]);
+        if (sTR != MAX_SPRITES) DestroySprite(&gSprites[sTR]);
+        if (sBR != MAX_SPRITES) DestroySprite(&gSprites[sBR]);
+        if (sBL != MAX_SPRITES) DestroySprite(&gSprites[sBL]);
+
+        gSprites[battlerSpriteId].invisible = (bool8)task->data[2];
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    //Glitchy shake
+    if ((task->data[10]++ & 1) == 0)
+    {
+        #define RAND_OFF() ((s16)((Random() & 7) - 3))
+
+        s16 tlx = RAND_OFF(), tly = RAND_OFF();
+        s16 trx = RAND_OFF(), try_ = RAND_OFF();
+        s16 brx = RAND_OFF(), bry = RAND_OFF();
+        s16 blx = RAND_OFF(), bly = RAND_OFF();
+
+        if (tlx > 3) tlx = 3; if (tlx < -3) tlx = -3;
+        if (tly > 3) tly = 3; if (tly < -3) tly = -3;
+        if (trx > 3) trx = 3; if (trx < -3) trx = -3;
+        if (try_ > 3) try_ = 3; if (try_ < -3) try_ = -3;
+        if (brx > 3) brx = 3; if (brx < -3) brx = -3;
+        if (bry > 3) bry = 3; if (bry < -3) bry = -3;
+        if (blx > 3) blx = 3; if (blx < -3) blx = -3;
+        if (bly > 3) bly = 3; if (bly < -3) bly = -3;
+
+        gSprites[sTL].x2 = tlx; gSprites[sTL].y2 = tly;
+        gSprites[sTR].x2 = trx; gSprites[sTR].y2 = try_;
+        gSprites[sBR].x2 = brx; gSprites[sBR].y2 = bry;
+        gSprites[sBL].x2 = blx; gSprites[sBL].y2 = bly;
+
+        #undef RAND_OFF
+    }
+
+    if (--task->data[1] > 0)
+        return;
+
+    gSprites[sTL].x2 = 0; gSprites[sTL].y2 = 0;
+    gSprites[sTR].x2 = 0; gSprites[sTR].y2 = 0;
+    gSprites[sBR].x2 = 0; gSprites[sBR].y2 = 0;
+    gSprites[sBL].x2 = 0; gSprites[sBL].y2 = 0;
+
+    DestroySprite(&gSprites[sTL]);
+    DestroySprite(&gSprites[sTR]);
+    DestroySprite(&gSprites[sBR]);
+    DestroySprite(&gSprites[sBL]);
+
+    gSprites[battlerSpriteId].invisible = (bool8)task->data[2];
+
+    DestroyAnimVisualTask(taskId);
+}
+//========End of generative AI-written code===========
 
 static void AnimTriAttackTriangle(struct Sprite *sprite)
 {
@@ -5079,6 +5338,235 @@ void AnimTask_SnatchOpposingMonMove(u8 taskId)
 
         gTasks[taskId].data[0]++;
         break;
+    case 4:
+        spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+        gTasks[taskId].data[1] += 0x800;
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+        {
+            gSprites[spriteId].x2 += (gTasks[taskId].data[1] >> 8);
+            if (gSprites[spriteId].x2 + gSprites[spriteId].x >= GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X))
+                gSprites[spriteId].x2 = 0;
+        }
+        else
+        {
+            gSprites[spriteId].x2 -= (gTasks[taskId].data[1] >> 8);
+            if (gSprites[spriteId].x2 + gSprites[spriteId].x <= GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X))
+                gSprites[spriteId].x2 = 0;
+        }
+
+        gTasks[taskId].data[1] = (u8)gTasks[taskId].data[1];
+        if (gSprites[spriteId].x2 == 0)
+            DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+// Makes the mon run out of screen, run past the opposing mon with a duplicate, and return to its original position.
+// No args.
+#define TRAIL_SPACING 40
+void AnimTask_DoubleDad(u8 taskId)
+{
+    u8 spriteId, spriteId2;
+    u32 personality;
+    u32 otId;
+    u16 species;
+    u8 subpriority;
+    bool8 isBackPic;
+    s16 x;
+
+    switch (gTasks[taskId].data[0])
+    {
+    case 0:
+        spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+        gTasks[taskId].data[1] += 0x800;
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+            gSprites[spriteId].x2 += (gTasks[taskId].data[1] >> 8);
+        else
+            gSprites[spriteId].x2 -= (gTasks[taskId].data[1] >> 8);
+
+        gTasks[taskId].data[1] &= 0xFF;
+        x = gSprites[spriteId].x + gSprites[spriteId].x2;
+        if (x < -32 || x > DISPLAY_WIDTH + 32)
+        {
+            gTasks[taskId].data[1] = 0;
+            gTasks[taskId].data[0]++;
+        }
+        break;
+
+    case 1:
+        {
+            s16 xSpawn;
+            s16 xSpawnTrail;
+            s16 ySpawn;
+            u8 spriteIdTrail;
+            u8 subpriorityTrail;
+
+            if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+            {
+                personality = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_PERSONALITY);
+                otId = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_OT_ID);
+                if (gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies == SPECIES_NONE)
+                    species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_SPECIES);
+                else
+                    species = gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies;
+
+                subpriority = gSprites[GetAnimBattlerSpriteId(ANIM_TARGET)].subpriority + 1;
+                isBackPic = FALSE;
+
+                // Spawn on right edge, then move LEFT in state 2.
+                xSpawn = DISPLAY_WIDTH + 32;
+                xSpawnTrail = xSpawn + TRAIL_SPACING; // "behind" while moving left
+            }
+            else
+            {
+                personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_PERSONALITY);
+                otId = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_OT_ID);
+                if (gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies == SPECIES_NONE)
+                    species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_SPECIES);
+                else
+                    species = gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies;
+
+                subpriority = gSprites[GetAnimBattlerSpriteId(ANIM_TARGET)].subpriority - 1;
+                isBackPic = TRUE;
+
+                xSpawn = -32;
+                xSpawnTrail = xSpawn - TRAIL_SPACING;
+            }
+
+            ySpawn = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+
+            subpriorityTrail = subpriority;
+            if (subpriorityTrail > 0)
+                subpriorityTrail--;
+
+            spriteId2 = CreateAdditionalMonSpriteForMoveAnim(
+                species, isBackPic, 0,
+                xSpawn, ySpawn,
+                subpriority,
+                personality, otId,
+                gBattleAnimAttacker, 0);
+
+            spriteIdTrail = CreateAdditionalMonSpriteForMoveAnim(
+                species, isBackPic, 0,
+                xSpawnTrail, ySpawn,
+                subpriorityTrail,
+                personality, otId,
+                gBattleAnimAttacker, 0);
+                
+            if (spriteId2 == MAX_SPRITES)
+                spriteId2 = MAX_SPRITES;
+            if (spriteIdTrail == MAX_SPRITES)
+                spriteIdTrail = MAX_SPRITES;
+
+            if (gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies != SPECIES_NONE)
+            {
+                if (spriteId2 != MAX_SPRITES)
+                    BlendPalette(OBJ_PLTT_ID(gSprites[spriteId2].oam.paletteNum), 16, 6, RGB_WHITE);
+                if (spriteIdTrail != MAX_SPRITES)
+                    BlendPalette(OBJ_PLTT_ID(gSprites[spriteIdTrail].oam.paletteNum), 16, 6, RGB_WHITE);
+            }
+
+            gTasks[taskId].data[15] = spriteId2;
+            gTasks[taskId].data[13] = spriteIdTrail;
+            gTasks[taskId].data[0]++;
+            break;
+        }
+
+    case 2:
+        {
+            u8 spriteIdLead = gTasks[taskId].data[15];
+            u8 spriteIdTrail = gTasks[taskId].data[13];
+            s16 step;
+            s16 xLead = 0;
+            s16 xTrail = 0;
+            bool8 leadOff = TRUE;
+            bool8 trailOff = TRUE;
+
+            gTasks[taskId].data[1] += 0x800;
+            step = (gTasks[taskId].data[1] >> 8);
+
+            if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+            {
+                if (spriteIdLead != MAX_SPRITES)
+                    gSprites[spriteIdLead].x2 -= step;
+                if (spriteIdTrail != MAX_SPRITES)
+                    gSprites[spriteIdTrail].x2 -= step;
+            }
+            else
+            {
+                if (spriteIdLead != MAX_SPRITES)
+                    gSprites[spriteIdLead].x2 += step;
+                if (spriteIdTrail != MAX_SPRITES)
+                    gSprites[spriteIdTrail].x2 += step;
+            }
+
+            gTasks[taskId].data[1] &= 0xFF;
+
+            if (spriteIdLead != MAX_SPRITES)
+                xLead = gSprites[spriteIdLead].x + gSprites[spriteIdLead].x2;
+
+            if (gTasks[taskId].data[14] == 0 && spriteIdLead != MAX_SPRITES)
+            {
+                if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+                {
+                    if (xLead < GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X))
+                    {
+                        gTasks[taskId].data[14]++;
+                        gBattleAnimArgs[7] = 0xFFFF;
+                    }
+                }
+                else
+                {
+                    if (xLead > GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X))
+                    {
+                        gTasks[taskId].data[14]++;
+                        gBattleAnimArgs[7] = 0xFFFF;
+                    }
+                }
+            }
+
+            if (spriteIdLead != MAX_SPRITES)
+            {
+                leadOff = FALSE;
+                if (xLead < -32 || xLead > DISPLAY_WIDTH + 32)
+                    leadOff = TRUE;
+            }
+
+            if (spriteIdTrail != MAX_SPRITES)
+            {
+                xTrail = gSprites[spriteIdTrail].x + gSprites[spriteIdTrail].x2;
+                trailOff = FALSE;
+                if (xTrail < -32 || xTrail > DISPLAY_WIDTH + 32)
+                    trailOff = TRUE;
+            }
+
+            if (leadOff && trailOff)
+            {
+                gTasks[taskId].data[1] = 0;
+                gTasks[taskId].data[0]++;
+            }
+        }
+        break;
+
+    case 3:
+        spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+        
+        spriteId2 = gTasks[taskId].data[15];
+        if (spriteId2 != MAX_SPRITES)
+            DestroySpriteAndFreeResources_(&gSprites[spriteId2]);
+
+        spriteId2 = gTasks[taskId].data[13];
+        if (spriteId2 != MAX_SPRITES)
+            DestroySpriteAndFreeResources_(&gSprites[spriteId2]);
+        
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+            gSprites[spriteId].x2 = -gSprites[spriteId].x - 32;
+        else
+            gSprites[spriteId].x2 = DISPLAY_WIDTH + 32 - gSprites[spriteId].x;
+
+        gTasks[taskId].data[0]++;
+        break;
+
     case 4:
         spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
         gTasks[taskId].data[1] += 0x800;

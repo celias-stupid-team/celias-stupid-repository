@@ -977,7 +977,7 @@ static const bool8 sMultiBattlePartnersPartyMask[PARTY_SIZE + 2] =
 static const u16 sTMHMMoves_Duplicate[] =
 {
     MOVE_WHIRLWIND,
-    MOVE_CSR_DUMMY,
+    MOVE_AURORA_BEAM,
     MOVE_SECRET_POWER,
     MOVE_FOURSIGHT,
     MOVE_MEAN_LOOK,
@@ -1010,7 +1010,7 @@ static const u16 sTMHMMoves_Duplicate[] =
     MOVE_BRICK_BREAK,
     MOVE_WAKE_UP_SLAP,
     MOVE_BIDE,
-    MOVE_CSR_DUMMY,
+    MOVE_HYDRO_PUMP,
     MOVE_RAZOR_WIND,
     MOVE_KNOCK_OFF,
     MOVE_U_TURN,
@@ -1222,7 +1222,7 @@ static const u8 *const sUnionRoomTradeMessages[] =
 static const u16 sTMHMMoves[] =
 {
     MOVE_WHIRLWIND,
-    MOVE_CSR_DUMMY,
+    MOVE_AURORA_BEAM,
     MOVE_SECRET_POWER,
     MOVE_FOURSIGHT,
     MOVE_MEAN_LOOK,
@@ -1255,7 +1255,7 @@ static const u16 sTMHMMoves[] =
     MOVE_BRICK_BREAK,
     MOVE_WAKE_UP_SLAP,
     MOVE_BIDE,
-    MOVE_CSR_DUMMY,
+    MOVE_HYDRO_PUMP,
     MOVE_RAZOR_WIND,
     MOVE_KNOCK_OFF,
     MOVE_U_TURN,
