@@ -895,6 +895,8 @@ gBattleAnims_General::
 	.4byte General_ShadowSky    			@ B_ANIM_SHADOW_SKY_CONTINUES
 	.4byte General_ShadowSpikes 			@ B_ANIM_SHADOW_SPIKES
 	.4byte General_ZapmolcunoTransform      @ B_ANIM_ZAPMOLCUNO_TRANSFORM
+	.4byte General_RotomAppears      @ B_ANIM_ROTOM_APPEARS
+	.4byte General_RotomComesDown      @ B_ANIM_ROTOM_COMES_DOWN
 
 	.align 2
 gBattleAnims_Special::
@@ -11308,7 +11310,29 @@ General_Sandstorm:
 	goto Move_SANDSTORM
 
 General_ShadowSky:
-	goto Move_SANDSTORM @ wiz1989, needs a new anim
+	loadspritegfx ANIM_TAG_FLYING_DIRT
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_FLYING_DIRT, 0, 6, 6, RGB(15, 0, 21)
+	createvisualtask AnimTask_LoadSandstormBackground, 5, TRUE
+	createvisualtask AnimTask_BlendBackground, 6, 6, RGB(15, 0, 21)
+	panse SE_M_HEAT_WAVE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	delay 4
+	createvisualtask AnimTask_MoveHeatWaveTargets, 5
+	delay 12
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 90, 2048, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 50, 2560, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 20, 2304, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 70, 1984, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 0, 2816, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 60, 2560, 96, 1
+	end
+
 
 General_ShadowSpikes:
 	goto Move_SPIKES
@@ -17524,6 +17548,12 @@ Move_CLICK_HERE:
 	waitforvisualfinish
 	end
 
+
+General_RotomAppears:
+	goto Move_LOVELY_KISS
+General_RotomComesDown:
+	goto Move_LOVELY_KISS
+	
 Move_ONEISHMENT:
 	loadspritegfx ANIM_TAG_FLYING_DIRT
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_FLYING_DIRT, 0, 6, 6, RGB(15, 0, 21)
@@ -17729,3 +17759,4 @@ Move_CUTE:
 	end
 Move_SHADOW_SHIELD:
 	goto Move_PROTECT
+

@@ -55,8 +55,8 @@ enum
 
 #define RGB256(r, g, b)                         ((u16)((((r) & 0xF8) >> 3) | (((g) & 0xF8) << 2) | (((b) & 0xF8) << 7)))
 
-#define B_HEALTHBAR_COLOR_LUGIA_MAIN            RGB256(108, 29, 111)
-#define B_HEALTHBAR_COLOR_LUGIA_SHADOW          RGB256(90, 20, 75)
+#define B_HEALTHBAR_COLOR_LUGIA_MAIN            RGB256(215, 115, 255)
+#define B_HEALTHBAR_COLOR_LUGIA_SHADOW          RGB256(169, 90, 214)
 #define B_HEALTHBAR_COLOR_LUGIA_EMPTY_MAIN      RGB(14, 25, 31)
 #define B_HEALTHBAR_COLOR_LUGIA_EMPTY_SHADOW    RGB(10, 18, 22)
 #define B_HEALTHBAR_COLOR_ARTICUNO_MAIN         B_HEALTHBAR_COLOR_LUGIA_EMPTY_MAIN

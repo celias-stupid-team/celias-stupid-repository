@@ -11596,12 +11596,25 @@ void BS_FadeNewBgm(void)
 {
     NATIVE_ARGS(u16 music);
 
-    FadeOutMapMusic(5);
+    //FadeOutMapMusic(1);
+    //PlayBGM(cmd->music);
+    FadeOutAndPlayNewMapMusic(cmd->music, 8);
+    // Overworld_ChangeMusicTo(cmd->music);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_PlayNewBgm(void)
+{
+    NATIVE_ARGS(u16 music);
+
+    //FadeOutMapMusic(1);
     PlayBGM(cmd->music);
     // Overworld_ChangeMusicTo(cmd->music);
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
 
 void BS_StopBattleBgm(void)
 {

@@ -1666,6 +1666,11 @@
 	.2byte \music
 	.endm
 
+	.macro playnewbgm music:req
+	callnative BS_PlayNewBgm
+	.2byte \music
+	.endm
+
 	.macro stopbattlebgm
 	callnative BS_StopBattleBgm
 	.endm
