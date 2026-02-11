@@ -17320,41 +17320,71 @@ PowerWhipContinue:
 
 
 Move_RAINBOW_BEAM:
+	loadspritegfx ANIM_TAG_RAINBOW_ORB
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_WATER_IMPACT
 
-	loadspritegfx ANIM_TAG_GLOWY_RED_ORB
-	loadspritegfx ANIM_TAG_GLOWY_GREEN_ORB
-	loadspritegfx ANIM_TAG_DUCK
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 25, 1
-	delay 6
-	panse SE_M_BUBBLE_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +1, 0
-	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 25, 1
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_TARGET, 8, 5, RGB_RED, 8, RGB(1, 30, 0), 8
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
-	call SignalBeamOrbs
+	loadspritegfx ANIM_TAG_GREEN_STAR
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	createvisualtask AnimTask_MorningSunLightBeam, 5
+	delay 22
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
+	call MorningSunStar
 	waitforvisualfinish
+
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call RainbowBeams
+	call RainbowBeams
+	call RainbowBeams
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call HydroPumpHitSplats
+	call RainbowBeams
+	call RainbowBeams
+	call HydroPumpHitSplats
+	call RainbowBeams
+	call RainbowBeams
+	call HydroPumpHitSplats
+	call RainbowBeams
+	call RainbowBeams
+	call HydroPumpHitSplats
+	call RainbowBeams
+	call RainbowBeams
+	call HydroPumpHitSplats
+	delay 1
+	delay 1
+	call HydroPumpHitSplats
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
 	end
+	
+	
+RainbowBeams:
+	createsprite gRainbowBeamSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 16
+	createsprite gRainbowBeamSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -16
+	delay 1
+	createsprite gRainbowBeamSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 16
+	createsprite gRainbowBeamSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -16
+	delay 1
+	return
 
 Move_TRIPLE_WINGBEAT:
 	loadspritegfx ANIM_TAG_IMPACT

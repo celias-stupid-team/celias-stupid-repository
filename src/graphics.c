@@ -495,6 +495,9 @@ const u32 gBattleAnimSpritePal_Orbs[] = INCBIN_U32("graphics/battle_anims/sprite
 
 const u32 gBattleAnimSpriteGfx_WaterOrb[] = INCBIN_U32("graphics/battle_anims/sprites/water_orb.4bpp.lz");
 
+const u32 gBattleAnimSpriteGfx_RainbowOrb[] = INCBIN_U32("graphics/battle_anims/sprites/rainbow_orb.4bpp.lz");
+const u32 gBattleAnimSpritePal_RainbowOrb[] = INCBIN_U32("graphics/battle_anims/sprites/rainbow_orb.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_WaterImpact[] = INCBIN_U32("graphics/battle_anims/sprites/water_impact.4bpp.lz");
 const u32 gBattleAnimSpritePal_WaterImpact[] = INCBIN_U32("graphics/battle_anims/sprites/water_impact.gbapal.lz");
 
