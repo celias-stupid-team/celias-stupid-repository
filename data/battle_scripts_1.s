@@ -5327,7 +5327,6 @@ BattleScript_TrainerSlideAfterDefeat::
 	printstring STRINGID_DUMMY288
 	trytrainerslidemsgdefeatfinalbattle
 	printstring STRINGID_DUMMY288
-	pause B_WAIT_TIME_LONG
 	goto BattleScript_RunRotomAnimation
 
 BattleScript_RunRotomAnimation::
@@ -5342,9 +5341,9 @@ BattleScript_RunRotomAnimation::
 	pause B_WAIT_TIME_LONGEST
 	playanimation BS_BATTLER_0, B_ANIM_ROTOM_APPEARS
 	waitanimation
-	pause B_WAIT_TIME_LONGEST
+	pause B_WAIT_TIME_LONG
 	printstring STRINGID_RUNROTOMANIMATION2
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_LONGEST
 	playanimation BS_BATTLER_0, B_ANIM_ROTOM_COMES_DOWN
 	waitanimation
 	fadescreen FADE_TO_WHITE
@@ -5357,6 +5356,5 @@ BattleScript_RunRotomAnimation::
 	fadescreen FADE_FROM_WHITE
 	waitforfade
 	printstring STRINGID_RUNROTOMANIMATION3
-	waitmessage B_WAIT_TIME_LONGEST
 	playnewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue
