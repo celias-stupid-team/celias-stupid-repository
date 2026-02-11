@@ -6,6 +6,7 @@
 #include "task.h"
 #include "trig.h"
 #include "constants/battle_anim.h"
+#include "blend_palette.h"
 
 struct HailStruct
 {
@@ -1011,6 +1012,7 @@ static void AnimTask_HazeScrollingFog_Step(u8 taskId)
         break;
     }
 }
+
 
 // Throws the ball in Mist Ball.
 // arg 0: initial x pixel offset
