@@ -25,8 +25,8 @@ script IndigoPlateau_CharmanderGrowl {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox(
 	"A small girl is in the way.\p"
-	"It looks like she's afraid of\n"
-	"dragons and dragon-adjacent creatures.", MSGBOX_DEFAULT)
+	"It looks like she's afraid of dragons\n"
+	"and dragon-adjacent creatures.", MSGBOX_DEFAULT)
     if(checkpartymove(MOVE_GROWL_CHARMANDER) != PARTY_SIZE) {
         msgbox(
         "Would you like to scare her away\n"
