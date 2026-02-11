@@ -8722,6 +8722,7 @@ extern const u32 gBattleAnimSpriteGfx_Taxes[];
 extern const u32 gBattleAnimSpriteGfx_Money[];
 extern const u32 gBattleAnimSpriteGfx_Ketchup[];
 extern const u32 gBattleAnimSpriteGfx_CoinSmall[];
+extern const u32 gBattleAnimSpriteGfx_WeedSmall[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9006,6 +9007,7 @@ extern const u32 gBattleAnimSpritePal_Taxes[];
 extern const u32 gBattleAnimSpritePal_Money[];
 extern const u32 gBattleAnimSpritePal_Ketchup[];
 extern const u32 gBattleAnimSpritePal_CoinSmall[];
+extern const u32 gBattleAnimSpritePal_WeedSmall[];
 
 //CSR Moves
 

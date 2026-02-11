@@ -9513,42 +9513,37 @@ Move_SUBSTITUTE:
 	end
 
 Move_GRASS_PLEDGE:
-	loadspritegfx ANIM_TAG_GUST
-	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_LEAF
-	loadspritegfx ANIM_TAG_CROSS_IMPACT
-	monbg ANIM_DEF_PARTNER
-	splitbgprio ANIM_TARGET
-	setalpha 12, 8
-	playsewithpan SE_M_GUST, SOUND_PAN_TARGET
-	createsprite gEllipticalGustSpriteTemplate, ANIM_ATTACKER, 2, 0, -16
-	createvisualtask AnimTask_AnimateGustTornadoPalette, 5, 1, 120
-	createvisualtask AnimTask_LeafBlade, 5
-	waitforvisualfinish
-	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 7, 1
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	playsewithpan SE_M_GUST2, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
-	blendoff
-	end
-
-
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 8, 1
-	playsewithpan SE_M_CUT, SOUND_PAN_TARGET
-	delay 50
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 8, 1
-	playsewithpan SE_M_CUT, SOUND_PAN_TARGET
-	delay 50
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 8, 1
-	playsewithpan SE_M_CUT, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_WEED_SMALL
+	loadspritegfx ANIM_TAG_MIST_CLOUD
+	createsprite gGrassPledgeSpriteTemplate, ANIM_TARGET, 2, 0, -5, 10, 2, -1
+	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
+	delay 14
+	playsewithpan SE_M_BUBBLE2, SOUND_PAN_ATTACKER
+	delay 14
+	playsewithpan SE_M_BUBBLE2, 0
+	delay 20
+	playsewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET
 	waitforvisualfinish
 	monbg ANIM_TARGET
 	setalpha 12, 8
-	delay 12
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 8, 0, 18, 1
-	createsprite gCrossImpactSpriteTemplate, ANIM_TARGET, 2, 0, 0, 1, 36
-	playsewithpan SE_M_LEER, SOUND_PAN_TARGET
+	loopsewithpan SE_M_MIST, SOUND_PAN_TARGET, 20, 15
+	
+	createsprite gMistCloudSpriteTemplate, ANIM_TARGET, 2, 0, 24, -48, 240, 1, 1
+	delay 7
+	createsprite gMistCloudSpriteTemplate, ANIM_TARGET, 2, 0, 24, -48, 240, 1, 1
+	delay 7
+	createsprite gMistCloudSpriteTemplate, ANIM_TARGET, 2, 0, 24, -48, 240, 1, 1
+	delay 7
+	createsprite gMistCloudSpriteTemplate, ANIM_TARGET, 2, 0, 24, -48, 240, 1, 1
+	delay 7
+	createsprite gMistCloudSpriteTemplate, ANIM_TARGET, 2, 0, 24, -48, 240, 1, 1
+	delay 7
+	createsprite gMistCloudSpriteTemplate, ANIM_TARGET, 2, 0, 24, -48, 240, 1, 1
+	delay 7
+	createsprite gMistCloudSpriteTemplate, ANIM_TARGET, 2, 0, 24, -48, 240, 1, 1
+	delay 7
+	delay 32
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 8, 2, 0, 14, RGB_GREEN
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
@@ -17530,6 +17525,28 @@ Move_CLICK_HERE:
 	end
 
 Move_ONEISHMENT:
+	loadspritegfx ANIM_TAG_FLYING_DIRT
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_FLYING_DIRT, 0, 6, 6, RGB(15, 0, 21)
+	createvisualtask AnimTask_LoadSandstormBackground, 5, TRUE
+	createvisualtask AnimTask_BlendBackground, 6, 6, RGB(15, 0, 21)
+	panse SE_M_HEAT_WAVE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	delay 4
+	createvisualtask AnimTask_MoveHeatWaveTargets, 5
+	delay 12
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 90, 2048, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 50, 2560, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 20, 2304, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 70, 1984, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 0, 2816, 96, 1
+	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 60, 2560, 96, 1
+	end
 Move_ME_FIRST:
 Move_WEEDLE_ARM:
 Move_HYPER_BEE:

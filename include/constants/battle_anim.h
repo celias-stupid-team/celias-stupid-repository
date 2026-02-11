@@ -337,6 +337,7 @@
 #define ANIM_TAG_MONEY                      (ANIM_SPRITES_START + 327)
 #define ANIM_TAG_KETCHUP                    (ANIM_SPRITES_START + 328)
 #define ANIM_TAG_COIN_SMALL                 (ANIM_SPRITES_START + 329)
+#define ANIM_TAG_WEED_SMALL                 (ANIM_SPRITES_START + 330)
 
 // battlers
 #define ANIM_ATTACKER    0
