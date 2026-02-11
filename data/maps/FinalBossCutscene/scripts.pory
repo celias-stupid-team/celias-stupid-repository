@@ -70,28 +70,28 @@ mapscripts FinalBossCutscene_MapScripts {
                 set_visible
             ))
             delay(120)
-            fadescreen(FADE_TO_BLACK)
-            playbgm(MUS_SV_ELITE_FOUR, TRUE)
-            setvar(VAR_TEMP_0, 1)
-            delay(30)
-            applymovement(LOCALID_ZAP, moves(
-                set_invisible
-            ))
-            applymovement(LOCALID_MOL, moves(
-                set_invisible
-            ))
-            applymovement(LOCALID_CUNO, moves(
-                set_invisible
-            ))
-            applymovement(LOCALID_OH, moves(
-                set_invisible
-            ))
-            applymovement(LOCALID_GIA, moves(
-                set_invisible
-            ))
-            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO_OH_GIA, 0,0,0,0,14, 10)
-            fadescreen(FADE_FROM_BLACK)
-            delay(30)
+            //fadescreen(FADE_TO_BLACK)
+            //playbgm(MUS_SV_ELITE_FOUR, TRUE)
+            //setvar(VAR_TEMP_0, 1)
+            //delay(30)
+            //applymovement(LOCALID_ZAP, moves(
+            //    set_invisible
+            //))
+            //applymovement(LOCALID_MOL, moves(
+            //    set_invisible
+            //))
+            //applymovement(LOCALID_CUNO, moves(
+            //    set_invisible
+            //))
+            //applymovement(LOCALID_OH, moves(
+            //    set_invisible
+            //))
+            //applymovement(LOCALID_GIA, moves(
+            //    set_invisible
+            //))
+            //setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO_OH_GIA, 0,0,0,0,14, 10)
+            //fadescreen(FADE_FROM_BLACK)
+            //delay(30)
             //goto(FinalBattle_Simualtion)
             trainerbattle_no_intro_battletype(TRAINER_CHAMPION_FIRST_SQUIRTLE, SPECIAL_BATTLE_TYPE_ZAPMOLCUNOOHGIA, "defeated")
             //trainerbattle_no_intro(TRAINER_CHAMPION_FIRST_CHARMANDER, "end of battle")
