@@ -5942,3 +5942,47 @@ const struct SpriteFrameImage gObjectEventPicTable_SWIM_CAPTAIN[] = {
     overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 2),
     overworld_frame(gObjectEventPic_SWIM_CAPTAIN, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_LINK_BOX[] = {
+    overworld_frame(gObjectEventPic_LINK_BOX, 2, 2, 0),
+    overworld_frame(gObjectEventPic_LINK_BOX, 2, 2, 1),
+    overworld_frame(gObjectEventPic_LINK_BOX, 2, 2, 2),
+    overworld_frame(gObjectEventPic_LINK_BOX, 2, 2, 0),
+    overworld_frame(gObjectEventPic_LINK_BOX, 2, 2, 0),
+    overworld_frame(gObjectEventPic_LINK_BOX, 2, 2, 1),
+    overworld_frame(gObjectEventPic_LINK_BOX, 2, 2, 1),
+    overworld_frame(gObjectEventPic_LINK_BOX, 2, 2, 2),
+    overworld_frame(gObjectEventPic_LINK_BOX, 2, 2, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_SEED[] = {
+    overworld_frame(gObjectEventPic_SEED, 2, 2, 0),
+    overworld_frame(gObjectEventPic_SEED, 2, 2, 1),
+    overworld_frame(gObjectEventPic_SEED, 2, 2, 2),
+    overworld_frame(gObjectEventPic_SEED, 2, 2, 0),
+    overworld_frame(gObjectEventPic_SEED, 2, 2, 0),
+    overworld_frame(gObjectEventPic_SEED, 2, 2, 1),
+    overworld_frame(gObjectEventPic_SEED, 2, 2, 1),
+    overworld_frame(gObjectEventPic_SEED, 2, 2, 2),
+    overworld_frame(gObjectEventPic_SEED, 2, 2, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_MAGIKARP[] = {
+    overworld_frame(gObjectEventPic_MAGIKARP, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MAGIKARP, 4, 4, 1),
+    overworld_frame(gObjectEventPic_MAGIKARP, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MAGIKARP, 4, 4, 3),
+    overworld_frame(gObjectEventPic_MAGIKARP, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MAGIKARP, 4, 4, 5),
+    overworld_frame(gObjectEventPic_MAGIKARP, 4, 4, 6),
+    overworld_frame(gObjectEventPic_MAGIKARP, 4, 4, 7),
+    overworld_frame(gObjectEventPic_MAGIKARP, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_GYARA_LAND[] = {
+    overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 3),
+    overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 4),
+    overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 5),
+    overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 6),
+    overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 7),
+    overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 8),
+};

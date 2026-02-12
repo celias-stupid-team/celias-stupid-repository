@@ -552,6 +552,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KECLEON_PURPLE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DRAMPA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WONDER_ORB;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SWIM_CAPTAIN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LINK_BOX;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SEED;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MAGIKARP;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GYARA_LAND;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1105,4 +1109,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DRAMPA] = &gObjectEventGraphicsInfo_DRAMPA,
     [OBJ_EVENT_GFX_WONDER_ORB] = &gObjectEventGraphicsInfo_WONDER_ORB,
     [OBJ_EVENT_GFX_SWIM_CAPTAIN] = &gObjectEventGraphicsInfo_SWIM_CAPTAIN,
+    [OBJ_EVENT_GFX_LINK_BOX] = &gObjectEventGraphicsInfo_LINK_BOX,
+    [OBJ_EVENT_GFX_SEED] = &gObjectEventGraphicsInfo_SEED,
+    [OBJ_EVENT_GFX_MAGIKARP] = &gObjectEventGraphicsInfo_MAGIKARP,
+    [OBJ_EVENT_GFX_GYARA_LAND] = &gObjectEventGraphicsInfo_GYARA_LAND,
 };
