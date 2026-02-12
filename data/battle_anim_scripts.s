@@ -15040,14 +15040,38 @@ WhirlpoolTomatoes:
 	return
 	
 Move_LETTUCE_SNUGGLE:
+	loadspritegfx ANIM_TAG_LETTUCE
 	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_MOVEMENT_WAVES
+	createvisualtask AnimTask_RockMonBackAndForth, 5, ANIM_ATTACKER, 2, 0
+	createsprite gLettuceSnuggleSpriteTemplate, ANIM_ATTACKER, 3, 0, 20
+	playsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER
+	delay 5
+	createsprite gLettuceSnuggleSpriteTemplate, ANIM_ATTACKER, 3, -15, 20
+	delay 5
+	createsprite gLettuceSnuggleSpriteTemplate, ANIM_ATTACKER, 3, 5, 20
+	delay 5
+	createsprite gLettuceSnuggleSpriteTemplate, ANIM_ATTACKER, 3, -20, 20
+	playsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER
+	delay 5
+	createsprite gLettuceSnuggleSpriteTemplate, ANIM_ATTACKER, 3, 15, 20
+	delay 5
+	createsprite gLettuceSnuggleSpriteTemplate, ANIM_ATTACKER, 3, -5, 20
+	delay 5
+	createsprite gLettuceSnuggleSpriteTemplate, ANIM_ATTACKER, 3, 20, 20
+	playsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER
+	waitforvisualfinish
 	monbg ANIM_TARGET
 	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 3, 0, 12, 4
+	createsprite gMovementWavesSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 2
+	createsprite gMovementWavesSpriteTemplate, ANIM_ATTACKER, 2, 0, 1, 2
+	loopsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER, 12, 4
+	waitforvisualfinish
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 3, 0, 6, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_DEF_SIDE, 2, 2, 0, 12, RGB(0, 30, 0)
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
@@ -17756,6 +17780,30 @@ Move_MING_ATTACK:
 Move_NOGGIN_FLOGGIN:
 Move_STAMPETE:
 Move_TOUCH_FUZZY:
+	loadspritegfx ANIM_TAG_FUZZY
+	monbg ANIM_DEF_PARTNER
+	call SetPsychicBackground
+	setalpha 8, 8
+	splitbgprio ANIM_TARGET
+	playsewithpan SE_M_ATTRACT2, SOUND_PAN_TARGET
+	call CreateFuzzy
+	call CreateFuzzy
+	call CreateFuzzy
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	delay 1
+	call UnsetPsychicBackground
+	end
+
+CreateFuzzy:
+	createsprite gFuzzyParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, 85, 80, 0
+	delay 12
+	createsprite gFuzzyParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -10, 170, 80, 0
+	delay 12
+	createsprite gFuzzyParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -15, 0, 80, 0
+	delay 12
+	return
 Move_DISCHARGE:
 Move_CRY_ATTACK:
 Move_DENIAL:

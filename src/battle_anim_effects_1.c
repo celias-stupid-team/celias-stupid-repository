@@ -438,6 +438,17 @@ const struct SpriteTemplate gSporeParticleSpriteTemplate =
     .callback = AnimSporeParticle,
 };
 
+const struct SpriteTemplate gFuzzyParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FUZZY,
+    .paletteTag = ANIM_TAG_FUZZY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeParticle,
+};
+
 static const union AnimCmd sPetalDanceBigFlowerAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),

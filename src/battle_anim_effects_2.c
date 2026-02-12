@@ -915,6 +915,17 @@ const struct SpriteTemplate gMagentaHeartSpriteTemplate =
     .callback = AnimMagentaHeart,
 };
 
+const struct SpriteTemplate gLettuceSnuggleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LETTUCE,
+    .paletteTag = ANIM_TAG_LETTUCE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMagentaHeart,
+};
+
 static const union AffineAnimCmd sAffineAnims_StretchBattlerUp[] =
 {
     AFFINEANIMCMD_FRAME(10, -13, 0, 10),
