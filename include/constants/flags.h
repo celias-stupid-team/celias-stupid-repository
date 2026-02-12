@@ -546,7 +546,7 @@
 #define FLAG_0x1EF              0x1EF
 #define FLAG_0x1F0        0x1F0
 #define FLAG_0x1F1        0x1F1
-#define FLAG_0x1F2 0x1F2
+#define FLAG_SHINY_PERSIAN 0x1F2
 #define FLAG_SHINY_HAUNTER 0x1F3
 #define FLAG_GROUDON_NOTHING        0x1F4
 #define FLAG_LASS_MAZE_WATER_NOTHING             0x1F5
