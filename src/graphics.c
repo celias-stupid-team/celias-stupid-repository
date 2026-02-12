@@ -1081,6 +1081,10 @@ const u32 gBattleAnimSpritePal_Hail[] = INCBIN_U32("graphics/battle_anims/sprite
 
 const u32 gBattleAnimSpriteGfx_GreenSpike[] = INCBIN_U32("graphics/battle_anims/sprites/green_spike.4bpp.lz");
 const u32 gBattleAnimSpritePal_GreenSpike[] = INCBIN_U32("graphics/battle_anims/sprites/green_spike.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_WeedleSpike[] = INCBIN_U32("graphics/battle_anims/sprites/weedle_spike.4bpp.lz");
+const u32 gBattleAnimSpritePal_WeedleSpike[] = INCBIN_U32("graphics/battle_anims/sprites/weedle_spike.gbapal.lz");
+
 const u32 gBattleAnimSpritePal_WhiteCircleOfLight[] = INCBIN_U32("graphics/battle_anims/sprites/white_circle_of_light.gbapal.lz");
 const u32 gBattleAnimSpritePal_GlowyBlueOrb[] = INCBIN_U32("graphics/battle_anims/sprites/glowy_blue_orb.gbapal.lz");
 

@@ -1111,6 +1111,17 @@ const struct SpriteTemplate gNeedleArmSpikeSpriteTemplate =
     .callback = AnimNeedleArmSpike,
 };
 
+const struct SpriteTemplate gWeedleArmSpikeSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_WEEDLE_SPIKE,
+    .paletteTag = ANIM_TAG_WEEDLE_SPIKE,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimNeedleArmSpike,
+};
+
 static const union AnimCmd sAnim_Whip[] =    
 {
     ANIMCMD_FRAME(64, 3),
