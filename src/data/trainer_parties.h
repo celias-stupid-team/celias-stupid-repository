@@ -10617,6 +10617,17 @@ static const struct TrainerMonItemCustomMoves sParty_YesNurse[] = {
 };
 
 
+static const struct TrainerMonItemCustomMoves sParty_YamaskGuy[] = {
+    {
+        .iv = 0,
+        .lvl = 19,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_YAMASK,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+
 static const struct TrainerMonItemCustomMoves sParty_TeamSkull[] = {
     {
         .iv = 0,

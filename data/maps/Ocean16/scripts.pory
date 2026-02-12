@@ -105,14 +105,22 @@ script Desert_SquidwardHouse {
 
 
 script Desert_YamaskGuy {
-	lock
-	msgbox(
+	
+	trainerbattle_single(TRAINER_YAMASK,
 	"Hey!\n"
 	"Could you do me a favor?\p"
 
 	"Could you please deal exactly\n"
-	"37 damage to me?", MSGBOX_DEFAULT)
-	release
+	"37 damage to me?", "Uh, that was a bit too much.")
+	msgbox(
+	"I don't know why, but I have a\n"
+	"hunch that if I bring my YAMASK\l"
+	"here and take exactly 49 damage,\l"
+	"I'll evolve.\p"
+
+	"Clearly this is something which I\n"
+	"figured out organically.", MSGBOX_NPC)
+	
 }
 
 script Desert_Bus {
