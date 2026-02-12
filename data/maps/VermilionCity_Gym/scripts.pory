@@ -490,8 +490,43 @@ script VermillionGym_Celia_Can {
 
 
 script VermilionCity_Gym_EventScript_LtSurge {
-	setvar(VAR_TEMP_START_EVENT_BATTLE, 6)
-	trainerbattle_single(TRAINER_LEADER_LT_SURGE, VermilionCity_Gym_Text_LtSurgeIntro, VermilionCity_Gym_Text_LtSurgeDefeat, VermilionCity_Gym_EventScript_DefeatedLtSurge, NO_MUSIC)
+	if(flag(FLAG_BADGE08_GET) && !flag(FLAG_SHINY_PIKABLU)) {
+		msgbox(
+		"Hey, kid!\n"
+		"What are you doing here?\p"
+
+		"I've survived intense combat -\n"
+		"both here and in the digital world!\p"
+
+		"In fact, while you were off\n"
+		"on your little adventure, I went\l"
+		"and captured a monster!\p"
+
+		"This darn yellow RAT killed\n"
+		"people!\l"
+		"Sent 'em to the hospital!\p"
+
+		"Here, take it!\n"
+		"Get it out of my sight!", MSGBOX_DEFAULT)
+		setvar(VAR_TEMP_START_EVENT_BATTLE, 6)
+		setflag(FLAG_SHINY_CREATION)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PIKABLU)
+		playfanfare(MUS_LEVEL_UP)
+		setflag(FLAG_SHINY_PIKABLU)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"{PLAYER} was given\n"
+		"the dangerous PIKA… … CHU?", MSGBOX_DEFAULT)
+		waitfanfare
+		call(Common_Script_GiftPokemon)
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		trainerbattle_single(TRAINER_LEADER_LT_SURGE, "Anyway, we should battle!\n", VermilionCity_Gym_Text_LtSurgeDefeat, VermilionCity_Gym_EventScript_DefeatedLtSurge)
+
+	} else {
+		setvar(VAR_TEMP_START_EVENT_BATTLE, 6)
+		trainerbattle_single(TRAINER_LEADER_LT_SURGE, VermilionCity_Gym_Text_LtSurgeIntro, VermilionCity_Gym_Text_LtSurgeDefeat, VermilionCity_Gym_EventScript_DefeatedLtSurge, NO_MUSIC)
+
+	}
 	if(!flag(FLAG_GOT_TM34_FROM_SURGE)) {
 		goto(VermilionCity_Gym_EventScript_DefeatedLtSurge)
 	}
