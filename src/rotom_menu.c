@@ -3070,7 +3070,8 @@ static bool32 SetupFunc_Guillotine(void)
         return TRUE;
     }
 
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK) || IsObjectInFrontOfPlayerCuttable())
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK) || IsObjectInFrontOfPlayerCuttable()
+        || (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_11F) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_11F) && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_OLD_MAN_2)) )
     {
         VarSet(VAR_USED_CUT, 1);
         sFieldMoveData = CUT_TYPE_TREE;

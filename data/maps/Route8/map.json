@@ -333,6 +333,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecrets_Bonus_Route8",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
+      "x": 17,
+      "y": 0,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -1125,7 +1139,7 @@
     },
     {
       "type": "sign",
-      "x": 13,
+      "x": 18,
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -1133,7 +1147,7 @@
     },
     {
       "type": "sign",
-      "x": 14,
+      "x": 16,
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -1141,7 +1155,7 @@
     },
     {
       "type": "sign",
-      "x": 15,
+      "x": 17,
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

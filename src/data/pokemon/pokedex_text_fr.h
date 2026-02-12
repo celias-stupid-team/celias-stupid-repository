@@ -2646,9 +2646,9 @@ const u8 gHitmonchinPokedexText[] = _(
 	"the fuckin' ugly reds");
 
 const u8 gPikabluPokedexText[] = _(
-	"Guys! I read in a magazine once that if\n"
-	"you go to BILL'S SECRET GARDEN, you can\n"
-	"find the evolution of CHARIZARD!");
+	"NEW POKEMON CONFIRMED FOR XY!!!!!!!!!!!!!\n"
+	"NO NAME AS OF YET BUT BELIEVED TO BE\n"
+	"ELECTRIC/ICE! FAN NAME: GAY SHITTY IDIOT!");
 
 
 const u8 gSylveonPokedexText[] = _(
