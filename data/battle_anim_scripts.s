@@ -401,7 +401,7 @@ gBattleAnims_Moves::
 	.4byte Move_ONE_CLAWS
 	.4byte Move_ONE_EDGE
 	.4byte Move_ONEMERANG
-	.4byte MOVE_BANEFUL_1NKER
+	.4byte Move_BANEFUL_1NKER
 	.4byte Move_FINAL_GAMBIT
 	.4byte Move_DRAGON_ASCENT
 	.4byte Move_FLYING_CLAW
@@ -12280,7 +12280,7 @@ Move_ONEMERANG:
 	blendoff
 	end
 	
-MOVE_BANEFUL_1NKER:
+Move_BANEFUL_1NKER:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8

@@ -815,7 +815,9 @@ script CinnabarGym_GymQuestionLoop {
 			"Who is{PAUSE 30} the last POKéMON?", MSGBOX_DEFAULT)
 	}
 	clearflag(FLAG_TEMP_3)
+	special(SavePlayerParty)
 	special(ChoosePartyMon)
+	
 	closemessage
 	waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {
@@ -828,7 +830,9 @@ script CinnabarGym_GymQuestionLoop {
 		release
 		end
     }
+	
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	special(ReducePlayerPartyToOne)
 	switch(var(VAR_CINNABAR_GYM_PHASE)) {
 		case 1:
 			if(var(VAR_RESULT) == SPECIES_BULBASAUR || var(VAR_RESULT) == SPECIES_RHYDON) {
@@ -966,6 +970,7 @@ script CinnabarGym_GymQuestionLoop {
 }
 
 script CinnabarGym_CheckBattleOutcome {
+	special(RestorePlayerPartyFromOne)
 	specialvar(VAR_TEMP_F, GetBattleOutcome)
 	special(HealPlayerParty)
 	//setvar(VAR_TEMP_F, B_OUTCOME_WON) // TEMPORARY!!!! SWITCH THIS OUT YOU IDIOT
@@ -1095,6 +1100,7 @@ script CinnabarGym_CheckBattleOutcome {
 
 
 script CinnabarGym_IncorrectAnswer {
+	special(RestorePlayerPartyFromOne)
 	playse(SE_BOO)
 	waitse
 	msgbox(
