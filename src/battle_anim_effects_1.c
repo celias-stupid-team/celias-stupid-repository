@@ -150,6 +150,8 @@ static void AnimSlidingHit(struct Sprite *);
 static void AnimWhipHit(struct Sprite *);
 static void AnimMoveWonderSeed(struct Sprite *);
 static void AnimMoveSmallCloud(struct Sprite *);
+static void AnimShadowShield(struct Sprite *);
+static void AnimShadowShield_Step(struct Sprite *);
 
 static const u8 sUnused[] = {2, 4, 1, 3};
 
@@ -1421,6 +1423,17 @@ const struct SpriteTemplate gProtectSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimProtect,
+};
+
+const struct SpriteTemplate gShadowShieldSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHADOW_SHIELD,
+    .paletteTag = ANIM_TAG_SHADOW_SHIELD,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimShadowShield,
 };
 
 static const union AffineAnimCmd sMilkBottleAffineAnimCmds1[] =
@@ -4314,6 +4327,67 @@ static void AnimCirclingMusicNote_Step(struct Sprite* sprite)
     sprite->data[2]++;
     if (sprite->data[2] == sprite->data[3])
         DestroyAnimSprite(sprite);
+}
+
+static void AnimShadowShield(struct Sprite* sprite)
+{
+    if (IsContest())
+        gBattleAnimArgs[1] += 8;
+
+    sprite->x = GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_X) + gBattleAnimArgs[0];
+    sprite->y = GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_Y) + gBattleAnimArgs[1];
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER || IsContest())
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker) + 1;
+    else
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker);
+
+    sprite->data[0] = gBattleAnimArgs[2];
+    sprite->data[2] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(ANIM_TAG_SHADOW_SHIELD));
+    sprite->data[7] = 4;
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));
+    sprite->callback = AnimShadowShield_Step;
+}
+//Like protect but the palette shift is reversed
+static void AnimShadowShield_Step(struct Sprite *sprite)
+{
+    int i, id, savedPal;
+    sprite->data[5] += 32;
+    sprite->x2 = -(sprite->data[5] >> 8);
+    if (++sprite->data[1] > 1)
+    {
+        sprite->data[1] = 0;
+        savedPal = gPlttBufferFaded[sprite->data[2] + 7];
+        for (i = 7; i > 1; i--)
+        {
+            gPlttBufferFaded[sprite->data[2] + i] =
+                gPlttBufferFaded[sprite->data[2] + (i - 1)];
+        }
+        gPlttBufferFaded[sprite->data[2] + 1] = savedPal;
+    }
+
+    if (sprite->data[7] > 6 && sprite->data[0] >0 && ++sprite->data[6] > 1)
+    {
+        sprite->data[6] = 0;
+        sprite->data[7] -= 1;
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));
+    }
+
+    if (sprite->data[0] > 0)
+    {
+        sprite->data[0] -= 1;
+    }
+    else if (++sprite->data[6] > 1)
+    {
+        sprite->data[6] = 0;
+        sprite->data[7]++;
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));
+        if (sprite->data[7] == 16)
+        {
+            sprite->invisible = TRUE;
+            sprite->callback = DestroyAnimSpriteAndDisableBlend;
+        }
+    }
 }
 
 static void AnimProtect(struct Sprite* sprite)

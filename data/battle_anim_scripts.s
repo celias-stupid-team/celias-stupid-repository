@@ -14937,13 +14937,21 @@ Move_BARRAGE_4:
 	
 Move_BREADBUTT:
 	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_BREAD
 	monbg ANIM_TARGET
 	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 2
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 2, 0, 4, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 6, 1
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
+	createsprite gFlashingHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	createsprite gFallingBreadSpriteTemplate, ANIM_ATTACKER, 2
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
@@ -17899,5 +17907,12 @@ Move_CUTE:
 	blendoff
 	end
 Move_SHADOW_SHIELD:
-	goto Move_PROTECT
+	loadspritegfx ANIM_TAG_SHADOW_SHIELD
+	monbg ANIM_ATK_PARTNER
+	splitbgprio ANIM_ATTACKER
+	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER, 16
+	createsprite gShadowShieldSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 90
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	end
 

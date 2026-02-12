@@ -414,6 +414,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
     .callback = AnimFallingCoin,
 };
 
+const struct SpriteTemplate gFallingBreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BREAD,
+    .paletteTag = ANIM_TAG_BREAD,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
 static const union AffineAnimCmd sBulletSeedAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(0, 0, 20, 1),
