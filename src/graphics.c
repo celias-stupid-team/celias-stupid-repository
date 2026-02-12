@@ -495,6 +495,9 @@ const u32 gBattleAnimSpritePal_Orbs[] = INCBIN_U32("graphics/battle_anims/sprite
 
 const u32 gBattleAnimSpriteGfx_WaterOrb[] = INCBIN_U32("graphics/battle_anims/sprites/water_orb.4bpp.lz");
 
+const u32 gBattleAnimSpriteGfx_RainbowOrb[] = INCBIN_U32("graphics/battle_anims/sprites/rainbow_orb.4bpp.lz");
+const u32 gBattleAnimSpritePal_RainbowOrb[] = INCBIN_U32("graphics/battle_anims/sprites/rainbow_orb.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_WaterImpact[] = INCBIN_U32("graphics/battle_anims/sprites/water_impact.4bpp.lz");
 const u32 gBattleAnimSpritePal_WaterImpact[] = INCBIN_U32("graphics/battle_anims/sprites/water_impact.gbapal.lz");
 
@@ -1035,6 +1038,9 @@ const u32 gBattleAnimBgTilemap_InAir[] = INCBIN_U32("graphics/battle_anims/backg
 const u32 gBattleAnimSpriteGfx_Protect[] = INCBIN_U32("graphics/battle_anims/sprites/protect.4bpp.lz");
 const u32 gBattleAnimSpritePal_Protect[] = INCBIN_U32("graphics/battle_anims/sprites/protect.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_ShadowShield[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_protect.4bpp.lz");
+const u32 gBattleAnimSpritePal_ShadowShield[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_protect.gbapal.lz");
+
 const u32 gBattleAnimBgPalette_MuddyWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_muddy.gbapal.lz");
 
 const u32 gEnemyMonShadow_Gfx[] = INCBIN_U32("graphics/battle_interface/enemy_mon_shadow.4bpp.lz");
@@ -1078,6 +1084,10 @@ const u32 gBattleAnimSpritePal_Hail[] = INCBIN_U32("graphics/battle_anims/sprite
 
 const u32 gBattleAnimSpriteGfx_GreenSpike[] = INCBIN_U32("graphics/battle_anims/sprites/green_spike.4bpp.lz");
 const u32 gBattleAnimSpritePal_GreenSpike[] = INCBIN_U32("graphics/battle_anims/sprites/green_spike.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_WeedleSpike[] = INCBIN_U32("graphics/battle_anims/sprites/weedle_spike.4bpp.lz");
+const u32 gBattleAnimSpritePal_WeedleSpike[] = INCBIN_U32("graphics/battle_anims/sprites/weedle_spike.gbapal.lz");
+
 const u32 gBattleAnimSpritePal_WhiteCircleOfLight[] = INCBIN_U32("graphics/battle_anims/sprites/white_circle_of_light.gbapal.lz");
 const u32 gBattleAnimSpritePal_GlowyBlueOrb[] = INCBIN_U32("graphics/battle_anims/sprites/glowy_blue_orb.gbapal.lz");
 
