@@ -4391,6 +4391,7 @@ static void Cmd_playanimation(void)
         {
             u16 species = GetCurrentZapmolcunoSpecies();
             
+            gBattleTurnMonFainted = TRUE;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }

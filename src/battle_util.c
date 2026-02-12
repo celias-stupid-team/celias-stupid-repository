@@ -770,7 +770,7 @@ u8 DoFieldEndTurnEffects(void)
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_SHADOW_SKY:
-            if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+            if ((gBattleWeather & B_WEATHER_SHADOW_SKY) && !gBattleTurnMonFainted)
             {
                 gBattlescriptCurrInstr = BattleScript_DamagingWeatherContinues;
                 gBattleScripting.animArg1 = B_ANIM_SHADOW_SKY_CONTINUES;
@@ -1314,6 +1314,7 @@ bool8 HandleFaintedMonActions(void)
                 if (gBattleMons[gBattleStruct->faintedActionsBattlerId].hp == 0
                  && !(gAbsentBattlerFlags & gBitTable[gBattleStruct->faintedActionsBattlerId]))
                 {
+                    gBattleTurnMonFainted = TRUE;
                     BattleScriptExecute(BattleScript_HandleFaintedMon);
                     gBattleStruct->faintedActionsState = 5;
                     return TRUE;
