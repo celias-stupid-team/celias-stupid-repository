@@ -35,8 +35,9 @@ script Yes_TravelerInside {
 	"life here in this town.\p"
 
 	"Perhaps I should finally stretch\n"
-	"my wings and travel the world!\l"
-	"What do you think, young one?", MSGBOX_YESNO)
+	"my wings and travel the world!\p"
+	
+	"Where should I go, young one?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 		msgbox(
 		"Excellent idea!\n"
@@ -452,7 +453,7 @@ script Yes_YesterdayWoman {
 	"Do you know how it starts?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 		msgbox(
-		"Ah, yes!\n"
+		"Ah, right!\n"
 		"I remember now!", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
@@ -488,6 +489,24 @@ script Yes_DadSecretBeach {
 	"Well, never mind that.\n"
 	"How about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script Yes_Oak {
+	lock
+	msgbox(
+	"Is that OAK?\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"No, silly!\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Yup!\n"
+		"", MSGBOX_DEFAULT)
+	}
 	release
 	end
 }

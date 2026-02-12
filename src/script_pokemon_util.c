@@ -274,7 +274,7 @@ void ReducePlayerPartyToThree(void)
 void ReducePlayerPartyToOne(void)
 {
     struct Pokemon * party = AllocZeroed(1 * sizeof(struct Pokemon));
-    int i;
+    //int i;
     FlagSet(FLAG_SYS_DISABLE_SAVE);
     // copy the selected pokemon according to the order.
     party[0] = gPlayerParty[gSpecialVar_0x8004];
@@ -291,10 +291,14 @@ void ReducePlayerPartyToOne(void)
 void RestorePlayerPartyFromOne(void)
 {
     struct Pokemon * party = AllocZeroed(1 * sizeof(struct Pokemon));
-    int i;
+    //int i;
     FlagClear(FLAG_SYS_DISABLE_SAVE);
     party[0] = gPlayerParty[0];
     LoadPlayerParty();
+    DebugPrintf("Player party slot %d", gSpecialVar_0x8004);
+    DebugPrintf("Player party species %d", gPlayerParty[gSpecialVar_0x8004]);
+    DebugPrintf("Saved species %d", party[0]);
+
     gPlayerParty[gSpecialVar_0x8004] = party[0];
 }
 

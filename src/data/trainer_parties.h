@@ -10021,7 +10021,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAErika[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_BUTTERFREE,
+        .species = SPECIES_BUTTERFREE_FEMALE,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 

@@ -133,7 +133,7 @@ script Desert_Bus {
 		"A bus is stalled on the side of\n"
 		"the road.\p"
 
-		"A single fly is squished on the\n"
+		"A single bug is squished on the\n"
 		"windshield.\p"
 
 		"The counter reads{PAUSE 30} “572.”\n"

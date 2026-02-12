@@ -830,6 +830,7 @@ script CinnabarGym_GymQuestionLoop {
 		release
 		end
     }
+	copyvar(VAR_TEMP_A, VAR_0x8004)
 	
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 	special(ReducePlayerPartyToOne)
@@ -970,6 +971,7 @@ script CinnabarGym_GymQuestionLoop {
 }
 
 script CinnabarGym_CheckBattleOutcome {
+	copyvar(VAR_0x8004, VAR_TEMP_A)
 	special(RestorePlayerPartyFromOne)
 	specialvar(VAR_TEMP_F, GetBattleOutcome)
 	special(HealPlayerParty)
