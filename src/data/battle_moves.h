@@ -8218,9 +8218,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_WEEDLE_ARM] =
     {
         .effect = EFFECT_HIT,
-        .power = 39,
-        .type = TYPE_NORMAL,
-        .accuracy = 99,
+        .power = 65,
+        .type = TYPE_POISON,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
