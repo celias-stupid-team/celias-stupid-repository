@@ -134,3 +134,12 @@ script Sootopolis_ContestHallSign {
 	"(it'll be funny)", MSGBOX_SIGN)
 
 }
+
+
+
+script FullRelease_CeliaBlocksYou {
+	msgbox(
+	"CELIA: This area is not available\n"
+	"in this pre-release.\l"
+	"Stay tuned!", MSGBOX_NPC)
+}

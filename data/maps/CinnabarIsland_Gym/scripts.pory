@@ -656,6 +656,9 @@ mapscripts CinnabarIsland_Gym_MapScripts {
 		setflag(FLAG_TEMP_1)
 		setflag(FLAG_TEMP_2)
 	}
+	MAP_SCRIPT_ON_LOAD {
+		call(CinnabarGym_UpdatePointsWall)
+	}
 }
 
 script BlaineGym_Chuckster {
@@ -812,7 +815,9 @@ script CinnabarGym_GymQuestionLoop {
 			"Who is{PAUSE 30} the last POKéMON?", MSGBOX_DEFAULT)
 	}
 	clearflag(FLAG_TEMP_3)
+	special(SavePlayerParty)
 	special(ChoosePartyMon)
+	
 	closemessage
 	waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {
@@ -825,7 +830,10 @@ script CinnabarGym_GymQuestionLoop {
 		release
 		end
     }
+	copyvar(VAR_TEMP_A, VAR_0x8004)
+	
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	special(ReducePlayerPartyToOne)
 	switch(var(VAR_CINNABAR_GYM_PHASE)) {
 		case 1:
 			if(var(VAR_RESULT) == SPECIES_BULBASAUR || var(VAR_RESULT) == SPECIES_RHYDON) {
@@ -963,6 +971,8 @@ script CinnabarGym_GymQuestionLoop {
 }
 
 script CinnabarGym_CheckBattleOutcome {
+	copyvar(VAR_0x8004, VAR_TEMP_A)
+	special(RestorePlayerPartyFromOne)
 	specialvar(VAR_TEMP_F, GetBattleOutcome)
 	special(HealPlayerParty)
 	//setvar(VAR_TEMP_F, B_OUTCOME_WON) // TEMPORARY!!!! SWITCH THIS OUT YOU IDIOT
@@ -973,8 +983,32 @@ script CinnabarGym_CheckBattleOutcome {
 	}
 	if(var(VAR_TEMP_F) == B_OUTCOME_WON) {
 		playse(SE_SUCCESS)
-		waitse
+		
+		
+		if(flag(FLAG_TEMP_3)) {
+			switch(var(VAR_CINNABAR_GYM_PHASE)) {
+				case 1:
+					setflag(FLAG_CINNABAR_GYM_BONUS_1)
+				case 2:
+					setflag(FLAG_CINNABAR_GYM_BONUS_2)
+				case 3:
+					setflag(FLAG_CINNABAR_GYM_BONUS_3)
+				case 4:
+					setflag(FLAG_CINNABAR_GYM_BONUS_4)
+				case 5:
+					setflag(FLAG_CINNABAR_GYM_BONUS_5)
+				case 6:
+					setflag(FLAG_CINNABAR_GYM_BONUS_6)
+				case 7:
+					setflag(FLAG_CINNABAR_GYM_BONUS_7)
+				case 8:
+					setflag(FLAG_CINNABAR_GYM_BONUS_8)
+			}
+		}
 		addvar(VAR_CINNABAR_GYM_PHASE, 1)
+		call(CinnabarGym_UpdatePointsWall)
+		special(DrawWholeMapView)
+		waitse
 		if(var(VAR_CINNABAR_GYM_PHASE) == 9) {
 			msgbox(
 			"That's absolutely CORRECT!\n"
@@ -993,6 +1027,44 @@ script CinnabarGym_CheckBattleOutcome {
 			"VOLCANOBAKEMEAT BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}", MSGBOX_DEFAULT)
 			setflag(FLAG_BADGE07_GET)
 			textcolor(NPC_TEXT_COLOR_BLUE)
+			if(flag(FLAG_CINNABAR_GYM_BONUS_1)
+			&& flag(FLAG_CINNABAR_GYM_BONUS_2)
+			&& flag(FLAG_CINNABAR_GYM_BONUS_3)
+			&& flag(FLAG_CINNABAR_GYM_BONUS_4)
+			&& flag(FLAG_CINNABAR_GYM_BONUS_5)
+			&& flag(FLAG_CINNABAR_GYM_BONUS_6)
+			&& flag(FLAG_CINNABAR_GYM_BONUS_7)
+			&& flag(FLAG_CINNABAR_GYM_BONUS_8)
+			) {
+				closemessage
+				playse(SE_PIN)
+				applymovement(VAR_LAST_TALKED, moves(
+					emote_exclamation_mark
+					delay_16 * 3
+				))
+				waitmovement(0)
+				msgbox(
+				"BLAINE: Why…\n"
+				"Why, you've done it!\p"
+
+				"You've found every bonus answer\n"
+				"to my quiz!\p"
+
+				"I'm in awe.\n"
+				"I've waited my whole life for this.\p"
+
+				"Here, take this POKéMON.\n"
+				"You are truly number one.", MSGBOX_DEFAULT)
+				setflag(FLAG_SHINY_CREATION)
+				setvar(VAR_CSR_GIFT_POKEMON, SPECIES_BULBASAUR)
+				playfanfare(MUS_LEVEL_UP)
+				msgbox(
+				"{PLAYER} was awarded\n"
+				"the BULBASAUR!", MSGBOX_DEFAULT)
+				waitfanfare
+				call(Common_Script_GiftPokemon19)
+
+			}
 			msgbox(
 			"And here, take this as well!\n"
 			"", MSGBOX_DEFAULT)
@@ -1011,8 +1083,8 @@ script CinnabarGym_CheckBattleOutcome {
 			end
 		}
 		//update the wall
-		playse(SE_SUCCESS)
-		call(CinnabarGym_UpdatePointsWall)
+		
+		
 		waitse
 		msgbox(
 		"That's absolutely CORRECT!\n"
@@ -1030,6 +1102,7 @@ script CinnabarGym_CheckBattleOutcome {
 
 
 script CinnabarGym_IncorrectAnswer {
+	special(RestorePlayerPartyFromOne)
 	playse(SE_BOO)
 	waitse
 	msgbox(
@@ -1537,9 +1610,63 @@ script CinnabarGym_BoardGameQuestion5 {
 
 script CinnabarGym_UpdatePointsWall {
 	//This is actually way more complicated than I gave it credit for no thanks
-	if(flag(FLAG_TEMP_3)) {
-
+	if(var(VAR_CINNABAR_GYM_PHASE) > 1) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_1)) {
+			setmetatile(10, 1, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(10, 1, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
 	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 2) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_2)) {
+			setmetatile(11, 1, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(11, 1, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 3) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_3)) {
+			setmetatile(12, 1, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(12, 1, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 4) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_4)) {
+			setmetatile(13, 1, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(13, 1, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 5) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_5)) {
+			setmetatile(10, 2, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(10, 2, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 6) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_2)) {
+			setmetatile(11, 2, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(11, 2, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 7) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_3)) {
+			setmetatile(12, 2, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(12, 2, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	if(var(VAR_CINNABAR_GYM_PHASE) > 8) {
+		if(flag(FLAG_CINNABAR_GYM_BONUS_4)) {
+			setmetatile(13, 2, METATILE_BlaineFurnaceFun_BonusTop, TRUE)
+		} else {
+			setmetatile(13, 2, METATILE_BlaineFurnaceFun_CorrectTop, TRUE)
+		}
+	}
+	return
 }
 
 
@@ -1551,3 +1678,4 @@ script CinnabarGym_NoEeveeCamper {
 	"Maybe there's a different POKéMON\n"
 	"who might be an answer…", MSGBOX_NPC)
 }
+

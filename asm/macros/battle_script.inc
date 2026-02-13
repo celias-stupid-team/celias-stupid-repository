@@ -1652,6 +1652,12 @@
 	.byte \mode
 	.endm
 
+	
+	.macro fadescreeninstant mode:req
+	callnative BS_FadeScreenInstant
+	.byte \mode
+	.endm
+
 	.macro playmoncry species:req
 	callnative BS_PlayMonCry
 	.2byte \species

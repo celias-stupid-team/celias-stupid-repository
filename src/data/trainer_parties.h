@@ -239,13 +239,6 @@ static const struct TrainerMonItemCustomMoves sParty_BugCatcherRick[] = {
         .iv = 0,
         .lvl = 6,
         .heldItem = ITEM_FOCUS_SASH,
-        .species = SPECIES_WEEDLE,
-        .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 6,
-        .heldItem = ITEM_NONE,
         .species = SPECIES_CATERPIE,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
@@ -256,19 +249,13 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherDoug[] = {
         .iv = 0,
         .lvl = 7,
         .species = SPECIES_WEEDLE,
-        .moves = {MOVE_POISON_STING, MOVE_STRING_SHOT, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 7,
-        .species = SPECIES_WEEDLE,
-        .moves = {MOVE_POISON_STING, MOVE_STRING_SHOT, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 7,
         .species = SPECIES_KAKUNA,
-        .moves = {MOVE_POISON_STING, MOVE_STRING_SHOT, MOVE_HARDEN, MOVE_NONE}
+        .moves = {MOVE_WEEDLE_ARM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -492,7 +479,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherCale[] = {
         .iv = 0,
         .lvl = 10,
         .species = SPECIES_GARCHOMP,
-        .moves = {MOVE_EARTHQUAKE, MOVE_DRAGON_CLAW, MOVE_ROCK_SLIDE, MOVE_PROTECT}
+        .moves = {MOVE_DRAGON_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
@@ -10021,7 +10008,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAErika[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_BUTTERFREE,
+        .species = SPECIES_BUTTERFREE_FEMALE,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
@@ -10612,6 +10599,17 @@ static const struct TrainerMonItemCustomMoves sParty_YesNurse[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_INDEEDEE,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+
+static const struct TrainerMonItemCustomMoves sParty_YamaskGuy[] = {
+    {
+        .iv = 0,
+        .lvl = 19,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_YAMASK,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };

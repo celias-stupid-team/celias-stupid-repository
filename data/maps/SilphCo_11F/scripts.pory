@@ -1,7 +1,5 @@
 raw `
-SilphCo_11F_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, SilphCo_11F_OnLoad
-	.byte 0
+::
 
 
 SilphCo_11F_EventScript_President::
@@ -34,9 +32,7 @@ SilphCo_11F_EventScript_NoRoomForMasterBall::
 
 
 
-SilphCo_11F_EventScript_Secretary::
-	msgbox SilphCo_11F_Text_ThanksForRescuingUs, MSGBOX_NPC
-	end
+
 
 SilphCo_11F_EventScript_GiovanniTriggerLeft::
 	lockall
@@ -103,10 +99,49 @@ SilphCo_11F_EventScript_Grunt2::
 	msgbox SilphCo_11F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+mapscripts SilphCo_11F_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		setrespawn(HEAL_LOCATION_SILPH_CO_11F)
+	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_USED_CUT, 1 {
+			if(flag(FLAG_SHINY_HAUNTER)) {
+				setvar(VAR_USED_CUT, 0)
+				end
+			}
+			delay(60)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER} removed a\n"
+			"PARASITE's head!", MSGBOX_DEFAULT)
+			waitfanfare
+			setflag(FLAG_SHINY_CREATION)
+			setflag(FLAG_SHINY_HAUNTER)
+			setvar(VAR_USED_CUT, 0)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_HAUNTER)
+			copyvar(VAR_TEMP_1, SPECIES_HAUNTER)
+			givemon(SPECIES_HAUNTER, 100)
+			clearflag(FLAG_SHINY_CREATION)
+			switch(var(VAR_RESULT)) {
+				case 0: //Mon goes to party
+					bufferspeciesname(STR_VAR_1, SPECIES_HAUNTER)
+					
+				case 1: //Mon goes to PC
+					bufferspeciesname(STR_VAR_1, SPECIES_HAUNTER) //Breaks here??
+						
+				case 2:
+					goto(EventScript_NoMoreRoomForPokemon)
+					
+			}
+	
 
-script SilphCo_11F_OnLoad {
-	setrespawn(HEAL_LOCATION_SILPH_CO_11F)
+			release
+			end
+		}
+	]
 }
+
+
 script SilphCo_11F_EventScript_ElevatorDoor {
 	msgbox("Rats!\nThe elevator door's been glued shut!", MSGBOX_SIGN)
 
@@ -192,4 +227,26 @@ script SilphCo_11F_EventScript_AlreadyGotMasterBall {
 script SilphCo_StartSilphMusic {
 	setvar(VAR_START_SILPH_MUSIC, 2)
 	playbgm(MUS_CYBER_WORLD, TRUE)
+}
+
+script SilphCo_11F_EventScript_Secretary {
+	if(flag(FLAG_TEMP_5)) {
+		msgbox(
+		"Oh, no!\n"
+		"Grandpa's dead!\p"
+
+		"I only got this position because of\n"
+		"nepotism!\l"
+		"How will I ever survive!?", MSGBOX_NPC)
+	} elif(flag(FLAG_SHINY_HAUNTER)) {
+		msgbox(
+		"A few minutes ago, the PRESIDENT\n"
+		"was dead.\p"
+
+		"Thankfully, we got a new one!\n"
+		"", MSGBOX_NPC)
+	} else {
+		msgbox (SilphCo_11F_Text_ThanksForRescuingUs, MSGBOX_NPC)
+
+	}
 }

@@ -5358,3 +5358,40 @@ BattleScript_RunRotomAnimation::
 	printstring STRINGID_RUNROTOMANIMATION3
 	playnewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue
+
+
+BattleScript_FinalLugiaFaint::
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playmoncry SPECIES_LUGIA
+
+BattleScript_FinalArticunoFaint::
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playmoncry SPECIES_ARTICUNO
+
+
+BattleScript_FinalHoohFaint::
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playmoncry SPECIES_HO_OH
+
+
+BattleScript_FinalZapdosFaint::
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playmoncry SPECIES_ZAPDOS
+
+
+
