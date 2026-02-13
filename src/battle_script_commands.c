@@ -11708,3 +11708,12 @@ void BS_TryFullRestore(void)
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_SetDoubleDip(void)
+{
+    NATIVE_ARGS();
+
+    gStatuses3[gBattlerTarget] |= STATUS3_DOUBLE_DIP;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

@@ -270,6 +270,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectMultiHitThree          @ EFFECT_MULTI_HIT_THREE
 	.4byte BattleScript_EffectShadowShield           @ EFFECT_SHADOW_SHIELD
 	.4byte BattleScript_EffectFullRestore            @ EFFECT_FULL_RESTORE
+	.4byte BattleScript_EffectDoubleDip              @ EFFECT_DOUBLE_DIP
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5376,3 +5377,21 @@ BattleScript_EffectFullRestore::
 	printstring STRINGID_PKMNFULLYRESTORED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_DoubleDipHits::
+	printstring STRINGID_PKMNHURTBYDOUBLEDIP
+	waitmessage B_WAIT_TIME_LONG
+	@ statusanimation BS_ATTACKER
+	playanimation BS_ATTACKER, B_ANIM_DOUBLE_DIP_HIT
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER
+	checkteamslost BattleScript_DoTurnDmgEnd
+	end2
+
+BattleScript_EffectDoubleDip:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	setdoubledip
+	goto BattleScript_HitFromAtkString

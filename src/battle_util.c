@@ -505,6 +505,7 @@ enum
     ENDTURN_MIST,
     ENDTURN_SAFEGUARD,
     ENDTURN_WISH,
+    ENDTURN_DOUBLE_DIP,
     ENDTURN_RAIN,
     ENDTURN_SANDSTORM,
     ENDTURN_SUN,
@@ -670,6 +671,29 @@ u8 DoFieldEndTurnEffects(void)
             if (effect == 0)
             {
                 gBattleStruct->turnCountersTracker++;
+                gBattleStruct->turnSideTracker = 0;
+            }
+            break;
+        case ENDTURN_DOUBLE_DIP:
+            while (gBattleStruct->turnSideTracker < gBattlersCount)
+            {
+                gActiveBattler = gBattlerAttacker = gBattlerByTurnOrder[gBattleStruct->turnSideTracker];
+                if (gStatuses3[gActiveBattler] & STATUS3_DOUBLE_DIP)
+                {
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    BattleScriptExecute(BattleScript_DoubleDipHits);
+                    effect++;
+                }
+                gBattleStruct->turnSideTracker++;
+                if (effect != 0)
+                    break;
+            }
+            if (effect == 0)
+            {
+                gBattleStruct->turnCountersTracker++;
+                gBattleStruct->turnSideTracker = 0;
             }
             break;
         case ENDTURN_RAIN:

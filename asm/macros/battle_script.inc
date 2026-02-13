@@ -1695,3 +1695,7 @@
 	.4byte \failInstr
 	.byte \battler
 	.endm
+
+	.macro setdoubledip
+	callnative BS_SetDoubleDip
+	.endm
