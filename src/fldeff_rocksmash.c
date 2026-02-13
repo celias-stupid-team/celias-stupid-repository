@@ -55,10 +55,13 @@ bool8 IsObjectInFrontOfPlayerCuttable() {
     ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PEWTER_CITY_MUSEUM_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PEWTER_CITY_MUSEUM_1F)) || 
     (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM))
     )) {
-        if(!FlagGet(FLAG_REVIVED_AMBER)) {
-            FlagSet(FLAG_REVIVED_AMBER);
+        if(!FlagGet(FLAG_REVIVED_YANMEGA)) {
+            //DebugPrintf("No amber revived");
+            FlagSet(FLAG_REVIVED_YANMEGA);
             VarSet(VAR_TEMP_5, 1);
 
+        } else {
+            //DebugPrintf("amber revived");
         }
         return TRUE;
 

@@ -6047,7 +6047,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Football_Viking = 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lillie = {
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
