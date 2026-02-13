@@ -269,6 +269,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectToxicSeed              @ EFFECT_TOXIC_SEED
 	.4byte BattleScript_EffectMultiHitThree          @ EFFECT_MULTI_HIT_THREE
 	.4byte BattleScript_EffectShadowShield           @ EFFECT_SHADOW_SHIELD
+	.4byte BattleScript_EffectFullRestore            @ EFFECT_FULL_RESTORE
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -4156,7 +4157,6 @@ BattleScript_SeelHoopaTransform::
 	end2
 
 BattleScript_ZapmolcunoTransform::
-	@ wiz1989 ToDo - probably do a fade out here and replace the battler sprite
 	pause B_WAIT_TIME_SHORT
 	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM
 	pause B_WAIT_TIME_SHORT
@@ -5358,3 +5358,21 @@ BattleScript_RunRotomAnimation::
 	printstring STRINGID_RUNROTOMANIMATION3
 	playnewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue
+
+BattleScript_EffectFullRestore::
+	attackcanceler
+	attackstring
+	ppreduce
+	tryfullrestore BattleScript_AlreadyAtFullHp, BS_ATTACKER
+	waitstate
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitstate
+	updatestatusicon BS_ATTACKER
+	waitstate
+	printstring STRINGID_PKMNFULLYRESTORED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

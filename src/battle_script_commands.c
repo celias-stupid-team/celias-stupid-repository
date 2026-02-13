@@ -2359,9 +2359,9 @@ static void Cmd_resultmessage(void)
             {
                 if (gLastUsedAbility != ABILITY_REVENGE)
                 {
-                    gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                     gSpecialStatuses[gBattlerTarget].sturdied = FALSE;
                 }
+                gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_SturdiedMsg;
                 return;
@@ -8336,7 +8336,6 @@ static void Cmd_updatestatusicon(void)
     }
     else
     {
-
         gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
         BtlController_EmitStatusIconUpdate(BUFFER_A, gBattleMons[gActiveBattler].status1, gBattleMons[gActiveBattler].status2);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -11142,9 +11141,9 @@ void BS_MultihitResultMessage(void)
         {
             if (gLastUsedAbility != ABILITY_REVENGE)
             {
-                gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_HUNG_ON);
                 gSpecialStatuses[gBattlerTarget].sturdied = FALSE; // Delete this line to make Sturdy last for the duration of the whole move turn.
             }
+            gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_HUNG_ON);
             BattleScriptPushCursor();
             gBattlescriptCurrInstr = BattleScript_SturdiedMsg;
             return;
@@ -11576,10 +11575,6 @@ void BS_PlayMonCry(void)
 {
     NATIVE_ARGS(u16 species);
 
-    // gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
-    // BtlController_EmitFaintingCry(BUFFER_A);
-    // MarkBattlerForControllerExec(gActiveBattler);
-
     PlayCry_Script(cmd->species, CRY_MODE_NORMAL);
 
     gBattlescriptCurrInstr = cmd->nextInstr;
@@ -11667,4 +11662,49 @@ void BS_PrintBirdsFaintString(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
         gBattleCommunication[MSG_DISPLAY] = 1;
     }
+}
+
+void BS_TryFullRestore(void)
+{
+    NATIVE_ARGS(const u8 *failInstr, u8 battler);
+
+    bool8 hasStatus = FALSE;
+    u32 zero = 0;
+    u8 toHeal = 0;
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    if (cmd->battler == BS_ATTACKER)
+        gBattlerTarget = gBattlerAttacker;
+
+    // HP healing
+    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
+    if (gBattleMoveDamage == 0)
+        gBattleMoveDamage = 1;
+    gBattleMoveDamage *= -1;
+
+    //status healing incl. Nightmare and infatuation
+    if (gBattleMons[gBattlerTarget].status1 != 0 || gBattleMons[gBattlerTarget].status2 & (STATUS2_NIGHTMARE | STATUS2_CONFUSION | STATUS2_INFATUATED_WITH(gBattlerTarget)))
+    {
+        hasStatus = TRUE;
+    }
+    gBattleMons[gBattlerTarget].status1 = 0;
+    gBattleMons[gBattlerTarget].status2 &= ~STATUS2_NIGHTMARE;
+    gBattleMons[gBattlerTarget].status2 &= ~STATUS2_CONFUSION;
+    gBattleMons[gBattlerTarget].status2 &= ~STATUS2_INFATUATED_WITH(gBattlerTarget);
+
+    if (hasStatus)
+    {
+        // gActiveBattler required for further buffer handling!
+        gActiveBattler = gBattlerTarget; 
+        toHeal = 1 << gBattlerPartyIndexes[gActiveBattler];
+        BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, toHeal, sizeof(zero), &zero);
+        MarkBattlerForControllerExec(gActiveBattler);
+    }
+
+    if (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP && !hasStatus)
+        gBattlescriptCurrInstr = cmd->failInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
 }

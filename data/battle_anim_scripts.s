@@ -842,6 +842,7 @@ gBattleAnims_Moves::
 	.4byte Move_BROCK_THROW
 	.4byte Move_SHADOW_SHIELD
 	.4byte Move_QUINTUPLE_WINGBEAT
+	.4byte Move_VOLCANIC_HEALING
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -5360,6 +5361,7 @@ Move_ICE_PUNCH:
 	blendoff
 	end
 
+Move_VOLCANIC_HEALING:
 Move_REST:
 	playsewithpan SE_M_SNORE, SOUND_PAN_ATTACKER
 	loadspritegfx ANIM_TAG_LETTER_Z

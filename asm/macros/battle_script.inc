@@ -1689,3 +1689,9 @@
 	callnative BS_PrintBirdsFaintString
 	.byte \position
 	.endm
+
+	.macro tryfullrestore failInstr:req, battler:req
+	callnative BS_TryFullRestore
+	.4byte \failInstr
+	.byte \battler
+	.endm

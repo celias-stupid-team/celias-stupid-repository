@@ -10606,4 +10606,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 6,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
+
+    [MOVE_VOLCANIC_HEALING] =
+    {
+        .effect = EFFECT_FULL_RESTORE,
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = -5,
+        .flags = FLAG_SNATCH_AFFECTED,
+    },
 };
