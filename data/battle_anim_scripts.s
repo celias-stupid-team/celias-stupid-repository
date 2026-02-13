@@ -401,7 +401,7 @@ gBattleAnims_Moves::
 	.4byte Move_ONE_CLAWS
 	.4byte Move_ONE_EDGE
 	.4byte Move_ONEMERANG
-	.4byte MOVE_BANEFUL_1NKER
+	.4byte Move_BANEFUL_1NKER
 	.4byte Move_FINAL_GAMBIT
 	.4byte Move_DRAGON_ASCENT
 	.4byte Move_FLYING_CLAW
@@ -12280,18 +12280,14 @@ Move_ONEMERANG:
 	blendoff
 	end
 	
-MOVE_BANEFUL_1NKER:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+Move_BANEFUL_1NKER:
+	loadspritegfx ANIM_TAG_ONE_PROTECT
+	monbg ANIM_ATK_PARTNER
+	splitbgprio ANIM_ATTACKER
+	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER, 16
+	createsprite gOneProtectSpriteTemplate, ANIM_ATTACKER, 2, 24, 0, 90
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	clearmonbg ANIM_ATK_PARTNER
 	end
 	
 Move_FINAL_GAMBIT:
@@ -17618,6 +17614,18 @@ General_RotomAppears:
 General_RotomComesDown:
 	goto Move_LOVELY_KISS
 	
+
+Move_SENTENNIEL_KICK:
+    loadspritegfx ANIM_TAG_HANDS_AND_FEET
+    monbg ANIM_DEF_PARTNER
+    setalpha 12, 8
+    createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 100, 1
+    createvisualtask AnimTask_CentennialKick, 2, 1, 100, 1, 2, 2, 2, 1
+    waitforvisualfinish
+    clearmonbg ANIM_DEF_PARTNER
+    blendoff
+    end
+
 Move_ONEISHMENT:
 	loadspritegfx ANIM_TAG_FLYING_DIRT
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_FLYING_DIRT, 0, 6, 6, RGB(15, 0, 21)
@@ -17718,7 +17726,6 @@ Move_LIGHT_OF_RUIN:
 Move_PLAY_NICE:
 Move_SHADOW_SCREEN:
 Move_SHADOW_OF_RUIN:
-Move_SENTENNIEL_KICK:
 Move_TRIPLE_PSYCLE:
 Move_TENTAZOOKA:
 Move_TOEDSZOOKA:

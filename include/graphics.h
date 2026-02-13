@@ -8726,6 +8726,7 @@ extern const u32 gBattleAnimSpriteGfx_WeedSmall[];
 extern const u32 gBattleAnimSpriteGfx_RainbowOrb[];
 extern const u32 gBattleAnimSpriteGfx_WeedleSpike[];
 extern const u32 gBattleAnimSpriteGfx_ShadowShield[];
+extern const u32 gBattleAnimSpriteGfx_OneProtect[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9014,6 +9015,7 @@ extern const u32 gBattleAnimSpritePal_WeedSmall[];
 extern const u32 gBattleAnimSpritePal_RainbowOrb[];
 extern const u32 gBattleAnimSpritePal_WeedleSpike[];
 extern const u32 gBattleAnimSpritePal_ShadowShield[];
+extern const u32 gBattleAnimSpritePal_OneProtect[];
 
 //CSR Moves
 

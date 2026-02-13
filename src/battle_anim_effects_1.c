@@ -70,6 +70,7 @@ static void AnimSlice_Step(struct Sprite *);
 static void AnimCirclingMusicNote(struct Sprite *);
 static void AnimCirclingMusicNote_Step(struct Sprite *);
 static void AnimProtect(struct Sprite *);
+static void AnimOneProtect(struct Sprite *);
 static void AnimProtect_Step(struct Sprite *);
 static void AnimMilkBottle(struct Sprite *);
 static void AnimMilkBottle_Step1(struct Sprite *);
@@ -1434,6 +1435,17 @@ const struct SpriteTemplate gShadowShieldSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimShadowShield,
+};
+
+const struct SpriteTemplate gOneProtectSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ONE_PROTECT,
+    .paletteTag = ANIM_TAG_ONE_PROTECT,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimOneProtect,
 };
 
 static const union AffineAnimCmd sMilkBottleAffineAnimCmds1[] =
@@ -4404,6 +4416,26 @@ static void AnimProtect(struct Sprite* sprite)
 
     sprite->data[0] = gBattleAnimArgs[2];
     sprite->data[2] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(ANIM_TAG_PROTECT));
+    sprite->data[7] = 16;
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));
+    sprite->callback = AnimProtect_Step;
+}
+
+static void AnimOneProtect(struct Sprite* sprite)
+{
+    if (IsContest())
+        gBattleAnimArgs[1] += 8;
+
+    sprite->x = GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_X) + gBattleAnimArgs[0];
+    sprite->y = GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_Y) + gBattleAnimArgs[1];
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER || IsContest())
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker) + 1;
+    else
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker);
+
+    sprite->data[0] = gBattleAnimArgs[2];
+    sprite->data[2] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(ANIM_TAG_ONE_PROTECT));
     sprite->data[7] = 16;
     SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND);
     SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));

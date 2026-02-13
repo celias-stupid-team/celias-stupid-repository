@@ -1041,6 +1041,9 @@ const u32 gBattleAnimSpritePal_Protect[] = INCBIN_U32("graphics/battle_anims/spr
 const u32 gBattleAnimSpriteGfx_ShadowShield[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_protect.4bpp.lz");
 const u32 gBattleAnimSpritePal_ShadowShield[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_protect.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_OneProtect[] = INCBIN_U32("graphics/battle_anims/sprites/one_protect.4bpp.lz");
+const u32 gBattleAnimSpritePal_OneProtect[] = INCBIN_U32("graphics/battle_anims/sprites/one_protect.gbapal.lz");
+
 const u32 gBattleAnimBgPalette_MuddyWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_muddy.gbapal.lz");
 
 const u32 gEnemyMonShadow_Gfx[] = INCBIN_U32("graphics/battle_interface/enemy_mon_shadow.4bpp.lz");
