@@ -10434,21 +10434,21 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAQW[] = {
 static const struct TrainerMonItemCustomMoves sParty_HyperDrill[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 14,
         .heldItem = ITEM_NONE,
         .species = SPECIES_DUDUNSPARCE,
         .moves = {MOVE_BODY_SLAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 17,
         .heldItem = ITEM_NONE,
         .species = SPECIES_DODODUO,
         .moves = {MOVE_TRIPLE_KICK, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 17,
         .heldItem = ITEM_NONE,
         .species = SPECIES_PORYGON22,
         .moves = {MOVE_ROUNDEN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
