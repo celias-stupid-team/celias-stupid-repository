@@ -465,6 +465,31 @@ const struct SpriteTemplate gFuzzyParticleSpriteTemplate =
     .callback = AnimSporeParticle,
 };
 
+static const union AnimCmd sHAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 6),
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sHAnimTable[] =    
+{
+    sHAnimCmds,
+};
+
+const struct SpriteTemplate gHParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_H,
+    .paletteTag = ANIM_TAG_H,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sHAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeParticle,
+};
+
 static const union AnimCmd sPetalDanceBigFlowerAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),

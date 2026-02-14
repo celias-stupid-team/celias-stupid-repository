@@ -279,9 +279,13 @@ static void AnimAcidPoisonDroplet(struct Sprite *sprite)
 }
 static void AnimAcidPoisonDropletTinted(struct Sprite *sprite)
 {
-    SetAverageBattlerPositions(gBattleAnimTarget, TRUE, &sprite->x, &sprite->y);
+    u8 anchorBattler = (gBattleAnimArgs[3] != 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+    SetAverageBattlerPositions(anchorBattler, TRUE, &sprite->x, &sprite->y);
+
     if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
         gBattleAnimArgs[0] = -gBattleAnimArgs[0];
+
     sprite->x += gBattleAnimArgs[0];
     sprite->y += gBattleAnimArgs[1];
     sprite->data[0] = gBattleAnimArgs[4];
@@ -304,6 +308,7 @@ static void AnimAcidPoisonDropletTinted(struct Sprite *sprite)
     sprite->callback = StartAnimLinearTranslation;
     StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
 }
+
 
 
 // Animates a bubble by rising upward, swaying side to side, and

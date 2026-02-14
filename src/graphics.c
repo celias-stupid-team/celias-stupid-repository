@@ -659,6 +659,9 @@ const u32 gBattleAnimSpritePal_LockOn[] = INCBIN_U32("graphics/battle_anims/spri
 const u32 gBattleAnimSpriteGfx_OpeningEye[] = INCBIN_U32("graphics/battle_anims/sprites/opening_eye.4bpp.lz");
 const u32 gBattleAnimSpritePal_OpeningEye[] = INCBIN_U32("graphics/battle_anims/sprites/opening_eye.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_H[] = INCBIN_U32("graphics/battle_anims/sprites/H.4bpp.lz");
+const u32 gBattleAnimSpritePal_H[] = INCBIN_U32("graphics/battle_anims/sprites/H.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_RoundWhiteHalo[] = INCBIN_U32("graphics/battle_anims/sprites/round_white_halo.4bpp.lz");
 const u32 gBattleAnimSpritePal_RoundWhiteHalo[] = INCBIN_U32("graphics/battle_anims/sprites/round_white_halo.gbapal.lz");
 
