@@ -7684,8 +7684,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ZEKROM_KICK] =   
     {
         .effect = EFFECT_HIT,
-        .power = 35,
-        .type = TYPE_NORMAL,
+        .power = 90,
+        .type = TYPE_DRAGON,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
