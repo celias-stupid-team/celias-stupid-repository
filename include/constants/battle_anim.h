@@ -432,8 +432,9 @@
 #define B_ANIM_SHADOW_SKY_CONTINUES     34
 #define B_ANIM_SHADOW_SPIKES            35
 #define B_ANIM_ZAPMOLCUNO_TRANSFORM     36
-#define B_ANIM_ROTOM_APPEARS     37
-#define B_ANIM_ROTOM_COMES_DOWN     38
+#define B_ANIM_ROTOM_APPEARS            37
+#define B_ANIM_ROTOM_COMES_DOWN         38
+#define B_ANIM_DOUBLE_DIP_HIT           39
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

@@ -269,6 +269,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectToxicSeed              @ EFFECT_TOXIC_SEED
 	.4byte BattleScript_EffectMultiHitThree          @ EFFECT_MULTI_HIT_THREE
 	.4byte BattleScript_EffectShadowShield           @ EFFECT_SHADOW_SHIELD
+	.4byte BattleScript_EffectFullRestore            @ EFFECT_FULL_RESTORE
+	.4byte BattleScript_EffectDoubleDip              @ EFFECT_DOUBLE_DIP
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -807,6 +809,7 @@ BattleScript_EffectRestoreHp::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_ATTACKER
 	attackanimation
 	waitanimation
@@ -869,6 +872,7 @@ BattleScript_EffectRest::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_RestIsAlreadyAsleep
 	jumpifcantmakeasleep BattleScript_RestCantSleep
 	trysetrest BattleScript_AlreadyAtFullHp
@@ -2178,6 +2182,7 @@ BattleScript_EffectSoftboiled::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
 BattleScript_PresentHealTarget::
 	attackanimation
@@ -4156,7 +4161,6 @@ BattleScript_SeelHoopaTransform::
 	end2
 
 BattleScript_ZapmolcunoTransform::
-	@ wiz1989 ToDo - probably do a fade out here and replace the battler sprite
 	pause B_WAIT_TIME_SHORT
 	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM
 	pause B_WAIT_TIME_SHORT
@@ -5395,3 +5399,45 @@ BattleScript_FinalZapdosFaint::
 
 
 
+BattleScript_EffectFullRestore::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
+	tryfullrestore BattleScript_AlreadyAtFullHp, BS_ATTACKER
+	waitstate
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitstate
+	updatestatusicon BS_ATTACKER
+	waitstate
+	printstring STRINGID_PKMNFULLYRESTORED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_DoubleDipHits::
+	printstring STRINGID_PKMNHURTBYDOUBLEDIP
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_DOUBLE_DIP_HIT
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER
+	checkteamslost BattleScript_DoTurnDmgEnd
+	end2
+
+BattleScript_EffectDoubleDip:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	setdoubledip
+	goto BattleScript_HitFromAtkString
+
+BattleScript_PreventTakingARest::
+	pause B_WAIT_TIME_SHORT
+	copybyte sBATTLER, sBATTLER_WITH_ABILITY @ to copy the battler name to B_SCR_ACTIVE_NAME_WITH_PREFIX
+	printstring STRINGID_PKMNPREVENTEDREST
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

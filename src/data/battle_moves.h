@@ -8070,7 +8070,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_DOUBLE_DIP] =
     
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_DOUBLE_DIP,
         .power = 80,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -10605,5 +10605,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 6,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+
+    [MOVE_VOLCANIC_HEALING] =
+    {
+        .effect = EFFECT_FULL_RESTORE,
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = -5,
+        .flags = FLAG_SNATCH_AFFECTED,
     },
 };

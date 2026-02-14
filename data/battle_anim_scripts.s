@@ -842,6 +842,7 @@ gBattleAnims_Moves::
 	.4byte Move_BROCK_THROW
 	.4byte Move_SHADOW_SHIELD
 	.4byte Move_QUINTUPLE_WINGBEAT
+	.4byte Move_VOLCANIC_HEALING
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -895,8 +896,9 @@ gBattleAnims_General::
 	.4byte General_ShadowSky    			@ B_ANIM_SHADOW_SKY_CONTINUES
 	.4byte General_ShadowSpikes 			@ B_ANIM_SHADOW_SPIKES
 	.4byte General_ZapmolcunoTransform      @ B_ANIM_ZAPMOLCUNO_TRANSFORM
-	.4byte General_RotomAppears      @ B_ANIM_ROTOM_APPEARS
-	.4byte General_RotomComesDown      @ B_ANIM_ROTOM_COMES_DOWN
+	.4byte General_RotomAppears             @ B_ANIM_ROTOM_APPEARS
+	.4byte General_RotomComesDown           @ B_ANIM_ROTOM_COMES_DOWN
+	.4byte General_DoubleDipHit             @ B_ANIM_DOUBLE_DIP_HIT
 
 	.align 2
 gBattleAnims_Special::
@@ -5360,6 +5362,7 @@ Move_ICE_PUNCH:
 	blendoff
 	end
 
+Move_VOLCANIC_HEALING:
 Move_REST:
 	playsewithpan SE_M_SNORE, SOUND_PAN_ATTACKER
 	loadspritegfx ANIM_TAG_LETTER_Z
@@ -17612,7 +17615,6 @@ Move_CLICK_HERE:
 	waitforvisualfinish
 	end
 
-
 General_RotomAppears:
 	goto Move_LOVELY_KISS
 General_RotomComesDown:
@@ -17916,3 +17918,5 @@ Move_SHADOW_SHIELD:
 	clearmonbg ANIM_ATK_PARTNER
 	end
 
+General_DoubleDipHit:
+	goto Move_KARATE_CHOP
