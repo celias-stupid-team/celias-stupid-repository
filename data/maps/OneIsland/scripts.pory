@@ -210,9 +210,6 @@ script OneIsland_Whirlpool {
 		"Would you like to use WHIRLPOOL?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			specialvar(VAR_RESULT, GetPlayerFacingDirection)
-			msgbox(
-			"Zoom\n"
-			"", MSGBOX_DEFAULT)
 			closemessage
 			switch(var(VAR_RESULT)) {
 				case DIR_NORTH: 
