@@ -809,6 +809,7 @@ BattleScript_EffectRestoreHp::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_ATTACKER
 	attackanimation
 	waitanimation
@@ -871,6 +872,7 @@ BattleScript_EffectRest::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_RestIsAlreadyAsleep
 	jumpifcantmakeasleep BattleScript_RestCantSleep
 	trysetrest BattleScript_AlreadyAtFullHp
@@ -2180,6 +2182,7 @@ BattleScript_EffectSoftboiled::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
 BattleScript_PresentHealTarget::
 	attackanimation
@@ -5364,6 +5367,7 @@ BattleScript_EffectFullRestore::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	tryfullrestore BattleScript_AlreadyAtFullHp, BS_ATTACKER
 	waitstate
 	attackanimation
@@ -5381,7 +5385,6 @@ BattleScript_EffectFullRestore::
 BattleScript_DoubleDipHits::
 	printstring STRINGID_PKMNHURTBYDOUBLEDIP
 	waitmessage B_WAIT_TIME_LONG
-	@ statusanimation BS_ATTACKER
 	playanimation BS_ATTACKER, B_ANIM_DOUBLE_DIP_HIT
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_ATTACKER
@@ -5395,3 +5398,10 @@ BattleScript_EffectDoubleDip:
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	setdoubledip
 	goto BattleScript_HitFromAtkString
+
+BattleScript_PreventTakingARest::
+	pause B_WAIT_TIME_SHORT
+	copybyte sBATTLER, sBATTLER_WITH_ABILITY @ to copy the battler name to B_SCR_ACTIVE_NAME_WITH_PREFIX
+	printstring STRINGID_PKMNPREVENTEDREST
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
