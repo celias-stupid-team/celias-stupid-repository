@@ -30,6 +30,8 @@ static void AnimLeechSeed_Step(struct Sprite *);
 static void AnimLeechSeedSprouts(struct Sprite *);
 static void AnimSporeParticle(struct Sprite *);
 static void AnimSporeParticle_Step(struct Sprite *);
+static void AnimSporeSelfParticle(struct Sprite *);
+static void AnimSporeSelfParticle_Step(struct Sprite *);
 static void AnimPetalDanceBigFlower(struct Sprite *);
 static void AnimPetalDanceBigFlower_Step(struct Sprite *);
 static void AnimPetalDanceSmallFlower(struct Sprite *);
@@ -439,6 +441,17 @@ const struct SpriteTemplate gSporeParticleSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSporeParticle,
+};
+
+const struct SpriteTemplate gSporeSelfParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPORE,
+    .paletteTag = ANIM_TAG_SPORE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sSporeParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeSelfParticle,
 };
 
 const struct SpriteTemplate gFuzzyParticleSpriteTemplate =
@@ -2816,6 +2829,50 @@ static void AnimLeechSeedSprouts(struct Sprite* sprite)
     sprite->data[0] = 60;
     sprite->callback = WaitAnimForDuration;
     StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+// Moves a spore particle in a halo around the attacker mon.
+// The sprite's priority is updated to give the effect of going
+// behind the mon's sprite.
+// arg 0: initial x pixel offset
+// arg 1: initial y pixel offset
+// arg 2: initial wave offset
+// arg 3: duration
+// arg 4: blend (0 = off, 1 = on)
+static void AnimSporeSelfParticle(struct Sprite* sprite)
+{
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+    StartSpriteAnim(sprite, gBattleAnimArgs[4]);
+    if (gBattleAnimArgs[4] == 1)
+        sprite->oam.objMode = ST_OAM_OBJ_BLEND;
+
+    sprite->data[0] = gBattleAnimArgs[3];
+    sprite->data[1] = gBattleAnimArgs[2];
+    sprite->callback = AnimSporeParticle_Step;
+    sprite->callback(sprite);
+}
+
+static void AnimSporeSelfParticle_Step(struct Sprite* sprite)
+{
+    sprite->x2 = Sin(sprite->data[1], 32);
+    sprite->y2 = Cos(sprite->data[1], -3) + ((sprite->data[2] += 24) >> 8);
+    if ((u16)(sprite->data[1] - 0x40) < 0x80)
+    {
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker);
+    }
+    else
+    {
+        u8 priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker) + 1;
+        if (priority > 3)
+            priority = 3;
+
+        sprite->oam.priority = priority;
+    }
+
+    sprite->data[1] += 2;
+    sprite->data[1] &= 0xFF;
+    if (--sprite->data[0] == -1)
+        DestroyAnimSprite(sprite);
 }
 
 // Moves a spore particle in a halo around the target mon.
