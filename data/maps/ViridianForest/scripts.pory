@@ -165,7 +165,7 @@ script ViridianForest_EventScript_CeliaAJ {
 const CELIA_FOREST = 20
 script ViridianForest_EventScript_CeliaChecksDex {
 	setvar(VAR_CSR_CELIA_IN_FOREST, 1)
-	if(!checkmoncaught(SPECIES_RATTATA) || !checkmoncaught(SPECIES_MANKEY) || !checkmoncaught(SPECIES_WEEDLE) || !checkmoncaught(SPECIES_CATERPIE)) { // at least one major area not accounted for
+	if(!checkmoncaught(SPECIES_MANKEY) || !checkmoncaught(SPECIES_WEEDLE) || !checkmoncaught(SPECIES_CATERPIE)) { // at least one major area not accounted for
 		lock
 
 		getplayerxy(VAR_TEMP_3, VAR_TEMP_4)

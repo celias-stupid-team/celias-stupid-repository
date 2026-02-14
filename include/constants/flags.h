@@ -460,7 +460,7 @@
 #define FLAG_UNDER_DICK_BRIDGE                       0x199
 #define FLAG_EVOLVED_CATERPIE_BEFORE_BROCK                        0x19A
 #define FLAG_AURORA_BEAM_TM                              0x19B
-#define FLAG_0x19C                              0x19C
+#define FLAG_BROKE_STEVEN_STONE                              0x19C
 #define FLAG_0x19D                     0x19D
 #define FLAG_0x19E                            0x19E
 #define FLAG_0x19F                     0x19F
