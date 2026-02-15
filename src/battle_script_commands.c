@@ -1809,7 +1809,7 @@ static void Cmd_adjustnormaldamage(void)
 
     // special handling for FINALZAPDOS
     if (gCurrentMove == MOVE_10000_VOLTS)
-        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP + 500; // + 500 is unnecessary, but cooler!
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -3153,9 +3153,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     gActiveBattler = gBattlerAttacker;
                     BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gLastUsedItem), &gLastUsedItem);
                     MarkBattlerForControllerExec(gBattlerAttacker);
-
                 }
-
 
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
@@ -11745,4 +11743,230 @@ void BS_SetDoubleDip(void)
     gStatuses3[gBattlerTarget] |= STATUS3_DOUBLE_DIP;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_HealthbarUpdateParallel(void)
+{
+    NATIVE_ARGS();
+
+    u8 i;
+    u8 battlers[2];
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    battlers[0] = gBattlerTarget;
+    battlers[1] = gBattlerAttacker;
+
+    if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+    {
+        for (i = 0; i < 2; i++)
+        {
+            gActiveBattler = battlers[i];
+            if (gActiveBattler == gBattlerTarget && gBattleMons[gActiveBattler].status2 & STATUS2_SUBSTITUTE && gDisableStructs[gActiveBattler].substituteHP && !(gHitMarker & HITMARKER_IGNORE_SUBSTITUTE))
+            {
+                PrepareStringBattle(STRINGID_SUBSTITUTEDAMAGED, gActiveBattler);
+            }
+            else
+            {
+                s16 healthValue;
+
+                s32 currDmg = gBattleMoveDamage;
+                s32 maxPossibleDmgValue = 10000; // not present in R/S, ensures that huge damage values don't change sign
+
+                if (currDmg <= maxPossibleDmgValue)
+                    healthValue = currDmg;
+                else
+                    healthValue = maxPossibleDmgValue;
+
+                BtlController_EmitHealthBarUpdate(BUFFER_A, healthValue);
+                MarkBattlerForControllerExec(gActiveBattler);
+
+                if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER && gBattleMoveDamage > 0)
+                    gBattleResults.playerMonWasDamaged = TRUE;
+            }
+        }
+    }
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_DataHpUpdateParallel(void)
+{
+    NATIVE_ARGS();
+
+    u8 i;
+    u8 battlers[2];
+    u32 moveType;
+    const u8 *substituteFadeScript = NULL;
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    battlers[0] = gBattlerTarget;
+    battlers[1] = gBattlerAttacker;
+
+    if (gBattleStruct->dynamicMoveType == 0)
+        moveType = gBattleMoves[gCurrentMove].type;
+    else if (!(gBattleStruct->dynamicMoveType & F_DYNAMIC_TYPE_1))
+        moveType = gBattleStruct->dynamicMoveType & DYNAMIC_TYPE_MASK;
+    else
+        moveType = gBattleMoves[gCurrentMove].type;
+
+    if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+    {
+        for (i = 0; i < 2; i++)
+        {
+            gActiveBattler = battlers[i];
+            if (gBattleMons[gActiveBattler].status2 & STATUS2_SUBSTITUTE && gDisableStructs[gActiveBattler].substituteHP && !(gHitMarker & HITMARKER_IGNORE_SUBSTITUTE))
+            {
+                if (gDisableStructs[gActiveBattler].substituteHP >= gBattleMoveDamage)
+                {
+                    if (gSpecialStatuses[gActiveBattler].dmg == 0)
+                        gSpecialStatuses[gActiveBattler].dmg = gBattleMoveDamage;
+                    gDisableStructs[gActiveBattler].substituteHP -= gBattleMoveDamage;
+                    gHpDealt = gBattleMoveDamage;
+                }
+                else
+                {
+                    if (gSpecialStatuses[gActiveBattler].dmg == 0)
+                        gSpecialStatuses[gActiveBattler].dmg = gDisableStructs[gActiveBattler].substituteHP;
+                    gHpDealt = gDisableStructs[gActiveBattler].substituteHP;
+                    gDisableStructs[gActiveBattler].substituteHP = 0;
+                    if (gDisableStructs[gActiveBattler].substitute2CurrentLayer > 0)
+                    {
+                        gDisableStructs[gActiveBattler].substitute2CurrentLayer -= 1;
+                    }
+                }
+                // check substitute fading
+                if (gDisableStructs[gActiveBattler].substituteHP == 0)
+                {
+                    // check how many layers of sub remain
+                    if (gDisableStructs[gActiveBattler].substitute2CurrentLayer > 0)
+                    {
+                        // reset sub hp 
+                        gDisableStructs[gActiveBattler].substituteHP = gBattleMons[gActiveBattler].maxHP / 4;
+
+                        // safety check for parallel processing
+                        if (substituteFadeScript == NULL)
+                        {
+                            switch (gDisableStructs[gActiveBattler].substitute2CurrentLayer)
+                            {
+                            case SUBSTITUTE2_1_LAYERS:
+                                substituteFadeScript = BattleScript_SubstituteFade2;
+                                break;
+                            case SUBSTITUTE2_2_LAYERS:
+                                substituteFadeScript = BattleScript_SubstituteFade3;
+                                break;
+                            }
+                        }
+                    }
+                    else // none, sub is fully destroyed
+                    {
+                        if (substituteFadeScript == NULL)
+                            substituteFadeScript = BattleScript_SubstituteFade;
+                    }
+                }
+                
+                // if substitute takes damage, skip recoil handling
+                if (gActiveBattler == gBattlerTarget)
+                    break;
+            }
+            else
+            {
+                gHitMarker &= ~HITMARKER_IGNORE_SUBSTITUTE;
+                if (gBattleMoveDamage < 0) // hp goes up
+                {
+                    gBattleMons[gActiveBattler].hp -= gBattleMoveDamage;
+                    if (gBattleMons[gActiveBattler].hp > gBattleMons[gActiveBattler].maxHP)
+                    {
+                        gBattleMons[gActiveBattler].hp = gBattleMons[gActiveBattler].maxHP;
+                        //Message handling for MOVE_SUBSTITUTE_TEACHER
+                        if (gCurrentMove == MOVE_SUBSTITUTE_TEACHER)
+                            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_REGAINED_HEALTH;
+                    }
+                }
+                else // hp goes down
+                {
+                    if (gHitMarker & HITMARKER_SKIP_DMG_TRACK)
+                    {
+                        gHitMarker &= ~HITMARKER_SKIP_DMG_TRACK;
+                    }
+                    else
+                    {
+                        gTakenDmg[gActiveBattler] += gBattleMoveDamage;
+                        if (gBattlescriptCurrInstr[1] == BS_TARGET)
+                            gTakenDmgByBattler[gActiveBattler] = gBattlerAttacker;
+                        else
+                            gTakenDmgByBattler[gActiveBattler] = gBattlerTarget;
+                    }
+
+                    if (gBattleMons[gActiveBattler].hp > gBattleMoveDamage)
+                    {
+                        gBattleMons[gActiveBattler].hp -= gBattleMoveDamage;
+                        gHpDealt = gBattleMoveDamage;
+                    }
+                    else
+                    {
+                        gHpDealt = gBattleMons[gActiveBattler].hp;
+                        gBattleMons[gActiveBattler].hp = 0;
+                    }
+
+                    if (!gSpecialStatuses[gActiveBattler].dmg && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE))
+                        gSpecialStatuses[gActiveBattler].dmg = gHpDealt;
+
+                    if (IS_TYPE_PHYSICAL(moveType) && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE) && gCurrentMove != MOVE_PAIN_SPLIT)
+                    {
+                        gProtectStructs[gActiveBattler].physicalDmg = gHpDealt;
+                        gSpecialStatuses[gActiveBattler].physicalDmg = gHpDealt;
+                        if (gActiveBattler == gBattlerTarget)
+                        {
+                            gProtectStructs[gActiveBattler].physicalBattlerId = gBattlerAttacker;
+                            gSpecialStatuses[gActiveBattler].physicalBattlerId = gBattlerAttacker;
+                        }
+                        else
+                        {
+                            gProtectStructs[gActiveBattler].physicalBattlerId = gBattlerTarget;
+                            gSpecialStatuses[gActiveBattler].physicalBattlerId = gBattlerTarget;
+                        }
+                    }
+                    else if (!IS_TYPE_PHYSICAL(moveType) && !(gHitMarker & HITMARKER_PASSIVE_DAMAGE))
+                    {
+                        gProtectStructs[gActiveBattler].specialDmg = gHpDealt;
+                        gSpecialStatuses[gActiveBattler].specialDmg = gHpDealt;
+                        if (gActiveBattler == gBattlerTarget)
+                        {
+                            gProtectStructs[gActiveBattler].specialBattlerId = gBattlerAttacker;
+                            gSpecialStatuses[gActiveBattler].specialBattlerId = gBattlerAttacker;
+                        }
+                        else
+                        {
+                            gProtectStructs[gActiveBattler].specialBattlerId = gBattlerTarget;
+                            gSpecialStatuses[gActiveBattler].specialBattlerId = gBattlerTarget;
+                        }
+                    }
+                }
+                gHitMarker &= ~HITMARKER_PASSIVE_DAMAGE;
+                BtlController_EmitSetMonData(BUFFER_A, REQUEST_HP_BATTLE, 0, sizeof(gBattleMons[gActiveBattler].hp), &gBattleMons[gActiveBattler].hp);
+                MarkBattlerForControllerExec(gActiveBattler);
+            }
+        }
+    }
+    else
+    {
+        for (i = 0; i < 2; i++)
+        {
+            gActiveBattler = battlers[i];
+            if (gSpecialStatuses[gActiveBattler].dmg == 0)
+                gSpecialStatuses[gActiveBattler].dmg = 0xFFFF;
+        }
+    }
+
+    if (substituteFadeScript != NULL)
+    {
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = substituteFadeScript;
+    }
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
 }

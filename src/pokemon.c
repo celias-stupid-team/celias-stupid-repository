@@ -2240,6 +2240,9 @@ void CalculateMonStats(struct Pokemon *mon)
     {
         s32 n = 2 * gSpeciesInfo[species].baseHP + hpIV;
         newMaxHP = (((n + hpEV / 4) * level) / 100) + level + 10;
+
+        if (species == SPECIES_FINALZAPDOS)
+            newMaxHP *= 2; // over-increase HP for Final Zapdos
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;

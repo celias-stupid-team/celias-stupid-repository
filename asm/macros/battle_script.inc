@@ -1699,3 +1699,11 @@
 	.macro setdoubledip
 	callnative BS_SetDoubleDip
 	.endm
+
+	.macro healthbarupdateparallel
+	callnative BS_HealthbarUpdateParallel
+	.endm
+
+	.macro datahpupdateparallel
+	callnative BS_DataHpUpdateParallel
+	.endm

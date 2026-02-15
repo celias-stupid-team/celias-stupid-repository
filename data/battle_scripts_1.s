@@ -5427,4 +5427,16 @@ BattleScript_Effect10kVolts::
 	attackstring
 	ppreduce
 	adjustnormaldamage
-	goto BattleScript_HitFromAtkAnimation
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdateparallel @updates HP for both attacker and target at the same time
+	datahpupdateparallel @updates HP for both attacker and target at the same time
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	tryfaintmon BS_ATTACKER
+	moveendall
+	end
