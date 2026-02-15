@@ -10051,7 +10051,7 @@ static const struct LevelUpMove sFINALHOOHLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sFINALZAPDOSLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_10000_VOLTS),
 	LEVEL_UP_END
 };
 

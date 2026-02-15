@@ -271,6 +271,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectShadowShield           @ EFFECT_SHADOW_SHIELD
 	.4byte BattleScript_EffectFullRestore            @ EFFECT_FULL_RESTORE
 	.4byte BattleScript_EffectDoubleDip              @ EFFECT_DOUBLE_DIP
+	.4byte BattleScript_Effect10kVolts               @ EFFECT_10000_VOLTS
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5411,3 +5412,19 @@ BattleScript_PreventTakingARest::
 	printstring STRINGID_PKMNPREVENTEDREST
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_10000VoltsSetUp::
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	playanimation BS_ATTACKER, B_ANIM_CHARGE_TURN
+	printstring STRINGID_PKMNISCHARGINGENERGY
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_Effect10kVolts::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	adjustnormaldamage
+	goto BattleScript_HitFromAtkAnimation

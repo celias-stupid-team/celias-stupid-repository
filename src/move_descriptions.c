@@ -813,6 +813,7 @@ const u8 gMoveDescription_Cute[] = _("Allows the user to\nCUTE down trees.");
 const u8 gMoveDescription_ShadowShield[] = _("Dummy");
 const u8 gMoveDescription_QuintupleWingbeat[] = _("The user attacks\nwith all of its\nwings, hitting\nfive times.");
 const u8 gMoveDescription_VolcanicHealing[] = _("Dummy");
+const u8 gMoveDescription_10000Volts[] = _("Dummy");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -1635,4 +1636,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_SHADOW_SHIELD - 1] = gMoveDescription_ShadowShield,
     [MOVE_QUINTUPLE_WINGBEAT - 1] = gMoveDescription_QuintupleWingbeat,
     [MOVE_VOLCANIC_HEALING - 1] = gMoveDescription_VolcanicHealing,
+    [MOVE_10000_VOLTS     -1 ] = gMoveDescription_10000Volts,
 };

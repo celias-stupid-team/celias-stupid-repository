@@ -827,6 +827,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_COVET,
     MOVE_TRICK,
     MOVE_FOCUS_PUNCH,
+    MOVE_10000_VOLTS,
     METRONOME_FORBIDDEN_END
 };
 
@@ -1805,6 +1806,10 @@ static void Cmd_adjustnormaldamage(void)
         if (gBattleMoveDamage < 30) // random number so base damage doesn't get too low
             gBattleMoveDamage = 30;
     }
+
+    // special handling for FINALZAPDOS
+    if (gCurrentMove == MOVE_10000_VOLTS)
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP + 500; // + 500 is unnecessary, but cooler!
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -8867,6 +8872,7 @@ static void Cmd_trychoosesleeptalkmove(void)
     {
         if (IsInvalidForSleepTalkOrAssist(gBattleMons[gBattlerAttacker].moves[i])
             || gBattleMons[gBattlerAttacker].moves[i] == MOVE_FOCUS_PUNCH
+            || gBattleMons[gBattlerAttacker].moves[i] == MOVE_10000_VOLTS
             || gBattleMons[gBattlerAttacker].moves[i] == MOVE_UPROAR
             || IsTwoTurnsMove(gBattleMons[gBattlerAttacker].moves[i]))
         {

@@ -10619,4 +10619,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = -5,
         .flags = FLAG_SNATCH_AFFECTED,
     },
+
+    [MOVE_10000_VOLTS] =
+    {
+        .effect = EFFECT_10000_VOLTS,
+        .power = 1, // damage is calculated to always be maxHP
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = -3,
+        .flags = FLAG_PROTECT_AFFECTED,
+    },
 };
