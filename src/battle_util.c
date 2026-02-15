@@ -684,6 +684,7 @@ u8 DoFieldEndTurnEffects(void)
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_DoubleDipHits);
+                    gStatuses3[gBattlerAttacker] &= ~STATUS3_DOUBLE_DIP;
                     effect++;
                 }
                 gBattleStruct->turnSideTracker++;

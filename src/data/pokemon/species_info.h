@@ -36360,7 +36360,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_FINALZAPDOS] =
     {
-        .baseHP = 250,
+        .baseHP = 170,
         .baseAttack = 1,
         .baseDefense = 255,
         .baseSpeed = 1,
