@@ -5306,6 +5306,12 @@ BattleScript_ShadowSky_End3::
 	call BattleScript_WeatherFormChanges
 	end3
 
+BattleScript_ShadowSkyStatusImmunity::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_SHADOWSKYPREVENTSSTATUS
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_ShadowSpikes_End3::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_LUGIA_USED_SHADOW_SPIKES
