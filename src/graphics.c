@@ -42,6 +42,9 @@ const u32 gBattleAnimSpritePal_Seed[] = INCBIN_U32("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_Needle[] = INCBIN_U32("graphics/battle_anims/sprites/needle.4bpp.lz");
 const u32 gBattleAnimSpritePal_Needle[] = INCBIN_U32("graphics/battle_anims/sprites/needle.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Bullet[] = INCBIN_U32("graphics/battle_anims/sprites/bullet.4bpp.lz");
+const u32 gBattleAnimSpritePal_Bullet[] = INCBIN_U32("graphics/battle_anims/sprites/bullet.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.4bpp.lz");
 const u32 gBattleAnimSpritePal_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.gbapal.lz");
 

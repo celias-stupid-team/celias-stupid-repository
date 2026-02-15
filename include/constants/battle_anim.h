@@ -343,6 +343,7 @@
 #define ANIM_TAG_SHADOW_SHIELD              (ANIM_SPRITES_START + 333)
 #define ANIM_TAG_ONE_PROTECT                (ANIM_SPRITES_START + 334)
 #define ANIM_TAG_H                          (ANIM_SPRITES_START + 335)
+#define ANIM_TAG_BULLET                     (ANIM_SPRITES_START + 336)
 
 // battlers
 #define ANIM_ATTACKER    0

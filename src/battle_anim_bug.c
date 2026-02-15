@@ -88,6 +88,41 @@ const struct SpriteTemplate gLeechLifeNeedleSpriteTemplate =
     .affineAnims = sAffineAnims_LeechLifeNeedle,
     .callback = AnimLeechLifeNeedle,
 };
+static const union AffineAnimCmd sAffineAnim_ShootBullet_0[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, -50, 1),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sAffineAnim_ShootBullet_1[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 96, 1),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sAffineAnim_ShootBullet_2[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, -96, 1),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sAffineAnims_ShootBullet[] =
+{
+    sAffineAnim_ShootBullet_0,
+    sAffineAnim_ShootBullet_1,
+    sAffineAnim_ShootBullet_2,
+};
+
+const struct SpriteTemplate gShootBulletSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BULLET,
+    .paletteTag = ANIM_TAG_BULLET,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_ShootBullet,
+    .callback = AnimLeechLifeNeedle,
+};
 
 const struct SpriteTemplate gWebThreadSpriteTemplate =
 {
