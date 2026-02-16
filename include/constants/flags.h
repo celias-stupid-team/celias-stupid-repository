@@ -131,7 +131,7 @@
 #define FLAG_HIDE_ONE_ISLAND_POKECENTER_CELIO              0x073
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE          0x075
-#define FLAG_CSR_CELIA_BONUS                     0x076
+#define FLAG_DEMO_3_CELIA_BONUS                     0x076
 #define FLAG_HIDE_P_EMBLEM                                         0x077
 #define FLAG_HIDE_W_EMBLEM                                         0x078
 #define FLAG_HIDE_THREE_ISLAND_BIKERS                      0x079
@@ -178,7 +178,7 @@
 #define FLAG_HIDE_CINNABAR_POKECENTER_BILL                 0x0A2
 #define FLAG_HIDE_CREDITS_RIVAL                            0x0A3
 #define FLAG_HIDE_CREDITS_OAK                              0x0A4
-#define FLAG_HIDE_LORELEI_HOUSE_MEOWTH_DOLL                0x0A5
+#define FLAG_CSR_CELIA_BONUS                0x0A5
 #define FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL               0x0A6
 #define FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL            0x0A7
 #define FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL            0x0A8
