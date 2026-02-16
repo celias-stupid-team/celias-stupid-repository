@@ -295,11 +295,26 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
 {
     u8 slot = ChooseWildMonIndex_Fishing(rod);
     u8 level = ChooseWildMonLevel(&info->wildPokemon[slot]);
-    if(rod != GOOD_ROD) {
-        GenerateWildMon(info->wildPokemon[slot].species, level, slot);
-    } else {
+    s16 x, y;
+    u16 behavior = MapGridGetMetatileBehaviorAt(x, y);
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+    DebugPrintf("X is %d", x);
+    DebugPrintf("Y is %d", y);
+    DebugPrintf("Behavior is %d", behavior);
+
+    if(rod == GOOD_ROD) {
         FlagClear(FLAG_SHINY_CREATION);
         GenerateWildMon(SPECIES_GOLDEEN, level, slot);
+
+    } else if (FlagGet(FLAG_SYS_GIRL_HOLE)) {
+        //DebugPrintf("Girl Hole");
+        FlagSet(FLAG_SHINY_CREATION);
+        FlagClear(FLAG_SYS_GIRL_HOLE);
+        GenerateWildMon(SPECIES_CLOYSTER, level, slot);
+
+    } else {
+        DebugPrintf("Not girl Hole");
+        GenerateWildMon(info->wildPokemon[slot].species, level, slot);
 
     }
     return info->wildPokemon[slot].species;

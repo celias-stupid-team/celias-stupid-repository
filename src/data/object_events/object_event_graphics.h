@@ -800,3 +800,5 @@ const u32 gObjectEventPic_MAGIKARP[] = INCBIN_U32("graphics/object_events/pics/s
 const u16 gObjectEventPal_MAGIKARP[] = INCBIN_U16("graphics/object_events/palettes/MAGIKARP.gbapal");
 const u32 gObjectEventPic_GYARA_LAND[] = INCBIN_U32("graphics/object_events/pics/stupid/GYARA_LAND.4bpp");
 const u16 gObjectEventPal_GYARA_LAND[] = INCBIN_U16("graphics/object_events/palettes/GYARA_LAND.gbapal");
+const u32 gObjectEventPic_BUGGY[] = INCBIN_U32("graphics/object_events/pics/stupid/BUGGY.4bpp");
+const u32 gObjectEventPic_TREASURE_X[] = INCBIN_U32("graphics/object_events/pics/stupid/TREASURE_X.4bpp");

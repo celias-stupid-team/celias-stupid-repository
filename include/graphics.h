@@ -12901,3 +12901,6 @@ extern const u8 gMonIcon_PIKACHUSURF[];
 
 extern const u32 gItemIcon_SecretPage[];
 extern const u32 gItemIconPalette_SecretPage[];
+
+extern const u32 gItemIcon_MAP[];
+extern const u32 gItemIconPalette_MAP[];

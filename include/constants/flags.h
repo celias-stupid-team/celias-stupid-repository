@@ -475,7 +475,7 @@
 #define FLAG_USED_GENDER_FLUID                0x1A8
 #define FLAG_DANCED_FOR_ARTICUNO                    0x1A9
 #define FLAG_GOT_SHINY_MISSINGNO                          0x1AA
-#define FLAG_0x1AB                    0x1AB
+#define FLAG_GOT_TREASURE_MAP                    0x1AB
 #define FLAG_0x1AC                          0x1AC
 #define FLAG_0x1AD                     0x1AD
 #define FLAG_0x1AE                          0x1AE
@@ -515,9 +515,9 @@
 #define FLAG_BEEN_IN_WATERFALL_HOUSE                  0x1D0
 #define FLAG_HIDE_CELADON_CITY_ETHER                            0x1D1
 #define FLAG_TALKED_TO_SWORDFUCK              0x1D2
-#define FLAG_0x1D3                  0x1D3
-#define FLAG_0x1D4                   0x1D4
-#define FLAG_0x1D5               0x1D5
+#define FLAG_CRASHED_SLOWPOKE_MARKET                  0x1D3
+#define FLAG_GOT_SHINY_MANKEY                   0x1D4
+#define FLAG_GOT_TRASH_SLOWPOKE               0x1D5
 #define FLAG_0x1D6                    0x1D6
 #define FLAG_0x1D7                 0x1D7
 #define FLAG_0x1D8                0x1D8
@@ -1227,7 +1227,7 @@
 #define FLAG_HIDDEN_ITEM_FUSHCIA_CITY_MAX_REVIVE                           (FLAG_HIDDEN_ITEMS_START + 133)
 #define FLAG_HIDDEN_ITEM_ROCKET_HIDEOUT_B4F_NET_BALL                       (FLAG_HIDDEN_ITEMS_START + 134)
 #define FLAG_HIDDEN_ITEM_SILPH_CO_2F_ULTRA_BALL                            (FLAG_HIDDEN_ITEMS_START + 135)
-#define FLAG_HIDDEN_ITEM_SILPH_CO_3F_PROTEIN                               (FLAG_HIDDEN_ITEMS_START + 136)
+#define FLAG_RAT_STONE                               (FLAG_HIDDEN_ITEMS_START + 136)
 #define FLAG_HIDDEN_ITEM_SILPH_CO_4F_IRON                                  (FLAG_HIDDEN_ITEMS_START + 137)
 #define FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_BERRY_6                                 (FLAG_HIDDEN_ITEMS_START + 138)
 #define FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_BERRY_7                                (FLAG_HIDDEN_ITEMS_START + 139)
@@ -1418,7 +1418,7 @@
 #define FLAG_0x81B                                                  (SYS_FLAGS + 0x1B)
 #define FLAG_0x81C                                                  (SYS_FLAGS + 0x1C)
 #define FLAG_0x81D                                                  (SYS_FLAGS + 0x1D)
-#define FLAG_0x81E                                                  (SYS_FLAGS + 0x1E)
+#define FLAG_SYS_GIRL_HOLE                                                  (SYS_FLAGS + 0x1E)
 #define FLAG_0x81F                                                  (SYS_FLAGS + 0x1F)
 
 // Permanent system flags

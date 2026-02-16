@@ -5986,3 +5986,25 @@ const struct SpriteFrameImage gObjectEventPicTable_GYARA_LAND[] = {
     overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 7),
     overworld_frame(gObjectEventPic_GYARA_LAND, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_BUGGY[] = {
+    overworld_frame(gObjectEventPic_BUGGY, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BUGGY, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BUGGY, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BUGGY, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BUGGY, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BUGGY, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BUGGY, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BUGGY, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BUGGY, 2, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_TREASURE_X[] = {
+    overworld_frame(gObjectEventPic_TREASURE_X, 2, 2, 0),
+    overworld_frame(gObjectEventPic_TREASURE_X, 2, 2, 1),
+    overworld_frame(gObjectEventPic_TREASURE_X, 2, 2, 2),
+    overworld_frame(gObjectEventPic_TREASURE_X, 2, 2, 0),
+    overworld_frame(gObjectEventPic_TREASURE_X, 2, 2, 0),
+    overworld_frame(gObjectEventPic_TREASURE_X, 2, 2, 1),
+    overworld_frame(gObjectEventPic_TREASURE_X, 2, 2, 1),
+    overworld_frame(gObjectEventPic_TREASURE_X, 2, 2, 2),
+    overworld_frame(gObjectEventPic_TREASURE_X, 2, 2, 2),
+};

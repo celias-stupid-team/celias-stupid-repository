@@ -95,6 +95,7 @@ static void GenderFluidWarpOutEffect_Spin(struct Task *task);
 static void TryToTransTheNidotrans(u8 taskId);
 static void TransTheNidotrans(u8 taskId);
 void RemoveShoesFromToedy();
+void CurePorygonVirus();
 
 static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
@@ -362,6 +363,12 @@ static bool8 CanFish(void)
     
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     behavior = MapGridGetMetatileBehaviorAt(x, y);
+    if (MetatileBehavior_IsGirlHole(behavior)) {
+            //DebugPrintf("true");
+            FlagSet(FLAG_SYS_GIRL_HOLE);
+            return TRUE;
+
+    }
 
     if (MetatileBehavior_IsWaterfall(behavior))
         return FALSE;
@@ -374,6 +381,8 @@ static bool8 CanFish(void)
     }
     else
     {
+         
+        
         if (MetatileBehavior_IsSurfable(behavior) && MapGridGetCollisionAt(x, y) == 0)
             return TRUE;
         if (MetatileBehavior_IsBridge(behavior) == TRUE)
@@ -1401,6 +1410,48 @@ static void TryToTransTheNidotrans(u8 taskId)
 }
 
 
+void CurePorygonVirus()
+{
+    u32 i, j;
+    u32 newPersonality, otID;
+    u16 newSpecies, oldSpecies;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    struct Pokemon *mon;
+    s16 slot = gSpecialVar_Result;
+    bool32 thisIsTrue = TRUE;
+    bool8 shinyness;
+
+    newSpecies = SPECIES_PORYGON;
+
+    mon = &gPlayerParty[slot];
+
+    otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+    GetMonNickname(mon, nickname);
+    newPersonality = Random32();
+    shinyness = GetMonData(mon, MON_DATA_CSR_SHINY);
+
+
+    // force the mon to be shiny
+    if(shinyness) {
+        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
+
+    }
+    
+    // if player has nicknamed their nidotran, don't overwrite it
+    if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+    {
+        SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+    }
+    SetMonData(mon, MON_DATA_SPECIES, &newSpecies);
+    if(shinyness) {
+        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+
+    }
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    UpdateMonPersonality(&mon->box, newPersonality);
+    CalculateMonStats(mon);
+    
+}
 
 
 
