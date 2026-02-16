@@ -4378,11 +4378,6 @@ static void Cmd_playanimation(void)
     else
         mon = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
-        party = gPlayerParty;
-    else
-        party = gEnemyParty;
-
     if (gBattlescriptCurrInstr[2] == B_ANIM_STATS_CHANGE
      || gBattlescriptCurrInstr[2] == B_ANIM_SNATCH_MOVE
      || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE
@@ -4396,14 +4391,14 @@ static void Cmd_playanimation(void)
         {
             u16 species = SPECIES_ALOMOMOLA;
             gBattleMons[gActiveBattler].species = species;
-            CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         //create Hoopa right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
         {
             u16 species = SPECIES_HOOPA;
             gBattleMons[gActiveBattler].species = species;
-            CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         //create Zapmolcuno birds right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM)
@@ -4412,7 +4407,7 @@ static void Cmd_playanimation(void)
             
             gBattleTurnMonFainted = TRUE;
             gBattleMons[gActiveBattler].species = species;
-            CreateMonWithGenderNatureLetter(party, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
