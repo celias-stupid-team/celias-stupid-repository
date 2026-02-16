@@ -10744,6 +10744,11 @@ static void Cmd_trysetcaughtmondexflags(void)
     u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
     u32 personality = GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY, NULL);
 
+    bool8 isShiny = IsMonShiny(&gEnemyParty[0]);
+
+    if (isShiny)
+        FlagSet(FLAG_SHINY_CREATION); // used for dex flag handling afterwards
+
     if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
     {
         // explicitly set the shiny found flag when it's a mon that has already been caught
