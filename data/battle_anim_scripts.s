@@ -843,6 +843,7 @@ gBattleAnims_Moves::
 	.4byte Move_SHADOW_SHIELD
 	.4byte Move_QUINTUPLE_WINGBEAT
 	.4byte Move_VOLCANIC_HEALING
+	.4byte Move_10000_VOLTS
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -899,6 +900,7 @@ gBattleAnims_General::
 	.4byte General_RotomAppears             @ B_ANIM_ROTOM_APPEARS
 	.4byte General_RotomComesDown           @ B_ANIM_ROTOM_COMES_DOWN
 	.4byte General_DoubleDipHit             @ B_ANIM_DOUBLE_DIP_HIT
+	.4byte General_ChargeTurn               @ B_ANIM_CHARGE_TURN
 
 	.align 2
 gBattleAnims_Special::
@@ -1578,6 +1580,7 @@ Move_THUNDER_SHOCK:
 	waitforvisualfinish
 	end
 
+Move_10000_VOLTS:
 Move_THUNDERBOLT:
 	loadspritegfx ANIM_TAG_SPARK
 	loadspritegfx ANIM_TAG_SHOCK_3
@@ -17908,6 +17911,7 @@ Move_CUTE:
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
+	
 Move_SHADOW_SHIELD:
 	loadspritegfx ANIM_TAG_SHADOW_SHIELD
 	monbg ANIM_ATK_PARTNER
@@ -17920,3 +17924,6 @@ Move_SHADOW_SHIELD:
 
 General_DoubleDipHit:
 	goto Move_KARATE_CHOP
+	
+General_ChargeTurn:
+	goto Move_CHARGE

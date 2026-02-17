@@ -271,6 +271,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectShadowShield           @ EFFECT_SHADOW_SHIELD
 	.4byte BattleScript_EffectFullRestore            @ EFFECT_FULL_RESTORE
 	.4byte BattleScript_EffectDoubleDip              @ EFFECT_DOUBLE_DIP
+	.4byte BattleScript_Effect10kVolts               @ EFFECT_10000_VOLTS
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5306,6 +5307,12 @@ BattleScript_ShadowSky_End3::
 	call BattleScript_WeatherFormChanges
 	end3
 
+BattleScript_ShadowSkyStatusImmunity::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_SHADOWSKYPREVENTSSTATUS
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_ShadowSpikes_End3::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_LUGIA_USED_SHADOW_SPIKES
@@ -5477,3 +5484,31 @@ BattleScript_PreventTakingARest::
 	printstring STRINGID_PKMNPREVENTEDREST
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_10000VoltsSetUp::
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	playanimation BS_ATTACKER, B_ANIM_CHARGE_TURN
+	printstring STRINGID_PKMNISCHARGINGENERGY
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_Effect10kVolts::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdateparallel @updates HP for both attacker and target at the same time
+	datahpupdateparallel @updates HP for both attacker and target at the same time
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	tryfaintmon BS_ATTACKER
+	moveendall
+	end

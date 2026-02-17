@@ -2425,8 +2425,6 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
     u8 mask;
     s8 retVal;
 
-
-
     if (indexIsSpecies)
         nationalDexNo = SpeciesToNationalPokedexNum(nationalDexNo);
 
@@ -2468,6 +2466,7 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
         if (FlagGet(FLAG_SHINY_CREATION)) 
         {
             gSaveBlock2Ptr->shinyFound[index] |= mask;
+            FlagClear(FLAG_SHINY_CREATION);
         }
         break;
     case FLAG_SET_OBTAINABLE:

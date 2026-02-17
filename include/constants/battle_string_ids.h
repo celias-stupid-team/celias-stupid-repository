@@ -480,10 +480,10 @@
 
 #define STRINGID_DONT_GIVE_UP 477
 #define STRINGID_DAD_QUESTION_MARK 478
+#define STRINGID_SHADOWSKYPREVENTSSTATUS 479
+#define STRINGID_PKMNISCHARGINGENERGY 480
 
-#define STRINGID_NONE 479
-// #define STRINGID_NONE 
-// ^ for easier copypaste
+#define STRINGID_NONE 481
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
 
 // This is the string id that gBattleStringsTable starts with.

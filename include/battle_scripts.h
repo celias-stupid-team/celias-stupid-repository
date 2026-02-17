@@ -265,6 +265,8 @@ extern const u8 BattleScript_ShadowSky_End3[];
 extern const u8 BattleScript_ShadowSpikes_End3[];
 extern const u8 BattleScript_ZapmolcunoTransform[];
 extern const u8 BattleScript_DoubleDipHits[];
+extern const u8 BattleScript_ShadowSkyStatusImmunity[];
+extern const u8 BattleScript_10000VoltsSetUp[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];
