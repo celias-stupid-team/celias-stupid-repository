@@ -128,7 +128,7 @@ script FalknerGym_Falkner {
 	"I won't allow such insults!\p"
 
 	"I've finally found the secret to\n"
-	"making my PKOéMON more powerful:\l"
+	"making my POKéMON more powerful:\l"
 	"Actually evolving them!", MSGBOX_DEFAULT)
     trainerbattle_no_intro(TRAINER_LEADER_FALKNER, "No!\n"
 	"My father's precious BIRD POKéMON!\p"
