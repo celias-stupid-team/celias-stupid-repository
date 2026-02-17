@@ -2,7 +2,11 @@
 #define GUARD_METATILE_LABELS_H
 
 // gTileset_BlaineFurnaceFun
-#define METATILE_BlaineFurnaceFun_Lava  0x280
+#define METATILE_BlaineFurnaceFun_BonusBottom    0x2E1
+#define METATILE_BlaineFurnaceFun_BonusTop       0x2D9
+#define METATILE_BlaineFurnaceFun_CorrectBottom  0x2E0
+#define METATILE_BlaineFurnaceFun_CorrectTop     0x2D8
+#define METATILE_BlaineFurnaceFun_Lava           0x280
 
 // gTileset_Building
 #define METATILE_Building_PCOff  0x062

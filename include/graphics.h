@@ -8723,6 +8723,9 @@ extern const u32 gBattleAnimSpriteGfx_Money[];
 extern const u32 gBattleAnimSpriteGfx_Ketchup[];
 extern const u32 gBattleAnimSpriteGfx_CoinSmall[];
 extern const u32 gBattleAnimSpriteGfx_WeedSmall[];
+extern const u32 gBattleAnimSpriteGfx_RainbowOrb[];
+extern const u32 gBattleAnimSpriteGfx_WeedleSpike[];
+extern const u32 gBattleAnimSpriteGfx_ShadowShield[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9008,6 +9011,9 @@ extern const u32 gBattleAnimSpritePal_Money[];
 extern const u32 gBattleAnimSpritePal_Ketchup[];
 extern const u32 gBattleAnimSpritePal_CoinSmall[];
 extern const u32 gBattleAnimSpritePal_WeedSmall[];
+extern const u32 gBattleAnimSpritePal_RainbowOrb[];
+extern const u32 gBattleAnimSpritePal_WeedleSpike[];
+extern const u32 gBattleAnimSpritePal_ShadowShield[];
 
 //CSR Moves
 
@@ -12895,3 +12901,12 @@ extern const u8 gMonIcon_PIKACHUSURF[];
 
 extern const u32 gItemIcon_SecretPage[];
 extern const u32 gItemIconPalette_SecretPage[];
+
+extern const u32 gItemIcon_MAP[];
+extern const u32 gItemIconPalette_MAP[];
+
+extern const u32 gTrainerFrontPic_Malva[];
+extern const u32 gTrainerPalette_Malva[];
+
+extern const u32 gTrainerFrontPic_Skiier[];
+extern const u32 gTrainerPalette_Skiier[];

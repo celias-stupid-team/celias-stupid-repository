@@ -5,7 +5,7 @@ mapscripts Silph_RD_MapScripts {
 script SilphCo_RD_Sign {
 	msgbox(
 	"SILPH CO\n"
-	"R & D", MSGBOX_SIGN)
+	"R&D", MSGBOX_SIGN)
 
 }
 
@@ -13,6 +13,7 @@ script SilphCo_RD_Sign {
 script SilphCo_RD_ApplinKid {
 	lock
 	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	if(flag(FLAG_GOT_PENCIL_ERASER)) {
 		msgbox(
 		"I am APPLIN KID.\n"
@@ -34,6 +35,7 @@ script SilphCo_RD_ApplinKid {
 }
 
 script SilphCo_RD_OranKid {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"I am ORAN KID.\n"
 	"", MSGBOX_NPC)
@@ -48,6 +50,7 @@ script SilphCo_RD_Elevator {
 
 script SilphCo_MakeElevatorDisappear {
 	lock
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	applymovement(LOCALID_APPLE_KID, moves(
 		face_up
 	))

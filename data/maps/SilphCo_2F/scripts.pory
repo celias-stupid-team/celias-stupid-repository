@@ -33,6 +33,7 @@ script SilphCo_2F_OnLoad {
 	if(flag(FLAG_SILPH_DMCA_DEFEATED)) {
 		setvar(VAR_START_SILPH_MUSIC, 1)
 	}
+	famechecker(FAMECHECKER_SAFFRON, 0)
 }
 
 script SilphCo_2F_EventScript_Grunt2 {

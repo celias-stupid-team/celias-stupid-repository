@@ -197,6 +197,7 @@ enum RotomMonIcon
     ICON_SCYTHER,
     ICON_KRABBY,
     ICON_AMPHAROS,
+    ICON_EXEGGCUTE,
     MON_ICON_COUNT,
 };
 
@@ -431,6 +432,7 @@ static const u16 sRotomMonIconToSpecies[] = {
     [ICON_SCYTHER] = SPECIES_SCYTHER,
     [ICON_KRABBY] = SPECIES_KRABBY,
     [ICON_AMPHAROS] = SPECIES_AMPHAROS,
+    [ICON_EXEGGCUTE] = SPECIES_EXEGGCUTE,
 };
 
 EWRAM_DATA bool8 gUsingRotomMenuMove = 0;
@@ -578,6 +580,7 @@ static const union AnimCmd *const sMonIconAnimTable[MON_ICON_COUNT] = {
     [ICON_SCYTHER] = sAnimCmd_MonIcon_Scyther,
     [ICON_KRABBY] = sAnimCmd_MonIcon_Krabby,
     [ICON_AMPHAROS] = sAnimCmd_MonIcon_Ampharos,
+    [ICON_EXEGGCUTE] = sAnimCmd_MonIcon_Exeggutor,
 };
 
 static const struct SpritePalette sSpritePal_MonIcon[] = {
@@ -3070,7 +3073,8 @@ static bool32 SetupFunc_Guillotine(void)
         return TRUE;
     }
 
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK) || IsObjectInFrontOfPlayerCuttable())
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK) || IsObjectInFrontOfPlayerCuttable()
+        || (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_11F) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_11F) && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_OLD_MAN_2)) )
     {
         VarSet(VAR_USED_CUT, 1);
         sFieldMoveData = CUT_TYPE_TREE;

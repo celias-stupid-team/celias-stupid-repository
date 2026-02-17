@@ -166,8 +166,8 @@ static const struct LevelUpMove sWeedleLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sKakunaLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(0, MOVE_FURY_SWIPES),
-    LEVEL_UP_MOVE(1, MOVE_FURY_SWIPES),
+    LEVEL_UP_MOVE(0, MOVE_WEEDLE_ARM),
+    LEVEL_UP_MOVE(8, MOVE_FURY_SWIPES),
     LEVEL_UP_MOVE(1, MOVE_HARDEN),
     LEVEL_UP_END
 };

@@ -90,7 +90,7 @@ script Route11_LawnmowerGirl {
 script Route11_EastEntrance_2F_EventScript_LeftBinocularsSnorlaxGone {
 	clearflag(FLAG_CSR_HIDE_OMANYTE)
 	msgbox(
-	"Let'ss ee what the binoculars have\n"
+	"Let's see what the binoculars have\n"
 	"to show…\p"
 
 	"Ooh, looks like this dialogue box\n"

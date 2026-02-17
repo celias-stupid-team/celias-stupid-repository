@@ -3293,24 +3293,23 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 14;
         sMapCursor->y = 12;
         break;
-    case MAPSEC_ZERO_ISLAND:
-        sMapCursor->x = 17;
-        sMapCursor->y = 3;
-        break;
     case MAPSEC_ROCKET_WAREHOUSE:
         sMapCursor->x = 17;
         sMapCursor->y = 11;
         break;
-    case MAPSEC_POKEMON_ISLAND:
-    case MAPSEC_SECRET_GARDEN:
-    case MAPSEC_THIRTY_EIGHT_ISLAND:
     case MAPSEC_KANTO_LIGHTHOUSE:
+        sMapCursor->x = 15;
+        sMapCursor->y = 11;
+        break;
     case MAPSEC_AETHER_PARADISE:
     case MAPSEC_SECRET_TUNNEL:
     case MAPSEC_MINNESOTA:
+        sMapCursor->x = 18;
+        sMapCursor->y = 13;
+        break;
     case MAPSEC_AMITY_SQUARE:
-        sMapCursor->x = 9;
-        sMapCursor->y = 12;
+        sMapCursor->x = 16;
+        sMapCursor->y = 13;
         break;
     case MAPSEC_PRIZE_EXCHANGE:
         sMapCursor->x = 16;
@@ -3336,16 +3335,31 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
             GetPlayerPositionOnRegionMap();
         }
         break;
+    
+    case MAPSEC_POKEMON_ISLAND:
+        sMapCursor->x = 6;
+        sMapCursor->y = 14;
+        break;
     case MAPSEC_GREAT_BAY: //These will need updated eventually -Celia
-        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE21_NORTH))
+        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE) )
         {
-            sMapCursor->x = 4;
-            sMapCursor->y = 12;
+            sMapCursor->x = 12;
+            sMapCursor->y = 10;
         }
-        else if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE21_SOUTH))
+        else if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_GREAT_BAY_NORTH) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_GREAT_BAY_NORTH))
         {
-            sMapCursor->x = 4;
-            sMapCursor->y = 13;
+            sMapCursor->x = 11;
+            sMapCursor->y = 10;
+        }
+        else if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_OCEAN16) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_OCEAN16))
+        {
+            sMapCursor->x = 14;
+            sMapCursor->y = 8;
+        }
+        else if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_OCEAN17) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_OCEAN17))
+        {
+            sMapCursor->x = 12;
+            sMapCursor->y = 9;
         }
         break;
     case MAPSEC_ROUTE_5:
@@ -3392,6 +3406,111 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
             GetPlayerPositionOnRegionMap();
         }
         break;
+
+    case MAPSEC_GREAT_SEA:
+
+
+        if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_OCEAN2)) { //Don't worry about this; it's going to be a large adventure from me to get all of these placed
+        //DebugPrintf("Group");
+            switch(gSaveBlock1Ptr->location.mapNum) {
+                case MAP_NUM(MAP_OCEAN2):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 14;
+                    sMapCursor->y = 13;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN3):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 10;
+                    sMapCursor->y = 13;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN5):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 10;
+                    sMapCursor->y = 12;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN6):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 10;
+                    sMapCursor->y = 14;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN7):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 9;
+                    sMapCursor->y = 14;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN9):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 17;
+                    sMapCursor->y = 12;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN10):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 2;
+                    sMapCursor->y = 13;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN11):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 5;
+                    sMapCursor->y = 12;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN13):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 0;
+                    sMapCursor->y = 11;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN16):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 14;
+                    sMapCursor->y = 8;
+                    break;
+
+                case MAP_NUM(MAP_OCEAN17):
+                    //DebugPrintf("Num");
+                    sMapCursor->x = 13;
+                    sMapCursor->y = 8;
+                    break;
+
+            }
+        }
+        else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE21_NORTH) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE21_NORTH)) {
+            sMapCursor->x = 3;
+            sMapCursor->y = 11;
+
+        }
+        else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE19) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE19)) {
+            sMapCursor->x = 13;
+            sMapCursor->y = 12;
+
+        }
+        else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_TWO_ISLAND_NORTH) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_TWO_ISLAND_NORTH)) {
+            sMapCursor->x = 5;
+            sMapCursor->y = 10;
+
+        }
+        else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE20_SEAFOAM_ISLANDS) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE20_SEAFOAM_ISLANDS)) {
+            sMapCursor->x = 12;
+            sMapCursor->y = 14;
+
+        }
+        else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FIVE_ISLAND_MEMORIAL_PILLAR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FIVE_ISLAND_MEMORIAL_PILLAR)) {
+            sMapCursor->x = 14;
+            sMapCursor->y = 14;
+
+        } else {
+            GetPlayerPositionOnRegionMap();
+
+        }
+        break;
+    
     default:
         GetPlayerPositionOnRegionMap();
         break;
@@ -3425,8 +3544,10 @@ static void CreatePlayerIcon(u16 tileTag, u16 palTag)
         LZ77UnCompWram(sPlayerIcon_Red, sPlayerIcon->tiles);
     sPlayerIcon->tileTag = tileTag;
     sPlayerIcon->palTag = palTag;
-    sPlayerIcon->x = GetMapCursorX();
-    sPlayerIcon->y = GetMapCursorY();
+    
+        sPlayerIcon->x = GetMapCursorX();
+        sPlayerIcon->y = GetMapCursorY();
+
     CreatePlayerIconSprite();
 }
 
@@ -3478,13 +3599,17 @@ static void FreePlayerIcon(void)
     FREE_IF_NOT_NULL(sPlayerIcon);
 }
 
+
+
 static u16 GetPlayerIconX(void)
 {
+
     return sPlayerIcon->x;
 }
 
 static u16 GetPlayerIconY(void)
 {
+
     return sPlayerIcon->y;
 }
 

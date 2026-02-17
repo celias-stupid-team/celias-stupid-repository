@@ -43,7 +43,7 @@ RockTunnel_B1F_EventScript_Winston::
 `
 mapscripts RockTunnel_B1F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		setflag(FLAG_SHINY_CREATION)
+		//setflag(FLAG_SHINY_CREATION)
 	}
 }
 

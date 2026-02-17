@@ -210,9 +210,6 @@ script OneIsland_Whirlpool {
 		"Would you like to use WHIRLPOOL?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			specialvar(VAR_RESULT, GetPlayerFacingDirection)
-			msgbox(
-			"Zoom\n"
-			"", MSGBOX_DEFAULT)
 			closemessage
 			switch(var(VAR_RESULT)) {
 				case DIR_NORTH: 
@@ -484,4 +481,25 @@ script OneIsland_BrickBreak {
 		end
 	}
 	release
+}
+
+
+script OneIsland_LugiaSwimmer {
+	msgbox(
+	"Down there is ONE ISLAND, or also\n"
+	"known as the WHIRL ISLAND.\p"
+
+	"There's a POKéMON which lives\n"
+	"deep in the basement.\p"
+
+	"Despite what everyone seems to\n"
+	"think, the POKéMON is PSYCHIC-TYPE…\l"
+	"for some reason.", MSGBOX_NPC)
+}
+
+script OneIsland_Sign {
+	msgbox(
+	"ONE ISLAND\n"
+	"", MSGBOX_SIGN)
+
 }

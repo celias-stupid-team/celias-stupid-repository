@@ -75,9 +75,55 @@ script Route8_StartRaining {
 }
 
 script Route8_DrySoil {
+	if(checkitem(ITEM_RICH_MULCH) && !flag(FLAG_SHINY_PERSIAN)) {
+		msgbox(
+		"The soil is intensely dry and arid.\n"
+		"It hasn't been moistened in ages.\p"
+
+		"Cover the ground in RICH MULCH?\n"
+		"", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox(
+			"mulch happens\n"
+			"", MSGBOX_DEFAULT)
+			closemessage
+			delay(60)
+			playse(SE_M_SPIT_UP)
+			applymovement(LOCALID_NEW_RICH, moves(
+				set_visible
+				jump_2_down
+			))
+			waitmovement(0)
+			delay(60)
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox(
+			"I'm RICH!\n"
+			"", MSGBOX_DEFAULT)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER} was gifted the\n"
+			"fancy PERSIAN!", MSGBOX_DEFAULT)
+			waitfanfare
+			setflag(FLAG_SHINY_PERSIAN)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PERSIAN)
+			setflag(FLAG_SHINY_CREATION)
+			call(Common_Script_GiftPokemon)
+			release
+			end
+		}
+	} else {
 	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nbarren land would be a waste.", MSGBOX_SIGN)
+
+	}
 	end
 }
+
+script Route8_Rich2 {
+	msgbox(
+	"I love being RICH.\n"
+	"", MSGBOX_NPC)
+}
+
 
 script Route8_DrowningFriends {
 	if(flag(FLAG_CSR_GOT_PAY_DAY)) {

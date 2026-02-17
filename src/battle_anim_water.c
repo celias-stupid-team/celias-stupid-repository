@@ -312,6 +312,34 @@ const struct SpriteTemplate gHydroCannonBeamSpriteTemplate =
     .callback = AnimHydroCannonBeam,
 };
 
+static const union AnimCmd sAnim_RainbowOrb[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(4, 1),
+    ANIMCMD_FRAME(8, 1),
+    ANIMCMD_FRAME(12, 1),
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_FRAME(20, 1),
+    ANIMCMD_FRAME(24, 1),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd *const gAnims_RainbowOrb[] =
+{
+    sAnim_RainbowOrb,
+};
+
+const struct SpriteTemplate gRainbowBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RAINBOW_ORB,
+    .paletteTag = ANIM_TAG_RAINBOW_ORB,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = gAnims_RainbowOrb,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 static const union AnimCmd sAnim_WaterBubble[] =
 {
     ANIMCMD_FRAME(0, 1),

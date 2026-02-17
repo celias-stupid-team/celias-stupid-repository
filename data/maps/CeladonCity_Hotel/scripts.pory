@@ -21,9 +21,11 @@ script CeladonCity_Hotel_EventScript_Receptionist {
 	special(GetPlayerFacingDirection)
 	if(var(VAR_RESULT) == DIR_NORTH) {
 		goto(CeladonHotel_AcrossCounter)
+	} else {
+		msgbox(CeladonCity_Hotel_Text_ThisHotelIsForPeople, MSGBOX_NPC)
 	}
-	msgbox(CeladonCity_Hotel_Text_ThisHotelIsForPeople, MSGBOX_NPC)
 }
+	
 
 script CeladonHotel_WomanWhoAsks {
 	lock

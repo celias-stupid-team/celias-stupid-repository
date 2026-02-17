@@ -3671,6 +3671,9 @@ static void Cmd_getexp(void)
             }
 
             calculatedExp = gSpeciesInfo[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
+            if(gBattleMons[gBattlerFainted].species == SPECIES_ARCEUS) {
+                calculatedExp = 1000;
+            }
 
             if (viaExpShare) // at least one mon is getting exp via exp share
             {
@@ -11597,6 +11600,32 @@ void BS_FadeScreen(void)
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_FadeScreenInstant(void)
+{
+    NATIVE_ARGS(u8 mode);
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    switch (cmd->mode)
+    {
+        case FADE_TO_BLACK:
+            FadeScreen(FADE_TO_BLACK, 0);
+            break;
+        case FADE_TO_WHITE:
+            FadeScreen(FADE_TO_WHITE, 0);
+            break;
+        case FADE_FROM_BLACK:
+            FadeScreen(FADE_FROM_BLACK, 0);
+            break;
+        case FADE_FROM_WHITE:
+            FadeScreen(FADE_FROM_WHITE, 0);
+            break;
+    }
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 
 void BS_PlayMonCry(void)
 {

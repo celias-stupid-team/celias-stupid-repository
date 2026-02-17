@@ -2,7 +2,7 @@
   "id": "MAP_FIVE_ISLAND_HOUSE4",
   "name": "FiveIsland_House4",
   "layout": "LAYOUT_FIVE_ISLAND_HOUSE4",
-  "music": "MUS_SEVII_45",
+  "music": "MUS_YES",
   "region_map_section": "MAPSEC_CELADON_MANSION",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -40,5 +40,30 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Yes_Oak"
+    },
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Yes_Oak"
+    },
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Yes_Oak"
+    }
+  ]
 }

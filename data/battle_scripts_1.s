@@ -5370,6 +5370,78 @@ BattleScript_RunRotomAnimation::
 	playnewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue
 
+
+BattleScript_FinalLugiaFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_LUGIA
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_LUGIA_FAINTED
+	pause B_WAIT_TIME_LONGEST
+
+BattleScript_FinalArticunoFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_ARTICUNO
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_ARTICUNO_FAINTED
+	pause B_WAIT_TIME_LONGEST
+
+
+BattleScript_FinalHoohFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_HO_OH
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_HOOH_FAINTED
+	pause B_WAIT_TIME_LONGEST
+
+
+BattleScript_FinalZapdosFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_ZAPDOS
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_ZAPDOS_FAINTED
+	pause B_WAIT_TIME_LONGEST
+
+
+BattleScript_FinalMoltresFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_FINALLUGIA
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_MOLTRES_FAINTED
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_ZAPMOLCUNOFAINTED
+	pause B_WAIT_TIME_LONGEST
+
+
 BattleScript_EffectFullRestore::
 	attackcanceler
 	attackstring

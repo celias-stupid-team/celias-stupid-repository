@@ -1895,6 +1895,15 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
+                case WEATHER_SNOW:
+                    if (!(gBattleWeather & B_WEATHER_HAIL))
+                    {
+                        gBattleWeather = B_WEATHER_HAIL;
+                        gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
+                        gBattleScripting.battler = battler;
+                        effect++;
+                    }
+                    break;
                 /*    Overworld drought does not set weather in battle, so Paras can activate it himself.
                 case WEATHER_DROUGHT:
                     if (!(gBattleWeather & B_WEATHER_SUN))
@@ -3549,14 +3558,15 @@ u8 IsMonDisobedient(void)
         if (FlagGet(FLAG_BADGE08_GET))
             return 0;
 
-        obedienceLevel = 10;
-
+        obedienceLevel = 100;
+        /*
         if (FlagGet(FLAG_BADGE02_GET))
             obedienceLevel = 30;
         if (FlagGet(FLAG_BADGE04_GET))
             obedienceLevel = 50;
         if (FlagGet(FLAG_BADGE06_GET))
             obedienceLevel = 70;
+        */
     }
 
     if (gBattleMons[gBattlerAttacker].level <= obedienceLevel)

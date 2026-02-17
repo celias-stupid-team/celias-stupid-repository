@@ -744,11 +744,12 @@ script ViridianCity_EventScript_Woman {
 
 script ViridianCity_EventScript_TryUnlockGym {
 	goto_if_unset(FLAG_BADGE02_GET, EventScript_Return)
-	goto_if_unset(FLAG_BADGE03_GET, EventScript_Return)
+	//goto_if_unset(FLAG_BADGE03_GET, EventScript_Return)
 	goto_if_unset(FLAG_BADGE04_GET, EventScript_Return)
 	goto_if_unset(FLAG_BADGE05_GET, EventScript_Return)
 	goto_if_unset(FLAG_BADGE06_GET, EventScript_Return)
 	goto_if_unset(FLAG_BADGE07_GET, EventScript_Return)
+	goto_if_unset(FLAG_GOT_GYM_MEMBERSHIP_BADGE, EventScript_Return)
 	goto_if_unset(FLAG_OBTAINED_ZEPHYRBADGE, EventScript_Return)
 	//goto_if_unset(FLAG_BADGE07_GET, EventScript_Return) Falkner Badge
 	setvar(VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR, 1)

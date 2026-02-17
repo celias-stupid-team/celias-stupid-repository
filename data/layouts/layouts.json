@@ -1672,7 +1672,7 @@
     {
       "id": "LAYOUT_SEAFOAM_ISLANDS_B1F",
       "name": "SeafoamIslands_B1F_Layout",
-      "width": 54,
+      "width": 63,
       "height": 35,
       "border_width": 2,
       "border_height": 2,
@@ -1900,8 +1900,8 @@
     {
       "id": "LAYOUT_SSANNE_ROOM1",
       "name": "SSAnne_Room1_Layout",
-      "width": 6,
-      "height": 8,
+      "width": 11,
+      "height": 9,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7368,6 +7368,30 @@
       "secondary_tileset": "gTileset_RainbowCloud",
       "border_filepath": "data/layouts/RainbowCloud_FinalShiny/border.bin",
       "blockdata_filepath": "data/layouts/RainbowCloud_FinalShiny/map.bin"
+    },
+    {
+      "id": "LAYOUT_SSANNE_CAPTAINS_OFFICE_HOLE",
+      "name": "SSAnne_CaptainsOffice_HOLE",
+      "width": 9,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SSAnne",
+      "border_filepath": "data/layouts/SSAnne_CaptainsOffice_HOLE/border.bin",
+      "blockdata_filepath": "data/layouts/SSAnne_CaptainsOffice_HOLE/map.bin"
+    },
+    {
+      "id": "LAYOUT_SSANNE_1F_CORRIDOR_LAYOUT_JUMPY",
+      "name": "SSAnne_1F_Corridor_Layout_Jumpy",
+      "width": 31,
+      "height": 21,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SSAnne",
+      "border_filepath": "data/layouts/SSAnne_1F_Corridor_Layout_Jumpy/border.bin",
+      "blockdata_filepath": "data/layouts/SSAnne_1F_Corridor_Layout_Jumpy/map.bin"
     }
   ]
 }
