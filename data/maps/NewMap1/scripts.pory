@@ -128,10 +128,7 @@ script Sootopolis_NPC1 {
 
 script Sootopolis_ContestHallSign {
 	msgbox(
-	"CONTEST HALL\p"
-
-	"Coming soon!\n"
-	"(it'll be funny)", MSGBOX_SIGN)
+	"CONTEST HALL", MSGBOX_SIGN)
 
 }
 
@@ -142,4 +139,31 @@ script FullRelease_CeliaBlocksYou {
 	"CELIA: This area is not available\n"
 	"in this pre-release.\l"
 	"Stay tuned!", MSGBOX_NPC)
+}
+
+script ContestHall_BeautyContestSign {
+	msgbox(
+	"BEAUTY CONTEST\p"
+
+	"For only the most beautiful of\n"
+	"techniques!", MSGBOX_SIGN)
+
+}
+
+
+script ContestHall_Judge {
+	lock
+
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+		"Wow!\n"
+		"Astonishing!", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Contestant!\n"
+		"Blow me away!", MSGBOX_DEFAULT)
+	}
+	release
+	end
 }

@@ -81,8 +81,8 @@ script SSAnne_TheseusShip {
 		setflag(FLAG_SWAPPED_ZYGARDE)
 		if(var(VAR_RESULT)) {
 			msgbox(
-			"You have given your answer.\p"
-
+			"I see.\p"
+			"You have given your answer.\n"
 			"So it shall be."
 			"", MSGBOX_DEFAULT)
 			checkpartymonslot(SPECIES_ZYGARDE)

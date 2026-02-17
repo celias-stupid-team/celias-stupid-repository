@@ -10,9 +10,15 @@ script Silph_CallCenter_Sign {
 }
 
 script Silph_CallCenter_NPC1 {
+	lock
 	msgbox(
-	"Youngster Joey Call Center\n"
-	"", MSGBOX_NPC)
+	"Hello, you have reached the\n"
+	"YOUNGSTER JOEY CALL CENTER.\p"
+
+	"To hear an update on our RATTATA,\n"
+	"please press 1.\l"
+	"Para Español, oprima Dos.", MSGBOX_DEFAULT)
+	release
 }
 
 script Silph_CallCenter_SlowpoketailMarketingGuy {
@@ -44,4 +50,13 @@ script Silph_ProductDeveloper {
 	"After months of development, we've\n"
 	"finally crafted the single most\l"
 	"marketable man in the world!", MSGBOX_NPC)
+}
+
+
+script Silph_Leon {
+	lock
+	showmonpic(SPECIES_DRIZZILE, 10, 3)
+	waitbuttonpress
+	hidemonpic
+	release
 }
