@@ -519,8 +519,8 @@
 #define FLAG_GOT_SHINY_MANKEY                   0x1D4
 #define FLAG_GOT_TRASH_SLOWPOKE               0x1D5
 #define FLAG_SWAPPED_ZYGARDE                    0x1D6
-#define FLAG_0x1D7                 0x1D7
-#define FLAG_0x1D8                0x1D8
+#define FLAG_SITRUS_BERRY_NOTHING                 0x1D7
+#define FLAG_PUT_SPARE_DOOR_IN_FOUR_ISLAND                0x1D8
 #define FLAG_0x1D9                        0x1D9
 #define FLAG_0x1DA                    0x1DA
 #define FLAG_0x1DB                  0x1DB

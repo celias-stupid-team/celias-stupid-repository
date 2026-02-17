@@ -144,3 +144,11 @@ script SilphCo_DMCADad {
 	release
 	end
 }
+
+
+script EventScript_DoorUnlocked {
+	msgbox(
+	"Why do they let you check the\n"
+	"door when there's no door?", MSGBOX_DEFAULT)
+	releaseall
+}

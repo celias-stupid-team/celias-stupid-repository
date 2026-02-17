@@ -79,3 +79,26 @@ script FiveIsland_PokemonCenter_1F_EventScript_Nurse {
 	release
 	end
 }
+
+
+script Yes_Fisher {
+	lock
+	msgbox(
+	"When I visited CINNABAR ISLAND, I\n"
+	"fished up a fascinating POKéMON!\p"
+
+	"I believe its name was… missing\n"
+	"something?\l"
+	"Do you know what I'm talking about?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"No, it wasn't here.\n"
+		"It was on CINNABAR.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"That's exactly it!\n"
+		"Thank you.", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
