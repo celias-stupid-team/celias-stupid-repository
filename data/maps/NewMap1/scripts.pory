@@ -112,7 +112,7 @@ script Sootopolis_LuvdiscClue {
 	lock
 	msgbox(
 	"Hmm, I could've sworn my friend\n"
-	"told me he was right here!\p"
+	"told me it was right here!\p"
 
 	"Maybe I'm not understanding…\n"
 	"", MSGBOX_DEFAULT)

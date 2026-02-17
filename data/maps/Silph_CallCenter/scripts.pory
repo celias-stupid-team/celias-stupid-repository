@@ -16,7 +16,7 @@ script Silph_CallCenter_NPC1 {
 	"YOUNGSTER JOEY CALL CENTER.\p"
 
 	"To hear an update on our RATTATA,\n"
-	"please press 1.\l"
+	"please press One.\l"
 	"Para Español, oprima Dos.", MSGBOX_DEFAULT)
 	release
 }

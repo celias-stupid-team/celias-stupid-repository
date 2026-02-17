@@ -5,6 +5,7 @@ raw `
 SilphCo_11F_EventScript_President::
 	lock
 	faceplayer
+	famechecker FAMECHECKER_SAFFRON, 1
 	goto_if_set FLAG_GOT_MASTER_BALL_FROM_SILPH, SilphCo_11F_EventScript_AlreadyGotMasterBall
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, SilphCo_11F_EventScript_PresidentThanksMale
@@ -230,6 +231,7 @@ script SilphCo_StartSilphMusic {
 }
 
 script SilphCo_11F_EventScript_Secretary {
+	famechecker(FAMECHECKER_SAFFRON, 2)
 	if(flag(FLAG_TEMP_5)) {
 		msgbox(
 		"Oh, no!\n"

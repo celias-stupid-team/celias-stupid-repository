@@ -1204,9 +1204,13 @@ script CinnabarGym_BoardGameQuestion1 {
 			walk_right * 3
 		))
 		waitmovement(LOCALID_BLAINE_TRAINER_1)
+		textcolor(NPC_TEXT_COLOR_BLUE)
 		msgbox(
-		"battle happens here\n"
-		"", MSGBOX_DEFAULT)
+		"Hey, hey!\n"
+		"What's hot?\p"
+
+		"I got with me all the FIRE POKéMON\n"
+		"I'll ever need!", MSGBOX_DEFAULT)
 		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_1, "Woah, there!")
 		closemessage
 		delay(30)
@@ -1296,10 +1300,15 @@ script CinnabarGym_BoardGameQuestion2 {
 			walk_left * 2
 		))
 		waitmovement(LOCALID_BLAINE_TRAINER_2)
+		textcolor(NPC_TEXT_COLOR_RED)
 		msgbox(
-		"battle happens here\n"
-		"", MSGBOX_DEFAULT)
-		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_2, "after!")
+		"A few weeks ago, I tried to destroy\n"
+		"literally all life on earth.\p"
+
+		"As punishment, I was given seven\n"
+		"weeks of community service.\l"
+		"Thus, I'm here.", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_2, "Not again!")
 		closemessage
 		delay(30)
 		playse(SE_CLICK)
@@ -1410,8 +1419,18 @@ script CinnabarGym_BoardGameQuestion3 {
 			walk_left * 2
 		))
 		waitmovement(LOCALID_BLAINE_TRAINER_3)
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		msgbox(
+		"I was invited here to be a GYM\n"
+		"TRAINER, but…\p"
 
-		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_3, "after!")
+		"I think I'm doing something wrong.\n"
+		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_3,
+		"Okay, hang on.\n"
+		"This is the seventh GYM, right?\p"
+
+		"So…{PAUSE 30}\nShouldn't it be ICE-TYPE?\n")
 		closemessage
 		delay(30)
 		playse(SE_CLICK)
@@ -1547,10 +1566,13 @@ script CinnabarGym_BoardGameQuestion5 {
 			walk_left * 2
 		))
 		waitmovement(LOCALID_BLAINE_TRAINER_5)
+		textcolor(NPC_TEXT_COLOR_GREEN)
 		msgbox(
-		"battle happens here\n"
-		"", MSGBOX_DEFAULT)
-		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_5, "after!")
+		"Humph, TOMBSTONIFIER?\p"
+
+		"What kind of fool would believe in\n"
+		"a name like that!?", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_BLAINE_OPPONENT_5, "Blast!")
 		closemessage
 		delay(30)
 		playse(SE_CLICK)

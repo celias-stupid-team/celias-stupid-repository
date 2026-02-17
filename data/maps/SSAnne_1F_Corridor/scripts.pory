@@ -104,3 +104,23 @@ script SSAnne_TheseusShip {
 	}
 	release
 }
+
+script SSAnne_TheseusBed {
+	msgbox(
+	"{PLAYER} laid in the bed…\p"
+
+	"Mmm… Smells like freshly-changed\n"
+	"sheets!\p"
+
+	"And freshly-changed blankets!\n"
+	"And a fresh pillow!\l"
+	"And mattress!{PAUSE 30} And bedframe!", MSGBOX_SIGN)
+
+}
+
+script SSAnne_TheseusOak {
+	msgbox(
+	"It's debatably OAK.\n"
+	"", MSGBOX_SIGN)
+
+}

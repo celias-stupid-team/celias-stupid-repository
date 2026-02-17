@@ -10357,8 +10357,8 @@ static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer2[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_DARMANITAN,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_TALONFLAME,
+        .moves = {MOVE_WING_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer3[] = { //Yes?
@@ -10366,8 +10366,8 @@ static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer3[] = { //Yes?
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_MEOWTH,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_DARMANITAN,
+        .moves = {MOVE_PSYCHIC_PUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer4[] = {
@@ -10384,8 +10384,8 @@ static const struct TrainerMonItemCustomMoves sParty_BlaineTrainer5[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_MEOWTH,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_SUICUNE,
+        .moves = {MOVE_AURORA_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_FourIslandLass[] = {

@@ -12904,3 +12904,9 @@ extern const u32 gItemIconPalette_SecretPage[];
 
 extern const u32 gItemIcon_MAP[];
 extern const u32 gItemIconPalette_MAP[];
+
+extern const u32 gTrainerFrontPic_Malva[];
+extern const u32 gTrainerPalette_Malva[];
+
+extern const u32 gTrainerFrontPic_Skiier[];
+extern const u32 gTrainerPalette_Skiier[];
