@@ -1652,7 +1652,6 @@
 	.byte \mode
 	.endm
 
-	
 	.macro fadescreeninstant mode:req
 	callnative BS_FadeScreenInstant
 	.byte \mode
@@ -1712,4 +1711,12 @@
 
 	.macro datahpupdateparallel
 	callnative BS_DataHpUpdateParallel
+	.endm
+
+	.macro jumpifvar compare:req, var:req, value:req, jumpInstr:req
+	callnative BS_JumpIfVar
+	.byte \compare
+	.2byte \var
+	.2byte \value
+	.4byte \jumpInstr
 	.endm

@@ -13,6 +13,7 @@
 #include "constants/trainers.h"
 #include "constants/game_stat.h"
 #include "constants/battle_string_ids.h"
+#include "constants/vars.h"
 	.include "asm/macros/battle_script.inc"
 @ Define these here since misc_constants.inc conflicts with the C headers
 	.set NULL, 0
@@ -2999,7 +3000,7 @@ BattleScript_FaintAttacker_Continue::
 	return
 
 BattleScript_FaintAttackerZapmolcuno::
-	printstring STRINGID_ZAPMOLCUNOFAINTED
+	call BattleScript_FinalMoltresFaint
 	goto BattleScript_FaintAttacker_Continue
 
 BattleScript_FaintTarget::
@@ -3017,7 +3018,7 @@ BattleScript_FaintTarget_Continue::
 	return
 
 BattleScript_FaintTargetZapmolcuno::
-	printstring STRINGID_ZAPMOLCUNOFAINTED
+	call BattleScript_FinalMoltresFaint
 	goto BattleScript_FaintTarget_Continue
 
 BattleScript_VanishedFromExistence::
@@ -3047,7 +3048,7 @@ BattleScript_HandleFaintedMon::
 	checkteamslost BattleScript_LinkHandleFaintedMonMultiple
 	jumpifbyte CMP_EQUAL, gBattleOutcome, B_OUTCOME_CONTINUE_ROTOM, BattleScript_TrainerSlideAfterDefeat
 BattleScript_HandleFaintedMonContinue::
-	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_FaintedMonEnd
+	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_FaintedMonEnd @ 0 = continue battle
 	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_FaintedMonTryChoose
 	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonTryChoose
 	printstring STRINGID_USENEXTPKMN
@@ -4162,6 +4163,11 @@ BattleScript_SeelHoopaTransform::
 	end2
 
 BattleScript_ZapmolcunoTransform::
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 1, BattleScript_FinalLugiaFaint @compare with value 1, because the var has already incremented by the time this script is called
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 2, BattleScript_FinalArticunoFaint
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 3, BattleScript_FinalHoOhFaint
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 4, BattleScript_FinalZapdosFaint
+BattleScript_ZapmolcunoTransform_DoAnimation::
 	pause B_WAIT_TIME_SHORT
 	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM
 	pause B_WAIT_TIME_SHORT
@@ -5370,67 +5376,67 @@ BattleScript_RunRotomAnimation::
 	playnewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue
 
-
 BattleScript_FinalLugiaFaint::
 	playse SE_M_MEGA_KICK
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	@ switch to the new background
+	@ callnative LoadDefaultBg @ new background is calculated in the function
 	pause B_WAIT_TIME_LONG
 	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_LUGIA
 	pause B_WAIT_TIME_LONGEST
-	printstring STRINGID_FOE_LUGIA_FAINTED
-	pause B_WAIT_TIME_LONGEST
+	@ printstring STRINGID_FOE_LUGIA_FAINTED
+	@ pause B_WAIT_TIME_LONGEST
+	goto BattleScript_ZapmolcunoTransform_DoAnimation
 
 BattleScript_FinalArticunoFaint::
 	playse SE_M_MEGA_KICK
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	@ switch to the new background
+	@ callnative LoadDefaultBg @ new background is calculated in the function
 	pause B_WAIT_TIME_LONG
 	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_ARTICUNO
 	pause B_WAIT_TIME_LONGEST
-	printstring STRINGID_FOE_ARTICUNO_FAINTED
-	pause B_WAIT_TIME_LONGEST
+	@ printstring STRINGID_FOE_ARTICUNO_FAINTED
+	@ pause B_WAIT_TIME_LONGEST
+	goto BattleScript_ZapmolcunoTransform_DoAnimation
 
-
-BattleScript_FinalHoohFaint::
+BattleScript_FinalHoOhFaint::
 	playse SE_M_MEGA_KICK
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	@ switch to the new background
+	@ callnative LoadDefaultBg @ new background is calculated in the function
 	pause B_WAIT_TIME_LONG
 	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_HO_OH
 	pause B_WAIT_TIME_LONGEST
-	printstring STRINGID_FOE_HOOH_FAINTED
-	pause B_WAIT_TIME_LONGEST
-
+	@ printstring STRINGID_FOE_HOOH_FAINTED
+	@ pause B_WAIT_TIME_LONGEST
+	goto BattleScript_ZapmolcunoTransform_DoAnimation
 
 BattleScript_FinalZapdosFaint::
 	playse SE_M_MEGA_KICK
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	@ switch to the new background
+	@ callnative LoadDefaultBg @ new background is calculated in the function
 	pause B_WAIT_TIME_LONG
 	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_ZAPDOS
 	pause B_WAIT_TIME_LONGEST
-	printstring STRINGID_FOE_ZAPDOS_FAINTED
-	pause B_WAIT_TIME_LONGEST
-
+	@ printstring STRINGID_FOE_ZAPDOS_FAINTED
+	@ pause B_WAIT_TIME_LONGEST
+	goto BattleScript_ZapmolcunoTransform_DoAnimation
 
 BattleScript_FinalMoltresFaint::
 	playse SE_M_MEGA_KICK
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	@ switch to the new background
+	@ callnative LoadDefaultBg @ new background is calculated in the function
 	pause B_WAIT_TIME_LONG
 	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
@@ -5438,9 +5444,9 @@ BattleScript_FinalMoltresFaint::
 	pause B_WAIT_TIME_LONGEST
 	printstring STRINGID_FOE_MOLTRES_FAINTED
 	pause B_WAIT_TIME_LONGEST
-	printstring STRINGID_ZAPMOLCUNOFAINTED
-	pause B_WAIT_TIME_LONGEST
-
+	@ printstring STRINGID_ZAPMOLCUNOFAINTED
+	@ pause B_WAIT_TIME_LONGEST
+	return @ last bird, separate handling
 
 BattleScript_EffectFullRestore::
 	attackcanceler

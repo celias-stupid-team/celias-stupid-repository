@@ -5076,9 +5076,9 @@ static void Cmd_switchinanim(void)
     if (gBattleControllerExecFlags)
         return;
 
-    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
-      && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
-        LoadDefaultBg();
+    // if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    //   && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
+    //     LoadDefaultBg();
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
@@ -11997,5 +11997,47 @@ void BS_DataHpUpdateParallel(void)
         gBattlescriptCurrInstr = substituteFadeScript;
     }
     else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfVar(void)
+{
+    NATIVE_ARGS(u8 compare, u16 var, u16 value, const u8 *jumpInstr);
+
+    bool8 conditionMet = FALSE;
+
+    switch (cmd->compare)
+    {
+        case CMP_EQUAL:
+            if (VarGet(cmd->var) == cmd->value)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+                conditionMet = TRUE;
+            }
+            break;
+        case CMP_NOT_EQUAL:
+            if (VarGet(cmd->var) != cmd->value)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+                conditionMet = TRUE;
+            }
+            break;
+        case CMP_GREATER_THAN:
+            if (VarGet(cmd->var) > cmd->value)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+                conditionMet = TRUE;
+            }
+            break;
+        case CMP_LESS_THAN:
+            if (VarGet(cmd->var) < cmd->value)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+                conditionMet = TRUE;
+            }
+            break;
+    }
+    
+    if (!conditionMet)
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
