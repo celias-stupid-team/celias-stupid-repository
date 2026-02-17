@@ -1,7 +1,7 @@
 {
   "id": "MAP_SSANNE_CAPTAINS_OFFICE",
   "name": "SSAnne_CaptainsOffice",
-  "layout": "LAYOUT_SSANNE_CAPTAINS_OFFICE",
+  "layout": "LAYOUT_SSANNE_CAPTAINS_OFFICE_HOLE",
   "music": "MUS_ABANDONED_SHIP",
   "region_map_section": "MAPSEC_SEAFOAM_ISLANDS",
   "requires_flash": false,
@@ -28,7 +28,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SSAnne_CaptainsOffice_EventScript_Captain",
-      "flag": "FLAG_GOT_HM01"
+      "flag": "FLAG_PUSHED_CAPTAIN_DOWN_WALL"
     }
   ],
   "warp_events": [
@@ -40,7 +40,71 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "SSAnne_CaptainsOffice_UnHole"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "SSAnne_CaptainsOffice_ReHole"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "SSAnne_CaptainsOffice_UnHole"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "SSAnne_CaptainsOffice_UnHole"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "SSAnne_CaptainsOffice_ReHole"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "SSAnne_CaptainsOffice_ReHole"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "SSAnne_CaptainsOffice_ReHole"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

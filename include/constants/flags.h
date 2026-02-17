@@ -461,7 +461,7 @@
 #define FLAG_EVOLVED_CATERPIE_BEFORE_BROCK                        0x19A
 #define FLAG_AURORA_BEAM_TM                              0x19B
 #define FLAG_BROKE_STEVEN_STONE                              0x19C
-#define FLAG_0x19D                     0x19D
+#define FLAG_PUSHED_CAPTAIN_DOWN_WALL                     0x19D
 #define FLAG_0x19E                            0x19E
 #define FLAG_0x19F                     0x19F
 #define FLAG_BEAT_DMCA_ERIKA                0x1A0
@@ -518,7 +518,7 @@
 #define FLAG_CRASHED_SLOWPOKE_MARKET                  0x1D3
 #define FLAG_GOT_SHINY_MANKEY                   0x1D4
 #define FLAG_GOT_TRASH_SLOWPOKE               0x1D5
-#define FLAG_0x1D6                    0x1D6
+#define FLAG_SWAPPED_ZYGARDE                    0x1D6
 #define FLAG_0x1D7                 0x1D7
 #define FLAG_0x1D8                0x1D8
 #define FLAG_0x1D9                        0x1D9

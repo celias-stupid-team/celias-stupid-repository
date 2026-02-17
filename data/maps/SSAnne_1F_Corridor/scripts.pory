@@ -18,6 +18,89 @@ mapscripts SSAnne_1F_Corridor_MapScripts {
 			setflag(FLAG_TEMP_1)
 		}
 		setflag(FLAG_TEMP_2)
+		if(flag(FLAG_PUSHED_CAPTAIN_DOWN_WALL)) {
+			clearflag(FLAG_TEMP_2)
+			setmaplayoutindex(LAYOUT_SSANNE_1F_CORRIDOR_LAYOUT_JUMPY)
+			setvar(VAR_TEMP_1, 2)
+		}
 		setrespawn(HEAL_LOCATION_SSANNE_KITCHEN)
 	}
+}
+
+script SSAnne_1F_Corridor_JumpRight {
+	setlayouttiles(LAYOUT_SSANNE_1F_CORRIDOR_LAYOUT_JUMPY,0,0,0,0,30,20)
+	setvar(VAR_TEMP_1, 2)
+	release
+}
+script SSAnne_1F_Corridor_JumpLeft {
+	setlayouttiles(LAYOUT_SSANNE_1F_CORRIDOR,0,0,0,0,30,20)
+	setvar(VAR_TEMP_1, 1)
+	release
+}
+
+script SSAnne_TheseusRoom {
+	msgbox(
+	"THESEUS'S ROOM\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script SSAnne_TheseusShip {
+	lock
+	if(flag(FLAG_SWAPPED_ZYGARDE)) {
+		msgbox(
+		"The cells of your old ZYGARDE.\p"
+
+		"If you you made a new ZYGARDE\n"
+		"using only these remaining cells,\l"
+		"which one would be the original?", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"Within the trash can, you find an\n"
+	"assortment of cells.", MSGBOX_DEFAULT)
+	if(checkpartymonslot(SPECIES_ZYGARDE) != PARTY_SIZE) {
+		playmoncry(SPECIES_ZYGARDE, CRY_MODE_DEFAULT)
+		waitmoncry
+		checkpartymonslot(SPECIES_ZYGARDE)
+		bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+		msgbox(
+		"One piece at a time, {PLAYER} removed\n"
+		"a single cell from {STR_VAR_1},\l"
+		"replacing it with a new one.", MSGBOX_DEFAULT)
+		playmoncry(SPECIES_ZYGARDE, CRY_MODE_ENCOUNTER)
+		waitmoncry
+		msgbox(
+		"Eventually, every single cell in\n"
+		"{STR_VAR_1}'s body was replaced.\l"
+		"None of the original ones remain.\p"
+
+		"Is {STR_VAR_1} the same ZYGARDE as\n"
+		"before?", MSGBOX_YESNO)
+		setflag(FLAG_SWAPPED_ZYGARDE)
+		if(var(VAR_RESULT)) {
+			msgbox(
+			"You have given your answer.\p"
+
+			"So it shall be."
+			"", MSGBOX_DEFAULT)
+			checkpartymonslot(SPECIES_ZYGARDE)
+			callnative(ZygardeSwitcheroo)
+			//replace zygarde
+		} else {
+			msgbox(
+			"I see.\n"
+			"", MSGBOX_DEFAULT)
+			//remove zygarde
+			checkpartymonslot(SPECIES_ZYGARDE)
+			special(RemovePartyMon)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ZYGARDE)
+			setflag(FLAG_SHINY_CREATION)
+			call(Common_Script_GiftPokemon30)
+
+		}
+
+	}
+	release
 }

@@ -96,6 +96,7 @@ static void TryToTransTheNidotrans(u8 taskId);
 static void TransTheNidotrans(u8 taskId);
 void RemoveShoesFromToedy();
 void CurePorygonVirus();
+void ZygardeSwitcheroo();
 
 static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
@@ -1466,6 +1467,39 @@ void RemoveShoesFromToedy()
     bool32 thisIsTrue = TRUE;
 
         newSpecies = SPECIES_TENTACOOL;
+
+        mon = &gPlayerParty[slot];
+
+        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+        GetMonNickname(mon, nickname);
+        newPersonality = Random32();
+
+        // force the mon to be shiny
+        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
+        
+        // if player has nicknamed their nidotran, don't overwrite it
+        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+        {
+            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+        }
+        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+        UpdateMonPersonality(&mon->box, newPersonality);
+        CalculateMonStats(mon);
+    
+}
+void ZygardeSwitcheroo()
+{
+    u32 i, j;
+    u32 newPersonality, otID;
+    u16 newSpecies, oldSpecies;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    struct Pokemon *mon;
+    s16 slot = gSpecialVar_Result;
+    bool32 thisIsTrue = TRUE;
+
+        newSpecies = SPECIES_ZYGARDE;
 
         mon = &gPlayerParty[slot];
 
