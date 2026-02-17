@@ -1808,7 +1808,7 @@ static void Cmd_adjustnormaldamage(void)
     }
 
     // special handling for FINALZAPDOS
-    if (gCurrentMove == MOVE_10000_VOLTS)
+    if (gCurrentMove == MOVE_10000_VOLTS && gBattleMoveDamage > 0)
         gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)

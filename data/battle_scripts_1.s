@@ -5498,6 +5498,9 @@ BattleScript_Effect10kVolts::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	critcalc
+	damagecalc
+	typecalc
 	adjustnormaldamage
 	attackanimation
 	waitanimation
@@ -5512,3 +5515,11 @@ BattleScript_Effect10kVolts::
 	tryfaintmon BS_ATTACKER
 	moveendall
 	end
+
+BattleScript_RechargeActivates::
+	printstring STRINGID_PKMNRECHARGED
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	end3
