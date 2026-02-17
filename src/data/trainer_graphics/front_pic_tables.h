@@ -196,7 +196,9 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1}, // Berried Alive,
     {.size = 8, .y_offset = 1}, // Ariana,
     {.size = 8, .y_offset = 1}, // Uncle,
-    {.size = 8, .y_offset = 1}, // Team Skull
+    {.size = 8, .y_offset = 1}, // Team Skull,
+    {.size = 8, .y_offset = 1}, // Malva,
+    {.size = 8, .y_offset = 1}, // Skiier
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -399,6 +401,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(ARIANA, gTrainerFrontPic_Ariana, 0x800),
     TRAINER_SPRITE(UNCLE, gTrainerFrontPic_Uncle, 0x800),
     TRAINER_SPRITE(TEAM_SKULL, gTrainerFrontPic_TeamSkull, 0x800),
+    TRAINER_SPRITE(MALVA, gTrainerFrontPic_Malva, 0x800),
+    TRAINER_SPRITE(SKIIER, gTrainerFrontPic_Skiier, 0x800),
 };
 
 const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
@@ -611,4 +615,6 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(ARIANA, gTrainerPalette_Ariana),
     TRAINER_PAL(UNCLE, gTrainerPalette_Uncle),
     TRAINER_PAL(TEAM_SKULL, gTrainerPalette_TeamSkull),
+    TRAINER_PAL(MALVA, gTrainerPalette_Malva),
+    TRAINER_PAL(SKIIER, gTrainerPalette_Skiier),
 };

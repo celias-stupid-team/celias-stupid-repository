@@ -31,3 +31,35 @@ FushciaCity_SafariZone_Office_Text_PrizeInSafariZone::
     .string "If you can make it, you'll win a\n"
     .string "very convenient prize.$"
 
+FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke2::
+	.string "What, you don't believe that\n"
+	.string "MANKEY price is gonna spike?\p"
+	.string "C'mon, man! We don't need that kind\n"
+	.string "of talk here.\l"
+	.string "We need to put our full faith in it!\p"
+	.string "How else are we supposed to convince\n"
+	.string "other people to buy it?$"
+
+FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable2::
+	.string "Yo, dude!\n"
+	.string "Have you heard of MANKEY?\p"
+	.string "It's the hottest new thing!\n"
+	.string "Everyone's investing into it.\p"
+	.string "Next thing you know, the value's\n"
+	.string "gonna spike and we'll all be rich!$"
+
+FushciaCity_SafariZone_Office_Text_CouldntUnderstandWarden2::
+	.string "How do you actually make money off\n"
+	.string "MANKEY?\l"
+	.string "Easy!\p"
+	.string "All you do is buy a bunch now and\n"
+	.string "hope that later, others believe\l"
+	.string "it's actually worth something!$"
+
+FushciaCity_SafariZone_Office_Text_PrizeInSafariZone2::
+    .string "WARDEN SLOWPOKE is running a\n"
+    .string "promotion campaign right now.\p"
+    .string "Try to get to the farthest corner\n"
+    .string "of the SAFARI ZONE.\p"
+    .string "If you can make it, you'll win a\n"
+    .string "very convenient prize.$"

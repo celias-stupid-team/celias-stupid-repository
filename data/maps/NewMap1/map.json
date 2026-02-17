@@ -101,22 +101,8 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 46,
-      "y": 42,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Sootopolis_NPC1",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN",
-      "x": 48,
+      "x": 49,
       "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -125,6 +111,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Sootopolis_ContestHallSign",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 31,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FullRelease_CeliaBlocksYou",
       "flag": "0"
     }
   ],
@@ -165,7 +165,7 @@
       "dest_warp_id": "5"
     },
     {
-      "x": 46,
+      "x": 47,
       "y": 24,
       "elevation": 0,
       "dest_map": "MAP_CONTEST_HALL",

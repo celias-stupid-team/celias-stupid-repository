@@ -6112,7 +6112,7 @@ u16 GetBattleBGM(void)
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_CHAMPION:
-            return MUS_VS_CHAMPION;
+            return MUS_SV_ELITE_FOUR;
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_ELITE_FOUR:
         case TRAINER_CLASS_MASTER:

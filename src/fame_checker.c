@@ -398,11 +398,11 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_WOMAN_2,
     OBJ_EVENT_GFX_TRAINER_TIPS,
     // Saffron
-    OBJ_EVENT_GFX_GIOVANNI,
+    OBJ_EVENT_GFX_ROCKET_M,
+    OBJ_EVENT_GFX_OLD_MAN_2,
+    OBJ_EVENT_GFX_WORKER_M,
     OBJ_EVENT_GFX_SCIENTIST,
-    OBJ_EVENT_GFX_SCIENTIST,
-    OBJ_EVENT_GFX_GIOVANNI,
-    OBJ_EVENT_GFX_GYM_GUY,
+    OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_SCIENTIST
 };
 
@@ -1646,23 +1646,23 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(FALSE) //Conditions go here
+                    if(FlagGet(FLAG_HIDE_SAFFRON_ROCKETS)) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_MR_MIME, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_AMOONGUSS, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_BIDOOF, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_MIMIKYU, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:

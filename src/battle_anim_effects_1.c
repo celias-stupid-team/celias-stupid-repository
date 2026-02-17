@@ -150,6 +150,8 @@ static void AnimSlidingHit(struct Sprite *);
 static void AnimWhipHit(struct Sprite *);
 static void AnimMoveWonderSeed(struct Sprite *);
 static void AnimMoveSmallCloud(struct Sprite *);
+static void AnimShadowShield(struct Sprite *);
+static void AnimShadowShield_Step(struct Sprite *);
 
 static const u8 sUnused[] = {2, 4, 1, 3};
 
@@ -433,6 +435,17 @@ const struct SpriteTemplate gSporeParticleSpriteTemplate =
     .paletteTag = ANIM_TAG_SPORE,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = sSporeParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeParticle,
+};
+
+const struct SpriteTemplate gFuzzyParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FUZZY,
+    .paletteTag = ANIM_TAG_FUZZY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSporeParticle,
@@ -812,6 +825,17 @@ const struct SpriteTemplate gPresentSpriteTemplate =
     .callback = AnimPresent,
 };
 
+const struct SpriteTemplate gGrassPledgeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WEED_SMALL,
+    .paletteTag = ANIM_TAG_WEED_SMALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sFallingBagAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingBagAffineAnimTable,
+    .callback = AnimPresent,
+};
+
 const struct SpriteTemplate gKnockOffItemSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ITEM_BAG,
@@ -1093,6 +1117,17 @@ const struct SpriteTemplate gNeedleArmSpikeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GREEN_SPIKE,
     .paletteTag = ANIM_TAG_GREEN_SPIKE,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimNeedleArmSpike,
+};
+
+const struct SpriteTemplate gWeedleArmSpikeSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_WEEDLE_SPIKE,
+    .paletteTag = ANIM_TAG_WEEDLE_SPIKE,
     .oam = &gOamData_AffineNormal_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -1390,6 +1425,17 @@ const struct SpriteTemplate gProtectSpriteTemplate =
     .callback = AnimProtect,
 };
 
+const struct SpriteTemplate gShadowShieldSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHADOW_SHIELD,
+    .paletteTag = ANIM_TAG_SHADOW_SHIELD,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimShadowShield,
+};
+
 static const union AffineAnimCmd sMilkBottleAffineAnimCmds1[] =
 {
     AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
@@ -1638,12 +1684,45 @@ static const union AnimCmd *const sSlashSliceAnimTable[] =
     sSlashSliceAnimCmds2,
 };
 
+static const union AnimCmd sButterSliceAnimCmds1[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sButterSliceAnimCmds2[] =
+{
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sButterSliceAnimTable[] =
+{
+    sButterSliceAnimCmds1,
+    sButterSliceAnimCmds2,
+};
+
 const struct SpriteTemplate gSlashSliceSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_SLASH,
     .paletteTag = ANIM_TAG_SLASH,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sSlashSliceAnimTable,
+    .anims = sButterSliceAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSlashSlice,
+};
+
+const struct SpriteTemplate gButterSliceSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_BUTTER_BLADE,
+    .paletteTag = ANIM_TAG_BUTTER_BLADE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sButterSliceAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSlashSlice,
@@ -2182,6 +2261,17 @@ const struct SpriteTemplate gThoughtBubbleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_THOUGHT_BUBBLE,
     .paletteTag = ANIM_TAG_THOUGHT_BUBBLE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sMetronomeThroughtBubbleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThoughtBubble,
+};
+
+const struct SpriteTemplate gWindowWarningSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WINDOW_WARNING,
+    .paletteTag = ANIM_TAG_WINDOW_WARNING,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sMetronomeThroughtBubbleAnimTable,
     .images = NULL,
@@ -4237,6 +4327,67 @@ static void AnimCirclingMusicNote_Step(struct Sprite* sprite)
     sprite->data[2]++;
     if (sprite->data[2] == sprite->data[3])
         DestroyAnimSprite(sprite);
+}
+
+static void AnimShadowShield(struct Sprite* sprite)
+{
+    if (IsContest())
+        gBattleAnimArgs[1] += 8;
+
+    sprite->x = GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_X) + gBattleAnimArgs[0];
+    sprite->y = GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_Y) + gBattleAnimArgs[1];
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER || IsContest())
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker) + 1;
+    else
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker);
+
+    sprite->data[0] = gBattleAnimArgs[2];
+    sprite->data[2] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(ANIM_TAG_SHADOW_SHIELD));
+    sprite->data[7] = 4;
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));
+    sprite->callback = AnimShadowShield_Step;
+}
+//Like protect but the palette shift is reversed
+static void AnimShadowShield_Step(struct Sprite *sprite)
+{
+    int i, id, savedPal;
+    sprite->data[5] += 32;
+    sprite->x2 = -(sprite->data[5] >> 8);
+    if (++sprite->data[1] > 1)
+    {
+        sprite->data[1] = 0;
+        savedPal = gPlttBufferFaded[sprite->data[2] + 7];
+        for (i = 7; i > 1; i--)
+        {
+            gPlttBufferFaded[sprite->data[2] + i] =
+                gPlttBufferFaded[sprite->data[2] + (i - 1)];
+        }
+        gPlttBufferFaded[sprite->data[2] + 1] = savedPal;
+    }
+
+    if (sprite->data[7] > 6 && sprite->data[0] >0 && ++sprite->data[6] > 1)
+    {
+        sprite->data[6] = 0;
+        sprite->data[7] -= 1;
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));
+    }
+
+    if (sprite->data[0] > 0)
+    {
+        sprite->data[0] -= 1;
+    }
+    else if (++sprite->data[6] > 1)
+    {
+        sprite->data[6] = 0;
+        sprite->data[7]++;
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));
+        if (sprite->data[7] == 16)
+        {
+            sprite->invisible = TRUE;
+            sprite->callback = DestroyAnimSpriteAndDisableBlend;
+        }
+    }
 }
 
 static void AnimProtect(struct Sprite* sprite)

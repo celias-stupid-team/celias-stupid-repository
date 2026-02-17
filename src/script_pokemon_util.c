@@ -271,6 +271,54 @@ void ReducePlayerPartyToThree(void)
 }
 
 
+void ReducePlayerPartyToOne(void)
+{
+    struct Pokemon * party = AllocZeroed(1 * sizeof(struct Pokemon));
+    //int i;
+    FlagSet(FLAG_SYS_DISABLE_SAVE);
+    // copy the selected pokemon according to the order.
+    party[0] = gPlayerParty[gSpecialVar_0x8004];
+
+    CpuFill32(0, gPlayerParty, sizeof gPlayerParty);
+
+    // overwrite the first 3 with the order copied to.
+    gPlayerParty[0] = party[0];
+
+    CalculatePlayerPartyCount();
+    Free(party);
+}
+
+void RestorePlayerPartyFromOne(void)
+{
+    struct Pokemon * party = AllocZeroed(1 * sizeof(struct Pokemon));
+    //int i;
+    FlagClear(FLAG_SYS_DISABLE_SAVE);
+    party[0] = gPlayerParty[0];
+    LoadPlayerParty();
+    DebugPrintf("Player party slot %d", gSpecialVar_0x8004);
+    DebugPrintf("Player party species %d", gPlayerParty[gSpecialVar_0x8004]);
+    DebugPrintf("Saved species %d", party[0]);
+
+    gPlayerParty[gSpecialVar_0x8004] = party[0];
+}
+
+void RemovePartyMon(void)
+{
+    struct Pokemon * party = AllocZeroed(1 * sizeof(struct Pokemon));
+    int slot = gSpecialVar_Result;
+    // copy the selected pokemon according to the order.
+    
+
+    CpuFill32(0, party, sizeof party);
+
+    // overwrite the first 3 with the order copied to.
+    gPlayerParty[gSpecialVar_Result] = party[0];
+
+    //CalculatePlayerPartyCount();
+    Free(party);
+}
+
+
 //Parameters: VAR_0x8000=party slot, VAR_0x8001=species, VAR_0x8002=allow cancel
 //Returns: VAR_RESULT=FALSE if species is invalid
 void EvolvePartyMonToSpecies(void){

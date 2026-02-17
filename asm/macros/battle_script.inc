@@ -1652,6 +1652,12 @@
 	.byte \mode
 	.endm
 
+	
+	.macro fadescreeninstant mode:req
+	callnative BS_FadeScreenInstant
+	.byte \mode
+	.endm
+
 	.macro playmoncry species:req
 	callnative BS_PlayMonCry
 	.2byte \species
@@ -1663,6 +1669,11 @@
 
 	.macro fadenewbgm music:req
 	callnative BS_FadeNewBgm
+	.2byte \music
+	.endm
+
+	.macro playnewbgm music:req
+	callnative BS_PlayNewBgm
 	.2byte \music
 	.endm
 
@@ -1683,4 +1694,14 @@
 	.macro printbirdsfaintstring position:req
 	callnative BS_PrintBirdsFaintString
 	.byte \position
+	.endm
+
+	.macro tryfullrestore failInstr:req, battler:req
+	callnative BS_TryFullRestore
+	.4byte \failInstr
+	.byte \battler
+	.endm
+
+	.macro setdoubledip
+	callnative BS_SetDoubleDip
 	.endm

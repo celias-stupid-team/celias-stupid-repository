@@ -265,6 +265,7 @@ script SaffronCity_CopycatHouse_DontGoUpstairs {
 }
 
 script SaffronCity_CopycatHouse_Newspaper {
+	famechecker(FAMECHECKER_SAFFRON, 4)
 	if(var(VAR_COPYCAT_USED) == 2) {
 		msgbox(
 		"BREAKING NEWS\p"

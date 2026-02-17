@@ -545,7 +545,8 @@
 #define ITEM_PATRICK_DOLL 463
 #define ITEM_BAG_OF_DRAGONITE 464
 #define ITEM_SECRETPAGE 465
-#define ITEMS_COUNT 466
+#define ITEM_MAP 466
+#define ITEMS_COUNT 467
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

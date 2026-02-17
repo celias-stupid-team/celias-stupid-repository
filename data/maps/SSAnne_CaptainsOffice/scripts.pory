@@ -1,6 +1,5 @@
 raw `
-SSAnne_CaptainsOffice_MapScripts::
-	.byte 0
+
 
 
 
@@ -28,6 +27,15 @@ SSAnne_CaptainsOffice_EventScript_Book::
 	msgbox SSAnne_CaptainsOffice_Text_HowToConquerSeasickness, MSGBOX_SIGN
 	end
 `
+
+mapscripts SSAnne_CaptainsOffice_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_GOT_HM01)) {
+			setobjectxy(LOCALID_SS_ANNE_CAPTAIN, 15, 15)
+			setobjectmovementtype(LOCALID_SS_ANNE_CAPTAIN, MOVEMENT_TYPE_INVISIBLE)
+		}
+	}
+}
 
 script SSAnne_Captain {
 	lock
@@ -169,8 +177,19 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 	waitmovement(0)
 	delay(20)
 	playse(SE_EXIT)
-	removeobject(VAR_LAST_TALKED)
+	
 	setflag(FLAG_GOT_HM01)
 	setvar(VAR_SEAFOAM_CAPTAIN_FLOOR, 2)
+	release
+}
+
+script SSAnne_CaptainsOffice_UnHole {
+	setlayouttiles(LAYOUT_SSANNE_CAPTAINS_OFFICE, 0,0,0,0,8,9)
+	setvar(VAR_TEMP_4, 1)
+	release
+}
+script SSAnne_CaptainsOffice_ReHole {
+	setlayouttiles(LAYOUT_SSANNE_CAPTAINS_OFFICE_HOLE, 0,0,0,0,8,9)
+	setvar(VAR_TEMP_4, 0)
 	release
 }

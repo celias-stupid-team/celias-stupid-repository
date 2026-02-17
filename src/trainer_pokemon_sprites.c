@@ -170,6 +170,8 @@ u16 CreatePicSprite(u16 species, u32 otId, u32 personality, bool8 isFrontPic, s1
     if (DecompressPic(species, personality, isFrontPic, framePics, isTrainer, ignoreDeoxys))
     {
         // debug trap?
+        Free(framePics);
+        Free(images);
         return 0xFFFF;
     }
     for (j = 0; j < MAX_PIC_FRAMES; j ++)
@@ -238,12 +240,13 @@ u16 CreateTrainerCardSprite(u16 species, u32 otId, u32 personality, bool8 isFron
 {
     u8 *framePics;
 
-    framePics = Alloc(4 * 0x800);
-    if (framePics && !DecompressPic_HandleDeoxys(species, personality, isFrontPic, framePics, isTrainer))
+    // use gDecompressionBuffer instead of allocating new memory
+    framePics = gDecompressionBuffer;
+
+    if (gDecompressionBuffer && !DecompressPic_HandleDeoxys(species, personality, isFrontPic, framePics, isTrainer))
     {
         BlitBitmapRectToWindow(windowId, framePics, 0, 0, 0x40, 0x40, destX, destY, 0x40, 0x40);
         LoadPicPaletteBySlot(species, otId, personality, paletteSlot, isTrainer);
-        Free(framePics);
         return 0;
     }
     return 0xFFFF;

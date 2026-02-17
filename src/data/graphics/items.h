@@ -966,3 +966,6 @@ const u32 gItemIconPalette_BagOfDragonite[] = INCBIN_U32("graphics/items/icon_pa
 
 const u32 gItemIcon_SecretPage[] = INCBIN_U32("graphics/items/icons/secretpage.4bpp.lz");
 const u32 gItemIconPalette_SecretPage[] = INCBIN_U32("graphics/items/icon_palettes/secretpage.gbapal.lz");
+
+const u32 gItemIcon_MAP[] = INCBIN_U32("graphics/items/icons/map.4bpp.lz");
+const u32 gItemIconPalette_MAP[] = INCBIN_U32("graphics/items/icon_palettes/map.gbapal.lz");

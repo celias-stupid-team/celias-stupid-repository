@@ -459,4 +459,7 @@ gSpecials::
 	def_special CreateMail
 	def_special ForcePlayerOffBike
 	def_special TryPrepareSecondApproachingTrainer
+	def_special ReducePlayerPartyToOne
+	def_special RestorePlayerPartyFromOne
+	def_special RemovePartyMon
 gSpecialsEnd::

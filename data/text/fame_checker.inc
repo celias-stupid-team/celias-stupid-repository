@@ -675,27 +675,43 @@ gFameCheckerFlavorText_GreatBay5:: @ 0x81AFDC4
 gFameCheckerFlavorText_Saffron0:: @ 0x81AFE68
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-
+	.string "All these staircases were idenitcal\n"
+	.string "copies of each other.\p"
+	.string "I did this place a favor and\n"
+	.string "took them out!$"
 
 gFameCheckerFlavorText_Saffron1:: @ 0x81AFF23
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-
+	.string "It's out secret prototype MISTER\n"
+	.string "BALL.\p"
+	.string "It will catch any MISTER without\n"
+	.string "fail.$"
 
 gFameCheckerFlavorText_Saffron2:: @ 0x81AFFA8
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-
+	.string "Feel free to explore the rest of\n"
+	.string "this building.\l"
+	.string "There's plenty to see!\p"
+	.string "Maybe you'll come across our\n"
+	.string "facility for POKé BALL development!$"
 
 gFameCheckerFlavorText_Saffron3:: @ 0x81B0022
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-
+	.string "They say there's a POKéMON made to\n"
+	.string "help traverse across the world.\p"
+	.string "A specimen is being kept safe in\n"
+	.string "SILPH CO. right now, in fact.$"
 
 gFameCheckerFlavorText_Saffron4:: @ 0x81B00A6
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-
+	.string "Local child COPYCAT still missing\n"
+	.string "after DMCA takeover!\p"
+	.string "Authorities suspect she's in their\n"
+	.string "hideout, still in captivity.$"
 
 gFameCheckerFlavorText_Saffron5:: @ 0x81B0106
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"

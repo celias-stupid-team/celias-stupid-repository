@@ -173,6 +173,7 @@ extern const struct SpriteTemplate gWaterHitSplatSpriteTemplate;
 extern const struct SpriteTemplate gWishStarSpriteTemplate;
 extern const struct SpriteTemplate gMiniTwinklingStarSpriteTemplate;
 extern const struct SpriteTemplate gThoughtBubbleSpriteTemplate;
+extern const struct SpriteTemplate gWindowWarningSpriteTemplate;
 extern const union AffineAnimCmd *const gAffineAnims_Bite[];
 extern const union AffineAnimCmd *const gAffineAnims_Droplet[];
 extern const union AffineAnimCmd *const gGrowingRingAffineAnimTable[];

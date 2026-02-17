@@ -112,7 +112,7 @@ script Sootopolis_LuvdiscClue {
 	lock
 	msgbox(
 	"Hmm, I could've sworn my friend\n"
-	"told me he was right here!\p"
+	"told me it was right here!\p"
 
 	"Maybe I'm not understanding…\n"
 	"", MSGBOX_DEFAULT)
@@ -128,9 +128,42 @@ script Sootopolis_NPC1 {
 
 script Sootopolis_ContestHallSign {
 	msgbox(
-	"CONTEST HALL\p"
+	"CONTEST HALL", MSGBOX_SIGN)
 
-	"Coming soon!\n"
-	"(it'll be funny)", MSGBOX_SIGN)
+}
 
+
+
+script FullRelease_CeliaBlocksYou {
+	msgbox(
+	"CELIA: This area is not available\n"
+	"in this pre-release.\l"
+	"Stay tuned!", MSGBOX_NPC)
+}
+
+script ContestHall_BeautyContestSign {
+	msgbox(
+	"BEAUTY CONTEST\p"
+
+	"For only the most beautiful of\n"
+	"techniques!", MSGBOX_SIGN)
+
+}
+
+
+script ContestHall_Judge {
+	lock
+
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+		"Wow!\n"
+		"Astonishing!", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Contestant!\n"
+		"Blow me away!", MSGBOX_DEFAULT)
+	}
+	release
+	end
 }

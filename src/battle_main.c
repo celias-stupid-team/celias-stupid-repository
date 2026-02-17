@@ -159,6 +159,7 @@ EWRAM_DATA u16 gCurrentMove = 0;
 EWRAM_DATA u16 gChosenMove = 0;
 EWRAM_DATA u16 gCalledMove = 0;
 EWRAM_DATA s32 gBattleMoveDamage = 0;
+EWRAM_DATA bool8 gBattleTurnMonFainted = 0;
 EWRAM_DATA u8 gBattleSwitchFromPSS = 0;
 EWRAM_DATA u8 gMadePSSSwitch = 0;
 EWRAM_DATA s32 gHpDealt = 0;
@@ -485,6 +486,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_MASTER, 50},
     {TRAINER_CLASS_BERRIED, 50},
     {TRAINER_CLASS_FALKNER, 50},
+    {TRAINER_CLASS_SKIIER, 50},
     
     { 0xFF, 5},
 };
@@ -2988,6 +2990,7 @@ void BattleTurnPassed(void)
     gBattleScripting.animTargetsHit = 0;
     gBattleScripting.moveendState = 0;
     gBattleMoveDamage = 0;
+    gBattleTurnMonFainted = FALSE;
     gMoveResultFlags = 0;
     for (i = 0; i < 5; i++)
         gBattleCommunication[i] = 0;

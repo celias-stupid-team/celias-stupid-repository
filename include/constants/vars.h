@@ -301,7 +301,7 @@ It is reset after every battle.
 #define VAR_NUMBER_NUGGETS_BOUGHT                 0x40C0
 #define VAR_0x40C1                 0x40C1
 #define VAR_READY_FOR_TORNADO                 0x40C2
-#define VAR_0x40C3                 0x40C3
+#define VAR_USED_ROCK_SMASH                 0x40C3
 #define VAR_0x40C4                 0x40C4
 #define VAR_0x40C5                 0x40C5
 #define VAR_0x40C6                 0x40C6
@@ -361,7 +361,7 @@ It is reset after every battle.
 #define VAR_0x40FA                 0x40FA
 #define VAR_0x40FB                 0x40FB
 #define VAR_0x40FC                 0x40FC
-#define VAR_USED_ROCK_SMASH                 0x40FD
+#define VAR_0x40FD                 0x40FD
 #define VAR_SYS_GIVE_ALCREMIE                 0x40FE
 #define VAR_FIRST_TRADED_MON_SPECIES                 0x40FF
 

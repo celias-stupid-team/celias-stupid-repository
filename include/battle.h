@@ -703,6 +703,7 @@ extern u8 gPotentialItemEffectBattler;
 extern u8 gBattlersCount;
 extern u16 gBattlerPartyIndexes[MAX_BATTLERS_COUNT];
 extern s32 gBattleMoveDamage;
+extern bool8 gBattleTurnMonFainted;
 extern u8 gBattleSwitchFromPSS;
 extern u8 gMadePSSSwitch;
 extern u16 gIntroSlideFlags;

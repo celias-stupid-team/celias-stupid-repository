@@ -40,6 +40,10 @@ script Route18_OnTransition {
 			setflag(FLAG_TEMP_5)
 	}
 	setbench(BENCH_FUSHCIA)
+	setflag(FLAG_TEMP_4)
+	if(checkitem(ITEM_MAP)) {
+		clearflag(FLAG_TEMP_4)
+	}
 }
 
 script Route18_TiredBiker {
@@ -233,4 +237,50 @@ script Route18_FindShellder {
 	call(Common_Script_GiftPokemon)
 	setflag(FLAG_TEMP_2)
 	release
+}
+
+
+script Route18_Treasure {
+	lock
+	msgbox(
+	"This is it!\n"
+	"X marks the spot!\l"
+	"It's buried treasure!", MSGBOX_DEFAULT)
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	removeobject(VAR_LAST_TALKED)
+	playse(SE_M_DIG)
+	waitse
+	closemessage
+	delay(10)
+	playse(SE_M_DIG)
+	waitse
+	delay(10)
+	playse(SE_M_DIG)
+	waitse
+	delay(10)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	showmoneybox(0,0)
+	msgbox(
+	"Wow!\n"
+	"Inside the treasure chest…\p"
+
+	"Were two GOLD doubloons!\n"
+	"", MSGBOX_DEFAULT)
+	playse(SE_SHOP)
+	removeitem(ITEM_MAP)
+	addmoney(2)
+	updatemoneybox
+	waitse
+	delay(30)
+	closemessage
+	hidemoneybox
+	delay(60)
+	msgbox(
+	"…And you decide to keep the\n"
+	"X itself as a treat!", MSGBOX_DEFAULT)
+	setflag(FLAG_SHINY_CREATION)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PORYGON_Z)
+	call(Common_Script_GiftPokemon30)
+	release
+	end
 }
