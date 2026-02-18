@@ -373,6 +373,10 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
         BlendPalette(paletteOffset, 16, 6, RGB_WHITE);
         CpuCopy32(&gPlttBufferFaded[paletteOffset], &gPlttBufferUnfaded[paletteOffset], PLTT_SIZE_4BPP);
     }
+    
+    // prevent screen blinking by keeping the fade active
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && gPlttBufferFaded[0] == RGB_WHITE)
+        CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
 }
 
 void BattleLoadPlayerMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
@@ -697,7 +701,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
     const u32 *lzPaletteData;
     void *buffer;
 
-    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution OR Seel->Hoopa transformation
+    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution OR Seel->Hoopa transformation OR Zapmolcuno-Ohgia form change
     {
         const void *src;
         void *dst;
@@ -733,6 +737,11 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
         LZDecompressWram(lzPaletteData, buffer);
         LoadPalette(buffer, paletteOffset, PLTT_SIZE_4BPP);
         Free(buffer);
+        
+        // prevent screen blinking by keeping the fade active
+        if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && gPlttBufferFaded[0] == RGB_WHITE)
+            CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
+
         gSprites[gBattlerSpriteIds[battlerAtk]].x = GetBattlerSpriteDefault_X(battlerAtk);
         gSprites[gBattlerSpriteIds[battlerAtk]].y = GetBattlerSpriteDefault_Y(battlerAtk);
         StartSpriteAnim(&gSprites[gBattlerSpriteIds[battlerAtk]], gBattleMonForms[battlerAtk]);

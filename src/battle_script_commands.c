@@ -6990,14 +6990,7 @@ static void Cmd_various(void)
                     CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
                 }
             }
-
             HandleSpeciesGfxDataChange(gBattleAnimAttacker, gBattleAnimTarget, 255);
-            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && gPlttBufferFaded[0] == RGB_WHITE)
-            {
-                // prevent screen blinking by keeping the fade active
-                CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
-            }
-
             GetBattleAnimBgDataByPriorityRank(&animBg, gBattleAnimAttacker);
             if (IsContest())
                 position = 0;
