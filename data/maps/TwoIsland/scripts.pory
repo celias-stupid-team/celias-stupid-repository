@@ -247,6 +247,11 @@ script TwoIsland_OnTransition {
 	if(flag(FLAG_TWO_ISLAND_BOMB_PRESENT)) {
 		setobjectmovementtype(LOCALID_BOMB_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
 	}
+	setflag(FLAG_TEMP_2)
+	if(flag(FLAG_SHINY_DACHSBUN)) {
+		clearflag(FLAG_TEMP_2)
+	}
+
 }
 
 script TwoIsland_PencilStatue {
@@ -348,15 +353,20 @@ script TwoIsland_MusicPresent {
 		face_left
 	))
 	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+	fadenewbgm(MUS_NONE)
 	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	playbgm(MUS_SALSA, TRUE)
+	delay(180)
 	msgbox(
-	"(insert good music here)\n"
+	"A spicy SALSA groove began to play.\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
-	delay(60)
+	delay(120)
 	msgbox(
 	"Ah.\n"
 	"", MSGBOX_DEFAULT)
+	closemessage
+	fadedefaultbgm
 	setflag(FLAG_TWO_ISLAND_OTHER_PRESENT)
 	release
 	end
@@ -795,19 +805,104 @@ script TwoIsland_BurnHeal {
 		"HOT DOG!", MSGBOX_DEFAULT)
 		waitfanfare
 		closemessage
-		fadenewbgm(MUS_NONE)
+		applymovement(LOCALID_TWO_ISLAND_SANS, moves(
+		walk_slow_right
+		face_down
+		))
+		waitmovement(LOCALID_TWO_ISLAND_SANS)
+		textcolor(NPC_TEXT_COLOR_BLUE)
 		delay(60)
 		msgbox(
-		"{FONT_COMIC_SANS}you bought the burn heal from\n"
-		"pewter\p"
+		"{FONT_COMIC_SANS}hey buddy, what's up?\p"
 
-		"sans puts on his hat\n"
-		"", MSGBOX_DEFAULT)
+		"see, i used to be in the business\n"
+		"of selling burn heals.\p"
+
+		"y'know, for the people i'd hit\n"
+		"with a… nasty burn.\l"
+		"like this:\p"
+
+		"ahem\p"
+
+		"your{PAUSE 30} smells.\p"
+
+		"{PAUSE 30}i sold out within an hour.\p"
+
+		"anyway, i'm back to selling hot\n"
+		"dogs instead.\p"
+
+		"normally i'd accept the kind of\n"
+		"money dollars they take here, but…\p"
+
+		"well{PAUSE 30}\n"
+		"paper with faces doesn't sit right.\l"
+		"so i'll let you have this for free.", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
 		removeobject(VAR_LAST_TALKED)
+		playfanfare(MUS_LEVEL_UP)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"{PLAYER} bought a\n"
+		"HOT DOG!", MSGBOX_DEFAULT)
 		setflag(FLAG_SHINY_CREATION)
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_DACHSBUN)
 		call(Common_Script_GiftPokemon)
-		fadedefaultbgm
+		closemessage
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		msgbox(
+		"{FONT_COMIC_SANS}i put extra love in that one\p"
+
+		"that's the secret ingredient i use\n"
+		"sometimes\l"
+		"y'know.{PAUSE 30} when i'm out of ketchup.", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_TWO_ISLAND_SANS, moves(
+			face_left
+		))
+		delay(60)
+		msgbox(
+		"{FONT_COMIC_SANS}heh\n"
+		"looks like i'm all sold out\p"
+
+		"maybe…\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		setobjectxy(LOCALID_TWO_ISLAND_SANS_NESS, 15, 6)
+		applymovement(LOCALID_TWO_ISLAND_SANS_NESS, moves(
+			face_down
+			set_visible
+			delay_16
+			face_up
+			delay_16
+			face_left
+			delay_16 * 2
+		))
+		applymovement(LOCALID_TWO_ISLAND_SANS, moves(
+			set_invisible
+		))
+		waitmovement(LOCALID_TWO_ISLAND_SANS_NESS)
+		addobject(LOCALID_TWO_ISLAND_SANS_ALIVE)
+		clearflag(FLAG_TEMP_2)
+		applymovement(LOCALID_TWO_ISLAND_SANS_ALIVE, moves(
+			set_visible
+		))
+		applymovement(LOCALID_TWO_ISLAND_SANS_NESS, moves(
+			set_invisible
+		))
+		delay(60)
+		msgbox(
+		"{FONT_COMIC_SANS}maybe it's time i find a new\n"
+		"business instead\p"
+
+		"thanks, kid\p"
+
+		"see ya later\n"
+		"", MSGBOX_DEFAULT)
+		setflag(FLAG_SHINY_DACHSBUN)
+		setflag(FLAG_KILLED_SANS)
 		release
 		end
 
@@ -824,15 +919,19 @@ script TwoIsland_BurnHeal {
 		walk_slower_right
 		face_down
 	))
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	waitmovement(LOCALID_TWO_ISLAND_SANS)
 	delay(60)
 	msgbox(
-	"{FONT_COMIC_SANS}hey.\p"
+	"{FONT_COMIC_SANS}hey, kid.\n"
+	"welcome to my shop\p"
 
-	"that burn heal costs 300 dollars\p"
+	"i see you're interested in my\n"
+	"burn heal.\p"
 
-	"is that acceptable to you?\n"
-	"", MSGBOX_YESNO)
+	"it's on sale for 300 dollars.\n"
+	"is that acceptable to you?",
+	MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 		msgbox(
 		"{FONT_COMIC_SANS}okay{PAUSE 50}\n"
@@ -847,9 +946,9 @@ script TwoIsland_BurnHeal {
 		msgbox(
 		"{FONT_COMIC_SANS}well\p"
 
-		"if you can't afford it…\p"
+		"if you can't afford it…\n"
 
-		"…why did you pick it up?\p"
+		"{PAUSE 30}…why did you pick it up?\p"
 
 		"are you gonna take it anyway?\n"
 		"", MSGBOX_YESNO)
@@ -966,12 +1065,31 @@ script TwoIsland_BurnHeal {
 script TwoIsland_EventScript_SansTest {
 	lock
 	faceplayer
-	
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_UNLOCKED_CINNABAR_GYM)) {
 	msgbox(
-	"{FONT_COMIC_SANS}sup\n"
-	"", MSGBOX_DEFAULT)
-	
-	
+		"{FONT_COMIC_SANS}sup, kid\p"
+
+		"i used to sell burn heals, but\n"
+		"for some reason i'm all out\p"
+
+		"now all i got left is a single,\n"
+		"solitary hot dog", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"{FONT_COMIC_SANS}hey, there\n"
+		"i'm running a cool stand\p"
+
+		"you ever heard of burn heal?\n"
+		"it's all the rage these days\p"
+
+		"i'm pricing it very fairly\n"
+		"{PAUSE 30}at 300 dollars.\p"
+
+		"we're running out of stock so\n"
+		"you'd better act fast.\l"
+		"we only have forty-seven left.", MSGBOX_DEFAULT)
+	}	
 	release
 	end
 }
@@ -1284,4 +1402,31 @@ script TwoIsland_Paint {
 	"Paint: Blue Version\n"
 	"", MSGBOX_SIGN)
 
+}
+
+
+script TwoIsland_LivingSans {
+	lock
+	faceplayer
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_SOUTH:
+			msgbox(
+			"{FONT_COMIC_SANS}thanks for taking the time to look\n"
+			"at my back sprite\p"
+
+			"it's not too special, but i know\n"
+			"the artist appreciates it", MSGBOX_DEFAULT)
+		default:
+			msgbox(
+			"{FONT_COMIC_SANS}now that i'm totally out of the\n"
+			"hot-dog-and-burn-heal business,\l"
+			"i wonder what i should do next\p"
+
+			"i hear hamburgers have been pretty\n"
+			"scarce recently\p"
+
+			"maybe i should capitalize on the\n"
+			"market", MSGBOX_DEFAULT)
+	}
 }

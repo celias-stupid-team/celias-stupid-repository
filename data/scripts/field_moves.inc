@@ -358,3 +358,4 @@ EventScript_FailSweetScent::
 Text_LooksLikeNothingHere::
 	.string "Looks like there isn't anything\n"
 	.string "here…$"
+

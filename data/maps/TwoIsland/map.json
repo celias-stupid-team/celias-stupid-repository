@@ -546,16 +546,16 @@
       "local_id": "LOCALID_TWO_ISLAND_SANS_ALIVE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SANS_FULL",
-      "x": 13,
-      "y": 3,
+      "x": 15,
+      "y": 6,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "TwoIsland_LivingSans",
+      "flag": "FLAG_TEMP_2"
     },
     {
       "local_id": "LOCALID_TWO_ISLAND_SANS_NESS",
