@@ -514,17 +514,41 @@ bool8 SweetScentWildEncounter(void)
                 StartRoamerBattle();
                 return TRUE;
             }
+            
 
-            if (gWildMonHeaders[headerId].waterMonsInfo == NULL)
+            if(!FlagGet(FLAG_RELEASED_ZUBAT)) {
                 return FALSE;
 
-            TryGenerateWildMon(gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, 0);
-            StartWildBattle();
+
             return TRUE;
+            } else {
+                switch(VarGet(VAR_SWEET_SCENT_WATER)) {
+                    case 10:
+                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                        GenerateWildMon(SPECIES_JIGGLYPUFF, 20, 0);
+                        StartWildBattle();
+                        return TRUE;
+                        break;
+                    case 12:
+                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                        FlagSet(FLAG_SHINY_CREATION);
+                        GenerateWildMon(SPECIES_ZUBAT, 20, 0);
+                        StartWildBattle();
+                        return TRUE;
+                        break;
+                    case 15:
+                        return FALSE;
+                        break;
+                    default:
+                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                        GenerateWildMon(SPECIES_ZUBAT, 20, 0);
+                        StartWildBattle();
+                        return TRUE;
+                        break;
+                }
+            }
         }
     }
-
-    return FALSE;
 }
 
 bool8 DoesCurrentMapHaveFishingMons(void)

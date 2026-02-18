@@ -360,7 +360,7 @@ It is reset after every battle.
 #define VAR_0x40F9                 0x40F9
 #define VAR_0x40FA                 0x40FA
 #define VAR_0x40FB                 0x40FB
-#define VAR_0x40FC                 0x40FC
+#define VAR_SWEET_SCENT_WATER                 0x40FC
 #define VAR_TWO_ISLAND_COUNTER                 0x40FD
 #define VAR_SYS_GIVE_ALCREMIE                 0x40FE
 #define VAR_FIRST_TRADED_MON_SPECIES                 0x40FF
