@@ -874,11 +874,11 @@ script TwoIsland_BurnHeal {
 		applymovement(LOCALID_TWO_ISLAND_SANS_NESS, moves(
 			face_down
 			set_visible
-			delay_16
+			delay_16 * 3
 			face_up
-			delay_16
+			delay_16 * 3
 			face_left
-			delay_16 * 2
+			delay_16 * 5
 		))
 		applymovement(LOCALID_TWO_ISLAND_SANS, moves(
 			set_invisible
