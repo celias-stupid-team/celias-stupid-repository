@@ -2379,4 +2379,10 @@ void SetHPBarColorsForZapmolcunoOhgia(void)
     }
 
     UpdateHealthBarPalette(TAG_HEALTHBAR_OPPONENT_PAL, colorEmptyMain, colorEmptyShadow, colorMain, colorShadow);
+
+    if (gPlttBufferFaded[0] == RGB_WHITE)
+    {
+        // prevent screen blinking by keeping the fade active
+        CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
+    }
 }

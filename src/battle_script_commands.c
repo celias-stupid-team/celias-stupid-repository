@@ -6982,9 +6982,22 @@ static void Cmd_various(void)
 
             // wiz1989: load updated battle backgrounds for each of the phases of the final battle
             if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+            {
                 LoadDefaultBg();
+                if (gPlttBufferFaded[0] == RGB_WHITE)
+                {
+                    // prevent screen blinking by keeping the fade active
+                    CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
+                }
+            }
 
             HandleSpeciesGfxDataChange(gBattleAnimAttacker, gBattleAnimTarget, 255);
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && gPlttBufferFaded[0] == RGB_WHITE)
+            {
+                // prevent screen blinking by keeping the fade active
+                CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
+            }
+
             GetBattleAnimBgDataByPriorityRank(&animBg, gBattleAnimAttacker);
             if (IsContest())
                 position = 0;
@@ -11545,10 +11558,21 @@ void BS_RedrawHealthbox(void)
     NATIVE_ARGS(u8 battler);
 
     u8 battler = GetBattlerForBattleScript(cmd->battler);
+    bool8 isFadedToWhite = FALSE;
     
+    // Check if we are in the special battle and fully faded to white
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && gPlttBufferFaded[0] == RGB_WHITE)
+        isFadedToWhite = TRUE;
+
     DestroyHealthboxSprite(battler);
     CreateHealthboxSprite(battler);
     UpdateStatusIconInHealthbox(gHealthboxSpriteIds[battler]);
+
+    if (isFadedToWhite)
+    {
+        // prevent screen blinking by keeping the fade active
+        CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
+    }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -12040,4 +12064,38 @@ void BS_JumpIfVar(void)
     
     if (!conditionMet)
         gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_PlayCurrentSpeciesCry(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+    PlayCry_Script(gBattleMons[battler].species, CRY_MODE_NORMAL);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_PlayCurrentBirdFaintCry(void)
+{
+    NATIVE_ARGS();
+
+    // using -1 offset because species was already changed before!
+    u16 species = SPECIES_FINALLUGIA + VarGet(VAR_CSR_FINAL_BATTLE_PHASE) - 1;
+
+    PlayCry_Script(species, CRY_MODE_FAINT);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_WaitForButtonPress(void)
+{
+    NATIVE_ARGS();
+
+    if (gMain.newKeys)
+    {
+        DebugPrintf("button was pressed");
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }

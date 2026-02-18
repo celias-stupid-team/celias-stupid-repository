@@ -1720,3 +1720,16 @@
 	.2byte \value
 	.4byte \jumpInstr
 	.endm
+
+	.macro playcurrentspeciescry battler:req
+	callnative BS_PlayCurrentSpeciesCry
+	.byte \battler
+	.endm
+
+	.macro playcurrentbirdfaintcry
+	callnative BS_PlayCurrentBirdFaintCry
+	.endm
+
+	.macro waitforbuttonpress
+	callnative BS_WaitForButtonPress
+	.endm

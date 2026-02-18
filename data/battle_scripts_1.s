@@ -2989,14 +2989,16 @@ BattleScript_EffectTailSlap::
 
 BattleScript_FaintAttacker::
 	tryendneutralizinggas BS_ATTACKER
+	jumpifzapmolcunospecies BS_ATTACKER, BattleScript_FaintAttackerZapmolcuno
 	playfaintcry BS_ATTACKER
 	pause B_WAIT_TIME_LONG
 	dofaintanimation BS_ATTACKER
-	cleareffectsonfaint BS_ATTACKER
-	jumpifzapmolcunospecies BS_ATTACKER, BattleScript_FaintAttackerZapmolcuno
 	printstring STRINGID_ATTACKERFAINTED
 BattleScript_FaintAttacker_Continue::
+	cleareffectsonfaint BS_ATTACKER
 	printstring STRINGID_EMPTYSTRING3
+	waitanimation
+	trytrainerslidemsgfirstoff
 	return
 
 BattleScript_FaintAttackerZapmolcuno::
@@ -3005,14 +3007,14 @@ BattleScript_FaintAttackerZapmolcuno::
 
 BattleScript_FaintTarget::
 	tryendneutralizinggas BS_TARGET
+	jumpifzapmolcunospecies BS_TARGET, BattleScript_FaintTargetZapmolcuno
 	playfaintcry BS_TARGET
 	pause B_WAIT_TIME_LONG
 	dofaintanimation BS_TARGET
-	cleareffectsonfaint BS_TARGET
-	jumpifzapmolcunospecies BS_TARGET, BattleScript_FaintTargetZapmolcuno
 	printstring STRINGID_TARGETFAINTED
 BattleScript_FaintTarget_Continue::
 	printstring STRINGID_EMPTYSTRING3
+	cleareffectsonfaint BS_TARGET
 	waitanimation
 	trytrainerslidemsgfirstoff
 	return
@@ -4163,25 +4165,26 @@ BattleScript_SeelHoopaTransform::
 	end2
 
 BattleScript_ZapmolcunoTransform::
-	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 1, BattleScript_FinalLugiaFaint @compare with value 1, because the var has already incremented by the time this script is called
-	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 2, BattleScript_FinalArticunoFaint
-	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 3, BattleScript_FinalHoOhFaint
-	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 4, BattleScript_FinalZapdosFaint
-BattleScript_ZapmolcunoTransform_DoAnimation::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM @ this creates the new bird species
 	pause B_WAIT_TIME_SHORT
-	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM
+	handlespriteupdate BS_FAINTED @ updates the bird sprite and loads the new background
+    updatebattlerdata BS_FAINTED @ updates the bird's data to match the new species
+	redrawhealthbox BS_FAINTED @ updates the health box to match the new species
+	healthbarupdate BS_FAINTED @ updates the health bar to match the new species
+	datahpupdate BS_FAINTED @ updates the HP data to full again
 	pause B_WAIT_TIME_SHORT
+	fadescreen FADE_FROM_WHITE
+	waitforfade
+	playse MUS_SE_GUILTY
+	pause B_WAIT_TIME_SHORT
+	playcurrentbirdfaintcry @ based on value of VAR_CSR_FINAL_BATTLE_PHASE
+	pause B_WAIT_TIME_LONGEST
+	resetbattlebgm
 	printbirdsfaintstring B_POSITION_OPPONENT_LEFT
 	waitmessage B_WAIT_TIME_LONG
-	@ fadescreen FADE_TO_WHITE
-	@ waitforfade
-	handlespriteupdate BS_FAINTED
-    updatebattlerdata BS_FAINTED
-	redrawhealthbox BS_FAINTED
-	healthbarupdate BS_FAINTED
-	datahpupdate BS_FAINTED
-	@ fadescreen FADE_FROM_WHITE
-	@ waitforfade
 	end2
 
 BattleScript_MoveEffectSleep::
@@ -5376,76 +5379,21 @@ BattleScript_RunRotomAnimation::
 	playnewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue
 
-BattleScript_FinalLugiaFaint::
+BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	playse SE_M_MEGA_KICK
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	@ callnative LoadDefaultBg @ new background is calculated in the function
+	handlespriteupdate BS_FAINTED
 	pause B_WAIT_TIME_LONG
 	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
-	playmoncry SPECIES_LUGIA
-	pause B_WAIT_TIME_LONGEST
-	@ printstring STRINGID_FOE_LUGIA_FAINTED
-	@ pause B_WAIT_TIME_LONGEST
-	goto BattleScript_ZapmolcunoTransform_DoAnimation
-
-BattleScript_FinalArticunoFaint::
-	playse SE_M_MEGA_KICK
-	fadescreen FADE_TO_WHITE
-	waitforfade
-	@ callnative LoadDefaultBg @ new background is calculated in the function
-	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
-	playse MUS_SE_GUILTY
-	playmoncry SPECIES_ARTICUNO
-	pause B_WAIT_TIME_LONGEST
-	@ printstring STRINGID_FOE_ARTICUNO_FAINTED
-	@ pause B_WAIT_TIME_LONGEST
-	goto BattleScript_ZapmolcunoTransform_DoAnimation
-
-BattleScript_FinalHoOhFaint::
-	playse SE_M_MEGA_KICK
-	fadescreen FADE_TO_WHITE
-	waitforfade
-	@ callnative LoadDefaultBg @ new background is calculated in the function
-	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
-	playse MUS_SE_GUILTY
-	playmoncry SPECIES_HO_OH
-	pause B_WAIT_TIME_LONGEST
-	@ printstring STRINGID_FOE_HOOH_FAINTED
-	@ pause B_WAIT_TIME_LONGEST
-	goto BattleScript_ZapmolcunoTransform_DoAnimation
-
-BattleScript_FinalZapdosFaint::
-	playse SE_M_MEGA_KICK
-	fadescreen FADE_TO_WHITE
-	waitforfade
-	@ callnative LoadDefaultBg @ new background is calculated in the function
-	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
-	playse MUS_SE_GUILTY
-	playmoncry SPECIES_ZAPDOS
-	pause B_WAIT_TIME_LONGEST
-	@ printstring STRINGID_FOE_ZAPDOS_FAINTED
-	@ pause B_WAIT_TIME_LONGEST
-	goto BattleScript_ZapmolcunoTransform_DoAnimation
-
-BattleScript_FinalMoltresFaint::
-	playse SE_M_MEGA_KICK
-	fadescreen FADE_TO_WHITE
-	waitforfade
-	@ callnative LoadDefaultBg @ new background is calculated in the function
-	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
-	playse MUS_SE_GUILTY
-	playmoncry SPECIES_FINALLUGIA
+	playmoncry SPECIES_FINALMOLTRES
 	pause B_WAIT_TIME_LONGEST
 	printstring STRINGID_FOE_MOLTRES_FAINTED
 	pause B_WAIT_TIME_LONGEST
-	@ printstring STRINGID_ZAPMOLCUNOFAINTED
-	@ pause B_WAIT_TIME_LONGEST
+	cleareffectsonfaint BS_TARGET
+	printstring STRINGID_ZAPMOLCUNOFAINTED
+	pause B_WAIT_TIME_LONGEST
 	return @ last bird, separate handling
 
 BattleScript_EffectFullRestore::
