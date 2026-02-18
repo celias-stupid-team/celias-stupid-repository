@@ -808,3 +808,5 @@ const u32 gObjectEventPic_EUSINE[] = INCBIN_U32("graphics/object_events/pics/stu
 const u16 gObjectEventPal_EUSINE[] = INCBIN_U16("graphics/object_events/palettes/EUSINE.gbapal");
 const u32 gObjectEventPic_SKIIER2[] = INCBIN_U32("graphics/object_events/pics/stupid/SKIIER2.4bpp");
 const u16 gObjectEventPal_SKIIER[] = INCBIN_U16("graphics/object_events/palettes/SKIIER.gbapal");
+const u32 gObjectEventPic_AZ_NEW[] = INCBIN_U32("graphics/object_events/pics/stupid/AZ_NEW.4bpp");
+const u32 gObjectEventPic_DMCA_RUNT[] = INCBIN_U32("graphics/object_events/pics/stupid/DMCA_RUNT.4bpp");

@@ -7,15 +7,18 @@ FiveIsland_RocketWarehouse_Text_PenUnlockedMonsFled::
     .string "The POKéMON appear to have fled.$"
 
 FiveIsland_RocketWarehouse_Text_Grunt2Intro::
-    .string "Did you come here knowing it's\n"
-    .string "TEAM ROCKET's WAREHOUSE?$"
+	.string "Just because I'm small doesn't\n"
+	.string "mean you can pick on me!$"
 
 FiveIsland_RocketWarehouse_Text_Grunt2Defeat::
     .string "What do you think you're doing?!$"
 
 FiveIsland_RocketWarehouse_Text_Grunt2PostBattle::
-    .string "TEAM ROCKET broke up?\n"
-    .string "What planet are you from?$"
+	.string "I was recruited to the DMCA after\n"
+	.string "I told on my TEACHER in LAVENDER.\p"
+	.string "She was doing storytime in class\n"
+	.string "with copyright stories!\l"
+	.string "They's not allowed!$"
 
 FiveIsland_RocketWarehouse_Text_Grunt1Intro::
     .string "Oh, now your POKéMON look strong.\n"
@@ -70,33 +73,21 @@ FiveIsland_RocketWarehouse_Text_MadeItSoYouCanComeBackThrough::
     .string "harsh challenge.$"
 
 FiveIsland_RocketWarehouse_Text_Admin2Intro::
-    .string "That's quite enough of you \n"
-    .string "playing the hero, kid.\p"
-    .string "Spreading lies about how TEAM\n"
-    .string "ROCKET has disbanded…\p"
-    .string "It's such an obvious attempt to\n"
-    .string "cause confusion in our ranks.\p"
-    .string "Fortunately, we're not so ignorant\n"
-    .string "to fall for the lies of a child!\p"
-    .string "And now, I'll show you how scary\n"
-    .string "an angry adult can be!$"
+	.string "We, the DMCA, are quite merciful!\p"
+	.string "We'll let you retain full control\n"
+	.string "over everything you make…\l"
+	.string "…As long as it belongs to you!$"
 
 FiveIsland_RocketWarehouse_Text_Admin2Defeat::
-    .string "Urgh…\n"
-    .string "You were too strong…\p"
-    .string "…\n"
-    .string "Th-that's GIOVANNI's BADGE!\p"
-    .string "So it's true?\n"
-    .string "TEAM ROCKET really has disbanded?$"
+	.string "Wha-!?\n$"
 
 FiveIsland_RocketWarehouse_Text_Admin2PostBattle::
-    .string "We will abandon this WAREHOUSE…\p"
-    .string "But don't think this is over.\n"
-    .string "I won't let this be the end.\p"
-    .string "I will find GIOVANNI.\n"
-    .string "And I will resurrect TEAM ROCKET!\l"
-    .string "I will…\p"
-    .string "Until then, farewell!$"
+	.string "Wha-!?\n"
+	.string "…{PAUSE 30}Wha.\p"
+	.string "See, “Wha” is all I can say.\p"
+	.string "“T” belongs to T!\n"
+	.string "Such a glyph I shall never use!$"
+
 
 FiveIsland_RocketWarehouse_Text_ReportWithGraphsAndText::
     .string "A report with graphs and text is on\n"

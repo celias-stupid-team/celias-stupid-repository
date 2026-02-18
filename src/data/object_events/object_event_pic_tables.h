@@ -6041,3 +6041,25 @@ const struct SpriteFrameImage gObjectEventPicTable_SKIIER2[] = {
     overworld_frame(gObjectEventPic_SKIIER2, 2, 4, 7),
     overworld_frame(gObjectEventPic_SKIIER2, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_AZ_NEW[] = {
+    overworld_frame(gObjectEventPic_AZ_NEW, 8, 8, 0),
+    overworld_frame(gObjectEventPic_AZ_NEW, 8, 8, 1),
+    overworld_frame(gObjectEventPic_AZ_NEW, 8, 8, 2),
+    overworld_frame(gObjectEventPic_AZ_NEW, 8, 8, 0),
+    overworld_frame(gObjectEventPic_AZ_NEW, 8, 8, 0),
+    overworld_frame(gObjectEventPic_AZ_NEW, 8, 8, 1),
+    overworld_frame(gObjectEventPic_AZ_NEW, 8, 8, 1),
+    overworld_frame(gObjectEventPic_AZ_NEW, 8, 8, 2),
+    overworld_frame(gObjectEventPic_AZ_NEW, 8, 8, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_DMCA_RUNT[] = {
+    overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 0),
+    overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 1),
+    overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 2),
+    overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 3),
+    overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 4),
+    overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 5),
+    overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 6),
+    overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 7),
+    overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 8),
+};

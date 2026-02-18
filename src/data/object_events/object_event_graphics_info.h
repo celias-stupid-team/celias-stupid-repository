@@ -10197,3 +10197,43 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SKIIER2 = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AZ_NEW = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 2048,
+    .width = 64,
+    .height = 64,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_64x64,
+    .subspriteTables = gObjectEventSpriteOamTables_64x64,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_AZ_NEW,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DMCA_RUNT = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 128,
+    .width = 16,
+    .height = 16,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x16,
+    .subspriteTables = gObjectEventSpriteOamTables_16x16,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_DMCA_RUNT,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+

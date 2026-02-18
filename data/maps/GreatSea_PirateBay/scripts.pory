@@ -414,6 +414,7 @@ script PirateBay_Nurse {
 					applymovement(VAR_LAST_TALKED, moves(
 							nurse_joy_bow
 							delay_4
+							face_down
 
 					))
 					waitmovement(0)

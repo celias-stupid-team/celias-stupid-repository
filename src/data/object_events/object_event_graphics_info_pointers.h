@@ -561,6 +561,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TREASURE_X;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MALVA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EUSINE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SKIIER2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AZ_NEW;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DMCA_RUNT;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1123,4 +1125,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MALVA] = &gObjectEventGraphicsInfo_MALVA,
     [OBJ_EVENT_GFX_EUSINE] = &gObjectEventGraphicsInfo_EUSINE,
     [OBJ_EVENT_GFX_SKIIER2] = &gObjectEventGraphicsInfo_SKIIER2,
+    [OBJ_EVENT_GFX_AZ_NEW] = &gObjectEventGraphicsInfo_AZ_NEW,
+    [OBJ_EVENT_GFX_DMCA_RUNT] = &gObjectEventGraphicsInfo_DMCA_RUNT,
 };

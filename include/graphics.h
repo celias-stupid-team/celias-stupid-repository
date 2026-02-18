@@ -12910,3 +12910,6 @@ extern const u32 gTrainerPalette_Malva[];
 
 extern const u32 gTrainerFrontPic_Skiier[];
 extern const u32 gTrainerPalette_Skiier[];
+
+extern const u32 gTrainerFrontPic_DmcaRunt[];
+extern const u32 gTrainerPalette_DmcaRunt[];

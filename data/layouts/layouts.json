@@ -3285,7 +3285,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SilphCo",
+      "secondary_tileset": "gTileset_SilphCo3",
       "border_filepath": "data/layouts/FiveIsland_RocketWarehouse/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland_RocketWarehouse/map.bin"
     },

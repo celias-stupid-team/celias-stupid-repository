@@ -1295,3 +1295,7 @@ $(OBJEVENTGFXDIR)/stupid/EUSINE.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/SKIIER2.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/AZ_NEW.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8
+$(OBJEVENTGFXDIR)/stupid/DMCA_RUNT.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 2

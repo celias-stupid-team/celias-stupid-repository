@@ -218,6 +218,7 @@
 #define TRAINER_PIC_TEAM_SKULL   196
 #define TRAINER_PIC_MALVA   197
 #define TRAINER_PIC_SKIIER   198
+#define TRAINER_PIC_DMCA_RUNT   199
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)

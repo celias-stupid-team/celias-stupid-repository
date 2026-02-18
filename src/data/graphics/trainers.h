@@ -637,3 +637,6 @@ const u32 gTrainerPalette_Malva[] = INCBIN_U32("graphics/trainers/palettes/malva
 
 const u32 gTrainerFrontPic_Skiier[] = INCBIN_U32("graphics/trainers/front_pics/skiier_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Skiier[] = INCBIN_U32("graphics/trainers/palettes/skiier.gbapal.lz");
+
+const u32 gTrainerFrontPic_DmcaRunt[] = INCBIN_U32("graphics/trainers/front_pics/dmca_runt_front_pic.4bpp.lz");
+const u32 gTrainerPalette_DmcaRunt[] = INCBIN_U32("graphics/trainers/palettes/dmca_runt.gbapal.lz");

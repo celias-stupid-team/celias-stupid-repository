@@ -1216,3 +1216,14 @@ const struct Tileset gTileset_DMCAErika =
     .metatileAttributes = gMetatileAttributes_DMCAErika,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_SilphCo3 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SilphCo3,
+    .palettes = gTilesetPalettes_SilphCo3,
+    .metatiles = gMetatiles_SilphCo3,
+    .metatileAttributes = gMetatileAttributes_SilphCo3,
+    .callback = NULL,
+};
