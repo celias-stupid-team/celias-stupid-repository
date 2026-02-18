@@ -168,19 +168,23 @@ script Route1_ImposterOak {
 			fadescreenswapbuffers(FADE_FROM_BLACK)
 			delay(90)
 			addobject(LOCALID_ROUTE1_CELIA)
-			setobjectxy(LOCALID_ROUTE1_CELIA, 9, 24)
+			setobjectxy(LOCALID_ROUTE1_CELIA, 6, 2)
 			applymovement(LOCALID_ROUTE1_CELIA, moves(
-
+				walk_down * 2
+				
 			))
 			waitmovement(0)
 			playse(SE_LEDGE)
 			applymovement(LOCALID_ROUTE1_CELIA, moves(
+				jump_2_down
+				delay_8
+				walk_down
 
 			))
 			waitmovement(0)
 			textcolor(NPC_TEXT_COLOR_FEMALE)
 			delay(30)
-			applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 			waitmovement(0)
 			msgbox(
 			"Hi, there!\n"
@@ -195,7 +199,9 @@ script Route1_ImposterOak {
 			setvar(VAR_CSR_CURRENT_CELIA_SECRET, 9)
 			call(CeliaSecrets_CeliaTellsYouNextHint)
 			applymovement(LOCALID_ROUTE1_CELIA, moves(
+				walk_down * 5
 
+				walk_right * 8
 			))
 			waitmovement(0)
 			playbgm(MUS_ROUTE1, TRUE)
