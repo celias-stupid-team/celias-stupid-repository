@@ -131,7 +131,7 @@
 #define FLAG_HIDE_ONE_ISLAND_POKECENTER_CELIO              0x073
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE          0x075
-#define FLAG_CSR_CELIA_BONUS                     0x076
+#define FLAG_DEMO_3_CELIA_BONUS                     0x076
 #define FLAG_HIDE_P_EMBLEM                                         0x077
 #define FLAG_HIDE_W_EMBLEM                                         0x078
 #define FLAG_HIDE_THREE_ISLAND_BIKERS                      0x079
@@ -178,7 +178,7 @@
 #define FLAG_HIDE_CINNABAR_POKECENTER_BILL                 0x0A2
 #define FLAG_HIDE_CREDITS_RIVAL                            0x0A3
 #define FLAG_HIDE_CREDITS_OAK                              0x0A4
-#define FLAG_HIDE_LORELEI_HOUSE_MEOWTH_DOLL                0x0A5
+#define FLAG_CSR_CELIA_BONUS                0x0A5
 #define FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL               0x0A6
 #define FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL            0x0A7
 #define FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL            0x0A8
@@ -460,8 +460,8 @@
 #define FLAG_UNDER_DICK_BRIDGE                       0x199
 #define FLAG_EVOLVED_CATERPIE_BEFORE_BROCK                        0x19A
 #define FLAG_AURORA_BEAM_TM                              0x19B
-#define FLAG_0x19C                              0x19C
-#define FLAG_0x19D                     0x19D
+#define FLAG_BROKE_STEVEN_STONE                              0x19C
+#define FLAG_PUSHED_CAPTAIN_DOWN_WALL                     0x19D
 #define FLAG_0x19E                            0x19E
 #define FLAG_0x19F                     0x19F
 #define FLAG_BEAT_DMCA_ERIKA                0x1A0
@@ -475,7 +475,7 @@
 #define FLAG_USED_GENDER_FLUID                0x1A8
 #define FLAG_DANCED_FOR_ARTICUNO                    0x1A9
 #define FLAG_GOT_SHINY_MISSINGNO                          0x1AA
-#define FLAG_0x1AB                    0x1AB
+#define FLAG_GOT_TREASURE_MAP                    0x1AB
 #define FLAG_0x1AC                          0x1AC
 #define FLAG_0x1AD                     0x1AD
 #define FLAG_0x1AE                          0x1AE
@@ -515,12 +515,12 @@
 #define FLAG_BEEN_IN_WATERFALL_HOUSE                  0x1D0
 #define FLAG_HIDE_CELADON_CITY_ETHER                            0x1D1
 #define FLAG_TALKED_TO_SWORDFUCK              0x1D2
-#define FLAG_0x1D3                  0x1D3
-#define FLAG_0x1D4                   0x1D4
-#define FLAG_0x1D5               0x1D5
-#define FLAG_0x1D6                    0x1D6
-#define FLAG_0x1D7                 0x1D7
-#define FLAG_0x1D8                0x1D8
+#define FLAG_CRASHED_SLOWPOKE_MARKET                  0x1D3
+#define FLAG_GOT_SHINY_MANKEY                   0x1D4
+#define FLAG_GOT_TRASH_SLOWPOKE               0x1D5
+#define FLAG_SWAPPED_ZYGARDE                    0x1D6
+#define FLAG_SITRUS_BERRY_NOTHING                 0x1D7
+#define FLAG_PUT_SPARE_DOOR_IN_FOUR_ISLAND                0x1D8
 #define FLAG_0x1D9                        0x1D9
 #define FLAG_0x1DA                    0x1DA
 #define FLAG_0x1DB                  0x1DB
@@ -544,10 +544,10 @@
 #define FLAG_0x1ED            0x1ED
 #define FLAG_0x1EE            0x1EE
 #define FLAG_0x1EF              0x1EF
-#define FLAG_0x1F0        0x1F0
-#define FLAG_0x1F1        0x1F1
-#define FLAG_0x1F2 0x1F2
-#define FLAG_0x1F3 0x1F3
+#define FLAG_NO_SANS_ITEM        0x1F0
+#define FLAG_SHINY_PIKABLU        0x1F1
+#define FLAG_SHINY_PERSIAN 0x1F2
+#define FLAG_SHINY_HAUNTER 0x1F3
 #define FLAG_GROUDON_NOTHING        0x1F4
 #define FLAG_LASS_MAZE_WATER_NOTHING             0x1F5
 #define FLAG_SAFFRON_NOTHING            0x1F6
@@ -690,14 +690,14 @@
 #define FLAG_GOT_SHINY_MANKEY_FROM_CELIA                                       0x279
 #define FLAG_SILPH_2F_DOOR_1                             0x27A
 #define FLAG_SILPH_2F_DOOR_2                             0x27B
-#define FLAG_SILPH_3F_DOOR_1                             0x27C
-#define FLAG_SILPH_3F_DOOR_2                             0x27D
-#define FLAG_SILPH_4F_DOOR_1                             0x27E
-#define FLAG_SILPH_4F_DOOR_2                             0x27F
-#define FLAG_SILPH_5F_DOOR_1                             0x280
-#define FLAG_SILPH_5F_DOOR_2                             0x281
-#define FLAG_SILPH_5F_DOOR_3                             0x282
-#define FLAG_SILPH_6F_DOOR                               0x283
+#define FLAG_CINNABAR_GYM_BONUS_1                             0x27C
+#define FLAG_CINNABAR_GYM_BONUS_2                             0x27D
+#define FLAG_CINNABAR_GYM_BONUS_3                             0x27E
+#define FLAG_CINNABAR_GYM_BONUS_4                             0x27F
+#define FLAG_CINNABAR_GYM_BONUS_5                             0x280
+#define FLAG_CINNABAR_GYM_BONUS_6                             0x281
+#define FLAG_CINNABAR_GYM_BONUS_7                             0x282
+#define FLAG_CINNABAR_GYM_BONUS_8                               0x283
 #define FLAG_SILPH_7F_DOOR_1                             0x284
 #define FLAG_SILPH_7F_DOOR_2                             0x285
 #define FLAG_SILPH_7F_DOOR_3                             0x286
@@ -1227,7 +1227,7 @@
 #define FLAG_HIDDEN_ITEM_FUSHCIA_CITY_MAX_REVIVE                           (FLAG_HIDDEN_ITEMS_START + 133)
 #define FLAG_HIDDEN_ITEM_ROCKET_HIDEOUT_B4F_NET_BALL                       (FLAG_HIDDEN_ITEMS_START + 134)
 #define FLAG_HIDDEN_ITEM_SILPH_CO_2F_ULTRA_BALL                            (FLAG_HIDDEN_ITEMS_START + 135)
-#define FLAG_HIDDEN_ITEM_SILPH_CO_3F_PROTEIN                               (FLAG_HIDDEN_ITEMS_START + 136)
+#define FLAG_RAT_STONE                               (FLAG_HIDDEN_ITEMS_START + 136)
 #define FLAG_HIDDEN_ITEM_SILPH_CO_4F_IRON                                  (FLAG_HIDDEN_ITEMS_START + 137)
 #define FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_BERRY_6                                 (FLAG_HIDDEN_ITEMS_START + 138)
 #define FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_BERRY_7                                (FLAG_HIDDEN_ITEMS_START + 139)
@@ -1418,7 +1418,7 @@
 #define FLAG_0x81B                                                  (SYS_FLAGS + 0x1B)
 #define FLAG_0x81C                                                  (SYS_FLAGS + 0x1C)
 #define FLAG_0x81D                                                  (SYS_FLAGS + 0x1D)
-#define FLAG_0x81E                                                  (SYS_FLAGS + 0x1E)
+#define FLAG_SYS_GIRL_HOLE                                                  (SYS_FLAGS + 0x1E)
 #define FLAG_0x81F                                                  (SYS_FLAGS + 0x1F)
 
 // Permanent system flags
@@ -1556,7 +1556,7 @@
 #define FLAG_CSR_MAP_GAME_SHOP                                      (SYS_FLAGS + 0xE0)
 #define FLAG_CSR_MAP_EEVEE_ROOM                                     (SYS_FLAGS + 0xE1)
 #define FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND                            (SYS_FLAGS + 0xE2)
-#define FLAG_CSR_MAP_DUMMY_10                                       (SYS_FLAGS + 0xE3)
+#define FLAG_CSR_MAP_EGG_DELIVERY                                       (SYS_FLAGS + 0xE3)
 #define FLAG_CSR_MAP_DUMMY_11                                       (SYS_FLAGS + 0xE4)
 #define FLAG_CSR_MAP_DUMMY_12                                       (SYS_FLAGS + 0xE5)
 #define FLAG_CSR_MAP_DUMMY_13                                       (SYS_FLAGS + 0xE6)

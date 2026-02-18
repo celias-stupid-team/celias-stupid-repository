@@ -820,8 +820,10 @@
 #define MOVE_BROCK_THROW 815
 #define MOVE_SHADOW_SHIELD 816
 #define MOVE_QUINTUPLE_WINGBEAT 817
+#define MOVE_VOLCANIC_HEALING 818
+#define MOVE_10000_VOLTS 819
 
-#define MOVES_COUNT 819
+#define MOVES_COUNT 820
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

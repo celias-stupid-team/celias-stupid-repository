@@ -1,5 +1,6 @@
 mapscripts Ocean11_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_CSR_MAP_EGG_DELIVERY)
 		if(!checkmoncaught(SPECIES_LUVDISC)) {
 			setflag(FLAG_TEMP_1)
 		} else {

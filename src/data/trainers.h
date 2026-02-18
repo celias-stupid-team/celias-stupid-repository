@@ -5025,8 +5025,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DMCA_GRUNT_47] = {
         .trainerClass = TRAINER_CLASS_DMCA,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
-        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M,
-        .trainerName = _("GRUNT"),
+        .trainerPic = TRAINER_PIC_DMCA_RUNT,
+        .trainerName = _("RUNT"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -6868,10 +6868,10 @@ const struct Trainer gTrainers[] = {
 
 
     [TRAINER_BLAINE_OPPONENT_2] = {
-        .trainerClass = FACILITY_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_RS_ELITE_FOUR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FISHERMAN,
-        .trainerName = _("WADE"),
+        .trainerName = _("MALVA"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
@@ -6880,10 +6880,10 @@ const struct Trainer gTrainers[] = {
 
 
     [TRAINER_BLAINE_OPPONENT_3] = {
-        .trainerClass = FACILITY_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_SKIIER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_FISHERMAN,
-        .trainerName = _("WADE"),
+        .trainerPic = TRAINER_PIC_SKIIER,
+        .trainerName = _("JAKE"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
@@ -6907,7 +6907,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = FACILITY_CLASS_FISHERMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_FISHERMAN,
-        .trainerName = _("WADE"),
+        .trainerName = _("EUSINE"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
@@ -7099,6 +7099,17 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_TeamSkull),
+    },
+
+    [TRAINER_YAMASK] = {
+        .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC,
+        .trainerName = _("JEFF"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_YamaskGuy),
     },
 
     

@@ -9,6 +9,7 @@ static void AnimBonemerangProjectile(struct Sprite *sprite);
 static void AnimBoneHitProjectile(struct Sprite *sprite);
 static void AnimDirtScatter(struct Sprite *sprite);
 static void AnimMudSportDirt(struct Sprite *sprite);
+static void AnimMakeItRain(struct Sprite *sprite);
 static void AnimDirtPlumeParticle(struct Sprite *sprite);
 static void AnimDigDirtMound(struct Sprite *sprite);
 static void AnimBonemerangProjectile_Step(struct Sprite *sprite);
@@ -158,6 +159,17 @@ const struct SpriteTemplate gMudsportMudSpriteTemplate =
     .callback = AnimMudSportDirt,
 };
 
+const struct SpriteTemplate gMakeItRainSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_COIN_SMALL,
+    .paletteTag = ANIM_TAG_COIN_SMALL,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
 const struct SpriteTemplate gDirtPlumeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MUD_SAND,
@@ -268,6 +280,25 @@ static void AnimDirtScatter(struct Sprite *sprite)
 // arg 0: 0 = dirt is rising into the air, 1 = dirt is falling down
 // arg 1: initial x pixel offset
 // arg 2: initial y pixel offset
+
+static void AnimMakeItRain(struct Sprite *sprite)
+{
+    if (gBattleAnimArgs[0] == 0)
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2) + gBattleAnimArgs[1];
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[2];
+        sprite->data[0] = gBattleAnimArgs[1] > 0 ? 1 : -1;
+        sprite->callback = AnimMudSportDirtRising;
+    }
+    else
+    {
+        sprite->x = gBattleAnimArgs[1];
+        sprite->y = gBattleAnimArgs[2];
+        sprite->y2 = -gBattleAnimArgs[2];
+        sprite->callback = AnimMudSportDirtFalling;
+    }
+}
+
 static void AnimMudSportDirt(struct Sprite *sprite)
 {
     ++sprite->oam.tileNum;

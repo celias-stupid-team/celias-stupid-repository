@@ -2240,6 +2240,9 @@ void CalculateMonStats(struct Pokemon *mon)
     {
         s32 n = 2 * gSpeciesInfo[species].baseHP + hpIV;
         newMaxHP = (((n + hpEV / 4) * level) / 100) + level + 10;
+
+        if (species == SPECIES_FINALZAPDOS)
+            newMaxHP *= 2; // over-increase HP for Final Zapdos
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;
@@ -6112,7 +6115,7 @@ u16 GetBattleBGM(void)
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_CHAMPION:
-            return MUS_VS_CHAMPION;
+            return MUS_SV_ELITE_FOUR;
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_ELITE_FOUR:
         case TRAINER_CLASS_MASTER:

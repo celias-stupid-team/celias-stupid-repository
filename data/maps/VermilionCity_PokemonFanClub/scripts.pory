@@ -150,6 +150,7 @@ script VermilionCity_PokemonFanClub_EventScript_Seel {
 			"{PLAYER} obtained the\n"
 			"Seal!", MSGBOX_DEFAULT)
 			waitfanfare
+			removeitem(ITEM_SEAL_CASE)
 			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SEEL)
 			setflag(FLAG_SHINY_CREATION)
 			call(Common_Script_GiftPokemon)

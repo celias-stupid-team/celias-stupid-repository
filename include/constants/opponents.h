@@ -65,7 +65,7 @@
 #define TRAINER_CSR_MT_MOON_END_LASS 60
 #define TRAINER_ABSOL_FISHER 61
 #define TRAINER_MAY                               62
-#define TRAINER_CSR_DUMMY_3 63
+#define TRAINER_YAMASK 63
 #define TRAINER_CSR_DUMMY_4 64
 #define TRAINER_RS_PKMN_BREEDER_M                 65
 #define TRAINER_RS_PKMN_BREEDER_F                 66

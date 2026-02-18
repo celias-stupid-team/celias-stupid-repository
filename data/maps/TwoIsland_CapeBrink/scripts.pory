@@ -7,6 +7,20 @@ mapscripts TwoIsland_CapeBrink_MapScripts {
 		setflag(FLAG_TEMP_3)
 		setbench(BENCH_TWO_ISLAND_CAVE)
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TWO_ISLAND_COUNTER, 10800 {
+			clearflag(FLAG_SYS_UNDER_WATERFALL)
+			msgbox(
+			"Hey!\n"
+			"That's the secret code!\p"
+
+			"C'mon in!\n"
+			"", MSGBOX_DEFAULT)
+			setvar(VAR_TWO_ISLAND_COUNTER, 0)
+			warp(MAP_TWO_ISLAND_WATERFALL_CAVE, 0)
+
+		}
+	]
 }
 
 script TwoIsland_StarmanEncounter {

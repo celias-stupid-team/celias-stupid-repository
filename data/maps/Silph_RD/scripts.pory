@@ -5,7 +5,7 @@ mapscripts Silph_RD_MapScripts {
 script SilphCo_RD_Sign {
 	msgbox(
 	"SILPH CO\n"
-	"R & D", MSGBOX_SIGN)
+	"R&D", MSGBOX_SIGN)
 
 }
 
@@ -13,30 +13,107 @@ script SilphCo_RD_Sign {
 script SilphCo_RD_ApplinKid {
 	lock
 	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	if(flag(FLAG_GOT_PENCIL_ERASER)) {
 		msgbox(
-		"I am APPLIN KID.\n"
-		"", MSGBOX_DEFAULT)
+		"That PENCIL ERASER is something\n"
+		"special.\p"
+
+		"It'll eradicate all pencil-shaped\n"
+		"objects nearby.\p"
+
+		"If you use it before school, make\n"
+		"sure you keep a pen handy!", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"I am APPLIN KID.\p"
+		"Oh! Ah!\n"
+		"A visitor?\p"
 
-		"Here!\n"
-		"", MSGBOX_DEFAULT)
-		giveitem_msg(
-		"{PLAYER} obtained the\n"
-		"PENCIL ERASER!",
-		ITEM_PENCIL_ERASER, 1)
-		setflag(FLAG_GOT_PENCIL_ERASER)
+		"Hello. I'm APPLIN KID.\n"
+		"Sorry, my office is a pig sty…\l"
+		"And I haven't taken a bath in ages.\p"
+
+		"By the way, I'm starving.\n"
+		"Can I have something to eat?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			if(checkitem(ITEM_HAMBURGER)) {
+				removeitem(ITEM_HAMBURGER)
+				msgbox(
+				"Oh, that's a HAMBURGER!\n"
+				"There's still one left!\l"
+				"Thanks so much!", MSGBOX_DEFAULT)
+				playse(SE_M_BITE)
+				waitse
+				msgbox(
+				"Thank you!\n"
+				"They don't actually, uh, pay me.\p"
+
+				"Anyway, I just finished work on\n"
+				"this great invention.\l"
+				"It's called the “PENCIL ERASER.”\p"
+
+				"It'll eradicate all pencil-shaped\n"
+				"objects nearby instantaneously!\p"
+
+				"Here, take it!\n"
+				"", MSGBOX_DEFAULT)
+				giveitem_msg(
+				"{PLAYER} obtained the\n"
+				"PENCIL ERASER!",
+				ITEM_PENCIL_ERASER, 1)
+				setflag(FLAG_GOT_PENCIL_ERASER)
+				msgbox(
+				"Make sure you don't use it near\n"
+				"a pencil shop!\l"
+				"haha…", MSGBOX_DEFAULT)
+
+			} else {
+				msgbox(
+				"Oh, you don't seem to have any\n"
+				"food I can eat.\l"
+				"I'm not a garbage can, y'know…\p"
+
+				"I used to live on TWO ISLAND.\n"
+				"I think there's food there still.\l"
+				"Unless I, uh…\p"
+
+				"Anyway!\n"
+				"Thanks for visiting. Good bye.", MSGBOX_DEFAULT)
+			}
+
+		} else {
+			msgbox(
+				"Well, go ahead and make yourself\n"
+				"comfortable anyway.\l"
+				"You can flop down anywhere.", MSGBOX_DEFAULT)
+				release
+				end
+		}
 
 	}
 	release
 }
 
 script SilphCo_RD_OranKid {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"I am ORAN KID.\n"
-	"", MSGBOX_NPC)
+	"Ohoho!\n"
+	"Why, hello there!\l"
+	"My name is ORAN KID.\p"
+
+	"I'm a genius inventor, if I do say\n"
+	"so myself.\l"
+	"Yes, an absolute prodigy!\p"
+
+	"Hm?\n"
+	"You'd like to see my work?\p"
+
+	"Ohoho, how silly of you!\n"
+	"I haven't actually made anything!\p"
+
+	"See, my parents own this company.\n"
+	"Therefore, I am a genius!\l"
+	"It's quite simple!", MSGBOX_NPC)
 }
 
 
@@ -48,6 +125,7 @@ script SilphCo_RD_Elevator {
 
 script SilphCo_MakeElevatorDisappear {
 	lock
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	applymovement(LOCALID_APPLE_KID, moves(
 		face_up
 	))

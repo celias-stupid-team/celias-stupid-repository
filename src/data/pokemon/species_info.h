@@ -57,7 +57,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 20,
         .friendship = 70,
-        .growthRate = GROWTH_MEDIUM_SLOW,
+        .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
         .abilities = {ABILITY_OVERGROW, ABILITY_NONE},
         .safariZoneFleeRate = 0,
@@ -12940,12 +12940,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_GARCHOMP] =
     {
-        .baseHP = 30,
+        .baseHP = 10,
         .baseAttack = 150,
-        .baseDefense = 30,
+        .baseDefense = 10,
         .baseSpeed = 255,
         .baseSpAttack = 80,
-        .baseSpDefense = 30,
+        .baseSpDefense = 10,
         .types = {TYPE_DRAGON, TYPE_GROUND},
         .catchRate = 255,
         .expYield = 150,
@@ -14340,7 +14340,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpDefense = 40,
         .types = {TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 255,
-        .expYield = 150,
+        .expYield = 255,
         .evYield_HP = 1,
         .evYield_Attack = 1,
         .evYield_Defense = 1,
@@ -36360,7 +36360,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_FINALZAPDOS] =
     {
-        .baseHP = 150,
+        .baseHP = 170,
         .baseAttack = 1,
         .baseDefense = 255,
         .baseSpeed = 1,

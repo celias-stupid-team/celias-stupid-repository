@@ -4,6 +4,7 @@ mapscripts CinnabarIsland_House1_MapScripts {
 
 
 script CinnabarIsland_ColorblindNPC {
+	lock
 	msgbox("Bah, kids these days.\p"
 
 	"All I wanted was for someone\n"
@@ -17,7 +18,36 @@ script CinnabarIsland_ColorblindNPC {
 	"a DRAGAPULT!\p"
 
 	"I guess that's just the price\n"
-	"of colorblindness…", MSGBOX_NPC)
+	"of colorblindness…", MSGBOX_DEFAULT)
+	if(checkpartymonslot(SPECIES_GOLURK) == 0) {
+		bufferpartymonnick(STR_VAR_1, 0)
+		msgbox(
+		"Ah, I see your GOLURK there!\p"
+
+		"You're a fellow purveyor of GREEN\n"
+		"POKéMON, I take it?\l"
+		"Lovely to hear!\p"
+
+		"I found a lovely GREEN POKéMON in\n"
+		"the wild just yesterday, in fact.\p"
+
+		"Would you be open to a trade?\n"
+		"My GREEN POKéMON for your GOLURK?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			
+		} else {
+			msgbox(
+			"Ah, what a shame!\p"
+
+			"Let me know if you change your\n"
+			"mind.", MSGBOX_DEFAULT)
+			release
+			end
+		}
+	} else {
+		release
+		end
+	}
 }
 
 script CinnabarIsland_ColorblindNPC_2 {

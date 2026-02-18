@@ -33,6 +33,7 @@ script SilphCo_2F_OnLoad {
 	if(flag(FLAG_SILPH_DMCA_DEFEATED)) {
 		setvar(VAR_START_SILPH_MUSIC, 1)
 	}
+	famechecker(FAMECHECKER_SAFFRON, 0)
 }
 
 script SilphCo_2F_EventScript_Grunt2 {
@@ -142,4 +143,12 @@ script SilphCo_DMCADad {
 	call(EventScript_DadHeal)
 	release
 	end
+}
+
+
+script EventScript_DoorUnlocked {
+	msgbox(
+	"Why do they let you check the\n"
+	"door when there's no door?", MSGBOX_DEFAULT)
+	releaseall
 }

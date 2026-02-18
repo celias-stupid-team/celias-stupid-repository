@@ -3,10 +3,7 @@ EventScript_NeedCardKey::
 	releaseall
 	end
 
-EventScript_DoorUnlocked::
-	msgbox Text_TheDoorIsOpen
-	releaseall
-	end
+
 
 EventScript_Close2FDoor1::
 	setmetatile 5, 8, METATILE_SilphCo_HorizontalBarrier_TopLeft, 1
@@ -365,144 +362,108 @@ SilphCo_2F_EventScript_Door2::
 SilphCo_3F_EventScript_Door1::
 	lockall
 	setvar VAR_TEMP_1, 3
-	setvar VAR_0x8004, FLAG_SILPH_3F_DOOR_1
-	goto_if_set FLAG_SILPH_3F_DOOR_1, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_3F_EventScript_Door2::
 	lockall
 	setvar VAR_TEMP_1, 4
-	setvar VAR_0x8004, FLAG_SILPH_3F_DOOR_2
-	goto_if_set FLAG_SILPH_3F_DOOR_2, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_4F_EventScript_Door1::
 	lockall
 	setvar VAR_TEMP_1, 5
-	setvar VAR_0x8004, FLAG_SILPH_4F_DOOR_1
-	goto_if_set FLAG_SILPH_4F_DOOR_1, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_4F_EventScript_Door2::
 	lockall
 	setvar VAR_TEMP_1, 6
-	setvar VAR_0x8004, FLAG_SILPH_4F_DOOR_2
-	goto_if_set FLAG_SILPH_4F_DOOR_2, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_5F_EventScript_Door1::
 	lockall
 	setvar VAR_TEMP_1, 7
-	setvar VAR_0x8004, FLAG_SILPH_5F_DOOR_1
-	goto_if_set FLAG_SILPH_5F_DOOR_1, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_5F_EventScript_Door2::
 	lockall
 	setvar VAR_TEMP_1, 8
-	setvar VAR_0x8004, FLAG_SILPH_5F_DOOR_2
-	goto_if_set FLAG_SILPH_5F_DOOR_2, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_5F_EventScript_Door3::
 	lockall
 	setvar VAR_TEMP_1, 9
-	setvar VAR_0x8004, FLAG_SILPH_5F_DOOR_3
-	goto_if_set FLAG_SILPH_5F_DOOR_3, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_6F_EventScript_Door::
 	lockall
 	setvar VAR_TEMP_1, 10
-	setvar VAR_0x8004, FLAG_SILPH_6F_DOOR
-	goto_if_set FLAG_SILPH_6F_DOOR, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_7F_EventScript_Door1::
 	lockall
 	setvar VAR_TEMP_1, 11
-	setvar VAR_0x8004, FLAG_SILPH_7F_DOOR_1
-	goto_if_set FLAG_SILPH_7F_DOOR_1, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_7F_EventScript_Door2::
 	lockall
 	setvar VAR_TEMP_1, 12
-	setvar VAR_0x8004, FLAG_SILPH_7F_DOOR_2
-	goto_if_set FLAG_SILPH_7F_DOOR_2, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_7F_EventScript_Door3::
 	lockall
 	setvar VAR_TEMP_1, 13
-	setvar VAR_0x8004, FLAG_SILPH_7F_DOOR_3
-	goto_if_set FLAG_SILPH_7F_DOOR_3, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_8F_EventScript_Door::
 	lockall
 	setvar VAR_TEMP_1, 14
-	setvar VAR_0x8004, FLAG_SILPH_8F_DOOR
-	goto_if_set FLAG_SILPH_8F_DOOR, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_9F_EventScript_Door1::
 	lockall
 	setvar VAR_TEMP_1, 15
-	setvar VAR_0x8004, FLAG_SILPH_9F_DOOR_1
-	goto_if_set FLAG_SILPH_9F_DOOR_1, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_9F_EventScript_Door2::
 	lockall
 	setvar VAR_TEMP_1, 16
-	setvar VAR_0x8004, FLAG_SILPH_9F_DOOR_2
-	goto_if_set FLAG_SILPH_9F_DOOR_2, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_9F_EventScript_Door3::
 	lockall
 	setvar VAR_TEMP_1, 17
-	setvar VAR_0x8004, FLAG_SILPH_9F_DOOR_3
-	goto_if_set FLAG_SILPH_9F_DOOR_3, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_9F_EventScript_Door4::
 	lockall
 	setvar VAR_TEMP_1, 18
-	setvar VAR_0x8004, FLAG_SILPH_9F_DOOR_4
-	goto_if_set FLAG_SILPH_9F_DOOR_4, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_10F_EventScript_Door::
 	lockall
 	setvar VAR_TEMP_1, 19
-	setvar VAR_0x8004, FLAG_SILPH_10F_DOOR
-	goto_if_set FLAG_SILPH_10F_DOOR, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 
 SilphCo_11F_EventScript_Door::
 	lockall
 	setvar VAR_TEMP_1, 20
-	setvar VAR_0x8004, FLAG_SILPH_11F_DOOR
-	goto_if_set FLAG_SILPH_11F_DOOR, EventScript_DoorUnlocked
 	goto EventScript_TryUnlockDoor
 	end
 

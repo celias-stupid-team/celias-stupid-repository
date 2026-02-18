@@ -59,7 +59,7 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
 	[TYPE_DRAGON]   = {	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______ 	},
 	[TYPE_DARK]   = {	______, 	X(0.5), 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	X(0.5) 	},
 	[TYPE_FAIRY]   = {	______, 	X(2.0), 	______, 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_BROCK]   = {	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5) 	},
+	[TYPE_BROCK]   = {	______, 	X(0.5), 	X(5.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5) 	},
 	[TYPE_WEIRD]   = {	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______ 	},
 	[TYPE_DAD]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
 	[TYPE_CHOCOLATE]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
@@ -505,6 +505,7 @@ enum
     ENDTURN_MIST,
     ENDTURN_SAFEGUARD,
     ENDTURN_WISH,
+    ENDTURN_DOUBLE_DIP,
     ENDTURN_RAIN,
     ENDTURN_SANDSTORM,
     ENDTURN_SUN,
@@ -670,6 +671,30 @@ u8 DoFieldEndTurnEffects(void)
             if (effect == 0)
             {
                 gBattleStruct->turnCountersTracker++;
+                gBattleStruct->turnSideTracker = 0;
+            }
+            break;
+        case ENDTURN_DOUBLE_DIP:
+            while (gBattleStruct->turnSideTracker < gBattlersCount)
+            {
+                gActiveBattler = gBattlerAttacker = gBattlerByTurnOrder[gBattleStruct->turnSideTracker];
+                if (gStatuses3[gActiveBattler] & STATUS3_DOUBLE_DIP)
+                {
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    BattleScriptExecute(BattleScript_DoubleDipHits);
+                    gStatuses3[gBattlerAttacker] &= ~STATUS3_DOUBLE_DIP;
+                    effect++;
+                }
+                gBattleStruct->turnSideTracker++;
+                if (effect != 0)
+                    break;
+            }
+            if (effect == 0)
+            {
+                gBattleStruct->turnCountersTracker++;
+                gBattleStruct->turnSideTracker = 0;
             }
             break;
         case ENDTURN_RAIN:
@@ -770,7 +795,7 @@ u8 DoFieldEndTurnEffects(void)
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_SHADOW_SKY:
-            if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+            if ((gBattleWeather & B_WEATHER_SHADOW_SKY) && !gBattleTurnMonFainted)
             {
                 gBattlescriptCurrInstr = BattleScript_DamagingWeatherContinues;
                 gBattleScripting.animArg1 = B_ANIM_SHADOW_SKY_CONTINUES;
@@ -1314,6 +1339,7 @@ bool8 HandleFaintedMonActions(void)
                 if (gBattleMons[gBattleStruct->faintedActionsBattlerId].hp == 0
                  && !(gAbsentBattlerFlags & gBitTable[gBattleStruct->faintedActionsBattlerId]))
                 {
+                    gBattleTurnMonFainted = TRUE;
                     BattleScriptExecute(BattleScript_HandleFaintedMon);
                     gBattleStruct->faintedActionsState = 5;
                     return TRUE;
@@ -1865,6 +1891,15 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     {
                         gBattleWeather = B_WEATHER_SANDSTORM;
                         gBattleScripting.animArg1 = B_ANIM_SANDSTORM_CONTINUES;
+                        gBattleScripting.battler = battler;
+                        effect++;
+                    }
+                    break;
+                case WEATHER_SNOW:
+                    if (!(gBattleWeather & B_WEATHER_HAIL))
+                    {
+                        gBattleWeather = B_WEATHER_HAIL;
+                        gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
                         gBattleScripting.battler = battler;
                         effect++;
                     }
@@ -3511,14 +3546,15 @@ u8 IsMonDisobedient(void)
         if (FlagGet(FLAG_BADGE08_GET))
             return 0;
 
-        obedienceLevel = 10;
-
+        obedienceLevel = 100;
+        /*
         if (FlagGet(FLAG_BADGE02_GET))
             obedienceLevel = 30;
         if (FlagGet(FLAG_BADGE04_GET))
             obedienceLevel = 50;
         if (FlagGet(FLAG_BADGE06_GET))
             obedienceLevel = 70;
+        */
     }
 
     if (gBattleMons[gBattlerAttacker].level <= obedienceLevel)

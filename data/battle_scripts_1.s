@@ -269,6 +269,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectToxicSeed              @ EFFECT_TOXIC_SEED
 	.4byte BattleScript_EffectMultiHitThree          @ EFFECT_MULTI_HIT_THREE
 	.4byte BattleScript_EffectShadowShield           @ EFFECT_SHADOW_SHIELD
+	.4byte BattleScript_EffectFullRestore            @ EFFECT_FULL_RESTORE
+	.4byte BattleScript_EffectDoubleDip              @ EFFECT_DOUBLE_DIP
+	.4byte BattleScript_Effect10kVolts               @ EFFECT_10000_VOLTS
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -807,6 +810,7 @@ BattleScript_EffectRestoreHp::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_ATTACKER
 	attackanimation
 	waitanimation
@@ -869,6 +873,7 @@ BattleScript_EffectRest::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_RestIsAlreadyAsleep
 	jumpifcantmakeasleep BattleScript_RestCantSleep
 	trysetrest BattleScript_AlreadyAtFullHp
@@ -2178,6 +2183,7 @@ BattleScript_EffectSoftboiled::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
 	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
 BattleScript_PresentHealTarget::
 	attackanimation
@@ -4156,7 +4162,6 @@ BattleScript_SeelHoopaTransform::
 	end2
 
 BattleScript_ZapmolcunoTransform::
-	@ wiz1989 ToDo - probably do a fade out here and replace the battler sprite
 	pause B_WAIT_TIME_SHORT
 	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM
 	pause B_WAIT_TIME_SHORT
@@ -5292,14 +5297,21 @@ BattleScript_EffectMultiHitThree::
 BattleScript_ShadowSky_End3::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_LUGIA_USED_SHADOW_SKY
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_LONGEST
 	printstring STRINGID_STARTEDSHADOW_SKY
 	waitmessage B_WAIT_TIME_LONG
-	playanimation BS_BATTLER_0, B_ANIM_SANDSTORM_CONTINUES
-	printstring STRINGID_SHADOW_SKY_CONTINUES
+	playanimation BS_BATTLER_0, B_ANIM_SHADOW_SKY_CONTINUES
 	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_SHADOW_SKY_STARTS
+	waitmessage B_WAIT_TIME_LONGEST
 	call BattleScript_WeatherFormChanges
 	end3
+
+BattleScript_ShadowSkyStatusImmunity::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_SHADOWSKYPREVENTSSTATUS
+	waitmessage B_WAIT_TIME_LONG
+	return
 
 BattleScript_ShadowSpikes_End3::
 	pause B_WAIT_TIME_SHORT
@@ -5323,22 +5335,31 @@ BattleScript_EffectShadowShield::
 	goto BattleScript_MoveEnd
 
 BattleScript_TrainerSlideAfterDefeat::
+	printstring STRINGID_DUMMY288
 	trytrainerslidemsgdefeatfinalbattle
+	printstring STRINGID_DUMMY288
 	goto BattleScript_RunRotomAnimation
 
 BattleScript_RunRotomAnimation::
+	fadenewbgm MUS_NONE
+	pause B_WAIT_TIME_LONGEST
+	pause B_WAIT_TIME_LONGEST
 	playmoncry SPECIES_ROTOM
-	pause B_WAIT_TIME_LONG
-	fadenewbgm MUS_CSR_DRILL_DOZER @ MUS_PRELUDE_TO_FINALE not available yet
+	pause B_WAIT_TIME_LONGEST
+	playnewbgm MUS_PRELUDE_TO_FINALE @ MUS_PRELUDE_TO_FINALE not available yet
 	pause B_WAIT_TIME_LONGEST
 	printstring STRINGID_RUNROTOMANIMATION1
-	playanimation BS_BATTLER_0, B_ANIM_SUN_CONTINUES
+	pause B_WAIT_TIME_LONGEST
+	playanimation BS_BATTLER_0, B_ANIM_ROTOM_APPEARS
 	waitanimation
+	pause B_WAIT_TIME_LONG
 	printstring STRINGID_RUNROTOMANIMATION2
 	waitmessage B_WAIT_TIME_LONGEST
+	playanimation BS_BATTLER_0, B_ANIM_ROTOM_COMES_DOWN
+	waitanimation
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	stopbattlebgm
+	fadenewbgm MUS_NONE
 	pause B_WAIT_TIME_LONGEST
 	@ callnative LoadRotomBattleUI
 	@ waitstate
@@ -5346,6 +5367,148 @@ BattleScript_RunRotomAnimation::
 	fadescreen FADE_FROM_WHITE
 	waitforfade
 	printstring STRINGID_RUNROTOMANIMATION3
-	waitmessage B_WAIT_TIME_LONGEST
-	fadenewbgm MUS_THE_GAME_IS_AFOOT
+	playnewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue
+
+
+BattleScript_FinalLugiaFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_LUGIA
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_LUGIA_FAINTED
+	pause B_WAIT_TIME_LONGEST
+
+BattleScript_FinalArticunoFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_ARTICUNO
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_ARTICUNO_FAINTED
+	pause B_WAIT_TIME_LONGEST
+
+
+BattleScript_FinalHoohFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_HO_OH
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_HOOH_FAINTED
+	pause B_WAIT_TIME_LONGEST
+
+
+BattleScript_FinalZapdosFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_ZAPDOS
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_ZAPDOS_FAINTED
+	pause B_WAIT_TIME_LONGEST
+
+
+BattleScript_FinalMoltresFaint::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	@ switch to the new background
+	pause B_WAIT_TIME_LONG
+	fadescreeninstant FADE_FROM_WHITE
+	playse MUS_SE_GUILTY
+	playmoncry SPECIES_FINALLUGIA
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_FOE_MOLTRES_FAINTED
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_ZAPMOLCUNOFAINTED
+	pause B_WAIT_TIME_LONGEST
+
+
+BattleScript_EffectFullRestore::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
+	tryfullrestore BattleScript_AlreadyAtFullHp, BS_ATTACKER
+	waitstate
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitstate
+	updatestatusicon BS_ATTACKER
+	waitstate
+	printstring STRINGID_PKMNFULLYRESTORED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_DoubleDipHits::
+	printstring STRINGID_PKMNHURTBYDOUBLEDIP
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_DOUBLE_DIP_HIT
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER
+	checkteamslost BattleScript_DoTurnDmgEnd
+	end2
+
+BattleScript_EffectDoubleDip:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	setdoubledip
+	goto BattleScript_HitFromAtkString
+
+BattleScript_PreventTakingARest::
+	pause B_WAIT_TIME_SHORT
+	copybyte sBATTLER, sBATTLER_WITH_ABILITY @ to copy the battler name to B_SCR_ACTIVE_NAME_WITH_PREFIX
+	printstring STRINGID_PKMNPREVENTEDREST
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_10000VoltsSetUp::
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	playanimation BS_ATTACKER, B_ANIM_CHARGE_TURN
+	printstring STRINGID_PKMNISCHARGINGENERGY
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_Effect10kVolts::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdateparallel @updates HP for both attacker and target at the same time
+	datahpupdateparallel @updates HP for both attacker and target at the same time
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	tryfaintmon BS_ATTACKER
+	moveendall
+	end

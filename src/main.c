@@ -15,6 +15,11 @@
 #include "scanline_effect.h"
 #include "save_failed_screen.h"
 #include "quest_log.h"
+#include "event_data.h"
+#include "item_menu.h"
+#include "quest_log.h"
+#include "event_scripts.h"
+#include "script.h"
 
 extern u32 intr_main[];
 
@@ -188,7 +193,11 @@ void AgbMain()
                 gLinkTransferringData = FALSE;
             }
         }
-
+        if(FlagGet(FLAG_SYS_UNDER_WATERFALL)) {
+            if(VarGet(VAR_TWO_ISLAND_COUNTER) < 10801) {
+                VarSet(VAR_TWO_ISLAND_COUNTER, VarGet(VAR_TWO_ISLAND_COUNTER) + 1);
+            }
+        }
         PlayTimeCounter_Update();
         MapMusicMain();
         WaitForVBlank();

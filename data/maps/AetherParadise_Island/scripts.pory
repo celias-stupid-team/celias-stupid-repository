@@ -141,25 +141,25 @@ script AetherParadise_SophaclesFindsYou {
     ))
     delay(60)
     message(
-	"Now, over here is our\n"
-	"PLACEHOLDER")
+	"Now, over here is our COMMUNICATION\n"
+	"CENTER.")
     delay(120)
     closemessage
     message(
-	"This is where we\n"
-	"PLACEHOLDER")
+	"This is where we go to welcome and\n"
+	"connect with other TRAINERS!")
     delay(120)
     closemessage
 
     delay(120)
     message(
-	"And over here is our\n"
-	"PLACEHOLDER")
+	"And over here is our THEATER."
+	"")
     delay(120)
     closemessage
     message(
-	"This is where we\n"
-	"PLACEHOLDER")
+	"This is where we hold performances\n"
+	"of classic plays and such!")
     delay(90)
     closemessage
     delay(90)
@@ -216,8 +216,11 @@ script AetherParadise_FestivalPlazaEstablishments {
 script FestivalPlaza_Sophacles {
     textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"Hey, hey!\n"
-	"I don't suppose you'd like to have\l"
+	"All men make mistakes, but good men\n"
+	"yield when their course is wrong.\l"
+	"The only crime is pride.\p"
+
+	"…{PAUSE 30}Would you like to have\n"
 	"another tour?", MSGBOX_NPC)
 }
 

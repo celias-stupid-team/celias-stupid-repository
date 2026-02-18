@@ -41,8 +41,11 @@ static void AnimTask_GrowAndShrink_Step(u8);
 static void AnimTask_ThrashMoveMonHorizontal_Step(u8);
 static void AnimTask_ThrashMoveMonVertical_Step(u8);
 static void AnimTask_SketchDrawMon_Step(u8);
+static void AnimTask_SketchupDrawMon_Step(u8);
 static void AnimPencil(struct Sprite *);
 static void AnimPencil_Step(struct Sprite *);
+static void AnimKetchup(struct Sprite *);
+static void AnimKetchup_Step(struct Sprite *);
 static void AnimSoftBoiledEgg(struct Sprite *);
 static void AnimSoftBoiledEgg_Step1(struct Sprite *);
 static void AnimSoftBoiledEgg_Step2(struct Sprite *);
@@ -411,6 +414,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
     .callback = AnimFallingCoin,
 };
 
+const struct SpriteTemplate gFallingBreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BREAD,
+    .paletteTag = ANIM_TAG_BREAD,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
 static const union AffineAnimCmd sBulletSeedAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(0, 0, 20, 1),
@@ -615,6 +629,17 @@ const struct SpriteTemplate gPencilSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimPencil,
+};
+
+const struct SpriteTemplate gKetchupSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KETCHUP,
+    .paletteTag = ANIM_TAG_KETCHUP,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimKetchup,
 };
 
 const struct SpriteTemplate gSnoreZSpriteTemplate =    
@@ -895,6 +920,17 @@ const struct SpriteTemplate gMagentaHeartSpriteTemplate =
     .tileTag = ANIM_TAG_MAGENTA_HEART,
     .paletteTag = ANIM_TAG_MAGENTA_HEART,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMagentaHeart,
+};
+
+const struct SpriteTemplate gLettuceSnuggleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LETTUCE,
+    .paletteTag = ANIM_TAG_LETTUCE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -2460,6 +2496,125 @@ void AnimTask_SketchDrawMon(u8 taskId)
     task->func = AnimTask_SketchDrawMon_Step;
 }
 
+
+//=====DISCLAIMER: The following code is written by generative AI, modified from the original SketchDrawMon code===========
+void AnimTask_SketchupDrawMon(u8 taskId)
+{
+    struct Task* task = &gTasks[taskId];
+    struct ScanlineEffectParams params;
+    s16 i;
+    u8 spriteId;
+    u16 palOffset;
+
+    spriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
+    palOffset = OBJ_PLTT_ID(gSprites[spriteId].oam.paletteNum);
+
+    task->data[7] = palOffset;
+
+    // Immediately tint the target fully red.
+    BlendPalette(palOffset, 16, 16, RGB(30, 0, 0));
+
+    task->data[0] = GetBattlerYCoordWithElevation(gBattleAnimTarget) + 32;
+    task->data[1] = 4;
+    task->data[2] = 0;
+    task->data[3] = 0;
+    task->data[4] = 0;
+    task->data[5] = 0;
+    task->data[15] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT);
+
+    if (GetBattlerSpriteBGPriorityRank(gBattleAnimTarget) == 1)
+    {
+        task->data[6] = gBattle_BG1_X;
+        params.dmaDest = (u16 *)REG_ADDR_BG1HOFS;
+    }
+    else
+    {
+        task->data[6] = gBattle_BG2_X;
+        params.dmaDest = (u16 *)REG_ADDR_BG2HOFS;
+    }
+
+    for (i = task->data[0] - 0x40; i <= task->data[0]; i++)
+    {
+        if (i >= 0)
+        {
+            gScanlineEffectRegBuffers[0][i] = task->data[6] + 0xF0;
+            gScanlineEffectRegBuffers[1][i] = task->data[6] + 0xF0;
+        }
+    }
+
+    params.dmaControl = SCANLINE_EFFECT_DMACNT_16BIT;
+    params.initState = 1;
+    params.unused9 = 0;
+    ScanlineEffect_SetParams(params);
+
+    task->func = AnimTask_SketchupDrawMon_Step;
+}
+
+static void AnimTask_SketchupDrawMon_Step(u8 taskId)
+{
+    struct Task* task = &gTasks[taskId];
+
+    switch (task->data[4])
+    {
+    case 0:
+        if (++task->data[5] > 20)
+            task->data[4]++;
+        break;
+
+    case 1:
+        if (++task->data[1] > 3)
+        {
+            task->data[1] = 0;
+            task->data[2] = task->data[3] & 3;
+            task->data[5] = task->data[0] - task->data[3];
+
+            switch (task->data[2])
+            {
+            case 0:
+                break;
+            case 1:
+                task->data[5] -= 2;
+                break;
+            case 2:
+            case 3:
+                task->data[5] += 1;
+                break;
+            }
+
+            if (task->data[5] >= 0)
+            {
+                gScanlineEffectRegBuffers[0][task->data[5]] = task->data[6];
+                gScanlineEffectRegBuffers[1][task->data[5]] = task->data[6];
+            }
+
+            if (++task->data[3] >= task->data[15])
+            {
+                // Stop scanline DMA and begin fading back to normal colors.
+                gScanlineEffect.state = 3;
+                task->data[4] = 2;
+                task->data[5] = 0; // reuse as fade timer
+            }
+        }
+        break;
+
+    case 2:
+        {
+            // Fade from fully red back to normal by decreasing the blend coefficient.
+            u16 palOffset = (u16)task->data[7];
+            s16 t = task->data[5];
+
+            if (t <= 16)
+                BlendPalette(palOffset, 16, 16 - t, RGB(30, 0, 0));
+
+            if (++task->data[5] > 16)
+                DestroyAnimVisualTask(taskId);
+        }
+        break;
+    }
+}
+//========End of generative AI-written code================
+
+
 static void AnimTask_SketchDrawMon_Step(u8 taskId)
 {
     struct Task* task = &gTasks[taskId];
@@ -2545,6 +2700,77 @@ static void AnimPencil_Step(struct Sprite *sprite)
             sprite->data[2]++;
             if (sprite->data[2] % 10 == 0)
                 PlaySE12WithPanning(SE_M_SKETCH, sprite->data[6]);
+        }
+        sprite->data[4] += sprite->data[3];
+        if (sprite->data[4] > 31)
+        {
+            sprite->data[4] = 0x40 - sprite->data[4];
+            sprite->data[3] *= -1;
+        }
+        else if (sprite->data[4] <= -32)
+        {
+            sprite->data[4] = -0x40 - sprite->data[4];
+            sprite->data[3] *= -1;
+        }
+        sprite->x2 = sprite->data[4];
+        if (sprite->data[5] == sprite->data[2])
+        {
+            sprite->data[1] = 0;
+            sprite->data[2] = 0;
+            sprite->data[0]++;
+        }
+        break;
+    case 2:
+        if (++sprite->data[2] > 1)
+        {
+            sprite->data[2] = 0;
+            sprite->invisible = !sprite->invisible;
+        }
+        if (++sprite->data[1] > 16)
+        {
+            sprite->invisible = FALSE;
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
+
+static void AnimKetchup(struct Sprite *sprite)
+{
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X) - 16;
+    sprite->y = GetBattlerYCoordWithElevation(gBattleAnimTarget) + 16;
+    sprite->data[0] = 0;
+    sprite->data[1] = 0;
+    sprite->data[2] = 0;
+    sprite->data[3] = 16;
+    sprite->data[4] = 0;
+    sprite->data[5] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) + 2;
+    sprite->data[6] = BattleAnimAdjustPanning(SOUND_PAN_TARGET);
+    sprite->callback = AnimKetchup_Step;
+}
+
+static void AnimKetchup_Step(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+    case 0:
+        if (++sprite->data[2] > 1)
+        {
+            sprite->data[2] = 0;
+            sprite->invisible = !sprite->invisible;
+        }
+        if (++sprite->data[1] > 16)
+        {
+            sprite->invisible = FALSE;
+            sprite->data[0]++;
+        }
+        break;
+    case 1:
+        if (++sprite->data[1] > 3 && sprite->data[2] < sprite->data[5])
+        {
+            sprite->data[1] = 0;
+            sprite->y -= 1;
+            sprite->data[2]++;
         }
         sprite->data[4] += sprite->data[3];
         if (sprite->data[4] > 31)

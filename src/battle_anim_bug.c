@@ -167,6 +167,17 @@ const struct SpriteTemplate gIcicleSpearSpriteTemplate =
     .callback = AnimMissileArc,
 };
 
+const struct SpriteTemplate gPickleSpearSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PICKLE_SPEAR,
+    .paletteTag = ANIM_TAG_PICKLE_SPEAR,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMissileArc,
+};
+
 static const union AffineAnimCmd sAffineAnim_TailGlowOrb[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),

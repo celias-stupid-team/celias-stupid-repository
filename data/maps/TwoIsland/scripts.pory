@@ -789,6 +789,29 @@ script TwoIsland_BurnHeal {
 	applymovement(VAR_LAST_TALKED, moves(
 		set_invisible
 	))
+	if(flag(FLAG_UNLOCKED_CINNABAR_GYM)) {
+		msgbox(
+		"{PLAYER} found a\n"
+		"HOT DOG!", MSGBOX_DEFAULT)
+		waitfanfare
+		closemessage
+		fadenewbgm(MUS_NONE)
+		delay(60)
+		msgbox(
+		"{FONT_COMIC_SANS}you bought the burn heal from\n"
+		"pewter\p"
+
+		"sans puts on his hat\n"
+		"", MSGBOX_DEFAULT)
+		removeobject(VAR_LAST_TALKED)
+		setflag(FLAG_SHINY_CREATION)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_DACHSBUN)
+		call(Common_Script_GiftPokemon)
+		fadedefaultbgm
+		release
+		end
+
+	}
 	setrespawn(HEAL_LOCATION_TWO_ISLAND)
 	msgbox(
 	"{PLAYER} found a\n"

@@ -2626,21 +2626,6 @@ void UpdateLoreleiDollCollection(void)
     u32 numHofClears = GetGameStat(GAME_STAT_ENTERED_HOF);
     if (numHofClears >= 25)
     {
-        FlagClear(FLAG_HIDE_LORELEI_HOUSE_MEOWTH_DOLL);
-        if (numHofClears >= 50)
-            FlagClear(FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL);
-        if (numHofClears >= 75)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL);
-        if (numHofClears >= 100)
-            FlagClear(FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL);
-        if (numHofClears >= 125)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_M_DOLL);
-        if (numHofClears >= 150)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_FEAROW_DOLL);
-        if (numHofClears >= 175)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_PIDGEOT_DOLL);
-        if (numHofClears >= 200)
-            FlagClear(FLAG_HIDE_LORELEIS_HOUSE_LAPRAS_DOLL);
     }
 }
 
