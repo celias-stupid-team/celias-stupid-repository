@@ -660,6 +660,25 @@ bool8 MetatileBehavior_IsGirlHole(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsFishableStatue(u8 metatileBehavior)
+{
+    
+    if (metatileBehavior == MB_FISHABLE_STATUE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+
+bool8 MetatileBehavior_IsPencilStatue(u8 metatileBehavior)
+{
+    
+    if (metatileBehavior == MB_PENCIL_STATUE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior) { return FALSE; }
 bool8 MetatileBehavior_IsPacifidlogVerticalLogTop(u8 metatileBehavior){ return FALSE; }
 bool8 MetatileBehavior_IsPacifidlogVerticalLogBottom(u8 metatileBehavior) { return FALSE; }

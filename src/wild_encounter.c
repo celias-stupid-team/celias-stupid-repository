@@ -13,9 +13,12 @@
 #include "script.h"
 #include "link.h"
 #include "quest_log.h"
+#include "fldeff.h"
+
 #include "constants/maps.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
+#include "constants/event_objects.h"
 
 #define MAX_ENCOUNTER_RATE 1600
 
@@ -312,8 +315,14 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
         FlagClear(FLAG_SYS_GIRL_HOLE);
         GenerateWildMon(SPECIES_CLOYSTER, level, slot);
 
+    } else if (FlagGet(FLAG_SYS_ZAPDOS_STATUE)) {
+        //DebugPrintf("zapdos");
+        FlagSet(FLAG_SHINY_CREATION);
+        FlagClear(FLAG_SYS_ZAPDOS_STATUE);
+        VarSet(VAR_TEMP_B, 1);
+        GenerateWildMon(SPECIES_ZAPDOS, 50, slot);
     } else {
-        DebugPrintf("Not girl Hole");
+        //DebugPrintf("Not zapdos");
         GenerateWildMon(info->wildPokemon[slot].species, level, slot);
 
     }

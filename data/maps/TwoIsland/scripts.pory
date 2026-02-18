@@ -229,6 +229,36 @@ mapscripts TwoIsland_MapScripts {
 			setvar(VAR_TEMP_A, 0)
 			release
 		}
+		VAR_TEMP_B, 1 {
+			delay(30)
+			addobject(LOCALID_TWO_ISLAND_SANS_ALIVE)
+			setobjectxy(LOCALID_TWO_ISLAND_SANS_ALIVE, 39, 12)
+			applymovement(LOCALID_TWO_ISLAND_SANS_ALIVE, moves(
+				face_down
+				lock_facing_direction
+				walk_fast_right * 5
+			))
+			waitmovement(LOCALID_TWO_ISLAND_SANS_ALIVE)
+			delay(40)
+			textcolor(NPC_TEXT_COLOR_MALE)
+			msgbox(
+			"{FONT_COMIC_SANS}get it?\p"
+
+			"looks like that statue's a\n"
+			"number{PAUSE 30} 2{PAUSE 60} pencil.", MSGBOX_DEFAULT)
+			closemessage
+			delay(60)
+			applymovement(LOCALID_TWO_ISLAND_SANS_ALIVE, moves(
+				face_down
+				lock_facing_direction
+				walk_faster_left * 8
+			))
+			waitmovement(LOCALID_TWO_ISLAND_SANS_ALIVE)
+			if(!flag(FLAG_SHINY_DACHSBUN)) {
+				removeobject(LOCALID_TWO_ISLAND_SANS_ALIVE)
+			}
+			setvar(VAR_TEMP_B, 0)
+		}
 	]
 }
 
