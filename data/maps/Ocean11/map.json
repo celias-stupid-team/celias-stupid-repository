@@ -3,7 +3,7 @@
   "name": "Ocean11",
   "layout": "LAYOUT_OCEAN11",
   "music": "MUS_SEVII_ROUTE",
-  "region_map_section": "MAPSEC_GREAT_SEA",
+  "region_map_section": "MAPSEC_EGG_DELIVERY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

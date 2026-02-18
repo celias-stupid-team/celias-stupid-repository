@@ -894,6 +894,9 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_KANTO_LIGHTHOUSE        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_MINNESOTA     - KANTO_MAPSEC_START] = {MAP(MAP_MINNESOTA),                           HEAL_LOCATION_MINNESOTA},
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_EGG_DELIVERY           - KANTO_MAPSEC_START] = {MAP(MAP_OCEAN11),                           HEAL_LOCATION_OCEAN11},
+
+    
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -3007,6 +3010,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_SEAFOAM_ISLANDS_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_POKEMON_ISLAND:
         return FlagGet(FLAG_CSR_MAP_POKEMON_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_EGG_DELIVERY:
+        return FlagGet(FLAG_CSR_MAP_EGG_DELIVERY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
     default:

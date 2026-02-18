@@ -1405,7 +1405,7 @@ static void OpenContextMenu(u8 taskId)
                 {
                     sContextMenuItemsPtr = sContextMenuItems_PayDay;
                     sContextMenuNumItems = 2;
-                } else if (gSpecialVar_ItemId == ITEM_NEBBY) {
+                } else if (gSpecialVar_ItemId == ITEM_NEBBY || gSpecialVar_ItemId == ITEM_HAMBURGER) {
                     sContextMenuItemsPtr = sContextMenuItems_Cancel;
                     sContextMenuNumItems = 1;
                     

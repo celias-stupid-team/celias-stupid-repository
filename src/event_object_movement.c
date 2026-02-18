@@ -603,6 +603,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_MALVA  0x11B0
 #define OBJ_EVENT_PAL_TAG_EUSINE  0x11B1
 #define OBJ_EVENT_PAL_TAG_SKIIER  0x11B2
+#define OBJ_EVENT_PAL_TAG_SHINY_ZUBAT  0x11B3
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -779,6 +780,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_MALVA,             OBJ_EVENT_PAL_TAG_MALVA},
     {gObjectEventPal_EUSINE,             OBJ_EVENT_PAL_TAG_EUSINE},
     {gObjectEventPal_SKIIER,             OBJ_EVENT_PAL_TAG_SKIIER},
+    {gObjectEventPal_SHINY_ZUBAT,             OBJ_EVENT_PAL_TAG_SHINY_ZUBAT},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

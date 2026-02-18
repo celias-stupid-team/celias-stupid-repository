@@ -599,6 +599,14 @@
       "y": 24,
       "respawn_map": "MAP_FIVE_ISLAND_ROCKET_WAREHOUSE",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_OCEAN11",
+      "map": "MAP_OCEAN11",
+      "x": 26,
+      "y": 17,
+      "respawn_map": "MAP_OCEAN11",
+      "respawn_npc": "1"
     }
   ]
 }

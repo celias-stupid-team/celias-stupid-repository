@@ -1154,6 +1154,14 @@
       "y": 0,
       "width": 0,
       "height": 0
+    },
+    {
+      "id": "MAPSEC_EGG_DELIVERY",
+      "name": "GREAT SEA",
+      "x": 5,
+      "y": 12,
+      "width": 1,
+      "height": 1
     }
   ]
 }

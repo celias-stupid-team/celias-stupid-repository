@@ -6063,3 +6063,14 @@ const struct SpriteFrameImage gObjectEventPicTable_DMCA_RUNT[] = {
     overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 7),
     overworld_frame(gObjectEventPic_DMCA_RUNT, 2, 2, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_SHINY_ZUBAT[] = {
+    overworld_frame(gObjectEventPic_SHINY_ZUBAT, 2, 2, 0),
+    overworld_frame(gObjectEventPic_SHINY_ZUBAT, 2, 2, 1),
+    overworld_frame(gObjectEventPic_SHINY_ZUBAT, 2, 2, 2),
+    overworld_frame(gObjectEventPic_SHINY_ZUBAT, 2, 2, 3),
+    overworld_frame(gObjectEventPic_SHINY_ZUBAT, 2, 2, 4),
+    overworld_frame(gObjectEventPic_SHINY_ZUBAT, 2, 2, 5),
+    overworld_frame(gObjectEventPic_SHINY_ZUBAT, 2, 2, 6),
+    overworld_frame(gObjectEventPic_SHINY_ZUBAT, 2, 2, 7),
+    overworld_frame(gObjectEventPic_SHINY_ZUBAT, 2, 2, 8),
+};

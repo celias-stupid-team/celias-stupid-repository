@@ -563,6 +563,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EUSINE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SKIIER2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AZ_NEW;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DMCA_RUNT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHINY_ZUBAT;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1127,4 +1128,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SKIIER2] = &gObjectEventGraphicsInfo_SKIIER2,
     [OBJ_EVENT_GFX_AZ_NEW] = &gObjectEventGraphicsInfo_AZ_NEW,
     [OBJ_EVENT_GFX_DMCA_RUNT] = &gObjectEventGraphicsInfo_DMCA_RUNT,
+    [OBJ_EVENT_GFX_SHINY_ZUBAT] = &gObjectEventGraphicsInfo_SHINY_ZUBAT,
 };
