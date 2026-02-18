@@ -1296,6 +1296,12 @@ bool8 IsMapTypeOutdoors(u8 mapType)
 
 bool8 Overworld_MapTypeAllowsTeleportAndFly(u8 mapType)
 {
+    if(FlagGet(FLAG_LOOKER_SCENE) && !(VarGet(VAR_CURRENT_CHAPTER) >= 7)) {
+        return FALSE;
+    }
+    if(VarGet(VAR_TWO_ISLAND_STARMAN) == 1) {
+        return FALSE;
+    }
     if (mapType == MAP_TYPE_ROUTE
         || mapType == MAP_TYPE_TOWN
         || mapType == MAP_TYPE_OCEAN_ROUTE

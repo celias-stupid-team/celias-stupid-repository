@@ -10,7 +10,7 @@ mapscripts TwoIsland_WaterfallHouse_MapScripts {
 script TwoIsland_WaterfallHouse_Message {
 	if(var(VAR_TWO_ISLAND_STARMAN) == 0) {
 		setvar(VAR_TWO_ISLAND_STARMAN, 1)
-		setflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
+		
 	}
 	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 2)
 	msgbox(
