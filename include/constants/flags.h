@@ -604,7 +604,7 @@
 #define FLAG_SEAFOAM_B2F_CAPTAIN               0x226
 #define FLAG_SEAFOAM_B3F_CAPTAIN               0x227
 #define FLAG_SEAFOAM_B1F_CAPTAIN               0x228
-#define FLAG_0x229               0x229
+#define FLAG_SHINY_BIDOOF               0x229
 #define FLAG_0x22A               0x22A
 #define FLAG_0x22B               0x22B
 #define FLAG_TWO_ISLAND_BOMB_PRESENT               0x22C

@@ -16,6 +16,11 @@ mapscripts Route6_MapScripts {
 	}
 }
 
+script Route6_SneakyHeal {
+	special(HealPlayerParty)
+	release
+}
+
 script Route6_CeliaAdvice {
 	msgbox("Hi, there!\nAre you looking for CUT?\pDon't worry, you don't need to go\nback through the UNDERGROUND PATH.\lEverything you need is on this side!\pTalk to everyone and think carefully!\nGood luck!", MSGBOX_NPC)
 }

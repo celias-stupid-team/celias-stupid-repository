@@ -843,7 +843,7 @@ mapscripts PewterCity_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		if(flag(FLAG_BADGE01_GET)
 		&& var(VAR_MAP_SCENE_CSR_LASS_1) == 0
-		&& (checkpartymon(SPECIES_BUTTERFREE)) // Is there a problem here??
+		&& (!checkpartymon(SPECIES_BUTTERFREE)) // Is there a problem here??
 
 		&& !flag(FLAG_GOT_CATERPIE)) { //Make it check for grindy butterfree
 		//or checkaprty move > 6
