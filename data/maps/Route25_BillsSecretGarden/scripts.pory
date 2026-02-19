@@ -12,7 +12,7 @@ raw `
 
 
 .equ CRIMP_BOX_NUMBER,  VAR_TEMP_3
-.equ CRIM_BOX_OPEN,  FLAG_TEMP_3
+.equ CRIMP_BOX_OPEN,  FLAG_TEMP_3
 .equ CRIMP_BOX_THERE, FLAG_TEMP_7
 
 
@@ -25,6 +25,9 @@ raw `
 .equ PC_CAMERA_X_VALUE,        VAR_TEMP_6
 .equ PC_CAMERA_Y_VALUE,        VAR_TEMP_7
 .equ PC_BOX_SLOT_NUMBER,      VAR_TEMP_8
+
+.equ LOADED_SYSTEM_BOX, VAR_TEMP_A
+.equ STRING_INCREMENTED_SYSTEM_BOX, VAR_TEMP_B
 
 .equ VAR_VIEWING_PC, VAR_TEMP_9
 
@@ -71,17 +74,83 @@ script SecretGarden_GivePikabluPlaceholder {
 
 script SecretGarden_PCTerminal {
     lock
-    fadenewbgm(MUS_DUMMY)
+    
     if(flag(FLAG_SYS_BILL_GARDEN)) {
-        msgbox(
-        "PC On.\n"
-        "", MSGBOX_DEFAULT)
+        playse(SE_PC_ON)
+        message(
+        "MASTER TERMINAL OPEN\n"
+        "")
+        waitmessage
+        waitse
+        dynmultichoice(0,0,TRUE,3, 0, DYN_MULTICHOICE_CB_NONE, "WITHDRAW", "CHANGE BOX", "CANCEL")
+        switch(var(VAR_RESULT)) {
+            case 0:
+                closemessage
+                hidemonpic
+                setvar(PC_BOX_SLOT_NUMBER, 0)
+                
+                delay(30)
+                playse(SE_BALL_TRADE)
+                delay(30)
+                bufferspeciesname(STR_VAR_1, PC_CURRENT_POKEMON)
+                playfanfare(MUS_LEVEL_UP)
+                msgbox(
+                "{PLAYER} withdrew the\n"
+                "{STR_VAR_1}!", MSGBOX_DEFAULT)
+                waitfanfare
+                copyvar(VAR_CSR_GIFT_POKEMON, PC_CURRENT_POKEMON)
+                call(Common_Script_GiftPokemon)
+                release
+                end
+
+            case 1:
+                copyvar(STRING_INCREMENTED_SYSTEM_BOX, LOADED_SYSTEM_BOX)
+                addvar(STRING_INCREMENTED_SYSTEM_BOX, 1)
+                buffernumberstring(STR_VAR_1, STRING_INCREMENTED_SYSTEM_BOX)
+                message(
+                "Current selection:\n"
+                "BOX {STR_VAR_1}")
+                waitmessage
+                dynmultichoice(0,0,FALSE,4, 0, DYN_MULTICHOICE_CB_NONE, "BOX 1   ", "BOX 2   ", "BOX 3", "BOX 4", "BOX 5", "BOX 6", "BOX 7", "BOX 8")
+                copyvar(LOADED_SYSTEM_BOX, VAR_RESULT)
+                copyvar(STRING_INCREMENTED_SYSTEM_BOX, LOADED_SYSTEM_BOX)
+                addvar(STRING_INCREMENTED_SYSTEM_BOX, 1)
+                buffernumberstring(STR_VAR_1, STRING_INCREMENTED_SYSTEM_BOX)
+                msgbox(
+                "BOX {STR_VAR_1} selected.\n"
+                "", MSGBOX_DEFAULT)
+                release
+                end
+
+            case 2:
+                closemessage
+                release
+                end
+        }
+
+
     } else {
         msgbox(
+        "MASTER TERMINAL\n"
+        "", MSGBOX_DEFAULT)
+        release
+        end
+    }
+}
+
+script SecretGarden_PCMonitor {
+    lock
+    if(!flag(FLAG_SYS_BILL_GARDEN)) {
+        fadenewbgm(MUS_DUMMY)
+
+        msgbox(
+        "A large, complicated PC sits\n"
+        "in the field.\p"
+
         "Kick the PC?\n"
         "", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
-            if(checkpartymove(MOVE_MEGA_KICK) != PARTY_SIZE) {
+            if(checkpartymove(MOVE_MEGA_KICK) == PARTY_SIZE) {
                 
             }
             playse(SE_PC_ON)
@@ -95,6 +164,7 @@ script SecretGarden_PCTerminal {
 
         }
         setflag(FLAG_SYS_BILL_GARDEN)
+        setvar(LOADED_SYSTEM_BOX, 1)
         setvar(RIGHT_BOX_NUMBER, 0)
         clearflag(RIGHT_BOX_OPEN)
         setvar(LEFT_BOX_NUMBER, 1)
@@ -105,31 +175,7 @@ script SecretGarden_PCTerminal {
         setflag(LEFT_BOX_THERE)
         release
         end 
-    }
-}
 
-
-script SecretGarden_RetrievalChute {
-    lock
-	msgbox(
-	"Box Retrieval Chute\n"
-	"", MSGBOX_DEFAULT)
-    release
-
-}
-
-
-
-
-
-script SecretGarden_PCMonitor {
-    lock
-    if(!flag(FLAG_SYS_BILL_GARDEN)) {
-        msgbox(
-        "A large, complicated machine sits\n"
-        "in the field.", MSGBOX_DEFAULT)
-        release
-        end
         
     }
     closemessage
@@ -147,31 +193,90 @@ script SecretGarden_PCMonitor {
         setvar(VAR_VIEWING_PC, 1)
 
     } else {
-        msgbox(
-	"Withdraw POKéMON?\n"
-	"", MSGBOX_YESNO)
-    if(var(VAR_RESULT)) {
-        closemessage
-        hidemonpic
-        setvar(VAR_TEMP_6, 19)
-        setvar(VAR_TEMP_7, 12)
-        setvar(PC_BOX_SLOT_NUMBER, 0)
-        call(SecretGarden_LeavePC)
-        delay(30)
-        playse(SE_BALL_TRADE)
-        delay(30)
-        bufferspeciesname(STR_VAR_1, PC_CURRENT_POKEMON)
-        playfanfare(MUS_LEVEL_UP)
-        msgbox(
-        "{PLAYER} withdrew the\n"
-        "{STR_VAR_1}!", MSGBOX_DEFAULT)
-        waitfanfare
-        copyvar(VAR_CSR_GIFT_POKEMON, PC_CURRENT_POKEMON)
-        call(Common_Script_GiftPokemon)
-    }
+        
     }
     release
 }
+
+
+
+
+script SecretGarden_RetrievalChute {
+    lock
+	if(flag(FLAG_SYS_BILL_GARDEN)) {
+        msgbox(
+        "RETRIEVAL DEPOT\n"
+        "", MSGBOX_DEFAULT)
+        if(flag(RIGHT_BOX_THERE)) {
+            if(flag(RIGHT_BOX_OPEN)) {
+                closemessage
+                delay(20)
+                playse(SE_BOO)
+                waitse
+                msgbox(
+                "System error.\p"
+
+                "Please close box before exporting.\n"
+                "", MSGBOX_DEFAULT)
+                release
+                end
+            } else {
+                closemessage
+                delay(20)
+                playse(SE_M_TELEPORT)
+                applymovement(LOCALID_RIGHT_BOX, moves(
+                    face_down
+                    lock_facing_direction
+                    walk_fast_up * 6
+                ))
+                waitmovement(LOCALID_RIGHT_BOX)
+                clearflag(RIGHT_BOX_THERE)
+                copyobjectxytoperm(LOCALID_RIGHT_BOX)
+                release
+                end
+            }
+        } else {
+            
+            addobject(LOCALID_RIGHT_BOX)
+            setobjectxy(LOCALID_RIGHT_BOX, 25, 3)
+            closemessage
+            delay(20)
+            playse(SE_CLICK)
+            waitse
+            applymovement(LOCALID_RIGHT_BOX, moves(
+                walk_fast_down * 6
+            ))
+            delay(30)
+            playse(SE_M_SPIT_UP)
+            waitmovement(LOCALID_RIGHT_BOX)
+            setflag(RIGHT_BOX_THERE)
+            clearflag(RIGHT_BOX_OPEN)
+            copyobjectxytoperm(LOCALID_RIGHT_BOX)
+            copyvar(LOADED_SYSTEM_BOX, VAR_TEMP_A)
+            release
+            end
+        }
+    } else {
+        msgbox(
+        "RETRIEVAL DEPOT\n"
+        "", MSGBOX_DEFAULT)
+        closemessage
+        delay(20)
+        playse(SE_CLICK)
+        waitse
+        msgbox(
+        "The button does not respond.\n"
+        "", MSGBOX_DEFAULT)
+        release
+    }
+    release
+
+}
+
+
+
+
+
 
 
 
@@ -265,9 +370,100 @@ script SecretGarden_PCLeftButton {
 
 script SecretGarden_PCBoxDock {
     lock
-	msgbox(
-	"PC Box Dock\n"
-	"", MSGBOX_DEFAULT)
+	if(flag(FLAG_SYS_BILL_GARDEN)) {
+        msgbox(
+        "IMPORT DEPOT\n"
+        "", MSGBOX_DEFAULT)
+        if(flag(FLAG_SYS_CARRYING_BOX)) {
+
+        }
+        if(flag(LEFT_BOX_THERE)) {
+            if(flag(LEFT_BOX_IN_PC)) {
+                closemessage
+                delay(20)
+                playse(SE_BOO)
+                msgbox(
+                "SYSTEM ERROR\p"
+
+                "Cannot load box.\n"
+                "System is loaded.", MSGBOX_DEFAULT)
+                closemessage
+                release
+                end
+            } else {
+                closemessage
+                delay(20)
+                playse(SE_CLICK)
+                delay(40)
+                applymovement(LOCALID_LEFT_BOX, moves(
+                    lock_facing_direction
+                    walk_fast_up * 2
+                    set_invisible
+                    walk_fast_up
+                    walk_fast_right * 2
+                    unlock_facing_direction
+                    face_up
+                ))
+                waitmovement(LOCALID_LEFT_BOX)
+                setflag(LEFT_BOX_OPEN)
+                setvar(PC_BOX_SLOT_NUMBER, 0)
+                clearflag(LEFT_BOX_THERE)
+                setflag(LEFT_BOX_IN_PC)
+                setobjectmovementtype(LOCALID_LEFT_BOX, MOVEMENT_TYPE_FACE_UP)
+                copyobjectxytoperm(LOCALID_LEFT_BOX)
+                release
+                end
+
+            }
+        } else {
+            if(flag(LEFT_BOX_IN_PC)) {
+                closemessage
+                delay(20)
+                playse(SE_CLICK)
+                waitse
+                applymovement(LOCALID_LEFT_BOX, moves(
+                    set_invisible
+                    walk_fast_left * 2
+                    walk_fast_down
+                    face_up
+                    set_visible
+                    walk_fast_down * 2
+                ))
+                delay(30)
+                playse(SE_M_SPIT_UP)
+                waitmovement(LOCALID_LEFT_BOX)
+                setobjectmovementtype(LOCALID_LEFT_BOX, MOVEMENT_TYPE_FACE_UP)
+                copyobjectxytoperm(LOCALID_LEFT_BOX)
+                clearflag(FLAG_LEFT_BOX_IN_PC)
+                setflag(FLAG_LEFT_BOX_THERE)
+                release
+                end
+
+            } else {
+                closemessage
+                delay(20)
+                playse(SE_CLICK)
+                waitse
+                msgbox(
+                "The button does not respond.\n"
+                "", MSGBOX_DEFAULT)
+                release
+                end
+            }
+        }
+    } else {
+        msgbox(
+        "IMPORT DEPOT\n"
+        "", MSGBOX_DEFAULT)
+        closemessage
+        delay(20)
+        playse(SE_CLICK)
+        waitse
+        msgbox(
+        "The button does not respond.\n"
+        "", MSGBOX_DEFAULT)
+        release
+    }
     release
 }
 
@@ -275,17 +471,114 @@ script SecretGarden_PCBoxDock {
 script SecretGarden_ExportBoxDock {
     lock
 	msgbox(
-	"Export Box Dock\n"
+	"LOADING BAY DOCK\n"
 	"", MSGBOX_DEFAULT)
+    if(flag(RIGHT_BOX_THERE)) {
+        if(flag(FLAG_SYS_CARRYING_BOX)) {
+            closemessage
+            delay(20)
+            msgbox(
+            "You cannot lift a second box.\n"
+            "", MSGBOX_DEFAULT)
+            release
+            end
+        } else {
+            msgbox(
+            "{PLAYER} picked up the BOX.\n"
+            "", MSGBOX_DEFAULT)
+            setflag(FLAG_SYS_CARRYING_BOX)
+            copyvar(PLAYER_BOX_NUMBER, RIGHT_BOX_NUMBER)
+            clearflag(PLAYER_BOX_OPEN)
+            setflag(PLAYER_BOX_THERE)
+            clearflag(RIGHT_BOX_THERE)
+            setobjectxy(LOCALID_RIGHT_BOX, 25, 3)
+            copyobjectxytoperm(LOCALID_RIGHT_BOX)
+            release
+            end
+        }
+    } else { // no box there
+        if(flag(FLAG_SYS_CARRYING_BOX)) {
+            playse(SE_BANG)
+            if(flag(PLAYER_BOX_OPEN)) {
+                setflag(RIGH_BOX_OPEN)
+                setobjectmovementtype(LOCALID_RIGHT_BOX, MOVEMENT_TYPE_FACE_UP)
+            } else {
+                clearflag(LEFT_BOX_OPEN)
+                setobjectmovementtype(LOCALID_RIGHT_BOX, MOVEMENT_TYPE_FACE_DOWN)
+            }
+            setobjectxy(LOCALID_RIGHT_BOX, 12, 9)
+            clearflag(PLAYER_BOX_THERE)
+            clearflag(FLAG_SYS_CARRYING_BOX)
+            setflag(RIGHT_BOX_THERE)
+            copyvar(RIGHT_BOX_NUMBER, PLAYER_BOX_NUMBER)
+            release
+            end
+
+        } else {
+
+        }
+    }
     release
 }
 
 script SecretGarden_PCBoxPallet {
     lock
 	msgbox(
-	"PC Box Pallette\p"
-	"We spelled the name wrong\n"
-    "on purpose!", MSGBOX_DEFAULT)
+	"PC BOX PALETTE\n", MSGBOX_DEFAULT)
+    if(flag(LEFT_BOX_THERE)) {
+        if(flag(FLAG_SYS_CARRYING_BOX)) {
+            closemessage
+            delay(20)
+            msgbox(
+            "You cannot lift a second box.\n"
+            "", MSGBOX_DEFAULT)
+            release
+            end
+        } else {
+            msgbox(
+            "{PLAYER} picked up the BOX.\n"
+            "", MSGBOX_DEFAULT)
+            setflag(FLAG_SYS_CARRYING_BOX)
+            copyvar(PLAYER_BOX_NUMBER, LEFT_BOX_NUMBER)
+            if(flag(LEFT_BOX_OPEN)) {
+                setflag(PLAYER_BOX_OPEN)
+            } else {
+                clearflag(PLAYER_BOX_OPEN)
+            }
+            
+            setflag(PLAYER_BOX_THERE)
+            clearflag(LEFT_BOX_THERE)
+            setobjectxy(LOCALID_LEFT_BOX, 25, 3)
+            copyobjectxytoperm(LOCALID_LEFT_BOX)
+            release
+            end
+        }
+    } else { // no box
+        if(flag(FLAG_SYS_CARRYING_BOX)) {
+            playse(SE_BANG)
+            if(flag(PLAYER_BOX_OPEN)) {
+                setflag(LEFT_BOX_OPEN)
+                setobjectmovementtype(LOCALID_LEFT_BOX, MOVEMENT_TYPE_FACE_UP)
+            } else {
+                clearflag(LEFT_BOX_OPEN)
+                setobjectmovementtype(LOCALID_LEFT_BOX, MOVEMENT_TYPE_FACE_DOWN)
+            }
+            setobjectxy(LOCALID_LEFT_BOX, 12, 9)
+            copyobjectxytoperm(LOCALID_CRIMP_BOX)
+            clearflag(PLAYER_BOX_THERE)
+            clearflag(FLAG_SYS_CARRYING_BOX)
+            setflag(LEFT_BOX_THERE)
+            copyvar(LEFT_BOX_NUMBER, PLAYER_BOX_NUMBER)
+            release
+            end
+
+
+        } else {
+            release
+            end
+        }
+    }
+
     release
 }
 
@@ -293,8 +586,26 @@ script SecretGarden_PCBoxPallet {
 script SecretGarden_BoxCrimper {
     lock
 	msgbox(
-	"Box Crimper\n"
+	"BOX CLOSER\n"
 	"", MSGBOX_DEFAULT)
+    if(flag(CRIMP_BOX_THERE)) {
+        if(flag(FLAG_SYS_CARRYING_BOX)) {
+            closemessage
+            delay(20)
+            msgbox(
+            "You cannot lift a second box.\n"
+            "", MSGBOX_DEFAULT)
+            release
+            end
+            
+        } else {
+            setobjectxy(LOCALID_CRIMP_BOX, 11, 19)
+            copyobjectxytoperm(LOCALID_CRIMP_BOX)
+            copyvar()
+        }
+    } else {
+
+    }
     release
 }
 

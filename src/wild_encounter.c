@@ -299,11 +299,11 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
     u8 slot = ChooseWildMonIndex_Fishing(rod);
     u8 level = ChooseWildMonLevel(&info->wildPokemon[slot]);
     s16 x, y;
-    u16 behavior = MapGridGetMetatileBehaviorAt(x, y);
+    u16 behavior = MapGridGetMetatileBehaviorAt(x, y); //Doesn't work for some reason
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
-    DebugPrintf("X is %d", x);
-    DebugPrintf("Y is %d", y);
-    DebugPrintf("Behavior is %d", behavior);
+    //DebugPrintf("X is %d", x);
+    //DebugPrintf("Y is %d", y);
+    //DebugPrintf("Behavior is %d", behavior);
 
     if(rod == GOOD_ROD) {
         FlagClear(FLAG_SHINY_CREATION);
@@ -314,6 +314,12 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
         FlagSet(FLAG_SHINY_CREATION);
         FlagClear(FLAG_SYS_GIRL_HOLE);
         GenerateWildMon(SPECIES_CLOYSTER, level, slot);
+
+    } else if (FlagGet(FLAG_SYS_LUVDISC_TILE)) {
+        //DebugPrintf("Girl Hole");
+        FlagSet(FLAG_SHINY_CREATION);
+        FlagClear(FLAG_SYS_LUVDISC_TILE);
+        GenerateWildMon(SPECIES_LUVDISC, level, slot);
 
     } else if (FlagGet(FLAG_SYS_ZAPDOS_STATUE)) {
         //DebugPrintf("zapdos");
@@ -563,6 +569,7 @@ bool8 SweetScentWildEncounter(void)
 bool8 DoesCurrentMapHaveFishingMons(void)
 {
     u16 headerIdx = GetCurrentMapWildMonHeaderId();
+
     if (headerIdx == HEADER_NONE)
         return FALSE;
     if (gWildMonHeaders[headerIdx].fishingMonsInfo == NULL)
