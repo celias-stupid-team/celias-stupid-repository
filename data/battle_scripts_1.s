@@ -6,6 +6,7 @@
 #include "constants/battle_anim.h"
 #include "constants/items.h"
 #include "constants/abilities.h"
+#include "constants/field_weather.h"
 #include "constants/hold_effects.h"
 #include "constants/species.h"
 #include "constants/pokemon.h"
@@ -4165,6 +4166,10 @@ BattleScript_SeelHoopaTransform::
 	end2
 
 BattleScript_ZapmolcunoTransform::
+	@ check for special cutscene after Zapdos is defeated
+	jumpifvar CMP_NOT_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 4, BattleScript_ZapmolcunoTransform_FaintHandling
+	goto BattleScript_ZapdosCutScene
+BattleScript_ZapmolcunoTransform_FaintHandling:
 	playse SE_M_MEGA_KICK
 	fadescreen FADE_TO_WHITE
 	waitforfade
@@ -4186,6 +4191,18 @@ BattleScript_ZapmolcunoTransform::
 	printbirdsfaintstring B_POSITION_OPPONENT_LEFT
 	waitmessage B_WAIT_TIME_LONG
 	end2
+
+BattleScript_ZapdosCutScene::
+	@ playanimation BS_FAINTED, B_ANIM_ZAPDOS_LIGHTNING
+	@ waitanimation
+	fadedarken FADE_ALL_EXC_UI, FADE_DIR_DARKEN
+	waitforfade
+	printstring STRINGID_OHSHOOT
+	waitmessage B_WAIT_TIME_LONG
+	fadedarken FADE_ALL_EXC_UI, FADE_DIR_BRIGHTEN
+	waitforfade
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_ZapmolcunoTransform_FaintHandling
 
 BattleScript_MoveEffectSleep::
 	statusanimation BS_EFFECT_BATTLER

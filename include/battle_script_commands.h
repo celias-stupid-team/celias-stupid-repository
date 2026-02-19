@@ -33,5 +33,4 @@ u8 CanBattlerSwitch(u32 battler);
 extern s16 gBattleScriptArgs[BATTLE_ARGS_COUNT];
 extern void (* const gBattleScriptingCommandsTable[])(void);
 
-
 #endif // GUARD_BATTLE_SCRIPT_COMMANDS_H

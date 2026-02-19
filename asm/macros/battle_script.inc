@@ -1733,3 +1733,9 @@
 	.macro waitforbuttonpress
 	callnative BS_WaitForButtonPress
 	.endm
+
+	.macro fadedarken mask:req, dir:req
+	callnative BS_FadeDarken
+	.4byte \mask
+	.byte \dir
+	.endm

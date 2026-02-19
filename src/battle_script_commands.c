@@ -12092,3 +12092,18 @@ void BS_WaitForButtonPress(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
+
+void BS_FadeDarken(void)
+{
+    NATIVE_ARGS(u32 mask, u8 dir);
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    if (cmd->dir == FADE_DIR_DARKEN)
+        BeginNormalPaletteFade(cmd->mask, 4, 0, 8, RGB_BLACK);
+    else // FADE_DIR_BRIGHTEN
+        BeginNormalPaletteFade(cmd->mask, 4, 8, 0, RGB_BLACK);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
