@@ -668,6 +668,14 @@ bool8 MetatileBehavior_IsFishableStatue(u8 metatileBehavior)
     else
         return FALSE;
 }
+bool8 MetatileBehavior_IsLuvdiscTile(u8 metatileBehavior)
+{
+    
+    if (metatileBehavior == MB_LUVDISC_TILE)
+        return TRUE;
+    else
+        return FALSE;
+}
 
 
 bool8 MetatileBehavior_IsPencilStatue(u8 metatileBehavior)

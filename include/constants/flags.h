@@ -605,7 +605,7 @@
 #define FLAG_SEAFOAM_B3F_CAPTAIN               0x227
 #define FLAG_SEAFOAM_B1F_CAPTAIN               0x228
 #define FLAG_SHINY_BIDOOF               0x229
-#define FLAG_0x22A               0x22A
+#define FLAG_READY_FOR_COPYCAT_VOUCHER               0x22A
 #define FLAG_0x22B               0x22B
 #define FLAG_TWO_ISLAND_BOMB_PRESENT               0x22C
 #define FLAG_CAUGHT_MR_FUJI               0x22D
@@ -1416,7 +1416,7 @@
 #define FLAG_0x819                                                  (SYS_FLAGS + 0x19)
 #define FLAG_0x81A                                                  (SYS_FLAGS + 0x1A)
 #define FLAG_0x81B                                                  (SYS_FLAGS + 0x1B)
-#define FLAG_0x81C                                                  (SYS_FLAGS + 0x1C)
+#define FLAG_SYS_LUVDISC_TILE                                                  (SYS_FLAGS + 0x1C)
 #define FLAG_SYS_ZAPDOS_STATUE                                                  (SYS_FLAGS + 0x1D)
 #define FLAG_SYS_GIRL_HOLE                                                  (SYS_FLAGS + 0x1E)
 #define FLAG_0x81F                                                  (SYS_FLAGS + 0x1F)

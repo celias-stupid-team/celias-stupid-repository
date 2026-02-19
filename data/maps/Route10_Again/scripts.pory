@@ -1,7 +1,12 @@
 raw `
-Route10_Again_MapScripts::
-	.byte 0
+
 `
+
+mapscripts Route10_Again_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_ROCK_TUNNEL_1F)
+	}
+}
 
 script CommonScript_EmptyPail {
 	if(checkitem(ITEM_WAILMER_PAIL)) {

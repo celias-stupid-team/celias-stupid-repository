@@ -219,6 +219,19 @@ script RockTunnel_MerchSeller {
 	faceplayer
 	msgbox("Hey hey!\nWelcome to the MERCH table!\pWanna buy a life-sized CLEFAIRY\ndoll?\lThey're perfect for snuggling!\pWe've got a discount right now.\nOnly ¥3,000,000 each!", MSGBOX_YESNO)
 	closemessage
+	if(var(VAR_RESULT) && checkitem(ITEM_BIKE_VOUCHER, 3)) {
+		setflag(FLAG_SHINY_CREATION)
+		removeitem(ITEM_BIKE_VOUCHER, 3)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MIMIKYU)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} spent three BIKE VOUCHERS\n"
+		"and bought a MIMIKYU!", MSGBOX_DEFAULT)
+		call(Common_Script_GiftPokemon)
+		release
+		end
+
+	}
 	
 	setobjectxy(BUYER, 16, 27)
 	applymovement(BUYER, RockTunnel_NerdBuysStuff)

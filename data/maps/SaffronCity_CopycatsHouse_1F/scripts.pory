@@ -26,6 +26,9 @@ mapscripts SaffronCity_CopycatsHouse_1F_MapScripts {
 			
 		}
 		setflag(FLAG_ENTERED_COPYCAT_HOUSE)
+		if(flag(FLAG_STOLE_COPYCAT)) {
+			setflag(FLAG_READY_FOR_COPYCAT_VOUCHER)
+		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_COPYCAT_USED, 1 {

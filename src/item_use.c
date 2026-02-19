@@ -386,6 +386,12 @@ static bool8 CanFish(void)
             return TRUE;
 
     }
+    if (MetatileBehavior_IsLuvdiscTile(behavior)) {
+            //DebugPrintf("true");
+            FlagSet(FLAG_SYS_LUVDISC_TILE);
+            return TRUE;
+
+    }
 
     if (MetatileBehavior_IsWaterfall(behavior))
         return FALSE;
