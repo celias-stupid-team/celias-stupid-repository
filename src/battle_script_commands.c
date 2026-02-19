@@ -4724,7 +4724,7 @@ static void Cmd_moveend(void)
              && gChosenMove != MOVE_STRUGGLE
              && (*choicedMoveAtk == MOVE_NONE || *choicedMoveAtk == MOVE_UNAVAILABLE))
             {
-                if (gChosenMove == MOVE_BATON_PASS && !(gMoveResultFlags & MOVE_RESULT_FAILED))
+                if (gBattleMoves[gChosenMove].effect == EFFECT_BATON_PASS && !(gMoveResultFlags & MOVE_RESULT_FAILED))
                 {
                     gBattleScripting.moveendState++;
                     break;
@@ -5112,7 +5112,7 @@ static void Cmd_jumpifcantswitch(void)
         gBattlescriptCurrInstr += 6;
 }
 
-bool32 CanBattlerSwitch(u32 battler)
+u8 CanBattlerSwitch(u32 battler)
 {
     bool32 ret = FALSE;
     s32 i;
@@ -5123,7 +5123,7 @@ bool32 CanBattlerSwitch(u32 battler)
         && ((gBattleMons[battler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
             || (gStatuses3[battler] & STATUS3_ROOTED)))
     {
-        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 2);
+        ret = PARTY_SIZE;
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
     {
@@ -5145,9 +5145,9 @@ bool32 CanBattlerSwitch(u32 battler)
         }
 
         if (i == lastMonId)
-            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 2);
+            ret = PARTY_SIZE;
         else
-            gBattlescriptCurrInstr += 6;
+            ret = i;
     }
     else
     {
@@ -5185,7 +5185,7 @@ bool32 CanBattlerSwitch(u32 battler)
                 break;
         }
 
-        ret = (i != PARTY_SIZE);
+        ret = i;
     }
     return ret;
 }
