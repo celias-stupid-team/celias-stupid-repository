@@ -543,7 +543,7 @@
 #define FLAG_0x1EC    0x1EC
 #define FLAG_0x1ED            0x1ED
 #define FLAG_0x1EE            0x1EE
-#define FLAG_0x1EF              0x1EF
+#define FLAG_BILL_PC_BROKE              0x1EF
 #define FLAG_NO_SANS_ITEM        0x1F0
 #define FLAG_SHINY_PIKABLU        0x1F1
 #define FLAG_SHINY_PERSIAN 0x1F2

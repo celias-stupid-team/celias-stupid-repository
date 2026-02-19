@@ -29,6 +29,8 @@ raw `
 .equ LOADED_SYSTEM_BOX, VAR_TEMP_A
 .equ STRING_INCREMENTED_SYSTEM_BOX, VAR_TEMP_B
 
+.equ PC_CURRENT_BOX, VAR_TEMP_C
+
 .equ VAR_VIEWING_PC, VAR_TEMP_9
 
 
@@ -77,14 +79,24 @@ script SecretGarden_PCTerminal {
     
     if(flag(FLAG_SYS_BILL_GARDEN)) {
         playse(SE_PC_ON)
-        message(
+        msgbox(
         "MASTER TERMINAL OPEN\n"
         "")
-        waitmessage
+        
         waitse
         dynmultichoice(0,0,TRUE,3, 0, DYN_MULTICHOICE_CB_NONE, "WITHDRAW", "CHANGE BOX", "CANCEL")
         switch(var(VAR_RESULT)) {
             case 0:
+                if(!flag(LEFT_BOX_IN_PC)) {
+                    waitse
+                    playse(SE_BOO)
+                    waitse
+                    msgbox(
+                    "ERROR\p"
+                    "No box loaded into the system", MSGBOX_DEFAULT)
+                    release
+                    end
+                }
                 closemessage
                 hidemonpic
                 setvar(PC_BOX_SLOT_NUMBER, 0)
@@ -99,7 +111,25 @@ script SecretGarden_PCTerminal {
                 "{STR_VAR_1}!", MSGBOX_DEFAULT)
                 waitfanfare
                 copyvar(VAR_CSR_GIFT_POKEMON, PC_CURRENT_POKEMON)
+                if(var(PC_CURRENT_POKEMON) == SPECIES_PIKABLU) {
+                    setflag(FLAG_BILL_PC_BROKE)
+                }
+                if(var(PC_CURRENT_POKEMON) == SPECIES_SHINYABRA) {
+                    setflag(FLAG_SHINY_CREATION)
+                    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ABRA)
+                }
                 call(Common_Script_GiftPokemon)
+                if(flag(FLAG_BILL_PC_BROKE)) {
+                    fadedefaultbgm
+                    delay(60)
+                    msgbox(
+                    "The PC SYSTEM has gone offline.\n"
+                    "", MSGBOX_DEFAULT)
+                    clearflag(FLAG_SYS_BILL_GARDEN)
+                    release
+                    end
+                    
+                }
                 release
                 end
 
@@ -107,11 +137,11 @@ script SecretGarden_PCTerminal {
                 copyvar(STRING_INCREMENTED_SYSTEM_BOX, LOADED_SYSTEM_BOX)
                 addvar(STRING_INCREMENTED_SYSTEM_BOX, 1)
                 buffernumberstring(STR_VAR_1, STRING_INCREMENTED_SYSTEM_BOX)
-                message(
+                msgbox(
                 "Current selection:\n"
                 "BOX {STR_VAR_1}")
                 waitmessage
-                dynmultichoice(0,0,FALSE,4, 0, DYN_MULTICHOICE_CB_NONE, "BOX 1   ", "BOX 2   ", "BOX 3", "BOX 4", "BOX 5", "BOX 6", "BOX 7", "BOX 8")
+                dynmultichoice(0,0,FALSE,4, 0, DYN_MULTICHOICE_CB_NONE, "BOX 1   ", "BOX 2   ", "BOX 3", "BOX 4", "BOX 5", "BOX 6")
                 copyvar(LOADED_SYSTEM_BOX, VAR_RESULT)
                 copyvar(STRING_INCREMENTED_SYSTEM_BOX, LOADED_SYSTEM_BOX)
                 addvar(STRING_INCREMENTED_SYSTEM_BOX, 1)
@@ -164,7 +194,7 @@ script SecretGarden_PCMonitor {
 
         }
         setflag(FLAG_SYS_BILL_GARDEN)
-        setvar(LOADED_SYSTEM_BOX, 1)
+        setvar(LOADED_SYSTEM_BOX, 0)
         setvar(RIGHT_BOX_NUMBER, 0)
         clearflag(RIGHT_BOX_OPEN)
         setvar(LEFT_BOX_NUMBER, 1)
@@ -172,7 +202,8 @@ script SecretGarden_PCMonitor {
         setvar(RIGHT_BOX_NUMBER, 0)
         clearflag(RIGHT_BOX_OPEN)
         setflag(LEFT_BOX_IN_PC)
-        setflag(LEFT_BOX_THERE)
+        setvar(PC_CURRENT_BOX, 1)
+        //setflag(LEFT_BOX_THERE)
         release
         end 
 
@@ -252,7 +283,7 @@ script SecretGarden_RetrievalChute {
             setflag(RIGHT_BOX_THERE)
             clearflag(RIGHT_BOX_OPEN)
             copyobjectxytoperm(LOCALID_RIGHT_BOX)
-            copyvar(LOADED_SYSTEM_BOX, VAR_TEMP_A)
+            copyvar(RIGHT_BOX_NUMBER, LOADED_SYSTEM_BOX)
             release
             end
         }
@@ -323,9 +354,18 @@ script SecretGarden_LeavePC {
     return
 }
 
+script SecretGarden_Debug {
+    callnative(BillsSecretGardenDebug)
+    release
+}
+
 script SecretGarden_PCRightButton {
     lock
     if(flag(FLAG_SYS_BILL_GARDEN)) {
+        if(var(VAR_TEMP_9) == 0) {
+            release
+            end
+        }
         if(var(PC_BOX_SLOT_NUMBER) < 8) {
             addvar(PC_BOX_SLOT_NUMBER, 1)
             hidemonpic
@@ -349,6 +389,11 @@ script SecretGarden_PCRightButton {
 script SecretGarden_PCLeftButton {
     lock
     if(flag(FLAG_SYS_BILL_GARDEN)) {
+        
+        if(var(VAR_TEMP_9) == 0) {
+            release
+            end
+        }
         if(var(PC_BOX_SLOT_NUMBER) > 0) {
             subvar(PC_BOX_SLOT_NUMBER, 1)
             hidemonpic
@@ -409,7 +454,13 @@ script SecretGarden_PCBoxDock {
                 setvar(PC_BOX_SLOT_NUMBER, 0)
                 clearflag(LEFT_BOX_THERE)
                 setflag(LEFT_BOX_IN_PC)
+                copyvar(PC_CURRENT_BOX, LEFT_BOX_NUMBER)
+                setvar(PC_BOX_SLOT_NUMBER, 0)
                 setobjectmovementtype(LOCALID_LEFT_BOX, MOVEMENT_TYPE_FACE_UP)
+                applymovement(LOCALID_LEFT_BOX, moves(
+                    face_up
+                ))
+                waitmovement(0)
                 copyobjectxytoperm(LOCALID_LEFT_BOX)
                 release
                 end
@@ -423,6 +474,8 @@ script SecretGarden_PCBoxDock {
                 waitse
                 applymovement(LOCALID_LEFT_BOX, moves(
                     set_invisible
+                    face_up
+                    lock_facing_direction
                     walk_fast_left * 2
                     walk_fast_down
                     face_up
@@ -433,9 +486,14 @@ script SecretGarden_PCBoxDock {
                 playse(SE_M_SPIT_UP)
                 waitmovement(LOCALID_LEFT_BOX)
                 setobjectmovementtype(LOCALID_LEFT_BOX, MOVEMENT_TYPE_FACE_UP)
+                applymovement(LOCALID_LEFT_BOX, moves(
+                    face_up
+                ))
+                waitmovement(0)
                 copyobjectxytoperm(LOCALID_LEFT_BOX)
-                clearflag(FLAG_LEFT_BOX_IN_PC)
-                setflag(FLAG_LEFT_BOX_THERE)
+                clearflag(LEFT_BOX_IN_PC)
+                setflag(LEFT_BOX_OPEN)
+                setflag(LEFT_BOX_THERE)
                 release
                 end
 
@@ -487,8 +545,12 @@ script SecretGarden_ExportBoxDock {
             "{PLAYER} picked up the BOX.\n"
             "", MSGBOX_DEFAULT)
             setflag(FLAG_SYS_CARRYING_BOX)
+            if(flag(RIGHT_BOX_OPEN)) {
+                setflag(PLAYER_BOX_OPEN)
+            } else {
+                clearflag(PLAYER_BOX_OPEN)
+            }
             copyvar(PLAYER_BOX_NUMBER, RIGHT_BOX_NUMBER)
-            clearflag(PLAYER_BOX_OPEN)
             setflag(PLAYER_BOX_THERE)
             clearflag(RIGHT_BOX_THERE)
             setobjectxy(LOCALID_RIGHT_BOX, 25, 3)
@@ -500,13 +562,23 @@ script SecretGarden_ExportBoxDock {
         if(flag(FLAG_SYS_CARRYING_BOX)) {
             playse(SE_BANG)
             if(flag(PLAYER_BOX_OPEN)) {
-                setflag(RIGH_BOX_OPEN)
+                setflag(RIGHT_BOX_OPEN)
                 setobjectmovementtype(LOCALID_RIGHT_BOX, MOVEMENT_TYPE_FACE_UP)
+                applymovement(LOCALID_RIGHT_BOX, moves(
+                    face_up
+                ))
+                waitmovement(0)
             } else {
-                clearflag(LEFT_BOX_OPEN)
+                clearflag(RIGHT_BOX_OPEN)
                 setobjectmovementtype(LOCALID_RIGHT_BOX, MOVEMENT_TYPE_FACE_DOWN)
+                applymovement(LOCALID_RIGHT_BOX, moves(
+                    face_down
+                ))
+                waitmovement(0)
             }
-            setobjectxy(LOCALID_RIGHT_BOX, 12, 9)
+            addobject(LOCALID_RIGHT_BOX)
+            setobjectxy(LOCALID_RIGHT_BOX, 25, 9)
+            copyobjectxytoperm(LOCALID_RIGHT_BOX)
             clearflag(PLAYER_BOX_THERE)
             clearflag(FLAG_SYS_CARRYING_BOX)
             setflag(RIGHT_BOX_THERE)
@@ -556,15 +628,24 @@ script SecretGarden_PCBoxPallet {
     } else { // no box
         if(flag(FLAG_SYS_CARRYING_BOX)) {
             playse(SE_BANG)
+            addobject(LOCALID_LEFT_BOX)
             if(flag(PLAYER_BOX_OPEN)) {
                 setflag(LEFT_BOX_OPEN)
                 setobjectmovementtype(LOCALID_LEFT_BOX, MOVEMENT_TYPE_FACE_UP)
+                applymovement(LOCALID_LEFT_BOX, moves(
+                    face_up
+                ))
+                waitmovement(0)
             } else {
                 clearflag(LEFT_BOX_OPEN)
                 setobjectmovementtype(LOCALID_LEFT_BOX, MOVEMENT_TYPE_FACE_DOWN)
+                applymovement(LOCALID_LEFT_BOX, moves(
+                    face_down
+                ))
+                waitmovement(0)
             }
             setobjectxy(LOCALID_LEFT_BOX, 12, 9)
-            copyobjectxytoperm(LOCALID_CRIMP_BOX)
+            copyobjectxytoperm(LOCALID_LEFT_BOX)
             clearflag(PLAYER_BOX_THERE)
             clearflag(FLAG_SYS_CARRYING_BOX)
             setflag(LEFT_BOX_THERE)
@@ -599,12 +680,53 @@ script SecretGarden_BoxCrimper {
             end
             
         } else {
-            setobjectxy(LOCALID_CRIMP_BOX, 11, 19)
+            setobjectxy(LOCALID_CRIMP_BOX, 8, 16)
             copyobjectxytoperm(LOCALID_CRIMP_BOX)
-            copyvar()
-        }
-    } else {
+            copyvar(PLAYER_BOX_NUMBER, CRIMP_BOX_NUMBER)
+            clearflag(CRIMP_BOX_THERE)
+            if(flag(CRIMP_BOX_OPEN)) {
+                setflag(PLAYER_BOX_OPEN)
 
+            } else {
+                clearflag(PLAYER_BOX_OPEN)
+            }
+            setflag(FLAG_SYS_CARRYING_BOX)
+            setflag(PLAYER_BOX_THERE)
+
+        }
+    } else { //no box
+        if(flag(FLAG_SYS_CARRYING_BOX)) {
+            closemessage
+            playse(SE_BANG)
+            clearflag(FLAG_SYS_CARRYING_BOX)
+            addobject(LOCALID_CRIMP_BOX)
+            clearflag(PLAYER_BOX_THERE)
+            copyvar(CRIMP_BOX_NUMBER, PLAYER_BOX_NUMBER)
+            if(flag(PLAYER_BOX_OPEN)) {
+                setflag(CRIMP_BOX_OPEN)
+                setobjectmovementtype(LOCALID_CRIMP_BOX, MOVEMENT_TYPE_FACE_UP)
+                applymovement(LOCALID_CRIMP_BOX, moves(
+                    face_up
+                ))
+            } else {
+                clearflag(CRIMP_BOX_OPEN)
+                setobjectmovementtype(LOCALID_CRIMP_BOX, MOVEMENT_TYPE_FACE_DOWN)
+                applymovement(LOCALID_CRIMP_BOX, moves(
+                    face_down
+                ))
+            }
+            waitmovement(0)
+            setobjectxy(LOCALID_CRIMP_BOX, 12, 19)
+            copyobjectxytoperm(LOCALID_CRIMP_BOX)
+            setflag(CRIMP_BOX_THERE)
+            release
+            end
+
+        } else {
+            release
+            end
+
+        }
     }
     release
 }
@@ -613,8 +735,21 @@ script SecretGarden_BoxCrimper {
 script SecretGarden_BoxCrimperControl {
     lock
 	msgbox(
-	"Box Crimper Controls\n"
+	"BOX CLOSER CONTROL PANEL\n"
 	"", MSGBOX_DEFAULT)
+    if(flag(CRIMP_BOX_THERE)) {
+        closemessage
+        delay(20)
+        playse(SE_CLICK)
+        waitse
+        clearflag(CRIMP_BOX_OPEN)
+        setobjectmovementtype(LOCALID_CRIMP_BOX, MOVEMENT_TYPE_FACE_DOWN)
+        applymovement(LOCALID_CRIMP_BOX, moves(
+            face_down
+        ))
+        waitmovement(0)
+
+    }
     release
 }
 
@@ -652,7 +787,7 @@ script SecretGarden_PCSystem {
 
 
 script SecretGarden_GetCurrentPCPokemon {
-    switch(var(LEFT_BOX_NUMBER)) {
+    switch(var(PC_CURRENT_BOX)) {
         case 0:
             switch(var(PC_BOX_SLOT_NUMBER)) {
                 case 0:
@@ -677,23 +812,23 @@ script SecretGarden_GetCurrentPCPokemon {
         case 1:
             switch(var(PC_BOX_SLOT_NUMBER)) {
                 case 0:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 1:
                     setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 2:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 3:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 4:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_CHARMANDER)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 5:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_PIKABLU)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 6:
                     setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 7:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 8:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_TENTACOOL)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
             }
         case 2:
             switch(var(PC_BOX_SLOT_NUMBER)) {
@@ -717,16 +852,15 @@ script SecretGarden_GetCurrentPCPokemon {
                     setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
             }
         case 3:
-        case 4:
             switch(var(PC_BOX_SLOT_NUMBER)) {
                 case 0:
                     setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
                 case 1:
                     setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 2:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
-                case 3:
                     setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 3:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
                 case 4:
                     setvar(PC_CURRENT_POKEMON, SPECIES_CHARMANDER)
                 case 5:
@@ -738,7 +872,48 @@ script SecretGarden_GetCurrentPCPokemon {
                 case 8:
                     setvar(PC_CURRENT_POKEMON, SPECIES_TENTACOOL)
             }
+        case 4:
+            switch(var(PC_BOX_SLOT_NUMBER)) {
+                case 0:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 1:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 2:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 3:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 4:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 5:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 6:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 7:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                case 8:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+            }
         case 5:
+            switch(var(PC_BOX_SLOT_NUMBER)) {
+                case 0:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 1:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 2:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 3:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 4:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 5:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 6:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 7:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                case 8:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+            }
     }
 }
 
