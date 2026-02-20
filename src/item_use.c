@@ -1018,6 +1018,8 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
     // create Koraidon in the first party slot
     mon = &gPlayerParty[gBattlerPartyIndexes[0]];
     gBattleMons[0].species = species;
+    if (gSpecialVar_ItemId == ITEM_SHINY_BIKE)
+        FlagSet(FLAG_SHINY_CREATION);
     CreateMonWithGenderNatureLetter(mon, species, 50, USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
     CopyPlayerPartyMonToBattleData(0, 0);
 
@@ -1028,7 +1030,7 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
     // make initial Koraidon sprite invisible
     gBattleSpritesDataPtr->battlerData[gBattlerInMenuId].invisible = TRUE;
     gBattleStruct->switchInAfterItemUse = TRUE;
-    
+
     Bag_BeginCloseWin0Animation();
     ItemMenu_StartFadeToExitCallback(taskId);
 }

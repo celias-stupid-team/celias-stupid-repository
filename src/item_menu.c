@@ -681,7 +681,8 @@ static void BagListMenuGetItemNameColored(u8 *dest, u16 itemId)
 {
     if (itemId == ITEM_TM_CASE 
         || itemId == ITEM_BERRY_POUCH
-        || (itemId == ITEM_BICYCLE && IS_FINAL_BIKE_PHASE))
+        || (itemId == ITEM_BICYCLE && IS_FINAL_BIKE_PHASE)
+        || (itemId == ITEM_SHINY_BIKE && IS_FINAL_BIKE_PHASE))
         StringCopy(dest, sListItemTextColor_TmCase_BerryPouch);
     else
         StringCopy(dest, sListItemTextColor_RegularItem);
@@ -1361,7 +1362,7 @@ static void OpenContextMenu(u8 taskId)
     case ITEMMENULOCATION_TTVSCR_STATUS:
         if (IS_FINAL_BIKE_PHASE)
         {
-            if (gSpecialVar_ItemId != ITEM_BICYCLE)
+            if (gSpecialVar_ItemId != ITEM_BICYCLE && gSpecialVar_ItemId != ITEM_SHINY_BIKE)
             {
                 sContextMenuItemsPtr = sContextMenuItems_Cancel;
                 sContextMenuNumItems = 1;
@@ -1759,7 +1760,7 @@ static void Task_ItemMenuAction_Cancel(u8 taskId)
 
 static void Task_ItemMenuAction_BattleUse(u8 taskId)
 {
-    if (IS_FINAL_BIKE_PHASE && gSpecialVar_ItemId == ITEM_BICYCLE)
+    if (IS_FINAL_BIKE_PHASE && (gSpecialVar_ItemId == ITEM_BICYCLE || gSpecialVar_ItemId == ITEM_SHINY_BIKE))
     {
         HideBagWindow(10);
         HideBagWindow(6);

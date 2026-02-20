@@ -2909,7 +2909,7 @@ static void UpdateBoxToSendMons(void)
 }
 
 // ### PSS battle switches - step 3 ###
-void ExternalLoadPC(void) //wiz1989
+void ExternalLoadPC(void)
 {
     int i;
 

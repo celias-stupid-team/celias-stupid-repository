@@ -304,7 +304,8 @@
 #define MOVE_EFFECT_SP_ATK_TWO_DOWN     59
 #define MOVE_EFFECT_FEINT               60
 #define MOVE_EFFECT_ATK_TWO_DOWN        61
-#define NUM_MOVE_EFFECTS                62
+#define MOVE_EFFECT_RECOIL_100          62
+#define NUM_MOVE_EFFECTS                63
 
 #define MOVE_EFFECT_AFFECTS_USER        (1 << 6) // 64
 #define MOVE_EFFECT_CERTAIN             (1 << 7) // 128

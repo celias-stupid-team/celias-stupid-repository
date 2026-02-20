@@ -5177,14 +5177,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_COLLISION_COURSE] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 100,
+        .effect = EFFECT_COLLISION_COURSE,
+        .power = 250,
         .type = TYPE_FIGHTING,
-        .accuracy = 100,
+        .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = -3,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
 

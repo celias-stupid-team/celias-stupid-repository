@@ -274,6 +274,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFullRestore            @ EFFECT_FULL_RESTORE
 	.4byte BattleScript_EffectDoubleDip              @ EFFECT_DOUBLE_DIP
 	.4byte BattleScript_Effect10kVolts               @ EFFECT_10000_VOLTS
+	.4byte BattleScript_EffectCollisionCourse        @ EFFECT_COLLISION_COURSE
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5503,6 +5504,7 @@ BattleScript_KoraidonSentOut::
 	getswitchedmondata BS_ATTACKER
 	switchindataupdate BS_ATTACKER
 	hpthresholds BS_ATTACKER
+	fadenewbgm MUS_GRAND_FINALE
 	printstring STRINGID_SWITCHINMON
 	hidepartystatussummary BS_ATTACKER
 	switchinanim BS_ATTACKER, FALSE
@@ -5511,3 +5513,7 @@ BattleScript_KoraidonSentOut::
 	moveendcase MOVEEND_IMMUNITY_ABILITIES
 	moveendcase MOVEEND_MIRROR_MOVE
 	end2
+
+BattleScript_EffectCollisionCourse::
+	setmoveeffect MOVE_EFFECT_RECOIL_100 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
