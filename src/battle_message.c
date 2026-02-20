@@ -2044,6 +2044,13 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
+                case EVENT_BATTLE_BARRY: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_MAGICAL_LEAF )  { //Snowgravy
+                        BattleStopLowHpSound();
+                        //RunScriptImmediately(FadeSongAndPlayVictory); //Play silence
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
                 default:
                     break;
             }

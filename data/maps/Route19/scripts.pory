@@ -150,6 +150,7 @@ script EventScript_RemoveUselessItems {
 	if(var(VAR_TEMP_5) > 10) {
 		additem(ITEM_SECRETPAGE)
 	}
+	setvar(VAR_CURRENT_CHAPTER, 3)
 	//additem(ITEM_SECRETPAGE)
 	return
 

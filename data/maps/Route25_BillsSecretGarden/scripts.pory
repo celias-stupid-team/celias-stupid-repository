@@ -860,7 +860,7 @@ script SecretGarden_GetCurrentPCPokemon {
                 case 2:
                     setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
                 case 3:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SHINYABRA)
                 case 4:
                     setvar(PC_CURRENT_POKEMON, SPECIES_CHARMANDER)
                 case 5:
