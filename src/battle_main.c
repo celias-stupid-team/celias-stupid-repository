@@ -231,7 +231,7 @@ EWRAM_DATA struct MonSpritesGfx *gMonSpritesGfxPtr = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
-EWRAM_DATA u8 gCantUseMovesAndBag = 0;
+EWRAM_DATA u8 gCantUseBattleAction = 0;
 EWRAM_DATA u8 gCheckedPauseBattle = 0;
 EWRAM_DATA u8 gTemporaryBattlePlayerText = 0;
 
@@ -3011,14 +3011,16 @@ void BattleTurnPassed(void)
             FlagSet(FLAG_SYS_ROTOM_BATTLE_UI);
             gBattleSwitchFromPSS = TRUE;
             gBattleOutcome &= ~B_OUTCOME_CONTINUE_ROTOM;
-            gCantUseMovesAndBag = TRUE;
+            gCantUseBattleAction = B_ACTION_BLOCK_MOVE | B_ACTION_BLOCK_BAG;
             gTemporaryBattlePlayerText = TRUE;
         }
         else if ((gBattleOutcome & B_OUTCOME_CONTINUE_ZAPDOS))
         {
             gBattleOutcome &= ~B_OUTCOME_CONTINUE_ZAPDOS;
-            gCantUseMovesAndBag = TRUE;
+            gCantUseBattleAction = B_ACTION_BLOCK_MOVE | B_ACTION_BLOCK_SWITCH;
         }
+        else
+            gCantUseBattleAction = 0;
     }
     if (gBattleResults.battleTurnCounter < 0xFF)
         ++gBattleResults.battleTurnCounter;

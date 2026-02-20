@@ -79,6 +79,12 @@ enum {
 // For the second argument of GetMoveTarget, when no target override is needed
 #define NO_TARGET_OVERRIDE 0
 
+// for gCantUseBattleAction
+#define B_ACTION_BLOCK_MOVE   (1 << 0)
+#define B_ACTION_BLOCK_BAG    (1 << 1)
+#define B_ACTION_BLOCK_SWITCH (1 << 2)
+#define B_ACTION_BLOCK_RUN    (1 << 3)
+
 struct TrainerMonNoItemDefaultMoves
 {
     u16 iv;
@@ -768,7 +774,7 @@ extern u8 gChosenActionByBattler[MAX_BATTLERS_COUNT];
 extern u8 gBattleTerrain;
 extern struct MultiBattlePokemonTx gMultiPartnerParty[3];
 extern u16 gRandomTurnNumber;
-extern u8 gCantUseMovesAndBag;
+extern u8 gCantUseBattleAction;
 extern u8 gCheckedPauseBattle;
 extern u8 gTemporaryBattlePlayerText;
 

@@ -238,7 +238,7 @@ static void HandleInputChooseAction(void)
         switch (gActionSelectionCursor[gActiveBattler])
         {
         case 0:
-            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCantUseMovesAndBag && gBattleMons[gActiveBattler].hp == 0)
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_MOVE) && gBattleMons[gActiveBattler].hp == 0)
             {
                 PlaySE(SE_BOO);
                 return;
@@ -250,7 +250,7 @@ static void HandleInputChooseAction(void)
             }
             break;
         case 1:
-            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCantUseMovesAndBag && gBattleMons[gActiveBattler].hp == 0)
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_BAG) && gBattleMons[gActiveBattler].hp == 0)
             {
                 PlaySE(SE_BOO);
                 return;
@@ -262,12 +262,28 @@ static void HandleInputChooseAction(void)
             }
             break;
         case 2:
-            PlaySE(SE_SELECT);
-            BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_SWITCH) && gBattleMons[gActiveBattler].hp == 0)
+            {
+                PlaySE(SE_BOO);
+                return;
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
+            }
             break;
         case 3:
-            PlaySE(SE_SELECT);
-            BtlController_EmitTwoReturnValues(1, B_ACTION_RUN, 0);
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_RUN) && gBattleMons[gActiveBattler].hp == 0)
+            {
+                PlaySE(SE_BOO);
+                return;
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                BtlController_EmitTwoReturnValues(1, B_ACTION_RUN, 0);
+            }
             break;
         }
         PlayerBufferExecCompleted();
