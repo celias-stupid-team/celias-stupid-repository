@@ -375,7 +375,7 @@ static void SpriteCallback_ScrollIndicatorArrow(struct Sprite *sprite)
         break;
     }
 
-    if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_MOLTRES)
+    if (IS_FINAL_BIKE_PHASE)
     {
         SetFinalBattleBagArrowColor(sprite);
     }

@@ -33,6 +33,7 @@
 #include "strings.h"
 #include "teachy_tv.h"
 #include "tm_case.h"
+#include "constants/battle.h"
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/quest_log.h"
@@ -680,7 +681,7 @@ static void BagListMenuGetItemNameColored(u8 *dest, u16 itemId)
 {
     if (itemId == ITEM_TM_CASE 
         || itemId == ITEM_BERRY_POUCH
-        || (itemId == ITEM_BICYCLE && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_MOLTRES))
+        || (itemId == ITEM_BICYCLE && IS_FINAL_BIKE_PHASE))
         StringCopy(dest, sListItemTextColor_TmCase_BerryPouch);
     else
         StringCopy(dest, sListItemTextColor_RegularItem);
@@ -1358,7 +1359,20 @@ static void OpenContextMenu(u8 taskId)
     {
     case ITEMMENULOCATION_BATTLE:
     case ITEMMENULOCATION_TTVSCR_STATUS:
-        if (gSpecialVar_ItemId == ITEM_BERRY_POUCH)
+        if (IS_FINAL_BIKE_PHASE)
+        {
+            if (gSpecialVar_ItemId != ITEM_BICYCLE)
+            {
+                sContextMenuItemsPtr = sContextMenuItems_Cancel;
+                sContextMenuNumItems = 1;
+            }
+            else
+            {
+                sContextMenuItemsPtr = sContextMenuItems_BattleUse;
+                sContextMenuNumItems = 2;
+            }
+        }
+        else if (gSpecialVar_ItemId == ITEM_BERRY_POUCH)
         {
             sContextMenuItemsBuffer[0] = ITEMMENUACTION_OPEN_BERRIES;
             sContextMenuItemsBuffer[1] = ITEMMENUACTION_CANCEL;
@@ -1745,7 +1759,17 @@ static void Task_ItemMenuAction_Cancel(u8 taskId)
 
 static void Task_ItemMenuAction_BattleUse(u8 taskId)
 {
-    if (ItemId_GetBattleFunc(gSpecialVar_ItemId) != NULL)
+    if (IS_FINAL_BIKE_PHASE && gSpecialVar_ItemId == ITEM_BICYCLE)
+    {
+        HideBagWindow(10);
+        HideBagWindow(6);
+        PutWindowTilemap(0);
+        PutWindowTilemap(1);
+        CopyWindowToVram(0, COPYWIN_MAP);
+        //Send out Koraidon
+        
+    }
+    else if (ItemId_GetBattleFunc(gSpecialVar_ItemId) != NULL)
     {
         HideBagWindow(10);
         HideBagWindow(6);

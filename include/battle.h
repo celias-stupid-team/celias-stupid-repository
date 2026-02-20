@@ -85,6 +85,8 @@ enum {
 #define B_ACTION_BLOCK_SWITCH (1 << 2)
 #define B_ACTION_BLOCK_RUN    (1 << 3)
 
+#define IS_FINAL_BIKE_PHASE   ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_LUGIA)
+
 struct TrainerMonNoItemDefaultMoves
 {
     u16 iv;
