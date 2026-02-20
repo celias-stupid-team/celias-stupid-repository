@@ -994,6 +994,39 @@ void BattleUseFunc_PokeDoll(u8 taskId)
         PrintNotTheTimeToUseThat(taskId, 0);
 }
 
+void BattleUseFunc_CreateKoraidon(u8 taskId)
+{
+    struct Pokemon *mon;
+    u16 species = SPECIES_KORAIDON;
+    u8 i;
+
+    // send all mons to the PC
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+            break;
+        else
+        {
+            if (SendMonToPC(&gPlayerParty[i]))
+            {
+                ZeroMonData(&gPlayerParty[i]);
+            }
+        }
+    }
+    // create Koraidon in the first party slot
+    mon = &gPlayerParty[gBattlerPartyIndexes[0]];
+    gBattleMons[0].species = species;
+    CreateMonWithGenderNatureLetter(mon, species, 50, USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+    CopyPlayerPartyMonToBattleData(0, 0);
+
+    gPlayerPartyCount = 1;
+    //reset party data
+    // ResetPartyData(RESET_OPTION_WITHOUT_PARTY_SLOTS);
+    
+    Bag_BeginCloseWin0Animation();
+    ItemMenu_StartFadeToExitCallback(taskId);
+}
+
 void ItemUseOutOfBattle_EnigmaBerry(u8 taskId)
 {
     switch (GetItemEffectType(gSpecialVar_ItemId))

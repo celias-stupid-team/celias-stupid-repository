@@ -1766,8 +1766,7 @@ static void Task_ItemMenuAction_BattleUse(u8 taskId)
         PutWindowTilemap(0);
         PutWindowTilemap(1);
         CopyWindowToVram(0, COPYWIN_MAP);
-        //Send out Koraidon
-        
+        BattleUseFunc_CreateKoraidon(taskId);
     }
     else if (ItemId_GetBattleFunc(gSpecialVar_ItemId) != NULL)
     {
