@@ -12913,3 +12913,14 @@ extern const u32 gTrainerPalette_Skiier[];
 
 extern const u32 gTrainerFrontPic_DmcaRunt[];
 extern const u32 gTrainerPalette_DmcaRunt[];
+// SHINYABRA
+extern const u32 gMonFrontPic_SHINYABRA[];
+extern const u32 gMonPalette_SHINYABRA[];
+extern const u32 gMonBackPic_SHINYABRA[];
+extern const u32 gMonShinyPalette_SHINYABRA[];
+extern const u8 gMonFootprint_SHINYABRA[];
+extern const u8 gMonIcon_SHINYABRA[];
+
+
+extern const u32 gItemIcon_STAIRORB[];
+extern const u32 gItemIconPalette_STAIRORB[];

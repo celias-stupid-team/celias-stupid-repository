@@ -9800,3 +9800,11 @@ const u32 gMonBackPic_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/wartortle/
 const u32 gMonShinyPalette_FINALWARTORTLE[] = INCBIN_U32("graphics/pokemon/wartortle/shiny.gbapal.lz");
 const u8 gMonIcon_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/wartortle/icon.4bpp");
 const u8 gMonFootprint_FINALWARTORTLE[] = INCBIN_U8("graphics/pokemon/wartortle/footprint.1bpp");
+// SHINYABRA
+const u32 gMonFrontPic_SHINYABRA[] = INCBIN_U32("graphics/pokemon/shinyabra/front.4bpp.lz");
+const u32 gMonPalette_SHINYABRA[] = INCBIN_U32("graphics/pokemon/shinyabra/normal.gbapal.lz");
+const u32 gMonBackPic_SHINYABRA[] = INCBIN_U32("graphics/pokemon/shinyabra/back.4bpp.lz");
+const u32 gMonShinyPalette_SHINYABRA[] = INCBIN_U32("graphics/pokemon/shinyabra/shiny.gbapal.lz");
+const u8 gMonIcon_SHINYABRA[] = INCBIN_U8("graphics/pokemon/shinyabra/icon.4bpp");
+const u8 gMonFootprint_SHINYABRA[] = INCBIN_U8("graphics/pokemon/shinyabra/footprint.1bpp");
+

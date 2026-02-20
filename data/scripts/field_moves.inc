@@ -356,4 +356,6 @@ EventScript_FailSweetScent::
 	end
 
 Text_LooksLikeNothingHere::
-	.string "Looks like there's nothing here…$"
+	.string "Looks like there isn't anything\n"
+	.string "here…$"
+

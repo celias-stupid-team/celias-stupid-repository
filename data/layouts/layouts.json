@@ -5477,11 +5477,11 @@
       "id": "LAYOUT_VIRIDIAN_GYM_FALKNER",
       "name": "ViridianGym_Falkner_Layout",
       "width": 20,
-      "height": 20,
+      "height": 40,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
-      "secondary_tileset": "gTileset_CeruleanGym",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MtSilver",
       "border_filepath": "data/layouts/ViridianGym_Falkner/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Falkner/map.bin"
     },
@@ -6136,7 +6136,7 @@
     {
       "id": "LAYOUT_CAVE_OF_ORIGIN_2F",
       "name": "CaveOfOrigin_2F_Layout",
-      "width": 20,
+      "width": 33,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -7392,6 +7392,18 @@
       "secondary_tileset": "gTileset_SSAnne",
       "border_filepath": "data/layouts/SSAnne_1F_Corridor_Layout_Jumpy/border.bin",
       "blockdata_filepath": "data/layouts/SSAnne_1F_Corridor_Layout_Jumpy/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_FALKNER_BRIDGE",
+      "name": "ViridianGym_Falkner_BRIDGE",
+      "width": 20,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MtSilver",
+      "border_filepath": "data/layouts/ViridianGym_Falkner_BRIDGE/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Falkner_BRIDGE/map.bin"
     }
   ]
 }

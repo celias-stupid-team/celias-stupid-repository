@@ -462,7 +462,7 @@
 #define FLAG_AURORA_BEAM_TM                              0x19B
 #define FLAG_BROKE_STEVEN_STONE                              0x19C
 #define FLAG_PUSHED_CAPTAIN_DOWN_WALL                     0x19D
-#define FLAG_0x19E                            0x19E
+#define FLAG_SHINY_DACHSBUN                            0x19E
 #define FLAG_0x19F                     0x19F
 #define FLAG_BEAT_DMCA_ERIKA                0x1A0
 #define FLAG_BEAT_DMCA_SABRINA                    0x1A1
@@ -543,7 +543,7 @@
 #define FLAG_0x1EC    0x1EC
 #define FLAG_0x1ED            0x1ED
 #define FLAG_0x1EE            0x1EE
-#define FLAG_0x1EF              0x1EF
+#define FLAG_BILL_PC_BROKE              0x1EF
 #define FLAG_NO_SANS_ITEM        0x1F0
 #define FLAG_SHINY_PIKABLU        0x1F1
 #define FLAG_SHINY_PERSIAN 0x1F2
@@ -604,8 +604,8 @@
 #define FLAG_SEAFOAM_B2F_CAPTAIN               0x226
 #define FLAG_SEAFOAM_B3F_CAPTAIN               0x227
 #define FLAG_SEAFOAM_B1F_CAPTAIN               0x228
-#define FLAG_0x229               0x229
-#define FLAG_0x22A               0x22A
+#define FLAG_SHINY_BIDOOF               0x229
+#define FLAG_READY_FOR_COPYCAT_VOUCHER               0x22A
 #define FLAG_0x22B               0x22B
 #define FLAG_TWO_ISLAND_BOMB_PRESENT               0x22C
 #define FLAG_CAUGHT_MR_FUJI               0x22D
@@ -1416,8 +1416,8 @@
 #define FLAG_0x819                                                  (SYS_FLAGS + 0x19)
 #define FLAG_0x81A                                                  (SYS_FLAGS + 0x1A)
 #define FLAG_0x81B                                                  (SYS_FLAGS + 0x1B)
-#define FLAG_0x81C                                                  (SYS_FLAGS + 0x1C)
-#define FLAG_0x81D                                                  (SYS_FLAGS + 0x1D)
+#define FLAG_SYS_LUVDISC_TILE                                                  (SYS_FLAGS + 0x1C)
+#define FLAG_SYS_ZAPDOS_STATUE                                                  (SYS_FLAGS + 0x1D)
 #define FLAG_SYS_GIRL_HOLE                                                  (SYS_FLAGS + 0x1E)
 #define FLAG_0x81F                                                  (SYS_FLAGS + 0x1F)
 

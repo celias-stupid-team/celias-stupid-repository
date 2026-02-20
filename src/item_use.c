@@ -35,6 +35,8 @@
 #include "teachy_tv.h"
 #include "tm_case.h"
 #include "vs_seeker.h"
+#include "fldeff.h"
+
 #include "constants/sound.h"
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
@@ -44,6 +46,7 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/field_weather.h"
+
 
 static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
 EWRAM_DATA bool8 gUsingRegisteredPartyMenuItem = FALSE;
@@ -367,6 +370,25 @@ static bool8 CanFish(void)
     if (MetatileBehavior_IsGirlHole(behavior)) {
             //DebugPrintf("true");
             FlagSet(FLAG_SYS_GIRL_HOLE);
+            return TRUE;
+
+    }
+    if (MetatileBehavior_IsFishableStatue(behavior)) {
+            //DebugPrintf("true");
+            //FlagSet(FLAG_SYS_GIRL_HOLE);
+            return TRUE;
+
+    }
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PENCIL)) {
+            //DebugPrintf("true");
+            FlagSet(FLAG_SYS_ZAPDOS_STATUE);
+            //FlagSet(FLAG_SHINY_CREATION);
+            return TRUE;
+
+    }
+    if (MetatileBehavior_IsLuvdiscTile(behavior)) {
+            //DebugPrintf("true");
+            FlagSet(FLAG_SYS_LUVDISC_TILE);
             return TRUE;
 
     }
