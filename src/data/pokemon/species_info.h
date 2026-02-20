@@ -36542,4 +36542,34 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     },
 
+    [SPECIES_SHINYABRA] =
+    {
+        .baseHP = 10,
+        .baseAttack = 10,
+        .baseDefense = 10,
+        .baseSpeed = 10,
+        .baseSpAttack = 10,
+        .baseSpDefense = 10,
+        .types = {TYPE_PSYCHIC, TYPE_PSYCHIC},
+        .catchRate = 255,
+        .expYield = 150,
+        .evYield_HP = 1,
+        .evYield_Attack = 1,
+        .evYield_Defense = 1,
+        .evYield_Speed = 1,
+        .evYield_SpAttack = 1,
+        .evYield_SpDefense = 1,
+        .itemCommon = ITEM_NONE,
+        .itemRare = ITEM_NONE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_FAST,
+        .eggGroups = {EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
+        .abilities = {ABILITY_EARLY_BIRD, ABILITY_NONE},
+        .safariZoneFleeRate = 0,
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+    },
+
 };

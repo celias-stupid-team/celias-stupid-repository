@@ -1317,7 +1317,9 @@ These used to be dex mons; now they're random mons that I've dexited
 #define SPECIES_DODODUO 1280
 #define SPECIES_CELEBI2 1281
 #define SPECIES_PIKACHUSURF 1282
-#define SPECIES_EGG 1283
+#define SPECIES_SHINYABRA 1283
+
+#define SPECIES_EGG 1284
 
 #define NUM_SPECIES SPECIES_EGG
 

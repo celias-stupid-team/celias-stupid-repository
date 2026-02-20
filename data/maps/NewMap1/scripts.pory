@@ -8,6 +8,7 @@ mapscripts NewMap1_MapScripts {
 		
 		if(!flag(FLAG_BADGE07_GET)) {
 			setmaplayoutindex(LAYOUT_SOOTOPOLIS_NO_CENTER)
+			setflag(FLAG_TEMP_3)
 		}
 	}
 	MAP_SCRIPT_ON_LOAD {

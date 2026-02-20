@@ -10080,3 +10080,8 @@ static const struct LevelUpMove sPIKACHUSURFLevelUpLearnset[] = {
 	LEVEL_UP_END
 };
 
+static const struct LevelUpMove sSHINYABRALevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+

@@ -507,8 +507,8 @@
     {
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_FALKNER",
       "map": "MAP_VIRIDIAN_GYM_FALKNER",
-      "x": 5,
-      "y": 8,
+      "x": 10,
+      "y": 23,
       "respawn_map": "MAP_VIRIDIAN_GYM_FALKNER",
       "respawn_npc": "1"
     },

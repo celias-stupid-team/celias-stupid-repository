@@ -5424,3 +5424,7 @@ Cry_PIKACHUSURF::
 	.incbin "sound/direct_sound_samples/cries/pikachusurf.bin"
 
 	.align 2
+Cry_SHINYABRA::
+	.incbin "sound/direct_sound_samples/cries/shinyabra.bin"
+
+	.align 2
