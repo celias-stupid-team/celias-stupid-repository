@@ -5496,3 +5496,18 @@ BattleScript_RechargeActivates::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	end3
+
+@ called from BattleUseFunc_CreateKoraidon()
+BattleScript_KoraidonSentOut::
+	drawpartystatussummary BS_ATTACKER
+	getswitchedmondata BS_ATTACKER
+	switchindataupdate BS_ATTACKER
+	hpthresholds BS_ATTACKER
+	printstring STRINGID_SWITCHINMON
+	hidepartystatussummary BS_ATTACKER
+	switchinanim BS_ATTACKER, FALSE
+	waitstate
+	switchineffects BS_ATTACKER
+	moveendcase MOVEEND_IMMUNITY_ABILITIES
+	moveendcase MOVEEND_MIRROR_MOVE
+	end2

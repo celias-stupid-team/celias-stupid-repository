@@ -4349,7 +4349,17 @@ static void HandleAction_UseItem(void)
     }
     else if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
     {
-        gBattlescriptCurrInstr = gBattlescriptsForUsingItem[0];
+        if (gBattleStruct->switchInAfterItemUse)
+        {
+            gBattleStruct->switchInAfterItemUse = FALSE;
+            gBattleSpritesDataPtr->battlerData[gBattlerAttacker].invisible = FALSE;
+            gBattleStruct->monToSwitchIntoId[gBattlerAttacker] = 0; // Koraidon is always placed at party slot 0
+            gBattlescriptCurrInstr = BattleScript_KoraidonSentOut;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = gBattlescriptsForUsingItem[0];
+        }
     }
     else
     {

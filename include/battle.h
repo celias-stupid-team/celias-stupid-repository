@@ -458,7 +458,7 @@ struct BattleStruct
     u8 stateIdAfterSelScript[MAX_BATTLERS_COUNT];
     const u8 *trainerSlideMsg;
     struct MessageStatus slideMessageStatus;
-    u8 field_89; // unused
+    bool8 switchInAfterItemUse; // used by BattleUseFunc_CreateKoraidon()
     u8 field_8A; // unused
     u8 playerPartyIdx;
     u8 lugiaShadowSkyDone;

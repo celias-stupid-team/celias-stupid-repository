@@ -1,6 +1,8 @@
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
+#include "battle_anim.h"
+#include "battle_interface.h"
 #include "berry_pouch.h"
 #include "berry_powder.h"
 #include "bike.h"
@@ -1022,6 +1024,10 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
     gPlayerPartyCount = 1;
     //reset party data
     // ResetPartyData(RESET_OPTION_WITHOUT_PARTY_SLOTS);
+
+    // make initial Koraidon sprite invisible
+    gBattleSpritesDataPtr->battlerData[gBattlerInMenuId].invisible = TRUE;
+    gBattleStruct->switchInAfterItemUse = TRUE;
     
     Bag_BeginCloseWin0Animation();
     ItemMenu_StartFadeToExitCallback(taskId);

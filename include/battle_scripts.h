@@ -41,6 +41,7 @@ extern const u8 BattleScript_PrintFailedToRunString[];
 extern const u8 BattleScript_PrintCantEscapeFromBattle[];
 extern const u8 BattleScript_PrintFullBox[];
 extern const u8 BattleScript_ActionSwitch[];
+extern const u8 BattleScript_KoraidonSentOut[];
 extern const u8 BattleScript_Pausex20[];
 extern const u8 BattleScript_LevelUp[];
 extern const u8 BattleScript_RainContinuesOrEnds[];
