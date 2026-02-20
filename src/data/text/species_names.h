@@ -1285,4 +1285,5 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_CELEBI2] = _("CELEBI"),
     [SPECIES_PIKACHUSURF] = _("PIKACHU"),
     [SPECIES_SHINYABRA] = _("ABRA"),
+    [SPECIES_EARRAT] = _("RATTATA"),
 };

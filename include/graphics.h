@@ -12924,3 +12924,11 @@ extern const u8 gMonIcon_SHINYABRA[];
 
 extern const u32 gItemIcon_STAIRORB[];
 extern const u32 gItemIconPalette_STAIRORB[];
+// EARRAT
+extern const u32 gMonFrontPic_EARRAT[];
+extern const u32 gMonPalette_EARRAT[];
+extern const u32 gMonBackPic_EARRAT[];
+extern const u32 gMonShinyPalette_EARRAT[];
+extern const u8 gMonFootprint_EARRAT[];
+extern const u8 gMonIcon_EARRAT[];
+

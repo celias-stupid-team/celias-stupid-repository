@@ -812,3 +812,5 @@ const u32 gObjectEventPic_AZ_NEW[] = INCBIN_U32("graphics/object_events/pics/stu
 const u32 gObjectEventPic_DMCA_RUNT[] = INCBIN_U32("graphics/object_events/pics/stupid/DMCA_RUNT.4bpp");
 const u32 gObjectEventPic_SHINY_ZUBAT[] = INCBIN_U32("graphics/object_events/pics/stupid/SHINY_ZUBAT.4bpp");
 const u16 gObjectEventPal_SHINY_ZUBAT[] = INCBIN_U16("graphics/object_events/palettes/SHINY_ZUBAT.gbapal");
+const u32 gObjectEventPic_EARRAT[] = INCBIN_U32("graphics/object_events/pics/stupid/EARRAT.4bpp");
+const u16 gObjectEventPal_EARRAT[] = INCBIN_U16("graphics/object_events/palettes/EARRAT.gbapal");

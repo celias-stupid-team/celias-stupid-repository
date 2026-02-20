@@ -5428,3 +5428,7 @@ Cry_SHINYABRA::
 	.incbin "sound/direct_sound_samples/cries/shinyabra.bin"
 
 	.align 2
+Cry_EARRAT::
+	.incbin "sound/direct_sound_samples/cries/earrat.bin"
+
+	.align 2

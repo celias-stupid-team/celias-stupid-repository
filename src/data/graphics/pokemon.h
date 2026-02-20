@@ -9808,3 +9808,11 @@ const u32 gMonShinyPalette_SHINYABRA[] = INCBIN_U32("graphics/pokemon/shinyabra/
 const u8 gMonIcon_SHINYABRA[] = INCBIN_U8("graphics/pokemon/shinyabra/icon.4bpp");
 const u8 gMonFootprint_SHINYABRA[] = INCBIN_U8("graphics/pokemon/shinyabra/footprint.1bpp");
 
+// EARRAT
+const u32 gMonFrontPic_EARRAT[] = INCBIN_U32("graphics/pokemon/earrat/front.4bpp.lz");
+const u32 gMonPalette_EARRAT[] = INCBIN_U32("graphics/pokemon/earrat/normal.gbapal.lz");
+const u32 gMonBackPic_EARRAT[] = INCBIN_U32("graphics/pokemon/earrat/back.4bpp.lz");
+const u32 gMonShinyPalette_EARRAT[] = INCBIN_U32("graphics/pokemon/earrat/shiny.gbapal.lz");
+const u8 gMonIcon_EARRAT[] = INCBIN_U8("graphics/pokemon/earrat/icon.4bpp");
+const u8 gMonFootprint_EARRAT[] = INCBIN_U8("graphics/pokemon/earrat/footprint.1bpp");
+

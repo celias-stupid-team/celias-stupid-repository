@@ -1288,4 +1288,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_CELEBI2]    = gMonFootprint_CELEBI2,
 	[SPECIES_PIKACHUSURF]    = gMonFootprint_PIKACHUSURF,
 	[SPECIES_SHINYABRA]    = gMonFootprint_SHINYABRA,
+	[SPECIES_EARRAT]    = gMonFootprint_EARRAT,
 };

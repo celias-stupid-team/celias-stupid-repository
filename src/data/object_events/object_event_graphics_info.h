@@ -10257,3 +10257,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHINY_ZUBAT = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EARRAT = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_EARRAT,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_EARRAT,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
