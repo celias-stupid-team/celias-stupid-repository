@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "bag.h"
 #include "battle_controllers.h"
+#include "battle_interface.h"
 #include "berry_pouch.h"
 #include "decompress.h"
 #include "event_data.h"
@@ -679,7 +680,7 @@ static void BagListMenuGetItemNameColored(u8 *dest, u16 itemId)
 {
     if (itemId == ITEM_TM_CASE 
         || itemId == ITEM_BERRY_POUCH
-        || (itemId == ITEM_BICYCLE && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == 4))
+        || (itemId == ITEM_BICYCLE && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_MOLTRES))
         StringCopy(dest, sListItemTextColor_TmCase_BerryPouch);
     else
         StringCopy(dest, sListItemTextColor_RegularItem);

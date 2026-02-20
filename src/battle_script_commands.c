@@ -3914,12 +3914,12 @@ static void Cmd_checkteamslost(void)
     {
         if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && !gCheckedPauseBattle)
         {
-            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == 0 && HP_count == 0)
+            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_LUGIA && HP_count == 0)
             {
                 gBattleOutcome |= B_OUTCOME_CONTINUE_ROTOM;
                 gCheckedPauseBattle = TRUE;
             }
-            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == 4 && HP_count == 0)
+            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_MOLTRES && HP_count == 0)
             {
                 gBattleOutcome |= B_OUTCOME_CONTINUE_ZAPDOS;
                 gCheckedPauseBattle = TRUE;

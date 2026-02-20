@@ -7,6 +7,7 @@
 #include "event_data.h"
 #include "list_menu.h"
 #include "menu_indicators.h"
+#include "battle_interface.h"
 
 struct ScrollIndicatorPair
 {
@@ -374,7 +375,7 @@ static void SpriteCallback_ScrollIndicatorArrow(struct Sprite *sprite)
         break;
     }
 
-    if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == 4)
+    if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_MOLTRES)
     {
         SetFinalBattleBagArrowColor(sprite);
     }
