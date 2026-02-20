@@ -3051,6 +3051,7 @@ BattleScript_HandleFaintedMon::
 	checkteamslost BattleScript_LinkHandleFaintedMonMultiple
 	jumpifbyte CMP_EQUAL, gBattleOutcome, B_OUTCOME_CONTINUE_ROTOM, BattleScript_TrainerSlideAfterDefeat
 BattleScript_HandleFaintedMonContinue::
+	pause B_WAIT_TIME_SHORT @test
 	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_FaintedMonEnd @ 0 = continue battle
 	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_FaintedMonTryChoose
 	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonTryChoose
@@ -4166,7 +4167,7 @@ BattleScript_SeelHoopaTransform::
 	end2
 
 BattleScript_ZapmolcunoTransform::
-	@ check for special cutscene after Zapdos is defeated
+	@ check for special cutscene after Zapdos is defeated, use 4 to show after Zapdos fainting
 	jumpifvar CMP_NOT_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 4, BattleScript_ZapmolcunoTransform_FaintHandling
 	goto BattleScript_ZapdosCutScene
 BattleScript_ZapmolcunoTransform_FaintHandling:
@@ -4202,6 +4203,7 @@ BattleScript_ZapdosCutScene::
 	fadedarken FADE_ALL_EXC_UI, FADE_DIR_BRIGHTEN
 	waitforfade
 	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_EMPTYSTRING3
 	goto BattleScript_ZapmolcunoTransform_FaintHandling
 
 BattleScript_MoveEffectSleep::

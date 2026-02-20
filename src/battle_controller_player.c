@@ -238,7 +238,7 @@ static void HandleInputChooseAction(void)
         switch (gActionSelectionCursor[gActiveBattler])
         {
         case 0:
-            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCheckedContinueRotomBattle && gBattleMons[gActiveBattler].hp == 0)
+            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCantUseMovesAndBag && gBattleMons[gActiveBattler].hp == 0)
             {
                 PlaySE(SE_BOO);
                 return;
@@ -250,7 +250,7 @@ static void HandleInputChooseAction(void)
             }
             break;
         case 1:
-            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCheckedContinueRotomBattle && gBattleMons[gActiveBattler].hp == 0)
+            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA && gCantUseMovesAndBag && gBattleMons[gActiveBattler].hp == 0)
             {
                 PlaySE(SE_BOO);
                 return;

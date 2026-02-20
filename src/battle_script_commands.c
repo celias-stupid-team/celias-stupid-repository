@@ -3355,6 +3355,8 @@ static void Cmd_tryfaintmon(void)
                 
                 // party member fainted
                 VarSet(VAR_CSR_FINAL_BATTLE_PHASE, final_battle_state + 1);
+                
+                gCheckedPauseBattle = FALSE; // required for the paused turn sections (no Move and Bag access)
             }
 
             // special handling for switching the legendary birds during the Zapmolcuno fight
@@ -3908,18 +3910,29 @@ static void Cmd_checkteamslost(void)
         }
     }
 
-    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    if (GetBattlerSide(gBattlerFainted) == B_SIDE_PLAYER)
     {
-        if (!gCheckedContinueRotomBattle && HP_count == 0)
-            gBattleOutcome |= B_OUTCOME_CONTINUE_ROTOM;
-        // if battler fainted the system will call PlayerHandleChoosePokemon() later and trigger a PC switch
+        if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && !gCheckedPauseBattle)
+        {
+            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == 0 && HP_count == 0)
+            {
+                gBattleOutcome |= B_OUTCOME_CONTINUE_ROTOM;
+                gCheckedPauseBattle = TRUE;
+            }
+            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == 4 && HP_count == 0)
+            {
+                gBattleOutcome |= B_OUTCOME_CONTINUE_ZAPDOS;
+                gCheckedPauseBattle = TRUE;
+            }
+            // if battler fainted the system will call PlayerHandleChoosePokemon() later and trigger a PC switch
+        }
+        else if (gBattleSwitchFromPSS)
+        {
+            DebugPrintf("Do nothing!");
+        }
+        else if (HP_count == 0)
+            gBattleOutcome |= B_OUTCOME_LOST;
     }
-    else if (gBattleSwitchFromPSS)
-    {
-        DebugPrintf("Do nothing!");
-    }
-    else if (HP_count == 0)
-        gBattleOutcome |= B_OUTCOME_LOST;
     HP_count = 0;
 
     // Get total HP for the enemy's party to determine if the player has won

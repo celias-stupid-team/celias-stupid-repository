@@ -231,7 +231,8 @@ EWRAM_DATA struct MonSpritesGfx *gMonSpritesGfxPtr = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
-EWRAM_DATA u8 gCheckedContinueRotomBattle = 0;
+EWRAM_DATA u8 gCantUseMovesAndBag = 0;
+EWRAM_DATA u8 gCheckedPauseBattle = 0;
 EWRAM_DATA u8 gTemporaryBattlePlayerText = 0;
 
 COMMON_DATA void (*gPreBattleCallback1)(void) = NULL;
@@ -522,6 +523,8 @@ static void (*const sEndTurnFuncsTable[])(void) =
     [B_OUTCOME_MON_FLED]          = HandleEndTurn_MonFled,
     [B_OUTCOME_CAUGHT]            = HandleEndTurn_FinishBattle,
     [B_OUTCOME_NO_SAFARI_BALLS]   = HandleEndTurn_FinishBattle,
+    [B_OUTCOME_CONTINUE_ZAPDOS]   = HandleEndTurn_ContinueBattle,
+    [B_OUTCOME_CONTINUE_ROTOM]    = HandleEndTurn_ContinueBattle,
 };
 
 const u8 gStatusConditionString_PoisonJpn[] = _("どく$$$$$");
@@ -2994,20 +2997,28 @@ void BattleTurnPassed(void)
     gMoveResultFlags = 0;
     for (i = 0; i < 5; i++)
         gBattleCommunication[i] = 0;
-    if (gBattleOutcome != 0 && gBattleOutcome < 128) // 128 = B_OUTCOME_CONTINUE_ROTOM
+    if (gBattleOutcome != 0 && gBattleOutcome < B_OUTCOME_CONTINUE_ZAPDOS)
     {
         gCurrentActionFuncId = B_ACTION_FINISHED;
         gBattleMainFunc = RunTurnActionsFunctions;
         return;
     }
-    if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM) && gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
     {
-        // ToDo wiz1989: Activate Rotom Battle UI
-        FlagSet(FLAG_SYS_ROTOM_BATTLE_UI);
-        gBattleSwitchFromPSS = TRUE;
-        gBattleOutcome &= ~B_OUTCOME_CONTINUE_ROTOM;
-        gCheckedContinueRotomBattle = TRUE;
-        gTemporaryBattlePlayerText = TRUE;
+        if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM))
+        {
+            // ToDo wiz1989: Activate Rotom Battle UI
+            FlagSet(FLAG_SYS_ROTOM_BATTLE_UI);
+            gBattleSwitchFromPSS = TRUE;
+            gBattleOutcome &= ~B_OUTCOME_CONTINUE_ROTOM;
+            gCantUseMovesAndBag = TRUE;
+            gTemporaryBattlePlayerText = TRUE;
+        }
+        else if ((gBattleOutcome & B_OUTCOME_CONTINUE_ZAPDOS))
+        {
+            gBattleOutcome &= ~B_OUTCOME_CONTINUE_ZAPDOS;
+            gCantUseMovesAndBag = TRUE;
+        }
     }
     if (gBattleResults.battleTurnCounter < 0xFF)
         ++gBattleResults.battleTurnCounter;

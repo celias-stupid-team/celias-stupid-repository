@@ -95,6 +95,7 @@
 #define B_OUTCOME_CAUGHT               7
 #define B_OUTCOME_NO_SAFARI_BALLS      8
 #define B_OUTCOME_FORFEITED            9
+#define B_OUTCOME_CONTINUE_ZAPDOS      (1 << 6) // used for final battle
 #define B_OUTCOME_CONTINUE_ROTOM       (1 << 7) // used for final battle
 
 // Non-volatile status conditions

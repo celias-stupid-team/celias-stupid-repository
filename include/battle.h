@@ -768,7 +768,8 @@ extern u8 gChosenActionByBattler[MAX_BATTLERS_COUNT];
 extern u8 gBattleTerrain;
 extern struct MultiBattlePokemonTx gMultiPartnerParty[3];
 extern u16 gRandomTurnNumber;
-extern u8 gCheckedContinueRotomBattle;
+extern u8 gCantUseMovesAndBag;
+extern u8 gCheckedPauseBattle;
 extern u8 gTemporaryBattlePlayerText;
 
 struct Pokemon *GetSideParty(u8 side);
