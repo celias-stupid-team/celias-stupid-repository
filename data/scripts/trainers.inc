@@ -286,7 +286,7 @@ Route8_EventScript_Megan::
 	end
 
 Route8_EventScript_Julia::
-	msgbox Route8_Text_JuliaPostBattle, MSGBOX_AUTOCLOSE
+	msgbox Route8_Text_JuliaPostBattle, MSGBOX_NPC
 	end
 
 Route8_EventScript_Aidan::
