@@ -1739,3 +1739,7 @@
 	.4byte \mask
 	.byte \dir
 	.endm
+
+	.macro togglepssswitch
+	callnative BS_TogglePSSSwitch
+	.endm

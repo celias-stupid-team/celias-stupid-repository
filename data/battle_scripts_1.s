@@ -4208,6 +4208,7 @@ BattleScript_ZapdosCutScene::
 	waitforfade
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_EMPTYSTRING3
+	togglepssswitch @ turn off PSS switching
 	end2
 
 BattleScript_MoveEffectSleep::

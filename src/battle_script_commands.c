@@ -12129,3 +12129,15 @@ void BS_FadeDarken(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_TogglePSSSwitch(void)
+{
+    NATIVE_ARGS();
+
+    if (gBattleSwitchFromPSS)
+        gBattleSwitchFromPSS = FALSE;
+    else
+        gBattleSwitchFromPSS = TRUE;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
