@@ -123,7 +123,7 @@
       "dest_warp_id": "4"
     },
     {
-      "x": 34,
+      "x": 38,
       "y": 18,
       "elevation": 3,
       "dest_map": "MAP_SSANNE_KITCHEN",
@@ -179,21 +179,21 @@
       "dest_warp_id": "5"
     },
     {
-      "x": 34,
+      "x": 38,
       "y": 19,
       "elevation": 3,
       "dest_map": "MAP_SSANNE_KITCHEN",
       "dest_warp_id": "1"
     },
     {
-      "x": 34,
+      "x": 38,
       "y": 17,
       "elevation": 3,
       "dest_map": "MAP_SSANNE_KITCHEN",
       "dest_warp_id": "1"
     },
     {
-      "x": 34,
+      "x": 38,
       "y": 16,
       "elevation": 3,
       "dest_map": "MAP_SSANNE_KITCHEN",
