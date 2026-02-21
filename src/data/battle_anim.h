@@ -1324,7 +1324,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Normal, 0x0800, ANIM_TAG_NORMAL},
     {gBattleAnimSpriteGfx_WeatherBallin, 0x0200, ANIM_TAG_WEATHER_BALLIN},
     {gBattleAnimSpriteGfx_Lettuce, 0x0200, ANIM_TAG_LETTUCE},
-    {gBattleAnimSpriteGfx_Sesame, 0x0200, ANIM_TAG_SESAME},
+    {gBattleAnimSpriteGfx_Sesame, 0x0080, ANIM_TAG_SESAME},
     {gBattleAnimSpriteGfx_Bread, 0x0200, ANIM_TAG_BREAD},
     {gBattleAnimSpriteGfx_ZygardeZ, 0x0200, ANIM_TAG_ZYGARDE_Z},
     {gBattleAnimSpriteGfx_Reverse, 0x0200, ANIM_TAG_REVERSE},

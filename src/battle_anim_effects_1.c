@@ -39,6 +39,9 @@ static void AnimPetalDanceSmallFlower_Step(struct Sprite *);
 static void AnimRazorLeafParticle(struct Sprite *);
 static void AnimRazorLeafParticle_Step1(struct Sprite *);
 static void AnimRazorLeafParticle_Step2(struct Sprite *);
+static void AnimMoneyParticle(struct Sprite *);
+static void AnimMoneyParticle_Step1(struct Sprite *);
+static void AnimMoneyParticle_Step2(struct Sprite *);
 static void AnimIngrainRoot(struct Sprite *);
 static void AnimFrenzyPlantRoot(struct Sprite *);
 static void AnimIngrainOrb(struct Sprite *);
@@ -572,6 +575,17 @@ const struct SpriteTemplate gRazorLeafParticleSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimRazorLeafParticle,
+};
+
+const struct SpriteTemplate gMoneyParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MONEY,
+    .paletteTag = ANIM_TAG_MONEY,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoneyParticle,
 };
 
 const struct SpriteTemplate gTwisterLeafSpriteTemplate =
@@ -3037,6 +3051,63 @@ static void AnimPetalDanceSmallFlower_Step(struct Sprite* sprite)
     {
        DestroyAnimSprite(sprite);
     }
+}
+
+// Shoots a leaf upward, then floats it downward while swaying back and forth.
+// arg 0: upward x delta per frame
+// arg 1: upward y delta per frame
+// arg 2: upward duration
+static void AnimMoneyParticle(struct Sprite* sprite)
+{
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    sprite->data[0] = gBattleAnimArgs[0];
+    sprite->data[1] = gBattleAnimArgs[1];
+    sprite->data[2] = gBattleAnimArgs[2];
+    sprite->callback = AnimMoneyParticle_Step1;
+}
+
+static void AnimMoneyParticle_Step1(struct Sprite* sprite)
+{
+    if (!sprite->data[2])
+    {
+        if (sprite->data[1] & 1)
+        {
+            sprite->data[0] = 0x80;
+            sprite->data[1] = 0;
+            sprite->data[2] = 0;
+        }
+        else
+        {
+            sprite->data[0] = 0;
+            sprite->data[1] = 0;
+            sprite->data[2] = 0;
+        }
+        sprite->callback = AnimMoneyParticle_Step2;
+    }
+    else
+    {
+        sprite->data[2]--;
+        sprite->x += sprite->data[0];
+        sprite->y += sprite->data[1];
+    }
+}
+
+static void AnimMoneyParticle_Step2(struct Sprite* sprite)
+{
+    if (GetBattlerSide(gBattleAnimTarget))
+        sprite->x2 = -Sin(sprite->data[0], 25);
+    else
+        sprite->x2 = Sin(sprite->data[0], 25);
+
+    sprite->data[0] += 2;
+    sprite->data[0] &= 0xFF;
+    sprite->data[1]++;
+    if (!(sprite->data[1] & 1))
+        sprite->y2++;
+
+    if (sprite->data[1] > 80)
+        DestroyAnimSprite(sprite);
 }
 
 // Shoots a leaf upward, then floats it downward while swaying back and forth.
