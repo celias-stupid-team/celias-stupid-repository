@@ -1795,7 +1795,8 @@ Move_THUNDER_SHOCK:
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 6, 0, RGB_BLACK
 	waitforvisualfinish
 	end
-
+	
+Move_FUSION_BOLT:
 Move_10000_VOLTS:
 Move_THUNDERBOLT:
 	loadspritegfx ANIM_TAG_SPARK
