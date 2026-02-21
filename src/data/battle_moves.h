@@ -10597,7 +10597,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_QUINTUPLE_WINGBEAT] =
     {
         .effect = EFFECT_MULTI_HIT_FIVE,
-        .power = 40,
+        .power = 500,
         .type = TYPE_FLYING,
         .accuracy = 0,
         .pp = 35,
@@ -11104,7 +11104,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_EXTREME_SLOW] =
     {
         .effect = EFFECT_HIT,
-        .power = 7-,
+        .power = 70,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,

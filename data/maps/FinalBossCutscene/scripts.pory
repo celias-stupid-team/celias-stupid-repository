@@ -1,6 +1,9 @@
 mapscripts FinalBossCutscene_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_0, 0 {
+            applymovement(LOCALID_PLAYER, moves(
+                set_invisible
+            ))
             delay(10)
             fadescreenswapbuffers(FADE_TO_BLACK)
             playse(SE_BALL_THROW)
