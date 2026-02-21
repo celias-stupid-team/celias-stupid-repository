@@ -99,6 +99,10 @@ CeladonCity_EventScript_GameCornerSign::
 const CELIA = 15
 mapscripts CeladonCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_2)
+		if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY) && !flag(FLAG_BADGE04_GET) && flag(FLAG_WORLD_MAP_CELADON_CITY)) {
+			clearflag(FLAG_TEMP_2)
+		}
 		setworldmapflag(FLAG_WORLD_MAP_CELADON_CITY)
 		setbench(BENCH_CELADON)
 		if(!flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
@@ -495,3 +499,16 @@ script CeliaSecrets_CeladonShinies {
 	end
 }
 
+
+script CeladonCity_FindTheGym {
+	msgbox(
+	"Hey, there!\n"
+	"Welcome back to CELADON!\l"
+	"I saw you running around earlier.\p"
+
+	"Say, when you were here before\n"
+	"did you ever find the GYM?\p"
+
+	"It might be a good idea to see\n"
+	"if you can find it.", MSGBOX_NPC)
+}

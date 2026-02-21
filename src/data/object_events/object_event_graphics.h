@@ -818,3 +818,5 @@ const u32 gObjectEventPic_SLOW_BRO[] = INCBIN_U32("graphics/object_events/pics/s
 const u16 gObjectEventPal_SLOW_BRO[] = INCBIN_U16("graphics/object_events/palettes/SLOW_BRO.gbapal");
 const u32 gObjectEventPic_SHELLA_JEFF[] = INCBIN_U32("graphics/object_events/pics/stupid/SHELLA_JEFF.4bpp");
 const u16 gObjectEventPal_SHELLA_JEFF[] = INCBIN_U16("graphics/object_events/palettes/SHELLA_JEFF.gbapal");
+const u32 gObjectEventPic_GENGAR[] = INCBIN_U32("graphics/object_events/pics/stupid/GENGAR.4bpp");
+const u16 gObjectEventPal_GENGAR[] = INCBIN_U16("graphics/object_events/palettes/GENGAR.gbapal");
