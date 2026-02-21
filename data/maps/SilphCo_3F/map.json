@@ -211,16 +211,6 @@
       "script": "SilphCo_3F_EventScript_Door2"
     },
     {
-      "type": "hidden_item",
-      "x": 34,
-      "y": 18,
-      "elevation": 0,
-      "item": "ITEM_PROTEIN",
-      "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_3F_PROTEIN",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 29,
       "y": 1,

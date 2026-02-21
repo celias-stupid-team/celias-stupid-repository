@@ -13,9 +13,12 @@
 #include "script.h"
 #include "link.h"
 #include "quest_log.h"
+#include "fldeff.h"
+
 #include "constants/maps.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
+#include "constants/event_objects.h"
 
 #define MAX_ENCOUNTER_RATE 1600
 
@@ -295,11 +298,38 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
 {
     u8 slot = ChooseWildMonIndex_Fishing(rod);
     u8 level = ChooseWildMonLevel(&info->wildPokemon[slot]);
-    if(rod != GOOD_ROD) {
-        GenerateWildMon(info->wildPokemon[slot].species, level, slot);
-    } else {
+    s16 x, y;
+    u16 behavior = MapGridGetMetatileBehaviorAt(x, y); //Doesn't work for some reason
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+    //DebugPrintf("X is %d", x);
+    //DebugPrintf("Y is %d", y);
+    //DebugPrintf("Behavior is %d", behavior);
+
+    if(rod == GOOD_ROD) {
         FlagClear(FLAG_SHINY_CREATION);
         GenerateWildMon(SPECIES_GOLDEEN, level, slot);
+
+    } else if (FlagGet(FLAG_SYS_GIRL_HOLE)) {
+        //DebugPrintf("Girl Hole");
+        FlagSet(FLAG_SHINY_CREATION);
+        FlagClear(FLAG_SYS_GIRL_HOLE);
+        GenerateWildMon(SPECIES_CLOYSTER, level, slot);
+
+    } else if (FlagGet(FLAG_SYS_LUVDISC_TILE)) {
+        //DebugPrintf("Girl Hole");
+        FlagSet(FLAG_SHINY_CREATION);
+        FlagClear(FLAG_SYS_LUVDISC_TILE);
+        GenerateWildMon(SPECIES_LUVDISC, level, slot);
+
+    } else if (FlagGet(FLAG_SYS_ZAPDOS_STATUE)) {
+        //DebugPrintf("zapdos");
+        FlagSet(FLAG_SHINY_CREATION);
+        FlagClear(FLAG_SYS_ZAPDOS_STATUE);
+        VarSet(VAR_TEMP_B, 1);
+        GenerateWildMon(SPECIES_ZAPDOS, 50, slot);
+    } else {
+        //DebugPrintf("Not zapdos");
+        GenerateWildMon(info->wildPokemon[slot].species, level, slot);
 
     }
     return info->wildPokemon[slot].species;
@@ -499,22 +529,47 @@ bool8 SweetScentWildEncounter(void)
                 StartRoamerBattle();
                 return TRUE;
             }
+            
 
-            if (gWildMonHeaders[headerId].waterMonsInfo == NULL)
+            if(!FlagGet(FLAG_RELEASED_ZUBAT)) {
                 return FALSE;
 
-            TryGenerateWildMon(gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, 0);
-            StartWildBattle();
+
             return TRUE;
+            } else {
+                switch(VarGet(VAR_SWEET_SCENT_WATER)) {
+                    case 10:
+                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                        GenerateWildMon(SPECIES_JIGGLYPUFF, 20, 0);
+                        StartWildBattle();
+                        return TRUE;
+                        break;
+                    case 12:
+                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                        FlagSet(FLAG_SHINY_CREATION);
+                        GenerateWildMon(SPECIES_ZUBAT, 20, 0);
+                        StartWildBattle();
+                        return TRUE;
+                        break;
+                    case 15:
+                        return FALSE;
+                        break;
+                    default:
+                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                        GenerateWildMon(SPECIES_ZUBAT, 20, 0);
+                        StartWildBattle();
+                        return TRUE;
+                        break;
+                }
+            }
         }
     }
-
-    return FALSE;
 }
 
 bool8 DoesCurrentMapHaveFishingMons(void)
 {
     u16 headerIdx = GetCurrentMapWildMonHeaderId();
+
     if (headerIdx == HEADER_NONE)
         return FALSE;
     if (gWildMonHeaders[headerIdx].fishingMonsInfo == NULL)

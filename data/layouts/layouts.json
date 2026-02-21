@@ -1672,7 +1672,7 @@
     {
       "id": "LAYOUT_SEAFOAM_ISLANDS_B1F",
       "name": "SeafoamIslands_B1F_Layout",
-      "width": 54,
+      "width": 63,
       "height": 35,
       "border_width": 2,
       "border_height": 2,
@@ -1900,8 +1900,8 @@
     {
       "id": "LAYOUT_SSANNE_ROOM1",
       "name": "SSAnne_Room1_Layout",
-      "width": 6,
-      "height": 8,
+      "width": 11,
+      "height": 9,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -3285,7 +3285,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SilphCo",
+      "secondary_tileset": "gTileset_SilphCo3",
       "border_filepath": "data/layouts/FiveIsland_RocketWarehouse/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland_RocketWarehouse/map.bin"
     },
@@ -5477,11 +5477,11 @@
       "id": "LAYOUT_VIRIDIAN_GYM_FALKNER",
       "name": "ViridianGym_Falkner_Layout",
       "width": 20,
-      "height": 20,
+      "height": 40,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
-      "secondary_tileset": "gTileset_CeruleanGym",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MtSilver",
       "border_filepath": "data/layouts/ViridianGym_Falkner/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Falkner/map.bin"
     },
@@ -6136,7 +6136,7 @@
     {
       "id": "LAYOUT_CAVE_OF_ORIGIN_2F",
       "name": "CaveOfOrigin_2F_Layout",
-      "width": 20,
+      "width": 33,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -7368,6 +7368,42 @@
       "secondary_tileset": "gTileset_RainbowCloud",
       "border_filepath": "data/layouts/RainbowCloud_FinalShiny/border.bin",
       "blockdata_filepath": "data/layouts/RainbowCloud_FinalShiny/map.bin"
+    },
+    {
+      "id": "LAYOUT_SSANNE_CAPTAINS_OFFICE_HOLE",
+      "name": "SSAnne_CaptainsOffice_HOLE",
+      "width": 9,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SSAnne",
+      "border_filepath": "data/layouts/SSAnne_CaptainsOffice_HOLE/border.bin",
+      "blockdata_filepath": "data/layouts/SSAnne_CaptainsOffice_HOLE/map.bin"
+    },
+    {
+      "id": "LAYOUT_SSANNE_1F_CORRIDOR_LAYOUT_JUMPY",
+      "name": "SSAnne_1F_Corridor_Layout_Jumpy",
+      "width": 31,
+      "height": 21,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SSAnne",
+      "border_filepath": "data/layouts/SSAnne_1F_Corridor_Layout_Jumpy/border.bin",
+      "blockdata_filepath": "data/layouts/SSAnne_1F_Corridor_Layout_Jumpy/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_FALKNER_BRIDGE",
+      "name": "ViridianGym_Falkner_BRIDGE",
+      "width": 20,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MtSilver",
+      "border_filepath": "data/layouts/ViridianGym_Falkner_BRIDGE/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Falkner_BRIDGE/map.bin"
     }
   ]
 }

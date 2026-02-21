@@ -85,17 +85,59 @@ script Route4_EventScript_MinusSitrusBerries {
 	lock
 	if(flag(FLAG_CSR_ROUTE_4_BERRIES)) {
 		msgbox("After placing two SITRUS BERRIES\nhere, there is nothing left.", MSGBOX_DEFAULT)
+		if(checkitem(ITEM_NOTHING)) {
+			msgbox(
+			"Unfortunately, the NOTHING is\n"
+			"now stuck to the ground.\l"
+			"You cannot take it.\p"
+
+			"This makes sense.\n"
+			"", MSGBOX_DEFAULT)
+		}
 	} else {
+		if(checkitem(ITEM_NOTHING) && !checkitem(ITEM_SITRUS_BERRY) && !flag(FLAG_SITRUS_BERRY_NOTHING)) {
+			msgbox(
+				"There's nothing here.\p"
+
+				"Actually, there's even less than\n"
+				"that.\p"
+
+				"{PLAYER} took out some of the\n"
+				"NOTHING…", MSGBOX_DEFAULT)
+				setflag(FLAG_SITRUS_BERRY_NOTHING)
+				giveitem(ITEM_NOTHING)
+				
+
+		}
+		
 		checkitem(ITEM_SITRUS_BERRY, 2)
 		if(var(VAR_RESULT)) {
-			playfanfare(MUS_TOO_BAD)
-			msgbox("{PLAYER} found -2 SITRUS BERRIES!\n", MSGBOX_AUTOCLOSE)
-			waitfanfare
-			msgbox("{PLAYER} took the SITRUS BERRIES\nout of the BERRY POUCH.", MSGBOX_DEFAULT)
-			removeitem(ITEM_SITRUS_BERRY, 2)
-			setflag(FLAG_CSR_ROUTE_4_BERRIES)
+			if(flag(FLAG_SITRUS_BERRY_NOTHING)) {
+
+				playfanfare(MUS_TOO_BAD)
+				msgbox("{PLAYER} found -1 SITRUS BERRIES!\n", MSGBOX_AUTOCLOSE)
+				waitfanfare
+				msgbox("{PLAYER} took the SITRUS BERRY\nout of the BERRY POUCH.", MSGBOX_DEFAULT)
+				removeitem(ITEM_SITRUS_BERRY, 1)
+				setflag(FLAG_CSR_ROUTE_4_BERRIES)
+			} else {
+				playfanfare(MUS_TOO_BAD)
+				msgbox("{PLAYER} found -2 SITRUS BERRIES!\n", MSGBOX_AUTOCLOSE)
+				waitfanfare
+				msgbox("{PLAYER} took the SITRUS BERRIES\nout of the BERRY POUCH.", MSGBOX_DEFAULT)
+				removeitem(ITEM_SITRUS_BERRY, 2)
+				setflag(FLAG_CSR_ROUTE_4_BERRIES)
+
+			}
 		} else {
-			msgbox("There's nothing here.\pOr wait, maybe there's even\nless than that...", MSGBOX_DEFAULT)
+			if(flag(FLAG_SITRUS_BERRY_NOTHING)) {
+				msgbox(
+				"There is now slightly less NOTHING\n"
+				"here.", MSGBOX_DEFAULT)
+			} else {
+				msgbox("There's NOTHING here.\pOr wait, maybe there's even\nless than that...", MSGBOX_DEFAULT)
+
+			}
 		}
 	}
 	release

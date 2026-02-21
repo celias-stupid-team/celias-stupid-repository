@@ -328,3 +328,9 @@ const u32 gMetatileAttributes_SilphCo2[] = INCBIN_U32("data/tilesets/secondary/s
 
 const u16 gMetatiles_DMCAErika[] = INCBIN_U16("data/tilesets/secondary/dmcaerika/metatiles.bin");
 const u32 gMetatileAttributes_DMCAErika[] = INCBIN_U32("data/tilesets/secondary/dmcaerika/metatile_attributes.bin");
+
+const u16 gMetatiles_SilphCo3[] = INCBIN_U16("data/tilesets/secondary/silph_co_3/metatiles.bin");
+const u32 gMetatileAttributes_SilphCo3[] = INCBIN_U32("data/tilesets/secondary/silph_co_3/metatile_attributes.bin");
+
+const u16 gMetatiles_MtSilver[] = INCBIN_U16("data/tilesets/secondary/mt_silver/metatiles.bin");
+const u32 gMetatileAttributes_MtSilver[] = INCBIN_U32("data/tilesets/secondary/mt_silver/metatile_attributes.bin");

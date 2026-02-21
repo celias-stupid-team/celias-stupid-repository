@@ -100,6 +100,7 @@ EventScript_UseRockSmash::
 	applymovement VAR_LAST_TALKED, Movement_BreakRock
 	waitmovement 0
 	removeobject VAR_LAST_TALKED
+	setvar VAR_USED_ROCK_SMASH, 1
 	special RockSmashWildEncounter
 	goto_if_eq VAR_RESULT, FALSE, EventScript_RockSmashNoEncounter
 	waitstate
@@ -355,4 +356,6 @@ EventScript_FailSweetScent::
 	end
 
 Text_LooksLikeNothingHere::
-	.string "Looks like there's nothing here…$"
+	.string "Looks like there isn't anything\n"
+	.string "here…$"
+

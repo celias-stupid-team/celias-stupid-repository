@@ -1,7 +1,73 @@
 mapscripts Minnesota_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_CSR_MAP_MINNESOTA)
+		setflag(FLAG_TEMP_5)
+		if(flag(FLAG_SYS_ROTOM_MENU)) {
+			if(!checkfieldmove(MOVE_SURF) && !checkfieldmove(MOVE_FLY)) {
+				clearflag(FLAG_TEMP_5)
+			}
+		} else {
+			if(checkpartymove(MOVE_SURF) == PARTY_SIZE && checkpartymove(MOVE_FLY) == PARTY_SIZE) {
+				clearflag(FLAG_TEMP_5)
+			}
+		}
+		
 	}
+}
+
+script Minnesota_Softlock {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_3)) {
+		playse(SE_PC_LOGIN)
+		msgbox(
+		"{PLAYER} kicked the CELIA.\n"
+		"", MSGBOX_DEFAULT)
+		goto(EventScript_PCMainMenu)
+
+	}
+	msgbox(
+	"Hi!\n"
+	"It's me, CELIA!\p"
+
+	"It seems you've been trying to\n"
+	"softlock yourself here.\l"
+	"Whoopsies!\p"
+
+	"Don't worry!\n"
+	"I got you covered.\p"
+
+	"Here, take this!\n"
+	"", MSGBOX_DEFAULT)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GIMMIGHOUL)
+	setflag(FLAG_SHINY_CREATION)
+	playfanfare(MUS_LEVEL_UP)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"{PLAYER} was given a\n"
+	"free GIMMIGHOUL!", MSGBOX_DEFAULT)
+	waitfanfare
+	call(Common_Script_GiftPokemon19)
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"And you might need this too!\n"
+	"", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	giveitem_msg("{PLAYER} also got a\nRARE CANDY!",ITEM_RARE_CANDY)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"And finally…!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	setflag(FLAG_TEMP_3)
+	playse(SE_PC_LOGIN)
+	msgbox(
+	"{PLAYER} kicked the CELIA.\n"
+	"", MSGBOX_DEFAULT)
+	goto(EventScript_PCMainMenu)
 }
 
 script Minnesota_CantSeeFar {

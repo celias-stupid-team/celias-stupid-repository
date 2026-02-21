@@ -1,5 +1,7 @@
 mapscripts ViridianGym_HubRoom_9_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        
+    }
 }
 
 script ViridianGym_StatueFisher {

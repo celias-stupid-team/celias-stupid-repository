@@ -1,12 +1,4 @@
 raw `
-Route23_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route23_OnTransition
-	.byte 0
-
-Route23_OnTransition::
-	clearflag FLAG_HIDE_VICTORY_ROAD_3F_BOULDER
-	setflag FLAG_HIDE_VICTORY_ROAD_2F_BOULDER
-	end
 
 Route23_EventScript_CascadeBadgeGuard::
 	lock
@@ -77,6 +69,14 @@ Route23_EventScript_VictoryRoadGateSign::
 	msgbox Route23_Text_VictoryRoadGateSign, MSGBOX_SIGN
 	end
 `
+mapscripts Route23_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(var(VAR_MAP_SCENE_ROUTE23) >= 4 && !flag(FLAG_BADGE08_GET)) {
+			setvar(VAR_MAP_SCENE_ROUTE23, 3)
+		}
+	}
+}
+
 script Route23_EventScript_CeliaZapdos {
 	msgbox("The idea of just casually dropping\nZAPDOS to anyone who decides to\lactually come back here is so good.\pI don't have much to say - I just\nthink it's extremely funny.", MSGBOX_NPC)
 	end

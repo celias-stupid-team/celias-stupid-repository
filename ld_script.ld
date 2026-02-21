@@ -1058,6 +1058,7 @@ SECTIONS {
         sound/songs/midi/mus_pisces_gym.o(.rodata);
         sound/songs/midi/mus_kenya.o(.rodata);
         sound/songs/midi/mus_alola_route2.o(.rodata);
+        sound/songs/midi/mus_salsa.o(.rodata);
 
     } > ROM =0
 

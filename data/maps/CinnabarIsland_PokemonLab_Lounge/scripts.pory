@@ -66,6 +66,11 @@ mapscripts CinnabarIsland_PokemonLab_Lounge_MapScripts {
 				release
 				end
 			}
+			if(!flag(FLAG_BROKE_STEVEN_STONE)) {
+				setvar(VAR_USED_ROCK_SMASH, 0)
+				release
+				end
+			}
 			setflag(FLAG_CELIA_SECRET_CINNABAR)
 			msgbox(
 			"Celia comes in\n"

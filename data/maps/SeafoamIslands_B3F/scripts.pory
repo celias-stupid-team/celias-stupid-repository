@@ -703,6 +703,7 @@ script SeafoamIslands_ZubatWall {
 			walk_fastest_down
 			walk_fastest_left
 			walk_fastest_down * 7
+			set_invisible
 		))
 		delay(8)
 		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
@@ -783,7 +784,7 @@ script SeafoamIslands_ZubatWall {
 		delay(8)
 		setobjectxy(LOCALID_SEAFOAMZUBAT_5, 10, 0)
 		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
-		applymovement(LOCALID_SEAFOAMZUBAT_5, moves(
+		applymovement(LOCALID_SEAFOAMZUBAT_9, moves(
 			walk_fastest_down
 			set_visible
 			walk_fastest_down
@@ -802,14 +803,14 @@ script SeafoamIslands_ZubatWall {
 		))
 		waitmoncry
 		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
-		applymovement(LOCALID_SEAFOAMZUBAT_9, moves(
+		applymovement(LOCALID_SEAFOAMZUBAT_5, moves(
 			walk_fastest_down
 			set_visible
 			walk_fastest_down
 			walk_fastest_left
 			walk_fastest_down * 7
 		))
-		waitmovement(LOCALID_SEAFOAMZUBAT_9)
+		waitmovement(LOCALID_SEAFOAMZUBAT_5)
 		applymovement(LOCALID_PLAYER, moves(
 			face_up
 		))
@@ -830,6 +831,9 @@ script SeafoamIslands_ZubatWall {
 		release
 		end
 	}
+	release
+
+
 }
 
 

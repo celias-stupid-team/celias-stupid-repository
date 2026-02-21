@@ -1,12 +1,6 @@
 raw `
-FourIsland_PokemonCenter_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, FourIsland_PokemonCenter_1F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
-	.byte 0
 
-FourIsland_PokemonCenter_1F_OnTransition::
-	setrespawn HEAL_LOCATION_FOUR_ISLAND
-	end
+
 
 FourIsland_PokemonCenter_1F_EventScript_Nurse::
 	lock
@@ -27,3 +21,32 @@ FourIsland_PokemonCenter_1F_EventScript_Gentleman::
 	msgbox FourIsland_PokemonCenter_1F_Text_NewPokemonJournalHasntArrived, MSGBOX_NPC
 	end
 `
+
+mapscripts FourIsland_PokemonCenter_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setrespawn(HEAL_LOCATION_FOUR_ISLAND)
+		setflag(FLAG_TEMP_2)
+		if(checkitem(ITEM_SPARE_DOOR)) {
+			clearflag(FLAG_TEMP_2)
+		}
+
+	}
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_PUT_SPARE_DOOR_IN_FOUR_ISLAND)) {
+			setmetatile(12, 1, 0x16B, FALSE)
+		}
+	}
+	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+}
+
+
+script FourIsland_PokemonCenterDoor {
+	removeitem(ITEM_SPARE_DOOR)
+	delay(30)
+	setflag(FLAG_PUT_SPARE_DOOR_IN_FOUR_ISLAND)
+	playse(SE_CLICK)
+	setmetatile(12, 1, 0x16B, FALSE)
+	special(DrawWholeMapView)
+	removeobject(VAR_LAST_TALKED)
+
+}

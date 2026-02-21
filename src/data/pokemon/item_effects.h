@@ -300,6 +300,10 @@ static const u8 sItemEffect_SoulDew[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
+static const u8 sItemEffect_RatStone[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 
 static const u8 sItemEffect_LetterW[6] = {
     [4] = ITEM4_EVO_STONE,
@@ -438,6 +442,7 @@ const u8 *const gItemEffectTable[] =
     [ITEM_W_EMBLEM - ITEM_POTION] = sItemEffect_WEmblem,
     [ITEM_LETTER_W - ITEM_POTION] = sItemEffect_LetterW,
     [ITEM_CANDY_DISPENSER - ITEM_POTION] = sItemEffect_RareCandy,
+    [ITEM_RAT_STONE - ITEM_POTION] = sItemEffect_RatStone,
     //LAST_BERRY_INDEX commented becaus it is equal to ITEM_LIBERRY
     //[LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
 };

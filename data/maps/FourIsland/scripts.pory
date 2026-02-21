@@ -586,6 +586,7 @@ script FourIsland_BarryHater {
 
 
 script FourIsland_BidoofHint {
+	famechecker(FAMECHECKER_SAFFRON, 3)
 	msgbox(
 	"They say there's a POKéMON made to\n"
 	"help traverse across the world.\p"

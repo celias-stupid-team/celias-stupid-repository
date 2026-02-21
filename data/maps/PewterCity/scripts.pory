@@ -841,11 +841,18 @@ script PewterCity_CeliaFuckup {
 const CELIA = 11
 mapscripts PewterCity_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		if(flag(FLAG_BADGE01_GET) && var(VAR_MAP_SCENE_CSR_LASS_1) == 0 && (flag(FLAG_EVOLVED_CATERPIE_BEFORE_BROCK) || checkpartymove(MOVE_CONFUSION) == PARTY_SIZE) && !flag(FLAG_GOT_CATERPIE)) { //Make it check for grindy butterfree
+		if(flag(FLAG_BADGE01_GET)
+		&& var(VAR_MAP_SCENE_CSR_LASS_1) == 0
+		&& (!checkpartymon(SPECIES_BUTTERFREE)) // Is there a problem here??
+
+		&& !flag(FLAG_GOT_CATERPIE)) { //Make it check for grindy butterfree
 		//or checkaprty move > 6
 			setvar(VAR_PEWTER_CELIA_SCENE, 1)
 			setobjectxyperm(CELIA, 15, 19)
 			setobjectmovementtype(CELIA, MOVEMENT_TYPE_FACE_UP)
+			setflag(FLAG_GOT_CATERPIE)
+		}
+		if(flag(FLAG_BADGE01_GET)) {
 			setflag(FLAG_GOT_CATERPIE)
 		}
 	}
@@ -853,20 +860,8 @@ mapscripts PewterCity_MapScripts {
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_PEWTER_CELIA_SCENE, 1 {
 			setvar(VAR_PEWTER_CELIA_SCENE, 2)
-			playse(SE_PIN)
-			applymovement(CELIA, Common_Movement_ExclamationMark)
-			delay(60)
-			applymovement(CELIA, Common_Movement_WalkUp)
-			waitmovement(0)
-			textcolor(NPC_TEXT_COLOR_FEMALE)
-			msgbox("Hiya!\nI'm CELIA, the creator!\pWow, you sure did beat that fight\nwithout getting BUTTERFREE!\lThat, uh… impressive?\pY'know, there was an easier way to\ndo it.\lOne that doesn't involve grinding.\pOh, who am I kidding.\nYou already knew that, didn't you?\pWell, if you're so insistent on\ngetting through via levels, here!\lI have a gift for you!", MSGBOX_DEFAULT)
-			setflag(FLAG_SHINY_CREATION) //Butterfree
-			textcolor(NPC_TEXT_COLOR_NEUTRAL)
-			playfanfare(MUS_LEVEL_UP)
-			msgbox("{PLAYER} obtained a comically-strong\nCATERPIE!", MSGBOX_DEFAULT)
-			waitfanfare
-			//gift pokemon
 			call(PewterCity_OntainedCaterpie)
+
 			
 		}
 	]
@@ -877,6 +872,19 @@ movement CeliaLeavesAfterBrock {
 }
 
 script PewterCity_OntainedCaterpie {
+	playse(SE_PIN)
+	applymovement(CELIA, Common_Movement_ExclamationMark)
+	delay(60)
+	applymovement(CELIA, Common_Movement_WalkUp)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Hiya!\nI'm CELIA, the creator!\pWow, you sure did beat that fight\nwithout getting BUTTERFREE!\lThat, uh… impressive?\pY'know, there was an easier way to\ndo it.\lOne that doesn't involve grinding.\pOh, who am I kidding.\nYou already knew that, didn't you?\pWell, if you're so insistent on\ngetting through via levels, here!\lI have a gift for you!", MSGBOX_DEFAULT)
+	setflag(FLAG_SHINY_CREATION) //Butterfree
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox("{PLAYER} obtained a comically-strong\nCATERPIE!", MSGBOX_DEFAULT)
+	waitfanfare
+	//gift pokemon
 	copyvar(VAR_TEMP_1, SPECIES_CATERPIE)
 	givemon(SPECIES_CATERPIE, 100)
 	clearflag(FLAG_SHINY_CREATION)

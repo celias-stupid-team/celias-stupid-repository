@@ -507,8 +507,8 @@
     {
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_FALKNER",
       "map": "MAP_VIRIDIAN_GYM_FALKNER",
-      "x": 5,
-      "y": 8,
+      "x": 10,
+      "y": 23,
       "respawn_map": "MAP_VIRIDIAN_GYM_FALKNER",
       "respawn_npc": "1"
     },
@@ -598,6 +598,14 @@
       "x": 26,
       "y": 24,
       "respawn_map": "MAP_FIVE_ISLAND_ROCKET_WAREHOUSE",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_OCEAN11",
+      "map": "MAP_OCEAN11",
+      "x": 26,
+      "y": 17,
+      "respawn_map": "MAP_OCEAN11",
       "respawn_npc": "1"
     }
   ]

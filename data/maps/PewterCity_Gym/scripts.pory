@@ -38,7 +38,6 @@ PewterCity_Gym_EventScript_GiveTM39::
 	closemessage
 	delay 50
 	msgbox PewterCity_Gym_Text_DryingPan
-	call PewterGym_CheckForButterfree
 	release
 	end
 

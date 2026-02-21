@@ -78,7 +78,7 @@ static void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon);
 static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 static u8 GetLevelFromMonExp(struct Pokemon *mon);
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon);
-
+void BillsSecretGardenDebug(void);
 
 
 #include "data/battle_moves.h"
@@ -2240,6 +2240,9 @@ void CalculateMonStats(struct Pokemon *mon)
     {
         s32 n = 2 * gSpeciesInfo[species].baseHP + hpIV;
         newMaxHP = (((n + hpEV / 4) * level) / 100) + level + 10;
+
+        if (species == SPECIES_FINALZAPDOS)
+            newMaxHP *= 2; // over-increase HP for Final Zapdos
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;
@@ -7051,4 +7054,14 @@ u16 GetCurrentZapmolcunoSpecies(void)
     species = SPECIES_FINALLUGIA + offset;
 
     return species;
+}
+
+
+void BillsSecretGardenDebug(void) {
+    DebugPrintf("---DEBUG START---");
+    DebugPrintf("Right Box Number %d", VarGet(VAR_TEMP_1));
+    DebugPrintf("Left Box Number %d", VarGet(VAR_TEMP_2));
+    DebugPrintf("Crimper Box Number %d", VarGet(VAR_TEMP_3));
+    DebugPrintf("Player Box Number %d", VarGet(VAR_TEMP_4));
+    DebugPrintf("PC Box Number %d", VarGet(VAR_TEMP_C));
 }

@@ -56,18 +56,26 @@ script Desert_AlienInDisguise {
 	lock
 	faceplayer
 	msgbox(
-	"I have forgotten everything\p"
+	"Hmmm…\n"
+	"Excuse me, could I have a moment?\p"
 
-	"Bring me STEEL WING so I can\n"
-	"remember", MSGBOX_DEFAULT)
+	"I seem to have forgotten who I\n"
+	"am, or where I've wound up.\p"
+
+	"The only thing I know is that I\n"
+	"have an oddly strong compatability\l"
+	"with the move STEEL WING.", MSGBOX_DEFAULT)
 	if(checkitem(ITEM_TM38)) {
 		msgbox(
-		"That's STEEL WING\p"
+		"Oh, yes!\n"
+		"Yes!\l"
+		"STEEL WING!\p"
 
-		"Oh yeah I remember now\n"
-		"I'm an alien"
-		"", MSGBOX_DEFAULT)
+		"I-… I've remembered!\n"
+		"I've remembered everything!", MSGBOX_DEFAULT)
 		closemessage
+		delay(60)
+		playse(SE_M_SPIT_UP)
 		setobjectxy(LOCALID_DESERT_ALIEN, 24, 23)
 		applymovement(VAR_LAST_TALKED, moves(
 			set_invisible
@@ -78,14 +86,55 @@ script Desert_AlienInDisguise {
 		waitmovement(0)
 		delay(30)
 		msgbox(
-		"Goodbye\n"
-		"", MSGBOX_DEFAULT)
+		"Now, I must return home.\p"
+
+		"Thank you, child.\p"
+
+		"You've shown me who I truly am.\n"
+		"And so, I'll leave you with a gift:\l"
+		"A sub-prime mortgage!", MSGBOX_DEFAULT)
 		
 		closemessage
-		delay(30)
 		removeitem(ITEM_TM38)
 		giveitem_msg("{PLAYER} got a\nHOUSE VOUCHER!", ITEM_HOUSEVOUCHER)
 		waitfanfare
+		msgbox(
+		"See ya later!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		playse(SE_M_PSYBEAM)
+		applymovement(LOCALID_DESERT_ALIEN, moves(
+			face_right
+			delay_2
+			face_up
+			delay_2
+			face_left
+			delay_2
+			face_down
+			delay_2
+			face_right
+			delay_2
+			face_up
+			delay_2
+			face_left
+			delay_2
+			face_down
+			delay_2
+			face_right
+			delay_2
+			face_up
+			delay_2
+			face_left
+			delay_2
+			face_down
+			delay_16 * 2
+		))
+		waitmovement(LOCALID_DESERT_ALIEN)
+		playse(SE_FLEE)
+		applymovement(LOCALID_DESERT_ALIEN, moves(
+			walk_faster_up * 7
+		))
+		waitmovement(LOCALID_DESERT_ALIEN)
 		removeobject(VAR_LAST_TALKED)
 		removeobject(LOCALID_DESERT_ALIEN)
 		setvar(VAR_TRADING_QUEST_PHASE, 3)

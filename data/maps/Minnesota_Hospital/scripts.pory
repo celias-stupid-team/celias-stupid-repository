@@ -1,5 +1,7 @@
 mapscripts Minnesota_Hospital_MapScripts {
-
+	MAP_SCRIPT_ON_TRANSITION {
+		setrespawn(HEAL_LOCATION_MINNESOTA)
+	}
 }
 
 

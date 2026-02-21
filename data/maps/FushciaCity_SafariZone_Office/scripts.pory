@@ -2,25 +2,43 @@ raw `
 FushciaCity_SafariZone_Office_MapScripts::
 	.byte 0
 
-FushciaCity_SafariZone_Office_EventScript_Worker1::
-	msgbox FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke, MSGBOX_NPC
-	end
 
-FushciaCity_SafariZone_Office_EventScript_Worker2::
-	msgbox FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable, MSGBOX_NPC
-	end
-
-FushciaCity_SafariZone_Office_EventScript_Worker3::
-	msgbox FushciaCity_SafariZone_Office_Text_CouldntUnderstandWarden, MSGBOX_NPC
-	end
-
-FushciaCity_SafariZone_Office_EventScript_Worker4::
-	msgbox FushciaCity_SafariZone_Office_Text_PrizeInSafariZone, MSGBOX_NPC
-	end
 `
 script FushciaCity_SlowpokeGuy {
 	lock
 	faceplayer
+	if(flag(FLAG_CRASHED_SLOWPOKE_MARKET) && !flag(FLAG_CSR_GOT_SLOWPOKE)) {
+		if(flag(FLAG_GOT_SHINY_MANKEY)) {
+			msgbox(
+			"…Huh?\p"
+
+			"Of course I'd give you one of the\n"
+			"good ones!\p"
+
+			"I need to make them look valuable\n"
+			"so other people buy them!", MSGBOX_DEFAULT)
+		} else {
+			msgbox(
+			"Hey there, kid!\n"
+			"Are you looking to get rich quick?\p"
+
+			"Let me tell ya:\n"
+			"MANKEY is the way to go.\p"
+
+			"Here let me start you out.\n"
+			"I have a gift for you!", MSGBOX_DEFAULT)
+			setflag(FLAG_GOT_SHINY_MANKEY)
+			setflag(FLAG_SHINY_CREATION)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MANKEY)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox("{PLAYER} received a MANKEY!\n", MSGBOX_DEFAULT)
+			waitfanfare
+			call(Common_Script_GiftPokemon)
+			msgbox("Trust me - You'll thank me later!\n", MSGBOX_DEFAULT)
+
+
+		}
+	}
 	if(flag(FLAG_CSR_GOT_SLOWPOKE)) {
 		msgbox("…Huh?\pOf course I wasn't gonna give you\none with a TAIL attached.\lThis ain't a charity!\pI just didn't need the rest of it.\nFigured I'd do a good deed.", MSGBOX_DEFAULT)
 	} else {
@@ -42,6 +60,70 @@ script FushciaCity_SlowpokeGuys_Bookshelf {
 }
 
 script FushciaCity_SlowpokeGuys_TrashCan {
-	msgbox("Lodged in the trash can are dozens\nand dozens of BICYCLES.", MSGBOX_SIGN)
+	
+	if(flag(FLAG_CRASHED_SLOWPOKE_MARKET)) {
+		lock
+		if(flag(FLAG_GOT_TRASH_SLOWPOKE)) {
+			msgbox(
+			"Lodged in the trash can is one less\n"
+			"than dozens of dozens of SLOWPOKES.", MSGBOX_DEFAULT)
+			release
+			end
+		}
+		msgbox("Lodged in the trash can are dozens\nand dozens of SLOWPOKES.", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SLOWPOKE)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} dug out a SLOWPOKE!\n", MSGBOX_DEFAULT)
+		waitfanfare
+		call(Common_Script_GiftPokemon)
+		setflag(FLAG_GOT_TRASH_SLOWPOKE)
+		release
+		end
+
+	} else {
+		msgbox("Lodged in the trash can are dozens\nand dozens of BICYCLES.", MSGBOX_SIGN)
+
+	}
 	end
+}
+
+
+script FushciaCity_SafariZone_Office_EventScript_Worker1{
+	if(flag(FLAG_CRASHED_SLOWPOKE_MARKET)) {
+		msgbox (FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke2, MSGBOX_NPC)
+		end
+	}
+	msgbox (FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke, MSGBOX_NPC)
+	end
+
+}
+
+script FushciaCity_SafariZone_Office_EventScript_Worker2 {
+	if(flag(FLAG_CRASHED_SLOWPOKE_MARKET)) {
+		msgbox (FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable2, MSGBOX_NPC)
+		end
+	}
+	msgbox (FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable, MSGBOX_NPC)
+	end
+}
+
+
+script FushciaCity_SafariZone_Office_EventScript_Worker3 {
+	if(flag(FLAG_CRASHED_SLOWPOKE_MARKET)) {
+		msgbox (FushciaCity_SafariZone_Office_Text_CouldntUnderstandWarden2, MSGBOX_NPC)
+		end
+	}
+	msgbox (FushciaCity_SafariZone_Office_Text_CouldntUnderstandWarden, MSGBOX_NPC)
+	end
+}
+
+
+script FushciaCity_SafariZone_Office_EventScript_Worker4 {
+	if(flag(FLAG_CRASHED_SLOWPOKE_MARKET)) {
+		msgbox (FushciaCity_SafariZone_Office_Text_PrizeInSafariZone2, MSGBOX_NPC)
+		end
+	}
+	msgbox (FushciaCity_SafariZone_Office_Text_PrizeInSafariZone, MSGBOX_NPC)
+	end
+
 }

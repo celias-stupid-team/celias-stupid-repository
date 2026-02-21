@@ -2221,3 +2221,41 @@ const u16 gTilesetPalettes_DMCAErika[][16] =
 };
 
 const u32 gTilesetTiles_DMCAErika[] = INCBIN_U32("data/tilesets/secondary/dmcaerika/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_SilphCo3[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/silph_co_3/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_SilphCo3[] = INCBIN_U32("data/tilesets/secondary/silph_co_3/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_MtSilver[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/mt_silver/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_MtSilver[] = INCBIN_U32("data/tilesets/secondary/mt_silver/tiles.4bpp.lz");

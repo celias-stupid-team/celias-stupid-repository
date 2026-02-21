@@ -414,6 +414,7 @@ script PirateBay_Nurse {
 					applymovement(VAR_LAST_TALKED, moves(
 							nurse_joy_bow
 							delay_4
+							face_down
 
 					))
 					waitmovement(0)
@@ -452,4 +453,76 @@ script PirateBay_Nurse {
 		release
 		end
 	}
+}
+
+script PirateBay_Buggy {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_GOT_TREASURE_MAP)) {
+		msgbox(
+		"Fwahahah!\n"
+		"Hear my name!\p"
+
+		"I am BUGGY THE CLOWN, finder of the\n"
+		"ONE PIECE!\p"
+
+		"I am the KING OF THE PIRATES!\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	if(checkitem(ITEM_ONE_PIECE)) {
+		msgbox(
+		"Y-you have it!\n"
+		"You have the-… …!\p"
+
+		"O-okay, buddy. Listen here.\n"
+		"Let's make a deal.\p"
+
+		"I have this here TREASURE MAP.\n"
+		"It leads right to a big X!\p"
+
+		"See? Fancy!\n"
+		"Why don't you take it and give me…\l"
+		"{PAUSE 30}…Aha!", MSGBOX_DEFAULT)
+		removeitem(ITEM_ONE_PIECE)
+		closemessage
+		playse(SE_M_SPIT_UP)
+		waitse
+		setflag(FLAG_GOT_TREASURE_MAP)
+		delay(20)
+		playfanfare(MUS_LEVEL_UP)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"The ONE PIECE was swapped out\n"
+		"for a TREASURE MAP!", MSGBOX_DEFAULT)
+		waitfanfare
+		additem(ITEM_MAP, 1)
+		closemessage
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		msgbox(
+		"I did it!!\n"
+		"I found the ONE PIECE!\l"
+		"Bwahahaha!\p"
+
+		"Hear that, everyone!?\n"
+		"I'm your new KING!", MSGBOX_DEFAULT)
+		release
+		end
+
+
+	}
+	msgbox(
+	"Gyaah!\n"
+	"How'd I wind up here?\p"
+
+	"No one in this place has even an\n"
+	"ounce of showmanship!\l"
+	"What a dump!\p"
+
+	"Never forget, PIRATES: Someday, I\n"
+	"will be your KING!", MSGBOX_DEFAULT)
+	release
+	end
 }

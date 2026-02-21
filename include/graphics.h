@@ -12907,3 +12907,34 @@ extern const u8 gMonIcon_PIKACHUSURF[];
 
 extern const u32 gItemIcon_SecretPage[];
 extern const u32 gItemIconPalette_SecretPage[];
+
+extern const u32 gItemIcon_MAP[];
+extern const u32 gItemIconPalette_MAP[];
+
+extern const u32 gTrainerFrontPic_Malva[];
+extern const u32 gTrainerPalette_Malva[];
+
+extern const u32 gTrainerFrontPic_Skiier[];
+extern const u32 gTrainerPalette_Skiier[];
+
+extern const u32 gTrainerFrontPic_DmcaRunt[];
+extern const u32 gTrainerPalette_DmcaRunt[];
+// SHINYABRA
+extern const u32 gMonFrontPic_SHINYABRA[];
+extern const u32 gMonPalette_SHINYABRA[];
+extern const u32 gMonBackPic_SHINYABRA[];
+extern const u32 gMonShinyPalette_SHINYABRA[];
+extern const u8 gMonFootprint_SHINYABRA[];
+extern const u8 gMonIcon_SHINYABRA[];
+
+
+extern const u32 gItemIcon_STAIRORB[];
+extern const u32 gItemIconPalette_STAIRORB[];
+// EARRAT
+extern const u32 gMonFrontPic_EARRAT[];
+extern const u32 gMonPalette_EARRAT[];
+extern const u32 gMonBackPic_EARRAT[];
+extern const u32 gMonShinyPalette_EARRAT[];
+extern const u8 gMonFootprint_EARRAT[];
+extern const u8 gMonIcon_EARRAT[];
+

@@ -3,10 +3,7 @@ EventScript_NeedCardKey::
 	releaseall
 	end
 
-EventScript_DoorUnlocked::
-	msgbox Text_TheDoorIsOpen
-	releaseall
-	end
+
 
 EventScript_Close2FDoor1::
 	setmetatile 5, 8, METATILE_SilphCo_HorizontalBarrier_TopLeft, 1

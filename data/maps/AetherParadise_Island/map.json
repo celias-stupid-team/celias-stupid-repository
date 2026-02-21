@@ -3,7 +3,7 @@
   "name": "AetherParadise_Island",
   "layout": "LAYOUT_AETHER_PARADISE_ISLAND",
   "music": "MUS_ALOLA_ROUTE2",
-  "region_map_section": "MAPSEC_GREAT_BAY",
+  "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
@@ -285,6 +285,14 @@
       "type": "sign",
       "x": 55,
       "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "StarlightIslandSign"
+    },
+    {
+      "type": "sign",
+      "x": 56,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "StarlightIslandSign"

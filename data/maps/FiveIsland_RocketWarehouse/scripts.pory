@@ -72,7 +72,7 @@ FiveIsland_RocketWarehouse_EventScript_Grunt3::
 	end
 
 FiveIsland_RocketWarehouse_EventScript_Admin2::
-	trainerbattle_single TRAINER_TEAM_ROCKET_ADMIN, FiveIsland_RocketWarehouse_Text_Admin2Intro, FiveIsland_RocketWarehouse_Text_Admin2Defeat, FiveIsland_RocketWarehouse_EventScript_DefeatedAdmin2
+	trainerbattle_single TRAINER_TEAM_ROCKET_ADMIN, FiveIsland_RocketWarehouse_Text_Admin2Intro, FiveIsland_RocketWarehouse_Text_Admin2Defeat
 	msgbox FiveIsland_RocketWarehouse_Text_Admin2PostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -402,4 +402,12 @@ script DMCAWarehouse_Martphone {
 	"Hat's not OAK, silly!\n"
 	"", MSGBOX_NPC)
 
+}
+
+script Warehouse_Earrat {
+	lock
+	showmonpic(SPECIES_EARRAT, 10, 3)
+	waitbuttonpress
+	release
+	end
 }

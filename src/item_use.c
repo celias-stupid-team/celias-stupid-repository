@@ -35,6 +35,8 @@
 #include "teachy_tv.h"
 #include "tm_case.h"
 #include "vs_seeker.h"
+#include "fldeff.h"
+
 #include "constants/sound.h"
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
@@ -44,6 +46,7 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/field_weather.h"
+
 
 static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
 EWRAM_DATA bool8 gUsingRegisteredPartyMenuItem = FALSE;
@@ -95,6 +98,8 @@ static void GenderFluidWarpOutEffect_Spin(struct Task *task);
 static void TryToTransTheNidotrans(u8 taskId);
 static void TransTheNidotrans(u8 taskId);
 void RemoveShoesFromToedy();
+void CurePorygonVirus();
+void ZygardeSwitcheroo();
 
 static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
@@ -362,6 +367,31 @@ static bool8 CanFish(void)
     
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     behavior = MapGridGetMetatileBehaviorAt(x, y);
+    if (MetatileBehavior_IsGirlHole(behavior)) {
+            //DebugPrintf("true");
+            FlagSet(FLAG_SYS_GIRL_HOLE);
+            return TRUE;
+
+    }
+    if (MetatileBehavior_IsFishableStatue(behavior)) {
+            //DebugPrintf("true");
+            //FlagSet(FLAG_SYS_GIRL_HOLE);
+            return TRUE;
+
+    }
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PENCIL)) {
+            //DebugPrintf("true");
+            FlagSet(FLAG_SYS_ZAPDOS_STATUE);
+            //FlagSet(FLAG_SHINY_CREATION);
+            return TRUE;
+
+    }
+    if (MetatileBehavior_IsLuvdiscTile(behavior)) {
+            //DebugPrintf("true");
+            FlagSet(FLAG_SYS_LUVDISC_TILE);
+            return TRUE;
+
+    }
 
     if (MetatileBehavior_IsWaterfall(behavior))
         return FALSE;
@@ -374,6 +404,8 @@ static bool8 CanFish(void)
     }
     else
     {
+         
+        
         if (MetatileBehavior_IsSurfable(behavior) && MapGridGetCollisionAt(x, y) == 0)
             return TRUE;
         if (MetatileBehavior_IsBridge(behavior) == TRUE)
@@ -1401,6 +1433,48 @@ static void TryToTransTheNidotrans(u8 taskId)
 }
 
 
+void CurePorygonVirus()
+{
+    u32 i, j;
+    u32 newPersonality, otID;
+    u16 newSpecies, oldSpecies;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    struct Pokemon *mon;
+    s16 slot = gSpecialVar_Result;
+    bool32 thisIsTrue = TRUE;
+    bool8 shinyness;
+
+    newSpecies = SPECIES_PORYGON;
+
+    mon = &gPlayerParty[slot];
+
+    otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+    GetMonNickname(mon, nickname);
+    newPersonality = Random32();
+    shinyness = GetMonData(mon, MON_DATA_CSR_SHINY);
+
+
+    // force the mon to be shiny
+    if(shinyness) {
+        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
+
+    }
+    
+    // if player has nicknamed their nidotran, don't overwrite it
+    if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+    {
+        SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+    }
+    SetMonData(mon, MON_DATA_SPECIES, &newSpecies);
+    if(shinyness) {
+        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+
+    }
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    UpdateMonPersonality(&mon->box, newPersonality);
+    CalculateMonStats(mon);
+    
+}
 
 
 
@@ -1415,6 +1489,39 @@ void RemoveShoesFromToedy()
     bool32 thisIsTrue = TRUE;
 
         newSpecies = SPECIES_TENTACOOL;
+
+        mon = &gPlayerParty[slot];
+
+        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+        GetMonNickname(mon, nickname);
+        newPersonality = Random32();
+
+        // force the mon to be shiny
+        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
+        
+        // if player has nicknamed their nidotran, don't overwrite it
+        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+        {
+            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+        }
+        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+        UpdateMonPersonality(&mon->box, newPersonality);
+        CalculateMonStats(mon);
+    
+}
+void ZygardeSwitcheroo()
+{
+    u32 i, j;
+    u32 newPersonality, otID;
+    u16 newSpecies, oldSpecies;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    struct Pokemon *mon;
+    s16 slot = gSpecialVar_Result;
+    bool32 thisIsTrue = TRUE;
+
+        newSpecies = SPECIES_ZYGARDE;
 
         mon = &gPlayerParty[slot];
 

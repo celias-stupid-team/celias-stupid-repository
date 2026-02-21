@@ -1028,9 +1028,22 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_RUNROTOMANIMATION1 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("...?"),
     [STRINGID_RUNROTOMANIMATION2 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("It's your ROTOM POKéDEX!{PAUSE 120}"),
     [STRINGID_RUNROTOMANIMATION3 - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Awesome!\pYou can now access your\nBOX during battle!{PAUSE_UNTIL_PRESS}"),
-    [STRINGID_ZAPMOLCUNOFAINTED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Foe ZAPMOLCUNO-OHGIA\nfainted!\p"),
+    [STRINGID_ZAPMOLCUNOFAINTED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("ZAPMOLCUNO-OHGIA\nwas defeated!\p"),
     [STRINGID_SHADOW_SKY_STARTS - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Non-SHADOW POKéMON will\nlose all health!"),
     [STRINGID_HAIL_STARTS - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("It started to\nhail!"),
+    [STRINGID_PKMNFULLYRESTORED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} fully recovered\nfrom all health problems!"),
+    [STRINGID_PKMNHURTBYDOUBLEDIP - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is hurt\nby the double dip!"),
+    [STRINGID_PKMNPREVENTEDREST - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s RESTLESS ability prevents\n{B_ATK_NAME_WITH_PREFIX} from taking a rest!"),
+
+    [STRINGID_FOE_LUGIA_FAINTED - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("Foe LUGIA\nfainted!"),
+    [STRINGID_FOE_ARTICUNO_FAINTED - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("Foe ARTICUNO\nfainted!"),
+    [STRINGID_FOE_HOOH_FAINTED - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("Foe HO-OH\nfainted!"),
+    [STRINGID_FOE_ZAPDOS_FAINTED - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("Foe ZAPDOS\nfainted!"),
+    [STRINGID_FOE_MOLTRES_FAINTED - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("Foe MOLTRES\nfainted!"),
+    [STRINGID_DONT_GIVE_UP - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("Never give up!{PAUSE 30}\nTrust your instincts!"),
+    [STRINGID_DAD_QUESTION_MARK - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{PAUSE 30}…{PAUSE 30}DAD!?"),
+    [STRINGID_SHADOWSKYPREVENTSSTATUS - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("The SHADOW SKY prevents\n{B_DEF_NAME_WITH_PREFIX} from being statused!"),
+    [STRINGID_PKMNISCHARGINGENERGY - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is charging energy!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1200,6 +1213,7 @@ const u16 gWrappedStringIds[] =
     STRINGID_PKMNCLAMPED,          // MOVE_CLAMP
     STRINGID_PKMNTRAPPEDINVORTEX,  // MOVE_WHIRLPOOL
     STRINGID_PKMNTRAPPEDBYSANDTOMB // MOVE_SAND_TOMB
+    STRINGID_PKMNSQUEEZEDBYBIND,   // MOVE_BIND
 };
 
 const u16 gMistUsedStringIds[] =
@@ -1431,6 +1445,7 @@ const u16 gTrappingMoves[NUM_TRAPPING_MOVES + 1] =
     MOVE_CLAMP,
     MOVE_WHIRLPOOL,
     MOVE_SAND_TOMB,
+    MOVE_BREAKING_BIND,
     0xFFFF // Never read
 };
 
@@ -2028,6 +2043,13 @@ void BufferStringBattle(u16 stringId)
                         if(sBattleMsgDataPtr->currentMove == MOVE_MAGICAL_LEAF )  {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_BARRY: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_MAGICAL_LEAF )  { //Snowgravy
+                        BattleStopLowHpSound();
+                        //RunScriptImmediately(FadeSongAndPlayVictory); //Play silence
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;

@@ -505,6 +505,7 @@ enum
     ENDTURN_MIST,
     ENDTURN_SAFEGUARD,
     ENDTURN_WISH,
+    ENDTURN_DOUBLE_DIP,
     ENDTURN_RAIN,
     ENDTURN_SANDSTORM,
     ENDTURN_SUN,
@@ -670,6 +671,30 @@ u8 DoFieldEndTurnEffects(void)
             if (effect == 0)
             {
                 gBattleStruct->turnCountersTracker++;
+                gBattleStruct->turnSideTracker = 0;
+            }
+            break;
+        case ENDTURN_DOUBLE_DIP:
+            while (gBattleStruct->turnSideTracker < gBattlersCount)
+            {
+                gActiveBattler = gBattlerAttacker = gBattlerByTurnOrder[gBattleStruct->turnSideTracker];
+                if (gStatuses3[gActiveBattler] & STATUS3_DOUBLE_DIP)
+                {
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    BattleScriptExecute(BattleScript_DoubleDipHits);
+                    gStatuses3[gBattlerAttacker] &= ~STATUS3_DOUBLE_DIP;
+                    effect++;
+                }
+                gBattleStruct->turnSideTracker++;
+                if (effect != 0)
+                    break;
+            }
+            if (effect == 0)
+            {
+                gBattleStruct->turnCountersTracker++;
+                gBattleStruct->turnSideTracker = 0;
             }
             break;
         case ENDTURN_RAIN:
@@ -770,7 +795,7 @@ u8 DoFieldEndTurnEffects(void)
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_SHADOW_SKY:
-            if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+            if ((gBattleWeather & B_WEATHER_SHADOW_SKY) && !gBattleTurnMonFainted)
             {
                 gBattlescriptCurrInstr = BattleScript_DamagingWeatherContinues;
                 gBattleScripting.animArg1 = B_ANIM_SHADOW_SKY_CONTINUES;
@@ -1314,6 +1339,7 @@ bool8 HandleFaintedMonActions(void)
                 if (gBattleMons[gBattleStruct->faintedActionsBattlerId].hp == 0
                  && !(gAbsentBattlerFlags & gBitTable[gBattleStruct->faintedActionsBattlerId]))
                 {
+                    gBattleTurnMonFainted = TRUE;
                     BattleScriptExecute(BattleScript_HandleFaintedMon);
                     gBattleStruct->faintedActionsState = 5;
                     return TRUE;
@@ -3520,14 +3546,15 @@ u8 IsMonDisobedient(void)
         if (FlagGet(FLAG_BADGE08_GET))
             return 0;
 
-        obedienceLevel = 10;
-
+        obedienceLevel = 100;
+        /*
         if (FlagGet(FLAG_BADGE02_GET))
             obedienceLevel = 30;
         if (FlagGet(FLAG_BADGE04_GET))
             obedienceLevel = 50;
         if (FlagGet(FLAG_BADGE06_GET))
             obedienceLevel = 70;
+        */
     }
 
     if (gBattleMons[gBattlerAttacker].level <= obedienceLevel)

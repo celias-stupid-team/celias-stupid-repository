@@ -1695,3 +1695,21 @@
 	callnative BS_PrintBirdsFaintString
 	.byte \position
 	.endm
+
+	.macro tryfullrestore failInstr:req, battler:req
+	callnative BS_TryFullRestore
+	.4byte \failInstr
+	.byte \battler
+	.endm
+
+	.macro setdoubledip
+	callnative BS_SetDoubleDip
+	.endm
+
+	.macro healthbarupdateparallel
+	callnative BS_HealthbarUpdateParallel
+	.endm
+
+	.macro datahpupdateparallel
+	callnative BS_DataHpUpdateParallel
+	.endm

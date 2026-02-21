@@ -33,7 +33,7 @@
     {
       "local_id": "LOCALID_BLAINE_TRAINER_3",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
+      "graphics_id": "OBJ_EVENT_GFX_SKIIER2",
       "x": 12,
       "y": 20,
       "elevation": 3,
@@ -48,7 +48,7 @@
     {
       "local_id": "LOCALID_BLAINE_TRAINER_2",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
+      "graphics_id": "OBJ_EVENT_GFX_MALVA",
       "x": 18,
       "y": 28,
       "elevation": 3,
@@ -92,7 +92,7 @@
     {
       "local_id": "LOCALID_BLAINE_TRAINER_5",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
+      "graphics_id": "OBJ_EVENT_GFX_EUSINE",
       "x": 17,
       "y": 16,
       "elevation": 3,

@@ -969,6 +969,7 @@ bool8 DoClosePokedex(void)
         return FALSE;
     case 2:
         FREE_IF_NOT_NULL(sPokedexScreenData->listItems);
+        FREE_IF_NOT_NULL(sPokedexScreenData->bgBufsMem);
         FREE_IF_NOT_NULL(sPokedexScreenData);
         FreeAllWindowBuffers();
         FREE_IF_NOT_NULL(GetBgTilemapBuffer(0));
@@ -2424,8 +2425,6 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
     u8 mask;
     s8 retVal;
 
-
-
     if (indexIsSpecies)
         nationalDexNo = SpeciesToNationalPokedexNum(nationalDexNo);
 
@@ -2467,6 +2466,7 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
         if (FlagGet(FLAG_SHINY_CREATION)) 
         {
             gSaveBlock2Ptr->shinyFound[index] |= mask;
+            FlagClear(FLAG_SHINY_CREATION);
         }
         break;
     case FLAG_SET_OBTAINABLE:
@@ -2722,6 +2722,7 @@ static bool8 DexScreen_FlipCategoryPageInDirection(u8 direction)
     switch (sPokedexScreenData->data[0])
     {
     case 0:
+        FREE_IF_NOT_NULL(sPokedexScreenData->bgBufsMem);
         sPokedexScreenData->bgBufsMem = Alloc(3 * BG_SCREEN_SIZE);
         if (direction)
             sPokedexScreenData->data[0] = 6;
@@ -2730,6 +2731,7 @@ static bool8 DexScreen_FlipCategoryPageInDirection(u8 direction)
         break;
     case 1:
         Free(sPokedexScreenData->bgBufsMem);
+        sPokedexScreenData->bgBufsMem = NULL;
         return TRUE;
         // Go left
     case 2:
@@ -3608,12 +3610,11 @@ u8 DexScreen_RegisterMonToPokedex(u16 species)
 {
     DexScreen_GetSetPokedexFlag(species, FLAG_SET_SEEN, TRUE);
     DexScreen_GetSetPokedexFlag(species, FLAG_SET_CAUGHT, TRUE);
-    if(species == SPECIES_RATTATA_SHINY) {
+    if(species == SPECIES_RATTATA_SHINY)
+    {
         DexScreen_GetSetPokedexFlag(SPECIES_RATTATA, FLAG_SET_SEEN, TRUE);
         DexScreen_GetSetPokedexFlag(SPECIES_RATTATA, FLAG_SET_CAUGHT, TRUE);
         DexScreen_GetSetPokedexFlag(SPECIES_RATTATA, FLAG_SET_SHINY_FOUND, TRUE);
-        
-
     }
 
     if (!IsNationalPokedexEnabled() && SpeciesToNationalPokedexNum(species) > KANTO_DEX_COUNT)

@@ -1256,6 +1256,8 @@ gCryTable::
 	cry Cry_DODODUO
 	cry Cry_CELEBI2
 	cry Cry_PIKACHUSURF
+	cry Cry_SHINYABRA
+	cry Cry_EARRAT
 
 
 
@@ -2522,6 +2524,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_DODODUO
 	cry_reverse Cry_CELEBI2
 	cry_reverse Cry_PIKACHUSURF
+	cry_reverse Cry_SHINYABRA
+	cry_reverse Cry_EARRAT
 
 
 
