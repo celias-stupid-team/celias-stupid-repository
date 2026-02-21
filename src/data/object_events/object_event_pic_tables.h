@@ -6085,3 +6085,25 @@ const struct SpriteFrameImage gObjectEventPicTable_EARRAT[] = {
     overworld_frame(gObjectEventPic_EARRAT, 4, 4, 7),
     overworld_frame(gObjectEventPic_EARRAT, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_SLOW_BRO[] = {
+    overworld_frame(gObjectEventPic_SLOW_BRO, 8, 8, 0),
+    overworld_frame(gObjectEventPic_SLOW_BRO, 8, 8, 1),
+    overworld_frame(gObjectEventPic_SLOW_BRO, 8, 8, 2),
+    overworld_frame(gObjectEventPic_SLOW_BRO, 8, 8, 0),
+    overworld_frame(gObjectEventPic_SLOW_BRO, 8, 8, 0),
+    overworld_frame(gObjectEventPic_SLOW_BRO, 8, 8, 1),
+    overworld_frame(gObjectEventPic_SLOW_BRO, 8, 8, 1),
+    overworld_frame(gObjectEventPic_SLOW_BRO, 8, 8, 2),
+    overworld_frame(gObjectEventPic_SLOW_BRO, 8, 8, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_SHELLA_JEFF[] = {
+    overworld_frame(gObjectEventPic_SHELLA_JEFF, 8, 8, 0),
+    overworld_frame(gObjectEventPic_SHELLA_JEFF, 8, 8, 1),
+    overworld_frame(gObjectEventPic_SHELLA_JEFF, 8, 8, 2),
+    overworld_frame(gObjectEventPic_SHELLA_JEFF, 8, 8, 0),
+    overworld_frame(gObjectEventPic_SHELLA_JEFF, 8, 8, 0),
+    overworld_frame(gObjectEventPic_SHELLA_JEFF, 8, 8, 1),
+    overworld_frame(gObjectEventPic_SHELLA_JEFF, 8, 8, 1),
+    overworld_frame(gObjectEventPic_SHELLA_JEFF, 8, 8, 2),
+    overworld_frame(gObjectEventPic_SHELLA_JEFF, 8, 8, 2),
+};
