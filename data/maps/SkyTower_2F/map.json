@@ -16,11 +16,11 @@
   "connections": null,
   "object_events": [
     {
-      "local_id": "LOCALID_FROSLASS",
+      "local_id": "LOCALID_SKY_TOWER_FROSLASS",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FROSLASS",
       "x": 25,
-      "y": 15,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -79,7 +79,7 @@
       "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
-      "movement_range_x": 2,
+      "movement_range_x": 3,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -93,7 +93,7 @@
       "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
-      "movement_range_x": 2,
+      "movement_range_x": 3,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -202,7 +202,7 @@
       "elevation": 0,
       "var": "VAR_SKY_TOWER_LASS",
       "var_value": "0",
-      "script": "SkyTower_Froslass"
+      "script": "SkyTower_FroslassScene"
     }
   ],
   "bg_events": []

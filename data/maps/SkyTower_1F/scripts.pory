@@ -424,15 +424,15 @@ script SkyTower_OranBerryGuy {
 	end
 }
 
-script SkyTower_Froslass {
+script SkyTower_FroslassScene {
 	lock
 	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
-	applymovement(LOCALID_FROSLASS, moves(
+	applymovement(LOCALID_SKY_TOWER_FROSLASS, moves(
 		emote_exclamation_mark
 		delay_16 * 4
-		walk_down * 3
+		walk_down * 2
 	))
-	waitmovement(LOCALID_FROSLASS)
+	waitmovement(LOCALID_SKY_TOWER_FROSLASS)
 	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
 	"FROSLASS: Excuse me!\n"
@@ -446,12 +446,12 @@ script SkyTower_Froslass {
 	"", MSGBOX_DEFAULT)
 	closemessage
 	delay(30)
-	applymovement(LOCALID_FROSLASS, moves(
+	applymovement(LOCALID_SKY_TOWER_FROSLASS, moves(
 		walk_right * 8
 	))
-	waitmovement(LOCALID_FROSLASS)
-	setobjectxy(LOCALID_FROSLASS, 46, 18)
-	copyobjectxytoperm(LOCALID_FROSLASS)
+	waitmovement(LOCALID_SKY_TOWER_FROSLASS)
+	setobjectxy(LOCALID_SKY_TOWER_FROSLASS, 46, 18)
+	copyobjectxytoperm(LOCALID_SKY_TOWER_FROSLASS)
 	setvar(VAR_SKY_TOWER_LASS, 1)
 }
 
@@ -467,30 +467,7 @@ script SkyTower_StairOrb {
 }
 
 
-script SkyTower_Drampa {
-	msgbox(
-	"Oh, no!\n"
-	"DRAMPA's dead!", MSGBOX_SIGN)
 
-}
-
-
-script SkyTower_KecleonShop2 {
-	lock
-	textcolor(NPC_TEXT_COLOR_BLUE)
-	msgbox(
-	"Kecleon Shop 2\n"
-	"", MSGBOX_DEFAULT)
-	release
-}
-
-script SkyTower_3FShop_Orb {
-	lock
-	msgbox(
-	"Hurl Orb\n"
-	"", MSGBOX_DEFAULT)
-	release
-}
 
 
 script SkyTower_Gengar {
