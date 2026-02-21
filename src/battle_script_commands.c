@@ -3369,8 +3369,8 @@ static void Cmd_tryfaintmon(void)
             }
 
             // special handling for switching the legendary birds during the Zapmolcuno fight
-            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_MOLTRES) // only replace opponent's Zapmolcuno during the first 4 phases
-            {
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_LUGIA) // only replace opponent's Zapmolcuno during the first 4 phases
+            { // wiz1989 ToDo: B_FINAL_BATTLE_MOLTRES
                 gBattlerFainted = gActiveBattler;
                 gBattleMons[gActiveBattler].species = GetCurrentZapmolcunoSpecies();
                 gBattleMoveDamage = -1000; // force full HP after transformation
@@ -12139,5 +12139,38 @@ void BS_TogglePSSSwitch(void)
     else
         gBattleSwitchFromPSS = TRUE;
 
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_ToggleBattlerSpriteVisibility(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (gBattleControllerExecFlags)
+        return;
+    
+    if (gBattleSpritesDataPtr->battlerData[battler].invisible)
+        gBattleSpritesDataPtr->battlerData[battler].invisible = FALSE;
+    else
+        gBattleSpritesDataPtr->battlerData[battler].invisible = TRUE;
+
+    gSprites[gBattlerSpriteIds[battler]].invisible = gBattleSpritesDataPtr->battlerData[battler].invisible;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetHealthboxSpriteInvisible(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
+    
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

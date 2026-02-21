@@ -5408,6 +5408,8 @@ BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	fadescreen FADE_TO_WHITE
 	waitforfade
 	handlespriteupdate BS_FAINTED
+	togglebattlerspritevisibility BS_FAINTED @ hide the Moltres sprite
+	sethealthboxspriteinvisible BS_FAINTED @ hide healthbox sprite
 	pause B_WAIT_TIME_LONG
 	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY

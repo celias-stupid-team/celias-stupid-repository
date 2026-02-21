@@ -1743,3 +1743,13 @@
 	.macro togglepssswitch
 	callnative BS_TogglePSSSwitch
 	.endm
+
+	.macro togglebattlerspritevisibility battler:req
+	callnative BS_ToggleBattlerSpriteVisibility
+	.byte \battler
+	.endm
+
+	.macro sethealthboxspriteinvisible battler:req
+	callnative BS_SetHealthboxSpriteInvisible
+	.byte \battler
+	.endm

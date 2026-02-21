@@ -1077,6 +1077,12 @@ static u8 GetBattleTerrainOverride(void)
         }
         else
         {
+            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_ARTICUNO)
+            {
+                gBattleTerrain = BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS;
+                return BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS;
+            }
+             // wiz1989 ToDo: delete if statement
             switch (VarGet(VAR_CSR_FINAL_BATTLE_PHASE))
             {
                 case B_FINAL_BATTLE_LUGIA:
