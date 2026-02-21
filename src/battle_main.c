@@ -4687,8 +4687,26 @@ static void HandleAction_ActionFinished(void)
     //reset party data after a PSS switch
     if (gMadePSSSwitch)
     {
+        u8 i;
+
         ResetPartyData(RESET_OPTION_ALL);
         gMadePSSSwitch = FALSE;
+
+        // Switch was completed including switch-in animation. Now we can safely send the remaining party mon to the PSS.
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+                break;
+            else if (gBattlerPartyIndexes[gActiveBattler] != i) //don't send gActiveBattler to PC
+            {
+                if (SendMonToPC(&gPlayerParty[i]))
+                {
+                    ZeroMonData(&gPlayerParty[i]);
+                    gPlayerPartyCount = gPlayerPartyCount - 1;
+                }
+            }
+        }
+        ResetPartyData(RESET_OPTION_ALL);
     }
 }
 
