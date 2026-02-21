@@ -1044,7 +1044,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_SHADOWSKYPREVENTSSTATUS - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("The SHADOW SKY prevents\n{B_DEF_NAME_WITH_PREFIX} from being statused!"),
     [STRINGID_PKMNISCHARGINGENERGY - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is charging energy!"),
     [STRINGID_PKMNRECHARGED - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} recharged\nfrom the emitted energy!"),
-    [STRINGID_OHSHOOT - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Oh shoot!\nThe lights went out!\p"),
+    [STRINGID_OHSHOOT - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Oh shoot!\pZapdos took down the whole\npower grid!\p"), //The lights went out!\p"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 

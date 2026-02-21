@@ -10056,7 +10056,7 @@ static const struct LevelUpMove sFINALZAPDOSLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sFINALMOLTRESLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_WATER_SHURIKEN),
 	LEVEL_UP_END
 };
 

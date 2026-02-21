@@ -4168,10 +4168,6 @@ BattleScript_SeelHoopaTransform::
 	end2
 
 BattleScript_ZapmolcunoTransform::
-	@ check for special cutscene after Zapdos is defeated, use 4 to show after Zapdos fainting
-	jumpifvar CMP_NOT_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 4, BattleScript_ZapmolcunoTransform_FaintHandling
-	goto BattleScript_ZapdosCutScene
-BattleScript_ZapmolcunoTransform_FaintHandling:
 	playse SE_M_MEGA_KICK
 	fadescreen FADE_TO_WHITE
 	waitforfade
@@ -4189,12 +4185,19 @@ BattleScript_ZapmolcunoTransform_FaintHandling:
 	pause B_WAIT_TIME_SHORT
 	playcurrentbirdfaintcry @ based on value of VAR_CSR_FINAL_BATTLE_PHASE
 	pause B_WAIT_TIME_LONGEST
+	@ check for special cutscene after Zapdos is defeated, use 4 to show after Zapdos fainting
+	jumpifvar CMP_NOT_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 4, BattleScript_ZapmolcunoTransform_FinishScript
+	goto BattleScript_ZapdosCutScene
+BattleScript_ZapmolcunoTransform_FinishScript:
 	resetbattlebgm
 	printbirdsfaintstring B_POSITION_OPPONENT_LEFT
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
 BattleScript_ZapdosCutScene::
+	printbirdsfaintstring B_POSITION_OPPONENT_LEFT
+	waitmessage B_WAIT_TIME_LONG
+	stopbattlebgm
 	@ playanimation BS_FAINTED, B_ANIM_ZAPDOS_LIGHTNING
 	@ waitanimation
 	fadedarken FADE_ALL_EXC_UI, FADE_DIR_DARKEN
@@ -4205,7 +4208,7 @@ BattleScript_ZapdosCutScene::
 	waitforfade
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_EMPTYSTRING3
-	goto BattleScript_ZapmolcunoTransform_FaintHandling
+	end2
 
 BattleScript_MoveEffectSleep::
 	statusanimation BS_EFFECT_BATTLER
