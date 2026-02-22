@@ -5992,12 +5992,12 @@
     {
       "id": "LAYOUT_SILPH_RD",
       "name": "Silph_RD_Layout",
-      "width": 24,
-      "height": 20,
+      "width": 60,
+      "height": 60,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SilphCo",
+      "secondary_tileset": "gTileset_SilphCo2",
       "border_filepath": "data/layouts/Silph_RD/border.bin",
       "blockdata_filepath": "data/layouts/Silph_RD/map.bin"
     },
@@ -6009,7 +6009,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SilphCo",
+      "secondary_tileset": "gTileset_SilphCo2",
       "border_filepath": "data/layouts/Silph_CallCenter/border.bin",
       "blockdata_filepath": "data/layouts/Silph_CallCenter/map.bin"
     },
