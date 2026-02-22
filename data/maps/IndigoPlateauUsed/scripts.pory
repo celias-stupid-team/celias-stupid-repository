@@ -1,7 +1,35 @@
 mapscripts IndigoPlateauUsed_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setworldmapflag(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR) //Tie to fly location eventually
-    }    
+        if(flag(FLAG_SYS_ROTOM_DEX)) {
+            setvar(VAR_TEMP_1, 1)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_1, 1 {
+            clearflag(FLAG_SYS_ROTOM_DEX)
+            getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+            playmoncry(SPECIES_ROTOM, CRY_MODE_FAINT)
+            waitmoncry
+            msgbox(
+            "Oh, no!\p"
+
+            "The POKéMON LEAGUE's ANTI-ROTOM\n"
+            "FORCE FIELD disabled the POKéDEX!", MSGBOX_DEFAULT)
+            closemessage
+            setvar(VAR_TEMP_1, 0)
+            if(var(VAR_TEMP_3) <= 30) {
+                applymovement(LOCALID_PLAYER, moves(
+                    jump_2_down
+                    
+                    
+                ))
+                waitmovement(0)
+            }
+            release
+
+        }
+    ]    
 }
 
 script IndigoPlateau_FieldMovesNeededSign {

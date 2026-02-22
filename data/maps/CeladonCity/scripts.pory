@@ -100,6 +100,7 @@ const CELIA = 15
 mapscripts CeladonCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_2)
+		clearflag(FLAG_SYS_ON_CYCLING_ROAD)
 		if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY) && !flag(FLAG_BADGE04_GET) && flag(FLAG_WORLD_MAP_CELADON_CITY)) {
 			clearflag(FLAG_TEMP_2)
 		}

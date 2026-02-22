@@ -4185,8 +4185,10 @@ static void FieldCallback_Surf(void)
 static bool8 SetUpFieldMove_Surf(void)
 {
     s16 x, y;
-    
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+    if(flag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE) && !flag(FLAG_LOOKER_SCENE)) {
+        return FALSE;
+    }
     if (MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y)) != TRUE
      && PartyHasMonWithSurf() == TRUE
      && IsPlayerFacingSurfableFishableWater() == TRUE)

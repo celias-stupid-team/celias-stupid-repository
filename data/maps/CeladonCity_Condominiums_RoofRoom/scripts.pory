@@ -316,9 +316,10 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_DMCA {
 
 script DMCAHideout_EeveeManScreams { //placing this here for my own convenience cross-referencing the variables
 	lock
-	playse(SE_BANG)
-	setvar(VAR_0x8006, 2)
-	setvar(VAR_0x8007, 2)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 8)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
 	special(ShakeScreen)
 	delay(20)
 	textcolor(NPC_TEXT_COLOR_MALE)

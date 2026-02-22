@@ -22,7 +22,7 @@ RocketHideout_B4F_Text_GiovanniPostBattle::
     .string "I hope we meet again…$"
 
 RocketHideout_B4F_Text_Grunt2Intro::
-	.string "LARS: What...?\n"
+	.string "{COLOR BLUE}LARS: What...?\n"
 	.string "Who are you?\p"
 	.string "My name is LARS.\n"
 	.string "I'm an admin of the DMCA!\p"
@@ -34,7 +34,7 @@ RocketHideout_B4F_Text_Grunt2Defeat::
 	.string "My POKéMON were all copies!$"
 
 RocketHideout_B4F_Text_Grunt2PostBattle::
-	.string "Grr…\p"
+	.string "{COLOR BLUE}Grr…\p"
 	.string "The SCOPE on the table there was a\n"
 	.string "clear copy of the NES ZAPPER.\l"
 	.string "How dare you take it!\p"
