@@ -1287,4 +1287,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_DODODUO]    = gMonFootprint_DODODUO,
 	[SPECIES_CELEBI2]    = gMonFootprint_CELEBI2,
 	[SPECIES_PIKACHUSURF]    = gMonFootprint_PIKACHUSURF,
+	[SPECIES_FINALCHARMANDER]	= gMonFootprint_Charmander,
 };
