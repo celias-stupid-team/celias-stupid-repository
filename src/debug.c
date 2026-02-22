@@ -2530,7 +2530,7 @@ static void DebugAction_Give_PokemonSimple(u8 taskId)
 
     // Display initial Pokémon
     StringCopy(gStringVar2, gText_DigitIndicator[0]);
-    ConvertIntToDecimalStringN(gStringVar3, sDebugMonData->species, STR_CONV_MODE_LEADING_ZEROS, 3);
+    ConvertIntToDecimalStringN(gStringVar3, sDebugMonData->species, STR_CONV_MODE_LEADING_ZEROS, 4);
     GetSpeciesName(speciesName, sDebugMonData->species);
     StringCopy(gStringVar1, speciesName);
     StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
@@ -3063,14 +3063,14 @@ static void DebugAction_Give_Pokemon_Move(u8 taskId)
         }
         if (JOY_NEW(DPAD_RIGHT))
         {
-            if (gTasks[taskId].tDigit < 3)
+            if (gTasks[taskId].tDigit < 4)
                 gTasks[taskId].tDigit += 1;
         }
 
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
         StringCopy(gStringVar1, gMoveNames[gTasks[taskId].tInput]);
         StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
-        ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 3);
+        ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 4);
         switch (gTasks[taskId].tIterator)
         {
         case 0:
@@ -3122,7 +3122,7 @@ static void DebugAction_Give_Pokemon_Move(u8 taskId)
             StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
             StringCopy(gStringVar1, gMoveNames[gTasks[taskId].tInput]);
             StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
-            ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 3);
+            ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 4);
             switch (gTasks[taskId].tIterator)
             {
             case 0:

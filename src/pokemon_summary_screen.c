@@ -2099,7 +2099,7 @@ static void BufferMonInfo(void)
     if (dexNum + 1 == 0xffff)
         StringCopy(sMonSummaryScreen->summary.dexNumStrBuf, gText_PokeSum_DexNoUnknown);
     else
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.dexNumStrBuf, dexNum, STR_CONV_MODE_LEADING_ZEROS, 3);
+        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.dexNumStrBuf, dexNum, STR_CONV_MODE_LEADING_ZEROS, 4);
 
     sMonSkillsPrinterXpos->unk00 = 0;
 
