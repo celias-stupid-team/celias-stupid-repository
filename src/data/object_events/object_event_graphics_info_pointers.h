@@ -565,6 +565,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AZ_NEW;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DMCA_RUNT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHINY_ZUBAT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EARRAT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SLOW_BRO;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHELLA_JEFF;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GENGAR;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1131,4 +1134,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DMCA_RUNT] = &gObjectEventGraphicsInfo_DMCA_RUNT,
     [OBJ_EVENT_GFX_SHINY_ZUBAT] = &gObjectEventGraphicsInfo_SHINY_ZUBAT,
     [OBJ_EVENT_GFX_EARRAT] = &gObjectEventGraphicsInfo_EARRAT,
+    [OBJ_EVENT_GFX_SLOW_BRO] = &gObjectEventGraphicsInfo_SLOW_BRO,
+    [OBJ_EVENT_GFX_SHELLA_JEFF] = &gObjectEventGraphicsInfo_SHELLA_JEFF,
+    [OBJ_EVENT_GFX_GENGAR] = &gObjectEventGraphicsInfo_GENGAR,
 };

@@ -8484,12 +8484,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_INCINERATE] =
     {
         .effect = EFFECT_HIT,
-        .power = 39,
-        .type = TYPE_NORMAL,
-        .accuracy = 99,
+        .power = 50,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
@@ -10150,9 +10150,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_HAPPY_HOUR] =
     {
         .effect = EFFECT_HIT,
-        .power = 39,
-        .type = TYPE_NORMAL,
-        .accuracy = 99,
+        .power = 90,
+        .type = TYPE_BIRD,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -10597,7 +10597,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_QUINTUPLE_WINGBEAT] =
     {
         .effect = EFFECT_MULTI_HIT_FIVE,
-        .power = 40,
+        .power = 500,
         .type = TYPE_FLYING,
         .accuracy = 0,
         .pp = 35,
@@ -11104,7 +11104,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_EXTREME_SLOW] =
     {
         .effect = EFFECT_HIT,
-        .power = 7-,
+        .power = 70,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,

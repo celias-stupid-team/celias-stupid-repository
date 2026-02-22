@@ -703,7 +703,7 @@
 #define B_MSG_DEFROSTED         0
 #define B_MSG_DEFROSTED_BY_MOVE 1
 
-#define NUM_TRAPPING_MOVES 6
+#define NUM_TRAPPING_MOVES 7
 
 // gDmgHazardsStringIds
 #define B_MSG_PKMNHURTBYSPIKES       0

@@ -1238,3 +1238,14 @@ const struct Tileset gTileset_MtSilver =
     .metatileAttributes = gMetatileAttributes_MtSilver,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FinalBossSecondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FinalBossSecondary,
+    .palettes = gTilesetPalettes_FinalBossSecondary,
+    .metatiles = gMetatiles_FinalBossSecondary,
+    .metatileAttributes = gMetatileAttributes_FinalBossSecondary,
+    .callback = NULL,
+};

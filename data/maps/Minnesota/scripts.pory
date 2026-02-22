@@ -329,8 +329,13 @@ script Minnesota_LaundromatSign {
 
 script Minnesota_GouldenSam {
 	msgbox(
-	"Cool!\n"
-	"It's CAGE: GOULD VERSION!", MSGBOX_SIGN)
+	"GOULDEN SAM: Heh heh…\n"
+	"Did you know?\p"
+
+	"We used to have a paradise for\n"
+	"EMUS set up too.\p"
+	
+	"Sadly, the DMCA put an end to that…", MSGBOX_SIGN)
 
 }
 

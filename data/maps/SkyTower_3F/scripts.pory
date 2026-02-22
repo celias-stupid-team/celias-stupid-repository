@@ -1,3 +1,201 @@
 mapscripts SkyTower_3F_MapScripts {
 
 }
+
+
+script SkyTower_KecleonShop2 {
+	lock
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Kecleon Shop 2\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script SkyTower_3FShop_Orb {
+	lock
+	msgbox(
+	"HURL ORB\p"
+    "Buy the HURL ORB?"
+	"", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        msgbox(
+        "You can't afford it and you\n"
+        "fucking die", MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+        "HURL the HURL ORB?\n"
+        "", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            closemessage
+            delay(30)
+            playse(SE_FALL)
+            applymovement(LOCALID_PLAYER, moves(
+                face_right
+            ))
+            applymovement(LOCALID_SKY_TOWER_3F_KECLEON_1, moves(
+                delay_8
+                face_right
+            ))
+            applymovement(VAR_LAST_TALKED, moves(
+                walk_faster_right * 5
+                set_invisible
+            ))
+            waitmovement(VAR_LAST_TALKED)
+            playse(SE_CLICK)
+            applymovement(LOCALID_SKY_TOWER_DRAMPA, moves(
+                face_left
+            ))
+            delay(90)
+            special(SpawnCameraObject)
+            applymovement(LOCALID_CAMERA, moves(
+                walk_faster_right * 3
+            ))
+
+
+            applymovement(LOCALID_SKY_TOWER_3F_KECLEON_1, moves(
+                walk_faster_right * 3
+                walk_faster_down
+                walk_faster_right
+            ))
+            addobject(LOCALID_SKY_TOWER_3F_KECLEON_2)
+            applymovement(LOCALID_SKY_TOWER_3F_KECLEON_2, moves(
+                delay_16 * 2
+                set_visible
+                walk_faster_down * 5
+            ))
+
+            addobject(LOCALID_SKY_TOWER_3F_KECLEON_3)
+            applymovement(LOCALID_SKY_TOWER_3F_KECLEON_3, moves(
+                delay_16 * 4
+                set_visible
+                walk_faster_down * 5
+            ))
+
+            addobject(LOCALID_SKY_TOWER_3F_KECLEON_4)
+            applymovement(LOCALID_SKY_TOWER_3F_KECLEON_4, moves(
+                delay_16 * 2
+                delay_8
+                set_visible
+                walk_faster_down
+                walk_faster_left
+                walk_faster_down
+                walk_faster_left * 2
+            ))
+
+            addobject(LOCALID_SKY_TOWER_3F_KECLEON_5)
+            applymovement(LOCALID_SKY_TOWER_3F_KECLEON_5, moves(
+                delay_16 * 2
+                delay_8
+                set_visible
+                walk_faster_up * 4
+                walk_faster_right * 2
+                walk_faster_up * 2
+                face_up
+
+            ))
+
+            addobject(LOCALID_SKY_TOWER_3F_KECLEON_6)
+            applymovement(LOCALID_SKY_TOWER_3F_KECLEON_6, moves(
+                delay_16 * 2
+                set_visible
+                walk_faster_left * 3
+                walk_faster_up * 2
+                face_up
+            ))
+            waitmovement(LOCALID_SKY_TOWER_3F_KECLEON_1)
+            applymovement(LOCALID_SKY_TOWER_DRAMPA, moves(
+                delay_16 * 3
+                face_left
+                delay_8
+                face_right
+                delay_8
+                face_left
+                delay_8
+                face_right
+                delay_8
+                face_right
+                delay_8
+                face_left
+                delay_8
+                face_down
+                delay_8
+                face_right
+                delay_8
+                face_right
+            ))
+            playse(SE_M_DOUBLE_SLAP)
+            waitse
+            playse(SE_M_DOUBLE_SLAP)
+            waitse
+            playse(SE_M_DOUBLE_SLAP)
+            waitse
+            playse(SE_M_DOUBLE_SLAP)
+            waitse
+            playse(SE_M_DOUBLE_SLAP)
+            waitse
+            playse(SE_M_DOUBLE_SLAP)
+            waitse
+            playse(SE_M_DOUBLE_SLAP)
+            waitse
+            playse(SE_M_DOUBLE_SLAP)
+            waitse
+            waitmovement(LOCALID_SKY_TOWER_DRAMPA)
+            fadescreenswapbuffers(FADE_TO_WHITE)
+            removeobject(LOCALID_SKY_TOWER_3F_KECLEON_2)
+            removeobject(LOCALID_SKY_TOWER_3F_KECLEON_3)
+            removeobject(LOCALID_SKY_TOWER_3F_KECLEON_4)
+            removeobject(LOCALID_SKY_TOWER_3F_KECLEON_5)
+            removeobject(LOCALID_SKY_TOWER_3F_KECLEON_6)
+            removeobject(VAR_LAST_TALKED)
+            setobjectxy(LOCALID_SKY_TOWER_DRAMPA, 45, 35)
+            copyobjectxytoperm(LOCALID_SKY_TOWER_DRAMPA)
+            applymovement(LOCALID_SKY_TOWER_DRAMPA, moves(
+                face_up
+            ))
+            setobjectmovementtype(LOCALID_SKY_TOWER_DRAMPA, MOVEMENT_TYPE_FACE_UP)
+            applymovement(LOCALID_CAMERA, moves(
+                walk_left * 3
+            ))
+            setobjectxy(LOCALID_SKY_TOWER_3F_KECLEON_1, 35, 36)
+            applymovement(LOCALID_SKY_TOWER_3F_KECLEON_1, moves(
+                face_down
+            ))
+            waitmovement(LOCALID_CAMERA)
+            special(RemoveCameraObject)
+            fadescreeninstant(FADE_FROM_WHITE)
+            release
+            end
+
+        } else {
+            release
+            end
+        }
+    }
+
+	release
+}
+
+
+
+script SkyTower_Drampa {
+    if(flag(FLAG_SKY_TOWER_HURL_ORB)) {
+        msgbox(
+        "Oh, no!\n"
+        "DRAMPA's dead!", MSGBOX_SIGN)
+
+    } else {
+        msgbox(
+        "Oh, no!\n"
+        "DRAMPA's in the way!", MSGBOX_SIGN)
+    }
+    
+}
+
+
+script SkyTower_Shortcut {
+	msgbox(
+	"SKY TOWER\n"
+	"Shortcut {RIGHT_ARROW}", MSGBOX_SIGN)
+
+}

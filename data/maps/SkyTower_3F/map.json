@@ -58,6 +58,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_SKY_TOWER_3F_KECLEON_1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_KECLEON",
       "x": 35,
@@ -68,21 +69,22 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SkyTower_KecleonShop2",
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_SKY_TOWER_DRAMPA",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DRAMPA",
-      "x": 45,
-      "y": 35,
+      "x": 40,
+      "y": 37,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SkyTower_Drampa",
       "flag": "0"
     },
     {
@@ -96,8 +98,83 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "SkyTower_3FShop_Orb",
+      "flag": "FLAG_SKY_TOWER_HURL_ORB"
+    },
+    {
+      "local_id": "LOCALID_SKY_TOWER_3F_KECLEON_3",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "x": 41,
+      "y": 31,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_KecleonShop2",
+      "flag": "FLAG_SKY_TOWER_HURL_ORB"
+    },
+    {
+      "local_id": "LOCALID_SKY_TOWER_3F_KECLEON_2",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "x": 40,
+      "y": 31,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_KecleonShop2",
+      "flag": "FLAG_SKY_TOWER_HURL_ORB"
+    },
+    {
+      "local_id": "LOCALID_SKY_TOWER_3F_KECLEON_4",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "x": 45,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_KecleonShop2",
+      "flag": "FLAG_SKY_TOWER_HURL_ORB"
+    },
+    {
+      "local_id": "LOCALID_SKY_TOWER_3F_KECLEON_6",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "x": 44,
+      "y": 40,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_KecleonShop2",
+      "flag": "FLAG_SKY_TOWER_HURL_ORB"
+    },
+    {
+      "local_id": "LOCALID_SKY_TOWER_3F_KECLEON_5",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "x": 38,
+      "y": 44,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_KecleonShop2",
+      "flag": "FLAG_SKY_TOWER_HURL_ORB"
     }
   ],
   "warp_events": [
@@ -132,6 +209,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SkyTower_MonsterHouseSign"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 35,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SkyTower_Shortcut"
     }
   ]
 }

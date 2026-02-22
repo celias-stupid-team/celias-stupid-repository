@@ -1,5 +1,7 @@
 mapscripts SkyTower_1F_MapScripts {
-
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_3)
+	}
 }
 
 script SkyTower_UnderConstruction {
@@ -27,9 +29,11 @@ script SkyTower_Psyduck {
 
 
 script SkyTower_Froslass {
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
-	"FROSLASS: Don't look at me!\n"
-	"", MSGBOX_NPC)
+	"Walking through the wall used up\n"
+	"all my BELLY…\l"
+	"Now anyone can look at me-!", MSGBOX_DEFAULT)
 }
 
 
@@ -231,4 +235,310 @@ script SkyTower_LookEspurr {
         }
     copyobjectxytoperm(VAR_LAST_TALKED)
 	release
+}
+
+
+script SkyTower_Machop {
+	lock
+	faceplayer
+	playmoncry(SPECIES_MACHOP, CRY_MODE_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Ooh, I wonder what POKéMON\n"
+	"I'll become!\p"
+
+	"I really hope I'm a MEOWTH!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+script SkyTower_Meowth {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_RED)
+	playmoncry(SPECIES_MEOWTH, CRY_MODE_DEFAULT)
+	msgbox(
+	"Ooh, I wonder what POKéMON\n"
+	"I'll become!\p"
+
+	"I really hope I'm a MACHOP!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+
+script SkyTower_Skitty {
+	lock
+	faceplayer	
+	playmoncry(SPECIES_SKITTY, CRY_MODE_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Get outta my way, everyone!\p"
+
+	"I'm here to clear this tower\n"
+	"faster than anyone's ever seen!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+script SkyTower_Cubone {
+	lock
+	faceplayer	
+	playmoncry(SPECIES_CUBONE, CRY_MODE_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Oh, boy!\n"
+	"I got CUBONE!\p"
+
+	"Can't wait to spend several levels\n"
+	"only knowing GROWL and TAIL WHIP!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script SkyTower_PersonalityQuizQuestion {
+	lock
+	msgbox(
+	"It's a personality quiz…\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	msgbox(
+	"You're meeting someone for the\n"
+	"first time! What do you do?\p"
+
+	"1. Get their name!\n"
+	"2. Learn what you have in common!\l"
+	"3. Silently stare into their soul.", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script SkyTower_KecleonShop1 {
+	lock
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Kecleon Shop 1\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script SkyTower_1FShop_Orb {
+	lock
+	msgbox(
+	"Orb\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script SkyTower_1FShop_Seed {
+	lock
+	msgbox(
+	"Joy Seed\n"
+	"", MSGBOX_DEFAULT)
+	removeobject(VAR_LAST_TALKED)
+	release
+	end
+
+}
+
+
+
+script SkyTower_DadStatue {
+	lock
+	faceplayer
+	msgbox(
+	"Dad Statue\n"
+	"", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+
+script SkyTower_OranBerryGuy {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	//logic here
+	if(!flag(FLAG_GOT_ORAN_BERRY)) {
+		if(checkitem(ITEM_ORAN_BERRY)) {
+			msgbox(
+			"Uh, hi!\p"
+
+			"I work at the KECLEON MARKET, and\n"
+			"I was supposed to be handing out\l"
+			"free ORAN BERRIES.\p"
+
+			"However, it seems this is the last\n"
+			"ORAN BERRY in the known universe.\p"
+
+			"… … …Oh!!\n"
+			"What's that?\p"
+
+			"You have an ORAN BERRY!?\n"
+			"That's unbelievable!\p"
+
+			"I guess they still exist after all!\n"
+			"", MSGBOX_DEFAULT)
+			release
+			end
+		}
+		msgbox(
+		"Uh, hi!\p"
+
+		"I work at the KECLEON MARKET, and\n"
+		"I was supposed to be handing out\l"
+		"free ORAN BERRIES.\p"
+
+		"However, it seems this is the last\n"
+		"ORAN BERRY in the known universe.\p"
+
+		"Uh, I guess you can have it.\n"
+		"", MSGBOX_DEFAULT)
+		//give item
+		giveitem_msg("{PLAYER} obtained the\nORAN BERRY.", ITEM_ORAN_BERRY)
+		waitfanfare
+		setflag(FLAG_GOT_ORAN_BERRY)
+		//set flag
+	} else {
+		msgbox("Come visit us if you need, uh,\nnot ORAN BERRIES.", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
+
+script SkyTower_FroslassScene {
+	lock
+	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	applymovement(LOCALID_SKY_TOWER_FROSLASS, moves(
+		emote_exclamation_mark
+		delay_16 * 4
+		walk_down * 2
+	))
+	waitmovement(LOCALID_SKY_TOWER_FROSLASS)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"FROSLASS: Excuse me!\n"
+	"Did you look at me?", MSGBOX_DEFAULT)
+	playbgm(MUS_CSR_SKY_TOWER, TRUE)
+	msgbox(
+	"(battle)\n"
+	"", MSGBOX_DEFAULT)
+	msgbox(
+	"after battle\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_SKY_TOWER_FROSLASS, moves(
+		walk_right * 8
+	))
+	waitmovement(LOCALID_SKY_TOWER_FROSLASS)
+	setobjectxy(LOCALID_SKY_TOWER_FROSLASS, 46, 18)
+	copyobjectxytoperm(LOCALID_SKY_TOWER_FROSLASS)
+	setvar(VAR_SKY_TOWER_LASS, 1)
+}
+
+script SkyTower_StairOrb {
+	lock
+	msgbox(
+	"stair orb\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	removeobject(VAR_LAST_TALKED)
+	warpteleport(MAP_SKY_TOWER_2F, 2)
+	release
+}
+
+
+
+
+
+script SkyTower_Gengar {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Heheh… We're Team WOULD LITERALLY\n"
+	"MURDER CHILDREN GIVEN THE CHANCE!\p"
+
+	"For some reason we're considered\n"
+	"a RESCUE TEAM!", MSGBOX_NPC)
+}
+
+
+script SkyTower_Gyarados {
+	lock
+	faceplayer
+	msgbox(
+	"Gyarados\n"
+	"", MSGBOX_DEFAULT)
+	if(flag(FLAG_SKY_TOWER_JOY_SEED)) {
+		msgbox(
+		"Gyarados took your\n"
+		"joy seed", MSGBOX_DEFAULT)
+		closemessage
+		delay(60)
+		playse(SE_M_SPIT_UP)
+		removeobject(VAR_LAST_TALKED)
+		addobject(LOCALID_SKY_TOWER_MAGIKARP)
+	}
+
+	release
+}
+
+script SkyTower_Magikarp {
+	lock
+	playmoncry(SPECIES_MAGIKARP, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+}
+
+script SkyTower_ScaredOfGyarados {
+	lock
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_SKY_TOWER_GYARADOS_EVOLVED)) {
+		msgbox(
+		"Oh boy sashimi time\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Oh no Gyarados is scary\n"
+		"", MSGBOX_DEFAULT)
+
+	}
+	release
+}
+
+script SkyTower_Omanyte {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Hello, my name is OMANYTE!\n"
+	"I am inexplicably still alive!\p"
+
+	"What, you thought it was all\n"
+	"OMANYTES everywhere who went\l"
+	"extinct 300 million years ago?\l"
+	"Ha!", MSGBOX_NPC)
+}
+
+script SkyTower_ShortcutSign {
+	msgbox(
+	"SKY TOWER\n"
+	"Shortcut {LEFT_ARROW}", MSGBOX_SIGN)
+
 }

@@ -1146,6 +1146,7 @@ static const struct LevelUpMove sFarfetchdLevelUpLearnset[] = {
     LEVEL_UP_MOVE(35, MOVE_CUT),
     LEVEL_UP_MOVE(37, MOVE_BITTER_BLADE),
     LEVEL_UP_MOVE(40, MOVE_CUTRAGE),
+    LEVEL_UP_MOVE(55, MOVE_POPULATION_BOMB),
     LEVEL_UP_END
 };
 
@@ -5755,7 +5756,7 @@ static const struct LevelUpMove sStaraptorLevelUpLearnset[] = {
 static const struct LevelUpMove sBidoofLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_CUT),
     LEVEL_UP_MOVE(1, MOVE_FLY),
-    LEVEL_UP_MOVE(1, MOVE_DIVE),
+    LEVEL_UP_MOVE(1, MOVE_DEFOG),
 	LEVEL_UP_END
 };
 
