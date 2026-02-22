@@ -436,7 +436,29 @@ script PalletTown_OnTransition {
 			setmetatile(1, 4, 0x009, FALSE)
 			setmetatile(1, 5, 0x00F, FALSE)
 	}
+	if(!flag(FLAG_POST_GAME)) {
+		setflag(FLAG_TEMP_4)
+	}
 }
+
+script PalletTown_PostgameCelia {
+	msgbox(
+	"Hello!\p"
+
+	"Thank you so much for playing\n"
+	"Celia's Stupid Romhack!\p"
+
+	"There is not a formal post-game,\n"
+	"but there's still plenty to find!\p"
+
+	"Feel free to explore the world and\n"
+	"find as many secrets as you can!\p"
+
+	"By the way: Check the right side\n"
+	"of the TV in your house.\l"
+	"A present has been waiting there.", MSGBOX_NPC)
+}
+
 
 script PalletTown_EventScript_JumpFromRoof {
 	playse(SE_LEDGE)

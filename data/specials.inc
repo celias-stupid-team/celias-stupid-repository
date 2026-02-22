@@ -462,4 +462,5 @@ gSpecials::
 	def_special ReducePlayerPartyToOne
 	def_special RestorePlayerPartyFromOne
 	def_special RemovePartyMon
+	def_special GetShinyCount
 gSpecialsEnd::
