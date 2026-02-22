@@ -104,7 +104,7 @@ u16 GetShinyPokedexCount(u8 caseID)
     {
         //DebugPrinf("Counting %d", i);
         if (GetSetPokedexFlag(i + 1, FLAG_GET_SHINY_FOUND)) {
-                DebugPrintf("Counting %d", i);
+                //DebugPrintf("Counting %d", i);
                 count++;
         }
             

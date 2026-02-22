@@ -342,17 +342,43 @@ script SkyTower_KecleonShop1 {
 script SkyTower_1FShop_Orb {
 	lock
 	msgbox(
-	"Orb\n"
-	"", MSGBOX_DEFAULT)
+	"MONEY ORB\n"
+	"Price: 500 POKé", MSGBOX_DEFAULT)
+	if(var(VAR_SKY_TOWER_POKE) >= 500) {
+		removeobject(VAR_LAST_TALKED)
+		msgbox(
+		"You buy the MONEY ORB\p"
+
+		"You use the MONEY ORB\p"
+
+		"You get 501 POKé!\n"
+		"", MSGBOX_DEFAULT)
+		setvar(VAR_SKY_TOWER_POKE, 501)
+	} elif(var(VAR_SKY_TOWER_POKE) < 500) {
+		msgbox(
+		"You take the MONEY ORB\p"
+
+		"Kecleon fucking kills you\n"
+		"", MSGBOX_DEFAULT)
+		msgbox(
+		"The money orb is now back\n"
+		"", MSGBOX_DEFAULT)
+	}
 	release
 }
 
 script SkyTower_1FShop_Seed {
 	lock
 	msgbox(
-	"Joy Seed\n"
-	"", MSGBOX_DEFAULT)
-	removeobject(VAR_LAST_TALKED)
+	"JOY SEED\n"
+	"Price: 501 POKé", MSGBOX_DEFAULT)
+	if(var(VAR_SKY_TOWER_POKE) > 500) {
+		removeobject(VAR_LAST_TALKED)
+		msgbox(
+		"You buy the JOY SEED\n"
+		"", MSGBOX_DEFAULT)
+	}
+	
 	release
 	end
 
@@ -541,4 +567,24 @@ script SkyTower_ShortcutSign {
 	"SKY TOWER\n"
 	"Shortcut {LEFT_ARROW}", MSGBOX_SIGN)
 
+}
+
+
+script SkyTower_Bill {
+	lock
+	removeobject(VAR_LAST_TALKED)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox(
+	"{PLAYER} found a\n"
+	"POKé DOLL!", MSGBOX_DEFAULT)
+	waitfanfare
+	closemessage
+	delay(30)
+	setvar(VAR_SKY_TOWER_POKE, 500)
+	msgbox(
+	"…Wait, no!\p"
+
+	"{PLAYER} found\n"
+	"500 POKé{PAUSE 20} {ASTERISK}inside a DOLL!{ASTERISK}", MSGBOX_DEFAULT)
+	release
 }
