@@ -145,11 +145,11 @@ script Hospital_XRay {
 
 script Hospital_Gentleman {
 	msgbox(
-	"Feel free to check yourself into\n"
-	"the hospital.\p"
+	"Hmm, there's no free-to-use PC\n"
+	"here in the hospital.\p"
 
-	"I'm sure no one will install a\n"
-	"virus on you!", MSGBOX_NPC)
+	"I guess they got tired of removing\n"
+	"all the viruses on it!", MSGBOX_NPC)
 }
 
 script Hospital_Stunfisk {

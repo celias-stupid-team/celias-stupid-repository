@@ -302,7 +302,7 @@ It is reset after every battle.
 #define VAR_0x40C1                 0x40C1
 #define VAR_READY_FOR_TORNADO                 0x40C2
 #define VAR_USED_ROCK_SMASH                 0x40C3
-#define VAR_0x40C4                 0x40C4
+#define VAR_SKY_TOWER_LASS                 0x40C4
 #define VAR_0x40C5                 0x40C5
 #define VAR_0x40C6                 0x40C6
 #define VAR_0x40C7                 0x40C7

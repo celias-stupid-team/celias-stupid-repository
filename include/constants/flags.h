@@ -521,11 +521,11 @@
 #define FLAG_SWAPPED_ZYGARDE                    0x1D6
 #define FLAG_SITRUS_BERRY_NOTHING                 0x1D7
 #define FLAG_PUT_SPARE_DOOR_IN_FOUR_ISLAND                0x1D8
-#define FLAG_0x1D9                        0x1D9
-#define FLAG_0x1DA                    0x1DA
-#define FLAG_0x1DB                  0x1DB
-#define FLAG_0x1DC        0x1DC
-#define FLAG_0x1DD           0x1DD
+#define FLAG_GOT_ORAN_BERRY                        0x1D9
+#define FLAG_SKY_TOWER_STAIR_ORB                    0x1DA
+#define FLAG_SKY_TOWER_JOY_SEED                  0x1DB
+#define FLAG_SKY_TOWER_GYARADOS_EVOLVED        0x1DC
+#define FLAG_SKY_TOWER_HURL_ORB           0x1DD
 #define FLAG_0x1DE           0x1DE
 #define FLAG_0x1DF                0x1DF
 #define FLAG_0x1E0  0x1E0
