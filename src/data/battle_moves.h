@@ -11884,7 +11884,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_EEEEEEEK] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 70,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -11897,7 +11897,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_EEEEEEEEK] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 80,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -11910,7 +11910,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_EEEEEEEEEK] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -11923,7 +11923,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_EK] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 6,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -12235,9 +12235,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CONSTRACKLE] =
     {
         .effect = EFFECT_HIT,
-        .power = 10,
+        .power = 35,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .accuracy = 10,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
