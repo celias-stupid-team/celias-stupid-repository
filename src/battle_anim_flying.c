@@ -16,6 +16,7 @@ static void AnimUnusedFeather(struct Sprite *sprite);
 static void AnimWhirlwindLine(struct Sprite *sprite);
 static void AnimBounceBallShrink(struct Sprite *sprite);
 static void AnimBounceBallLand(struct Sprite *sprite);
+static void AnimSteamrollerLand(struct Sprite *sprite);
 static void AnimDiveBall(struct Sprite *sprite);
 static void AnimDiveWaterSplash(struct Sprite *sprite);
 static void AnimSprayWaterDroplet(struct Sprite *sprite);
@@ -284,6 +285,31 @@ const struct SpriteTemplate gBounceBallLandSpriteTemplate =
     .images = NULL,
     .affineAnims = sAffineAnims_BounceBallLand,
     .callback = AnimBounceBallLand,
+};
+
+static const union AnimCmd sAnim_SteamrollerDrive[] =
+{
+    ANIMCMD_FRAME(0,   4),
+    ANIMCMD_FRAME(64,  4),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_FRAME(192, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_Steamroller[] =
+{
+    sAnim_SteamrollerDrive,
+};
+
+const struct SpriteTemplate gSteamrollerLandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STEAMROLLER,
+    .paletteTag = ANIM_TAG_STEAMROLLER,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_Steamroller,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSteamrollerLand,
 };
 
 static const union AffineAnimCmd sAffineAnim_DiveBall[] =
@@ -1100,6 +1126,65 @@ static void AnimBounceBallLand(struct Sprite *sprite)
             gSprites[GetAnimBattlerSpriteId(ANIM_ATTACKER)].invisible = FALSE;
             DestroyAnimSprite(sprite);
         }
+        break;
+    }
+}
+
+static void AnimSteamrollerLand(struct Sprite *sprite)
+{
+    u8 targetSpriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
+
+    s16 shakeX2 = 0;
+    if (targetSpriteId != SPRITE_NONE)
+        shakeX2 = gSprites[targetSpriteId].x2;
+
+    switch (sprite->data[0])
+    {
+        case 0:
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X);
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+        sprite->y2 = -sprite->y - 64;
+
+        sprite->data[1] = gBattleAnimArgs[0];
+        sprite->data[2] = 0;
+
+        sprite->animPaused = TRUE;
+        sprite->data[0]++;
+        break;
+
+    case 1:
+        sprite->x2 = shakeX2 + sprite->data[2];
+
+        sprite->y2 += 10;
+        if (sprite->y2 >= 0)
+        {
+            sprite->y2 = 0;
+            sprite->data[0]++;
+        }
+        break;
+
+    case 2:
+        sprite->x2 = shakeX2;
+        sprite->y2 = 0;
+
+        if (sprite->data[1] != 0)
+            sprite->data[1]--;
+        else
+        {
+            sprite->animPaused = FALSE; 
+            StartSpriteAnim(sprite, 0);
+            sprite->data[0]++;
+        }
+        break;
+
+    case 3: 
+        sprite->y2 = 0;
+
+        sprite->data[2] += 1;
+        sprite->x2 = sprite->data[2];
+
+        if (sprite->x + sprite->x2 > DISPLAY_WIDTH + 64)
+            DestroyAnimSprite(sprite);
         break;
     }
 }

@@ -344,6 +344,7 @@
 #define ANIM_TAG_ONE_PROTECT                (ANIM_SPRITES_START + 334)
 #define ANIM_TAG_H                          (ANIM_SPRITES_START + 335)
 #define ANIM_TAG_BULLET                     (ANIM_SPRITES_START + 336)
+#define ANIM_TAG_STEAMROLLER                (ANIM_SPRITES_START + 337)
 
 // battlers
 #define ANIM_ATTACKER    0
