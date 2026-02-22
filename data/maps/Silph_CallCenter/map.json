@@ -18,7 +18,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 37,
+      "x": 43,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -32,7 +32,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 44,
+      "x": 38,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -74,8 +74,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 51,
-      "y": 12,
+      "x": 36,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -88,8 +88,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 43,
-      "y": 11,
+      "x": 37,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -117,8 +117,8 @@
   "warp_events": [
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_HUB",
-      "x": 14,
-      "y": 22,
+      "x": 53,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_CALLCENTER"
@@ -133,8 +133,8 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_BACKROOMS1",
-      "x": 47,
-      "y": 21,
+      "x": 33,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_2F",
       "dest_warp_id": "5"
@@ -142,7 +142,7 @@
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_BALLS",
       "x": 34,
-      "y": 5,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_SILPH_BALL_SHOP",
       "dest_warp_id": "WARP_ID_SILPH_BALLS_CALLCENTER"
@@ -151,8 +151,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 14,
-      "y": 23,
+      "x": 53,
+      "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -160,8 +160,8 @@
     },
     {
       "type": "trigger",
-      "x": 15,
-      "y": 22,
+      "x": 54,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -169,8 +169,8 @@
     },
     {
       "type": "trigger",
-      "x": 14,
-      "y": 21,
+      "x": 53,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -178,8 +178,8 @@
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 22,
+      "x": 52,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -197,8 +197,8 @@
     },
     {
       "type": "sign",
-      "x": 45,
-      "y": 11,
+      "x": 47,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
