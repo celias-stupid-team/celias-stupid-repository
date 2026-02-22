@@ -5992,8 +5992,8 @@
     {
       "id": "LAYOUT_SILPH_RD",
       "name": "Silph_RD_Layout",
-      "width": 60,
-      "height": 60,
+      "width": 56,
+      "height": 28,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",

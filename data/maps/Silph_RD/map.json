@@ -32,7 +32,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ORAN_KID",
-      "x": 6,
+      "x": 10,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -47,8 +47,8 @@
       "local_id": "LOCALID_APPLE_KID",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_APPLIN_KID",
-      "x": 51,
-      "y": 5,
+      "x": 41,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -78,7 +78,7 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_RD_CLOTHES",
-      "x": 4,
+      "x": 8,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CLOTHES_STORE",
@@ -86,8 +86,8 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_RD_BALLS",
-      "x": 54,
-      "y": 15,
+      "x": 51,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_SILPH_BALL_SHOP",
       "dest_warp_id": "WARP_ID_SILPH_BALLS_RD"
@@ -132,8 +132,8 @@
     },
     {
       "type": "trigger",
-      "x": 15,
-      "y": 15,
+      "x": 47,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -141,8 +141,8 @@
     },
     {
       "type": "trigger",
-      "x": 16,
-      "y": 15,
+      "x": 48,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -150,8 +150,8 @@
     },
     {
       "type": "trigger",
-      "x": 17,
-      "y": 14,
+      "x": 49,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -159,8 +159,8 @@
     },
     {
       "type": "trigger",
-      "x": 14,
-      "y": 15,
+      "x": 46,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -168,8 +168,8 @@
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 14,
+      "x": 45,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -179,8 +179,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 15,
-      "y": 13,
+      "x": 47,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_RD_Elevator"
