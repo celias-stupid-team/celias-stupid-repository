@@ -1247,5 +1247,15 @@ const struct Tileset gTileset_FinalBossSecondary =
     .palettes = gTilesetPalettes_FinalBossSecondary,
     .metatiles = gMetatiles_FinalBossSecondary,
     .metatileAttributes = gMetatileAttributes_FinalBossSecondary,
+};
+
+const struct Tileset gTileset_office_stuff =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_office_stuff,
+    .palettes = gTilesetPalettes_office_stuff,
+    .metatiles = gMetatiles_office_stuff,
+    .metatileAttributes = gMetatileAttributes_office_stuff,
     .callback = NULL,
 };
