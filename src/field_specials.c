@@ -92,6 +92,7 @@ static void Task_WingFlapSound(u8 taskId);
 void GetUnownCount(void);
 
 
+
 static u8 *const sStringVarPtrs[] = {
     gStringVar1,
     gStringVar2,
@@ -2692,15 +2693,15 @@ static const u32 sChapterTitleTilemap[] = INCBIN_U32("graphics/chapter_title/til
 static const u16 sChapterTitlePalette[] = INCBIN_U16("graphics/chapter_title/tiles.gbapal");
 
 #define TITLE1_END_VPOS 40
-#define TITLE2_START_VPOS 126
+#define TITLE2_START_VPOS 125
 #define TITLE2_START_HPOS 29
 
 #define WIPE1_END_HPOS 143
 #define WIPE2_END_HPOS 207
 
-#define WIPE1_DELAY 60
-#define WIPE2_DELAY 60
-#define END_DELAY 120
+#define WIPE1_DELAY 1
+#define WIPE2_DELAY 162
+#define END_DELAY 160
 
 #define WIPE_SPEED 4 // in pixels per frame
 
@@ -2716,7 +2717,7 @@ static void TeardownChapterTitleGfx(void)
     u8 *buf = GetBgTilemapBuffer(0);
     memset(buf, 0, BG_SCREEN_SIZE);
     ScheduleBgCopyTilemapToVram(0);
-
+    FlagClear(FLAG_CSR_DEBUG_NO_TRAINER_SEE);
     ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON);
     ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN1_ON);
 }
@@ -2727,6 +2728,7 @@ static void Task_WipeChapterTitle(u8 taskId)
 
     if (tWipe1Delay > 0)
     {
+        FlagSet(FLAG_CSR_DEBUG_NO_TRAINER_SEE);
         tWipe1Delay--;        
         return;
     }

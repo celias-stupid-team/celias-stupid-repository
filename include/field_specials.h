@@ -30,5 +30,6 @@ bool8 UsedPokemonCenterWarp(void);
 void QuestLog_CheckDepartingIndoorsMap(void);
 void QuestLog_TryRecordDepartedLocation(void);
 bool8 SocialSecurityCheck(void);
+void DrawChapterTitle(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

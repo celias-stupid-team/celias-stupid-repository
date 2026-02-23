@@ -277,6 +277,7 @@ script Route19_LookerScene {
 	waitmovement(0)
 	delay(20)
 	setflag(FLAG_SYS_ROTOM_MENU)
+	setvar(VAR_CURRENT_CHAPTER, 4)
 	playfanfare(MUS_SLOTS_JACKPOT)
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(

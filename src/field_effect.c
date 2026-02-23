@@ -8,6 +8,7 @@
 #include "field_effect.h"
 #include "field_effect_helpers.h"
 #include "field_effect_scripts.h"
+#include "field_specials.h"
 #include "field_fadetransition.h"
 #include "field_player_avatar.h"
 #include "field_weather.h"
@@ -3240,6 +3241,8 @@ u8 FldEff_UseSurf(void)
     return FALSE;
 }
 
+
+
 static void Task_FldEffUseSurf(u8 taskId)
 {
     sUseSurfEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId]);
@@ -3312,6 +3315,11 @@ static void UseSurfEffect_5(struct Task *task)
         FieldEffectActiveListRemove(FLDEFF_USE_SURF);
         DestroyTask(FindTaskIdByFunc(Task_FldEffUseSurf));
         SetHelpContext(HELPCONTEXT_SURFING);
+        if(VarGet(VAR_CURRENT_CHAPTER) == 4) {
+            VarSet(VAR_CURRENT_CHAPTER, 7);
+            DrawChapterTitle();
+        }
+
     }
 }
 
