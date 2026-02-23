@@ -325,7 +325,7 @@ script SkyTower_PersonalityQuizQuestion {
 
 	"1. Get their name!\n"
 	"2. Learn what you have in common!\l"
-	"3. Silently stare into their soul.", MSGBOX_DEFAULT)
+	"3. Stare unblinkingly at their face.", MSGBOX_DEFAULT)
 	release
 	end
 }

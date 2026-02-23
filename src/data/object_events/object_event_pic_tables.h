@@ -6118,3 +6118,25 @@ const struct SpriteFrameImage gObjectEventPicTable_GENGAR[] = {
     overworld_frame(gObjectEventPic_GENGAR, 4, 4, 2),
     overworld_frame(gObjectEventPic_GENGAR, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_SILPH_WINDOWS[] = {
+    overworld_frame(gObjectEventPic_SILPH_WINDOWS, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SILPH_WINDOWS, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SILPH_WINDOWS, 4, 4, 2),
+    overworld_frame(gObjectEventPic_SILPH_WINDOWS, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SILPH_WINDOWS, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SILPH_WINDOWS, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SILPH_WINDOWS, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SILPH_WINDOWS, 4, 4, 2),
+    overworld_frame(gObjectEventPic_SILPH_WINDOWS, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_CRACKED_COMPUTER[] = {
+    overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 2),
+};

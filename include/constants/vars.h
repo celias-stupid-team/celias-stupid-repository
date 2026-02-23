@@ -305,7 +305,7 @@ It is reset after every battle.
 #define VAR_SKY_TOWER_LASS                 0x40C4
 #define VAR_0x40C5                 0x40C5
 #define VAR_0x40C6                 0x40C6
-#define VAR_0x40C7                 0x40C7
+#define VAR_SILPH_ELEVATOR_SCENE                 0x40C7
 #define VAR_CSR_FINAL_BATTLE_PHASE 0x40C8 // start with 0, increment for every defeated Pokémon
 #define VAR_TRADING_QUEST_PHASE    0x40C9
 #define VAR_CSR_CYNTHIA_BATTLE     0x40CA // start with 0, increment for every defeated Pokémon

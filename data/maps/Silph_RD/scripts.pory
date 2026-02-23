@@ -1,5 +1,16 @@
 mapscripts Silph_RD_MapScripts {
-
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_1)
+		if(flag(FLAG_SILPH_MONKEY)) {
+			clearflag(FLAG_TEMP_1)	
+			setflag(FLAG_TEMP_2)
+		}
+		setflag(FLAG_TEMP_6)
+		if(flag(FLAG_FINANCIAL_REPORT_TOSSED)) {
+			clearflag(FLAG_TEMP_6)
+			setflag(FLAG_TEMP_7)
+		}
+	}
 }
 
 script SilphCo_RD_Sign {
@@ -95,6 +106,8 @@ script SilphCo_RD_ApplinKid {
 }
 
 script SilphCo_RD_OranKid {
+	lock
+	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"Ohoho!\n"
@@ -113,7 +126,13 @@ script SilphCo_RD_OranKid {
 
 	"See, my parents own this company.\n"
 	"Therefore, I am a genius!\l"
-	"It's quite simple!", MSGBOX_NPC)
+	"It's quite simple.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
 }
 
 
@@ -151,4 +170,462 @@ script SilphCo_MakeElevatorDisappear {
 	"My ELEVATOR ERASER is working!", MSGBOX_DEFAULT)
 	setvar(VAR_TEMP_1, 1)
 	release
+}
+
+script SilphCo_MonkeyMan {
+	msgbox(
+	"We've replaced our entire coding\n"
+	"and documenting staff with a team\l"
+	"of highly-trained MONKEYS.\p"
+
+	"The quality may be lacking, but\n"
+	"raw output been through the roof!", MSGBOX_NPC)
+}
+
+script SilphCo_MonkeyOne {
+	msgbox(
+	"The monkey is hammering away at\n"
+	"a typewriter.", MSGBOX_SIGN)
+}
+
+script SilphCo_MonkeyTwo {
+	msgbox(
+	"A monkey is hammering away at a\n"
+	"typewriter.\p"
+
+	"He appears very concerned over his\n"
+	"next performance review.", MSGBOX_SIGN)
+	
+}
+
+script SilphCo_MonkeyThree {
+	msgbox(
+	"The monkey is pretending to be\n"
+	"hammering away at a typewriter.", MSGBOX_SIGN)
+}
+
+script SilphCo_MonkeyTypewriter1 {
+	msgbox(
+	"A sheet of paper is in the\n"
+	"typewriter carriage.\l"
+	"It reads:\p"
+
+	"“My Secret Life,{PAUSE 30} Shmapter Three”\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script SilphCo_MonkeyTypewriter2 {
+	msgbox(
+	"A sheet of paper is in the\n"
+	"typewriter carriage.\l"
+	"It reads:\p"
+
+	"“FKLklnvfcjsa54oiduh2LKJHSFhlj3sadf”"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script SilphCo_MonkeyFour {
+	lock
+	faceplayer
+	playmoncry(SPECIES_PANPOUR, CRY_MODE_DEFAULT)
+	waitmoncry
+	delay(30)
+	playse(SE_PIN)
+	applymovement(LOCALID_SILPH_MONKEY_MASTER, moves(
+		emote_exclamation_mark
+		delay_16 * 3
+		walk_faster_left * 3
+		face_up
+	))
+	waitmovement(0)
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"HEY!\n"
+	"{PAUSE 20}GET BACK TO WORK!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_up
+		delay_16
+		face_down
+		delay_16
+		face_up
+		delay_16 * 2
+		face_original_direction
+	))
+	waitmovement(0)
+	delay(30)
+	applymovement(LOCALID_SILPH_MONKEY_MASTER, moves(
+		walk_slow_right * 3
+		face_up
+	))
+	delay(15)
+	msgbox(
+	"Grumble… {PAUSE 20}\n"
+	"That one's always been a problem…", MSGBOX_DEFAULT)
+	closemessage
+	setflag(FLAG_SILPH_MONKEY)
+	waitmovement(0)
+	release
+	end
+}
+
+script SilphCo_MonkeyWindow {
+	msgbox(
+	"Productivity incentive.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script SilphCo_OranPainting {
+	lock
+	playse(SE_PIN)
+	applymovement(LOCALID_ORAN_KID, moves(
+		face_right
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"ORAN KID: Ah, I see you have a\n"
+	"discerning eye.\p"
+
+	"That right there is called a\n{PAUSE 20}“painting”.\l"
+
+	"You may have heard of such things.\p"
+	"Yes, I am indeed quite cultured.\nOho!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_ORAN_KID, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+
+}
+
+script SilphCo_OranKidWall {
+	msgbox(
+	"He's looking directly at the wall.\p"
+
+	"Perhaps the window and painting are\n"
+	"too stimulating for him.", MSGBOX_NPC)
+}
+
+script SilphCo_SpikyOak {
+	msgbox(
+	"A rare breed of spiky-haired OAK.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script SilphCo_OranKid {
+	msgbox(
+	"PRIVATE TELEPORTER WARP\n"
+	"For ORAN KID use only!", MSGBOX_SIGN)
+
+}
+
+script SilphCo_AppleBed {
+	msgbox(
+	"{PLAYER} laid in the bed…\p"
+
+	"Mmm… Smells like it's fucked up\n"
+	"that they make him sleep here.", MSGBOX_SIGN)
+
+}
+
+script SilphCo_OranWindow {
+	msgbox(
+	"A five-layer plexiglass window\n"
+	"overlooking SAFFRON CITY.\p"
+
+	"It shows signs of having been\n"
+	"repaired at least six times.", MSGBOX_SIGN)
+
+}
+
+script SilphCo_PikachuScientist {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_3)) {
+		if(!flag(FLAG_TEMP_4)) {
+			msgbox(
+			"Um, speak into the microphone.\n"
+			"{PAUSE 20}Not to me.", MSGBOX_DEFAULT)
+		} else {
+			msgbox(
+			"Isn't my invention neat?\n"
+			"", MSGBOX_DEFAULT)
+		}
+	} else {
+		msgbox(
+		"We're developing the technology\n"
+		"to talk to POKéMON via microphone.\p"
+
+		"Here - give it a try!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(VAR_LAST_TALKED, moves(
+			walk_right
+			face_left
+		))
+		waitmovement(0)
+		setflag(FLAG_TEMP_3)
+		copyobjectxytoperm(VAR_LAST_TALKED)
+	}
+	release
+}
+
+script SilphCo_PikachuWindow {
+	lock
+	setflag(FLAG_TEMP_4)
+	message(
+	"You can talk to PIKACHU!\n"
+	"What do you want to say?{PAUSE 20}")
+	waitmessage
+	dynmultichoice(2,4,TRUE,5, 0, DYN_MULTICHOICE_CB_NONE, "Hello, PIKACHU!", "Use THUNDERBOLT!", "Do a cool flip!", "How do you feel about the current", "problems in the Middle East?")
+	special(SpawnCameraObject)
+	closemessage
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fast_up * 2
+	))
+	waitmovement(LOCALID_CAMERA)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			closemessage
+			delay(30)
+			//playse(SE_BANG)
+			applymovement(LOCALID_SILPH_PIKACHU, moves(
+				emote_smile
+				delay_16 * 3
+			))
+			playmoncry(SPECIES_PIKACHU_OLD, CRY_MODE_NORMAL)
+			waitmoncry
+		case 1:
+			closemessage
+			delay(30)
+			playse(SE_M_THUNDERBOLT)
+			applymovement(LOCALID_SILPH_PIKACHU, moves(
+				jump_in_place_down * 2
+			))
+			waitmovement(0)
+			waitse
+			playse(SE_M_THUNDERBOLT2)
+			waitse
+		case 2:
+			closemessage
+			delay(30)
+			playse(SE_LEDGE)
+			applymovement(LOCALID_SILPH_PIKACHU, moves(
+				lock_facing_direction
+				walk_faster_up
+				unlock_facing_direction
+				face_left
+				delay_2
+				face_up
+				delay_2
+				face_right
+				delay_2
+				jump_down
+			))
+			waitmovement(0)
+		case 3:
+		case 4:
+			closemessage
+			delay(30)
+			playse(SE_BANG)
+			applymovement(LOCALID_SILPH_PIKACHU, moves(
+				emote_double_exclamation_mark
+				delay_16 * 3
+			))
+			playmoncry(SPECIES_PIKACHU_OLD, CRY_MODE_ENCOUNTER)
+			waitmoncry
+			delay(60)
+			msgbox(
+			"Wow!\p"
+
+			"What a nuanced answer!\n"
+			"", MSGBOX_DEFAULT)
+	}
+	closemessage
+	delay(30)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fast_down * 2
+	))
+	waitmovement(LOCALID_CAMERA)
+	special(RemoveCameraObject)
+	release
+	end
+}
+
+script SilphCo_OranKidAlphabet {
+	msgbox(
+	"A sheet of paper depicting the\n"
+	"alphabet,{PAUSE 20} in alphabetical order.", MSGBOX_SIGN)
+
+}
+
+script SilphCo_OranKidAwards {
+	msgbox(
+	"A pile of letters and accolades,\n"
+	"delivered directly from the CEO.", MSGBOX_NPC)
+}
+
+script SilphCo_FinancialReport {
+	lock
+	faceplayer
+	if(flag(FLAG_FINANCIAL_REPORT_TOSSED)) {
+		msgbox(
+		"…\p"
+
+		"Looks like it's back to work.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	addobject(LOCALID_SILPH_CHUCKSTER)
+	applymovement(LOCALID_SILPH_CHUCKSTER, moves(
+		delay_16 * 6
+		set_visible
+		walk_left * 2
+		walk_up * 6
+		walk_right * 3
+		face_up
+	))
+	msgbox(
+	"After weeks of work, I've finally\n"
+	"finished our financial report!\p"
+
+	"Phew, and with only a single day\n"
+	"to spare.\l"
+	"Looks like I can take some time off!", MSGBOX_DEFAULT)
+
+	closemessage
+	waitmovement(LOCALID_SILPH_CHUCKSTER)
+	setflag(FLAG_FINANCIAL_REPORT_TOSSED)
+	delay(30)
+	playse(SE_PIN)
+	specialvar(VAR_TEMP_6, GetPlayerFacingDirection)
+	
+	applymovement(VAR_LAST_TALKED, moves(
+		face_down
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		face_down
+	))
+	waitmovement(VAR_LAST_TALKED)
+	switch(var(VAR_TEMP_6)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				face_right
+				lock_facing_direction
+				walk_left
+				unlock_facing_direction
+			))
+		case DIR_EAST:
+			nop
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, moves(
+				face_up
+				lock_facing_direction
+				walk_down
+				unlock_facing_direction
+				face_left
+			))
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+		lock_facing_direction
+		walk_right
+		unlock_facing_direction
+	))
+	waitmovement(VAR_LAST_TALKED)
+	applymovement(LOCALID_SILPH_CHUCKSTER, moves(
+		walk_slow_up * 2
+		face_up
+		delay_16 * 3
+	))
+	waitmovement(LOCALID_SILPH_CHUCKSTER)
+	if(var(VAR_TEMP_6) == DIR_EAST) {
+			applymovement(LOCALID_PLAYER, moves(
+				face_up
+				lock_facing_direction
+				walk_down
+				unlock_facing_direction
+				face_left
+			))
+	}
+	applymovement(LOCALID_SILPH_CHUCKSTER, moves(
+		walk_left * 3
+		face_up
+	))
+	applymovement(LOCALID_SILPH_COMPUTER, moves(
+		lock_facing_direction
+		walk_left * 3
+	))
+	waitmovement(LOCALID_SILPH_CHUCKSTER)
+	delay(50)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"I'm a CHUCKSTER!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_SILPH_CHUCKSTER, moves(
+		walk_fast_up
+		face_up
+	))
+	applymovement(LOCALID_SILPH_COMPUTER, moves(
+		jump_2_up
+		face_up
+		set_invisible
+	))
+	waitmovement(LOCALID_SILPH_COMPUTER)
+	playse(SE_ICE_BREAK)
+	addobject(LOCALID_SILPH_COMPUTER_WINDOW)
+	removeobject(LOCALID_SILPH_COMPUTER)
+	waitse
+	delay(60)
+	applymovement(LOCALID_SILPH_CHUCKSTER, moves(
+		walk_down * 9
+	))
+	
+	applymovement(VAR_LAST_TALKED, moves(
+		delay_16 * 5
+		walk_slower_left
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	waitmovement(LOCALID_SILPH_CHUCKSTER)
+	removeobject(LOCALID_SILPH_CHUCKSTER)
+	release
+	end
+
+}
+
+script SilphCo_FinancialWindow {
+	msgbox(
+	"They're cooking the books…\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script SilphCo_PotionEraser {
+	msgbox(
+	"There's a discarded invention…\p"
+
+	"“POTION ERASER:{PAUSE 20} FAILURE(?)”\p"
+
+	"Note to self:\n"
+	"Turn the power WAY down next time!", MSGBOX_SIGN)
+
 }

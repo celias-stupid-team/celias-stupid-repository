@@ -3555,7 +3555,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kurt = {
     .inanimate = FALSE,
     .disableReflectionPaletteLoad = FALSE,
     .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
+    .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = gObjectEventSpriteOamTables_16x32,
     .anims = sAnimTable_Standard,
     .images = gObjectEventPicTable_Kurt,
@@ -9820,7 +9820,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOY_BOX_OPEN = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GIRL_BOX = {
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
@@ -9840,7 +9840,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GIRL_BOX = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GIRL_BOX_OPEN = {
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
@@ -9880,7 +9880,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOX_BOY = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOX_GIRL = {
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
@@ -10334,6 +10334,46 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GENGAR = {
     .subspriteTables = gObjectEventSpriteOamTables_32x32,
     .anims = sAnimTable_Standard,
     .images = gObjectEventPicTable_GENGAR,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SILPH_WINDOWS = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_SILPH_WINDOWS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_SILPH_WINDOWS,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CRACKED_COMPUTER = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_CRACKED_COMPUTER,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_CRACKED_COMPUTER,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 

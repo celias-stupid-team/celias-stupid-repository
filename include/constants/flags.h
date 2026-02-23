@@ -463,13 +463,13 @@
 #define FLAG_BROKE_STEVEN_STONE                              0x19C
 #define FLAG_PUSHED_CAPTAIN_DOWN_WALL                     0x19D
 #define FLAG_SHINY_DACHSBUN                            0x19E
-#define FLAG_0x19F                     0x19F
+#define FLAG_SILPH_MONKEY                     0x19F
 #define FLAG_BEAT_DMCA_ERIKA                0x1A0
 #define FLAG_BEAT_DMCA_SABRINA                    0x1A1
 #define FLAG_BEAT_DMCA_BLAINE                 0x1A2
 #define FLAG_BEAT_DMCA_SILVER                       0x1A3
-#define FLAG_0x1A4                      0x1A4
-#define FLAG_0x1A5              0x1A5
+#define FLAG_FINANCIAL_REPORT_TOSSED                      0x1A4
+#define FLAG_SENT_SILPH_LOOK_GIRL              0x1A5
 #define FLAG_HIDE_LIGMA                                              0x1A6
 #define FLAG_KILLED_SANS                      0x1A7
 #define FLAG_USED_GENDER_FLUID                0x1A8

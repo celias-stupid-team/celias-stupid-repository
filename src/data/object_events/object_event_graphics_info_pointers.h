@@ -568,6 +568,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EARRAT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SLOW_BRO;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHELLA_JEFF;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GENGAR;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SILPH_WINDOWS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CRACKED_COMPUTER;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1137,4 +1139,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SLOW_BRO] = &gObjectEventGraphicsInfo_SLOW_BRO,
     [OBJ_EVENT_GFX_SHELLA_JEFF] = &gObjectEventGraphicsInfo_SHELLA_JEFF,
     [OBJ_EVENT_GFX_GENGAR] = &gObjectEventGraphicsInfo_GENGAR,
+    [OBJ_EVENT_GFX_SILPH_WINDOWS] = &gObjectEventGraphicsInfo_SILPH_WINDOWS,
+    [OBJ_EVENT_GFX_CRACKED_COMPUTER] = &gObjectEventGraphicsInfo_CRACKED_COMPUTER,
 };

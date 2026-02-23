@@ -820,3 +820,7 @@ const u32 gObjectEventPic_SHELLA_JEFF[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_SHELLA_JEFF[] = INCBIN_U16("graphics/object_events/palettes/SHELLA_JEFF.gbapal");
 const u32 gObjectEventPic_GENGAR[] = INCBIN_U32("graphics/object_events/pics/stupid/GENGAR.4bpp");
 const u16 gObjectEventPal_GENGAR[] = INCBIN_U16("graphics/object_events/palettes/GENGAR.gbapal");
+const u32 gObjectEventPic_SILPH_WINDOWS[] = INCBIN_U32("graphics/object_events/pics/stupid/SILPH_WINDOWS.4bpp");
+const u16 gObjectEventPal_SILPH_WINDOWS[] = INCBIN_U16("graphics/object_events/palettes/SILPH_WINDOWS.gbapal");
+const u32 gObjectEventPic_CRACKED_COMPUTER[] = INCBIN_U32("graphics/object_events/pics/stupid/CRACKED_COMPUTER.4bpp");
+const u16 gObjectEventPal_CRACKED_COMPUTER[] = INCBIN_U16("graphics/object_events/palettes/CRACKED_COMPUTER.gbapal");
