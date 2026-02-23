@@ -252,6 +252,20 @@ script SecretGarden_RetrievalChute {
                 release
                 end
             } else {
+                if(flag(CRIMP_BOX_THERE)) {
+                closemessage
+                delay(20)
+                playse(SE_BOO)
+                waitse
+                msgbox(
+                "System Error.\p"
+
+                "For safety reasons, please clear\n"
+                "BOX CLOSER before exporting.", MSGBOX_DEFAULT)
+                release
+                end
+
+                }
                 closemessage
                 delay(20)
                 playse(SE_M_TELEPORT)
@@ -538,6 +552,7 @@ script SecretGarden_ExportBoxDock {
             msgbox(
             "You cannot lift a second box.\n"
             "", MSGBOX_DEFAULT)
+            callnative(SetPlayerCarryingBox)
             release
             end
         } else {
@@ -555,6 +570,7 @@ script SecretGarden_ExportBoxDock {
             clearflag(RIGHT_BOX_THERE)
             setobjectxy(LOCALID_RIGHT_BOX, 25, 3)
             copyobjectxytoperm(LOCALID_RIGHT_BOX)
+            callnative(SetPlayerCarryingBox)
             release
             end
         }
@@ -583,6 +599,7 @@ script SecretGarden_ExportBoxDock {
             clearflag(FLAG_SYS_CARRYING_BOX)
             setflag(RIGHT_BOX_THERE)
             copyvar(RIGHT_BOX_NUMBER, PLAYER_BOX_NUMBER)
+            callnative(SetPlayerCarryingBox)
             release
             end
 
@@ -590,6 +607,7 @@ script SecretGarden_ExportBoxDock {
 
         }
     }
+    callnative(SetPlayerCarryingBox)
     release
 }
 
@@ -604,6 +622,7 @@ script SecretGarden_PCBoxPallet {
             msgbox(
             "You cannot lift a second box.\n"
             "", MSGBOX_DEFAULT)
+            callnative(SetPlayerCarryingBox)
             release
             end
         } else {
@@ -622,6 +641,7 @@ script SecretGarden_PCBoxPallet {
             clearflag(LEFT_BOX_THERE)
             setobjectxy(LOCALID_LEFT_BOX, 25, 3)
             copyobjectxytoperm(LOCALID_LEFT_BOX)
+            callnative(SetPlayerCarryingBox)
             release
             end
         }
@@ -650,16 +670,18 @@ script SecretGarden_PCBoxPallet {
             clearflag(FLAG_SYS_CARRYING_BOX)
             setflag(LEFT_BOX_THERE)
             copyvar(LEFT_BOX_NUMBER, PLAYER_BOX_NUMBER)
+            callnative(SetPlayerCarryingBox)
             release
             end
 
 
         } else {
+            callnative(SetPlayerCarryingBox)
             release
             end
         }
     }
-
+    callnative(SetPlayerCarryingBox)
     release
 }
 
@@ -676,6 +698,7 @@ script SecretGarden_BoxCrimper {
             msgbox(
             "You cannot lift a second box.\n"
             "", MSGBOX_DEFAULT)
+            callnative(SetPlayerCarryingBox)
             release
             end
             
@@ -692,7 +715,7 @@ script SecretGarden_BoxCrimper {
             }
             setflag(FLAG_SYS_CARRYING_BOX)
             setflag(PLAYER_BOX_THERE)
-
+            callnative(SetPlayerCarryingBox)
         }
     } else { //no box
         if(flag(FLAG_SYS_CARRYING_BOX)) {
@@ -719,15 +742,18 @@ script SecretGarden_BoxCrimper {
             setobjectxy(LOCALID_CRIMP_BOX, 12, 19)
             copyobjectxytoperm(LOCALID_CRIMP_BOX)
             setflag(CRIMP_BOX_THERE)
+            callnative(SetPlayerCarryingBox)
             release
             end
 
         } else {
+            callnative(SetPlayerCarryingBox)
             release
             end
 
         }
     }
+    callnative(SetPlayerCarryingBox)
     release
 }
 

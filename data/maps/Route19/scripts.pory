@@ -572,14 +572,16 @@ script GreatSea_Chapter7 {
 	lock
 	clearflag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)
 	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
-	fadescreenswapbuffers(FADE_TO_BLACK)
-	delay(30)
-	message("Chapter 7{PAUSE 120}\nToo Much Water")
-	delay(270)
-	closemessage
+	
+	setvar(VAR_0x8000, MUGSHOT_CHAPTER7)
+	callnative(DrawMugshot)
+	delay(120)	
+	setvar(VAR_0x8000, MUGSHOT_CHAPTER7_2)
+	callnative(DrawMugshot)
+	delay(120)
 
-	fadescreenswapbuffers(FADE_FROM_BLACK)
 	setvar(VAR_CURRENT_CHAPTER, 7)
+	callnative(ClearMugshot)
 	release
 }
 

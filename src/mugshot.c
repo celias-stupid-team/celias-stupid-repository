@@ -79,6 +79,11 @@ static const u16 sMugshotPal_KenyaFrame14[] = INCBIN_U16("graphics/mugshots/keny
 static const u32 sMugshotImg_KenyaFrame15[] = INCBIN_U32("graphics/mugshots/kenya_15.4bpp.lz");
 static const u16 sMugshotPal_KenyaFrame15[] = INCBIN_U16("graphics/mugshots/kenya_15.gbapal");
 
+static const u32 sMugshotImg_Chapter7[] = INCBIN_U32("graphics/mugshots/Chapter7_Frame1.4bpp.lz");
+static const u16 sMugshotPal_Chapter7[] = INCBIN_U16("graphics/mugshots/Chapter7_Frame1.gbapal");
+
+static const u32 sMugshotImg_Chapter7_2[] = INCBIN_U32("graphics/mugshots/Chapter7_Frame2.4bpp.lz");
+
 
 static const struct Mugshot sMugshots[] = {
     //ADD YOUR MUGSHOTS HERE
@@ -103,6 +108,8 @@ static const struct Mugshot sMugshots[] = {
     [MUGSHOT_KENYA_FRAME_13] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame13, .palette = sMugshotPal_KenyaFrame13},
     [MUGSHOT_KENYA_FRAME_14] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame14, .palette = sMugshotPal_KenyaFrame14},
     [MUGSHOT_KENYA_FRAME_15] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_KenyaFrame15, .palette = sMugshotPal_KenyaFrame15},
+    [MUGSHOT_CHAPTER7] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_Chapter7, .palette = sMugshotPal_Chapter7},
+    [MUGSHOT_CHAPTER7_2] = {.x = 0, .y = 0, .width = 240, .height = 160, .image = sMugshotImg_Chapter7_2, .palette = sMugshotPal_Chapter7},
 };
 
 

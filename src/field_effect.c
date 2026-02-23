@@ -4282,3 +4282,19 @@ void FldEff_PhotoFlash(void)
     BeginNormalPaletteFade(PALETTES_ALL, -1, 0x0F, 0x00, RGB_WHITE);
     CreateTask(Task_PhotoFlash, 90);
 }
+
+void SetPlayerCarryingBox(void) {
+    struct ObjectEvent * objectEvent;
+    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    if(FlagGet(FLAG_SYS_CARRYING_BOX)) {
+        DebugPrintf("Carrying a box");
+        if(FlagGet(FLAG_TEMP_4)) {
+            ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_BOX_OPEN));
+        } else {
+            ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_BOX_CLOSED));
+        }
+    } else {
+        ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_NORMAL));
+    }
+    
+}

@@ -404,7 +404,7 @@ gFameCheckerFlavorText_Fuchsia1:: @ 0x81AEC28
 gFameCheckerFlavorText_Fuchsia2:: @ 0x81AEC82
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}We found an ITEM here that induced\n"
-	.string "an illegal EVOLUTION.\p"
+	.string "an illegal EVOLUTION in DRAGONITE.\p"
 	.string "We passed it to our team in the\n"
 	.string "CELADON DMCA LAW OFFICES.\l"
 	.string "One of our ADMINS is guarding it.$"
