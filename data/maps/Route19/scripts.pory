@@ -678,22 +678,8 @@ script GreatSea_MinnesotaNorth_Bouy {
 }
 
 
-script GreatSea_WomensSecret { // Swimmer Victoria
-	trainerbattle_single(TRAINER_BACKPACK_SWIMMER, "If I'm wearing a bikini…\n"
-	"where do I put my POKé BALLS?", "Ah!")
-	msgbox(
-	"Where do I keep my POKé BALLS?\p"
 
-	"Tee hee!\n"
-	"Woman's secret!", MSGBOX_NPC)
-}
 
-script GreatSea_PokeBallStorage {
-	msgbox(
-	"FEMININE POKé BALL STORAGE DEVICE\n"
-	"", MSGBOX_SIGN)
-
-}
 
 
 
