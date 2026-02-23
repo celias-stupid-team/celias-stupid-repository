@@ -5408,13 +5408,13 @@ BattleScript_RunRotomAnimation::
 
 BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	playse SE_M_MEGA_KICK
-	@ fadescreen FADE_TO_WHITE
-	@ waitforfade
+	fadescreen FADE_TO_WHITE
+	waitforfade
 	handlespriteupdate BS_OPPONENT1
 	togglebattlerspritevisibility BS_OPPONENT1 @ hide the Moltres sprite
 	sethealthboxspriteinvisible BS_OPPONENT1 @ hide healthbox sprite
 	pause B_WAIT_TIME_LONG
-	@ fadescreeninstant FADE_FROM_WHITE
+	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_FINALMOLTRES
 	pause B_WAIT_TIME_LONGEST

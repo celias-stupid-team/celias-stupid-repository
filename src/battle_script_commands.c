@@ -7009,17 +7009,21 @@ static void Cmd_various(void)
                     CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
                 }
             }
-            HandleSpeciesGfxDataChange(gActiveBattler, gBattleAnimTarget, 255);
-            GetBattleAnimBgDataByPriorityRank(&animBg, gActiveBattler);
-            if (IsContest())
-                position = 0;
-            else
-                position = GetBattlerPosition(gActiveBattler);
+             // wiz1989 ToDo: Change to MOLTRES
+            if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) || (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_LUGIA))
+            {
+                HandleSpeciesGfxDataChange(gActiveBattler, gBattleAnimTarget, 255);
+                GetBattleAnimBgDataByPriorityRank(&animBg, gActiveBattler);
+                if (IsContest())
+                    position = 0;
+                else
+                    position = GetBattlerPosition(gActiveBattler);
 
-            src = gMonSpritesGfxPtr->sprites[position] + (gBattleMonForms[gActiveBattler] << 11);
-            dest = animBg.bgTiles;
-            CpuCopy32(src, dest, MON_PIC_SIZE);
-            LoadBgTiles(1, animBg.bgTiles, 0x800, animBg.tilesOffset);
+                src = gMonSpritesGfxPtr->sprites[position] + (gBattleMonForms[gActiveBattler] << 11);
+                dest = animBg.bgTiles;
+                CpuCopy32(src, dest, MON_PIC_SIZE);
+                LoadBgTiles(1, animBg.bgTiles, 0x800, animBg.tilesOffset);
+            }
             
             gBattlescriptCurrInstr = cmd->nextInstr;
             return;
