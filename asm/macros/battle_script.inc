@@ -1643,6 +1643,11 @@
 	callnative BS_TrySetShadowSpikes
 	.endm
 
+	.macro tryremoveshadowspikes side:req
+	callnative BS_TryRemoveShadowSpikes
+	.byte \side
+	.endm
+
 	.macro setshadowshield
 	callnative BS_SetShadowShield
 	.endm
@@ -1752,4 +1757,19 @@
 	.macro sethealthboxspriteinvisible battler:req
 	callnative BS_SetHealthboxSpriteInvisible
 	.byte \battler
+	.endm
+
+	.macro createfinalcharmander
+	callnative BS_CreateFinalCharmander
+	.endm
+
+	.macro jumpifbattlerside battler:req, side:req, jumpInstr:req
+	callnative BS_JumpIfBattlerSide
+	.byte \battler
+	.byte \side
+	.4byte \jumpInstr
+	.endm
+
+	.macro clearbattleweather
+	callnative BS_ClearBattleWeather
 	.endm

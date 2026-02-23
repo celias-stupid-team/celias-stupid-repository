@@ -3054,6 +3054,9 @@ BattleScript_HandleFaintedMon::
 BattleScript_HandleFaintedMonContinue::
 	pause B_WAIT_TIME_SHORT @test
 	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_FaintedMonEnd @ 0 = continue battle
+	 // wiz1989 ToDo: value to check is 5!
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 1, BattleScript_FaintedMon_SendOutCharmander @ create FINALCHARMANDER instead of opening the party screen
+BattleScript_HandleFaintedMonContinue2::
 	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_FaintedMonTryChoose
 	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonTryChoose
 	printstring STRINGID_USENEXTPKMN
@@ -5405,13 +5408,13 @@ BattleScript_RunRotomAnimation::
 
 BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	playse SE_M_MEGA_KICK
-	fadescreen FADE_TO_WHITE
-	waitforfade
-	handlespriteupdate BS_FAINTED
-	togglebattlerspritevisibility BS_FAINTED @ hide the Moltres sprite
-	sethealthboxspriteinvisible BS_FAINTED @ hide healthbox sprite
+	@ fadescreen FADE_TO_WHITE
+	@ waitforfade
+	handlespriteupdate BS_OPPONENT1
+	togglebattlerspritevisibility BS_OPPONENT1 @ hide the Moltres sprite
+	sethealthboxspriteinvisible BS_OPPONENT1 @ hide healthbox sprite
 	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
+	@ fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_FINALMOLTRES
 	pause B_WAIT_TIME_LONGEST
@@ -5419,8 +5422,8 @@ BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	pause B_WAIT_TIME_LONGEST
 	cleareffectsonfaint BS_TARGET
 	printstring STRINGID_ZAPMOLCUNOFAINTED
-	pause B_WAIT_TIME_LONGEST
-	return @ last bird, separate handling
+	pause B_WAIT_TIME_SHORT
+	return @ last bird, continue with normal fainting process
 
 BattleScript_EffectFullRestore::
 	attackcanceler
@@ -5516,8 +5519,25 @@ BattleScript_KoraidonSentOut::
 	switchinanim BS_ATTACKER, FALSE
 	waitstate
 	switchineffects BS_ATTACKER
-	moveendcase MOVEEND_IMMUNITY_ABILITIES
-	moveendcase MOVEEND_MIRROR_MOVE
+	end2
+
+BattleScript_FaintedMon_SendOutCharmander::
+	@ return if the fainted mon is on the opponent's side
+	jumpifbattlerside BS_FAINTED, B_SIDE_OPPONENT, BattleScript_HandleFaintedMonContinue2
+	createfinalcharmander
+	setbyte gBattleCommunication, 0
+	drawpartystatussummary BS_FAINTED
+	getswitchedmondata BS_FAINTED
+	switchindataupdate BS_FAINTED
+	hpthresholds BS_FAINTED
+	printstring STRINGID_SWITCHINMON
+	hidepartystatussummary BS_FAINTED
+	switchinanim BS_FAINTED, FALSE
+	waitstate
+	tryremoveshadowspikes B_SIDE_PLAYER
+	clearbattleweather
+	switchineffects BS_FAINTED
+	cancelallactions
 	end2
 
 BattleScript_EffectCollisionCourse::

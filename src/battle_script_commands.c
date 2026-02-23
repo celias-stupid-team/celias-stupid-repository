@@ -5092,9 +5092,6 @@ static void Cmd_switchindataupdate(void)
 
 static void Cmd_switchinanim(void)
 {
-    // extern const u8 BattleScript_FaintedMonSendOutNew[];
-    // extern const u8 BattleScript_FaintedMonEnd[];
-
     if (gBattleControllerExecFlags)
         return;
 
@@ -11602,6 +11599,15 @@ void BS_TrySetShadowSpikes(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_TryRemoveShadowSpikes(void)
+{
+    NATIVE_ARGS(u8 side);
+
+    gSideStatuses[cmd->side] &= ~SIDE_STATUS_SHADOW_SPIKES;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_SetShadowShield(void)
 {
     NATIVE_ARGS();
@@ -12172,5 +12178,57 @@ void BS_SetHealthboxSpriteInvisible(void)
 
     SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
     
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_CreateFinalCharmander(void)
+{
+    NATIVE_ARGS();
+
+    struct Pokemon *mon;
+    u16 species = SPECIES_FINALCHARMANDER;
+
+    DebugPrintf("creating final charmander");
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    // create Charmander in party slot 0
+    mon = &gPlayerParty[0];
+    gBattleMons[0].species = species;
+    CreateMonWithGenderNatureLetter(mon, species, 4, USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+    CopyPlayerPartyMonToBattleData(0, 0); // use 0, 0 instead?
+
+    gPlayerPartyCount = 1;
+    //reset party data
+    // ResetPartyData(RESET_OPTION_WITHOUT_PARTY_SLOTS);
+
+    // Tell getswitchedmondata to use party slot 0 for the fainted battler
+    gBattleStruct->monToSwitchIntoId[gBattlerFainted] = 0;
+
+    // set VAR_CSR_FINAL_BATTLE_PHASE to 6, so no other events based on this Var are being executed
+    VarSet(VAR_CSR_FINAL_BATTLE_PHASE, 6);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfBattlerSide(void)
+{
+    NATIVE_ARGS(u8 battler, u8 side, const u8 *jumpInstr);
+
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (GetBattlerSide(battler) == cmd->side)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_ClearBattleWeather(void)
+{
+    NATIVE_ARGS();
+
+    gBattleWeather = 0;
+
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
