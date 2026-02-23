@@ -112,6 +112,7 @@ Debug_ClearRotomMenu:
 	end
 
 Debug_EventScript_Script_4::
+	callnative DrawChapterTitle
 	end
 
 Debug_EventScript_Script_5::

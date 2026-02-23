@@ -4,6 +4,7 @@
 #include "global.h"
 
 extern u16 gScrollableMultichoice_ScrollOffset;
+extern u8 gChapterTitleRunning;
 
 u8 GetLeadMonIndex(void);
 s32 CountDigits(s32 number);
