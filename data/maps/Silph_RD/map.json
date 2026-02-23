@@ -48,7 +48,7 @@
       "local_id": "LOCALID_APPLE_KID",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_APPLIN_KID",
-      "x": 41,
+      "x": 38,
       "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -237,7 +237,7 @@
     {
       "warp_id": "WARP_ID_SILPH_RD_HUB",
       "x": 28,
-      "y": 15,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_RD"
@@ -274,14 +274,32 @@
       "dest_warp_id": "5"
     },
     {
-      "x": 28,
-      "y": 21,
+      "x": 22,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_SILPH_RD",
       "dest_warp_id": "4"
     }
   ],
   "coord_events": [
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_RD"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_RD"
+    },
     {
       "type": "trigger",
       "x": 28,
@@ -293,26 +311,8 @@
     },
     {
       "type": "trigger",
-      "x": 27,
-      "y": 15,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "SilphCo_Activate_Warp_RD"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "SilphCo_Activate_Warp_RD"
-    },
-    {
-      "type": "trigger",
       "x": 29,
-      "y": 15,
+      "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -375,8 +375,8 @@
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 19,
+      "x": 22,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_OranKid"
@@ -423,15 +423,15 @@
     },
     {
       "type": "sign",
-      "x": 23,
-      "y": 0,
+      "x": 26,
+      "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
     },
     {
       "type": "sign",
-      "x": 45,
+      "x": 42,
       "y": 25,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",

@@ -1389,7 +1389,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SilphCo2",
+      "secondary_tileset": "gTileset_SilphCo",
       "border_filepath": "data/layouts/SilphCo_2F/border.bin",
       "blockdata_filepath": "data/layouts/SilphCo_2F/map.bin"
     },

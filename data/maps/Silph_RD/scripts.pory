@@ -254,6 +254,8 @@ script SilphCo_MonkeyFour {
 		face_down
 		delay_16
 		face_up
+		delay_16
+		face_down
 		delay_16 * 2
 		face_original_direction
 	))
@@ -629,3 +631,5 @@ script SilphCo_PotionEraser {
 	"Turn the power WAY down next time!", MSGBOX_SIGN)
 
 }
+
+
