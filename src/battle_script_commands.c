@@ -7009,14 +7009,14 @@ static void Cmd_various(void)
                     CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
                 }
             }
-            HandleSpeciesGfxDataChange(gBattleAnimAttacker, gBattleAnimTarget, 255);
-            GetBattleAnimBgDataByPriorityRank(&animBg, gBattleAnimAttacker);
+            HandleSpeciesGfxDataChange(gActiveBattler, gBattleAnimTarget, 255);
+            GetBattleAnimBgDataByPriorityRank(&animBg, gActiveBattler);
             if (IsContest())
                 position = 0;
             else
-                position = GetBattlerPosition(gBattleAnimAttacker);
+                position = GetBattlerPosition(gActiveBattler);
 
-            src = gMonSpritesGfxPtr->sprites[position] + (gBattleMonForms[gBattleAnimAttacker] << 11);
+            src = gMonSpritesGfxPtr->sprites[position] + (gBattleMonForms[gActiveBattler] << 11);
             dest = animBg.bgTiles;
             CpuCopy32(src, dest, MON_PIC_SIZE);
             LoadBgTiles(1, animBg.bgTiles, 0x800, animBg.tilesOffset);
