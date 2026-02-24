@@ -513,6 +513,10 @@ script Route19_ChapterConfusion {
 	"finally lined the numbers back up!", MSGBOX_NPC)
 }
 
+script GreatSea_FlyFix {
+	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
+	release
+}
 
 script GreatSea_LoveChinchou {
 	lock

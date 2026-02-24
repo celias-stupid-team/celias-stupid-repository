@@ -3317,6 +3317,7 @@ static void UseSurfEffect_5(struct Task *task)
         SetHelpContext(HELPCONTEXT_SURFING);
         if(VarGet(VAR_CURRENT_CHAPTER) == 4) {
             VarSet(VAR_CURRENT_CHAPTER, 7);
+            FlagClear(FLAG_SYS_FUSHCIA_DISABLE_FLY);
             DrawChapterTitle();
         }
 
