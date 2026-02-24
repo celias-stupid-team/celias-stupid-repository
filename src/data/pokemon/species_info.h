@@ -29264,7 +29264,6 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
-        .isShadowType = TRUE,
     },
     [SPECIES_MIRAIDON] =
     {
