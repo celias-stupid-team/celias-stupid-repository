@@ -13068,10 +13068,21 @@ Move_CLOSE_COMBAT:
 	
 	
 Move_BULLDOZE:
-	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 0, 50
-	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 0, 50
-	loopsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET, 8, 10
-	goto MagnitudeEnd
+	loadspritegfx ANIM_TAG_BULLDOZER
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	@createsprite gBulldozerSpriteTemplate, ANIM_TARGET, 2, 1, 4, 160
+	createsprite gBulldozerSpriteTemplate, ANIM_TARGET, 2, 2
+	loopsewithpan SE_M_EARTHQUAKE, SOUND_PAN_TARGET, 7, 2
+	@delay 80
+	@delay 80
+	createvisualtask AnimTask_PushTargetOffscreen, 2, ANIM_TARGET, 0, 2, 80, 150, 1
+	waitforvisualfinish
+	@setarg 7, 0xFFFF
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
 	
 Move_ELECTRO_BALL:
 	loadspritegfx ANIM_TAG_SPARK

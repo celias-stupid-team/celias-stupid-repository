@@ -17,6 +17,8 @@ static void AnimWhirlwindLine(struct Sprite *sprite);
 static void AnimBounceBallShrink(struct Sprite *sprite);
 static void AnimBounceBallLand(struct Sprite *sprite);
 static void AnimSteamrollerLand(struct Sprite *sprite);
+static void AnimBulldozer(struct Sprite *sprite);
+static void AnimTask_PushTargetOffscreen_Step(u8 taskId);
 static void AnimDiveBall(struct Sprite *sprite);
 static void AnimDiveWaterSplash(struct Sprite *sprite);
 static void AnimSprayWaterDroplet(struct Sprite *sprite);
@@ -310,6 +312,17 @@ const struct SpriteTemplate gSteamrollerLandSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSteamrollerLand,
+};
+
+const struct SpriteTemplate gBulldozerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BULLDOZER,
+    .paletteTag = ANIM_TAG_BULLDOZER,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_Steamroller,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBulldozer,
 };
 
 static const union AffineAnimCmd sAffineAnim_DiveBall[] =
@@ -1186,6 +1199,220 @@ static void AnimSteamrollerLand(struct Sprite *sprite)
         if (sprite->x + sprite->x2 > DISPLAY_WIDTH + 64)
             DestroyAnimSprite(sprite);
         break;
+    }
+}
+
+static void SetHealthboxGroupInvisible(u8 battlerId, bool8 invisible)
+{
+    u8 hbId;
+    u8 i;
+
+    if (battlerId >= MAX_BATTLERS_COUNT)
+        return;
+
+    hbId = gHealthboxSpriteIds[battlerId];
+    if (hbId == SPRITE_NONE)
+        return;
+
+    // Hide the main healthbox sprite.
+    gSprites[hbId].invisible = invisible;
+
+    // FRLG healthbox uses extra sprites stored in the healthbox sprite's data[].
+    // Some entries may be 0xFF / SPRITE_NONE depending on context.
+    for (i = 0; i < ARRAY_COUNT(gSprites[hbId].data); i++)
+    {
+        u8 linkedId = (u8)gSprites[hbId].data[i];
+        if (linkedId != SPRITE_NONE && linkedId < MAX_SPRITES)
+            gSprites[linkedId].invisible = invisible;
+    }
+}
+
+void AnimTask_SetHealthboxesInvisible(u8 taskId)
+{
+    u8 i;
+    bool8 visible = (gBattleAnimArgs[0] != 0);
+
+    for (i = 0; i < gBattlersCount; i++)
+        SetHealthboxGroupInvisible(i, !visible);
+
+    DestroyAnimVisualTask(taskId);
+}
+
+static void AnimBulldozer(struct Sprite *sprite)
+{
+    u8 targetBattler;
+    s16 targetY;
+    s16 speed;
+    bool8 targetIsPlayerSide;
+
+    targetBattler = gBattleAnimTarget;
+    targetY = GetBattlerSpriteCoord(targetBattler, BATTLER_COORD_Y);
+
+    speed = (s16)gBattleAnimArgs[0];
+    if (speed <= 0)
+        speed = 4;
+
+    switch (sprite->data[0])
+    {
+    case 0:
+        targetIsPlayerSide = (GetBattlerSide(targetBattler) == B_SIDE_PLAYER);
+
+        sprite->y = targetY + 4;
+        sprite->y2 = 0;
+
+        // +1 = move right, -1 = move left
+        sprite->data[7] = targetIsPlayerSide ? -1 : 1;
+
+        if (sprite->data[7] > 0)
+        {
+            // Enter from left, drive right
+            sprite->x = -32;
+            sprite->x2 = 0;
+            
+            sprite->oam.matrixNum &= ~ST_OAM_HFLIP;
+        }
+        else
+        {
+            // Enter from right, drive left
+            sprite->x = DISPLAY_WIDTH + 32;
+            sprite->x2 = 0;
+            sprite->oam.matrixNum |= ST_OAM_HFLIP;
+        }
+
+        // Start the 4-frame loop immediately (remove if you want static)
+        StartSpriteAnim(sprite, 0);
+
+        sprite->data[1] = speed; // speed
+        sprite->data[2] = 0;     // travel accumulator
+        sprite->data[0] = 1;
+        break;
+
+    case 1:
+        sprite->data[2] += sprite->data[7] * sprite->data[1];
+        sprite->x2 = sprite->data[2];
+
+        if (sprite->data[7] > 0)
+        {
+            if (sprite->x + sprite->x2 > DISPLAY_WIDTH + 32)
+                DestroyAnimSprite(sprite);
+        }
+        else
+        {
+            if (sprite->x + sprite->x2 < -32)
+                DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
+
+void AnimTask_PushTargetOffscreen(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 battler;
+
+    // Which battler?
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        battler = gBattleAnimAttacker;
+    else if (gBattleAnimArgs[0] == ANIM_TARGET)
+        battler = gBattleAnimTarget;
+    else if (gBattleAnimArgs[0] == ANIM_ATK_PARTNER)
+        battler = BATTLE_PARTNER(gBattleAnimAttacker);
+    else // ANIM_DEF_PARTNER
+        battler = BATTLE_PARTNER(gBattleAnimTarget);
+
+    task->data[0] = GetAnimBattlerSpriteId(gBattleAnimArgs[0]); // spriteId (SPRITE_NONE if not visible)
+    task->data[1] = battler;                                    // battler id
+
+    // Direction:
+    // 0 => auto: if target is player side, push left; else push right
+    // 1 => force right
+    // -1 => force left
+    task->data[2] = (s16)gBattleAnimArgs[1];
+    if (task->data[2] == 0)
+        task->data[2] = (GetBattlerSide(battler) == B_SIDE_PLAYER) ? -1 : 1;
+    else if (task->data[2] > 0)
+        task->data[2] = 1;
+    else
+        task->data[2] = -1;
+
+    // Speed
+    task->data[3] = (s16)gBattleAnimArgs[2];
+    if (task->data[3] <= 0)
+        task->data[3] = 4;
+
+    // Timers
+    task->data[4] = (s16)gBattleAnimArgs[3]; // pushTime
+    if (task->data[4] < 0) task->data[4] = 0;
+
+    task->data[5] = (s16)gBattleAnimArgs[4]; // duration (0 => until offscreen)
+    if (task->data[5] < 0) task->data[5] = 0;
+
+    task->data[6] = (s16)gBattleAnimArgs[5]; // restore flag (0/1)
+    task->data[7] = 0;                       // phase: 0 waiting, 1 pushing
+
+    task->data[8]  = 0; // wait counter
+    task->data[9]  = 0; // push counter
+    task->data[10] = 0; // accumulated x2 we apply
+
+    // If target sprite isn't visible, end immediately (prevents waitforvisualfinish hangs)
+    if (task->data[0] == SPRITE_NONE)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    task->func = AnimTask_PushTargetOffscreen_Step;
+}
+
+static void AnimTask_PushTargetOffscreen_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 spriteId = (u8)task->data[0];
+    s16 dir = task->data[2];
+    s16 spd = task->data[3];
+
+    // Safety
+    if (spriteId >= MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    // Phase 0: wait pushTime frames
+    if (task->data[7] == 0)
+    {
+        if (++task->data[8] >= task->data[4])
+            task->data[7] = 1;
+        return;
+    }
+
+    // Phase 1: push
+    task->data[10] += dir * spd;
+    gSprites[spriteId].x2 = task->data[10];
+
+    // If duration is set, push for exactly that many frames
+    if (task->data[5] != 0)
+    {
+        if (++task->data[9] >= task->data[5])
+        {
+            if (task->data[6] != 0)
+                gSprites[spriteId].x2 = 0;
+            DestroyAnimVisualTask(taskId);
+        }
+        return;
+    }
+
+    // Duration=0 => push until sprite goes offscreen
+    {
+        s16 x = gSprites[spriteId].x + gSprites[spriteId].x2;
+
+        // generous bounds: offscreen by 32px
+        if (x < -32 || x > DISPLAY_WIDTH + 32)
+        {
+            if (task->data[6] != 0)
+                gSprites[spriteId].x2 = 0;
+            DestroyAnimVisualTask(taskId);
+        }
     }
 }
 

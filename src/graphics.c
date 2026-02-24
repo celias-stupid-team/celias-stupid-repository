@@ -48,6 +48,9 @@ const u32 gBattleAnimSpritePal_Bullet[] = INCBIN_U32("graphics/battle_anims/spri
 const u32 gBattleAnimSpriteGfx_Steamroller[] = INCBIN_U32("graphics/battle_anims/sprites/steamroller_frames.4bpp.lz");
 const u32 gBattleAnimSpritePal_Steamroller[] = INCBIN_U32("graphics/battle_anims/sprites/steamroller_frames.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Bulldozer[] = INCBIN_U32("graphics/battle_anims/sprites/bulldoze_frames.4bpp.lz");
+const u32 gBattleAnimSpritePal_Bulldozer[] = INCBIN_U32("graphics/battle_anims/sprites/bulldoze_frames.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.4bpp.lz");
 const u32 gBattleAnimSpritePal_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.gbapal.lz");
 

@@ -8730,6 +8730,7 @@ extern const u32 gBattleAnimSpriteGfx_OneProtect[];
 extern const u32 gBattleAnimSpriteGfx_H[];
 extern const u32 gBattleAnimSpriteGfx_Bullet[];
 extern const u32 gBattleAnimSpriteGfx_Steamroller[];
+extern const u32 gBattleAnimSpriteGfx_Bulldozer[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9022,6 +9023,7 @@ extern const u32 gBattleAnimSpritePal_OneProtect[];
 extern const u32 gBattleAnimSpritePal_H[];
 extern const u32 gBattleAnimSpritePal_Bullet[];
 extern const u32 gBattleAnimSpritePal_Steamroller[];
+extern const u32 gBattleAnimSpritePal_Bulldozer[];
 
 //CSR Moves
 
