@@ -160,6 +160,7 @@ EWRAM_DATA u16 gChosenMove = 0;
 EWRAM_DATA u16 gCalledMove = 0;
 EWRAM_DATA s32 gBattleMoveDamage = 0;
 EWRAM_DATA bool8 gBattleTurnMonFainted = 0;
+EWRAM_DATA bool8 gBattleTurnMonUsedMove = 0;
 EWRAM_DATA u8 gBattleSwitchFromPSS = 0;
 EWRAM_DATA u8 gMadePSSSwitch = 0;
 EWRAM_DATA s32 gHpDealt = 0;
@@ -2995,6 +2996,7 @@ void BattleTurnPassed(void)
     gBattleScripting.moveendState = 0;
     gBattleMoveDamage = 0;
     gBattleTurnMonFainted = FALSE;
+    gBattleTurnMonUsedMove = FALSE;
     gMoveResultFlags = 0;
     for (i = 0; i < 5; i++)
         gBattleCommunication[i] = 0;
@@ -4308,6 +4310,10 @@ static void HandleAction_UseMove(void)
             }
         }
     }
+
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+        gBattleTurnMonUsedMove = TRUE;
+
     gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
