@@ -3057,8 +3057,7 @@ BattleScript_HandleFaintedMon::
 BattleScript_HandleFaintedMonContinue::
 	pause B_WAIT_TIME_SHORT @test
 	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_FaintedMonEnd @ 0 = continue battle
-	 // wiz1989 ToDo: value to check is 5!
-	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 1, BattleScript_FaintedMon_SendOutCharmander @ create FINALCHARMANDER instead of opening the party screen
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 5, BattleScript_FaintedMon_SendOutCharmander @ create FINALCHARMANDER instead of opening the party screen
 BattleScript_HandleFaintedMonContinue2::
 	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_FaintedMonTryChoose
 	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonTryChoose

@@ -1020,7 +1020,7 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
     gBattleMons[0].species = species;
     if (gSpecialVar_ItemId == ITEM_SHINY_BIKE)
         FlagSet(FLAG_SHINY_CREATION);
-    CreateMonWithGenderNatureLetter(mon, species, 50, USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+    CreateMonWithGenderNatureLetter(mon, species, 50, USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
     CopyPlayerPartyMonToBattleData(0, 0);
 
     gPlayerPartyCount = 1;

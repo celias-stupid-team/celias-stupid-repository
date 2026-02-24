@@ -3399,8 +3399,8 @@ static void Cmd_tryfaintmon(void)
             }
 
             // special handling for switching the legendary birds during the Zapmolcuno fight
-            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_LUGIA) // only replace opponent's Zapmolcuno during the first 4 phases
-            { // wiz1989 ToDo: B_FINAL_BATTLE_MOLTRES
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_MOLTRES) // only replace opponent's Zapmolcuno during the first 4 phases
+            {
                 gBattlerFainted = gActiveBattler;
                 gBattleMons[gActiveBattler].species = GetCurrentZapmolcunoSpecies();
                 gBattleMoveDamage = -1000; // force full HP after transformation
@@ -4453,7 +4453,7 @@ static void Cmd_playanimation(void)
         {
             u16 species = SPECIES_HOOPA;
             gBattleMons[gActiveBattler].species = species;
-            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
         }
         //create Zapmolcuno birds right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM)
@@ -4462,7 +4462,7 @@ static void Cmd_playanimation(void)
             
             gBattleTurnMonFainted = TRUE;
             gBattleMons[gActiveBattler].species = species;
-            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -5021,7 +5021,6 @@ static void Cmd_typecalc2(void)
         }
 
         mult = (modifier * TYPE_MUL_NORMAL) / 4096;
-        DebugPrintf("Cmd_typecalc2 mult = %d", mult / TYPE_MUL_NORMAL);
 
         if (mult == TYPE_MUL_NO_EFFECT)
             gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
@@ -7029,7 +7028,7 @@ static void Cmd_various(void)
             u8 *dest;
             u8 *src;
 
-            // wiz1989: load updated battle backgrounds for each of the phases of the final battle
+            // wiz1989 ToDo: load updated battle backgrounds for each of the phases of the final battle
             if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
             {
                 LoadDefaultBg();
@@ -7039,8 +7038,7 @@ static void Cmd_various(void)
                     CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
                 }
             }
-             // wiz1989 ToDo: Change to MOLTRES
-            if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) || (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_LUGIA))
+            if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) || (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_MOLTRES))
             {
                 HandleSpeciesGfxDataChange(gActiveBattler, gBattleAnimTarget, 255);
                 GetBattleAnimBgDataByPriorityRank(&animBg, gActiveBattler);
@@ -12228,17 +12226,15 @@ void BS_CreateFinalCharmander(void)
     struct Pokemon *mon;
     u16 species = SPECIES_FINALCHARMANDER;
 
-    DebugPrintf("creating final charmander");
-
     if (gBattleControllerExecFlags)
         return;
 
     // create Charmander in party slot 0
     mon = &gPlayerParty[0];
     gBattleMons[0].species = species;
-    CreateMonWithGenderNatureLetter(mon, species, 4, USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+    CreateMonWithGenderNatureLetter(mon, species, 4, USE_RANDOM_IVS, GetRandomGenderBySpecies(species), GetNature(mon));
     CopyPlayerPartyMonToBattleData(0, 0); // use 0, 0 instead?
-
+    
     gPlayerPartyCount = 1;
     //reset party data
     // ResetPartyData(RESET_OPTION_WITHOUT_PARTY_SLOTS);

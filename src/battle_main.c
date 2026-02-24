@@ -2700,7 +2700,8 @@ static void BattleIntroPrintTrainerWantsToBattle(void)
     if (gBattleControllerExecFlags == 0)
     {
         gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-        PrepareStringBattle(STRINGID_INTROMSG, gActiveBattler);
+        if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+            PrepareStringBattle(STRINGID_INTROMSG, gActiveBattler);
         gBattleMainFunc = BattleIntroPrintOpponentSendsOut;
     }
 }
