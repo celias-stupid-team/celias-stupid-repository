@@ -3024,6 +3024,12 @@ void BattleTurnPassed(void)
     }
     if (gBattleResults.battleTurnCounter < 0xFF)
         ++gBattleResults.battleTurnCounter;
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_SCRIPTED_END)
+    {
+        u8 turn = VarGet(VAR_CSR_FINAL_BATTLE_TURN);
+        turn++;
+        VarSet(VAR_CSR_FINAL_BATTLE_TURN, turn);
+    }
     for (i = 0; i < gBattlersCount; i++)
     {
         gChosenActionByBattler[i] = B_ACTION_NONE;

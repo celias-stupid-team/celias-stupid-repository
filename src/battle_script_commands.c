@@ -1199,6 +1199,9 @@ static void Cmd_accuracycheck(void)
             buff = MAX_STAT_STAGE;
 
         moveAcc = gBattleMoves[move].accuracy;
+        
+        if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_SCRIPTED_END)
+            moveAcc = 0;
         // check Thunder on sunny weather
         if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN && gBattleMoves[move].effect == EFFECT_THUNDER)
             moveAcc = 50;
@@ -1812,6 +1815,25 @@ static void Cmd_adjustnormaldamage(void)
     if (gCurrentMove == MOVE_10000_VOLTS && gBattleMoveDamage > 0)
         gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
 
+    // special handling for FINALWARTORTLE phase
+    if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_SCRIPTED_END)
+    {
+        if (gCurrentMove == MOVE_HYPER_BEAM)
+        {
+            if (VarGet(VAR_CSR_FINAL_BATTLE_TURN) != 4)
+                gBattleMoveDamage = 7;
+            else
+                gBattleMoveDamage = -18; // FINALCHARMANDER's max HP
+        }
+        if (gCurrentMove == MOVE_SCRATCH)
+        {
+            if (VarGet(VAR_CSR_FINAL_BATTLE_TURN) == 4)
+                gBattleMoveDamage = 8;
+            else
+                gBattleMoveDamage = 4;
+        }
+    }
+
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
         holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
@@ -1835,7 +1857,7 @@ static void Cmd_adjustnormaldamage(void)
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
-    else if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+    else if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE && gBattleMoveDamage >= gBattleMons[gBattlerTarget].hp)
     {
         RecordAbilityBattle(gBattlerTarget, ABILITY_REVENGE);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
@@ -2235,7 +2257,15 @@ static void Cmd_critmessage(void)
 {
     if (gBattleControllerExecFlags == 0)
     {
-        if (gCritMultiplier == 2 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_SCRIPTED_END && VarGet(VAR_CSR_FINAL_BATTLE_TURN) == 4)
+        {
+            if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+            {
+                PrepareStringBattle(STRINGID_CRITICALHIT, gBattlerAttacker);
+                gBattleCommunication[MSG_DISPLAY] = 1;
+            }
+        }
+        else if (gCritMultiplier == 2 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
         {
             PrepareStringBattle(STRINGID_CRITICALHIT, gBattlerAttacker);
             gBattleCommunication[MSG_DISPLAY] = 1;
@@ -9264,10 +9294,17 @@ static void Cmd_friendshiptodamagecalculation(void)
 static void Cmd_presentdamagecalculation(void)
 {
     s32 rand = Random() & 0xFF;
+    u8 healingOdds = 170; // 70% chance to damage, 30% chance to heal
 
-    if (rand < 82)
+    // don't use the healing odds
+    while (rand >= healingOdds && (gBattleMons[gBattlerTarget].maxHP == gBattleMons[gBattlerTarget].hp || gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+    {
+        rand = Random() & 0xFF;
+    }
+
+    if (rand < 85)
         gDynamicBasePower = 40;
-    else if (rand < 178)
+    else if (rand < healingOdds)
         gDynamicBasePower = 120;
     else //Heal target
     {
@@ -9276,10 +9313,9 @@ static void Cmd_presentdamagecalculation(void)
             gBattleMoveDamage = 1;
         gBattleMoveDamage *= -1;
     }
-    if (rand < 204) //if it didn't heal, check for critical hit
+
+    if (rand < healingOdds) //if it didn't heal, check for critical hit
         gBattlescriptCurrInstr = BattleScript_HitFromCritCalc;
-    else if (gBattleMons[gBattlerTarget].maxHP == gBattleMons[gBattlerTarget].hp)
-        gBattleMoveDamage *= -1; //If target is max HP, deal 1/4 HP instead
     else
     {
         gMoveResultFlags &= ~MOVE_RESULT_DOESNT_AFFECT_FOE;
@@ -12211,7 +12247,7 @@ void BS_CreateFinalCharmander(void)
     gBattleStruct->monToSwitchIntoId[gBattlerFainted] = 0;
 
     // set VAR_CSR_FINAL_BATTLE_PHASE to 6, so no other events based on this Var are being executed
-    VarSet(VAR_CSR_FINAL_BATTLE_PHASE, 6);
+    VarSet(VAR_CSR_FINAL_BATTLE_PHASE, B_FINAL_BATTLE_SCRIPTED_END);
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

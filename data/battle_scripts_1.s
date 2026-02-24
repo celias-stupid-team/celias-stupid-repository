@@ -324,6 +324,8 @@ BattleScript_HitFromAtkAnimation::
 	attackanimation
 	waitanimation
 	effectivenesssound
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 5, BattleScript_FinalBattle_StopBgm
+BattleScript_HitFromAtkAnimation_2::
 	hitanimation BS_TARGET
 	waitstate
 	healthbarupdate BS_TARGET
@@ -334,6 +336,7 @@ BattleScript_HitFromAtkAnimation::
 	waitmessage B_WAIT_TIME_LONG
 	seteffectwithchance
 	tryfaintmon BS_TARGET
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
 BattleScript_MoveEnd::
 	moveendall
 	end
@@ -5418,6 +5421,7 @@ BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_FINALMOLTRES
 	pause B_WAIT_TIME_LONGEST
+	resetbattlebgm
 	printstring STRINGID_FOE_MOLTRES_FAINTED
 	pause B_WAIT_TIME_LONGEST
 	cleareffectsonfaint BS_TARGET
@@ -5543,3 +5547,22 @@ BattleScript_FaintedMon_SendOutCharmander::
 BattleScript_EffectCollisionCourse::
 	setmoveeffect MOVE_EFFECT_RECOIL_100 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
+
+BattleScript_FinalBattle_DadDontGiveUp::
+	jumpifbattlerside BS_ATTACKER, B_SIDE_OPPONENT, BattleScript_MoveEnd
+	pause B_WAIT_TIME_LONG
+	fadedarken FADE_ALL_EXC_UI, FADE_DIR_DARKEN
+	waitforfade
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DONT_GIVE_UP 
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_DAD_QUESTION_MARK 
+	waitmessage B_WAIT_TIME_LONG
+	fadedarken FADE_ALL_EXC_UI, FADE_DIR_BRIGHTEN
+	waitforfade
+	goto BattleScript_MoveEnd
+
+BattleScript_FinalBattle_StopBgm::
+	jumpifbattlerside BS_ATTACKER, B_SIDE_OPPONENT, BattleScript_HitFromAtkAnimation_2
+	stopbattlebgm
+	goto BattleScript_HitFromAtkAnimation_2
