@@ -1287,4 +1287,5 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_EARRAT] = sEARRATLevelUpLearnset,
 
 
+	[SPECIES_FINALCHARMANDER] = sFINALCHARMANDERLevelUpLearnset
 };

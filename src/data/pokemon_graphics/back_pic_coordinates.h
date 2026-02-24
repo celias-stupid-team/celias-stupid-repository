@@ -6325,6 +6325,10 @@ const struct MonCoords gMonBackPicCoords[] =
 		.size = MON_COORDS_SIZE(48, 32),
 		.y_offset = 16,
 	},
-
+    [SPECIES_FINALCHARMANDER] =
+    {
+        .size = MON_COORDS_SIZE(48, 48),
+        .y_offset = 10,
+    },
 };
 

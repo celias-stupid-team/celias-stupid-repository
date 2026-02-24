@@ -160,6 +160,7 @@ EWRAM_DATA u16 gChosenMove = 0;
 EWRAM_DATA u16 gCalledMove = 0;
 EWRAM_DATA s32 gBattleMoveDamage = 0;
 EWRAM_DATA bool8 gBattleTurnMonFainted = 0;
+EWRAM_DATA bool8 gBattleTurnMonUsedMove = 0;
 EWRAM_DATA u8 gBattleSwitchFromPSS = 0;
 EWRAM_DATA u8 gMadePSSSwitch = 0;
 EWRAM_DATA s32 gHpDealt = 0;
@@ -231,7 +232,8 @@ EWRAM_DATA struct MonSpritesGfx *gMonSpritesGfxPtr = NULL;
 EWRAM_DATA u16 gBattleMovePower = 0;
 EWRAM_DATA u16 gMoveToLearn = 0;
 EWRAM_DATA u8 gBattleMonForms[MAX_BATTLERS_COUNT] = {0};
-EWRAM_DATA u8 gCheckedContinueRotomBattle = 0;
+EWRAM_DATA u8 gCantUseBattleAction = 0;
+EWRAM_DATA u8 gCheckedPauseBattle = 0;
 EWRAM_DATA u8 gTemporaryBattlePlayerText = 0;
 
 COMMON_DATA void (*gPreBattleCallback1)(void) = NULL;
@@ -522,6 +524,8 @@ static void (*const sEndTurnFuncsTable[])(void) =
     [B_OUTCOME_MON_FLED]          = HandleEndTurn_MonFled,
     [B_OUTCOME_CAUGHT]            = HandleEndTurn_FinishBattle,
     [B_OUTCOME_NO_SAFARI_BALLS]   = HandleEndTurn_FinishBattle,
+    [B_OUTCOME_CONTINUE_ZAPDOS]   = HandleEndTurn_ContinueBattle,
+    [B_OUTCOME_CONTINUE_ROTOM]    = HandleEndTurn_ContinueBattle,
 };
 
 const u8 gStatusConditionString_PoisonJpn[] = _("どく$$$$$");
@@ -2697,7 +2701,8 @@ static void BattleIntroPrintTrainerWantsToBattle(void)
     if (gBattleControllerExecFlags == 0)
     {
         gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-        PrepareStringBattle(STRINGID_INTROMSG, gActiveBattler);
+        if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+            PrepareStringBattle(STRINGID_INTROMSG, gActiveBattler);
         gBattleMainFunc = BattleIntroPrintOpponentSendsOut;
     }
 }
@@ -2991,26 +2996,43 @@ void BattleTurnPassed(void)
     gBattleScripting.moveendState = 0;
     gBattleMoveDamage = 0;
     gBattleTurnMonFainted = FALSE;
+    gBattleTurnMonUsedMove = FALSE;
     gMoveResultFlags = 0;
     for (i = 0; i < 5; i++)
         gBattleCommunication[i] = 0;
-    if (gBattleOutcome != 0 && gBattleOutcome < 128) // 128 = B_OUTCOME_CONTINUE_ROTOM
+    if (gBattleOutcome != 0 && gBattleOutcome < B_OUTCOME_CONTINUE_ZAPDOS)
     {
         gCurrentActionFuncId = B_ACTION_FINISHED;
         gBattleMainFunc = RunTurnActionsFunctions;
         return;
     }
-    if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM) && gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
     {
-        // ToDo wiz1989: Activate Rotom Battle UI
-        FlagSet(FLAG_SYS_ROTOM_BATTLE_UI);
-        gBattleSwitchFromPSS = TRUE;
-        gBattleOutcome &= ~B_OUTCOME_CONTINUE_ROTOM;
-        gCheckedContinueRotomBattle = TRUE;
-        gTemporaryBattlePlayerText = TRUE;
+        if ((gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM))
+        {
+            // ToDo wiz1989: Activate Rotom Battle UI
+            FlagSet(FLAG_SYS_ROTOM_BATTLE_UI);
+            gBattleSwitchFromPSS = TRUE;
+            gBattleOutcome &= ~B_OUTCOME_CONTINUE_ROTOM;
+            gCantUseBattleAction = B_ACTION_BLOCK_MOVE | B_ACTION_BLOCK_BAG;
+            gTemporaryBattlePlayerText = TRUE;
+        }
+        else if ((gBattleOutcome & B_OUTCOME_CONTINUE_ZAPDOS))
+        {
+            gBattleOutcome &= ~B_OUTCOME_CONTINUE_ZAPDOS;
+            gCantUseBattleAction = B_ACTION_BLOCK_MOVE | B_ACTION_BLOCK_SWITCH;
+        }
+        else
+            gCantUseBattleAction = 0;
     }
     if (gBattleResults.battleTurnCounter < 0xFF)
         ++gBattleResults.battleTurnCounter;
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_SCRIPTED_END)
+    {
+        u8 turn = VarGet(VAR_CSR_FINAL_BATTLE_TURN);
+        turn++;
+        VarSet(VAR_CSR_FINAL_BATTLE_TURN, turn);
+    }
     for (i = 0; i < gBattlersCount; i++)
     {
         gChosenActionByBattler[i] = B_ACTION_NONE;
@@ -4288,6 +4310,10 @@ static void HandleAction_UseMove(void)
             }
         }
     }
+
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+        gBattleTurnMonUsedMove = TRUE;
+
     gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
@@ -4336,7 +4362,17 @@ static void HandleAction_UseItem(void)
     }
     else if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
     {
-        gBattlescriptCurrInstr = gBattlescriptsForUsingItem[0];
+        if (gBattleStruct->switchInAfterItemUse)
+        {
+            gBattleStruct->switchInAfterItemUse = FALSE;
+            gBattleSpritesDataPtr->battlerData[gBattlerAttacker].invisible = FALSE;
+            gBattleStruct->monToSwitchIntoId[gBattlerAttacker] = 0; // Koraidon is always placed at party slot 0
+            gBattlescriptCurrInstr = BattleScript_KoraidonSentOut;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = gBattlescriptsForUsingItem[0];
+        }
     }
     else
     {
@@ -4664,8 +4700,26 @@ static void HandleAction_ActionFinished(void)
     //reset party data after a PSS switch
     if (gMadePSSSwitch)
     {
+        u8 i;
+
         ResetPartyData(RESET_OPTION_ALL);
         gMadePSSSwitch = FALSE;
+
+        // Switch was completed including switch-in animation. Now we can safely send the remaining party mon to the PSS.
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+                break;
+            else if (gBattlerPartyIndexes[gActiveBattler] != i) //don't send gActiveBattler to PC
+            {
+                if (SendMonToPC(&gPlayerParty[i]))
+                {
+                    ZeroMonData(&gPlayerParty[i]);
+                    gPlayerPartyCount = gPlayerPartyCount - 1;
+                }
+            }
+        }
+        ResetPartyData(RESET_OPTION_ALL);
     }
 }
 

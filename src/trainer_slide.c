@@ -159,7 +159,7 @@ static bool32 ShouldRunTrainerSlideEnemyMonUnaffected(u32 firstId, u32 lastId, e
 
 static bool32 ShouldRunTrainerSlideLastSwitchIn(u32 battler)
 {
-    return !CanBattlerSwitch(battler);
+    return (CanBattlerSwitch(battler) == PARTY_SIZE);
 }
 
 static bool32 ShouldRunTrainerSlideLastHalfHP(u32 firstId, u32 lastId, u32 battler)

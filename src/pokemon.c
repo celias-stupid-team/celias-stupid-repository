@@ -1816,6 +1816,16 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
         u32 hp = 1;
         SetMonData(mon, MON_DATA_HP, &hp);
     }
+    if (species == SPECIES_FINALCHARMANDER)
+    {
+        u32 hp = 18;
+        SetMonData(mon, MON_DATA_HP, &hp);
+    }
+    if (species == SPECIES_FINALWARTORTLE)
+    {
+        u32 hp = 24;
+        SetMonData(mon, MON_DATA_HP, &hp);
+    }
 }
 
 void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
@@ -2231,7 +2241,6 @@ void CalculateMonStats(struct Pokemon *mon)
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
 
-
     if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_SHEDINJA_ELECTRIC || species == SPECIES_ARCEUS)
     {
         newMaxHP = 1;
@@ -2243,6 +2252,10 @@ void CalculateMonStats(struct Pokemon *mon)
 
         if (species == SPECIES_FINALZAPDOS)
             newMaxHP *= 2; // over-increase HP for Final Zapdos
+        if (species == SPECIES_FINALWARTORTLE)
+            newMaxHP = 24;
+        if (species == SPECIES_FINALCHARMANDER)
+            newMaxHP = 18;
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;
@@ -2899,6 +2912,24 @@ u8 GetGenderFromSpeciesAndPersonality(u16 species, u32 personality)
     }
 
     if (gSpeciesInfo[species].genderRatio > (personality & 0xFF))
+        return MON_FEMALE;
+    else
+        return MON_MALE;
+}
+
+u8 GetRandomGenderBySpecies(u16 species)
+{
+    u8 rnd = Random() & 0xFF;
+
+    switch (gSpeciesInfo[species].genderRatio)
+    {
+    case MON_MALE:
+    case MON_FEMALE:
+    case MON_GENDERLESS:
+        return gSpeciesInfo[species].genderRatio;
+    }
+
+    if (gSpeciesInfo[species].genderRatio > rnd)
         return MON_FEMALE;
     else
         return MON_MALE;
@@ -4117,7 +4148,7 @@ void RemoveBattleMonPPBonus(struct BattlePokemon *mon, u8 moveIndex)
     mon->ppBonuses &= gPPUpClearMask[moveIndex];
 }
 
-static void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
+void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
 {
     u16 *hpSwitchout;
     s32 i;

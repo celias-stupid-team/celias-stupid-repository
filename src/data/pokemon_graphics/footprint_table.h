@@ -1289,4 +1289,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_PIKACHUSURF]    = gMonFootprint_PIKACHUSURF,
 	[SPECIES_SHINYABRA]    = gMonFootprint_SHINYABRA,
 	[SPECIES_EARRAT]    = gMonFootprint_EARRAT,
+	[SPECIES_FINALCHARMANDER]	= gMonFootprint_Charmander,
 };

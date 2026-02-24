@@ -4295,11 +4295,11 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_RivalRoute22LateCharmander),
     },
-    [TRAINER_CHAMPION_FIRST_SQUIRTLE] = { // wiz1989 - test trainer
+    [TRAINER_CHAMPION_FIRST_SQUIRTLE] = {
         .trainerClass = TRAINER_CLASS_CHAMPION,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_CHAMPION_RIVAL,
-        .trainerName = _("TERRY"),
+        .trainerName = _("GARY"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SWITCH_IN_ORDER | AI_SCRIPT_NO_SWITCHING,

@@ -373,6 +373,10 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
         BlendPalette(paletteOffset, 16, 6, RGB_WHITE);
         CpuCopy32(&gPlttBufferFaded[paletteOffset], &gPlttBufferUnfaded[paletteOffset], PLTT_SIZE_4BPP);
     }
+    
+    // prevent screen blinking by keeping the fade active
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && gPlttBufferFaded[0] == RGB_WHITE)
+        CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
 }
 
 void BattleLoadPlayerMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
@@ -697,7 +701,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
     const u32 *lzPaletteData;
     void *buffer;
 
-    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution OR Seel->Hoopa transformation
+    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution OR Seel->Hoopa transformation OR Zapmolcuno-Ohgia form change
     {
         const void *src;
         void *dst;
@@ -733,6 +737,11 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
         LZDecompressWram(lzPaletteData, buffer);
         LoadPalette(buffer, paletteOffset, PLTT_SIZE_4BPP);
         Free(buffer);
+        
+        // prevent screen blinking by keeping the fade active
+        if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && gPlttBufferFaded[0] == RGB_WHITE)
+            CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
+
         gSprites[gBattlerSpriteIds[battlerAtk]].x = GetBattlerSpriteDefault_X(battlerAtk);
         gSprites[gBattlerSpriteIds[battlerAtk]].y = GetBattlerSpriteDefault_Y(battlerAtk);
         StartSpriteAnim(&gSprites[gBattlerSpriteIds[battlerAtk]], gBattleMonForms[battlerAtk]);
@@ -918,7 +927,8 @@ void HandleLowHpMusicChange(struct Pokemon *mon, u8 battlerId)
     u16 hp = GetMonData(mon, MON_DATA_HP);
     u16 maxHP = GetMonData(mon, MON_DATA_MAX_HP);
 
-    if (GetHPBarLevel(hp, maxHP) == HP_BAR_RED && !FlagGet(FLAG_SYS_CSR_VICTORY))
+    if (GetHPBarLevel(hp, maxHP) == HP_BAR_RED && !FlagGet(FLAG_SYS_CSR_VICTORY)
+        && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) != B_FINAL_BATTLE_SCRIPTED_END)
     {
         if (!gBattleSpritesDataPtr->battlerData[battlerId].lowHpSong)
         {

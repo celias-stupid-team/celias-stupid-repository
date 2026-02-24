@@ -6355,5 +6355,9 @@ const struct MonCoords gMonFrontPicCoords[] =
 		.size = MON_COORDS_SIZE(56, 48),
         .y_offset = 9,
 	},
-
+    [SPECIES_FINALCHARMANDER] =
+    {
+        .size = MON_COORDS_SIZE(40, 40),
+        .y_offset = 16,
+    },
 };

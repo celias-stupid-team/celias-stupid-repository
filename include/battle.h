@@ -79,6 +79,14 @@ enum {
 // For the second argument of GetMoveTarget, when no target override is needed
 #define NO_TARGET_OVERRIDE 0
 
+// for gCantUseBattleAction
+#define B_ACTION_BLOCK_MOVE   (1 << 0)
+#define B_ACTION_BLOCK_BAG    (1 << 1)
+#define B_ACTION_BLOCK_SWITCH (1 << 2)
+#define B_ACTION_BLOCK_RUN    (1 << 3)
+
+#define IS_FINAL_BIKE_PHASE   ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_MOLTRES)
+
 struct TrainerMonNoItemDefaultMoves
 {
     u16 iv;
@@ -450,7 +458,7 @@ struct BattleStruct
     u8 stateIdAfterSelScript[MAX_BATTLERS_COUNT];
     const u8 *trainerSlideMsg;
     struct MessageStatus slideMessageStatus;
-    u8 field_89; // unused
+    bool8 switchInAfterItemUse; // used by BattleUseFunc_CreateKoraidon()
     u8 field_8A; // unused
     u8 playerPartyIdx;
     u8 lugiaShadowSkyDone;
@@ -704,6 +712,7 @@ extern u8 gBattlersCount;
 extern u16 gBattlerPartyIndexes[MAX_BATTLERS_COUNT];
 extern s32 gBattleMoveDamage;
 extern bool8 gBattleTurnMonFainted;
+extern bool8 gBattleTurnMonUsedMove;
 extern u8 gBattleSwitchFromPSS;
 extern u8 gMadePSSSwitch;
 extern u16 gIntroSlideFlags;
@@ -768,7 +777,8 @@ extern u8 gChosenActionByBattler[MAX_BATTLERS_COUNT];
 extern u8 gBattleTerrain;
 extern struct MultiBattlePokemonTx gMultiPartnerParty[3];
 extern u16 gRandomTurnNumber;
-extern u8 gCheckedContinueRotomBattle;
+extern u8 gCantUseBattleAction;
+extern u8 gCheckedPauseBattle;
 extern u8 gTemporaryBattlePlayerText;
 
 struct Pokemon *GetSideParty(u8 side);

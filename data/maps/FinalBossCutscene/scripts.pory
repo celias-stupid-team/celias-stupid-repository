@@ -99,7 +99,8 @@ mapscripts FinalBossCutscene_MapScripts {
             trainerbattle_no_intro_battletype(TRAINER_CHAMPION_FIRST_SQUIRTLE, SPECIAL_BATTLE_TYPE_ZAPMOLCUNOOHGIA, "defeated")
             //trainerbattle_no_intro(TRAINER_CHAMPION_FIRST_CHARMANDER, "end of battle")
             //setvar(VAR_FINAL_BATTLE_FINISHED, 1)
-            //warpsilent(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM, 2)
+            setflag(FLAG_DEFEATED_FINAL_BOSS)
+            warpsilent(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM, 2)
         }
     ]
 }
