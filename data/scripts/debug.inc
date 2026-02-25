@@ -119,6 +119,8 @@ Debug_EventScript_Script_5::
 	end
 
 Debug_EventScript_Script_6::
+	setflag FLAG_DEFEATED_FINAL_BOSS
+	warpsilent MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM, 2
 	end
 
 Debug_EventScript_Script_7::

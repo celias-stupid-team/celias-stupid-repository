@@ -35,6 +35,28 @@ PokemonMansion_3F_EventScript_Braydon::
 
 script PokemonMansion_3F_SoftlockGuy {
 	msgbox(
-	"dialogue\n"
-	"", MSGBOX_NPC)
+	"Heh heh heh…\p"
+
+	"I'm a burglar, and this kid was\n"
+	"trying to mess up my plans!\p"
+
+	"Not to worry, though.\n"
+	"He won't be going anywhere now!", MSGBOX_NPC)
+}
+
+script PokemonMansion_3f_Switch {
+	lock
+	msgbox(
+	"A secret switch!\n"
+	"Press it?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Who wouldn't?\n"
+		"", MSGBOX_DEFAULT)
+		playse(SE_UNLOCK)
+	} else {
+		msgbox(
+		"Who would?\n"
+		"", MSGBOX_DEFAULT)
+	}
 }

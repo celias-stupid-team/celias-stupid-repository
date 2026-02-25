@@ -184,28 +184,46 @@ script SecretGarden_PCMonitor {
                 
             }
             playse(SE_PC_ON)
+            applymovement(LOCALID_PLAYER, moves(
+                walk_in_place_up * 2
+            ))
             msgbox(
             "{PLAYER} kicked the PC!\n"
             "", MSGBOX_DEFAULT)
+            setflag(FLAG_SYS_BILL_GARDEN)
+            setvar(LOADED_SYSTEM_BOX, 0)
+            setvar(RIGHT_BOX_NUMBER, 0)
+            clearflag(RIGHT_BOX_OPEN)
+            setvar(LEFT_BOX_NUMBER, 1)
+            setflag(RIGHT_BOX_OPEN)
+            setvar(RIGHT_BOX_NUMBER, 0)
+            clearflag(RIGHT_BOX_OPEN)
+            setflag(LEFT_BOX_IN_PC)
+            setvar(PC_CURRENT_BOX, 1)
+            //setflag(LEFT_BOX_THERE)
             playbgm(MUS_DELIVERY, TRUE)
+            closemessage
+            delay(30)
+            special(SpawnCameraObject)
+            applymovement(LOCALID_CAMERA, moves(
+                walk_fast_up * 4
+            ))
+            waitmovement(0)
+            delay(30)
+            call(SecretGarden_GetCurrentPCPokemon)
+            showmonpic(PC_CURRENT_POKEMON, 10, 3)
+            //waitbuttonpress
+            //hidemonpic
+            setvar(VAR_VIEWING_PC, 1)
+            release
+            end
+
             
         } else {
             fadedefaultbgm  
 
         }
-        setflag(FLAG_SYS_BILL_GARDEN)
-        setvar(LOADED_SYSTEM_BOX, 0)
-        setvar(RIGHT_BOX_NUMBER, 0)
-        clearflag(RIGHT_BOX_OPEN)
-        setvar(LEFT_BOX_NUMBER, 1)
-        setflag(RIGHT_BOX_OPEN)
-        setvar(RIGHT_BOX_NUMBER, 0)
-        clearflag(RIGHT_BOX_OPEN)
-        setflag(LEFT_BOX_IN_PC)
-        setvar(PC_CURRENT_BOX, 1)
-        //setflag(LEFT_BOX_THERE)
-        release
-        end 
+        
 
         
     }
@@ -817,11 +835,32 @@ script SecretGarden_GetCurrentPCPokemon {
         case 0:
             switch(var(PC_BOX_SLOT_NUMBER)) {
                 case 0:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
+                case 1:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CUBONE)
+                case 2:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_MANKEY)
+                case 3:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CATERPIE)
+                case 4:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_METAPOD)
+                case 5:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CATERPIE)
+                case 6:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CATERPIE)
+                case 7:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_NIDORAN_M)
+                case 8:
+                    setvar(PC_CURRENT_POKEMON, SPECIES_NIDORAN_F)
+            }
+        case 1:
+            switch(var(PC_BOX_SLOT_NUMBER)) {
+                case 0:
                     setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
                 case 1:
                     setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 2:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_WEEDLE)
                 case 3:
                     setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
                 case 4:
@@ -829,32 +868,11 @@ script SecretGarden_GetCurrentPCPokemon {
                 case 5:
                     setvar(PC_CURRENT_POKEMON, SPECIES_SANDSHREW)
                 case 6:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SHINYABRA)
                 case 7:
                     setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
                 case 8:
                     setvar(PC_CURRENT_POKEMON, SPECIES_TENTACOOL)
-            }
-        case 1:
-            switch(var(PC_BOX_SLOT_NUMBER)) {
-                case 0:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
-                case 1:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
-                case 2:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
-                case 3:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
-                case 4:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
-                case 5:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
-                case 6:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
-                case 7:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
-                case 8:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
             }
         case 2:
             switch(var(PC_BOX_SLOT_NUMBER)) {
@@ -884,9 +902,9 @@ script SecretGarden_GetCurrentPCPokemon {
                 case 1:
                     setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 2:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_JIGGLYPUFF)
                 case 3:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SHINYABRA)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_PIDGEOTTO)
                 case 4:
                     setvar(PC_CURRENT_POKEMON, SPECIES_CHARMANDER)
                 case 5:
@@ -901,30 +919,30 @@ script SecretGarden_GetCurrentPCPokemon {
         case 4:
             switch(var(PC_BOX_SLOT_NUMBER)) {
                 case 0:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CLEFAIRY)
                 case 1:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_MEOWTH)
                 case 2:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
                 case 3:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_NIDORAN_M)
                 case 4:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
                 case 5:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_KAKUNA)
                 case 6:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 7:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_DODUO)
                 case 8:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SPEAROW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_MEOWTH)
             }
         case 5:
             switch(var(PC_BOX_SLOT_NUMBER)) {
                 case 0:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CLEFAIRY)
                 case 1:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_PARAS)
                 case 2:
                     setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
                 case 3:

@@ -7404,6 +7404,18 @@
       "secondary_tileset": "gTileset_MtSilver",
       "border_filepath": "data/layouts/ViridianGym_Falkner_BRIDGE/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Falkner_BRIDGE/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_MANSION_2F_OPEN",
+      "name": "PokemonMansion_2F_OPEN",
+      "width": 38,
+      "height": 38,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonMansion",
+      "border_filepath": "data/layouts/PokemonMansion_2F_OPEN/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonMansion_2F_OPEN/map.bin"
     }
   ]
 }
