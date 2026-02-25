@@ -110,6 +110,12 @@ script Silph_TourTrash {
 	"", MSGBOX_SIGN)
 
 }
+script Silph_WallSign {
+	msgbox(
+	"Trash with note placeholder\n"
+	"", MSGBOX_SIGN)
+
+}
 
 script Silph_BathroomCall {
 	lock
@@ -368,5 +374,13 @@ script Silph_SecurityChuckster2 {
 	))
 	waitmovement(VAR_LAST_TALKED)
 	release
+
+}
+
+script Silph_SecurityMemoriam {
+	msgbox(
+	"IN MEMORIAM{PAUSE 30}\n"
+	"SAFFRON CITY Gate Guards\l"
+	"Gone but not forgotten.", MSGBOX_SIGN)
 
 }

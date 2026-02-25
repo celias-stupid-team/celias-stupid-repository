@@ -187,8 +187,8 @@
       "dest_warp_id": "3"
     },
     {
-      "x": 32,
-      "y": 14,
+      "x": 17,
+      "y": 17,
       "elevation": 3,
       "dest_map": "MAP_SILPH_CO_2F",
       "dest_warp_id": "0"
@@ -201,8 +201,8 @@
       "dest_warp_id": "WARP_ID_SILPH_CALLCENTER_BACKROOMS1"
     },
     {
-      "x": 17,
-      "y": 17,
+      "x": 32,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
       "dest_warp_id": "WARP_ID_SAFFRON_GYM_SILPH"

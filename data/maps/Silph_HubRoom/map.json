@@ -94,7 +94,7 @@
     {
       "type": "sign",
       "x": 10,
-      "y": 4,
+      "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_Exit_Label"
@@ -110,7 +110,7 @@
     {
       "type": "sign",
       "x": 10,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_Hostages_Label"
@@ -118,7 +118,7 @@
     {
       "type": "sign",
       "x": 7,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_President_Label"
@@ -134,7 +134,7 @@
     {
       "type": "sign",
       "x": 6,
-      "y": 6,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_Larry_Label"
@@ -142,7 +142,7 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_Three_Island_Label"

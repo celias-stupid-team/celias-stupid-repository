@@ -633,3 +633,30 @@ script SilphCo_PotionEraser {
 }
 
 
+script SilphCo_FreeSnacks {
+	msgbox(
+	"Free Snack Table!\p"
+
+	"LIMIT:\n"
+	"One Snack per week.\l"
+	"Per person.\l"
+	"Deducted from your pay check.", MSGBOX_SIGN)
+
+}
+
+script SilphCo_Fridge {
+	msgbox(
+	"A well-trodden path can be made out\n"
+	"from the fridge to the warp panel.", MSGBOX_SIGN)
+
+}
+
+script SilphCo_SnackTrash {
+	msgbox(
+	"The can is overflowing with snack\n"
+	"wrappers.\p"
+
+	"It seems like it was emptied\n"
+	"last night.", MSGBOX_SIGN)
+
+}

@@ -385,6 +385,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Silph_SecurityOfficeSign"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_SecurityMemoriam"
+    },
+    {
+      "type": "sign",
+      "x": 51,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_WallSign"
     }
   ]
 }

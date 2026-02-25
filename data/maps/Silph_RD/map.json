@@ -236,15 +236,15 @@
   "warp_events": [
     {
       "warp_id": "WARP_ID_SILPH_RD_HUB",
-      "x": 28,
-      "y": 13,
+      "x": 30,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_RD"
     },
     {
       "warp_id": "WARP_ID_SILPH_RD_PRESIDENT",
-      "x": 14,
+      "x": 11,
       "y": 23,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_11F",
@@ -274,7 +274,7 @@
       "dest_warp_id": "5"
     },
     {
-      "x": 22,
+      "x": 19,
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_SILPH_RD",
@@ -284,25 +284,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 28,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "SilphCo_Activate_Warp_RD"
-    },
-    {
-      "type": "trigger",
-      "x": 27,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "SilphCo_Activate_Warp_RD"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
+      "x": 30,
       "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -312,7 +294,25 @@
     {
       "type": "trigger",
       "x": 29,
-      "y": 13,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_RD"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_RD"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -375,7 +375,7 @@
     },
     {
       "type": "sign",
-      "x": 22,
+      "x": 19,
       "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -383,7 +383,7 @@
     },
     {
       "type": "sign",
-      "x": 15,
+      "x": 13,
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -423,11 +423,11 @@
     },
     {
       "type": "sign",
-      "x": 26,
-      "y": 18,
+      "x": 22,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "SilphCo_FreeSnacks"
     },
     {
       "type": "sign",
@@ -503,11 +503,11 @@
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 2,
+      "x": 2,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SilphCo_OranWindow"
+      "script": "SilphCo_SnackTrash"
     },
     {
       "type": "sign",
@@ -620,6 +620,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_PotionEraser"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SilphCo_FreeSnacks"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SilphCo_Fridge"
     }
   ]
 }
