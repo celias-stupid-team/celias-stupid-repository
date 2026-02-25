@@ -5596,6 +5596,14 @@ Move_ICE_PUNCH:
 	end
 
 Move_VOLCANIC_HEALING:
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	playsewithpan SE_M_SACRED_FIRE2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 2, 47, 1
+	call FireSpinEffect
+	call FireSpinEffect
+	call FireSpinEffect
+	waitforvisualfinish
+	end
 Move_REST:
 	playsewithpan SE_M_SNORE, SOUND_PAN_ATTACKER
 	loadspritegfx ANIM_TAG_LETTER_Z
@@ -18965,3 +18973,4 @@ Move_DRAGON:
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
+

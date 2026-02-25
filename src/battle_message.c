@@ -563,7 +563,7 @@ const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven 
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 
 // New battle strings.
-static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} endured\nthe hit using {B_DEF_ABILITY}!");
+static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} survived with\nits {B_DEF_ABILITY} ability!");
 static const u8 sText_ForfeitedMatch[] = _("{B_PLAYER_NAME} forfeited the match!");
 static const u8 sText_QuestionForfeitMatch[] = _("Would you like to forfeit the match\nand quit now?");
 static const u8 sText_PkmnRevived[] = _("{B_BUFF1} was revived and is ready\nto fight again!");
@@ -1039,12 +1039,12 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_FOE_HOOH_FAINTED - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("Foe HO-OH\nfainted!"),
     [STRINGID_FOE_ZAPDOS_FAINTED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("Foe ZAPDOS\nfainted!"),
     [STRINGID_FOE_MOLTRES_FAINTED - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("Foe MOLTRES\nfainted!"),
-    [STRINGID_DONT_GIVE_UP - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("Never give up!{PAUSE 30}\nTrust your instincts!"),
+    [STRINGID_DONT_GIVE_UP - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("Never give up!{PAUSE 30}\nTrust your instincts!{PAUSE 45}"),
     [STRINGID_DAD_QUESTION_MARK - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{PAUSE 30}…{PAUSE 30}DAD!?"),
     [STRINGID_SHADOWSKYPREVENTSSTATUS - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("The SHADOW SKY prevents\n{B_DEF_NAME_WITH_PREFIX} from being statused!"),
     [STRINGID_PKMNISCHARGINGENERGY - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is charging energy!"),
     [STRINGID_PKMNRECHARGED - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} recharged\nfrom the emitted energy!"),
-    [STRINGID_OHSHOOT - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Oh shoot!\pZapdos took down the whole\npower grid!\p"), //The lights went out!\p"),
+    [STRINGID_OHSHOOT - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Oh shoot!\n{PAUSE 20}The lights went out!\p{PAUSE 45}ZAPDOS took down the whole\npower grid!\p"), //The lights went out!\p"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 

@@ -5563,10 +5563,11 @@ BattleScript_FinalBattle_DadDontGiveUp::
 	waitmessage B_WAIT_TIME_LONG
 	fadedarken FADE_ALL_EXC_UI, FADE_DIR_BRIGHTEN
 	waitforfade
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
 BattleScript_FinalBattle_StopBgm::
 	jumpifbattlerside BS_ATTACKER, B_SIDE_OPPONENT, BattleScript_HitFromAtkAnimation_2
-	stopbattlebgm
+	playnewbgm MUS_NONE
 	effectivenesssound
 	goto BattleScript_HitFromAtkAnimation_2

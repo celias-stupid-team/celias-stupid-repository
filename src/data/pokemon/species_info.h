@@ -36360,12 +36360,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_FINALZAPDOS] =
     {
-        .baseHP = 170,
+        .baseHP = 150,
         .baseAttack = 1,
-        .baseDefense = 255,
+        .baseDefense = 180,
         .baseSpeed = 1,
         .baseSpAttack = 255,
-        .baseSpDefense = 255,
+        .baseSpDefense = 180,
         .types = {TYPE_FLYING, TYPE_ELECTRIC},
         .catchRate = 255,
         .expYield = 150,
