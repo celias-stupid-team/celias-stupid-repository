@@ -455,7 +455,7 @@ static const u8 sText_SentOutZapmolcuno[] = _("LARRY, JERRY, HARRY, LARRY, and\n
 static const u8 sText_AllArrysWannaBattle[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY want to battle!\p");
 static const u8 sText_LugiaFainted[] = _("Foe LUGIA fainted!\p");
 static const u8 sText_ArticunoFainted[] = _("Foe ARTICUNO fainted!\p");
-static const u8 sText_HoohFainted[] = _("Foe HOOH fainted!\p");
+static const u8 sText_HoohFainted[] = _("Foe HO-OH fainted!\p");
 static const u8 sText_ZapdosFainted[] = _("Foe ZAPDOS fainted!\p");
 static const u8 sText_MoltresFainted[] = _("Foe MOLTRES fainted!\p");
 

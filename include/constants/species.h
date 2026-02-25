@@ -1321,9 +1321,8 @@ These used to be dex mons; now they're random mons that I've dexited
 
 #define SPECIES_EARRAT 1284
 
-#define SPECIES_EGG 1285
-#define SPECIES_FINALCHARMANDER 1286
-#define SPECIES_EGG 1287
+#define SPECIES_FINALCHARMANDER 1285
+#define SPECIES_EGG 1286
 
 #define NUM_SPECIES SPECIES_EGG
 

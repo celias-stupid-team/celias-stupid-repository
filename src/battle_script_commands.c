@@ -1366,6 +1366,9 @@ static void Cmd_damagecalc(void)
     if (gProtectStructs[gBattlerAttacker].helpingHand)
         gBattleMoveDamage = gBattleMoveDamage * 15 / 10;
 
+    // DebugPrintf("Base Power %d", gDynamicBasePower);
+    DebugPrintf("SpAtk: %d", gBattleMons[gBattlerAttacker].spAttack);
+    DebugPrintf("SpDef: %d", gBattleMons[gBattlerTarget].spDefense);
     gBattlescriptCurrInstr++;
 }
 
@@ -12142,7 +12145,26 @@ void BS_PlayCurrentBirdFaintCry(void)
 
     // using -1 offset because species was already changed before!
     u16 species = SPECIES_FINALLUGIA + VarGet(VAR_CSR_FINAL_BATTLE_PHASE) - 1;
-
+    
+    //
+    switch(species) {
+        case SPECIES_FINALLUGIA:
+            species = SPECIES_LUGIA;
+            break;
+        case SPECIES_FINALARTICUNO:
+            species = SPECIES_ARTICUNO;
+            break;
+        case SPECIES_FINALHOOH:
+            species = SPECIES_HO_OH;
+            break;
+        case SPECIES_FINALZAPDOS:
+            species = SPECIES_ZAPDOS;
+            break;
+        case SPECIES_FINALMOLTRES:
+            species = SPECIES_MOLTRES;
+            break;
+    }
+    
     PlayCry_Script(species, CRY_MODE_FAINT);
 
     gBattlescriptCurrInstr = cmd->nextInstr;

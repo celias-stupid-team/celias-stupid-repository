@@ -323,8 +323,9 @@ BattleScript_HitFromCritCalc::
 BattleScript_HitFromAtkAnimation::
 	attackanimation
 	waitanimation
-	effectivenesssound
 	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 5, BattleScript_FinalBattle_StopBgm
+
+	effectivenesssound
 BattleScript_HitFromAtkAnimation_2::
 	hitanimation BS_TARGET
 	waitstate
@@ -4194,7 +4195,7 @@ BattleScript_ZapmolcunoTransform::
 	jumpifvar CMP_NOT_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 4, BattleScript_ZapmolcunoTransform_FinishScript
 	goto BattleScript_ZapdosCutScene
 BattleScript_ZapmolcunoTransform_FinishScript:
-	resetbattlebgm
+	@ resetbattlebgm
 	printbirdsfaintstring B_POSITION_OPPONENT_LEFT
 	waitmessage B_WAIT_TIME_LONG
 	end2
@@ -5420,7 +5421,7 @@ BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_FINALMOLTRES
 	pause B_WAIT_TIME_LONGEST
-	resetbattlebgm
+	@ resetbattlebgm
 	printstring STRINGID_FOE_MOLTRES_FAINTED
 	pause B_WAIT_TIME_LONGEST
 	cleareffectsonfaint BS_TARGET
@@ -5463,6 +5464,7 @@ BattleScript_EffectDoubleDip:
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	setdoubledip
 	goto BattleScript_HitFromAtkString
+	@ goto BattleScript_EffectHit @ Trying to figure out why the damage is so low -Celia
 
 BattleScript_PreventTakingARest::
 	pause B_WAIT_TIME_SHORT
@@ -5549,10 +5551,12 @@ BattleScript_EffectCollisionCourse::
 
 BattleScript_FinalBattle_DadDontGiveUp::
 	jumpifbattlerside BS_ATTACKER, B_SIDE_OPPONENT, BattleScript_MoveEnd
+	printstring STRINGID_EMPTYSTRING3
 	pause B_WAIT_TIME_LONG
 	fadedarken FADE_ALL_EXC_UI, FADE_DIR_DARKEN
 	waitforfade
-	pause B_WAIT_TIME_SHORT
+	playmoncry SPECIES_MR_MIME
+	pause B_WAIT_TIME_LONGEST
 	printstring STRINGID_DONT_GIVE_UP 
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_DAD_QUESTION_MARK 
@@ -5564,4 +5568,5 @@ BattleScript_FinalBattle_DadDontGiveUp::
 BattleScript_FinalBattle_StopBgm::
 	jumpifbattlerside BS_ATTACKER, B_SIDE_OPPONENT, BattleScript_HitFromAtkAnimation_2
 	stopbattlebgm
+	effectivenesssound
 	goto BattleScript_HitFromAtkAnimation_2

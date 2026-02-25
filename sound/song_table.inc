@@ -425,7 +425,7 @@ gSongTable::
 	song mus_grand_finale, 0, 0
 	song mus_stupid_ending, 0, 0
 	song mus_se_deskslam, 0, 0
-	song mus_se_guilty, 0, 0
+	song mus_se_guilty, 1, 1
 	song mus_dragon_ball, 0, 0
 	song mus_mus_vs_rival, 0, 0
 	song mus_trumpets, 1, 1
