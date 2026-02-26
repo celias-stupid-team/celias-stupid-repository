@@ -7533,15 +7533,15 @@
     {
       "english": "STAIR ORB",
       "itemId": "ITEM_STAIR_ORB",
-      "price": 200,
+      "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "DUMMY DESCRIPTION",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "type": "ITEM_TYPE_FIELD",
+      "fieldUseFunc": "ItemUseOutOfBattle_EscapeRope",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

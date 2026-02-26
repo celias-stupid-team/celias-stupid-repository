@@ -299,7 +299,7 @@ It is reset after every battle.
 #define VAR_SEAFOAM_CAPTAIN_FLOOR                 0x40BE
 #define VAR_CAVE_OF_ORIGIN                 0x40BF
 #define VAR_NUMBER_NUGGETS_BOUGHT                 0x40C0
-#define VAR_0x40C1                 0x40C1
+#define VAR_SLOW_BRO_AND_SHELLA_JEFF                 0x40C1
 #define VAR_READY_FOR_TORNADO                 0x40C2
 #define VAR_USED_ROCK_SMASH                 0x40C3
 #define VAR_SKY_TOWER_LASS                 0x40C4

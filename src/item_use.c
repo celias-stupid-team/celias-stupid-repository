@@ -109,6 +109,11 @@ static void Task_UseMoveRelearnerOnField(u8 taskId);
 static void Task_InitPartyMenuFromRegisteredItem(u8 taskId);
 void PrintKorokDebug(void);
 
+bool8 CanUseStairOrbOnCurrMap(void);
+static void ItemUseOnFieldCB_StairOrb(u8 taskId);
+void Task_UseStairOrbOnField(u8 taskId);
+
+
 
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
@@ -798,7 +803,23 @@ static void Task_UsedBlackWhiteFlute(u8 taskId)
 
 bool8 CanUseEscapeRopeOnCurrMap(void)
 {
-    if (gMapHeader.allowEscaping)
+    if(gSpecialVar_ItemId == ITEM_STAIR_ORB) {
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_2F) &&
+            (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_2F))) {
+                SetEscapeWarp(MAP_GROUP(MAP_SILPH_UNFINISHED_FLOOR), MAP_NUM(MAP_SILPH_UNFINISHED_FLOOR), 0, 4, 5);
+                return TRUE;
+
+        }
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_2F) &&
+            (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_2F))) {
+                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_2F), MAP_NUM(MAP_SKY_TOWER_2F), 2, 22, 27);
+                return TRUE;
+
+        } else
+            return FALSE;
+
+    }
+    else if (gMapHeader.allowEscaping)
         return TRUE;
     else
         return FALSE;
@@ -1755,4 +1776,49 @@ static void Task_UseMoveRelearnerOnField(u8 taskId)
 
 void PrintKorokDebug(void) {
     DebugPrintf("Current value: %d", VarGet(VAR_ITEM_ID));
+}
+
+bool8  CanUseStairOrbOnCurrMap(void)
+{
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_2F) &&
+        (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_2F))) {
+            SetEscapeWarp(MAP_GROUP(MAP_SILPH_UNFINISHED_FLOOR), MAP_NUM(MAP_SILPH_UNFINISHED_FLOOR), 0, 4, 5);
+            return TRUE;
+
+    }
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_2F) &&
+        (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_2F))) {
+            SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_2F), MAP_NUM(MAP_SKY_TOWER_2F), 2, 22, 27);
+            return TRUE;
+
+    }
+    else
+        return FALSE;
+}
+
+void ItemUseOutOfBattle_StairOrb(u8 taskId)
+{
+    if (CanUseStairOrbOnCurrMap() == TRUE)
+    {
+        ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, gMapHeader.regionMapSectionId);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_StairOrb;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+}
+
+static void ItemUseOnFieldCB_StairOrb(u8 taskId)
+{
+    Overworld_ResetStateAfterDigEscRope();
+    RemoveUsedItem();
+    gTasks[taskId].data[0] = 0;
+    DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_UseStairOrbOnField);
+}
+
+void Task_UseStairOrbOnField(u8 taskId)
+{
+    ResetInitialPlayerAvatarState();
+    StartEscapeRopeFieldEffect();
+    DestroyTask(taskId);
 }

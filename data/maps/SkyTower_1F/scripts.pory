@@ -30,10 +30,12 @@ script SkyTower_Psyduck {
 
 script SkyTower_Froslass {
 	textcolor(NPC_TEXT_COLOR_RED)
+	lock
 	msgbox(
 	"Walking through the wall used up\n"
 	"all my BELLY…\l"
-	"Now anyone can look at me-!", MSGBOX_DEFAULT)
+	"Now anyone can look at me!", MSGBOX_DEFAULT)
+	release
 }
 
 
@@ -457,6 +459,7 @@ script SkyTower_FroslassScene {
 		emote_exclamation_mark
 		delay_16 * 4
 		walk_down * 2
+		delay_16
 	))
 	waitmovement(LOCALID_SKY_TOWER_FROSLASS)
 	textcolor(NPC_TEXT_COLOR_RED)
@@ -473,7 +476,7 @@ script SkyTower_FroslassScene {
 	closemessage
 	delay(30)
 	applymovement(LOCALID_SKY_TOWER_FROSLASS, moves(
-		walk_right * 8
+		walk_fast_right * 8
 	))
 	waitmovement(LOCALID_SKY_TOWER_FROSLASS)
 	setobjectxy(LOCALID_SKY_TOWER_FROSLASS, 46, 18)

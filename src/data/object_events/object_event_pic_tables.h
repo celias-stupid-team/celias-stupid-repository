@@ -6173,3 +6173,14 @@ const struct SpriteFrameImage gObjectEventPicTable_CASTFORM_BALL[] = {
     overworld_frame(gObjectEventPic_CASTFORM_BALL, 4, 4, 7),
     overworld_frame(gObjectEventPic_CASTFORM_BALL, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_SLOW_BRO_2[] = {
+    overworld_frame(gObjectEventPic_SLOW_BRO_2, 8, 8, 0),
+    overworld_frame(gObjectEventPic_SLOW_BRO_2, 8, 8, 1),
+    overworld_frame(gObjectEventPic_SLOW_BRO_2, 8, 8, 2),
+    overworld_frame(gObjectEventPic_SLOW_BRO_2, 8, 8, 3),
+    overworld_frame(gObjectEventPic_SLOW_BRO_2, 8, 8, 4),
+    overworld_frame(gObjectEventPic_SLOW_BRO_2, 8, 8, 5),
+    overworld_frame(gObjectEventPic_SLOW_BRO_2, 8, 8, 6),
+    overworld_frame(gObjectEventPic_SLOW_BRO_2, 8, 8, 7),
+    overworld_frame(gObjectEventPic_SLOW_BRO_2, 8, 8, 8),
+};

@@ -830,3 +830,4 @@ const u32 gObjectEventPic_PALESTINE_2[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_PALESTINE_2[] = INCBIN_U16("graphics/object_events/palettes/PALESTINE_2.gbapal");
 const u32 gObjectEventPic_CASTFORM_BALL[] = INCBIN_U32("graphics/object_events/pics/stupid/CASTFORM_BALL.4bpp");
 const u16 gObjectEventPal_CASTFORM_BALL[] = INCBIN_U16("graphics/object_events/palettes/CASTFORM_BALL.gbapal");
+const u32 gObjectEventPic_SLOW_BRO_2[] = INCBIN_U32("graphics/object_events/pics/stupid/SLOW_BRO_2.4bpp");
