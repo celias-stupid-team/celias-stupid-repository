@@ -3,9 +3,8 @@ mapscripts Minnesota_MapScripts {
 		setworldmapflag(FLAG_CSR_MAP_MINNESOTA)
 		setflag(FLAG_TEMP_5)
 		if(flag(FLAG_SYS_ROTOM_MENU)) {
-			if(!checkfieldmove(MOVE_SURF) && !checkfieldmove(MOVE_FLY)) {
-				clearflag(FLAG_TEMP_5)
-			}
+			
+			
 		} else {
 			if(checkpartymove(MOVE_SURF) == PARTY_SIZE && checkpartymove(MOVE_FLY) == PARTY_SIZE) {
 				clearflag(FLAG_TEMP_5)
