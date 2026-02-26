@@ -11534,7 +11534,7 @@ void BS_TryTrainerSlideMsgDefeatFinalBattle(void)
     {
         gBattleScripting.battler = battler;
         BattleScriptPush(cmd->nextInstr);
-        gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
+        gBattlescriptCurrInstr = BattleScript_TrainerASlidePreMessage;
     }
     else
     {
