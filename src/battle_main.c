@@ -2577,8 +2577,16 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
         {
             if (GetBattlerPosition(gActiveBattler) == B_POSITION_OPPONENT_LEFT)
             {
-                BtlController_EmitDrawTrainerPic(BUFFER_A);
-                MarkBattlerForControllerExec(gActiveBattler);
+                if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+                {
+                    BtlController_EmitLoadMonSprite(0);
+                    MarkBattlerForControllerExec(gActiveBattler);
+                }
+                else
+                {
+                    BtlController_EmitDrawTrainerPic(BUFFER_A);
+                    MarkBattlerForControllerExec(gActiveBattler);
+                }
             }
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT
                 && !(gBattleTypeFlags & (BATTLE_TYPE_EREADER_TRAINER
@@ -2647,9 +2655,12 @@ static void BattleIntroDrawPartySummaryScreens(void)
                 hpStatus[i].status = GetMonData(&gEnemyParty[i], MON_DATA_STATUS);
             }
         }
-        gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-        BtlController_EmitDrawPartyStatusSummary(BUFFER_A, hpStatus, PARTY_SUMM_SKIP_DRAW_DELAY);
-        MarkBattlerForControllerExec(gActiveBattler);
+        if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+        {
+            gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            BtlController_EmitDrawPartyStatusSummary(BUFFER_A, hpStatus, PARTY_SUMM_SKIP_DRAW_DELAY);
+            MarkBattlerForControllerExec(gActiveBattler);
+        }
 
         for (i = 0; i < PARTY_SIZE; i++)
         {
@@ -2740,8 +2751,11 @@ static void BattleIntroOpponentSendsOutMonAnimation(void)
         {
             if (GetBattlerPosition(gActiveBattler) == B_POSITION_OPPONENT_LEFT)
             {
-                BtlController_EmitIntroTrainerBallThrow(0);
-                MarkBattlerForControllerExec(gActiveBattler);
+                if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+                {
+                    BtlController_EmitIntroTrainerBallThrow(0);
+                    MarkBattlerForControllerExec(gActiveBattler);
+                }
             }
             if (gBattleTypeFlags & BATTLE_TYPE_MULTI && GetBattlerPosition(gActiveBattler) == B_POSITION_OPPONENT_RIGHT)
             {
