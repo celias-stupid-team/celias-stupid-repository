@@ -482,8 +482,9 @@
 #define STRINGID_PKMNISCHARGINGENERGY 480
 #define STRINGID_PKMNRECHARGED 481
 #define STRINGID_OHSHOOT 482
-#define STRINGID_SURVIVED_WITH_REVENGE 483
-#define STRINGID_NONE 484
+#define STRINGID_SURVIVED_WITH_REVENGE 483 // unused
+#define STRINGID_CANTESCAPEFINAL 484
+#define STRINGID_NONE 485
 // #define STRINGID_NONE 
 // ^ for easier copypaste
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
@@ -690,6 +691,7 @@
 #define B_MSG_PREVENTS_ESCAPE      2
 #define B_MSG_CANT_ESCAPE_2        3
 #define B_MSG_ATTACKER_CANT_ESCAPE 4
+#define B_MSG_CANT_ESCAPE_FINAL    5
 
 // gGotPoisonedStringIds / gGotParalyzedStringIds / gFellAsleepStringIds
 // gGotBurnedStringIds / gGotFrozenStringIds / gAttractUsedStringIds
