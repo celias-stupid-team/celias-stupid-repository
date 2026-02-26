@@ -36,6 +36,7 @@ void BattleUseFunc_StatBooster(u8 taskId);
 void BattleUseFunc_Medicine(u8 taskId);
 void BattleUseFunc_Ether(u8 taskId);
 void BattleUseFunc_PokeDoll(u8 taskId);
+void BattleUseFunc_CreateKoraidon(u8 taskId);
 void FieldUseFunc_OakStopsYou(u8 taskId);
 void FieldUseFunc_Nothing(u8 taskId);
 void ItemUseOutOfBattle_EscapeRope(u8 taskId);
@@ -49,6 +50,7 @@ void FieldUseFunc_LWPEmblem(u8 taskId);
 void FieldUseFunc_GenderFluid(u8 taskId);
 void FieldUseFunc_MoveRelearner(u8 taskId);
 void FieldUseFunc_Cigarette(u8 taskId);
+void ItemUseOutOfBattle_StairOrb(u8 taskId);
 
 
 void FieldUseFunc_PayDayTM(u8 taskId);

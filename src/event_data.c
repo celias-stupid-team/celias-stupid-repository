@@ -72,6 +72,7 @@ void ClearTempData_CSR(void)
     FlagClear(FLAG_SYS_CSR_VICTORY);
     FlagClear(FLAG_SYS_UNDER_WATERFALL);
     FlagClear(FLAG_USED_GENDER_FLUID);
+    FlagClear(FLAG_SYS_CARRYING_BOX);
     
     VarSet(VAR_USED_CUT, 0);
     RunScriptImmediately(SetPlayerPokedexValues);

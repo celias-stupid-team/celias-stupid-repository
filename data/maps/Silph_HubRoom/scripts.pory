@@ -6,7 +6,7 @@ mapscripts Silph_HubRoom_MapScripts {
         if(flag(FLAG_SILPH_WARP_PRESIDENT)) {
             setmetatile(7, 10, METATILE_SilphCo_SilphWarp, FALSE)
         }
-        if(flag(FLAG_SILPH_WARP_BALLS)) {
+        if(flag(FLAG_SILPH_WARP_RD)) {
             setmetatile(14, 5, METATILE_SilphCo_SilphWarp, FALSE)
         }
         if(flag(FLAG_SILPH_WARP_LARRY)) {

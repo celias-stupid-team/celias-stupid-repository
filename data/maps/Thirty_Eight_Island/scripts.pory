@@ -651,11 +651,21 @@ script ThirtyEightIsland_Entei {
 	closemessage
 	delay(60)
 	playse(SE_CLICK)
-	applymovement(VAR_LAST_TALKED, moves(
-		face_up
-		delay_16 * 6
-		face_down
-	))
+	if(var(VAR_RESULT) == 0) {
+
+		applymovement(VAR_LAST_TALKED, moves(
+			face_up
+			delay_16 * 6
+			face_down
+		))
+	} else {
+		applymovement(VAR_LAST_TALKED, moves(
+			face_left
+			delay_16 * 6
+			face_down
+		))
+
+	}
 	waitmovement(0)
 	release
 }

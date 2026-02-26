@@ -1643,6 +1643,11 @@
 	callnative BS_TrySetShadowSpikes
 	.endm
 
+	.macro tryremoveshadowspikes side:req
+	callnative BS_TryRemoveShadowSpikes
+	.byte \side
+	.endm
+
 	.macro setshadowshield
 	callnative BS_SetShadowShield
 	.endm
@@ -1652,7 +1657,6 @@
 	.byte \mode
 	.endm
 
-	
 	.macro fadescreeninstant mode:req
 	callnative BS_FadeScreenInstant
 	.byte \mode
@@ -1712,4 +1716,60 @@
 
 	.macro datahpupdateparallel
 	callnative BS_DataHpUpdateParallel
+	.endm
+
+	.macro jumpifvar compare:req, var:req, value:req, jumpInstr:req
+	callnative BS_JumpIfVar
+	.byte \compare
+	.2byte \var
+	.2byte \value
+	.4byte \jumpInstr
+	.endm
+
+	.macro playcurrentspeciescry battler:req
+	callnative BS_PlayCurrentSpeciesCry
+	.byte \battler
+	.endm
+
+	.macro playcurrentbirdfaintcry
+	callnative BS_PlayCurrentBirdFaintCry
+	.endm
+
+	.macro waitforbuttonpress
+	callnative BS_WaitForButtonPress
+	.endm
+
+	.macro fadedarken mask:req, dir:req
+	callnative BS_FadeDarken
+	.4byte \mask
+	.byte \dir
+	.endm
+
+	.macro togglepssswitch
+	callnative BS_TogglePSSSwitch
+	.endm
+
+	.macro togglebattlerspritevisibility battler:req
+	callnative BS_ToggleBattlerSpriteVisibility
+	.byte \battler
+	.endm
+
+	.macro sethealthboxspriteinvisible battler:req
+	callnative BS_SetHealthboxSpriteInvisible
+	.byte \battler
+	.endm
+
+	.macro createfinalcharmander
+	callnative BS_CreateFinalCharmander
+	.endm
+
+	.macro jumpifbattlerside battler:req, side:req, jumpInstr:req
+	callnative BS_JumpIfBattlerSide
+	.byte \battler
+	.byte \side
+	.4byte \jumpInstr
+	.endm
+
+	.macro clearbattleweather
+	callnative BS_ClearBattleWeather
 	.endm

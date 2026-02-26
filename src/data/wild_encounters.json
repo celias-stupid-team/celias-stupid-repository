@@ -1859,37 +1859,37 @@
                 "species": "SPECIES_DIGLETT"
               },
               {
-                "min_level": 20,
+                "min_level": 19,
                 "max_level": 20,
                 "species": "SPECIES_DIGLETT"
               },
               {
-                "min_level": 21,
+                "min_level": 19,
                 "max_level": 21,
                 "species": "SPECIES_DIGLETT"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
+                "min_level": 25,
+                "max_level": 25,
                 "species": "SPECIES_DUGTRIO"
               },
               {
-                "min_level": 17,
-                "max_level": 17,
+                "min_level": 25,
+                "max_level": 25,
                 "species": "SPECIES_DUGTRIO"
               },
               {
-                "min_level": 29,
+                "min_level": 25,
                 "max_level": 29,
                 "species": "SPECIES_DUGTRIO"
               },
               {
-                "min_level": 17,
-                "max_level": 17,
+                "min_level": 25,
+                "max_level": 25,
                 "species": "SPECIES_DUGTRIO"
               },
               {
-                "min_level": 31,
+                "min_level": 25,
                 "max_level": 31,
                 "species": "SPECIES_DUGTRIO"
               }
@@ -12928,61 +12928,6 @@
                 "species": "SPECIES_ZUBAT"
               }
             ]
-          },
-          "fishing_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_POLIWAG"
-              },
-              {
-                "min_level": 25,
-                "max_level": 35,
-                "species": "SPECIES_POLIWAG"
-              }
-            ]
           }
         },
         {
@@ -15567,8 +15512,8 @@
                 "species": "SPECIES_MEOWTH"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
@@ -15577,8 +15522,8 @@
                 "species": "SPECIES_MEOWTH"
               },
               {
-                "min_level": 12,
-                "max_level": 12,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
@@ -15597,7 +15542,7 @@
                 "species": "SPECIES_MEOWTH"
               },
               {
-                "min_level": 16,
+                "min_level": 15,
                 "max_level": 16,
                 "species": "SPECIES_EXEGGCUTE"
               },
@@ -15607,8 +15552,8 @@
                 "species": "SPECIES_MEOWTH"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
@@ -15705,8 +15650,8 @@
                 "species": "SPECIES_MEOWTH"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
@@ -15715,8 +15660,8 @@
                 "species": "SPECIES_MEOWTH"
               },
               {
-                "min_level": 12,
-                "max_level": 12,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
@@ -15735,7 +15680,7 @@
                 "species": "SPECIES_MEOWTH"
               },
               {
-                "min_level": 16,
+                "min_level": 15,
                 "max_level": 16,
                 "species": "SPECIES_EXEGGCUTE"
               },
@@ -15745,8 +15690,8 @@
                 "species": "SPECIES_MEOWTH"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
@@ -26551,53 +26496,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               }
             ]
@@ -26610,53 +26555,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               }
             ]
@@ -26669,53 +26614,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               }
             ]
@@ -26728,53 +26673,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               }
             ]
@@ -26787,53 +26732,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               }
             ]
@@ -26846,53 +26791,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               }
             ]
@@ -26905,53 +26850,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               }
             ]
@@ -26964,53 +26909,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               }
             ]
@@ -27082,53 +27027,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_PERSIAN"
               }
             ]

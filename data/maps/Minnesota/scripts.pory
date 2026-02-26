@@ -3,9 +3,8 @@ mapscripts Minnesota_MapScripts {
 		setworldmapflag(FLAG_CSR_MAP_MINNESOTA)
 		setflag(FLAG_TEMP_5)
 		if(flag(FLAG_SYS_ROTOM_MENU)) {
-			if(!checkfieldmove(MOVE_SURF) && !checkfieldmove(MOVE_FLY)) {
-				clearflag(FLAG_TEMP_5)
-			}
+			
+			
 		} else {
 			if(checkpartymove(MOVE_SURF) == PARTY_SIZE && checkpartymove(MOVE_FLY) == PARTY_SIZE) {
 				clearflag(FLAG_TEMP_5)
@@ -329,8 +328,13 @@ script Minnesota_LaundromatSign {
 
 script Minnesota_GouldenSam {
 	msgbox(
-	"Cool!\n"
-	"It's CAGE: GOULD VERSION!", MSGBOX_SIGN)
+	"GOULDEN SAM: Heh heh…\n"
+	"Did you know?\p"
+
+	"We used to have a paradise for\n"
+	"EMUS set up too.\p"
+	
+	"Sadly, the DMCA put an end to that…", MSGBOX_SIGN)
 
 }
 

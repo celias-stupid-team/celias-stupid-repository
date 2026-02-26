@@ -564,6 +564,16 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SKIIER2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AZ_NEW;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DMCA_RUNT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHINY_ZUBAT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EARRAT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SLOW_BRO;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHELLA_JEFF;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GENGAR;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SILPH_WINDOWS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CRACKED_COMPUTER;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PALESTINE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PALESTINE_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CASTFORM_BALL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SLOW_BRO_2;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1129,4 +1139,14 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_AZ_NEW] = &gObjectEventGraphicsInfo_AZ_NEW,
     [OBJ_EVENT_GFX_DMCA_RUNT] = &gObjectEventGraphicsInfo_DMCA_RUNT,
     [OBJ_EVENT_GFX_SHINY_ZUBAT] = &gObjectEventGraphicsInfo_SHINY_ZUBAT,
+    [OBJ_EVENT_GFX_EARRAT] = &gObjectEventGraphicsInfo_EARRAT,
+    [OBJ_EVENT_GFX_SLOW_BRO] = &gObjectEventGraphicsInfo_SLOW_BRO,
+    [OBJ_EVENT_GFX_SHELLA_JEFF] = &gObjectEventGraphicsInfo_SHELLA_JEFF,
+    [OBJ_EVENT_GFX_GENGAR] = &gObjectEventGraphicsInfo_GENGAR,
+    [OBJ_EVENT_GFX_SILPH_WINDOWS] = &gObjectEventGraphicsInfo_SILPH_WINDOWS,
+    [OBJ_EVENT_GFX_CRACKED_COMPUTER] = &gObjectEventGraphicsInfo_CRACKED_COMPUTER,
+    [OBJ_EVENT_GFX_PALESTINE] = &gObjectEventGraphicsInfo_PALESTINE,
+    [OBJ_EVENT_GFX_PALESTINE_2] = &gObjectEventGraphicsInfo_PALESTINE_2,
+    [OBJ_EVENT_GFX_CASTFORM_BALL] = &gObjectEventGraphicsInfo_CASTFORM_BALL,
+    [OBJ_EVENT_GFX_SLOW_BRO_2] = &gObjectEventGraphicsInfo_SLOW_BRO_2,
 };

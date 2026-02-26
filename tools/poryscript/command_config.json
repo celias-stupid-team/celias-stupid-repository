@@ -107,6 +107,9 @@
         },
         "checkpartymonslotegg": {
             "var_name": "VAR_RESULT"
+        },
+        "compare_var_to_var": {
+            "var_name": "VAR_RESULT"
         }
     }
 }

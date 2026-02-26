@@ -1238,3 +1238,24 @@ const struct Tileset gTileset_MtSilver =
     .metatileAttributes = gMetatileAttributes_MtSilver,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FinalBossSecondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FinalBossSecondary,
+    .palettes = gTilesetPalettes_FinalBossSecondary,
+    .metatiles = gMetatiles_FinalBossSecondary,
+    .metatileAttributes = gMetatileAttributes_FinalBossSecondary,
+};
+
+const struct Tileset gTileset_office_stuff =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_office_stuff,
+    .palettes = gTilesetPalettes_office_stuff,
+    .metatiles = gMetatiles_office_stuff,
+    .metatileAttributes = gMetatileAttributes_office_stuff,
+    .callback = NULL,
+};

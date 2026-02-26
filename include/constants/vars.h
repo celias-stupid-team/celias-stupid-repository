@@ -299,13 +299,13 @@ It is reset after every battle.
 #define VAR_SEAFOAM_CAPTAIN_FLOOR                 0x40BE
 #define VAR_CAVE_OF_ORIGIN                 0x40BF
 #define VAR_NUMBER_NUGGETS_BOUGHT                 0x40C0
-#define VAR_0x40C1                 0x40C1
+#define VAR_SLOW_BRO_AND_SHELLA_JEFF                 0x40C1
 #define VAR_READY_FOR_TORNADO                 0x40C2
 #define VAR_USED_ROCK_SMASH                 0x40C3
-#define VAR_0x40C4                 0x40C4
+#define VAR_SKY_TOWER_LASS                 0x40C4
 #define VAR_0x40C5                 0x40C5
-#define VAR_0x40C6                 0x40C6
-#define VAR_0x40C7                 0x40C7
+#define VAR_SILPH_ELEVATOR_SCENE                 0x40C6
+#define VAR_CSR_FINAL_BATTLE_TURN  0x40C7 // used for scripted turns in Wartortle phase
 #define VAR_CSR_FINAL_BATTLE_PHASE 0x40C8 // start with 0, increment for every defeated Pokémon
 #define VAR_TRADING_QUEST_PHASE    0x40C9
 #define VAR_CSR_CYNTHIA_BATTLE     0x40CA // start with 0, increment for every defeated Pokémon
@@ -359,7 +359,7 @@ It is reset after every battle.
 #define VAR_0x40F8                 0x40F8
 #define VAR_0x40F9                 0x40F9
 #define VAR_0x40FA                 0x40FA
-#define VAR_0x40FB                 0x40FB
+#define VAR_SKY_TOWER_POKE                 0x40FB
 #define VAR_SWEET_SCENT_WATER                 0x40FC
 #define VAR_TWO_ISLAND_COUNTER                 0x40FD
 #define VAR_SYS_GIVE_ALCREMIE                 0x40FE

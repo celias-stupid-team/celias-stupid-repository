@@ -155,6 +155,40 @@ void SoundTask_PlayCryHighPitch(u8 taskId)
     DestroyAnimVisualTask(taskId);
 }
 
+void SoundTask_PlayCry(u8 taskId)
+{
+    u16 species = SPECIES_NONE;
+    u8 battlerId;
+    s8 pan = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
+
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        battlerId = gBattleAnimAttacker;
+    else if (gBattleAnimArgs[0] == ANIM_TARGET)
+        battlerId = gBattleAnimTarget;
+    else if (gBattleAnimArgs[0] == ANIM_ATK_PARTNER)
+        battlerId = BATTLE_PARTNER(gBattleAnimAttacker);
+    else
+        battlerId = BATTLE_PARTNER(gBattleAnimTarget);
+
+    if ((gBattleAnimArgs[0] == ANIM_TARGET || gBattleAnimArgs[0] == ANIM_DEF_PARTNER)
+     && !IsBattlerSpriteVisible(battlerId))
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
+        species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+    else
+        species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+
+    if (species != SPECIES_NONE)
+        PlayCry_Normal(species, pan);
+
+    DestroyAnimVisualTask(taskId);
+}
+
+
 void SoundTask_PlayDoubleCry(u8 taskId)
 {
     u16 species = SPECIES_NONE;

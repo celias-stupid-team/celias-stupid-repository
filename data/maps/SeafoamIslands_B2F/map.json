@@ -73,20 +73,6 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SS_ANNE",
-      "x": 35,
-      "y": 15,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 26,
       "y": 11,
@@ -137,8 +123,8 @@
       "dest_warp_id": "4"
     },
     {
-      "x": 32,
-      "y": 15,
+      "x": 34,
+      "y": 18,
       "elevation": 3,
       "dest_map": "MAP_SSANNE_KITCHEN",
       "dest_warp_id": "1"
@@ -191,6 +177,27 @@
       "elevation": 0,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "5"
+    },
+    {
+      "x": 34,
+      "y": 19,
+      "elevation": 3,
+      "dest_map": "MAP_SSANNE_KITCHEN",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 34,
+      "y": 17,
+      "elevation": 3,
+      "dest_map": "MAP_SSANNE_KITCHEN",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 34,
+      "y": 16,
+      "elevation": 3,
+      "dest_map": "MAP_SSANNE_KITCHEN",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],

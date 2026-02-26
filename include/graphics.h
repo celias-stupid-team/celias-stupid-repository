@@ -8726,6 +8726,9 @@ extern const u32 gBattleAnimSpriteGfx_WeedSmall[];
 extern const u32 gBattleAnimSpriteGfx_RainbowOrb[];
 extern const u32 gBattleAnimSpriteGfx_WeedleSpike[];
 extern const u32 gBattleAnimSpriteGfx_ShadowShield[];
+extern const u32 gBattleAnimSpriteGfx_OneProtect[];
+extern const u32 gBattleAnimSpriteGfx_H[];
+extern const u32 gBattleAnimSpriteGfx_Bullet[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9014,6 +9017,9 @@ extern const u32 gBattleAnimSpritePal_WeedSmall[];
 extern const u32 gBattleAnimSpritePal_RainbowOrb[];
 extern const u32 gBattleAnimSpritePal_WeedleSpike[];
 extern const u32 gBattleAnimSpritePal_ShadowShield[];
+extern const u32 gBattleAnimSpritePal_OneProtect[];
+extern const u32 gBattleAnimSpritePal_H[];
+extern const u32 gBattleAnimSpritePal_Bullet[];
 
 //CSR Moves
 
@@ -12924,3 +12930,11 @@ extern const u8 gMonIcon_SHINYABRA[];
 
 extern const u32 gItemIcon_STAIRORB[];
 extern const u32 gItemIconPalette_STAIRORB[];
+// EARRAT
+extern const u32 gMonFrontPic_EARRAT[];
+extern const u32 gMonPalette_EARRAT[];
+extern const u32 gMonBackPic_EARRAT[];
+extern const u32 gMonShinyPalette_EARRAT[];
+extern const u8 gMonFootprint_EARRAT[];
+extern const u8 gMonIcon_EARRAT[];
+

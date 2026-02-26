@@ -4185,8 +4185,10 @@ static void FieldCallback_Surf(void)
 static bool8 SetUpFieldMove_Surf(void)
 {
     s16 x, y;
-    
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+    if(FlagGet(FLAG_FUSHCIA_GO_TO_SHORE_SCENE) && !FlagGet(FLAG_LOOKER_SCENE)) {
+        return FALSE;
+    }
     if (MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y)) != TRUE
      && PartyHasMonWithSurf() == TRUE
      && IsPlayerFacingSurfableFishableWater() == TRUE)
@@ -4218,6 +4220,9 @@ static void DisplayCantUseSurfMessage(void)
         else if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12))
               && ((gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12))))
             DisplayPartyMenuStdMessage(PARTY_MSG_NO_SURF);
+        else if (FlagGet(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)) {
+            DisplayPartyMenuStdMessage(PARTY_MSG_CANT_SURF_HERE);
+        }
         else
             DisplayPartyMenuStdMessage(PARTY_MSG_CANT_SURF_HERE);
     }

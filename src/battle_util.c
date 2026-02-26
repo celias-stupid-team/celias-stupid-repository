@@ -55,7 +55,7 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
 	[TYPE_GRASS]   = {	______, 	______, 	X(0.5), 	X(0.5), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______ 	},
 	[TYPE_ELECTRIC]   = {	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.2), 	______, 	X(0.0), 	______, 	X(2.0), 	X(0.5), 	X(0.5), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______ 	},
 	[TYPE_PSYCHIC]   = {	______, 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_ICE]   = {	______, 	______, 	X(2.0), 	______, 	X(0.5), 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(0.2), 	______, 	X(2.0), 	X(0.5), 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______ 	},
+	[TYPE_ICE]   = {	______, 	______, 	X(2.0), 	______, 	X(0.5), 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(0.2), 	______, 	X(2.0), 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______ 	},
 	[TYPE_DRAGON]   = {	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______ 	},
 	[TYPE_DARK]   = {	______, 	X(0.5), 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	X(0.5) 	},
 	[TYPE_FAIRY]   = {	______, 	X(2.0), 	______, 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
@@ -795,7 +795,7 @@ u8 DoFieldEndTurnEffects(void)
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_SHADOW_SKY:
-            if ((gBattleWeather & B_WEATHER_SHADOW_SKY) && !gBattleTurnMonFainted)
+            if ((gBattleWeather & B_WEATHER_SHADOW_SKY) && (gBattleTurnMonUsedMove && !gBattleTurnMonFainted))
             {
                 gBattlescriptCurrInstr = BattleScript_DamagingWeatherContinues;
                 gBattleScripting.animArg1 = B_ANIM_SHADOW_SKY_CONTINUES;
@@ -1348,7 +1348,7 @@ bool8 HandleFaintedMonActions(void)
             gBattleStruct->faintedActionsState = 6;
             break;
         case 5:
-            if (++gBattleStruct->faintedActionsBattlerId == gBattlersCount || gBattleOutcome & B_OUTCOME_CONTINUE_ROTOM)
+            if (++gBattleStruct->faintedActionsBattlerId == gBattlersCount || gBattleOutcome >= B_OUTCOME_CONTINUE_ZAPDOS)
                 gBattleStruct->faintedActionsState = 6;
             else
                 gBattleStruct->faintedActionsState = 4;
@@ -2071,6 +2071,18 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     break;
                 case ABILITY_TRUANT:
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
+                    break;
+                case ABILITY_RECHARGE:
+                    if (gBattleMons[battler].maxHP > gBattleMons[battler].hp)
+                    {
+                        gLastUsedAbility = ABILITY_RECHARGE;
+                        BattleScriptPushCursorAndCallback(BattleScript_RechargeActivates);
+                        gBattleMoveDamage = gBattleMons[battler].maxHP;
+                        if (gBattleMoveDamage == 0)
+                            gBattleMoveDamage = 1;
+                        gBattleMoveDamage *= -1;
+                        effect++;
+                    }
                     break;
                 case ABILITY_BAD_DREAMS:
                     BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);

@@ -42,6 +42,9 @@ const u32 gBattleAnimSpritePal_Seed[] = INCBIN_U32("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_Needle[] = INCBIN_U32("graphics/battle_anims/sprites/needle.4bpp.lz");
 const u32 gBattleAnimSpritePal_Needle[] = INCBIN_U32("graphics/battle_anims/sprites/needle.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Bullet[] = INCBIN_U32("graphics/battle_anims/sprites/bullet.4bpp.lz");
+const u32 gBattleAnimSpritePal_Bullet[] = INCBIN_U32("graphics/battle_anims/sprites/bullet.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.4bpp.lz");
 const u32 gBattleAnimSpritePal_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.gbapal.lz");
 
@@ -659,6 +662,9 @@ const u32 gBattleAnimSpritePal_LockOn[] = INCBIN_U32("graphics/battle_anims/spri
 const u32 gBattleAnimSpriteGfx_OpeningEye[] = INCBIN_U32("graphics/battle_anims/sprites/opening_eye.4bpp.lz");
 const u32 gBattleAnimSpritePal_OpeningEye[] = INCBIN_U32("graphics/battle_anims/sprites/opening_eye.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_H[] = INCBIN_U32("graphics/battle_anims/sprites/H.4bpp.lz");
+const u32 gBattleAnimSpritePal_H[] = INCBIN_U32("graphics/battle_anims/sprites/H.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_RoundWhiteHalo[] = INCBIN_U32("graphics/battle_anims/sprites/round_white_halo.4bpp.lz");
 const u32 gBattleAnimSpritePal_RoundWhiteHalo[] = INCBIN_U32("graphics/battle_anims/sprites/round_white_halo.gbapal.lz");
 
@@ -1040,6 +1046,9 @@ const u32 gBattleAnimSpritePal_Protect[] = INCBIN_U32("graphics/battle_anims/spr
 
 const u32 gBattleAnimSpriteGfx_ShadowShield[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_protect.4bpp.lz");
 const u32 gBattleAnimSpritePal_ShadowShield[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_protect.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_OneProtect[] = INCBIN_U32("graphics/battle_anims/sprites/one_protect.4bpp.lz");
+const u32 gBattleAnimSpritePal_OneProtect[] = INCBIN_U32("graphics/battle_anims/sprites/one_protect.gbapal.lz");
 
 const u32 gBattleAnimBgPalette_MuddyWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_muddy.gbapal.lz");
 

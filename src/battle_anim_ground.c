@@ -71,6 +71,17 @@ const struct SpriteTemplate gBonemerangSpriteTemplate =
     .callback = AnimBonemerangProjectile,
 };
 
+const struct SpriteTemplate gSrirachaGotchaSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KETCHUP,
+    .paletteTag = ANIM_TAG_KETCHUP,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
 const struct SpriteTemplate gOnemerangSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ONE,

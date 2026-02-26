@@ -4,6 +4,7 @@
 #include "random.h"
 #include "task.h"
 #include "trig.h"
+#include "constants/songs.h"
 
 static void AnimUnusedHumanoidFoot(struct Sprite *sprite);
 static void AnimSlideHandOrFootToTarget(struct Sprite *sprite);
@@ -34,6 +35,7 @@ static void AnimBrickBreakWallShard_Step(struct Sprite *sprite);
 static void AnimSuperpowerOrb_Step(struct Sprite *sprite);
 static void AnimSuperpowerRock_Step1(struct Sprite *sprite);
 static void AnimSuperpowerRock_Step2(struct Sprite *sprite);
+static void AnimTask_CentennialKick_Step(u8 taskId);
 
 static const struct SpriteTemplate sUnusedHumanoidFootSpriteTemplate =
 {
@@ -127,6 +129,17 @@ const struct SpriteTemplate gFistFootRandomPosSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFistOrFootRandomPos,
+};
+
+const struct SpriteTemplate gFistFootStaticSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HANDS_AND_FEET,
+    .paletteTag = ANIM_TAG_HANDS_AND_FEET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_HandsAndFeet,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
 };
 
 const struct SpriteTemplate gCrossChopHandSpriteTemplate =
@@ -520,6 +533,151 @@ static void AnimFistOrFootRandomPos_Step(struct Sprite *sprite)
         --sprite->data[0];
     }
 }
+
+//=====DISCLAIMER: The following code is written by generative AI, modified from the original AnimFistOrFoot code===========
+void AnimTask_CentennialKick(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 battler;
+    u8 spriteId;
+    s16 x, y;
+
+    // Args:
+    // 0: battler selector (0 = attacker, 1 = target)
+    // 1: number of hits
+    // 2: STARTING frames between hits
+    // 3: anim index (0-4) or -1 for random
+    // 4: visible frames per hit
+    // 5: play SFX every N hits
+
+    battler = (gBattleAnimArgs[0] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+    x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+    y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+    spriteId = CreateSprite(&gFistFootStaticSpriteTemplate, x, y, 3);
+    if (spriteId == MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    gSprites[spriteId].invisible = TRUE;
+    gSprites[spriteId].callback = SpriteCallbackDummy;
+
+    task->data[0]  = spriteId;           // sprite id
+    task->data[1]  = gBattleAnimArgs[1]; // hits remaining
+    task->data[2]  = gBattleAnimArgs[2]; // starting delay (slow)
+    task->data[3]  = 0;                  // frame counter
+    task->data[4]  = gBattleAnimArgs[3]; // anim index or -1
+    task->data[5]  = gBattleAnimArgs[4]; // visible frames per hit
+    task->data[6]  = 0;                  // visible countdown
+    task->data[7]  = battler;            // battler
+    task->data[8]  = 0;                  // total hits done
+    task->data[9]  = gBattleAnimArgs[5]; // sfx every N hits
+
+    task->data[10] = 1;
+
+    if (task->data[2] < task->data[10])
+        task->data[2] = task->data[10];
+
+    task->func = AnimTask_CentennialKick_Step;
+}
+
+static void AnimTask_CentennialKick_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 spriteId = (u8)task->data[0];
+    u8 battler = (u8)task->data[7];
+    struct Sprite *spr;
+    s16 xMod, yMod, x, y;
+
+    u16 startDelay = (u16)task->data[2];
+    u16 minDelay   = (u16)task->data[10];
+    u16 delay;
+    u16 hitsDone = (u16)task->data[8];
+
+    if (spriteId >= MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    spr = &gSprites[spriteId];
+
+    if (task->data[6] > 0)
+    {
+        task->data[6]--;
+        if (task->data[6] == 0)
+            spr->invisible = TRUE;
+    }
+
+    if (task->data[1] <= 0 && task->data[6] == 0)
+    {
+        DestroySprite(spr);
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    if (task->data[1] <= 0)
+        return;
+
+    if (hitsDone >= 10 || startDelay <= minDelay)
+    {
+        delay = minDelay;
+    }
+    else
+    {
+        u16 span = startDelay - minDelay;
+        delay = startDelay - (hitsDone * span) / 10;
+        if (delay < minDelay)
+            delay = minDelay;
+    }
+
+    if (task->data[3]++ < delay)
+        return;
+    task->data[3] = 0;
+
+    spr->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+    spr->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+    xMod = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_WIDTH) / 2;
+    yMod = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_HEIGHT) / 4;
+
+    x = (xMod > 0) ? (Random() % xMod) : 0;
+    y = (yMod > 0) ? (Random() % yMod) : 0;
+
+    if (Random() & 1) x *= -1;
+    if (Random() & 1) y *= -1;
+
+    if ((gBattlerPositions[battler] & BIT_SIDE) == B_SIDE_PLAYER)
+        y += 0xFFF0;
+
+    spr->x += x;
+    spr->y += y;
+    spr->x2 = 0;
+    spr->y2 = 0;
+
+    if (task->data[4] < 0)
+        StartSpriteAnim(spr, Random() % 5);
+    else
+        StartSpriteAnim(spr, (u8)task->data[4]);
+
+    spr->invisible = FALSE;
+    task->data[6] = task->data[5];
+
+    task->data[8] = task->data[8] + 1;
+
+    if (task->data[9] != 0)
+    {
+        if (((u16)task->data[8] % (u16)task->data[9]) == 0)
+            PlaySE12WithPanning(SE_M_VITAL_THROW2, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+    }
+
+    task->data[1]--;
+}
+//========End of generative AI-written code================
+
 
 static void AnimCrossChopHand(struct Sprite *sprite)
 {

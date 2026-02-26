@@ -537,6 +537,7 @@ bool8 SweetScentWildEncounter(void)
 
             return TRUE;
             } else {
+                FlagClear(FLAG_SHINY_CREATION);
                 switch(VarGet(VAR_SWEET_SCENT_WATER)) {
                     case 10:
                         VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);

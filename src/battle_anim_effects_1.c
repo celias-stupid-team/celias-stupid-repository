@@ -30,6 +30,8 @@ static void AnimLeechSeed_Step(struct Sprite *);
 static void AnimLeechSeedSprouts(struct Sprite *);
 static void AnimSporeParticle(struct Sprite *);
 static void AnimSporeParticle_Step(struct Sprite *);
+static void AnimSporeSelfParticle(struct Sprite *);
+static void AnimSporeSelfParticle_Step(struct Sprite *);
 static void AnimPetalDanceBigFlower(struct Sprite *);
 static void AnimPetalDanceBigFlower_Step(struct Sprite *);
 static void AnimPetalDanceSmallFlower(struct Sprite *);
@@ -37,6 +39,9 @@ static void AnimPetalDanceSmallFlower_Step(struct Sprite *);
 static void AnimRazorLeafParticle(struct Sprite *);
 static void AnimRazorLeafParticle_Step1(struct Sprite *);
 static void AnimRazorLeafParticle_Step2(struct Sprite *);
+static void AnimMoneyParticle(struct Sprite *);
+static void AnimMoneyParticle_Step1(struct Sprite *);
+static void AnimMoneyParticle_Step2(struct Sprite *);
 static void AnimIngrainRoot(struct Sprite *);
 static void AnimFrenzyPlantRoot(struct Sprite *);
 static void AnimIngrainOrb(struct Sprite *);
@@ -70,6 +75,7 @@ static void AnimSlice_Step(struct Sprite *);
 static void AnimCirclingMusicNote(struct Sprite *);
 static void AnimCirclingMusicNote_Step(struct Sprite *);
 static void AnimProtect(struct Sprite *);
+static void AnimOneProtect(struct Sprite *);
 static void AnimProtect_Step(struct Sprite *);
 static void AnimMilkBottle(struct Sprite *);
 static void AnimMilkBottle_Step1(struct Sprite *);
@@ -440,12 +446,48 @@ const struct SpriteTemplate gSporeParticleSpriteTemplate =
     .callback = AnimSporeParticle,
 };
 
+const struct SpriteTemplate gSporeSelfParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPORE,
+    .paletteTag = ANIM_TAG_SPORE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sSporeParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeSelfParticle,
+};
+
 const struct SpriteTemplate gFuzzyParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FUZZY,
     .paletteTag = ANIM_TAG_FUZZY,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeParticle,
+};
+
+static const union AnimCmd sHAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 6),
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sHAnimTable[] =    
+{
+    sHAnimCmds,
+};
+
+const struct SpriteTemplate gHParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_H,
+    .paletteTag = ANIM_TAG_H,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sHAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSporeParticle,
@@ -533,6 +575,17 @@ const struct SpriteTemplate gRazorLeafParticleSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimRazorLeafParticle,
+};
+
+const struct SpriteTemplate gMoneyParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MONEY,
+    .paletteTag = ANIM_TAG_MONEY,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoneyParticle,
 };
 
 const struct SpriteTemplate gTwisterLeafSpriteTemplate =
@@ -1434,6 +1487,17 @@ const struct SpriteTemplate gShadowShieldSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimShadowShield,
+};
+
+const struct SpriteTemplate gOneProtectSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ONE_PROTECT,
+    .paletteTag = ANIM_TAG_ONE_PROTECT,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimOneProtect,
 };
 
 static const union AffineAnimCmd sMilkBottleAffineAnimCmds1[] =
@@ -2806,6 +2870,50 @@ static void AnimLeechSeedSprouts(struct Sprite* sprite)
     StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
 }
 
+// Moves a spore particle in a halo around the attacker mon.
+// The sprite's priority is updated to give the effect of going
+// behind the mon's sprite.
+// arg 0: initial x pixel offset
+// arg 1: initial y pixel offset
+// arg 2: initial wave offset
+// arg 3: duration
+// arg 4: blend (0 = off, 1 = on)
+static void AnimSporeSelfParticle(struct Sprite* sprite)
+{
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+    StartSpriteAnim(sprite, gBattleAnimArgs[4]);
+    if (gBattleAnimArgs[4] == 1)
+        sprite->oam.objMode = ST_OAM_OBJ_BLEND;
+
+    sprite->data[0] = gBattleAnimArgs[3];
+    sprite->data[1] = gBattleAnimArgs[2];
+    sprite->callback = AnimSporeParticle_Step;
+    sprite->callback(sprite);
+}
+
+static void AnimSporeSelfParticle_Step(struct Sprite* sprite)
+{
+    sprite->x2 = Sin(sprite->data[1], 32);
+    sprite->y2 = Cos(sprite->data[1], -3) + ((sprite->data[2] += 24) >> 8);
+    if ((u16)(sprite->data[1] - 0x40) < 0x80)
+    {
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker);
+    }
+    else
+    {
+        u8 priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker) + 1;
+        if (priority > 3)
+            priority = 3;
+
+        sprite->oam.priority = priority;
+    }
+
+    sprite->data[1] += 2;
+    sprite->data[1] &= 0xFF;
+    if (--sprite->data[0] == -1)
+        DestroyAnimSprite(sprite);
+}
+
 // Moves a spore particle in a halo around the target mon.
 // The sprite's priority is updated to give the effect of going
 // behind the mon's sprite.
@@ -2943,6 +3051,63 @@ static void AnimPetalDanceSmallFlower_Step(struct Sprite* sprite)
     {
        DestroyAnimSprite(sprite);
     }
+}
+
+// Shoots a leaf upward, then floats it downward while swaying back and forth.
+// arg 0: upward x delta per frame
+// arg 1: upward y delta per frame
+// arg 2: upward duration
+static void AnimMoneyParticle(struct Sprite* sprite)
+{
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    sprite->data[0] = gBattleAnimArgs[0];
+    sprite->data[1] = gBattleAnimArgs[1];
+    sprite->data[2] = gBattleAnimArgs[2];
+    sprite->callback = AnimMoneyParticle_Step1;
+}
+
+static void AnimMoneyParticle_Step1(struct Sprite* sprite)
+{
+    if (!sprite->data[2])
+    {
+        if (sprite->data[1] & 1)
+        {
+            sprite->data[0] = 0x80;
+            sprite->data[1] = 0;
+            sprite->data[2] = 0;
+        }
+        else
+        {
+            sprite->data[0] = 0;
+            sprite->data[1] = 0;
+            sprite->data[2] = 0;
+        }
+        sprite->callback = AnimMoneyParticle_Step2;
+    }
+    else
+    {
+        sprite->data[2]--;
+        sprite->x += sprite->data[0];
+        sprite->y += sprite->data[1];
+    }
+}
+
+static void AnimMoneyParticle_Step2(struct Sprite* sprite)
+{
+    if (GetBattlerSide(gBattleAnimTarget))
+        sprite->x2 = -Sin(sprite->data[0], 25);
+    else
+        sprite->x2 = Sin(sprite->data[0], 25);
+
+    sprite->data[0] += 2;
+    sprite->data[0] &= 0xFF;
+    sprite->data[1]++;
+    if (!(sprite->data[1] & 1))
+        sprite->y2++;
+
+    if (sprite->data[1] > 80)
+        DestroyAnimSprite(sprite);
 }
 
 // Shoots a leaf upward, then floats it downward while swaying back and forth.
@@ -4404,6 +4569,26 @@ static void AnimProtect(struct Sprite* sprite)
 
     sprite->data[0] = gBattleAnimArgs[2];
     sprite->data[2] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(ANIM_TAG_PROTECT));
+    sprite->data[7] = 16;
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));
+    sprite->callback = AnimProtect_Step;
+}
+
+static void AnimOneProtect(struct Sprite* sprite)
+{
+    if (IsContest())
+        gBattleAnimArgs[1] += 8;
+
+    sprite->x = GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_X) + gBattleAnimArgs[0];
+    sprite->y = GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_Y) + gBattleAnimArgs[1];
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER || IsContest())
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker) + 1;
+    else
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker);
+
+    sprite->data[0] = gBattleAnimArgs[2];
+    sprite->data[2] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(ANIM_TAG_ONE_PROTECT));
     sprite->data[7] = 16;
     SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND);
     SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - sprite->data[7], sprite->data[7]));

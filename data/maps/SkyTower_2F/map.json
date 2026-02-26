@@ -16,10 +16,11 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_SKY_TOWER_FROSLASS",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FROSLASS",
       "x": 25,
-      "y": 15,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -78,7 +79,7 @@
       "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
-      "movement_range_x": 2,
+      "movement_range_x": 3,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -92,7 +93,7 @@
       "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
-      "movement_range_x": 2,
+      "movement_range_x": 3,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -110,7 +111,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SkyTower_DadStatue",
       "flag": "0"
     },
     {
@@ -124,21 +125,49 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SkyTower_OranBerryGuy",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WONDER_ORB",
-      "x": 47,
-      "y": 17,
+      "x": 49,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_STAIR_ORB",
+      "script": "EventScript_FindItem",
+      "flag": "FLAG_SKY_TOWER_STAIR_ORB"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GENGAR",
+      "x": 12,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SkyTower_Gengar",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
+      "x": 20,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_ShortcutSign",
       "flag": "0"
     }
   ],
@@ -151,13 +180,30 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 49,
-      "y": 16,
+      "x": 22,
+      "y": 23,
       "elevation": 0,
       "dest_map": "MAP_SKY_TOWER_3F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 22,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_2F",
+      "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_SKY_TOWER_LASS",
+      "var_value": "0",
+      "script": "SkyTower_FroslassScene"
+    }
+  ],
   "bg_events": []
 }

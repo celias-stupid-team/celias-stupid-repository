@@ -1324,7 +1324,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Normal, 0x0800, ANIM_TAG_NORMAL},
     {gBattleAnimSpriteGfx_WeatherBallin, 0x0200, ANIM_TAG_WEATHER_BALLIN},
     {gBattleAnimSpriteGfx_Lettuce, 0x0200, ANIM_TAG_LETTUCE},
-    {gBattleAnimSpriteGfx_Sesame, 0x0200, ANIM_TAG_SESAME},
+    {gBattleAnimSpriteGfx_Sesame, 0x0080, ANIM_TAG_SESAME},
     {gBattleAnimSpriteGfx_Bread, 0x0200, ANIM_TAG_BREAD},
     {gBattleAnimSpriteGfx_ZygardeZ, 0x0200, ANIM_TAG_ZYGARDE_Z},
     {gBattleAnimSpriteGfx_Reverse, 0x0200, ANIM_TAG_REVERSE},
@@ -1344,6 +1344,9 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_RainbowOrb, 0x400, ANIM_TAG_RAINBOW_ORB},
     {gBattleAnimSpriteGfx_WeedleSpike, 0x0080, ANIM_TAG_WEEDLE_SPIKE},
     {gBattleAnimSpriteGfx_ShadowShield, 0x0800, ANIM_TAG_SHADOW_SHIELD},
+    {gBattleAnimSpriteGfx_OneProtect, 0x0800, ANIM_TAG_ONE_PROTECT},
+    {gBattleAnimSpriteGfx_H, 0x0800, ANIM_TAG_H},
+    {gBattleAnimSpriteGfx_Bullet, 0x0080, ANIM_TAG_BULLET},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1682,6 +1685,9 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_RainbowOrb, ANIM_TAG_RAINBOW_ORB},
     {gBattleAnimSpritePal_WeedleSpike, ANIM_TAG_WEEDLE_SPIKE},
     {gBattleAnimSpritePal_ShadowShield, ANIM_TAG_SHADOW_SHIELD},
+    {gBattleAnimSpritePal_OneProtect, ANIM_TAG_ONE_PROTECT},
+    {gBattleAnimSpritePal_H, ANIM_TAG_H},
+    {gBattleAnimSpritePal_Bullet, ANIM_TAG_BULLET},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

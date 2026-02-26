@@ -4,6 +4,7 @@
 #include "list_menu.h"
 #include "diploma.h"
 #include "debug.h"
+#include "decompress.h"
 #include "script.h"
 #include "field_player_avatar.h"
 #include "overworld.h"
@@ -55,6 +56,7 @@ static EWRAM_DATA u8 sBrailleTextCursorSpriteID = 0;
 COMMON_DATA struct ListMenuTemplate sFieldSpecialsListMenuTemplate = {0};
 COMMON_DATA u16 sFieldSpecialsListMenuScrollBuffer = 0;
 EWRAM_DATA u16 gScrollableMultichoice_ScrollOffset = 0;
+EWRAM_DATA u8 gChapterTitleRunning = 0;
 
 static void Task_AnimatePcTurnOn(u8 taskId);
 static void PcTurnOnUpdateMetatileId(bool16 flag);
@@ -88,6 +90,7 @@ static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
 void GetUnownCount(void);
+
 
 
 static u8 *const sStringVarPtrs[] = {
@@ -2682,4 +2685,118 @@ void SwapLayout() {
     SetCurrentMapLayout(LAYOUT_ROUTE19_LAYOUT_PIT);
     InitMapLayoutData(&gMapHeader);
     DrawWholeMapView();
+}
+
+
+static const u32 sChapterTitleTiles[] = INCBIN_U32("graphics/chapter_title/tiles.4bpp.lz");
+static const u32 sChapterTitleTilemap[] = INCBIN_U32("graphics/chapter_title/tiles.bin.lz");
+static const u16 sChapterTitlePalette[] = INCBIN_U16("graphics/chapter_title/tiles.gbapal");
+
+#define TITLE1_END_VPOS 40
+#define TITLE2_START_VPOS 125
+#define TITLE2_START_HPOS 29
+
+#define WIPE1_END_HPOS 143
+#define WIPE2_END_HPOS 207
+
+#define WIPE1_DELAY 1
+#define WIPE2_DELAY 162
+#define END_DELAY 160
+
+#define WIPE_SPEED 4 // in pixels per frame
+
+#define tWipe1Delay data[0]
+#define tWipe2Delay data[1]
+#define tWipe1CurrHPos data[2]
+#define tWipe2CurrHPos data[3]
+#define tEndDelay data[4]
+
+static void TeardownChapterTitleGfx(void)
+{
+    u32 i;
+    u8 *buf = GetBgTilemapBuffer(0);
+    memset(buf, 0, BG_SCREEN_SIZE);
+    ScheduleBgCopyTilemapToVram(0);
+    FlagClear(FLAG_CSR_DEBUG_NO_TRAINER_SEE);
+    ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON);
+    ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN1_ON);
+}
+
+static void Task_WipeChapterTitle(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (tWipe1Delay > 0)
+    {
+        FlagSet(FLAG_CSR_DEBUG_NO_TRAINER_SEE);
+        tWipe1Delay--;        
+        return;
+    }
+    
+    if (tWipe1CurrHPos < WIPE1_END_HPOS)
+    {
+        tWipe1CurrHPos += WIPE_SPEED;
+        SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(tWipe1CurrHPos, DISPLAY_WIDTH));
+        return;
+    }
+    
+    if (tWipe2Delay > 0)
+    {
+        tWipe2Delay--;        
+        return;
+    }
+
+    if (tWipe2CurrHPos < WIPE2_END_HPOS)
+    {
+        tWipe2CurrHPos += WIPE_SPEED;
+        SetGpuReg(REG_OFFSET_WIN1H, WIN_RANGE(tWipe2CurrHPos, DISPLAY_WIDTH));
+        return;
+    }
+    
+    if (tEndDelay > 0)
+    {
+        tEndDelay--;  
+        return;
+    }
+
+    TeardownChapterTitleGfx();
+
+    gChapterTitleRunning = FALSE;
+    DestroyTask(taskId);
+}
+
+static void InitChapterTitleGfx(void)
+{
+    u8 *buf = GetBgTilemapBuffer(0);
+    LoadBgTilemap(0, 0, 0, 0);
+    DecompressAndCopyTileDataToVram(0, sChapterTitleTiles, 0, 0, 0);
+    LZDecompressWram(sChapterTitleTilemap, buf);
+    LoadPalette(sChapterTitlePalette, BG_PLTT_ID(14), PLTT_SIZE_4BPP * 2);
+    ScheduleBgCopyTilemapToVram(0);
+    
+    SetGpuReg(REG_OFFSET_WININ, (WININ_WIN0_ALL & ~WININ_WIN0_BG0) | (WININ_WIN1_ALL & ~WININ_WIN1_BG0));
+    SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_ALL);
+
+    SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(0, DISPLAY_WIDTH));
+    SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(0, TITLE1_END_VPOS));
+
+    SetGpuReg(REG_OFFSET_WIN1H, WIN_RANGE(TITLE2_START_HPOS, DISPLAY_WIDTH));
+    SetGpuReg(REG_OFFSET_WIN1V, WIN_RANGE(TITLE2_START_VPOS, DISPLAY_HEIGHT));
+
+    SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON);
+    SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN1_ON);
+}
+
+void DrawChapterTitle(void) 
+{
+    u8 taskId;
+    gChapterTitleRunning = TRUE;
+    
+    InitChapterTitleGfx();
+    
+    taskId = CreateTask(Task_WipeChapterTitle, 0);
+    gTasks[taskId].tWipe1Delay = WIPE1_DELAY;
+    gTasks[taskId].tWipe2Delay = WIPE2_DELAY;
+    gTasks[taskId].tWipe2CurrHPos = TITLE2_START_HPOS;
+    gTasks[taskId].tEndDelay = END_DELAY;
 }

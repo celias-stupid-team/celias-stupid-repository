@@ -236,8 +236,8 @@ mapscripts Credits_MapScripts {
                 face_down
             ))
             message(
-            "       Hakari and Blizihguh{PAUSE 30}\n"
-            "       like a bunch of shit")
+            "     Hakari and Blizihguh{PAUSE 30}\n"
+            "       Battle Animations")
 
             waitmovement(LOCALID_HAKARI)
             delay(30)

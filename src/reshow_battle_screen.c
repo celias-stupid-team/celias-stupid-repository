@@ -157,6 +157,9 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
             LoadWirelessStatusIndicatorSpriteGfx();
             CreateWirelessStatusIndicatorSprite(0, 0);
         }
+        // special handling for Koraidon phase
+        if (gBattleStruct->switchInAfterItemUse)
+            SetHealthboxSpriteInvisible(gHealthboxSpriteIds[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)]);
         break;
     case 20:
         SetVBlankCallback(VBlankCB_Battle);

@@ -6,6 +6,7 @@
 #include "constants/battle_anim.h"
 #include "constants/items.h"
 #include "constants/abilities.h"
+#include "constants/field_weather.h"
 #include "constants/hold_effects.h"
 #include "constants/species.h"
 #include "constants/pokemon.h"
@@ -13,6 +14,7 @@
 #include "constants/trainers.h"
 #include "constants/game_stat.h"
 #include "constants/battle_string_ids.h"
+#include "constants/vars.h"
 	.include "asm/macros/battle_script.inc"
 @ Define these here since misc_constants.inc conflicts with the C headers
 	.set NULL, 0
@@ -272,6 +274,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFullRestore            @ EFFECT_FULL_RESTORE
 	.4byte BattleScript_EffectDoubleDip              @ EFFECT_DOUBLE_DIP
 	.4byte BattleScript_Effect10kVolts               @ EFFECT_10000_VOLTS
+	.4byte BattleScript_EffectCollisionCourse        @ EFFECT_COLLISION_COURSE
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -320,7 +323,10 @@ BattleScript_HitFromCritCalc::
 BattleScript_HitFromAtkAnimation::
 	attackanimation
 	waitanimation
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 5, BattleScript_FinalBattle_StopBgm
+
 	effectivenesssound
+BattleScript_HitFromAtkAnimation_2::
 	hitanimation BS_TARGET
 	waitstate
 	healthbarupdate BS_TARGET
@@ -331,6 +337,7 @@ BattleScript_HitFromAtkAnimation::
 	waitmessage B_WAIT_TIME_LONG
 	seteffectwithchance
 	tryfaintmon BS_TARGET
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
 BattleScript_MoveEnd::
 	moveendall
 	end
@@ -2988,36 +2995,38 @@ BattleScript_EffectTailSlap::
 
 BattleScript_FaintAttacker::
 	tryendneutralizinggas BS_ATTACKER
+	jumpifzapmolcunospecies BS_ATTACKER, BattleScript_FaintAttackerZapmolcuno
 	playfaintcry BS_ATTACKER
 	pause B_WAIT_TIME_LONG
 	dofaintanimation BS_ATTACKER
-	cleareffectsonfaint BS_ATTACKER
-	jumpifzapmolcunospecies BS_ATTACKER, BattleScript_FaintAttackerZapmolcuno
 	printstring STRINGID_ATTACKERFAINTED
 BattleScript_FaintAttacker_Continue::
-	printstring STRINGID_EMPTYSTRING3
-	return
-
-BattleScript_FaintAttackerZapmolcuno::
-	printstring STRINGID_ZAPMOLCUNOFAINTED
-	goto BattleScript_FaintAttacker_Continue
-
-BattleScript_FaintTarget::
-	tryendneutralizinggas BS_TARGET
-	playfaintcry BS_TARGET
-	pause B_WAIT_TIME_LONG
-	dofaintanimation BS_TARGET
-	cleareffectsonfaint BS_TARGET
-	jumpifzapmolcunospecies BS_TARGET, BattleScript_FaintTargetZapmolcuno
-	printstring STRINGID_TARGETFAINTED
-BattleScript_FaintTarget_Continue::
+	cleareffectsonfaint BS_ATTACKER
 	printstring STRINGID_EMPTYSTRING3
 	waitanimation
 	trytrainerslidemsgfirstoff
 	return
 
+BattleScript_FaintAttackerZapmolcuno::
+	call BattleScript_FinalMoltresFaint
+	goto BattleScript_FaintAttacker_Continue
+
+BattleScript_FaintTarget::
+	tryendneutralizinggas BS_TARGET
+	jumpifzapmolcunospecies BS_TARGET, BattleScript_FaintTargetZapmolcuno
+	playfaintcry BS_TARGET
+	pause B_WAIT_TIME_LONG
+	dofaintanimation BS_TARGET
+	printstring STRINGID_TARGETFAINTED
+BattleScript_FaintTarget_Continue::
+	printstring STRINGID_EMPTYSTRING3
+	cleareffectsonfaint BS_TARGET
+	waitanimation
+	trytrainerslidemsgfirstoff
+	return
+
 BattleScript_FaintTargetZapmolcuno::
-	printstring STRINGID_ZAPMOLCUNOFAINTED
+	call BattleScript_FinalMoltresFaint
 	goto BattleScript_FaintTarget_Continue
 
 BattleScript_VanishedFromExistence::
@@ -3047,7 +3056,10 @@ BattleScript_HandleFaintedMon::
 	checkteamslost BattleScript_LinkHandleFaintedMonMultiple
 	jumpifbyte CMP_EQUAL, gBattleOutcome, B_OUTCOME_CONTINUE_ROTOM, BattleScript_TrainerSlideAfterDefeat
 BattleScript_HandleFaintedMonContinue::
-	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_FaintedMonEnd
+	pause B_WAIT_TIME_SHORT @test
+	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_FaintedMonEnd @ 0 = continue battle
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 5, BattleScript_FaintedMon_SendOutCharmander @ create FINALCHARMANDER instead of opening the party screen
+BattleScript_HandleFaintedMonContinue2::
 	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_FaintedMonTryChoose
 	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonTryChoose
 	printstring STRINGID_USENEXTPKMN
@@ -4162,20 +4174,47 @@ BattleScript_SeelHoopaTransform::
 	end2
 
 BattleScript_ZapmolcunoTransform::
+	playse SE_M_MEGA_KICK
+	fadescreen FADE_TO_WHITE
+	waitforfade
+	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM @ this creates the new bird species
 	pause B_WAIT_TIME_SHORT
-	playanimation BS_FAINTED, B_ANIM_ZAPMOLCUNO_TRANSFORM
+	handlespriteupdate BS_FAINTED @ updates the bird sprite and loads the new background
+    updatebattlerdata BS_FAINTED @ updates the bird's data to match the new species
+	redrawhealthbox BS_FAINTED @ updates the health box to match the new species
+	healthbarupdate BS_FAINTED @ updates the health bar to match the new species
+	datahpupdate BS_FAINTED @ updates the HP data to full again
 	pause B_WAIT_TIME_SHORT
+	fadescreen FADE_FROM_WHITE
+	waitforfade
+	playse MUS_SE_GUILTY
+	pause B_WAIT_TIME_SHORT
+	playcurrentbirdfaintcry @ based on value of VAR_CSR_FINAL_BATTLE_PHASE
+	pause B_WAIT_TIME_LONGEST
+	@ check for special cutscene after Zapdos is defeated, use 4 to show after Zapdos fainting
+	jumpifvar CMP_NOT_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 4, BattleScript_ZapmolcunoTransform_FinishScript
+	goto BattleScript_ZapdosCutScene
+BattleScript_ZapmolcunoTransform_FinishScript:
+	@ resetbattlebgm
 	printbirdsfaintstring B_POSITION_OPPONENT_LEFT
 	waitmessage B_WAIT_TIME_LONG
-	@ fadescreen FADE_TO_WHITE
-	@ waitforfade
-	handlespriteupdate BS_FAINTED
-    updatebattlerdata BS_FAINTED
-	redrawhealthbox BS_FAINTED
-	healthbarupdate BS_FAINTED
-	datahpupdate BS_FAINTED
-	@ fadescreen FADE_FROM_WHITE
-	@ waitforfade
+	end2
+
+BattleScript_ZapdosCutScene::
+	printbirdsfaintstring B_POSITION_OPPONENT_LEFT
+	waitmessage B_WAIT_TIME_LONG
+	stopbattlebgm
+	@ playanimation BS_FAINTED, B_ANIM_ZAPDOS_LIGHTNING
+	@ waitanimation
+	fadedarken FADE_ALL_EXC_UI, FADE_DIR_DARKEN
+	waitforfade
+	printstring STRINGID_OHSHOOT
+	waitmessage B_WAIT_TIME_LONG
+	fadedarken FADE_ALL_EXC_UI, FADE_DIR_BRIGHTEN
+	waitforfade
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_EMPTYSTRING3
+	togglepssswitch @ turn off PSS switching
 	end2
 
 BattleScript_MoveEffectSleep::
@@ -5370,77 +5409,25 @@ BattleScript_RunRotomAnimation::
 	playnewbgm MUS_THE_GAME_IS_AFOOT
 	goto BattleScript_HandleFaintedMonContinue
 
-
-BattleScript_FinalLugiaFaint::
+BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	playse SE_M_MEGA_KICK
 	fadescreen FADE_TO_WHITE
 	waitforfade
-	@ switch to the new background
+	handlespriteupdate BS_OPPONENT1
+	togglebattlerspritevisibility BS_OPPONENT1 @ hide the Moltres sprite
+	sethealthboxspriteinvisible BS_OPPONENT1 @ hide healthbox sprite
 	pause B_WAIT_TIME_LONG
 	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
-	playmoncry SPECIES_LUGIA
+	playmoncry SPECIES_FINALMOLTRES
 	pause B_WAIT_TIME_LONGEST
-	printstring STRINGID_FOE_LUGIA_FAINTED
-	pause B_WAIT_TIME_LONGEST
-
-BattleScript_FinalArticunoFaint::
-	playse SE_M_MEGA_KICK
-	fadescreen FADE_TO_WHITE
-	waitforfade
-	@ switch to the new background
-	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
-	playse MUS_SE_GUILTY
-	playmoncry SPECIES_ARTICUNO
-	pause B_WAIT_TIME_LONGEST
-	printstring STRINGID_FOE_ARTICUNO_FAINTED
-	pause B_WAIT_TIME_LONGEST
-
-
-BattleScript_FinalHoohFaint::
-	playse SE_M_MEGA_KICK
-	fadescreen FADE_TO_WHITE
-	waitforfade
-	@ switch to the new background
-	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
-	playse MUS_SE_GUILTY
-	playmoncry SPECIES_HO_OH
-	pause B_WAIT_TIME_LONGEST
-	printstring STRINGID_FOE_HOOH_FAINTED
-	pause B_WAIT_TIME_LONGEST
-
-
-BattleScript_FinalZapdosFaint::
-	playse SE_M_MEGA_KICK
-	fadescreen FADE_TO_WHITE
-	waitforfade
-	@ switch to the new background
-	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
-	playse MUS_SE_GUILTY
-	playmoncry SPECIES_ZAPDOS
-	pause B_WAIT_TIME_LONGEST
-	printstring STRINGID_FOE_ZAPDOS_FAINTED
-	pause B_WAIT_TIME_LONGEST
-
-
-BattleScript_FinalMoltresFaint::
-	playse SE_M_MEGA_KICK
-	fadescreen FADE_TO_WHITE
-	waitforfade
-	@ switch to the new background
-	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
-	playse MUS_SE_GUILTY
-	playmoncry SPECIES_FINALLUGIA
-	pause B_WAIT_TIME_LONGEST
+	@ resetbattlebgm
 	printstring STRINGID_FOE_MOLTRES_FAINTED
 	pause B_WAIT_TIME_LONGEST
+	cleareffectsonfaint BS_TARGET
 	printstring STRINGID_ZAPMOLCUNOFAINTED
-	pause B_WAIT_TIME_LONGEST
-
+	pause B_WAIT_TIME_SHORT
+	return @ last bird, continue with normal fainting process
 
 BattleScript_EffectFullRestore::
 	attackcanceler
@@ -5477,6 +5464,7 @@ BattleScript_EffectDoubleDip:
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	setdoubledip
 	goto BattleScript_HitFromAtkString
+	@ goto BattleScript_EffectHit @ Trying to figure out why the damage is so low -Celia
 
 BattleScript_PreventTakingARest::
 	pause B_WAIT_TIME_SHORT
@@ -5498,6 +5486,9 @@ BattleScript_Effect10kVolts::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	critcalc
+	damagecalc
+	typecalc
 	adjustnormaldamage
 	attackanimation
 	waitanimation
@@ -5512,3 +5503,71 @@ BattleScript_Effect10kVolts::
 	tryfaintmon BS_ATTACKER
 	moveendall
 	end
+
+BattleScript_RechargeActivates::
+	printstring STRINGID_PKMNRECHARGED
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	end3
+
+@ called from BattleUseFunc_CreateKoraidon()
+BattleScript_KoraidonSentOut::
+	drawpartystatussummary BS_ATTACKER
+	getswitchedmondata BS_ATTACKER
+	switchindataupdate BS_ATTACKER
+	hpthresholds BS_ATTACKER
+	fadenewbgm MUS_GRAND_FINALE
+	printstring STRINGID_SWITCHINMON
+	hidepartystatussummary BS_ATTACKER
+	switchinanim BS_ATTACKER, FALSE
+	waitstate
+	switchineffects BS_ATTACKER
+	end2
+
+BattleScript_FaintedMon_SendOutCharmander::
+	@ return if the fainted mon is on the opponent's side
+	jumpifbattlerside BS_FAINTED, B_SIDE_OPPONENT, BattleScript_HandleFaintedMonContinue2
+	createfinalcharmander
+	setbyte gBattleCommunication, 0
+	drawpartystatussummary BS_FAINTED
+	getswitchedmondata BS_FAINTED
+	switchindataupdate BS_FAINTED
+	hpthresholds BS_FAINTED
+	printstring STRINGID_SWITCHINMON
+	hidepartystatussummary BS_FAINTED
+	switchinanim BS_FAINTED, FALSE
+	waitstate
+	tryremoveshadowspikes B_SIDE_PLAYER
+	clearbattleweather
+	switchineffects BS_FAINTED
+	cancelallactions
+	end2
+
+BattleScript_EffectCollisionCourse::
+	setmoveeffect MOVE_EFFECT_RECOIL_100 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
+
+BattleScript_FinalBattle_DadDontGiveUp::
+	jumpifbattlerside BS_ATTACKER, B_SIDE_OPPONENT, BattleScript_MoveEnd
+	printstring STRINGID_EMPTYSTRING3
+	pause B_WAIT_TIME_LONG
+	fadedarken FADE_ALL_EXC_UI, FADE_DIR_DARKEN
+	waitforfade
+	playmoncry SPECIES_MR_MIME
+	pause B_WAIT_TIME_LONGEST
+	printstring STRINGID_DONT_GIVE_UP 
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_DAD_QUESTION_MARK 
+	waitmessage B_WAIT_TIME_LONG
+	fadedarken FADE_ALL_EXC_UI, FADE_DIR_BRIGHTEN
+	waitforfade
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_FinalBattle_StopBgm::
+	jumpifbattlerside BS_ATTACKER, B_SIDE_OPPONENT, BattleScript_HitFromAtkAnimation_2
+	playnewbgm MUS_NONE
+	effectivenesssound
+	goto BattleScript_HitFromAtkAnimation_2

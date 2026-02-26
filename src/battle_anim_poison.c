@@ -1,11 +1,15 @@
 #include "global.h"
 #include "battle_anim.h"
 #include "trig.h"
+#include "gpu_regs.h"
+#include "palette.h"
+#include "blend_palette.h"
 
 static void AnimSludgeProjectile(struct Sprite *sprite);
 static void AnimAcidPoisonBubble(struct Sprite *sprite);
 static void AnimSludgeBombHitParticle(struct Sprite *sprite);
 static void AnimAcidPoisonDroplet(struct Sprite *sprite);
+static void AnimAcidPoisonDropletTinted(struct Sprite *sprite);
 static void AnimBubbleEffect(struct Sprite *sprite);
 static void AnimSludgeProjectile_Step(struct Sprite *sprite);
 static void AnimAcidPoisonBubble_Step(struct Sprite *sprite);
@@ -150,6 +154,17 @@ const struct SpriteTemplate gAcidPoisonDropletSpriteTemplate =
     .callback = AnimAcidPoisonDroplet,
 };
 
+const struct SpriteTemplate gAcidPoisonDropletTintedSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POISON_BUBBLE,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = sAnims_AcidPoisonDroplet,
+    .images = NULL,
+    .affineAnims = gAffineAnims_Droplet,
+    .callback = AnimAcidPoisonDropletTinted,
+};
+
 static const union AffineAnimCmd sAffineAnim_Bubble[] =
 {
     AFFINEANIMCMD_FRAME(0x9C, 0x9C, 0, 0),
@@ -262,6 +277,39 @@ static void AnimAcidPoisonDroplet(struct Sprite *sprite)
     sprite->callback = StartAnimLinearTranslation;
     StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
 }
+static void AnimAcidPoisonDropletTinted(struct Sprite *sprite)
+{
+    u8 anchorBattler = (gBattleAnimArgs[3] != 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+    SetAverageBattlerPositions(anchorBattler, TRUE, &sprite->x, &sprite->y);
+
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        gBattleAnimArgs[0] = -gBattleAnimArgs[0];
+
+    sprite->x += gBattleAnimArgs[0];
+    sprite->y += gBattleAnimArgs[1];
+    sprite->data[0] = gBattleAnimArgs[4];
+    sprite->data[2] = sprite->x + gBattleAnimArgs[2];
+    sprite->data[4] = sprite->y + sprite->data[0];
+
+    // args: [5]=blend amount 0..16, [6]=RGB(), [7]=enable (nonzero)
+    if (gBattleAnimArgs[7] != 0)
+    {
+        u8 palIndex = IndexOfSpritePaletteTag(sprite->template->paletteTag);
+        if (palIndex != 0xFF)
+        {
+            u8 y = (u8)gBattleAnimArgs[5];
+            if (y > 16)
+                y = 16;
+            BlendPalette(OBJ_PLTT_ID(palIndex), 16, y, (u16)gBattleAnimArgs[6]);
+        }
+    }
+
+    sprite->callback = StartAnimLinearTranslation;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+
 
 // Animates a bubble by rising upward, swaying side to side, and
 // enlarging the sprite. This is used as an after-effect by poison-type
