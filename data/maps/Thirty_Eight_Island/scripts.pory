@@ -647,15 +647,25 @@ script ThirtyEightIsland_Entei {
 	msgbox(
 	"Wow!{PAUSE 20}\n"
 	"It's the LEGENDARY…", MSGBOX_DEFAULT)
-	dynmultichoice(19, 6, TRUE, 3, 0, DYN_MULTICHOICE_CB_NONE, "DOG", "CAT", "HAMSTER")
+	dynmultichoice(19, 6, TRUE, 3, 0, DYN_MULTICHOICE_CB_NONE, "CAT", "DOG", "HAMSTER")
 	closemessage
 	delay(60)
 	playse(SE_CLICK)
-	applymovement(VAR_LAST_TALKED, moves(
-		face_up
-		delay_16 * 6
-		face_down
-	))
+	if(var(VAR_RESULT) == 1) {
+
+		applymovement(VAR_LAST_TALKED, moves(
+			face_up
+			delay_16 * 6
+			face_down
+		))
+	} else {
+		applymovement(VAR_LAST_TALKED, moves(
+			face_left
+			delay_16 * 6
+			face_down
+		))
+
+	}
 	waitmovement(0)
 	release
 }

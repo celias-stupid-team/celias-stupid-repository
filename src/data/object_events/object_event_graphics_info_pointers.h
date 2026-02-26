@@ -572,6 +572,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SILPH_WINDOWS;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CRACKED_COMPUTER;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PALESTINE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PALESTINE_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CASTFORM_BALL;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1145,4 +1146,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CRACKED_COMPUTER] = &gObjectEventGraphicsInfo_CRACKED_COMPUTER,
     [OBJ_EVENT_GFX_PALESTINE] = &gObjectEventGraphicsInfo_PALESTINE,
     [OBJ_EVENT_GFX_PALESTINE_2] = &gObjectEventGraphicsInfo_PALESTINE_2,
+    [OBJ_EVENT_GFX_CASTFORM_BALL] = &gObjectEventGraphicsInfo_CASTFORM_BALL,
 };

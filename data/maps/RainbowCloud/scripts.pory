@@ -126,6 +126,7 @@ script RainbowCloud_CastformFight {
 	setflag(FLAG_FOUGHT_CASTFORM)
     setwildbattle(SPECIES_CASTFORM, 50)
 	dowildbattle
+	removeobject(VAR_LAST_TALKED)
     release
     end
 }
@@ -136,6 +137,7 @@ script RainbowCloud_ShinyCastformFight {
 	setflag(FLAG_SHINY_CREATION)
     setwildbattle(SPECIES_CASTFORM, 50)
 	dowildbattle
+	removeobject(VAR_LAST_TALKED)
     release
     end
 }
