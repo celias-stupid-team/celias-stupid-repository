@@ -65,7 +65,7 @@ script Desert_AlienInDisguise {
 	"The only thing I know is that I\n"
 	"have an oddly strong compatability\l"
 	"with the move STEEL WING.", MSGBOX_DEFAULT)
-	if(checkitem(ITEM_TM38)) {
+	if(checkitem(ITEM_TM13)) {
 		msgbox(
 		"Oh, yes!\n"
 		"Yes!\l"
@@ -95,7 +95,7 @@ script Desert_AlienInDisguise {
 		"A sub-prime mortgage!", MSGBOX_DEFAULT)
 		
 		closemessage
-		removeitem(ITEM_TM38)
+		removeitem(ITEM_TM13)
 		giveitem_msg("{PLAYER} got a\nHOUSE VOUCHER!", ITEM_HOUSEVOUCHER)
 		waitfanfare
 		msgbox(

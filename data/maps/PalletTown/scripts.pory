@@ -31,7 +31,6 @@ PalletTown_EventScript_MoveSignLadyToRouteEntrance::
 	return
 
 PalletTown_OnFrame::
-	map_script_2 VAR_MAP_SCENE_PALLET_TOWN_OAK, 2, PalletTown_EventScript_OakRatingScene
 	map_script_2 VAR_JUMPING_FROM_PALLET_ROOF, 1, PalletTown_EventScript_JumpFromRoof
 	.2byte 0
 
@@ -436,7 +435,7 @@ script PalletTown_OnTransition {
 			setmetatile(1, 4, 0x009, FALSE)
 			setmetatile(1, 5, 0x00F, FALSE)
 	}
-	if(!flag(FLAG_POST_GAME)) {
+	if(!flag(FLAG_DEFEATED_FINAL_BOSS)) {
 		setflag(FLAG_TEMP_4)
 	}
 }

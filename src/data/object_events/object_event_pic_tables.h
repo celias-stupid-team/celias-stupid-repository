@@ -6140,3 +6140,25 @@ const struct SpriteFrameImage gObjectEventPicTable_CRACKED_COMPUTER[] = {
     overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 2),
     overworld_frame(gObjectEventPic_CRACKED_COMPUTER, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_PALESTINE[] = {
+    overworld_frame(gObjectEventPic_PALESTINE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_PALESTINE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_PALESTINE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_PALESTINE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_PALESTINE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_PALESTINE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_PALESTINE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_PALESTINE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_PALESTINE, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_PALESTINE_2[] = {
+    overworld_frame(gObjectEventPic_PALESTINE_2, 6, 6, 0),
+    overworld_frame(gObjectEventPic_PALESTINE_2, 6, 6, 1),
+    overworld_frame(gObjectEventPic_PALESTINE_2, 6, 6, 2),
+    overworld_frame(gObjectEventPic_PALESTINE_2, 6, 6, 0),
+    overworld_frame(gObjectEventPic_PALESTINE_2, 6, 6, 0),
+    overworld_frame(gObjectEventPic_PALESTINE_2, 6, 6, 1),
+    overworld_frame(gObjectEventPic_PALESTINE_2, 6, 6, 1),
+    overworld_frame(gObjectEventPic_PALESTINE_2, 6, 6, 2),
+    overworld_frame(gObjectEventPic_PALESTINE_2, 6, 6, 2),
+};

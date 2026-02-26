@@ -824,3 +824,7 @@ const u32 gObjectEventPic_SILPH_WINDOWS[] = INCBIN_U32("graphics/object_events/p
 const u16 gObjectEventPal_SILPH_WINDOWS[] = INCBIN_U16("graphics/object_events/palettes/SILPH_WINDOWS.gbapal");
 const u32 gObjectEventPic_CRACKED_COMPUTER[] = INCBIN_U32("graphics/object_events/pics/stupid/CRACKED_COMPUTER.4bpp");
 const u16 gObjectEventPal_CRACKED_COMPUTER[] = INCBIN_U16("graphics/object_events/palettes/CRACKED_COMPUTER.gbapal");
+const u32 gObjectEventPic_PALESTINE[] = INCBIN_U32("graphics/object_events/pics/stupid/PALESTINE.4bpp");
+const u16 gObjectEventPal_PALESTINE[] = INCBIN_U16("graphics/object_events/palettes/PALESTINE.gbapal");
+const u32 gObjectEventPic_PALESTINE_2[] = INCBIN_U32("graphics/object_events/pics/stupid/PALESTINE_2.4bpp");
+const u16 gObjectEventPal_PALESTINE_2[] = INCBIN_U16("graphics/object_events/palettes/PALESTINE_2.gbapal");

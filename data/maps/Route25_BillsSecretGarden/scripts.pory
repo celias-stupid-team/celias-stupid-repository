@@ -315,10 +315,10 @@ script SecretGarden_RetrievalChute {
                 end
             }
         } else {
-            if(compare_var_to_var(LOADED_SYSTEM_BOX, PC_CURRENT_BOX) && flag(LEFT_BOX_IN_PC)
-            ||compare_var_to_var(LOADED_SYSTEM_BOX, LEFT_BOX_NUMBER) && flag(LEFT_BOX_THERE) 
-            ||compare_var_to_var(LOADED_SYSTEM_BOX, PLAYER_BOX_NUMBER) && flag(PLAYER_BOX_THERE)
-            ||compare_var_to_var(LOADED_SYSTEM_BOX, CRIMP_BOX_NUMBER) && flag(CRIMP_BOX_THERE)) {
+            if((compare_var_to_var(LOADED_SYSTEM_BOX, PC_CURRENT_BOX) && flag(LEFT_BOX_IN_PC))
+            ||(compare_var_to_var(LOADED_SYSTEM_BOX, LEFT_BOX_NUMBER) && flag(LEFT_BOX_THERE) )
+            ||(compare_var_to_var(LOADED_SYSTEM_BOX, PLAYER_BOX_NUMBER) && flag(PLAYER_BOX_THERE))
+            ||(compare_var_to_var(LOADED_SYSTEM_BOX, CRIMP_BOX_NUMBER) && flag(CRIMP_BOX_THERE))) {
                 playse(SE_BOO)
                 waitse
                 msgbox(
@@ -898,7 +898,7 @@ script SecretGarden_GetCurrentPCPokemon {
         case 1:
             switch(var(PC_BOX_SLOT_NUMBER)) {
                 case 0:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SANDSHREW)
                 case 1:
                     setvar(PC_CURRENT_POKEMON, SPECIES_RATTATA)
                 case 2:
@@ -908,7 +908,7 @@ script SecretGarden_GetCurrentPCPokemon {
                 case 4:
                     setvar(PC_CURRENT_POKEMON, SPECIES_CHARMANDER)
                 case 5:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SANDSHREW)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_MACHOKE)
                 case 6:
                     setvar(PC_CURRENT_POKEMON, SPECIES_SHINYABRA)
                 case 7:
@@ -992,11 +992,11 @@ script SecretGarden_GetCurrentPCPokemon {
                 case 4:
                     setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
                 case 5:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_CUBONE)
                 case 6:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
                 case 7:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_MEOWTH)
                 case 8:
                     setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
             }

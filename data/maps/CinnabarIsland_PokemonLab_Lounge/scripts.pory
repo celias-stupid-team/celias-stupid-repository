@@ -134,7 +134,7 @@ script CinnabarIslandLab_StevenStone {
 		closemessage
 		removeitem(ITEM_LETTER_W)
 		giveitem_msg("{PLAYER} received the\n"
-		"TM29!", ITEM_TM38, 1, MUS_LEVEL_UP)
+		"TM13!", ITEM_TM13, 1, MUS_LEVEL_UP)
 		waitfanfare
 		closemessage
 		msgbox(

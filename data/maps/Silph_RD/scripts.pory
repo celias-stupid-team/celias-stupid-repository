@@ -268,7 +268,7 @@ script SilphCo_MonkeyFour {
 	delay(15)
 	msgbox(
 	"Grumble… {PAUSE 20}\n"
-	"That one's always been a problem…", MSGBOX_DEFAULT)
+	"That one's always been a problem.", MSGBOX_DEFAULT)
 	closemessage
 	setflag(FLAG_SILPH_MONKEY)
 	waitmovement(0)
@@ -387,10 +387,10 @@ script SilphCo_PikachuScientist {
 script SilphCo_PikachuWindow {
 	lock
 	setflag(FLAG_TEMP_4)
-	message(
+	msgbox(
 	"You can talk to PIKACHU!\n"
-	"What do you want to say?{PAUSE 20}")
-	waitmessage
+	"What do you want to say?")
+	
 	dynmultichoice(2,4,TRUE,5, 0, DYN_MULTICHOICE_CB_NONE, "Hello, PIKACHU!", "Use THUNDERBOLT!", "Do a cool flip!", "How do you feel about the current", "problems in the Middle East?")
 	special(SpawnCameraObject)
 	closemessage
@@ -438,22 +438,45 @@ script SilphCo_PikachuWindow {
 			))
 			waitmovement(0)
 		case 3:
-		case 4:
 			closemessage
 			delay(30)
-			playse(SE_BANG)
 			applymovement(LOCALID_SILPH_PIKACHU, moves(
-				emote_double_exclamation_mark
-				delay_16 * 3
+				set_invisible
+			))
+			applymovement(LOCALID_SILPH_PALESTINE, moves(
+				set_visible
 			))
 			playmoncry(SPECIES_PIKACHU_OLD, CRY_MODE_ENCOUNTER)
 			waitmoncry
-			delay(60)
-			msgbox(
-			"Wow!\p"
-
-			"What a nuanced answer!\n"
-			"", MSGBOX_DEFAULT)
+			delay(30)
+			applymovement(LOCALID_SILPH_PIKACHU, moves(
+				set_visible
+			))
+			applymovement(LOCALID_SILPH_PALESTINE, moves(
+				set_invisible
+			))
+		case 4:
+			closemessage
+			delay(30)
+			applymovement(LOCALID_SILPH_PIKACHU, moves(
+				face_down
+				set_invisible
+			))
+			applymovement(LOCALID_SILPH_PALESTINE, moves(
+				face_right
+				set_visible
+			))
+			playmoncry(SPECIES_PIKACHU_OLD, CRY_MODE_ENCOUNTER)
+			waitmoncry
+			delay(30)
+			applymovement(LOCALID_SILPH_PIKACHU, moves(
+				set_visible
+			))
+			applymovement(LOCALID_SILPH_PALESTINE, moves(
+				set_invisible
+				face_down
+			))
+			
 	}
 	closemessage
 	delay(30)
