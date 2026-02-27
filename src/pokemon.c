@@ -2309,6 +2309,14 @@ void CalculateMonStats(struct Pokemon *mon)
         arg = STATUS1_SLEEP_TURN(3);
         SetMonData(mon, MON_DATA_STATUS, &arg);
     }
+
+    // special defense values for final battle
+    if (species == SPECIES_FINALARTICUNO || species == SPECIES_FINALHOOH)
+    {
+        arg = 9;
+        SetMonData(mon, MON_DATA_DEF, &arg);
+        SetMonData(mon, MON_DATA_SPDEF, &arg);
+    }
 }
 
 void BoxMonToMon(struct BoxPokemon *src, struct Pokemon *dest)
