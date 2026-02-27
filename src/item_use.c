@@ -1507,19 +1507,18 @@ void CurePorygonVirus()
     bool8 shinyness;
 
     newSpecies = SPECIES_PORYGON;
-
     mon = &gPlayerParty[slot];
 
     otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
     GetMonNickname(mon, nickname);
     newPersonality = Random32();
     shinyness = GetMonData(mon, MON_DATA_CSR_SHINY);
-
+    oldSpecies = GetMonData(mon, MON_DATA_SPECIES, NULL);
 
     // force the mon to be shiny
-    if(shinyness) {
+    if(shinyness)
+    {
         newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-
     }
     
     // if player has nicknamed their nidotran, don't overwrite it
@@ -1550,29 +1549,29 @@ void RemoveShoesFromToedy()
     s16 slot = gSpecialVar_Result;
     bool32 thisIsTrue = TRUE;
 
-        newSpecies = SPECIES_TENTACOOL;
+    newSpecies = SPECIES_TENTACOOL;
+    mon = &gPlayerParty[slot];
 
-        mon = &gPlayerParty[slot];
+    otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+    oldSpecies = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    GetMonNickname(mon, nickname);
+    newPersonality = Random32();
 
-        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
-        GetMonNickname(mon, nickname);
-        newPersonality = Random32();
-
-        // force the mon to be shiny
-        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-        
-        // if player has nicknamed their nidotran, don't overwrite it
-        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
-        {
-            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
-        }
-        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
-        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
-        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
-        UpdateMonPersonality(&mon->box, newPersonality);
-        CalculateMonStats(mon);
+    // force the mon to be shiny
+    newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
     
+    // if player has nicknamed their nidotran, don't overwrite it
+    if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+    {
+        SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+    }
+    SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+    SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    UpdateMonPersonality(&mon->box, newPersonality);
+    CalculateMonStats(mon);
 }
+
 void ZygardeSwitcheroo()
 {
     u32 i, j;
@@ -1583,28 +1582,27 @@ void ZygardeSwitcheroo()
     s16 slot = gSpecialVar_Result;
     bool32 thisIsTrue = TRUE;
 
-        newSpecies = SPECIES_ZYGARDE;
+    newSpecies = SPECIES_ZYGARDE;
+    mon = &gPlayerParty[slot];
 
-        mon = &gPlayerParty[slot];
+    otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+    oldSpecies = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    GetMonNickname(mon, nickname);
+    newPersonality = Random32();
 
-        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
-        GetMonNickname(mon, nickname);
-        newPersonality = Random32();
-
-        // force the mon to be shiny
-        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-        
-        // if player has nicknamed their nidotran, don't overwrite it
-        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
-        {
-            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
-        }
-        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
-        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
-        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
-        UpdateMonPersonality(&mon->box, newPersonality);
-        CalculateMonStats(mon);
+    // force the mon to be shiny
+    newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
     
+    // if player has nicknamed their nidotran, don't overwrite it
+    if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+    {
+        SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+    }
+    SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+    SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    UpdateMonPersonality(&mon->box, newPersonality);
+    CalculateMonStats(mon);
 }
 
 static const u16 sNidotranCounterparts[6][2] = {
