@@ -5505,38 +5505,10 @@ u16 SpeciesToCryId(u16 species)
     if (species <= SPECIES_OLD_UNOWN_Z - 1)
         return SPECIES_UNOWN - 1;
 
-    if (species < SPECIES_CHIMECHO - 1)
-        return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)]; //Hoenn
+    if (species < ARRAY_COUNT(sSpeciesIdToCryId))
+        return sSpeciesIdToCryId[species];
 
-    if (species < SPECIES_WARTORTLE - 1)
-        return sSinnohSpeciesIdToCryId[species - ((SPECIES_CHIMECHO + 1) - 1)];
-
-    if (species < SPECIES_KABUTO- 1)
-        return sUnovaSpeciesIdToCryId[species - ((SPECIES_WARTORTLE + 1) - 1)];
-
-    if (species < SPECIES_MAGNETON- 1)
-        return sKalosSpeciesIdToCryId[species - ((SPECIES_KABUTO + 1) - 1)];
-
-    if (species < SPECIES_CHIKORITA- 1)
-        return sAlolaSpeciesIdToCryId[species - ((SPECIES_MAGNETON + 1) - 1)];
-
-    if (species < SPECIES_ENAMORUS - 1)
-        return sGalarSpeciesIdToCryId[species - ((SPECIES_CHIKORITA + 1) - 1)];
-
-    if (species < SPECIES_BRAMBLEGHAST- 1)
-        return sPaldeaSpeciesIdToCryId[species - ((SPECIES_ENAMORUS  + 1) - 1)];
-
-    if (species < SPECIES_RATATATTA - 1)
-        return sStupidSpeciesIdToCryId[species - ((SPECIES_BRAMBLEGHAST + 1) - 1)];
-
-    if (species < SPECIES_HAUNTER_POKERAP - 1)
-        return sPokerapSpeciesIdToCryId[species - ((SPECIES_RATATATTA + 1) - 1)];
-    
-    
-    
-    return sPokerap2SpeciesIdToCryId[species - ((SPECIES_HAUNTER_POKERAP + 1) - 1)]; //replace this with whatever comes after the Pokerap table
-
-    
+    return 0;
 }
 
 // Spots can be drawn on Spinda's color indexes 1, 2, or 3

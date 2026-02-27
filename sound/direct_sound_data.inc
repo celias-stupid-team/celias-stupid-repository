@@ -5432,3 +5432,7 @@ Cry_EARRAT::
 	.incbin "sound/direct_sound_samples/cries/earrat.bin"
 
 	.align 2
+Cry_FINALCHARMANDER::
+	.incbin "sound/direct_sound_samples/cries/charmander.bin"
+
+	.align 2
