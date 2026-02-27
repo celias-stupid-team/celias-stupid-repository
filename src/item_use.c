@@ -1067,12 +1067,12 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
     CopyPlayerPartyMonToBattleData(0, 0);
 
     gPlayerPartyCount = 1;
-    //reset party data
-    // ResetPartyData(RESET_OPTION_WITHOUT_PARTY_SLOTS);
 
     // make initial Koraidon sprite invisible
     gBattleSpritesDataPtr->battlerData[gBattlerInMenuId].invisible = TRUE;
     gBattleStruct->switchInAfterItemUse = TRUE;
+    //reset for battle string
+    gTemporaryBattlePlayerText = FALSE;
 
     Bag_BeginCloseWin0Animation();
     ItemMenu_StartFadeToExitCallback(taskId);

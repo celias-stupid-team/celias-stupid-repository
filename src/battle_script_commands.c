@@ -3969,6 +3969,7 @@ static void Cmd_checkteamslost(void)
             {
                 gBattleOutcome |= B_OUTCOME_CONTINUE_ZAPDOS;
                 gCheckedPauseBattle = TRUE;
+                gTemporaryBattlePlayerText = TRUE;
             }
             // if battler fainted the system will call PlayerHandleChoosePokemon() later and trigger a PC switch
         }
