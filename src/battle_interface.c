@@ -1929,7 +1929,7 @@ s32 MoveBattleBar(u8 battlerId, u8 healthboxSpriteId, u8 whichBar, u8 unused)
     {
         u16 incrementRate = (gBattleMons[battlerId].species == SPECIES_FINALZAPDOS
                               && changedHp > 200) ? 2 : 1;
-                              
+
         currentBarValue = CalcNewBarValue(gBattleSpritesDataPtr->battleBars[battlerId].maxValue,
                                           gBattleSpritesDataPtr->battleBars[battlerId].oldValue,
                                           gBattleSpritesDataPtr->battleBars[battlerId].receivedValue,
@@ -1985,7 +1985,8 @@ static void ResetHealthBarPalette(u16 paletteTag)
     if (paletteIndex != 0xFF)
     {
         u16 *palette = &gPlttBufferUnfaded[OBJ_PLTT_ID(paletteIndex)];
-        CpuCopy16(palette, &gPlttBufferFaded[OBJ_PLTT_ID(paletteIndex)], PLTT_SIZE_4BPP);
+        CpuCopy16(gBattleInterface_Healthbar_Pal, palette, PLTT_SIZE_4BPP);
+        CpuCopy16(gBattleInterface_Healthbar_Pal, &gPlttBufferFaded[OBJ_PLTT_ID(paletteIndex)], PLTT_SIZE_4BPP);
     }
 }
 
