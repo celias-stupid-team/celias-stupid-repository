@@ -1150,7 +1150,8 @@ static void Cmd_accuracycheck(void)
         && !BtlCtrl_OakOldMan_TestState2Flag(2)
         && gBattleMoves[move].power == 0
         && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
-     || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
+     || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
+     || (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
         JumpIfMoveFailed(7, move);
         return;
