@@ -373,7 +373,7 @@ const u8 gPoliwrathPokedexText[] = _(
 const u8 gPoliwrathPokedexTextUnused[] = _("");
 
 const u8 gAbraPokedexText[] = _(
-	"Leveling me up is a waste of time.");
+	"Leveling me up will get you nothing.");
 
 const u8 gAbraPokedexTextUnused[] = _("");
 
@@ -1245,9 +1245,8 @@ const u8 gQuagsirePokedexText[] = _(
 const u8 gQuagsirePokedexTextUnused[] = _("");
 
 const u8 gEspeonPokedexText[] = _(
-	"Hey guys did you know that in terms\n"
-	"of human companionship, ESPEON is\n"
-	"objectively the friendliest POKéMON?");
+	"Two tails weave, One truth they hold\n"
+	"Across the void, Secrets unfold");
 
 const u8 gEspeonPokedexTextUnused[] = _("");
 

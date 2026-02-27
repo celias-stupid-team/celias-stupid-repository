@@ -679,7 +679,7 @@ script SilphCo_SnackTrash {
 	"The can is overflowing with snack\n"
 	"wrappers.\p"
 
-	"It seems like it was emptied\n"
-	"last night.", MSGBOX_SIGN)
+	"Despite this, it seems it was\n"
+	"emptied just this morning.", MSGBOX_SIGN)
 
 }
