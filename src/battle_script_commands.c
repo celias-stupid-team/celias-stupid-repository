@@ -1351,6 +1351,9 @@ static void Cmd_critcalc(void)
     else
         gCritMultiplier = 1;
 
+    if (gBattleMons[gBattlerTarget].species == SPECIES_FINALZAPDOS)
+        gCritMultiplier = 1;
+
     gBattlescriptCurrInstr++;
 }
 
