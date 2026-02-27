@@ -12290,3 +12290,11 @@ void BS_ClearBattleWeather(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_WaitForCry(void)
+{
+    NATIVE_ARGS();
+
+    if (!IsCryPlaying())
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
