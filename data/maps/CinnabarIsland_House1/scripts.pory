@@ -5,6 +5,7 @@ mapscripts CinnabarIsland_House1_MapScripts {
 
 script CinnabarIsland_ColorblindNPC {
 	lock
+	faceplayer
 	msgbox("Bah, kids these days.\p"
 
 	"All I wanted was for someone\n"
