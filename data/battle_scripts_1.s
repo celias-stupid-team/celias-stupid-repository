@@ -4359,6 +4359,12 @@ BattleScript_CastformChange::
 	call BattleScript_DoCastformChangeAnim
 	end3
 
+BattleScript_CastformChangeWithWeatherAnim::
+	playanimation_var BS_ATTACKER, sB_ANIM_ARG1
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_DoCastformChangeAnim
+	end3
+
 BattleScript_DoCastformChangeAnim::
 	docastformchangeanimation
 	waitstate
