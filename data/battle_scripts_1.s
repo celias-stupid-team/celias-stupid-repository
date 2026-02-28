@@ -4190,7 +4190,8 @@ BattleScript_ZapmolcunoTransform::
 	playse MUS_SE_GUILTY
 	pause B_WAIT_TIME_SHORT
 	playcurrentbirdfaintcry @ based on value of VAR_CSR_FINAL_BATTLE_PHASE
-	pause B_WAIT_TIME_LONGEST
+	waitforcry
+	pause B_WAIT_TIME_SHORT
 	@ check for special cutscene after Zapdos is defeated, use 4 to show after Zapdos fainting
 	jumpifvar CMP_NOT_EQUAL, VAR_CSR_FINAL_BATTLE_PHASE, 4, BattleScript_ZapmolcunoTransform_FinishScript
 	goto BattleScript_ZapdosCutScene
@@ -4356,6 +4357,12 @@ BattleScript_WeatherFormChangesLoop::
 	return
 
 BattleScript_CastformChange::
+	call BattleScript_DoCastformChangeAnim
+	end3
+
+BattleScript_CastformChangeWithWeatherAnim::
+	playanimation_var BS_ATTACKER, sB_ANIM_ARG1
+	pause B_WAIT_TIME_SHORT
 	call BattleScript_DoCastformChangeAnim
 	end3
 
@@ -5420,7 +5427,8 @@ BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	fadescreeninstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_FINALMOLTRES
-	pause B_WAIT_TIME_LONGEST
+	waitforcry
+	pause B_WAIT_TIME_SHORT
 	@ resetbattlebgm
 	printstring STRINGID_FOE_MOLTRES_FAINTED
 	pause B_WAIT_TIME_LONGEST

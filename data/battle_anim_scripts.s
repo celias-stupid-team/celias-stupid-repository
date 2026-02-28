@@ -11568,6 +11568,8 @@ General_ShadowSky:
 	createvisualtask AnimTask_BlendBackground, 6, 6, RGB(15, 0, 21)
 	panse SE_M_HEAT_WAVE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
 	delay 4
+	createvisualtask AnimTask_SetAnimTargetFromArg, 5, ANIM_PLAYER_LEFT
+	delay 0 // so it updates before the next task is called
 	createvisualtask AnimTask_MoveHeatWaveTargets, 5
 	delay 12
 	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 1

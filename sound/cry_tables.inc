@@ -1258,12 +1258,7 @@ gCryTable::
 	cry Cry_PIKACHUSURF
 	cry Cry_SHINYABRA
 	cry Cry_EARRAT
-
-
-
-
-
-
+	cry Cry_FINALCHARMANDER
 
 
 	.align 2
@@ -2526,8 +2521,4 @@ gCryTable_Reverse::
 	cry_reverse Cry_PIKACHUSURF
 	cry_reverse Cry_SHINYABRA
 	cry_reverse Cry_EARRAT
-
-
-
-
-
+	cry_reverse Cry_FINALCHARMANDER

@@ -1150,7 +1150,8 @@ static void Cmd_accuracycheck(void)
         && !BtlCtrl_OakOldMan_TestState2Flag(2)
         && gBattleMoves[move].power == 0
         && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
-     || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
+     || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
+     || (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
         JumpIfMoveFailed(7, move);
         return;
@@ -1348,6 +1349,9 @@ static void Cmd_critcalc(void)
      && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
         gCritMultiplier = 2;
     else
+        gCritMultiplier = 1;
+
+    if (gBattleMons[gBattlerTarget].species == SPECIES_FINALZAPDOS)
         gCritMultiplier = 1;
 
     gBattlescriptCurrInstr++;
@@ -3965,6 +3969,7 @@ static void Cmd_checkteamslost(void)
             {
                 gBattleOutcome |= B_OUTCOME_CONTINUE_ZAPDOS;
                 gCheckedPauseBattle = TRUE;
+                gTemporaryBattlePlayerText = TRUE;
             }
             // if battler fainted the system will call PlayerHandleChoosePokemon() later and trigger a PC switch
         }
@@ -11534,7 +11539,7 @@ void BS_TryTrainerSlideMsgDefeatFinalBattle(void)
     {
         gBattleScripting.battler = battler;
         BattleScriptPush(cmd->nextInstr);
-        gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
+        gBattlescriptCurrInstr = BattleScript_TrainerASlidePreMessage;
     }
     else
     {
@@ -12289,4 +12294,12 @@ void BS_ClearBattleWeather(void)
     gBattleWeather = 0;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_WaitForCry(void)
+{
+    NATIVE_ARGS();
+
+    if (!IsCryPlaying())
+        gBattlescriptCurrInstr = cmd->nextInstr;
 }

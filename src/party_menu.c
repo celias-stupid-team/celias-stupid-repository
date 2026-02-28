@@ -6381,24 +6381,22 @@ u8 GetPartyIdFromBattlePartyId(u8 battlePartyId)
 
 void UpdatePartyToBattleOrder(void)
 {
-    struct Pokemon *partyBuffer = Alloc(sizeof(gPlayerParty));
+    struct Pokemon partyBuffer[PARTY_SIZE];
     u8 i;
 
     memcpy(partyBuffer, gPlayerParty, sizeof(gPlayerParty));
     for (i = 0; i < PARTY_SIZE; ++i)
         memcpy(&gPlayerParty[GetPartyIdFromBattlePartyId(i)], &partyBuffer[i], sizeof(struct Pokemon));
-    Free(partyBuffer);
 }
 
 void UpdatePartyToFieldOrder(void)
 {
-    struct Pokemon *partyBuffer = Alloc(sizeof(gPlayerParty));
+    struct Pokemon partyBuffer[PARTY_SIZE];
     u8 i;
 
     memcpy(partyBuffer, gPlayerParty, sizeof(gPlayerParty));
     for (i = 0; i < PARTY_SIZE; ++i)
         memcpy(&gPlayerParty[GetPartyIdFromBattleSlot(i)], &partyBuffer[i], sizeof(struct Pokemon));
-    Free(partyBuffer);
 }
 
 // not used

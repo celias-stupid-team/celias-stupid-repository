@@ -2403,8 +2403,8 @@ static void LoadDisplayMonGfx(u16 species, u32 personality)
     if (species != SPECIES_NONE)
     {
         HandleLoadSpecialPokePic(&gMonFrontPicTable[species], gStorage->tileBuffer, species, personality);
-        LZ77UnCompWram(gStorage->displayMonPalette, gStorage->displayMonPalBuffer);
         CpuCopy32(gStorage->tileBuffer, gStorage->displayMonTilePtr, 0x800);
+        LZ77UnCompWram(gStorage->displayMonPalette, gStorage->displayMonPalBuffer);
         LoadPalette(gStorage->displayMonPalBuffer, gStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
         gStorage->displayMonSprite->invisible = FALSE;
     }

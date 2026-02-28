@@ -300,6 +300,7 @@ void RestorePlayerPartyFromOne(void)
     DebugPrintf("Saved species %d", party[0]);
 
     gPlayerParty[gSpecialVar_0x8004] = party[0];
+    Free(party);
 }
 
 void RemovePartyMon(void)
@@ -314,7 +315,7 @@ void RemovePartyMon(void)
     // overwrite the first 3 with the order copied to.
     gPlayerParty[gSpecialVar_Result] = party[0];
 
-    //CalculatePlayerPartyCount();
+    //CalculatePlayerPartyCount(); // wiz1989: shouldn't this be uncommented?
     Free(party);
 }
 

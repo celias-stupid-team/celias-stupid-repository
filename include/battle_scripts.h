@@ -155,6 +155,7 @@ extern const u8 BattleScript_ShedSkinActivates[];
 extern const u8 BattleScript_WeatherFormChanges[];
 extern const u8 BattleScript_WeatherFormChangesLoop[];
 extern const u8 BattleScript_CastformChange[];
+extern const u8 BattleScript_CastformChangeWithWeatherAnim[];
 extern const u8 BattleScript_DroughtActivates[];
 extern const u8 BattleScript_TookAttack[];
 extern const u8 BattleScript_SturdyPreventsOHKO[];
@@ -276,6 +277,7 @@ extern const u8 *const gBattlescriptsForUsingItem[];
 extern const u8 *const gBattlescriptsForSafariActions[];
 extern const u8 BattleScript_ThrowSafariBall[];
 extern const u8 BattleScript_ThrowBall[];
+extern const u8 BattleScript_TrainerASlidePreMessage[];
 extern const u8 BattleScript_TrainerASlideMsgRet[];
 extern const u8 BattleScript_TrainerASlideMsgEnd2[];
 

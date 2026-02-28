@@ -1045,6 +1045,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNISCHARGINGENERGY - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is charging energy!"),
     [STRINGID_PKMNRECHARGED - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} recharged\nfrom the emitted energy!"),
     [STRINGID_OHSHOOT - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Oh shoot!\n{PAUSE 20}The lights went out!\p{PAUSE 45}ZAPDOS took down the whole\npower grid!\p"), //The lights went out!\p"),
+    [STRINGID_CANTESCAPEFINAL - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("No! There's no running\nfrom the final battle!\p"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1064,7 +1065,8 @@ const u16 gNoEscapeStringIds[] =
     [B_MSG_DONT_LEAVE_BIRCH]     = STRINGID_DONTLEAVEBIRCH,
     [B_MSG_PREVENTS_ESCAPE]      = STRINGID_PREVENTSESCAPE,
     [B_MSG_CANT_ESCAPE_2]        = STRINGID_CANTESCAPE2,
-    [B_MSG_ATTACKER_CANT_ESCAPE] = STRINGID_ATTACKERCANTESCAPE
+    [B_MSG_ATTACKER_CANT_ESCAPE] = STRINGID_ATTACKERCANTESCAPE,
+    [B_MSG_CANT_ESCAPE_FINAL]    = STRINGID_CANTESCAPEFINAL
 };
 
 const u16 gMoveWeatherChangeStringIds[] =
