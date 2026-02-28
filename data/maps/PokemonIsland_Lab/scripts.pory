@@ -452,7 +452,7 @@ script PokemonIslandLab_Dad {
 	"What are you doing out here?\p"
 
 	"I'm enjoying being a model!\n"
-	"something something\p"
+	"Watch me strike a pose!\p"
 
 	"Well, never mind that.\n"
 	"Why don't you take a rest?", MSGBOX_DEFAULT)
