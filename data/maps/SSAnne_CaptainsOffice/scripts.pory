@@ -148,6 +148,7 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 
 	"Here, take this HM.\n"
 	"", MSGBOX_DEFAULT)
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 5)
 	giveitem_msg(SSAnne_CaptainsOffice_Text_ObtainedHM01FromCaptain, ITEM_HM01, 1, MUS_OBTAIN_KEY_ITEM)
 	msgbox(
 	"If we're going to get ourselves\n"

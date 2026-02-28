@@ -118,6 +118,9 @@ const u32 gProtectedMoves[] = {
     MOVE_MAGICAL_LEAF,
     MOVE_BRICK_BREAK,
     MOVE_HEART_SWAP,
+    MOVE_ENDEAVOR,
+    MOVE_DOUBLE_DIP,
+    MOVE_RAINBOW_BEAM,
     MOVE_FLY_CYNTHIA
 };
 
@@ -1672,16 +1675,16 @@ static const u8 sStatsToRaise[] =
 // 0-99, 100-199, 200+
 static const s8 sFriendshipEventDeltas[][3] = 
 {
-    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 5,  3,  2 },
-    [FRIENDSHIP_EVENT_VITAMIN]              = { 5,  3,  2 },
+    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 5,  1,  0 },
+    [FRIENDSHIP_EVENT_VITAMIN]              = { 0,  0,  0 },
     [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 3,  2,  1 },
-    [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_WALKING]              = { 1,  1,  1 },
+    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 1,  1,  1 },
+    [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 0,  0,  0 },
+    [FRIENDSHIP_EVENT_WALKING]              = { 1,  0,  0 },
     [FRIENDSHIP_EVENT_MASSAGE]              = { 3,  3,  3 },
-    [FRIENDSHIP_EVENT_FAINT_SMALL]          = {-1, -1, -1 },
-    [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {-5, -5, -10 },
-    [FRIENDSHIP_EVENT_FAINT_LARGE]          = {-5, -5, -10 },
+    [FRIENDSHIP_EVENT_FAINT_SMALL]          = {0, 0, 0 },
+    [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {0, 0, 0 },
+    [FRIENDSHIP_EVENT_FAINT_LARGE]          = {0, 0, 0 },
 };
 
 #define HM_MOVES_END 0xFFFF
@@ -5769,11 +5772,14 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             // Only if it's a trainer battle with league progression significance
             if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
                 return;
-            if (!(gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER
-                || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR
-                || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_MASTER
-                || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION))
-                return;
+            if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE14) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE14))
+                return; //No battle friendship in the pokerap
+
+            // if (!(gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER
+            //     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR
+            //     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_MASTER
+            //     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION))
+            //     return;
         }
 
         delta = sFriendshipEventDeltas[event][friendshipLevel];

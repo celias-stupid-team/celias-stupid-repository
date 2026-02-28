@@ -78,3 +78,31 @@ script SSAnne_Kitchen_BerryChef {
 	"I was saving those for later…\n"
 	"", MSGBOX_NPC)
 }
+
+script SSAnne_Kitchen_FlavorText {
+	msgbox(
+	"Hmm… Some of it is sweet, some\n"
+	"is sour…\l"
+	"And others yet are spicy or savory.\p"
+
+	"Yup.{PAUSE 30}\n"
+	"It's Flavor Text.", MSGBOX_SIGN)
+
+}
+
+script SSAnne_Kitchen_Sink {
+	msgbox(
+	"Oh no!\n"
+	"It's sinking!\p"
+
+	"…{PAUSE 20}get it?\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script SSAnne_Kitchen_Screws {
+	msgbox(
+	"Are these like screws or smth?\n"
+	"", MSGBOX_SIGN)
+
+}

@@ -573,10 +573,10 @@ gFameCheckerFlavorText_GreatSeaEast4:: @ 0x81AF758
 gFameCheckerFlavorText_GreatSeaEast5:: @ 0x81AF7CB
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-	.string "If you ask me, second amendment\n"
-	.string "rights aren't going far enough!\p"
-	.string "If I had it my way, even my dog\n"
-	.string "would be armed with a gun!$"
+	.string "If we're going to get ourselves\n"
+	.string "out of this mess, we need to find\l"
+	.string "the rest of my crew.\p"
+	.string "Follow along, if you'd like.\n$"
 
 gFameCheckerFlavorText_GreatSeaCenter0:: @ 0x81AF83E
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
