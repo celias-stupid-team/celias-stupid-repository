@@ -5509,7 +5509,7 @@ u16 SpeciesToCryId(u16 species)
         return SPECIES_UNOWN - 1;
 
     if (species < ARRAY_COUNT(sSpeciesIdToCryId))
-        return sSpeciesIdToCryId[species];
+        return sSpeciesIdToCryId[species + 1];
 
     return 0;
 }
