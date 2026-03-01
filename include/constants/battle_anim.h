@@ -346,6 +346,7 @@
 #define ANIM_TAG_BULLET                     (ANIM_SPRITES_START + 336)
 #define ANIM_TAG_STEAMROLLER                (ANIM_SPRITES_START + 337)
 #define ANIM_TAG_BULLDOZER                  (ANIM_SPRITES_START + 338)
+#define ANIM_TAG_ROTOM_DESCEND                      (ANIM_SPRITES_START + 339)
 
 // battlers
 #define ANIM_ATTACKER    0

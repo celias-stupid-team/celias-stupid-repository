@@ -37,6 +37,8 @@ static void AnimDiveBall_Step2(struct Sprite *sprite);
 static void AnimSprayWaterDroplet_Step(struct Sprite *sprite);
 static void AnimUnusedFlashingLight_Step(struct Sprite *sprite);
 static void AnimSkyAttackBird_Step(struct Sprite *sprite);
+static void AnimRotomAppear(struct Sprite *sprite);
+static void AnimRotomEnter(struct Sprite *sprite);
 
 const struct SpriteTemplate gEllipticalGustSpriteTemplate =
 {
@@ -303,6 +305,20 @@ static const union AnimCmd *const sAnims_Steamroller[] =
     sAnim_SteamrollerDrive,
 };
 
+static const union AnimCmd sAnim_Rotom[] =
+{
+    ANIMCMD_FRAME(0,   8),
+    ANIMCMD_FRAME(64,  16),
+    ANIMCMD_FRAME(128,   8),
+    ANIMCMD_FRAME(192, 16),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_Rotom[] =
+{
+    sAnim_Rotom,
+};
+
 const struct SpriteTemplate gSteamrollerLandSpriteTemplate =
 {
     .tileTag = ANIM_TAG_STEAMROLLER,
@@ -324,6 +340,174 @@ const struct SpriteTemplate gBulldozerSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimBulldozer,
 };
+
+const struct SpriteTemplate gRotomAppearSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROTOM_DESCEND,
+    .paletteTag = ANIM_TAG_ROTOM_DESCEND,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = sAnims_Rotom,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRotomAppear,
+};
+
+const struct SpriteTemplate gRotomEnterSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROTOM_DESCEND,
+    .paletteTag = ANIM_TAG_ROTOM_DESCEND,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_Rotom,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRotomEnter,
+};
+
+static void AnimRotomAppear(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+    // INIT
+    case 0:
+        sprite->x = DISPLAY_WIDTH + 32;   // start off right
+        sprite->y = -32;                  // slightly above screen
+
+        sprite->data[1] = 0;              // angle (0-128)
+        sprite->data[2] = DISPLAY_WIDTH / 2;   // arc center X
+        sprite->data[3] = -32;//DISPLAY_HEIGHT / 2;  // arc center Y
+        sprite->data[4] = 96;             // arc radius
+        sprite->data[5] = 2;              // angular speed
+        
+        sprite->data[0] = 1;
+        break;
+
+    // FIRST SEMICIRCLE (right -> center)
+    case 1:
+        sprite->data[1] += sprite->data[5];
+
+        sprite->x = sprite->data[2] + Cos(sprite->data[1], sprite->data[4]);
+        sprite->y = sprite->data[3] + Sin(sprite->data[1], sprite->data[4]);
+
+        // slow near middle
+        if (sprite->data[1] > 48)
+            sprite->data[5] = 1;
+
+        if (sprite->data[1] >= 64)
+        {
+            sprite->data[6] = 0; // pause timer
+            sprite->data[0] = 2;
+        }
+        break;
+
+    // PAUSE IN CENTER
+    case 2:
+        if (++sprite->data[6] > 90)
+        {
+            sprite->data[5] = 1;
+            sprite->data[0] = 3;
+        }
+        break;
+
+    // SECOND HALF (center -> left)
+    case 3:
+        sprite->data[1] += sprite->data[5];
+
+        sprite->x = sprite->data[2] + Cos(sprite->data[1], sprite->data[4]);
+        sprite->y = sprite->data[3] + Sin(sprite->data[1], sprite->data[4]);
+
+        if (sprite->data[1] >= 128)
+        {
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
+
+static void AnimRotomEnter(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+    // INIT
+    case 0:
+        sprite->x = -32;
+        sprite->y = -32;
+        StartSpriteAffineAnim(sprite, 0);
+        SetSpriteRotScale(sprite - gSprites, -256, 256, 0);
+        CalcCenterToCornerVec(sprite, sprite->oam.shape, sprite->oam.size, ST_OAM_AFFINE_DOUBLE);
+
+        sprite->data[1] = 0;
+        sprite->data[2] = 32 + DISPLAY_WIDTH / 2;
+        sprite->data[3] = -32;
+        sprite->data[4] = 96;
+        sprite->data[5] = 2;
+
+        sprite->data[0] = 1;
+        break;
+
+    // SEMICIRCLE TO CENTER
+    case 1:
+        sprite->data[1] += sprite->data[5];
+
+        sprite->x = sprite->data[2] - Cos(sprite->data[1], sprite->data[4]);
+        sprite->y = sprite->data[3] + Sin(sprite->data[1], sprite->data[4]);
+
+        if (sprite->data[1] > 48)
+            sprite->data[5] = 1;
+
+        if (sprite->data[1] >= 64)
+        {
+            sprite->data[6] = 0;
+            sprite->data[0] = 2;
+        }
+        break;
+
+    // PAUSE IN CENTER
+    case 2:
+        if (++sprite->data[6] > 60)
+        {
+            sprite->data[7] = 0;
+            sprite->data[0] = 3;
+        }
+        break;
+
+    // WIND UP DIAGONAL UP-LEFT
+    case 3:
+        sprite->x -= 2;
+        sprite->y -= 2;
+
+        if (++sprite->data[7] > 20)
+        {
+            sprite->data[6] = 0;
+            sprite->data[0] = 4;
+        }
+        break;
+
+    // HOLD
+    case 4:
+        if (++sprite->data[6] > 40)
+        {
+            sprite->data[1] = 0;  // velocity X (fixed)
+            sprite->data[2] = 0;  // velocity Y (fixed)
+            sprite->data[0] = 5;
+        }
+        break;
+
+    // ACCELERATE DOWN-RIGHT FAST
+    case 5:
+        sprite->data[1] += 6;
+        sprite->data[2] += 8;
+
+        sprite->x += sprite->data[1] >> 4;
+        sprite->y += sprite->data[2] >> 4;
+
+        if (sprite->x > DISPLAY_WIDTH + 32 ||
+            sprite->y > DISPLAY_HEIGHT + 32)
+        {
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
 
 static const union AffineAnimCmd sAffineAnim_DiveBall[] =
 {

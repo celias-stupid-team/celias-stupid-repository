@@ -91,6 +91,7 @@ static void AnimAngerMark(struct Sprite *);
 static void AnimBlendThinRing(struct Sprite *);
 static void AnimHyperVoiceRing(struct Sprite *);
 static void AnimUproarRing(struct Sprite *);
+static void AnimRotomRing(struct Sprite *);
 static void AnimSpeedDust(struct Sprite *);
 static void AnimHealBellMusicNote(struct Sprite *);
 static void AnimMagentaHeart(struct Sprite *);
@@ -830,6 +831,17 @@ const struct SpriteTemplate gUproarRingSpriteTemplate =
     .images = NULL,
     .affineAnims = sThinRingExpandingAffineAnimTable,
     .callback = AnimUproarRing,
+};
+
+const struct SpriteTemplate gRotomRingSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_THIN_RING,
+    .paletteTag = ANIM_TAG_THIN_RING,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .callback = AnimRotomRing,
 };
 
 static const union AffineAnimCmd sStretchAttackerAffineAnimCmds[] =
@@ -2952,6 +2964,42 @@ static void AnimUproarRing(struct Sprite *sprite)
     StartSpriteAffineAnim(sprite, 1);
     sprite->callback = AnimSpriteOnMonPos;
     sprite->callback(sprite);
+}
+
+static void AnimRotomRing(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+    case 0:
+    {
+        sprite->x = 170;
+        sprite->y = 110;//GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+
+        SetAnimSpriteInitialXOffset(sprite, gBattleAnimArgs[0]);
+        sprite->y += gBattleAnimArgs[1];
+
+        SetGpuReg(REG_OFFSET_BLDCNT,
+                  BLDCNT_TGT1_OBJ |
+                  BLDCNT_TGT2_BG0 |
+                  BLDCNT_EFFECT_BLEND);
+
+        SetGpuReg(REG_OFFSET_BLDALPHA,
+                  BLDALPHA_BLEND(8, 8));
+
+        StartSpriteAffineAnim(sprite, 0);
+
+        sprite->data[0] = 1;
+        break;
+    }
+
+    case 1:
+        if (sprite->affineAnimEnded)
+        {
+            SetGpuReg(REG_OFFSET_BLDCNT, 0);
+            DestroySpriteAndMatrix(sprite);
+        }
+        break;
+    }
 }
 
 static void AnimSoftBoiledEgg(struct Sprite *sprite)
