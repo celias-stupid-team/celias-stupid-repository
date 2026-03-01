@@ -31,7 +31,14 @@ SSAnne_CaptainsOffice_EventScript_Book::
 mapscripts SSAnne_CaptainsOffice_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		if(flag(FLAG_GOT_HM01)) {
-			setobjectxy(LOCALID_SS_ANNE_CAPTAIN, 15, 15)
+			setobjectxyperm(LOCALID_SS_ANNE_CAPTAIN, 15, 15)
+			setobjectmovementtype(LOCALID_SS_ANNE_CAPTAIN, MOVEMENT_TYPE_INVISIBLE)
+		}
+	}
+	MAP_SCRIPT_ON_TRANSITION {
+		
+		if(flag(FLAG_GOT_HM01)) {
+			setobjectxyperm(LOCALID_SS_ANNE_CAPTAIN, 15, 15)
 			setobjectmovementtype(LOCALID_SS_ANNE_CAPTAIN, MOVEMENT_TYPE_INVISIBLE)
 		}
 	}

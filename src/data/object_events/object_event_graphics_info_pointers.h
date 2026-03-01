@@ -578,6 +578,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GROUND_LASS;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GARBODOR;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GARBO_GIRL;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BURN_TREE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARSHMALLOW_1;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARSHMALLOW_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARSHMALLOW_3;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARSHMALLOW_4;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1157,4 +1161,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GARBODOR] = &gObjectEventGraphicsInfo_GARBODOR,
     [OBJ_EVENT_GFX_GARBO_GIRL] = &gObjectEventGraphicsInfo_GARBO_GIRL,
     [OBJ_EVENT_GFX_BURN_TREE] = &gObjectEventGraphicsInfo_BURN_TREE,
+    [OBJ_EVENT_GFX_MARSHMALLOW_1] = &gObjectEventGraphicsInfo_MARSHMALLOW_1,
+    [OBJ_EVENT_GFX_MARSHMALLOW_2] = &gObjectEventGraphicsInfo_MARSHMALLOW_2,
+    [OBJ_EVENT_GFX_MARSHMALLOW_3] = &gObjectEventGraphicsInfo_MARSHMALLOW_3,
+    [OBJ_EVENT_GFX_MARSHMALLOW_4] = &gObjectEventGraphicsInfo_MARSHMALLOW_4,
 };

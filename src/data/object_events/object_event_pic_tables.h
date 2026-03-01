@@ -6228,3 +6228,47 @@ const struct SpriteFrameImage gObjectEventPicTable_BURN_TREE[] = {
     overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 7),
     overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_MARSHMALLOW_1[] = {
+    overworld_frame(gObjectEventPic_MARSHMALLOW_1, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_1, 4, 4, 1),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_1, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_1, 4, 4, 3),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_1, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_1, 4, 4, 5),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_1, 4, 4, 6),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_1, 4, 4, 7),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_1, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_MARSHMALLOW_2[] = {
+    overworld_frame(gObjectEventPic_MARSHMALLOW_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_2, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_2, 4, 4, 3),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_2, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_2, 4, 4, 5),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_2, 4, 4, 6),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_2, 4, 4, 7),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_2, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_MARSHMALLOW_3[] = {
+    overworld_frame(gObjectEventPic_MARSHMALLOW_3, 6, 6, 0),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_3, 6, 6, 1),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_3, 6, 6, 2),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_3, 6, 6, 3),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_3, 6, 6, 4),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_3, 6, 6, 5),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_3, 6, 6, 6),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_3, 6, 6, 7),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_3, 6, 6, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_MARSHMALLOW_4[] = {
+    overworld_frame(gObjectEventPic_MARSHMALLOW_4, 6, 6, 0),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_4, 6, 6, 1),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_4, 6, 6, 2),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_4, 6, 6, 3),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_4, 6, 6, 4),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_4, 6, 6, 5),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_4, 6, 6, 6),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_4, 6, 6, 7),
+    overworld_frame(gObjectEventPic_MARSHMALLOW_4, 6, 6, 8),
+};

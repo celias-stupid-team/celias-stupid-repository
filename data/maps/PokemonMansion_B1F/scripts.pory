@@ -90,6 +90,32 @@ script PokemonMansion_ResearcherTree {
 }
 
 
+
+script PokemonMansion_CookingMarshmallows {
+	lock
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"I am cooking marshmallows\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	playse(SE_M_EMBER)
+	applymovement(LOCALID_MARSHMALLOW_1, moves(
+		cut_tree
+	))
+	waitmovement(0)
+	removeobject(LOCALID_MARSHMALLOW_1)
+	delay(45)
+	playse(SE_M_EMBER)
+	applymovement(LOCALID_MARSHMALLOW_2, moves(
+		cut_tree
+	))
+	waitmovement(0)
+	removeobject(LOCALID_MARSHMALLOW_2)
+	release
+}
+
+
 script PokemonMansion_Tabatha {
 	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(

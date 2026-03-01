@@ -616,6 +616,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_GARBODOR  0x11BD
 #define OBJ_EVENT_PAL_TAG_GARBO_GIRL  0x11BE
 #define OBJ_EVENT_PAL_TAG_BURN_TREE  0x11BF
+#define OBJ_EVENT_PAL_TAG_MARSHMALLOW_1  0x11C0
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -805,6 +806,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_GARBODOR,             OBJ_EVENT_PAL_TAG_GARBODOR},
     {gObjectEventPal_GARBO_GIRL,             OBJ_EVENT_PAL_TAG_GARBO_GIRL},
     {gObjectEventPal_BURN_TREE,             OBJ_EVENT_PAL_TAG_BURN_TREE},
+    {gObjectEventPal_MARSHMALLOW_1,             OBJ_EVENT_PAL_TAG_MARSHMALLOW_1},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
