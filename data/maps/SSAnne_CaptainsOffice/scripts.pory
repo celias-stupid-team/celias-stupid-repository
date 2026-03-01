@@ -178,7 +178,12 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 	waitmovement(0)
 	delay(20)
 	playse(SE_EXIT)
-	
+	applymovement(VAR_LAST_TALKED, moves(
+		set_invisible
+	))
+	setobjectxy(LOCALID_SS_ANNE_CAPTAIN, 15, 15)
+	copyobjectxytoperm(LOCALID_SS_ANNE_CAPTAIN)
+	setobjectmovementtype(LOCALID_SS_ANNE_CAPTAIN, MOVEMENT_TYPE_INVISIBLE)
 	setflag(FLAG_GOT_HM01)
 	setvar(VAR_SEAFOAM_CAPTAIN_FLOOR, 2)
 	release

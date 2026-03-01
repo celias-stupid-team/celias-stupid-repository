@@ -832,3 +832,7 @@ const u32 gObjectEventPic_CASTFORM_BALL[] = INCBIN_U32("graphics/object_events/p
 const u16 gObjectEventPal_CASTFORM_BALL[] = INCBIN_U16("graphics/object_events/palettes/CASTFORM_BALL.gbapal");
 const u32 gObjectEventPic_SLOW_BRO_2[] = INCBIN_U32("graphics/object_events/pics/stupid/SLOW_BRO_2.4bpp");
 const u32 gObjectEventPic_GROUND_LASS[] = INCBIN_U32("graphics/object_events/pics/stupid/GROUND_LASS.4bpp");
+const u32 gObjectEventPic_GARBODOR[] = INCBIN_U32("graphics/object_events/pics/stupid/GARBODOR.4bpp");
+const u16 gObjectEventPal_GARBODOR[] = INCBIN_U16("graphics/object_events/palettes/GARBODOR.gbapal");
+const u32 gObjectEventPic_GARBO_GIRL[] = INCBIN_U32("graphics/object_events/pics/stupid/GARBO_GIRL.4bpp");
+const u16 gObjectEventPal_GARBO_GIRL[] = INCBIN_U16("graphics/object_events/palettes/GARBO_GIRL.gbapal");

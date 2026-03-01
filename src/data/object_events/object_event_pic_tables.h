@@ -6195,3 +6195,25 @@ const struct SpriteFrameImage gObjectEventPicTable_GROUND_LASS[] = {
     overworld_frame(gObjectEventPic_GROUND_LASS, 2, 4, 7),
     overworld_frame(gObjectEventPic_GROUND_LASS, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_GARBODOR[] = {
+    overworld_frame(gObjectEventPic_GARBODOR, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GARBODOR, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GARBODOR, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GARBODOR, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GARBODOR, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GARBODOR, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GARBODOR, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GARBODOR, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GARBODOR, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_GARBO_GIRL[] = {
+    overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 2),
+};
