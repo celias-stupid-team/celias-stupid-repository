@@ -73,9 +73,20 @@ script PokemonMansion_CoolLava {
 
 
 script PokemonMansion_ResearcherTree {
+	lock
+	textcolor(NPC_TEXT_COLOR_TREE)
 	msgbox(
-	"I want to research but I can't\n"
-	"PLACEHOLDER", MSGBOX_NPC)
+	"It is hot\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	playse(SE_M_EMBER)
+	applymovement(VAR_LAST_TALKED, moves(
+		cut_tree
+	))
+	waitmovement(0)
+	removeobject(VAR_LAST_TALKED)
+	release
 }
 
 

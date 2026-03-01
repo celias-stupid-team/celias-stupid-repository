@@ -6217,3 +6217,14 @@ const struct SpriteFrameImage gObjectEventPicTable_GARBO_GIRL[] = {
     overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 2),
     overworld_frame(gObjectEventPic_GARBO_GIRL, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_BURN_TREE[] = {
+    overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 3),
+    overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 4),
+    overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 5),
+    overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 6),
+    overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 7),
+    overworld_frame(gObjectEventPic_BURN_TREE, 2, 4, 8),
+};

@@ -577,6 +577,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SLOW_BRO_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GROUND_LASS;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GARBODOR;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GARBO_GIRL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BURN_TREE;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1155,4 +1156,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GROUND_LASS] = &gObjectEventGraphicsInfo_GROUND_LASS,
     [OBJ_EVENT_GFX_GARBODOR] = &gObjectEventGraphicsInfo_GARBODOR,
     [OBJ_EVENT_GFX_GARBO_GIRL] = &gObjectEventGraphicsInfo_GARBO_GIRL,
+    [OBJ_EVENT_GFX_BURN_TREE] = &gObjectEventGraphicsInfo_BURN_TREE,
 };

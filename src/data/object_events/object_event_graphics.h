@@ -836,3 +836,5 @@ const u32 gObjectEventPic_GARBODOR[] = INCBIN_U32("graphics/object_events/pics/s
 const u16 gObjectEventPal_GARBODOR[] = INCBIN_U16("graphics/object_events/palettes/GARBODOR.gbapal");
 const u32 gObjectEventPic_GARBO_GIRL[] = INCBIN_U32("graphics/object_events/pics/stupid/GARBO_GIRL.4bpp");
 const u16 gObjectEventPal_GARBO_GIRL[] = INCBIN_U16("graphics/object_events/palettes/GARBO_GIRL.gbapal");
+const u32 gObjectEventPic_BURN_TREE[] = INCBIN_U32("graphics/object_events/pics/stupid/BURN_TREE.4bpp");
+const u16 gObjectEventPal_BURN_TREE[] = INCBIN_U16("graphics/object_events/palettes/BURN_TREE.gbapal");

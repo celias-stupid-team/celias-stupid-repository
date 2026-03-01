@@ -506,7 +506,7 @@
 #define FLAG_YES_MAN_TRAVELING                     0x1C7
 #define FLAG_YES_NERD_TM                              0x1C8
 #define FLAG_HAMBURGER_GUY                             0x1C9
-#define FLAG_0x1CA                    0x1CA
+#define FLAG_HIDE_RATICATE_TRADE_GUY                    0x1CA
 #define FLAG_0x1CB                       0x1CB
 #define FLAG_0x1CC                      0x1CC
 #define FLAG_HIDE_VIRIDIAN_CITY_POTION                          0x1CD
