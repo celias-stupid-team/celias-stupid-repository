@@ -191,6 +191,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_BULLETPROOF] = COMPOUND_STRING("Immunity to being shot."),
     [ABILITY_REVENGE] = COMPOUND_STRING("Always survives at 1HP."),
     [ABILITY_RECHARGE] = COMPOUND_STRING("Recharges to restore health."),
+    [ABILITY_REVEALING_LIGHT] = COMPOUND_STRING("Opposing MONSTERS cannot attack."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -298,4 +299,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_BULLETPROOF] = _("BULLETPROOF"),
     [ABILITY_REVENGE] = _("REVENGE"),
     [ABILITY_RECHARGE] = _("RECHARGE"),
+    [ABILITY_REVEALING_LIGHT] = _("{FONT_SMALL}REVEALING LIGHT"),
 };
