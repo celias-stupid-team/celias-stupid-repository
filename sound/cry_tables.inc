@@ -1259,6 +1259,7 @@ gCryTable::
 	cry Cry_SHINYABRA
 	cry Cry_EARRAT
 	cry Cry_FINALCHARMANDER
+	cry Cry_CELIASSTUPIDROMHACK
 
 
 	.align 2
@@ -2522,3 +2523,4 @@ gCryTable_Reverse::
 	cry_reverse Cry_SHINYABRA
 	cry_reverse Cry_EARRAT
 	cry_reverse Cry_FINALCHARMANDER
+	cry_reverse Cry_CELIASSTUPIDROMHACK

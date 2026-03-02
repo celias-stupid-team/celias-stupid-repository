@@ -5436,3 +5436,7 @@ Cry_FINALCHARMANDER::
 	.incbin "sound/direct_sound_samples/cries/charmander.bin"
 
 	.align 2
+Cry_CELIASSTUPIDROMHACK::
+	.incbin "sound/direct_sound_samples/cries/celiasstupidromhack.bin"
+
+	.align 2

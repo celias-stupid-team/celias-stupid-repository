@@ -9816,3 +9816,11 @@ const u32 gMonShinyPalette_EARRAT[] = INCBIN_U32("graphics/pokemon/earrat/shiny.
 const u8 gMonIcon_EARRAT[] = INCBIN_U8("graphics/pokemon/earrat/icon.4bpp");
 const u8 gMonFootprint_EARRAT[] = INCBIN_U8("graphics/pokemon/earrat/footprint.1bpp");
 
+// CELIAS_STUPID_ROMHACK
+const u32 gMonFrontPic_CELIASSTUPIDROMHACK[] = INCBIN_U32("graphics/pokemon/celiasstupidromhack/front.4bpp.lz");
+const u32 gMonPalette_CELIASSTUPIDROMHACK[] = INCBIN_U32("graphics/pokemon/celiasstupidromhack/normal.gbapal.lz");
+const u32 gMonBackPic_CELIASSTUPIDROMHACK[] = INCBIN_U32("graphics/pokemon/celiasstupidromhack/back.4bpp.lz");
+const u32 gMonShinyPalette_CELIASSTUPIDROMHACK[] = INCBIN_U32("graphics/pokemon/celiasstupidromhack/shiny.gbapal.lz");
+const u8 gMonIcon_CELIASSTUPIDROMHACK[] = INCBIN_U8("graphics/pokemon/celiasstupidromhack/icon.4bpp");
+const u8 gMonFootprint_CELIASSTUPIDROMHACK[] = INCBIN_U8("graphics/pokemon/celiasstupidromhack/footprint.1bpp");
+

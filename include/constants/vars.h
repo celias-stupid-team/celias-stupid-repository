@@ -231,6 +231,7 @@ It is reset after every battle.
 #define EVENT_BATTLE_SANS  17 //check
 #define EVENT_BATTLE_LARRY_2  18 //check
 #define EVENT_BATTLE_BARRY  19 //check
+#define EVENT_BATTLE_JAMES  20 //check
 
 
 
