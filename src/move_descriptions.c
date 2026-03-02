@@ -1028,8 +1028,19 @@ const u8 gMoveDescription_busbuzz[] = _("Chatting with\nyour friends\nat the end
 const u8 gMoveDescription_blastlearn[] = _("Brain blast!");
 const u8 gMoveDescription_heartstamp[] = _("This POKéMON\nmight be useful\nif you stick it\non a letter.");
 const u8 gMoveDescription_dragon[] = _("Drag on deez nuts");
-
-
+const u8 gMoveDescription_MoltresKick[] = _("Dummy");
+const u8 gMoveDescription_WhiteLightning[] = _("Dummy");
+const u8 gMoveDescription_GasterBlaster[] = _("Dummy");
+const u8 gMoveDescription_Teatime[] = _("Dummy");
+const u8 gMoveDescription_Colonize[] = _("Dummy");
+const u8 gMoveDescription_Stuporpower[] = _("Dummy");
+const u8 gMoveDescription_Yest[] = _("Dummy");
+const u8 gMoveDescription_PledgeOfAllegiance[] = _("Dummy");
+const u8 gMoveDescription_PerishTongue[] = _("Dummy");
+const u8 gMoveDescription_Multishine[] = _("Dummy");
+const u8 gMoveDescription_RevelationDance[] = _("Dummy");
+const u8 gMoveDescription_TrickOrTreat[] = _("Dummy");
+const u8 gMoveDescription_AuroraVeil[] = _("Dummy");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -2066,4 +2077,17 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_BLAST_LEARN     -1 ] = gMoveDescription_blastlearn,
     [MOVE_HEART_STAMP     -1 ] = gMoveDescription_heartstamp,
     [MOVE_DRAGON     -1 ] = gMoveDescription_dragon,
+    [MOVE_MOLTRES_KICK     -1 ] = gMoveDescription_MoltresKick,
+    [MOVE_WHITE_LIGHTNING     -1 ] = gMoveDescription_WhiteLightning,
+    [MOVE_GASTER_BLASTER     -1 ] = gMoveDescription_GasterBlaster,
+    [MOVE_TEATIME     -1 ] = gMoveDescription_Teatime,
+    [MOVE_COLONIZE     -1 ] = gMoveDescription_Colonize,
+    [MOVE_STUPORPOWER     -1 ] = gMoveDescription_Stuporpower,
+    [MOVE_YEST     -1 ] = gMoveDescription_Yest,
+    [MOVE_PLEDGE_OF_ALLEGIANCE     -1 ] = gMoveDescription_PledgeOfAllegiance,
+    [MOVE_PERISH_TONGUE     -1 ] = gMoveDescription_PerishTongue,
+    [MOVE_MULTISHINE     -1 ] = gMoveDescription_Multishine,
+    [MOVE_REVELATION_DANCE     -1 ] = gMoveDescription_RevelationDance,
+    [MOVE_TRICK_OR_TREAT     -1 ] = gMoveDescription_TrickOrTreat,
+    [MOVE_AURORA_VEIL     -1 ] = gMoveDescription_AuroraVeil,
 };

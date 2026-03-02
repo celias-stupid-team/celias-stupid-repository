@@ -109,9 +109,16 @@ script PalletTown_PlayersHouse_1F_EventScript_Plant {
 			break
 		case 11:
 			msgbox("For the last time, it's not OAK.\n", MSGBOX_DEFAULT)
+			setflag(FLAG_NOT_OAK_TEMP)
 			break
 		default:
-			msgbox("…\n", MSGBOX_DEFAULT)
+			if(flag(FLAG_NOT_OAK_TEMP)) {
+				msgbox("…\n", MSGBOX_DEFAULT)
+
+			} else {
+				msgbox("It's not OAK.\n", MSGBOX_DEFAULT)
+
+			}
 			break
 
 	}

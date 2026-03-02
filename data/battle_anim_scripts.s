@@ -1058,6 +1058,19 @@ gBattleAnims_Moves::
 	.4byte Move_BLAST_LEARN
 	.4byte Move_HEART_STAMP
 	.4byte Move_DRAGON
+	.4byte Move_MOLTRES_KICK
+	.4byte Move_WHITE_LIGHTNING
+	.4byte Move_GASTER_BLASTER
+	.4byte Move_TEATIME
+	.4byte Move_COLONIZE
+	.4byte Move_STUPORPOWER
+	.4byte Move_YEST
+	.4byte Move_PLEDGE_OF_ALLEGIANCE
+	.4byte Move_PERISH_TONGUE
+	.4byte Move_MULTISHINE
+	.4byte Move_REVELATION_DANCE
+	.4byte Move_TRICK_OR_TREAT
+	.4byte Move_AURORA_VEIL
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -18963,6 +18976,19 @@ Move_BUS_BUZZ:
 Move_BLAST_LEARN:
 Move_HEART_STAMP:
 Move_DRAGON:
+Move_MOLTRES_KICK:
+Move_WHITE_LIGHTNING:
+Move_GASTER_BLASTER:
+Move_TEATIME:
+Move_COLONIZE:
+Move_STUPORPOWER:
+Move_YEST:
+Move_PLEDGE_OF_ALLEGIANCE:
+Move_PERISH_TONGUE:
+Move_MULTISHINE:
+Move_REVELATION_DANCE:
+Move_TRICK_OR_TREAT:
+Move_AURORA_VEIL:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8

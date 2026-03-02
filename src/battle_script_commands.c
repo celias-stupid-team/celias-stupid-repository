@@ -8172,10 +8172,7 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_MAGIC_SHELL;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_MAGIC_SHELL);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
-            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
-        }
+
     }
     else if (gCurrentMove == MOVE_FISSURE && gBattleMons[gBattlerTarget].ability == ABILITY_EARTH_EATER)
     {
@@ -8183,10 +8180,7 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_EARTH_EATER;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_EARTH_EATER);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
-            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
-        }
+
     }
     else if (gCurrentMove == MOVE_SHOOT_BIG && gBattleMons[gBattlerTarget].ability == ABILITY_BULLETPROOF)
     {
@@ -8194,10 +8188,15 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_BULLETPROOF;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_BULLETPROOF);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
-            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
-        }
+
+    }
+    else if (gCurrentMove == MOVE_WHITE_LIGHTNING && gBattleMons[gBattlerTarget].ability == ABILITY_REVEALING_LIGHT)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_REVEALING_LIGHT;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_REVEALING_LIGHT);
+
     }
     else if (gCurrentMove == MOVE_ADOBE_FLASH && gBattleMons[gBattlerTarget].ability == ABILITY_HTML5)
     {

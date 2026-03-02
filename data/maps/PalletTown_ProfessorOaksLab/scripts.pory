@@ -1601,3 +1601,10 @@ script PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice {
 			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmCharmander)
 	}
 }
+
+script OaksLab_HalfShelf1 {
+	msgbox(Text_HalfBookshelf_One, MSGBOX_SIGN)
+}
+script OaksLab_HalfShelf2 {
+	msgbox(Text_HalfBookshelf_Two, MSGBOX_SIGN)
+}

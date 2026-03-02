@@ -625,7 +625,7 @@ script FourIsland_HumansFuckPokemon {
 script FourIsland_Bookshelf {
 	msgbox(
 	"My Wife is a WHAT?\n"
-	"{PAUSE 30}Chapter 3\p"
+	"{PAUSE 30}Chapter three\p"
 
 	"I was neither a murder suspect, nor\n"
 	"a-… … …", MSGBOX_SIGN)

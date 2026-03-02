@@ -178,3 +178,12 @@ script PokemonMansion_Pedestal {
 	"something in.", MSGBOX_SIGN)
 
 }
+
+script PokemonMansion_FireFlyingSign {
+	msgbox(
+	"For Fire/Flying, use Ice!\p"
+
+	"This message was brought to you\n"
+	"by the RBY Type Chart.", MSGBOX_SIGN)
+
+}
