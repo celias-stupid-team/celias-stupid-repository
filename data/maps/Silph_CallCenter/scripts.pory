@@ -213,7 +213,7 @@ script Silph_SmallKid {
 script Silph_LookGirl {
 	    lock
 	
-		msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+		msgbox(format("Hmm...\nIs that down..."), MSGBOX_DEFAULT)
 		applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
 		waitmovement(0)
 		playse(SE_PIN)
@@ -249,9 +249,58 @@ script Silph_LookGirl {
 			lock_facing_direction
 			walk_fast_up * 7
 		))
+		setflag(FLAG_SENT_SILPH_LOOK_GIRL)
+		waitmovement(0)
 		setvar(VAR_SILPH_LOOK_GIRL, 1)
 		removeobject(VAR_LAST_TALKED)
+		
+	}
+	if(var(VAR_TEMP_5) == 24) {
+		delay(20)
+		applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
+			walk_in_place_right * 2
+		))
 		waitmovement(0)
+		delay(10)
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		msgbox(
+		"I'm a CHUCKSTER!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		applymovement(VAR_LAST_TALKED, moves(
+			face_up
+			lock_facing_direction
+			walk_slow_down
+			delay_16 * 2
+			walk_fast_up * 2
+			jump_2_up
+			delay_16
+			unlock_facing_direction
+			face_down
+		))
+		applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
+			face_up
+			lock_facing_direction
+			walk_slow_down
+			delay_16 * 2
+			walk_fast_up * 2
+			face_up
+		))
+		waitmovement(LOCALID_SILPH_LOOK_CHUCKSTER)
+		playse(SE_LEDGE)
+		waitmovement(VAR_LAST_TALKED)
+		applymovement(LOCALID_PLAYER, moves(
+			face_up
+		))
+		applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
+			unlock_facing_direction
+			walk_down
+			face_right
+		))
+		waitmovement(LOCALID_SILPH_LOOK_CHUCKSTER)
+		setvar(VAR_TEMP_5, 21)
+
 	}
     copyobjectxytoperm(VAR_LAST_TALKED)
 	release
