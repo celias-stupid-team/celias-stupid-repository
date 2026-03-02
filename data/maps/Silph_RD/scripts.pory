@@ -277,6 +277,7 @@ script SilphCo_MonkeyFour {
 }
 
 script SilphCo_MonkeyWindow {
+	setflag(FLAG_SAFFRON_CHECKED_MONKEY_WINDOW)
 	msgbox(
 	"Productivity incentive.\n"
 	"", MSGBOX_SIGN)

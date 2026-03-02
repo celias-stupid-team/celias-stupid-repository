@@ -582,6 +582,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARSHMALLOW_1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARSHMALLOW_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARSHMALLOW_3;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARSHMALLOW_4;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SECRET_SWITCH;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BURNING_EGG;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BURNING_BOOK;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1165,4 +1168,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MARSHMALLOW_2] = &gObjectEventGraphicsInfo_MARSHMALLOW_2,
     [OBJ_EVENT_GFX_MARSHMALLOW_3] = &gObjectEventGraphicsInfo_MARSHMALLOW_3,
     [OBJ_EVENT_GFX_MARSHMALLOW_4] = &gObjectEventGraphicsInfo_MARSHMALLOW_4,
+    [OBJ_EVENT_GFX_SECRET_SWITCH] = &gObjectEventGraphicsInfo_SECRET_SWITCH,
+    [OBJ_EVENT_GFX_BURNING_EGG] = &gObjectEventGraphicsInfo_BURNING_EGG,
+    [OBJ_EVENT_GFX_BURNING_BOOK] = &gObjectEventGraphicsInfo_BURNING_BOOK,
 };

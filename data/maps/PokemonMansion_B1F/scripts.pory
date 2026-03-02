@@ -76,10 +76,30 @@ script PokemonMansion_ResearcherTree {
 	lock
 	textcolor(NPC_TEXT_COLOR_TREE)
 	msgbox(
-	"It is hot\n"
-	"", MSGBOX_DEFAULT)
+	"Phew…\p"
+
+	"I've been trying to do research\n"
+	"here, but the heat is overwhelming!", MSGBOX_DEFAULT)
 	closemessage
-	delay(30)
+	delay(45)
+	playse(SE_M_EMBER)
+	applymovement(VAR_LAST_TALKED, moves(
+		cut_tree
+	))
+	waitmovement(0)
+	removeobject(VAR_LAST_TALKED)
+	release
+}
+
+script PokemonMansion_Diary3 {
+	lock
+	
+	msgbox(
+	"Diary 3, February 6th:\n"
+	"Wait! No!\l"
+	"This baby is a demon child!", MSGBOX_DEFAULT)
+	closemessage
+	delay(45)
 	playse(SE_M_EMBER)
 	applymovement(VAR_LAST_TALKED, moves(
 		cut_tree
@@ -90,15 +110,17 @@ script PokemonMansion_ResearcherTree {
 }
 
 
-
 script PokemonMansion_CookingMarshmallows {
 	lock
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"I am cooking marshmallows\n"
-	"", MSGBOX_DEFAULT)
+	"Ahh…\p"
+
+	"See, the secret to roasting the\n"
+	"perfect marshmallow is holding it in\l"
+	"juuuuuuust the right spot!", MSGBOX_DEFAULT)
 	closemessage
-	delay(30)
+	delay(45)
 	playse(SE_M_EMBER)
 	applymovement(LOCALID_MARSHMALLOW_1, moves(
 		cut_tree
@@ -119,9 +141,26 @@ script PokemonMansion_CookingMarshmallows {
 script PokemonMansion_Tabatha {
 	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
-	"I'm TABATHA…{PAUSE 30}\n"
-	"Hey!\l"
-	"Why's my text red?", MSGBOX_NPC)
+	"I'm TABITHA of TEAM MAGMA!\n"
+	"Soon this volcano will erupt and-\l"
+	"Hey, wait!\p"
+
+	"Why's my text red?\n"
+	"", MSGBOX_NPC)
+}
+
+script PokemonMansion_Eruption {
+	msgbox(
+	"A meteorite has been placed in\n"
+	"the machine.\l"
+	"There's no stopping it now.\p"
+
+	"A progress bar is displayed on the\n"
+	"screen.\p"
+
+	"TIME UNTIL ERUPTION:{PAUSE 30}\n"
+	"TWO YEARS", MSGBOX_SIGN)
+
 }
 
 
@@ -185,5 +224,54 @@ script PokemonMansion_FireFlyingSign {
 
 	"This message was brought to you\n"
 	"by the RBY Type Chart.", MSGBOX_SIGN)
+
+}
+
+
+script PokemonMansion_MoltresEgg {
+	lock
+	msgbox(
+	"A large egg has been soft-boiling\n"
+	"in the heat of the volcano.", MSGBOX_DEFAULT)
+	closemessage
+	delay(40)
+	playse(SE_M_EMBER)
+	applymovement(LOCALID_MOLTRES_EGG, moves(
+		cut_tree
+	))
+	delay(40)
+	applymovement(LOCALID_MOLTRES, moves(
+		set_visible
+	))
+	waitmovement(LOCALID_MOLTRES_EGG)
+	delay(20)
+	playse(SE_EGG_HATCH)
+	goto_if_questlog (EventScript_ReleaseEnd)
+	special (QuestLog_CutRecording)
+	
+	setwildbattle (SPECIES_MOLTRES, 50, ITEM_VALOR_SEAL)
+	waitse
+	delay(10)
+	playmoncry (SPECIES_MOLTRES, CRY_MODE_ENCOUNTER)
+	
+	waitmessage
+	waitmoncry
+	delay (10)
+	playbgm (MUS_ENCOUNTER_GYM_LEADER, 0)
+	delay(45)
+	setflag (FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special (StartLegendaryBattle)
+	waitstate
+	clearflag (FLAG_SYS_SPECIAL_WILD_BATTLE)
+	specialvar (VAR_RESULT, GetBattleOutcome)
+	setflag(FLAG_TEMP_5)
+	removeobject(LOCALID_MOLTRES_EGG)
+	removeobject(LOCALID_MOLTRES)
+	goto_if_eq (VAR_RESULT, B_OUTCOME_WON, MtEmber_Summit_EventScript_DefeatedMoltres)
+	goto_if_eq (VAR_RESULT, B_OUTCOME_RAN, MtEmber_Summit_EventScript_RanFromMoltres)
+	goto_if_eq (VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MtEmber_Summit_EventScript_RanFromMoltres)
+	setflag (FLAG_FOUGHT_MOLTRES)
+	release
+	end
 
 }

@@ -617,6 +617,9 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_GARBO_GIRL  0x11BE
 #define OBJ_EVENT_PAL_TAG_BURN_TREE  0x11BF
 #define OBJ_EVENT_PAL_TAG_MARSHMALLOW_1  0x11C0
+#define OBJ_EVENT_PAL_TAG_SECRET_SWITCH  0x11C1
+#define OBJ_EVENT_PAL_TAG_BURNING_EGG  0x11C2
+#define OBJ_EVENT_PAL_TAG_BURNING_BOOK  0x11C3
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -807,6 +810,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_GARBO_GIRL,             OBJ_EVENT_PAL_TAG_GARBO_GIRL},
     {gObjectEventPal_BURN_TREE,             OBJ_EVENT_PAL_TAG_BURN_TREE},
     {gObjectEventPal_MARSHMALLOW_1,             OBJ_EVENT_PAL_TAG_MARSHMALLOW_1},
+    {gObjectEventPal_SECRET_SWITCH,             OBJ_EVENT_PAL_TAG_SECRET_SWITCH},
+    {gObjectEventPal_BURNING_EGG,             OBJ_EVENT_PAL_TAG_BURNING_EGG},
+    {gObjectEventPal_BURNING_BOOK,             OBJ_EVENT_PAL_TAG_BURNING_BOOK},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

@@ -9145,7 +9145,7 @@ static const struct LevelUpMove sAmpharos_MegaLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sYoshiLevelUpLearnset[] = {
-LEVEL_UP_MOVE(0, MOVE_GULP),
+    LEVEL_UP_MOVE(0, MOVE_GULP),
     LEVEL_UP_MOVE(1, MOVE_GROUND_POUND),
     LEVEL_UP_MOVE(1, MOVE_EGG_BOMB),
     LEVEL_UP_MOVE(1, MOVE_HI_HORSEPOWER),

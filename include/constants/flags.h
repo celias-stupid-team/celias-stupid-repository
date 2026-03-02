@@ -476,8 +476,8 @@
 #define FLAG_DANCED_FOR_ARTICUNO                    0x1A9
 #define FLAG_GOT_SHINY_MISSINGNO                          0x1AA
 #define FLAG_GOT_TREASURE_MAP                    0x1AB
-#define FLAG_0x1AC                          0x1AC
-#define FLAG_0x1AD                     0x1AD
+#define FLAG_SAFFRON_GYM_SHORTCUT                          0x1AC
+#define FLAG_SAFFRON_CHECKED_MONKEY_WINDOW                     0x1AD
 #define FLAG_0x1AE                          0x1AE
 #define FLAG_0x1AF                    0x1AF
 #define FLAG_GOT_TM50                          0x1B0

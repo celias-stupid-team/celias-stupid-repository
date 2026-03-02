@@ -1,6 +1,5 @@
 raw `
-PokemonMansion_2F_MapScripts::
-	.byte 0
+
 
 PokemonMansion_2F_OnLoad::
 	end
@@ -28,7 +27,13 @@ PokemonMansion_2F_EventScript_Arnie::
 	msgbox PokemonMansion_1F_Text_ArniePostBattle, MSGBOX_AUTOCLOSE
 	end
 `
-
+mapscripts PokemonMansion_2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_POKEMON_MANSION_SWITCH_STATE)) {
+			setmaplayoutindex(LAYOUT_POKEMON_MANSION_2F_OPEN)
+		}
+	}
+}
 
 script PokemonMansion_Diary1 {
 	msgbox(
@@ -44,13 +49,6 @@ script PokemonMansion_Diary2 {
 
 }
 
-script PokemonMansion_Diary3 {
-	msgbox(
-	"Diary 3, February 6th:\n"
-	"Wait! No!\l"
-	"This baby is a demon child!", MSGBOX_SIGN)
-
-}
 
 
 script PokemonMansion_SetFallInLava {

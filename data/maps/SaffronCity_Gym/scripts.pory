@@ -1,6 +1,5 @@
 raw `
-SaffronCity_Gym_MapScripts::
-	.byte 0
+
 
 SaffronCity_Gym_EventScript_Sabrina::
 
@@ -94,6 +93,19 @@ SaffronCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+mapscripts SaffronCity_Gym_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_SAFFRON_GYM_SHORTCUT)) {
+			setmetatile(17, 21, 0x293, FALSE)
+		}
+	}
+	MAP_SCRIPT_ON_LOAD { //I cannot for the life of me remember which it's supposed to be so I'm doing both
+		if(flag(FLAG_SAFFRON_GYM_SHORTCUT)) {
+			setmetatile(17, 21, 0x293, FALSE)
+		}
+	}
+}
+
 script SaffronGym_ClosedSign {
 	msgbox("ATTENTION!\pIn light of last month's unfortunate\ndecapitation incident, this GYM\lis no longer in service.\pThank you for your patronage.\n", MSGBOX_SIGN)
 	end

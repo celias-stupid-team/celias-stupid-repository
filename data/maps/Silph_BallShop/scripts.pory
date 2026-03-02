@@ -13,6 +13,9 @@ script SilphCo_BallShop_Kurt {
 	pokemart(SilphCo_BallShop_Mart)
 	msgbox(Text_PleaseComeAgain)
 	if(checkitem(ITEM_BIG_MUSHROOM)) {
+		if(checkitem(ITEM_BIG_MUSHROOM) > 9) {
+			setflag(FLAG_TEMP_1)
+		}
 		while(checkitem(ITEM_BIG_MUSHROOM)) {
 			removeitem(ITEM_BIG_MUSHROOM)
 		}
@@ -24,6 +27,17 @@ script SilphCo_BallShop_Kurt {
 		waitfanfare
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_AMOONGUSS)
 		call(Common_Script_GiftPokemon)
+		if(flag(FLAG_TEMP_1)) {
+			clearflag(FLAG_TEMP_1)
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox(
+			"Were you trying to purchase a\n"
+			"PREMIER MUSHROOM?\p"
+
+			"That's not actually a feature in\n"
+			"FIRE RED VERSION. Sorry!", MSGBOX_DEFAULT)
+
+		}
 	}
 	release
 }
