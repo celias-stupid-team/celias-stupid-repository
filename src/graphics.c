@@ -54,6 +54,15 @@ const u32 gBattleAnimSpritePal_Bulldozer[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpriteGfx_RotomDescend[] = INCBIN_U32("graphics/battle_anims/sprites/rotom_dex.4bpp.lz");
 const u32 gBattleAnimSpritePal_RotomDescend[] = INCBIN_U32("graphics/battle_anims/sprites/rotom_dex.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Exodia[] = INCBIN_U32("graphics/battle_anims/sprites/exodia.4bpp.lz");
+const u32 gBattleAnimSpritePal_Exodia[] = INCBIN_U32("graphics/battle_anims/sprites/exodia.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_ThrownKrabby[] = INCBIN_U32("graphics/battle_anims/sprites/krabby.4bpp.lz");
+const u32 gBattleAnimSpritePal_ThrownKrabby[] = INCBIN_U32("graphics/battle_anims/sprites/krabby.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_ThrownForretress[] = INCBIN_U32("graphics/battle_anims/sprites/forretress.4bpp.lz");
+const u32 gBattleAnimSpritePal_ThrownForretress[] = INCBIN_U32("graphics/battle_anims/sprites/forretress.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.4bpp.lz");
 const u32 gBattleAnimSpritePal_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.gbapal.lz");
 

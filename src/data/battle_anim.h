@@ -1350,6 +1350,9 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Steamroller, 0x2000, ANIM_TAG_STEAMROLLER},
     {gBattleAnimSpriteGfx_Bulldozer, 0x2000, ANIM_TAG_BULLDOZER},
     {gBattleAnimSpriteGfx_RotomDescend, 0x2000, ANIM_TAG_ROTOM_DESCEND},
+    {gBattleAnimSpriteGfx_Exodia, 0x0A00, ANIM_TAG_EXODIA},
+    {gBattleAnimSpriteGfx_ThrownKrabby, 0x0200, ANIM_TAG_THROWN_KRABBY},
+    {gBattleAnimSpriteGfx_ThrownForretress, 0x0200, ANIM_TAG_THROWN_FORRETRESS},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1694,6 +1697,9 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Steamroller, ANIM_TAG_STEAMROLLER},
     {gBattleAnimSpritePal_Bulldozer, ANIM_TAG_BULLDOZER},
     {gBattleAnimSpritePal_RotomDescend, ANIM_TAG_ROTOM_DESCEND},
+    {gBattleAnimSpritePal_Exodia, ANIM_TAG_EXODIA},
+    {gBattleAnimSpritePal_ThrownKrabby, ANIM_TAG_THROWN_KRABBY},
+    {gBattleAnimSpritePal_ThrownForretress, ANIM_TAG_THROWN_FORRETRESS},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
