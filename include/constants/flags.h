@@ -217,7 +217,7 @@
 #define FLAG_CHRIS_GIVES_LICKITUNG                      0x0BE
 
 //Pewter City
-#define FLAG_CSR_UNUSED_3               0x0BF
+#define FLAG_GOT_MEW_BRICK_PIECE               0x0BF
 #define FLAG_CSR_MUSEUM_GUIDE_MISSED    0x0C0
 #define FLAG_CSR_BROCK_RAINING          0x0C1
 #define FLAG_CSR_TREE_FLAG_1            0x0C2
