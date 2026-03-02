@@ -89,3 +89,11 @@ script MtMoon_EventScript_HyperDrill {
 	"No clue how I'm supposed to get\n"
 	"out.", MSGBOX_NPC)
 }
+
+
+script MtMoon_Lichen {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"I'm lichen what I'm seein'\n"
+	"", MSGBOX_NPC)
+}

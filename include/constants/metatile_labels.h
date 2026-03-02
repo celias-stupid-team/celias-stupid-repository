@@ -9,8 +9,9 @@
 #define METATILE_BlaineFurnaceFun_Lava           0x280
 
 // gTileset_Building
-#define METATILE_Building_PCOff  0x062
-#define METATILE_Building_PCOn   0x063
+#define METATILE_Building_PCOff           0x062
+#define METATILE_Building_PCOn            0x063
+#define METATILE_Building_Silph2Elevator  0x21A
 
 // gTileset_Cave
 #define METATILE_Cave_Floor_Ledge_Bottom  0x2E1
