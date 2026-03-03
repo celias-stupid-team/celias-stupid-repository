@@ -1,8 +1,5 @@
 raw `
-SaffronCity_PokemonTrainerFanClub_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, SaffronCity_PokemonTrainerFanClub_OnFrame
-	map_script MAP_SCRIPT_ON_TRANSITION, SaffronCity_PokemonTrainerFanClub_OnTransition
-	.byte 0
+
 
 SaffronCity_PokemonTrainerFanClub_OnFrame::
 	map_script_2 VAR_CSR_DUMMY_12, 1, SaffronCity_PokemonTrainerFanClub_EventScript_MeetFirstFans
@@ -420,3 +417,6 @@ SaffronCity_PokemonTrainerFanClub_EventScript_BlackBeltOnlyNonFan::
 	release
 	end
 `
+mapscripts SaffronCity_PokemonTrainerFanClub_MapScripts {
+	
+}
