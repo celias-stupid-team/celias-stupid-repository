@@ -345,8 +345,16 @@ void FieldUseFunc_Bike(u8 taskId)
 
 static void ItemUseOnFieldCB_Bicycle(u8 taskId)
 {
-    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
-        PlaySE(SE_BIKE_BELL);
+    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE)) {
+            if(gSpecialVar_ItemId == ITEM_SHINY_BIKE) {
+                FlagSet(FLAG_SYS_ON_SHINY_BIKE);
+            } else {
+                FlagClear(FLAG_SYS_ON_SHINY_BIKE);
+            }
+            PlaySE(SE_BIKE_BELL);
+        
+    }
+        
     GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE);
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
     UnlockPlayerFieldControls();

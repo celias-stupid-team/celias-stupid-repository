@@ -1443,7 +1443,7 @@
 #define FLAG_SYS_FUSHCIA_DISABLE_FLY                                (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
-#define FLAG_0x831                                                  (SYS_FLAGS + 0x31)
+#define FLAG_SYS_ON_SHINY_BIKE                                                  (SYS_FLAGS + 0x31)
 #define FLAG_0x832                                                  (SYS_FLAGS + 0x32)
 #define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)
