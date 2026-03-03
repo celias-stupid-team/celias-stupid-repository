@@ -13,7 +13,6 @@ FiveIsland_RocketWarehouse_OnTransition::
 
 FiveIsland_RocketWarehouse_OnLoad::
 	setrespawn HEAL_LOCATION_FIVE_ISLAND_ROCKET_WAREHOUSE
-	call_if_defeated TRAINER_TEAM_ROCKET_ADMIN, FiveIsland_RocketWarehouse_EventScript_SetArrowsForReEntry
 	end
 
 FiveIsland_RocketWarehouse_EventScript_SetArrowsForReEntry::
@@ -408,6 +407,7 @@ script Warehouse_Earrat {
 	lock
 	showmonpic(SPECIES_EARRAT, 10, 3)
 	waitbuttonpress
+	hidemonpic
 	release
 	end
 }

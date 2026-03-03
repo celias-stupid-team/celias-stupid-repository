@@ -828,7 +828,7 @@ static const struct LevelUpMove sGrowlitheLevelUpLearnset[] = {
 
 static const struct LevelUpMove sArcanineLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_NONUPLE_WINGBEAT),
-    LEVEL_UP_MOVE(1, MOVE_SACRED_FIRE),
+    //LEVEL_UP_MOVE(1, MOVE_SACRED_FIRE),
     LEVEL_UP_MOVE(1, MOVE_POWER_UP_PUP),
     LEVEL_UP_MOVE(1, MOVE_BARK_BARRAGE),
     LEVEL_UP_MOVE(71, MOVE_VACUUM_FEAR),

@@ -652,7 +652,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SUPERSONIC] =
     {
-        .effect = EFFECT_CONFUSE,
+        .effect = EFFECT_SPLASH,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 55,
@@ -8513,7 +8513,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 40,
-        .type = TYPE_NORMAL,
+        .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,

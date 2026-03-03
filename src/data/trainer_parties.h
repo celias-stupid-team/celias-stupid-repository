@@ -6761,8 +6761,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt46[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt47[] = {
     {
         .iv = 0,
-        .lvl = 48,
-        .species = SPECIES_MACHOP,
+        .lvl = 18,
+        .species = SPECIES_GOOMY,
+    },
+    {
+        .iv = 0,
+        .lvl = 17,
+        .species = SPECIES_GLOOM,
     },
 };
 

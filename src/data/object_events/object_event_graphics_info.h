@@ -3004,7 +3004,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bench = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ShitPickle = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_GREEN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

@@ -118,7 +118,7 @@ script Silph_LookGirl_Balls {
 					waitmovement(0)
 					break
         }
-	if(var(VAR_TEMP_5) == 6) {
+	if(var(VAR_TEMP_5) == 6 && var(VAR_SILPH_LOOK_GIRL) == 1) {
 		playse(SE_BIKE_BELL)
 		waitse
 		
@@ -137,7 +137,6 @@ script Silph_LookGirl_Balls {
 		copyobjectxytoperm(LOCALID_KURT)
 		setobjectmovementtype(LOCALID_KURT, MOVEMENT_TYPE_FACE_DOWN)
 		setvar(VAR_SILPH_LOOK_GIRL, 2)
-		removeobject(VAR_LAST_TALKED)
 		waitmovement(0)
 	}
 	if(var(VAR_TEMP_5) == 2) {

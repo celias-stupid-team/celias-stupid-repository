@@ -58,7 +58,7 @@ script SaffronCity_HouseNPC2 {
 		"Again.\p"
 
 		"This is the fourth time this month…\n"
-		"", MSGBOX_DEFAULT)
+		"", MSGBOX_NPC)
 	} else {
 		msgbox(
 		"The DMCA are finally gone, eh?\n"
