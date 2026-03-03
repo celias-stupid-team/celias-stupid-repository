@@ -39,7 +39,7 @@ static const struct LevelUpMove sIvysaurLevelUpLearnset[] = {
 static const struct LevelUpMove sVenusaurLevelUpLearnset[] = {
     //LEVEL_UP_MOVE(0, MOVE_ME_LAST),
     LEVEL_UP_MOVE(0, MOVE_FINAL_GAMBIT),
-    LEVEL_UP_MOVE(1, MOVE_ME_FIRST),
+    //LEVEL_UP_MOVE(1, MOVE_ME_FIRST),
     LEVEL_UP_MOVE(1, MOVE_ONE_EDGE),
     LEVEL_UP_MOVE(1, MOVE_ONEMERANG),
     LEVEL_UP_MOVE(1, MOVE_BANEFUL_1NKER),
