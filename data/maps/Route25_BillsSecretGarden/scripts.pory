@@ -247,6 +247,7 @@ script SecretGarden_PCMonitor {
                 walk_fast_down * 4
             ))
             waitmovement(0)
+            setvar(VAR_VIEWING_PC, 1)
             release
         } else {
             call(SecretGarden_GetCurrentPCPokemon)
