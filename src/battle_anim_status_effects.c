@@ -15,6 +15,8 @@ static void AnimTask_FrozenIceCube_Step1(u8 taskId);
 static void AnimTask_FrozenIceCube_Step2(u8 taskId);
 static void AnimTask_FrozenIceCube_Step3(u8 taskId);
 static void AnimTask_FrozenIceCube_Step4(u8 taskId);
+static void AnimTask_SummonCircle_Fade(u8 taskId);
+static void AnimTask_SummonCircle_Hold(u8 taskId);
 static void Task_DoStatusAnimation(u8 taskId);
 static void AnimFlashingCircleImpact(struct Sprite *sprite);
 static void AnimFlashingCircleImpact_Step(struct Sprite *sprite);
@@ -227,6 +229,38 @@ static const struct SpriteTemplate sFrozenIceCubeSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+
+static const struct Subsprite sSummonCircleSubsprites[] =
+{
+    {.x = -48, .y = -48, .shape = SPRITE_SHAPE(64x64),
+     .size = SPRITE_SIZE(64x64), .tileOffset = 0, .priority = 2},
+
+    {.x = -48, .y =  16, .shape = SPRITE_SHAPE(64x32),
+     .size = SPRITE_SIZE(64x32), .tileOffset = 64, .priority = 2},
+
+    {.x =  16, .y = -48, .shape = SPRITE_SHAPE(32x64),
+     .size = SPRITE_SIZE(32x64), .tileOffset = 96, .priority = 2},
+
+    {.x =  16, .y =  16, .shape = SPRITE_SHAPE(32x32),
+     .size = SPRITE_SIZE(32x32), .tileOffset = 128, .priority = 2},
+};
+
+static const struct SubspriteTable sSummonCircleSubspriteTable[] =
+{
+    {NELEMS(sSummonCircleSubsprites), sSummonCircleSubsprites},
+};
+
+static const struct SpriteTemplate sSummonCircleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SUMMONING_CIRCLE,
+    .paletteTag = ANIM_TAG_SUMMONING_CIRCLE,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 static const struct SpriteTemplate sFlashingCircleImpactSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_IMPACT,
@@ -344,6 +378,74 @@ static void AnimFlashingCircleImpact_Step(struct Sprite *sprite)
             DestroySpriteAndFreeResources(sprite);
         else
             DestroySprite(sprite);
+    }
+}
+
+static const u8 sFadeTargets[] = {8, 0, 12, 0, 16};
+
+void AnimTask_SummonCircle(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 spriteId;
+
+    s16 x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2)
+            + gBattleAnimArgs[0] - 40;
+    s16 y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET)
+            + gBattleAnimArgs[1] - 40;
+
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_ALL);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 16));
+
+    spriteId = CreateSprite(&sSummonCircleSpriteTemplate, x, y, 4);
+    SetSubspriteTables(&gSprites[spriteId], sSummonCircleSubspriteTable);
+
+    task->data[0] = spriteId;
+    task->data[1] = 0;              // current alpha
+    task->data[2] = 0;              // phase index
+    task->data[3] = gBattleAnimArgs[3]; // wait timer
+    task->data[4] = gBattleAnimArgs[2]; // lifetime after final phase
+
+    task->func = AnimTask_SummonCircle_Fade;
+}
+
+static void AnimTask_SummonCircle_Fade(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    s16 target = sFadeTargets[task->data[2]];
+
+    if (task->data[1] < target)
+        task->data[1]++;
+    else if (task->data[1] > target)
+        task->data[1]--;
+    else
+    {
+        if (++task->data[5] >= task->data[3])
+        {
+            task->data[5] = 0;
+            task->data[2]++;
+
+            if (task->data[2] >= ARRAY_COUNT(sFadeTargets))
+            {
+                task->func = AnimTask_SummonCircle_Hold;
+                return;
+            }
+        }
+    }
+
+    SetGpuReg(REG_OFFSET_BLDALPHA,
+        BLDALPHA_BLEND(task->data[1], 16 - task->data[1]));
+}
+
+static void AnimTask_SummonCircle_Hold(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    if (--task->data[4] == 0)
+    {
+        DestroySprite(&gSprites[task->data[0]]);
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+        DestroyAnimVisualTask(taskId);
     }
 }
 

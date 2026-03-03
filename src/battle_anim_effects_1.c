@@ -160,6 +160,8 @@ static void AnimMoveWonderSeed(struct Sprite *);
 static void AnimMoveSmallCloud(struct Sprite *);
 static void AnimShadowShield(struct Sprite *);
 static void AnimShadowShield_Step(struct Sprite *);
+static void AnimShine(struct Sprite *);
+static void AnimShine_Wait(struct Sprite *);
 
 static const u8 sUnused[] = {2, 4, 1, 3};
 
@@ -1505,6 +1507,55 @@ const struct SpriteTemplate gProtectSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimProtect,
+};
+
+
+static const union AnimCmd sShineAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(80, 2),
+    ANIMCMD_FRAME(96, 2),
+    ANIMCMD_FRAME(112, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(80, 2),
+    ANIMCMD_FRAME(96, 2),
+    ANIMCMD_FRAME(112, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(80, 2),
+    ANIMCMD_FRAME(96, 2),
+    ANIMCMD_FRAME(112, 2),
+    ANIMCMD_FRAME(128, 2),
+    ANIMCMD_FRAME(144, 4),
+    ANIMCMD_FRAME(160, 4),
+    ANIMCMD_JUMP(24),
+};
+
+static const union AnimCmd *const sShineAnimTable[] =
+{
+    sShineAnimCmds,
+};
+
+const struct SpriteTemplate gShineSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHINE,
+    .paletteTag = ANIM_TAG_SHINE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sShineAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimShine,
 };
 
 const struct SpriteTemplate gShadowShieldSpriteTemplate =
@@ -3471,6 +3522,26 @@ static void AnimTask_DuplicateAndShrinkToPos_Step2(u8 taskId)
     gTasks[taskId].data[0]++;
     if (gTasks[taskId].data[0] == 3)
         DestroyAnimVisualTask(taskId);
+}
+
+static void AnimShine(struct Sprite *sprite)
+{
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+
+    sprite->x2 = gBattleAnimArgs[0];
+    sprite->y2 = gBattleAnimArgs[1];
+
+    sprite->data[0] = gBattleAnimArgs[2];
+
+    //TrySetSpriteRotScale(sprite, TRUE, 0x60, 0x60, 0);
+
+    sprite->callback = AnimShine_Wait;
+}
+
+static void AnimShine_Wait(struct Sprite *sprite)
+{
+    if (sprite->data[0]-- == 0)
+        DestroyAnimSprite(sprite);
 }
 
 // Moves an orb from the target mon to the attacking mon.

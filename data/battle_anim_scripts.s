@@ -16129,19 +16129,67 @@ DarkPulseParticle:
 
 Move_TRUMP_CARD:
 	loadspritegfx ANIM_TAG_EXODIA
+	loadspritegfx ANIM_TAG_SUMMONING_CIRCLE
 	monbg ANIM_ATTACKER
-	createsprite gExodiaSpriteTemplate, 2, 0, 0  @ top-left
-	delay 30
-	createsprite gExodiaSpriteTemplate, 2, 0, 1  @ top-right
-	delay 30
-	createsprite gExodiaSpriteTemplate, 2, 0, 2  @ bottom-left
-	delay 30
-	createsprite gExodiaSpriteTemplate, 2, 0, 3  @ bottom-right
-	delay 30
-	createsprite gExodiaSpriteTemplate, 2, 0, 4  @ top-middle
+	fadetobg BG_GHOST
+	waitbgfadein
+	waitplaysewithpan SE_M_SAND_ATTACK, 0, 2
+	createsprite gExodiaSpriteTemplate, 3, 0, 0, 584   @ top-left
+	delay 45
+	waitplaysewithpan SE_M_SAND_ATTACK, 0, 2
+	createsprite gExodiaSpriteTemplate, 3, 0, 1, 539  @ top-right
+	delay 45
+	waitplaysewithpan SE_M_SAND_ATTACK, 0, 2
+	createsprite gExodiaSpriteTemplate, 3, 0, 2, 494  @ bottom-left
+	delay 45
+	waitplaysewithpan SE_M_SAND_ATTACK, 0, 2
+	createsprite gExodiaSpriteTemplate, 3, 0, 3, 449  @ bottom-right
+	delay 75
+	waitplaysewithpan SE_M_SAND_ATTACK, 0, 2
+	createsprite gExodiaSpriteTemplate, 3, 0, 4, 374  @ top-middle
+	delay 60
+	createvisualtask AnimTask_SummonCircle, 5, 40, 17, 120, 40
+	playsewithpan SE_M_EARTHQUAKE, 0
+	@createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 5, 10
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 5, 10
+	delay 97
+	playsewithpan SE_M_EARTHQUAKE, 0
+	@createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 20
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 20
+	delay 97
+	playsewithpan SE_M_EARTHQUAKE, 0
+	@createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 20, 10
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 20, 10
+	createvisualtask AnimTask_BlendEveryBattleAnimPal, 5, 5, 2, 0, 16, RGB_WHITEALPHA
+	waitforvisualfinish
+	restorebg
+	delay 15
+	createvisualtask AnimTask_BlendEveryBattleAnimPal, 5, 5, 2, 16, 0, RGB_WHITEALPHA
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
 	end
+
+	
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
+	playsewithpan SE_M_EARTHQUAKE, 0
+	delay 10
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 16
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	end
+
+	
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 0, 0, 16, RGB_WHITE
+	delay 4
+	createvisualtask AnimTask_AttackerFadeToInvisible, 5, 0
+	waitforvisualfinish
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_SKY_UPPERCUT, SOUND_PAN_ATTACKER
+	createsprite gSkyAttackBirdSpriteTemplate, ANIM_TARGET, 2
+	delay 14
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 10, 0, 18, 1
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	delay 20
 
 
 Move_DRAGON_PULSE:
@@ -20095,6 +20143,15 @@ Move_HISTORY_EXPLOSION:
 Move_BUS_BUZZ:
 Move_BLAST_LEARN:
 Move_HEART_STAMP:
+	loadspritegfx ANIM_TAG_SHINE
+	monbg ANIM_ATTACKER
+	setalpha 12, 8
+	loopsewithpan SE_M_SWIFT, SOUND_PAN_ATTACKER, 16, 3
+	createsprite gShineSpriteTemplate, ANIM_ATTACKER, 2, 0, 6, 60
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	end
 Move_DRAGON:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET

@@ -104,6 +104,7 @@ static void AnimFurySwipes(struct Sprite *);
 static void AnimGuardRing(struct Sprite *);
 static void AnimCardFly(struct Sprite *);
 
+
 // Unused
 static const struct SpriteTemplate sCirclingFingerSpriteTemplate =
 {
@@ -883,7 +884,7 @@ static const u8 sPentagramAngles[5] =
 static const s16 sStartOffsetX[5] = { 0, 0, 0, 0, 0 };
 static const s16 sStartOffsetY[5] = { 0, 0, 0, 0, 0 };
 
-#define CARD_SPEED 6
+#define CARD_SPEED 8
 #define CARD_RADIUS 24
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
@@ -936,6 +937,7 @@ static void AnimCardFly(struct Sprite *sprite)
         sprite->data[4] = endY;
         sprite->data[5] = xSpeed;
         sprite->data[6] = ySpeed;
+        sprite->data[7] = gBattleAnimArgs[1];  // lifetime
 
         StartSpriteAnim(sprite, index);
 
@@ -943,18 +945,25 @@ static void AnimCardFly(struct Sprite *sprite)
         break;
     }
 
-    case 1: // MOVE
+    case 1:
     {
         sprite->x += sprite->data[5];
         sprite->y += sprite->data[6];
 
-        sprite->data[1]++;
+        sprite->data[1]++;   // movement timer
 
         if (sprite->data[1] >= sprite->data[2])
         {
             sprite->x = sprite->data[3];
             sprite->y = sprite->data[4];
-            sprite->callback = SpriteCallbackDummy;
+        }
+
+        if (sprite->data[1] >= sprite->data[7])
+        {
+            //DestroySprite(sprite);
+            DestroyAnimSprite(sprite);
+            //sprite->callback = AnimCardFly_Step;
+            //DestroyAnimVisualTask(taskId);
         }
 
         break;

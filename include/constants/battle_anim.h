@@ -350,6 +350,8 @@
 #define ANIM_TAG_EXODIA                     (ANIM_SPRITES_START + 340)
 #define ANIM_TAG_THROWN_KRABBY              (ANIM_SPRITES_START + 341)
 #define ANIM_TAG_THROWN_FORRETRESS          (ANIM_SPRITES_START + 342)
+#define ANIM_TAG_SHINE                      (ANIM_SPRITES_START + 343)
+#define ANIM_TAG_SUMMONING_CIRCLE           (ANIM_SPRITES_START + 344)
 
 // battlers
 #define ANIM_ATTACKER    0
