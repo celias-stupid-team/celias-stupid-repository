@@ -47,7 +47,6 @@ const u8 gMoveDescription_BoltStreak[] = _("Dummy");
 const u8 gMoveDescription_Flash_Ampharos[] = _("Dummy");
 const u8 gMoveDescription_BurningJealousy[] = _("Dummy");
 const u8 gMoveDescription_DisarmingChoice[] = _("Dummy");
-const u8 gMoveDescription_Clamputate[] = _("Dummy");
 const u8 gMoveDescription_DisarmedVoice[] = _("Dummy");
 const u8 gMoveDescription_BleedleArm[] = _("Dummy");
 const u8 gMoveDescription_PainDance[] = _("Dummy");

@@ -95,15 +95,16 @@ script Route4_EventScript_MinusSitrusBerries {
 			"", MSGBOX_DEFAULT)
 		}
 	} else {
-		if(checkitem(ITEM_NOTHING) && !checkitem(ITEM_SITRUS_BERRY) && !flag(FLAG_SITRUS_BERRY_NOTHING)) {
+		if(checkitem(ITEM_SITRUS_BERRY, 1) && !checkitem(ITEM_SITRUS_BERRY, 2) && !flag(FLAG_SITRUS_BERRY_NOTHING)) {
 			msgbox(
-				"There's nothing here.\p"
+			"There's nothing here.\p"
 
-				"Actually, there's even less than\n"
-				"that.\p"
+			"Actually, there's even less than\n"
+			"that.\p"
 
-				"{PLAYER} took out some of the\n"
-				"NOTHING…", MSGBOX_DEFAULT)
+			"{PLAYER} put 1 SITRUS BERRY into\n"
+			"the less-than-nothing, then took\l"
+			"the remaining NOTHING for themself.", MSGBOX_DEFAULT)
 				setflag(FLAG_SITRUS_BERRY_NOTHING)
 				giveitem(ITEM_NOTHING)
 				

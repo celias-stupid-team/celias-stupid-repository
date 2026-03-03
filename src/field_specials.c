@@ -515,6 +515,24 @@ void ShakeScreen(void)
     PlaySE(SE_M_STRENGTH);
 }
 
+void ShakeScreenSilent(void)
+{
+    /*
+     * 0x8004 = x translation
+     * 0x8005 = y translation
+     * 0x8006 = num interations
+     * 0x8007 = duration of an iteration
+     */
+    u8 taskId = CreateTask(Task_ShakeScreen, 9);
+    gTasks[taskId].tXtrans = gSpecialVar_0x8005;
+    gTasks[taskId].tTimer = 0;
+    gTasks[taskId].tNremain = gSpecialVar_0x8006;
+    gTasks[taskId].tDuration = gSpecialVar_0x8007;
+    gTasks[taskId].tYtrans = gSpecialVar_0x8004;
+    SetCameraPanningCallback(NULL);
+    //PlaySE(SE_M_STRENGTH);
+}
+
 static void Task_ShakeScreen(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;

@@ -849,3 +849,5 @@ const u32 gObjectEventPic_BURNING_EGG[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_BURNING_EGG[] = INCBIN_U16("graphics/object_events/palettes/BURNING_EGG.gbapal");
 const u32 gObjectEventPic_BURNING_BOOK[] = INCBIN_U32("graphics/object_events/pics/stupid/BURNING_BOOK.4bpp");
 const u16 gObjectEventPal_BURNING_BOOK[] = INCBIN_U16("graphics/object_events/palettes/BURNING_BOOK.gbapal");
+const u32 gObjectEventPic_SHINY_BIKE[] = INCBIN_U32("graphics/object_events/pics/stupid/SHINY_BIKE.4bpp");
+const u16 gObjectEventPal_SHINY_BIKE[] = INCBIN_U16("graphics/object_events/palettes/SHINY_BIKE.gbapal");
