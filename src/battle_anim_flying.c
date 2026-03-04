@@ -16,6 +16,9 @@ static void AnimUnusedFeather(struct Sprite *sprite);
 static void AnimWhirlwindLine(struct Sprite *sprite);
 static void AnimBounceBallShrink(struct Sprite *sprite);
 static void AnimBounceBallLand(struct Sprite *sprite);
+static void AnimSteamrollerLand(struct Sprite *sprite);
+static void AnimBulldozer(struct Sprite *sprite);
+static void AnimTask_PushTargetOffscreen_Step(u8 taskId);
 static void AnimDiveBall(struct Sprite *sprite);
 static void AnimDiveWaterSplash(struct Sprite *sprite);
 static void AnimSprayWaterDroplet(struct Sprite *sprite);
@@ -34,6 +37,8 @@ static void AnimDiveBall_Step2(struct Sprite *sprite);
 static void AnimSprayWaterDroplet_Step(struct Sprite *sprite);
 static void AnimUnusedFlashingLight_Step(struct Sprite *sprite);
 static void AnimSkyAttackBird_Step(struct Sprite *sprite);
+static void AnimRotomAppear(struct Sprite *sprite);
+static void AnimRotomEnter(struct Sprite *sprite);
 
 const struct SpriteTemplate gEllipticalGustSpriteTemplate =
 {
@@ -285,6 +290,224 @@ const struct SpriteTemplate gBounceBallLandSpriteTemplate =
     .affineAnims = sAffineAnims_BounceBallLand,
     .callback = AnimBounceBallLand,
 };
+
+static const union AnimCmd sAnim_SteamrollerDrive[] =
+{
+    ANIMCMD_FRAME(0,   4),
+    ANIMCMD_FRAME(64,  4),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_FRAME(192, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_Steamroller[] =
+{
+    sAnim_SteamrollerDrive,
+};
+
+static const union AnimCmd sAnim_Rotom[] =
+{
+    ANIMCMD_FRAME(0,   8),
+    ANIMCMD_FRAME(64,  16),
+    ANIMCMD_FRAME(128,   8),
+    ANIMCMD_FRAME(192, 16),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_Rotom[] =
+{
+    sAnim_Rotom,
+};
+
+const struct SpriteTemplate gSteamrollerLandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STEAMROLLER,
+    .paletteTag = ANIM_TAG_STEAMROLLER,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_Steamroller,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSteamrollerLand,
+};
+
+const struct SpriteTemplate gBulldozerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BULLDOZER,
+    .paletteTag = ANIM_TAG_BULLDOZER,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_Steamroller,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBulldozer,
+};
+
+const struct SpriteTemplate gRotomAppearSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROTOM_DESCEND,
+    .paletteTag = ANIM_TAG_ROTOM_DESCEND,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = sAnims_Rotom,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRotomAppear,
+};
+
+const struct SpriteTemplate gRotomEnterSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROTOM_DESCEND,
+    .paletteTag = ANIM_TAG_ROTOM_DESCEND,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_Rotom,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRotomEnter,
+};
+
+static void AnimRotomAppear(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+    // INIT
+    case 0:
+        sprite->x = DISPLAY_WIDTH + 32;   // start off right
+        sprite->y = -32;                  // slightly above screen
+
+        sprite->data[1] = 0;              // angle (0-128)
+        sprite->data[2] = DISPLAY_WIDTH / 2;   // arc center X
+        sprite->data[3] = -32;//DISPLAY_HEIGHT / 2;  // arc center Y
+        sprite->data[4] = 96;             // arc radius
+        sprite->data[5] = 2;              // angular speed
+        
+        sprite->data[0] = 1;
+        break;
+
+    // FIRST SEMICIRCLE (right -> center)
+    case 1:
+        sprite->data[1] += sprite->data[5];
+
+        sprite->x = sprite->data[2] + Cos(sprite->data[1], sprite->data[4]);
+        sprite->y = sprite->data[3] + Sin(sprite->data[1], sprite->data[4]);
+
+        // slow near middle
+        if (sprite->data[1] > 48)
+            sprite->data[5] = 1;
+
+        if (sprite->data[1] >= 64)
+        {
+            sprite->data[6] = 0; // pause timer
+            sprite->data[0] = 2;
+        }
+        break;
+
+    // PAUSE IN CENTER
+    case 2:
+        if (++sprite->data[6] > 90)
+        {
+            sprite->data[5] = 1;
+            sprite->data[0] = 3;
+        }
+        break;
+
+    // SECOND HALF (center -> left)
+    case 3:
+        sprite->data[1] += sprite->data[5];
+
+        sprite->x = sprite->data[2] + Cos(sprite->data[1], sprite->data[4]);
+        sprite->y = sprite->data[3] + Sin(sprite->data[1], sprite->data[4]);
+
+        if (sprite->data[1] >= 128)
+        {
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
+
+static void AnimRotomEnter(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+    // INIT
+    case 0:
+        sprite->x = -32;
+        sprite->y = -32;
+        StartSpriteAffineAnim(sprite, 0);
+        SetSpriteRotScale(sprite - gSprites, -256, 256, 0);
+        CalcCenterToCornerVec(sprite, sprite->oam.shape, sprite->oam.size, ST_OAM_AFFINE_DOUBLE);
+
+        sprite->data[1] = 0;
+        sprite->data[2] = 32 + DISPLAY_WIDTH / 2;
+        sprite->data[3] = -32;
+        sprite->data[4] = 96;
+        sprite->data[5] = 2;
+
+        sprite->data[0] = 1;
+        break;
+
+    // SEMICIRCLE TO CENTER
+    case 1:
+        sprite->data[1] += sprite->data[5];
+
+        sprite->x = sprite->data[2] - Cos(sprite->data[1], sprite->data[4]);
+        sprite->y = sprite->data[3] + Sin(sprite->data[1], sprite->data[4]);
+
+        if (sprite->data[1] > 48)
+            sprite->data[5] = 1;
+
+        if (sprite->data[1] >= 64)
+        {
+            sprite->data[6] = 0;
+            sprite->data[0] = 2;
+        }
+        break;
+
+    // PAUSE IN CENTER
+    case 2:
+        if (++sprite->data[6] > 60)
+        {
+            sprite->data[7] = 0;
+            sprite->data[0] = 3;
+        }
+        break;
+
+    // WIND UP DIAGONAL UP-LEFT
+    case 3:
+        sprite->x -= 2;
+        sprite->y -= 2;
+
+        if (++sprite->data[7] > 20)
+        {
+            sprite->data[6] = 0;
+            sprite->data[0] = 4;
+        }
+        break;
+
+    // HOLD
+    case 4:
+        if (++sprite->data[6] > 40)
+        {
+            sprite->data[1] = 0;  // velocity X (fixed)
+            sprite->data[2] = 0;  // velocity Y (fixed)
+            sprite->data[0] = 5;
+        }
+        break;
+
+    // ACCELERATE DOWN-RIGHT FAST
+    case 5:
+        sprite->data[1] += 6;
+        sprite->data[2] += 8;
+
+        sprite->x += sprite->data[1] >> 4;
+        sprite->y += sprite->data[2] >> 4;
+
+        if (sprite->x > DISPLAY_WIDTH + 32 ||
+            sprite->y > DISPLAY_HEIGHT + 32)
+        {
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
 
 static const union AffineAnimCmd sAffineAnim_DiveBall[] =
 {
@@ -1101,6 +1324,279 @@ static void AnimBounceBallLand(struct Sprite *sprite)
             DestroyAnimSprite(sprite);
         }
         break;
+    }
+}
+
+static void AnimSteamrollerLand(struct Sprite *sprite)
+{
+    u8 targetSpriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
+
+    s16 shakeX2 = 0;
+    if (targetSpriteId != SPRITE_NONE)
+        shakeX2 = gSprites[targetSpriteId].x2;
+
+    switch (sprite->data[0])
+    {
+        case 0:
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X);
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+        sprite->y2 = -sprite->y - 64;
+
+        sprite->data[1] = gBattleAnimArgs[0];
+        sprite->data[2] = 0;
+
+        sprite->animPaused = TRUE;
+        sprite->data[0]++;
+        break;
+
+    case 1:
+        sprite->x2 = shakeX2 + sprite->data[2];
+
+        sprite->y2 += 10;
+        if (sprite->y2 >= 0)
+        {
+            sprite->y2 = 0;
+            sprite->data[0]++;
+        }
+        break;
+
+    case 2:
+        sprite->x2 = shakeX2;
+        sprite->y2 = 0;
+
+        if (sprite->data[1] != 0)
+            sprite->data[1]--;
+        else
+        {
+            sprite->animPaused = FALSE; 
+            StartSpriteAnim(sprite, 0);
+            sprite->data[0]++;
+        }
+        break;
+
+    case 3: 
+        sprite->y2 = 0;
+
+        sprite->data[2] += 1;
+        sprite->x2 = sprite->data[2];
+
+        if (sprite->x + sprite->x2 > DISPLAY_WIDTH + 64)
+            DestroyAnimSprite(sprite);
+        break;
+    }
+}
+
+static void SetHealthboxGroupInvisible(u8 battlerId, bool8 invisible)
+{
+    u8 hbId;
+    u8 i;
+
+    if (battlerId >= MAX_BATTLERS_COUNT)
+        return;
+
+    hbId = gHealthboxSpriteIds[battlerId];
+    if (hbId == SPRITE_NONE)
+        return;
+
+    // Hide the main healthbox sprite.
+    gSprites[hbId].invisible = invisible;
+
+    // FRLG healthbox uses extra sprites stored in the healthbox sprite's data[].
+    // Some entries may be 0xFF / SPRITE_NONE depending on context.
+    for (i = 0; i < ARRAY_COUNT(gSprites[hbId].data); i++)
+    {
+        u8 linkedId = (u8)gSprites[hbId].data[i];
+        if (linkedId != SPRITE_NONE && linkedId < MAX_SPRITES)
+            gSprites[linkedId].invisible = invisible;
+    }
+}
+
+void AnimTask_SetHealthboxesInvisible(u8 taskId)
+{
+    u8 i;
+    bool8 visible = (gBattleAnimArgs[0] != 0);
+
+    for (i = 0; i < gBattlersCount; i++)
+        SetHealthboxGroupInvisible(i, !visible);
+
+    DestroyAnimVisualTask(taskId);
+}
+
+static void AnimBulldozer(struct Sprite *sprite)
+{
+    u8 targetBattler;
+    s16 targetY;
+    s16 speed;
+    bool8 targetIsPlayerSide;
+
+    targetBattler = gBattleAnimTarget;
+    targetY = GetBattlerSpriteCoord(targetBattler, BATTLER_COORD_Y);
+
+    speed = (s16)gBattleAnimArgs[0];
+    if (speed <= 0)
+        speed = 4;
+
+    switch (sprite->data[0])
+    {
+    case 0:
+        targetIsPlayerSide = (GetBattlerSide(targetBattler) == B_SIDE_PLAYER);
+
+        sprite->y = targetY + 4;
+        sprite->y2 = 0;
+
+        // +1 = move right, -1 = move left
+        sprite->data[7] = targetIsPlayerSide ? -1 : 1;
+
+        if (sprite->data[7] > 0)
+        {
+            // Enter from left, drive right
+            sprite->x = -32;
+            sprite->x2 = 0;
+            
+            sprite->oam.matrixNum &= ~ST_OAM_HFLIP;
+        }
+        else
+        {
+            // Enter from right, drive left
+            sprite->x = DISPLAY_WIDTH + 32;
+            sprite->x2 = 0;
+            sprite->oam.matrixNum |= ST_OAM_HFLIP;
+        }
+
+        // Start the 4-frame loop immediately (remove if you want static)
+        StartSpriteAnim(sprite, 0);
+
+        sprite->data[1] = speed; // speed
+        sprite->data[2] = 0;     // travel accumulator
+        sprite->data[0] = 1;
+        break;
+
+    case 1:
+        sprite->data[2] += sprite->data[7] * sprite->data[1];
+        sprite->x2 = sprite->data[2];
+
+        if (sprite->data[7] > 0)
+        {
+            if (sprite->x + sprite->x2 > DISPLAY_WIDTH + 32)
+                DestroyAnimSprite(sprite);
+        }
+        else
+        {
+            if (sprite->x + sprite->x2 < -32)
+                DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
+
+void AnimTask_PushTargetOffscreen(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 battler;
+
+    // Which battler?
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        battler = gBattleAnimAttacker;
+    else if (gBattleAnimArgs[0] == ANIM_TARGET)
+        battler = gBattleAnimTarget;
+    else if (gBattleAnimArgs[0] == ANIM_ATK_PARTNER)
+        battler = BATTLE_PARTNER(gBattleAnimAttacker);
+    else // ANIM_DEF_PARTNER
+        battler = BATTLE_PARTNER(gBattleAnimTarget);
+
+    task->data[0] = GetAnimBattlerSpriteId(gBattleAnimArgs[0]); // spriteId (SPRITE_NONE if not visible)
+    task->data[1] = battler;                                    // battler id
+
+    // Direction:
+    // 0 => auto: if target is player side, push left; else push right
+    // 1 => force right
+    // -1 => force left
+    task->data[2] = (s16)gBattleAnimArgs[1];
+    if (task->data[2] == 0)
+        task->data[2] = (GetBattlerSide(battler) == B_SIDE_PLAYER) ? -1 : 1;
+    else if (task->data[2] > 0)
+        task->data[2] = 1;
+    else
+        task->data[2] = -1;
+
+    // Speed
+    task->data[3] = (s16)gBattleAnimArgs[2];
+    if (task->data[3] <= 0)
+        task->data[3] = 4;
+
+    // Timers
+    task->data[4] = (s16)gBattleAnimArgs[3]; // pushTime
+    if (task->data[4] < 0) task->data[4] = 0;
+
+    task->data[5] = (s16)gBattleAnimArgs[4]; // duration (0 => until offscreen)
+    if (task->data[5] < 0) task->data[5] = 0;
+
+    task->data[6] = (s16)gBattleAnimArgs[5]; // restore flag (0/1)
+    task->data[7] = 0;                       // phase: 0 waiting, 1 pushing
+
+    task->data[8]  = 0; // wait counter
+    task->data[9]  = 0; // push counter
+    task->data[10] = 0; // accumulated x2 we apply
+
+    // If target sprite isn't visible, end immediately (prevents waitforvisualfinish hangs)
+    if (task->data[0] == SPRITE_NONE)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    task->func = AnimTask_PushTargetOffscreen_Step;
+}
+
+static void AnimTask_PushTargetOffscreen_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 spriteId = (u8)task->data[0];
+    s16 dir = task->data[2];
+    s16 spd = task->data[3];
+
+    // Safety
+    if (spriteId >= MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    // Phase 0: wait pushTime frames
+    if (task->data[7] == 0)
+    {
+        if (++task->data[8] >= task->data[4])
+            task->data[7] = 1;
+        return;
+    }
+
+    // Phase 1: push
+    task->data[10] += dir * spd;
+    gSprites[spriteId].x2 = task->data[10];
+
+    // If duration is set, push for exactly that many frames
+    if (task->data[5] != 0)
+    {
+        if (++task->data[9] >= task->data[5])
+        {
+            if (task->data[6] != 0)
+                gSprites[spriteId].x2 = 0;
+            DestroyAnimVisualTask(taskId);
+        }
+        return;
+    }
+
+    // Duration=0 => push until sprite goes offscreen
+    {
+        s16 x = gSprites[spriteId].x + gSprites[spriteId].x2;
+
+        // generous bounds: offscreen by 32px
+        if (x < -32 || x > DISPLAY_WIDTH + 32)
+        {
+            if (task->data[6] != 0)
+                gSprites[spriteId].x2 = 0;
+            DestroyAnimVisualTask(taskId);
+        }
     }
 }
 

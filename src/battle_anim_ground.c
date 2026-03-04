@@ -170,6 +170,28 @@ const struct SpriteTemplate gMudsportMudSpriteTemplate =
     .callback = AnimMudSportDirt,
 };
 
+const struct SpriteTemplate gThrownKrabbySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THROWN_KRABBY,
+    .paletteTag = ANIM_TAG_THROWN_KRABBY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gThrownForretressSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THROWN_FORRETRESS,
+    .paletteTag = ANIM_TAG_THROWN_FORRETRESS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
 const struct SpriteTemplate gMakeItRainSpriteTemplate =
 {
     .tileTag = ANIM_TAG_COIN_SMALL,

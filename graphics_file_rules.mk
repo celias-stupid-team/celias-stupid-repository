@@ -124,6 +124,12 @@ $(BTLANMSPRGFXDIR)/ice_cube.4bpp: $(BTLANMSPRGFXDIR)/ice_cube_0.4bpp \
 						  $(BTLANMSPRGFXDIR)/ice_cube_3.4bpp
 	@cat $^ >$@
 
+$(BTLANMSPRGFXDIR)/summoning_circle.4bpp: $(BTLANMSPRGFXDIR)/summoning_circle_0.4bpp \
+						  $(BTLANMSPRGFXDIR)/summoning_circle_1.4bpp \
+						  $(BTLANMSPRGFXDIR)/summoning_circle_2.4bpp \
+						  $(BTLANMSPRGFXDIR)/summoning_circle_3.4bpp
+	@cat $^ >$@
+
 $(UNUSEDGFXDIR)/obi_palpak1.gbapal: $(UNUSEDGFXDIR)/old_pal1.gbapal \
 									$(UNUSEDGFXDIR)/old_pal2.gbapal \
 									$(UNUSEDGFXDIR)/old_pal3.gbapal
