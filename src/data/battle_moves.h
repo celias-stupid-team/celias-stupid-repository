@@ -3045,7 +3045,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_RAPID_SPIN] =
     {
-        .effect = EFFECT_RAPID_SPIN,
+        .effect = EFFECT_HIT,
         .power = 20,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -12811,7 +12811,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PHIOMANCY] =
     {
-        .effect = EFFECT_CALM_MIND,
+        .effect = EFFECT_SPECIAL_DEFENSE_UP,
         .power = 0,
         .type = TYPE_WATER,
         .accuracy = 85,
