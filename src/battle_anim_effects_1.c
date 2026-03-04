@@ -1753,6 +1753,17 @@ const struct SpriteTemplate gSleepLetterZSpriteTemplate =
     .callback = AnimSleepLetterZ,
 };
 
+const struct SpriteTemplate gSleepThumbsUpSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THUMBS_UP,
+    .paletteTag = ANIM_TAG_THUMBS_UP,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sSleepLetterZAnimTable,
+    .images = NULL,
+    .affineAnims = sSleepLetterZAffineAnimTable,
+    .callback = AnimSleepLetterZ,
+};
+
 const struct SpriteTemplate gLockOnTargetSpriteTemplate =
 {
     .tileTag = ANIM_TAG_LOCK_ON,
