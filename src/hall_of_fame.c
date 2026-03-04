@@ -23,6 +23,7 @@
 #include "trig.h"
 #include "random.h"
 #include "graphics.h"
+#include "pokemon_storage_system.h"
 #include "constants/songs.h"
 #include "constants/maps.h"
 
@@ -380,33 +381,145 @@ void CB2_DoHallOfFameScreenDontSaveData(void)
 
 static void Task_Hof_InitMonData(u8 taskId)
 {
-    u16 i;
-    u16 j;
+    u16 i, j;
     u8 nick[11];
+    u8 candidateCount;
+    u8 weakestId;
+    u8 friendship;
+    u8 k;
+    u8 maxId;
+    u8 partyId;
+    struct BoxPokemon *boxMon;
+    // saved values
+    u8 candFriendship[PARTY_SIZE];
+    u8 candInParty[PARTY_SIZE]; // required to use the correct GetMon function
+    u8 candBox[PARTY_SIZE];
+    u8 candSlot[PARTY_SIZE];
+    // temp values for sorting
+    u8 tmpFriendship;
+    u8 tmpInParty;
+    u8 tmpBox;
+    u8 tmpSlot;
 
     gTasks[taskId].data[2] = 0;
+    candidateCount = 0;
+
+    // collect candidate data from party
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+            && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_ESPEON)
         {
-            sHofMonPtr[0].mon[i].species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
-            sHofMonPtr[0].mon[i].tid = GetMonData(&gPlayerParty[i], MON_DATA_OT_ID);
-            sHofMonPtr[0].mon[i].personality = GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY);
-            sHofMonPtr[0].mon[i].lvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
-            GetMonData(&gPlayerParty[i], MON_DATA_NICKNAME, nick);
+            candFriendship[candidateCount] = GetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP);
+            candInParty[candidateCount] = TRUE;
+            candBox[candidateCount] = i;
+            candSlot[candidateCount] = 0;
+            candidateCount++;
+        }
+    }
+
+    // collect candidate data from PC boxes
+    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
+    {
+        for (j = 0; j < IN_BOX_COUNT; j++)
+        {
+            if (GetBoxMonDataAt(i, j, MON_DATA_SPECIES) != SPECIES_NONE
+                && GetBoxMonDataAt(i, j, MON_DATA_SPECIES) != SPECIES_ESPEON)
+            {
+                friendship = GetBoxMonDataAt(i, j, MON_DATA_FRIENDSHIP);
+                if (candidateCount < PARTY_SIZE)
+                {
+                    candFriendship[candidateCount] = friendship;
+                    candInParty[candidateCount] = FALSE;
+                    candBox[candidateCount] = i;
+                    candSlot[candidateCount] = j;
+                    candidateCount++;
+                }
+                else
+                {
+                    // replace weakest candidate if current mon has more friendship
+                    weakestId = 0;
+                    for (k = 1; k < PARTY_SIZE; k++)
+                        if (candFriendship[k] < candFriendship[weakestId])
+                            weakestId = k;
+                    if (friendship > candFriendship[weakestId])
+                    {
+                        candFriendship[weakestId] = friendship;
+                        candInParty[weakestId] = FALSE;
+                        candBox[weakestId] = i;
+                        candSlot[weakestId] = j;
+                    }
+                }
+            }
+        }
+    }
+
+    // sort candidates by friendship descending
+    for (i = 0; i < candidateCount; i++)
+    {
+        maxId = i;
+        for (k = i + 1; k < candidateCount; k++)
+            if (candFriendship[k] > candFriendship[maxId])
+                maxId = k;
+        if (maxId != i)
+        {
+            tmpFriendship       = candFriendship[i];
+            tmpInParty          = candInParty[i];
+            tmpBox             = candBox[i];
+            tmpSlot             = candSlot[i];
+            candFriendship[i]   = candFriendship[maxId];
+            candInParty[i]      = candInParty[maxId];
+            candBox[i]         = candBox[maxId];
+            candSlot[i]         = candSlot[maxId];
+            candFriendship[maxId] = tmpFriendship;
+            candInParty[maxId]    = tmpInParty;
+            candBox[maxId]       = tmpBox;
+            candSlot[maxId]       = tmpSlot;
+        }
+    }
+
+    // fill HoF slots
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (i < candidateCount)
+        {
+            if (candInParty[i])
+            {
+                partyId = candBox[i];
+                sHofMonPtr[0].mon[i].species     = GetMonData(&gPlayerParty[partyId], MON_DATA_SPECIES_OR_EGG);
+                sHofMonPtr[0].mon[i].tid         = GetMonData(&gPlayerParty[partyId], MON_DATA_OT_ID);
+                sHofMonPtr[0].mon[i].personality = GetMonData(&gPlayerParty[partyId], MON_DATA_PERSONALITY);
+                sHofMonPtr[0].mon[i].lvl         = GetMonData(&gPlayerParty[partyId], MON_DATA_LEVEL);
+                GetMonData(&gPlayerParty[partyId], MON_DATA_NICKNAME, nick);
+            }
+            else
+            {
+                boxMon = GetBoxedMonPtr(candBox[i], candSlot[i]);
+                sHofMonPtr[0].mon[i].species     = GetBoxMonData(boxMon, MON_DATA_SPECIES_OR_EGG);
+                sHofMonPtr[0].mon[i].tid         = GetBoxMonData(boxMon, MON_DATA_OT_ID);
+                sHofMonPtr[0].mon[i].personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
+                sHofMonPtr[0].mon[i].lvl         = GetBoxMonData(boxMon, MON_DATA_LEVEL);
+                GetBoxMonData(boxMon, MON_DATA_NICKNAME, nick);
+            }
+            // copy nickname data
             for (j = 0; j < 10; j++)
                 sHofMonPtr[0].mon[i].nick[j] = nick[j];
             gTasks[taskId].data[2]++;
         }
-        else
+        else // not really used. Only if there are less than six candidates
         {
-            sHofMonPtr[0].mon[i].species = SPECIES_NONE;
-            sHofMonPtr[0].mon[i].tid = 0;
+            sHofMonPtr[0].mon[i].species     = SPECIES_NONE;
+            sHofMonPtr[0].mon[i].tid         = 0;
             sHofMonPtr[0].mon[i].personality = 0;
-            sHofMonPtr[0].mon[i].lvl = 0;
-            sHofMonPtr[0].mon[i].nick[0] = EOS;
+            sHofMonPtr[0].mon[i].lvl         = 0;
+            sHofMonPtr[0].mon[i].nick[0]     = EOS;
         }
     }
+    
+    //print the result list
+    for (i = 0; i < candidateCount; i++)
+        DebugPrintf("HoF slot[%d] species=%d friendship=%d", i, sHofMonPtr[0].mon[i].species, candFriendship[i]);
+    
     sSelectedPaletteIndices = 0;
     gTasks[taskId].data[1] = 0;
     gTasks[taskId].data[4] = 0xFF;

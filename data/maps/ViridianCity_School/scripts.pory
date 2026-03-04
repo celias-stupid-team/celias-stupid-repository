@@ -104,7 +104,7 @@ script ViridianCity_School_EventScript_PokemonJournalNew {
 
 script ViridianCity_School_EventScript_Bookshelf {
 	lock
-	msgbox("My Secret Life, chapter 3", MSGBOX_DEFAULT)
+	msgbox("My Secret Life, chapter three", MSGBOX_DEFAULT)
 	closemessage
 	delay(10)
 	msgbox("Not this again…\n", MSGBOX_DEFAULT)

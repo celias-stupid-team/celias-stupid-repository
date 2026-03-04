@@ -12958,3 +12958,14 @@ extern const u32 gMonShinyPalette_EARRAT[];
 extern const u8 gMonFootprint_EARRAT[];
 extern const u8 gMonIcon_EARRAT[];
 
+
+extern const u32 gTrainerFrontPic_Champions[];
+extern const u32 gTrainerPalette_Champions[];
+// CELIAS_STUPID_ROMHACK
+extern const u32 gMonFrontPic_CELIASSTUPIDROMHACK[];
+extern const u32 gMonPalette_CELIASSTUPIDROMHACK[];
+extern const u32 gMonBackPic_CELIASSTUPIDROMHACK[];
+extern const u32 gMonShinyPalette_CELIASSTUPIDROMHACK[];
+extern const u8 gMonFootprint_CELIASSTUPIDROMHACK[];
+extern const u8 gMonIcon_CELIASSTUPIDROMHACK[];
+

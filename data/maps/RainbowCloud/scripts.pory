@@ -4,6 +4,11 @@ mapscripts RainbowCloud_MapScripts {
 			turnobject(LOCALID_PLAYER, DIR_NORTH)
 		}
 	]
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_FINAL_SHINY)) {
+			setmaplayoutindex(LAYOUT_RAINBOW_CLOUD_FINAL_SHINY)
+		}
+	}
 }
 
 script RainbowCloud_Thesis {
@@ -31,6 +36,52 @@ script RainbowCloud_Thesis {
 
 
 script RainbowCloud_FindTheShinies {
+	
+	if(flag(FLAG_POST_GAME)) {
+		lock
+		msgbox(
+		"The rainbow hides\n"
+		"Within its skies\l"
+		"A brilliant stellar hue\p"
+
+		"Indulge the quest\n"
+		"And seek the rest\l"
+		"The veil soon shall rise\p"
+
+		"To find the one\n"
+		"For all you've done\l"
+		"My final test to you:\p"
+
+		"Unravel the puzzle\n"
+		"Within the puzzle\l"
+		"And claim your shining prize.", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		special(GetShinyCount)
+		
+		buffernumberstring(STR_VAR_3, VAR_0x8006)
+		msgbox(
+		"PROGRESS:{PAUSE 30}\n"
+		"{STR_VAR_3}/150", MSGBOX_DEFAULT)
+		if(var(VAR_0x8006) == 150) {
+			fadenewbgm(MUS_NONE)
+			delay(120)
+			playse(SE_M_MEGA_KICK)
+			fadescreenspeed(FADE_TO_WHITE, 10)
+			waitse
+			setlayouttiles(LAYOUT_RAINBOW_CLOUD_FINAL_SHINY,0,0,0,0,28,50)
+			delay(60)
+			setflag(FLAG_FINAL_SHINY)
+			fadescreeninstant(FADE_FROM_WHITE)
+			playse(SE_SHINY)
+			release
+			end
+
+		}
+		release
+		end
+
+	}
 	msgbox(
 	"The rainbow hides\n"
 	"Within its skies\l"
@@ -44,7 +95,7 @@ script RainbowCloud_FindTheShinies {
 	"For all you've done\l"
 	"My final test to you:\p"
 
-	"Untangle the puzzle\n"
+	"Unravel the puzzle\n"
 	"Within the puzzle\l"
 	"And claim your shining prize.", MSGBOX_SIGN)
 
@@ -75,6 +126,7 @@ script RainbowCloud_CastformFight {
 	setflag(FLAG_FOUGHT_CASTFORM)
     setwildbattle(SPECIES_CASTFORM, 50)
 	dowildbattle
+	removeobject(VAR_LAST_TALKED)
     release
     end
 }
@@ -85,6 +137,7 @@ script RainbowCloud_ShinyCastformFight {
 	setflag(FLAG_SHINY_CREATION)
     setwildbattle(SPECIES_CASTFORM, 50)
 	dowildbattle
+	removeobject(VAR_LAST_TALKED)
     release
     end
 }

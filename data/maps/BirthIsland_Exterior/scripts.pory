@@ -110,7 +110,7 @@ Movement_DeoxysApproach:
 
 script BirthIsland_Exterior_EventScript_NotSolved1 {
 	addvar(VAR_TEMP_A, 1)
-	if(var(VAR_TEMP_A) > 7) {
+	if(var(VAR_TEMP_A) > 4) {
 		waitse
 		playbgm(MUS_NONE, TRUE)
 		playse(SE_M_EXPLOSION)

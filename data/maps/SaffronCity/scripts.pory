@@ -361,7 +361,14 @@ script TheLeek_Report3 {
 
 script SaffronCity_NPC1 {
 	msgbox(
-	"Seafoam exists\n"
+	"SAFFRON is free!\n"
+	"Yay!\p"
+
+	"My family went on a trip aboard the\n"
+	"SS ANNE to keep out of trouble.\p"
+
+	"Do you have any idea where it is?\n"
+	"I hope they come back soon!\n"
 	"", MSGBOX_NPC)
 }
 
@@ -381,8 +388,8 @@ script SaffronCity_NPC3 {
 	} else {
 		msgbox(
 		"I hear they're building a fancy\n"
-		"TRAIN STATION here soon.\l"
-		"Soon, we'll be more connected!\p"
+		"TRAIN STATION here soon.\p"
+		""
 
 		"I'm not totally sure where they\n"
 		"plan to put it, but hey!\l"
@@ -393,28 +400,28 @@ script SaffronCity_NPC3 {
 
 script SaffronCity_NPC4 {
 	msgbox(
-	"the gym exists\n"
-	"", MSGBOX_NPC)
+	"Now that I think about it, why does\n"
+	"SAFFRON have two GYMS anyway?", MSGBOX_NPC)
 }
 
 
 script SaffronCity_NPC5 {
+	lock
 	msgbox(
-	"This house is fucking weird.\n"
-	"", MSGBOX_NPC)
+	"Hmm.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	faceplayer
+	msgbox(
+	"You might think this is someone's\n"
+	"house, but I'm not so sure.\p"
+
+	"They don't even have a front door…\n"
+	"Who built this thing, anyway?", MSGBOX_DEFAULT)
+	release
 }
 
 
-script SaffronCity_HouseNPC1 {
-	msgbox(
-	"Saffron House NPC 1\n"
-	"", MSGBOX_NPC)
-}
-script SaffronCity_HouseNPC2 {
-	msgbox(
-	"Saffron House NPC 2\n"
-	"", MSGBOX_NPC)
-}
 
 
 

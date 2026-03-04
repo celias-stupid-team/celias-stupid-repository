@@ -404,7 +404,7 @@ gFameCheckerFlavorText_Fuchsia1:: @ 0x81AEC28
 gFameCheckerFlavorText_Fuchsia2:: @ 0x81AEC82
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}We found an ITEM here that induced\n"
-	.string "an illegal EVOLUTION.\p"
+	.string "an illegal EVOLUTION in DRAGONITE.\p"
 	.string "We passed it to our team in the\n"
 	.string "CELADON DMCA LAW OFFICES.\l"
 	.string "One of our ADMINS is guarding it.$"
@@ -573,10 +573,10 @@ gFameCheckerFlavorText_GreatSeaEast4:: @ 0x81AF758
 gFameCheckerFlavorText_GreatSeaEast5:: @ 0x81AF7CB
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-	.string "If you ask me, second amendment\n"
-	.string "rights aren't going far enough!\p"
-	.string "If I had it my way, even my dog\n"
-	.string "would be armed with a gun!$"
+	.string "If we're going to get ourselves\n"
+	.string "out of this mess, we need to find\l"
+	.string "the rest of my crew.\p"
+	.string "Follow along, if you'd like.\n$"
 
 gFameCheckerFlavorText_GreatSeaCenter0:: @ 0x81AF83E
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"

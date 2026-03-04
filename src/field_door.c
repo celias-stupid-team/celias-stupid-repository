@@ -311,6 +311,8 @@ static const struct DoorGraphics sDoorGraphics[] = {
     {METATILE_TwoIsland_DrugstoreDoor,               DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_TwoIslandDrugstore, sDoorAnimPalettes_TwoIslandDrugstore},
     {METATILE_TwoIsland_HotelDoor,               DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sDoorAnimTiles_TwoIslandHotel, sDoorAnimPalettes_TwoIslandHotel},
     {METATILE_TwoIslandHotel_HotelDoor,               DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sDoorAnimTiles_TwoIslandHotelInterior, sDoorAnimPalettes_TwoIslandHotelInterior},
+    {METATILE_Building_Silph2Elevator,                        DOOR_SOUND_SLIDING, DOOR_SIZE_1x2, sDoorAnimTiles_SilphCoElevator, sDoorAnimPalettes_SilphCoElevator},
+
     
 };
 

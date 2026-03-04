@@ -320,7 +320,7 @@ script PokemonLeagueChampionsRoom_FinishedBattle {
 	))
 	waitmovement(0)
 	closemessage
-	playse(SE_WALL_HIT)
+	playse(SE_EFFECTIVE)
 	applymovement(LOCALID_CHAMPIONS_ROOM_RIVAL, moves(
 		face_left
 		lock_facing_direction
@@ -343,17 +343,20 @@ script PokemonLeagueChampionsRoom_FinishedBattle {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"Hiya, {PLAYER}.\n"
-	"It's me, CELIA!\p"
+	"It's me, CELIA.\p"
 
 	"You've done it!\n"
 	"That was your final trial!\p"
 
-	"Every hurdle along your way,{PAUSE 20} I\n"
-	"placed so I could build you up.\l"
-	"I hope you understand.\p"
+	"You navigated all my roadblocks;{PAUSE 10}\n"
+	"you took on all my challenges…\p"
 
-	"You've come so far.\n"
+	"You've come so far.{PAUSE 30}\n"
 	"You should be proud of yourself.\p"
+
+	"And all those times I bullied you,{PAUSE 20}\n"
+	"I did so I could build you up.\l"
+	"I hope you can understand.\p"
 
 	"Now, come along!{PAUSE 20}\n"
 	"It's time to see the end.", MSGBOX_DEFAULT)
@@ -371,6 +374,7 @@ script PokemonLeagueChampionsRoom_FinishedBattle {
 	))
 	applymovement (LOCALID_PLAYER, moves(
 		walk_slow_up * 6
+		face_up
 		delay_8
 		face_up
 		delay_16 * 2
@@ -383,6 +387,26 @@ script PokemonLeagueChampionsRoom_FinishedBattle {
 		emote_exclamation_mark
 		delay_16 * 2
 		walk_fast_right * 2
+		face_left
+	))
+	applymovement(LOCALID_CHAMPIONS_ROOM_LARRY, moves(
+		delay_16
+		delay_8
+		face_right
+	))
+	applymovement(LOCALID_CHAMPIONS_ROOM_JERRY, moves(
+		delay_16
+		delay_8
+		face_left
+	))
+	applymovement(LOCALID_CHAMPIONS_ROOM_LARRY_2, moves(
+		delay_16 * 3
+		delay_8
+		face_right
+	))
+	applymovement(LOCALID_CHAMPIONS_ROOM_MARY, moves(
+		delay_16 * 3
+		delay_8
 		face_left
 	))
 	waitmovement (LOCALID_PLAYER)

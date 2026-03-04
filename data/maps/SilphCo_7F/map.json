@@ -205,7 +205,7 @@
     {
       "warp_id": "WARP_ID_SILPH_BACKROOMS1_CALLCENTER",
       "x": 6,
-      "y": 4,
+      "y": 5,
       "elevation": 3,
       "dest_map": "MAP_SILPH_BACKROOMS",
       "dest_warp_id": "WARP_ID_BACKROOMS_END"

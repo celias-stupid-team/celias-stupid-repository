@@ -8,6 +8,7 @@
 #include "field_effect.h"
 #include "field_effect_helpers.h"
 #include "field_effect_scripts.h"
+#include "field_specials.h"
 #include "field_fadetransition.h"
 #include "field_player_avatar.h"
 #include "field_weather.h"
@@ -3240,6 +3241,8 @@ u8 FldEff_UseSurf(void)
     return FALSE;
 }
 
+
+
 static void Task_FldEffUseSurf(u8 taskId)
 {
     sUseSurfEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId]);
@@ -3312,6 +3315,12 @@ static void UseSurfEffect_5(struct Task *task)
         FieldEffectActiveListRemove(FLDEFF_USE_SURF);
         DestroyTask(FindTaskIdByFunc(Task_FldEffUseSurf));
         SetHelpContext(HELPCONTEXT_SURFING);
+        if(VarGet(VAR_CURRENT_CHAPTER) == 4) {
+            VarSet(VAR_CURRENT_CHAPTER, 7);
+            FlagClear(FLAG_SYS_FUSHCIA_DISABLE_FLY);
+            DrawChapterTitle();
+        }
+
     }
 }
 
@@ -4281,4 +4290,20 @@ void FldEff_PhotoFlash(void)
     BlendPalettes(PALETTES_ALL, 0x10, RGB_WHITE);
     BeginNormalPaletteFade(PALETTES_ALL, -1, 0x0F, 0x00, RGB_WHITE);
     CreateTask(Task_PhotoFlash, 90);
+}
+
+void SetPlayerCarryingBox(void) {
+    struct ObjectEvent * objectEvent;
+    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    if(FlagGet(FLAG_SYS_CARRYING_BOX)) {
+        DebugPrintf("Carrying a box");
+        if(FlagGet(FLAG_TEMP_4)) {
+            ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_BOX_OPEN));
+        } else {
+            ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_BOX_CLOSED));
+        }
+    } else {
+        ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_NORMAL));
+    }
+    
 }

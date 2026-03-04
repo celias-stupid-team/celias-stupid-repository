@@ -277,6 +277,7 @@ script Route19_LookerScene {
 	waitmovement(0)
 	delay(20)
 	setflag(FLAG_SYS_ROTOM_MENU)
+	setvar(VAR_CURRENT_CHAPTER, 4)
 	playfanfare(MUS_SLOTS_JACKPOT)
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
@@ -512,6 +513,10 @@ script Route19_ChapterConfusion {
 	"finally lined the numbers back up!", MSGBOX_NPC)
 }
 
+script GreatSea_FlyFix {
+	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
+	release
+}
 
 script GreatSea_LoveChinchou {
 	lock
@@ -572,14 +577,16 @@ script GreatSea_Chapter7 {
 	lock
 	clearflag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)
 	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
-	fadescreenswapbuffers(FADE_TO_BLACK)
-	delay(30)
-	message("Chapter 7{PAUSE 120}\nToo Much Water")
-	delay(270)
-	closemessage
+	
+	setvar(VAR_0x8000, MUGSHOT_CHAPTER7)
+	callnative(DrawMugshot)
+	delay(120)	
+	setvar(VAR_0x8000, MUGSHOT_CHAPTER7_2)
+	callnative(DrawMugshot)
+	delay(120)
 
-	fadescreenswapbuffers(FADE_FROM_BLACK)
 	setvar(VAR_CURRENT_CHAPTER, 7)
+	callnative(ClearMugshot)
 	release
 }
 
@@ -678,22 +685,8 @@ script GreatSea_MinnesotaNorth_Bouy {
 }
 
 
-script GreatSea_WomensSecret { // Swimmer Victoria
-	trainerbattle_single(TRAINER_BACKPACK_SWIMMER, "If I'm wearing a bikini…\n"
-	"where do I put my POKé BALLS?", "Ah!")
-	msgbox(
-	"Where do I keep my POKé BALLS?\p"
 
-	"Tee hee!\n"
-	"Woman's secret!", MSGBOX_NPC)
-}
 
-script GreatSea_PokeBallStorage {
-	msgbox(
-	"FEMININE POKé BALL STORAGE DEVICE\n"
-	"", MSGBOX_SIGN)
-
-}
 
 
 

@@ -440,7 +440,7 @@ script MinnesotaGym_Tire {
 
 script MinnesotaGym_TopBike {
     lock
-    playmoncry(SPECIES_KORAIDON, CRY_MODE_DEFAULT)
+    playmoncry(SPECIES_CYCLIZAR, CRY_MODE_DEFAULT)
     waitmoncry
     release
 }
@@ -452,7 +452,7 @@ script MinnesotaGym_MiddleBike {
 }
 script MinnesotaGym_BottomBike {
     lock
-    playmoncry(SPECIES_KORAIDON, CRY_MODE_DEFAULT)
+    playmoncry(SPECIES_CYCLIZAR, CRY_MODE_DEFAULT)
     waitmoncry
     release
 }

@@ -389,8 +389,8 @@ static const u8 sDebugText_Cancel[] = _("Cancel");
 static const u8 sDebugText_Util_Script_1[] = _("Summon the Pit");
 static const u8 sDebugText_Util_Script_2[] = _("Start Double Battle");
 static const u8 sDebugText_Util_Script_3[] = _("Toggle Rotom Menu");
-static const u8 sDebugText_Util_Script_4[] = _("Script 4");
-static const u8 sDebugText_Util_Script_5[] = _("Script 5");
+static const u8 sDebugText_Util_Script_4[] = _("Draw Chapter Title");
+static const u8 sDebugText_Util_Script_5[] = _("Show HoF screen");
 static const u8 sDebugText_Util_Script_6[] = _("Script 6");
 static const u8 sDebugText_Util_Script_7[] = _("start final battle");
 static const u8 sDebugText_Util_Script_8[] = _("toggle battle PC switch");
@@ -1789,7 +1789,8 @@ static void DebugAction_Util_Script_4(u8 taskId)
 
 static void DebugAction_Util_Script_5(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_5);
+    Debug_DestroyMenu_Full(taskId);
+    SetMainCallback2(CB2_DoHallOfFameScreen);
 }
 
 static void DebugAction_Util_Script_6(u8 taskId)

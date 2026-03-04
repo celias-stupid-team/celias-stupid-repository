@@ -217,7 +217,7 @@
 #define FLAG_CHRIS_GIVES_LICKITUNG                      0x0BE
 
 //Pewter City
-#define FLAG_CSR_UNUSED_3               0x0BF
+#define FLAG_GOT_MEW_BRICK_PIECE               0x0BF
 #define FLAG_CSR_MUSEUM_GUIDE_MISSED    0x0C0
 #define FLAG_CSR_BROCK_RAINING          0x0C1
 #define FLAG_CSR_TREE_FLAG_1            0x0C2
@@ -463,21 +463,21 @@
 #define FLAG_BROKE_STEVEN_STONE                              0x19C
 #define FLAG_PUSHED_CAPTAIN_DOWN_WALL                     0x19D
 #define FLAG_SHINY_DACHSBUN                            0x19E
-#define FLAG_0x19F                     0x19F
+#define FLAG_SILPH_MONKEY                     0x19F
 #define FLAG_BEAT_DMCA_ERIKA                0x1A0
 #define FLAG_BEAT_DMCA_SABRINA                    0x1A1
 #define FLAG_BEAT_DMCA_BLAINE                 0x1A2
 #define FLAG_BEAT_DMCA_SILVER                       0x1A3
-#define FLAG_0x1A4                      0x1A4
-#define FLAG_0x1A5              0x1A5
+#define FLAG_FINANCIAL_REPORT_TOSSED                      0x1A4
+#define FLAG_SENT_SILPH_LOOK_GIRL              0x1A5
 #define FLAG_HIDE_LIGMA                                              0x1A6
 #define FLAG_KILLED_SANS                      0x1A7
 #define FLAG_USED_GENDER_FLUID                0x1A8
 #define FLAG_DANCED_FOR_ARTICUNO                    0x1A9
 #define FLAG_GOT_SHINY_MISSINGNO                          0x1AA
 #define FLAG_GOT_TREASURE_MAP                    0x1AB
-#define FLAG_0x1AC                          0x1AC
-#define FLAG_0x1AD                     0x1AD
+#define FLAG_SAFFRON_GYM_SHORTCUT                          0x1AC
+#define FLAG_SAFFRON_CHECKED_MONKEY_WINDOW                     0x1AD
 #define FLAG_0x1AE                          0x1AE
 #define FLAG_0x1AF                    0x1AF
 #define FLAG_GOT_TM50                          0x1B0
@@ -506,8 +506,8 @@
 #define FLAG_YES_MAN_TRAVELING                     0x1C7
 #define FLAG_YES_NERD_TM                              0x1C8
 #define FLAG_HAMBURGER_GUY                             0x1C9
-#define FLAG_0x1CA                    0x1CA
-#define FLAG_0x1CB                       0x1CB
+#define FLAG_HIDE_RATICATE_TRADE_GUY                    0x1CA
+#define FLAG_NOT_OAK_TEMP                       0x1CB
 #define FLAG_0x1CC                      0x1CC
 #define FLAG_HIDE_VIRIDIAN_CITY_POTION                          0x1CD
 #define FLAG_HIDE_ROUTE11_GREAT_BALL                            0x1CE
@@ -526,8 +526,8 @@
 #define FLAG_SKY_TOWER_JOY_SEED                  0x1DB
 #define FLAG_SKY_TOWER_GYARADOS_EVOLVED        0x1DC
 #define FLAG_SKY_TOWER_HURL_ORB           0x1DD
-#define FLAG_0x1DE           0x1DE
-#define FLAG_0x1DF                0x1DF
+#define FLAG_SKY_TOWER_BILL           0x1DE
+#define FLAG_SKY_TOWER_MONEY_ORB                0x1DF
 #define FLAG_0x1E0  0x1E0
 #define FLAG_0x1E1         0x1E1
 #define FLAG_0x1E2            0x1E2
@@ -541,8 +541,8 @@
 #define FLAG_0x1EA     0x1EA
 #define FLAG_0x1EB      0x1EB
 #define FLAG_0x1EC    0x1EC
-#define FLAG_0x1ED            0x1ED
-#define FLAG_0x1EE            0x1EE
+#define FLAG_FINAL_SHINY            0x1ED
+#define FLAG_POST_GAME            0x1EE
 #define FLAG_BILL_PC_BROKE              0x1EF
 #define FLAG_NO_SANS_ITEM        0x1F0
 #define FLAG_SHINY_PIKABLU        0x1F1
@@ -1443,7 +1443,7 @@
 #define FLAG_SYS_FUSHCIA_DISABLE_FLY                                (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
-#define FLAG_0x831                                                  (SYS_FLAGS + 0x31)
+#define FLAG_SYS_ON_SHINY_BIKE                                                  (SYS_FLAGS + 0x31)
 #define FLAG_0x832                                                  (SYS_FLAGS + 0x32)
 #define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)

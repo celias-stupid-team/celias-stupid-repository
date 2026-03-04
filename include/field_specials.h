@@ -4,6 +4,7 @@
 #include "global.h"
 
 extern u16 gScrollableMultichoice_ScrollOffset;
+extern u8 gChapterTitleRunning;
 
 u8 GetLeadMonIndex(void);
 s32 CountDigits(s32 number);
@@ -29,5 +30,6 @@ bool8 UsedPokemonCenterWarp(void);
 void QuestLog_CheckDepartingIndoorsMap(void);
 void QuestLog_TryRecordDepartedLocation(void);
 bool8 SocialSecurityCheck(void);
+void DrawChapterTitle(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

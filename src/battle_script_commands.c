@@ -749,6 +749,7 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_REMOVE_PARALYSIS] = BattleScript_MoveEffectSleep,
     [MOVE_EFFECT_ATK_DEF_DOWN]     = BattleScript_MoveEffectSleep,
     [MOVE_EFFECT_RECOIL_33]        = BattleScript_MoveEffectRecoil,
+    [MOVE_EFFECT_RECOIL_100]       = BattleScript_MoveEffectRecoil,
 };
 
 static const struct WindowTemplate sUnusedWinTemplate =
@@ -1149,7 +1150,8 @@ static void Cmd_accuracycheck(void)
         && !BtlCtrl_OakOldMan_TestState2Flag(2)
         && gBattleMoves[move].power == 0
         && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
-     || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
+     || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
+     || (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
         JumpIfMoveFailed(7, move);
         return;
@@ -1198,6 +1200,9 @@ static void Cmd_accuracycheck(void)
             buff = MAX_STAT_STAGE;
 
         moveAcc = gBattleMoves[move].accuracy;
+        
+        if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_SCRIPTED_END)
+            moveAcc = 0;
         // check Thunder on sunny weather
         if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN && gBattleMoves[move].effect == EFFECT_THUNDER)
             moveAcc = 50;
@@ -1346,6 +1351,9 @@ static void Cmd_critcalc(void)
     else
         gCritMultiplier = 1;
 
+    if (gBattleMons[gBattlerTarget].species == SPECIES_FINALZAPDOS)
+        gCritMultiplier = 1;
+
     gBattlescriptCurrInstr++;
 }
 
@@ -1362,6 +1370,9 @@ static void Cmd_damagecalc(void)
     if (gProtectStructs[gBattlerAttacker].helpingHand)
         gBattleMoveDamage = gBattleMoveDamage * 15 / 10;
 
+    // DebugPrintf("Base Power %d", gDynamicBasePower);
+    DebugPrintf("SpAtk: %d", gBattleMons[gBattlerAttacker].spAttack);
+    DebugPrintf("SpDef: %d", gBattleMons[gBattlerTarget].spDefense);
     gBattlescriptCurrInstr++;
 }
 
@@ -1806,10 +1817,29 @@ static void Cmd_adjustnormaldamage(void)
         if (gBattleMoveDamage < 30) // random number so base damage doesn't get too low
             gBattleMoveDamage = 30;
     }
-
+    DebugPrintf("Battle damage: %d", gBattleMoveDamage);
     // special handling for FINALZAPDOS
-    if (gCurrentMove == MOVE_10000_VOLTS)
+    if (gCurrentMove == MOVE_10000_VOLTS && gBattleMoveDamage > 0)
         gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
+
+    // special handling for FINALWARTORTLE phase
+    if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_SCRIPTED_END)
+    {
+        if (gCurrentMove == MOVE_HYPER_BEAM)
+        {
+            if (VarGet(VAR_CSR_FINAL_BATTLE_TURN) != 4)
+                gBattleMoveDamage = 7;
+            else
+                gBattleMoveDamage = -18; // FINALCHARMANDER's max HP
+        }
+        if (gCurrentMove == MOVE_SCRATCH)
+        {
+            if (VarGet(VAR_CSR_FINAL_BATTLE_TURN) == 4)
+                gBattleMoveDamage = 8;
+            else
+                gBattleMoveDamage = 4;
+        }
+    }
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -1834,7 +1864,7 @@ static void Cmd_adjustnormaldamage(void)
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
-    else if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
+    else if (gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE && gBattleMoveDamage >= gBattleMons[gBattlerTarget].hp)
     {
         RecordAbilityBattle(gBattlerTarget, ABILITY_REVENGE);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
@@ -2234,7 +2264,15 @@ static void Cmd_critmessage(void)
 {
     if (gBattleControllerExecFlags == 0)
     {
-        if (gCritMultiplier == 2 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_SCRIPTED_END && VarGet(VAR_CSR_FINAL_BATTLE_TURN) == 4)
+        {
+            if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+            {
+                PrepareStringBattle(STRINGID_CRITICALHIT, gBattlerAttacker);
+                gBattleCommunication[MSG_DISPLAY] = 1;
+            }
+        }
+        else if (gCritMultiplier == 2 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
         {
             PrepareStringBattle(STRINGID_CRITICALHIT, gBattlerAttacker);
             gBattleCommunication[MSG_DISPLAY] = 1;
@@ -3158,6 +3196,14 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
                 break;
+            case MOVE_EFFECT_RECOIL_100: // Collision Course
+                gBattleMoveDamage = gBattleMons[gEffectBattler].maxHP;
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = 1;
+
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
+                break;
             case MOVE_EFFECT_THRASH:
                 if (gBattleMons[gEffectBattler].status2 & STATUS2_LOCK_CONFUSE)
                 {
@@ -3355,6 +3401,8 @@ static void Cmd_tryfaintmon(void)
                 
                 // party member fainted
                 VarSet(VAR_CSR_FINAL_BATTLE_PHASE, final_battle_state + 1);
+                
+                gCheckedPauseBattle = FALSE; // required for the paused turn sections (no Move and Bag access)
             }
 
             // special handling for switching the legendary birds during the Zapmolcuno fight
@@ -3908,18 +3956,30 @@ static void Cmd_checkteamslost(void)
         }
     }
 
-    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    if (GetBattlerSide(gBattlerFainted) == B_SIDE_PLAYER)
     {
-        if (!gCheckedContinueRotomBattle && HP_count == 0)
-            gBattleOutcome |= B_OUTCOME_CONTINUE_ROTOM;
-        // if battler fainted the system will call PlayerHandleChoosePokemon() later and trigger a PC switch
+        if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && !gCheckedPauseBattle)
+        {
+            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_LUGIA && HP_count == 0)
+            {
+                gBattleOutcome |= B_OUTCOME_CONTINUE_ROTOM;
+                gCheckedPauseBattle = TRUE;
+            }
+            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) == B_FINAL_BATTLE_MOLTRES && HP_count == 0)
+            {
+                gBattleOutcome |= B_OUTCOME_CONTINUE_ZAPDOS;
+                gCheckedPauseBattle = TRUE;
+                gTemporaryBattlePlayerText = TRUE;
+            }
+            // if battler fainted the system will call PlayerHandleChoosePokemon() later and trigger a PC switch
+        }
+        else if (gBattleSwitchFromPSS)
+        {
+            DebugPrintf("Do nothing!");
+        }
+        else if (HP_count == 0)
+            gBattleOutcome |= B_OUTCOME_LOST;
     }
-    else if (gBattleSwitchFromPSS)
-    {
-        DebugPrintf("Do nothing!");
-    }
-    else if (HP_count == 0)
-        gBattleOutcome |= B_OUTCOME_LOST;
     HP_count = 0;
 
     // Get total HP for the enemy's party to determine if the player has won
@@ -4401,7 +4461,7 @@ static void Cmd_playanimation(void)
         {
             u16 species = SPECIES_HOOPA;
             gBattleMons[gActiveBattler].species = species;
-            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
         }
         //create Zapmolcuno birds right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM)
@@ -4410,7 +4470,7 @@ static void Cmd_playanimation(void)
             
             gBattleTurnMonFainted = TRUE;
             gBattleMons[gActiveBattler].species = species;
-            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -4724,7 +4784,7 @@ static void Cmd_moveend(void)
              && gChosenMove != MOVE_STRUGGLE
              && (*choicedMoveAtk == MOVE_NONE || *choicedMoveAtk == MOVE_UNAVAILABLE))
             {
-                if (gChosenMove == MOVE_BATON_PASS && !(gMoveResultFlags & MOVE_RESULT_FAILED))
+                if (gBattleMoves[gChosenMove].effect == EFFECT_BATON_PASS && !(gMoveResultFlags & MOVE_RESULT_FAILED))
                 {
                     gBattleScripting.moveendState++;
                     break;
@@ -4969,7 +5029,6 @@ static void Cmd_typecalc2(void)
         }
 
         mult = (modifier * TYPE_MUL_NORMAL) / 4096;
-        DebugPrintf("Cmd_typecalc2 mult = %d", mult / TYPE_MUL_NORMAL);
 
         if (mult == TYPE_MUL_NO_EFFECT)
             gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
@@ -5070,15 +5129,12 @@ static void Cmd_switchindataupdate(void)
 
 static void Cmd_switchinanim(void)
 {
-    // extern const u8 BattleScript_FaintedMonSendOutNew[];
-    // extern const u8 BattleScript_FaintedMonEnd[];
-
     if (gBattleControllerExecFlags)
         return;
 
-    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
-      && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
-        LoadDefaultBg();
+    // if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    //   && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
+    //     LoadDefaultBg();
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
@@ -5112,7 +5168,7 @@ static void Cmd_jumpifcantswitch(void)
         gBattlescriptCurrInstr += 6;
 }
 
-bool32 CanBattlerSwitch(u32 battler)
+u8 CanBattlerSwitch(u32 battler)
 {
     bool32 ret = FALSE;
     s32 i;
@@ -5123,7 +5179,7 @@ bool32 CanBattlerSwitch(u32 battler)
         && ((gBattleMons[battler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
             || (gStatuses3[battler] & STATUS3_ROOTED)))
     {
-        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 2);
+        ret = PARTY_SIZE;
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
     {
@@ -5145,9 +5201,9 @@ bool32 CanBattlerSwitch(u32 battler)
         }
 
         if (i == lastMonId)
-            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 2);
+            ret = PARTY_SIZE;
         else
-            gBattlescriptCurrInstr += 6;
+            ret = i;
     }
     else
     {
@@ -5185,7 +5241,7 @@ bool32 CanBattlerSwitch(u32 battler)
                 break;
         }
 
-        ret = (i != PARTY_SIZE);
+        ret = i;
     }
     return ret;
 }
@@ -6980,21 +7036,30 @@ static void Cmd_various(void)
             u8 *dest;
             u8 *src;
 
-            // wiz1989: load updated battle backgrounds for each of the phases of the final battle
+            // wiz1989 ToDo: load updated battle backgrounds for each of the phases of the final battle
             if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+            {
                 LoadDefaultBg();
+                if (gPlttBufferFaded[0] == RGB_WHITE)
+                {
+                    // prevent screen blinking by keeping the fade active
+                    CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
+                }
+            }
+            if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) || (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) <= B_FINAL_BATTLE_MOLTRES))
+            {
+                HandleSpeciesGfxDataChange(gActiveBattler, gBattleAnimTarget, 255);
+                GetBattleAnimBgDataByPriorityRank(&animBg, gActiveBattler);
+                if (IsContest())
+                    position = 0;
+                else
+                    position = GetBattlerPosition(gActiveBattler);
 
-            HandleSpeciesGfxDataChange(gBattleAnimAttacker, gBattleAnimTarget, 255);
-            GetBattleAnimBgDataByPriorityRank(&animBg, gBattleAnimAttacker);
-            if (IsContest())
-                position = 0;
-            else
-                position = GetBattlerPosition(gBattleAnimAttacker);
-
-            src = gMonSpritesGfxPtr->sprites[position] + (gBattleMonForms[gBattleAnimAttacker] << 11);
-            dest = animBg.bgTiles;
-            CpuCopy32(src, dest, MON_PIC_SIZE);
-            LoadBgTiles(1, animBg.bgTiles, 0x800, animBg.tilesOffset);
+                src = gMonSpritesGfxPtr->sprites[position] + (gBattleMonForms[gActiveBattler] << 11);
+                dest = animBg.bgTiles;
+                CpuCopy32(src, dest, MON_PIC_SIZE);
+                LoadBgTiles(1, animBg.bgTiles, 0x800, animBg.tilesOffset);
+            }
             
             gBattlescriptCurrInstr = cmd->nextInstr;
             return;
@@ -8107,10 +8172,7 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_MAGIC_SHELL;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_MAGIC_SHELL);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
-            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
-        }
+
     }
     else if (gCurrentMove == MOVE_FISSURE && gBattleMons[gBattlerTarget].ability == ABILITY_EARTH_EATER)
     {
@@ -8118,10 +8180,7 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_EARTH_EATER;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_EARTH_EATER);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
-            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
-        }
+
     }
     else if (gCurrentMove == MOVE_SHOOT_BIG && gBattleMons[gBattlerTarget].ability == ABILITY_BULLETPROOF)
     {
@@ -8129,10 +8188,15 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_BULLETPROOF;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_BULLETPROOF);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
-            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
-        }
+
+    }
+    else if (gCurrentMove == MOVE_WHITE_LIGHTNING && gBattleMons[gBattlerTarget].ability == ABILITY_REVEALING_LIGHT)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_REVEALING_LIGHT;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_REVEALING_LIGHT);
+
     }
     else if (gCurrentMove == MOVE_ADOBE_FLASH && gBattleMons[gBattlerTarget].ability == ABILITY_HTML5)
     {
@@ -9235,10 +9299,17 @@ static void Cmd_friendshiptodamagecalculation(void)
 static void Cmd_presentdamagecalculation(void)
 {
     s32 rand = Random() & 0xFF;
+    u8 healingOdds = 170; // 70% chance to damage, 30% chance to heal
 
-    if (rand < 82)
+    // don't use the healing odds
+    while (rand >= healingOdds && (gBattleMons[gBattlerTarget].maxHP == gBattleMons[gBattlerTarget].hp || gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+    {
+        rand = Random() & 0xFF;
+    }
+
+    if (rand < 85)
         gDynamicBasePower = 40;
-    else if (rand < 178)
+    else if (rand < healingOdds)
         gDynamicBasePower = 120;
     else //Heal target
     {
@@ -9247,10 +9318,9 @@ static void Cmd_presentdamagecalculation(void)
             gBattleMoveDamage = 1;
         gBattleMoveDamage *= -1;
     }
-    if (rand < 204) //if it didn't heal, check for critical hit
+
+    if (rand < healingOdds) //if it didn't heal, check for critical hit
         gBattlescriptCurrInstr = BattleScript_HitFromCritCalc;
-    else if (gBattleMons[gBattlerTarget].maxHP == gBattleMons[gBattlerTarget].hp)
-        gBattleMoveDamage *= -1; //If target is max HP, deal 1/4 HP instead
     else
     {
         gMoveResultFlags &= ~MOVE_RESULT_DOESNT_AFFECT_FOE;
@@ -11468,7 +11538,7 @@ void BS_TryTrainerSlideMsgDefeatFinalBattle(void)
     {
         gBattleScripting.battler = battler;
         BattleScriptPush(cmd->nextInstr);
-        gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
+        gBattlescriptCurrInstr = BattleScript_TrainerASlidePreMessage;
     }
     else
     {
@@ -11545,10 +11615,21 @@ void BS_RedrawHealthbox(void)
     NATIVE_ARGS(u8 battler);
 
     u8 battler = GetBattlerForBattleScript(cmd->battler);
+    bool8 isFadedToWhite = FALSE;
     
+    // Check if we are in the special battle and fully faded to white
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && gPlttBufferFaded[0] == RGB_WHITE)
+        isFadedToWhite = TRUE;
+
     DestroyHealthboxSprite(battler);
     CreateHealthboxSprite(battler);
     UpdateStatusIconInHealthbox(gHealthboxSpriteIds[battler]);
+
+    if (isFadedToWhite)
+    {
+        // prevent screen blinking by keeping the fade active
+        CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
+    }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -11559,6 +11640,15 @@ void BS_TrySetShadowSpikes(void)
 
     u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
     gSideStatuses[targetSide] |= SIDE_STATUS_SHADOW_SPIKES;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_TryRemoveShadowSpikes(void)
+{
+    NATIVE_ARGS(u8 side);
+
+    gSideStatuses[cmd->side] &= ~SIDE_STATUS_SHADOW_SPIKES;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -11997,5 +12087,218 @@ void BS_DataHpUpdateParallel(void)
         gBattlescriptCurrInstr = substituteFadeScript;
     }
     else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfVar(void)
+{
+    NATIVE_ARGS(u8 compare, u16 var, u16 value, const u8 *jumpInstr);
+
+    bool8 conditionMet = FALSE;
+
+    switch (cmd->compare)
+    {
+        case CMP_EQUAL:
+            if (VarGet(cmd->var) == cmd->value)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+                conditionMet = TRUE;
+            }
+            break;
+        case CMP_NOT_EQUAL:
+            if (VarGet(cmd->var) != cmd->value)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+                conditionMet = TRUE;
+            }
+            break;
+        case CMP_GREATER_THAN:
+            if (VarGet(cmd->var) > cmd->value)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+                conditionMet = TRUE;
+            }
+            break;
+        case CMP_LESS_THAN:
+            if (VarGet(cmd->var) < cmd->value)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+                conditionMet = TRUE;
+            }
+            break;
+    }
+    
+    if (!conditionMet)
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_PlayCurrentSpeciesCry(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+    PlayCry_Script(gBattleMons[battler].species, CRY_MODE_NORMAL);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_PlayCurrentBirdFaintCry(void)
+{
+    NATIVE_ARGS();
+
+    // using -1 offset because species was already changed before!
+    u16 species = SPECIES_FINALLUGIA + VarGet(VAR_CSR_FINAL_BATTLE_PHASE) - 1;
+    
+    //
+    switch(species) {
+        case SPECIES_FINALLUGIA:
+            species = SPECIES_LUGIA;
+            break;
+        case SPECIES_FINALARTICUNO:
+            species = SPECIES_ARTICUNO;
+            break;
+        case SPECIES_FINALHOOH:
+            species = SPECIES_HO_OH;
+            break;
+        case SPECIES_FINALZAPDOS:
+            species = SPECIES_ZAPDOS;
+            break;
+        case SPECIES_FINALMOLTRES:
+            species = SPECIES_MOLTRES;
+            break;
+    }
+    
+    PlayCry_Script(species, CRY_MODE_FAINT);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_WaitForButtonPress(void)
+{
+    NATIVE_ARGS();
+
+    if (gMain.newKeys)
+    {
+        DebugPrintf("button was pressed");
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+void BS_FadeDarken(void)
+{
+    NATIVE_ARGS(u32 mask, u8 dir);
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    if (cmd->dir == FADE_DIR_DARKEN)
+        BeginNormalPaletteFade(cmd->mask, 4, 0, 8, RGB_BLACK);
+    else // FADE_DIR_BRIGHTEN
+        BeginNormalPaletteFade(cmd->mask, 4, 8, 0, RGB_BLACK);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_TogglePSSSwitch(void)
+{
+    NATIVE_ARGS();
+
+    if (gBattleSwitchFromPSS)
+        gBattleSwitchFromPSS = FALSE;
+    else
+        gBattleSwitchFromPSS = TRUE;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_ToggleBattlerSpriteVisibility(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (gBattleControllerExecFlags)
+        return;
+    
+    if (gBattleSpritesDataPtr->battlerData[battler].invisible)
+        gBattleSpritesDataPtr->battlerData[battler].invisible = FALSE;
+    else
+        gBattleSpritesDataPtr->battlerData[battler].invisible = TRUE;
+
+    gSprites[gBattlerSpriteIds[battler]].invisible = gBattleSpritesDataPtr->battlerData[battler].invisible;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetHealthboxSpriteInvisible(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    SetHealthboxSpriteInvisible(gHealthboxSpriteIds[battler]);
+    
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_CreateFinalCharmander(void)
+{
+    NATIVE_ARGS();
+
+    struct Pokemon *mon;
+    u16 species = SPECIES_FINALCHARMANDER;
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    // create Charmander in party slot 0
+    mon = &gPlayerParty[0];
+    gBattleMons[0].species = species;
+    CreateMonWithGenderNatureLetter(mon, species, 4, USE_RANDOM_IVS, GetRandomGenderBySpecies(species), GetNature(mon));
+    CopyPlayerPartyMonToBattleData(0, 0); // use 0, 0 instead?
+    
+    gPlayerPartyCount = 1;
+    //reset party data
+    // ResetPartyData(RESET_OPTION_WITHOUT_PARTY_SLOTS);
+
+    // Tell getswitchedmondata to use party slot 0 for the fainted battler
+    gBattleStruct->monToSwitchIntoId[gBattlerFainted] = 0;
+
+    // set VAR_CSR_FINAL_BATTLE_PHASE to 6, so no other events based on this Var are being executed
+    VarSet(VAR_CSR_FINAL_BATTLE_PHASE, B_FINAL_BATTLE_SCRIPTED_END);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfBattlerSide(void)
+{
+    NATIVE_ARGS(u8 battler, u8 side, const u8 *jumpInstr);
+
+    u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (GetBattlerSide(battler) == cmd->side)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_ClearBattleWeather(void)
+{
+    NATIVE_ARGS();
+
+    gBattleWeather = 0;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_WaitForCry(void)
+{
+    NATIVE_ARGS();
+
+    if (!IsCryPlaying())
         gBattlescriptCurrInstr = cmd->nextInstr;
 }

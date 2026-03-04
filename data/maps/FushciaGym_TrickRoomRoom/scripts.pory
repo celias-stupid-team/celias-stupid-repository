@@ -176,7 +176,7 @@ script FushciaGym_TrickRoomRoom_ShinySlowpoke {
     closemessage
     delay(20)
     removeobject(VAR_LAST_TALKED)
-    setflag(FLAG_SHINY_CREATION)
+    //setflag(FLAG_SHINY_CREATION)
     setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SLOWPOKE)
     playfanfare(MUS_LEVEL_UP)
     msgbox("{PLAYER} got the tricked-up\nSLOWPOKE!", MSGBOX_DEFAULT)

@@ -50,7 +50,7 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_HUB_RD",
-      "x": 19,
+      "x": 14,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_SILPH_RD",
@@ -58,8 +58,8 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_HUB_BALLS",
-      "x": 14,
-      "y": 5,
+      "x": 18,
+      "y": 3,
       "elevation": 0,
       "dest_map": "MAP_SILPH_BALL_SHOP",
       "dest_warp_id": "WARP_ID_SILPH_BALLS_HUB"
@@ -101,7 +101,7 @@
     },
     {
       "type": "sign",
-      "x": 18,
+      "x": 14,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -125,8 +125,8 @@
     },
     {
       "type": "sign",
-      "x": 14,
-      "y": 5,
+      "x": 18,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_Balls_Label"

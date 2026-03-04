@@ -1920,15 +1920,22 @@ void UpdateHealthboxAttribute(u8 healthboxSpriteId, struct Pokemon *mon, u8 elem
 s32 MoveBattleBar(u8 battlerId, u8 healthboxSpriteId, u8 whichBar, u8 unused)
 {
     s32 currentBarValue;
+    u32 changedHp = gBattleSpritesDataPtr->battleBars[battlerId].receivedValue;
+
+    if (changedHp < 0)
+        changedHp = -changedHp;
 
     if (whichBar == HEALTH_BAR)
     {
+        u16 incrementRate = (gBattleMons[battlerId].species == SPECIES_FINALZAPDOS
+                              && changedHp > 200) ? 2 : 1;
+
         currentBarValue = CalcNewBarValue(gBattleSpritesDataPtr->battleBars[battlerId].maxValue,
                                           gBattleSpritesDataPtr->battleBars[battlerId].oldValue,
                                           gBattleSpritesDataPtr->battleBars[battlerId].receivedValue,
                                           &gBattleSpritesDataPtr->battleBars[battlerId].currValue,
                                           B_HEALTHBAR_NUM_TILES,
-                                          1);
+                                          incrementRate);
     }
     else // exp bar
     {
@@ -1978,7 +1985,8 @@ static void ResetHealthBarPalette(u16 paletteTag)
     if (paletteIndex != 0xFF)
     {
         u16 *palette = &gPlttBufferUnfaded[OBJ_PLTT_ID(paletteIndex)];
-        CpuCopy16(palette, &gPlttBufferFaded[OBJ_PLTT_ID(paletteIndex)], PLTT_SIZE_4BPP);
+        CpuCopy16(gBattleInterface_Healthbar_Pal, palette, PLTT_SIZE_4BPP);
+        CpuCopy16(gBattleInterface_Healthbar_Pal, &gPlttBufferFaded[OBJ_PLTT_ID(paletteIndex)], PLTT_SIZE_4BPP);
     }
 }
 
@@ -2379,4 +2387,10 @@ void SetHPBarColorsForZapmolcunoOhgia(void)
     }
 
     UpdateHealthBarPalette(TAG_HEALTHBAR_OPPONENT_PAL, colorEmptyMain, colorEmptyShadow, colorMain, colorShadow);
+
+    if (gPlttBufferFaded[0] == RGB_WHITE)
+    {
+        // prevent screen blinking by keeping the fade active
+        CpuFill16(RGB_WHITE, gPlttBufferFaded, PLTT_SIZE);
+    }
 }

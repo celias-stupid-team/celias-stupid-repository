@@ -43,6 +43,11 @@ mapscripts PokemonIsland_Lab_MapScripts {
         }
 
     }
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_TURNED_IN_POKEMON_SIGNS)) {
+            setobjectxy(LOCALID_TODD, 17, 3)
+        }
+    }
 }
 
 script PokemonIslandLab_AddSignsBasedOnSigns {
@@ -245,17 +250,109 @@ script PokemonIslandLab_Todd {
     lock
     faceplayer
     textcolor(NPC_TEXT_COLOR_BLUE)
+    if(flag(FLAG_TURNED_IN_POKEMON_SIGNS)) {
+        if(checkmoncaught(SPECIES_CASTFORM)) {
+            msgbox(
+            "TODD: The legendary RAINBOW CLOUD\n"
+            "was here all along…\p"
+
+            "Thank you for finding it.\n"
+            "", MSGBOX_DEFAULT)
+            release
+            end
+        }
+        msgbox(
+        "Here, you should go ahead.\p"
+
+        "Whatever's waiting back there,{PAUSE 20}\n"
+        "it's for you to find.", MSGBOX_DEFAULT)
+        release
+        end
+    }
     famechecker(FAMECHECKER_GREAT_SEA_WEST, 0)
     if(flag(FLAG_DUGTRIO_SIGN) && flag(FLAG_GROWLITHE_SIGN) && flag(FLAG_ELECTIVIRE_SIGN) && flag(FLAG_AMBIGUOUS_STATUE_SIGN) && flag(FLAG_ONIX_TAIL_SIGN) && flag(FLAG_KINGLER_SIGN) && flag(FLAG_IVY_SIGN)) {
+        fadenewbgm(MUS_NONE)
         msgbox(
-        "There will be a cutscene here\n"
-        "", MSGBOX_DEFAULT)
+        "TODD: Hey, {PLAYER}!\n"
+        "How goes the search?", MSGBOX_DEFAULT)
+        playse(SE_PIN)
+        applymovement(VAR_LAST_TALKED, moves(
+            emote_exclamation_mark
+            delay_16 * 3
+        ))
+        waitmovement(0)
+        msgbox(
+        "You-\n"
+        "You've found them all!?\l"
+        "This is wonderful news!", MSGBOX_DEFAULT)
+        closemessage
+        
+        special(SpawnCameraObject)
+        applymovement(LOCALID_PLAYER, moves(
+                lock_facing_direction
+                walk_down
+                face_up
+        ))
+        
+        applymovement(VAR_LAST_TALKED, moves(
+                walk_slower_left
+                face_left
+                delay_16 
+                walk_slower_right * 2
+                face_right
+                delay_16
+                walk_slower_left
+                walk_slower_down
+                face_down
+        ))
+        msgbox(
+        "Now… {PAUSE 45}The only thing left is to\n"
+        "learn where they all point…!", MSGBOX_DEFAULT)
+        waitmovement(0)
+        closemessage
+        delay(30)
+        applymovement(VAR_LAST_TALKED, moves(
+            face_up
+        ))
+        delay(30)
+        playse(SE_PIN)
+        applymovement(VAR_LAST_TALKED, moves(
+            face_up
+            emote_exclamation_mark
+            delay_16 * 3
+            face_down
+            delay_16
+            face_up
+            delay_16
+            face_down
+            delay_4
+            face_up
+            delay_4
+            face_down
+            delay_4
+            face_up
+            delay_4
+        ))
+        waitmovement(0)
+        playse(SE_LEDGE)
+        applymovement(VAR_LAST_TALKED, moves(
+            jump_in_place_down
+        ))
+            msgbox(
+        "{PLAYER}!!\n"
+        "{PAUSE 45}I wonder if it's behind that door!", MSGBOX_DEFAULT)
         closemessage
         applymovement(VAR_LAST_TALKED, moves(
             walk_left
-            face_down
+            face_right
         ))
         waitmovement(0)
+        msgbox(
+        "Here, you should go ahead.\p"
+
+        "Whatever's waiting back there,{PAUSE 20}\n"
+        "it's for you to find.", MSGBOX_DEFAULT)
+        //special(RemoveCameraObject)
         setflag(FLAG_TURNED_IN_POKEMON_SIGNS)
         release
         end
@@ -355,7 +452,7 @@ script PokemonIslandLab_Dad {
 	"What are you doing out here?\p"
 
 	"I'm enjoying being a model!\n"
-	"something something\p"
+	"Watch me strike a pose!\p"
 
 	"Well, never mind that.\n"
 	"Why don't you take a rest?", MSGBOX_DEFAULT)

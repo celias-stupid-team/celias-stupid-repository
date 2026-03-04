@@ -1,3 +1,114 @@
 mapscripts Silph_UnfinishedFloor_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if(var(VAR_SLOW_BRO_AND_SHELLA_JEFF) > 0) {
+            setflag(FLAG_TEMP_1)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_SLOW_BRO_AND_SHELLA_JEFF, 0 {
+            applymovement(LOCALID_PLAYER, moves(
+                delay_16
+                face_up
+            ))
+            delay(70)
+            applymovement(LOCALID_SLOW_BRO, moves(
+                face_right
+                delay_4
+                face_left
+                delay_4
+                face_right
+                delay_4
+                face_left
+                delay_4
+                face_right
+                delay_4
+                face_left
+                delay_4
+                face_right
+                delay_4
+                face_left
+                delay_4
+                face_right
+                delay_4
+                face_left
+                delay_4
+                face_right
+                delay_4
+                face_left
+                delay_4
+                face_right
+                delay_4
+                face_left
+                delay_4
+                face_right
+                delay_4
+                face_left
+                delay_4
+                face_right
+            ))
+            textcolor(NPC_TEXT_COLOR_BLUE)
+            msgbox(
+            "SLOW BRO: {FONT_COMIC_SANS}i cant wait to be a\n"
+            "useless piece of shit all day", MSGBOX_DEFAULT)
+            closemessage
+            delay(40)
+            waitmovement(0)
+            applymovement(LOCALID_SLOW_BRO, moves(
+                walk_left * 6
+            ))
+            waitmovement(LOCALID_SLOW_BRO)
+            setobjectxy(LOCALID_SLOW_BRO, 14, 3)
+            applymovement(LOCALID_SLOW_BRO, moves(
+                face_up
+                lock_facing_direction
+                walk_fast_left * 15
+            ))
+            delay(60)
+            message(
+            "SLOW BRO:{FONT_COMIC_SANS} FUCK IM FALLING DOWN\n"
+            "ALL THESE STAIRS............")
+            waitmovement(LOCALID_SLOW_BRO)
+            setobjectxy(LOCALID_SLOW_BRO, 14, 3)
+            applymovement(LOCALID_SLOW_BRO, moves(
+                walk_fast_left * 15
+            ))
+            waitmovement(LOCALID_SLOW_BRO)
+            setobjectxy(LOCALID_SLOW_BRO, 14, 3)
+            applymovement(LOCALID_SLOW_BRO, moves(
+                walk_fast_left * 15
+            ))
+            waitmovement(LOCALID_SLOW_BRO)
+            setobjectxy(LOCALID_SLOW_BRO, 14, 3)
+            applymovement(LOCALID_SLOW_BRO, moves(
+                walk_fast_left * 17
+            ))
+            applymovement(LOCALID_SHELLA_JEFF, moves(
+                walk_in_place_fast_down * 10
+            ))
+            closemessage
+            msgbox(
+            "{PAUSE 10}SHELLA JEFF: {FONT_COMIC_SANS}I WARNED YOU ABOUT\n"
+            "STAIRS BRO!!!\l"
+            "I TOLD YOU DOG!", MSGBOX_DEFAULT)
+            closemessage
+            delay(40)
+            playse(SE_M_EXPLOSION)
+            waitse
+            delay(30)
+            removeobject(LOCALID_SLOW_BRO)
+            removeobject(LOCALID_SHELLA_JEFF)
+            setflag(FLAG_SHINY_CREATION)
+            playfanfare(MUS_LEVEL_UP)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            msgbox(
+            "{FONT_COMIC_SANS}SHELLA JEFF joined your\n"
+            "party", MSGBOX_DEFAULT)
+            givemon(SPECIES_SHELLDER, 20)
+            setvar(VAR_SLOW_BRO_AND_SHELLA_JEFF, 1)
+            release
 
+
+
+        }
+    ]
 }

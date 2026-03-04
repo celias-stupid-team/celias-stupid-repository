@@ -403,7 +403,7 @@ static void CreatePCMainMenu(u8 whichMenu, s16 *windowIdPtr)
     *windowIdPtr = windowId;
 }
 
-void CB2_ExitPokeStorage(void) //wiz1989
+void CB2_ExitPokeStorage(void)
 {
     sPreviousBoxOption = GetCurrentBoxOption();
     if (gMain.inBattle)

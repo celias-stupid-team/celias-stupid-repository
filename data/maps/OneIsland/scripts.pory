@@ -8,7 +8,6 @@ OneIsland_MapScripts::
 
 
 OneIsland_OnFrame::
-	map_script_2 VAR_CSR_DUMMY_14, 2, OneIsland_EventScript_EnterOneIslandFirstTime
 	.2byte 0
 
 OneIsland_EventScript_EnterOneIslandFirstTime::
@@ -29,7 +28,6 @@ OneIsland_EventScript_EnterOneIslandFirstTime::
 	closedoor 14, 5
 	waitdooranim
 	removeobject LOCALID_ONE_ISLAND_BILL
-	setvar VAR_CSR_DUMMY_14, 3
 	warp MAP_ONE_ISLAND_POKEMON_CENTER_1F, 9, 9
 	waitstate
 	releaseall

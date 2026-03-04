@@ -420,17 +420,63 @@ script SaffronDojo_NoTornado {
 script SaffronDojo_James {
 	lock
 	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(var(VAR_MAP_SCENE_SAFFRON_CITY_DOJO) > 0) {
+		msgbox(
+		"JAMES: I've never seen such horse\n"
+		"shit before in my life.\p"
+
+		"But guess what!\n"
+		"That's not even all you gotta do!\p"
+
+		"That's right: There's ANOTHER\n"
+		"fucking GYM LEADER.\p"
+
+		"If you want the GYM BADGE, you'll\n"
+		"need to go into the back room and\l"
+		"defeat the biggest nerd of all!", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	msgbox(
-	"there is a fight\n"
-	"", MSGBOX_DEFAULT)
+	"JAMES: Who the fuck are you?\p"
+
+	"I'm sick and tired of this shit!\n"
+	"Shitty games, day in and day out!\p"
+
+	"But none of them - and I mean\n"
+	"NONE of them - compare to this!\p"
+
+	"Get your ass over here!\n"
+	"I'm dead fucking serious!\p"
+
+	"Get ready for a taste of the\n"
+	"shittiest game I've ever played!", MSGBOX_DEFAULT)
+	setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_JAMES)
+	trainerbattle_no_intro(TRAINER_AVGN_4, "What a shitload of fuck!\p"
+
+	"I'd rather have diarrhea come pouring\n"
+	"out of my eyeballs!\l"
+	"I'd rather be shitting from my nostrils!\p"
+
+	"I'd rather pour gasoline on the undead\n"
+	"carcass of a racoon and blend it all\l"
+	"into a fucking breakfast smoothie!")
 	closemessage
 	setvar(VAR_MAP_SCENE_SAFFRON_CITY_DOJO, 1)
 	msgbox(
-	"But you've only just defeated me!\p"
+	"JAMES: I've never seen such fucking\n"
+	"horseshit before in my life.\p"
+
+	"But guess what!\n"
+	"That's not even all you gotta do!\p"
+
+	"That's right: There's ANOTHER\n"
+	"fucking GYM LEADER.\p"
 
 	"If you want the GYM BADGE, you'll\n"
-	"have to travel into the back room\l"
-	"and defeat the biggest nerd of all!", MSGBOX_DEFAULT)
+	"have to go into the back room and\l"
+	"defeat the biggest nerd of all!", MSGBOX_DEFAULT)
 	applymovement(LOCALID_KARATE_MASTER, moves(
 		face_down
 	))

@@ -35,6 +35,13 @@ u16 GetPokedexCount(void)
     return IsNationalPokedexEnabled();
 }
 
+u16 GetShinyCount(void)
+{
+    gSpecialVar_0x8006 = GetShinyPokedexCount(1);
+    DebugPrintf("Special Var %d", gSpecialVar_0x8006);
+    return IsNationalPokedexEnabled();
+}
+
 static const u8 *GetProfOaksRatingMessageByCount(u16 count)
 {
     gSpecialVar_Result = FALSE;

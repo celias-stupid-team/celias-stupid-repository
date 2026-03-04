@@ -160,6 +160,7 @@ static void MovementType_WanderAroundSlower(struct Sprite *);
 static u8 UpdateSpritePalette(const struct SpritePalette *spritePalette, struct Sprite *sprite);
 static void ObjectEventSetGraphics(struct ObjectEvent *, const struct ObjectEventGraphicsInfo *);
 static const struct SpritePalette *GetObjectEventPal_HandleOutfit(u16 paletteTag);
+static const struct SpritePalette *GetObjectEventPal_BikePalette(void);
 
 enum {
     MOVE_SPEED_NORMAL, // walking
@@ -608,6 +609,20 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_SLOW_BRO  0x11B5
 #define OBJ_EVENT_PAL_TAG_SHELLA_JEFF  0x11B6
 #define OBJ_EVENT_PAL_TAG_GENGAR  0x11B7
+#define OBJ_EVENT_PAL_TAG_SILPH_WINDOWS  0x11B8
+#define OBJ_EVENT_PAL_TAG_CRACKED_COMPUTER  0x11B9
+#define OBJ_EVENT_PAL_TAG_PALESTINE  0x11BA
+#define OBJ_EVENT_PAL_TAG_PALESTINE_2  0x11BB
+#define OBJ_EVENT_PAL_TAG_CASTFORM_BALL  0x11BC
+#define OBJ_EVENT_PAL_TAG_GARBODOR  0x11BD
+#define OBJ_EVENT_PAL_TAG_GARBO_GIRL  0x11BE
+#define OBJ_EVENT_PAL_TAG_BURN_TREE  0x11BF
+#define OBJ_EVENT_PAL_TAG_MARSHMALLOW_1  0x11C0
+#define OBJ_EVENT_PAL_TAG_SECRET_SWITCH  0x11C1
+#define OBJ_EVENT_PAL_TAG_BURNING_EGG  0x11C2
+#define OBJ_EVENT_PAL_TAG_BURNING_BOOK  0x11C3
+#define OBJ_EVENT_PAL_TAG_SHINY_BIKE  0x11C4
+#define OBJ_EVENT_PAL_TAG_PLAYER_BIKE              0x11C5
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -789,6 +804,20 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_SLOW_BRO,             OBJ_EVENT_PAL_TAG_SLOW_BRO},
     {gObjectEventPal_SHELLA_JEFF,             OBJ_EVENT_PAL_TAG_SHELLA_JEFF},
     {gObjectEventPal_GENGAR,             OBJ_EVENT_PAL_TAG_GENGAR},
+    {gObjectEventPal_SILPH_WINDOWS,             OBJ_EVENT_PAL_TAG_SILPH_WINDOWS},
+    {gObjectEventPal_CRACKED_COMPUTER,             OBJ_EVENT_PAL_TAG_CRACKED_COMPUTER},
+    {gObjectEventPal_PALESTINE,             OBJ_EVENT_PAL_TAG_PALESTINE},
+    {gObjectEventPal_PALESTINE_2,             OBJ_EVENT_PAL_TAG_PALESTINE_2},
+    {gObjectEventPal_CASTFORM_BALL,             OBJ_EVENT_PAL_TAG_CASTFORM_BALL},
+    {gObjectEventPal_GARBODOR,             OBJ_EVENT_PAL_TAG_GARBODOR},
+    {gObjectEventPal_GARBO_GIRL,             OBJ_EVENT_PAL_TAG_GARBO_GIRL},
+    {gObjectEventPal_BURN_TREE,             OBJ_EVENT_PAL_TAG_BURN_TREE},
+    {gObjectEventPal_MARSHMALLOW_1,             OBJ_EVENT_PAL_TAG_MARSHMALLOW_1},
+    {gObjectEventPal_SECRET_SWITCH,             OBJ_EVENT_PAL_TAG_SECRET_SWITCH},
+    {gObjectEventPal_BURNING_EGG,             OBJ_EVENT_PAL_TAG_BURNING_EGG},
+    {gObjectEventPal_BURNING_BOOK,             OBJ_EVENT_PAL_TAG_BURNING_BOOK},
+    {gObjectEventPal_SHINY_BIKE,             OBJ_EVENT_PAL_TAG_SHINY_BIKE},
+    {gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_PLAYER_BIKE},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
@@ -1913,6 +1942,10 @@ static u8 UpdateSpritePalette(const struct SpritePalette *spritePalette, struct 
     if (spritePalette->tag == OBJ_EVENT_PAL_TAG_PLAYER_RED || spritePalette->tag == OBJ_EVENT_PAL_TAG_PLAYER_GREEN)
         spritePalette = GetObjectEventPal_HandleOutfit(spritePalette->tag);
 
+    if (spritePalette->tag == OBJ_EVENT_PAL_TAG_PLAYER_BIKE)
+        spritePalette = GetObjectEventPal_BikePalette();
+        
+
     palIndex = LoadSpritePalette(spritePalette);
     sprite->oam.paletteNum = palIndex;
     ApplyGlobalFieldPaletteTint(palIndex);
@@ -2381,6 +2414,11 @@ static const struct SpritePalette sOutfitToObjectEventPalGreen[OUTFIT_COUNT] = {
     [OUTFIT_LWP]  = {gObjectEventPal_Green_LWP, OBJ_EVENT_PAL_TAG_PLAYER_GREEN},  
 };
 
+static const struct SpritePalette sBikePaletteTable[2] = {
+    {gObjectEventPal_Player,  OBJ_EVENT_PAL_TAG_PLAYER_BIKE},
+    {gObjectEventPal_SHINY_BIKE,  OBJ_EVENT_PAL_TAG_SHINY_BIKE},  
+};
+
 void SetPlayerOutfit(u8 outfit)
 {
     gSaveBlock1Ptr->currentOutfit |= outfit;
@@ -2404,6 +2442,17 @@ static const struct SpritePalette *GetObjectEventPal_HandleOutfit(u16 paletteTag
         return &sOutfitToObjectEventPalGreen[gSaveBlock1Ptr->currentOutfit];
 }
 
+static const struct SpritePalette *GetObjectEventPal_BikePalette(void)
+{
+    if(FlagGet(FLAG_SYS_ON_SHINY_BIKE)) {
+        return &sBikePaletteTable[1];
+    } else {
+        return &sBikePaletteTable[0];
+    }
+    
+        
+}
+
 u8 LoadObjectEventPalette(u16 paletteTag)
 {
     u8 palIndex;
@@ -2417,6 +2466,11 @@ u8 LoadObjectEventPalette(u16 paletteTag)
     {
         pal = GetObjectEventPal_HandleOutfit(paletteTag);
         FreeSpritePaletteByTag(paletteTag);
+    }
+    else if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_BIKE) {
+        pal = GetObjectEventPal_BikePalette();
+        FreeSpritePaletteByTag(paletteTag);
+
     }
     else
     {

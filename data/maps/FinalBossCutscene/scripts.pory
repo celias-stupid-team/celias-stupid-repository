@@ -68,7 +68,7 @@ mapscripts FinalBossCutscene_MapScripts {
             ))
             delay(30)
             playse(MUS_SE_GUILTY)
-            special(ShakeScreen)
+            special(ShakeScreenSilent)
             applymovement(LOCALID_GIA, moves(
                 set_visible
             ))
@@ -99,9 +99,23 @@ mapscripts FinalBossCutscene_MapScripts {
             trainerbattle_no_intro_battletype(TRAINER_CHAMPION_FIRST_SQUIRTLE, SPECIAL_BATTLE_TYPE_ZAPMOLCUNOOHGIA, "defeated")
             //trainerbattle_no_intro(TRAINER_CHAMPION_FIRST_CHARMANDER, "end of battle")
             //setvar(VAR_FINAL_BATTLE_FINISHED, 1)
-            //warpsilent(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM, 2)
+            setflag(FLAG_DEFEATED_FINAL_BOSS)
+            setvar(VAR_TEMP_0, 1)
+            warpsilent(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM, 2)
         }
     ]
+    MAP_SCRIPT_ON_RESUME {
+        setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE, 0,0,0,0,14, 10)
+        removeobject(LOCALID_ZAP)
+        removeobject(LOCALID_MOL)
+        removeobject(LOCALID_CUNO)
+        removeobject(LOCALID_OH)
+        removeobject(LOCALID_GIA)
+        if(flag(FLAG_DEFEATED_FINAL_BOSS)) {
+            setvar(VAR_TEMP_0, 1)
+        }
+        //
+    }
 }
 
 

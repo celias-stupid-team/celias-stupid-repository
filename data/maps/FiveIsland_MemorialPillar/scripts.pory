@@ -1,6 +1,5 @@
 raw `
-FiveIsland_MemorialPillar_MapScripts::
-	.byte 0
+
 
 
 FiveIsland_MemorialPillar_EventScript_MemorialMan::
@@ -86,6 +85,16 @@ FiveIsland_MemorialPillar_EventScript_MemorialLemonadeAlreadyPlaced::
 	end
 `
 
+mapscripts FiveIsland_MemorialPillar_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!checktrainerflag(TRAINER_BACKPACK_SWIMMER)) {
+			setflag(FLAG_SHINY_CREATION)
+		}
+		
+		
+	}
+}
+
 script MemorialPillar_OnixSign {
 	lock
 	setflag(FLAG_WORLD_MAP_MEMORIAL_PILLAR)
@@ -129,4 +138,49 @@ script MemorialPillar_Guy {
 
 	"I think I did an excellent job\n"
 	"burying him.", MSGBOX_NPC)
+}
+
+script MemorialPillar_ShinyFlag {
+	setflag(FLAG_SHINY_CREATION)
+	release
+}
+
+script GreatSea_PokeBallStorage {
+	if(!checktrainerflag(TRAINER_BACKPACK_SWIMMER) && !flag(FLAG_TEMP_2)) {
+		lock
+		msgbox(
+		"FEMININE POKé BALL STORAGE DEVICE\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		msgbox(
+		"Hey!\n"
+		"There's still a POKé BALL in here!", MSGBOX_DEFAULT)
+		playfanfare(MUS_LEVEL_UP)
+		setflag(FLAG_SHINY_CREATION)
+		msgbox(
+		"{PLAYER} reached deep in the\n"
+		"DEVICE and retrieved CLOYSTER!", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CLOYSTER)
+		call(Common_Script_GiftPokemon30)
+		setflag(FLAG_TEMP_2)
+		release
+		end
+	} else {
+		msgbox(
+		"FEMININE POKé BALL STORAGE DEVICE\n"
+		"", MSGBOX_SIGN)
+
+	}
+
+}
+
+
+script GreatSea_WomensSecret { // Swimmer Victoria
+	trainerbattle_single(TRAINER_BACKPACK_SWIMMER, "If I'm wearing a bikini…\n"
+	"where do I put my POKé BALLS?", "Ah!")
+	msgbox(
+	"Where do I keep my POKé BALLS?\p"
+
+	"Tee hee!\n"
+	"Woman's secret!", MSGBOX_NPC)
 }

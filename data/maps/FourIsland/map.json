@@ -548,6 +548,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FourIsland_CutInHalf",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GROUND_LASS",
+      "x": 27,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_FAST_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FourIsland_GroundLass",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [

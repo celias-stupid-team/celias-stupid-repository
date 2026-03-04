@@ -1,6 +1,8 @@
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
+#include "battle_anim.h"
+#include "battle_interface.h"
 #include "berry_pouch.h"
 #include "berry_powder.h"
 #include "bike.h"
@@ -106,6 +108,11 @@ static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
 static void Task_UseMoveRelearnerOnField(u8 taskId);
 static void Task_InitPartyMenuFromRegisteredItem(u8 taskId);
 void PrintKorokDebug(void);
+
+bool8 CanUseStairOrbOnCurrMap(void);
+static void ItemUseOnFieldCB_StairOrb(u8 taskId);
+void Task_UseStairOrbOnField(u8 taskId);
+
 
 
 // unknown unused data.
@@ -338,8 +345,16 @@ void FieldUseFunc_Bike(u8 taskId)
 
 static void ItemUseOnFieldCB_Bicycle(u8 taskId)
 {
-    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
-        PlaySE(SE_BIKE_BELL);
+    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE)) {
+            if(gSpecialVar_ItemId == ITEM_SHINY_BIKE) {
+                FlagSet(FLAG_SYS_ON_SHINY_BIKE);
+            } else {
+                FlagClear(FLAG_SYS_ON_SHINY_BIKE);
+            }
+            PlaySE(SE_BIKE_BELL);
+        
+    }
+        
     GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE);
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
     UnlockPlayerFieldControls();
@@ -796,7 +811,23 @@ static void Task_UsedBlackWhiteFlute(u8 taskId)
 
 bool8 CanUseEscapeRopeOnCurrMap(void)
 {
-    if (gMapHeader.allowEscaping)
+    if(gSpecialVar_ItemId == ITEM_STAIR_ORB) {
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_2F) &&
+            (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_2F))) {
+                SetEscapeWarp(MAP_GROUP(MAP_SILPH_UNFINISHED_FLOOR), MAP_NUM(MAP_SILPH_UNFINISHED_FLOOR), 0, 4, 5);
+                return TRUE;
+
+        }
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_2F) &&
+            (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_2F))) {
+                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_2F), MAP_NUM(MAP_SKY_TOWER_2F), 2, 22, 27);
+                return TRUE;
+
+        } else
+            return FALSE;
+
+    }
+    else if (gMapHeader.allowEscaping)
         return TRUE;
     else
         return FALSE;
@@ -1014,6 +1045,45 @@ void BattleUseFunc_PokeDoll(u8 taskId)
     }
     else
         PrintNotTheTimeToUseThat(taskId, 0);
+}
+
+void BattleUseFunc_CreateKoraidon(u8 taskId)
+{
+    struct Pokemon *mon;
+    u16 species = SPECIES_KORAIDON;
+    u8 i;
+
+    // send all mons to the PC
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+            break;
+        else
+        {
+            if (SendMonToPC(&gPlayerParty[i]))
+            {
+                ZeroMonData(&gPlayerParty[i]);
+            }
+        }
+    }
+    // create Koraidon in the first party slot
+    mon = &gPlayerParty[gBattlerPartyIndexes[0]];
+    gBattleMons[0].species = species;
+    if (gSpecialVar_ItemId == ITEM_SHINY_BIKE)
+        FlagSet(FLAG_SHINY_CREATION);
+    CreateMonWithGenderNatureLetter(mon, species, 50, USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
+    CopyPlayerPartyMonToBattleData(0, 0);
+
+    gPlayerPartyCount = 1;
+
+    // make initial Koraidon sprite invisible
+    gBattleSpritesDataPtr->battlerData[gBattlerInMenuId].invisible = TRUE;
+    gBattleStruct->switchInAfterItemUse = TRUE;
+    //reset for battle string
+    gTemporaryBattlePlayerText = FALSE;
+
+    Bag_BeginCloseWin0Animation();
+    ItemMenu_StartFadeToExitCallback(taskId);
 }
 
 void ItemUseOutOfBattle_EnigmaBerry(u8 taskId)
@@ -1445,19 +1515,18 @@ void CurePorygonVirus()
     bool8 shinyness;
 
     newSpecies = SPECIES_PORYGON;
-
     mon = &gPlayerParty[slot];
 
     otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
     GetMonNickname(mon, nickname);
     newPersonality = Random32();
     shinyness = GetMonData(mon, MON_DATA_CSR_SHINY);
-
+    oldSpecies = GetMonData(mon, MON_DATA_SPECIES, NULL);
 
     // force the mon to be shiny
-    if(shinyness) {
+    if(shinyness)
+    {
         newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-
     }
     
     // if player has nicknamed their nidotran, don't overwrite it
@@ -1488,29 +1557,29 @@ void RemoveShoesFromToedy()
     s16 slot = gSpecialVar_Result;
     bool32 thisIsTrue = TRUE;
 
-        newSpecies = SPECIES_TENTACOOL;
+    newSpecies = SPECIES_TENTACOOL;
+    mon = &gPlayerParty[slot];
 
-        mon = &gPlayerParty[slot];
+    otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+    oldSpecies = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    GetMonNickname(mon, nickname);
+    newPersonality = Random32();
 
-        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
-        GetMonNickname(mon, nickname);
-        newPersonality = Random32();
-
-        // force the mon to be shiny
-        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-        
-        // if player has nicknamed their nidotran, don't overwrite it
-        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
-        {
-            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
-        }
-        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
-        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
-        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
-        UpdateMonPersonality(&mon->box, newPersonality);
-        CalculateMonStats(mon);
+    // force the mon to be shiny
+    newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
     
+    // if player has nicknamed their nidotran, don't overwrite it
+    if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+    {
+        SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+    }
+    SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+    SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    UpdateMonPersonality(&mon->box, newPersonality);
+    CalculateMonStats(mon);
 }
+
 void ZygardeSwitcheroo()
 {
     u32 i, j;
@@ -1521,28 +1590,27 @@ void ZygardeSwitcheroo()
     s16 slot = gSpecialVar_Result;
     bool32 thisIsTrue = TRUE;
 
-        newSpecies = SPECIES_ZYGARDE;
+    newSpecies = SPECIES_ZYGARDE;
+    mon = &gPlayerParty[slot];
 
-        mon = &gPlayerParty[slot];
+    otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+    oldSpecies = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    GetMonNickname(mon, nickname);
+    newPersonality = Random32();
 
-        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
-        GetMonNickname(mon, nickname);
-        newPersonality = Random32();
-
-        // force the mon to be shiny
-        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-        
-        // if player has nicknamed their nidotran, don't overwrite it
-        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
-        {
-            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
-        }
-        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
-        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
-        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
-        UpdateMonPersonality(&mon->box, newPersonality);
-        CalculateMonStats(mon);
+    // force the mon to be shiny
+    newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
     
+    // if player has nicknamed their nidotran, don't overwrite it
+    if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+    {
+        SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+    }
+    SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+    SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    UpdateMonPersonality(&mon->box, newPersonality);
+    CalculateMonStats(mon);
 }
 
 static const u16 sNidotranCounterparts[6][2] = {
@@ -1714,4 +1782,49 @@ static void Task_UseMoveRelearnerOnField(u8 taskId)
 
 void PrintKorokDebug(void) {
     DebugPrintf("Current value: %d", VarGet(VAR_ITEM_ID));
+}
+
+bool8  CanUseStairOrbOnCurrMap(void)
+{
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_2F) &&
+        (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_2F))) {
+            SetEscapeWarp(MAP_GROUP(MAP_SILPH_UNFINISHED_FLOOR), MAP_NUM(MAP_SILPH_UNFINISHED_FLOOR), 0, 4, 5);
+            return TRUE;
+
+    }
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_2F) &&
+        (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_2F))) {
+            SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_2F), MAP_NUM(MAP_SKY_TOWER_2F), 2, 22, 27);
+            return TRUE;
+
+    }
+    else
+        return FALSE;
+}
+
+void ItemUseOutOfBattle_StairOrb(u8 taskId)
+{
+    if (CanUseStairOrbOnCurrMap() == TRUE)
+    {
+        ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, gMapHeader.regionMapSectionId);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_StairOrb;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+}
+
+static void ItemUseOnFieldCB_StairOrb(u8 taskId)
+{
+    Overworld_ResetStateAfterDigEscRope();
+    RemoveUsedItem();
+    gTasks[taskId].data[0] = 0;
+    DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_UseStairOrbOnField);
+}
+
+void Task_UseStairOrbOnField(u8 taskId)
+{
+    ResetInitialPlayerAvatarState();
+    StartEscapeRopeFieldEffect();
+    DestroyTask(taskId);
 }

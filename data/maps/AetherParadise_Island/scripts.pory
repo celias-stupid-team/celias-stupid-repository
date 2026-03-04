@@ -8,13 +8,7 @@ mapscripts AetherParadise_Island_MapScripts {
 script AetherParadise_LargeOak {
     lock
     textcolor(NPC_TEXT_COLOR_GREEN)
-    if(checkpartymove(MOVE_GUILLOTINE) < PARTY_SIZE) {
-        msgbox(
-        "cut\n"
-        "", MSGBOX_DEFAULT)
-        setflag(FLAG_CUT_SAMSON_OAK)
-        removeobject(VAR_LAST_TALKED)
-    }
+
     msgbox(
 	"SAMSON: Hello, there!\n"
 	"My name is OAK.\p"

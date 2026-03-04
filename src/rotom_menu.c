@@ -2900,6 +2900,8 @@ static bool32 SetupFunc_Surf(void)
         sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CANT_SURF_HERE;
         return FALSE;
     }
+  
+
 
     return TRUE;
 }

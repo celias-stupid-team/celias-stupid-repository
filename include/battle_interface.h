@@ -82,6 +82,7 @@ enum
 #define B_FINAL_BATTLE_ZAPDOS                   3
 #define B_FINAL_BATTLE_MOLTRES                  4
 #define B_FINAL_BATTLE_WARTORTLE                5
+#define B_FINAL_BATTLE_SCRIPTED_END             6
 
 enum
 {

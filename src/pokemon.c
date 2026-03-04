@@ -118,6 +118,9 @@ const u32 gProtectedMoves[] = {
     MOVE_MAGICAL_LEAF,
     MOVE_BRICK_BREAK,
     MOVE_HEART_SWAP,
+    MOVE_ENDEAVOR,
+    MOVE_DOUBLE_DIP,
+    MOVE_RAINBOW_BEAM,
     MOVE_FLY_CYNTHIA
 };
 
@@ -1672,16 +1675,16 @@ static const u8 sStatsToRaise[] =
 // 0-99, 100-199, 200+
 static const s8 sFriendshipEventDeltas[][3] = 
 {
-    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 5,  3,  2 },
-    [FRIENDSHIP_EVENT_VITAMIN]              = { 5,  3,  2 },
+    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 5,  1,  0 },
+    [FRIENDSHIP_EVENT_VITAMIN]              = { 0,  0,  0 },
     [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 3,  2,  1 },
-    [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_WALKING]              = { 1,  1,  1 },
+    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 1,  1,  1 },
+    [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 0,  0,  0 },
+    [FRIENDSHIP_EVENT_WALKING]              = { 1,  0,  0 },
     [FRIENDSHIP_EVENT_MASSAGE]              = { 3,  3,  3 },
-    [FRIENDSHIP_EVENT_FAINT_SMALL]          = {-1, -1, -1 },
-    [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {-5, -5, -10 },
-    [FRIENDSHIP_EVENT_FAINT_LARGE]          = {-5, -5, -10 },
+    [FRIENDSHIP_EVENT_FAINT_SMALL]          = {0, 0, 0 },
+    [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {0, 0, 0 },
+    [FRIENDSHIP_EVENT_FAINT_LARGE]          = {0, 0, 0 },
 };
 
 #define HM_MOVES_END 0xFFFF
@@ -1814,6 +1817,16 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
     if (species == SPECIES_HOOPA) // Hoopa starts at 1 HP to allow the HP bar animation to play properly
     {
         u32 hp = 1;
+        SetMonData(mon, MON_DATA_HP, &hp);
+    }
+    if (species == SPECIES_FINALCHARMANDER)
+    {
+        u32 hp = 18;
+        SetMonData(mon, MON_DATA_HP, &hp);
+    }
+    if (species == SPECIES_FINALWARTORTLE)
+    {
+        u32 hp = 24;
         SetMonData(mon, MON_DATA_HP, &hp);
     }
 }
@@ -2231,7 +2244,6 @@ void CalculateMonStats(struct Pokemon *mon)
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
 
-
     if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_SHEDINJA_ELECTRIC || species == SPECIES_ARCEUS)
     {
         newMaxHP = 1;
@@ -2243,6 +2255,10 @@ void CalculateMonStats(struct Pokemon *mon)
 
         if (species == SPECIES_FINALZAPDOS)
             newMaxHP *= 2; // over-increase HP for Final Zapdos
+        if (species == SPECIES_FINALWARTORTLE)
+            newMaxHP = 24;
+        if (species == SPECIES_FINALCHARMANDER)
+            newMaxHP = 18;
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;
@@ -2295,6 +2311,14 @@ void CalculateMonStats(struct Pokemon *mon)
     {
         arg = STATUS1_SLEEP_TURN(3);
         SetMonData(mon, MON_DATA_STATUS, &arg);
+    }
+
+    // special defense values for final battle
+    if (species == SPECIES_FINALARTICUNO || species == SPECIES_FINALHOOH)
+    {
+        arg = 9;
+        SetMonData(mon, MON_DATA_DEF, &arg);
+        SetMonData(mon, MON_DATA_SPDEF, &arg);
     }
 }
 
@@ -2899,6 +2923,24 @@ u8 GetGenderFromSpeciesAndPersonality(u16 species, u32 personality)
     }
 
     if (gSpeciesInfo[species].genderRatio > (personality & 0xFF))
+        return MON_FEMALE;
+    else
+        return MON_MALE;
+}
+
+u8 GetRandomGenderBySpecies(u16 species)
+{
+    u8 rnd = Random() & 0xFF;
+
+    switch (gSpeciesInfo[species].genderRatio)
+    {
+    case MON_MALE:
+    case MON_FEMALE:
+    case MON_GENDERLESS:
+        return gSpeciesInfo[species].genderRatio;
+    }
+
+    if (gSpeciesInfo[species].genderRatio > rnd)
         return MON_FEMALE;
     else
         return MON_MALE;
@@ -4117,7 +4159,7 @@ void RemoveBattleMonPPBonus(struct BattlePokemon *mon, u8 moveIndex)
     mon->ppBonuses &= gPPUpClearMask[moveIndex];
 }
 
-static void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
+void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
 {
     u16 *hpSwitchout;
     s32 i;
@@ -5466,38 +5508,10 @@ u16 SpeciesToCryId(u16 species)
     if (species <= SPECIES_OLD_UNOWN_Z - 1)
         return SPECIES_UNOWN - 1;
 
-    if (species < SPECIES_CHIMECHO - 1)
-        return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)]; //Hoenn
+    if (species < ARRAY_COUNT(sSpeciesIdToCryId))
+        return sSpeciesIdToCryId[species + 1];
 
-    if (species < SPECIES_WARTORTLE - 1)
-        return sSinnohSpeciesIdToCryId[species - ((SPECIES_CHIMECHO + 1) - 1)];
-
-    if (species < SPECIES_KABUTO- 1)
-        return sUnovaSpeciesIdToCryId[species - ((SPECIES_WARTORTLE + 1) - 1)];
-
-    if (species < SPECIES_MAGNETON- 1)
-        return sKalosSpeciesIdToCryId[species - ((SPECIES_KABUTO + 1) - 1)];
-
-    if (species < SPECIES_CHIKORITA- 1)
-        return sAlolaSpeciesIdToCryId[species - ((SPECIES_MAGNETON + 1) - 1)];
-
-    if (species < SPECIES_ENAMORUS - 1)
-        return sGalarSpeciesIdToCryId[species - ((SPECIES_CHIKORITA + 1) - 1)];
-
-    if (species < SPECIES_BRAMBLEGHAST- 1)
-        return sPaldeaSpeciesIdToCryId[species - ((SPECIES_ENAMORUS  + 1) - 1)];
-
-    if (species < SPECIES_RATATATTA - 1)
-        return sStupidSpeciesIdToCryId[species - ((SPECIES_BRAMBLEGHAST + 1) - 1)];
-
-    if (species < SPECIES_HAUNTER_POKERAP - 1)
-        return sPokerapSpeciesIdToCryId[species - ((SPECIES_RATATATTA + 1) - 1)];
-    
-    
-    
-    return sPokerap2SpeciesIdToCryId[species - ((SPECIES_HAUNTER_POKERAP + 1) - 1)]; //replace this with whatever comes after the Pokerap table
-
-    
+    return 0;
 }
 
 // Spots can be drawn on Spinda's color indexes 1, 2, or 3
@@ -5738,11 +5752,14 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             // Only if it's a trainer battle with league progression significance
             if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
                 return;
-            if (!(gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER
-                || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR
-                || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_MASTER
-                || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION))
-                return;
+            if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE14) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE14))
+                return; //No battle friendship in the pokerap
+
+            // if (!(gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER
+            //     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR
+            //     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_MASTER
+            //     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION))
+            //     return;
         }
 
         delta = sFriendshipEventDeltas[event][friendshipLevel];

@@ -65,7 +65,7 @@ script Desert_AlienInDisguise {
 	"The only thing I know is that I\n"
 	"have an oddly strong compatability\l"
 	"with the move STEEL WING.", MSGBOX_DEFAULT)
-	if(checkitem(ITEM_TM38)) {
+	if(checkitem(ITEM_TM13)) {
 		msgbox(
 		"Oh, yes!\n"
 		"Yes!\l"
@@ -95,7 +95,7 @@ script Desert_AlienInDisguise {
 		"A sub-prime mortgage!", MSGBOX_DEFAULT)
 		
 		closemessage
-		removeitem(ITEM_TM38)
+		removeitem(ITEM_TM13)
 		giveitem_msg("{PLAYER} got a\nHOUSE VOUCHER!", ITEM_HOUSEVOUCHER)
 		waitfanfare
 		msgbox(
@@ -160,7 +160,7 @@ script Desert_YamaskGuy {
 	"Could you do me a favor?\p"
 
 	"Could you please deal exactly\n"
-	"37 damage to me?", "Uh, that was a bit too much.")
+	"49 damage to me?", "Uh, that was a bit too much.")
 	msgbox(
 	"I don't know why, but I have a\n"
 	"hunch that if I bring my YAMASK\l"

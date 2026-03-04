@@ -315,7 +315,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_AMPHAROS_MEGA) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out this logic
 		setobtainable(SPECIES_AMPHAROS) // 102
 	}
-	if(checkmoncaught(SPECIES_COMBEE) && flag(FLAG_FOUR_ISLAND_ROCK_CLIMB)) { //TODO figure out this logic
+	if(checkmoncaught(SPECIES_COMBEE) && flag(FLAG_FOUR_ISLAND_ROCK_CLIMB) && checkmoncaught(SPECIES_PERSIAN)) { //TODO figure out this logic
 		setobtainable(SPECIES_SMEARGLE) // 103
 	}
 	if(flag(FLAG_SAFFRON_IS_TRAINS)) { 

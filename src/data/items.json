@@ -4831,19 +4831,19 @@
     {
       "english": "TM13",
       "itemId": "ITEM_TM13",
-      "price": 3000,
+      "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "An icy-cold beam is shot at the\\nfoe. It may leave the target\\nfrozen.",
+      "description_english": "STEVEN STONE's favorite move.\\nIt may help a certain desert\\nman remember something.",
       "importance": 0,
       "registrability": 0,
-      "pocket": "POCKET_TM_CASE",
+      "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
       "fieldUseFunc": "NULL",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "PsyBeam"
+      "moveId": "SteelWing"
     },
     {
       "english": "TM14",
@@ -6608,7 +6608,7 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Damn that sign wasn't kidding\\nthere sure was nothing up here",
+      "description_english": "Damn they weren't kidding\\nthere sure was nothing here",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
@@ -7483,7 +7483,7 @@
       "secondaryId": 0
     },
     {
-      "english": "BAGoDRGNTE",
+      "english": "BAGo'NITE",
       "itemId": "ITEM_BAG_OF_DRAGONITE",
       "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -7533,15 +7533,15 @@
     {
       "english": "STAIR ORB",
       "itemId": "ITEM_STAIR_ORB",
-      "price": 200,
+      "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "DUMMY DESCRIPTION",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "type": "ITEM_TYPE_FIELD",
+      "fieldUseFunc": "ItemUseOutOfBattle_EscapeRope",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

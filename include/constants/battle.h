@@ -73,7 +73,7 @@
 #define BATTLE_TYPE_KANGA              (1 << 25)
 #define BATTLE_TYPE_SHEDINJA_TERA      (1 << 26)
 #define BATTLE_TYPE_CYNTHIA            (1 << 27)
-#define BATTLE_TYPE_ZAPMOLCUNOOHGIA  (1 << 28)
+#define BATTLE_TYPE_ZAPMOLCUNOOHGIA    (1 << 28)
 
 #define IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && !((flags) & BATTLE_TYPE_GHOST_UNVEILED))
 #define IS_BATTLE_TYPE_GHOST_WITH_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && (flags) & BATTLE_TYPE_GHOST_UNVEILED)
@@ -95,6 +95,7 @@
 #define B_OUTCOME_CAUGHT               7
 #define B_OUTCOME_NO_SAFARI_BALLS      8
 #define B_OUTCOME_FORFEITED            9
+#define B_OUTCOME_CONTINUE_ZAPDOS      (1 << 6) // used for final battle
 #define B_OUTCOME_CONTINUE_ROTOM       (1 << 7) // used for final battle
 
 // Non-volatile status conditions
@@ -303,7 +304,8 @@
 #define MOVE_EFFECT_SP_ATK_TWO_DOWN     59
 #define MOVE_EFFECT_FEINT               60
 #define MOVE_EFFECT_ATK_TWO_DOWN        61
-#define NUM_MOVE_EFFECTS                62
+#define MOVE_EFFECT_RECOIL_100          62
+#define NUM_MOVE_EFFECTS                63
 
 #define MOVE_EFFECT_AFFECTS_USER        (1 << 6) // 64
 #define MOVE_EFFECT_CERTAIN             (1 << 7) // 128
@@ -351,9 +353,9 @@
 #define FLEE_ABILITY 2
 
 // Return value for IsRunningFromBattleImpossible.
-#define BATTLE_RUN_SUCCESS        0
-#define BATTLE_RUN_FORBIDDEN      1
-#define BATTLE_RUN_FAILURE        2
+#define BATTLE_RUN_SUCCESS         0
+#define BATTLE_RUN_FORBIDDEN       1
+#define BATTLE_RUN_FAILURE         2
 
 // Window Ids for sTextOnWindowsInfo_Normal
 #define B_WIN_MSG                 0

@@ -25,6 +25,14 @@ script FourthTrial_Books2 {
 
 }
 
+script FourthTrial_BlueBallsChair {
+	msgbox(
+	"Blue balls chair\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
 script FourthTrial_LongRangeCuckChair {
 	msgbox(
 	"Long-Range cuck chair\n"
@@ -33,7 +41,7 @@ script FourthTrial_LongRangeCuckChair {
 }
 script FourthTrial_CuckChair {
 	msgbox(
-	"Cuck chair\n"
+	"Short-Range cuck chair\n"
 	"", MSGBOX_SIGN)
 
 }

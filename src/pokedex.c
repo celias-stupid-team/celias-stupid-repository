@@ -94,6 +94,24 @@ u16 GetKantoPokedexCount(u8 caseID)
     return count;
 }
 
+
+u16 GetShinyPokedexCount(u8 caseID)
+{
+    u16 count = 0;
+    u16 i;
+
+    for (i = 0; i < KANTO_DEX_COUNT; i++)
+    {
+        //DebugPrinf("Counting %d", i);
+        if (GetSetPokedexFlag(i + 1, FLAG_GET_SHINY_FOUND)) {
+                //DebugPrintf("Counting %d", i);
+                count++;
+        }
+            
+    }
+    return count;
+}
+
 bool16 HasAllHoennMons(void)
 {
     u16 i;

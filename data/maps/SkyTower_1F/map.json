@@ -181,7 +181,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SkyTower_1FShop_Orb",
-      "flag": "0"
+      "flag": "FLAG_SKY_TOWER_MONEY_ORB"
     },
     {
       "type": "object",
@@ -201,8 +201,8 @@
       "local_id": "LOCALID_SKY_TOWER_GYARADOS",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GYARA_LAND",
-      "x": 43,
-      "y": 17,
+      "x": 47,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -216,8 +216,8 @@
       "local_id": "LOCALID_SKY_TOWER_MAGIKARP",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAGIKARP",
-      "x": 44,
-      "y": 17,
+      "x": 48,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -254,12 +254,26 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SkyTower_Omanyte",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BILL",
+      "x": 40,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_Bill",
+      "flag": "FLAG_SKY_TOWER_BILL"
     }
   ],
   "warp_events": [
     {
-      "x": 46,
-      "y": 14,
+      "x": 53,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_SKY_TOWER_2F",
       "dest_warp_id": "0"

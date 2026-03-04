@@ -212,6 +212,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourthTrial_MidCuckChair"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 28,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FourthTrial_BlueBallsChair"
     }
   ]
 }

@@ -192,6 +192,7 @@ script PokemonLeague_LancesRoom_EventScript_DefeatedLance {
 script MayRoom_LassAttack {
     lock
     waitse
+	setflag(FLAG_POST_GAME)
     textcolor(NPC_TEXT_COLOR_FEMALE)
     setvar(VAR_LANCE_LASS_ATTACK, 2)
     textcolor(NPC_TEXT_COLOR_FEMALE)

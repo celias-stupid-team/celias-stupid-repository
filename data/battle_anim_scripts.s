@@ -1058,6 +1058,19 @@ gBattleAnims_Moves::
 	.4byte Move_BLAST_LEARN
 	.4byte Move_HEART_STAMP
 	.4byte Move_DRAGON
+	.4byte Move_MOLTRES_KICK
+	.4byte Move_WHITE_LIGHTNING
+	.4byte Move_GASTER_BLASTER
+	.4byte Move_TEATIME
+	.4byte Move_COLONIZE
+	.4byte Move_STUPORPOWER
+	.4byte Move_YEST
+	.4byte Move_PLEDGE_OF_ALLEGIANCE
+	.4byte Move_PERISH_TONGUE
+	.4byte Move_MULTISHINE
+	.4byte Move_REVELATION_DANCE
+	.4byte Move_TRICK_OR_TREAT
+	.4byte Move_AURORA_VEIL
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -5223,6 +5236,7 @@ Move_SHADOW_PUNCH:
 	waitbgfadein
 	end
 
+Move_PSYCICLE_SPEAR:
 Move_EXTRASENSORY:
 	call SetPsychicBackground
 	monbg ANIM_DEF_PARTNER
@@ -5607,6 +5621,14 @@ Move_ICE_PUNCH:
 	end
 
 Move_VOLCANIC_HEALING:
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	playsewithpan SE_M_SACRED_FIRE2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 2, 47, 1
+	call FireSpinEffect
+	call FireSpinEffect
+	call FireSpinEffect
+	waitforvisualfinish
+	end
 Move_REST:
 	playsewithpan SE_M_SNORE, SOUND_PAN_ATTACKER
 	loadspritegfx ANIM_TAG_LETTER_Z
@@ -11583,6 +11605,8 @@ General_ShadowSky:
 	createvisualtask AnimTask_BlendBackground, 6, 6, RGB(15, 0, 21)
 	panse SE_M_HEAT_WAVE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
 	delay 4
+	createvisualtask AnimTask_SetAnimTargetFromArg, 5, ANIM_PLAYER_LEFT
+	delay 0 // so it updates before the next task is called
 	createvisualtask AnimTask_MoveHeatWaveTargets, 5
 	delay 12
 	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 1
@@ -14366,20 +14390,7 @@ Move_SHELL_SMASH:
 	blendoff
 	end
 	
-Move_PSYCICLE_SPEAR:
-	@Tackle
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
-	end
+
 	
 Move_CONVERSION_Z:
 	monbg ANIM_ATK_PARTNER
@@ -20215,6 +20226,19 @@ Move_HEART_STAMP:
 	blendoff
 	end
 Move_DRAGON:
+Move_MOLTRES_KICK:
+Move_WHITE_LIGHTNING:
+Move_GASTER_BLASTER:
+Move_TEATIME:
+Move_COLONIZE:
+Move_STUPORPOWER:
+Move_YEST:
+Move_PLEDGE_OF_ALLEGIANCE:
+Move_PERISH_TONGUE:
+Move_MULTISHINE:
+Move_REVELATION_DANCE:
+Move_TRICK_OR_TREAT:
+Move_AURORA_VEIL:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8
@@ -20227,3 +20251,4 @@ Move_DRAGON:
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
+

@@ -70,6 +70,7 @@ script SafariZone_SecretHouse_EventScript_Prize {
 		setflag(FLAG_CSR_GOT_PAY_DAY)
 		giveitem_msg("{PLAYER} received the TM16!\nIt contains PAY DAY!", ITEM_TM16)
 		msgbox(("Okay, look.\nI know what you're thinking:\p“Isn't that supposed to be an\nHM03 SURF?”\lYeah, well… funny story about that."), MSGBOX_DEFAULT)
+		setrespawn(HEAL_LOCATION_FUSHCIA_CITY)
 		msgbox(SafariZone_SecretHouse_Text_ExplainSurf)
 		release
 }

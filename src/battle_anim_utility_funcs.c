@@ -964,6 +964,36 @@ void AnimTask_SetAnimAttackerAndTargetForEffectAtk(u8 taskId)
     DestroyAnimVisualTask(taskId);
 }
 
+static u8 AnimArgToBattlerId(s16 arg)
+{
+    switch (arg)
+    {
+    default:
+    case ANIM_ATTACKER:      return gBattleAnimAttacker;
+    case ANIM_TARGET:        return gBattleAnimTarget;
+    case ANIM_ATK_PARTNER:   return BATTLE_PARTNER(gBattleAnimAttacker);
+    case ANIM_DEF_PARTNER:   return BATTLE_PARTNER(gBattleAnimTarget);
+    case ANIM_PLAYER_LEFT:   return GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+    case ANIM_PLAYER_RIGHT:  return GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
+    case ANIM_OPPONENT_LEFT: return GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+    case ANIM_OPPONENT_RIGHT:return GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+    }
+}
+
+// manually set the gBattleAnimTarget
+void AnimTask_SetAnimTargetFromArg(u8 taskId)
+{
+    gBattleAnimTarget = AnimArgToBattlerId(gBattleAnimArgs[0]);
+    DestroyAnimVisualTask(taskId);
+}
+
+// manually set the gBattleAnimAttacker
+void AnimTask_SetAnimAttackerFromArg(u8 taskId)
+{
+    gBattleAnimAttacker = AnimArgToBattlerId(gBattleAnimArgs[0]);
+    DestroyAnimVisualTask(taskId);
+}
+
 void AnimTask_SetAttackerInvisibleWaitForSignal(u8 taskId)
 {
     if (IsContest())

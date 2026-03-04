@@ -542,7 +542,7 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
         return;
     }
 
-    if ((heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH)
+    if ((heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH) && !FlagGet(FLAG_SYS_CARRYING_BOX)
         && !IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior))
     {
         if (PlayerIsMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
@@ -1203,6 +1203,9 @@ static const u16 sPlayerAvatarGfxIds[][GENDER_COUNT] = {
     [PLAYER_AVATAR_GFX_FIELD_MOVE] = {OBJ_EVENT_GFX_RED_FIELD_MOVE, OBJ_EVENT_GFX_GREEN_FIELD_MOVE},
     [PLAYER_AVATAR_GFX_FISH]       = {OBJ_EVENT_GFX_RED_FISH,       OBJ_EVENT_GFX_GREEN_FISH},
     [PLAYER_AVATAR_GFX_VSSEEKER]   = {OBJ_EVENT_GFX_RED_VS_SEEKER,  OBJ_EVENT_GFX_GREEN_VS_SEEKER},
+    [PLAYER_AVATAR_GFX_BOX_CLOSED]   = {OBJ_EVENT_GFX_BOY_BOX,  OBJ_EVENT_GFX_GIRL_BOX},
+    [PLAYER_AVATAR_GFX_BOX_OPEN]   = {OBJ_EVENT_GFX_BOY_BOX_OPEN,  OBJ_EVENT_GFX_GIRL_BOX_OPEN},
+    [PLAYER_AVATAR_GFX_BIKE_SHINY]       = {OBJ_EVENT_GFX_SHINY_BIKE,       OBJ_EVENT_GFX_SHINY_BIKE},
 };
 
 static const u16 sHoennLinkPartnerGfxIds[] = {
