@@ -3991,12 +3991,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt3[] = {
         .species = SPECIES_ZUBAT,
         .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
-    {
-        .iv = 0,
-        .lvl = 11,
-        .species = SPECIES_EKANS,
-        .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt4[] = {
@@ -4023,11 +4017,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt5[] = {
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt6[] = {
-    {
-        .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_EKANS,
-    },
+
     {
         .iv = 0,
         .lvl = 15,

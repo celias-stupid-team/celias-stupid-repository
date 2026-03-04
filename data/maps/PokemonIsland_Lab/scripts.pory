@@ -352,7 +352,12 @@ script PokemonIslandLab_Todd {
 
         "Whatever's waiting back there,{PAUSE 20}\n"
         "it's for you to find.", MSGBOX_DEFAULT)
-        //special(RemoveCameraObject)
+        closemessage
+        applymovement(LOCALID_CAMERA, moves(
+            walk_down
+        ))
+        waitmovement(0)
+        special(RemoveCameraObject)
         setflag(FLAG_TURNED_IN_POKEMON_SIGNS)
         release
         end

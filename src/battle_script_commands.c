@@ -1683,6 +1683,11 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
         return 0;
 
     moveType = gBattleMoves[move].type;
+    if(gBattleMons[attacker].ability == ABILITY_NORMALIZE) //couldn't figure out how typeOverride works
+            moveType = TYPE_NORMAL;
+    
+    DebugPrintf("Type %d", moveType);
+
 
     // check stab
     if (IS_BATTLER_OF_TYPE(attacker, moveType))
