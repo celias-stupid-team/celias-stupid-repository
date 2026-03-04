@@ -18054,7 +18054,7 @@ Move_SENTENNIEL_KICK:
     monbg ANIM_DEF_PARTNER
     setalpha 12, 8
     createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 100, 1
-    createvisualtask AnimTask_CentennialKick, 2, 1, 100, 1, 2, 2, 2, 1
+    createvisualtask AnimTask_CentennialKick, 2, 1, 100, 1, 2, 2, 2, 1, 1
     waitforvisualfinish
     clearmonbg ANIM_DEF_PARTNER
     blendoff
@@ -20133,6 +20133,68 @@ Move_LETS_STRUGGLE_FOREVER:
 Move_CLOSE_MOMBAT:
 Move_TEACH_LIFE:
 Move_HEADBUS:
+	loadspritegfx ANIM_TAG_BUS_LEFT
+	loadspritegfx ANIM_TAG_BUS_RIGHT
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	@createsprite gBulldozerSpriteTemplate, ANIM_TARGET, 2, 1, 4, 160
+	@createsprite gBulldozerSpriteTemplate, ANIM_TARGET, 2, 2
+	createsprite gBusLeftDriveSpriteTemplate, 3, 2, 0, 0  @ half 0 (left)
+	createsprite gBusRightDriveSpriteTemplate, 3, 2, 0, 1 @ half 1 (right)
+	loopsewithpan SE_M_EARTHQUAKE, SOUND_PAN_TARGET, 7, 10
+	delay 90
+	delay 90
+	delay 60
+	@createvisualtask AnimTask_PushTargetOffscreen, 2, ANIM_TARGET, 0, 2, 80, 150, 1
+
+	@createvisualtask AnimTask_Flattened, 2, 6, 300
+    @// 0: battler selector (0 = attacker, 1 = target)
+    @// 1: number of hits
+    @// 2: STARTING frames between hits
+    @// 3: anim index (0-4) or -1 for random
+    @// 4: visible frames per hit
+    @// 5: play SFX every N hits
+	@// 6: number of impacts per accel step
+
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 8, 0, 48, 1
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	delay 10
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	delay 10
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	delay 10
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	delay 10
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	delay 10
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	delay 10
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	delay 10
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	delay 10
+
+	@// Task to facilitate simple shaking of a pokemon's picture in battle.
+	@// The shaking alternates between the original position and the target position.
+	@// arg 0: anim battler
+	@// arg 1: x pixel offset
+	@// arg 2: y pixel offset
+	@// arg 3: num times to shake
+	@// arg 4: frame delay
+	waitforvisualfinish
+	@setarg 7, 0xFFFF
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
 Move_LANDS_MATH:
 Move_SPELLING_SALTS:
 Move_ART_STRIKE:

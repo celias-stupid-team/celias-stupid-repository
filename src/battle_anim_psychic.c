@@ -24,6 +24,7 @@ static void AnimTask_ImprisonOrbs_Step(u8 taskId);
 static void AnimTask_SkillSwap_Step(u8 taskId);
 static void AnimTask_ExtrasensoryDistortion_Step(u8 taskId);
 static void AnimTask_TransparentCloneGrowAndShrink_Step(u8 taskId);
+static void AnimTask_Flattened_Step(u8 taskId);
 
 static const union AffineAnimCmd sAffineAnim_PsychUpSpiral[] =
 {
@@ -1046,6 +1047,94 @@ static void AnimTask_ExtrasensoryDistortion_Step(u8 taskId)
         ++task->data[0];
         break;
     case 2:
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+// Bottom-anchored diagonal shear (rightward)
+// No affine scaling
+// arg0: slope
+// arg1: duration
+
+void AnimTask_Flattened(u8 taskId)
+{
+    s16 i;
+    u8 yOffset;
+    struct ScanlineEffectParams scanlineParams;
+    struct Task *task = &gTasks[taskId];
+
+    yOffset = GetBattlerYCoordWithElevation(gBattleAnimTarget);
+
+    task->data[14] = yOffset - 32;   // top
+    task->data[15] = yOffset + 32;   // bottom
+    task->data[0]  = 0;             // state
+    task->data[1]  = 0;             // frame counter
+    task->data[2]  = gBattleAnimArgs[1]; // duration
+    task->data[3]  = gBattleAnimArgs[0]; // slope
+
+    if (task->data[14] < 0)
+        task->data[14] = 0;
+
+    if (GetBattlerSpriteBGPriorityRank(gBattleAnimTarget) == 1)
+    {
+        task->data[10] = gBattle_BG1_X;
+        scanlineParams.dmaDest = &REG_BG1HOFS;
+    }
+    else
+    {
+        task->data[10] = gBattle_BG2_X;
+        scanlineParams.dmaDest = &REG_BG2HOFS;
+    }
+
+    // Initialize scanline buffers
+    for (i = task->data[14]; i <= task->data[15]; ++i)
+    {
+        gScanlineEffectRegBuffers[0][i] = task->data[10];
+        gScanlineEffectRegBuffers[1][i] = task->data[10];
+    }
+
+    scanlineParams.dmaControl = SCANLINE_EFFECT_DMACNT_16BIT;
+    scanlineParams.initState = 1;
+    scanlineParams.unused9 = 0;
+    ScanlineEffect_SetParams(scanlineParams);
+
+    task->func = AnimTask_Flattened_Step;
+}
+
+static void AnimTask_Flattened_Step(u8 taskId)
+{
+    s16 i;
+    struct Task *task = &gTasks[taskId];
+    s16 baseX  = task->data[10];
+    s16 top    = task->data[14];
+    s16 bottom = task->data[15];
+    s16 slope  = task->data[3];
+    s16 offset;
+
+    switch (task->data[0])
+    {
+    case 0:
+        // Bottom-anchored rightward shear
+        for (i = top; i <= bottom; ++i)
+        {
+            // Offset grows toward top
+            offset = ((bottom - i) * slope) >> 3;
+
+            if (offset < 0)
+                offset = 0;
+
+            // Subtract to move visually right (GBA HOFS behaviour)
+            gScanlineEffectRegBuffers[0][i] = baseX - offset;
+            gScanlineEffectRegBuffers[1][i] = baseX - offset;
+        }
+
+        if (++task->data[1] >= task->data[2])
+            task->data[0] = 1;
+        break;
+
+    case 1:
+        gScanlineEffect.state = 3;  // disable scanline
         DestroyAnimVisualTask(taskId);
         break;
     }

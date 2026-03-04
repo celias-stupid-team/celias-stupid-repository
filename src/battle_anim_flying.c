@@ -18,6 +18,7 @@ static void AnimBounceBallShrink(struct Sprite *sprite);
 static void AnimBounceBallLand(struct Sprite *sprite);
 static void AnimSteamrollerLand(struct Sprite *sprite);
 static void AnimBulldozer(struct Sprite *sprite);
+static void AnimBusDrive(struct Sprite *sprite);
 static void AnimTask_PushTargetOffscreen_Step(u8 taskId);
 static void AnimDiveBall(struct Sprite *sprite);
 static void AnimDiveWaterSplash(struct Sprite *sprite);
@@ -305,6 +306,52 @@ static const union AnimCmd *const sAnims_Steamroller[] =
     sAnim_SteamrollerDrive,
 };
 
+const struct SpriteTemplate gSteamrollerLandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STEAMROLLER,
+    .paletteTag = ANIM_TAG_STEAMROLLER,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_Steamroller,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSteamrollerLand,
+};
+
+static const union AnimCmd sAnim_BusDrive[] =
+{
+    ANIMCMD_FRAME(0,   4),
+    ANIMCMD_FRAME(32,   4),
+    ANIMCMD_FRAME(64,   4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_BusDrive[] =
+{
+    sAnim_BusDrive,
+};
+
+const struct SpriteTemplate gBusLeftDriveSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BUS_LEFT,
+    .paletteTag = ANIM_TAG_BUS_LEFT,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x32,
+    .anims = sAnims_BusDrive,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBusDrive,
+};
+
+const struct SpriteTemplate gBusRightDriveSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BUS_RIGHT,
+    .paletteTag = ANIM_TAG_BUS_RIGHT,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x32,
+    .anims = sAnims_BusDrive,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBusDrive,
+};
+
 static const union AnimCmd sAnim_Rotom[] =
 {
     ANIMCMD_FRAME(0,   8),
@@ -319,16 +366,6 @@ static const union AnimCmd *const sAnims_Rotom[] =
     sAnim_Rotom,
 };
 
-const struct SpriteTemplate gSteamrollerLandSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_STEAMROLLER,
-    .paletteTag = ANIM_TAG_STEAMROLLER,
-    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
-    .anims = sAnims_Steamroller,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimSteamrollerLand,
-};
 
 const struct SpriteTemplate gBulldozerSpriteTemplate =
 {
@@ -1420,6 +1457,58 @@ void AnimTask_SetHealthboxesInvisible(u8 taskId)
         SetHealthboxGroupInvisible(i, !visible);
 
     DestroyAnimVisualTask(taskId);
+}
+
+static void AnimBusDrive(struct Sprite *sprite)
+{
+    s16 targetY;
+    s16 speed;
+
+    targetY = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+
+    speed = (s16)gBattleAnimArgs[0];
+    if (speed <= 0)
+        speed = 1;
+
+    switch (sprite->data[0])
+    {
+    case 0:
+        sprite->y = targetY + 4;
+        sprite->y2 = 0;
+
+        sprite->data[1] = speed;
+        sprite->data[2] = 0;
+
+        // Determine which half this is
+        // Pass 0 for left half, 1 for right half
+        if (gBattleAnimArgs[1] == 0)
+        {
+            // LEFT HALF
+            sprite->x = -128;   // further left
+        }
+        else
+        {
+            // RIGHT HALF
+            sprite->x = -64;    // 64px to the right of left half
+        }
+
+        sprite->x2 = 0;
+
+        StartSpriteAnim(sprite, 0);
+
+        sprite->data[0] = 1;
+        break;
+
+    case 1:
+        sprite->data[2] += sprite->data[1];
+        sprite->x2 = sprite->data[2];
+
+        // Destroy once fully off right side
+        if (sprite->x + sprite->x2 > DISPLAY_WIDTH + 64)
+            DestroyAnimSprite(sprite);
+
+        break;
+    }
 }
 
 static void AnimBulldozer(struct Sprite *sprite)

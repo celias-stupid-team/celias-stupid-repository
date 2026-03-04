@@ -352,6 +352,8 @@
 #define ANIM_TAG_THROWN_FORRETRESS          (ANIM_SPRITES_START + 342)
 #define ANIM_TAG_SHINE                      (ANIM_SPRITES_START + 343)
 #define ANIM_TAG_SUMMONING_CIRCLE           (ANIM_SPRITES_START + 344)
+#define ANIM_TAG_BUS_LEFT                   (ANIM_SPRITES_START + 345)
+#define ANIM_TAG_BUS_RIGHT                  (ANIM_SPRITES_START + 346)
 
 // battlers
 #define ANIM_ATTACKER    0

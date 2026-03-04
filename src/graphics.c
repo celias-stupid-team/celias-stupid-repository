@@ -66,6 +66,12 @@ const u32 gBattleAnimSpritePal_ThrownForretress[] = INCBIN_U32("graphics/battle_
 const u32 gBattleAnimSpriteGfx_Shine[] = INCBIN_U32("graphics/battle_anims/sprites/shine.4bpp.lz");
 const u32 gBattleAnimSpritePal_Shine[] = INCBIN_U32("graphics/battle_anims/sprites/shine.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_BusLeft[] = INCBIN_U32("graphics/battle_anims/sprites/bus_left.4bpp.lz");
+const u32 gBattleAnimSpritePal_BusLeft[] = INCBIN_U32("graphics/battle_anims/sprites/bus_left.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BusRight[] = INCBIN_U32("graphics/battle_anims/sprites/bus_right.4bpp.lz");
+const u32 gBattleAnimSpritePal_BusRight[] = INCBIN_U32("graphics/battle_anims/sprites/bus_right.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.4bpp.lz");
 const u32 gBattleAnimSpritePal_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.gbapal.lz");
 
