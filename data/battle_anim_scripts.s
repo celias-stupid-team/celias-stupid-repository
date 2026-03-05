@@ -18359,6 +18359,7 @@ Move_LITTHBRNTHEYES:
 Move_SYSTEM32:
 	fadetobg BG_BSOD
 	waitbgfadein
+	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
 	createvisualtask AnimTask_BlendMonInAndOut, 5, ANIM_ATTACKER, RGB(27, 27, 0), 12, 1, 1
 	createvisualtask AnimTask_ExtrasensoryDistortion, 5, 0
@@ -20535,22 +20536,26 @@ Move_YEST:
 	waitforvisualfinish
 	end
 Move_PLEDGE_OF_ALLEGIANCE:
-	loadspritegfx ANIM_TAG_FIRE_PLUME
-	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_ALLEGIANCE
+	loadspritegfx ANIM_TAG_EAGLE
 	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
 	fadetobg BG_AMERICAN_FLAG
 	waitbgfadein
+	
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_SKY_UPPERCUT, SOUND_PAN_ATTACKER
+	createsprite gEagleSpriteTemplate, ANIM_TARGET, 2
+	delay 14
 	playsewithpan SE_M_SACRED_FIRE, SOUND_PAN_TARGET
-	createsprite gFirePlumeUnanchoredSpriteTemplate, ANIM_TARGET, 2, -16, 16, 24, 0, 0, 0, 0, 1
+	createsprite gAllegianceSpriteTemplate, ANIM_TARGET, 2, -16, 16, 24, 0, 0, 0, 0, 1
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 6, 0, 8, 1
 	delay 10
 	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
-	createsprite gFirePlumeUnanchoredSpriteTemplate, ANIM_TARGET, 2,  16, 16, 24, 0, 0, 0, 0, 1
+	createsprite gAllegianceSpriteTemplate, ANIM_TARGET, 2,  16, 16, 24, 0, 0, 0, 0, 1
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 10, 0, 12, 1
 	delay 10
 	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
-	createsprite gFirePlumeUnanchoredSpriteTemplate, ANIM_TARGET, 2,   0, 16, 24, 0, 0, 0, 0, 1
+	createsprite gAllegianceSpriteTemplate, ANIM_TARGET, 2,   0, 16, 24, 0, 0, 0, 0, 1
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 12, 0, 20, 1
 
 	waitforvisualfinish
@@ -20571,6 +20576,26 @@ Move_MULTISHINE:
 	blendoff
 	end
 Move_REVELATION_DANCE:
+	loadspritegfx ANIM_TAG_BIBLE_STUFF
+	call SetSkyBg
+	createvisualtask AnimTask_TeeterDanceMovement, 5
+	createsprite gFlyingBibleStuffSpriteTemplate, ANIM_ATTACKER, 2, 0, 16, -2
+	playsewithpan SE_M_TEETER_DANCE, SOUND_PAN_ATTACKER
+	delay 24
+	createsprite gFlyingBibleStuffSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, -2
+	playsewithpan SE_M_TEETER_DANCE, SOUND_PAN_ATTACKER
+	delay 24
+	createsprite gFlyingBibleStuffSpriteTemplate, ANIM_ATTACKER, 2, 0, -16, -2
+	playsewithpan SE_M_TEETER_DANCE, SOUND_PAN_ATTACKER
+	delay 24
+	createsprite gFlyingBibleStuffSpriteTemplate, ANIM_ATTACKER, 2, 1, -8, -2
+	playsewithpan SE_M_TEETER_DANCE, SOUND_PAN_ATTACKER
+	delay 24
+	createsprite gFlyingBibleStuffSpriteTemplate, ANIM_ATTACKER, 2, 2, 8, -2
+	playsewithpan SE_M_TEETER_DANCE, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	call UnsetSkyBg
+	end
 Move_TRICK_OR_TREAT:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET

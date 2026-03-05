@@ -355,6 +355,9 @@
 #define ANIM_TAG_BUS_LEFT                   (ANIM_SPRITES_START + 345)
 #define ANIM_TAG_BUS_RIGHT                  (ANIM_SPRITES_START + 346)
 #define ANIM_TAG_CRASHED                    (ANIM_SPRITES_START + 347)
+#define ANIM_TAG_ALLEGIANCE                 (ANIM_SPRITES_START + 348)
+#define ANIM_TAG_EAGLE                      (ANIM_SPRITES_START + 349)
+#define ANIM_TAG_BIBLE_STUFF                (ANIM_SPRITES_START + 350)
 
 // battlers
 #define ANIM_ATTACKER       0

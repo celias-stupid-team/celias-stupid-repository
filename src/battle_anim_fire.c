@@ -175,6 +175,17 @@ const struct SpriteTemplate gFirePlumeUnanchoredSpriteTemplate =
     .callback = AnimFirePlumeUnanchored,
 };
 
+const struct SpriteTemplate gAllegianceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ALLEGIANCE,
+    .paletteTag = ANIM_TAG_ALLEGIANCE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FirePlume,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFirePlumeUnanchored,
+};
+
 
 static const struct SpriteTemplate sUnusedEmberFirePlumeSpriteTemplate =
 {

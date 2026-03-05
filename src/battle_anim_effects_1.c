@@ -2334,6 +2334,17 @@ const struct SpriteTemplate gFastFlyingMusicNotesSpriteTemplate =
     .callback = AnimFlyingMusicNotes,
 };
 
+const struct SpriteTemplate gFlyingBibleStuffSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BIBLE_STUFF,
+    .paletteTag = ANIM_TAG_BIBLE_STUFF,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = gMusicNotesAnimTable,
+    .images = NULL,
+    .affineAnims = sMusicNotesAffineAnimTable,
+    .callback = AnimFlyingMusicNotes,
+};
+
 const struct SpriteTemplate gBellyDrumHandSpriteTemplate =
 {
     .tileTag = ANIM_TAG_PURPLE_HAND_OUTLINE,

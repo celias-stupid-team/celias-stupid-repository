@@ -75,6 +75,12 @@ const u32 gBattleAnimSpritePal_BusRight[] = INCBIN_U32("graphics/battle_anims/sp
 const u32 gBattleAnimSpriteGfx_Crashed[] = INCBIN_U32("graphics/battle_anims/sprites/flash_crash.4bpp.lz");
 const u32 gBattleAnimSpritePal_Crashed[] = INCBIN_U32("graphics/battle_anims/sprites/flash_crash.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Eagle[] = INCBIN_U32("graphics/battle_anims/sprites/eagle.4bpp.lz");
+const u32 gBattleAnimSpritePal_Eagle[] = INCBIN_U32("graphics/battle_anims/sprites/eagle.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BibleStuff[] = INCBIN_U32("graphics/battle_anims/sprites/bible_stuff.4bpp.lz");
+const u32 gBattleAnimSpritePal_BibleStuff[] = INCBIN_U32("graphics/battle_anims/sprites/bible_stuff.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.4bpp.lz");
 const u32 gBattleAnimSpritePal_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.gbapal.lz");
 
@@ -164,6 +170,9 @@ const u32 gBattleAnimSpriteGfx_Fire[] = INCBIN_U32("graphics/battle_anims/sprite
 
 const u32 gBattleAnimSpriteGfx_SpinningFire[] = INCBIN_U32("graphics/battle_anims/sprites/spinning_fire.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_FirePlume[] = INCBIN_U32("graphics/battle_anims/sprites/fire_plume.4bpp.lz");
+
+const u32 gBattleAnimSpriteGfx_Allegiance[] = INCBIN_U32("graphics/battle_anims/sprites/pledge_of_allegiance.4bpp.lz");
+const u32 gBattleAnimSpritePal_Allegiance[] = INCBIN_U32("graphics/battle_anims/sprites/pledge_of_allegiance.gbapal.lz");
 
 const u32 gBattleAnimSpritePal_Lightning2[] = INCBIN_U32("graphics/battle_anims/sprites/lightning_2.gbapal.lz");
 const u32 gBattleAnimSpriteGfx_Lightning2[] = INCBIN_U32("graphics/battle_anims/sprites/lightning_2.4bpp.lz");
