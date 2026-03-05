@@ -8195,6 +8195,14 @@ static void Cmd_tryKO_Flash(void)
         RecordAbilityBattle(gBattlerTarget, ABILITY_BULLETPROOF);
 
     }
+    else if (gCurrentMove == MOVE_LION_LADDER && gBattleMons[gBattlerTarget].ability == ABILITY_RED_GUARD)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_RED_GUARD;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_RED_GUARD);
+
+    }
     else if (gCurrentMove == MOVE_WHITE_LIGHTNING && gBattleMons[gBattlerTarget].ability == ABILITY_REVEALING_LIGHT)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;

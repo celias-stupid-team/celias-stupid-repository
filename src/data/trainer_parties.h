@@ -5513,7 +5513,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalPokemonTowerSquirtle
         .iv = 100,
         .lvl = 25,
         .species = SPECIES_RATICATE_DEAD,
-        .moves = {MOVE_QUICK_ATTACK, MOVE_REVIVAL_BLESSING, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_TAKE_DOWN, MOVE_REVIVAL_BLESSING, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 100,

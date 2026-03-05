@@ -846,7 +846,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
-				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_1, FALSE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_1, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
@@ -862,7 +862,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
-				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_2, FALSE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_2, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
@@ -878,7 +878,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
-				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_3, FALSE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_3, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
@@ -894,7 +894,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
-				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_4, FALSE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_4, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
@@ -910,7 +910,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
-				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_5, FALSE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_5, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
@@ -926,7 +926,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
-				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_6, FALSE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_6, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
@@ -942,7 +942,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
-				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_7, FALSE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_7, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
@@ -958,7 +958,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
-				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_8, FALSE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_8, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
@@ -1102,7 +1102,7 @@ script CinnabarGym_CheckBattleOutcome {
 
 
 script CinnabarGym_IncorrectAnswer {
-	special(RestorePlayerPartyFromOne)
+	//special(RestorePlayerPartyFromOne)
 	playse(SE_BOO)
 	waitse
 	msgbox(

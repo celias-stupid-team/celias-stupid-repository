@@ -373,7 +373,7 @@ script Route15_PokeRap_Trainer20_Defeat {
 
 script Route15_PokeRap_Trainer21 {
     trainerbattle_single(TRAINER_POKERAP_21, Rapper_21_Intro, "Nice!", Route15_PokeRap_Trainer21_Defeat)
-    msgbox("MAROWAK by Lichen\n", MSGBOX_DEFAULT)
+    msgbox("MAROWAK by Lichen!\nKAKUNA by Ankou!", MSGBOX_DEFAULT)
     release
 }
 
@@ -443,7 +443,7 @@ script Route15_PokeRap_Trainer24_Defeat {
 
 script Route15_PokeRap_Trainer25 {
     trainerbattle_single(TRAINER_POKERAP_25, Rapper_25_Intro, "Nice!", Route15_PokeRap_Trainer25_Defeat)
-    msgbox("JYNX by FemboyPixelart\nARTICUNO by danstrider6025\lBEEDRILL by Beespoon!", MSGBOX_DEFAULT)
+    msgbox("JYNX by FemboyPixelart\nARTICUNO by danstrider6025\pBEEDRILL by Beespoon\nNIDORINA by Ankou!!", MSGBOX_DEFAULT)
     release
 }
 

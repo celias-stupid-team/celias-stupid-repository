@@ -5488,12 +5488,12 @@
     {
       "id": "LAYOUT_VIRIDIAN_GYM_BLAINE",
       "name": "ViridianGym_Blaine_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 18,
+      "height": 19,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
-      "secondary_tileset": "gTileset_CeruleanGym",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_DMCABlaine",
       "border_filepath": "data/layouts/ViridianGym_Blaine/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Blaine/map.bin"
     },

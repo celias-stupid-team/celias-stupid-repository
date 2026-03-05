@@ -339,3 +339,6 @@ const u16 gMetatiles_FinalBossSecondary[] = INCBIN_U16("data/tilesets/secondary/
 const u32 gMetatileAttributes_FinalBossSecondary[] = INCBIN_U32("data/tilesets/secondary/final_boss_secondary/metatile_attributes.bin");
 const u16 gMetatiles_office_stuff[] = INCBIN_U16("data/tilesets/secondary/office_stuff/metatiles.bin");
 const u32 gMetatileAttributes_office_stuff[] = INCBIN_U32("data/tilesets/secondary/office_stuff/metatile_attributes.bin");
+
+const u16 gMetatiles_DMCABlaine[] = INCBIN_U16("data/tilesets/secondary/dmcablaine/metatiles.bin");
+const u32 gMetatileAttributes_DMCABlaine[] = INCBIN_U32("data/tilesets/secondary/dmcablaine/metatile_attributes.bin");

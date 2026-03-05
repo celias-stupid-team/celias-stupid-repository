@@ -1259,3 +1259,14 @@ const struct Tileset gTileset_office_stuff =
     .metatileAttributes = gMetatileAttributes_office_stuff,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_DMCABlaine =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_DMCABlaine,
+    .palettes = gTilesetPalettes_DMCABlaine,
+    .metatiles = gMetatiles_DMCABlaine,
+    .metatileAttributes = gMetatileAttributes_DMCABlaine,
+    .callback = NULL,
+};

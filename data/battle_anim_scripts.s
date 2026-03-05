@@ -18233,10 +18233,20 @@ Move_WEEDLE_ARM:
 	waitforvisualfinish
 	end
 Move_HYPER_BEE:
+	goto Move_THE_BEE_MOVE
+	
 Move_ROAR_OF_PRIME:
+	goto Move_TACKLE
+	
 Move_SONIC_BOOM_2:
+	goto Move_TACKLE
+	
 Move_MEAN_LOOK_LOOK:
+	goto Move_TACKLE
+	
 Move_CHIP_AWAY:
+	goto Move_TACKLE
+	
 Move_DRAINING_KISS:
 	loadspritegfx ANIM_TAG_PINK_HEART
 	loadspritegfx ANIM_TAG_DEVIL
@@ -18264,14 +18274,32 @@ Move_DRAINING_KISS:
 	clearmonbg ANIM_DEF_PARTNER
 	end
 Move_PLAY_ROUGH:
+	goto Move_TACKLE
+	
 Move_LIGHT_SNEAK:
+	goto Move_TACKLE
+	
 Move_LIGHT_PUNCH:
+	goto Move_TACKLE
+	
 Move_LIGHT_BALL:
+	goto Move_TACKLE
+	
 Move_LIGHT_OF_RUIN:
+	goto Move_TACKLE
+	
 Move_PLAY_NICE:
+	goto Move_TACKLE
+	
 Move_SHADOW_SCREEN:
+	goto Move_TACKLE
+	
 Move_SHADOW_OF_RUIN:
+	goto Move_TACKLE
+	
 Move_TRIPLE_PSYCLE:
+	goto Move_TACKLE
+	
 Move_INCINERATE:
 	loadspritegfx ANIM_TAG_FIRE_PLUME
 	loadspritegfx ANIM_TAG_IMPACT
@@ -18294,31 +18322,83 @@ Move_INCINERATE:
 	blendoff
 	end
 Move_QUICK_BALL:
+	goto Move_TACKLE
+	
 Move_ENERGY_BALL:
+	goto Move_TACKLE
+	
 Move_DIVE_BALL:
+	goto Move_TACKLE
+	
 Move_REPEAT_BALL:
+	goto Move_TACKLE
+	
 Move_LURE_BALL:
+	goto Move_TACKLE
+	
 Move_HEAL_BALL:
+	goto Move_TACKLE
+	
 Move_DREAM_BALL:
+	goto Move_TACKLE
+	
 Move_TIMER_BALL:
+	goto Move_TACKLE
+	
 Move_SKILL_ISSUE:
+	goto Move_TACKLE
+	
 Move_FALCON_PUNCH:
+	goto Move_TACKLE
+	
 Move_SLURF:
+	goto Move_TACKLE
+	
 Move_BADGEBOOST:
+	goto Move_TACKLE
+	
 Move_RHYDON:
+	goto Move_TACKLE
+	
 Move_CANCEL:
+	goto Move_TACKLE
+	
 Move_COOLTRAINERM:
+	goto Move_TACKLE
+	
 Move_TMTRAINER:
+	goto Move_TACKLE
+	
 Move_KINICES:
+	goto Move_TACKLE
+	
 Move_AL_LURING_VOICE:
+	goto Move_TACKLE
+	
 Move_HYPNOSICE:
+	goto Move_TACKLE
+	
 Move_CREAM_EATER:
+	goto Move_TACKLE
+	
 Move_CEREAL_PULSE:
+	goto Move_TACKLE
+	
 Move_SPOONGEIST_BEAM:
+	goto Move_TACKLE
+	
 Move_SPOON_STEEL_STRIKE:
+	goto Move_TACKLE
+	
 Move_SOUPERPOWER:
+	goto Move_TACKLE
+	
 Move_PSYCHO_SCOOP:
+	goto Move_TACKLE
+	
 Move_AL_OUT_PUMMELING:
+	goto Move_TACKLE
+	
 Move_SNOWGRAVY:
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
@@ -18353,9 +18433,17 @@ Move_SNOWGRAVY:
 	waitforvisualfinish
 	end
 Move_LANDS_WRATH:
+	goto Move_TACKLE
+	
 Move_FLING:
+	goto Move_TACKLE
+	
 Move_DUO_ATTACK:
+	goto Move_TACKLE
+	
 Move_LITTHBRNTHEYES:
+	goto Move_TACKLE
+	
 Move_SYSTEM32:
 	fadetobg BG_BSOD
 	waitbgfadein
@@ -18379,36 +18467,98 @@ Move_SYSTEM32:
 	waitbgfadein
 	end
 Move_MOVIES_FREE:
+	goto Move_TACKLE
+	
 Move_GAMING_TOOLBARS:
+	goto Move_TACKLE
+	
 Move_ZIPBOMB:
+	goto Move_TACKLE
+	
 Move_FIREREDCHEATS:
+	goto Move_TACKLE
+	
 Move_ANTI_VIRUS:
+	goto Move_TACKLE
+	
 Move_SHE_LL_SMASH:
+	goto Move_TACKLE
+	
 Move_SHE_HER_COLD:
+	goto Move_TACKLE
+	
 Move_MISTY_EXPLOSION:
+	goto Move_TACKLE
+	
 Move_BRAVE_BIRTH:
+	goto Move_TACKLE
+	
 Move_ACCELEBROCK:
+	goto Move_TACKLE
+	
 Move_LICKLE_BEAM:
+	goto Move_TACKLE
+	
 Move_NICE_SHARD:
+	goto Move_TACKLE
+	
 Move_CHERRY_FACE:
+	goto Move_TACKLE
+	
 Move_NICICLE_CRASH:
+	goto Move_TACKLE
+	
 Move_TWIN_BEAM:
+	goto Move_TACKLE
+	
 Move_NICE_HAMMER:
+	goto Move_TACKLE
+	
 Move_NICE_SPINNER:
+	goto Move_TACKLE
+	
 Move_NICE_BEAM:
+	goto Move_TACKLE
+	
 Move_DANKEST_LARIAT:
+	goto Move_TACKLE
+	
 Move_CLANGSOULBLAZE:
+	goto Move_TACKLE
+	
 Move_AZUBATICS:
+	goto Move_TACKLE
+	
 Move_AGOLBATICS:
+	goto Move_TACKLE
+	
 Move_ACROBATICS:
+	goto Move_TACKLE
+	
 Move_W_TURN:
+	goto Move_TACKLE
+	
 Move_AWOOBATICS:
+	goto Move_TACKLE
+	
 Move_WOMP:
+	goto Move_TACKLE
+	
 Move_WOOST:
+	goto Move_TACKLE
+	
 Move_WAGON_ASCENT:
+	goto Move_TACKLE
+	
 Move_MING_ATTACK:
+	goto Move_TACKLE
+	
 Move_NOGGIN_FLOGGIN:
+	goto Move_TACKLE
+	
 Move_STAMPETE:
+	goto Move_TACKLE
+	
 Move_TOUCH_FUZZY:
 	loadspritegfx ANIM_TAG_FUZZY
 	monbg ANIM_DEF_PARTNER
@@ -18435,24 +18585,52 @@ CreateFuzzy:
 	delay 12
 	return
 Move_DISCHARGE:
+	goto Move_TACKLE
+	
 Move_CRY_ATTACK:
+	goto Move_TACKLE
+	
 Move_DENIAL:
+	goto Move_TACKLE
+	
 Move_ANGER:
+	goto Move_TACKLE
+	
 Move_BARGAINING:
+	goto Move_TACKLE
+	
 Move_DEPRESSION:
+	goto Move_TACKLE
+	
 Move_ACCEPTANCE:
+	goto Move_TACKLE
+	
 Move_TASTY_PLOT:
+	goto Move_TACKLE
+	
 Move_DARKEST_LARIAT:
+	goto Move_TACKLE
+	
 Move_CHOC_WAVE:
 	panse SE_M_WHIRLPOOL, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
 	createvisualtask AnimTask_CreateSurfWave, 2, TRUE
 	waitforvisualfinish
 	end
 Move_DAZZLING_CREAM:
+	goto Move_TACKLE
+	
 Move_TACHYONIONCTTR:
+	goto Move_TACKLE
+	
 Move_EXTREMESPEENUT:
+	goto Move_TACKLE
+	
 Move_DOUBLE_CHOCK:
+	goto Move_TACKLE
+	
 Move_HYPER_CREAM:
+	goto Move_TACKLE
+	
 Move_SESAMESEEDBOMB:
 	loadspritegfx ANIM_TAG_EXPLOSION
 	loadspritegfx ANIM_TAG_SESAME
@@ -18484,22 +18662,56 @@ Move_SESAMESEEDBOMB:
 	waitforvisualfinish
 	end
 Move_DYNAMICLUNCH:
+	goto Move_TACKLE
+	
 Move_CLAM_MIND:
+	goto Move_TACKLE
+	
 Move_EXTREMESLOTH:
+	goto Move_TACKLE
+	
 Move_SHELLSIDEASS:
+	goto Move_TACKLE
+	
 Move_SLOWTH:
+	goto Move_TACKLE
+	
 Move_BROWTH:
+	goto Move_TACKLE
+	
 Move_SUNNY_DAYCARE:
+	goto Move_TACKLE
+	
 Move_MART_STRIKE:
+	goto Move_TACKLE
+	
 Move_SWEET_CENTER:
+	goto Move_TACKLE
+	
 Move_ASSURANCH:
+	goto Move_TACKLE
+	
 Move_CEFEINT_ATTACK:
+	goto Move_TACKLE
+	
 Move_HIDDEN_TOWER:
+	goto Move_TACKLE
+	
 Move_ANCIENT_TOWER:
+	goto Move_TACKLE
+	
 Move_LIGHT_OF_RUINS:
+	goto Move_TACKLE
+	
 Move_GRASSYTERRAIN:
+	goto Move_TACKLE
+	
 Move_ASTRAL_BARRAGE:
+	goto Move_TACKLE
+	
 Move_NOT_CUT:
+	goto Move_TACKLE
+	
 Move_ICEBLADE:
 	loadspritegfx ANIM_TAG_RAINBOW_RINGS
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
@@ -18835,7 +19047,11 @@ Move_SRIRACHA_GOTCHA:
 	waitforvisualfinish
 	end
 Move_HAPPY_HOUR:
+	goto Move_TACKLE
+	
 Move_HAIR_BLITZ:
+	goto Move_TACKLE
+	
 Move_COTTON_GUARD:
 	loadspritegfx ANIM_TAG_SPORE
 	monbg ANIM_DEF_PARTNER
@@ -18871,16 +19087,38 @@ Move_COTTON_GONE:
 	waitforvisualfinish
 	end
 Move_HAIR_CUTTER:
+	goto Move_TACKLE
+	
 Move_ELECTRO_BALD:
+	goto Move_TACKLE
+	
 Move_MAGNINUDE:
+	goto Move_TACKLE
+	
 Move_NAKE_IT_RAIN:
+	goto Move_TACKLE
+	
 Move_BOLT_STREAK:
+	goto Move_TACKLE
+	
 Move_FLASH_AMPHAROS:
+	goto Move_TACKLE
+	
 Move_ITS_NOT_OAK:
+	goto Move_TACKLE
+	
 Move_BURNING_JEALOUSY:
+	goto Move_TACKLE
+	
 Move_DISARMINGCHOICE:
+	goto Move_TACKLE
+	
 Move_LOWER_HAND:
+	goto Move_TACKLE
+	
 Move_TOO_SLOWER_HAND:
+	goto Move_TACKLE
+	
 Move_CLAMPUTATE:
 	loadspritegfx ANIM_TAG_CLAMP
 	loadspritegfx ANIM_TAG_IMPACT
@@ -18935,6 +19173,8 @@ BleedTarget:
 	playsewithpan SE_M_BUBBLE, SOUND_PAN_TARGET
 	return
 Move_DISARMED_VOICE:
+	goto Move_TACKLE
+	
 Move_BLEEDLE_ARM:
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
@@ -18948,6 +19188,8 @@ Move_BLEEDLE_ARM:
 	waitforvisualfinish
 	end
 Move_PAIN_DANCE:
+	goto Move_TACKLE
+	
 Move_PHANTOM_PUNCH:
 	loadspritegfx ANIM_TAG_AMNESIA
 	loadspritegfx ANIM_TAG_IMPACT
@@ -18996,9 +19238,17 @@ Move_ROCK_KICK:
 	blendoff
 	end
 Move_BLAST_OFF:
+	goto Move_TACKLE
+	
 Move_FLOWER_TRICK:
+	goto Move_TACKLE
+	
 Move_PARTING_SHOT:
+	goto Move_TACKLE
+	
 Move_SPARKLING_ARIA:
+	goto Move_TACKLE
+	
 Move_CUTE:
 	@Tackle
 	loadspritegfx ANIM_TAG_IMPACT
@@ -19032,37 +19282,95 @@ General_ChargeTurn:
 
 
 Move_BOLT_STRIKE:
+	goto Move_TACKLE
+	
 Move_BLUE_FLARE:
+	goto Move_TACKLE
+	
 Move_GOLD_WIND:
+	goto Move_TACKLE
+	
 Move_CRYSTAL_WIND:
+	goto Move_TACKLE
+	
 Move_RIGHT_SCREEN:
+	goto Move_TACKLE
+	
 Move_THUNDER_ARMOR:
+	goto Move_TACKLE
+	
 Move_INFESTATION:
+	goto Move_TACKLE
+	
 Move_TOXIC_TREAD:
+	goto Move_TACKLE
+	
 Move_GRASS_KNOT:
+	goto Move_TACKLE
+	
 Move_AERIAL_LACE:
+	goto Move_TACKLE
+	
 Move_NIKE_CANNON:
+	goto Move_TACKLE
+	
 Move_CLANGOROUS_SOLE:
+	goto Move_TACKLE
+	
 Move_REFLECT_TYPE:
+	goto Move_TACKLE
+	
 Move_SKULL_ISSUE:
+	goto Move_TACKLE
+	
 Move_NOTHING:
 	delay 120
 	end
 Move_COOLTRAINER_M:
+	goto Move_TACKLE
+	
 Move_MAIL_SLAP:
+	goto Move_TACKLE
+	
 Move_STRAP_ON:
+	goto Move_TACKLE
+	
 Move_FLARE_CLITZ:
+	goto Move_TACKLE
+	
 Move_LUSTER_PUBE:
+	goto Move_TACKLE
+	
 Move_RISING_VULVAGE:
+	goto Move_TACKLE
+	
 Move_PANTY_SHOT:
+	goto Move_TACKLE
+	
 Move_MOONLIGHT_YEAR:
+	goto Move_TACKLE
+	
 Move_CHERRY_BOMB:
+	goto Move_TACKLE
+	
 Move_TRAILBLAZE:
+	goto Move_TACKLE
+	
 Move_POWER_TRIP:
+	goto Move_TACKLE
+	
 Move_CLANGOROUS_SOULBLAZE:
+	goto Move_TACKLE
+	
 Move_ABSORB_ZUBAT:
+	goto Move_TACKLE
+	
 Move_CEASELESS_BREADGE:
+	goto Move_TACKLE
+	
 Move_BREADLONG_RUSH:
+	goto Move_TACKLE
+	
 Move_SLOW_KICK:
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
 	loadspritegfx ANIM_TAG_IMPACT
@@ -19122,19 +19430,47 @@ Move_EXTREME_SLOW:
 	delay 1
 	end
 Move_SHELL_SIDE_ASS:
+	goto Move_TACKLE
+	
 Move_MAGNET_BOMB:
+	goto Move_TACKLE
+	
 Move_CAFEINT_ATTACK:
+	goto Move_TACKLE
+	
 Move_GRASSY_TERRAIN:
+	goto Move_TACKLE
+	
 Move_CUTRAGE:
+	goto Move_TACKLE
+	
 Move_FLYING_ASCENT:
+	goto Move_TACKLE
+	
 Move_DOODLE:
+	goto Move_TACKLE
+	
 Move_DARK_VOID_SMEARGLE:
+	goto Move_TACKLE
+	
 Move_AFTER_YU:
+	goto Move_TACKLE
+	
 Move_HAPPY_OUR:
+	goto Move_TACKLE
+	
 Move_FOUL_THEY:
+	goto Move_TACKLE
+	
 Move_BLUE_HAIR:
+	goto Move_TACKLE
+	
 Move_HONE_CLAWS:
+	goto Move_TACKLE
+	
 Move_BABY_DOLL_EYES:
+	goto Move_TACKLE
+	
 Move_RELIC_SONG:
 	loadspritegfx ANIM_TAG_MUSIC_NOTES
 	monbg ANIM_DEF_PARTNER
@@ -19172,11 +19508,23 @@ Move_RELIC_SONG:
 	waitforvisualfinish
 	end
 Move_DAZZLING_GLEAM:
+	goto Move_TACKLE
+	
 Move_VACUUM_WAVE:
+	goto Move_TACKLE
+	
 Move_CRUSH_GRIP:
+	goto Move_TACKLE
+	
 Move_CLEAR_SMOG:
+	goto Move_TACKLE
+	
 Move_HIGH_HORSEPOWER:
+	goto Move_TACKLE
+	
 Move_FIRE_PLAST:
+	goto Move_TACKLE
+	
 Move_IRAN_TAIL:
 	fadetobg BG_IRAN_FLAG
 	waitbgfadein
@@ -19253,8 +19601,14 @@ Move_ARABOLIC_CHARGE:
 	blendoff
 	end
 Move_TRIPLE_DIVE:
+	goto Move_TACKLE
+	
 Move_TRIPLE_DIVE_2:
+	goto Move_TACKLE
+	
 Move_TRIPLE_DIVE_3:
+	goto Move_TACKLE
+	
 Move_TEHRANDERBOLT:
 	loadspritegfx ANIM_TAG_SPARK
 	loadspritegfx ANIM_TAG_SHOCK_3
@@ -19305,24 +19659,62 @@ Move_TEHRANDERBOLT:
 	waitbgfadein
 	end
 Move_RAGING_FURRY:
+	goto Move_TACKLE
+	
 Move_HARDBOILED:
+	goto Move_TACKLE
+	
 Move_YESPER_WING:
+	goto Move_TACKLE
+	
 Move_PSYCH_YUP:
+	goto Move_TACKLE
+	
 Move_AQUA_YEP:
+	goto Move_TACKLE
+	
 Move_SURE_UP:
+	goto Move_TACKLE
+	
 Move_MIRACLE_AYE:
+	goto Move_TACKLE
+	
 Move_FILLET_OKAY:
+	goto Move_TACKLE
+	
 Move_YESIPICE_BLADES:
+	goto Move_TACKLE
+	
 Move_OBLIVION_OUING:
+	goto Move_TACKLE
+	
 Move_MISTER:
+	goto Move_TACKLE
+	
 Move_CHILLY_RECEPTION:
+	goto Move_TACKLE
+	
 Move_MISTER_TERRAIN:
+	goto Move_TACKLE
+	
 Move_MISTER_EXPLOSION:
+	goto Move_TACKLE
+	
 Move_DADDY_DAD:
+	goto Move_TACKLE
+	
 Move_ITCHY_POLLEN:
+	goto Move_TACKLE
+	
 Move_DO_THE_WAVE:
+	goto Move_TACKLE
+	
 Move_MIND_GAMES:
+	goto Move_TACKLE
+	
 Move_GARBOTOXIN:
+	goto Move_TACKLE
+	
 Move_EEEEEEEK:
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES
 	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
@@ -19454,6 +19846,8 @@ Move_EK:
 	waitforvisualfinish
 	end
 Move_CALL_FOR_GOONS:
+	goto Move_TACKLE
+	
 Move_EVERYBODY_EXPLODE_NOW:
 	loadspritegfx ANIM_TAG_THROWN_FORRETRESS
 	loadspritegfx ANIM_TAG_EXPLOSION
@@ -19558,23 +19952,59 @@ ExplosionBoth:
 	return
 
 Move_VISUAL_SNOW:
+	goto Move_TACKLE
+	
 Move_PSYCHIC_SPINNER:
+	goto Move_TACKLE
+	
 Move_SNOW_FORECAST:
+	goto Move_TACKLE
+	
 Move_ICE_TERRAIN:
+	goto Move_TACKLE
+	
 Move_EXPANDING_FROST:
+	goto Move_TACKLE
+	
 Move_ICESTRIKE:
+	goto Move_TACKLE
+	
 Move_F_STINGER:
+	goto Move_TACKLE
+	
 Move_F_BOMB:
+	goto Move_TACKLE
+	
 Move_O_POWER:
+	goto Move_TACKLE
+	
 Move_G_M_B_FUDDLE:
+	goto Move_TACKLE
+	
 Move_C_STINGER:
+	goto Move_TACKLE
+	
 Move_H_ORDER:
+	goto Move_TACKLE
+	
 Move_A_ORDER:
+	goto Move_TACKLE
+	
 Move_P_MISSILE:
+	goto Move_TACKLE
+	
 Move_T_GLOW:
+	goto Move_TACKLE
+	
 Move_E_EXIT:
+	goto Move_TACKLE
+	
 Move_R_POWDER:
+	goto Move_TACKLE
+	
 Move_3_KICK:
+	goto Move_TACKLE
+	
 Move_ROCK_GUN:
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES
 	loadspritegfx ANIM_TAG_WATER_IMPACT
@@ -20062,7 +20492,11 @@ Move_BRANCH_POKE:
 	blendoff
 	end
 Move_BARK_SLIDE:
+	goto Move_TACKLE
+	
 Move_GRAVEL_APPLE:
+	goto Move_TACKLE
+	
 Move_SHOWER_GEM:
 	loadspritegfx ANIM_TAG_GLOWY_BLUE_ORB
 	loadspritegfx ANIM_TAG_WATER_IMPACT
@@ -20094,32 +20528,86 @@ Move_SHOWER_GEM:
 	blendoff
 	end
 Move_REAL_AXE:
+	goto Move_TACKLE
+	
 Move_FLIP_TURN:
+	goto Move_TACKLE
+	
 Move_HEART_BEAT:
+	goto Move_TACKLE
+	
 Move_BITTER_SPADE:
+	goto Move_TACKLE
+	
 Move_DIAMOND_STORM:
+	goto Move_TACKLE
+	
 Move_BRANCH_POKER:
+	goto Move_TACKLE
+	
 Move_HEARTING_SHOT:
+	goto Move_TACKLE
+	
 Move_PSYSICLE_CRASH:
+	goto Move_TACKLE
+	
 Move_DOUBLE_IRON_BASH:
+	goto Move_TACKLE
+	
 Move_PLAY_NPSYCHIC:
+	goto Move_TACKLE
+	
 Move_IRON_TAILS:
+	goto Move_TACKLE
+	
 Move_CONFUSING_GLARE:
+	goto Move_TACKLE
+	
 Move_SECRET_LIFE_DEW:
+	goto Move_TACKLE
+	
 Move_G_MAX_CHILDFIRE:
+	goto Move_TACKLE
+	
 Move_DEMOND_STORM:
+	goto Move_TACKLE
+	
 Move_TAIL_BLOW:
+	goto Move_TACKLE
+	
 Move_FAIL_GLOW:
+	goto Move_TACKLE
+	
 Move_P_CREATE:
+	goto Move_TACKLE
+	
 Move_SCARED_FIRE:
+	goto Move_TACKLE
+	
 Move_AEROBLASS:
+	goto Move_TACKLE
+	
 Move_SHYSTRIKE:
+	goto Move_TACKLE
+	
 Move_SPACIAL_FRIEND:
+	goto Move_TACKLE
+	
 Move_ROAR_OF_THYME:
+	goto Move_TACKLE
+	
 Move_DARK_LLOYD:
+	goto Move_TACKLE
+	
 Move_BORE_ENFORCER:
+	goto Move_TACKLE
+	
 Move_LANDS_BATH:
+	goto Move_TACKLE
+	
 Move_PSYCHO_BOOTS:
+	goto Move_TACKLE
+	
 Move_FUDGEMENT:
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	loadspritegfx ANIM_TAG_EXPLOSION
@@ -20170,25 +20658,65 @@ Move_FUDGEMENT:
 	waitforvisualfinish
 	end
 Move_PHIOMANCY:
+	goto Move_TACKLE
+	
 Move_SKYRIM_WING:
+	goto Move_TACKLE
+	
 Move_ETERNABEAM:
+	goto Move_TACKLE
+	
 Move_FORCE_PALM:
+	goto Move_TACKLE
+	
 Move_MONSTER_MASH:
+	goto Move_TACKLE
+	
 Move_NIHIL_LIGHT:
+	goto Move_TACKLE
+	
 Move_OBLIVION_ZING:
+	goto Move_TACKLE
+	
 Move_ZEOMANCY:
+	goto Move_TACKLE
+	
 Move_NONUPLE_WINGBEAT:
+	goto Move_TACKLE
+	
 Move_POWER_UP_PUP:
+	goto Move_TACKLE
+	
 Move_BARK_BARRAGE:
+	goto Move_TACKLE
+	
 Move_ROLLOVER:
+	goto Move_TACKLE
+	
 Move_VACUUM_FEAR:
+	goto Move_TACKLE
+	
 Move_WOOF_HAMMER:
+	goto Move_TACKLE
+	
 Move_NINE_WHIP:
+	goto Move_TACKLE
+	
 Move_BEHEMOTH_BLAST:
+	goto Move_TACKLE
+	
 Move_PSYSTRIKE:
+	goto Move_TACKLE
+	
 Move_GENESIS_SUPERNOVA:
+	goto Move_TACKLE
+
 Move_LAST_RESORT:
+	goto Move_TACKLE
+
 Move_DOUBLE_FURY_SWIPE:
+	goto Move_TACKLE
+
 Move_NEUTRAL_METRONOME:
 	loadspritegfx ANIM_TAG_FINGER
 	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
@@ -20218,6 +20746,7 @@ Move_PLAY_DAY:
 	blendoff
 	end
 Move_PAY_ROUGH:
+	goto Move_TACKLE
 Move_VINE_SLAP:
 	loadspritegfx ANIM_TAG_WHIP_HIT
 	playsewithpan SE_M_HARDEN, SOUND_PAN_ATTACKER
@@ -20284,6 +20813,7 @@ Move_BLUNDERBOLT:
 	waitforvisualfinish
 	end
 Move_FAULTERGEIST:
+	goto Move_TACKLE
 Move_PHISHIOUS_REND:
 	loadspritegfx ANIM_TAG_SHARP_TEETH
 	loadspritegfx ANIM_TAG_IMPACT
@@ -20403,7 +20933,11 @@ Move_LETS_STRUGGLE_FOREVER:
 	waitbgfadein
 	end
 Move_CLOSE_MOMBAT:
+	goto Move_TACKLE
+	
 Move_TEACH_LIFE:
+	goto Move_TACKLE
+	
 Move_HEADBUS:
 	loadspritegfx ANIM_TAG_BUS_LEFT
 	loadspritegfx ANIM_TAG_BUS_RIGHT
@@ -20468,21 +21002,53 @@ Move_HEADBUS:
 	blendoff
 	end
 Move_LANDS_MATH:
+	goto Move_TACKLE
+	
 Move_SPELLING_SALTS:
+	goto Move_TACKLE
+	
 Move_ART_STRIKE:
+	goto Move_TACKLE
+	
 Move_CHILLY_RECESSION:
+	goto Move_TACKLE
+	
 Move_POWER_GYM:
+	goto Move_TACKLE
+	
 Move_X_SCIENCER:
+	goto Move_TACKLE
+	
 Move_HISTORY_EXPLOSION:
+	goto Move_TACKLE
+	
 Move_BUS_BUZZ:
+	goto Move_TACKLE
+	
 Move_BLAST_LEARN:
+	goto Move_TACKLE
+	
 Move_HEART_STAMP:
+	goto Move_TACKLE
+
 Move_DRAGON:
+	goto Move_TACKLE
+
 Move_MOLTRES_KICK:
+	goto Move_TACKLE
+
 Move_WHITE_LIGHTNING:
+	goto Move_TACKLE
+
 Move_GASTER_BLASTER:
+	goto Move_TACKLE
+
 Move_TEATIME:
+	goto Move_TACKLE
+
 Move_COLONIZE:
+	goto Move_TACKLE
+
 Move_STUPORPOWER:
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
 	loadspritegfx ANIM_TAG_METEOR
@@ -20565,6 +21131,8 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	blendoff
 	end
 Move_PERISH_TONGUE:
+	goto Move_TACKLE
+	
 Move_MULTISHINE:
 	loadspritegfx ANIM_TAG_SHINE
 	monbg ANIM_ATTACKER
