@@ -12406,9 +12406,29 @@ Move_V_CREATE:
 	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
 	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 0x10, 0x10, 0x1, 0x1
 	waitforvisualfinish
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 0x4, 0x4
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 20, 1
+	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
+	call VShape
+	delay 3
+	call VShape
+	delay 3
+	call VShape
+	delay 3
+	call VShape
+	delay 3
+	call VShape
+	delay 3
+	call VShape
+	delay 3
+	call VShape
+	delay 3
+	call VShape
+	delay 3
+	call VShape
+	delay 3
 	waitforvisualfinish
-	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 0x4, 0x4
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 2, 9, 0, RGB_RED
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 9, 0, RGB_RED
@@ -12425,21 +12445,75 @@ VCreateFlames:
 	createsprite gVCreateFlameTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0xFFEE, 0xFFEE, 0x10 @upperleft
 	delay 3
 	return
+VShape:
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, 0, 12, 20, -2, -3
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, 0, 12, 20,  2, -3
+    return
 	
 Move_L_CREATE:
-	@Tackle
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
+	loadspritegfx ANIM_TAG_WATER_ORB
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
 	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
 	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call HydroPumpBeams
+	call HydroPumpBeams
+	call HydroPumpBeams
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call HydroPumpHitSplats
+	call HydroPumpBeams
+	call HydroPumpBeams
+	call HydroPumpHitSplats
+	call HydroPumpBeams
+	call HydroPumpBeams
+	call HydroPumpHitSplats
+	call HydroPumpBeams
+	call HydroPumpBeams
+	call HydroPumpHitSplats
+	call HydroPumpBeams
+	call HydroPumpBeams
+	call HydroPumpHitSplats
+	delay 1
+	delay 1
+	call HydroPumpHitSplats
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
+	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 20, 1
+	call LShape
+	delay 3
+	call LShape
+	delay 3
+	call LShape
+	delay 3
+	call LShape
+	delay 3
+	call LShape
+	delay 3
+	call LShape
+	delay 3
+	call LShape
+	delay 3
+	call LShape
+	delay 3
+	call LShape
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end
+
+LShape:
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, -12, 12, 18, 0, -2
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, -12, 12, 20, 0, -2
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, -12, 12, 22, 0, -2
+
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, -12, 12, 10, 2, 0
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, -12, 12, 12, 2, 0
+    return
 	
 Move_O_CREATE:
 	@Tackle
@@ -19970,8 +20044,51 @@ Move_ICESTRIKE:
 	goto Move_TACKLE
 	
 Move_F_STINGER:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	loadspritegfx ANIM_TAG_NEEDLE
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_POISON_BUBBLE
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gLinearStingerSpriteTemplate, ANIM_TARGET, 2, 20, 0, -8, 0, 20
+	waitforvisualfinish
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 5, 1
+	playsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET
+	waitforvisualfinish
+	delay 10
+	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 20, 1
+	call FShape
+	delay 3
+	call FShape
+	delay 3
+	call FShape
+	delay 3
+	call FShape
+	delay 3
+	call FShape
+	delay 3
+	call FShape
+	delay 3
+	call FShape
+	delay 3
+	call FShape
+	delay 3
+	call FShape
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
 	
+FShape:
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, -10, -44, 24, 0, 3
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, -10, -44, 12, 3, 0
+    createsprite gFireBlastCrossSpriteTemplate, ANIM_TARGET, 2, -10, -12, 12, 3, 0
+    return
+
 Move_F_BOMB:
 	goto Move_TACKLE
 	
@@ -21132,7 +21249,7 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	end
 Move_PERISH_TONGUE:
 	goto Move_TACKLE
-	
+
 Move_MULTISHINE:
 	loadspritegfx ANIM_TAG_SHINE
 	monbg ANIM_ATTACKER
