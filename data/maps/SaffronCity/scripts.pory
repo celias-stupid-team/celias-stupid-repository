@@ -341,20 +341,59 @@ script SaffronCity_TheLeekMan {
 
 script TheLeek_Report1 {
 	msgbox(
-	"Mega Evolution suddenly exists\n"
-	"again", MSGBOX_SIGN)
+	"BREAKING NEWS!{PAUSE 20}\n"
+	"MEGA EVOLUTION exists again!?\p"
+
+	"This phenomenon famous for randomly\n"
+	"phasing out of existence has made\l"
+	"a shocking return!\p"
+
+	"Trainers report satisfaction with\n"
+	"their POKéMON's newfound power.\p"
+
+	"How long will it be until MEGA\n"
+	"EVOLUTION vanishes again?\l"
+	"Only time will tell!", MSGBOX_SIGN)
 
 }
 script TheLeek_Report2 {
 	msgbox(
-	"funny news story\n"
-	"", MSGBOX_SIGN)
+	"THIS JUST IN!\n"
+	"A new TYPE has been classified!\p"
+
+	"After much research, scientists\n"
+	"have documented a new POKéMON TYPE.\p"
+
+	"When FAIRY was first documented,\n"
+	"previous sanctioned battle results\l"
+	"came into question.\p"
+
+	"LANCE was accused of cooking the\n"
+	"books after his historic win with\l"
+	"his DRAGONITE against a CLEFABLE.\p"
+
+	"Stay tuned for updates on the\n"
+	"situation!", MSGBOX_SIGN)
 
 }
 script TheLeek_Report3 {
 	msgbox(
-	"funny news story\n"
-	"", MSGBOX_SIGN)
+	"SPECIAL REPORT!\n"
+	"Thunderstones do WHAT?!\p"
+
+	"It's been common knowledge that\n"
+	"MAGNETON evolves using a special\l"
+	"field, but not anymore!\p"
+
+	"It has recently been learned that\n"
+	"a simple THUNDERSTONE does the job.\p"
+
+	"Tourism in SINNOH has taken a hit,\n"
+	"as TRAINERS no longer need to\l"
+	"travel to evolve their POKéMON.\p"
+
+	"How did nobody discover this fact\n"
+	"sooner? No one knows!", MSGBOX_SIGN)
 
 }
 
