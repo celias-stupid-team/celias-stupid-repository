@@ -557,8 +557,18 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintKrabby)
 		case SPECIES_TENTACOOL: 
 			 msgbox(PokedexRating_Text_HintTentacool)
-		case SPECIES_TOEDSCOOL: 
-			 msgbox(PokedexRating_Text_HintToedscool)
+		case SPECIES_TOEDSCOOL:
+			if(flag(FLAG_BADGE03_GET) || flag(FLAG_BADGE04_GET)) {
+				msgbox(
+				"Say, I sent an AIDE to deliver you\n"
+				"a pair of RUNNING SHOES.\p"
+
+				"Did you ever pick them up?\n"
+				"", MSGBOX_DEFAULT)
+			} else {
+			 	msgbox(PokedexRating_Text_HintToedscool)
+
+			}
 		case SPECIES_PARAS: 
 			 msgbox(PokedexRating_Text_HintParas)
 		case SPECIES_PARASECT: 

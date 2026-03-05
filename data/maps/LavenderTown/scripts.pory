@@ -1,10 +1,6 @@
 raw `
 
-LavenderTown_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_LAVENDER_TOWN
-	setbench BENCH_LAVENDER
-	setflag FLAG_HIDE_SS_ANNE_RIVAL
-	end
+
 
 LavenderTown_EventScript_LittleGirl::
 	lock
@@ -58,7 +54,16 @@ LavenderTown_EventScript_UndergroundPathSign::
 const IMPOSTER_OAK = 7
 
 mapscripts LavenderTown_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION: LavenderTown_OnTransition
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag (FLAG_WORLD_MAP_LAVENDER_TOWN)
+		setbench (BENCH_LAVENDER)
+		setflag(FLAG_TEMP_6)
+		if(flag(FLAG_CSR_SUPER_SCOPE) && !flag(FLAG_BADGE04_GET)) {
+			clearflag(FLAG_TEMP_6)
+		}
+		setflag (FLAG_HIDE_SS_ANNE_RIVAL)
+		end
+	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_CSR_SEPIA, 1 {
 			if(flag(FLAG_TEMP_5)) {
@@ -190,4 +195,16 @@ script LavenderTown_MusicDoesntFade {
 	setvar(VAR_TEMP_3, 1)
 	clearflag(FLAG_TEMP_5)
 	release
+}
+
+script LavenderTown_ProgressionCelia {
+	msgbox(
+	"Are you stuck on CELADON GYM?\p"
+
+	"Don't worry: You don't need to do\n"
+	"the TOWER first.\l"
+	"Going in here won't help you.\p"
+
+	"Good luck!\n"
+	"", MSGBOX_NPC)
 }
