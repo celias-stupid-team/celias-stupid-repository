@@ -11,6 +11,7 @@
 #include "event_data.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_interface.h"
 #include "battle_scripts.h"
 #include "battle_message.h"
 #include "constants/battle_anim.h"
@@ -1331,13 +1332,26 @@ bool8 HandleFaintedMonActions(void)
         case 3:
             gBattleStruct->faintedActionsBattlerId = 0;
             gBattleStruct->faintedActionsState++;
+
+            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) >= B_FINAL_BATTLE_WARTORTLE)
+            {
+                // opponent switches in first
+                for (i = 0; i < gBattlersCount; i++)
+                    gBattleStruct->faintedActionsOrder[i] = gBattlersCount - 1 - i;
+            }
+            else
+            {
+                for (i = 0; i < gBattlersCount; i++)
+                    gBattleStruct->faintedActionsOrder[i] = i;
+            }
             // fall through
         case 4:
             do
             {
-                gBattlerFainted = gBattlerTarget = gBattleStruct->faintedActionsBattlerId;
-                if (gBattleMons[gBattleStruct->faintedActionsBattlerId].hp == 0
-                 && !(gAbsentBattlerFlags & gBitTable[gBattleStruct->faintedActionsBattlerId]))
+                u8 battlerId = gBattleStruct->faintedActionsOrder[gBattleStruct->faintedActionsBattlerId];
+                gBattlerFainted = gBattlerTarget = battlerId;
+                if (gBattleMons[battlerId].hp == 0
+                 && !(gAbsentBattlerFlags & gBitTable[battlerId]))
                 {
                     gBattleTurnMonFainted = TRUE;
                     BattleScriptExecute(BattleScript_HandleFaintedMon);
@@ -1345,6 +1359,7 @@ bool8 HandleFaintedMonActions(void)
                     return TRUE;
                 }
             } while (++gBattleStruct->faintedActionsBattlerId != gBattlersCount);
+
             gBattleStruct->faintedActionsState = 6;
             break;
         case 5:

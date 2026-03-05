@@ -436,6 +436,7 @@ struct BattleStruct
     u8 switchInAbilitiesCounter;
     u8 faintedActionsState;
     u8 faintedActionsBattlerId;
+    u8 faintedActionsOrder[MAX_BATTLERS_COUNT]; // for final battle Wartortle scene only
     // balign 2
     u16 expValue;
     u8 scriptPartyIdx; // for printing the nickname
