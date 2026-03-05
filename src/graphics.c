@@ -72,6 +72,9 @@ const u32 gBattleAnimSpritePal_BusLeft[] = INCBIN_U32("graphics/battle_anims/spr
 const u32 gBattleAnimSpriteGfx_BusRight[] = INCBIN_U32("graphics/battle_anims/sprites/bus_right.4bpp.lz");
 const u32 gBattleAnimSpritePal_BusRight[] = INCBIN_U32("graphics/battle_anims/sprites/bus_right.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Crashed[] = INCBIN_U32("graphics/battle_anims/sprites/flash_crash.4bpp.lz");
+const u32 gBattleAnimSpritePal_Crashed[] = INCBIN_U32("graphics/battle_anims/sprites/flash_crash.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.4bpp.lz");
 const u32 gBattleAnimSpritePal_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.gbapal.lz");
 
@@ -875,6 +878,18 @@ const u32 gBattleAnimBgTilemap_DrillContests[] = INCBIN_U32("graphics/battle_ani
 const u32 gBattleAnimBgImage_Aurora[] = INCBIN_U32("graphics/battle_anims/backgrounds/aurora.4bpp.lz");
 const u32 gBattleAnimBgPalette_Aurora[] = INCBIN_U32("graphics/battle_anims/backgrounds/aurora.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Aurora[] = INCBIN_U32("graphics/battle_anims/backgrounds/aurora.bin.lz");
+
+const u32 gBattleAnimBgImage_AmericanFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/american_flag.4bpp.lz");
+const u32 gBattleAnimBgPalette_AmericanFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/american_flag.gbapal.lz");
+const u32 gBattleAnimBgTilemap_AmericanFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/american_flag.bin.lz");
+
+const u32 gBattleAnimBgImage_IranFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/iran_flag.4bpp.lz");
+const u32 gBattleAnimBgPalette_IranFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/iran_flag.gbapal.lz");
+const u32 gBattleAnimBgTilemap_IranFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/iran_flag.bin.lz");
+
+const u32 gBattleAnimBgImage_BSOD[] = INCBIN_U32("graphics/battle_anims/backgrounds/bsod.4bpp.lz");
+const u32 gBattleAnimBgPalette_BSOD[] = INCBIN_U32("graphics/battle_anims/backgrounds/bsod.gbapal.lz");
+const u32 gBattleAnimBgTilemap_BSOD[] = INCBIN_U32("graphics/battle_anims/backgrounds/bsod.bin.lz");
 
 const u32 gBattleAnimBgTilemap_HighspeedOpponent[] = INCBIN_U32("graphics/battle_anims/backgrounds/highspeed_opponent.bin.lz");
 const u32 gBattleAnimBgPalette_Highspeed[] = INCBIN_U32("graphics/battle_anims/backgrounds/highspeed.gbapal.lz");

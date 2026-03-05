@@ -354,6 +354,7 @@
 #define ANIM_TAG_SUMMONING_CIRCLE           (ANIM_SPRITES_START + 344)
 #define ANIM_TAG_BUS_LEFT                   (ANIM_SPRITES_START + 345)
 #define ANIM_TAG_BUS_RIGHT                  (ANIM_SPRITES_START + 346)
+#define ANIM_TAG_CRASHED                    (ANIM_SPRITES_START + 347)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -410,6 +411,9 @@
 #define BG_DARK_VOID 27
 #define BG_TRICK_ROOM 28
 #define BG_FIRE 29
+#define BG_AMERICAN_FLAG 30
+#define BG_IRAN_FLAG 31
+#define BG_BSOD 32
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

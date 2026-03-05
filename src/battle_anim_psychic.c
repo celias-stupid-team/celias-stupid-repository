@@ -10,6 +10,7 @@ static void AnimWallSparkle(struct Sprite *sprite);
 static void AnimBentSpoon(struct Sprite *sprite);
 static void AnimQuestionMark(struct Sprite *sprite);
 static void AnimRedX(struct Sprite *sprite);
+static void AnimFlashCrash(struct Sprite *sprite);
 static void AnimSkillSwapOrb(struct Sprite *sprite);
 static void AnimPsychoBoost(struct Sprite *sprite);
 static void AnimDefensiveWall_Step2(struct Sprite *sprite);
@@ -311,6 +312,17 @@ const struct SpriteTemplate gBrockXSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimRedX,
+};
+
+const struct SpriteTemplate gFlashCrashSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CRASHED,
+    .paletteTag = ANIM_TAG_CRASHED,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFlashCrash,
 };
 
 const struct SpriteTemplate gWeedSpriteTemplate =
@@ -869,6 +881,17 @@ static void AnimRedX(struct Sprite *sprite)
     {
         sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
         sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    }
+    sprite->data[0] = gBattleAnimArgs[1];
+    sprite->callback = AnimRedX_Step;
+}
+
+static void AnimFlashCrash(struct Sprite *sprite)
+{
+    if (gBattleAnimArgs[0] == 0)
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X);
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
     }
     sprite->data[0] = gBattleAnimArgs[1];
     sprite->callback = AnimRedX_Step;

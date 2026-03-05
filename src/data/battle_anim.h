@@ -1357,6 +1357,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_SummoningCircle, 0x1200, ANIM_TAG_SUMMONING_CIRCLE},
     {gBattleAnimSpriteGfx_BusLeft, 0x0C00, ANIM_TAG_BUS_LEFT},
     {gBattleAnimSpriteGfx_BusRight, 0x0C00, ANIM_TAG_BUS_RIGHT},
+    {gBattleAnimSpriteGfx_Crashed, 0x0800, ANIM_TAG_CRASHED},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1708,6 +1709,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_SummoningCircle, ANIM_TAG_SUMMONING_CIRCLE},
     {gBattleAnimSpritePal_BusLeft, ANIM_TAG_BUS_LEFT},
     {gBattleAnimSpritePal_BusRight, ANIM_TAG_BUS_RIGHT},
+    {gBattleAnimSpritePal_Crashed, ANIM_TAG_CRASHED},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -1741,4 +1743,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_SOLAR_BEAM_CONTESTS] = {gBattleAnimBgImage_Impact,     gBattleAnimBgPalette_SolarBeam,  gBattleAnimBgTilemap_ImpactContests},
     [BG_DARK_VOID]           = {gBattleAnimBgImage_Waterfall,  gBattleAnimBgPalette_DarkVoid,   gBattleAnimBgTilemap_DarkVoid},
     [BG_TRICK_ROOM]          = {gBattleAnimBgImage_TrickRoom,  gBattleAnimBgPalette_TrickRoom,  gBattleAnimBgTilemap_TrickRoom},
+    [BG_AMERICAN_FLAG]       = {gBattleAnimBgImage_AmericanFlag,     gBattleAnimBgPalette_AmericanFlag,     gBattleAnimBgTilemap_AmericanFlag},
 };
