@@ -9,6 +9,7 @@
 #include "help_system.h"
 #include "hall_of_fame.h"
 #include "quest_log.h"
+#include "pokemon_storage_system_internal.h"
 #include "pc_screen_effect.h"
 #include "new_menu_helpers.h"
 #include "strings.h"
@@ -400,6 +401,8 @@ static void Task_Hof_InitMonData(u8 taskId)
     u8 tmpInParty;
     u8 tmpBox;
     u8 tmpSlot;
+    // save mons to restore later
+    struct Pokemon partyBuffer[PARTY_SIZE];
 
     gTasks[taskId].data[2] = 0;
     candidateCount = 0;
@@ -491,6 +494,8 @@ static void Task_Hof_InitMonData(u8 taskId)
                 sHofMonPtr[0].mon[i].personality = GetMonData(&gPlayerParty[partyId], MON_DATA_PERSONALITY);
                 sHofMonPtr[0].mon[i].lvl         = GetMonData(&gPlayerParty[partyId], MON_DATA_LEVEL);
                 GetMonData(&gPlayerParty[partyId], MON_DATA_NICKNAME, nick);
+                // save party mons to restore later
+                partyBuffer[i] = gPlayerParty[partyId];
             }
             else
             {
@@ -516,9 +521,40 @@ static void Task_Hof_InitMonData(u8 taskId)
         }
     }
     
-    //print the result list
+    // print the result list
     for (i = 0; i < candidateCount; i++)
         DebugPrintf("HoF slot[%d] species=%d friendship=%d", i, sHofMonPtr[0].mon[i].species, candFriendship[i]);
+
+    // replace current team with the HoF squad
+    // send all mons to the PC
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+            break;
+        else if (candInParty[i]) // mon is already in the party, don't send to PC
+            break;
+        else
+        {
+            if (SendMonToPC(&gPlayerParty[i]))
+            {
+                ZeroMonData(&gPlayerParty[i]);
+            }
+        }
+    }
+    // add HoF mons to the party
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (candInParty[i])
+            gPlayerParty[i] = partyBuffer[i];
+        else
+        {
+            struct Pokemon mon;
+            BoxMonAtToMon(candBox[i], candSlot[i], &mon);
+            ZeroBoxMonAt(candBox[i], candSlot[i]);
+            gPlayerParty[i] = mon;
+            CalculatePlayerPartyCount();
+        }
+    }
     
     sSelectedPaletteIndices = 0;
     gTasks[taskId].data[1] = 0;
