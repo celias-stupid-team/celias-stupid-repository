@@ -1102,7 +1102,7 @@ script CinnabarGym_CheckBattleOutcome {
 
 
 script CinnabarGym_IncorrectAnswer {
-	special(RestorePlayerPartyFromOne)
+	//special(RestorePlayerPartyFromOne)
 	playse(SE_BOO)
 	waitse
 	msgbox(
