@@ -147,15 +147,15 @@
       "x": 20,
       "y": 22,
       "elevation": 3,
-      "dest_map": "MAP_POKEMON_MANSION_1F",
-      "dest_warp_id": "10"
+      "dest_map": "MAP_POKEMON_MANSION_B1F",
+      "dest_warp_id": "3"
     },
     {
       "x": 21,
       "y": 22,
       "elevation": 3,
-      "dest_map": "MAP_POKEMON_MANSION_1F",
-      "dest_warp_id": "10"
+      "dest_map": "MAP_POKEMON_MANSION_B1F",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [

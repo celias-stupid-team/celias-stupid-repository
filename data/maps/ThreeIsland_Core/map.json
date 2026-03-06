@@ -137,6 +137,13 @@
       "elevation": 0,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 26,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_MANSION_B1F",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],
