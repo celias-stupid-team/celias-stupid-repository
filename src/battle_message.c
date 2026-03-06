@@ -1046,6 +1046,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNRECHARGED - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} recharged\nfrom the emitted energy!"),
     [STRINGID_OHSHOOT - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Oh shoot!\n{PAUSE 20}The lights went out!\p{PAUSE 45}ZAPDOS took down the whole\npower grid!\p"), //The lights went out!\p"),
     [STRINGID_CANTESCAPEFINAL - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("No! There's no running\nfrom the final battle!\p"),
+    [STRINGID_PKMNHPWASRESTORED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s HP was restored!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 

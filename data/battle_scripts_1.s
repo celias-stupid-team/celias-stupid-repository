@@ -3146,6 +3146,7 @@ BattleScript_LinkHandleFaintedMonMultipleEnd::
 	end2
 
 BattleScript_LocalTrainerBattleWon::
+	jumpifbattletype BATTLE_TYPE_ZAPMOLCUNOOHGIA, BattleScript_PayDayMoneyAndPickUpItemsEnd
 	printstring STRINGID_PLAYERDEFEATEDTRAINER1
 	trainerslidein BS_ATTACKER
 	waitstate
@@ -3157,6 +3158,7 @@ BattleScript_LocalTrainerBattleWonGotMoney::
 BattleScript_PayDayMoneyAndPickUpItems::
 	givepaydaymoney
 	pickup
+BattleScript_PayDayMoneyAndPickUpItemsEnd::
 	end2
 
 BattleScript_LocalBattleLost::
@@ -5585,6 +5587,6 @@ BattleScript_HyperBeamHealTarget::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
-	printstring STRINGID_PKMNREGAINEDHEALTH
+	printstring STRINGID_PKMNHPWASRESTORED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
