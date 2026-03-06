@@ -1777,3 +1777,7 @@
 	.macro waitforcry
 	callnative BS_WaitForCry
 	.endm
+
+	.macro settechnoblasttype
+	callnative BS_SetTechnoBlastType
+	.endm

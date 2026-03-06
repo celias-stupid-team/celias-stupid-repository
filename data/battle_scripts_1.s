@@ -275,6 +275,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDoubleDip              @ EFFECT_DOUBLE_DIP
 	.4byte BattleScript_Effect10kVolts               @ EFFECT_10000_VOLTS
 	.4byte BattleScript_EffectCollisionCourse        @ EFFECT_COLLISION_COURSE
+	.4byte BattleScript_EffectTechnoBlast            @ EFFECT_TECHNO_BLAST
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5606,3 +5607,7 @@ BattleScript_DodgeMove::
 	printstring STRINGID_PKMNDODGEDATTACK
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectTechnoBlast::
+	settechnoblasttype
+	goto BattleScript_EffectHit

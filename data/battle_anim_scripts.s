@@ -1058,6 +1058,7 @@ gBattleAnims_Moves::
 	.4byte Move_BLAST_LEARN
 	.4byte Move_HEART_STAMP
 	.4byte Move_DRAGON
+	.4byte Move_TECHNO_BLAST
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -18972,6 +18973,7 @@ Move_BUS_BUZZ:
 Move_BLAST_LEARN:
 Move_HEART_STAMP:
 Move_DRAGON:
+Move_TECHNO_BLAST:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8
@@ -18985,3 +18987,465 @@ Move_DRAGON:
 	blendoff
 	end
 
+@ Move_TECHNO_BLAST:
+@ 	createvisualtask AnimTask_TechnoBlast, 0x5
+@ 	jumpargeq 0x0, TYPE_FIRE, TechnoBlastFire
+@ 	jumpargeq 0x0, TYPE_WATER, TechnoBlastWater
+@ 	jumpargeq 0x0, TYPE_ELECTRIC, TechnoBlastElectric
+@ 	jumpargeq 0x0, TYPE_ICE, TechnoBlastIce
+@ TechnoBlastNormal:
+@ 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT @charge animation
+@ 	loadspritegfx ANIM_TAG_ORBS @circles
+@ 	loadspritegfx ANIM_TAG_AIR_WAVE_2 @white/gray color
+@ 	loadspritegfx ANIM_TAG_BLACK_BALL_2 @blast
+@ 	loadspritegfx ANIM_TAG_SPARK_2 @blast particles
+@ 	loadspritegfx ANIM_TAG_GRAY_SMOKE @dispersal
+@ 	monbg ANIM_ATTACKER
+@ 	setalpha 14, 8
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 12, RGB_BLACK
+@ 	waitforvisualfinish
+@ 	loopsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER, 0xE, 0x8
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0x28, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffd8, 0xffd8, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x0, 0x28, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x0, 0xffd8, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0xffec, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0x14, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffd8, 0xffec, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteChargeTemplate, ANIM_ATTACKER, 2, 0x0
+@ 	call TechnoBlastWhiteCircles
+@ 	call TechnoBlastWhiteCircles
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0x28, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffd8, 0xffd8, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x0, 0x28, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x0, 0xffd8, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0xffec, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0x14, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffd8, 0xffec, 0x10
+@ 	delay 2
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastWhiteBlastTemplate, ANIM_TARGET, 3, 0xa, 0x0, 0x0, 0x0, 0x1e, 0x0
+@ 	createsprite gTechnoBlastWhiteSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x0
+@ 	createsprite gTechnoBlastWhiteSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x40, 0x28, 0x1
+@ 	createsprite gTechnoBlastWhiteSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x80, 0x28, 0x0
+@ 	createsprite gTechnoBlastWhiteSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x2
+@ 	createsprite gTechnoBlastWhiteSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x20, 0x28, 0x0
+@ 	createsprite gTechnoBlastWhiteSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x60, 0x28, 0x1
+@ 	createsprite gTechnoBlastWhiteSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xa0, 0x28, 0x0
+@ 	createsprite gTechnoBlastWhiteSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xe0, 0x28, 0x2
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_EMBER, SOUND_PAN_ATTACKER
+@ 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1
+@ 	createsprite gTechnoBlastWhiteSmokeTemplate, ANIM_TARGET, 2, 0x8, 0x8, 0x1, 0x0
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0xfff8, 0x1, 0x0
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteSmokeTemplate, ANIM_TARGET, 2, 0x8, 0xfff8, 0x1, 0x0
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0x8, 0x1, 0x0
+@ 	waitforvisualfinish
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 12, 0, RGB_BLACK
+@ 	waitforvisualfinish
+@ 	blendoff
+@ 	clearmonbg ANIM_ATTACKER
+@ 	end
+@ TechnoBlastWhiteCircles:
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffd8, 0x14, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffec, 0x1e, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x14, 0xffe2, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffec, 0xffe2, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x14, 0x1e, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffd8, 0x0, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0x0, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0x28, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffd8, 0xffd8, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x0, 0x28, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x0, 0xffd8, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0xffec, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0x28, 0x14, 0x10
+@ 	delay 2
+@ 	createsprite gTechnoBlastWhiteCircleTemplate, ANIM_ATTACKER, 2, 0xffd8, 0xffec, 0x10
+@ 	delay 2
+@ 	return
+
+@ TechnoBlastElectric:
+@ 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT @charge animation
+@ 	loadspritegfx ANIM_TAG_ORBS @circles
+@ 	loadspritegfx ANIM_TAG_BLACK_BALL_2 @blast
+@ 	loadspritegfx ANIM_TAG_SPARK_2 @blast particles
+@ 	loadspritegfx ANIM_TAG_GRAY_SMOKE @dispersal
+@ 	monbg ANIM_ATTACKER
+@ 	setalpha 14, 8
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 12, RGB_BLACK
+@ 	waitforvisualfinish
+@ 	loopsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER, 0xE, 0x8
+@ 	createsprite gGrowingChargeOrbSpriteTemplate, ANIM_ATTACKER, 2, 0x0
+@ 	call TechnoBlastCharging1
+@ 	delay 15
+@ 	call TechnoBlastCharging2
+@ 	delay 15
+@ 	call TechnoBlastCharging1
+@ 	delay 15
+@ 	call TechnoBlastCharging2
+@ 	delay 15
+@ 	call TechnoBlastCharging1
+@ 	delay 15
+@ 	call TechnoBlastCharging2
+@ 	delay 15
+@ 	call TechnoBlastCharging1
+@ 	delay 15
+@ 	call TechnoBlastCharging2
+@ 	delay 15
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastYellowBlastTemplate, ANIM_TARGET, 3, 0xa, 0x0, 0x0, 0x0, 0x1e, 0x0
+@ 	createsprite gTechnoBlastYellowSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x0
+@ 	createsprite gTechnoBlastYellowSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x40, 0x28, 0x1
+@ 	createsprite gTechnoBlastYellowSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x80, 0x28, 0x0
+@ 	createsprite gTechnoBlastYellowSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x2
+@ 	createsprite gTechnoBlastYellowSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x20, 0x28, 0x0
+@ 	createsprite gTechnoBlastYellowSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x60, 0x28, 0x1
+@ 	createsprite gTechnoBlastYellowSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xa0, 0x28, 0x0
+@ 	createsprite gTechnoBlastYellowSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xe0, 0x28, 0x2
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_EMBER, SOUND_PAN_ATTACKER
+@ 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1
+@ 	createsprite gTechnoBlastYellowSmokeTemplate, ANIM_TARGET, 2, 0x8, 0x8, 0x1, 0x0
+@ 	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0x5, 0x0, 0x5, 0x0
+@ 	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xfffb, 0xa, 0x5, 0x1
+@ 	delay 2
+@ 	createsprite gTechnoBlastYellowSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0xfff8, 0x1, 0x0
+@ 	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xf, 0x14, 0x5, 0x2
+@ 	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xfff1, 0xfff6, 0x5, 0x0
+@ 	delay 2
+@ 	createsprite gTechnoBlastYellowSmokeTemplate, ANIM_TARGET, 2, 0x8, 0xfff8, 0x1, 0x0
+@ 	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0x19, 0x0, 0x5, 0x1
+@ 	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xfff8, 0x8, 0x5, 0x2
+@ 	delay 2
+@ 	createsprite gTechnoBlastYellowSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0x8, 0x1, 0x0
+@ 	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0x2, 0xfff8, 0x5, 0x0
+@ 	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xffec, 0xf, 0x5, 0x1
+@ 	waitforvisualfinish
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 12, 0, RGB_BLACK
+@ 	waitforvisualfinish
+@ 	blendoff
+@ 	clearmonbg ANIM_ATTACKER
+@ 	end
+@ TechnoBlastCharging1:
+@ 	playsewithpan SE_M_THUNDERBOLT2, SOUND_PAN_ATTACKER
+@ 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 32, 0x18, 190, 12, ANIM_ATTACKER, 1, 0
+@ 	delay 0
+@ 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 80, 0x18, 22, 12, ANIM_ATTACKER, 1, 0
+@ 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 156, 0x18, 121, 13, ANIM_ATTACKER, 1, 1
+@ 	return
+@ TechnoBlastCharging2:
+@ 	playsewithpan SE_M_THUNDERBOLT2, SOUND_PAN_ATTACKER
+@ 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 100, 0x18, 60, 10, ANIM_ATTACKER, 1, 0
+@ 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 170, 0x18, 42, 11, ANIM_ATTACKER, 1, 1
+@ 	delay 0
+@ 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 238, 0x18, 165, 10, ANIM_ATTACKER, 1, 1
+@ 	return
+
+@ TechnoBlastWater:
+@ 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT @charge animation
+@ 	loadspritegfx ANIM_TAG_WATER_ORB @blue color
+@ 	loadspritegfx ANIM_TAG_BLACK_BALL_2 @blast
+@ 	loadspritegfx ANIM_TAG_SPARK_2 @blast particles
+@ 	loadspritegfx ANIM_TAG_GRAY_SMOKE @dispersal
+@ 	loadspritegfx ANIM_TAG_BUBBLE @bubbles
+@ 	monbg ANIM_ATTACKER
+@ 	setalpha 14, 8
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 12, RGB(1, 0, 0)
+@ 	waitforvisualfinish
+@ 	createsprite gTechnoBlastBlueChargeTemplate, ANIM_ATTACKER, 2, 0x0
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xa, 0xa, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xfff1, 0x0, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x14, 0xa, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x0, 0xfff6, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xfff6, 0xf, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x19, 0x14, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xffec, 0x14, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xc, 0x0, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xa, 0xa, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xfff1, 0x0, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x14, 0xa, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x0, 0xfff6, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xfff6, 0xf, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x19, 0x14, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xffec, 0x14, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xc, 0x0, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xa, 0xa, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xfff1, 0x0, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x14, 0xa, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x0, 0xfff6, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xfff6, 0xf, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x19, 0x14, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xffec, 0x14, 0x19, 0x0
+@ 	delay 4
+@ 	playsewithpan SE_M_CRABHAMMER, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xc, 0x0, 0x19, 0x0
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastBlueBlastTemplate, ANIM_TARGET, 3, 0xa, 0x0, 0x0, 0x0, 0x1e, 0x0
+@ 	createsprite gTechnoBlastBlueSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x0
+@ 	createsprite gTechnoBlastBlueSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x40, 0x28, 0x1
+@ 	createsprite gTechnoBlastBlueSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x80, 0x28, 0x0
+@ 	createsprite gTechnoBlastBlueSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x2
+@ 	createsprite gTechnoBlastBlueSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x20, 0x28, 0x0
+@ 	createsprite gTechnoBlastBlueSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x60, 0x28, 0x1
+@ 	createsprite gTechnoBlastBlueSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xa0, 0x28, 0x0
+@ 	createsprite gTechnoBlastBlueSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xe0, 0x28, 0x2
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_EMBER, SOUND_PAN_ATTACKER
+@ 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1
+@ 	createsprite gTechnoBlastBlueSmokeTemplate, ANIM_TARGET, 2, 0x8, 0x8, 0x1, 0x0
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xa, 0xa, 0x19, 0x1
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xfff1, 0x0, 0x19, 0x1
+@ 	delay 2
+@ 	createsprite gTechnoBlastBlueSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0xfff8, 0x1, 0x0
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x14, 0xa, 0x19, 0x1
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x0, 0xfff6, 0x19, 0x1
+@ 	delay 2
+@ 	createsprite gTechnoBlastBlueSmokeTemplate, ANIM_TARGET, 2, 0x8, 0xfff8, 0x1, 0x0
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xfff6, 0xf, 0x19, 0x1
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0x19, 0x14, 0x19, 0x1
+@ 	delay 2
+@ 	createsprite gTechnoBlastBlueSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0x8, 0x1, 0x0
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xffec, 0x14, 0x19, 0x1
+@ 	createsprite gTechnoBlastBlueBubbleTemplate, ANIM_ATTACKER, 2, 0xc, 0x0, 0x19, 0x1
+@ 	waitforvisualfinish
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 12, 0, RGB_BLACK
+@ 	waitforvisualfinish
+@ 	blendoff
+@ 	clearmonbg ANIM_ATTACKER
+@ 	end
+
+@ TechnoBlastFire:
+@ 	loadspritegfx ANIM_TAG_JAGGED_MUSIC_NOTE @red color
+@ 	loadspritegfx ANIM_TAG_SMALL_RED_EYE @another red color
+@ 	loadspritegfx ANIM_TAG_SMALL_EMBER @fire
+@ 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT @charge animation
+@ 	loadspritegfx ANIM_TAG_BLACK_BALL_2 @blast
+@ 	loadspritegfx ANIM_TAG_SPARK_2 @blast particles
+@ 	loadspritegfx ANIM_TAG_GRAY_SMOKE @dispersal
+@ 	monbg ANIM_ATTACKER
+@ 	setalpha 14, 8
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 12, RGB_BLACK
+@ 	waitforvisualfinish
+@ 	createsprite gTechnoBlastRedChargeTemplate, ANIM_ATTACKER, 2, 0x0
+@ 	delay 5
+@ 	call TechnoBlastFireSpiral
+@ 	call TechnoBlastFireSpiral
+@ 	call TechnoBlastFireSpiral
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastRedBlastTemplate, ANIM_TARGET, 3, 0xa, 0x0, 0x0, 0x0, 0x1e, 0x0
+@ 	createsprite gTechnoBlastRedSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x0
+@ 	createsprite gTechnoBlastRedSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x40, 0x28, 0x1
+@ 	createsprite gTechnoBlastRedSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x80, 0x28, 0x0
+@ 	createsprite gTechnoBlastRedSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x2
+@ 	createsprite gTechnoBlastRedSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x20, 0x28, 0x0
+@ 	createsprite gTechnoBlastRedSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x60, 0x28, 0x1
+@ 	createsprite gTechnoBlastRedSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xa0, 0x28, 0x0
+@ 	createsprite gTechnoBlastRedSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xe0, 0x28, 0x2
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_EMBER, SOUND_PAN_ATTACKER
+@ 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1
+@ 	createsprite gTechnoBlastRedSmokeTemplate, ANIM_TARGET, 2, 0x8, 0x8, 0x1, 0x0
+@ 	createsprite gFireSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 192, 176, 40
+@ 	createsprite gFireSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, -192, 240, 40
+@ 	createsprite gFireSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 192, -160, 40
+@ 	createsprite gFireSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, -192, -112, 40
+@ 	createsprite gFireSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 160, 48, 40
+@ 	createsprite gFireSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, -224, -32, 40
+@ 	createsprite gFireSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 112, -128, 40
+@ 	delay 2
+@ 	createsprite gTechnoBlastRedSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0xfff8, 0x1, 0x0
+@ 	delay 2
+@ 	createsprite gTechnoBlastRedSmokeTemplate, ANIM_TARGET, 2, 0x8, 0xfff8, 0x1, 0x0
+@ 	delay 2
+@ 	createsprite gTechnoBlastRedSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0x8, 0x1, 0x0
+@ 	waitforvisualfinish
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 12, 0, RGB_BLACK
+@ 	waitforvisualfinish
+@ 	blendoff
+@ 	clearmonbg ANIM_ATTACKER
+@ 	end
+@ TechnoBlastFireSpiral:
+@ 	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x38, 0x0
+@ 	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER
+@ 	delay 2
+@ 	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x38, 0x4
+@ 	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER
+@ 	delay 2
+@ 	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x38, 0x8
+@ 	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER
+@ 	delay 2
+@ 	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x38, 0xc
+@ 	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER
+@ 	delay 2
+@ 	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x38, 0x10
+@ 	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER
+@ 	delay 2
+@ 	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x38, 0x14
+@ 	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER
+@ 	delay 2
+@ 	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x38, 0x18
+@ 	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER
+@ 	delay 2
+@ 	return
+
+@ TechnoBlastIce:
+@ 	loadspritegfx ANIM_TAG_ICE_CRYSTALS @ice
+@ 	loadspritegfx ANIM_TAG_ICE_CHUNK @ice color
+@ 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT @charge animation
+@ 	loadspritegfx ANIM_TAG_BLACK_BALL_2 @blast
+@ 	loadspritegfx ANIM_TAG_SPARK_2 @blast particles
+@ 	loadspritegfx ANIM_TAG_GRAY_SMOKE @dispersal
+@ 	monbg ANIM_ATTACKER
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 12, RGB_BLACK
+@ 	waitforvisualfinish
+@ 	createsprite gTechnoBlastIceChargeTemplate, ANIM_ATTACKER, 2, 0x0
+@ 	delay 5
+@ 	call TechnoBlastIceChargeParticles
+@ 	call TechnoBlastIceChargeParticles
+@ 	call TechnoBlastIceChargeParticles
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0xfff6, 0xfff6, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0xa, 0x14, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0xfffb, 0xa, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0x11, 0xfff4, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+@ 	createsprite gTechnoBlastIceBlastTemplate, ANIM_TARGET, 3, 0xa, 0x0, 0x0, 0x0, 0x1e, 0x0
+@ 	createsprite gTechnoBlastIceSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x0
+@ 	createsprite gTechnoBlastIceSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x40, 0x28, 0x1
+@ 	createsprite gTechnoBlastIceSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x80, 0x28, 0x0
+@ 	createsprite gTechnoBlastIceSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x2
+@ 	createsprite gTechnoBlastIceSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x20, 0x28, 0x0
+@ 	createsprite gTechnoBlastIceSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x60, 0x28, 0x1
+@ 	createsprite gTechnoBlastIceSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xa0, 0x28, 0x0
+@ 	createsprite gTechnoBlastIceSparkTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xe0, 0x28, 0x2
+@ 	waitforvisualfinish
+@ 	playsewithpan SE_M_EMBER, SOUND_PAN_ATTACKER
+@ 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1
+@ 	createsprite gTechnoBlastIceSmokeTemplate, ANIM_TARGET, 2, 0x8, 0x8, 0x1, 0x0
+@ 	createsprite gIceCrystalHitLargeSpriteTemplate, ANIM_TARGET, 2, 0xfff6, 0xfff6, 0x0
+@ 	delay 2
+@ 	createsprite gTechnoBlastIceSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0xfff8, 0x1, 0x0
+@ 	createsprite gIceCrystalHitSmallSpriteTemplate, ANIM_TARGET, 2, 0xa, 0x14, 0x0
+@ 	createsprite gIceCrystalHitLargeSpriteTemplate, ANIM_TARGET, 2, 0xfffb, 0xa, 0x0
+@ 	delay 2
+@ 	createsprite gTechnoBlastIceSmokeTemplate, ANIM_TARGET, 2, 0x8, 0xfff8, 0x1, 0x0
+@ 	createsprite gIceCrystalHitSmallSpriteTemplate, ANIM_TARGET, 2, 0x11, 0xfff4, 0x0
+@ 	createsprite gIceCrystalHitSmallSpriteTemplate, ANIM_TARGET, 2, 0xfff1, 0xf, 0x0
+@ 	delay 2
+@ 	createsprite gTechnoBlastIceSmokeTemplate, ANIM_TARGET, 2, 0xfff8, 0x8, 0x1, 0x0
+@ 	createsprite gIceCrystalHitSmallSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x0, 0x0
+@ 	createsprite gIceCrystalHitLargeSpriteTemplate, ANIM_TARGET, 2, 0x14, 0x2, 0x0
+@ 	waitforvisualfinish
+@ 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 12, 0, RGB_BLACK
+@ 	waitforvisualfinish
+@ 	clearmonbg ANIM_ATTACKER
+@ 	end
+@ TechnoBlastIceChargeParticles:
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0xfff6, 0xfff6, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0xa, 0x14, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0xfffb, 0xa, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0x11, 0xfff4, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0xfff1, 0xf, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	createsprite gTechnoBlastIceCrystalsTemplate, ANIM_ATTACKER, 2, 0x14, 0x2, 0x0, 0x2
+@ 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
+@ 	delay 4
+@ 	return

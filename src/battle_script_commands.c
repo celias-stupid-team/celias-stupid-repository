@@ -12321,3 +12321,24 @@ void BS_WaitForCry(void)
     if (!IsCryPlaying())
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_SetTechnoBlastType(void)
+{
+    NATIVE_ARGS();
+
+    u16 itemId = gBattleMons[gBattlerAttacker].item;
+    u16 moveType = TYPE_NORMAL;
+
+    if (itemId == ITEM_BURN_DRIVE)
+        moveType = TYPE_FIRE;
+    else if (itemId == ITEM_DOUSE_DRIVE)
+        moveType = TYPE_WATER;
+    else if (itemId == ITEM_SHOCK_DRIVE)
+        moveType = TYPE_ELECTRIC;
+    else if (itemId == ITEM_CHILL_DRIVE)
+        moveType = TYPE_ICE;
+
+    gBattleStruct->dynamicMoveType = moveType;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

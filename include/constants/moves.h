@@ -1036,8 +1036,9 @@
 #define MOVE_BLAST_LEARN 1031
 #define MOVE_HEART_STAMP 1032
 #define MOVE_DRAGON 1033
+#define MOVE_TECHNO_BLAST 1034
 
-#define MOVES_COUNT 1034
+#define MOVES_COUNT 1035
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

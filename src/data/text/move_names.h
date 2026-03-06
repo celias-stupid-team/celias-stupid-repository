@@ -1035,6 +1035,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_BLAST_LEARN]     = _("BLAST LEARN"),
     [MOVE_HEART_STAMP]     = _("HEART STAMP"),
     [MOVE_DRAGON]     = _("DRAGON"),
+    [MOVE_TECHNO_BLAST]      = _("TECHNO BLAST"),
 };
 
 
@@ -2076,4 +2077,5 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_BLAST_LEARN]     = _("BLAST LEARN"),
     [MOVE_HEART_STAMP]     = _("HEART STAMP"),
     [MOVE_DRAGON]     = _("DRAGON"),
+    [MOVE_TECHNO_BLAST]      = _("TECHNO BLAST"),
 }; //For any move which needs its name lengthened, these will display in battle.
