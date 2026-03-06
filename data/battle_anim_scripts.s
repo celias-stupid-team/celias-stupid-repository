@@ -1115,6 +1115,7 @@ gBattleAnims_General::
 	.4byte General_RotomComesDown           @ B_ANIM_ROTOM_COMES_DOWN
 	.4byte General_DoubleDipHit             @ B_ANIM_DOUBLE_DIP_HIT
 	.4byte General_ChargeTurn               @ B_ANIM_CHARGE_TURN
+	.4byte General_GhostDodge               @ B_ANIM_GHOST_DODGE
 
 	.align 2
 gBattleAnims_Special::
@@ -12135,6 +12136,14 @@ BallThrowGhostDodged:
 	waitplaysewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET, 48
 	waitforvisualfinish
 	goto BallThrowEnd
+
+General_GhostDodge:
+	delay 16
+	createvisualtask AnimTask_WindUpLunge, 2, ANIM_TARGET, 48, 6, 16, 48, -48, 16
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET
+	waitplaysewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET, 48
+	waitforvisualfinish
+	end
 
 Special_BallThrowWithTrainer:
 	createvisualtask AnimTask_LoadBallGfx, 2

@@ -5598,3 +5598,11 @@ BattleScript_HyperBeamHealTarget::
 	printstring STRINGID_PKMNHPWASRESTORED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_DodgeMove::
+	attackstring
+	ppreduce
+	playanimation BS_TARGET, B_ANIM_GHOST_DODGE, NULL
+	printstring STRINGID_PKMNDODGEDATTACK
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

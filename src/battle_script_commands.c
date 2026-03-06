@@ -1156,6 +1156,19 @@ static void Cmd_accuracycheck(void)
         JumpIfMoveFailed(7, move);
         return;
     }
+    if (gBattleMons[gBattlerTarget].species == SPECIES_KECLEON_SANS
+        && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
+        && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD
+        && gCurrentMove != MOVE_MAGICAL_LEAF
+        && !(gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS && gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker))
+    {
+        CancelMultiTurnMoves(gBattlerAttacker);
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastLandedMoves[gBattlerTarget] = 0;
+        gLastHitByType[gBattlerTarget] = 0;
+        gBattlescriptCurrInstr = BattleScript_DodgeMove;
+        return;
+    }
     if (move == NO_ACC_CALC || move == NO_ACC_CALC_CHECK_LOCK_ON
       || (gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD
         || gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD))

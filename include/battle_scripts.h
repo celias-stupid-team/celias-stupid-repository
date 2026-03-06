@@ -272,6 +272,7 @@ extern const u8 BattleScript_ShadowSkyStatusImmunity[];
 extern const u8 BattleScript_10000VoltsSetUp[];
 extern const u8 BattleScript_RechargeActivates[];
 extern const u8 BattleScript_HyperBeamHealTarget[];
+extern const u8 BattleScript_DodgeMove[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];
