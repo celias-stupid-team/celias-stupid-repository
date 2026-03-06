@@ -177,25 +177,6 @@ TwoIsland_JoyfulGameCorner_EventScript_Lostelle::
 
 mapscripts TwoIsland_JoyfulGameCorner_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		if(!flag(FLAG_FOUND_ROTOM_MOW)) {
-			setflag(FLAG_TEMP_1)
-		}
-		if(!flag(FLAG_FOUND_ROTOM_WASH)) {
-			setflag(FLAG_TEMP_2)
-		}
-		if(!flag(FLAG_FOUND_ROTOM_FAN)) {
-			setflag(FLAG_TEMP_3)
-		}
-		if(!flag(FLAG_FOUND_ROTOM_FROST)) {
-			setflag(FLAG_TEMP_4)
-		}
-		if(!flag(FLAG_FOUND_ROTOM_HEAT)) {
-			setflag(FLAG_TEMP_5)
-		}
-		setflag(FLAG_TEMP_A)
-		if(flag(FLAG_FOUND_ROTOM_MOW) && flag(FLAG_FOUND_ROTOM_WASH) && flag(FLAG_FOUND_ROTOM_FAN) && flag(FLAG_FOUND_ROTOM_FROST) && flag(FLAG_FOUND_ROTOM_HEAT) && !flag(FLAG_SHINY_KENYA)) {
-			clearflag(FLAG_TEMP_A)
-		}
 		
 	}
 }

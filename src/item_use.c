@@ -818,6 +818,12 @@ bool8 CanUseEscapeRopeOnCurrMap(void)
                 return TRUE;
 
         }
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_3F) &&
+            (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_3F))) {
+                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 2, 22, 27);
+                return TRUE;
+
+        }
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_2F) &&
             (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_2F))) {
                 SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_2F), MAP_NUM(MAP_SKY_TOWER_2F), 2, 22, 27);
