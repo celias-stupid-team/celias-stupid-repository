@@ -1430,7 +1430,7 @@ static void Task_OakSpeech_HandleRivalNameInput(u8 taskId)
     case 2: //
     case 3: //
     case 4: //
-        PlaySE(SE_BOO); // This doesn't actually work! I have no idea how to fix it though.
+        PlaySE(SE_BOO); // should work now after changing the SE priority of SE_BOO
         break;
     case MENU_B_PRESSED:
         break;

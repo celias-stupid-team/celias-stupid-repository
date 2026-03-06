@@ -3036,6 +3036,8 @@ void BattleTurnPassed(void)
             gBattleOutcome &= ~B_OUTCOME_CONTINUE_ZAPDOS;
             gCantUseBattleAction = B_ACTION_BLOCK_MOVE | B_ACTION_BLOCK_SWITCH;
         }
+        else if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) >= B_FINAL_BATTLE_MOLTRES)
+            gCantUseBattleAction = B_ACTION_BLOCK_BAG;
         else
             gCantUseBattleAction = 0;
     }
