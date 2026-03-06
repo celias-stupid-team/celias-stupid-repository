@@ -1830,7 +1830,12 @@ static void Cmd_adjustnormaldamage(void)
             if (VarGet(VAR_CSR_FINAL_BATTLE_TURN) != 4)
                 gBattleMoveDamage = 7;
             else
+            {
                 gBattleMoveDamage = -18; // FINALCHARMANDER's max HP
+                gMoveResultFlags &= ~MOVE_RESULT_DOESNT_AFFECT_FOE;
+                gBattlescriptCurrInstr = BattleScript_HyperBeamHealTarget;
+                return;
+            }
         }
         if (gCurrentMove == MOVE_SCRATCH)
         {

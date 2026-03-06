@@ -324,7 +324,6 @@ BattleScript_HitFromAtkAnimation::
 	attackanimation
 	waitanimation
 	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 5, BattleScript_FinalBattle_StopBgm
-
 	effectivenesssound
 BattleScript_HitFromAtkAnimation_2::
 	hitanimation BS_TARGET
@@ -5579,3 +5578,13 @@ BattleScript_FinalBattle_StopBgm::
 	playnewbgm MUS_NONE
 	effectivenesssound
 	goto BattleScript_HitFromAtkAnimation_2
+
+BattleScript_HyperBeamHealTarget::
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
