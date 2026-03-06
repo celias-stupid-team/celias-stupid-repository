@@ -1016,14 +1016,14 @@
 #define FLAG_LAVENDER_CANDY              0x3A4 //placed
 #define FLAG_CELADON_CANDY               0x3A5 //placed
 #define FLAG_FUSHCIA_CANDY               0x3A6 //placed
-#define FLAG_CINNABAR_ISLAND_CANDY       0x3A8 // Revealed after island crashed through
-#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9 // Maybe put this elsewhere?
+#define FLAG_CINNABAR_ISLAND_CANDY       0x3A8 // placed
+#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9 // placed
 #define FLAG_MT_MOON_CANDY               0x3AA //placed
 #define FLAG_UNDERGROUND_PATH_CANDY      0x3AB //placed
 #define FLAG_POKEMON_TOWER_CANDY         0x3AC //placed
 #define FLAG_SAFARI_ZONE_CANDY           0x3AD //placed
-#define FLAG_SILPH_CO_CANDY              0x3AF //Behind the ball shop counter
-#define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2
+#define FLAG_SILPH_CO_CANDY              0x3AF //placed
+#define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2 
 #define FLAG_SKY_PILLAR_CANDY            0x3B4 //Dumb bike puzzle maybe
 #define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6 //placed
 #define FLAG_CERULEAN_CAVE_CANDY           0x3B7  //placed
@@ -1048,7 +1048,7 @@
 #define FLAG_ROUTE_13_CANDY              0x3CC //placed
 #define FLAG_ROUTE_14_CANDY              0x3CD //placed
 #define FLAG_ROUTE_16_CANDY              0x3CF //placed
-#define FLAG_ROUTE_21_CANDY              0x3D0 // idk
+#define FLAG_ROUTE_21_CANDY              0x3D0 // placed
 #define FLAG_ROUTE_18_CANDY              0x3D1 //placed
 #define FLAG_ROUTE_22_CANDY              0x3D3 //placed
 #define FLAG_ROUTE_24_CANDY              0x3D4 //placed
@@ -1057,9 +1057,9 @@
 
 
 
-#define FLAG_UNUSED_CANDY_1          0x3A7 // REPURPOSE
-#define FLAG_UNUSED_CANDY_2         0x3AE // REPURPOSE
-#define FLAG_UNUSED_CANDY_3         0x3B0 // REPURPOSE
+#define FLAG_CANDY_MAN_FELL          0x3A7 // REPURPOSE
+#define FLAG_RETRIEVED_CANDIES         0x3AE // REPURPOSE
+#define FLAG_GOT_SHINY_MELTAN         0x3B0 // REPURPOSE
 #define FLAG_UNUSED_CANDY_4           0x3B1 // REPURPOSE
 #define FLAG_UNUSED_CANDY_5      0x3B3 // REPURPOSE
 #define FLAG_UNUSED_CANDY_6               0x3C6 //REPURPOSE

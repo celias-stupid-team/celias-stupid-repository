@@ -359,7 +359,7 @@ It is reset after every battle.
 #define VAR_0x40F7                 0x40F7
 #define VAR_0x40F8                 0x40F8
 #define VAR_0x40F9                 0x40F9
-#define VAR_0x40FA                 0x40FA
+#define VAR_STACK_OF_CANDY                 0x40FA
 #define VAR_SKY_TOWER_POKE                 0x40FB
 #define VAR_SWEET_SCENT_WATER                 0x40FC
 #define VAR_TWO_ISLAND_COUNTER                 0x40FD
