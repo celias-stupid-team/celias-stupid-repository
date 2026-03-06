@@ -4780,3 +4780,10 @@ void DebugPrintBattlePartyData(void)
     
     DebugPrintf(" ### PARTY DATA END ###");
 }
+
+// Wins the battle instantly. Used in the battle debug with LIST_ITEM_INSTANT_WIN
+void BattleDebug_WonBattle(void)
+{
+    gBattleOutcome = B_OUTCOME_WON;
+    gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
+}

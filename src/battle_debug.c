@@ -187,6 +187,7 @@ enum
     LIST_ITEM_SIDE_STATUS,
     LIST_ITEM_AI,
     LIST_ITEM_VARIOUS,
+    LIST_ITEM_INSTANT_WIN,
     LIST_ITEM_COUNT
 };
 
@@ -296,6 +297,7 @@ static const u8 sText_SetUpFirstTurn[] = _("Setup 1 turn");
 static const u8 sText_Risky[] = _("Risky");
 static const u8 sText_StrongestMove[] = _("Most dmg move");
 static const u8 sText_Various[] = _("Various");
+static const u8 sText_InstantWin[] = _("Instant Win");
 static const u8 sText_ShowHP[] = _("Show HP");
 static const u8 sText_PreferBatonPass[] = _("Baton Pass");
 static const u8 sText_InDoubles[] = _("In Doubles");
@@ -391,6 +393,7 @@ static const struct ListMenuItem sMainListItems[] =
     {sText_SideStatus, LIST_ITEM_SIDE_STATUS},
     {sText_AI, LIST_ITEM_AI},
     {sText_Various, LIST_ITEM_VARIOUS},
+    {sText_InstantWin, LIST_ITEM_INSTANT_WIN},
 };
 
 static const struct ListMenuItem sVariousListItems[] =
@@ -798,6 +801,13 @@ static void Task_DebugMenuProcessInput(u8 taskId)
         listItemId = ListMenu_ProcessInput(data->mainListTaskId);
         if (listItemId != LIST_CANCEL && listItemId != LIST_NOTHING_CHOSEN && listItemId < LIST_ITEM_COUNT)
         {
+            if (listItemId == LIST_ITEM_INSTANT_WIN && JOY_NEW(A_BUTTON))
+            {
+                BattleDebug_WonBattle();
+                BeginNormalPaletteFade(-1, 0, 0, 0x10, 0);
+                gTasks[taskId].func = Task_DebugMenuFadeOut;
+                return;
+            }
             data->currentMainListItemId = listItemId;
 
             // Create the secondary menu list.
