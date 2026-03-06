@@ -8078,7 +8078,7 @@ static void Cmd_tryKO(void)
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD
       || gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD)
         chance = TRUE;
-    else if (gBattleMons[gBattlerTarget].ability == ABILITY_EARTH_EATER)
+    else if (gBattleMons[gBattlerTarget].ability == ABILITY_EARTH_EATER && gCurrentMove == MOVE_FISSURE)
     {
         chance = FALSE;
     }
@@ -8186,7 +8186,7 @@ static void Cmd_tryKO_Flash(void)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gLastUsedAbility = ABILITY_EARTH_EATER;
-        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        gBattlescriptCurrInstr = BattleScript_EarthEaterPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_EARTH_EATER);
         if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
             FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);

@@ -3147,6 +3147,7 @@ BattleScript_LinkHandleFaintedMonMultipleEnd::
 
 BattleScript_LocalTrainerBattleWon::
 	jumpifbattletype BATTLE_TYPE_ZAPMOLCUNOOHGIA, BattleScript_PayDayMoneyAndPickUpItemsEnd
+	jumpifability BS_TARGET, ABILITY_EARTH_EATER, BattleScript_PayDayMoneyAndPickUpItemsEnd
 	printstring STRINGID_PLAYERDEFEATEDTRAINER1
 	trainerslidein BS_ATTACKER
 	waitstate
@@ -4430,6 +4431,13 @@ BattleScript_SturdyPreventsOHKO::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNPROTECTEDBY
 	pause B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EarthEaterPreventsOHKO::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNPROTECTEDBY
+	pause B_WAIT_TIME_LONG
+	callnative BattleDebug_WonBattle
 	goto BattleScript_MoveEnd
 
 BattleScript_DampStopsExplosion::
