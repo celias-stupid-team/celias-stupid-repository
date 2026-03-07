@@ -451,6 +451,7 @@
 #define B_ANIM_ROTOM_COMES_DOWN         38
 #define B_ANIM_DOUBLE_DIP_HIT           39
 #define B_ANIM_CHARGE_TURN              40
+#define B_ANIM_GHOST_DODGE              41
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

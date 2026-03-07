@@ -238,7 +238,7 @@ static void HandleInputChooseAction(void)
         switch (gActionSelectionCursor[gActiveBattler])
         {
         case 0:
-            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_MOVE) && gBattleMons[gActiveBattler].hp == 0)
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_MOVE))
             {
                 PlaySE(SE_BOO);
                 return;
@@ -250,7 +250,7 @@ static void HandleInputChooseAction(void)
             }
             break;
         case 1:
-            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_BAG) && gBattleMons[gActiveBattler].hp == 0)
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_BAG))
             {
                 PlaySE(SE_BOO);
                 return;
@@ -262,7 +262,7 @@ static void HandleInputChooseAction(void)
             }
             break;
         case 2:
-            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_SWITCH) && gBattleMons[gActiveBattler].hp == 0)
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_SWITCH))
             {
                 PlaySE(SE_BOO);
                 return;
@@ -274,7 +274,7 @@ static void HandleInputChooseAction(void)
             }
             break;
         case 3:
-            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_RUN) && gBattleMons[gActiveBattler].hp == 0)
+            if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && (gCantUseBattleAction & B_ACTION_BLOCK_RUN))
             {
                 PlaySE(SE_BOO);
                 return;

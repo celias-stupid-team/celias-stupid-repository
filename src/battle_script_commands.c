@@ -1156,6 +1156,19 @@ static void Cmd_accuracycheck(void)
         JumpIfMoveFailed(7, move);
         return;
     }
+    if (gBattleMons[gBattlerTarget].species == SPECIES_KECLEON_SANS
+        && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
+        && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD
+        && gCurrentMove != MOVE_MAGICAL_LEAF
+        && !(gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS && gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker))
+    {
+        CancelMultiTurnMoves(gBattlerAttacker);
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastLandedMoves[gBattlerTarget] = 0;
+        gLastHitByType[gBattlerTarget] = 0;
+        gBattlescriptCurrInstr = BattleScript_DodgeMove;
+        return;
+    }
     if (move == NO_ACC_CALC || move == NO_ACC_CALC_CHECK_LOCK_ON
       || (gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD
         || gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD))
@@ -1835,7 +1848,12 @@ static void Cmd_adjustnormaldamage(void)
             if (VarGet(VAR_CSR_FINAL_BATTLE_TURN) != 4)
                 gBattleMoveDamage = 7;
             else
+            {
                 gBattleMoveDamage = -18; // FINALCHARMANDER's max HP
+                gMoveResultFlags &= ~MOVE_RESULT_DOESNT_AFFECT_FOE;
+                gBattlescriptCurrInstr = BattleScript_HyperBeamHealTarget;
+                return;
+            }
         }
         if (gCurrentMove == MOVE_SCRATCH)
         {
@@ -2001,6 +2019,9 @@ static void Cmd_attackanimation(void)
 {
     if (gBattleControllerExecFlags)
         return;
+
+    if (gCurrentMove == MOVE_V_CREATE)
+        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
 
     if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE && gCurrentMove != MOVE_SUBSTITUTE_TEACHER && gCurrentMove != MOVE_SUBSTITUTE_2))
     {
@@ -8078,7 +8099,7 @@ static void Cmd_tryKO(void)
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD
       || gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD)
         chance = TRUE;
-    else if (gBattleMons[gBattlerTarget].ability == ABILITY_EARTH_EATER)
+    else if (gBattleMons[gBattlerTarget].ability == ABILITY_EARTH_EATER && gCurrentMove == MOVE_FISSURE)
     {
         chance = FALSE;
     }
@@ -8183,7 +8204,7 @@ static void Cmd_tryKO_Flash(void)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gLastUsedAbility = ABILITY_EARTH_EATER;
-        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        gBattlescriptCurrInstr = BattleScript_EarthEaterPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_EARTH_EATER);
 
     }
@@ -12314,4 +12335,25 @@ void BS_WaitForCry(void)
 
     if (!IsCryPlaying())
         gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetTechnoBlastType(void)
+{
+    NATIVE_ARGS();
+
+    u16 itemId = gBattleMons[gBattlerAttacker].item;
+    u16 moveType = TYPE_NORMAL;
+
+    if (itemId == ITEM_BURN_DRIVE)
+        moveType = TYPE_FIRE;
+    else if (itemId == ITEM_DOUSE_DRIVE)
+        moveType = TYPE_WATER;
+    else if (itemId == ITEM_SHOCK_DRIVE)
+        moveType = TYPE_ELECTRIC;
+    else if (itemId == ITEM_CHILL_DRIVE)
+        moveType = TYPE_ICE;
+
+    gBattleStruct->dynamicMoveType = moveType;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }

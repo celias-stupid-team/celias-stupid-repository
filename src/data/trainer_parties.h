@@ -10563,6 +10563,7 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN3[] = {
         .moves = {MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+
 static const struct TrainerMonItemCustomMoves sParty_AVGN4[] = {
     {
         .iv = 0,
@@ -10572,6 +10573,17 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN4[] = {
         .moves = {MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+
+static const struct TrainerMonItemCustomMoves sParty_Y_ELTAL[] = {
+    {
+        .iv = 0,
+        .lvl = 25,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_YVELTAL,
+        .moves = {MOVE_OBLI_ION_WING, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
 static const struct TrainerMonItemCustomMoves sParty_YesNurse[] = {
     {
         .iv = 0,

@@ -275,6 +275,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDoubleDip              @ EFFECT_DOUBLE_DIP
 	.4byte BattleScript_Effect10kVolts               @ EFFECT_10000_VOLTS
 	.4byte BattleScript_EffectCollisionCourse        @ EFFECT_COLLISION_COURSE
+	.4byte BattleScript_EffectTechnoBlast            @ EFFECT_TECHNO_BLAST
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -324,7 +325,6 @@ BattleScript_HitFromAtkAnimation::
 	attackanimation
 	waitanimation
 	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 5, BattleScript_FinalBattle_StopBgm
-
 	effectivenesssound
 BattleScript_HitFromAtkAnimation_2::
 	hitanimation BS_TARGET
@@ -3147,6 +3147,8 @@ BattleScript_LinkHandleFaintedMonMultipleEnd::
 	end2
 
 BattleScript_LocalTrainerBattleWon::
+	jumpifbattletype BATTLE_TYPE_ZAPMOLCUNOOHGIA, BattleScript_PayDayMoneyAndPickUpItemsEnd
+	jumpifability BS_TARGET, ABILITY_EARTH_EATER, BattleScript_PayDayMoneyAndPickUpItemsEnd
 	printstring STRINGID_PLAYERDEFEATEDTRAINER1
 	trainerslidein BS_ATTACKER
 	waitstate
@@ -3158,6 +3160,7 @@ BattleScript_LocalTrainerBattleWonGotMoney::
 BattleScript_PayDayMoneyAndPickUpItems::
 	givepaydaymoney
 	pickup
+BattleScript_PayDayMoneyAndPickUpItemsEnd::
 	end2
 
 BattleScript_LocalBattleLost::
@@ -4431,6 +4434,13 @@ BattleScript_SturdyPreventsOHKO::
 	pause B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_EarthEaterPreventsOHKO::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNPROTECTEDBY
+	pause B_WAIT_TIME_LONG
+	callnative BattleDebug_WonBattle
+	goto BattleScript_MoveEnd
+
 BattleScript_DampStopsExplosion::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNPREVENTSUSAGE
@@ -5580,3 +5590,25 @@ BattleScript_FinalBattle_StopBgm::
 	playnewbgm MUS_NONE
 	effectivenesssound
 	goto BattleScript_HitFromAtkAnimation_2
+
+BattleScript_HyperBeamHealTarget::
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printstring STRINGID_PKMNHPWASRESTORED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_DodgeMove::
+	attackstring
+	ppreduce
+	playanimation BS_TARGET, B_ANIM_GHOST_DODGE, NULL
+	printstring STRINGID_PKMNDODGEDATTACK
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTechnoBlast::
+	settechnoblasttype
+	goto BattleScript_EffectHit

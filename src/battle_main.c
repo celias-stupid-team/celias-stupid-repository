@@ -3036,6 +3036,8 @@ void BattleTurnPassed(void)
             gBattleOutcome &= ~B_OUTCOME_CONTINUE_ZAPDOS;
             gCantUseBattleAction = B_ACTION_BLOCK_MOVE | B_ACTION_BLOCK_SWITCH;
         }
+        else if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) >= B_FINAL_BATTLE_MOLTRES)
+            gCantUseBattleAction = B_ACTION_BLOCK_BAG;
         else
             gCantUseBattleAction = 0;
     }
@@ -4777,4 +4779,11 @@ void DebugPrintBattlePartyData(void)
         DebugPrintf("gBattlerPartyIndexes[battler %d] = %d is %S", i, gBattlerPartyIndexes[i], gSpeciesNames[GetMonData(&gPlayerParty[GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[i])], MON_DATA_SPECIES, NULL)]);
     
     DebugPrintf(" ### PARTY DATA END ###");
+}
+
+// Wins the battle instantly. Used in the battle debug with LIST_ITEM_INSTANT_WIN
+void BattleDebug_WonBattle(void)
+{
+    gBattleOutcome = B_OUTCOME_WON;
+    gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
 }

@@ -159,6 +159,7 @@ extern const u8 BattleScript_CastformChangeWithWeatherAnim[];
 extern const u8 BattleScript_DroughtActivates[];
 extern const u8 BattleScript_TookAttack[];
 extern const u8 BattleScript_SturdyPreventsOHKO[];
+extern const u8 BattleScript_EarthEaterPreventsOHKO[];
 extern const u8 BattleScript_DampStopsExplosion[];
 extern const u8 BattleScript_MoveHPDrain_PPLoss[];
 extern const u8 BattleScript_MoveHPDrain[];
@@ -270,6 +271,8 @@ extern const u8 BattleScript_DoubleDipHits[];
 extern const u8 BattleScript_ShadowSkyStatusImmunity[];
 extern const u8 BattleScript_10000VoltsSetUp[];
 extern const u8 BattleScript_RechargeActivates[];
+extern const u8 BattleScript_HyperBeamHealTarget[];
+extern const u8 BattleScript_DodgeMove[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];
