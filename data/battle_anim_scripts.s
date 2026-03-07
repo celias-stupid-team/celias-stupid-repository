@@ -1058,7 +1058,6 @@ gBattleAnims_Moves::
 	.4byte Move_BLAST_LEARN
 	.4byte Move_HEART_STAMP
 	.4byte Move_DRAGON
-	.4byte Move_MOLTRES_KICK
 	.4byte Move_WHITE_LIGHTNING
 	.4byte Move_GASTER_BLASTER
 	.4byte Move_TEATIME
@@ -1073,6 +1072,7 @@ gBattleAnims_Moves::
 	.4byte Move_AURORA_VEIL
 	.4byte Move_TECHNO_BLAST
 	.4byte Move_OBLI_ION_WING
+	.4byte Move_MOLTRES_KICK
 
 	.4byte Move_COUNT @ cannot be reached
 
