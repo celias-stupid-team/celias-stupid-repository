@@ -5536,8 +5536,9 @@ BattleScript_KoraidonSentOut::
 	getswitchedmondata BS_ATTACKER
 	switchindataupdate BS_ATTACKER
 	hpthresholds BS_ATTACKER
-	fadenewbgm MUS_GRAND_FINALE
+	
 	printstring STRINGID_SWITCHINMON
+	playnewbgm MUS_GRAND_FINALE
 	hidepartystatussummary BS_ATTACKER
 	switchinanim BS_ATTACKER, FALSE
 	waitstate

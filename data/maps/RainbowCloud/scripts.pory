@@ -52,7 +52,7 @@ script RainbowCloud_FindTheShinies {
 		"For all you've done\l"
 		"My final test to you:\p"
 
-		"Untangle the puzzle\n"
+		"Unravel the puzzle\n"
 		"Within the puzzle\l"
 		"And claim your shining prize.", MSGBOX_DEFAULT)
 		closemessage
@@ -95,7 +95,7 @@ script RainbowCloud_FindTheShinies {
 	"For all you've done\l"
 	"My final test to you:\p"
 
-	"Untangle the puzzle\n"
+	"Unravel the puzzle\n"
 	"Within the puzzle\l"
 	"And claim your shining prize.", MSGBOX_SIGN)
 

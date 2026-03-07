@@ -170,6 +170,16 @@ script SecretGarden_PCTerminal {
 
 script SecretGarden_PCMonitor {
     lock
+    if(flag(FLAG_BILL_PC_BROKE)) {
+        msgbox(
+        "A large, complicated PC sits\n"
+        "in the field.\p"
+
+        "Kicking it yields no response.\n"
+        "", MSGBOX_DEFAULT)
+        release
+        end
+    }
     if(!flag(FLAG_SYS_BILL_GARDEN)) {
         fadenewbgm(MUS_DUMMY)
 
@@ -247,8 +257,14 @@ script SecretGarden_PCMonitor {
                 walk_fast_down * 4
             ))
             waitmovement(0)
+            special(RemoveCameraObject)
+            //setvar(VAR_VIEWING_PC, 1)
             release
         } else {
+            buffernumberstring(STR_VAR_1, LOADED_SYSTEM_BOX)
+            msgbox(
+            "Current Box:\n"
+            "BOX {STR_VAR_1}", MSGBOX_DEFAULT)
             call(SecretGarden_GetCurrentPCPokemon)
             showmonpic(PC_CURRENT_POKEMON, 10, 3)
             //waitbuttonpress

@@ -602,6 +602,8 @@ static void PopulateAlphabeticalGroups(void)
                     sEasyChatSelectionData->alphabeticalWordsByGroup[i][index++] = words[k];
                     sEasyChatSelectionData->alphabeticalGroups[i]++;
                     break;
+                } else {
+                    
                 }
             }
 
@@ -615,8 +617,11 @@ void GetUnlockedECWords(bool32 isAlphabetical, u16 groupId)
 {
     if (!isAlphabetical)
         sEasyChatSelectionData->totalWords = GetUnlockedWordsInECGroup(groupId);
-    else
+    else {
         sEasyChatSelectionData->totalWords = GetUnlockedWordsInAlphabeticalGroup(groupId);
+        //DebugPrintf("run");
+
+    }
 }
 
 u16 GetDisplayedWordByIndex(u16 index)

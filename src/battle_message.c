@@ -408,6 +408,7 @@ static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nw
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
 static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME}!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutLions[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout 1 BILLION LIONS!{PAUSE 60}");
+static const u8 sText_Trainer1SentOutStupidHack[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent out…\n{PAUSE 30}CELIA's STUPID ROMHACK!{PAUSE 30}");
 static const u8 sText_Trainer1SentOutTwoPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutPkmn2[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_BUFF1}!");
 static const u8 sText_LinkTrainerSentOutPkmn[] = _("{B_LINK_OPPONENT1_NAME} sent out\n{B_OPPONENT_MON1_NAME}!");
@@ -452,7 +453,7 @@ static const u8 sText_GmaxMove[] = _("But it failed!\pThere's no GMAX energy in 
 static const u8 sText_ExtremeEvoboost[] = _("But it failed!\p{B_PLAYER_MON1_NAME} isn't holding a\nZ CRYSTAL!");
 static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\lIt doesn't love {B_PLAYER_NAME} enough!");
 static const u8 sText_FickleBeam[] = _("But it failed!\p{B_PLAYER_MON1_NAME} doesn't have any heads!");
-static const u8 sText_SentOutZapmolcuno[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY sent out ZAPMOLCUNO-OHGIA!{PAUSE 60}");
+static const u8 sText_SentOutZapmolcuno[] = _("{PAUSE 20}LARRY, JERRY, HARRY, LARRY, and\nGARY sent out ZAPMOLCUNO-OHGIA!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_AllArrysWannaBattle[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY want to battle!\p");
 static const u8 sText_LugiaFainted[] = _("Foe LUGIA fainted!\p");
 static const u8 sText_ArticunoFainted[] = _("Foe ARTICUNO fainted!\p");
@@ -1856,6 +1857,8 @@ void BufferStringBattle(u16 stringId)
                 {
                     if(FlagGet(FLAG_LION_BATTLE))
                         stringPtr = sText_Trainer1SentOutLions;
+                    else if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_JAMES)
+                        stringPtr = sText_Trainer1SentOutStupidHack;
                     else if((VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_BRUNO || VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_LARRY_2) && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
                         
                         BattleStopLowHpSound();

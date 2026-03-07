@@ -190,7 +190,6 @@ CinnabarIsland_EventScript_SailToOneIsland::
 	removeobject LOCALID_CINNABAR_BILL
 	delay 40
 	setflag FLAG_HIDE_CINNABAR_ALOLAN_GROWLITHE
-	setvar VAR_CSR_DUMMY_14, 1
 	setvar VAR_0x8004, ALOLAN_GROWLITHE_CINNABAR_ISLAND
 	setvar VAR_0x8006, ALOLAN_GROWLITHE_ONE_ISLAND
 	goto EventScript_SetSail

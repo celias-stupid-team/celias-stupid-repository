@@ -50,7 +50,7 @@ static const u8 sText_SwitchInSlidePhase3[] = _("Another round.\nAre you beginni
 static const u8 sText_SwitchInSlidePhase4[] = _("Everything you needed, you've had all\nalong.\pTake a moment to collect yourself, and\ntake on the challenge anew!");
 static const u8 sText_SwitchInSlidePhase5[] = _("Your victory won't come easily.\nI won't let you through for free.\pRemember all that you've done.\nThink clearly and act decisively!");
 static const u8 sText_SwitchInSlidePhase6[] = _("It all comes down to this.\pYou've made it this far.\nI know you can taste the end.\pNow, step up!\nIt's time to end it!");
-static const u8 sText_AfterDefeat[]         = _("Yeah!{PAUSE 30}\nAre we great or what?");
+static const u8 sText_AfterDefeat[]         = _("{PAUSE 20}Yeah!{PAUSE 30}\nAre we great or what?");
 
 const u8 *const sTrainerSlides[TRAINER_SLIDE_COUNT] =
 {

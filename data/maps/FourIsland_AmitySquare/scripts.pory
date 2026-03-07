@@ -56,6 +56,7 @@ script FourIsland_AmitySquare_Trapinch {
 
 
 script AmitySquare_PokeKid {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"Shhh…\p"
 
@@ -125,4 +126,29 @@ script AmitySquare_SquareHole {
 	"It's the stuff from the square\n"
 	"hole!", MSGBOX_SIGN)
 
+}
+
+script AmitySquare_Resembler {
+	msgbox(
+	"You and your POKéMON…{PAUSE 20}\n"
+	"You somehow resemble each other!", MSGBOX_NPC)
+}
+
+script AmitySquare_GarbodorGirl {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"That lady up front said I look\n"
+	"just like my POKéMON…\p"
+
+	"I dunno, I don't really see the\n"
+	"resemblance.", MSGBOX_NPC)
+}
+
+script AmitySquare_Garbodor {
+	lock
+	faceplayer
+	playmoncry(SPECIES_GARBODOR, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
 }

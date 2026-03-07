@@ -17,6 +17,7 @@ PokemonTower_3F_EventScript_Hope::
 	end
 `
 script PokemonTower_3F_LostSilver {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"SILVER: Uh, hey.\n"
 	"Could you give me some directions?\l"

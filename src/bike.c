@@ -341,6 +341,7 @@ void GetOnOffBike(u8 flags)
     gBikeCameraAheadPanback = FALSE;
     if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
     {
+        //FlagClear(FLAG_SYS_ON_SHINY_BIKE);
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
         Overworld_ClearSavedMusic();
         Overworld_PlaySpecialMapMusic();
@@ -348,6 +349,7 @@ void GetOnOffBike(u8 flags)
     else
     {
         SetPlayerAvatarTransitionFlags(flags);
+
         if (Overworld_MusicCanOverrideMapMusic(MUS_CYCLING))
         {
             Overworld_SetSavedMusic(MUS_CYCLING);

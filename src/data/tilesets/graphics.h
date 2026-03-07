@@ -2296,3 +2296,22 @@ const u16 gTilesetPalettes_office_stuff[][16] =
 };
 
 const u32 gTilesetTiles_office_stuff[] = INCBIN_U32("data/tilesets/secondary/office_stuff/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_DMCABlaine[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dmcablaine/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_DMCABlaine[] = INCBIN_U32("data/tilesets/secondary/dmcablaine/tiles.4bpp.lz");

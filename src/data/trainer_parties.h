@@ -3991,12 +3991,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt3[] = {
         .species = SPECIES_ZUBAT,
         .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
-    {
-        .iv = 0,
-        .lvl = 11,
-        .species = SPECIES_EKANS,
-        .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt4[] = {
@@ -4023,11 +4017,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt5[] = {
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt6[] = {
-    {
-        .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_EKANS,
-    },
+
     {
         .iv = 0,
         .lvl = 15,
@@ -5523,7 +5513,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalPokemonTowerSquirtle
         .iv = 100,
         .lvl = 25,
         .species = SPECIES_RATICATE_DEAD,
-        .moves = {MOVE_QUICK_ATTACK, MOVE_REVIVAL_BLESSING, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_TAKE_DOWN, MOVE_REVIVAL_BLESSING, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 100,
@@ -6761,8 +6751,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt46[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt47[] = {
     {
         .iv = 0,
-        .lvl = 48,
-        .species = SPECIES_MACHOP,
+        .lvl = 18,
+        .species = SPECIES_GOOMY,
+    },
+    {
+        .iv = 0,
+        .lvl = 17,
+        .species = SPECIES_GLOOM,
     },
 };
 
@@ -10572,9 +10567,9 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN3[] = {
 static const struct TrainerMonItemCustomMoves sParty_AVGN4[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_ROGGENROLA,
+        .species = SPECIES_CELIASSTUPIDROMHACK,
         .moves = {MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };

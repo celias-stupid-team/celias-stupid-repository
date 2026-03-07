@@ -117,7 +117,7 @@ script PokemonTower_CeliaRoom_BerryPowder {
         "AM… … …\l"
         "{PAUSE 30}A {PAUSE 20}L {PAUSE 20}I {PAUSE 20}V {PAUSE 20}E {PAUSE 20} !", MSGBOX_DEFAULT)
         playbgm(MUS_POKE_TOWER, TRUE)
-        setflag(FLAG_SHINY_CREATION)
+        //setflag(FLAG_SHINY_CREATION)
         trainerbattle_no_intro(TRAINER_BERRIED_ALIVE, "AaaAaAAAaaAHhHHHHH-!")
         delay(60)
         applymovement(LOCALID_BERRY_POWDER_MAN, moves(

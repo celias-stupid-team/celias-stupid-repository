@@ -24,6 +24,8 @@ static void AnimAbsorptionOrb(struct Sprite *);
 static void AnimAbsorptionOrb_Step(struct Sprite *);
 static void AnimHyperBeamOrb(struct Sprite *);
 static void AnimHyperBeamOrb_Step(struct Sprite *);
+static void AnimMeateorBeamOrb(struct Sprite *);
+static void AnimMeateorBeamOrb_Step(struct Sprite *);
 static void AnimMimicOrb(struct Sprite *);
 static void AnimLeechSeed(struct Sprite *);
 static void AnimLeechSeed_Step(struct Sprite *);
@@ -158,6 +160,8 @@ static void AnimMoveWonderSeed(struct Sprite *);
 static void AnimMoveSmallCloud(struct Sprite *);
 static void AnimShadowShield(struct Sprite *);
 static void AnimShadowShield_Step(struct Sprite *);
+static void AnimShine(struct Sprite *);
+static void AnimShine_Wait(struct Sprite *);
 
 static const u8 sUnused[] = {2, 4, 1, 3};
 
@@ -385,6 +389,33 @@ const struct SpriteTemplate gHyperBeamOrbSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimHyperBeamOrb,
+};
+
+static const union AnimCmd sMeatballAffineAnimCmds[] =
+{
+    ANIMCMD_FRAME(80, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_MeatballGrow[] =
+{
+    sMeatballAffineAnimCmds,
+};
+
+const struct SpriteTemplate gMeatballSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MEATBALL,
+    .paletteTag = ANIM_TAG_MEATBALL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_MeatballGrow,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMeateorBeamOrb,
 };
 
 static const union AnimCmd sLeechSeedAnimCmds1[] =
@@ -1478,6 +1509,55 @@ const struct SpriteTemplate gProtectSpriteTemplate =
     .callback = AnimProtect,
 };
 
+
+static const union AnimCmd sShineAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(80, 2),
+    ANIMCMD_FRAME(96, 2),
+    ANIMCMD_FRAME(112, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(80, 2),
+    ANIMCMD_FRAME(96, 2),
+    ANIMCMD_FRAME(112, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(80, 2),
+    ANIMCMD_FRAME(96, 2),
+    ANIMCMD_FRAME(112, 2),
+    ANIMCMD_FRAME(128, 2),
+    ANIMCMD_FRAME(144, 4),
+    ANIMCMD_FRAME(160, 4),
+    ANIMCMD_JUMP(24),
+};
+
+static const union AnimCmd *const sShineAnimTable[] =
+{
+    sShineAnimCmds,
+};
+
+const struct SpriteTemplate gShineSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHINE,
+    .paletteTag = ANIM_TAG_SHINE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sShineAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimShine,
+};
+
 const struct SpriteTemplate gShadowShieldSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SHADOW_SHIELD,
@@ -1775,7 +1855,7 @@ const struct SpriteTemplate gSlashSliceSpriteTemplate =
     .tileTag = ANIM_TAG_SLASH,
     .paletteTag = ANIM_TAG_SLASH,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sButterSliceAnimTable,
+    .anims = sSlashSliceAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSlashSlice,
@@ -2828,6 +2908,51 @@ static void AnimHyperBeamOrb_Step(struct Sprite* sprite)
     }
 }
 
+// Moves an orb in a wave-like fashion towards the target mon. The wave's
+// properties and the sprite anim are randomly determined.
+static void AnimMeateorBeamOrb(struct Sprite* sprite)
+{
+    u16 speed;
+    StartSpriteAnim(sprite, 0);
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        sprite->x -= 20;
+    else
+        sprite->x += 20;
+
+    speed = Random();
+    sprite->data[0] = (speed & 31) + 64;
+    sprite->data[1] = sprite->x;
+    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    sprite->data[3] = sprite->y;
+    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    InitAnimFastLinearTranslationWithSpeed(sprite);
+    sprite->data[5] = Random() & 0xFF;
+    sprite->data[6] = sprite->subpriority;
+    sprite->callback = AnimMeateorBeamOrb_Step;
+    sprite->callback(sprite);
+}
+
+static void AnimMeateorBeamOrb_Step(struct Sprite* sprite)
+{
+    if (AnimFastTranslateLinear(sprite))
+    {
+        DestroyAnimSprite(sprite);
+    }
+    else
+    {
+        sprite->y2 += Cos(sprite->data[5], 12);
+        if (sprite->data[5] < 0x7F)
+            sprite->subpriority = sprite->data[6];
+        else
+            sprite->subpriority = sprite->data[6] + 1;
+
+        sprite->data[5] += 24;
+        sprite->data[5] &= 0xFF;
+    }
+}
+
 // seed (sprouts a sapling from a seed.)
 // Used by Leech Seed.
 // arg 0: initial x pixel offset
@@ -3397,6 +3522,26 @@ static void AnimTask_DuplicateAndShrinkToPos_Step2(u8 taskId)
     gTasks[taskId].data[0]++;
     if (gTasks[taskId].data[0] == 3)
         DestroyAnimVisualTask(taskId);
+}
+
+static void AnimShine(struct Sprite *sprite)
+{
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+
+    sprite->x2 = gBattleAnimArgs[0];
+    sprite->y2 = gBattleAnimArgs[1];
+
+    sprite->data[0] = gBattleAnimArgs[2];
+
+    //TrySetSpriteRotScale(sprite, TRUE, 0x60, 0x60, 0);
+
+    sprite->callback = AnimShine_Wait;
+}
+
+static void AnimShine_Wait(struct Sprite *sprite)
+{
+    if (sprite->data[0]-- == 0)
+        DestroyAnimSprite(sprite);
 }
 
 // Moves an orb from the target mon to the attacking mon.

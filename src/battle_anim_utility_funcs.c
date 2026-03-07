@@ -62,6 +62,23 @@ void AnimTask_BlendBattleAnimPal(u8 taskId)
     StartBlendAnimSpriteColor(taskId, selectedPalettes);
 }
 
+void AnimTask_BlendEveryBattleAnimPal(u8 taskId)
+{
+    u8 battler;
+    u32 selectedPalettes;
+    u8 i;
+    u8 animBattlers[2];
+
+    animBattlers[1] = 0xFF;
+    selectedPalettes = UnpackSelectedBattlePalettes(1);
+    
+    for (i = 0; i < 16; i++)
+    {
+        selectedPalettes |= 0x10000 << i;
+    }
+    StartBlendAnimSpriteColor(taskId, selectedPalettes);
+}
+
 // gBattleAnimArgs[0] is a command ID
 // This command will blend bg and battlers except as commanded:
 // 0: Not attacker

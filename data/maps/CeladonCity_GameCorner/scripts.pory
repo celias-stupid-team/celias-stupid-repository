@@ -2,6 +2,7 @@ raw `
 
 CeladonCity_GameCorner_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, CeladonCity_GameCorner_OnLoad
+	map_script MAP_SCRIPT_ON_TRANSITION, GameCorner_OnTransition
 	.byte 0
 
 CeladonCity_GameCorner_OnLoad::
@@ -10,7 +11,7 @@ CeladonCity_GameCorner_OnLoad::
 
 
 CeladonCity_GameCorner_EventScript_HideRocketHideout::
-	setobjectxy LOCALID_GAME_CORNER_GRUNT 11 2
+	setobjectxyperm LOCALID_GAME_CORNER_GRUNT 11 2
 	setobjectmovementtype LOCALID_GAME_CORNER_GRUNT MOVEMENT_TYPE_FACE_UP
 	setmetatile 15, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 	setmetatile 16, 2, METATILE_GameCorner_Floor_ShadeFull, 0
@@ -375,6 +376,14 @@ CeladonCity_GameCorner_EventScript_UnusableSlotMachine3::
 	msgbox CeladonCity_GameCorner_Text_SomeonesKeys, MSGBOX_SIGN
 	end
 `
+script GameCorner_OnTransition {
+	if(flag(FLAG_FOUND_ROTOM_HEAT) || !flag(FLAG_SYS_ROTOM_MENU)) {
+			setflag(FLAG_TEMP_5)
+	}
+
+}
+
+
 script GameCorner_FindCoins {
 	lock
 	checkcoins(VAR_RESULT)

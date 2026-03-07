@@ -217,7 +217,7 @@
 #define FLAG_CHRIS_GIVES_LICKITUNG                      0x0BE
 
 //Pewter City
-#define FLAG_CSR_UNUSED_3               0x0BF
+#define FLAG_GOT_MEW_BRICK_PIECE               0x0BF
 #define FLAG_CSR_MUSEUM_GUIDE_MISSED    0x0C0
 #define FLAG_CSR_BROCK_RAINING          0x0C1
 #define FLAG_CSR_TREE_FLAG_1            0x0C2
@@ -476,8 +476,8 @@
 #define FLAG_DANCED_FOR_ARTICUNO                    0x1A9
 #define FLAG_GOT_SHINY_MISSINGNO                          0x1AA
 #define FLAG_GOT_TREASURE_MAP                    0x1AB
-#define FLAG_0x1AC                          0x1AC
-#define FLAG_0x1AD                     0x1AD
+#define FLAG_SAFFRON_GYM_SHORTCUT                          0x1AC
+#define FLAG_SAFFRON_CHECKED_MONKEY_WINDOW                     0x1AD
 #define FLAG_0x1AE                          0x1AE
 #define FLAG_0x1AF                    0x1AF
 #define FLAG_GOT_TM50                          0x1B0
@@ -506,8 +506,8 @@
 #define FLAG_YES_MAN_TRAVELING                     0x1C7
 #define FLAG_YES_NERD_TM                              0x1C8
 #define FLAG_HAMBURGER_GUY                             0x1C9
-#define FLAG_0x1CA                    0x1CA
-#define FLAG_0x1CB                       0x1CB
+#define FLAG_HIDE_RATICATE_TRADE_GUY                    0x1CA
+#define FLAG_NOT_OAK_TEMP                       0x1CB
 #define FLAG_0x1CC                      0x1CC
 #define FLAG_HIDE_VIRIDIAN_CITY_POTION                          0x1CD
 #define FLAG_HIDE_ROUTE11_GREAT_BALL                            0x1CE
@@ -1016,14 +1016,14 @@
 #define FLAG_LAVENDER_CANDY              0x3A4 //placed
 #define FLAG_CELADON_CANDY               0x3A5 //placed
 #define FLAG_FUSHCIA_CANDY               0x3A6 //placed
-#define FLAG_CINNABAR_ISLAND_CANDY       0x3A8 // Revealed after island crashed through
-#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9 // Maybe put this elsewhere?
+#define FLAG_CINNABAR_ISLAND_CANDY       0x3A8 // placed
+#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9 // placed
 #define FLAG_MT_MOON_CANDY               0x3AA //placed
 #define FLAG_UNDERGROUND_PATH_CANDY      0x3AB //placed
 #define FLAG_POKEMON_TOWER_CANDY         0x3AC //placed
 #define FLAG_SAFARI_ZONE_CANDY           0x3AD //placed
-#define FLAG_SILPH_CO_CANDY              0x3AF //Behind the ball shop counter
-#define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2
+#define FLAG_SILPH_CO_CANDY              0x3AF //placed
+#define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2 
 #define FLAG_SKY_PILLAR_CANDY            0x3B4 //Dumb bike puzzle maybe
 #define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6 //placed
 #define FLAG_CERULEAN_CAVE_CANDY           0x3B7  //placed
@@ -1048,7 +1048,7 @@
 #define FLAG_ROUTE_13_CANDY              0x3CC //placed
 #define FLAG_ROUTE_14_CANDY              0x3CD //placed
 #define FLAG_ROUTE_16_CANDY              0x3CF //placed
-#define FLAG_ROUTE_21_CANDY              0x3D0 // idk
+#define FLAG_ROUTE_21_CANDY              0x3D0 // placed
 #define FLAG_ROUTE_18_CANDY              0x3D1 //placed
 #define FLAG_ROUTE_22_CANDY              0x3D3 //placed
 #define FLAG_ROUTE_24_CANDY              0x3D4 //placed
@@ -1057,9 +1057,9 @@
 
 
 
-#define FLAG_UNUSED_CANDY_1          0x3A7 // REPURPOSE
-#define FLAG_UNUSED_CANDY_2         0x3AE // REPURPOSE
-#define FLAG_UNUSED_CANDY_3         0x3B0 // REPURPOSE
+#define FLAG_CANDY_MAN_FELL          0x3A7 // REPURPOSE
+#define FLAG_RETRIEVED_CANDIES         0x3AE // REPURPOSE
+#define FLAG_GOT_SHINY_MELTAN         0x3B0 // REPURPOSE
 #define FLAG_UNUSED_CANDY_4           0x3B1 // REPURPOSE
 #define FLAG_UNUSED_CANDY_5      0x3B3 // REPURPOSE
 #define FLAG_UNUSED_CANDY_6               0x3C6 //REPURPOSE
@@ -1443,7 +1443,7 @@
 #define FLAG_SYS_FUSHCIA_DISABLE_FLY                                (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
-#define FLAG_0x831                                                  (SYS_FLAGS + 0x31)
+#define FLAG_SYS_ON_SHINY_BIKE                                                  (SYS_FLAGS + 0x31)
 #define FLAG_0x832                                                  (SYS_FLAGS + 0x32)
 #define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)

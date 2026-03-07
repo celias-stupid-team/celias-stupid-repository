@@ -31,7 +31,14 @@ SSAnne_CaptainsOffice_EventScript_Book::
 mapscripts SSAnne_CaptainsOffice_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		if(flag(FLAG_GOT_HM01)) {
-			setobjectxy(LOCALID_SS_ANNE_CAPTAIN, 15, 15)
+			setobjectxyperm(LOCALID_SS_ANNE_CAPTAIN, 15, 15)
+			setobjectmovementtype(LOCALID_SS_ANNE_CAPTAIN, MOVEMENT_TYPE_INVISIBLE)
+		}
+	}
+	MAP_SCRIPT_ON_TRANSITION {
+		
+		if(flag(FLAG_GOT_HM01)) {
+			setobjectxyperm(LOCALID_SS_ANNE_CAPTAIN, 15, 15)
 			setobjectmovementtype(LOCALID_SS_ANNE_CAPTAIN, MOVEMENT_TYPE_INVISIBLE)
 		}
 	}
@@ -148,6 +155,7 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 
 	"Here, take this HM.\n"
 	"", MSGBOX_DEFAULT)
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 5)
 	giveitem_msg(SSAnne_CaptainsOffice_Text_ObtainedHM01FromCaptain, ITEM_HM01, 1, MUS_OBTAIN_KEY_ITEM)
 	msgbox(
 	"If we're going to get ourselves\n"
@@ -177,7 +185,12 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 	waitmovement(0)
 	delay(20)
 	playse(SE_EXIT)
-	
+	applymovement(VAR_LAST_TALKED, moves(
+		set_invisible
+	))
+	setobjectxy(LOCALID_SS_ANNE_CAPTAIN, 15, 15)
+	copyobjectxytoperm(LOCALID_SS_ANNE_CAPTAIN)
+	setobjectmovementtype(LOCALID_SS_ANNE_CAPTAIN, MOVEMENT_TYPE_INVISIBLE)
 	setflag(FLAG_GOT_HM01)
 	setvar(VAR_SEAFOAM_CAPTAIN_FLOOR, 2)
 	release

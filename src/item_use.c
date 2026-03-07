@@ -345,8 +345,16 @@ void FieldUseFunc_Bike(u8 taskId)
 
 static void ItemUseOnFieldCB_Bicycle(u8 taskId)
 {
-    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
-        PlaySE(SE_BIKE_BELL);
+    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE)) {
+            if(gSpecialVar_ItemId == ITEM_SHINY_BIKE) {
+                FlagSet(FLAG_SYS_ON_SHINY_BIKE);
+            } else {
+                FlagClear(FLAG_SYS_ON_SHINY_BIKE);
+            }
+            PlaySE(SE_BIKE_BELL);
+        
+    }
+        
     GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE);
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
     UnlockPlayerFieldControls();
@@ -807,6 +815,12 @@ bool8 CanUseEscapeRopeOnCurrMap(void)
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_2F) &&
             (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_2F))) {
                 SetEscapeWarp(MAP_GROUP(MAP_SILPH_UNFINISHED_FLOOR), MAP_NUM(MAP_SILPH_UNFINISHED_FLOOR), 0, 4, 5);
+                return TRUE;
+
+        }
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_3F) &&
+            (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_3F))) {
+                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 2, 22, 27);
                 return TRUE;
 
         }

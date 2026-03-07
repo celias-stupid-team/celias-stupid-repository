@@ -463,4 +463,5 @@ gSpecials::
 	def_special RestorePlayerPartyFromOne
 	def_special RemovePartyMon
 	def_special GetShinyCount
+	def_special ShakeScreenSilent
 gSpecialsEnd::

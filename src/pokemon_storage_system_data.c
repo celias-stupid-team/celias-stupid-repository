@@ -723,6 +723,30 @@ static void CheckPorygonEvolve(u8 boxId){
      }
 }
 
+const u8 gText_ObtainedBrickPiece[] = _("Obtained the BRICK PIECE!");
+
+static void CheckBrickPieceGet(u8 boxId, u8 position){
+    u8 current_wallpaper_id = GetBoxWallpaper(boxId);
+    u16 target_item = ITEM_BRICK_PIECE;
+    u8 wallpaperCheck;
+    u8 mewPosition = 22;
+
+    
+
+    if ((GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_DITTO_MEW)
+    && (current_wallpaper_id == WALLPAPER_CITY)
+    && (position == mewPosition)
+    && !FlagGet(FLAG_GOT_MEW_BRICK_PIECE)){
+        FlagSet(FLAG_GOT_MEW_BRICK_PIECE);
+        PlayFanfare(MUS_LEVEL_UP);
+        //PrintStorageMessage(gText_ObtainedBrickPiece);
+
+
+        
+        //Task_EvolvePorygon();
+     }
+}
+
 static void SetPlacedMonData(u8 boxId, u8 position)
 {
     if (boxId == TOTAL_BOXES_COUNT)
@@ -730,6 +754,7 @@ static void SetPlacedMonData(u8 boxId, u8 position)
     else
     {
         CheckPorygonEvolve(boxId);
+        CheckBrickPieceGet(boxId, position);
         BoxMonRestorePP(&gStorage->movingMon.box);
         SetBoxMonAt(boxId, position, &gStorage->movingMon.box);        
     }

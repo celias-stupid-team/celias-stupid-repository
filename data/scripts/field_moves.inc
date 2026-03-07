@@ -1,12 +1,4 @@
-EventScript_CutTree::
-	goto_if_questlog EventScript_ReleaseEnd
-	lockall
-	goto_if_unset FLAG_BADGE02_GET, EventScript_CantCutTree
-	checkfieldmove MOVE_CUT
-	goto_if_eq VAR_RESULT, FIELD_MOVE_USE_PC_MON, EventScript_CutTreeAfterBuffer
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree
-	setfieldeffectargument 0, VAR_RESULT
-	bufferpartymonnick STR_VAR_1, VAR_RESULT
+
 @ fallthrough
 EventScript_CutTreeAfterBuffer::
 	buffermovename STR_VAR_2, MOVE_CUT

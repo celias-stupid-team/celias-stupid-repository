@@ -150,13 +150,13 @@ script SilphCo_MakeElevatorDisappear {
 	))
 	playse(SE_CLICK)
 	delay(60)
-	setmetatile(6, 0, 0x330, TRUE)
-	setmetatile(7, 0, 0x330, TRUE)
-	setmetatile(8, 0, 0x330, TRUE)
+	setmetatile(46, 5, 0x330, TRUE)
+	setmetatile(47, 5, 0x330, TRUE)
+	setmetatile(48, 5, 0x330, TRUE)
 	
-	setmetatile(6, 1, 0x338, TRUE)
-	setmetatile(7, 1, 0x338, TRUE)
-	setmetatile(8, 1, 0x338, TRUE)
+	setmetatile(46, 6, 0x338, TRUE)
+	setmetatile(47, 6, 0x338, TRUE)
+	setmetatile(48, 6, 0x338, TRUE)
 	special(DrawWholeMapView)
 	
 			    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
@@ -277,6 +277,7 @@ script SilphCo_MonkeyFour {
 }
 
 script SilphCo_MonkeyWindow {
+	setflag(FLAG_SAFFRON_CHECKED_MONKEY_WINDOW)
 	msgbox(
 	"Productivity incentive.\n"
 	"", MSGBOX_SIGN)
@@ -679,7 +680,7 @@ script SilphCo_SnackTrash {
 	"The can is overflowing with snack\n"
 	"wrappers.\p"
 
-	"It seems like it was emptied\n"
-	"last night.", MSGBOX_SIGN)
+	"Despite this, it seems it was\n"
+	"emptied just this morning.", MSGBOX_SIGN)
 
 }
