@@ -310,7 +310,7 @@
 
 
 
-#define EVOS_PER_MON 8          // 6 to allow for Eevee's nonsense. I really hope this doesn't break anything
+#define EVOS_PER_MON 9          // 6 to allow for Eevee's nonsense. I really hope this doesn't break anything
 
 #define EVO_MODE_NORMAL     0
 #define EVO_MODE_TRADE      1

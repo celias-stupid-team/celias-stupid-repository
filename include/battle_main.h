@@ -25,7 +25,7 @@ struct MultiBattlePokemonTx
 };
 
 #define TYPE_NAME_LENGTH 6
-#define ABILITY_NAME_LENGTH 12
+#define ABILITY_NAME_LENGTH 18
 
 // defines for the Type Effectiveness multipliers
 #define TYPE_MUL_NO_EFFECT          0

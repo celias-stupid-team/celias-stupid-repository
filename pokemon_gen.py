@@ -211,7 +211,7 @@ def edit_file_8(data):
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
 
-    new_entry = f"	[{species_number} - POKERAP2_MON_SPECIES_START] = CRY_{uppercase_name},\n"
+    new_entry = f"	[{species_number}] = CRY_{uppercase_name},\n"
     updated_content = re.sub(r'\n+//End', f"\n{new_entry}\n\n//End", file_content)
     with open(path, "w", encoding="utf-8", newline='\n') as f:
         f.write(updated_content)

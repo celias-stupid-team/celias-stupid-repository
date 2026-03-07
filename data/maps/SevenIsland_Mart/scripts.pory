@@ -45,12 +45,14 @@ script SevenIsland_Mart_EventScript_Clerk {
 		}
 		closemessage
 		playfanfare(MUS_LEVEL_UP)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
 		"{PLAYER} bought a GUN!\n"
 		"", MSGBOX_DEFAULT)
 		waitfanfare
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
 		call(Common_Script_GiftPokemon)
+		textcolor(NPC_TEXT_COLOR_BLUE)
 	}
 	msgbox(
 	"I make minimum wage.\n"

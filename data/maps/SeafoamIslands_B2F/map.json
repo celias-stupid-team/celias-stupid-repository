@@ -27,7 +27,7 @@
       "trainer_type": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_1",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_HIDE_SEAFOAM_B2F_BOULDER_1"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -41,7 +41,7 @@
       "trainer_type": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_2",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_HIDE_SEAFOAM_B2F_BOULDER_2"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -83,7 +83,7 @@
       "trainer_type": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_2",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_HIDE_SEAFOAM_B2F_BOULDER_2"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

@@ -62,6 +62,23 @@ void AnimTask_BlendBattleAnimPal(u8 taskId)
     StartBlendAnimSpriteColor(taskId, selectedPalettes);
 }
 
+void AnimTask_BlendEveryBattleAnimPal(u8 taskId)
+{
+    u8 battler;
+    u32 selectedPalettes;
+    u8 i;
+    u8 animBattlers[2];
+
+    animBattlers[1] = 0xFF;
+    selectedPalettes = UnpackSelectedBattlePalettes(1);
+    
+    for (i = 0; i < 16; i++)
+    {
+        selectedPalettes |= 0x10000 << i;
+    }
+    StartBlendAnimSpriteColor(taskId, selectedPalettes);
+}
+
 // gBattleAnimArgs[0] is a command ID
 // This command will blend bg and battlers except as commanded:
 // 0: Not attacker
@@ -944,6 +961,36 @@ void AnimTask_SetAnimAttackerAndTargetForEffectAtk(u8 taskId)
 {
     gBattleAnimAttacker = gBattlerAttacker;
     gBattleAnimTarget = gEffectBattler;
+    DestroyAnimVisualTask(taskId);
+}
+
+static u8 AnimArgToBattlerId(s16 arg)
+{
+    switch (arg)
+    {
+    default:
+    case ANIM_ATTACKER:      return gBattleAnimAttacker;
+    case ANIM_TARGET:        return gBattleAnimTarget;
+    case ANIM_ATK_PARTNER:   return BATTLE_PARTNER(gBattleAnimAttacker);
+    case ANIM_DEF_PARTNER:   return BATTLE_PARTNER(gBattleAnimTarget);
+    case ANIM_PLAYER_LEFT:   return GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+    case ANIM_PLAYER_RIGHT:  return GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
+    case ANIM_OPPONENT_LEFT: return GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+    case ANIM_OPPONENT_RIGHT:return GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+    }
+}
+
+// manually set the gBattleAnimTarget
+void AnimTask_SetAnimTargetFromArg(u8 taskId)
+{
+    gBattleAnimTarget = AnimArgToBattlerId(gBattleAnimArgs[0]);
+    DestroyAnimVisualTask(taskId);
+}
+
+// manually set the gBattleAnimAttacker
+void AnimTask_SetAnimAttackerFromArg(u8 taskId)
+{
+    gBattleAnimAttacker = AnimArgToBattlerId(gBattleAnimArgs[0]);
     DestroyAnimVisualTask(taskId);
 }
 

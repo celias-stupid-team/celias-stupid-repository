@@ -640,3 +640,6 @@ const u32 gTrainerPalette_Skiier[] = INCBIN_U32("graphics/trainers/palettes/skii
 
 const u32 gTrainerFrontPic_DmcaRunt[] = INCBIN_U32("graphics/trainers/front_pics/dmca_runt_front_pic.4bpp.lz");
 const u32 gTrainerPalette_DmcaRunt[] = INCBIN_U32("graphics/trainers/palettes/dmca_runt.gbapal.lz");
+
+const u32 gTrainerFrontPic_Champions[] = INCBIN_U32("graphics/trainers/front_pics/champions_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Champions[] = INCBIN_U32("graphics/trainers/palettes/champions.gbapal.lz");

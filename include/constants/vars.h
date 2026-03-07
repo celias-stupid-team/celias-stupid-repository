@@ -172,7 +172,7 @@
 #define VAR_MAP_SCENE_MT_MOON_TENTACOOL                                                             0x4072
 #define VAR_CSR_DUMMY_12                    0x4073
 #define VAR_CSR_DUMMY_13                                 0x4074
-#define VAR_CSR_DUMMY_14                                        0x4075
+#define VAR_SILPH_LOOK_GIRL                                        0x4075
 #define VAR_CSR_DUMMY_15                             0x4076
 #define VAR_CSR_BILLS_TAKEN                                                             0x4077
 #define VAR_CSR_DUMMY_16                                               0x4078
@@ -231,6 +231,7 @@ It is reset after every battle.
 #define EVENT_BATTLE_SANS  17 //check
 #define EVENT_BATTLE_LARRY_2  18 //check
 #define EVENT_BATTLE_BARRY  19 //check
+#define EVENT_BATTLE_JAMES  20 //check
 
 
 
@@ -358,7 +359,7 @@ It is reset after every battle.
 #define VAR_0x40F7                 0x40F7
 #define VAR_0x40F8                 0x40F8
 #define VAR_0x40F9                 0x40F9
-#define VAR_0x40FA                 0x40FA
+#define VAR_STACK_OF_CANDY                 0x40FA
 #define VAR_SKY_TOWER_POKE                 0x40FB
 #define VAR_SWEET_SCENT_WATER                 0x40FC
 #define VAR_TWO_ISLAND_COUNTER                 0x40FD

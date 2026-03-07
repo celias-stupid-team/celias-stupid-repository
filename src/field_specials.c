@@ -31,6 +31,7 @@
 #include "text_window.h"
 #include "menu.h"
 #include "mystery_gift.h"
+#include "item.h"
 #include "naming_screen.h"
 #include "party_menu.h"
 #include "dynamic_placeholder_text_util.h"
@@ -110,6 +111,9 @@ void ForcePlayerOntoBike(void)
 {
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ON_FOOT)
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_MACH_BIKE);
+    if(CheckBagHasItem(ITEM_SHINY_BIKE, 1)) {
+        FlagSet(FLAG_SYS_ON_SHINY_BIKE);
+    }
     Overworld_SetSavedMusic(MUS_CYCLING);
     Overworld_ChangeMusicTo(MUS_CYCLING);
 }
@@ -118,6 +122,7 @@ void ForcePlayerOffBike(void)
 {
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+    //FlagClear(FLAG_SYS_ON_SHINY_BIKE);
 
 }
 
@@ -513,6 +518,24 @@ void ShakeScreen(void)
     gTasks[taskId].tYtrans = gSpecialVar_0x8004;
     SetCameraPanningCallback(NULL);
     PlaySE(SE_M_STRENGTH);
+}
+
+void ShakeScreenSilent(void)
+{
+    /*
+     * 0x8004 = x translation
+     * 0x8005 = y translation
+     * 0x8006 = num interations
+     * 0x8007 = duration of an iteration
+     */
+    u8 taskId = CreateTask(Task_ShakeScreen, 9);
+    gTasks[taskId].tXtrans = gSpecialVar_0x8005;
+    gTasks[taskId].tTimer = 0;
+    gTasks[taskId].tNremain = gSpecialVar_0x8006;
+    gTasks[taskId].tDuration = gSpecialVar_0x8007;
+    gTasks[taskId].tYtrans = gSpecialVar_0x8004;
+    SetCameraPanningCallback(NULL);
+    //PlaySE(SE_M_STRENGTH);
 }
 
 static void Task_ShakeScreen(u8 taskId)

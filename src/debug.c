@@ -390,7 +390,7 @@ static const u8 sDebugText_Util_Script_1[] = _("Summon the Pit");
 static const u8 sDebugText_Util_Script_2[] = _("Start Double Battle");
 static const u8 sDebugText_Util_Script_3[] = _("Toggle Rotom Menu");
 static const u8 sDebugText_Util_Script_4[] = _("Draw Chapter Title");
-static const u8 sDebugText_Util_Script_5[] = _("Script 5");
+static const u8 sDebugText_Util_Script_5[] = _("Show HoF screen");
 static const u8 sDebugText_Util_Script_6[] = _("Script 6");
 static const u8 sDebugText_Util_Script_7[] = _("start final battle");
 static const u8 sDebugText_Util_Script_8[] = _("toggle battle PC switch");
@@ -1789,7 +1789,8 @@ static void DebugAction_Util_Script_4(u8 taskId)
 
 static void DebugAction_Util_Script_5(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_5);
+    Debug_DestroyMenu_Full(taskId);
+    SetMainCallback2(CB2_DoHallOfFameScreen);
 }
 
 static void DebugAction_Util_Script_6(u8 taskId)
@@ -2530,7 +2531,7 @@ static void DebugAction_Give_PokemonSimple(u8 taskId)
 
     // Display initial Pokémon
     StringCopy(gStringVar2, gText_DigitIndicator[0]);
-    ConvertIntToDecimalStringN(gStringVar3, sDebugMonData->species, STR_CONV_MODE_LEADING_ZEROS, 3);
+    ConvertIntToDecimalStringN(gStringVar3, sDebugMonData->species, STR_CONV_MODE_LEADING_ZEROS, 4);
     GetSpeciesName(speciesName, sDebugMonData->species);
     StringCopy(gStringVar1, speciesName);
     StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
@@ -3063,14 +3064,14 @@ static void DebugAction_Give_Pokemon_Move(u8 taskId)
         }
         if (JOY_NEW(DPAD_RIGHT))
         {
-            if (gTasks[taskId].tDigit < 3)
+            if (gTasks[taskId].tDigit < 4)
                 gTasks[taskId].tDigit += 1;
         }
 
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
         StringCopy(gStringVar1, gMoveNames[gTasks[taskId].tInput]);
         StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
-        ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 3);
+        ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 4);
         switch (gTasks[taskId].tIterator)
         {
         case 0:
@@ -3122,7 +3123,7 @@ static void DebugAction_Give_Pokemon_Move(u8 taskId)
             StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
             StringCopy(gStringVar1, gMoveNames[gTasks[taskId].tInput]);
             StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
-            ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 3);
+            ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 4);
             switch (gTasks[taskId].tIterator)
             {
             case 0:

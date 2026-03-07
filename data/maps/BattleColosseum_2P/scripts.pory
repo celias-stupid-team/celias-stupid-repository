@@ -315,7 +315,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_AMPHAROS_MEGA) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out this logic
 		setobtainable(SPECIES_AMPHAROS) // 102
 	}
-	if(checkmoncaught(SPECIES_COMBEE) && flag(FLAG_FOUR_ISLAND_ROCK_CLIMB)) { //TODO figure out this logic
+	if(checkmoncaught(SPECIES_COMBEE) && flag(FLAG_FOUR_ISLAND_ROCK_CLIMB) && checkmoncaught(SPECIES_PERSIAN)) { //TODO figure out this logic
 		setobtainable(SPECIES_SMEARGLE) // 103
 	}
 	if(flag(FLAG_SAFFRON_IS_TRAINS)) { 
@@ -557,8 +557,18 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintKrabby)
 		case SPECIES_TENTACOOL: 
 			 msgbox(PokedexRating_Text_HintTentacool)
-		case SPECIES_TOEDSCOOL: 
-			 msgbox(PokedexRating_Text_HintToedscool)
+		case SPECIES_TOEDSCOOL:
+			if(flag(FLAG_BADGE03_GET) || flag(FLAG_BADGE04_GET)) {
+				msgbox(
+				"Say, I sent an AIDE to deliver you\n"
+				"a pair of RUNNING SHOES.\p"
+
+				"Did you ever pick them up?\n"
+				"", MSGBOX_DEFAULT)
+			} else {
+			 	msgbox(PokedexRating_Text_HintToedscool)
+
+			}
 		case SPECIES_PARAS: 
 			 msgbox(PokedexRating_Text_HintParas)
 		case SPECIES_PARASECT: 

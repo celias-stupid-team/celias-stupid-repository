@@ -1965,7 +1965,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 effect = CastformDataTypeChange(battler);
                 if (effect != 0)
                 {
-                    BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
+                    BattleScriptPushCursorAndCallback(BattleScript_CastformChangeWithWeatherAnim);
                     gBattleScripting.battler = battler;
                     *(&gBattleStruct->formToChangeInto) = effect - 1;
                 }
@@ -1985,7 +1985,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect = CastformDataTypeChange(target1);
                         if (effect != 0)
                         {
-                            BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
+                            BattleScriptPushCursorAndCallback(BattleScript_CastformChangeWithWeatherAnim);
                             gBattleScripting.battler = target1;
                             *(&gBattleStruct->formToChangeInto) = effect - 1;
                             break;
@@ -2441,7 +2441,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     effect = CastformDataTypeChange(battler);
                     if (effect != 0)
                     {
-                        BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
+                        BattleScriptPushCursorAndCallback(BattleScript_CastformChangeWithWeatherAnim);
                         gBattleScripting.battler = battler;
                         *(&gBattleStruct->formToChangeInto) = effect - 1;
                         return effect;

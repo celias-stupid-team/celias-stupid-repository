@@ -109,12 +109,13 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     //[SPECIES_SCYTHER]    = {{EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR}}, //Solution for Cynthia!
     [SPECIES_GYARADOS]   = {{EVO_LEVEL, 15, SPECIES_MAGIKARP}},
     [SPECIES_EEVEE]      = {{EVO_ITEM, ITEM_WATER_STONE, SPECIES_EEVEE},
+                            {EVO_LEVEL_ON_LOCATION, MAP_FOUR_ISLAND, SPECIES_SOLACEON},
+                            {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_SYLVEON},
+                            {EVO_ITEM, ITEM_SOUL_DEW, SPECIES_LATIAS},
                             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_EEVEE},
-                            {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_SYLVEON},
-                            {EVO_LEVEL_ON_LOCATION, MAP_FOUR_ISLAND, SPECIES_SOLACEON},
-                            {EVO_ITEM, ITEM_SOUL_DEW, SPECIES_LATIAS}},
+                            {EVO_ITEM, ITEM_SUN_STONE, SPECIES_EEVEE}},
 
     //[SPECIES_PORYGON]    = {{EVO_TRADE_ITEM, ITEM_UP_GRADE, SPECIES_PORYGON_Z}},  //TODO the stupid Box thing
 

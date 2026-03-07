@@ -8,6 +8,7 @@
 #include "new_menu_helpers.h"
 #include "strings.h"
 #include "text_window.h"
+#include "event_data.h"
 
 enum {
     GFXTAG_TRIANGLE_CURSOR,
@@ -286,6 +287,12 @@ static const u8 *const sEasyChatKeyboardAlphabet[NUM_ALPHABET_ROWS] = {
     gText_EasyChatKeyboard_GHIJKL,
     gText_EasyChatKeyboard_MNOPQRS,
     gText_EasyChatKeyboard_TUVWXYZ
+};
+static const u8 *const sEasyChatKeyboardAlphabetNoY[NUM_ALPHABET_ROWS] = {
+    gText_EasyChatKeyboard_ABCDEFothers,
+    gText_EasyChatKeyboard_GHIJKL,
+    gText_EasyChatKeyboard_MNOPQRS,
+    gText_EasyChatKeyboard_TUVWX_Z
 };
 
 static const struct SpriteSheet sEasyChatSpriteSheets[] = {
@@ -1594,9 +1601,15 @@ static void PrintECGroupsMenu(void)
 static void PrintEasyChatKeyboardText(void)
 {
     u32 i;
+    if(!FlagGet(FLAG_FOUND_Y)) {
+        for (i = 0; i < ARRAY_COUNT(sEasyChatKeyboardAlphabet); i++)
+            EC_AddTextPrinterParameterized(2, FONT_NORMAL_COPY_1, sEasyChatKeyboardAlphabetNoY[i], 10, 96 + i * 16, TEXT_SKIP_DRAW, NULL);
 
-    for (i = 0; i < ARRAY_COUNT(sEasyChatKeyboardAlphabet); i++)
-        EC_AddTextPrinterParameterized(2, FONT_NORMAL_COPY_1, sEasyChatKeyboardAlphabet[i], 10, 96 + i * 16, TEXT_SKIP_DRAW, NULL);
+    } else {
+        for (i = 0; i < ARRAY_COUNT(sEasyChatKeyboardAlphabet); i++)
+            EC_AddTextPrinterParameterized(2, FONT_NORMAL_COPY_1, sEasyChatKeyboardAlphabet[i], 10, 96 + i * 16, TEXT_SKIP_DRAW, NULL);
+
+    }
 }
 
 static void PrintECWordsMenu(void)

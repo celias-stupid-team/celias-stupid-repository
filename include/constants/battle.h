@@ -353,9 +353,9 @@
 #define FLEE_ABILITY 2
 
 // Return value for IsRunningFromBattleImpossible.
-#define BATTLE_RUN_SUCCESS        0
-#define BATTLE_RUN_FORBIDDEN      1
-#define BATTLE_RUN_FAILURE        2
+#define BATTLE_RUN_SUCCESS         0
+#define BATTLE_RUN_FORBIDDEN       1
+#define BATTLE_RUN_FAILURE         2
 
 // Window Ids for sTextOnWindowsInfo_Normal
 #define B_WIN_MSG                 0

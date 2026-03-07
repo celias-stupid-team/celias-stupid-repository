@@ -799,7 +799,13 @@ static int OpenSelectedGroup(void)
     }
     else
     {
-        GetUnlockedECWords(TRUE, GetSelectedLetter());
+        if(!FlagGet(FLAG_FOUND_Y) && GetSelectedLetter() == 25) { //sorry about the magic number
+            PlaySE(SE_BOO);
+            return 0;
+        } else {
+            GetUnlockedECWords(TRUE, GetSelectedLetter());
+
+        }
     }
 
     numDisplayedWords = GetNumDisplayedWords();

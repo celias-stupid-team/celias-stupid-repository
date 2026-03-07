@@ -344,12 +344,24 @@
 #define ANIM_TAG_ONE_PROTECT                (ANIM_SPRITES_START + 334)
 #define ANIM_TAG_H                          (ANIM_SPRITES_START + 335)
 #define ANIM_TAG_BULLET                     (ANIM_SPRITES_START + 336)
+#define ANIM_TAG_STEAMROLLER                (ANIM_SPRITES_START + 337)
+#define ANIM_TAG_BULLDOZER                  (ANIM_SPRITES_START + 338)
+#define ANIM_TAG_ROTOM_DESCEND              (ANIM_SPRITES_START + 339)
+#define ANIM_TAG_EXODIA                     (ANIM_SPRITES_START + 340)
+#define ANIM_TAG_THROWN_KRABBY              (ANIM_SPRITES_START + 341)
+#define ANIM_TAG_THROWN_FORRETRESS          (ANIM_SPRITES_START + 342)
+#define ANIM_TAG_SHINE                      (ANIM_SPRITES_START + 343)
+#define ANIM_TAG_SUMMONING_CIRCLE           (ANIM_SPRITES_START + 344)
 
 // battlers
-#define ANIM_ATTACKER    0
-#define ANIM_TARGET      1
-#define ANIM_ATK_PARTNER 2
-#define ANIM_DEF_PARTNER 3
+#define ANIM_ATTACKER       0
+#define ANIM_TARGET         1
+#define ANIM_ATK_PARTNER    2
+#define ANIM_DEF_PARTNER    3
+#define ANIM_PLAYER_LEFT    4
+#define ANIM_PLAYER_RIGHT   5
+#define ANIM_OPPONENT_LEFT  6
+#define ANIM_OPPONENT_RIGHT 7
 
 // stereo panning constants [0-255]
 //

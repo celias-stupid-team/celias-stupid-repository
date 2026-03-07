@@ -1150,7 +1150,8 @@ static void Cmd_accuracycheck(void)
         && !BtlCtrl_OakOldMan_TestState2Flag(2)
         && gBattleMoves[move].power == 0
         && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
-     || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
+     || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
+     || (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
         JumpIfMoveFailed(7, move);
         return;
@@ -1348,6 +1349,9 @@ static void Cmd_critcalc(void)
      && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
         gCritMultiplier = 2;
     else
+        gCritMultiplier = 1;
+
+    if (gBattleMons[gBattlerTarget].species == SPECIES_FINALZAPDOS)
         gCritMultiplier = 1;
 
     gBattlescriptCurrInstr++;
@@ -1679,6 +1683,11 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
         return 0;
 
     moveType = gBattleMoves[move].type;
+    if(gBattleMons[attacker].ability == ABILITY_NORMALIZE) //couldn't figure out how typeOverride works
+            moveType = TYPE_NORMAL;
+    
+    DebugPrintf("Type %d", moveType);
+
 
     // check stab
     if (IS_BATTLER_OF_TYPE(attacker, moveType))
@@ -3965,6 +3974,7 @@ static void Cmd_checkteamslost(void)
             {
                 gBattleOutcome |= B_OUTCOME_CONTINUE_ZAPDOS;
                 gCheckedPauseBattle = TRUE;
+                gTemporaryBattlePlayerText = TRUE;
             }
             // if battler fainted the system will call PlayerHandleChoosePokemon() later and trigger a PC switch
         }
@@ -8167,10 +8177,7 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_MAGIC_SHELL;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_MAGIC_SHELL);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
-            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
-        }
+
     }
     else if (gCurrentMove == MOVE_FISSURE && gBattleMons[gBattlerTarget].ability == ABILITY_EARTH_EATER)
     {
@@ -8178,10 +8185,7 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_EARTH_EATER;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_EARTH_EATER);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
-            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
-        }
+
     }
     else if (gCurrentMove == MOVE_SHOOT_BIG && gBattleMons[gBattlerTarget].ability == ABILITY_BULLETPROOF)
     {
@@ -8189,10 +8193,23 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_BULLETPROOF;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_BULLETPROOF);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
-            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            //DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
-        }
+
+    }
+    else if (gCurrentMove == MOVE_LION_LADDER && gBattleMons[gBattlerTarget].ability == ABILITY_RED_GUARD)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_RED_GUARD;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_RED_GUARD);
+
+    }
+    else if (gCurrentMove == MOVE_WHITE_LIGHTNING && gBattleMons[gBattlerTarget].ability == ABILITY_REVEALING_LIGHT)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_REVEALING_LIGHT;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_REVEALING_LIGHT);
+
     }
     else if (gCurrentMove == MOVE_ADOBE_FLASH && gBattleMons[gBattlerTarget].ability == ABILITY_HTML5)
     {
@@ -11534,7 +11551,7 @@ void BS_TryTrainerSlideMsgDefeatFinalBattle(void)
     {
         gBattleScripting.battler = battler;
         BattleScriptPush(cmd->nextInstr);
-        gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
+        gBattlescriptCurrInstr = BattleScript_TrainerASlidePreMessage;
     }
     else
     {
@@ -12289,4 +12306,12 @@ void BS_ClearBattleWeather(void)
     gBattleWeather = 0;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_WaitForCry(void)
+{
+    NATIVE_ARGS();
+
+    if (!IsCryPlaying())
+        gBattlescriptCurrInstr = cmd->nextInstr;
 }

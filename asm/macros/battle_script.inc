@@ -1773,3 +1773,7 @@
 	.macro clearbattleweather
 	callnative BS_ClearBattleWeather
 	.endm
+
+	.macro waitforcry
+	callnative BS_WaitForCry
+	.endm

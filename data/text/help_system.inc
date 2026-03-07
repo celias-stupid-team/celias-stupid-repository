@@ -167258,7 +167258,7 @@ Bible_Book_Name_Acts::
     .string "ACTS$"
 
 Bible_Book_Name_Paul::
-    .string "PAUL$"
+    .string "ROMANS$"
 
 Bible_Book_Name_1_Corinthians::
     .string "1 CORINTHIANS$"

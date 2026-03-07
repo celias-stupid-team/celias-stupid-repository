@@ -91,6 +91,7 @@ static void AnimAngerMark(struct Sprite *);
 static void AnimBlendThinRing(struct Sprite *);
 static void AnimHyperVoiceRing(struct Sprite *);
 static void AnimUproarRing(struct Sprite *);
+static void AnimRotomRing(struct Sprite *);
 static void AnimSpeedDust(struct Sprite *);
 static void AnimHealBellMusicNote(struct Sprite *);
 static void AnimMagentaHeart(struct Sprite *);
@@ -101,6 +102,8 @@ static void AnimPinkHeart(struct Sprite *);
 static void AnimDevil(struct Sprite *);
 static void AnimFurySwipes(struct Sprite *);
 static void AnimGuardRing(struct Sprite *);
+static void AnimCardFly(struct Sprite *);
+
 
 // Unused
 static const struct SpriteTemplate sCirclingFingerSpriteTemplate =
@@ -831,6 +834,142 @@ const struct SpriteTemplate gUproarRingSpriteTemplate =
     .affineAnims = sThinRingExpandingAffineAnimTable,
     .callback = AnimUproarRing,
 };
+
+const struct SpriteTemplate gRotomRingSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_THIN_RING,
+    .paletteTag = ANIM_TAG_THIN_RING,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .callback = AnimRotomRing,
+};
+
+static const union AnimCmd sAnim_Card0[] = { ANIMCMD_FRAME(0, 0), ANIMCMD_END };
+static const union AnimCmd sAnim_Card1[] = { ANIMCMD_FRAME(16, 0), ANIMCMD_END };
+static const union AnimCmd sAnim_Card2[] = { ANIMCMD_FRAME(32, 0), ANIMCMD_END };
+static const union AnimCmd sAnim_Card3[] = { ANIMCMD_FRAME(48, 0), ANIMCMD_END };
+static const union AnimCmd sAnim_Card4[] = { ANIMCMD_FRAME(64, 0), ANIMCMD_END };
+
+static const union AnimCmd *const sCardAnims[] =
+{
+    sAnim_Card0,
+    sAnim_Card1,
+    sAnim_Card2,
+    sAnim_Card3,
+    sAnim_Card4,
+};
+
+const struct SpriteTemplate gExodiaSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EXODIA,
+    .paletteTag = ANIM_TAG_EXODIA,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCardAnims,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCardFly,
+};
+
+
+static const u8 sPentagramAngles[5] =
+{
+    145,  // top-left
+    239,  // top-right
+    96,   // bottom-left
+    32,   // bottom-right
+    192   // top
+};
+static const s16 sStartOffsetX[5] = { 0, 0, 0, 0, 0 };
+static const s16 sStartOffsetY[5] = { 0, 0, 0, 0, 0 };
+
+#define CARD_SPEED 8
+#define CARD_RADIUS 24
+#define ABS(x) ((x) < 0 ? -(x) : (x))
+
+static void AnimCardFly(struct Sprite *sprite)
+{
+    u8 index;
+    s16 centerX;
+    s16 centerY;
+    s16 endX;
+    s16 endY;
+    s16 xSpeed;
+    s16 ySpeed;
+    s16 duration;
+    s16 startX;
+    s16 startY;
+    u8 angle;
+    switch (sprite->data[0])
+    {
+    case 0: // INIT
+    {
+        index = gBattleAnimArgs[0];
+
+        centerX = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X);
+        centerY = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y);
+
+        angle = sPentagramAngles[index];
+
+        // ----- CONFIGURABLE PARAMETERS -----
+
+        endX = centerX + Cos(angle, CARD_RADIUS);
+        endY = centerY + Sin(angle, CARD_RADIUS);
+
+        xSpeed = Cos(angle, CARD_SPEED);
+        ySpeed = Sin(angle, CARD_SPEED);
+
+        duration = 24;   // tweakable
+
+        // -----------------------------------
+
+        // Compute starting position backwards
+        startX = endX - (xSpeed * duration);
+        startY = endY - (ySpeed * duration);
+
+        sprite->x = startX;
+        sprite->y = startY;
+
+        sprite->data[1] = 0;          // frame counter
+        sprite->data[2] = duration;
+        sprite->data[3] = endX;
+        sprite->data[4] = endY;
+        sprite->data[5] = xSpeed;
+        sprite->data[6] = ySpeed;
+        sprite->data[7] = gBattleAnimArgs[1];  // lifetime
+
+        StartSpriteAnim(sprite, index);
+
+        sprite->data[0] = 1;
+        break;
+    }
+
+    case 1:
+    {
+        sprite->x += sprite->data[5];
+        sprite->y += sprite->data[6];
+
+        sprite->data[1]++;   // movement timer
+
+        if (sprite->data[1] >= sprite->data[2])
+        {
+            sprite->x = sprite->data[3];
+            sprite->y = sprite->data[4];
+        }
+
+        if (sprite->data[1] >= sprite->data[7])
+        {
+            //DestroySprite(sprite);
+            DestroyAnimSprite(sprite);
+            //sprite->callback = AnimCardFly_Step;
+            //DestroyAnimVisualTask(taskId);
+        }
+
+        break;
+    }
+    }
+}
 
 static const union AffineAnimCmd sStretchAttackerAffineAnimCmds[] =
 {
@@ -2952,6 +3091,42 @@ static void AnimUproarRing(struct Sprite *sprite)
     StartSpriteAffineAnim(sprite, 1);
     sprite->callback = AnimSpriteOnMonPos;
     sprite->callback(sprite);
+}
+
+static void AnimRotomRing(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+    case 0:
+    {
+        sprite->x = 170;
+        sprite->y = 110;//GetBattlerSpriteCoord2(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+
+        SetAnimSpriteInitialXOffset(sprite, gBattleAnimArgs[0]);
+        sprite->y += gBattleAnimArgs[1];
+
+        SetGpuReg(REG_OFFSET_BLDCNT,
+                  BLDCNT_TGT1_OBJ |
+                  BLDCNT_TGT2_BG0 |
+                  BLDCNT_EFFECT_BLEND);
+
+        SetGpuReg(REG_OFFSET_BLDALPHA,
+                  BLDALPHA_BLEND(8, 8));
+
+        StartSpriteAffineAnim(sprite, 0);
+
+        sprite->data[0] = 1;
+        break;
+    }
+
+    case 1:
+        if (sprite->affineAnimEnded)
+        {
+            SetGpuReg(REG_OFFSET_BLDCNT, 0);
+            DestroySpriteAndMatrix(sprite);
+        }
+        break;
+    }
 }
 
 static void AnimSoftBoiledEgg(struct Sprite *sprite)

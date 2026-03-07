@@ -46,17 +46,26 @@ script PokemonMansion_3F_SoftlockGuy {
 
 script PokemonMansion_3f_Switch {
 	lock
+	if(flag(FLAG_POKEMON_MANSION_SWITCH_STATE)) {
+		msgbox(
+		"The SWITCH is on.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	msgbox(
-	"A secret switch!\n"
+	"A secret SWITCH!\n"
 	"Press it?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 		msgbox(
 		"Who wouldn't?\n"
 		"", MSGBOX_DEFAULT)
 		playse(SE_UNLOCK)
+		setflag(FLAG_POKEMON_MANSION_SWITCH_STATE)
 	} else {
 		msgbox(
 		"Who would?\n"
 		"", MSGBOX_DEFAULT)
 	}
+	release
 }

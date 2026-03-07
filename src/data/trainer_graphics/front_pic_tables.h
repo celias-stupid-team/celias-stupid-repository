@@ -199,7 +199,8 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1}, // Team Skull,
     {.size = 8, .y_offset = 1}, // Malva,
     {.size = 8, .y_offset = 1}, // Skiier,
-    {.size = 8, .y_offset = 1}, // Dmca Runt
+    {.size = 8, .y_offset = 1}, // Dmca Runt,
+    {.size = 8, .y_offset = 1}, // Champions
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -405,6 +406,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(MALVA, gTrainerFrontPic_Malva, 0x800),
     TRAINER_SPRITE(SKIIER, gTrainerFrontPic_Skiier, 0x800),
     TRAINER_SPRITE(DMCA_RUNT, gTrainerFrontPic_DmcaRunt, 0x800),
+    TRAINER_SPRITE(CHAMPIONS, gTrainerFrontPic_Champions, 0x800),
 };
 
 const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
@@ -620,4 +622,5 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(MALVA, gTrainerPalette_Malva),
     TRAINER_PAL(SKIIER, gTrainerPalette_Skiier),
     TRAINER_PAL(DMCA_RUNT, gTrainerPalette_DmcaRunt),
+    TRAINER_PAL(CHAMPIONS, gTrainerPalette_Champions),
 };

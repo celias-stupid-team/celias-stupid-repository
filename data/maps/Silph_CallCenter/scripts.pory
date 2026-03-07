@@ -27,10 +27,47 @@ script Silph_CallCenter_NPC1 {
 }
 
 script Silph_CallCenter_SlowpoketailMarketingGuy {
+	lock
+	faceplayer
+	if(flag(FLAG_CRASHED_SLOWPOKE_MARKET)) {
+		msgbox(
+		"The secret to marketing is tricking\n"
+		"people into spending money on\l"
+		"shit they don't actually want.\p"
+
+		"I'm contributing so much value to\n"
+		"the world.", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	setflag(FLAG_CRASHED_SLOWPOKE_MARKET)
 	msgbox(
-	"Let's crash the slowpoketail\n"
-	"market.", MSGBOX_NPC)
+	"Looking at the numbers, it seems\n"
+	"our SLOWPOKETAIL market investments\l"
+	"have finally taken off!\p"
+
+	"Now all we gotta do is crash the\n"
+	"market, and we'll be rich!\l"
+	"Nice!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	delay(20)
+	playse(SE_CLICK)
+	waitse
+	msgbox(
+	"Aaaand done!\n"
+	"{PAUSE 30}The value has now sunk to zero!", MSGBOX_DEFAULT)
+	closemessage
+	faceplayer
+	delay(20)
+	msgbox(
+	"Now, what do you think we should\n"
+	"market next?\l"
+	"It's gotta be something worthless.", MSGBOX_DEFAULT)
+	release
 }
 
 
@@ -112,7 +149,7 @@ script Silph_TourTrash {
 }
 script Silph_WallSign {
 	msgbox(
-	"Trash with note placeholder\n"
+	"Sign with note placeholder\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -129,6 +166,7 @@ script Silph_BathroomCall {
 	addobject(LOCALID_BATHROOM_GUY)
 	if(var(VAR_TEMP_4) == 53) {
 		applymovement(LOCALID_BATHROOM_GUY, moves(
+			set_visible
 			walk_faster_down * 2
 			walk_faster_right * 2
 			walk_faster_down * 7
@@ -137,6 +175,7 @@ script Silph_BathroomCall {
 		))
 	} else {
 		applymovement(LOCALID_BATHROOM_GUY, moves(
+			set_visible
 			walk_faster_down * 2
 			walk_faster_right
 			walk_faster_down * 7
@@ -185,7 +224,7 @@ script Silph_LookGirl {
 		closemessage
 		switch(var(VAR_FACING)) {
 			case DIR_SOUTH:
-                    subvar(VAR_TEMP_5, 1)
+                    addvar(VAR_TEMP_5, 1)
 					applymovement(VAR_LAST_TALKED, moves(
 						face_up
 						lock_facing_direction
@@ -194,7 +233,7 @@ script Silph_LookGirl {
 					waitmovement(0)
 					break
 				default:
-                    addvar(VAR_TEMP_5, 1)
+                    subvar(VAR_TEMP_5, 1)
 					applymovement(VAR_LAST_TALKED, moves(
 						face_down
 						lock_facing_direction
@@ -210,22 +249,74 @@ script Silph_LookGirl {
 			lock_facing_direction
 			walk_fast_up * 7
 		))
-		removeobject(VAR_LAST_TALKED)
+		setflag(FLAG_SENT_SILPH_LOOK_GIRL)
 		waitmovement(0)
+		setvar(VAR_SILPH_LOOK_GIRL, 1)
+		removeobject(VAR_LAST_TALKED)
+		
+	}
+	if(var(VAR_TEMP_5) == 24) {
+		delay(20)
+		applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
+			walk_in_place_right * 2
+		))
+		waitmovement(0)
+		delay(10)
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		msgbox(
+		"I'm a CHUCKSTER!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		applymovement(VAR_LAST_TALKED, moves(
+			face_up
+			lock_facing_direction
+			walk_slow_down
+			delay_16 * 2
+			walk_fast_up * 2
+			jump_2_up
+			delay_16
+			unlock_facing_direction
+			face_down
+		))
+		applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
+			face_up
+			lock_facing_direction
+			walk_slow_down
+			delay_16 * 2
+			walk_fast_up * 2
+			face_up
+		))
+		waitmovement(LOCALID_SILPH_LOOK_CHUCKSTER)
+		playse(SE_LEDGE)
+		waitmovement(VAR_LAST_TALKED)
+		applymovement(LOCALID_PLAYER, moves(
+			face_up
+		))
+		applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
+			unlock_facing_direction
+			walk_down
+			face_right
+		))
+		waitmovement(LOCALID_SILPH_LOOK_CHUCKSTER)
+		setvar(VAR_TEMP_5, 21)
+
 	}
     copyobjectxytoperm(VAR_LAST_TALKED)
 	release
 }
 
 script Silph_MovieWatcher {
+	lock
 	msgbox(
-	"other person idk\n"
-	"", MSGBOX_NPC)
+	"Ahh…\n"
+	"Movie day is always my favorite!", MSGBOX_DEFAULT)
+	release
 }
 
 script Silph_Television {
 	msgbox(
-	"(something) and You!{PAUSE 30}\n"
+	"Massive Tax Fraud and You!{PAUSE 30}\n"
 	"A SILPH CO service announcement.", MSGBOX_SIGN)
 
 }

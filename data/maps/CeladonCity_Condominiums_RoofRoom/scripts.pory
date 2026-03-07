@@ -255,7 +255,7 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_EeveeBall {
 
 script CeladonCity_Condominiums_RoofRoom_EventScript_BlackBelt {
 	lock
-	textcolor(NPC_TEXT_COLOR_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	switch(var(VAR_EEVEE_COUNT)) {
 		case 0: 
 			switch(var(VAR_STOLE_AN_EEVEE)) { // Before and after first eevee stolen

@@ -128,6 +128,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_SILPH_LOOK_GIRL_CALLCENTER",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
       "x": 36,
@@ -138,7 +139,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Silph_LookGirl",
       "flag": "FLAG_SENT_SILPH_LOOK_GIRL"
     },
     {
@@ -216,7 +217,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
       "x": 45,
-      "y": 23,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -230,7 +231,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
       "x": 47,
-      "y": 21,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -243,12 +244,27 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 48,
-      "y": 23,
+      "x": 49,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route15_Chuckster",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_SILPH_LOOK_CHUCKSTER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
+      "x": 35,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route15_Chuckster",
@@ -258,8 +274,8 @@
   "warp_events": [
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_HUB",
-      "x": 53,
-      "y": 11,
+      "x": 47,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_CALLCENTER"
@@ -274,8 +290,8 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_BACKROOMS1",
-      "x": 32,
-      "y": 24,
+      "x": 53,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_2F",
       "dest_warp_id": "5"
@@ -401,6 +417,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Silph_WallSign"
+    },
+    {
+      "type": "sign",
+      "x": 43,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_Television"
     }
   ]
 }

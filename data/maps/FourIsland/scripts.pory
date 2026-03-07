@@ -158,6 +158,17 @@ FourIsland_EventScript_LoreleisHouseSign::
 script FourIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_FOUR_ISLAND)
 	setbench(BENCH_FOUR_ISLAND)
+	setflag(FLAG_TEMP_1)
+	if(var(VAR_FOUR_ISLAND_LASS) > 1) {
+		clearflag(FLAG_TEMP_1)
+	}
+}
+
+script FourIsland_GroundLass {
+	msgbox(
+	"{ASTERISK}"
+	"muffled cries of Don't Look "
+	"At Me{ASTERISK}", MSGBOX_SIGN)
 }
 
 
@@ -614,7 +625,7 @@ script FourIsland_HumansFuckPokemon {
 script FourIsland_Bookshelf {
 	msgbox(
 	"My Wife is a WHAT?\n"
-	"{PAUSE 30}Chapter 3\p"
+	"{PAUSE 30}Chapter three\p"
 
 	"I was neither a murder suspect, nor\n"
 	"a-… … …", MSGBOX_SIGN)
@@ -805,7 +816,7 @@ script FourIsland_LassAttack {
 	//battle
 	trainerbattle_no_intro(TRAINER_FOUR_ISLAND_LASS, "Huff…")
 	closemessage
-	delay(60)
+	delay(10)
 	closemessage
 	msgbox(
 	"Say, how do you get to the\n"

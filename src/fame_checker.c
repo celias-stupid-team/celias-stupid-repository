@@ -389,7 +389,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_BATTLE_GIRL,
     OBJ_EVENT_GFX_ROCK_SMASH_ROCK,
     OBJ_EVENT_GFX_WOMAN_2,
-    OBJ_EVENT_GFX_FAT_MAN,
+    OBJ_EVENT_GFX_CAPTAIN,
     // Great Bay
     OBJ_EVENT_GFX_SCIENTIST,
     OBJ_EVENT_GFX_NEW_NEW_GUZMA,
@@ -1608,7 +1608,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(DexScreen_GetSetPokedexFlag(SPECIES_POKEMON_GUN, FLAG_GET_CAUGHT, TRUE)) //Gun
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ZUBAT, FLAG_GET_CAUGHT, TRUE)) //Gun
                         isQuestCompleted = TRUE;
                     break;
             }

@@ -40,7 +40,7 @@ script SSAnne_1F_Corridor_JumpLeft {
 
 script SSAnne_TheseusRoom {
 	msgbox(
-	"THESEUS'S ROOM\n"
+	"Room of THESEUS\n"
 	"", MSGBOX_SIGN)
 
 }

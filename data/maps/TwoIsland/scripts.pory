@@ -34,21 +34,21 @@ TwoIsland_EventScript_SetShopStateDefault::
 	end
 
 TwoIsland_EventScript_SetShopInitial::
-	setvar VAR_CSR_DUMMY_16, 1
+	
 	return
 
 TwoIsland_EventScript_SetShopExpanded1::
-	setvar VAR_CSR_DUMMY_16, 2
+	
 	clearflag FLAG_HIDE_TWO_ISLAND_WOMAN
 	return
 
 TwoIsland_EventScript_SetShopExpanded2::
-	setvar VAR_CSR_DUMMY_16, 3
+	
 	clearflag FLAG_HIDE_TWO_ISLAND_BEAUTY
 	return
 
 TwoIsland_EventScript_SetShopExpanded3::
-	setvar VAR_CSR_DUMMY_16, 4
+	
 	clearflag FLAG_HIDE_TWO_ISLAND_SUPER_NERD
 	return
 
@@ -56,9 +56,6 @@ TwoIsland_EventScript_Clerk::
 	goto_if_questlog EventScript_ReleaseEnd
 	lock
 	faceplayer
-	goto_if_eq VAR_CSR_DUMMY_16, 4, TwoIsland_EventScript_ClerkShopExpanded3
-	goto_if_eq VAR_CSR_DUMMY_16, 3, TwoIsland_EventScript_ClerkShopExpanded2
-	goto_if_eq VAR_CSR_DUMMY_16, 2, TwoIsland_EventScript_ClerkShopExpanded1
 	goto TwoIsland_EventScript_ClerkShopInitial
 	end
 
@@ -97,9 +94,7 @@ TwoIsland_EventScript_ClerkShopInitial::
 TwoIsland_EventScript_ClerkShopSkipIntro::
 	message Text_MayIHelpYou
 	waitmessage
-	goto_if_eq VAR_CSR_DUMMY_16, 4, TwoIsland_EventScript_ShopExpanded3
-	goto_if_eq VAR_CSR_DUMMY_16, 3, TwoIsland_EventScript_ShopExpanded2
-	goto_if_eq VAR_CSR_DUMMY_16, 2, TwoIsland_EventScript_ShopExpanded1
+	
 	goto TwoIsland_EventScript_ShopInitial
 	end
 
@@ -1459,4 +1454,8 @@ script TwoIsland_LivingSans {
 			"maybe i should capitalize on the\n"
 			"market", MSGBOX_DEFAULT)
 	}
+}
+
+script TwoIsland_Bookshelf {
+	msgbox(Text_SecretLifeMother3, MSGBOX_SIGN)
 }

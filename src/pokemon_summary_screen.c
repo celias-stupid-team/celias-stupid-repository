@@ -186,7 +186,7 @@ struct PokemonSummaryScreenData
         u8 ALIGNED(4) expPointsStrBuf[9];
         u8 ALIGNED(4) expToNextLevelStrBuf[9];
 
-        u8 ALIGNED(4) abilityNameStrBuf[13];
+        u8 ALIGNED(4) abilityNameStrBuf[ABILITY_NAME_LENGTH + 1];
         u8 ALIGNED(4) abilityDescStrBuf[52];
     } summary;
 
@@ -2099,7 +2099,7 @@ static void BufferMonInfo(void)
     if (dexNum + 1 == 0xffff)
         StringCopy(sMonSummaryScreen->summary.dexNumStrBuf, gText_PokeSum_DexNoUnknown);
     else
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.dexNumStrBuf, dexNum, STR_CONV_MODE_LEADING_ZEROS, 3);
+        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.dexNumStrBuf, dexNum, STR_CONV_MODE_LEADING_ZEROS, 4);
 
     sMonSkillsPrinterXpos->unk00 = 0;
 
@@ -2158,6 +2158,7 @@ static void BufferMonInfo(void)
 #define GetNumberRightAlign63(x) (63 - StringLength((x)) * 6)
 #define GetNumberRightAlign27(x) (27 - StringLength((x)) * 6)
 
+static const u8 RevealingLightAbilityName[] = _("{FONT_SMALL}REVEALING LI");
 static void BufferMonSkills(void)
 {
     u8 tempStr[20];

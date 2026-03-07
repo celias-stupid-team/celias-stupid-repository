@@ -651,6 +651,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Fridge"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SilphCo_PotionEraser"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SilphCo_PotionEraser"
     }
   ]
 }

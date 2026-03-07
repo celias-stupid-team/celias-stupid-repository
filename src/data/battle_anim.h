@@ -1347,6 +1347,14 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_OneProtect, 0x0800, ANIM_TAG_ONE_PROTECT},
     {gBattleAnimSpriteGfx_H, 0x0800, ANIM_TAG_H},
     {gBattleAnimSpriteGfx_Bullet, 0x0080, ANIM_TAG_BULLET},
+    {gBattleAnimSpriteGfx_Steamroller, 0x2000, ANIM_TAG_STEAMROLLER},
+    {gBattleAnimSpriteGfx_Bulldozer, 0x2000, ANIM_TAG_BULLDOZER},
+    {gBattleAnimSpriteGfx_RotomDescend, 0x2000, ANIM_TAG_ROTOM_DESCEND},
+    {gBattleAnimSpriteGfx_Exodia, 0x0A00, ANIM_TAG_EXODIA},
+    {gBattleAnimSpriteGfx_ThrownKrabby, 0x0200, ANIM_TAG_THROWN_KRABBY},
+    {gBattleAnimSpriteGfx_ThrownForretress, 0x0200, ANIM_TAG_THROWN_FORRETRESS},
+    {gBattleAnimSpriteGfx_Shine, 0x1600, ANIM_TAG_SHINE},
+    {gBattleAnimSpriteGfx_SummoningCircle, 0x1200, ANIM_TAG_SUMMONING_CIRCLE},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1688,6 +1696,14 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_OneProtect, ANIM_TAG_ONE_PROTECT},
     {gBattleAnimSpritePal_H, ANIM_TAG_H},
     {gBattleAnimSpritePal_Bullet, ANIM_TAG_BULLET},
+    {gBattleAnimSpritePal_Steamroller, ANIM_TAG_STEAMROLLER},
+    {gBattleAnimSpritePal_Bulldozer, ANIM_TAG_BULLDOZER},
+    {gBattleAnimSpritePal_RotomDescend, ANIM_TAG_ROTOM_DESCEND},
+    {gBattleAnimSpritePal_Exodia, ANIM_TAG_EXODIA},
+    {gBattleAnimSpritePal_ThrownKrabby, ANIM_TAG_THROWN_KRABBY},
+    {gBattleAnimSpritePal_ThrownForretress, ANIM_TAG_THROWN_FORRETRESS},
+    {gBattleAnimSpritePal_Shine, ANIM_TAG_SHINE},
+    {gBattleAnimSpritePal_SummoningCircle, ANIM_TAG_SUMMONING_CIRCLE},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

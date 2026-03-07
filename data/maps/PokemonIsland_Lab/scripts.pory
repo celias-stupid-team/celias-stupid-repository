@@ -352,7 +352,12 @@ script PokemonIslandLab_Todd {
 
         "Whatever's waiting back there,{PAUSE 20}\n"
         "it's for you to find.", MSGBOX_DEFAULT)
-        //special(RemoveCameraObject)
+        closemessage
+        applymovement(LOCALID_CAMERA, moves(
+            walk_down
+        ))
+        waitmovement(0)
+        special(RemoveCameraObject)
         setflag(FLAG_TURNED_IN_POKEMON_SIGNS)
         release
         end
@@ -452,7 +457,7 @@ script PokemonIslandLab_Dad {
 	"What are you doing out here?\p"
 
 	"I'm enjoying being a model!\n"
-	"something something\p"
+	"Watch me strike a pose!\p"
 
 	"Well, never mind that.\n"
 	"Why don't you take a rest?", MSGBOX_DEFAULT)

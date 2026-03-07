@@ -427,9 +427,9 @@ struct PokemonStorageSystemData
     u16 *displayMonTilePtr;
     struct Sprite *displayMonSprite;
     u16 displayMonPalBuffer[0x20];
-    u8 unusedBuffer1[0x40];
+    u8 monFormPalBuffer[0x60]; // palette buffer for additional forms (e.g. Castform has 5 × 32 = 160 bytes total, displayMonPalBuffer holds the first 64)
     u8 tileBuffer[MON_PIC_SIZE * MAX_MON_PIC_FRAMES];
-    u8 unusedBuffer2[0x1800];
+    u8 unusedBuffer2[0x17E0];
     u8 itemIconBuffer[0x200];
     u8 unusedBuffer3[0x600];
     u8 wallpaperBgTilemapBuffer[0x1000];
@@ -567,5 +567,6 @@ void DestroyBoxMonIconAtPosition(u8 boxPosition);
 void SetBoxMonIconObjMode(u8 cursorPos, u8 objMode);
 void SetPartyMonIconObjMode(u8 cursorPos, u8 objMode);
 void Task_EvolvePorygon(void);
+
 
 #endif //GUARD_POKEMON_STORAGE_SYSTEM_INTERNAL_H

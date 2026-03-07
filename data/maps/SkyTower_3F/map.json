@@ -180,7 +180,7 @@
   "warp_events": [
     {
       "x": 50,
-      "y": 33,
+      "y": 34,
       "elevation": 0,
       "dest_map": "MAP_NAVEL_ROCK_SUMMIT_PATH_2F",
       "dest_warp_id": "0"

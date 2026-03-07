@@ -2577,8 +2577,16 @@ static void BattleIntroDrawTrainersOrMonsSprites(void)
         {
             if (GetBattlerPosition(gActiveBattler) == B_POSITION_OPPONENT_LEFT)
             {
-                BtlController_EmitDrawTrainerPic(BUFFER_A);
-                MarkBattlerForControllerExec(gActiveBattler);
+                if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+                {
+                    BtlController_EmitLoadMonSprite(0);
+                    MarkBattlerForControllerExec(gActiveBattler);
+                }
+                else
+                {
+                    BtlController_EmitDrawTrainerPic(BUFFER_A);
+                    MarkBattlerForControllerExec(gActiveBattler);
+                }
             }
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT
                 && !(gBattleTypeFlags & (BATTLE_TYPE_EREADER_TRAINER
@@ -2647,9 +2655,12 @@ static void BattleIntroDrawPartySummaryScreens(void)
                 hpStatus[i].status = GetMonData(&gEnemyParty[i], MON_DATA_STATUS);
             }
         }
-        gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-        BtlController_EmitDrawPartyStatusSummary(BUFFER_A, hpStatus, PARTY_SUMM_SKIP_DRAW_DELAY);
-        MarkBattlerForControllerExec(gActiveBattler);
+        if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+        {
+            gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            BtlController_EmitDrawPartyStatusSummary(BUFFER_A, hpStatus, PARTY_SUMM_SKIP_DRAW_DELAY);
+            MarkBattlerForControllerExec(gActiveBattler);
+        }
 
         for (i = 0; i < PARTY_SIZE; i++)
         {
@@ -2740,8 +2751,11 @@ static void BattleIntroOpponentSendsOutMonAnimation(void)
         {
             if (GetBattlerPosition(gActiveBattler) == B_POSITION_OPPONENT_LEFT)
             {
-                BtlController_EmitIntroTrainerBallThrow(0);
-                MarkBattlerForControllerExec(gActiveBattler);
+                if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+                {
+                    BtlController_EmitIntroTrainerBallThrow(0);
+                    MarkBattlerForControllerExec(gActiveBattler);
+                }
             }
             if (gBattleTypeFlags & BATTLE_TYPE_MULTI && GetBattlerPosition(gActiveBattler) == B_POSITION_OPPONENT_RIGHT)
             {
@@ -3102,6 +3116,11 @@ u8 IsRunningFromBattleImpossible(void)
         gBattleCommunication[MULTISTRING_CHOOSER] = 1;
         return BATTLE_RUN_FORBIDDEN;
     }
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CANT_ESCAPE_FINAL;
+        return BATTLE_RUN_FORBIDDEN;
+    }
     return BATTLE_RUN_SUCCESS;
 }
 
@@ -3300,6 +3319,7 @@ static void HandleTurnActionSelectionState(void)
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
                  && !(gBattleTypeFlags & BATTLE_TYPE_LINK)
                  && !(gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
+                 && !(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
                  && gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)
                 {
                     gSelectionBattleScripts[gActiveBattler] = BattleScript_AskIfWantsToForfeitMatch;
@@ -3317,15 +3337,6 @@ static void HandleTurnActionSelectionState(void)
                     *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
                     return;
                 }
-                /* stupid ass shit condition below. No idea why I added this tbh //wiz1989
-                else if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
-                {
-                    gSelectionBattleScripts[gActiveBattler] = BattleScript_AskIfWantsToForfeitMatch;
-                    gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT;
-                    *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
-                    *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
-                    return;
-                }*/
                 else
                 {
                     gBattleCommunication[gActiveBattler]++;

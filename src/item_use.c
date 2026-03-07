@@ -345,8 +345,16 @@ void FieldUseFunc_Bike(u8 taskId)
 
 static void ItemUseOnFieldCB_Bicycle(u8 taskId)
 {
-    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
-        PlaySE(SE_BIKE_BELL);
+    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE)) {
+            if(gSpecialVar_ItemId == ITEM_SHINY_BIKE) {
+                FlagSet(FLAG_SYS_ON_SHINY_BIKE);
+            } else {
+                FlagClear(FLAG_SYS_ON_SHINY_BIKE);
+            }
+            PlaySE(SE_BIKE_BELL);
+        
+    }
+        
     GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE);
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
     UnlockPlayerFieldControls();
@@ -810,6 +818,12 @@ bool8 CanUseEscapeRopeOnCurrMap(void)
                 return TRUE;
 
         }
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_3F) &&
+            (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_3F))) {
+                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 2, 22, 27);
+                return TRUE;
+
+        }
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_2F) &&
             (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_2F))) {
                 SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_2F), MAP_NUM(MAP_SKY_TOWER_2F), 2, 22, 27);
@@ -1067,12 +1081,12 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
     CopyPlayerPartyMonToBattleData(0, 0);
 
     gPlayerPartyCount = 1;
-    //reset party data
-    // ResetPartyData(RESET_OPTION_WITHOUT_PARTY_SLOTS);
 
     // make initial Koraidon sprite invisible
     gBattleSpritesDataPtr->battlerData[gBattlerInMenuId].invisible = TRUE;
     gBattleStruct->switchInAfterItemUse = TRUE;
+    //reset for battle string
+    gTemporaryBattlePlayerText = FALSE;
 
     Bag_BeginCloseWin0Animation();
     ItemMenu_StartFadeToExitCallback(taskId);
@@ -1507,19 +1521,18 @@ void CurePorygonVirus()
     bool8 shinyness;
 
     newSpecies = SPECIES_PORYGON;
-
     mon = &gPlayerParty[slot];
 
     otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
     GetMonNickname(mon, nickname);
     newPersonality = Random32();
     shinyness = GetMonData(mon, MON_DATA_CSR_SHINY);
-
+    oldSpecies = GetMonData(mon, MON_DATA_SPECIES, NULL);
 
     // force the mon to be shiny
-    if(shinyness) {
+    if(shinyness)
+    {
         newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-
     }
     
     // if player has nicknamed their nidotran, don't overwrite it
@@ -1550,29 +1563,29 @@ void RemoveShoesFromToedy()
     s16 slot = gSpecialVar_Result;
     bool32 thisIsTrue = TRUE;
 
-        newSpecies = SPECIES_TENTACOOL;
+    newSpecies = SPECIES_TENTACOOL;
+    mon = &gPlayerParty[slot];
 
-        mon = &gPlayerParty[slot];
+    otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+    oldSpecies = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    GetMonNickname(mon, nickname);
+    newPersonality = Random32();
 
-        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
-        GetMonNickname(mon, nickname);
-        newPersonality = Random32();
-
-        // force the mon to be shiny
-        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-        
-        // if player has nicknamed their nidotran, don't overwrite it
-        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
-        {
-            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
-        }
-        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
-        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
-        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
-        UpdateMonPersonality(&mon->box, newPersonality);
-        CalculateMonStats(mon);
+    // force the mon to be shiny
+    newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
     
+    // if player has nicknamed their nidotran, don't overwrite it
+    if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+    {
+        SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+    }
+    SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+    SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    UpdateMonPersonality(&mon->box, newPersonality);
+    CalculateMonStats(mon);
 }
+
 void ZygardeSwitcheroo()
 {
     u32 i, j;
@@ -1583,28 +1596,27 @@ void ZygardeSwitcheroo()
     s16 slot = gSpecialVar_Result;
     bool32 thisIsTrue = TRUE;
 
-        newSpecies = SPECIES_ZYGARDE;
+    newSpecies = SPECIES_ZYGARDE;
+    mon = &gPlayerParty[slot];
 
-        mon = &gPlayerParty[slot];
+    otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+    oldSpecies = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    GetMonNickname(mon, nickname);
+    newPersonality = Random32();
 
-        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
-        GetMonNickname(mon, nickname);
-        newPersonality = Random32();
-
-        // force the mon to be shiny
-        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
-        
-        // if player has nicknamed their nidotran, don't overwrite it
-        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
-        {
-            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
-        }
-        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
-        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
-        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
-        UpdateMonPersonality(&mon->box, newPersonality);
-        CalculateMonStats(mon);
+    // force the mon to be shiny
+    newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
     
+    // if player has nicknamed their nidotran, don't overwrite it
+    if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+    {
+        SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+    }
+    SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+    SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    UpdateMonPersonality(&mon->box, newPersonality);
+    CalculateMonStats(mon);
 }
 
 static const u16 sNidotranCounterparts[6][2] = {

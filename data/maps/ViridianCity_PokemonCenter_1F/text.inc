@@ -2,7 +2,7 @@ ViridianCity_PokemonCenter_1F_Text_FeelFreeToUsePC::
     .string "Please feel free to use that PC in\n"
     .string "the corner.\p"
     .string "I'm sure nobody will install a\n"
-    .string "virus on one!$"
+    .string "virus on it!$"
 
 ViridianCity_PokemonCenter_1F_Text_PokeCenterInEveryTown::
     .string "There's a POKéMON CENTER in every\n"
