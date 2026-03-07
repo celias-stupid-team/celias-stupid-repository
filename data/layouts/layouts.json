@@ -773,7 +773,7 @@
       "id": "LAYOUT_LAVENDER_TOWN",
       "name": "LavenderTown_Layout",
       "width": 79,
-      "height": 28,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
