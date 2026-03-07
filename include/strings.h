@@ -429,6 +429,8 @@ extern const u8 gText_PkmnAlreadyKnows[];
 extern const u8 gText_PkmnLearnedMove3[];
 extern const u8 gText_WhichMoveToForget[];
 extern const u8 gText_12PoofForgotMove[];
+extern const u8 gText_12PoofSoftreset[];
+
 extern const u8 gText_StopLearningMove2[];
 extern const u8 gText_MoveNotLearned[];
 extern const u8 gText_PkmnElevatedToLvVar2[];

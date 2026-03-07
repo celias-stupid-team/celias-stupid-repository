@@ -8987,9 +8987,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_SYSTEM32] =
     {
-        .effect = EFFECT_HIT,
-        .power = 1,
-        .type = TYPE_WEIRD,
+        .effect = EFFECT_REFRESH,
+        .power = 0,
+        .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
