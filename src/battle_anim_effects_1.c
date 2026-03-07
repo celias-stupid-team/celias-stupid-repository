@@ -162,6 +162,7 @@ static void AnimShadowShield(struct Sprite *);
 static void AnimShadowShield_Step(struct Sprite *);
 static void AnimShine(struct Sprite *);
 static void AnimShine_Wait(struct Sprite *);
+static void AnimTask_PushDownAndShake_Step(u8 taskId);
 
 static const u8 sUnused[] = {2, 4, 1, 3};
 
@@ -6525,3 +6526,71 @@ static void AnimTauntFinger_Step2(struct Sprite* sprite)
         DestroyAnimSprite(sprite);
 }
 
+void AnimTask_PushDownAndShake(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[0] = gBattleAnimArgs[0]; // battler
+    task->data[1] = gBattleAnimArgs[1]; // push distance
+    task->data[2] = gBattleAnimArgs[2]; // push duration
+    task->data[3] = gBattleAnimArgs[3]; // amplitude
+    task->data[4] = gBattleAnimArgs[4]; // shake count
+    task->data[5] = gBattleAnimArgs[5]; // frames per half shake
+
+    task->data[6] = GetAnimBattlerSpriteId(task->data[0]);
+
+    task->data[7] = 0; // frame counter
+    task->data[8] = 0; // state
+    task->data[9] = 0; // shake timer
+    task->data[10] = 0; // shake direction
+
+    gTasks[taskId].func = AnimTask_PushDownAndShake_Step;
+}
+
+static void AnimTask_PushDownAndShake_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite = &gSprites[task->data[6]];
+
+    switch (task->data[8])
+    {
+    // Push downward
+    case 0:
+        if (task->data[7] < task->data[2])
+        {
+            sprite->y2 = (task->data[1] * task->data[7]) / task->data[2];
+            task->data[7]++;
+        }
+        else
+        {
+            sprite->y2 = task->data[1];
+            task->data[7] = 0;
+            task->data[8] = 1;
+        }
+        break;
+
+    // Vertical vibration
+    case 1:
+        if (task->data[4] == 0)
+        {
+            sprite->y2 = 0;
+            DestroyAnimVisualTask(taskId);
+            return;
+        }
+
+        if (++task->data[9] >= task->data[5])
+        {
+            task->data[9] = 0;
+            task->data[10] ^= 1;
+
+            if (task->data[10])
+                sprite->y2 = task->data[1] + task->data[3];
+            else
+            {
+                sprite->y2 = task->data[1] - task->data[3];
+                task->data[4]--;
+            }
+        }
+        break;
+    }
+}
