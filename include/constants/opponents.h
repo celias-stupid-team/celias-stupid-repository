@@ -62,11 +62,11 @@
 #define TRAINER_COLLECTOR                         57
 #define TRAINER_WALLY                             58
 #define TRAINER_BRENDAN                           59
-#define TRAINER_CSR_MT_MOON_END_LASS 60
-#define TRAINER_ABSOL_FISHER 61
+#define TRAINER_CSR_MT_MOON_END_LASS              60
+#define TRAINER_ABSOL_FISHER                      61
 #define TRAINER_MAY                               62
-#define TRAINER_YAMASK 63
-#define TRAINER_CSR_DUMMY_4 64
+#define TRAINER_YAMASK                            63
+#define TRAINER_CSR_DUMMY_4                       64
 #define TRAINER_RS_PKMN_BREEDER_M                 65
 #define TRAINER_RS_PKMN_BREEDER_F                 66
 #define TRAINER_RS_PKMN_RANGER_M                  67
@@ -720,7 +720,7 @@
 #define TRAINER_AVGN_2 714
 #define TRAINER_AVGN_3 715
 #define TRAINER_AVGN_4 716
-#define TRAINER_CSR_DUMMY_148 717
+#define TRAINER_Y_ELTAL 717
 #define TRAINER_CSR_DUMMY_149 718
 #define TRAINER_CSR_DUMMY_150 719
 #define TRAINER_CSR_DUMMY_151 720

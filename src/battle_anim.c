@@ -110,6 +110,7 @@ static void Cmd_compare_var_to_var(void);
 static void Cmd_setflag(void);
 static void Cmd_clearflag(void);
 static void Cmd_debugprintf(void);
+static void Cmd_addletterv(void);
 
 #include "data/battle_anim.h"
 
@@ -169,6 +170,7 @@ static void (*const sScriptCmdTable[])(void) =
     Cmd_setflag,              // 0x33
 	Cmd_clearflag,            // 0x34
     Cmd_debugprintf,          // 0x35
+    Cmd_addletterv,           // 0x36
 };
 
 static const u8 sScriptConditionTable[6][3] =
@@ -1827,4 +1829,45 @@ static void Cmd_debugprintf(void)
     Get_String_to_gStringVar1(stringPtr, limit);
     DebugPrintf("\nScript Debug: %S", gStringVar1);
     sBattleAnimScriptPtr += 4;
+}
+
+static const u8 sYveltal[] = _("YVELTAL");
+
+// adds the letter V to Yveltal
+static void Cmd_addletterv(void)
+{
+    u8 animBattler;
+    u8 battlerId;
+    const u8 *nickname;
+    struct Pokemon *mon;
+
+    sBattleAnimScriptPtr++;
+    animBattler = sBattleAnimScriptPtr[0];
+    nickname = sYveltal;
+
+    switch (animBattler)
+    {
+    default:
+    case ANIM_ATTACKER:
+        battlerId = gBattleAnimAttacker;
+        break;
+    case ANIM_TARGET:
+        battlerId = gBattleAnimTarget;
+        break;
+    case ANIM_ATK_PARTNER:
+        battlerId = BATTLE_PARTNER(gBattleAnimAttacker);
+        break;
+    case ANIM_DEF_PARTNER:
+        battlerId = BATTLE_PARTNER(gBattleAnimTarget);
+        break;
+    }
+
+    if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+        mon = &gPlayerParty[gBattlerPartyIndexes[battlerId]];
+    else
+        mon = &gEnemyParty[gBattlerPartyIndexes[battlerId]];
+
+    SetMonData(mon, MON_DATA_NICKNAME, nickname);
+    UpdateNickInHealthbox(gHealthboxSpriteIds[battlerId], mon);
+    sBattleAnimScriptPtr++;
 }

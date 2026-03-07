@@ -334,6 +334,7 @@ static const u8 sText_PkmnFledUsingIts[] = _("{PLAY_SE SE_FLEE}{B_ATK_NAME_WITH_
 static const u8 sText_PkmnFledUsing[] = _("{PLAY_SE SE_FLEE}{B_ATK_NAME_WITH_PREFIX} fled\nusing {B_ATK_ABILITY}!\p");
 static const u8 sText_WildPkmnFled[] = _("{PLAY_SE SE_FLEE}Wild {B_BUFF1} fled!");
 static const u8 sText_PlayerDefeatedLinkTrainer[] = _("Player defeated\n{B_LINK_OPPONENT1_NAME}!");
+static const u8 sText_PlayerDefeatedTrainerY_eltal[] = _("Player defeated\nBEAUTY VICKY!");
 static const u8 sText_TwoLinkTrainersDefeated[] = _("Player beat {B_LINK_OPPONENT1_NAME}\nand {B_LINK_OPPONENT2_NAME}!");
 static const u8 sText_PlayerLostAgainstLinkTrainer[] = _("{B_PLAYER_NAME} lost against\n{B_LINK_OPPONENT1_NAME}!");
 static const u8 sText_PlayerLostToTwo[] = _("{B_PLAYER_NAME} lost to {B_LINK_OPPONENT1_NAME}\nand {B_LINK_OPPONENT2_NAME}!");
@@ -2163,6 +2164,10 @@ void BufferStringBattle(u16 stringId)
         {
             gDisplayedStringBattle[0] = EOS;
             return;
+        }
+        else if (stringId == STRINGID_PLAYERDEFEATEDTRAINER1 && gTrainerBattleOpponent_A == TRAINER_Y_ELTAL && FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE)) // special case for YVELTAL battle
+        {
+            stringPtr = sText_PlayerDefeatedTrainerY_eltal;
         }
         else
         {

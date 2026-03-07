@@ -606,7 +606,7 @@
 #define FLAG_SEAFOAM_B1F_CAPTAIN               0x228
 #define FLAG_SHINY_BIDOOF               0x229
 #define FLAG_READY_FOR_COPYCAT_VOUCHER               0x22A
-#define FLAG_0x22B               0x22B
+#define FLAG_CSR_V_CREATE_IN_BATTLE               0x22B
 #define FLAG_TWO_ISLAND_BOMB_PRESENT               0x22C
 #define FLAG_CAUGHT_MR_FUJI               0x22D
 #define FLAG_CAUGHT_VERMILION_SEAL               0x22E

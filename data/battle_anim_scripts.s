@@ -1059,6 +1059,7 @@ gBattleAnims_Moves::
 	.4byte Move_HEART_STAMP
 	.4byte Move_DRAGON
 	.4byte Move_TECHNO_BLAST
+	.4byte Move_OBLI_ION_WING
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -12375,6 +12376,7 @@ Move_V_CREATE:
 	delay 2
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0x0, 0x5
 	waitforvisualfinish
+	addletterv ANIM_TARGET
 	clearmonbg ANIM_DEF_PARTNER
 	call UnsetPsychicBg
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 0, RGB_WHITEALPHA
@@ -18974,6 +18976,7 @@ Move_BLAST_LEARN:
 Move_HEART_STAMP:
 Move_DRAGON:
 Move_TECHNO_BLAST:
+Move_OBLI_ION_WING:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8

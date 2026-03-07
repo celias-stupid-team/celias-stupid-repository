@@ -2015,6 +2015,9 @@ static void Cmd_attackanimation(void)
     if (gBattleControllerExecFlags)
         return;
 
+    if (gCurrentMove == MOVE_V_CREATE)
+        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
+
     if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE && gCurrentMove != MOVE_SUBSTITUTE_TEACHER && gCurrentMove != MOVE_SUBSTITUTE_2))
     {
         BattleScriptPush(gBattlescriptCurrInstr + 1);

@@ -7491,7 +7491,7 @@ static const struct LevelUpMove sXerneasLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sYveltalLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_OBLI_ION_WING),
 	LEVEL_UP_END
 };
 

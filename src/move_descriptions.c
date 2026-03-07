@@ -1029,7 +1029,7 @@ const u8 gMoveDescription_blastlearn[] = _("Brain blast!");
 const u8 gMoveDescription_heartstamp[] = _("This POKéMON\nmight be useful\nif you stick it\non a letter.");
 const u8 gMoveDescription_dragon[] = _("Drag on deez nuts");
 const u8 gMoveDescription_technoblast[] = _("Hyper! Hyper!");
-
+const u8 gMoveDescription_obli_ionwing[] = _("Dummy");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -2068,4 +2068,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_HEART_STAMP     -1 ] = gMoveDescription_heartstamp,
     [MOVE_DRAGON     -1 ] = gMoveDescription_dragon,
     [MOVE_TECHNO_BLAST     -1 ] = gMoveDescription_technoblast,
+    [MOVE_OBLI_ION_WING     -1 ] = gMoveDescription_obli_ionwing,
 };

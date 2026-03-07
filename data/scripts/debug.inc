@@ -94,8 +94,7 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
-	trainerbattle_double TRAINER_CRUSH_KIN_RON_MYA, Route16_Text_LeaIntro, Route16_Text_LeaDefeat, Route16_Text_LeaNotEnoughMons
-	msgbox Route16_Text_LeaPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_single TRAINER_Y_ELTAL, CeladonCity_Gym_Text_KayIntro, CeladonCity_Gym_Text_KayDefeat
 	end
 
 Debug_EventScript_Script_3::
@@ -115,7 +114,7 @@ Debug_EventScript_Script_4::
 	callnative DrawChapterTitle
 	end
 
-Debug_EventScript_Script_5::
+Debug_EventScript_Script_5:: @ directly used in C code
 	end
 
 Debug_EventScript_Script_6::
