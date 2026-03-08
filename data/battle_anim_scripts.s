@@ -1132,6 +1132,7 @@ gBattleAnims_General::
 	.4byte General_DoubleDipHit             @ B_ANIM_DOUBLE_DIP_HIT
 	.4byte General_ChargeTurn               @ B_ANIM_CHARGE_TURN
 	.4byte General_GhostDodge               @ B_ANIM_GHOST_DODGE
+	.4byte General_SlowpokeTransform		@ B_ANIM_SLOWPOKE_TRANSFORM
 
 	.align 2
 gBattleAnims_Special::
@@ -11858,6 +11859,16 @@ General_SeelHoopaTransform:
 	end
 
 General_ZapmolcunoTransform: @ doesn't need an actual transformation since it won't be visible
+	end
+
+General_SlowpokeTransform:
+	monbg ANIM_ATTACKER
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
+	createvisualtask AnimTask_TransformMon, 2, 255
+	waitsound
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
 	end
 
 General_HangedOn:

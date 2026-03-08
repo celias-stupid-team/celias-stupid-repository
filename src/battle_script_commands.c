@@ -4473,7 +4473,8 @@ static void Cmd_playanimation(void)
      || gBattlescriptCurrInstr[2] == B_ANIM_SILPH_SCOPED
      || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE
      || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM
-     || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM)
+     || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM
+     || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM)
     {
         //create Alomomola right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
@@ -4497,6 +4498,13 @@ static void Cmd_playanimation(void)
             gBattleTurnMonFainted = TRUE;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
+        }
+        // create Slowpoke right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM)
+        {
+            u16 species = SPECIES_SLOWPOKE;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
