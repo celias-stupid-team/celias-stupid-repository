@@ -6167,6 +6167,7 @@ static const struct LevelUpMove sMamoswineLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sPorygon_ZLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_BOLTBEAM),
     LEVEL_UP_MOVE(1, MOVE_CONVERSION),
     LEVEL_UP_MOVE(1, MOVE_CONVERSION_2),
     LEVEL_UP_MOVE(1, MOVE_CONVERSION_Z),
