@@ -277,6 +277,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectCollisionCourse        @ EFFECT_COLLISION_COURSE
 	.4byte BattleScript_EffectTechnoBlast            @ EFFECT_TECHNO_BLAST
 	.4byte BattleScript_EffectShellSmash             @ EFFECT_SHELL_SMASH
+	.4byte BattleScript_EffectBanefulBunker          @ EFFECT_BANEFUL_BUNKER
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -1684,6 +1685,7 @@ BattleScript_DoGhostCurse::
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectBanefulBunker::
 BattleScript_EffectSpikyShield::
 BattleScript_EffectProtect::
 BattleScript_EffectEndure::
@@ -5695,3 +5697,12 @@ BattleScript_EffectShellSmashShellder::
 	printstring STRINGID_PKMNSHELLHASBEENBROKEN
 	waitstate
 	goto BattleScript_EffectMementoTryFaint
+
+BattleScript_BanefulBunkerPoison::
+	jumpifabsent BS_ATTACKER, BattleScript_BanefulBunkerRet
+	bicbyte gMoveResultFlags, MOVE_RESULT_NO_EFFECT
+	setmoveeffect MOVE_EFFECT_POISON | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	orbyte gMoveResultFlags, MOVE_RESULT_MISSED
+BattleScript_BanefulBunkerRet::
+	return

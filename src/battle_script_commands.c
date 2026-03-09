@@ -99,7 +99,7 @@
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
-#define DEFENDER_IS_PROTECTED (((gProtectStructs[gBattlerTarget].protected || gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED)) || (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM))
+#define DEFENDER_IS_PROTECTED (((gProtectStructs[gBattlerTarget].protected || gProtectStructs[gBattlerTarget].banefulBunker || gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED)) || (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM))
 
 #define LEVEL_UP_BANNER_START 416
 #define LEVEL_UP_BANNER_END   512
@@ -3285,9 +3285,10 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 gBattlescriptCurrInstr = BattleScript_AtkDown2;
                 break;
             case MOVE_EFFECT_FEINT:
-                if (gProtectStructs[gBattlerTarget].protected || gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD)
+                if (gProtectStructs[gBattlerTarget].protected || gProtectStructs[gBattlerTarget].banefulBunker || gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD)
                 {
                     gProtectStructs[gBattlerTarget].protected = FALSE;
+                    gProtectStructs[gBattlerTarget].banefulBunker = FALSE;
                     gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_SPIKY_SHIELD;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_MoveEffectFeint;
@@ -4751,6 +4752,13 @@ static void Cmd_moveend(void)
                         gBattleMoveDamage = 1;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_SpikyShieldEffect;
+                    effect = TRUE;
+                }
+                if (gProtectStructs[gBattlerTarget].banefulBunker && (gBattleMoves[gCurrentMove].flags & FLAG_MAKES_CONTACT) && CanBePoisoned(gBattlerAttacker, gBattleMons[gBattlerAttacker].ability))
+                {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BanefulBunkerPoison;
                     effect = TRUE;
                 }
             }
@@ -7171,13 +7179,18 @@ static void Cmd_setprotectlike(void)
     {
         if (gBattleMoves[gCurrentMove].effect == EFFECT_PROTECT)
         {
-            gProtectStructs[gBattlerAttacker].protected = 1;
+            gProtectStructs[gBattlerAttacker].protected = TRUE;
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
         }
         if (gBattleMoves[gCurrentMove].effect == EFFECT_SPIKY_SHIELD)
         {
             gSideStatuses[side] |= SIDE_STATUS_SPIKY_SHIELD;
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_TEAM;
+        }
+        if (gBattleMoves[gCurrentMove].effect == EFFECT_BANEFUL_BUNKER)
+        {
+            gProtectStructs[gBattlerAttacker].banefulBunker = TRUE;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
         }
         if (gBattleMoves[gCurrentMove].effect == EFFECT_ENDURE)
         {

@@ -105,5 +105,6 @@ bool32 IsNeutralizingGasOnField(void);
 void TryRestoreHeldItems(void);
 bool32 IsSingleWildRattata(void);
 bool32 IsZapmolcunoOhgiaSpecies(u16 species);
+bool32 CanBePoisoned(u8 battlerTarget, u8 abilityTarget);
 
 #endif // GUARD_BATTLE_UTIL_H

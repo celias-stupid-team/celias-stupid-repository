@@ -3838,3 +3838,17 @@ bool32 IsZapmolcunoOhgiaSpecies(u16 species)
     else
         return FALSE;
 }
+
+bool32 CanBePoisoned(u8 battlerTarget, u8 abilityTarget)
+{
+    if (gBattleMons[battlerTarget].status1 & STATUS1_ANY)
+        return FALSE;
+    if (IS_BATTLER_OF_TYPE(battlerTarget, TYPE_POISON) || IS_BATTLER_OF_TYPE(battlerTarget, TYPE_STEEL))
+        return FALSE;
+    if (abilityTarget == ABILITY_IMMUNITY)
+        return FALSE;
+    if (gSideStatuses[GET_BATTLER_SIDE(battlerTarget)] & SIDE_STATUS_SAFEGUARD)
+        return FALSE;
+
+    return TRUE;
+}

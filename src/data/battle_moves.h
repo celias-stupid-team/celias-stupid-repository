@@ -4937,7 +4937,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_BANEFUL_1NKER] =    {
-        .effect = EFFECT_SPIKY_SHIELD, 
+        .effect = EFFECT_BANEFUL_BUNKER, 
         .power = 0,
         .type = TYPE_POISON,
         .accuracy = 0,
