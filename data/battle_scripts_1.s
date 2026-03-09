@@ -5706,3 +5706,8 @@ BattleScript_BanefulBunkerPoison::
 	orbyte gMoveResultFlags, MOVE_RESULT_MISSED
 BattleScript_BanefulBunkerRet::
 	return
+
+BattleScript_DancerActivates::
+	printstring STRINGID_PKMNREPEATSDANCEMOVE
+	waitmessage B_WAIT_TIME_SHORT
+	jumptocalledmove TRUE

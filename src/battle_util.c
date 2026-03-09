@@ -2741,6 +2741,37 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     break;
             }
             break;
+        case ABILITYEFFECT_MOVE_END_DANCER: // 22
+            switch (ability)
+            {
+            case ABILITY_DANCER:
+                if (IsBattlerAlive(battler)
+                && IsDanceMove(move)
+                && gSpecialStatuses[battler].activateDancer
+                && !gSpecialStatuses[battler].dancerUsedMove
+                && gBattlerAttacker != battler)
+                {
+                    // set bit and save Dancer mon's original target
+                    gSpecialStatuses[battler].dancerUsedMove = TRUE;
+                    gSpecialStatuses[battler].dancerOriginalTarget = gBattleStruct->moveTarget[battler] | 0x4;
+                    gSpecialStatuses[battler].activateDancer = FALSE;
+                    gBattlerAttacker = battler;
+                    gCalledMove = move;
+
+                    // set the target to the original target of the mon that used the dance move
+                    gBattlerTarget = gBattleScripting.savedBattler & 0x3;
+                    // in case of a self targeting move set the target to the battler that uses the Dancer ability
+                    if (GET_BATTLER_SIDE(gBattlerTarget) == GET_BATTLER_SIDE(gBattlerAttacker))
+                        gBattlerTarget = (gBattleScripting.savedBattler & 0xF0) >> 4;
+
+                    BattleScriptExecute(BattleScript_DancerActivates);
+                    effect++;
+                }
+                break;
+            default:
+                break;
+            }
+            break;
         }
 
         if (effect && caseID < ABILITYEFFECT_CHECK_OTHER_SIDE && gLastUsedAbility != 0xFF)

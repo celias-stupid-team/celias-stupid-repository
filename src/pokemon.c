@@ -7074,12 +7074,17 @@ u16 GetCurrentZapmolcunoSpecies(void)
     return species;
 }
 
-
-void BillsSecretGardenDebug(void) {
+void BillsSecretGardenDebug(void)
+{
     DebugPrintf("---DEBUG START---");
     DebugPrintf("Right Box Number %d", VarGet(VAR_TEMP_1));
     DebugPrintf("Left Box Number %d", VarGet(VAR_TEMP_2));
     DebugPrintf("Crimper Box Number %d", VarGet(VAR_TEMP_3));
     DebugPrintf("Player Box Number %d", VarGet(VAR_TEMP_4));
     DebugPrintf("PC Box Number %d", VarGet(VAR_TEMP_C));
+}
+
+bool32 IsDanceMove(u16 moveId)
+{
+    return gBattleMoves[moveId].danceMove;
 }

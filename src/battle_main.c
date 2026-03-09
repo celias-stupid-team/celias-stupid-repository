@@ -4176,8 +4176,6 @@ static void HandleAction_UseMove(void)
         gCurrentMove = gChosenMove = MOVE_EXPLOSION_USELESS;
         gHitMarker |= HITMARKER_NO_PPDEDUCT;
         *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(MOVE_EXPLOSION_USELESS, NO_TARGET_OVERRIDE);
-
-
     }
     
     else if (gProtectStructs[gBattlerAttacker].noValidMoves)

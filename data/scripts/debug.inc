@@ -96,7 +96,7 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
-	trainerbattle_single TRAINER_Y_ELTAL, CeladonCity_Gym_Text_KayIntro, CeladonCity_Gym_Text_KayDefeat
+	trainerbattle_single TRAINER_INTERVIEWER, CeladonCity_Gym_Text_KayIntro, CeladonCity_Gym_Text_KayDefeat
 	end
 
 Debug_EventScript_Script_3::

@@ -255,6 +255,7 @@ struct BattleMove
     s8 priority;
     u8 flags;
     u8 stringId;
+    u8 danceMove;
 };
 
 #define SPINDA_SPOT_WIDTH 16
@@ -455,5 +456,6 @@ u32 PartyHasMon(u16 species);
 void HealPokemon(struct Pokemon *mon);
 u16 GetBattleBGM(void);
 u16 GetCurrentZapmolcunoSpecies(void);
+bool32 IsDanceMove(u16 moveId);
 
 #endif // GUARD_POKEMON_H

@@ -261,7 +261,12 @@ struct SpecialStatus
     u8 faintedHasReplacement:1;
     u8 focusBanded:1;
     //eob
-    u8 field1[3];
+    u8 filler1[2];
+    u8 dancerUsedMove:1;            // make sure that Dancer can't copy an already copied move again
+    u8 dancerOriginalTarget:3;      // saves the dancer's original move target (bits 0-2) + validity flag (bit 2)
+    u8 activateDancer:1;
+    u8 filler2:3;
+    //eob
     s32 dmg;
     s32 physicalDmg;
     s32 specialDmg;
@@ -272,9 +277,8 @@ struct SpecialStatus
     u8 switchInAbilityDone:1;
     u8 announceNeutralizingGas:1;   // See Cmd_switchineffects
     u8 neutralizingGasRemoved:1;    // See VARIOUS_TRY_END_NEUTRALIZING_GAS
-    u8 filler:3;
+    u8 filler3:3;
     //eob
-    u8 field13;
 };
 
 extern struct SpecialStatus gSpecialStatuses[MAX_BATTLERS_COUNT];
@@ -573,6 +577,7 @@ struct BattleScripting
     u8 reshowMainState;
     u8 reshowHelperState;
     u8 levelUpHP;
+    u8 savedBattler;
     s32 savedData;
 };
 

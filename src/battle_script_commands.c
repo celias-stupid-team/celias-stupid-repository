@@ -4809,6 +4809,32 @@ static void Cmd_moveend(void)
                 effect = TRUE;
             gBattleScripting.moveendState++;
             break;
+        case MOVEEND_QUEUE_DANCER:
+        {
+            u8 battler;
+
+            if (!IsDanceMove(gCurrentMove)
+            || gProtectStructs[gBattlerTarget].targetNotAffected
+            || WasUnableToUseMove(gBattlerAttacker)
+            || gSpecialStatuses[gBattlerAttacker].dancerUsedMove
+            || gProtectStructs[gBattlerAttacker].stealMove
+            || gProtectStructs[gBattlerAttacker].bounceMove)
+            {
+                gBattleScripting.moveendState++;
+                break;
+            }
+
+            for (battler = 0; battler < gBattlersCount; battler++)
+            {
+                if (battler == gBattlerAttacker || !IsBattlerAlive(battler))
+                    continue;
+
+                if (gBattleMons[battler].ability == ABILITY_DANCER)
+                    gSpecialStatuses[battler].activateDancer = TRUE;
+            }
+            gBattleScripting.moveendState++;
+            break;
+        }
         case MOVEEND_IMMUNITY_ABILITIES: // status immunities
             if (AbilityBattleEffects(ABILITYEFFECT_IMMUNITY, 0, 0, 0, 0))
                 effect = TRUE; // it loops through all battlers, so we increment after its done with all battlers
@@ -5014,6 +5040,48 @@ static void Cmd_moveend(void)
             }
             gBattleScripting.moveendState++;
             break;
+        case MOVEEND_CLEAR_BITS: // copy from expansion. Currently only used to restore a Dancer's moveTarget back to its original value after finishing a copied dance move.
+            if (gSpecialStatuses[gBattlerAttacker].dancerOriginalTarget)
+                gBattleStruct->moveTarget[gBattlerAttacker] = gSpecialStatuses[gBattlerAttacker].dancerOriginalTarget & 0x3;
+            gBattleScripting.moveendState++;
+            break;
+        case MOVEEND_DANCER:
+        {
+            bool32 anyDancerQueued = FALSE;
+            u8 battlerIdNextDancer = 0;
+            u8 battler = 0;
+
+            for (battler = 0; battler < gBattlersCount; battler++)
+            {
+                if (gSpecialStatuses[battler].activateDancer && !gSpecialStatuses[battler].dancerUsedMove)
+                {
+                    if (!anyDancerQueued || (gBattleMons[battler].speed < gBattleMons[battlerIdNextDancer].speed))
+                        battlerIdNextDancer = battler;
+                    anyDancerQueued = TRUE;
+                }
+            }
+
+            if (!anyDancerQueued) // nothing to do
+            {
+                gBattleScripting.moveendState++;
+                break;
+            }
+
+            // Dance move succeeds
+            // Set target for other Dancer mons; set bit so that mon cannot activate Dancer off of its own move
+            if (!gSpecialStatuses[gBattlerAttacker].dancerUsedMove)
+            {
+                gBattleScripting.savedBattler = gBattlerTarget | 0x4;
+                gBattleScripting.savedBattler |= (gBattlerAttacker << 4);
+                gSpecialStatuses[gBattlerAttacker].dancerUsedMove = TRUE;
+            }
+
+            if (AbilityBattleEffects(ABILITYEFFECT_MOVE_END_DANCER, battlerIdNextDancer, ABILITY_DANCER, gCurrentMove, TRUE))
+                effect = TRUE;
+
+            gBattleScripting.moveendState++;
+            break;
+        }
         case MOVEEND_COUNT:
             break;
         }
@@ -7078,7 +7146,6 @@ static void Cmd_various(void)
             u8 *dest;
             u8 *src;
 
-            // wiz1989 ToDo: load updated battle backgrounds for each of the phases of the final battle
             if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
             {
                 LoadDefaultBg();
