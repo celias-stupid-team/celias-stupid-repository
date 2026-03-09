@@ -964,6 +964,7 @@ static void Cmd_attackcanceler(void)
     if (AbilityBattleEffects(ABILITYEFFECT_MOVES_BLOCK, gBattlerTarget, 0, 0, 0))
         return;
     if (!gBattleMons[gBattlerAttacker].pp[gCurrMovePos] && gCurrentMove != MOVE_STRUGGLE && !(gHitMarker & (HITMARKER_ALLOW_NO_PP | HITMARKER_NO_ATTACKSTRING))
+     && !gSpecialStatuses[gBattlerAttacker].dancerUsedMove
      && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS))
     {
         gBattlescriptCurrInstr = BattleScript_NoPPForMove;
@@ -1305,7 +1306,8 @@ static void Cmd_ppreduce(void)
         }
     }
 
-    if (!(gHitMarker & (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING)) && gBattleMons[gBattlerAttacker].pp[gCurrMovePos])
+    if (!(gHitMarker & (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING)) && gBattleMons[gBattlerAttacker].pp[gCurrMovePos]
+     && !gSpecialStatuses[gBattlerAttacker].dancerUsedMove)
     {
         gProtectStructs[gBattlerAttacker].notFirstStrike = 1;
 
@@ -5076,7 +5078,7 @@ static void Cmd_moveend(void)
                 gSpecialStatuses[gBattlerAttacker].dancerUsedMove = TRUE;
             }
 
-            if (AbilityBattleEffects(ABILITYEFFECT_MOVE_END_DANCER, battlerIdNextDancer, ABILITY_DANCER, gCurrentMove, TRUE))
+            if (AbilityBattleEffects(ABILITYEFFECT_MOVE_END_DANCER, battlerIdNextDancer, ABILITY_DANCER, 0, gCurrentMove))
                 effect = TRUE;
 
             gBattleScripting.moveendState++;
