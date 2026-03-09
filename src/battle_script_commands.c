@@ -2133,6 +2133,7 @@ static void Cmd_healthbarupdate(void)
 static void Cmd_datahpupdate(void)
 {
     u32 moveType;
+    bool32 yamask49DmgTriggered = FALSE;
 
     if (gBattleControllerExecFlags)
         return;
@@ -2273,6 +2274,20 @@ static void Cmd_datahpupdate(void)
                         gSpecialStatuses[gActiveBattler].specialBattlerId = gBattlerTarget;
                     }
                 }
+
+                // special handling for 49 damage Yamask event
+                if (!IsOnPlayerSide(gActiveBattler) && gBattleMons[gActiveBattler].species == SPECIES_YAMASK)
+                {
+                    u32 oldDmg = gBattleStruct->damageAccumulated;
+                    gBattleStruct->damageAccumulated += gHpDealt;
+
+                    if (oldDmg < 49 && gBattleStruct->damageAccumulated == 49
+                      && ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_49_DAMAGE))
+                    {
+                        yamask49DmgTriggered = TRUE;
+                        gBattleScripting.battler = gActiveBattler;
+                    }
+                }
             }
             gHitMarker &= ~HITMARKER_PASSIVE_DAMAGE;
             BtlController_EmitSetMonData(BUFFER_A, REQUEST_HP_BATTLE, 0, sizeof(gBattleMons[gActiveBattler].hp), &gBattleMons[gActiveBattler].hp);
@@ -2285,7 +2300,15 @@ static void Cmd_datahpupdate(void)
         if (gSpecialStatuses[gActiveBattler].dmg == 0)
             gSpecialStatuses[gActiveBattler].dmg = 0xFFFF;
     }
-    gBattlescriptCurrInstr += 2;
+    if (yamask49DmgTriggered)
+    {
+        BattleScriptPush(gBattlescriptCurrInstr + 2);
+        gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
+    }
+    else
+    {
+        gBattlescriptCurrInstr += 2;
+    }
 }
 
 static void Cmd_critmessage(void)

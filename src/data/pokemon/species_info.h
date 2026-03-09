@@ -16333,7 +16333,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_YAMASK] =
     {
-        .baseHP = 38,
+        .baseHP = 50,
         .baseAttack = 30,
         .baseDefense = 85,
         .baseSpeed = 30,

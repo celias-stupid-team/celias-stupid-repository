@@ -10612,7 +10612,7 @@ static const struct TrainerMonItemCustomMoves sParty_YesNurse[] = {
 static const struct TrainerMonItemCustomMoves sParty_YamaskGuy[] = {
     {
         .iv = 0,
-        .lvl = 19,
+        .lvl = 30, // required for higher HP
         .heldItem = ITEM_NONE,
         .species = SPECIES_YAMASK,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}

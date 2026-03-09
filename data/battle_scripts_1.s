@@ -4451,7 +4451,7 @@ BattleScript_EarthEaterPreventsOHKO::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNPROTECTEDBY
 	pause B_WAIT_TIME_LONG
-	callnative BattleDebug_WonBattle
+	callnative BattleDebug_LeftBattle
 	goto BattleScript_MoveEnd
 
 BattleScript_DampStopsExplosion::
@@ -5711,3 +5711,6 @@ BattleScript_DancerActivates::
 	printstring STRINGID_PKMNREPEATSDANCEMOVE
 	waitmessage B_WAIT_TIME_SHORT
 	jumptocalledmove TRUE
+
+BattleScript_End2::
+	end2

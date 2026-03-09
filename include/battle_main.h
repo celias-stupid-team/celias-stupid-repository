@@ -90,5 +90,6 @@ void RunBattleScriptCommands(void);
 bool8 TryRunFromBattle(u8 battler);
 void DebugPrintBattlePartyData(void);
 void BattleDebug_WonBattle(void);
+void BattleDebug_LeftBattle(void);
 
 #endif // GUARD_BATTLE_MAIN_H

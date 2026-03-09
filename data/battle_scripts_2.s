@@ -279,8 +279,13 @@ BattleScript_TrainerASlideMsgRet::
 	trainerslideout B_POSITION_OPPONENT_LEFT
 	waitstate
 	trainersliderestorebattler B_POSITION_OPPONENT_LEFT
+	jumpifspecies BS_TARGET, SPECIES_YAMASK, BattleScript_49DamageYamaskEvent @ special case for the 49 damage Yamask event
 	return
 
 BattleScript_TrainerASlideMsgEnd2::
 	call BattleScript_TrainerASlideMsgRet
 	end2
+
+BattleScript_49DamageYamaskEvent::
+	callnative BattleDebug_LeftBattle
+	goto BattleScript_MoveEnd

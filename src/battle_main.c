@@ -65,6 +65,7 @@ static void HandleEndTurn_ContinueBattle(void);
 static void HandleEndTurn_BattleWon(void);
 static void HandleEndTurn_BattleLost(void);
 static void HandleEndTurn_RanFromBattle(void);
+static void HandleEndTurn_LeftBattle(void);
 static void HandleEndTurn_MonFled(void);
 static void HandleEndTurn_FinishBattle(void);
 static void CB2_InitBattleInternal(void);
@@ -524,6 +525,7 @@ static void (*const sEndTurnFuncsTable[])(void) =
     [B_OUTCOME_MON_FLED]          = HandleEndTurn_MonFled,
     [B_OUTCOME_CAUGHT]            = HandleEndTurn_FinishBattle,
     [B_OUTCOME_NO_SAFARI_BALLS]   = HandleEndTurn_FinishBattle,
+    [B_OUTCOME_LEFT_BATTLE]       = HandleEndTurn_LeftBattle,
     [B_OUTCOME_CONTINUE_ZAPDOS]   = HandleEndTurn_ContinueBattle,
     [B_OUTCOME_CONTINUE_ROTOM]    = HandleEndTurn_ContinueBattle,
 };
@@ -3999,6 +4001,13 @@ static void HandleEndTurn_RanFromBattle(void)
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
+static void HandleEndTurn_LeftBattle(void)
+{
+    gCurrentActionFuncId = 0;
+    gBattlescriptCurrInstr = BattleScript_End2;
+    gBattleMainFunc = HandleEndTurn_FinishBattle;
+}
+
 static void HandleEndTurn_MonFled(void)
 {
     gCurrentActionFuncId = 0;
@@ -4795,5 +4804,12 @@ void DebugPrintBattlePartyData(void)
 void BattleDebug_WonBattle(void)
 {
     gBattleOutcome = B_OUTCOME_WON;
+    gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
+}
+
+// Leaves the battle instantly.
+void BattleDebug_LeftBattle(void)
+{
+    gBattleOutcome = B_OUTCOME_LEFT_BATTLE;
     gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
 }
