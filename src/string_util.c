@@ -741,3 +741,23 @@ int GetStringCenterAlignXOffset(int fontId, const u8* str, int totalWidth)
     else
         return 0;
 }
+
+static u8 GFCharToUpper(u8 c)
+{
+    if (c >= CHAR_a && c <= CHAR_z)
+        return c - (CHAR_a - CHAR_A);  // offset of 26 between the cases
+    return c;
+}
+
+// returns TRUE if the strings are equal ignoring case, FALSE otherwise
+bool32 StringCompareIgnoreCase(const u8 *str1, const u8 *str2)
+{
+    while (GFCharToUpper(*str1) == GFCharToUpper(*str2))
+    {
+        if (*str1 == EOS)
+            return TRUE;
+        str1++;
+        str2++;
+    }
+    return FALSE;
+}
