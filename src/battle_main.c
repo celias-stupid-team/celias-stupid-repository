@@ -3710,10 +3710,21 @@ static void SetActionsAndBattlersTurnOrder(void)
                 }
             }
         }
-        else if (gChosenActionByBattler[0] == B_ACTION_RUN)
+        else
         {
-            gActiveBattler = 0;
-            turnOrderId = 5;
+            // Shiny Magnemite always tries to flee, executing it even before the user can attack or use an item
+            if (gBattleTypeFlags & BATTLE_TYPE_SHINY_MAGNEMITE)
+            {
+                u8 battlerId = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+                gChosenActionByBattler[battlerId] = B_ACTION_RUN;
+                gActiveBattler = battlerId;
+                turnOrderId = 5; // this skips the turn order logic and goes straight to the flee sequence
+            }
+            else if (gChosenActionByBattler[0] == B_ACTION_RUN)
+            {
+                gActiveBattler = 0;
+                turnOrderId = 5;
+            }
         }
         if (turnOrderId == 5) // One of battlers wants to run.
         {
@@ -4548,7 +4559,8 @@ static void HandleAction_Run(void)
         }
         else
         {
-            if (gBattleMons[gBattlerAttacker].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+            if ((gBattleMons[gBattlerAttacker].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+             || ABILITY_ON_OPPOSING_FIELD(gBattlerAttacker, ABILITY_SHADOW_TAG))
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
                 gBattlescriptCurrInstr = BattleScript_PrintFailedToRunString;
