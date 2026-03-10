@@ -383,10 +383,22 @@ script Route22_EventScript_OddCandyMan {
 			walk_slow_down
 			jump_2_down
 		))
-		applymovement(LOCALID_PLAYER, moves(
-			delay_16 * 2
-			face_down
-		))
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
+		if(var(VAR_RESULT) == DIR_NORTH) {
+			applymovement(LOCALID_PLAYER, moves(
+				face_left
+				lock_facing_direction
+				walk_right
+				unlock_facing_direction
+				face_down
+			))
+		} else {
+			applymovement(LOCALID_PLAYER, moves(
+				delay_16 * 2
+				face_down
+			))
+
+		}
 		message(
 		"Now all that's left for me to\n"
 		"do is… {PAUSE 45}{SE_LEDGE}Whoa!")
