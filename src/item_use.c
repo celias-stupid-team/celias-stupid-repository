@@ -692,6 +692,12 @@ void FieldUseFunc_RunningScrews(u8 taskId)
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RunningScrews, Task_ReturnToBagFromContextMenu);
 }
 
+void FieldUseFunc_Ligma(u8 taskId)
+{
+    //PlaySE(SE_FLEE);
+    //RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_Ligma, Task_ReturnToBagFromContextMenu);
+}
 static void ItemUseOnFieldCB_Unlock(u8 taskId)
 {
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();

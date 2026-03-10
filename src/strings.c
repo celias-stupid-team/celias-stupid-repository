@@ -212,6 +212,7 @@ const u8 gText_PlayerUsedVar2[] = _("{PLAYER} used the\n{STR_VAR_2}.{PAUSE_UNTIL
 const u8 gText_RepelEffectsLingered[] = _("But the effects of a REPEL\nlingered from earlier.{PAUSE_UNTIL_PRESS}");
 const u8 gText_MaxRepelTurnedOff[] = _("{PLAYER} untoggled the\nMAX REPEL!\pWild POKéMON will now\nappear again!{PAUSE_UNTIL_PRESS}");
 const u8 gText_RunningScrews[] = _("{PAUSE 45}Aaaaaaand they're gone!");
+const u8 gText_Ligma[] = _("ligma balls");
 const u8 gText_TMContainedCopycat[] = _("{PLAYER} booted up the TM!\pIt contained\nCOPYCAT!{PAUSE_UNTIL_PRESS}");
 const u8 gText_CeliaMessage[] = _("Hi, this is CELIA.\pDue to technical limitations, I\nwas forced to remove several\lexcess ITEMS from your BAG.\pDon't worry! Nothing that was\nremoved will ever be important.\pI'm sorry I had to do this, and it\nis my fault for not thinking ahead.\pThanks for understanding!\nThis page will now self-destruct.{PAUSE_UNTIL_PRESS}{PLAY_BGM}{SE_M_EXPLOSION}");
 const u8 gText_HeldRuby[] = _("{PLAYER} held the RUBY!{PAUSE_UNTIL_PRESS}");
