@@ -196,6 +196,7 @@ extern const u8 gText_RepelEffectsLingered[];
 extern const u8 gText_MaxRepelDoesntWork[];
 extern const u8 gText_PayDayTM[];
 extern const u8 gText_MaxRepelTurnedOff[];
+extern const u8 gText_RunningScrews[];
 extern const u8 gText_TMContainedCopycat[];
 extern const u8 gText_HeldRuby[];
 extern const u8 gText_PlayerCancer[];
