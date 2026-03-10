@@ -241,6 +241,14 @@ const u8 gBattleBackgroundNames[][30] =
     [MAP_BATTLE_SCENE_LANCE]    = _("LANCE                   "),
     [MAP_BATTLE_SCENE_CHAMPION] = _("CHAMPION                "),
     [MAP_BATTLE_SCENE_ZAPMOLTI] = _("ZAPMOLTICUNO-OHGIA      "),
+    [MAP_BATTLE_SCENE_CHAPTER_3] = _("CHAPTER 3      "),
+    [MAP_BATTLE_SCENE_BLAINE] = _("BLAINE      "),
+    [MAP_BATTLE_SCENE_SPACE] = _("SPACE      "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_2] = _("ZAPMOLTI 2      "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_3] = _("ZAPMOLTI 3      "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_4] = _("ZAPMOLTI 4      "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_5] = _("ZAPMOLTI 5      "),
+
 };
 const u8 gBattleBackgroundTerrainNames[][26] =
 {

@@ -11,6 +11,7 @@
 #include "event_data.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_interface.h"
 #include "battle_scripts.h"
 #include "battle_message.h"
 #include "constants/battle_anim.h"
@@ -63,7 +64,7 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
 	[TYPE_WEIRD]   = {	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______ 	},
 	[TYPE_DAD]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
 	[TYPE_CHOCOLATE]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_SHADOW]   = {	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	______, 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	X(2.0) 	},
+	[TYPE_SHADOW]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	X(2.0) 	},
 	[TYPE_LARGE]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
 	[TYPE_BIRD]   = {	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
 	[TYPE_SHIT]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
@@ -1331,13 +1332,26 @@ bool8 HandleFaintedMonActions(void)
         case 3:
             gBattleStruct->faintedActionsBattlerId = 0;
             gBattleStruct->faintedActionsState++;
+
+            if (VarGet(VAR_CSR_FINAL_BATTLE_PHASE) >= B_FINAL_BATTLE_WARTORTLE)
+            {
+                // opponent switches in first
+                for (i = 0; i < gBattlersCount; i++)
+                    gBattleStruct->faintedActionsOrder[i] = gBattlersCount - 1 - i;
+            }
+            else
+            {
+                for (i = 0; i < gBattlersCount; i++)
+                    gBattleStruct->faintedActionsOrder[i] = i;
+            }
             // fall through
         case 4:
             do
             {
-                gBattlerFainted = gBattlerTarget = gBattleStruct->faintedActionsBattlerId;
-                if (gBattleMons[gBattleStruct->faintedActionsBattlerId].hp == 0
-                 && !(gAbsentBattlerFlags & gBitTable[gBattleStruct->faintedActionsBattlerId]))
+                u8 battlerId = gBattleStruct->faintedActionsOrder[gBattleStruct->faintedActionsBattlerId];
+                gBattlerFainted = gBattlerTarget = battlerId;
+                if (gBattleMons[battlerId].hp == 0
+                 && !(gAbsentBattlerFlags & gBitTable[battlerId]))
                 {
                     gBattleTurnMonFainted = TRUE;
                     BattleScriptExecute(BattleScript_HandleFaintedMon);
@@ -1345,6 +1359,7 @@ bool8 HandleFaintedMonActions(void)
                     return TRUE;
                 }
             } while (++gBattleStruct->faintedActionsBattlerId != gBattlersCount);
+
             gBattleStruct->faintedActionsState = 6;
             break;
         case 5:
@@ -2726,6 +2741,37 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     break;
             }
             break;
+        case ABILITYEFFECT_MOVE_END_DANCER: // 22
+            switch (ability)
+            {
+            case ABILITY_DANCER:
+                if (IsBattlerAlive(battler)
+                && IsDanceMove(move)
+                && gSpecialStatuses[battler].activateDancer
+                && !gSpecialStatuses[battler].dancerUsedMove
+                && gBattlerAttacker != battler)
+                {
+                    // set bit and save Dancer mon's original target
+                    gSpecialStatuses[battler].dancerUsedMove = TRUE;
+                    gSpecialStatuses[battler].dancerOriginalTarget = gBattleStruct->moveTarget[battler] | 0x4;
+                    gSpecialStatuses[battler].activateDancer = FALSE;
+                    gBattlerAttacker = battler;
+                    gCalledMove = move;
+
+                    // set the target to the original target of the mon that used the dance move
+                    gBattlerTarget = gBattleScripting.savedBattler & 0x3;
+                    // in case of a self targeting move set the target to the battler that uses the Dancer ability
+                    if (GET_BATTLER_SIDE(gBattlerTarget) == GET_BATTLER_SIDE(gBattlerAttacker))
+                        gBattlerTarget = (gBattleScripting.savedBattler & 0xF0) >> 4;
+
+                    BattleScriptExecute(BattleScript_DancerActivates);
+                    effect++;
+                }
+                break;
+            default:
+                break;
+            }
+            break;
         }
 
         if (effect && caseID < ABILITYEFFECT_CHECK_OTHER_SIDE && gLastUsedAbility != 0xFF)
@@ -3822,4 +3868,18 @@ bool32 IsZapmolcunoOhgiaSpecies(u16 species)
         return TRUE;
     else
         return FALSE;
+}
+
+bool32 CanBePoisoned(u8 battlerTarget, u8 abilityTarget)
+{
+    if (gBattleMons[battlerTarget].status1 & STATUS1_ANY)
+        return FALSE;
+    if (IS_BATTLER_OF_TYPE(battlerTarget, TYPE_POISON) || IS_BATTLER_OF_TYPE(battlerTarget, TYPE_STEEL))
+        return FALSE;
+    if (abilityTarget == ABILITY_IMMUNITY)
+        return FALSE;
+    if (gSideStatuses[GET_BATTLER_SIDE(battlerTarget)] & SIDE_STATUS_SAFEGUARD)
+        return FALSE;
+
+    return TRUE;
 }

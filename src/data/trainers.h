@@ -7079,6 +7079,17 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_AVGN4),
     },
 
+    [TRAINER_Y_ELTAL] = {
+        .trainerClass = TRAINER_CLASS_RS_BEAUTY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_RS_BEAUTY,
+        .trainerName = _("{UNDERSCORE}ICKY"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_Y_ELTAL),
+    },
+
     [TRAINER_YES_NURSE] = {
         .trainerClass = TRAINER_CLASS_DOCTOR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -7111,9 +7122,4 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_YamaskGuy),
     },
-
-    
-
-        
-
 };

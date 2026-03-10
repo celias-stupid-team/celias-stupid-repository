@@ -1455,3 +1455,7 @@ script TwoIsland_LivingSans {
 			"market", MSGBOX_DEFAULT)
 	}
 }
+
+script TwoIsland_Bookshelf {
+	msgbox(Text_SecretLifeMother3, MSGBOX_SIGN)
+}

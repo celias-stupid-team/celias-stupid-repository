@@ -242,13 +242,104 @@ script Route22_EventScript_CeliaLarry {
 
 script Route22_EventScript_OddCandyMan {
 	lock
+	if(flag(FLAG_GOT_SHINY_MELTAN)) {
+		msgbox(
+		"Thank you for everything you've\n"
+		"done.\p"
+
+		"After all that, I have nothing\n"
+		"left.\p"
+
+		"Ten of them, in fact.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	if(flag(FLAG_CANDY_MAN_FELL) && !flag(FLAG_RETRIEVED_CANDIES)) {
+		msgbox(
+		"Gah…{PAUSE 20}\n"
+		"My back-!", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	faceplayer
+	if(flag(FLAG_CANDY_MAN_FELL) && flag(FLAG_RETRIEVED_CANDIES)) {
+		msgbox(
+		"Ahh…\n"
+		"Apologies!\p"
+
+		"Ahem, in any case!\p"
+
+		"Thank you for finding the rest of\n"
+		"my CANDIES.\l"
+		"Now I just have to…\p"
+
+		"… … …\n"
+		"… … …{PAUSE 30}Oh, shoot.\p"
+
+		"It looks like MELTAN can't evolve\n"
+		"in this game.\p"
+
+		"Whelp.\p"
+
+		"In that case…{PAUSE 30} I suppose I\n"
+		"don't need him anymore.\l"
+		"Here you are.", MSGBOX_DEFAULT)
+		playfanfare(MUS_KOROK_SEED)
+		msgbox(
+		"{PLAYER} was gifted the\n"
+		"long-awaited MELTAN!", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MELTAN)
+		call(Common_Script_GiftPokemon30)
+		release
+		end
+	}
+
 	if(checkmoncaught(SPECIES_MELTAN)) {
 		msgbox(
-		"Thank you so much for your help.\p"
+		"Well, either way thank you for\n"
+		"your help.\p"
 
 		"Now that we've collected all the\n"
 		"candy, there's NOTHING more I need.", MSGBOX_DEFAULT)
+		if(checkitem(ITEM_NOTHING, 10)) {
+			closemessage
+			playse(SE_PIN)
+			applymovement(VAR_LAST_TALKED, moves(
+				emote_exclamation_mark
+				delay_16 * 3
+			))
+			waitmovement(0)
+			msgbox(
+			"Oh!\n"
+			"That's ten whole NOTHINGS!\l"
+			"That's the last thing I need!\p"
+
+			"Please, trade them to me.\n"
+			"I'll give you a reward.", MSGBOX_DEFAULT)
+			removeitem(ITEM_NOTHING, 10)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			msgbox(
+			"{PLAYER} traded away the\n"
+			"NOTHINGs…", MSGBOX_DEFAULT)
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox(
+			"Thank you!\n"
+			"And here you are.", MSGBOX_DEFAULT)
+			setflag(FLAG_SHINY_CREATION)
+			playfanfare(MUS_KOROK_SEED)
+			msgbox(
+			"{PLAYER} received the\n"
+			"backup MELTAN!", MSGBOX_DEFAULT)
+			waitfanfare
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MELTAN)
+			call(Common_Script_GiftPokemon30)
+			setflag(FLAG_GOT_SHINY_MELTAN)
+			
+
+		}
+		release
+		end
 	}
 	famechecker(FAMECHECKER_VIRIDIAN, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
 	if(flag(FLAG_BADGE08_GET)) {
@@ -263,34 +354,60 @@ script Route22_EventScript_OddCandyMan {
 		"I found quite a few of them myself.\l"
 		"Here, let's take inventory.", MSGBOX_DEFAULT)
 		closemessage
+		call(Route22_CountCandies)
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
-		"(he has the rest of them)\n"
-		"", MSGBOX_DEFAULT)
+		"… … … …\n"
+		"… … … …", MSGBOX_DEFAULT)
 		closemessage
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_BLUE)
 		msgbox(
-		"Excellent!\n"
-		"Now I just have to…", MSGBOX_DEFAULT)
+		"Aha!\n"
+		"Wonderful!\p"
+
+		"It seems that you have {STR_VAR_1},\n"
+		"while I have the remaining {STR_VAR_2}!", MSGBOX_DEFAULT)
+		if(var(VAR_STACK_OF_CANDY) < 3) {
+		msgbox(
+		"Er, yes it appears you did the\n"
+		"lion's share of the work.\l"
+		"Ehe…\p"
+
+		"Nonetheless!\n"
+		"", MSGBOX_DEFAULT)
+		}
 		applymovement(VAR_LAST_TALKED, moves(
-			walk_down
+			delay_16
+			walk_slow_down
 			jump_2_down
 		))
-		msgbox(
-		"he falls\p"
-
-		"and then some other stuff happens\n"
-		"idfk", MSGBOX_DEFAULT)
+		applymovement(LOCALID_PLAYER, moves(
+			delay_16 * 2
+			face_down
+		))
+		message(
+		"Now all that's left for me to\n"
+		"do is… {PAUSE 45}{SE_LEDGE}Whoa!")
+		waitmovement(VAR_LAST_TALKED)
+		addobject(LOCALID_STACK_OF_CANDY)
+		fadescreeninstant(FADE_TO_WHITE)
+		playse(SE_BANG)
 		closemessage
+		delay(30)
+		
+		copyobjectxytoperm(VAR_LAST_TALKED)
+		applymovement(VAR_LAST_TALKED, moves(
+			face_left
+		))
+		fadescreenswapbuffers(FADE_FROM_WHITE)
+		delay(90)
 		msgbox(
-		"remaining candies are on the ground\n"
+		"Oww…\n"
 		"", MSGBOX_DEFAULT)
 		closemessage
-		delay(60)
-		playfanfare(MUS_LEVEL_UP)
-		msgbox(
-		"Meltan!\n"
-		"", MSGBOX_DEFAULT)
-		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MELTAN)
-		call(Common_Script_GiftPokemon)
+		setflag(FLAG_CANDY_MAN_FELL)
 		release
 		end
 	}
@@ -383,5 +500,93 @@ script Route22_NidotranFSpot {
 
 script Route22_EventScript_EarlyRivalSquirtle {
 	trainerbattle_no_intro(TRAINER_RIVAL_LARRY, Route22_Text_EarlyRivalDefeat)
+	return
+}
+
+script Route22_CandyStack {
+	setflag(FLAG_RETRIEVED_CANDIES)
+	if(var(VAR_STACK_OF_CANDY) == 0) {
+		finditem(ITEM_NOTHING)
+		end
+	}
+	lock
+	removeobject(VAR_LAST_TALKED)
+	while(!checkitem(ITEM_ODD_CANDY, 45)) {
+		additem(ITEM_ODD_CANDY)
+	}
+	waitse
+	call(EventScript_PlayFanfareObtainedKorok)
+	msgbox(
+	"{PLAYER} found\n"
+	"{STR_VAR_2} ODD CANDY(s)!", MSGBOX_DEFAULT)
+	waitfanfare
+	msgbox(
+	"{PLAYER} put the ODD CANDY(s)\n"
+	"in the KEY ITEMS POCKET.", MSGBOX_DEFAULT)
+	release
+	end
+
+
+}
+
+
+script Route22_CountCandies {
+	setvar(VAR_STACK_OF_CANDY, 45)
+	setvar(VAR_TEMP_A, 1)
+	while(checkitem(ITEM_ODD_CANDY, VAR_TEMP_A)) {
+		addvar(VAR_TEMP_A, 1)
+	}
+	subvar(VAR_TEMP_A, 1)
+	subvar(VAR_STACK_OF_CANDY, VAR_TEMP_A)
+	buffernumberstring(STR_VAR_1, VAR_TEMP_A)
+	buffernumberstring(STR_VAR_2, VAR_STACK_OF_CANDY)
+	//msgbox("Your candies: {STR_VAR_1}\nStack: {STR_VAR_2}")
+	
+	setflag(FLAG_PALLET_CANDY)
+	setflag(FLAG_VIRIDIAN_CANDY)
+	setflag(FLAG_PEWTER_CANDY)
+	setflag(FLAG_CERULEAN_CANDY)
+	setflag(FLAG_VERMILLION_CANDY)
+	setflag(FLAG_LAVENDER_CANDY)
+	setflag(FLAG_CELADON_CANDY)
+	setflag(FLAG_FUSHCIA_CANDY)
+	setflag(FLAG_CINNABAR_ISLAND_CANDY)
+	setflag(FLAG_SOOTOPOLIS_CITY_CANDY)
+	setflag(FLAG_MT_MOON_CANDY)
+	setflag(FLAG_UNDERGROUND_PATH_CANDY)
+	setflag(FLAG_POKEMON_TOWER_CANDY)
+	setflag(FLAG_SAFARI_ZONE_CANDY)
+	setflag(FLAG_SILPH_CO_CANDY)
+	setflag(FLAG_SEAFOAM_ISLANDS_CANDY)
+	setflag(FLAG_SKY_PILLAR_CANDY)
+	setflag(FLAG_KANTO_LIGHTHOUSE_CANDY)
+	setflag(FLAG_CERULEAN_CAVE_CANDY)
+	setflag(FLAG_ONE_ISLAND_CANDY)
+	setflag(FLAG_TWO_ISLAND_CANDY)
+	setflag(FLAG_THREE_ISLAND_CANDY)
+	setflag(FLAG_FOUR_ISLAND_CANDY)
+	setflag(FLAG_THIRTY_EIGHT_ISLAND_CANDY)
+	setflag(FLAG_POKEMON_ISLAND_CANDY)
+	setflag(FLAG_MINNESOTA_CANDY)
+	setflag(FLAG_ROUTE_1_CANDY)
+	setflag(FLAG_ROUTE_2_CANDY)
+	setflag(FLAG_ROUTE_3_CANDY)
+	setflag(FLAG_ROUTE_4_CANDY)
+	setflag(FLAG_ROUTE_5_CANDY)
+	setflag(FLAG_ROUTE_6_CANDY)
+	setflag(FLAG_ROUTE_8_CANDY)
+	setflag(FLAG_ROUTE_9_CANDY)
+	setflag(FLAG_ROUTE_10_CANDY)
+	setflag(FLAG_ROUTE_11_CANDY)
+	setflag(FLAG_ROUTE_12_CANDY)
+	setflag(FLAG_ROUTE_13_CANDY)
+	setflag(FLAG_ROUTE_14_CANDY)
+	setflag(FLAG_ROUTE_16_CANDY)
+	setflag(FLAG_ROUTE_21_CANDY)
+	setflag(FLAG_ROUTE_18_CANDY)
+	setflag(FLAG_ROUTE_22_CANDY)
+	setflag(FLAG_ROUTE_24_CANDY)
+	setflag(FLAG_ROUTE_25_CANDY)
+	setflag(FLAG_VIRIDIAN_FOREST_CANDY)
 	return
 }

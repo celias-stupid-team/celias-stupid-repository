@@ -74,6 +74,7 @@
 #define BATTLE_TYPE_SHEDINJA_TERA      (1 << 26)
 #define BATTLE_TYPE_CYNTHIA            (1 << 27)
 #define BATTLE_TYPE_ZAPMOLCUNOOHGIA    (1 << 28)
+#define BATTLE_TYPE_SHINY_MAGNEMITE    (1 << 29)
 
 #define IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && !((flags) & BATTLE_TYPE_GHOST_UNVEILED))
 #define IS_BATTLE_TYPE_GHOST_WITH_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && (flags) & BATTLE_TYPE_GHOST_UNVEILED)
@@ -95,6 +96,7 @@
 #define B_OUTCOME_CAUGHT               7
 #define B_OUTCOME_NO_SAFARI_BALLS      8
 #define B_OUTCOME_FORFEITED            9
+#define B_OUTCOME_LEFT_BATTLE          10
 #define B_OUTCOME_CONTINUE_ZAPDOS      (1 << 6) // used for final battle
 #define B_OUTCOME_CONTINUE_ROTOM       (1 << 7) // used for final battle
 

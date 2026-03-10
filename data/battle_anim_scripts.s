@@ -1058,7 +1058,6 @@ gBattleAnims_Moves::
 	.4byte Move_BLAST_LEARN
 	.4byte Move_HEART_STAMP
 	.4byte Move_DRAGON
-	.4byte Move_MOLTRES_KICK
 	.4byte Move_WHITE_LIGHTNING
 	.4byte Move_GASTER_BLASTER
 	.4byte Move_TEATIME
@@ -1071,6 +1070,10 @@ gBattleAnims_Moves::
 	.4byte Move_REVELATION_DANCE
 	.4byte Move_TRICK_OR_TREAT
 	.4byte Move_AURORA_VEIL
+	.4byte Move_TECHNO_BLAST
+	.4byte Move_OBLI_ION_WING
+	.4byte Move_MOLTRES_KICK
+
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -1128,6 +1131,8 @@ gBattleAnims_General::
 	.4byte General_RotomComesDown           @ B_ANIM_ROTOM_COMES_DOWN
 	.4byte General_DoubleDipHit             @ B_ANIM_DOUBLE_DIP_HIT
 	.4byte General_ChargeTurn               @ B_ANIM_CHARGE_TURN
+	.4byte General_GhostDodge               @ B_ANIM_GHOST_DODGE
+	.4byte General_SlowpokeTransform		@ B_ANIM_SLOWPOKE_TRANSFORM
 
 	.align 2
 gBattleAnims_Special::
@@ -11870,6 +11875,16 @@ General_SeelHoopaTransform:
 General_ZapmolcunoTransform: @ doesn't need an actual transformation since it won't be visible
 	end
 
+General_SlowpokeTransform:
+	monbg ANIM_ATTACKER
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
+	createvisualtask AnimTask_TransformMon, 2, 255
+	waitsound
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+
 General_HangedOn:
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_ATTACKER, 7, 0, 9, RGB_RED
 	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
@@ -12187,6 +12202,14 @@ BallThrowGhostDodged:
 	waitforvisualfinish
 	goto BallThrowEnd
 
+General_GhostDodge:
+	delay 16
+	createvisualtask AnimTask_WindUpLunge, 2, ANIM_TARGET, 48, 6, 16, 48, -48, 16
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET
+	waitplaysewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET, 48
+	waitforvisualfinish
+	end
+
 Special_BallThrowWithTrainer:
 	createvisualtask AnimTask_LoadBallGfx, 2
 	delay 0
@@ -12436,6 +12459,7 @@ Move_V_CREATE:
 	delay 2
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0x0, 0x5
 	waitforvisualfinish
+	addletterv ANIM_TARGET
 	clearmonbg ANIM_DEF_PARTNER
 	call UnsetPsychicBg
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 0, RGB_WHITEALPHA
@@ -21196,6 +21220,12 @@ Move_HEART_STAMP:
 	goto Move_TACKLE
 
 Move_DRAGON:
+	goto Move_TACKLE
+
+Move_TECHNO_BLAST:
+	goto Move_SIGNAL_BEAM
+	
+Move_OBLI_ION_WING:
 	goto Move_TACKLE
 
 Move_MOLTRES_KICK:

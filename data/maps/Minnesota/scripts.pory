@@ -422,3 +422,13 @@ script Minnesota_CleanOak {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script Minnesota_DollarTree {
+	msgbox(
+	"Have you been to the local\n"
+	"DOLLAR TREE?\p"
+
+	"I hear it's an excellent authority\n"
+	"on POKéMON!", MSGBOX_NPC)
+}

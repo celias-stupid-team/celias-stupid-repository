@@ -633,8 +633,11 @@ script SeafoamIslands_ZubatWall {
 	"despite knowing the consequences?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 		checkfieldmove(MOVE_BRICK_BREAK)
+		setfieldeffectargument(0, VAR_RESULT)
+
 		bufferpartymonnick(STR_VAR_1, VAR_RESULT)
 		buffermovename(STR_VAR_2, MOVE_BRICK_BREAK)
+
 		msgbox(Text_MonUsedMove)
 		closemessage
 		setfieldeffectargument(0, VAR_RESULT)

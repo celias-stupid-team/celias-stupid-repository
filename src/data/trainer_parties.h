@@ -26,7 +26,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_AquaGruntM[] = {DUMMY_TR
 static const struct TrainerMonNoItemDefaultMoves sParty_AquaGruntF[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSAromaLady[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSRuinManiac[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_Interviewer[] = {DUMMY_TRAINER_MON};
+// static const struct TrainerMonNoItemDefaultMoves sParty_Interviewer[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSTuberF[] = {DUMMY_TRAINER_STARMIE};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSTuberM[] = {DUMMY_TRAINER_STARMIE};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSCooltrainerM[] = {DUMMY_TRAINER_MON_IV};
@@ -111,6 +111,20 @@ static const struct TrainerMonNoItemDefaultMoves sParty_EliteFourGlacia[] = {DUM
 static const struct TrainerMonNoItemDefaultMoves sParty_EliteFourDrake[] = {DUMMY_TRAINER_MON};
 
 // Start of actual trainer data
+
+static const struct TrainerMonNoItemDefaultMoves sParty_Interviewer[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_ORICORIO
+    },
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_ORICORIO
+    },
+};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterBen[] = {
     {
         .iv = 0,
@@ -10065,10 +10079,10 @@ static const struct TrainerMonItemCustomMoves sParty_RivalBarry[] = {
 static const struct TrainerMonItemCustomMoves sParty_DMCAThievul[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 35,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_THIEVUL,
-        .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_YVELTAL,
+        .moves = {MOVE_OBLI_ION_WING, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -10563,6 +10577,7 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN3[] = {
         .moves = {MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+
 static const struct TrainerMonItemCustomMoves sParty_AVGN4[] = {
     {
         .iv = 0,
@@ -10572,6 +10587,17 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN4[] = {
         .moves = {MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+
+static const struct TrainerMonItemCustomMoves sParty_Y_ELTAL[] = {
+    {
+        .iv = 0,
+        .lvl = 25,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_YVELTAL,
+        .moves = {MOVE_OBLI_ION_WING, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
 static const struct TrainerMonItemCustomMoves sParty_YesNurse[] = {
     {
         .iv = 0,
@@ -10586,7 +10612,7 @@ static const struct TrainerMonItemCustomMoves sParty_YesNurse[] = {
 static const struct TrainerMonItemCustomMoves sParty_YamaskGuy[] = {
     {
         .iv = 0,
-        .lvl = 19,
+        .lvl = 30, // required for higher HP
         .heldItem = ITEM_NONE,
         .species = SPECIES_YAMASK,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}

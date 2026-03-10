@@ -7536,7 +7536,7 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "DUMMY DESCRIPTION",
+      "description_english": "A mysterious ORB that transports\\nthe user directly to the STAIRS.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
