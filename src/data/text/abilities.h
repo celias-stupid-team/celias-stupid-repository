@@ -228,6 +228,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_PISSURE] = COMPOUND_STRING("The user's PP spills."),
     [ABILITY_SANDWICH_FORCE] = COMPOUND_STRING("Powers up by snacking."),
     [ABILITY_WAS_ONE] = COMPOUND_STRING("The user moves LAST."),
+    [ABILITY_DANCER] = COMPOUND_STRING("Copies the last dance move."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -372,4 +373,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_PISSURE] = _("PISSURE"),
     [ABILITY_SANDWICH_FORCE] = _("{FONT_SMALL}SANDWICH FORCE"),
     [ABILITY_WAS_ONE] = _("WAS ONE"),
+    [ABILITY_DANCER] = _("DANCER"),
 };

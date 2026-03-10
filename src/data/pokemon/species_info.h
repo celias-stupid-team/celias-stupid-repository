@@ -16333,7 +16333,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_YAMASK] =
     {
-        .baseHP = 38,
+        .baseHP = 50,
         .baseAttack = 30,
         .baseDefense = 85,
         .baseSpeed = 30,
@@ -21546,7 +21546,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
-        .abilities = {ABILITY_EARLY_BIRD, ABILITY_NONE},
+        .abilities = {ABILITY_DANCER, ABILITY_NONE},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
@@ -21575,7 +21575,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
-        .abilities = {ABILITY_EARLY_BIRD, ABILITY_NONE},
+        .abilities = {ABILITY_DANCER, ABILITY_NONE},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,

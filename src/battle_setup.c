@@ -335,16 +335,15 @@ void StartScriptedWildBattle(void)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
-    if (FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
-         gBattleTypeFlags = BATTLE_TYPE_SNORLAX | BATTLE_TYPE_WILD_SCRIPTED;
+    gBattleTypeFlags = BATTLE_TYPE_WILD_SCRIPTED;
 
-    } else if (FlagGet(FLAG_SYS_KANGA_FIGHT)) {
-         gBattleTypeFlags = BATTLE_TYPE_KANGA | BATTLE_TYPE_WILD_SCRIPTED;
-
-    } else {
-         gBattleTypeFlags = BATTLE_TYPE_WILD_SCRIPTED;
-
-    }
+    if (FlagGet(FLAG_SYS_SNORLAX_FIGHT))
+         gBattleTypeFlags |= BATTLE_TYPE_SNORLAX;
+    if (FlagGet(FLAG_SYS_KANGA_FIGHT))
+         gBattleTypeFlags |= BATTLE_TYPE_KANGA;
+    if (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) == SPECIES_MAGNEMITE
+     && IsMonCSRShiny(&gEnemyParty[0]))
+        gBattleTypeFlags |= BATTLE_TYPE_SHINY_MAGNEMITE;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);

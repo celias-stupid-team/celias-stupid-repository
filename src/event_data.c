@@ -73,6 +73,8 @@ void ClearTempData_CSR(void)
     FlagClear(FLAG_SYS_UNDER_WATERFALL);
     FlagClear(FLAG_USED_GENDER_FLUID);
     FlagClear(FLAG_SYS_CARRYING_BOX);
+    FlagClear(FLAG_CSR_V_CREATE_IN_BATTLE);
+    
     FlagClear(FLAG_SYS_BILL_GARDEN);
     FlagClear(FLAG_NOT_OAK_TEMP);
     VarSet(VAR_USED_CUT, 0);

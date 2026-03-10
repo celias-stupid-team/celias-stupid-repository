@@ -40,5 +40,6 @@ s32 StringCompareWithoutExtCtrlCodes(const u8 *str1, const u8 *str2);
 void ConvertInternationalString(u8 *s, u8 language);
 void StripExtCtrlCodes(u8 *str);
 int GetStringCenterAlignXOffset(int fontId, const u8* str, int totalWidth);
+bool32 StringCompareIgnoreCase(const u8 *str1, const u8 *str2);
 
 #endif // GUARD_STRING_UTIL_H

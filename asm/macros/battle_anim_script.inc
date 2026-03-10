@@ -361,3 +361,9 @@
 	.byte 0x35
 	.4byte \text
 	.endm
+
+	@ adds the letter V to Yveltal
+	.macro addletterv battler:req
+	.byte 0x36
+	.byte \battler
+	.endm

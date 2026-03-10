@@ -2047,9 +2047,18 @@ static void Task_OnCloseBoxPressed(u8 taskId)
             SetPokeStorageTask(Task_PokeStorageMain);
             break;
         case 0:
-            PlaySE(SE_PC_OFF);
-            ClearBottomWindow();
-            gStorage->state++;
+            if (gBattleSwitchFromPSS && GetMonData(&gPlayerParty[gBattlerPartyIndexes[0]], MON_DATA_HP) == 0)
+            {
+                PlaySE(SE_BOO);
+                ClearBottomWindow();
+                SetPokeStorageTask(Task_PokeStorageMain);
+            }
+            else
+            {
+                PlaySE(SE_PC_OFF);
+                ClearBottomWindow();
+                gStorage->state++;
+            }
             break;
         }
         break;
@@ -2106,9 +2115,18 @@ static void Task_OnBPressed(u8 taskId)
             break;
         case 1:
         case MENU_B_PRESSED:
-            PlaySE(SE_PC_OFF);
-            ClearBottomWindow();
-            gStorage->state++;
+            if (gBattleSwitchFromPSS && GetMonData(&gPlayerParty[gBattlerPartyIndexes[0]], MON_DATA_HP) == 0)
+            {
+                PlaySE(SE_BOO);
+                ClearBottomWindow();
+                SetPokeStorageTask(Task_PokeStorageMain);
+            }
+            else
+            {
+                PlaySE(SE_PC_OFF);
+                ClearBottomWindow();
+                gStorage->state++;
+            }
             break;
         }
         break;

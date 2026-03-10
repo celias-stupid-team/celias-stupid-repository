@@ -334,6 +334,7 @@ static const u8 sText_PkmnFledUsingIts[] = _("{PLAY_SE SE_FLEE}{B_ATK_NAME_WITH_
 static const u8 sText_PkmnFledUsing[] = _("{PLAY_SE SE_FLEE}{B_ATK_NAME_WITH_PREFIX} fled\nusing {B_ATK_ABILITY}!\p");
 static const u8 sText_WildPkmnFled[] = _("{PLAY_SE SE_FLEE}Wild {B_BUFF1} fled!");
 static const u8 sText_PlayerDefeatedLinkTrainer[] = _("Player defeated\n{B_LINK_OPPONENT1_NAME}!");
+static const u8 sText_PlayerDefeatedTrainerY_eltal[] = _("Player defeated\nBEAUTY VICKY!");
 static const u8 sText_TwoLinkTrainersDefeated[] = _("Player beat {B_LINK_OPPONENT1_NAME}\nand {B_LINK_OPPONENT2_NAME}!");
 static const u8 sText_PlayerLostAgainstLinkTrainer[] = _("{B_PLAYER_NAME} lost against\n{B_LINK_OPPONENT1_NAME}!");
 static const u8 sText_PlayerLostToTwo[] = _("{B_PLAYER_NAME} lost to {B_LINK_OPPONENT1_NAME}\nand {B_LINK_OPPONENT2_NAME}!");
@@ -1047,6 +1048,10 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNRECHARGED - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} recharged\nfrom the emitted energy!"),
     [STRINGID_OHSHOOT - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Oh shoot!\n{PAUSE 20}The lights went out!\p{PAUSE 45}ZAPDOS took down the whole\npower grid!\p"), //The lights went out!\p"),
     [STRINGID_CANTESCAPEFINAL - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("No! There's no running\nfrom the final battle!\p"),
+    [STRINGID_PKMNHPWASRESTORED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s HP was restored!"),
+    [STRINGID_PKMNDODGEDATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} dodged the attack!"),
+    [STRINGID_PKMNSHELLHASBEENBROKEN - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("Oh no!\n{B_ATK_NAME_WITH_PREFIX}'s shell has been broken!"),
+    [STRINGID_PKMNREPEATSDANCEMOVE - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s DANCER ability\nrepeated the dance move!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -2164,6 +2169,10 @@ void BufferStringBattle(u16 stringId)
         {
             gDisplayedStringBattle[0] = EOS;
             return;
+        }
+        else if (stringId == STRINGID_PLAYERDEFEATEDTRAINER1 && gTrainerBattleOpponent_A == TRAINER_Y_ELTAL && FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE)) // special case for YVELTAL battle
+        {
+            stringPtr = sText_PlayerDefeatedTrainerY_eltal;
         }
         else
         {
