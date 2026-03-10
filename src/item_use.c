@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "help_system.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_interface.h"
@@ -691,6 +692,14 @@ void FieldUseFunc_RunningScrews(u8 taskId)
     RemoveUsedItem();
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RunningScrews, Task_ReturnToBagFromContextMenu);
 }
+
+void FieldUseFunc_HelixFossil(u8 taskId)
+{
+    
+    
+}
+
+
 
 void FieldUseFunc_Ligma(u8 taskId)
 {

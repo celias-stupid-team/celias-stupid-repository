@@ -24,6 +24,8 @@ void BattleUseFunc_BerryPouch(u8 taskId);
 void FieldUseFunc_TeachyTv(u8 taskId);
 void FieldUseFunc_Repel(u8 taskId);
 void FieldUseFunc_RunningScrews(u8 taskId);
+void FieldUseFunc_HelixFossil(u8 taskId);
+
 void FieldUseFunc_Ligma(u8 taskId);
 void FieldUseFunc_CopycatTM(u8 taskId);
 void FieldUseFunc_CeliaMessage(u8 taskId);
