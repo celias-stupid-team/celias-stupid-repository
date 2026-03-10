@@ -139,6 +139,7 @@ script PowerPlant_MagnemiteMan {
 				walk_down * 4
 			))
 			//A magnemite appears
+			waitmovement(LOCALID_POWER_PLANT_MAGNEMITE)
 			msgbox(
 			"Oh, hey!\n"
 			"A wild MAGNEMITE!\p"
@@ -181,6 +182,7 @@ script PowerPlant_MagnemiteMan {
 					set_visible
 					walk_down * 4
 				))
+				waitmovement(LOCALID_POWER_PLANT_MAGNEMITE)
 				msgbox(
 				"Oh, hey!\n"
 				"A wild MAGNEMITE!\p"

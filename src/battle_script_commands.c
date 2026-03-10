@@ -10963,6 +10963,10 @@ static void Cmd_trysetcaughtmondexflags(void)
 
     if (isShiny)
         FlagSet(FLAG_SHINY_CREATION); // used for dex flag handling afterwards
+    
+    if (species == SPECIES_MAGNEMITE && !GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT)) {
+        VarSet(VAR_SHINY_MAGNEMITE, 1);
+    }
 
     if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
     {

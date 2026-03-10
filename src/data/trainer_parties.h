@@ -10079,10 +10079,10 @@ static const struct TrainerMonItemCustomMoves sParty_RivalBarry[] = {
 static const struct TrainerMonItemCustomMoves sParty_DMCAThievul[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 35,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_THIEVUL,
-        .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_YVELTAL,
+        .moves = {MOVE_OBLI_ION_WING, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -10462,7 +10462,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sans[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_KECLEON_SANS,
-        .moves = {MOVE_FURY_SWIPES, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_GASTER_BLASTER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_TerritorialOak[] = {
