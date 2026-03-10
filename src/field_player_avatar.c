@@ -679,9 +679,12 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
     x = gObjectEvents[objectEventId].currentCoords.x;
     y = gObjectEvents[objectEventId].currentCoords.y;
     MoveCoords(direction_, &x, &y);
+    
+    //TryOverrideObjectEventTemplateCoords(objectEventId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup); Didn't work :(
     if (MapGridGetMetatileBehaviorAt(x, y) == MB_FALL_WARP || (GetCollisionAtCoords(&gObjectEvents[objectEventId], x, y, direction_) == COLLISION_NONE && !MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y))))
     {
         StartStrengthAnim(objectEventId, direction_);
+        OverrideTemplateCoordsForObjectEvent(&gObjectEvents[objectEventId]);
         return TRUE;
     }
     else
