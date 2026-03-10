@@ -2859,6 +2859,10 @@ void SetMoveEffect(bool8 primary, u8 certain)
             else
                 gBattleMons[gEffectBattler].status1 |= sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]];
 
+            // special case for WoW inflicting the bad burn status
+            if (sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]] == STATUS1_BURN && gCurrentMove == MOVE_WILL_O_WISP)
+                gBattleMons[gEffectBattler].status1 |= STATUS1_BAD_BURN;
+
             gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
 
             gActiveBattler = gEffectBattler;

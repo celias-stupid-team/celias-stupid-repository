@@ -4260,7 +4260,13 @@ BattleScript_MoveEffectPoison::
 
 BattleScript_MoveEffectBurn::
 	statusanimation BS_EFFECT_BATTLER
+	jumpifstatus BS_EFFECT_BATTLER, STATUS1_BAD_BURN, BattleScript_MoveEffectBadBurn
 	printfromtable gGotBurnedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
+
+BattleScript_MoveEffectBadBurn::
+	printstring STRINGID_PKMNWASBADLYBURNED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_UpdateEffectStatusIconRet
 

@@ -3119,7 +3119,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             case HOLD_EFFECT_CURE_BRN:
                 if (gBattleMons[battlerId].status1 & STATUS1_BURN)
                 {
-                    gBattleMons[battlerId].status1 &= ~STATUS1_BURN;
+                    gBattleMons[battlerId].status1 &= ~(STATUS1_BURN | STATUS1_BAD_BURN);
                     BattleScriptExecute(BattleScript_BerryCureBrnEnd2);
                     effect = ITEM_STATUS_CHANGE;
                 }
@@ -3290,7 +3290,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             case HOLD_EFFECT_CURE_BRN:
                 if (gBattleMons[battlerId].status1 & STATUS1_BURN)
                 {
-                    gBattleMons[battlerId].status1 &= ~STATUS1_BURN;
+                    gBattleMons[battlerId].status1 &= ~(STATUS1_BURN | STATUS1_BAD_BURN);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BerryCureBrnRet;
                     effect = ITEM_STATUS_CHANGE;
