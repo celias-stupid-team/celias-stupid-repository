@@ -81,6 +81,15 @@ const u32 gBattleAnimSpritePal_Eagle[] = INCBIN_U32("graphics/battle_anims/sprit
 const u32 gBattleAnimSpriteGfx_BibleStuff[] = INCBIN_U32("graphics/battle_anims/sprites/bible_stuff.4bpp.lz");
 const u32 gBattleAnimSpritePal_BibleStuff[] = INCBIN_U32("graphics/battle_anims/sprites/bible_stuff.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_GasterBlaster[] = INCBIN_U32("graphics/battle_anims/sprites/gaster_blaster.4bpp.lz");
+const u32 gBattleAnimSpritePal_GasterBlaster[] = INCBIN_U32("graphics/battle_anims/sprites/gaster_blaster.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_GasterBeam[] = INCBIN_U32("graphics/battle_anims/sprites/gaster_beam.4bpp.lz");
+const u32 gBattleAnimSpritePal_GasterBeam[] = INCBIN_U32("graphics/battle_anims/sprites/gaster_beam.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Teacup[] = INCBIN_U32("graphics/battle_anims/sprites/teacup.4bpp.lz");
+const u32 gBattleAnimSpritePal_Teacup[] = INCBIN_U32("graphics/battle_anims/sprites/teacup.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.4bpp.lz");
 const u32 gBattleAnimSpritePal_Explosion6[] = INCBIN_U32("graphics/battle_anims/sprites/explosion_6.gbapal.lz");
 

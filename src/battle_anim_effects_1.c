@@ -79,6 +79,7 @@ static void AnimCirclingMusicNote_Step(struct Sprite *);
 static void AnimProtect(struct Sprite *);
 static void AnimOneProtect(struct Sprite *);
 static void AnimProtect_Step(struct Sprite *);
+static void AnimTeatime(struct Sprite *);
 static void AnimMilkBottle(struct Sprite *);
 static void AnimMilkBottle_Step1(struct Sprite *);
 static void AnimMilkBottle_Step2(struct Sprite *, int, int);
@@ -163,6 +164,9 @@ static void AnimShadowShield_Step(struct Sprite *);
 static void AnimShine(struct Sprite *);
 static void AnimShine_Wait(struct Sprite *);
 static void AnimTask_PushDownAndShake_Step(u8 taskId);
+static void AnimGasterBlaster(struct Sprite *);
+static void AnimGasterBlaster_Step(struct Sprite *);
+static void AnimGasterBeam_Step(struct Sprite *);
 
 static const u8 sUnused[] = {2, 4, 1, 3};
 
@@ -1005,6 +1009,78 @@ const struct SpriteTemplate gTrickBagSpriteTemplate =
     .callback = AnimTrickBag,
 };
 
+static const union AnimCmd sAnim_GasterBlaster_Idle[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnim_GasterBlaster_Launch[] =
+{
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(128, 2),
+    ANIMCMD_FRAME(192, 2),
+    ANIMCMD_END,
+};
+static const union AnimCmd *const gGasterBlasterAnimTable[] =
+{
+    sAnim_GasterBlaster_Idle,    // anim 0
+    sAnim_GasterBlaster_Launch,  // anim 1
+};
+
+const struct SpriteTemplate gGasterBlasterSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GASTER_BLASTER,
+    .paletteTag = ANIM_TAG_GASTER_BLASTER,
+    .oam = &gOamData_GasterBlaster,
+    .anims = gGasterBlasterAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGasterBlaster,
+};
+
+
+static const union AnimCmd sAnim_GasterBeam[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const gGasterBeamAnimTable[] =
+{
+    sAnim_GasterBeam,
+};
+
+const struct SpriteTemplate gGasterBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GASTER_BEAM,
+    .paletteTag = ANIM_TAG_GASTER_BEAM,
+    .oam = &gOamData_AffineOff_ObjBlend_32x32,
+    .anims = gGasterBeamAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 static const s8 gTrickBagCoordinates[][3] =
 {
     {5, 24,   1},
@@ -1612,6 +1688,17 @@ const struct SpriteTemplate gMilkBottleSpriteTemplate =
     .images = NULL,
     .affineAnims = sMilkBottleAffineAnimTable,
     .callback = AnimMilkBottle,
+};
+
+const struct SpriteTemplate gTeatimeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TEACUP,
+    .paletteTag = ANIM_TAG_TEACUP,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMilkBottleAffineAnimTable,
+    .callback = AnimTeatime,
 };
 
 static const union AnimCmd sGrantingStarsAnimCmds[] =
@@ -4806,6 +4893,30 @@ static void AnimProtect_Step(struct Sprite *sprite)
     }
 }
 
+static void AnimTeatime(struct Sprite* sprite)
+{
+    u8 battler = gBattleAnimArgs[0];
+
+    sprite->data[5] = battler;
+
+    sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET) - 24;
+
+    sprite->data[0] = 0;
+    sprite->data[1] = 0;
+    sprite->data[2] = 0;
+    sprite->data[3] = 0;
+    sprite->data[4] = 0;
+
+    sprite->data[6] = 0;
+    sprite->data[7] = 16;
+
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(sprite->data[6], sprite->data[7]));
+
+    sprite->callback = AnimMilkBottle_Step1;
+}
+
 static void AnimMilkBottle(struct Sprite* sprite)
 {
     sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
@@ -6593,4 +6704,131 @@ static void AnimTask_PushDownAndShake_Step(u8 taskId)
         }
         break;
     }
+}
+
+#define STATE_FALL 0 
+#define STATE_WAIT 1 
+#define STATE_LAUNCH 2
+
+static void AnimGasterBlaster(struct Sprite *sprite)
+{
+    s16 attackerX = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X);
+    s16 attackerY = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y);
+
+    sprite->x = attackerX;
+    sprite->y = -64;
+
+    sprite->data[0] = STATE_FALL;
+    sprite->data[1] = 64;                      // fall velocity (fixed point)
+    sprite->data[2] = gBattleAnimArgs[0];      // wait duration
+
+    sprite->data[3] = 0;                       // x velocity
+    sprite->data[4] = 0;                       // y velocity
+
+    sprite->data[5] = attackerY + gBattleAnimArgs[1]; // landing Y
+
+    // flip sprite for player side
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+    {
+        sprite->hFlip = TRUE;
+        sprite->vFlip = TRUE;
+    }
+
+    sprite->callback = AnimGasterBlaster_Step;
+}
+
+static void AnimGasterBlaster_Step(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+
+    // Original falling behaviour (restored)
+    case STATE_FALL:
+        sprite->data[1] += gBattleAnimArgs[2];
+        sprite->y += sprite->data[1] >> 4;
+
+        if (sprite->y >= sprite->data[5])
+        {
+            sprite->y = sprite->data[5];
+            sprite->data[0] = STATE_WAIT;
+        }
+        break;
+
+
+    // Waiting before launch
+    case STATE_WAIT:
+        if (--sprite->data[2] <= 0)
+        {
+            sprite->data[0] = STATE_LAUNCH;
+            StartSpriteAnim(sprite, 1); // play launch animation
+
+            if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+            {
+                // 63.4° left of straight down
+                sprite->data[3] = -16;
+                sprite->data[4] = 8;
+            }
+            else
+            {
+                // 63.4° right of straight up
+                sprite->data[3] = 16;
+                sprite->data[4] = -8;
+            }
+        }
+        break;
+
+
+    // Accelerating fly-away
+    case STATE_LAUNCH:
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+        {
+            sprite->data[3] -= gBattleAnimArgs[3];
+            sprite->data[4] += gBattleAnimArgs[3] / 2;
+        }
+        else
+        {
+            sprite->data[3] += gBattleAnimArgs[3];
+            sprite->data[4] -= gBattleAnimArgs[3] / 2;
+        }
+
+        sprite->x += sprite->data[3] >> 4;
+        sprite->y += sprite->data[4] >> 4;
+
+        if (sprite->x < -64 || sprite->x > 304 || sprite->y < -64 || sprite->y > 224)
+            DestroyAnimSprite(sprite);
+        break;
+    }
+}
+
+void AnimTask_SpawnGasterBeams(u8 taskId)
+{
+    s16 baseY = gBattleAnimArgs[0];
+    s16 timer = gBattleAnimArgs[1];
+
+    s16 centerX = 120;
+
+    s16 xOffsets[8] = {-112, -80, -48, -16, 16, 48, 80, 112,};
+    u8 i;
+
+    for (i = 0; i < 8; i++)
+    {
+        u8 spriteId = CreateSprite(&gGasterBeamSpriteTemplate,
+                                   centerX + xOffsets[i],
+                                   baseY - (i * 16),
+                                   3);
+
+        if (spriteId != MAX_SPRITES)
+        {
+            gSprites[spriteId].data[0] = timer;
+            gSprites[spriteId].callback = AnimGasterBeam_Step;
+        }
+    }
+
+    DestroyAnimVisualTask(taskId);
+}
+
+static void AnimGasterBeam_Step(struct Sprite *sprite)
+{
+    if (--sprite->data[0] <= 0)
+        DestroySprite(sprite);
 }

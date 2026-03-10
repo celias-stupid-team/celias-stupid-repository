@@ -10448,7 +10448,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sans[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_KECLEON_SANS,
-        .moves = {MOVE_FURY_SWIPES, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_GASTER_BLASTER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_TerritorialOak[] = {

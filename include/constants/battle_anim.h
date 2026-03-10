@@ -358,6 +358,9 @@
 #define ANIM_TAG_ALLEGIANCE                 (ANIM_SPRITES_START + 348)
 #define ANIM_TAG_EAGLE                      (ANIM_SPRITES_START + 349)
 #define ANIM_TAG_BIBLE_STUFF                (ANIM_SPRITES_START + 350)
+#define ANIM_TAG_GASTER_BLASTER             (ANIM_SPRITES_START + 351)
+#define ANIM_TAG_GASTER_BEAM                (ANIM_SPRITES_START + 352)
+#define ANIM_TAG_TEACUP                     (ANIM_SPRITES_START + 353)
 
 // battlers
 #define ANIM_ATTACKER       0

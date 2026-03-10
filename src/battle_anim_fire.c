@@ -815,7 +815,6 @@ static void UpdateFireRingCircleOffset(struct Sprite *sprite)
 // arg 2: duration
 // arg 3: x delta
 // arg 4: y delta 
-// AnimFireCross(struct Sprite *sprite)
 static void AnimFireCross(struct Sprite *sprite)
 {
     sprite->x += gBattleAnimArgs[0];

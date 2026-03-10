@@ -560,6 +560,21 @@ const struct OamData gOamData_AffineOff_ObjBlend_64x64 =
     .paletteNum = 0,
 };
 
+
+const struct OamData gOamData_GasterBlaster =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_BLEND,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+};
+
 const struct OamData gOamData_AffineOff_ObjBlend_16x8 =
 {
     .y = 0,
@@ -1361,6 +1376,9 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Allegiance, 0x0A00, ANIM_TAG_ALLEGIANCE},
     {gBattleAnimSpriteGfx_Eagle, 0x0800, ANIM_TAG_EAGLE},
     {gBattleAnimSpriteGfx_BibleStuff, 0x0300, ANIM_TAG_BIBLE_STUFF},
+    {gBattleAnimSpriteGfx_GasterBlaster, 0x2000, ANIM_TAG_GASTER_BLASTER},
+    {gBattleAnimSpriteGfx_GasterBeam, 0x0800, ANIM_TAG_GASTER_BEAM},
+    {gBattleAnimSpriteGfx_Teacup, 0x0200, ANIM_TAG_TEACUP},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1716,6 +1734,9 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Allegiance, ANIM_TAG_ALLEGIANCE},
     {gBattleAnimSpritePal_Eagle, ANIM_TAG_EAGLE},
     {gBattleAnimSpritePal_BibleStuff, ANIM_TAG_BIBLE_STUFF},
+    {gBattleAnimSpritePal_GasterBlaster, ANIM_TAG_GASTER_BLASTER},
+    {gBattleAnimSpritePal_GasterBeam, ANIM_TAG_GASTER_BEAM},
+    {gBattleAnimSpritePal_Teacup, ANIM_TAG_TEACUP},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
