@@ -56,6 +56,7 @@ void ItemUseOutOfBattle_StairOrb(u8 taskId);
 void FieldUseFunc_PayDayTM(u8 taskId);
 void FieldUseFunc_BalmMushroom(u8 taskId);
 void FieldUseFunc_DragoniteBag(u8 taskId);
+void FieldUseFunc_HelixFossil(u8 taskId);
 
 extern bool8 gUsingRegisteredPartyMenuItem;
 

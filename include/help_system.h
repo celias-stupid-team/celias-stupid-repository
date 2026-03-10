@@ -177,6 +177,7 @@ void BackupHelpContext(void);
 void RestoreHelpContext(void);
 void HelpSystemRenderText(u8 fontId, u8 * dest, const u8 * src, u8 x, u8 y, u8 width, u8 height);
 void HelpSystem_DisableToggleWithRButton(void);
+void OpenHelpSystem(void);
 
 u8 GetHelpSystemStateLevel(void);
 

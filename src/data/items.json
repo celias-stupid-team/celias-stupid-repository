@@ -5781,7 +5781,7 @@
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "fieldUseFunc": "FieldUseFunc_HelixFossil",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
