@@ -105,6 +105,7 @@ mapscripts Silph_UnfinishedFloor_MapScripts {
             "party", MSGBOX_DEFAULT)
             givemon(SPECIES_SHELLDER, 20)
             setvar(VAR_SLOW_BRO_AND_SHELLA_JEFF, 1)
+            clearflag(FLAG_SKY_TOWER_STAIR_ORB)
             release
 
 
