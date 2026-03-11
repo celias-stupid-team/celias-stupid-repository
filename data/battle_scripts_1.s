@@ -3450,6 +3450,18 @@ BattleScript_TrickRoomContinues::
 	playanimation BS_ATTACKER, B_ANIM_TRICK_ROOM_CONTINUES
 	end2
 
+BattleScript_GravityContinues::
+	printstring STRINGID_GRAVITY_CONTINUES
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_GRAVITY_CONTINUES
+	end2
+
+BattleScript_GravityStarts::
+	printstring STRINGID_GRAVITY_STARTS
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_GRAVITY_CONTINUES
+	end3
+
 BattleScript_OverworldWeatherStarts::
 	printfromtable gWeatherStartsStringIds
 	waitmessage B_WAIT_TIME_LONG

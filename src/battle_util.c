@@ -512,6 +512,7 @@ enum
     ENDTURN_SUN,
     ENDTURN_HAIL,
     ENDTURN_TRICK_ROOM,
+    ENDTURN_GRAVITY,
     ENDTURN_SHADOW_SKY,
     ENDTURN_FIELD_COUNT,
 };
@@ -793,6 +794,15 @@ u8 DoFieldEndTurnEffects(void)
                 BattleScriptExecute(gBattlescriptCurrInstr);
                 effect++;
             }
+            gBattleStruct->turnCountersTracker++;
+            break;
+        case ENDTURN_GRAVITY: // ENDTURN not required
+            // if (gBattleWeather & B_WEATHER_GRAVITY)
+            // {
+            //     gBattlescriptCurrInstr = BattleScript_GravityContinues;
+            //     BattleScriptExecute(gBattlescriptCurrInstr);
+            //     effect++;
+            // }
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_SHADOW_SKY:
@@ -1888,6 +1898,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             switch (gLastUsedAbility)
             {
             case ABILITYEFFECT_SWITCH_IN_WEATHER:
+            {
+                bool8 noRelevantWeather = FALSE;
+
                 switch (GetCurrentWeather())
                 {
                 case WEATHER_RAIN:
@@ -1935,13 +1948,25 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     gBattleScripting.battler = battler;
                     effect++;
                     break;
+                default:
+                    noRelevantWeather = TRUE;
+                    break;
                 }
-                if (effect != 0)
+                // special handling for DMCA_BROCK
+                if (noRelevantWeather && gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
+                {
+                    gBattleWeather = B_WEATHER_GRAVITY;
+                    gBattleScripting.battler = battler;
+                    BattleScriptPushCursorAndCallback(BattleScript_GravityStarts);
+                    effect++;
+                }
+                else if (effect != 0)
                 {
                     gBattleCommunication[MULTISTRING_CHOOSER] = GetCurrentWeather();
                     BattleScriptPushCursorAndCallback(BattleScript_OverworldWeatherStarts);
                 }
                 break;
+            }
             case ABILITY_DRIZZLE:
                 if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY))
                 {

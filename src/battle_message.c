@@ -1054,6 +1054,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNREPEATSDANCEMOVE - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s DANCER ability\nrepeated the dance move!"),
     [STRINGID_PKMNWASBADLYBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_EFF_NAME_WITH_PREFIX} was badly burned!\pIts attacking stats have been\nmassively cut!"),
     [STRINGID_PKMNWENTBACK - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} went back to {B_ATK_TRAINER_NAME}!"),
+    [STRINGID_GRAVITY_STARTS - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("The gravity intensified!"),
+    [STRINGID_GRAVITY_CONTINUES - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Gravity is intensified!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 

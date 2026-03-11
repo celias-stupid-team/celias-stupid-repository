@@ -1133,6 +1133,7 @@ gBattleAnims_General::
 	.4byte General_ChargeTurn               @ B_ANIM_CHARGE_TURN
 	.4byte General_GhostDodge               @ B_ANIM_GHOST_DODGE
 	.4byte General_SlowpokeTransform		@ B_ANIM_SLOWPOKE_TRANSFORM
+	.4byte General_Gravity                  @ B_ANIM_GRAVITY_CONTINUES
 
 	.align 2
 gBattleAnims_Special::
@@ -11941,8 +11942,6 @@ General_TeraActivate::
 	end
 
 General_TrickRoom::
-	@ call InitRoomAnimation
-@ gBattleAnimGeneral_TrickRoom::
 	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
 	fadetobg BG_TRICK_ROOM
 	waitbgfadein
@@ -11951,6 +11950,7 @@ General_TrickRoom::
 	waitbgfadein
 	blendoff
 	end
+
 InitRoomAnimation:
 	setalpha 8, 8
 	createvisualtask AnimTask_ScaleMonAndRestore, 5, -6, -6, 15, ANIM_TARGET, 1
@@ -20809,6 +20809,16 @@ Move_AURORA_VEIL:
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
+	blendoff
+	end
+
+General_Gravity::
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	fadetobg BG_TRICK_ROOM
+	waitbgfadein
+	delay 0x40
+	restorebg
+	waitbgfadein
 	blendoff
 	end
 

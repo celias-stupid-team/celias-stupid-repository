@@ -243,6 +243,7 @@
 #define B_WEATHER_HAIL                (B_WEATHER_HAIL_TEMPORARY)
 #define B_WEATHER_ANY                 (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_SUN | B_WEATHER_HAIL)
 #define B_WEATHER_SHADOW_SKY          (1 << 8)
+#define B_WEATHER_GRAVITY             (1 << 9)
 
 // Move Effects
 #define MOVE_EFFECT_SLEEP               1
