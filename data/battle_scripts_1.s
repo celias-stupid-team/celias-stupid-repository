@@ -1,4 +1,5 @@
 #include "constants/global.h"
+#include "constants/flags.h"
 #include "constants/moves.h"
 #include "constants/battle.h"
 #include "constants/battle_move_effects.h"
@@ -281,6 +282,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                    @ EFFECT_HIT_ESCAPE
 	.4byte BattleScript_EffectHit                    @ EFFECT_W_TURN
 	.4byte BattleScript_EffectStuporPower		     @ EFFECT_STUPORPOWER
+	.4byte BattleScript_EffectGMaxCuddle             @ EFFECT_G_MAX_CUDDLE
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5808,6 +5810,15 @@ BattleScript_WTurnSecondHitDone:
 BattleScript_EffectStuporPower::
 	setmoveeffect MOVE_EFFECT_MAX_ALL_STATS | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
+
+BattleScript_EffectGMaxCuddle::
+	attackcanceler
+	jumpifflagset FLAG_CSR_POWER_IS_ON, BattleScript_EffectHit
+	attackstring
+	ppreduce
+	printstring STRINGID_GMAX_MOVE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_End2::
 	end2

@@ -1785,3 +1785,9 @@
 	.macro wturnsaveoriginalbattledata
 	callnative BS_WTurnSaveOriginalBattleData
 	.endm
+
+	.macro jumpifflagset flag:req, jumpptr:req
+	callnative BS_JumpIfFlagSet
+	.2byte \flag
+	.4byte \jumpptr
+	.endm

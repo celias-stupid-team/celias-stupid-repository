@@ -2713,6 +2713,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             else
                 damageHelper = defense;
         }
+        else if (gCurrentMove == MOVE_G_MAX_CUDDLE)
+            damageHelper = defense;
         else
             APPLY_STAT_MOD(damageHelper, defender, defense, STAT_DEF)
 
@@ -2768,6 +2770,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             else
                 damageHelper = spDefense;
         }
+        else if (gCurrentMove == MOVE_G_MAX_CUDDLE)
+            damageHelper = spDefense;
         else
             APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_SPDEF)
 

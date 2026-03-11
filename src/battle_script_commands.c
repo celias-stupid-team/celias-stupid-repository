@@ -12536,3 +12536,13 @@ void BS_WTurnSaveOriginalBattleData(void)
     
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_JumpIfFlagSet(void)
+{
+    NATIVE_ARGS(u16 flag, const u8 *jumpInstr);
+    
+    if (FlagGet(cmd->flag))
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}

@@ -6196,16 +6196,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_G_MAX_CUDDLE] =    {
-        .effect = EFFECT_DO_NOTHING,
+        .effect = EFFECT_G_MAX_CUDDLE,
         .power = 120,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
-        .secondaryEffectChance = 10,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT,
-        .stringId = B_MSG_GMAX_MOVE
+        // .stringId = B_MSG_GMAX_MOVE
     },
 
     [MOVE_EXTREME_EVOBOOST] =    {
