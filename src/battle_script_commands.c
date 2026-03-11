@@ -746,6 +746,7 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_NIGHTMARE]        = BattleScript_MoveEffectSleep,
     [MOVE_EFFECT_ALL_STATS_UP]     = BattleScript_MoveEffectSleep,
     [MOVE_EFFECT_RAPIDSPIN]        = BattleScript_MoveEffectSleep,
+    [MOVE_EFFECT_MAX_ALL_STATS]    = BattleScript_MoveEffectSleep,
     [MOVE_EFFECT_REMOVE_PARALYSIS] = BattleScript_MoveEffectSleep,
     [MOVE_EFFECT_ATK_DEF_DOWN]     = BattleScript_MoveEffectSleep,
     [MOVE_EFFECT_RECOIL_33]        = BattleScript_MoveEffectRecoil,
@@ -3207,6 +3208,16 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = BattleScript_AllStatsUp;
                 break;
+            case MOVE_EFFECT_MAX_ALL_STATS:
+            {
+                u32 i;
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                // reset all stats to make sure that it ends up at +6
+                for (i = STAT_ATK; i <= STAT_SPDEF; i++)
+                    gBattleMons[gBattlerAttacker].statStages[i] = DEFAULT_STAT_STAGE;
+                gBattlescriptCurrInstr = BattleScript_MaxAllStatsUp;
+                break;
+            }
             case MOVE_EFFECT_RAPIDSPIN:
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = BattleScript_RapidSpinAway;

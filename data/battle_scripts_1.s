@@ -280,6 +280,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBanefulBunker          @ EFFECT_BANEFUL_BUNKER
 	.4byte BattleScript_EffectHit                    @ EFFECT_HIT_ESCAPE
 	.4byte BattleScript_EffectHit                    @ EFFECT_W_TURN
+	.4byte BattleScript_EffectStuporPower		     @ EFFECT_STUPORPOWER
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -3720,6 +3721,29 @@ BattleScript_AllStatsUpSpDef::
 BattleScript_AllStatsUpRet::
 	return
 
+@ increases all stats six stages; all are reset to default 0 before
+BattleScript_MaxAllStatsUp::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_DEF | BIT_SPEED | BIT_SPATK | BIT_SPDEF, 0
+	setstatchanger STAT_ATK, 6, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MaxAllStatsUpDef
+BattleScript_MaxAllStatsUpDef::
+	setstatchanger STAT_DEF, 6, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MaxAllStatsUpSpeed
+BattleScript_MaxAllStatsUpSpeed::
+	setstatchanger STAT_SPEED, 6, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MaxAllStatsUpSpAtk
+BattleScript_MaxAllStatsUpSpAtk::
+	setstatchanger STAT_SPATK, 6, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MaxAllStatsUpSpDef
+BattleScript_MaxAllStatsUpSpDef::
+	setstatchanger STAT_SPDEF, 6, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MaxAllStatsUpRet
+	printstring STRINGID_PKMNSTATSMAXED
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_MaxAllStatsUpRet::
+	return
+
 BattleScript_RapidSpinAway::
 	rapidspinfree
 	return
@@ -5780,6 +5804,10 @@ BattleScript_WTurnSwitchBack:
 	switchineffects BS_ATTACKER
 BattleScript_WTurnSecondHitDone:
 	return
+
+BattleScript_EffectStuporPower::
+	setmoveeffect MOVE_EFFECT_MAX_ALL_STATS | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
 
 BattleScript_End2::
 	end2
