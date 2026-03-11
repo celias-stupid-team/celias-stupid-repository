@@ -5069,8 +5069,9 @@ static void Cmd_moveend(void)
             }
             gBattleScripting.moveendState++;
             break;
-        case MOVEEND_HIT_ESCAPE: // U-Turn
-            if (gBattleMoves[gCurrentMove].effect == EFFECT_HIT_ESCAPE
+        case MOVEEND_HIT_ESCAPE: // U-Turn and W-Turn (switch-out phase)
+            if ((gBattleMoves[gCurrentMove].effect == EFFECT_HIT_ESCAPE
+              || gBattleMoves[gCurrentMove].effect == EFFECT_W_TURN)
              && !(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
              && TARGET_TURN_DAMAGED
              && gBattleMons[gBattlerAttacker].hp != 0
@@ -5079,6 +5080,30 @@ static void Cmd_moveend(void)
                 effect = TRUE;
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_EffectHitEscape;
+            }
+            gBattleScripting.moveendState++;
+            break;
+        case MOVEEND_W_TURN: // W-Turn second hit and forced switch-back
+            {
+                // read data that was already overwritten after the switch from gBattleScripting.savedData
+                u16 savedMove  = (u16)((u32)gBattleScripting.savedData >> 16);
+                u8 savedTarget = (u8)((u32)gBattleScripting.savedData >> 8);
+
+                if (gBattleMoves[savedMove].effect == EFFECT_W_TURN
+                && !(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
+                && (gSpecialStatuses[savedTarget].physicalDmg != 0 || gSpecialStatuses[savedTarget].specialDmg != 0)
+                && gBattleMons[gBattlerAttacker].hp != 0
+                && gBattleMons[savedTarget].hp != 0) // don't execute if opponent already fainted
+                {
+                    effect = TRUE;
+                    // restore global battle vars
+                    gCurrentMove = savedMove;
+                    gBattlerTarget = savedTarget;
+                    gBattleStruct->monToSwitchIntoId[gBattlerAttacker] = (u8)gBattleScripting.savedData;
+
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_WTurnSecondHitAndReturn;
+                }
             }
             gBattleScripting.moveendState++;
             break;
@@ -12485,5 +12510,18 @@ void BS_SetTechnoBlastType(void)
 
     gBattleStruct->dynamicMoveType = moveType;
 
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+// saves the original battle data for W-Turn
+void BS_WTurnSaveOriginalBattleData(void)
+{
+    NATIVE_ARGS();
+
+    // bits  0 -  7: party index of gBattlerAttacker
+    // bits  8 - 15: gBattlerTarget
+    // bits 16 - 31: gCurrentMove
+    gBattleScripting.savedData = (s32)((u32)gBattlerPartyIndexes[gBattlerAttacker] | ((u32)gBattlerTarget << 8) | ((u32)gCurrentMove << 16));
+    
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

@@ -279,7 +279,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectShellSmash             @ EFFECT_SHELL_SMASH
 	.4byte BattleScript_EffectBanefulBunker          @ EFFECT_BANEFUL_BUNKER
 	.4byte BattleScript_EffectHit                    @ EFFECT_HIT_ESCAPE
-	.4byte BattleScript_EffectWTurn                  @ EFFECT_W_TURN
+	.4byte BattleScript_EffectHit                    @ EFFECT_W_TURN
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5722,22 +5722,52 @@ BattleScript_DancerActivates::
 	jumptocalledmove TRUE
 
 BattleScript_EffectHitEscape::
-	jumpifhasnohp BS_TARGET, BattleScript_HitEscapeSwitch
-	setbyte sGIVEEXP_STATE, 0
-	getexp BS_TARGET
-BattleScript_HitEscapeSwitch:
 	call BattleScript_MoveSwitchPursuitRet
 	return
 
 BattleScript_MoveSwitchPursuitRet:
 	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_ButItFailed
+	jumpifhasnohp BS_TARGET, BattleScript_MoveSwitchPursuitRet_End // don't switch if the opponent has already fainted
+	wturnsaveoriginalbattledata @ only used for W-Turn
 	printstring STRINGID_PKMNWENTBACK
 	waitmessage B_WAIT_TIME_SHORT
 	jumpifnopursuitswitchdmg BattleScript_EffectBatonPassOpenPartyScreen
+BattleScript_MoveSwitchPursuitRet_End:
 	return
 
-BattleScript_EffectWTurn:: @ add implementation
-	goto BattleScript_MoveEnd
+BattleScript_WTurnSecondHitAndReturn::
+	jumpifhasnohp BS_TARGET, BattleScript_WTurnSwitchBack
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	jumpifhasnohp BS_TARGET, BattleScript_WTurnSecondHitDone
+BattleScript_WTurnSwitchBack:
+	switchoutabilities BS_ATTACKER
+	waitstate
+	returntoball BS_ATTACKER
+	getswitchedmondata BS_ATTACKER
+	switchindataupdate BS_ATTACKER
+	hpthresholds BS_ATTACKER
+	printstring STRINGID_SWITCHINMON
+	switchinanim BS_ATTACKER, TRUE
+	waitstate
+	switchineffects BS_ATTACKER
+BattleScript_WTurnSecondHitDone:
+	return
 
 BattleScript_End2::
 	end2

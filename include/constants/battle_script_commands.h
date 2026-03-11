@@ -153,8 +153,9 @@
 #define MOVEEND_NEXT_TARGET                     18
 #define MOVEEND_ITEM_EFFECTS_TARGET             19
 #define MOVEEND_HIT_ESCAPE                      20
-#define MOVEEND_CLEAR_BITS                      21
-#define MOVEEND_DANCER                          22
-#define MOVEEND_COUNT                           23
+#define MOVEEND_W_TURN                          21
+#define MOVEEND_CLEAR_BITS                      22
+#define MOVEEND_DANCER                          23
+#define MOVEEND_COUNT                           24
 
 #endif // GUARD_CONSTANTS_BATTLE_SCRIPT_COMMANDS_H

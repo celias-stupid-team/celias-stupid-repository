@@ -1781,3 +1781,7 @@
 	.macro settechnoblasttype
 	callnative BS_SetTechnoBlastType
 	.endm
+
+	.macro wturnsaveoriginalbattledata
+	callnative BS_WTurnSaveOriginalBattleData
+	.endm

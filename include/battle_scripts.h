@@ -278,6 +278,7 @@ extern const u8 BattleScript_BanefulBunkerPoison[];
 extern const u8 BattleScript_DancerActivates[];
 extern const u8 BattleScript_End2[];
 extern const u8 BattleScript_EffectHitEscape[];
+extern const u8 BattleScript_WTurnSecondHitAndReturn[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];

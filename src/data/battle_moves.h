@@ -9347,7 +9347,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_W_TURN] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_W_TURN,
         .power = 95,
         .type = TYPE_FLYING,
         .accuracy = 100,
