@@ -1120,7 +1120,7 @@
     {
       "id": "LAYOUT_ROUTE23",
       "name": "Route23_Layout",
-      "width": 30,
+      "width": 40,
       "height": 92,
       "border_width": 2,
       "border_height": 2,
@@ -7440,6 +7440,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/FarawayIsland/border.bin",
       "blockdata_filepath": "data/layouts/FarawayIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE23EXTENDED",
+      "name": "Route23Extended_Layout",
+      "width": 12,
+      "height": 8,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IndigoPlateau",
+      "border_filepath": "data/layouts/Route23Extended/border.bin",
+      "blockdata_filepath": "data/layouts/Route23Extended/map.bin"
     }
   ]
 }

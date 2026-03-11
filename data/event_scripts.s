@@ -1921,3 +1921,6 @@ Text_TestMsg::
 
 	.include "data/maps/FarawayIsland/scripts.inc"
 	.include "data/maps/FarawayIsland/text.inc"
+
+	.include "data/maps/Route23Extended/scripts.inc"
+	.include "data/maps/Route23Extended/text.inc"
