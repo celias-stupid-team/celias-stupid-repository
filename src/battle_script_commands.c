@@ -7489,7 +7489,7 @@ static void Cmd_trymirrormove(void)
 
 static void Cmd_setrain(void)
 {
-    if (gBattleWeather & B_WEATHER_RAIN || gBattleWeather & B_WEATHER_SHADOW_SKY)
+    if (gBattleWeather & B_WEATHER_RAIN || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_FAILED;
@@ -8439,7 +8439,7 @@ static void Cmd_damagetohalftargethp(void)
 
 static void Cmd_setsandstorm(void)
 {
-    if (gBattleWeather & B_WEATHER_SANDSTORM || gBattleWeather & B_WEATHER_SHADOW_SKY)
+    if (gBattleWeather & B_WEATHER_SANDSTORM || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_FAILED;
@@ -9634,7 +9634,7 @@ static void Cmd_jumpifnopursuitswitchdmg(void)
 
 static void Cmd_setsunny(void)
 {
-    if (gBattleWeather & B_WEATHER_SUN || gBattleWeather & B_WEATHER_SHADOW_SKY)
+    if (gBattleWeather & B_WEATHER_SUN || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_FAILED;
@@ -9939,7 +9939,7 @@ static void Cmd_setminimize(void)
 
 static void Cmd_sethail(void)
 {
-    if (gBattleWeather & B_WEATHER_HAIL || gBattleWeather & B_WEATHER_SHADOW_SKY)
+    if (gBattleWeather & B_WEATHER_HAIL || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_FAILED;
