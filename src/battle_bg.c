@@ -10,6 +10,7 @@
 #include "link.h"
 #include "new_menu_helpers.h"
 #include "overworld.h"
+#include "script.h"
 #include "text_window.h"
 #include "trig.h"
 #include "constants/maps.h"
@@ -720,10 +721,20 @@ void DrawMainBattleBackground(void)
 
 void LoadBattleTextboxAndBackground(void)
 {
-    LZDecompressVram(gBattleInterface_Textbox_Gfx, (void *)BG_CHAR_ADDR(0));
-    CopyToBgTilemapBuffer(0, gBattleInterface_Textbox_Tilemap, 0, 0x000);
+    if (FlagGet(FLAG_ROTOM_BATTLE_UI))
+    {
+        LZDecompressVram(gBattleInterface_Textbox_Rotom_Gfx, (void *)BG_CHAR_ADDR(0));
+        CopyToBgTilemapBuffer(0, gBattleInterface_Textbox_Rotom_Tilemap, 0, 0x000);
+        LoadCompressedPalette(gBattleInterface_Textbox_Rotom_Pal, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+    }
+    else
+    {
+        LZDecompressVram(gBattleInterface_Textbox_Gfx, (void *)BG_CHAR_ADDR(0));
+        CopyToBgTilemapBuffer(0, gBattleInterface_Textbox_Tilemap, 0, 0x000);
+        LoadCompressedPalette(gBattleInterface_Textbox_Pal, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+    }
+
     CopyBgTilemapBufferToVram(0);
-    LoadCompressedPalette(gBattleInterface_Textbox_Pal, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
     LoadBattleMenuWindowGfx();
     DrawMainBattleBackground();
 }
