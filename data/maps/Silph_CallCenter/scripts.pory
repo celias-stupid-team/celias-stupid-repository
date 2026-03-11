@@ -475,3 +475,11 @@ script Silph_SecurityMemoriam {
 	"Gone but not forgotten.", MSGBOX_SIGN)
 
 }
+
+
+script Silph_AntiSoftlock {
+	msgbox(
+	"A SILPH CO. Patent-Pending\n"
+	"Anti-Softlock Wall!\l"
+	"Neat!", MSGBOX_NPC)
+}

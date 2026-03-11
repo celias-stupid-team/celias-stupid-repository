@@ -433,6 +433,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Silph_Television"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_AntiSoftlock"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_AntiSoftlock"
     }
   ]
 }
