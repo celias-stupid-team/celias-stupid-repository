@@ -91,6 +91,7 @@ script PokemonTower_CeliaRoom_Smitty {
 
 script PokemonTower_CeliaRoom_BerryPowder {
     lock
+    setflag(FLAG_CSR_BERRY_POWDER_MAN)
     if(flag(FLAG_BERRIED_ALIVE)) {
 	    msgbox("Here lied the BERRY POWDER MAN.\pMay his jest increase.\n", MSGBOX_DEFAULT)
 
