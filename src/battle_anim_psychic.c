@@ -5,6 +5,7 @@
 #include "trig.h"
 #include "constants/songs.h"
 
+static void AnimPositionableDefensiveWall(struct Sprite *sprite);
 static void AnimDefensiveWall(struct Sprite *sprite);
 static void AnimWallSparkle(struct Sprite *sprite);
 static void AnimBentSpoon(struct Sprite *sprite);
@@ -59,6 +60,17 @@ const struct SpriteTemplate gLightScreenWallSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimDefensiveWall,
+};
+
+const struct SpriteTemplate gRightScreenWallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GREEN_LIGHT_WALL,
+    .paletteTag = ANIM_TAG_GREEN_LIGHT_WALL,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPositionableDefensiveWall,
 };
 
 const struct SpriteTemplate gReflectWallSpriteTemplate =
@@ -502,6 +514,63 @@ const struct SpriteTemplate gPsychoBoostOrbSpriteTemplate =
     .affineAnims = sAffineAnims_PsychoBoostOrb,
     .callback = AnimPsychoBoost,
 };
+
+static void AnimPositionableDefensiveWall(struct Sprite *sprite)
+{
+    u8 battler = GetAnimBattlerSpriteId(gBattleAnimArgs[3]);
+
+    if (GetBattlerSide(battler) == B_SIDE_PLAYER || IsContest())
+    {
+        sprite->oam.priority = 2;
+        sprite->subpriority = 200;
+    }
+
+    if (!IsContest())
+    {
+        u8 battlerCopy;
+        u8 battlerTmp = battlerCopy = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        u8 rank = GetBattlerSpriteBGPriorityRank(battlerTmp);
+        s32 var0 = 1;
+        bool8 toBG2 = (rank ^ var0) != 0;
+
+        if (IsBattlerSpriteVisible(battlerTmp))
+            MoveBattlerSpriteToBG(battlerTmp, toBG2);
+
+        battlerTmp = BATTLE_PARTNER(battlerCopy);
+        if (IsBattlerSpriteVisible(battlerTmp))
+            MoveBattlerSpriteToBG(battlerTmp, toBG2 ^ var0);
+    }
+
+    if (!IsContest() && IsDoubleBattle())
+    {
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        {
+            sprite->x = 72;
+            sprite->y = 80;
+        }
+        else
+        {
+            sprite->x = 176;
+            sprite->y = 40;
+        }
+    }
+    else
+    {
+        if (GetBattlerSide(battler) != B_SIDE_PLAYER)
+            gBattleAnimArgs[0] = -gBattleAnimArgs[0];
+
+        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X) + gBattleAnimArgs[0];
+        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y) + gBattleAnimArgs[1];
+    }
+
+    if (IsContest())
+        sprite->y += 9;
+
+    sprite->data[0] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(gBattleAnimArgs[2]));
+
+    sprite->callback = AnimDefensiveWall_Step2;
+    sprite->callback(sprite);
+}
 
 // For the rectangular wall sprite used by Reflect, Mirror Coat, etc
 static void AnimDefensiveWall(struct Sprite *sprite)
