@@ -6779,15 +6779,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_U_TURN] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 90,
+        .effect = EFFECT_HIT_ESCAPE,
+        .power = 70,
         .type = TYPE_BUG,
         .accuracy = 100,
-        .pp = 35,
-        .secondaryEffectChance = 10,
+        .pp = 20,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED
     },
 
     [MOVE_FIRST_IMPRESSION] =    {

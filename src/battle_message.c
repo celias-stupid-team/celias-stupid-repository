@@ -1053,6 +1053,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNSHELLHASBEENBROKEN - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("Oh no!\n{B_ATK_NAME_WITH_PREFIX}'s shell has been broken!"),
     [STRINGID_PKMNREPEATSDANCEMOVE - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s DANCER ability\nrepeated the dance move!"),
     [STRINGID_PKMNWASBADLYBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_EFF_NAME_WITH_PREFIX} was badly burned!\pIts attacking stats have been\nmassively cut!"),
+    [STRINGID_PKMNWENTBACK - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} went back to {B_ATK_TRAINER_NAME}!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -2518,6 +2519,12 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 break;
             case B_TXT_PLAYER_NAME: // player name
                 toCpy = gSaveBlock2Ptr->playerName;
+                break;
+            case B_TXT_ATK_TRAINER_NAME: // attacker's trainer name
+                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+                    toCpy = gSaveBlock2Ptr->playerName;
+                else
+                    toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
                 break;
             case B_TXT_TRAINER1_LOSE_TEXT: // trainerA lose text
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)

@@ -152,8 +152,9 @@
 #define MOVEEND_MIRROR_MOVE                     17
 #define MOVEEND_NEXT_TARGET                     18
 #define MOVEEND_ITEM_EFFECTS_TARGET             19
-#define MOVEEND_CLEAR_BITS                      20
-#define MOVEEND_DANCER                          21
-#define MOVEEND_COUNT                           22
+#define MOVEEND_HIT_ESCAPE                      20
+#define MOVEEND_CLEAR_BITS                      21
+#define MOVEEND_DANCER                          22
+#define MOVEEND_COUNT                           23
 
 #endif // GUARD_CONSTANTS_BATTLE_SCRIPT_COMMANDS_H

@@ -5069,6 +5069,19 @@ static void Cmd_moveend(void)
             }
             gBattleScripting.moveendState++;
             break;
+        case MOVEEND_HIT_ESCAPE: // U-Turn
+            if (gBattleMoves[gCurrentMove].effect == EFFECT_HIT_ESCAPE
+             && !(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
+             && TARGET_TURN_DAMAGED
+             && gBattleMons[gBattlerAttacker].hp != 0
+             && CanBattlerSwitch(gBattlerAttacker) != PARTY_SIZE)
+            {
+                effect = TRUE;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_EffectHitEscape;
+            }
+            gBattleScripting.moveendState++;
+            break;
         case MOVEEND_CLEAR_BITS: // copy from expansion. Currently only used to restore a Dancer's moveTarget back to its original value after finishing a copied dance move.
             if (gSpecialStatuses[gBattlerAttacker].dancerOriginalTarget)
                 gBattleStruct->moveTarget[gBattlerAttacker] = gSpecialStatuses[gBattlerAttacker].dancerOriginalTarget & 0x3;

@@ -278,6 +278,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTechnoBlast            @ EFFECT_TECHNO_BLAST
 	.4byte BattleScript_EffectShellSmash             @ EFFECT_SHELL_SMASH
 	.4byte BattleScript_EffectBanefulBunker          @ EFFECT_BANEFUL_BUNKER
+	.4byte BattleScript_EffectHit                    @ EFFECT_HIT_ESCAPE
+	.4byte BattleScript_EffectWTurn                  @ EFFECT_W_TURN
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -1857,6 +1859,7 @@ BattleScript_EffectBatonPass::
 	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
+BattleScript_EffectBatonPassOpenPartyScreen:
 	openpartyscreen BS_ATTACKER, BattleScript_ButItFailed
 	switchoutabilities BS_ATTACKER
 	waitstate
@@ -5717,6 +5720,24 @@ BattleScript_DancerActivates::
 	printstring STRINGID_PKMNREPEATSDANCEMOVE
 	waitmessage B_WAIT_TIME_SHORT
 	jumptocalledmove TRUE
+
+BattleScript_EffectHitEscape::
+	jumpifhasnohp BS_TARGET, BattleScript_HitEscapeSwitch
+	setbyte sGIVEEXP_STATE, 0
+	getexp BS_TARGET
+BattleScript_HitEscapeSwitch:
+	call BattleScript_MoveSwitchPursuitRet
+	return
+
+BattleScript_MoveSwitchPursuitRet:
+	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_ButItFailed
+	printstring STRINGID_PKMNWENTBACK
+	waitmessage B_WAIT_TIME_SHORT
+	jumpifnopursuitswitchdmg BattleScript_EffectBatonPassOpenPartyScreen
+	return
+
+BattleScript_EffectWTurn:: @ add implementation
+	goto BattleScript_MoveEnd
 
 BattleScript_End2::
 	end2
