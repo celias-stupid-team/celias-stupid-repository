@@ -2956,8 +2956,13 @@ void OverrideMovementTypeForObjectEvent(const struct ObjectEvent *objectEvent, u
 void TryOverrideObjectEventTemplateCoords(u8 localId, u8 mapNum, u8 mapGroup)
 {
     u8 objectEventId;
-    if (!TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId))
+    //DebugPrintf("Try copy to perm");
+    if (!TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId)) {
+        //DebugPrintf("Not conditional");
         OverrideTemplateCoordsForObjectEvent(&gObjectEvents[objectEventId]);
+        
+
+    }
 }
 
 movement_type_empty_callback(MovementType_None)

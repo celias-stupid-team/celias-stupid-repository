@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "help_system.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_interface.h"
@@ -685,6 +686,27 @@ void FieldUseFunc_Repel(u8 taskId)
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RepelEffectsLingered, Task_ReturnToBagFromContextMenu);
 }
 
+void FieldUseFunc_RunningScrews(u8 taskId)
+{
+    PlaySE(SE_FLEE);
+    RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RunningScrews, Task_ReturnToBagFromContextMenu);
+}
+
+void FieldUseFunc_HelixFossil(u8 taskId)
+{
+    
+    
+}
+
+
+
+void FieldUseFunc_Ligma(u8 taskId)
+{
+    //PlaySE(SE_FLEE);
+    //RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_Ligma, Task_ReturnToBagFromContextMenu);
+}
 static void ItemUseOnFieldCB_Unlock(u8 taskId)
 {
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();

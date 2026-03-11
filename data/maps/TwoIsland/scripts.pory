@@ -928,6 +928,7 @@ script TwoIsland_BurnHeal {
 		"", MSGBOX_DEFAULT)
 		setflag(FLAG_SHINY_DACHSBUN)
 		setflag(FLAG_KILLED_SANS)
+		setflag(FLAG_NO_SANS_ITEM)
 		release
 		end
 
