@@ -833,6 +833,19 @@ static const u16 sMovesForbiddenToCopy[] =
     METRONOME_FORBIDDEN_END
 };
 
+#define ME_FIRST_BLACKLIST_COUNT ARRAY_COUNT(sMovesBlackListMeFirst)
+static const u16 sMovesBlackListMeFirst[] =
+{
+    MOVE_COUNTER,
+    MOVE_STRUGGLE,
+    MOVE_THIEF,
+    MOVE_MIRROR_COAT,
+    MOVE_FOCUS_PUNCH,
+    MOVE_COVET,
+    MOVE_ME_FIRST,
+    MOVE_BELCH,
+};
+
 static const u8 sFlailHpScaleToPowerTable[] =
 {
     1, 200,
@@ -12560,4 +12573,39 @@ void BS_JumpIfFlagSet(void)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+static bool8 IsMoveMeFirstBanned(u16 move)
+{
+    u8 i = 0;
+
+    for (i = 0; i < ME_FIRST_BLACKLIST_COUNT; i++)
+    {
+        if (move == sMovesBlackListMeFirst[i])
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+void BS_TryMeFirst(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    u16 move = gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]];
+
+    if (gBattleMoves[move].power == 0 || IsMoveMeFirstBanned(move)
+        || GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else
+    {
+        gCalledMove = move;
+        gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
+        gBattlerTarget = GetMoveTarget(gCalledMove, NO_TARGET_OVERRIDE);
+        gDynamicBasePower = gBattleMoves[move].power * 3 / 2;
+        
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }

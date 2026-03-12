@@ -1791,3 +1791,8 @@
 	.2byte \flag
 	.4byte \jumpptr
 	.endm
+
+	.macro trymefirst failInstr:req
+	callnative BS_TryMeFirst
+	.4byte \failInstr
+	.endm

@@ -284,6 +284,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectStuporPower		     @ EFFECT_STUPORPOWER
 	.4byte BattleScript_EffectGMaxCuddle             @ EFFECT_G_MAX_CUDDLE
 	.4byte BattleScript_EffectFlipStats			     @ EFFECT_FLIP_STATS
+	.4byte BattleScript_EffectMeFirst			     @ EFFECT_ME_FIRST
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5839,6 +5840,14 @@ BattleScript_FlipAllStats::
 	printstring STRINGID_PKMNSTATSWEREFLIPPED
 	waitmessage B_WAIT_TIME_LONG
 	return
+
+BattleScript_EffectMeFirst::
+	attackcanceler
+	attackstring
+	trymefirst BattleScript_ButItFailedPpReduce
+	attackanimation
+	waitanimation
+	jumptocalledmove TRUE
 
 BattleScript_End2::
 	end2
