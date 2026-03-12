@@ -20306,7 +20306,7 @@ Move_REAL_AXE:
 	goto Move_TACKLE
 	
 Move_FLIP_TURN:
-	goto Move_TACKLE
+	goto Move_TAIL_WHIP
 	
 Move_HEART_BEAT:
 	goto Move_TACKLE

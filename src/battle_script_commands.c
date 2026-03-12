@@ -3218,6 +3218,21 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 gBattlescriptCurrInstr = BattleScript_MaxAllStatsUp;
                 break;
             }
+            case MOVE_EFFECT_FLIP_STATS:
+            {
+                u32 i;
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                // directly adjust stat changes of gBattlerTarget
+                for (i = STAT_ATK; i <= STAT_SPDEF; i++)
+                {
+                    if (gBattleMons[gBattlerTarget].statStages[i] > DEFAULT_STAT_STAGE)
+                        gBattleMons[gBattlerTarget].statStages[i] = DEFAULT_STAT_STAGE - (gBattleMons[gBattlerTarget].statStages[i] - DEFAULT_STAT_STAGE);
+                    else if (gBattleMons[gBattlerTarget].statStages[i] < DEFAULT_STAT_STAGE)
+                        gBattleMons[gBattlerTarget].statStages[i] = DEFAULT_STAT_STAGE + (DEFAULT_STAT_STAGE - gBattleMons[gBattlerTarget].statStages[i]);
+                }
+                gBattlescriptCurrInstr = BattleScript_FlipAllStats;
+                break;
+            }
             case MOVE_EFFECT_RAPIDSPIN:
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = BattleScript_RapidSpinAway;

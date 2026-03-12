@@ -12472,12 +12472,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FLIP_TURN] =
     {
-        .effect = EFFECT_HIT,
-        .power = 60,
+        .effect = EFFECT_FLIP_STATS,
+        .power = 0,
         .type = TYPE_WATER,
-        .accuracy = 100,
+        .accuracy = 0,
         .pp = 35,
-        .secondaryEffectChance = 10,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,

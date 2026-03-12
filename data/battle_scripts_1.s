@@ -283,6 +283,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                    @ EFFECT_W_TURN
 	.4byte BattleScript_EffectStuporPower		     @ EFFECT_STUPORPOWER
 	.4byte BattleScript_EffectGMaxCuddle             @ EFFECT_G_MAX_CUDDLE
+	.4byte BattleScript_EffectFlipStats			     @ EFFECT_FLIP_STATS
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5819,6 +5820,25 @@ BattleScript_EffectGMaxCuddle::
 	printstring STRINGID_GMAX_MOVE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectFlipStats::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_FLIP_STATS
+	seteffectprimary
+	goto BattleScript_MoveEnd
+
+@ only visual and strings, stat changes have already been applied in C
+BattleScript_FlipAllStats::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_DEF | BIT_SPEED | BIT_SPATK | BIT_SPDEF, 0
+	printstring STRINGID_PKMNSTATSWEREFLIPPED
+	waitmessage B_WAIT_TIME_LONG
+	return
 
 BattleScript_End2::
 	end2
