@@ -19787,7 +19787,7 @@ Move_VACUUM_WAVE:
 	goto Move_TACKLE
 	
 Move_CRUSH_GRIP:
-	goto Move_TACKLE
+	goto Move_CRUSH_CLAW
 	
 Move_CLEAR_SMOG:
 	goto Move_TACKLE
