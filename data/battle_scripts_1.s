@@ -285,6 +285,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectGMaxCuddle             @ EFFECT_G_MAX_CUDDLE
 	.4byte BattleScript_EffectFlipStats			     @ EFFECT_FLIP_STATS
 	.4byte BattleScript_EffectMeFirst			     @ EFFECT_ME_FIRST
+	.4byte BattleScript_EffectHpDamage		         @ EFFECT_FINAL_GAMBIT
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5848,6 +5849,24 @@ BattleScript_EffectMeFirst::
 	attackanimation
 	waitanimation
 	jumptocalledmove TRUE
+
+BattleScript_EffectHpDamage::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	typecalc
+	bicbyte gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	dmgtohp
+	adjustsetdamage
+	goto BattleScript_HitFromAtkAnimation
+
+BattleScript_FinalGambit::
+	setatkhptozero
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER
+	return
 
 BattleScript_End2::
 	end2

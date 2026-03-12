@@ -1796,3 +1796,7 @@
 	callnative BS_TryMeFirst
 	.4byte \failInstr
 	.endm
+
+	.macro dmgtohp
+	callnative BS_DmgToHp
+	.endm

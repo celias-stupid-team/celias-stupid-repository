@@ -4832,6 +4832,16 @@ static void Cmd_moveend(void)
             }
             gBattleScripting.moveendState++;
             break;
+        case MOVEEND_FAINT_ATTACKER: // Final Gambit
+            if (gBattleMoves[gCurrentMove].effect == EFFECT_FINAL_GAMBIT
+                && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+            {
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_FinalGambit;
+                effect = TRUE;
+            }
+            gBattleScripting.moveendState++;
+            break;
         case MOVEEND_RAGE: // rage check
             if (gBattleMons[gBattlerTarget].status2 & STATUS2_RAGE
                 && gBattleMons[gBattlerTarget].hp != 0
@@ -12608,4 +12618,12 @@ void BS_TryMeFirst(void)
         
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
+}
+
+void BS_DmgToHp(void)
+{
+    NATIVE_ARGS();
+
+    gBattleMoveDamage = gBattleMons[gBattlerAttacker].hp;
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
