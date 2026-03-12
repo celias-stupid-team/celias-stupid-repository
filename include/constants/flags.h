@@ -1115,7 +1115,7 @@
 #define FLAG_HIDDEN_ITEM_POKE_DOLL_10                                (FLAG_HIDDEN_ITEMS_START +  21)
 #define FLAG_HIDDEN_ITEM_ROUTE22_NOTHING                     (FLAG_HIDDEN_ITEMS_START +  22)
 #define FLAG_HIDDEN_ITEM_SPONGEBOB                           (FLAG_HIDDEN_ITEMS_START +  23)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_17                                (FLAG_HIDDEN_ITEMS_START +  24)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_A                                (FLAG_HIDDEN_ITEMS_START +  24)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_18                            (FLAG_HIDDEN_ITEMS_START +  25)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_19             (FLAG_HIDDEN_ITEMS_START +  26)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_33                            (FLAG_HIDDEN_ITEMS_START +  27) //smh Rave I can't believe you missed this
