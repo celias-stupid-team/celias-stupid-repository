@@ -1379,6 +1379,17 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_GasterBlaster, 0x2000, ANIM_TAG_GASTER_BLASTER},
     {gBattleAnimSpriteGfx_GasterBeam, 0x0800, ANIM_TAG_GASTER_BEAM},
     {gBattleAnimSpriteGfx_Teacup, 0x0200, ANIM_TAG_TEACUP},
+    {gBattleAnimSpriteGfx_BallQuick, 0x0080, ANIM_TAG_BALL_QUICK},
+    {gBattleAnimSpriteGfx_BallDive, 0x0080, ANIM_TAG_BALL_DIVE},
+    {gBattleAnimSpriteGfx_BallRepeat, 0x0080, ANIM_TAG_BALL_REPEAT},
+    {gBattleAnimSpriteGfx_BallLure, 0x0080, ANIM_TAG_BALL_LURE},
+    {gBattleAnimSpriteGfx_BallHeal, 0x0080, ANIM_TAG_BALL_HEAL},
+    {gBattleAnimSpriteGfx_BallDream, 0x0080, ANIM_TAG_BALL_DREAM},
+    {gBattleAnimSpriteGfx_BallTimer, 0x0080, ANIM_TAG_BALL_TIMER},
+    {gBattleAnimSpriteGfx_BallDusk, 0x0080, ANIM_TAG_BALL_DUSK},
+    {gBattleAnimSpriteGfx_BallLight, 0x0080, ANIM_TAG_BALL_LIGHT},
+    {gBattleAnimSpriteGfx_BallEnergy, 0x0200, ANIM_TAG_BALL_ENERGY},
+    {gBattleAnimSpriteGfx_Plasto, 0x2000, ANIM_TAG_PLASTO},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1737,6 +1748,17 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_GasterBlaster, ANIM_TAG_GASTER_BLASTER},
     {gBattleAnimSpritePal_GasterBeam, ANIM_TAG_GASTER_BEAM},
     {gBattleAnimSpritePal_Teacup, ANIM_TAG_TEACUP},
+    {gBattleAnimSpritePal_BallQuick, ANIM_TAG_BALL_QUICK},
+    {gBattleAnimSpritePal_BallDive, ANIM_TAG_BALL_DIVE},
+    {gBattleAnimSpritePal_BallRepeat, ANIM_TAG_BALL_REPEAT},
+    {gBattleAnimSpritePal_BallLure, ANIM_TAG_BALL_LURE},
+    {gBattleAnimSpritePal_BallHeal, ANIM_TAG_BALL_HEAL},
+    {gBattleAnimSpritePal_BallDream, ANIM_TAG_BALL_DREAM},
+    {gBattleAnimSpritePal_BallTimer, ANIM_TAG_BALL_TIMER},
+    {gBattleAnimSpritePal_BallDusk, ANIM_TAG_BALL_DUSK},
+    {gBattleAnimSpritePal_BallLight, ANIM_TAG_BALL_LIGHT},
+    {gBattleAnimSpritePal_BallEnergy, ANIM_TAG_BALL_ENERGY},
+    {gBattleAnimSpritePal_Plasto, ANIM_TAG_PLASTO},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

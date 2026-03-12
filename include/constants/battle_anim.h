@@ -361,6 +361,18 @@
 #define ANIM_TAG_GASTER_BLASTER             (ANIM_SPRITES_START + 351)
 #define ANIM_TAG_GASTER_BEAM                (ANIM_SPRITES_START + 352)
 #define ANIM_TAG_TEACUP                     (ANIM_SPRITES_START + 353)
+#define ANIM_TAG_BALL_QUICK                 (ANIM_SPRITES_START + 354)
+#define ANIM_TAG_BALL_DIVE                  (ANIM_SPRITES_START + 355)
+#define ANIM_TAG_BALL_REPEAT                (ANIM_SPRITES_START + 356)
+#define ANIM_TAG_BALL_LURE                  (ANIM_SPRITES_START + 357)
+#define ANIM_TAG_BALL_HEAL                  (ANIM_SPRITES_START + 358)
+#define ANIM_TAG_BALL_DREAM                 (ANIM_SPRITES_START + 359)
+#define ANIM_TAG_BALL_TIMER                 (ANIM_SPRITES_START + 360)
+#define ANIM_TAG_BALL_DUSK                  (ANIM_SPRITES_START + 361)
+#define ANIM_TAG_BALL_LIGHT                 (ANIM_SPRITES_START + 362)
+#define ANIM_TAG_BALL_ENERGY                (ANIM_SPRITES_START + 363)
+#define ANIM_TAG_PLASTO                     (ANIM_SPRITES_START + 364)
+#define ANIM_TAG_PISS_DROP                  (ANIM_SPRITES_START + 365)
 
 // battlers
 #define ANIM_ATTACKER       0
