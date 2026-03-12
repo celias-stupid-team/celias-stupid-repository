@@ -1216,7 +1216,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_OHKO_FLASH,
         .power = 9999,
-        .type = TYPE_STEEL,
+        .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
@@ -7693,7 +7693,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TAIL_SLAP] =   
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_MULTI_HIT_FIVE,
         .power = 35,
         .type = TYPE_NORMAL,
         .accuracy = 100,

@@ -1890,6 +1890,7 @@ static const struct LevelUpMove sMagikarpLevelUpLearnset[] = {
     LEVEL_UP_MOVE(15, MOVE_TACKLE),
     LEVEL_UP_MOVE(30, MOVE_FLAIL),
     LEVEL_UP_MOVE(40, MOVE_DRAGON_RAGE),
+    LEVEL_UP_MOVE(55, MOVE_JUDGEMENT),
     LEVEL_UP_END
 };
 
