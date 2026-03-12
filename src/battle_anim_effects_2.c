@@ -362,6 +362,17 @@ const struct SpriteTemplate gEggThrowSpriteTemplate =
     .callback = AnimThrowProjectile,
 };
 
+const struct SpriteTemplate gYoshiEggThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_YOSHI_EGG,
+    .paletteTag = ANIM_TAG_YOSHI_EGG,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
 const struct SpriteTemplate gSesameSeedSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_SESAME,
