@@ -8739,7 +8739,7 @@ static void Cmd_metronome(void)
     {
         s32 i;
 
-        gCurrentMove = (Random() % MOVES_COUNT) + 1;
+        gCurrentMove = (Random() & 0x7FF) + 1;
         if (gCurrentMove >= MOVES_COUNT)
             continue;
 

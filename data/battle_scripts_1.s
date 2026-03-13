@@ -5183,9 +5183,10 @@ BattleScript_AirBalloonMsgPop::
 
 BattleScript_EffectElectrify::
 	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	@ accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	orword gHitMarker, HITMARKER_IGNORE_ON_AIR
 	tryelectrify BattleScript_ButItFailed
 	attackanimation
 	waitanimation

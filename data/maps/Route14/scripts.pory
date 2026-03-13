@@ -564,7 +564,7 @@ script Route15_PokeRap_Trainer32_Defeat {
 
 script Route15_PokeRap_Trainer33 {
     trainerbattle_single(TRAINER_POKERAP_33, Rapper_33_Intro, "Nice!", Route15_PokeRap_Trainer33_Defeat)
-    msgbox("HITMONLEE by number1jojofan\nPSYDUCK by", MSGBOX_DEFAULT)
+    msgbox("HITMONLEE by number1jojofan\nPSYDUCK by danstrider6025", MSGBOX_DEFAULT)
     release
 }
 

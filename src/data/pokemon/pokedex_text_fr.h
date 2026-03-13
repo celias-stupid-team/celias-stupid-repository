@@ -220,7 +220,7 @@ const u8 gVulpixPokedexText[] = _(
 const u8 gVulpixPokedexTextUnused[] = _("");
 
 const u8 gNinetalesPokedexText[] = _(
-	"I want my wife back, TALES.");
+	"I miss my wife, TALES.");
     
 const u8 gNinetalesPokedexTextUnused[] = _("");
 

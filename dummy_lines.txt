@@ -1,14 +1,8 @@
 const u8 gMoveDescription_WideSlash[] = _("Dummy"); //Mystery Dungeon
 const u8 gMoveDescription_VacuumCut[] = _("Dummy"); //Mystery Dungeon
-const u8 gMoveDescription_fishiousrend[] = _("Dummy"); //seaking
 const u8 gMoveDescription_maxairstream[] = _("Dummy"); //Pidgey
-const u8 gMoveDescription_RapidWin[] = _("Dummy"); //victini
 const u8 gMoveDescription_Oneishment[] = _("Dummy"); //bulbasaur
 const u8 gMoveDescription_EnergyBall[] = _("Dummy"); //amoonguss
-const u8 gMoveDescription_SpoongeistBeam[] = _("Dummy"); //Alakazam
-const u8 gMoveDescription_Souperpower[] = _("Dummy"); //Alakazam
-const u8 gMoveDescription_PsychoScoop[] = _("Dummy"); //Alakazam
-const u8 gMoveDescription_AlOutPummeling[] = _("Dummy"); //Alakazam
 const u8 gMoveDescription_Azubatics[] = _("Dummy"); //zubat
 const u8 gMoveDescription_Agolbatics[] = _("Dummy"); //zubat
 const u8 gMoveDescription_NakeItRain[] = _("Dummy"); //amph
