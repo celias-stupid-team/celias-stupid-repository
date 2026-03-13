@@ -615,7 +615,7 @@ script Route15_PokeRap_Trainer36 {
         release
         end
     }
-    msgbox("VOLTORB by Lichen\nGLOOM by Jogaklaa\p…Huh?\nWhat's that?\lI missed one?", MSGBOX_DEFAULT)
+    msgbox("GRAVELER by Game Freak\nVOLTORB by Lichen\lGLOOM by Jogaklaa\p…Huh?\nWhat's that?\lI missed one?", MSGBOX_DEFAULT)
     special(ChoosePartyMon)
     waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {

@@ -20,7 +20,7 @@ script CinnabarIsland_ColorblindNPC {
 
 	"I guess that's just the price\n"
 	"of colorblindness…", MSGBOX_DEFAULT)
-	if(checkpartymonslot(SPECIES_GOLURK) == 0) {
+	if(checkpartymonslot(SPECIES_GOLURK) == 0 && !flag(FLAG_SHINY_GOLDEEN_TRADE)) {
 		bufferpartymonnick(STR_VAR_1, 0)
 		msgbox(
 		"Ah, I see your GOLURK there!\p"
@@ -35,7 +35,15 @@ script CinnabarIsland_ColorblindNPC {
 		"Would you be open to a trade?\n"
 		"My GREEN POKéMON for your GOLURK?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			
+			copyvar(VAR_0x8004, VAR_RESULT)
+			setvar(VAR_0x8008, INGAME_TRADE_GOLDEEN)
+			call(EventScript_GetInGameTradeSpeciesInfo)
+			call(EventScript_GetInGameTradeSpecies)
+			setflag(FLAG_SHINY_GOLDEEN_TRADE)
+			call(EventScript_DoInGameTrade)
+			release
+			end
+
 		} else {
 			msgbox(
 			"Ah, what a shame!\p"
@@ -51,7 +59,7 @@ script CinnabarIsland_ColorblindNPC {
 	}
 }
 
-script CinnabarIsland_ColorblindNPC_2 {
+script CinnabarIsland_ColorblindNPC2 {
 	msgbox("I've always wanted to see a RED\n"
 	"POKéMON.\p"
 

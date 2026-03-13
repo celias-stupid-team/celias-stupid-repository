@@ -540,7 +540,7 @@
 #define FLAG_0x1E9      0x1E9
 #define FLAG_0x1EA     0x1EA
 #define FLAG_0x1EB      0x1EB
-#define FLAG_0x1EC    0x1EC
+#define FLAG_SHINY_GOLDEEN_TRADE    0x1EC
 #define FLAG_FINAL_SHINY            0x1ED
 #define FLAG_POST_GAME            0x1EE
 #define FLAG_BILL_PC_BROKE              0x1EF

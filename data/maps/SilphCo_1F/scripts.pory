@@ -52,3 +52,47 @@ script SilphCo_Celia {
 	"I am the legendary Red Celia\n"
 	"", MSGBOX_NPC)
 }
+
+
+script SilphCo_Laptop {
+	msgbox(
+	"The laptop is open to a search\n"
+	"engine:\p"
+
+	"“What to do if hostile corporate\n"
+	"takeover?”\p"
+
+	"The first five links have all been\n"
+	"clicked.", MSGBOX_SIGN)
+
+}
+
+script SilphCo_JohnCageLaptop {
+	msgbox(
+	"There's an open WORD document\n"
+	"titled, “MAGNUM OPUS.”\l"
+	"It reads:\p"
+
+	"“                                      \n"
+	"                              \l"
+	"                                ”", MSGBOX_SIGN)
+
+}
+
+
+script SilphCo_TruckLaptop {
+	msgbox(
+	"It's opened to a support group\n"
+	"for truck owners.", MSGBOX_SIGN)
+
+}
+
+script SilphCo_BoobFountain {
+	msgbox(
+	"It's opened to a guide:\n"
+	"“Interior Design for beginners!”\p"
+
+	"“What to do when your fancy water\n"
+	"feature looks like a pair of boobs”", MSGBOX_SIGN)
+
+}
