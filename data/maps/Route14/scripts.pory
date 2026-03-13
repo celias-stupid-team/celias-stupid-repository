@@ -117,7 +117,7 @@ script Route15_PokeRap_Trainer5_Defeat {
 
 script Route15_PokeRap_Trainer6 {
     trainerbattle_single(TRAINER_POKERAP_6, Rapper_6_Intro, "Nice!", Route15_PokeRap_Trainer6_Defeat)
-    msgbox("VICTREEBEL by Swiwious!\n", MSGBOX_DEFAULT)
+    msgbox("VICTREEBEL by Swiwious!\nGrimer by Fayren", MSGBOX_DEFAULT)
     release
 }
 

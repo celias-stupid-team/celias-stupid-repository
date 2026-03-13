@@ -364,7 +364,6 @@ const u8 gMoveDescription_DarkVoid[] = _("Drags the foes into total\ndarkness, i
 const u8 gMoveDescription_Electrify[] = _("Electrifies the foe, making\nits next move Electric-type.");
 
 
-//dummies out for now
 const u8 gMoveDescription_Water_Shuriken[] = _("UNUSED"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_Revival_Blessing[] = _("Revives a fainted\nparty {PKMN} and\nrestores half of\nits HP.");
 const u8 gMoveDescription_Tombstoner[] = _("Contained within\nTM28. Lays stones\nthat hurt the foe\nupon switching in.");

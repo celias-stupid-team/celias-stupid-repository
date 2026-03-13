@@ -587,3 +587,32 @@ script Silph_Tandemaus {
 
 }
 
+script Silph_Honesty {
+	msgbox(
+	"The common wisdom is that honesty\n"
+	"is the best policy.\p"
+
+	"That's why I lie constantly.\p"
+
+	"Y'know.\n"
+	"For balance.", MSGBOX_NPC)
+}
+
+script Silph_RareItems {
+	msgbox(
+	"A list of potentially high-selling\n"
+	"items.\p"
+
+	"MUSHROOMS{PAUSE 20} STARDUST{PAUSE 20}\n"
+	"PEARLS{PAUSE 20}    FEATHERS{PAUSE 20}\l"
+	"CHICKEN{PAUSE 20}   MUD", MSGBOX_SIGN)
+
+}
+
+script Silph_BookshelfTop {
+	msgbox(
+	"Just barely peeking out from the\n"
+	"back of the wall, you can read\l"
+	"My Secret Life, chapter three", MSGBOX_SIGN)
+
+}
