@@ -4449,7 +4449,7 @@ BattleScript_SturdyPreventsOHKO::
 
 BattleScript_EarthEaterPreventsOHKO::
 	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_PKMNPROTECTEDBY
+	printstring STRINGID_EARTHEATER
 	pause B_WAIT_TIME_LONG
 	callnative BattleDebug_LeftBattle
 	goto BattleScript_MoveEnd

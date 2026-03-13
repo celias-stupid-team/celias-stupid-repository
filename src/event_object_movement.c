@@ -623,6 +623,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_BURNING_BOOK  0x11C3
 #define OBJ_EVENT_PAL_TAG_SHINY_BIKE  0x11C4
 #define OBJ_EVENT_PAL_TAG_PLAYER_BIKE              0x11C5
+#define OBJ_EVENT_PAL_TAG_GTS_AIDE  0x11C6
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -818,6 +819,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_BURNING_BOOK,             OBJ_EVENT_PAL_TAG_BURNING_BOOK},
     {gObjectEventPal_SHINY_BIKE,             OBJ_EVENT_PAL_TAG_SHINY_BIKE},
     {gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_PLAYER_BIKE},
+    {gObjectEventPal_GTS_AIDE,             OBJ_EVENT_PAL_TAG_GTS_AIDE},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

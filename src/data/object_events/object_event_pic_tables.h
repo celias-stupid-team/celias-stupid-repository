@@ -6316,3 +6316,14 @@ const struct SpriteFrameImage gObjectEventPicTable_SHINY_BIKE[] = {
     overworld_frame(gObjectEventPic_SHINY_BIKE, 4, 4, 7),
     overworld_frame(gObjectEventPic_SHINY_BIKE, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_GTS_AIDE[] = {
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 2),
+};
