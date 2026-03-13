@@ -106,6 +106,7 @@ static void AnimCardFly(struct Sprite *);
 static void AnimBallAttack(struct Sprite *sprite);
 static void AnimBallAttack_Arc(struct Sprite *sprite);
 static void AnimBallAttack_Bounce(struct Sprite *sprite);
+static void AnimSprite_MoveThenWait(struct Sprite *sprite);
 
 
 // Unused
@@ -431,6 +432,17 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+const struct SpriteTemplate gVaseLiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MING_VASE,
+    .paletteTag = ANIM_TAG_MING_VASE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gFallingCoinSpriteTemplate =
 {
     .tileTag = ANIM_TAG_COIN,
@@ -469,6 +481,17 @@ const struct SpriteTemplate gBulletSeedSpriteTemplate =
     .tileTag = ANIM_TAG_SEED,
     .paletteTag = ANIM_TAG_SEED,
     .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBulletSeedAffineAnimTable,
+    .callback = AnimBulletSeed,
+};
+
+const struct SpriteTemplate gBulletBreadSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_BREAD,
+    .paletteTag = ANIM_TAG_BREAD,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sBulletSeedAffineAnimTable,
@@ -1233,6 +1256,39 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_RED_HEART,
     .paletteTag = ANIM_TAG_RED_HEART,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gRedDiamondBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RED_DIAMOND,
+    .paletteTag = ANIM_TAG_RED_DIAMOND,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gBlackSpadeBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLACK_SPADE,
+    .paletteTag = ANIM_TAG_BLACK_SPADE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gBlackClubBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLACK_CLUB,
+    .paletteTag = ANIM_TAG_BLACK_CLUB,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -4491,4 +4547,67 @@ static void AnimBallAttack_Bounce(struct Sprite *sprite)
 
     if (sprite->x < -16 || sprite->y > DISPLAY_HEIGHT + 16)
         DestroyAnimSprite(sprite);
+}
+
+static void AnimSprite_MoveThenWait(struct Sprite *sprite)
+{
+    s16 battler;
+
+    switch (sprite->data[0])
+    {
+    case 0: // Initialize
+        battler = (gBattleAnimArgs[7] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+
+        sprite->data[1] = gBattleAnimArgs[2]; // x speed
+        sprite->data[2] = gBattleAnimArgs[3]; // y speed
+        sprite->data[3] = gBattleAnimArgs[4]; // move duration
+        sprite->data[4] = gBattleAnimArgs[5]; // wait duration
+        sprite->data[5] = gBattleAnimArgs[6]; // shake mode
+
+        sprite->data[6] = 0; // frame timer
+        sprite->data[7] = 0; // shake timer
+
+        sprite->data[0] = 1;
+        break;
+
+    case 1: // Movement phase
+        sprite->x += sprite->data[1];
+        sprite->y += sprite->data[2];
+
+        if (++sprite->data[6] >= sprite->data[3])
+        {
+            sprite->data[6] = 0;
+            sprite->data[7] = 0;
+            sprite->data[0] = 2;
+        }
+        break;
+
+    case 2: // Wait + shake
+        sprite->data[7]++;
+
+        if (sprite->data[7] >= 6) // change shake every 4 frames
+        {
+            sprite->data[7] = 0;
+
+            if (sprite->data[5] == 1) // vertical
+                sprite->y2 = -sprite->y2 ?: 2;
+
+            else if (sprite->data[5] == 2) // horizontal
+                sprite->x2 = -sprite->x2 ?: 2;
+        }
+
+        if (++sprite->data[6] >= sprite->data[4])
+        {
+            sprite->x2 = 0;
+            sprite->y2 = 0;
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
 }

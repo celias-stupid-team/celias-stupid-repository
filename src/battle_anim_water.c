@@ -425,8 +425,8 @@ const struct SpriteTemplate gSmallWaterOrbSpriteTemplate =
 //P create
 const struct SpriteTemplate gSmallOrbSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_SWEAT_DROP,
-    .paletteTag = ANIM_TAG_SWEAT_DROP,
+    .tileTag = ANIM_TAG_PISS_DROP,
+    .paletteTag = ANIM_TAG_PISS_DROP,
     .oam = &gOamData_AffineOff_ObjNormal_8x8,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

@@ -255,6 +255,17 @@ const struct SpriteTemplate gBrickBreakWallShardSpriteTemplate =
     .callback = AnimBrickBreakWallShard,
 };
 
+const struct SpriteTemplate gVaseShardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHATTERED_VASE,
+    .paletteTag = ANIM_TAG_SHATTERED_VASE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBrickBreakWallShard,
+};
+
 static const union AffineAnimCmd sAffineAnim_SuperpowerOrb[] =
 {
     AFFINEANIMCMD_FRAME(0x20, 0x20, 0, 0),

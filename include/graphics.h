@@ -8758,6 +8758,13 @@ extern const u32 gBattleAnimSpriteGfx_BallLight[];
 extern const u32 gBattleAnimSpriteGfx_BallEnergy[];
 extern const u32 gBattleAnimSpriteGfx_Plasto[];
 extern const u32 gBattleAnimSpriteGfx_PissDrop[];
+extern const u32 gBattleAnimSpriteGfx_Clam[];
+extern const u32 gBattleAnimSpriteGfx_MingVase[];
+extern const u32 gBattleAnimSpriteGfx_ShatteredVase[];
+extern const u32 gBattleAnimSpriteGfx_RedHeart[];
+extern const u32 gBattleAnimSpriteGfx_RedDiamond[];
+extern const u32 gBattleAnimSpriteGfx_BlackSpade[];
+extern const u32 gBattleAnimSpriteGfx_BlackClub[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9078,6 +9085,12 @@ extern const u32 gBattleAnimSpritePal_BallLight[];
 extern const u32 gBattleAnimSpritePal_BallEnergy[];
 extern const u32 gBattleAnimSpritePal_Plasto[];
 extern const u32 gBattleAnimSpritePal_PissDrop[];
+extern const u32 gBattleAnimSpritePal_Clam[];
+extern const u32 gBattleAnimSpritePal_MingVase[];
+extern const u32 gBattleAnimSpritePal_ShatteredVase[];
+extern const u32 gBattleAnimSpritePal_RedDiamond[];
+extern const u32 gBattleAnimSpritePal_BlackSpade[];
+extern const u32 gBattleAnimSpritePal_BlackClub[];
 
 
 

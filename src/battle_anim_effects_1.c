@@ -2590,6 +2590,28 @@ const struct SpriteTemplate gEvilMetronomeMiddleFingerSpriteTemplate =
     .callback = AnimMetronomeFinger,
 };
 
+const struct SpriteTemplate gThumbsUpSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THUMBS_UP,
+    .paletteTag = ANIM_TAG_THUMBS_UP,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimMetronomeFinger,
+};
+
+const struct SpriteTemplate gClamMindSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CLAM,
+    .paletteTag = ANIM_TAG_CLAM,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimMetronomeFinger,
+};
+
 const struct SpriteTemplate gFollowMeFingerSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FINGER,

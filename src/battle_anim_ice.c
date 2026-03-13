@@ -226,6 +226,17 @@ const struct SpriteTemplate gIceCrystalHitLargeSpriteTemplate =
     .callback = AnimIceEffectParticle,
 };
 
+const struct SpriteTemplate gDiamondHitSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RED_DIAMOND,
+    .paletteTag = ANIM_TAG_RED_DIAMOND,
+    .oam = &gOamData_AffineNormal_ObjBlend_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_IceCrystalHit,
+    .callback = AnimIceEffectParticle,
+};
+
 const struct SpriteTemplate gIceCrystalHitSmallSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ICE_CRYSTALS,
@@ -248,12 +259,34 @@ const struct SpriteTemplate gSwirlingSnowballSpriteTemplate =
     .callback = AnimSwirlingSnowball,
 };
 
+const struct SpriteTemplate gSwirlingDiamondSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RED_DIAMOND,
+    .paletteTag = ANIM_TAG_RED_DIAMOND,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSwirlingSnowball,
+};
+
 const struct SpriteTemplate gBlizzardIceCrystalSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ICE_CRYSTALS,
     .paletteTag = ANIM_TAG_ICE_CRYSTALS,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = sAnims_BlizzardIceCrystal,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoveParticleBeyondTarget,
+};
+
+const struct SpriteTemplate gDiamondCrystalSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RED_DIAMOND,
+    .paletteTag = ANIM_TAG_RED_DIAMOND,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimMoveParticleBeyondTarget,

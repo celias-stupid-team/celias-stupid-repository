@@ -1390,6 +1390,13 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_BallLight, 0x0080, ANIM_TAG_BALL_LIGHT},
     {gBattleAnimSpriteGfx_BallEnergy, 0x0200, ANIM_TAG_BALL_ENERGY},
     {gBattleAnimSpriteGfx_Plasto, 0x2000, ANIM_TAG_PLASTO},
+    {gBattleAnimSpriteGfx_PissDrop, 0x0080, ANIM_TAG_PISS_DROP},
+    {gBattleAnimSpriteGfx_Clam, 0x0200, ANIM_TAG_CLAM},
+    {gBattleAnimSpriteGfx_MingVase, 0x0200, ANIM_TAG_MING_VASE},
+    {gBattleAnimSpriteGfx_ShatteredVase, 0x0800, ANIM_TAG_SHATTERED_VASE},
+    {gBattleAnimSpriteGfx_RedDiamond, 0x0080, ANIM_TAG_RED_DIAMOND},
+    {gBattleAnimSpriteGfx_BlackSpade, 0x0080, ANIM_TAG_BLACK_SPADE},
+    {gBattleAnimSpriteGfx_BlackClub, 0x0080, ANIM_TAG_BLACK_CLUB},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1759,6 +1766,13 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_BallLight, ANIM_TAG_BALL_LIGHT},
     {gBattleAnimSpritePal_BallEnergy, ANIM_TAG_BALL_ENERGY},
     {gBattleAnimSpritePal_Plasto, ANIM_TAG_PLASTO},
+    {gBattleAnimSpritePal_PissDrop, ANIM_TAG_PISS_DROP},
+    {gBattleAnimSpritePal_Clam, ANIM_TAG_CLAM},
+    {gBattleAnimSpritePal_MingVase, ANIM_TAG_MING_VASE},
+    {gBattleAnimSpritePal_ShatteredVase, ANIM_TAG_SHATTERED_VASE},
+    {gBattleAnimSpritePal_RedDiamond, ANIM_TAG_RED_DIAMOND},
+    {gBattleAnimSpritePal_BlackSpade, ANIM_TAG_BLACK_SPADE},
+    {gBattleAnimSpritePal_BlackClub, ANIM_TAG_BLACK_CLUB},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

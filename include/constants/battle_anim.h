@@ -373,6 +373,12 @@
 #define ANIM_TAG_BALL_ENERGY                (ANIM_SPRITES_START + 363)
 #define ANIM_TAG_PLASTO                     (ANIM_SPRITES_START + 364)
 #define ANIM_TAG_PISS_DROP                  (ANIM_SPRITES_START + 365)
+#define ANIM_TAG_CLAM                       (ANIM_SPRITES_START + 366)
+#define ANIM_TAG_MING_VASE                  (ANIM_SPRITES_START + 367)
+#define ANIM_TAG_SHATTERED_VASE             (ANIM_SPRITES_START + 368)
+#define ANIM_TAG_RED_DIAMOND                (ANIM_SPRITES_START + 369)
+#define ANIM_TAG_BLACK_SPADE                (ANIM_SPRITES_START + 370)
+#define ANIM_TAG_BLACK_CLUB                 (ANIM_SPRITES_START + 371)
 
 // battlers
 #define ANIM_ATTACKER       0
