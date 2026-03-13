@@ -3274,6 +3274,24 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             }
         }
         break;
+    case ITEMEFFECT_FORCE_BERRY_CONSUMPTION:
+        // called only by moves/abilities that force the target (battlerId) to consume their held berry.
+        if (gBattleMons[battlerId].hp > 0)
+        {
+            switch (battlerHoldEffect)
+            {
+            case HOLD_EFFECT_TOXIC_BERRY:
+                gBattleMoveDamage = gBattleMons[battlerId].hp;
+                gBattleMons[battlerId].hp = 0;
+                gBattleScripting.battler = battlerId;
+                gPotentialItemEffectBattler = battlerId;
+                effect = ITEM_HP_CHANGE;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_ToxicBerryFaint;
+                break;
+            }
+        }
+        break;
     case ITEMEFFECT_DUMMY:
         break;
     case ITEMEFFECT_MOVE_END: //called after every hit of a multi hit move

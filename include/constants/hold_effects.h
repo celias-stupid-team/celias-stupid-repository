@@ -71,5 +71,6 @@
 #define HOLD_EFFECT_FOCUS_SASH     67
 #define HOLD_EFFECT_RESTORE_PCT_HP 68 //define healed HP in params as percent value
 #define HOLD_EFFECT_AIR_BALLOON    69
+#define HOLD_EFFECT_TOXIC_BERRY    70
 
 #endif // GUARD_HOLD_EFFECTS_H

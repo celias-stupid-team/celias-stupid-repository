@@ -5868,5 +5868,15 @@ BattleScript_FinalGambit::
 	tryfaintmon BS_ATTACKER
 	return
 
+BattleScript_ToxicBerryFaint::
+	printstring STRINGID_TOXICBERRYFAINT
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	removeitem BS_TARGET
+	tryfaintmon BS_TARGET
+	return
+
 BattleScript_End2::
 	end2
