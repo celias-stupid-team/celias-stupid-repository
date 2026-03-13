@@ -1051,8 +1051,9 @@
 #define MOVE_TECHNO_BLAST 1047
 #define MOVE_OBLI_ION_WING 1048
 #define MOVE_MOLTRES_KICK 1049
+#define MOVE_COLONIALISM 1050
 
-#define MOVES_COUNT 1050
+#define MOVES_COUNT 1051
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
 
