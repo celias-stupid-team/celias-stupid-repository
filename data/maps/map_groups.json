@@ -734,7 +734,8 @@
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",
     "AetherParadise_NebbyRoom",
-    "AetherParadise_SkullRoom"
+    "AetherParadise_SkullRoom",
+    "Starlight_House"
   ],
   "gMapGroup_Ocean": [
     "Ocean1",

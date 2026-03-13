@@ -1924,3 +1924,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route23Extended/scripts.inc"
 	.include "data/maps/Route23Extended/text.inc"
+
+	.include "data/maps/Starlight_House/scripts.inc"
+	.include "data/maps/Starlight_House/text.inc"

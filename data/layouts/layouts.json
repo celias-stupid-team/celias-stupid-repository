@@ -7452,6 +7452,18 @@
       "secondary_tileset": "gTileset_IndigoPlateau",
       "border_filepath": "data/layouts/Route23Extended/border.bin",
       "blockdata_filepath": "data/layouts/Route23Extended/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE",
+      "name": "Starlight_House_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IslandHarbor",
+      "border_filepath": "data/layouts/Starlight_House/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House/map.bin"
     }
   ]
 }
