@@ -306,6 +306,21 @@ static const union AnimCmd *const sAnims_Steamroller[] =
     sAnim_SteamrollerDrive,
 };
 
+
+static const union AnimCmd sAnim_PlastoStrut[] =
+{
+    ANIMCMD_FRAME(0,   24),
+    ANIMCMD_FRAME(64,  6),
+    ANIMCMD_FRAME(128, 6),
+    ANIMCMD_FRAME(192, 12),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_PlastoStrut[] =
+{
+    sAnim_PlastoStrut,
+};
+
 const struct SpriteTemplate gSteamrollerLandSpriteTemplate =
 {
     .tileTag = ANIM_TAG_STEAMROLLER,
@@ -373,6 +388,17 @@ const struct SpriteTemplate gBulldozerSpriteTemplate =
     .paletteTag = ANIM_TAG_BULLDOZER,
     .oam = &gOamData_AffineDouble_ObjNormal_64x64,
     .anims = sAnims_Steamroller,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBulldozer,
+};
+
+const struct SpriteTemplate gPlastoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PLASTO,
+    .paletteTag = ANIM_TAG_PLASTO,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_PlastoStrut,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimBulldozer,
@@ -621,6 +647,17 @@ const struct SpriteTemplate gSkyAttackBirdSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BIRD,
     .paletteTag = ANIM_TAG_BIRD,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
+
+const struct SpriteTemplate gSkyrimSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SKYRIM,
+    .paletteTag = ANIM_TAG_SKYRIM,
     .oam = &gOamData_AffineDouble_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

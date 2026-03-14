@@ -8682,6 +8682,8 @@ extern const u32 gBattleAnimSpriteGfx_Shock3[];
 extern const u32 gBattleAnimSpriteGfx_WeatherBall[];
 extern const u32 gBattleAnim_ScaryFaceGfx[];
 extern const u32 gBattleAnim_ScaryFacePal[];
+extern const u32 gBattleAnim_CherryFaceGfx[];
+extern const u32 gBattleAnim_CherryFacePal[];
 extern const u32 gBattleAnimBgTilemap_ScaryFacePlayer[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceOpponent[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceContest[];
@@ -8746,6 +8748,28 @@ extern const u32 gBattleAnimSpriteGfx_BibleStuff[];
 extern const u32 gBattleAnimSpriteGfx_GasterBlaster[];
 extern const u32 gBattleAnimSpriteGfx_GasterBeam[];
 extern const u32 gBattleAnimSpriteGfx_Teacup[];
+extern const u32 gBattleAnimSpriteGfx_BallQuick[];
+extern const u32 gBattleAnimSpriteGfx_BallDive[];
+extern const u32 gBattleAnimSpriteGfx_BallRepeat[];
+extern const u32 gBattleAnimSpriteGfx_BallLure[];
+extern const u32 gBattleAnimSpriteGfx_BallHeal[];
+extern const u32 gBattleAnimSpriteGfx_BallDream[];
+extern const u32 gBattleAnimSpriteGfx_BallTimer[];
+extern const u32 gBattleAnimSpriteGfx_BallDusk[];
+extern const u32 gBattleAnimSpriteGfx_BallLight[];
+extern const u32 gBattleAnimSpriteGfx_BallEnergy[];
+extern const u32 gBattleAnimSpriteGfx_Plasto[];
+extern const u32 gBattleAnimSpriteGfx_PissDrop[];
+extern const u32 gBattleAnimSpriteGfx_Clam[];
+extern const u32 gBattleAnimSpriteGfx_MingVase[];
+extern const u32 gBattleAnimSpriteGfx_ShatteredVase[];
+extern const u32 gBattleAnimSpriteGfx_RedHeart[];
+extern const u32 gBattleAnimSpriteGfx_RedDiamond[];
+extern const u32 gBattleAnimSpriteGfx_BlackSpade[];
+extern const u32 gBattleAnimSpriteGfx_BlackClub[];
+extern const u32 gBattleAnimSpriteGfx_Hammer[];
+extern const u32 gBattleAnimSpriteGfx_Shoe[];
+extern const u32 gBattleAnimSpriteGfx_Skyrim[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9054,6 +9078,28 @@ extern const u32 gBattleAnimSpritePal_BibleStuff[];
 extern const u32 gBattleAnimSpritePal_GasterBlaster[];
 extern const u32 gBattleAnimSpritePal_GasterBeam[];
 extern const u32 gBattleAnimSpritePal_Teacup[];
+extern const u32 gBattleAnimSpritePal_BallQuick[];
+extern const u32 gBattleAnimSpritePal_BallDive[];
+extern const u32 gBattleAnimSpritePal_BallRepeat[];
+extern const u32 gBattleAnimSpritePal_BallLure[];
+extern const u32 gBattleAnimSpritePal_BallHeal[];
+extern const u32 gBattleAnimSpritePal_BallDream[];
+extern const u32 gBattleAnimSpritePal_BallTimer[];
+extern const u32 gBattleAnimSpritePal_BallDusk[];
+extern const u32 gBattleAnimSpritePal_BallLight[];
+extern const u32 gBattleAnimSpritePal_BallEnergy[];
+extern const u32 gBattleAnimSpritePal_Plasto[];
+extern const u32 gBattleAnimSpritePal_PissDrop[];
+extern const u32 gBattleAnimSpritePal_Clam[];
+extern const u32 gBattleAnimSpritePal_MingVase[];
+extern const u32 gBattleAnimSpritePal_ShatteredVase[];
+extern const u32 gBattleAnimSpritePal_RedDiamond[];
+extern const u32 gBattleAnimSpritePal_BlackSpade[];
+extern const u32 gBattleAnimSpritePal_BlackClub[];
+extern const u32 gBattleAnimSpritePal_Hammer[];
+extern const u32 gBattleAnimSpritePal_Shoe[];
+extern const u32 gBattleAnimSpritePal_Skyrim[];
+
 
 
 //CSR Moves
@@ -9103,6 +9149,7 @@ extern const u32 gBattleAnimBgImage_TrickRoom[];
 extern const u32 gBattleAnimBgImage_AmericanFlag[];
 extern const u32 gBattleAnimBgImage_IranFlag[];
 extern const u32 gBattleAnimBgImage_BSOD[];
+extern const u32 gBattleAnimBgImage_Skyrim[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9128,6 +9175,7 @@ extern const u32 gBattleAnimBgPalette_TrickRoom[];
 extern const u32 gBattleAnimBgPalette_AmericanFlag[];
 extern const u32 gBattleAnimBgPalette_IranFlag[];
 extern const u32 gBattleAnimBgPalette_BSOD[];
+extern const u32 gBattleAnimBgPalette_Skyrim[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9157,6 +9205,7 @@ extern const u32 gBattleAnimBgTilemap_TrickRoom[];
 extern const u32 gBattleAnimBgTilemap_AmericanFlag[];
 extern const u32 gBattleAnimBgTilemap_IranFlag[];
 extern const u32 gBattleAnimBgTilemap_BSOD[];
+extern const u32 gBattleAnimBgTilemap_Skyrim[];
 
 // dark
 extern const u32 gMetalShineGfx[];
