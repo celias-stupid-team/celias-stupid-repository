@@ -101,9 +101,12 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     
     [SPECIES_HORSEA]     = {{EVO_LEVEL, 20, SPECIES_DRAGONITE}},
     [SPECIES_DRAGONITE]  = {{EVO_ITEM, ITEM_SUPER_SCOPE, SPECIES_YOSHI}},
+    
+    [SPECIES_YOSHI]    = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
 
     
-    [SPECIES_GOLDEEN]    = {{EVO_LEVEL, 20, SPECIES_SEAKING}},
+    [SPECIES_GOLDEEN]    = {{EVO_LEVEL, 20, SPECIES_SEAKING},
+                            {EVO_TRADE, 0, SPECIES_SEAKING}},
     
     
     //[SPECIES_SCYTHER]    = {{EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR}}, //Solution for Cynthia!

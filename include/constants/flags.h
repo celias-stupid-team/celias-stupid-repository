@@ -539,8 +539,8 @@
 #define FLAG_0x1E8  0x1E8
 #define FLAG_0x1E9      0x1E9
 #define FLAG_0x1EA     0x1EA
-#define FLAG_0x1EB      0x1EB
-#define FLAG_0x1EC    0x1EC
+#define FLAG_GOT_SHINY_CHANSEY      0x1EB
+#define FLAG_SHINY_GOLDEEN_TRADE    0x1EC
 #define FLAG_FINAL_SHINY            0x1ED
 #define FLAG_POST_GAME            0x1EE
 #define FLAG_BILL_PC_BROKE              0x1EF
@@ -1115,7 +1115,7 @@
 #define FLAG_HIDDEN_ITEM_POKE_DOLL_10                                (FLAG_HIDDEN_ITEMS_START +  21)
 #define FLAG_HIDDEN_ITEM_ROUTE22_NOTHING                     (FLAG_HIDDEN_ITEMS_START +  22)
 #define FLAG_HIDDEN_ITEM_SPONGEBOB                           (FLAG_HIDDEN_ITEMS_START +  23)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_17                                (FLAG_HIDDEN_ITEMS_START +  24)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_A                                (FLAG_HIDDEN_ITEMS_START +  24)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_18                            (FLAG_HIDDEN_ITEMS_START +  25)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_19             (FLAG_HIDDEN_ITEMS_START +  26)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_33                            (FLAG_HIDDEN_ITEMS_START +  27) //smh Rave I can't believe you missed this
@@ -1416,7 +1416,7 @@
 #define FLAG_0x819                                                  (SYS_FLAGS + 0x19)
 #define FLAG_0x81A                                                  (SYS_FLAGS + 0x1A)
 #define FLAG_0x81B                                                  (SYS_FLAGS + 0x1B)
-#define FLAG_SYS_LUVDISC_TILE                                                  (SYS_FLAGS + 0x1C)
+#define FLAG_HOENN_DELIVERY_SERVICE                                                  (SYS_FLAGS + 0x1C)
 #define FLAG_SYS_ZAPDOS_STATUE                                                  (SYS_FLAGS + 0x1D)
 #define FLAG_SYS_GIRL_HOLE                                                  (SYS_FLAGS + 0x1E)
 #define FLAG_0x81F                                                  (SYS_FLAGS + 0x1F)

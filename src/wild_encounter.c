@@ -14,6 +14,7 @@
 #include "link.h"
 #include "quest_log.h"
 #include "fldeff.h"
+#include "script_pokemon_util.h"
 
 #include "constants/maps.h"
 #include "constants/abilities.h"
@@ -315,10 +316,14 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
         FlagClear(FLAG_SYS_GIRL_HOLE);
         GenerateWildMon(SPECIES_CLOYSTER, level, slot);
 
-    } else if (FlagGet(FLAG_SYS_LUVDISC_TILE)) {
+    } else if (VarGet(VAR_LUVDISC_TILE) == 1) {
         //DebugPrintf("Girl Hole");
         FlagSet(FLAG_SHINY_CREATION);
-        FlagClear(FLAG_SYS_LUVDISC_TILE);
+        VarSet(VAR_LUVDISC_TILE, 0);
+        GenerateWildMon(SPECIES_LUVDISC, level, slot);
+
+    } else if (VarGet(VAR_LUVDISC_TILE) == 2) {
+        VarSet(VAR_LUVDISC_TILE, 0);
         GenerateWildMon(SPECIES_LUVDISC, level, slot);
 
     } else if (FlagGet(FLAG_SYS_ZAPDOS_STATUE)) {
@@ -428,6 +433,14 @@ bool8 StandardWildEncounter(u32 currMetatileAttrs, u16 previousMetatileBehavior)
                 // try a regular wild land encounter
                 if (TryGenerateWildMon(gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_REPEL) == TRUE)
                 {
+                    if(gWildMonHeaders[headerId].landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species == SPECIES_MAGNEMITE && VarGet(VAR_SHINY_MAGNEMITE) == 1) {
+                        //DebugPrintf("%d", gWildMonHeaders[headerId].landMonsInfo->wildPokemon[ChooseWildMonIndex_Land()].species);
+                        VarSet(VAR_SHINY_MAGNEMITE, 2);
+                        FlagSet(FLAG_SHINY_CREATION);
+                        CreateScriptedWildMon(SPECIES_MAGNEMITE, 25, ITEM_RUNNINGSCREWS);
+                        StartScriptedWildBattle();
+                        return TRUE;
+                    }
                     StartWildBattle();
                     return TRUE;
                 }

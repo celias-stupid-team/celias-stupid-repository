@@ -476,7 +476,8 @@
     "SaffronCity_PokemonCenter_2F",
     "SaffronCity_MrPsychicsHouse",
     "SaffronCity_PokemonTrainerFanClub",
-    "BrunoBackRoom"
+    "BrunoBackRoom",
+    "OnixRoom"
   ],
   "gMapGroup_IndoorRoute2": [
     "Route2_ViridianForest_SouthEntrance",
@@ -752,6 +753,7 @@
     "Ocean15",
     "Ocean16",
     "Ocean17",
-    "SpindaFamilyRuinion"
+    "SpindaFamilyRuinion",
+    "FarawayIsland"
   ]
 }

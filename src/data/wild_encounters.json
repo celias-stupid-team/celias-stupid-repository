@@ -7574,63 +7574,63 @@
             "encounter_rate": 21,
             "mons": [
               {
-                "min_level": 37,
-                "max_level": 37,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 35,
-                "max_level": 35,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 32,
-                "max_level": 32,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 30,
-                "max_level": 30,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 34,
-                "max_level": 34,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 34,
-                "max_level": 34,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 35,
-                "max_level": 35,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 31,
-                "max_level": 31,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 37,
-                "max_level": 37,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 37,
-                "max_level": 37,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               },
               {
-                "min_level": 40,
-                "max_level": 40,
+                "min_level": 21,
+                "max_level": 21,
                 "species": "SPECIES_UNOWN_LOSS"
               }
             ]
@@ -26075,27 +26075,27 @@
               {
                 "min_level": 20,
                 "max_level": 20,
-                "species": "SPECIES_LUVDISC"
+                "species": "SPECIES_POLIWAG"
               },
               {
                 "min_level": 20,
                 "max_level": 20,
-                "species": "SPECIES_LUVDISC"
+                "species": "SPECIES_POLIWAG"
               },
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
+                "species": "SPECIES_POLIWAG"
               },
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
+                "species": "SPECIES_POLIWAG"
               },
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_GOLDEEN"
+                "species": "SPECIES_POLIWAG"
               },
               {
                 "min_level": 15,

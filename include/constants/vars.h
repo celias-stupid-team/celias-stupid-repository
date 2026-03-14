@@ -345,7 +345,7 @@ It is reset after every battle.
 #define VAR_DAILY_PLANTED_BERRIES  0x40E9
 #define VAR_DAILY_PICKED_BERRIES   0x40EA
 #define VAR_DAILY_ROULETTE         0x40EB
-#define VAR_0x40EC                 0x40EC
+#define VAR_LUVDISC_TILE                 0x40EC
 #define VAR_0x40ED                 0x40ED
 #define VAR_0x40EE                 0x40EE
 #define VAR_0x40EF                 0x40EF
@@ -358,7 +358,7 @@ It is reset after every battle.
 #define VAR_0x40F6                 0x40F6
 #define VAR_0x40F7                 0x40F7
 #define VAR_0x40F8                 0x40F8
-#define VAR_0x40F9                 0x40F9
+#define VAR_SHINY_MAGNEMITE                 0x40F9
 #define VAR_STACK_OF_CANDY                 0x40FA
 #define VAR_SKY_TOWER_POKE                 0x40FB
 #define VAR_SWEET_SCENT_WATER                 0x40FC

@@ -327,12 +327,9 @@ script TwoIsland_DragonitePresent {
 	))
 	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
 	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
-	playfanfare(MUS_LEVEL_UP)
-	msgbox(
-	"There was a\n"
-	"BAG OF DRAGONITE!", MSGBOX_DEFAULT)
+	giveitem_msg("There was a\n"
+	"BAG OF DRAGONITE!",ITEM_BAG_OF_DRAGONITE, 1)
 	waitfanfare
-	giveitem(ITEM_BAG_OF_DRAGONITE, 1)
 	setflag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)
 	release
 	end
@@ -928,6 +925,7 @@ script TwoIsland_BurnHeal {
 		"", MSGBOX_DEFAULT)
 		setflag(FLAG_SHINY_DACHSBUN)
 		setflag(FLAG_KILLED_SANS)
+		setflag(FLAG_NO_SANS_ITEM)
 		release
 		end
 

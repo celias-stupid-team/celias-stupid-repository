@@ -369,7 +369,7 @@
       "y": 24,
       "elevation": 0,
       "item": "ITEM_POKE_DOLL",
-      "flag": "FLAG_HIDDEN_ITEM_POKE_DOLL_5",
+      "flag": "FLAG_HIDDEN_ITEM_POKE_DOLL_A",
       "quantity": 1,
       "underfoot": false
     },

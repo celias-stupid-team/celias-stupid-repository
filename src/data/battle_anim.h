@@ -560,6 +560,21 @@ const struct OamData gOamData_AffineOff_ObjBlend_64x64 =
     .paletteNum = 0,
 };
 
+
+const struct OamData gOamData_GasterBlaster =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_BLEND,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+};
+
 const struct OamData gOamData_AffineOff_ObjBlend_16x8 =
 {
     .y = 0,
@@ -1355,6 +1370,15 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_ThrownForretress, 0x0200, ANIM_TAG_THROWN_FORRETRESS},
     {gBattleAnimSpriteGfx_Shine, 0x1600, ANIM_TAG_SHINE},
     {gBattleAnimSpriteGfx_SummoningCircle, 0x1200, ANIM_TAG_SUMMONING_CIRCLE},
+    {gBattleAnimSpriteGfx_BusLeft, 0x0C00, ANIM_TAG_BUS_LEFT},
+    {gBattleAnimSpriteGfx_BusRight, 0x0C00, ANIM_TAG_BUS_RIGHT},
+    {gBattleAnimSpriteGfx_Crashed, 0x0800, ANIM_TAG_CRASHED},
+    {gBattleAnimSpriteGfx_Allegiance, 0x0A00, ANIM_TAG_ALLEGIANCE},
+    {gBattleAnimSpriteGfx_Eagle, 0x0800, ANIM_TAG_EAGLE},
+    {gBattleAnimSpriteGfx_BibleStuff, 0x0300, ANIM_TAG_BIBLE_STUFF},
+    {gBattleAnimSpriteGfx_GasterBlaster, 0x2000, ANIM_TAG_GASTER_BLASTER},
+    {gBattleAnimSpriteGfx_GasterBeam, 0x0800, ANIM_TAG_GASTER_BEAM},
+    {gBattleAnimSpriteGfx_Teacup, 0x0200, ANIM_TAG_TEACUP},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1704,6 +1728,15 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_ThrownForretress, ANIM_TAG_THROWN_FORRETRESS},
     {gBattleAnimSpritePal_Shine, ANIM_TAG_SHINE},
     {gBattleAnimSpritePal_SummoningCircle, ANIM_TAG_SUMMONING_CIRCLE},
+    {gBattleAnimSpritePal_BusLeft, ANIM_TAG_BUS_LEFT},
+    {gBattleAnimSpritePal_BusRight, ANIM_TAG_BUS_RIGHT},
+    {gBattleAnimSpritePal_Crashed, ANIM_TAG_CRASHED},
+    {gBattleAnimSpritePal_Allegiance, ANIM_TAG_ALLEGIANCE},
+    {gBattleAnimSpritePal_Eagle, ANIM_TAG_EAGLE},
+    {gBattleAnimSpritePal_BibleStuff, ANIM_TAG_BIBLE_STUFF},
+    {gBattleAnimSpritePal_GasterBlaster, ANIM_TAG_GASTER_BLASTER},
+    {gBattleAnimSpritePal_GasterBeam, ANIM_TAG_GASTER_BEAM},
+    {gBattleAnimSpritePal_Teacup, ANIM_TAG_TEACUP},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -1737,4 +1770,7 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_SOLAR_BEAM_CONTESTS] = {gBattleAnimBgImage_Impact,     gBattleAnimBgPalette_SolarBeam,  gBattleAnimBgTilemap_ImpactContests},
     [BG_DARK_VOID]           = {gBattleAnimBgImage_Waterfall,  gBattleAnimBgPalette_DarkVoid,   gBattleAnimBgTilemap_DarkVoid},
     [BG_TRICK_ROOM]          = {gBattleAnimBgImage_TrickRoom,  gBattleAnimBgPalette_TrickRoom,  gBattleAnimBgTilemap_TrickRoom},
+    [BG_AMERICAN_FLAG]       = {gBattleAnimBgImage_AmericanFlag,     gBattleAnimBgPalette_AmericanFlag,     gBattleAnimBgTilemap_AmericanFlag},
+    [BG_IRAN_FLAG]           = {gBattleAnimBgImage_IranFlag,   gBattleAnimBgPalette_IranFlag,   gBattleAnimBgTilemap_IranFlag},
+    [BG_BSOD]                = {gBattleAnimBgImage_BSOD,       gBattleAnimBgPalette_BSOD,       gBattleAnimBgTilemap_BSOD},
 };

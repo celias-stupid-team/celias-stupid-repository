@@ -643,3 +643,6 @@ const u32 gTrainerPalette_DmcaRunt[] = INCBIN_U32("graphics/trainers/palettes/dm
 
 const u32 gTrainerFrontPic_Champions[] = INCBIN_U32("graphics/trainers/front_pics/champions_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Champions[] = INCBIN_U32("graphics/trainers/palettes/champions.gbapal.lz");
+
+const u32 gTrainerFrontPic_Eusine[] = INCBIN_U32("graphics/trainers/front_pics/eusine_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Eusine[] = INCBIN_U32("graphics/trainers/palettes/eusine.gbapal.lz");

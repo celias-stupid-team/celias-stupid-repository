@@ -122,6 +122,7 @@ const u32 gProtectedMoves[] = {
     MOVE_DOUBLE_DIP,
     MOVE_RAINBOW_BEAM,
     MOVE_SLASH_TCG,
+    MOVE_LUNAR_DANCE,
     MOVE_FLY_CYNTHIA
 };
 
@@ -2010,8 +2011,8 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
             || gender != GetGenderFromSpeciesAndPersonality(species, personality));
     }
 
-    // handle shininess for Alomomola and Hoopa transformations
-    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA) && GetMonData(mon, MON_DATA_CSR_SHINY))
+    // handle shininess for species transformations
+    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA || species == SPECIES_SLOWPOKE) && GetMonData(mon, MON_DATA_CSR_SHINY))
         FlagSet(FLAG_SHINY_CREATION);
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
@@ -7074,12 +7075,17 @@ u16 GetCurrentZapmolcunoSpecies(void)
     return species;
 }
 
-
-void BillsSecretGardenDebug(void) {
+void BillsSecretGardenDebug(void)
+{
     DebugPrintf("---DEBUG START---");
     DebugPrintf("Right Box Number %d", VarGet(VAR_TEMP_1));
     DebugPrintf("Left Box Number %d", VarGet(VAR_TEMP_2));
     DebugPrintf("Crimper Box Number %d", VarGet(VAR_TEMP_3));
     DebugPrintf("Player Box Number %d", VarGet(VAR_TEMP_4));
     DebugPrintf("PC Box Number %d", VarGet(VAR_TEMP_C));
+}
+
+bool32 IsDanceMove(u16 moveId)
+{
+    return gBattleMoves[moveId].danceMove;
 }

@@ -555,7 +555,10 @@ void AnimTask_CentennialKick(u8 taskId)
     x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
     y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
 
-    spriteId = CreateSprite(&gFistFootStaticSpriteTemplate, x, y, 3);
+    if(gBattleAnimArgs[3] == 6)
+        spriteId = CreateSprite(&gBasicHitSplatSpriteTemplate, x, y, 3);
+    else
+        spriteId = CreateSprite(&gFistFootStaticSpriteTemplate, x, y, 3);
     if (spriteId == MAX_SPRITES)
     {
         DestroyAnimVisualTask(taskId);
@@ -660,9 +663,10 @@ static void AnimTask_CentennialKick_Step(u8 taskId)
 
     if (task->data[4] < 0)
         StartSpriteAnim(spr, Random() % 5);
-    else
+    else if (task->data[4] < 5)
         StartSpriteAnim(spr, (u8)task->data[4]);
-
+    else
+        StartSpriteAnim(spr, 0);
     spr->invisible = FALSE;
     task->data[6] = task->data[5];
 

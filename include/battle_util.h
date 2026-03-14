@@ -33,6 +33,7 @@
 #define ABILITYEFFECT_CHECK_ON_FIELD             19
 #define ABILITYEFFECT_NEUTRALIZINGGAS_SLOWSTART  20
 #define ABILITYEFFECT_NEUTRALIZINGGAS            21
+#define ABILITYEFFECT_MOVE_END_DANCER             22
 #define ABILITYEFFECT_MUD_SPORT                  253
 #define ABILITYEFFECT_WATER_SPORT                254
 #define ABILITYEFFECT_SWITCH_IN_WEATHER          255
@@ -105,5 +106,6 @@ bool32 IsNeutralizingGasOnField(void);
 void TryRestoreHeldItems(void);
 bool32 IsSingleWildRattata(void);
 bool32 IsZapmolcunoOhgiaSpecies(u16 species);
+bool32 CanBePoisoned(u8 battlerTarget, u8 abilityTarget);
 
 #endif // GUARD_BATTLE_UTIL_H

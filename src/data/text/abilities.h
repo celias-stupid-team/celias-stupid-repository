@@ -54,7 +54,7 @@ static const u8 sHyperCutterDescription[] = _("Prevents ATTACK reduction.");
 static const u8 sPickupDescription[] = _("May pick up items.");
 static const u8 sTruantDescription[] = _("Moves only every two turns.");
 static const u8 sHustleDescription[] = _("Trades accuracy for power.");
-static const u8 sCuteCharmDescription[] = _("Infatuates on contact.");
+static const u8 sCuteCharmDescription[] = _("Yeah but I'm a cute fraud, right?");
 static const u8 sPlusDescription[] = _("Powers up with INNIE.");
 static const u8 sMinusDescription[] = _("Powers up with OUTIE.");
 static const u8 sForecastDescription[] = _("The secret fourth legendary.");
@@ -228,6 +228,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_PISSURE] = COMPOUND_STRING("The user's PP spills."),
     [ABILITY_SANDWICH_FORCE] = COMPOUND_STRING("Powers up by snacking."),
     [ABILITY_WAS_ONE] = COMPOUND_STRING("The user moves LAST."),
+    [ABILITY_DANCER] = COMPOUND_STRING("Copies the last dance move."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -350,10 +351,10 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_MISTY_SURGE] = _("MISTY SURGE"),
     [ABILITY_NICE_FACE] = _("NICE FACE"),
     [ABILITY_NICE_FACES] = _("NICE FACES"),
-    [ABILITY_WELL_BAKED_BOD] = _("WELL BAKED BODY"),
+    [ABILITY_WELL_BAKED_BOD] = _("{FONT_SMALL}WELL BAKED BODY"),
     [ABILITY_MEGA_LAUNCHER] = _("MEGA LAUNCHER"),
     [ABILITY_SKILL_LINK] = _("SKILL LINK"),
-    [ABILITY_AS_ONE_SLOWBRO] = _("AS ONE SLOWBRO"),
+    [ABILITY_AS_ONE_SLOWBRO] = _("AS ONE"),
     [ABILITY_TOWNLOAD] = _("TOWNLOAD"),
     [ABILITY_ANTICIPATEON] = _("{FONT_SMALL}ANTICIPATEON"),
     [ABILITY_RATTLED] = _("RATTLED"),
@@ -372,4 +373,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_PISSURE] = _("PISSURE"),
     [ABILITY_SANDWICH_FORCE] = _("{FONT_SMALL}SANDWICH FORCE"),
     [ABILITY_WAS_ONE] = _("WAS ONE"),
+    [ABILITY_DANCER] = _("DANCER"),
 };

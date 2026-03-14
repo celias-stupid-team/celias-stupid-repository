@@ -128,7 +128,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                    @ EFFECT_FALSE_SWIPE
 	.4byte BattleScript_EffectHealBell               @ EFFECT_HEAL_BELL
 	.4byte BattleScript_EffectHit                    @ EFFECT_QUICK_ATTACK
-	.4byte BattleScript_EffectTripleKick             @ EFFECT_TRIPLE_KICK
+	.4byte BattleScript_EffectNewTripleKick             @ EFFECT_TRIPLE_KICK
 	.4byte BattleScript_EffectThief                  @ EFFECT_THIEF
 	.4byte BattleScript_EffectMeanLook               @ EFFECT_MEAN_LOOK
 	.4byte BattleScript_EffectNightmare              @ EFFECT_NIGHTMARE
@@ -276,6 +276,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_Effect10kVolts               @ EFFECT_10000_VOLTS
 	.4byte BattleScript_EffectCollisionCourse        @ EFFECT_COLLISION_COURSE
 	.4byte BattleScript_EffectTechnoBlast            @ EFFECT_TECHNO_BLAST
+	.4byte BattleScript_EffectShellSmash             @ EFFECT_SHELL_SMASH
+	.4byte BattleScript_EffectBanefulBunker          @ EFFECT_BANEFUL_BUNKER
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -1683,6 +1685,7 @@ BattleScript_DoGhostCurse::
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectBanefulBunker::
 BattleScript_EffectSpikyShield::
 BattleScript_EffectProtect::
 BattleScript_EffectEndure::
@@ -4165,16 +4168,26 @@ BattleScript_AlomomolaMidBattleEvo::
 BattleScript_SeelHoopaTransform::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_SEELHOOPATRANSFORMSTART
-	waitstate
+	waitmessage B_WAIT_TIME_LONG
 	playanimation BS_FAINTED, B_ANIM_SEEL_HOOPA_TRANSFORM
 	pause B_WAIT_TIME_LONG
     updatebattlerdata BS_FAINTED
 	redrawhealthbox BS_FAINTED
 	healthbarupdate BS_FAINTED
 	datahpupdate BS_FAINTED
-	@ printstring STRINGID_SEELHOOPATRANSFORMEND
-	@ waitmessage B_WAIT_TIME_LONG
 	end2
+
+BattleScript_SlowpokeTransform::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNSHELLHASBEENBROKEN
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_SLOWPOKE_TRANSFORM
+	pause B_WAIT_TIME_LONG
+    updatebattlerdata BS_ATTACKER
+	redrawhealthbox BS_ATTACKER
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	return
 
 BattleScript_ZapmolcunoTransform::
 	playse SE_M_MEGA_KICK
@@ -4436,9 +4449,9 @@ BattleScript_SturdyPreventsOHKO::
 
 BattleScript_EarthEaterPreventsOHKO::
 	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_PKMNPROTECTEDBY
+	printstring STRINGID_EARTHEATER
 	pause B_WAIT_TIME_LONG
-	callnative BattleDebug_WonBattle
+	callnative BattleDebug_LeftBattle
 	goto BattleScript_MoveEnd
 
 BattleScript_DampStopsExplosion::
@@ -5170,9 +5183,10 @@ BattleScript_AirBalloonMsgPop::
 
 BattleScript_EffectElectrify::
 	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	@ accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	orword gHitMarker, HITMARKER_IGNORE_ON_AIR
 	tryelectrify BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -5611,4 +5625,148 @@ BattleScript_DodgeMove::
 
 BattleScript_EffectTechnoBlast::
 	settechnoblasttype
+	goto BattleScript_EffectHit
+
+BattleScript_EffectShellSmash::
+	attackcanceler
+	attackstring
+	ppreduce
+	@ special handling for species Slowbro and Shellder
+	jumpifspecies BS_ATTACKER, SPECIES_SLOWBRO, BattleScript_EffectShellSmashSlowbro
+	jumpifspecies BS_ATTACKER, SPECIES_SHELLDER, BattleScript_EffectShellSmashShellder
+	@ check if stats can be raised, otherwise move effect fails
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_ShellSmashDoAnim
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_ShellSmashDoAnim
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+BattleScript_ShellSmashDoAnim::
+	attackanimation
+	waitanimation
+	@ lower Def and SpDef by 1 stage each
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_MULTIPLE_STATS
+	playstatchangeanimation BS_ATTACKER, BIT_DEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_CANT_PREVENT
+	setstatchanger STAT_DEF, 1, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_ShellSmashDefFail
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 2, BattleScript_ShellSmashDefFail
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShellSmashDefFail::
+	playstatchangeanimation BS_ATTACKER, BIT_SPDEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_CANT_PREVENT
+	setstatchanger STAT_SPDEF, 1, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_ShellSmashSpDefFail
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 2, BattleScript_ShellSmashSpDefFail
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShellSmashSpDefFail::
+	@ raise Atk, SpAtk, and Spe by 2 stages each
+BattleScript_ShellSmashTryAtk::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_SPATK | BIT_SPEED, STAT_CHANGE_BY_TWO | STAT_CHANGE_MULTIPLE_STATS
+	playstatchangeanimation BS_ATTACKER, BIT_ATK, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_ATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_ShellSmashTrySpAtk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_ShellSmashTrySpAtk
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShellSmashTrySpAtk::
+	playstatchangeanimation BS_ATTACKER, BIT_SPATK, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_SPATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_ShellSmashTrySpeed
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_ShellSmashTrySpeed
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShellSmashTrySpeed::
+	playstatchangeanimation BS_ATTACKER, BIT_SPEED, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_SPEED, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_ShellSmashEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_ShellSmashEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShellSmashEnd::
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectShellSmashSlowbro::
+	attackanimation
+	waitanimation
+	call BattleScript_SlowpokeTransform
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectShellSmashShellder::
+	setatkhptozero
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNSHELLHASBEENBROKEN
+	waitstate
+	goto BattleScript_EffectMementoTryFaint
+
+BattleScript_BanefulBunkerPoison::
+	jumpifabsent BS_ATTACKER, BattleScript_BanefulBunkerRet
+	bicbyte gMoveResultFlags, MOVE_RESULT_NO_EFFECT
+	setmoveeffect MOVE_EFFECT_POISON | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	orbyte gMoveResultFlags, MOVE_RESULT_MISSED
+BattleScript_BanefulBunkerRet::
+	return
+
+BattleScript_DancerActivates::
+	printstring STRINGID_PKMNREPEATSDANCEMOVE
+	waitmessage B_WAIT_TIME_SHORT
+	jumptocalledmove TRUE
+
+BattleScript_End2::
+	end2
+
+
+
+BattleScript_EffectNewTripleKick::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubDoubleHit
+	setmultihitcounter 3
+	initmultihitstring
+	setbyte sMULTIHIT_EFFECT, 0
+	goto BattleScript_NewTripleKickLoop
+
+
+	BattleScript_NewTripleKickLoop::
+	jumpifhasnohp BS_ATTACKER, BattleScript_MultiHitEnd
+	jumpifhasnohp BS_TARGET, BattleScript_MultiHitPrintStrings
+	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_SLEEP_TALK, BattleScript_DoNewTripleKick
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_MultiHitPrintStrings
+
+BattleScript_DoNewTripleKick::
+	movevaluescleanup
+	copybyte cEFFECT_CHOOSER, sMULTIHIT_EFFECT
+	critcalc
+	damagecalc
+	typecalc
+	jumpifmovehadnoeffect BattleScript_MultiHitNoMoreHits
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	multihitresultmessage
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	addbyte sMULTIHIT_STRING + 4, 1
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_FOE_ENDURED, BattleScript_MultiHitPrintStrings
+	goto BattleScript_NewTripleKickHeal
+
+BattleScript_NewTripleKickHeal::
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+		
 	goto BattleScript_EffectHit

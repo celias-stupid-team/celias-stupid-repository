@@ -352,6 +352,15 @@
 #define ANIM_TAG_THROWN_FORRETRESS          (ANIM_SPRITES_START + 342)
 #define ANIM_TAG_SHINE                      (ANIM_SPRITES_START + 343)
 #define ANIM_TAG_SUMMONING_CIRCLE           (ANIM_SPRITES_START + 344)
+#define ANIM_TAG_BUS_LEFT                   (ANIM_SPRITES_START + 345)
+#define ANIM_TAG_BUS_RIGHT                  (ANIM_SPRITES_START + 346)
+#define ANIM_TAG_CRASHED                    (ANIM_SPRITES_START + 347)
+#define ANIM_TAG_ALLEGIANCE                 (ANIM_SPRITES_START + 348)
+#define ANIM_TAG_EAGLE                      (ANIM_SPRITES_START + 349)
+#define ANIM_TAG_BIBLE_STUFF                (ANIM_SPRITES_START + 350)
+#define ANIM_TAG_GASTER_BLASTER             (ANIM_SPRITES_START + 351)
+#define ANIM_TAG_GASTER_BEAM                (ANIM_SPRITES_START + 352)
+#define ANIM_TAG_TEACUP                     (ANIM_SPRITES_START + 353)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -408,6 +417,9 @@
 #define BG_DARK_VOID 27
 #define BG_TRICK_ROOM 28
 #define BG_FIRE 29
+#define BG_AMERICAN_FLAG 30
+#define BG_IRAN_FLAG 31
+#define BG_BSOD 32
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
@@ -452,6 +464,7 @@
 #define B_ANIM_DOUBLE_DIP_HIT           39
 #define B_ANIM_CHARGE_TURN              40
 #define B_ANIM_GHOST_DODGE              41
+#define B_ANIM_SLOWPOKE_TRANSFORM       42
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

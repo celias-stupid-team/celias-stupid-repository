@@ -44,6 +44,32 @@
 #define METATILE_Credits_CreditsAbovePlayer  0x0A7
 #define METATILE_Credits_CreditsTransparent  0x09F
 
+// gTileset_DMCABlaine
+#define METATILE_DMCABlaine_BackgroundTile          0x2D2
+#define METATILE_DMCABlaine_BlankLetter             0x2C1
+#define METATILE_DMCABlaine_BlueBottom              0x2E4
+#define METATILE_DMCABlaine_BlueBottomDing          0x2F4
+#define METATILE_DMCABlaine_BlueTop                 0x2DC
+#define METATILE_DMCABlaine_BlueTopDing             0x2EC
+#define METATILE_DMCABlaine_GreenBottom             0x2E5
+#define METATILE_DMCABlaine_GreenBottomDing         0x2F5
+#define METATILE_DMCABlaine_GreenTop                0x2DD
+#define METATILE_DMCABlaine_GreenTopDing            0x2ED
+#define METATILE_DMCABlaine_LetterA                 0x2C2
+#define METATILE_DMCABlaine_LetterI                 0x2C4
+#define METATILE_DMCABlaine_LetterLuc               0x2D4
+#define METATILE_DMCABlaine_LetterM                 0x2D3
+#define METATILE_DMCABlaine_LetterO                 0x2C5
+#define METATILE_DMCABlaine_LetterR                 0x2C3
+#define METATILE_DMCABlaine_LetterW                 0x2D1
+#define METATILE_DMCABlaine_QuestionMark            0x2D6
+#define METATILE_DMCABlaine_RedBottom               0x2E6
+#define METATILE_DMCABlaine_RedBottomDing           0x2F6
+#define METATILE_DMCABlaine_RedTop                  0x2DE
+#define METATILE_DMCABlaine_RedTopDing              0x2EE
+#define METATILE_DMCABlaine_RedX                    0x2D7
+#define METATILE_DMCABlaine_UpsideDownQuestionMark  0x2D5
+
 // gTileset_DepartmentStore
 #define METATILE_DepartmentStore_ElevatorDoor  0x28D
 

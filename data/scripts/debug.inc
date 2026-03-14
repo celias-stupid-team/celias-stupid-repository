@@ -90,11 +90,13 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_EventScript_Script_1::
-	callnative CeruleanCity_SummonThePit2
+	setflag FLAG_SHINY_CREATION
+	setwildbattle SPECIES_MAGNEMITE, 10
+	dowildbattle
 	end
 
 Debug_EventScript_Script_2::
-	trainerbattle_single TRAINER_Y_ELTAL, CeladonCity_Gym_Text_KayIntro, CeladonCity_Gym_Text_KayDefeat
+	trainerbattle_single TRAINER_YAMASK, CeladonCity_Gym_Text_KayIntro, CeladonCity_Gym_Text_KayDefeat
 	end
 
 Debug_EventScript_Script_3::

@@ -5069,6 +5069,12 @@ static void DisplayPartyMenuForgotMoveMessage(u8 taskId)
 
     GetMonNickname(mon, gStringVar1);
     StringCopy(gStringVar2, gLongMoveNames[move]);
+    if(move == MOVE_SYSTEM32) {
+        DisplayLearnMoveMessage(gText_12PoofSoftreset);
+        DoSoftReset();
+        
+        
+    }
     DisplayLearnMoveMessage(gText_12PoofForgotMove);
     gTasks[taskId].func = Task_PartyMenuReplaceMove;
 }

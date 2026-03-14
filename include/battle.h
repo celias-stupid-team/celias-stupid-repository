@@ -235,7 +235,7 @@ struct ProtectStruct
     u32 flag2Unknown:1;         // 0x2
     u32 flinchImmobility:1;     // 0x4
     u32 notFirstStrike:1;       // 0x8
-    u32 flag_x10 : 1;           // 0x10
+    u32 banefulBunker:1;        // 0x10
     u32 flag_x20 : 1;           // 0x20
     u32 flag_x40 : 1;           // 0x40
     u32 flag_x80 : 1;           // 0x80
@@ -261,7 +261,12 @@ struct SpecialStatus
     u8 faintedHasReplacement:1;
     u8 focusBanded:1;
     //eob
-    u8 field1[3];
+    u8 filler1[2];
+    u8 dancerUsedMove:1;            // make sure that Dancer can't copy an already copied move again
+    u8 dancerOriginalTarget:3;      // saves the dancer's original move target (bits 0-2) + validity flag (bit 2)
+    u8 activateDancer:1;
+    u8 filler2:3;
+    //eob
     s32 dmg;
     s32 physicalDmg;
     s32 specialDmg;
@@ -272,9 +277,8 @@ struct SpecialStatus
     u8 switchInAbilityDone:1;
     u8 announceNeutralizingGas:1;   // See Cmd_switchineffects
     u8 neutralizingGasRemoved:1;    // See VARIOUS_TRY_END_NEUTRALIZING_GAS
-    u8 filler:3;
+    u8 filler3:3;
     //eob
-    u8 field13;
 };
 
 extern struct SpecialStatus gSpecialStatuses[MAX_BATTLERS_COUNT];
@@ -507,7 +511,8 @@ struct BattleStruct
     u8 savedTargetCount:4;
     u8 savedAttackerCount:4;
     u16 itemLost[PARTY_SIZE];
-    u8 padding_1E4[5];
+    u16 damageAccumulated;
+    u8 padding_1E4[3];
 }; // size == 0x200 bytes
 
 extern struct BattleStruct *gBattleStruct;
@@ -573,6 +578,7 @@ struct BattleScripting
     u8 reshowMainState;
     u8 reshowHelperState;
     u8 levelUpHP;
+    u8 savedBattler;
     s32 savedData;
 };
 

@@ -1915,3 +1915,9 @@ Text_TestMsg::
 
 	.include "data/maps/Stonehenge/scripts.inc"
 	.include "data/maps/Stonehenge/text.inc"
+
+	.include "data/maps/OnixRoom/scripts.inc"
+	.include "data/maps/OnixRoom/text.inc"
+
+	.include "data/maps/FarawayIsland/scripts.inc"
+	.include "data/maps/FarawayIsland/text.inc"

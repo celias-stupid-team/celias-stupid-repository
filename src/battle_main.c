@@ -65,6 +65,7 @@ static void HandleEndTurn_ContinueBattle(void);
 static void HandleEndTurn_BattleWon(void);
 static void HandleEndTurn_BattleLost(void);
 static void HandleEndTurn_RanFromBattle(void);
+static void HandleEndTurn_LeftBattle(void);
 static void HandleEndTurn_MonFled(void);
 static void HandleEndTurn_FinishBattle(void);
 static void CB2_InitBattleInternal(void);
@@ -524,6 +525,7 @@ static void (*const sEndTurnFuncsTable[])(void) =
     [B_OUTCOME_MON_FLED]          = HandleEndTurn_MonFled,
     [B_OUTCOME_CAUGHT]            = HandleEndTurn_FinishBattle,
     [B_OUTCOME_NO_SAFARI_BALLS]   = HandleEndTurn_FinishBattle,
+    [B_OUTCOME_LEFT_BATTLE]       = HandleEndTurn_LeftBattle,
     [B_OUTCOME_CONTINUE_ZAPDOS]   = HandleEndTurn_ContinueBattle,
     [B_OUTCOME_CONTINUE_ROTOM]    = HandleEndTurn_ContinueBattle,
 };
@@ -3710,10 +3712,21 @@ static void SetActionsAndBattlersTurnOrder(void)
                 }
             }
         }
-        else if (gChosenActionByBattler[0] == B_ACTION_RUN)
+        else
         {
-            gActiveBattler = 0;
-            turnOrderId = 5;
+            // Shiny Magnemite always tries to flee, executing it even before the user can attack or use an item
+            if (gBattleTypeFlags & BATTLE_TYPE_SHINY_MAGNEMITE)
+            {
+                u8 battlerId = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+                gChosenActionByBattler[battlerId] = B_ACTION_RUN;
+                gActiveBattler = battlerId;
+                turnOrderId = 5; // this skips the turn order logic and goes straight to the flee sequence
+            }
+            else if (gChosenActionByBattler[0] == B_ACTION_RUN)
+            {
+                gActiveBattler = 0;
+                turnOrderId = 5;
+            }
         }
         if (turnOrderId == 5) // One of battlers wants to run.
         {
@@ -3988,6 +4001,13 @@ static void HandleEndTurn_RanFromBattle(void)
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
+static void HandleEndTurn_LeftBattle(void)
+{
+    gCurrentActionFuncId = 0;
+    gBattlescriptCurrInstr = BattleScript_End2;
+    gBattleMainFunc = HandleEndTurn_FinishBattle;
+}
+
 static void HandleEndTurn_MonFled(void)
 {
     gCurrentActionFuncId = 0;
@@ -4165,8 +4185,6 @@ static void HandleAction_UseMove(void)
         gCurrentMove = gChosenMove = MOVE_EXPLOSION_USELESS;
         gHitMarker |= HITMARKER_NO_PPDEDUCT;
         *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(MOVE_EXPLOSION_USELESS, NO_TARGET_OVERRIDE);
-
-
     }
     
     else if (gProtectStructs[gBattlerAttacker].noValidMoves)
@@ -4548,7 +4566,8 @@ static void HandleAction_Run(void)
         }
         else
         {
-            if (gBattleMons[gBattlerAttacker].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+            if ((gBattleMons[gBattlerAttacker].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+             || ABILITY_ON_OPPOSING_FIELD(gBattlerAttacker, ABILITY_SHADOW_TAG))
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
                 gBattlescriptCurrInstr = BattleScript_PrintFailedToRunString;
@@ -4785,5 +4804,12 @@ void DebugPrintBattlePartyData(void)
 void BattleDebug_WonBattle(void)
 {
     gBattleOutcome = B_OUTCOME_WON;
+    gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
+}
+
+// Leaves the battle instantly.
+void BattleDebug_LeftBattle(void)
+{
+    gBattleOutcome = B_OUTCOME_LEFT_BATTLE;
     gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
 }

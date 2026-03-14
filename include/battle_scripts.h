@@ -273,6 +273,10 @@ extern const u8 BattleScript_10000VoltsSetUp[];
 extern const u8 BattleScript_RechargeActivates[];
 extern const u8 BattleScript_HyperBeamHealTarget[];
 extern const u8 BattleScript_DodgeMove[];
+extern const u8 BattleScript_SlowpokeTransform[];
+extern const u8 BattleScript_BanefulBunkerPoison[];
+extern const u8 BattleScript_DancerActivates[];
+extern const u8 BattleScript_End2[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];
