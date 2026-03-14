@@ -168,6 +168,7 @@
       "flag": "FLAG_TWO_ISLAND_PENCIL"
     },
     {
+      "local_id": "LOCALID_SANS_BURN_HEAL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 15,

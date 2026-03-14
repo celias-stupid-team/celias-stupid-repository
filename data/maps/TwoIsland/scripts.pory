@@ -926,6 +926,7 @@ script TwoIsland_BurnHeal {
 		setflag(FLAG_SHINY_DACHSBUN)
 		setflag(FLAG_KILLED_SANS)
 		setflag(FLAG_NO_SANS_ITEM)
+		removeobject(LOCALID_SANS_BURN_HEAL)
 		release
 		end
 
