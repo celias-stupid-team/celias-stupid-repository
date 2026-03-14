@@ -379,6 +379,9 @@
 #define ANIM_TAG_RED_DIAMOND                (ANIM_SPRITES_START + 369)
 #define ANIM_TAG_BLACK_SPADE                (ANIM_SPRITES_START + 370)
 #define ANIM_TAG_BLACK_CLUB                 (ANIM_SPRITES_START + 371)
+#define ANIM_TAG_HAMMER                     (ANIM_SPRITES_START + 372)
+#define ANIM_TAG_SHOEPRINT                  (ANIM_SPRITES_START + 373)
+#define ANIM_TAG_SKYRIM                     (ANIM_SPRITES_START + 374)
 
 // battlers
 #define ANIM_ATTACKER       0

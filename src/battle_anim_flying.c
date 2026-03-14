@@ -654,6 +654,17 @@ const struct SpriteTemplate gSkyAttackBirdSpriteTemplate =
     .callback = AnimSkyAttackBird,
 };
 
+const struct SpriteTemplate gSkyrimSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SKYRIM,
+    .paletteTag = ANIM_TAG_SKYRIM,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
+
 const struct SpriteTemplate gEagleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_EAGLE,

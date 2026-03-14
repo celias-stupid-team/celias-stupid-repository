@@ -8682,6 +8682,8 @@ extern const u32 gBattleAnimSpriteGfx_Shock3[];
 extern const u32 gBattleAnimSpriteGfx_WeatherBall[];
 extern const u32 gBattleAnim_ScaryFaceGfx[];
 extern const u32 gBattleAnim_ScaryFacePal[];
+extern const u32 gBattleAnim_CherryFaceGfx[];
+extern const u32 gBattleAnim_CherryFacePal[];
 extern const u32 gBattleAnimBgTilemap_ScaryFacePlayer[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceOpponent[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceContest[];
@@ -8765,6 +8767,9 @@ extern const u32 gBattleAnimSpriteGfx_RedHeart[];
 extern const u32 gBattleAnimSpriteGfx_RedDiamond[];
 extern const u32 gBattleAnimSpriteGfx_BlackSpade[];
 extern const u32 gBattleAnimSpriteGfx_BlackClub[];
+extern const u32 gBattleAnimSpriteGfx_Hammer[];
+extern const u32 gBattleAnimSpriteGfx_Shoe[];
+extern const u32 gBattleAnimSpriteGfx_Skyrim[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9091,6 +9096,9 @@ extern const u32 gBattleAnimSpritePal_ShatteredVase[];
 extern const u32 gBattleAnimSpritePal_RedDiamond[];
 extern const u32 gBattleAnimSpritePal_BlackSpade[];
 extern const u32 gBattleAnimSpritePal_BlackClub[];
+extern const u32 gBattleAnimSpritePal_Hammer[];
+extern const u32 gBattleAnimSpritePal_Shoe[];
+extern const u32 gBattleAnimSpritePal_Skyrim[];
 
 
 

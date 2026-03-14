@@ -228,6 +228,15 @@ const u32 gBattleAnimSpritePal_BlackClub[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpritePal_Lightning2[] = INCBIN_U32("graphics/battle_anims/sprites/lightning_2.gbapal.lz");
 const u32 gBattleAnimSpriteGfx_Lightning2[] = INCBIN_U32("graphics/battle_anims/sprites/lightning_2.4bpp.lz");
 
+const u32 gBattleAnimSpriteGfx_Hammer[] = INCBIN_U32("graphics/battle_anims/sprites/hammer.4bpp.lz");
+const u32 gBattleAnimSpritePal_Hammer[] = INCBIN_U32("graphics/battle_anims/sprites/hammer.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Shoe[] = INCBIN_U32("graphics/battle_anims/sprites/shoe.4bpp.lz");
+const u32 gBattleAnimSpritePal_Shoe[] = INCBIN_U32("graphics/battle_anims/sprites/shoe.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Skyrim[] = INCBIN_U32("graphics/battle_anims/sprites/skyrim.4bpp.lz");
+const u32 gBattleAnimSpritePal_Skyrim[] = INCBIN_U32("graphics/battle_anims/sprites/skyrim.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");
@@ -855,6 +864,9 @@ const u32 gBattleAnimSpritePal_MovementWaves[] = INCBIN_U32("graphics/battle_ani
 
 const u32 gBattleAnim_ScaryFacePal[] = INCBIN_U32("graphics/battle_anims/backgrounds/scary_face.gbapal.lz");
 const u32 gBattleAnim_ScaryFaceGfx[] = INCBIN_U32("graphics/battle_anims/backgrounds/scary_face.4bpp.lz");
+
+const u32 gBattleAnim_CherryFacePal[] = INCBIN_U32("graphics/battle_anims/backgrounds/cherry_face.gbapal.lz");
+const u32 gBattleAnim_CherryFaceGfx[] = INCBIN_U32("graphics/battle_anims/backgrounds/cherry_face.4bpp.lz");
 
 const u32 gBattleAnimSpritePal_EyeSparkle[] = INCBIN_U32("graphics/battle_anims/sprites/eye_sparkle.gbapal.lz");
 const u32 gBattleAnimSpriteGfx_EyeSparkle[] = INCBIN_U32("graphics/battle_anims/sprites/eye_sparkle.4bpp.lz");

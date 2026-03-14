@@ -66,6 +66,7 @@ static void AnimRedHeartRising(struct Sprite *);
 static void AnimRedHeartRising_Step(struct Sprite *);
 static void AnimTask_HeartsBackground_Step(u8);
 static void AnimTask_ScaryFace_Step(u8);
+static void AnimTask_CherryFace_Step(u8);
 static void AnimOrbitFast(struct Sprite *);
 static void AnimOrbitFast_Step(struct Sprite *);
 static void AnimOrbitScatter(struct Sprite *);
@@ -107,6 +108,7 @@ static void AnimBallAttack(struct Sprite *sprite);
 static void AnimBallAttack_Arc(struct Sprite *sprite);
 static void AnimBallAttack_Bounce(struct Sprite *sprite);
 static void AnimSprite_MoveThenWait(struct Sprite *sprite);
+static void AnimHammerSwing(struct Sprite *sprite);
 
 
 // Unused
@@ -432,6 +434,17 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+const struct SpriteTemplate gWeedThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_WEED_SMALL,
+    .paletteTag = ANIM_TAG_WEED_SMALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
 const struct SpriteTemplate gVaseLiftSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MING_VASE,
@@ -447,6 +460,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
 {
     .tileTag = ANIM_TAG_COIN,
     .paletteTag = ANIM_TAG_COIN,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallingWeedSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WEED_SMALL,
+    .paletteTag = ANIM_TAG_WEED_SMALL,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = sCoinAnimTable,
     .images = NULL,
@@ -552,6 +576,17 @@ const struct SpriteTemplate gViceGripSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimViceGripPincer,
+};
+
+const struct SpriteTemplate gHammerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HAMMER,
+    .paletteTag = ANIM_TAG_HAMMER,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHammerSwing,
 };
 
 static const union AnimCmd sGuillotineAnimCmds1[] =
@@ -1534,6 +1569,17 @@ const struct SpriteTemplate gJaggedMusicNoteSpriteTemplate =
 {
     .tileTag = ANIM_TAG_JAGGED_MUSIC_NOTE,
     .paletteTag = ANIM_TAG_JAGGED_MUSIC_NOTE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimJaggedMusicNote,
+};
+
+const struct SpriteTemplate gClangarousSoleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHOEPRINT,
+    .paletteTag = ANIM_TAG_SHOEPRINT,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -4047,6 +4093,96 @@ static void AnimTask_ScaryFace_Step(u8 taskId)
     }
 }
 
+
+void AnimTask_CherryFace(u8 taskId)
+{
+    struct BattleAnimBgData animBg;
+
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_TGT1_BG1 | BLDCNT_EFFECT_BLEND);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 16));
+    SetAnimBgAttribute(1, BG_ANIM_PRIORITY, 1);
+    SetAnimBgAttribute(1, BG_ANIM_SCREEN_SIZE, 0);
+    if (!IsContest())
+        SetAnimBgAttribute(1, BG_ANIM_CHAR_BASE_BLOCK, 1);
+
+    gBattle_BG1_X = 0;
+    gBattle_BG1_Y = 0;
+    SetGpuReg(REG_OFFSET_BG1HOFS, gBattle_BG1_X);
+    SetGpuReg(REG_OFFSET_BG1VOFS, gBattle_BG1_Y);
+    GetBattleAnimBg1Data(&animBg);
+    
+    if (IsContest())
+        LZDecompressVram(gBattleAnimBgTilemap_ScaryFaceContest, animBg.bgTilemap);
+    else if (GetBattlerSide(gBattleAnimTarget) == B_SIDE_OPPONENT)
+        AnimLoadCompressedBgTilemap(animBg.bgId, gBattleAnimBgTilemap_ScaryFacePlayer);
+    else
+        AnimLoadCompressedBgTilemap(animBg.bgId, gBattleAnimBgTilemap_ScaryFaceOpponent);
+
+    AnimLoadCompressedBgGfx(animBg.bgId, gBattleAnim_CherryFaceGfx, animBg.tilesOffset);
+    LoadCompressedPalette(gBattleAnim_CherryFacePal, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+    if (IsContest())
+        RelocateBattleBgPal(animBg.paletteId, animBg.bgTilemap, 0, 0);
+    
+    gTasks[taskId].func = AnimTask_CherryFace_Step;
+}
+
+static void AnimTask_CherryFace_Step(u8 taskId)
+{
+    struct BattleAnimBgData animBg;
+
+    switch (gTasks[taskId].data[12])
+    {
+    case 0:
+        if (++gTasks[taskId].data[10] == 2)
+        {
+            gTasks[taskId].data[10] = 0;
+            gTasks[taskId].data[11]++;
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[11], 16 - gTasks[taskId].data[11]));
+            if (gTasks[taskId].data[11] == 14)
+            {
+                gTasks[taskId].data[12]++;
+                gTasks[taskId].data[11] = 0;
+            }
+        }
+        break;
+    case 1:
+        if (++gTasks[taskId].data[11] == 21)
+        {
+            gTasks[taskId].data[11] = 14;
+            gTasks[taskId].data[12]++;
+        }
+        break;
+    case 2:
+        if (++gTasks[taskId].data[10] == 2)
+        {
+            gTasks[taskId].data[10] = 0;
+            gTasks[taskId].data[11]--;
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[11], 16 - gTasks[taskId].data[11]));
+            if (gTasks[taskId].data[11] == 0)
+            {
+                gTasks[taskId].data[12]++;
+                gTasks[taskId].data[11] = 0;
+            }
+        }
+        break;
+    case 3:
+        GetBattleAnimBg1Data(&animBg);
+        InitBattleAnimBg(1);
+        InitBattleAnimBg(2);
+        gTasks[taskId].data[12]++;
+        // fall through
+    case 4:
+        if (!IsContest())
+            SetAnimBgAttribute(1, BG_ANIM_CHAR_BASE_BLOCK, 0);
+
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+        SetAnimBgAttribute(1, BG_ANIM_PRIORITY, 1);
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
 // Orbits a sphere in an ellipse around the mon.
 // Used by MOVE_HIDDEN_POWER
 // arg 0: duration
@@ -4608,6 +4744,131 @@ static void AnimSprite_MoveThenWait(struct Sprite *sprite)
             sprite->y2 = 0;
             DestroyAnimSprite(sprite);
         }
+        break;
+    }
+}
+
+static void AnimHammerSwing(struct Sprite *sprite)
+{
+    s16 battler;
+    s16 progress;
+    s16 duration;
+    s16 angle;
+    s16 start;
+    s16 end;
+
+    switch (sprite->data[0])
+    {
+    // -----------------------------
+    // Stage 0: Initialization
+    // -----------------------------
+    case 0:
+        battler = (gBattleAnimArgs[0] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+        sprite->x += gBattleAnimArgs[1];
+        sprite->y += gBattleAnimArgs[2];
+
+        sprite->data[1] = 0;                 // frame counter
+        sprite->data[2] = 0;                 // current angle
+        sprite->data[3] = gBattleAnimArgs[3]; // windup wait
+        sprite->data[4] = gBattleAnimArgs[4]; // end wait
+
+        sprite->data[0] = 1;
+        break;
+
+    // -----------------------------
+    // Stage 1: Windup to -45°
+    // easing slowdown
+    // -----------------------------
+    case 1:
+    {
+        progress = sprite->data[1];
+        duration = 16;
+
+        if (progress < duration)
+        {
+            angle = -45 * progress * progress / (duration * duration);
+
+            sprite->data[2] = angle;
+
+            SetSpriteRotScale(sprite->oam.matrixNum, 256, 256, angle);
+            CalcCenterToCornerVec(sprite, sprite->oam.shape, sprite->oam.size, 0);
+
+            sprite->data[1]++;
+        }
+        else
+        {
+            sprite->data[1] = 0;
+            sprite->data[0] = 2;
+        }
+        break;
+    }
+
+    // -----------------------------
+    // Windup hold
+    // -----------------------------
+    case 2:
+        if (++sprite->data[1] >= sprite->data[3])
+        {
+            sprite->data[1] = 0;
+            sprite->data[0] = 3;
+        }
+        break;
+
+    // -----------------------------
+    // Stage 2: Fast strike to +90°
+    // accelerating swing
+    // -----------------------------
+    case 3:
+    {
+        progress = sprite->data[1];
+        duration = 8;
+
+        if (progress < duration)
+        {
+            start = -45;
+            end = 90;
+
+            angle = start + (end - start) * progress * progress / (duration * duration);
+
+            sprite->data[2] = angle;
+
+            SetSpriteRotScale(sprite->oam.matrixNum, 256, 256, angle);
+            CalcCenterToCornerVec(sprite, sprite->oam.shape, sprite->oam.size, 0);
+
+            sprite->data[1]++;
+        }
+        else
+        {
+            sprite->data[1] = 0;
+            sprite->data[0] = 4;
+        }
+        break;
+    }
+
+    // -----------------------------
+    // Stage 3: Impact shake
+    // -----------------------------
+    case 4:
+        sprite->y2 = (sprite->data[1] == 0) ? -4 : 4;
+
+        if (++sprite->data[1] >= 2)
+        {
+            sprite->y2 = 0;
+            sprite->data[1] = 0;
+            sprite->data[0] = 5;
+        }
+        break;
+
+    // -----------------------------
+    // End wait
+    // -----------------------------
+    case 5:
+        if (++sprite->data[1] >= sprite->data[4])
+            DestroyAnimSprite(sprite);
         break;
     }
 }
