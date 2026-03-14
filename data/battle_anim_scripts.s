@@ -13220,6 +13220,7 @@ Move_AIR_SLASH:
 	end
 	
 Move_THE_BEE_MOVE:
+	@Kinda broken at the end
 	loadspritegfx ANIM_TAG_BEE
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES
 	monbg ANIM_TARGET
@@ -13282,7 +13283,8 @@ Move_TAILWIND:
 	delay 7
 	waitforvisualfinish
 	end
-	
+
+Move_WOOST:
 Move_ROOST:
 	loadspritegfx ANIM_TAG_WHITE_FEATHER
 	monbg ANIM_DEF_PARTNER
@@ -15880,6 +15882,7 @@ Move_MIETEOR_MASH:
 	end
 
 Move_MIETEOR_BEAM:
+	@incorrectly colours the opponent, should be replaced with meateor beam alternative
 	loadspritegfx ANIM_TAG_ORBS
 	panse SE_M_BARRIER, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +3, 0
 	fadetobg BG_COSMIC
@@ -16159,6 +16162,7 @@ Move_DYNAMIC_CRUNCH:
 	loadspritegfx ANIM_TAG_SHARP_TEETH
 	loadspritegfx ANIM_TAG_EXPLOSION
 	loadspritegfx ANIM_TAG_EXPLOSION_6
+	loadspritegfx ANIM_TAG_IMPACT
 	delay 1
 	monbg ANIM_TARGET
 	fadetobg BG_DARK
@@ -19017,9 +19021,6 @@ Move_W_TURN:
 Move_AWOOBATICS:
 	goto Move_TACKLE
 	
-Move_WOOST:
-	goto Move_TACKLE
-	
 Move_MING_ATTACK:
 	loadspritegfx ANIM_TAG_MING_VASE
 	loadspritegfx ANIM_TAG_SHATTERED_VASE
@@ -19123,6 +19124,7 @@ Move_CRY_ATTACK:
 	end
 	
 Move_TASTY_PLOT:
+	loadspritegfx ANIM_TAG_RED_HEART
 	createvisualtask AnimTask_RockMonBackAndForth, 3, ANIM_ATTACKER, 6, 2
 	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_TARGET, 8, 8
 	delay 2
@@ -19980,18 +19982,18 @@ Move_CLANGOROUS_SOLE:
 	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, 31, 8
 	playsewithpan SE_M_UPROAR, SOUND_PAN_ATTACKER
 	createsprite gClangarousSoleSpriteTemplate, ANIM_ATTACKER, 2, 0, 29, -12, 0
-	createsprite gClangarousSoleSpriteTemplate, ANIM_ATTACKER, 2, 0, -12, -29, 1
+	createsprite gClangarousSoleSpriteTemplate, ANIM_ATTACKER, 2, 0, -12, -29, 0
 	delay 16
 	createvisualtask AnimTask_UproarDistortion, 2, 0
 	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, 31, 8
 	playsewithpan SE_M_UPROAR, SOUND_PAN_ATTACKER
-	createsprite gClangarousSoleSpriteTemplate, ANIM_ATTACKER, 2, 0, 12, -29, 1
+	createsprite gClangarousSoleSpriteTemplate, ANIM_ATTACKER, 2, 0, 12, -29, 0
 	createsprite gClangarousSoleSpriteTemplate, ANIM_ATTACKER, 2, 0, -29, -12, 0
 	delay 16
 	createvisualtask AnimTask_UproarDistortion, 2, 0
 	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, 31, 8
 	playsewithpan SE_M_UPROAR, SOUND_PAN_ATTACKER
-	createsprite gClangarousSoleSpriteTemplate, ANIM_ATTACKER, 2, 0, 24, -24, 1
+	createsprite gClangarousSoleSpriteTemplate, ANIM_ATTACKER, 2, 0, 24, -24, 0
 	createsprite gClangarousSoleSpriteTemplate, ANIM_ATTACKER, 2, 0, -24, -24, 0
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
@@ -21734,21 +21736,32 @@ Move_DARK_LLOYD:
 	goto Move_TACKLE
 	
 Move_LANDS_BATH:
-	goto Move_TACKLE
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
+	playsewithpan SE_M_EARTHQUAKE, 0
+	delay 10
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	createvisualtask AnimTask_CreateSurfWave, 2, FALSE
+	delay 16
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 8
+	panse SE_M_SURF, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	waitforvisualfinish
+	end
 	
 Move_PSYCHO_BOOTS:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_SHOEPRINT
 	monbg ANIM_TARGET
 	delay 2
+	call SetPsychicBackground
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 16, RGB_BLACK
 	setalpha 12, 8
 	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_TARGET
-	createsprite gShoeKickSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 1, 50
+	createsprite gShoeKickSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 50
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 7, RGB_WHITE
-	delay 50
+	delay 40
 	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
-	call SetPsychicBackground
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 0
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 22, 1
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 0, RGB_WHITE
@@ -21815,7 +21828,10 @@ Move_PHIOMANCY:
 Move_SKYRIM_WING:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_SKYRIM
-	call SetSkyBg
+	
+	fadetobg BG_SKYRIM
+	waitbgfadein
+	
 	monbg ANIM_ATTACKER
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 0, 0, 16, RGB_WHITE
 	delay 4
@@ -21832,7 +21848,8 @@ Move_SKYRIM_WING:
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 0, 15, 0, RGB_WHITE
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
-	call UnsetSkyBg
+	restorebg
+	waitbgfadein
 	end
 	
 Move_ETERNABEAM:

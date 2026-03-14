@@ -963,6 +963,10 @@ const u32 gBattleAnimBgImage_BSOD[] = INCBIN_U32("graphics/battle_anims/backgrou
 const u32 gBattleAnimBgPalette_BSOD[] = INCBIN_U32("graphics/battle_anims/backgrounds/bsod.gbapal.lz");
 const u32 gBattleAnimBgTilemap_BSOD[] = INCBIN_U32("graphics/battle_anims/backgrounds/bsod.bin.lz");
 
+const u32 gBattleAnimBgImage_Skyrim[] = INCBIN_U32("graphics/battle_anims/backgrounds/skyrim_opening.4bpp.lz");
+const u32 gBattleAnimBgPalette_Skyrim[] = INCBIN_U32("graphics/battle_anims/backgrounds/skyrim_opening.gbapal.lz");
+const u32 gBattleAnimBgTilemap_Skyrim[] = INCBIN_U32("graphics/battle_anims/backgrounds/skyrim_opening.bin.lz");
+
 const u32 gBattleAnimBgTilemap_HighspeedOpponent[] = INCBIN_U32("graphics/battle_anims/backgrounds/highspeed_opponent.bin.lz");
 const u32 gBattleAnimBgPalette_Highspeed[] = INCBIN_U32("graphics/battle_anims/backgrounds/highspeed.gbapal.lz");
 

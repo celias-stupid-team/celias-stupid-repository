@@ -441,6 +441,7 @@
 #define BG_AMERICAN_FLAG 30
 #define BG_IRAN_FLAG 31
 #define BG_BSOD 32
+#define BG_SKYRIM 33
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

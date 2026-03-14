@@ -9149,6 +9149,7 @@ extern const u32 gBattleAnimBgImage_TrickRoom[];
 extern const u32 gBattleAnimBgImage_AmericanFlag[];
 extern const u32 gBattleAnimBgImage_IranFlag[];
 extern const u32 gBattleAnimBgImage_BSOD[];
+extern const u32 gBattleAnimBgImage_Skyrim[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9174,6 +9175,7 @@ extern const u32 gBattleAnimBgPalette_TrickRoom[];
 extern const u32 gBattleAnimBgPalette_AmericanFlag[];
 extern const u32 gBattleAnimBgPalette_IranFlag[];
 extern const u32 gBattleAnimBgPalette_BSOD[];
+extern const u32 gBattleAnimBgPalette_Skyrim[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9203,6 +9205,7 @@ extern const u32 gBattleAnimBgTilemap_TrickRoom[];
 extern const u32 gBattleAnimBgTilemap_AmericanFlag[];
 extern const u32 gBattleAnimBgTilemap_IranFlag[];
 extern const u32 gBattleAnimBgTilemap_BSOD[];
+extern const u32 gBattleAnimBgTilemap_Skyrim[];
 
 // dark
 extern const u32 gMetalShineGfx[];
