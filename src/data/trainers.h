@@ -6904,9 +6904,9 @@ const struct Trainer gTrainers[] = {
 
 
     [TRAINER_BLAINE_OPPONENT_5] = {
-        .trainerClass = FACILITY_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_POKEFAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_FISHERMAN,
+        .trainerPic = TRAINER_PIC_EUSINE,
         .trainerName = _("EUSINE"),
         .items = {},
         .doubleBattle = FALSE,

@@ -1416,7 +1416,7 @@
 #define FLAG_0x819                                                  (SYS_FLAGS + 0x19)
 #define FLAG_0x81A                                                  (SYS_FLAGS + 0x1A)
 #define FLAG_0x81B                                                  (SYS_FLAGS + 0x1B)
-#define FLAG_0x81C                                                  (SYS_FLAGS + 0x1C)
+#define FLAG_HOENN_DELIVERY_SERVICE                                                  (SYS_FLAGS + 0x1C)
 #define FLAG_SYS_ZAPDOS_STATUE                                                  (SYS_FLAGS + 0x1D)
 #define FLAG_SYS_GIRL_HOLE                                                  (SYS_FLAGS + 0x1E)
 #define FLAG_0x81F                                                  (SYS_FLAGS + 0x1F)
