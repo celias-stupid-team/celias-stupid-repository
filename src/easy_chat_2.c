@@ -104,6 +104,9 @@ static bool8 WordSelectCursorXPosTooFarRight(void);
 static bool8 IsPhraseDifferentThanPlayerInput(const u16 *wordsToCompare, u8 numWords);
 static u8 GetEasyChatScreenTemplateId(u8 type);
 static bool32 IsEcWordBufferUninitialized(void);
+static bool8 DoesPhraseContainYes(void);
+
+
 
 void DoEasyChatScreen(u8 type, u16 *words, MainCallback callback)
 {
@@ -329,6 +332,7 @@ static void CompareQuestionnaireResponseWithPassphrase(void)
     gSpecialVar_0x8003 = IsPhraseDifferentThanPlayerInput(sECPhrase_UpgradeFromDemoTwo, NELEMS(sECPhrase_UpgradeFromDemoTwo));
     gSpecialVar_0x8004 = IsPhraseDifferentThanPlayerInput(sECPhrase_LinkTogetherWithAll, NELEMS(sECPhrase_LinkTogetherWithAll));
     gSpecialVar_0x8005 = IsPhraseDifferentThanPlayerInput(sECPhrase_PsychicKeyGottenFree, NELEMS(sECPhrase_PsychicKeyGottenFree));
+    gSpecialVar_0x8006 = DoesPhraseContainYes();
 }
 
 static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {
@@ -1361,6 +1365,20 @@ static bool8 IsPhraseDifferentThanPlayerInput(const u16 *phrase, u8 phraseLength
     for (i = 0; i < phraseLength; i++)
     {
         if (phrase[i] != sEasyChatScreen->ecWordBuffer[i])
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+
+static bool8 DoesPhraseContainYes(void)
+{
+    u8 i;
+
+    for (i = 0; i < 4; i++)
+    {
+        if ((sEasyChatScreen->ecWordBuffer[i]) == (EC_WORD_YES))
             return TRUE;
     }
 

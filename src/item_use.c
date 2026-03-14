@@ -404,7 +404,13 @@ static bool8 CanFish(void)
     }
     if (MetatileBehavior_IsLuvdiscTile(behavior)) {
             //DebugPrintf("true");
-            FlagSet(FLAG_SYS_LUVDISC_TILE);
+            VarSet(VAR_LUVDISC_TILE, 1);
+            return TRUE;
+
+    }
+    if (MetatileBehavior_IsNormalLuvdiscTile(behavior)) {
+            //DebugPrintf("true");
+            VarSet(VAR_LUVDISC_TILE, 2);
             return TRUE;
 
     }
