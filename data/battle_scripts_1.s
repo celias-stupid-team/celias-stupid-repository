@@ -287,6 +287,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectMeFirst			     @ EFFECT_ME_FIRST
 	.4byte BattleScript_EffectHpDamage		         @ EFFECT_FINAL_GAMBIT
 	.4byte BattleScript_EffectTeatime		         @ EFFECT_TEATIME
+	.4byte BattleScript_EffectBurnBerry              @ EFFECT_BURN_BERRY
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5912,6 +5913,18 @@ BattleScript_BerryEatenNoEffectRet::
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_SCRIPTING
 	return
+
+BattleScript_EffectBurnBerry::
+	attackcanceler
+	tryburnberry BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce @ if no berry was burned
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNBERRYWASBURNED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_End2::
 	end2

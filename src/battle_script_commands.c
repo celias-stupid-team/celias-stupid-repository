@@ -12695,3 +12695,21 @@ void BS_JumpIfNextTargetValidAllBattlers(void)
     else
         gBattlescriptCurrInstr = jumpInstr;
 }
+
+void BS_TryBurnBerry(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *failInstr);
+
+    u32 gActiveBattler = GetBattlerForBattleScript(cmd->battler);
+
+    if (IsBerry(gBattleMons[gActiveBattler].item))
+    {
+        gBattleMons[gActiveBattler].item = ITEM_NONE;
+        BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[gActiveBattler].item), &gBattleMons[gActiveBattler].item);
+        MarkBattlerForControllerExec(gActiveBattler);
+
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+        gBattlescriptCurrInstr = cmd->failInstr;
+}

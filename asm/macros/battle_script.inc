@@ -1822,3 +1822,9 @@
 	callnative BS_JumpIfNextTargetValidAllBattlers
 	.4byte \ptr
 	.endm
+
+	.macro tryburnberry battler:req, failInstr:req
+	callnative BS_TryBurnBerry
+	.byte \battler
+	.4byte \failInstr
+	.endm
