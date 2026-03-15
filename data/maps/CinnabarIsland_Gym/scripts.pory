@@ -721,7 +721,10 @@ script CinnabarGym_Blaine {
 	faceplayer
 	if(flag(FLAG_BADGE07_GET)) {
 		msgbox(
-		"You beat me\n"
+		"Ahaha!\n"
+		"I love to see a challenger win!\p"
+
+		"Nicely done!\n"
 		"", MSGBOX_DEFAULT)
 		release
 		end

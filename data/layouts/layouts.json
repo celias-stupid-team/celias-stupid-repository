@@ -1544,7 +1544,7 @@
       "height": 45,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PokemonMansion",
       "border_filepath": "data/layouts/PokemonMansion_B1F/border.bin",
       "blockdata_filepath": "data/layouts/PokemonMansion_B1F/map.bin"

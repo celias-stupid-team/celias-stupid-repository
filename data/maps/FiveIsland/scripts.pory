@@ -110,7 +110,7 @@ script Yes_WhereAreYouFrom {
 script Yes_ChanseyNPC {
 	lock
 	faceplayer
-	famechecker(FAMECHECKER_GREAT_BAY, 2)
+	famechecker(FAMECHECKER_GREAT_BAY, 4)
 	msgbox(
 	"Hi, there!\n"
 	"I'm giving away a free CHANSEY!\l"
@@ -291,7 +291,7 @@ script Yes_BrendanShirt {
 
 
 script Yes_BrendanHouseSign {
-	famechecker(FAMECHECKER_GREAT_BAY, 4)
+	famechecker(FAMECHECKER_GREAT_BAY, 5)
 	msgbox(
 	"BRENDAN's house.\n"
 	"", MSGBOX_SIGN)

@@ -1170,7 +1170,7 @@ script GreatSea_Buoy_AetherRight {
 script GreatSea_Buoy_AetherTop {
 	lock
 	msgbox(
-	"It's a buoy…\n"
+	"It's a guorl…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
