@@ -3036,7 +3036,7 @@ static void FieldMoveFunc_Cut(void)
 
 static bool32 SetupFunc_Fly(void)
 {
-    if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType))
+    if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) && !FlagGet(FLAG_SYS_BILL_GARDEN))
     {
         return TRUE;
     }

@@ -736,11 +736,11 @@
 #define FLAG_RECEIVED_AURORA_TICKET                      0x2A7
 #define FLAG_RECEIVED_MYSTIC_TICKET                      0x2A8
 #define FLAG_RECEIVED_OLD_SEA_MAP                        0x2A9
-#define FLAG_WONDER_CARD_UNUSED_1                        0x2AA
-#define FLAG_WONDER_CARD_UNUSED_2                        0x2AB
-#define FLAG_WONDER_CARD_UNUSED_3                        0x2AC
-#define FLAG_WONDER_CARD_UNUSED_4                        0x2AD
-#define FLAG_WONDER_CARD_UNUSED_5                        0x2AE
+#define FLAG_DMCA_KOGA_BRICK_1                        0x2AA
+#define FLAG_DMCA_KOGA_BRICK_2                        0x2AB
+#define FLAG_DMCA_KOGA_BRICK_3                        0x2AC
+#define FLAG_DMCA_KOGA_BRICK_4                        0x2AD
+#define FLAG_DMCA_KOGA_BRICK_5                        0x2AE
 #define FLAG_WONDER_CARD_UNUSED_6                        0x2AF
 #define FLAG_WONDER_CARD_UNUSED_7                        0x2B0
 #define FLAG_WONDER_CARD_UNUSED_8                        0x2B1

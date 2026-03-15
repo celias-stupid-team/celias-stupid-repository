@@ -1161,6 +1161,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route8_DrySoil"
+    },
+    {
+      "type": "sign",
+      "x": 57,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route8_HiddenDaisy"
     }
   ]
 }
