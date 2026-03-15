@@ -9995,14 +9995,14 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAErika[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_BRAVIARY,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_PLEDGE_OF_ALLEGIANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_BUTTERFREE_FEMALE,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SHOOT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
