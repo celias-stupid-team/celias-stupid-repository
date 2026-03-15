@@ -1781,3 +1781,22 @@
 	.macro settechnoblasttype
 	callnative BS_SetTechnoBlastType
 	.endm
+
+	.macro wturnsaveoriginalbattledata
+	callnative BS_WTurnSaveOriginalBattleData
+	.endm
+
+	.macro jumpifflagset flag:req, jumpptr:req
+	callnative BS_JumpIfFlagSet
+	.2byte \flag
+	.4byte \jumpptr
+	.endm
+
+	.macro trymefirst failInstr:req
+	callnative BS_TryMeFirst
+	.4byte \failInstr
+	.endm
+
+	.macro dmgtohp
+	callnative BS_DmgToHp
+	.endm

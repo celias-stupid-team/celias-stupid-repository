@@ -5354,7 +5354,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderKoga[] = {
     },
     {
         .iv = 0,
-        .lvl = 43,
+        .lvl = 55,
         .species = SPECIES_WEEZING_ALOLA,
         .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
@@ -9966,7 +9966,6 @@ static const struct TrainerMonItemCustomMoves sParty_DMCABrock[] = {
         .species = SPECIES_STEELIX,
         .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
-
 };
 
 static const struct TrainerMonItemCustomMoves sParty_DMCAMisty[] = {
@@ -9995,14 +9994,14 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAErika[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_BRAVIARY,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_PLEDGE_OF_ALLEGIANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_BUTTERFREE_FEMALE,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SHOOT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };

@@ -158,7 +158,7 @@ mapscripts SaffronCity_MapScripts {
 
 
 script SaffronCity_EventScript_EntryDMCA {
-	msgbox("Haha! Welcome to SAFFRON CITY!\nNow officially under DMCA control!\p...Huh?\nWhere's the music?\pThat song was infringing on both\nPEWTER and VIRIDIAN!\lIt had to go!", MSGBOX_NPC)
+	msgbox("Haha! Welcome to SAFFRON CITY!\nNow officially under DMCA control!\p...Huh?\nWhere's the music?\pThat song was infringing on both\nPEWTER and FUSHCIA!\lIt had to go!", MSGBOX_NPC)
 	end
 }
 

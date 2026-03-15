@@ -60,8 +60,8 @@ script ViridianGym_HintManSwitch {
                 "Uh, I mean…\n"
                 "Yes, quite a formidable foe.\p"
 
-                "That SNOVER is especially irksome.\n"
-                "Maybe you could block him in?", MSGBOX_DEFAULT)
+                "Say, is it just me or did one of\n"
+                "those BRICK WALLS look familiar?", MSGBOX_DEFAULT)
             case 6:
                 msgbox(
                 "There's a milk farm on THIRTY EIGHT\n"
@@ -71,16 +71,20 @@ script ViridianGym_HintManSwitch {
                 "there may be a way to churn it.", MSGBOX_DEFAULT)
             case 7:
                 msgbox(
-                "You were right!\n"
-                "", MSGBOX_DEFAULT)
+                "After releasing the ZUBATS, there\n"
+                "was strange writing on the wall.\l"
+                "I wonder what it said…\p"
+
+                "Incidentally, were you ever able\n"
+                "to purchase a HOUSE?", MSGBOX_DEFAULT)
             case 8:
                 msgbox(
+                "Your RUMOR LOG may be helpful, but\n"
+                "not everything gets recorded there.\p"
+
                 "Think back to everything you've\n"
                 "seen in the GREAT SEA.\l"
                 "Put all the pieces together.\p"
-
-                "You're looking for an undeniable\n"
-                "violation of copyright.\p"
 
                 "Incidentally, have you visited\n"
                 "CERULEAN CAVE yet?", MSGBOX_DEFAULT)

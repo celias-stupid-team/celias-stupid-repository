@@ -112,6 +112,7 @@ static void AnimUnusedItemBagSteal(struct Sprite *);
 static void AnimKnockOffStrike(struct Sprite *);
 static void AnimTask_Glitch_Step(u8 taskId);
 static u8 CreateGlitchQuadrantSprite(u8 battlerSpriteId, s16 x, s16 y, u8 subpriority, u16 tileOffset);
+static void AnimTask_MingVaseThrow_Step(u8 taskId);
 
 static const union AnimCmd sScratchAnimCmds[] =
 {
@@ -995,6 +996,28 @@ const struct SpriteTemplate gBarrageBallSpriteTemplate =
 {
     .tileTag = ANIM_TAG_RED_BALL,
     .paletteTag = ANIM_TAG_RED_BALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBarrageBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+const struct SpriteTemplate gMingVaseThrowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MING_VASE,
+    .paletteTag = ANIM_TAG_MING_VASE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBarrageBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+const struct SpriteTemplate gAppleThrowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GRAVEL_APPLE,
+    .paletteTag = ANIM_TAG_GRAVEL_APPLE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -6000,4 +6023,91 @@ static void AnimTask_SlackOffSquish_Step(u8 taskId)
 
     if (!RunAffineAnimFromTaskData(&gTasks[taskId]))
         DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_MingVaseThrow(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET)
+                   + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+
+    task->data[15] = CreateSprite(&gMingVaseThrowSpriteTemplate,
+                                  task->data[11],
+                                  task->data[12],
+                                  GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+
+    if (task->data[15] != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[task->data[15]];
+
+        sprite->data[0] = 16;            // arc duration
+        sprite->data[2] = task->data[13];
+        sprite->data[4] = task->data[14];
+        sprite->data[5] = -32;           // arc height
+
+        InitAnimArcTranslation(sprite);
+
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(sprite, 1);
+
+        task->func = AnimTask_MingVaseThrow_Step;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+void AnimTask_AppleThrow(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET)
+                   + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+
+    task->data[15] = CreateSprite(&gAppleThrowSpriteTemplate,
+                                  task->data[11],
+                                  task->data[12],
+                                  GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+
+    if (task->data[15] != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[task->data[15]];
+
+        sprite->data[0] = 16;            // arc duration
+        sprite->data[2] = task->data[13];
+        sprite->data[4] = task->data[14];
+        sprite->data[5] = -32;           // arc height
+
+        InitAnimArcTranslation(sprite);
+
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(sprite, 1);
+
+        task->func = AnimTask_MingVaseThrow_Step;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+static void AnimTask_MingVaseThrow_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite = &gSprites[task->data[15]];
+
+    if (TranslateAnimHorizontalArc(sprite))
+    {
+        FreeOamMatrix(sprite->oam.matrixNum);
+        DestroySprite(sprite);
+        DestroyAnimVisualTask(taskId);
+    }
 }

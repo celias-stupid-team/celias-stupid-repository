@@ -10,6 +10,9 @@ mapscripts NewMap1_MapScripts {
 			setmaplayoutindex(LAYOUT_SOOTOPOLIS_NO_CENTER)
 			setflag(FLAG_TEMP_3)
 		}
+		if(!flag(FLAG_HOENN_DELIVERY_SERVICE)) {
+			setflag(FLAG_TEMP_4)
+		}
 	}
 	MAP_SCRIPT_ON_LOAD {
 	}
@@ -167,4 +170,13 @@ script ContestHall_Judge {
 	}
 	release
 	end
+}
+
+
+script Sootopolis_DeliveryService {
+	msgbox(
+	"Another child, safely delivered\n"
+	"Thank you!\l"
+	"HOENN CHILD DELIVERY SERVICE!", MSGBOX_SIGN)
+
 }

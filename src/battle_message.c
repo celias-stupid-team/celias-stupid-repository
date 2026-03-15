@@ -1050,8 +1050,19 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_CANTESCAPEFINAL - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("No! There's no running\nfrom the final battle!\p"),
     [STRINGID_PKMNHPWASRESTORED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s HP was restored!"),
     [STRINGID_PKMNDODGEDATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} dodged the attack!"),
-    [STRINGID_PKMNSHELLHASBEENBROKEN - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("Oh no!\n{B_ATK_NAME_WITH_PREFIX}'s shell has been broken!"),
+    [STRINGID_PKMNSHELLHASBEENBROKEN - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("Oh no!\n{B_ATK_NAME_WITH_PREFIX}'s shell has been smashed!"),
     [STRINGID_PKMNREPEATSDANCEMOVE - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s DANCER ability\nrepeated the dance move!"),
+    
+    [STRINGID_EARTHEATER - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s EARTH EATER…{PAUSE 20}"),
+    [STRINGID_SUPERSONIC - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("But it failed!{PAUSE 20}\pThere's no CHAOS EMERALDS!{PAUSE 45}"),
+    [STRINGID_TAUNT - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("lol"),
+    [STRINGID_SHED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} doesn't have a\nTAIL to SHED!{PAUSE 45}"),
+    [STRINGID_PKMNWASBADLYBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_EFF_NAME_WITH_PREFIX} was badly burned!\n{PAUSE 20}Its ATK and SP ATK have been cut!"),
+    [STRINGID_PKMNWENTBACK - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} went back to {B_ATK_TRAINER_NAME}!"),
+    [STRINGID_GRAVITY_STARTS - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("The gravity intensified!"),
+    [STRINGID_GRAVITY_CONTINUES - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Gravity is intensified!"),
+    [STRINGID_PKMNSTATSMAXED - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s stats\nwere maxed!"),
+    [STRINGID_PKMNSTATSWEREFLIPPED - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s stats\nwere flipped!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1483,6 +1494,9 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_FICKLE_BEAM] = STRINGID_FICKLE_BEAM,
     [B_MSG_MIST] = STRINGID_IT_MIST,
     [B_MSG_MAGNET_RISE] = STRINGID_MAGNET_RISE,
+    [B_MSG_TAUNT] = STRINGID_MAGNET_RISE,
+    [B_MSG_SUPERSONIC] = STRINGID_MAGNET_RISE,
+    [B_MSG_SHED] = STRINGID_MAGNET_RISE,
 };
 
 const u16 gSwitchInAbilityStringIds[] =
@@ -2517,6 +2531,12 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 break;
             case B_TXT_PLAYER_NAME: // player name
                 toCpy = gSaveBlock2Ptr->playerName;
+                break;
+            case B_TXT_ATK_TRAINER_NAME: // attacker's trainer name
+                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+                    toCpy = gSaveBlock2Ptr->playerName;
+                else
+                    toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
                 break;
             case B_TXT_TRAINER1_LOSE_TEXT: // trainerA lose text
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)

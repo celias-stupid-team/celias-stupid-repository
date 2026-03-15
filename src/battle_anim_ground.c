@@ -181,6 +181,17 @@ const struct SpriteTemplate gThrownKrabbySpriteTemplate =
     .callback = AnimMakeItRain,
 };
 
+const struct SpriteTemplate gThrownMistySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MISTY,
+    .paletteTag = ANIM_TAG_MISTY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
 const struct SpriteTemplate gThrownForretressSpriteTemplate =
 {
     .tileTag = ANIM_TAG_THROWN_FORRETRESS,
@@ -197,6 +208,17 @@ const struct SpriteTemplate gMakeItRainSpriteTemplate =
     .tileTag = ANIM_TAG_COIN_SMALL,
     .paletteTag = ANIM_TAG_COIN_SMALL,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gNakeItRainSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CENSORED,
+    .paletteTag = ANIM_TAG_CENSORED,
+    .oam = &gOamData_AffineOff_ObjNormal_64x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,

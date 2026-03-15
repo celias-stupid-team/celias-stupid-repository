@@ -16,6 +16,7 @@
 #include "field_specials.h"
 #include "field_weather.h"
 #include "fieldmap.h"
+#include "help_system.h"
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
@@ -404,7 +405,13 @@ static bool8 CanFish(void)
     }
     if (MetatileBehavior_IsLuvdiscTile(behavior)) {
             //DebugPrintf("true");
-            FlagSet(FLAG_SYS_LUVDISC_TILE);
+            VarSet(VAR_LUVDISC_TILE, 1);
+            return TRUE;
+
+    }
+    if (MetatileBehavior_IsNormalLuvdiscTile(behavior)) {
+            //DebugPrintf("true");
+            VarSet(VAR_LUVDISC_TILE, 2);
             return TRUE;
 
     }
@@ -1257,6 +1264,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+    
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
@@ -1286,6 +1294,7 @@ void FieldUseFunc_BalmMushroom(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
@@ -1315,6 +1324,7 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
@@ -1325,7 +1335,17 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
     }
 }
 
+static void OpenHelpSystemFromBag(void)
+{
+    SetMainCallback2(gBagMenuState.bagCallback);
+    OpenHelpSystem();
+}
 
+void FieldUseFunc_HelixFossil(u8 taskId)
+{
+    ItemMenu_SetExitCallback(OpenHelpSystemFromBag);
+    ItemMenu_StartFadeToExitCallback(taskId);
+}
 
 static void LWPEmblem_EquipOutfit(void)
 {

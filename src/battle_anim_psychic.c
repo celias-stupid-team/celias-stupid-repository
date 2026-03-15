@@ -5,11 +5,13 @@
 #include "trig.h"
 #include "constants/songs.h"
 
+static void AnimPositionableDefensiveWall(struct Sprite *sprite);
 static void AnimDefensiveWall(struct Sprite *sprite);
 static void AnimWallSparkle(struct Sprite *sprite);
 static void AnimBentSpoon(struct Sprite *sprite);
 static void AnimQuestionMark(struct Sprite *sprite);
 static void AnimRedX(struct Sprite *sprite);
+static void AnimFlashCrash(struct Sprite *sprite);
 static void AnimSkillSwapOrb(struct Sprite *sprite);
 static void AnimPsychoBoost(struct Sprite *sprite);
 static void AnimDefensiveWall_Step2(struct Sprite *sprite);
@@ -24,6 +26,7 @@ static void AnimTask_ImprisonOrbs_Step(u8 taskId);
 static void AnimTask_SkillSwap_Step(u8 taskId);
 static void AnimTask_ExtrasensoryDistortion_Step(u8 taskId);
 static void AnimTask_TransparentCloneGrowAndShrink_Step(u8 taskId);
+static void AnimTask_Flattened_Step(u8 taskId);
 
 static const union AffineAnimCmd sAffineAnim_PsychUpSpiral[] =
 {
@@ -57,6 +60,17 @@ const struct SpriteTemplate gLightScreenWallSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimDefensiveWall,
+};
+
+const struct SpriteTemplate gRightScreenWallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GREEN_LIGHT_WALL,
+    .paletteTag = ANIM_TAG_GREEN_LIGHT_WALL,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPositionableDefensiveWall,
 };
 
 const struct SpriteTemplate gReflectWallSpriteTemplate =
@@ -312,6 +326,17 @@ const struct SpriteTemplate gBrockXSpriteTemplate =
     .callback = AnimRedX,
 };
 
+const struct SpriteTemplate gFlashCrashSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CRASHED,
+    .paletteTag = ANIM_TAG_CRASHED,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFlashCrash,
+};
+
 const struct SpriteTemplate gWeedSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEED,
@@ -489,6 +514,63 @@ const struct SpriteTemplate gPsychoBoostOrbSpriteTemplate =
     .affineAnims = sAffineAnims_PsychoBoostOrb,
     .callback = AnimPsychoBoost,
 };
+
+static void AnimPositionableDefensiveWall(struct Sprite *sprite)
+{
+    u8 battler = GetAnimBattlerSpriteId(gBattleAnimArgs[3]);
+
+    if (GetBattlerSide(battler) == B_SIDE_PLAYER || IsContest())
+    {
+        sprite->oam.priority = 2;
+        sprite->subpriority = 200;
+    }
+
+    if (!IsContest())
+    {
+        u8 battlerCopy;
+        u8 battlerTmp = battlerCopy = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        u8 rank = GetBattlerSpriteBGPriorityRank(battlerTmp);
+        s32 var0 = 1;
+        bool8 toBG2 = (rank ^ var0) != 0;
+
+        if (IsBattlerSpriteVisible(battlerTmp))
+            MoveBattlerSpriteToBG(battlerTmp, toBG2);
+
+        battlerTmp = BATTLE_PARTNER(battlerCopy);
+        if (IsBattlerSpriteVisible(battlerTmp))
+            MoveBattlerSpriteToBG(battlerTmp, toBG2 ^ var0);
+    }
+
+    if (!IsContest() && IsDoubleBattle())
+    {
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        {
+            sprite->x = 72;
+            sprite->y = 80;
+        }
+        else
+        {
+            sprite->x = 176;
+            sprite->y = 40;
+        }
+    }
+    else
+    {
+        if (GetBattlerSide(battler) != B_SIDE_PLAYER)
+            gBattleAnimArgs[0] = -gBattleAnimArgs[0];
+
+        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X) + gBattleAnimArgs[0];
+        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y) + gBattleAnimArgs[1];
+    }
+
+    if (IsContest())
+        sprite->y += 9;
+
+    sprite->data[0] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(gBattleAnimArgs[2]));
+
+    sprite->callback = AnimDefensiveWall_Step2;
+    sprite->callback(sprite);
+}
 
 // For the rectangular wall sprite used by Reflect, Mirror Coat, etc
 static void AnimDefensiveWall(struct Sprite *sprite)
@@ -873,6 +955,17 @@ static void AnimRedX(struct Sprite *sprite)
     sprite->callback = AnimRedX_Step;
 }
 
+static void AnimFlashCrash(struct Sprite *sprite)
+{
+    if (gBattleAnimArgs[0] == 0)
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X);
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+    }
+    sprite->data[0] = gBattleAnimArgs[1];
+    sprite->callback = AnimRedX_Step;
+}
+
 void AnimTask_SkillSwap(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
@@ -1046,6 +1139,94 @@ static void AnimTask_ExtrasensoryDistortion_Step(u8 taskId)
         ++task->data[0];
         break;
     case 2:
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+// Bottom-anchored diagonal shear (rightward)
+// No affine scaling
+// arg0: slope
+// arg1: duration
+
+void AnimTask_Flattened(u8 taskId)
+{
+    s16 i;
+    u8 yOffset;
+    struct ScanlineEffectParams scanlineParams;
+    struct Task *task = &gTasks[taskId];
+
+    yOffset = GetBattlerYCoordWithElevation(gBattleAnimTarget);
+
+    task->data[14] = yOffset - 32;   // top
+    task->data[15] = yOffset + 32;   // bottom
+    task->data[0]  = 0;             // state
+    task->data[1]  = 0;             // frame counter
+    task->data[2]  = gBattleAnimArgs[1]; // duration
+    task->data[3]  = gBattleAnimArgs[0]; // slope
+
+    if (task->data[14] < 0)
+        task->data[14] = 0;
+
+    if (GetBattlerSpriteBGPriorityRank(gBattleAnimTarget) == 1)
+    {
+        task->data[10] = gBattle_BG1_X;
+        scanlineParams.dmaDest = &REG_BG1HOFS;
+    }
+    else
+    {
+        task->data[10] = gBattle_BG2_X;
+        scanlineParams.dmaDest = &REG_BG2HOFS;
+    }
+
+    // Initialize scanline buffers
+    for (i = task->data[14]; i <= task->data[15]; ++i)
+    {
+        gScanlineEffectRegBuffers[0][i] = task->data[10];
+        gScanlineEffectRegBuffers[1][i] = task->data[10];
+    }
+
+    scanlineParams.dmaControl = SCANLINE_EFFECT_DMACNT_16BIT;
+    scanlineParams.initState = 1;
+    scanlineParams.unused9 = 0;
+    ScanlineEffect_SetParams(scanlineParams);
+
+    task->func = AnimTask_Flattened_Step;
+}
+
+static void AnimTask_Flattened_Step(u8 taskId)
+{
+    s16 i;
+    struct Task *task = &gTasks[taskId];
+    s16 baseX  = task->data[10];
+    s16 top    = task->data[14];
+    s16 bottom = task->data[15];
+    s16 slope  = task->data[3];
+    s16 offset;
+
+    switch (task->data[0])
+    {
+    case 0:
+        // Bottom-anchored rightward shear
+        for (i = top; i <= bottom; ++i)
+        {
+            // Offset grows toward top
+            offset = ((bottom - i) * slope) >> 3;
+
+            if (offset < 0)
+                offset = 0;
+
+            // Subtract to move visually right (GBA HOFS behaviour)
+            gScanlineEffectRegBuffers[0][i] = baseX - offset;
+            gScanlineEffectRegBuffers[1][i] = baseX - offset;
+        }
+
+        if (++task->data[1] >= task->data[2])
+            task->data[0] = 1;
+        break;
+
+    case 1:
+        gScanlineEffect.state = 3;  // disable scanline
         DestroyAnimVisualTask(taskId);
         break;
     }

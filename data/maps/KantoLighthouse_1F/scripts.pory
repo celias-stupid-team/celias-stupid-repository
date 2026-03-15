@@ -89,6 +89,7 @@ movement LighthouseMan {
 }
 
 script GTS_Attendant {
+    textcolor(NPC_TEXT_COLOR_RED)
     if(var(VAR_CSR_TURNED_ON_POWER) == 0) {
         msgbox("Oh!\nUm, hello?\lWelcome to the GLOBAL TRADE SYSTEM.\pWe're having a big power outage.\nMost of our machines are down.\pThe guard outside was supposed to\nstop anyone from coming in here…\lHe'd better not be slacking off.", MSGBOX_NPC)
     } else {

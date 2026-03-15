@@ -6316,3 +6316,47 @@ const struct SpriteFrameImage gObjectEventPicTable_SHINY_BIKE[] = {
     overworld_frame(gObjectEventPic_SHINY_BIKE, 4, 4, 7),
     overworld_frame(gObjectEventPic_SHINY_BIKE, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_GTS_AIDE[] = {
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GTS_AIDE, 2, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_SMALL_BRICK_WALL[] = {
+    overworld_frame(gObjectEventPic_SMALL_BRICK_WALL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SMALL_BRICK_WALL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SMALL_BRICK_WALL, 4, 4, 2),
+    overworld_frame(gObjectEventPic_SMALL_BRICK_WALL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SMALL_BRICK_WALL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SMALL_BRICK_WALL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SMALL_BRICK_WALL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SMALL_BRICK_WALL, 4, 4, 2),
+    overworld_frame(gObjectEventPic_SMALL_BRICK_WALL, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_DITTO_BRICK_WALL[] = {
+    overworld_frame(gObjectEventPic_DITTO_BRICK_WALL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DITTO_BRICK_WALL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DITTO_BRICK_WALL, 4, 4, 2),
+    overworld_frame(gObjectEventPic_DITTO_BRICK_WALL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DITTO_BRICK_WALL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DITTO_BRICK_WALL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DITTO_BRICK_WALL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DITTO_BRICK_WALL, 4, 4, 2),
+    overworld_frame(gObjectEventPic_DITTO_BRICK_WALL, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_LASER_SHARK[] = {
+    overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 1),
+    overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 2),
+    overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 3),
+    overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 4),
+    overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 5),
+    overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 6),
+    overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 7),
+    overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 8),
+};

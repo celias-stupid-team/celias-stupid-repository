@@ -120,7 +120,7 @@ script Route13_Artist {
 }
 
 script Route13_Artist_Two {
-	msgbox("At long last, I have completed\nmy life's work!\pI've painted photorealistic,\nanimated water behind the trees!\lMy genius continues to impress!\pYes, the water back there is\ncompletely intentional and not the\lresult of a developer oversight.\pHow could you possibly imply such\na thing about my artistic vision?", MSGBOX_NPC)
+	msgbox("At long last, I have completed\nmy life's work!\pI've painted photorealistic,\nanimated water behind the trees!", MSGBOX_NPC)
 	end
 }
 
