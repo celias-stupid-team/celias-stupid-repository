@@ -1800,3 +1800,25 @@
 	.macro dmgtohp
 	callnative BS_DmgToHp
 	.endm
+
+	.macro jumpifteainvulnerable battler:req, jumpInstr:req
+	callnative BS_TeatimeInvul
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifteanoberry failInstr:req
+	callnative BS_TeatimeTargets
+	.4byte \failInstr
+	.endm
+
+	.macro consumeberry battler:req, fromBattler:req
+	callnative BS_ConsumeBerry
+	.byte \battler
+	.byte \fromBattler
+	.endm
+
+	.macro jumpifnexttargetvalidallbattlers ptr:req
+	callnative BS_JumpIfNextTargetValidAllBattlers
+	.4byte \ptr
+	.endm

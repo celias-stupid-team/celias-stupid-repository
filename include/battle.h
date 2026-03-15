@@ -580,6 +580,7 @@ struct BattleScripting
     u8 levelUpHP;
     u8 savedBattler;
     s32 savedData;
+    u8 overrideBerryRequirements;
 };
 
 struct BattleSpriteInfo

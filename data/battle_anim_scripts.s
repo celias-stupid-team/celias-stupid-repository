@@ -1073,7 +1073,6 @@ gBattleAnims_Moves::
 	.4byte Move_TECHNO_BLAST
 	.4byte Move_OBLI_ION_WING
 	.4byte Move_MOLTRES_KICK
-	.4byte Move_COLONIALISM
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -9126,7 +9125,7 @@ Move_ENCORE:
 	createvisualtask AnimTask_RemoveSpotlight, 2
 	end
 
-Move_COLONIALISM:
+Move_COLONIZE:
 Move_TRICK:
 	loadspritegfx ANIM_TAG_ITEM_BAG
 	loadspritegfx ANIM_TAG_SPEED_DUST
@@ -20774,9 +20773,6 @@ Move_GASTER_BLASTER:
 	goto Move_TACKLE
 	
 Move_TEATIME:
-	goto Move_TACKLE
-	
-Move_COLONIZE:
 	goto Move_TACKLE
 	
 Move_STUPORPOWER:

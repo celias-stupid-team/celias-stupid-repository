@@ -286,6 +286,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFlipStats			     @ EFFECT_FLIP_STATS
 	.4byte BattleScript_EffectMeFirst			     @ EFFECT_ME_FIRST
 	.4byte BattleScript_EffectHpDamage		         @ EFFECT_FINAL_GAMBIT
+	.4byte BattleScript_EffectTeatime		         @ EFFECT_TEATIME
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -4783,6 +4784,7 @@ BattleScript_ItemHealHP_RemoveItemEnd2::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_ItemHealHP_RemoveItemRet::
@@ -4800,6 +4802,7 @@ BattleScript_BerryPPHealEnd2::
 	printstring STRINGID_PKMNSITEMRESTOREDPP
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_ItemHealHP_End2::
@@ -4844,6 +4847,7 @@ BattleScript_BerryConfuseHealEnd2::
 	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_AFFECTS_USER
 	seteffectprimary
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_BerryStatRaiseEnd2::
@@ -4853,6 +4857,7 @@ BattleScript_BerryStatRaiseDoStatUp::
 	setbyte cMULTISTRING_CHOOSER, B_MSG_STAT_ROSE_ITEM
 	call BattleScript_StatUp
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_BerryFocusEnergyEnd2::
@@ -4860,6 +4865,7 @@ BattleScript_BerryFocusEnergyEnd2::
 	printstring STRINGID_PKMNUSEDXTOGETPUMPED
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_ActionSelectionItemsCantBeUsed::
@@ -5878,5 +5884,37 @@ BattleScript_ToxicBerryFaint::
 	tryfaintmon BS_TARGET
 	return
 
+BattleScript_EffectTeatime::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifteanoberry BattleScript_ButItFailed
+@ at least one battler is affected
+	attackanimation
+	waitanimation
+	setbyte gBattlerTarget, 0
+BattleScript_TeatimeLoop:
+	jumpifteainvulnerable BS_TARGET, BattleScript_Teatimevul @ in semi-invulnerable state OR held item is not a Berry
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setbyte sBERRY_OVERRIDE, TRUE   @ override the requirements for eating berries
+	consumeberry BS_TARGET, TRUE
+	bicword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setbyte sBERRY_OVERRIDE, FALSE
+	jumpifnexttargetvalidallbattlers BattleScript_TeatimeLoop
+	goto BattleScript_MoveEnd
+BattleScript_Teatimevul:
+	jumpifnexttargetvalidallbattlers BattleScript_TeatimeLoop
+	goto BattleScript_MoveEnd
+
+BattleScript_BerryEatenNoEffectRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_PKMNATEBERRYNOEFFECT
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+	return
+
 BattleScript_End2::
 	end2
+
+BattleScript_Ret::
+	return

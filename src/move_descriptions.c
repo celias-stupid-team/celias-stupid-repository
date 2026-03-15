@@ -1044,7 +1044,6 @@ const u8 gMoveDescription_Multishine[] = _("UNUSED");
 const u8 gMoveDescription_RevelationDance[] = _("UNUSED");
 const u8 gMoveDescription_TrickOrTreat[] = _("UNUSED");
 const u8 gMoveDescription_AuroraVeil[] = _("UNUSED");
-const u8 gMoveDescription_Colonialism[] = _("UNUSED");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -2096,5 +2095,4 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_REVELATION_DANCE     -1 ] = gMoveDescription_RevelationDance,
     [MOVE_TRICK_OR_TREAT     -1 ] = gMoveDescription_TrickOrTreat,
     [MOVE_AURORA_VEIL     -1 ] = gMoveDescription_AuroraVeil,
-    [MOVE_COLONIALISM     -1 ] = gMoveDescription_Colonialism,
 };
