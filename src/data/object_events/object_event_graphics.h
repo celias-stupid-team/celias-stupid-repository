@@ -857,3 +857,5 @@ const u32 gObjectEventPic_SMALL_BRICK_WALL[] = INCBIN_U32("graphics/object_event
 const u16 gObjectEventPal_SMALL_BRICK_WALL[] = INCBIN_U16("graphics/object_events/palettes/SMALL_BRICK_WALL.gbapal");
 const u32 gObjectEventPic_DITTO_BRICK_WALL[] = INCBIN_U32("graphics/object_events/pics/stupid/DITTO_BRICK_WALL.4bpp");
 const u16 gObjectEventPal_DITTO_BRICK_WALL[] = INCBIN_U16("graphics/object_events/palettes/DITTO_BRICK_WALL.gbapal");
+const u32 gObjectEventPic_LASER_SHARK[] = INCBIN_U32("graphics/object_events/pics/stupid/LASER_SHARK.4bpp");
+const u16 gObjectEventPal_LASER_SHARK[] = INCBIN_U16("graphics/object_events/palettes/LASER_SHARK.gbapal");
