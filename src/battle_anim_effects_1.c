@@ -613,6 +613,17 @@ const struct SpriteTemplate gRazorLeafParticleSpriteTemplate =
     .callback = AnimRazorLeafParticle,
 };
 
+const struct SpriteTemplate gRazorLeafOpponentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LEAF,
+    .paletteTag = ANIM_TAG_LEAF,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoneyParticle,
+};
+
 const struct SpriteTemplate gMoneyParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MONEY,

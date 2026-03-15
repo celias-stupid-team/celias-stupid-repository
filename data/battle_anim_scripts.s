@@ -14750,24 +14750,56 @@ Move_THROAT_CHOP:
 	end
 	
 Move_DRAGON_HAMMER:
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	loadspritegfx ANIM_TAG_CLAW_SLASH
 	loadspritegfx ANIM_TAG_HAMMER
-	@Tackle
-	createsprite gHammerSpriteTemplate, ANIM_TARGET, 2, 1, 0, -20, 10, 16
+	loadspritegfx ANIM_TAG_IMPACT
+	playsewithpan SE_M_SACRED_FIRE2, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 4, 0, 8, RGB(31, 19, 0)
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 15, 1
+	createsprite gHammerSpriteTemplate, ANIM_TARGET, 2, 1, -20, -20, 70, 45
+	call DragonClawFireSpiral
+	call DragonClawFireSpiral
+	delay 41
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 10, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 4, 8, 0, RGB(31, 19, 0)
+	waitforvisualfinish
 	end
 	
 Move_WOOD_HAMMER:
-	@Tackle
+	loadspritegfx ANIM_TAG_HAMMER
 	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_LEAF
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET
+	createsprite gHammerSpriteTemplate, ANIM_TARGET, 2, 1, -20, -20, 40, 45
+	delay 60
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 10, 1
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, -3, -2, 10
+	delay 2
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, -1, -1, 15
+	delay 2
+	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_ATTACKER, 10, 4
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, -4, -4, 7
+	delay 2
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, 3, -3, 11
+	delay 2
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, -1, -6, 8
+	delay 2
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, 2, -1, 12
+	delay 2
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, -3, -4, 13
+	delay 2
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, 4, -5, 7
+	delay 2
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, 2, -6, 11
+	delay 2
+	createsprite gRazorLeafOpponentSpriteTemplate, ANIM_ATTACKER, 2, -3, -5, 8
+	delay 2
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
 	end
 	
 Move_PICKLE_SPEAR:
@@ -18568,8 +18600,6 @@ Move_LIGHT_PUNCH:
 	delay 2
 	restorebg
 	waitbgfadein
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 1, 6, 0, RGB_WHITE
-	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
@@ -18958,7 +18988,23 @@ Move_TWIN_BEAM:
 	goto Move_TACKLE
 	
 Move_NICE_HAMMER:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_HAMMER
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_WEED_SMALL
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET
+	createsprite gHammerSpriteTemplate, ANIM_TARGET, 2, 1, -20, -20, 40, 45
+	delay 60
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 10, 1
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+	waitforvisualfinish
+	end
 	
 Move_NICE_SPINNER:
 	loadspritegfx ANIM_TAG_IMPACT
@@ -21868,7 +21914,20 @@ Move_VACUUM_FEAR:
 	goto Move_TACKLE
 	
 Move_WOOF_HAMMER:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_NOISE_LINE
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_HAMMER
+	createvisualtask AnimTask_DeepInhale, 2, 0
+	createsprite gHammerSpriteTemplate, ANIM_TARGET, 2, 1, -20, -20, 50, 45
+	delay 12
+	call RoarEffect
+	createvisualtask SoundTask_PlayCryHighPitch, 2, ANIM_ATTACKER, 3
+	delay 43
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 10, 1
+	waitforvisualfinish
+	end
 	
 Move_NINE_WHIP:
 	loadspritegfx ANIM_TAG_WHIP_HIT

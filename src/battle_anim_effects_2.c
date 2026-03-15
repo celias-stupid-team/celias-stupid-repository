@@ -1298,6 +1298,17 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .callback = AnimParticleBurst,
 };
 
+const struct SpriteTemplate gWeedBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WEED_SMALL,
+    .paletteTag = ANIM_TAG_WEED_SMALL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
 const struct SpriteTemplate gRedDiamondBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_RED_DIAMOND,
@@ -4748,53 +4759,37 @@ static void AnimSprite_MoveThenWait(struct Sprite *sprite)
     }
 }
 
+#define ROT_UPRIGHT   0x0000
+#define ROT_WINDUP    0x2000   // -45°
+#define ROT_STRIKE    -0x4000   // +90°
+
 static void AnimHammerSwing(struct Sprite *sprite)
 {
     s16 battler;
-    s16 progress;
-    s16 duration;
-    s16 angle;
-    s16 start;
-    s16 end;
 
     switch (sprite->data[0])
     {
-    // -----------------------------
-    // Stage 0: Initialization
-    // -----------------------------
+    // Initialization
     case 0:
         battler = (gBattleAnimArgs[0] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
 
-        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
-        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2) + gBattleAnimArgs[1];
+        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[2];
 
-        sprite->x += gBattleAnimArgs[1];
-        sprite->y += gBattleAnimArgs[2];
-
-        sprite->data[1] = 0;                 // frame counter
-        sprite->data[2] = 0;                 // current angle
-        sprite->data[3] = gBattleAnimArgs[3]; // windup wait
-        sprite->data[4] = gBattleAnimArgs[4]; // end wait
+        sprite->data[1] = 0;
+        sprite->data[2] = ROT_UPRIGHT;
+        sprite->data[3] = gBattleAnimArgs[3];
+        sprite->data[4] = gBattleAnimArgs[4];
 
         sprite->data[0] = 1;
         break;
 
-    // -----------------------------
     // Stage 1: Windup to -45°
-    // easing slowdown
-    // -----------------------------
     case 1:
-    {
-        progress = sprite->data[1];
-        duration = 16;
-
-        if (progress < duration)
+        if (sprite->data[1] < 16)
         {
-            angle = -45 * progress * progress / (duration * duration);
-
-            sprite->data[2] = angle;
-
-            SetSpriteRotScale(sprite->oam.matrixNum, 256, 256, angle);
+            s16 angle = (ROT_WINDUP * sprite->data[1]) / 16;
+            TrySetSpriteRotScale(sprite, FALSE, 0x100, 0x100, angle);
             CalcCenterToCornerVec(sprite, sprite->oam.shape, sprite->oam.size, 0);
 
             sprite->data[1]++;
@@ -4805,11 +4800,8 @@ static void AnimHammerSwing(struct Sprite *sprite)
             sprite->data[0] = 2;
         }
         break;
-    }
 
-    // -----------------------------
-    // Windup hold
-    // -----------------------------
+    // Windup pause
     case 2:
         if (++sprite->data[1] >= sprite->data[3])
         {
@@ -4818,25 +4810,12 @@ static void AnimHammerSwing(struct Sprite *sprite)
         }
         break;
 
-    // -----------------------------
-    // Stage 2: Fast strike to +90°
-    // accelerating swing
-    // -----------------------------
+    // Stage 2: Strike to +90°
     case 3:
-    {
-        progress = sprite->data[1];
-        duration = 8;
-
-        if (progress < duration)
+        if (sprite->data[1] < 8)
         {
-            start = -45;
-            end = 90;
-
-            angle = start + (end - start) * progress * progress / (duration * duration);
-
-            sprite->data[2] = angle;
-
-            SetSpriteRotScale(sprite->oam.matrixNum, 256, 256, angle);
+            s16 angle = ROT_WINDUP + ((ROT_STRIKE - ROT_WINDUP) * sprite->data[1]) / 8;
+            TrySetSpriteRotScale(sprite, FALSE, 0x100, 0x100, angle);
             CalcCenterToCornerVec(sprite, sprite->oam.shape, sprite->oam.size, 0);
 
             sprite->data[1]++;
@@ -4847,11 +4826,8 @@ static void AnimHammerSwing(struct Sprite *sprite)
             sprite->data[0] = 4;
         }
         break;
-    }
 
-    // -----------------------------
-    // Stage 3: Impact shake
-    // -----------------------------
+    // Impact shake
     case 4:
         sprite->y2 = (sprite->data[1] == 0) ? -4 : 4;
 
@@ -4863,9 +4839,7 @@ static void AnimHammerSwing(struct Sprite *sprite)
         }
         break;
 
-    // -----------------------------
     // End wait
-    // -----------------------------
     case 5:
         if (++sprite->data[1] >= sprite->data[4])
             DestroyAnimSprite(sprite);
