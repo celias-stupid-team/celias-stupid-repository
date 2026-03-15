@@ -124,14 +124,14 @@
   "warp_events": [
     {
       "x": 10,
-      "y": 16,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     },
     {
       "x": 12,
-      "y": 2,
+      "y": 1,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_FALKNER",
       "dest_warp_id": "0"

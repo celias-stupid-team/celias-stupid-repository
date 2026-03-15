@@ -987,8 +987,7 @@ PokedexRating_Text_HintPokemonGun::
 	.string "even it has its limits.\p"
 	.string "Think carefully about everything\n"
 	.string "you've seen across the GREAT SEA.\p"
-	.string "\n"
-	.string "There was a common thread across\l"
+	.string "There was a common thread across\n"
 	.string "every location that will lead\l"
 	.string "you to what you need.$"
 	

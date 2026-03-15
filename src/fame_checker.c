@@ -1463,7 +1463,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE) //Magical Leaf - beat sans
+                    if(FlagGet(FLAG_NO_SANS_ITEM)) //Magical Leaf - beat sans
                         isQuestCompleted = TRUE;
                     break;
             }

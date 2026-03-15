@@ -429,7 +429,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F)) { //TODO figure out logic
 		setobtainable(SPECIES_MOLTRES) // 140 
 	}
-	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || checkmoncaught(SPECIES_FLAREON)) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out logic
+	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || (checkmoncaught(SPECIES_FLAREON)) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)))) { //TODO figure out logic
 		setobtainable(SPECIES_FLAREON) // 141
 	}
 	if(flag(FLAG_CSR_PHIONE_EGG)) {

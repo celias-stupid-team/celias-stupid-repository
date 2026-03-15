@@ -61,7 +61,10 @@ script ViridianGym_HintManSwitch {
                 "Yes, quite a formidable foe.\p"
 
                 "Say, is it just me or did one of\n"
-                "those BRICK WALLS look familiar?", MSGBOX_DEFAULT)
+                "those BRICK WALLS look funny?\p"
+
+                "Where else have you seen bricks\n"
+                "of that color before?", MSGBOX_DEFAULT)
             case 6:
                 msgbox(
                 "There's a milk farm on THIRTY EIGHT\n"

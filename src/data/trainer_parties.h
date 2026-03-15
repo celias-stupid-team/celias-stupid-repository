@@ -9974,7 +9974,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAMisty[] = {
         .lvl = 50,
         .heldItem = ITEM_NONE,
         .species = SPECIES_HYDREIGON,
-        .moves = {MOVE_CRUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_WHITE_LIGHTNING, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -10331,7 +10331,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine8[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_ARCEUS,
-        .moves = {MOVE_FINAL_GAMBIT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_ME_FIRST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
