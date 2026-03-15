@@ -2612,6 +2612,17 @@ const struct SpriteTemplate gThumbsUpSpriteTemplate =
     .callback = AnimMetronomeFinger,
 };
 
+const struct SpriteTemplate gThumbsDownSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THUMBS_DOWN,
+    .paletteTag = ANIM_TAG_THUMBS_DOWN,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimMetronomeFinger,
+};
+
 const struct SpriteTemplate gClamMindSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CLAM,

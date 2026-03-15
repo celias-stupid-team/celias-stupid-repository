@@ -240,7 +240,34 @@ static const union AffineAnimCmd *const sAffineAnims_TailGlowOrb[] =
     sAffineAnim_TailGlowOrb,
 };
 
+
+static const union AffineAnimCmd sAffineAnim_FailGlowOrb[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 18),
+    AFFINEANIMCMD_LOOP(0),
+    AFFINEANIMCMD_FRAME(-0x5, -0x5, 0, 8),
+    AFFINEANIMCMD_FRAME(0x5, 0x5, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sAffineAnims_FailGlowOrb[] =
+{
+    sAffineAnim_FailGlowOrb,
+};
+
 const struct SpriteTemplate gTailGlowOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_TailGlowOrb,
+    .callback = AnimTailGlowOrb,
+};
+
+const struct SpriteTemplate gFailGlowOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
     .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,

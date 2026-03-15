@@ -26,6 +26,8 @@ static void AnimFallingCoin_Step(struct Sprite *);
 static void AnimBulletSeed(struct Sprite *);
 static void AnimBulletSeed_Step1(struct Sprite *);
 static void AnimBulletSeed_Step2(struct Sprite *);
+static void AnimBulletPiss(struct Sprite *sprite);
+static void AnimBulletPiss_Step1(struct Sprite *sprite);
 static void AnimViceGripPincer(struct Sprite *);
 static void AnimViceGripPincer_Step(struct Sprite *);
 static void AnimGuillotinePincer(struct Sprite *);
@@ -456,10 +458,43 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gAppleLiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GRAVEL_APPLE,
+    .paletteTag = ANIM_TAG_GRAVEL_APPLE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gCensoredBarSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CENSORED,
+    .paletteTag = ANIM_TAG_CENSORED,
+    .oam = &gOamData_AffineOff_ObjNormal_64x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gFallingCoinSpriteTemplate =
 {
     .tileTag = ANIM_TAG_COIN,
     .paletteTag = ANIM_TAG_COIN,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallingAppleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GRAVEL_APPLE,
+    .paletteTag = ANIM_TAG_GRAVEL_APPLE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = sCoinAnimTable,
     .images = NULL,
@@ -509,6 +544,17 @@ const struct SpriteTemplate gBulletSeedSpriteTemplate =
     .images = NULL,
     .affineAnims = sBulletSeedAffineAnimTable,
     .callback = AnimBulletSeed,
+};
+
+const struct SpriteTemplate gBulletPissSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_PISS_DROP,
+    .paletteTag = ANIM_TAG_PISS_DROP,
+    .oam = &gOamData_AffineNormal_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBulletSeedAffineAnimTable,
+    .callback = AnimBulletPiss,
 };
 
 const struct SpriteTemplate gBulletBreadSpriteTemplate =    
@@ -2280,6 +2326,40 @@ static void AnimBulletSeed_Step1(struct Sprite *sprite)
     s16 *ptr;
     
     PlaySE12WithPanning(SE_M_HORN_ATTACK, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+    sprite->x += sprite->x2;
+    sprite->y += sprite->y2;
+    sprite->y2 = 0;
+    sprite->x2 = 0;
+    ptr = &sprite->data[7];
+    for (i = 0; i < 8; i++)
+        ptr[i - 7] = 0;
+
+    rand = Random();
+    sprite->data[6] = 0xFFF4 - (rand & 7);
+    rand = Random();
+    sprite->data[7] = (rand % 0xA0) + 0xA0;
+    sprite->callback = AnimBulletSeed_Step2;
+    sprite->affineAnimPaused = FALSE;
+}
+
+static void AnimBulletPiss(struct Sprite *sprite)
+{
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+    sprite->data[0] = 20;
+    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    sprite->callback = StartAnimLinearTranslation;
+    sprite->affineAnimPaused = TRUE;
+    StoreSpriteCallbackInData6(sprite, AnimBulletPiss_Step1);
+}
+
+static void AnimBulletPiss_Step1(struct Sprite *sprite)
+{
+    int i;
+    u16 rand;
+    s16 *ptr;
+    
+    //PlaySE12WithPanning(SE_M_HORN_ATTACK, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
     sprite->x += sprite->x2;
     sprite->y += sprite->y2;
     sprite->y2 = 0;

@@ -189,6 +189,18 @@ void SoundTask_PlayCry(u8 taskId)
 }
 
 
+void SoundTask_PlaySpecificCry(u8 taskId)
+{
+    u16 species = gBattleAnimArgs[0];
+    s8 pan = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
+    
+    if (species != SPECIES_NONE)
+        PlayCry_Normal(species, pan);
+
+    DestroyAnimVisualTask(taskId);
+}
+
+
 void SoundTask_PlayDoubleCry(u8 taskId)
 {
     u16 species = SPECIES_NONE;

@@ -224,6 +224,17 @@ const struct SpriteTemplate gSignalBeamRedOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+const struct SpriteTemplate gLickleBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PERISH_TONGUE,
+    .paletteTag = ANIM_TAG_PERISH_TONGUE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 const struct SpriteTemplate gSignalBeamGreenOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GLOWY_GREEN_ORB,
