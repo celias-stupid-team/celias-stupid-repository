@@ -1057,6 +1057,12 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_SUPERSONIC - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("But it failed!{PAUSE 20}\pThere's no CHAOS EMERALDS!{PAUSE 45}"),
     [STRINGID_TAUNT - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("lol"),
     [STRINGID_SHED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} doesn't have a\nTAIL to SHED!{PAUSE 45}"),
+    [STRINGID_PKMNWASBADLYBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_EFF_NAME_WITH_PREFIX} was badly burned!\n{PAUSE 20}Its ATK and SP ATK have been cut!"),
+    [STRINGID_PKMNWENTBACK - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} went back to {B_ATK_TRAINER_NAME}!"),
+    [STRINGID_GRAVITY_STARTS - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("The gravity intensified!"),
+    [STRINGID_GRAVITY_CONTINUES - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Gravity is intensified!"),
+    [STRINGID_PKMNSTATSMAXED - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s stats\nwere maxed!"),
+    [STRINGID_PKMNSTATSWEREFLIPPED - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s stats\nwere flipped!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -2525,6 +2531,12 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 break;
             case B_TXT_PLAYER_NAME: // player name
                 toCpy = gSaveBlock2Ptr->playerName;
+                break;
+            case B_TXT_ATK_TRAINER_NAME: // attacker's trainer name
+                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+                    toCpy = gSaveBlock2Ptr->playerName;
+                else
+                    toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
                 break;
             case B_TXT_TRAINER1_LOSE_TEXT: // trainerA lose text
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)

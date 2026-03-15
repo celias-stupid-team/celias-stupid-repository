@@ -1133,6 +1133,7 @@ gBattleAnims_General::
 	.4byte General_ChargeTurn               @ B_ANIM_CHARGE_TURN
 	.4byte General_GhostDodge               @ B_ANIM_GHOST_DODGE
 	.4byte General_SlowpokeTransform		@ B_ANIM_SLOWPOKE_TRANSFORM
+	.4byte General_Gravity                  @ B_ANIM_GRAVITY_CONTINUES
 
 	.align 2
 gBattleAnims_Special::
@@ -12224,8 +12225,6 @@ General_TeraActivate::
 	end
 
 General_TrickRoom::
-	@ call InitRoomAnimation
-@ gBattleAnimGeneral_TrickRoom::
 	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
 	fadetobg BG_TRICK_ROOM
 	waitbgfadein
@@ -12234,6 +12233,7 @@ General_TrickRoom::
 	waitbgfadein
 	blendoff
 	end
+
 InitRoomAnimation:
 	setalpha 8, 8
 	createvisualtask AnimTask_ScaleMonAndRestore, 5, -6, -6, 15, ANIM_TARGET, 1
@@ -22236,7 +22236,7 @@ Move_SHOWER_GEM:
 	end
 	
 Move_FLIP_TURN:
-	goto Move_TACKLE
+	goto Move_TAIL_WHIP
 	
 Move_HEART_BEAT:
 	loadspritegfx ANIM_TAG_IMPACT
@@ -23779,6 +23779,17 @@ Move_AURORA_VEIL:
 	blendoff
 	end
 	
+General_Gravity::
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	fadetobg BG_TRICK_ROOM
+	waitbgfadein
+	delay 0x40
+	restorebg
+	waitbgfadein
+	blendoff
+	end
+	
+
 @ Move_TECHNO_BLAST:
 @ 	createvisualtask AnimTask_TechnoBlast, 0x5
 @ 	jumpargeq 0x0, TYPE_FIRE, TechnoBlastFire

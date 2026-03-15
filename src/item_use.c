@@ -16,6 +16,7 @@
 #include "field_specials.h"
 #include "field_weather.h"
 #include "fieldmap.h"
+#include "help_system.h"
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
@@ -1334,7 +1335,17 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
     }
 }
 
+static void OpenHelpSystemFromBag(void)
+{
+    SetMainCallback2(gBagMenuState.bagCallback);
+    OpenHelpSystem();
+}
 
+void FieldUseFunc_HelixFossil(u8 taskId)
+{
+    ItemMenu_SetExitCallback(OpenHelpSystemFromBag);
+    ItemMenu_StartFadeToExitCallback(taskId);
+}
 
 static void LWPEmblem_EquipOutfit(void)
 {

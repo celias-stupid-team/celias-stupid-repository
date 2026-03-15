@@ -9966,7 +9966,6 @@ static const struct TrainerMonItemCustomMoves sParty_DMCABrock[] = {
         .species = SPECIES_STEELIX,
         .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
-
 };
 
 static const struct TrainerMonItemCustomMoves sParty_DMCAMisty[] = {
