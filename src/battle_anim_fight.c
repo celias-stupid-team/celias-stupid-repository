@@ -211,6 +211,17 @@ const struct SpriteTemplate gMegaPunchKickSpriteTemplate =
     .callback = AnimSpinningKickOrPunch,
 };
 
+const struct SpriteTemplate gShoeKickSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHOEPRINT,
+    .paletteTag = ANIM_TAG_SHOEPRINT,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_MegaPunchKick,
+    .callback = AnimSpinningKickOrPunch,
+};
+
 const struct SpriteTemplate gStompFootSpriteTemplate =
 {
     .tileTag = ANIM_TAG_HANDS_AND_FEET,
@@ -248,6 +259,17 @@ const struct SpriteTemplate gBrickBreakWallShardSpriteTemplate =
 {
     .tileTag = ANIM_TAG_TORN_METAL,
     .paletteTag = ANIM_TAG_TORN_METAL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBrickBreakWallShard,
+};
+
+const struct SpriteTemplate gVaseShardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHATTERED_VASE,
+    .paletteTag = ANIM_TAG_SHATTERED_VASE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

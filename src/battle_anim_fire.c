@@ -534,6 +534,39 @@ const struct SpriteTemplate gWillOWispFireSpriteTemplate =
     .callback = AnimWillOWispFire,
 };
 
+const struct SpriteTemplate gBitterSpadeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLACK_SPADE,
+    .paletteTag = ANIM_TAG_BLACK_SPADE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWillOWispFire,
+};
+
+static const union AnimCmd sAnim_ImBitterSpade[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_ImBitterSpade[] =
+{
+    sAnim_ImBitterSpade,
+};
+
+const struct SpriteTemplate gImBitterSpadeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DUCK,
+    .paletteTag = ANIM_TAG_DUCK,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_ImBitterSpade,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWillOWispFire,
+};
+
 const struct SpriteTemplate gSpacialRendBladesTemplate =
 {
     .tileTag = ANIM_TAG_PUNISHMENT_BLADES,

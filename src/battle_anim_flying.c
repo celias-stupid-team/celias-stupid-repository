@@ -18,6 +18,7 @@ static void AnimBounceBallShrink(struct Sprite *sprite);
 static void AnimBounceBallLand(struct Sprite *sprite);
 static void AnimSteamrollerLand(struct Sprite *sprite);
 static void AnimBulldozer(struct Sprite *sprite);
+static void AnimSkateboarder(struct Sprite *sprite);
 static void AnimBusDrive(struct Sprite *sprite);
 static void AnimTask_PushTargetOffscreen_Step(u8 taskId);
 static void AnimDiveBall(struct Sprite *sprite);
@@ -306,6 +307,21 @@ static const union AnimCmd *const sAnims_Steamroller[] =
     sAnim_SteamrollerDrive,
 };
 
+
+static const union AnimCmd sAnim_PlastoStrut[] =
+{
+    ANIMCMD_FRAME(0,   24),
+    ANIMCMD_FRAME(64,  6),
+    ANIMCMD_FRAME(128, 6),
+    ANIMCMD_FRAME(192, 12),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_PlastoStrut[] =
+{
+    sAnim_PlastoStrut,
+};
+
 const struct SpriteTemplate gSteamrollerLandSpriteTemplate =
 {
     .tileTag = ANIM_TAG_STEAMROLLER,
@@ -373,6 +389,28 @@ const struct SpriteTemplate gBulldozerSpriteTemplate =
     .paletteTag = ANIM_TAG_BULLDOZER,
     .oam = &gOamData_AffineDouble_ObjNormal_64x64,
     .anims = sAnims_Steamroller,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBulldozer,
+};
+
+const struct SpriteTemplate gSkateboarderSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EXTREME_SLOTH,
+    .paletteTag = ANIM_TAG_EXTREME_SLOTH,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkateboarder,
+};
+
+const struct SpriteTemplate gPlastoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PLASTO,
+    .paletteTag = ANIM_TAG_PLASTO,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_PlastoStrut,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimBulldozer,
@@ -621,6 +659,17 @@ const struct SpriteTemplate gSkyAttackBirdSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BIRD,
     .paletteTag = ANIM_TAG_BIRD,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
+
+const struct SpriteTemplate gSkyrimSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SKYRIM,
+    .paletteTag = ANIM_TAG_SKYRIM,
     .oam = &gOamData_AffineDouble_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -1588,6 +1637,119 @@ static void AnimBulldozer(struct Sprite *sprite)
         break;
     }
 }
+
+static void AnimSkateboarder(struct Sprite *sprite)
+{
+    u8 targetBattler;
+    s16 targetY;
+    s16 speed;
+    bool8 targetIsPlayerSide;
+    u8 spriteId = sprite - gSprites;
+
+    targetBattler = gBattleAnimTarget;
+    targetY = GetBattlerSpriteCoord(targetBattler, BATTLER_COORD_Y);
+
+    speed = (s16)gBattleAnimArgs[0];
+    if (speed <= 0)
+        speed = 4;
+
+    switch (sprite->data[0])
+    {
+    // INITIALISE
+    case 0:
+        targetIsPlayerSide = (GetBattlerSide(targetBattler) == B_SIDE_PLAYER);
+
+        sprite->y = targetY + 4;
+        sprite->data[6] = sprite->y; // store starting Y
+
+        sprite->y2 = 0;
+
+        sprite->data[7] = targetIsPlayerSide ? -1 : 1;
+
+        if (sprite->data[7] > 0)
+        {
+            sprite->x = -32;
+            sprite->oam.matrixNum &= ~ST_OAM_HFLIP;
+        }
+        else
+        {
+            sprite->x = DISPLAY_WIDTH + 32;
+            sprite->oam.matrixNum |= ST_OAM_HFLIP;
+        }
+
+        StartSpriteAnim(sprite, 0);
+
+        sprite->data[1] = speed;
+        sprite->data[2] = 0;
+
+        sprite->data[3] = 0;                         // frame counter
+        sprite->data[4] = gBattleAnimArgs[1];        // jump trigger frame
+        sprite->data[5] = gBattleAnimArgs[2];        // vertical velocity
+
+        sprite->data[0] = 1;
+        break;
+
+    // MOVEMENT
+    case 1:
+        // horizontal movement
+        sprite->data[2] += sprite->data[7] * sprite->data[1];
+        sprite->x2 = sprite->data[2];
+
+        // wait until jump frame
+        sprite->data[3]++;
+        if (sprite->data[3] >= sprite->data[4])
+            sprite->data[0] = 2;
+
+        break;
+
+    // JUMP PHYSICS
+    case 2:
+        sprite->data[2] += sprite->data[7] * sprite->data[1];
+        sprite->x2 = sprite->data[2];
+
+        // apply vertical velocity
+        sprite->y2 -= sprite->data[5];
+
+        // gravity
+        sprite->data[4]++;
+        if (sprite->data[4] % 2 == 0)
+            sprite->data[5]--;
+
+        // flip sprite (360° during jump)
+        sprite->data[3] += 2300;   // rotation speed
+
+        TrySetSpriteRotScale(sprite, 1, 0x100, 0x100, sprite->data[3]);
+
+        // landing condition
+        if (sprite->y + sprite->y2 >= sprite->data[6])
+        {
+            sprite->y2 = 0;
+            ResetSpriteRotScale(spriteId);
+            sprite->data[0] = 3;
+        }
+
+        break;
+
+    // CONTINUE DRIVING
+    case 3:
+        sprite->data[2] += sprite->data[7] * sprite->data[1];
+        sprite->x2 = sprite->data[2];
+
+        if (sprite->data[7] > 0)
+        {
+            if (sprite->x + sprite->x2 > DISPLAY_WIDTH + 32)
+                DestroyAnimSprite(sprite);
+        }
+        else
+        {
+            if (sprite->x + sprite->x2 < -32)
+                DestroyAnimSprite(sprite);
+        }
+
+        break;
+    }
+}
+
 
 void AnimTask_PushTargetOffscreen(u8 taskId)
 {

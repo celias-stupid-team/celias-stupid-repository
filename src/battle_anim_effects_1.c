@@ -613,6 +613,17 @@ const struct SpriteTemplate gRazorLeafParticleSpriteTemplate =
     .callback = AnimRazorLeafParticle,
 };
 
+const struct SpriteTemplate gRazorLeafOpponentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LEAF,
+    .paletteTag = ANIM_TAG_LEAF,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoneyParticle,
+};
+
 const struct SpriteTemplate gMoneyParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MONEY,
@@ -2583,6 +2594,39 @@ const struct SpriteTemplate gEvilMetronomeMiddleFingerSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MIDDLE_FINGER,
     .paletteTag = ANIM_TAG_MIDDLE_FINGER,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimMetronomeFinger,
+};
+
+const struct SpriteTemplate gThumbsUpSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THUMBS_UP,
+    .paletteTag = ANIM_TAG_THUMBS_UP,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimMetronomeFinger,
+};
+
+const struct SpriteTemplate gThumbsDownSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THUMBS_DOWN,
+    .paletteTag = ANIM_TAG_THUMBS_DOWN,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimMetronomeFinger,
+};
+
+const struct SpriteTemplate gClamMindSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CLAM,
+    .paletteTag = ANIM_TAG_CLAM,
     .oam = &gOamData_AffineDouble_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

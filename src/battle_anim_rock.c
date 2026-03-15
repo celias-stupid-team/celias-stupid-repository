@@ -26,6 +26,7 @@ static void AnimRockScatter_Step(struct Sprite *sprite);
 static void AnimStealthRockStep2(struct Sprite *sprite);
 static void AnimStealthRockStep(struct Sprite *sprite);
 static void AnimStealthRock(struct Sprite *sprite);
+static void AnimFallingBark(struct Sprite *sprite);
 
 static const union AnimCmd sAnim_FlyingRock_0[] =
 {
@@ -72,6 +73,17 @@ const struct SpriteTemplate gFallingBrockSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFallingRock,
+};
+
+const struct SpriteTemplate gFallingBarkSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SEED,
+    .paletteTag = ANIM_TAG_SEED,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingBark,
 };
 
 const struct SpriteTemplate gRockFragmentSpriteTemplate =
@@ -367,6 +379,31 @@ static void AnimFallingRock(struct Sprite *sprite)
     sprite->data[3] = 16;
     sprite->data[4] = -70;
     sprite->data[5] = gBattleAnimArgs[2];
+    StoreSpriteCallbackInData6(sprite, AnimFallingRock_Step);
+    sprite->callback = TranslateSpriteInEllipse;
+    sprite->callback(sprite);
+}
+
+static void AnimFallingBark(struct Sprite *sprite)
+{
+    if (gBattleAnimArgs[3] != 0)
+        SetAverageBattlerPositions(gBattleAnimTarget, 0, &sprite->x, &sprite->y);
+
+    sprite->x += gBattleAnimArgs[0];
+    sprite->y += 14;
+
+    // Force base frame (no animation)
+    sprite->animNum = 0;
+    sprite->animBeginning = TRUE;
+    sprite->animEnded = FALSE;
+
+    sprite->data[0] = 0;
+    sprite->data[1] = 0;
+    sprite->data[2] = 4;
+    sprite->data[3] = 16;
+    sprite->data[4] = -70;
+    sprite->data[5] = gBattleAnimArgs[2];
+
     StoreSpriteCallbackInData6(sprite, AnimFallingRock_Step);
     sprite->callback = TranslateSpriteInEllipse;
     sprite->callback(sprite);
