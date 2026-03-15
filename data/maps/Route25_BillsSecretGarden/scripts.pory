@@ -273,8 +273,7 @@ script SecretGarden_PCMonitor {
             buffernumberstring(STR_VAR_1, STRING_INCREMENTED_SYSTEM_BOX)
 
             msgbox(
-            "Current Box:\n"
-            "BOX {STR_VAR_1}", MSGBOX_DEFAULT)
+            "BOX {STR_VAR_1} Loaded", MSGBOX_DEFAULT)
             call(SecretGarden_GetCurrentPCPokemon)
             showmonpic(PC_CURRENT_POKEMON, 10, 3)
             //waitbuttonpress
@@ -844,7 +843,9 @@ script SecretGarden_BoxCrimper {
 
 script SecretGarden_BoxCrimperControl {
     lock
-	
+	msgbox(
+	"BOX CLOSER\n"
+	"Control Panel", MSGBOX_DEFAULT)
     if(flag(CRIMP_BOX_THERE)) {
         closemessage
         delay(20)

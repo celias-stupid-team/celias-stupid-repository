@@ -91,6 +91,7 @@ static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
 void GetUnownCount(void);
+void IsNicknameMewtwo(void);
 extern const u8 *const gKayleeNameTable[];
 
 
@@ -1797,6 +1798,21 @@ static void SayYes_CB(void) {
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
 
+
+void IsNicknameMewtwo(void) {
+    
+    GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar3);
+    DebugPrintf("%d", gStringVar3);
+    
+    if(!StringCompare(gStringVar3, COMPOUND_STRING("MEWTWO"))) {
+        gSpecialVar_0x8005 = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
+        VarSet(VAR_RESULT, 1);
+
+    } else 
+        
+    VarSet(VAR_RESULT, 0);
+    //CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
 
 static void ChangePokemonNickname_CB(void)
 {
