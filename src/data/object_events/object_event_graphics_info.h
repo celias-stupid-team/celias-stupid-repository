@@ -10717,3 +10717,43 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GTS_AIDE = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SMALL_BRICK_WALL = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_SMALL_BRICK_WALL,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_SMALL_BRICK_WALL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DITTO_BRICK_WALL = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_DITTO_BRICK_WALL,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_DITTO_BRICK_WALL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+

@@ -587,6 +587,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BURNING_EGG;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BURNING_BOOK;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHINY_BIKE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GTS_AIDE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SMALL_BRICK_WALL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DITTO_BRICK_WALL;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1175,4 +1177,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BURNING_BOOK] = &gObjectEventGraphicsInfo_BURNING_BOOK,
     [OBJ_EVENT_GFX_SHINY_BIKE] = &gObjectEventGraphicsInfo_SHINY_BIKE,
     [OBJ_EVENT_GFX_GTS_AIDE] = &gObjectEventGraphicsInfo_GTS_AIDE,
+    [OBJ_EVENT_GFX_SMALL_BRICK_WALL] = &gObjectEventGraphicsInfo_SMALL_BRICK_WALL,
+    [OBJ_EVENT_GFX_DITTO_BRICK_WALL] = &gObjectEventGraphicsInfo_DITTO_BRICK_WALL,
 };

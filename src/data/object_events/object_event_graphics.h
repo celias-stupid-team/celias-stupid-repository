@@ -853,3 +853,7 @@ const u32 gObjectEventPic_SHINY_BIKE[] = INCBIN_U32("graphics/object_events/pics
 const u16 gObjectEventPal_SHINY_BIKE[] = INCBIN_U16("graphics/object_events/palettes/SHINY_BIKE.gbapal");
 const u32 gObjectEventPic_GTS_AIDE[] = INCBIN_U32("graphics/object_events/pics/stupid/GTS_AIDE.4bpp");
 const u16 gObjectEventPal_GTS_AIDE[] = INCBIN_U16("graphics/object_events/palettes/GTS_AIDE.gbapal");
+const u32 gObjectEventPic_SMALL_BRICK_WALL[] = INCBIN_U32("graphics/object_events/pics/stupid/SMALL_BRICK_WALL.4bpp");
+const u16 gObjectEventPal_SMALL_BRICK_WALL[] = INCBIN_U16("graphics/object_events/palettes/SMALL_BRICK_WALL.gbapal");
+const u32 gObjectEventPic_DITTO_BRICK_WALL[] = INCBIN_U32("graphics/object_events/pics/stupid/DITTO_BRICK_WALL.4bpp");
+const u16 gObjectEventPal_DITTO_BRICK_WALL[] = INCBIN_U16("graphics/object_events/palettes/DITTO_BRICK_WALL.gbapal");
