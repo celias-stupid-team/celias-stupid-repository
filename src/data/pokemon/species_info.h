@@ -18450,12 +18450,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_HYDREIGON] =
     {
-        .baseHP = 92,
+        .baseHP = 1,
         .baseAttack = 105,
-        .baseDefense = 90,
+        .baseDefense = 1,
         .baseSpeed = 98,
         .baseSpAttack = 125,
-        .baseSpDefense = 90,
+        .baseSpDefense = 1,
         .types = {TYPE_DARK, TYPE_DRAGON},
         .catchRate = 255,
         .expYield = 150,

@@ -6,15 +6,15 @@ mapscripts Ocean9_MapScripts {
 
 script GreatSea_MudkipA {
     if(flag(FLAG_TEMP_1)) {
-        compare_var_to_var(VAR_TEMP_1, VAR_LAST_TALKED)
+        are_vars_equal(VAR_TEMP_1, VAR_LAST_TALKED)
         if(var(VAR_RESULT)) {
             goto(GreatSea_Mudkip_1)
         }
-        compare_var_to_var(VAR_TEMP_2, VAR_LAST_TALKED)
+        are_vars_equal(VAR_TEMP_2, VAR_LAST_TALKED)
         if(var(VAR_RESULT)) {
             goto(GreatSea_Mudkip_2)
         }
-        compare_var_to_var(VAR_TEMP_3, VAR_LAST_TALKED)
+        are_vars_equal(VAR_TEMP_3, VAR_LAST_TALKED)
         if(var(VAR_RESULT)) {
             goto(GreatSea_Mudkip_3)
         }
@@ -40,15 +40,15 @@ script GreatSea_MudkipA {
 
 script GreatSea_MudkipB {
     if(flag(FLAG_TEMP_2)) {
-        compare_var_to_var(VAR_TEMP_1, VAR_LAST_TALKED)
+        are_vars_equal(VAR_TEMP_1, VAR_LAST_TALKED)
         if(var(VAR_RESULT)) {
             goto(GreatSea_Mudkip_1)
         }
-        compare_var_to_var(VAR_TEMP_2, VAR_LAST_TALKED)
+        are_vars_equal(VAR_TEMP_2, VAR_LAST_TALKED)
         if(var(VAR_RESULT)) {
             goto(GreatSea_Mudkip_2)
         }
-        compare_var_to_var(VAR_TEMP_3, VAR_LAST_TALKED)
+        are_vars_equal(VAR_TEMP_3, VAR_LAST_TALKED)
         if(var(VAR_RESULT)) {
             goto(GreatSea_Mudkip_3)
         }
@@ -73,15 +73,15 @@ script GreatSea_MudkipB {
 
 script GreatSea_MudkipC {
     if(flag(FLAG_TEMP_3)) {
-        compare_var_to_var(VAR_TEMP_1, VAR_LAST_TALKED)
+        are_vars_equal(VAR_TEMP_1, VAR_LAST_TALKED)
         if(var(VAR_RESULT)) {
             goto(GreatSea_Mudkip_1)
         }
-        compare_var_to_var(VAR_TEMP_2, VAR_LAST_TALKED)
+        are_vars_equal(VAR_TEMP_2, VAR_LAST_TALKED)
         if(var(VAR_RESULT)) {
             goto(GreatSea_Mudkip_2)
         }
-        compare_var_to_var(VAR_TEMP_3, VAR_LAST_TALKED)
+        are_vars_equal(VAR_TEMP_3, VAR_LAST_TALKED)
         if(var(VAR_RESULT)) {
             goto(GreatSea_Mudkip_3)
         }

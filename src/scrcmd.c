@@ -444,8 +444,19 @@ bool8 ScrCmd_compare_var_to_var(struct ScriptContext * ctx)
     const u16 *ptr1 = GetVarPointer(ScriptReadHalfword(ctx));
     const u16 *ptr2 = GetVarPointer(ScriptReadHalfword(ctx));
 
-    gSpecialVar_Result = (*ptr1 == *ptr2);
+    //gSpecialVar_Result = (*ptr1 == *ptr2);
     ctx->comparisonResult = Compare(*ptr1, *ptr2);
+    return FALSE;
+}
+
+
+bool8 ScrCmd_are_vars_equal(struct ScriptContext * ctx)
+{
+    const u16 *ptr1 = GetVarPointer(ScriptReadHalfword(ctx));
+    const u16 *ptr2 = GetVarPointer(ScriptReadHalfword(ctx));
+
+    gSpecialVar_Result = (*ptr1 == *ptr2);
+    
     return FALSE;
 }
 

@@ -152,6 +152,7 @@
 // gTileset_NavelRock
 #define METATILE_NavelRock_ExplosionTrap  0x35E
 #define METATILE_NavelRock_Floor          0x2D9
+#define METATILE_NavelRock_WarpTrap       0x35F
 
 // gTileset_NewFuchsiaGym
 #define METATILE_NewFuchsiaGym_FushciaDoor          0x357

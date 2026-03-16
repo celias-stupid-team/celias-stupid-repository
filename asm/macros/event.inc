@@ -2033,3 +2033,11 @@
 	.2byte \metatileId
 	.2byte \impassable
 	.endm
+
+	@ Compares the value of 'var1' to the value of 'var2'.
+	@ The result is stored in comparisonResult to be acted on by goto_if / call_if
+	.macro are_vars_equal var1:req, var2:req
+	.byte 0xe9
+	.2byte \var1
+	.2byte \var2
+	.endm

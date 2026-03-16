@@ -6,6 +6,13 @@ mapscripts SkyTower_3F_MapScripts {
 script SkyTower_KecleonShop2 {
 	lock
 	textcolor(NPC_TEXT_COLOR_BLUE)
+    if(flag(FLAG_SKY_TOWER_HURL_ORB)) {
+        msgbox(
+        "KECLEON: … … … {PAUSE 30}\n"
+        "I hate thieves.", MSGBOX_DEFAULT)
+        release
+        end
+    }
 	msgbox(
 	"Kecleon Shop 2\n"
 	"", MSGBOX_DEFAULT)
@@ -38,26 +45,35 @@ script SkyTower_3FShop_Orb {
                 face_right
             ))
             applymovement(VAR_LAST_TALKED, moves(
-                walk_faster_right * 5
+                walk_faster_right * 4
+            ))
+            waitmovement(VAR_LAST_TALKED)
+            special(SpawnCameraObject)
+            applymovement(VAR_LAST_TALKED, moves(
+                walk_faster_right * 17
                 set_invisible
+            ))
+            applymovement(LOCALID_CAMERA, moves(
+                walk_faster_right * 21
             ))
             waitmovement(VAR_LAST_TALKED)
             playse(SE_CLICK)
             applymovement(LOCALID_SKY_TOWER_DRAMPA, moves(
                 face_left
             ))
-            delay(90)
-            special(SpawnCameraObject)
-            applymovement(LOCALID_CAMERA, moves(
-                walk_faster_right * 3
-            ))
+            waitmovement(LOCALID_CAMERA)
+            addobject(LOCALID_SKY_TOWER_3F_KECLEON_1)
+            setobjectxy(LOCALID_SKY_TOWER_3F_KECLEON_1, 31, 36)
+            copyobjectxytoperm(LOCALID_SKY_TOWER_3F_KECLEON_1)
+            delay(60)
 
 
             applymovement(LOCALID_SKY_TOWER_3F_KECLEON_1, moves(
-                walk_faster_right * 3
+                walk_fastest_right * 6
                 walk_faster_down
-                walk_faster_right
+                walk_faster_right * 2
             ))
+            
             addobject(LOCALID_SKY_TOWER_3F_KECLEON_2)
             applymovement(LOCALID_SKY_TOWER_3F_KECLEON_2, moves(
                 delay_16 * 2
@@ -80,7 +96,7 @@ script SkyTower_3FShop_Orb {
                 walk_faster_down
                 walk_faster_left
                 walk_faster_down
-                walk_faster_left * 2
+                walk_faster_left * 3
             ))
 
             addobject(LOCALID_SKY_TOWER_3F_KECLEON_5)
@@ -105,7 +121,7 @@ script SkyTower_3FShop_Orb {
             ))
             waitmovement(LOCALID_SKY_TOWER_3F_KECLEON_1)
             applymovement(LOCALID_SKY_TOWER_DRAMPA, moves(
-                delay_16 * 3
+                
                 face_left
                 delay_8
                 face_right
@@ -122,6 +138,34 @@ script SkyTower_3FShop_Orb {
                 delay_8
                 face_right
                 delay_8
+                face_left
+                delay_8
+                face_down
+                delay_8
+                face_left
+                delay_8
+                face_right
+                delay_8
+                face_down
+                delay_8
+                face_right
+                delay_8
+                face_down
+                delay_8
+                face_left
+                delay_8
+                face_right
+                delay_8
+                face_down
+                delay_8
+                face_left
+                delay_8
+                face_right
+                delay_8
+                face_down
+                delay_8
+                face_left
+                delay_8
                 face_right
             ))
             playse(SE_M_DOUBLE_SLAP)
@@ -139,9 +183,9 @@ script SkyTower_3FShop_Orb {
             playse(SE_M_DOUBLE_SLAP)
             waitse
             playse(SE_M_DOUBLE_SLAP)
-            waitse
-            waitmovement(LOCALID_SKY_TOWER_DRAMPA)
+            
             fadescreenswapbuffers(FADE_TO_WHITE)
+            waitmovement(LOCALID_SKY_TOWER_DRAMPA)
             removeobject(LOCALID_SKY_TOWER_3F_KECLEON_2)
             removeobject(LOCALID_SKY_TOWER_3F_KECLEON_3)
             removeobject(LOCALID_SKY_TOWER_3F_KECLEON_4)
@@ -155,7 +199,7 @@ script SkyTower_3FShop_Orb {
             ))
             setobjectmovementtype(LOCALID_SKY_TOWER_DRAMPA, MOVEMENT_TYPE_FACE_UP)
             applymovement(LOCALID_CAMERA, moves(
-                walk_left * 3
+                walk_faster_left * 21
             ))
             setobjectxy(LOCALID_SKY_TOWER_3F_KECLEON_1, 35, 36)
             applymovement(LOCALID_SKY_TOWER_3F_KECLEON_1, moves(
@@ -197,5 +241,30 @@ script SkyTower_Shortcut {
 	msgbox(
 	"SKY TOWER\n"
 	"Shortcut {RIGHT_ARROW}", MSGBOX_SIGN)
+
+}
+
+
+script SkyTower_3F_WarpTrap {
+    lock
+    playse(SE_CLICK)
+    call(EventScript_PlayerJumpInPlace)
+    setplayermetatile(METATILE_NavelRock_WarpTrap, FALSE)
+    special(DrawWholeMapView)
+    waitse
+    delay(30)
+    waitmovement(0)
+    playse(SE_WARP_OUT)
+    fadescreen(FADE_TO_WHITE)
+    applymovement(LOCALID_PLAYER, moves(
+        walk_fastest_right * 11
+        face_down
+    ))
+    waitmovement(0)
+    waitse
+    playse(SE_WARP_IN)
+    fadescreen(FADE_FROM_WHITE)
+    release
+    end
 
 }

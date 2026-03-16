@@ -6360,3 +6360,14 @@ const struct SpriteFrameImage gObjectEventPicTable_LASER_SHARK[] = {
     overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 7),
     overworld_frame(gObjectEventPic_LASER_SHARK, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_WIDE_OAK[] = {
+    overworld_frame(gObjectEventPic_WIDE_OAK, 6, 6, 0),
+    overworld_frame(gObjectEventPic_WIDE_OAK, 6, 6, 1),
+    overworld_frame(gObjectEventPic_WIDE_OAK, 6, 6, 2),
+    overworld_frame(gObjectEventPic_WIDE_OAK, 6, 6, 3),
+    overworld_frame(gObjectEventPic_WIDE_OAK, 6, 6, 4),
+    overworld_frame(gObjectEventPic_WIDE_OAK, 6, 6, 5),
+    overworld_frame(gObjectEventPic_WIDE_OAK, 6, 6, 6),
+    overworld_frame(gObjectEventPic_WIDE_OAK, 6, 6, 7),
+    overworld_frame(gObjectEventPic_WIDE_OAK, 6, 6, 8),
+};

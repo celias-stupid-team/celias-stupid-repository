@@ -596,10 +596,12 @@ script SkyTower_Trap1 {
 	lock
 	setvar(VAR_TEMP_5, 1)
 	setplayermetatile(METATILE_NavelRock_ExplosionTrap, FALSE)
+	call(EventScript_PlayerJumpInPlace)
 	special(DrawWholeMapView)
 	playse(SE_CLICK)
 	waitse
 	delay(30)
+	waitmovement(0)
 	playse(SE_M_EXPLOSION)
 	fadescreeninstant(FADE_TO_WHITE)
 	setmetatile(23, 21, METATILE_NavelRock_Floor, FALSE)
@@ -614,4 +616,28 @@ script SkyTower_Trap1 {
 	special(DrawWholeMapView)
 	fadescreenswapbuffers(FADE_FROM_WHITE)
 	release
+}
+
+script EventScript_PlayerJumpInPlace {
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				jump_in_place_up
+			))
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				jump_in_place_down
+			))
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, moves(
+				jump_in_place_right
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, moves(
+				jump_in_place_left
+			))
+
+	}
+	return
 }
