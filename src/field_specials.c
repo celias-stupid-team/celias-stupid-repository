@@ -1802,10 +1802,12 @@ static void SayYes_CB(void) {
 void IsNicknameMewtwo(void) {
     
     GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar3);
-    DebugPrintf("%d", gStringVar3);
+    //DebugPrintf("Get Trade Species %d", VarGet(VAR_0x800B));
+    DebugPrintf("First check %d", VarGet(VAR_0x8009));
+    DebugPrintf("Second check %d", VarGet(VAR_RESULT));
     
     if(!StringCompare(gStringVar3, COMPOUND_STRING("MEWTWO"))) {
-        gSpecialVar_0x8005 = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
+        VarSet(VAR_0x8014, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES));
         VarSet(VAR_RESULT, 1);
 
     } else 

@@ -791,7 +791,8 @@ script ViridianCity_TradeKid {
 	copyvar(VAR_0x8005, VAR_0x800A)
 	specialvar(VAR_RESULT, GetTradeSpecies)
 	copyvar(VAR_0x800B, VAR_RESULT)
-	goto_if_ne(VAR_RESULT, VAR_0x8009, ViridianCity_NotPokemon)
+	
+	goto_if_ne(VAR_0x800B, VAR_0x8009, ViridianCity_NotPokemon)
 	copyvar(VAR_0x8004, VAR_0x8008)
 	copyvar(VAR_0x8005, VAR_0x800A)
 	special(CreateInGameTradePokemon)
@@ -807,7 +808,7 @@ script ViridianCity_TradeKid {
 script ViridianCity_NotPokemon {
 	callnative(IsNicknameMewtwo)
 	if(var(VAR_RESULT)) { //If the mon's nickname is Mewtwo
-		bufferspeciesname(STR_VAR_1, VAR_0x8005)
+		bufferspeciesname(STR_VAR_1, VAR_0x8014)
 		msgbox(
 		"Uhhh, that's not a MEWTWO.\n"
 		"{PAUSE 30}That's a {STR_VAR_1} you named MEWTWO.\p"
