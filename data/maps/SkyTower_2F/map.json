@@ -290,6 +290,13 @@
       "elevation": 0,
       "dest_map": "MAP_SKY_TOWER_2F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 41,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_1F",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

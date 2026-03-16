@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
       "x": 13,
-      "y": 55,
+      "y": 60,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -313,6 +313,27 @@
       "elevation": 0,
       "dest_map": "MAP_GREAT_BAY_NORTH",
       "dest_warp_id": "WARPID_SKY_TOWER_OUTSIDE"
+    },
+    {
+      "x": 49,
+      "y": 55,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_1F",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 5,
+      "y": 54,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_1F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 11,
+      "y": 54,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_2F",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [
