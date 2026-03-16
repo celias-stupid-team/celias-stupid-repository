@@ -9192,6 +9192,8 @@ extern const u32 gBattleAnimBgPalette_AmericanFlag[];
 extern const u32 gBattleAnimBgPalette_IranFlag[];
 extern const u32 gBattleAnimBgPalette_BSOD[];
 extern const u32 gBattleAnimBgPalette_Skyrim[];
+extern const u32 gBattleAnimBgPalette_RedWater[];
+extern const u32 gBattleAnimBgPalette_RainbowWater[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
