@@ -233,6 +233,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_checkpartymonslot				 @ 0xe5
 	.4byte ScrCmd_checkpartymonslotegg				 @ 0xe6
 	.4byte ScrCmd_gotorandom                           @ 0xe7
+	.4byte ScrCmd_setplayermetatile                    @ 0xa2
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

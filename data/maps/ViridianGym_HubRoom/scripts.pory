@@ -63,8 +63,9 @@ script ViridianGym_HintManSwitch {
                 "Say, is it just me or did one of\n"
                 "those BRICK WALLS look funny?\p"
 
-                "Where else have you seen bricks\n"
-                "of that color before?", MSGBOX_DEFAULT)
+                "Those BRICKS are nowhere else in\n"
+                "the whole region, but nonetheless\l"
+                "they look strangely familiar…", MSGBOX_DEFAULT)
             case 6:
                 msgbox(
                 "There's a milk farm on THIRTY EIGHT\n"

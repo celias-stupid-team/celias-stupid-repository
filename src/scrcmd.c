@@ -929,8 +929,8 @@ bool8 ScrCmd_getplayerxy(struct ScriptContext * ctx)
 
     *pX = gSaveBlock1Ptr->pos.x;
     *pY = gSaveBlock1Ptr->pos.y;
-    DebugPrintf(" X = %d", gSaveBlock1Ptr->pos.x);
-    DebugPrintf(" Y = %d", gSaveBlock1Ptr->pos.y);
+    //DebugPrintf(" X = %d", gSaveBlock1Ptr->pos.x);
+    //DebugPrintf(" Y = %d", gSaveBlock1Ptr->pos.y);
     return FALSE;
 }
 
@@ -2272,6 +2272,25 @@ bool8 ScrCmd_setmetatile(struct ScriptContext * ctx)
     u16 y = VarGet(ScriptReadHalfword(ctx));
     u16 metatileId = VarGet(ScriptReadHalfword(ctx));
     bool16 isImpassable = VarGet(ScriptReadHalfword(ctx));
+
+    x += MAP_OFFSET;
+    y += MAP_OFFSET;
+    if (!isImpassable)
+        MapGridSetMetatileIdAt(x, y, metatileId);
+    else
+        MapGridSetMetatileIdAt(x, y, metatileId | MAPGRID_COLLISION_MASK);
+    return FALSE;
+}
+
+
+bool8 ScrCmd_setplayermetatile(struct ScriptContext * ctx)
+{
+    u16 metatileId = VarGet(ScriptReadHalfword(ctx));
+    bool16 isImpassable = VarGet(ScriptReadHalfword(ctx));
+
+    u16 x = gSaveBlock1Ptr->pos.x;
+    u16 y = gSaveBlock1Ptr->pos.y;
+    
 
     x += MAP_OFFSET;
     y += MAP_OFFSET;

@@ -591,3 +591,27 @@ script SkyTower_Bill {
 	"500 POKé{PAUSE 20} {ASTERISK}inside a DOLL!{ASTERISK}", MSGBOX_DEFAULT)
 	release
 }
+
+script SkyTower_Trap1 {
+	lock
+	setvar(VAR_TEMP_5, 1)
+	setplayermetatile(METATILE_NavelRock_ExplosionTrap, FALSE)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	playse(SE_M_EXPLOSION)
+	fadescreeninstant(FADE_TO_WHITE)
+	setmetatile(23, 21, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(24, 21, METATILE_NavelRock_Floor, FALSE)
+
+	
+	setmetatile(23, 20, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(24, 20, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(23, 22, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(24, 22, METATILE_NavelRock_Floor, FALSE)
+	waitse
+	special(DrawWholeMapView)
+	fadescreenswapbuffers(FADE_FROM_WHITE)
+	release
+}

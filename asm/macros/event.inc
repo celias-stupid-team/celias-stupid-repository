@@ -2026,3 +2026,10 @@
 	.byte 0xe7
 	.endm
 
+
+	@ Jumps to destination and continues script execution from there.
+	.macro setplayermetatile metatileId:req, impassable:req
+	.byte 0xe8
+	.2byte \metatileId
+	.2byte \impassable
+	.endm

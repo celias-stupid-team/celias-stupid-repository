@@ -252,10 +252,12 @@ script DMCAKoga_BrickWall4 {
                     playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
                     waitmoncry
                     msgbox(
-                    "Your DITTO noticed the BRICK WALL.\p"
+                    "Oh!\n"
+                    "Your DITTO noticed the BRICK WALL!\l"
+                    "Maybe it knows how to help.\p"
 
-                    "Maybe it knows how to help…\n"
-                    "", MSGBOX_DEFAULT)
+                    "Quick, go put DITTO right where\n"
+                    "he belongs!", MSGBOX_DEFAULT)
                 }
                 release
                 end
