@@ -10843,15 +10843,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_REFLECT_TYPE] =
     {
-        .effect = EFFECT_CAMOUFLAGE,
+        .effect = EFFECT_REFLECT_TYPE,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
-        .pp = 35,
-        .secondaryEffectChance = 10,
+        .pp = 15,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .flags = FLAG_PROTECT_AFFECTED,
     },
 
     [MOVE_SKULL_ISSUE] =

@@ -1837,3 +1837,8 @@
 	callnative BS_TryBestow
 	.4byte \failInstr
 	.endm
+
+	.macro tryreflecttype failInstr:req
+	callnative BS_TryReflectType
+	.4byte \failInstr
+	.endm

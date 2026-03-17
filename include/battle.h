@@ -542,6 +542,14 @@ extern struct BattleStruct *gBattleStruct;
     gBattleMons[battlerId].type2 = type;    \
 }
 
+#define IS_BATTLER_TYPELESS(battlerId)                     \
+({                                                         \
+    u32 types[2];                                          \
+    types[0] = gBattleMons[battlerId].type1;               \
+    types[1] = gBattleMons[battlerId].type2;               \
+    types[0] == TYPE_MYSTERY && types[1] == TYPE_MYSTERY;  \
+})
+
 #define GET_STAT_BUFF_ID(n)((n & 0xF))              // first four bits 0x1, 0x2, 0x4, 0x8
 #define GET_STAT_BUFF_VALUE2(n)((n & 0xF0))
 #define GET_STAT_BUFF_VALUE(n)(((n >> 4) & 7))      // 0x10, 0x20, 0x40

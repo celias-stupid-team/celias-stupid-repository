@@ -290,6 +290,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBurnBerry              @ EFFECT_BURN_BERRY
 	.4byte BattleScript_EffectBestow                 @ EFFECT_BESTOW
 	.4byte BattleScript_EffectRevelationDance        @ EFFECT_REVELATION_DANCE
+	.4byte BattleScript_EffectReflectType            @ EFFECT_REFLECT_TYPE
 
 BattleScript_End2::
 	end2
@@ -5957,4 +5958,16 @@ BattleScript_RevelationDanceString::
 	printstring STRINGID_REVELATIONDANCEMATCHEDTYPE
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectReflectType::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	tryreflecttype BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_REFLECTTARGETSTYPE
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

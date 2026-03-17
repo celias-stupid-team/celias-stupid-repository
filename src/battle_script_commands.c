@@ -12779,3 +12779,46 @@ void BS_TryBestow(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
+
+void BS_TryReflectType(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    u16 targetSpecies = gBattleMons[gBattlerTarget].species;
+    u32 targetTypes[2];
+    targetTypes[0] = gBattleMons[gBattlerTarget].type1;
+    targetTypes[1] = gBattleMons[gBattlerTarget].type2;
+
+    if (targetSpecies == SPECIES_ARCEUS || targetSpecies == SPECIES_SILVALLY)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else if (IS_BATTLER_TYPELESS(gBattlerTarget))
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else if (targetTypes[0] == TYPE_MYSTERY && targetTypes[1] != TYPE_MYSTERY)
+    {
+        gBattleMons[gBattlerAttacker].type1 = targetTypes[1];
+        gBattleMons[gBattlerAttacker].type2 = targetTypes[1];
+        PREPARE_TYPE_BUFFER(gBattleTextBuff1, targetTypes[1]);
+        PREPARE_TYPE_BUFFER(gBattleTextBuff2, targetTypes[1]);
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else if (targetTypes[0] != TYPE_MYSTERY && targetTypes[1] == TYPE_MYSTERY)
+    {
+        gBattleMons[gBattlerAttacker].type1 = targetTypes[0];
+        gBattleMons[gBattlerAttacker].type2 = targetTypes[0];
+        PREPARE_TYPE_BUFFER(gBattleTextBuff1, targetTypes[0]);
+        PREPARE_TYPE_BUFFER(gBattleTextBuff2, targetTypes[0]);
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+    {
+        gBattleMons[gBattlerAttacker].type1 = targetTypes[0];
+        gBattleMons[gBattlerAttacker].type2 = targetTypes[1];
+        PREPARE_TYPE_BUFFER(gBattleTextBuff1, targetTypes[0]);
+        PREPARE_TYPE_BUFFER(gBattleTextBuff2, targetTypes[1]);
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
