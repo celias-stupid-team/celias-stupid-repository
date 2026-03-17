@@ -5,6 +5,7 @@
 #include "link.h"
 #include "berry.h"
 #include "random.h"
+#include "mail_data.h"
 #include "pokemon.h"
 #include "string_util.h"
 #include "field_weather.h"
@@ -4141,4 +4142,16 @@ bool32 CanBePoisoned(u8 battlerTarget, u8 abilityTarget)
         return FALSE;
 
     return TRUE;
+}
+
+bool32 CanBattlerGetOrLoseItem(u32 battler, u16 itemId)
+{
+    u16 species = gBattleMons[battler].species;
+
+    if (ItemIsMail(itemId))
+        return FALSE;
+    // else if (DoesSpeciesUseHoldItemToChangeForm(species, itemId))
+    //     return FALSE;
+    else
+        return TRUE;
 }

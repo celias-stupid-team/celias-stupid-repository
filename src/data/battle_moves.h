@@ -6076,15 +6076,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_BESTOW] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 10,
+        .effect = EFFECT_BESTOW,
+        .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
-        .pp = 35,
-        .secondaryEffectChance = 10,
+        .accuracy = 0,
+        .pp = 15,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+        .flags = FLAG_MIRROR_MOVE_AFFECTED
     },
 
     [MOVE_SKY_DROP] =    {
@@ -6100,15 +6100,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_DELIVERY] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 100,
+        .effect = EFFECT_BESTOW,
+        .power = 0,
         .type = TYPE_FLYING,
-        .accuracy = 95,
-        .pp = 35,
-        .secondaryEffectChance = 10,
+        .accuracy = 0,
+        .pp = 15,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+        .flags = FLAG_MIRROR_MOVE_AFFECTED
     },
 
     [MOVE_AUTOMOTIZE] =    {

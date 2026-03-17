@@ -1828,3 +1828,8 @@
 	.byte \battler
 	.4byte \failInstr
 	.endm
+
+	.macro trybestow failInstr:req
+	callnative BS_TryBestow
+	.4byte \failInstr
+	.endm

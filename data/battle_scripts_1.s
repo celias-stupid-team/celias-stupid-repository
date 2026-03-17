@@ -288,6 +288,13 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHpDamage		         @ EFFECT_FINAL_GAMBIT
 	.4byte BattleScript_EffectTeatime		         @ EFFECT_TEATIME
 	.4byte BattleScript_EffectBurnBerry              @ EFFECT_BURN_BERRY
+	.4byte BattleScript_EffectBestow                 @ EFFECT_BESTOW
+
+BattleScript_End2::
+	end2
+
+BattleScript_Ret::
+	return
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5926,8 +5933,16 @@ BattleScript_EffectBurnBerry::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_End2::
-	end2
-
-BattleScript_Ret::
-	return
+BattleScript_EffectBestow::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, NO_ACC_CALC_CHECK_LOCK_ON
+	attackstring
+	ppreduce
+	@ jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	trybestow BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_BESTOWITEMGIVING
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
