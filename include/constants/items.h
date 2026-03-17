@@ -550,7 +550,8 @@
 #define ITEM_DOUSE_DRIVE 468
 #define ITEM_SHOCK_DRIVE 469
 #define ITEM_CHILL_DRIVE 470
-#define ITEMS_COUNT 471
+#define ITEM_SCOPE_CREEP 471
+#define ITEMS_COUNT 472
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

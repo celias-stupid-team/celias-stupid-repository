@@ -326,7 +326,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_BLUE,
     OBJ_EVENT_GFX_PICNICKER,
     OBJ_EVENT_GFX_YOUNGSTER,
-    OBJ_EVENT_GFX_BEAUTY,
+    OBJ_EVENT_GFX_GENTLEMAN,
     // Vermilion
     OBJ_EVENT_GFX_OLD_MAN_1,
     OBJ_EVENT_GFX_BATTLE_GIRL,

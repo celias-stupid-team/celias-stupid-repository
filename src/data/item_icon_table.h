@@ -496,5 +496,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SECRETPAGE]      =  {gItemIcon_SecretPage, gItemIconPalette_SecretPage},
     [ITEM_MAP]      =  {gItemIcon_MAP, gItemIconPalette_MAP},
     [ITEM_STAIR_ORB]      =  {gItemIcon_STAIRORB, gItemIconPalette_STAIRORB},
+    [ITEM_SCOPE_CREEP]      =  {gItemIcon_ScopeCreep, gItemIconPalette_ScopeCreep},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

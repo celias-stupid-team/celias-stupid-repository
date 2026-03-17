@@ -75,8 +75,8 @@
       "local_id": "LOCALID_SABRINA_ROADBLOCK",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
-      "x": 21,
-      "y": 11,
+      "x": 25,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -97,7 +97,7 @@
     },
     {
       "x": 21,
-      "y": 10,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_BLAINE",
       "dest_warp_id": "0"

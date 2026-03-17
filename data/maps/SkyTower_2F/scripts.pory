@@ -22,3 +22,33 @@ script SkyTower_TeamForretress2 {
 	"It's TEAM FORRETRESS 2!", MSGBOX_DEFAULT)
     release
 }
+
+
+script SkyTower_BikeHole {
+    setplayermetatile(METATILE_NavelRock_Hole, TRUE)
+    special(DrawWholeMapView)
+    specialvar(VAR_RESULT, GetPlayerAvatarBike)
+    if(var(VAR_RESULT)) {
+        setvar(VAR_TEMP_1, 1)
+        release
+    } else {
+        lock
+        playse(SE_M_STRENGTH)
+        waitse
+        delay(30)
+        playse(SE_FALL)
+        applymovement(LOCALID_PLAYER, moves(
+            set_invisible
+        ))
+        waitse
+        setobjectxy(LOCALID_PLAYER, 8, 52)
+        warphole(MAP_SKY_TOWER_1F)
+        release
+    }
+}
+
+script SkyTower_BikeHoleOutside {
+    special(DrawWholeMapView)
+    setvar(VAR_TEMP_1, 0)
+    release
+}

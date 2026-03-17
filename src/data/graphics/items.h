@@ -972,3 +972,6 @@ const u32 gItemIconPalette_MAP[] = INCBIN_U32("graphics/items/icon_palettes/map.
 
 const u32 gItemIcon_STAIRORB[] = INCBIN_U32("graphics/items/icons/stair_orb.4bpp.lz");
 const u32 gItemIconPalette_STAIRORB[] = INCBIN_U32("graphics/items/icon_palettes/stair_orb.gbapal.lz");
+
+const u32 gItemIcon_ScopeCreep[] = INCBIN_U32("graphics/items/icons/scope_creep.4bpp.lz");
+const u32 gItemIconPalette_ScopeCreep[] = INCBIN_U32("graphics/items/icon_palettes/scope_creep.gbapal.lz");

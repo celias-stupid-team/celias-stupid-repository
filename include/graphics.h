@@ -13061,3 +13061,6 @@ extern const u8 gMonIcon_CELIASSTUPIDROMHACK[];
 
 extern const u32 gTrainerFrontPic_Eusine[];
 extern const u32 gTrainerPalette_Eusine[];
+
+extern const u32 gItemIcon_ScopeCreep[];
+extern const u32 gItemIconPalette_ScopeCreep[];

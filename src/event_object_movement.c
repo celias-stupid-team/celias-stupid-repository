@@ -627,6 +627,8 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_SMALL_BRICK_WALL  0x11C7
 #define OBJ_EVENT_PAL_TAG_DITTO_BRICK_WALL  0x11C8
 #define OBJ_EVENT_PAL_TAG_LASER_SHARK  0x11C9
+#define OBJ_EVENT_PAL_TAG_TORCHIC  0x11CA
+#define OBJ_EVENT_PAL_TAG_YOSHI  0x11CB
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -826,6 +828,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_SMALL_BRICK_WALL,             OBJ_EVENT_PAL_TAG_SMALL_BRICK_WALL},
     {gObjectEventPal_DITTO_BRICK_WALL,             OBJ_EVENT_PAL_TAG_DITTO_BRICK_WALL},
     {gObjectEventPal_LASER_SHARK,             OBJ_EVENT_PAL_TAG_LASER_SHARK},
+    {gObjectEventPal_TORCHIC,             OBJ_EVENT_PAL_TAG_TORCHIC},
+    {gObjectEventPal_YOSHI,             OBJ_EVENT_PAL_TAG_YOSHI},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

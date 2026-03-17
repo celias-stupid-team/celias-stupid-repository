@@ -195,10 +195,11 @@ gFameCheckerFlavorText_Cerulean4:: @ 0x81ADEEC
 
 gFameCheckerFlavorText_Cerulean5:: @ 0x81ADF6A
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}If you look behind that cottage,\n"
-	.string "you can see a path going north!\p"
-	.string "I bet that's where you can catch\n"
-	.string "the starters!$"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}\n"
+    .string "My EKANS evolved right away, but\n"
+    .string "my ABRA won't no matter what!\p"
+    .string "It seems most POKéMON are hitting\n"
+    .string "their final form by Level 20.$"
 
 gFameCheckerFlavorText_Vermilion0:: @ 0x81AE009
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
@@ -993,7 +994,7 @@ gRumorLogFlavorTextIntoLine1_Cerulean4::
 	.string "Revenue$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean5::
-	.string "Garden$"
+	.string "Darwinist$"
 
 gRumorLogFlavorTextIntoLine1_Vermilion0::
 	.string "Harbor$"
@@ -1281,7 +1282,7 @@ gFameCheckerFlavorTextOriginObjectName_Cerulean4::
 	.string "Recommendation$"
 
 gFameCheckerFlavorTextOriginObjectName_Cerulean5::
-	.string "Gossip$"
+	.string "Deviation$"
 
 gFameCheckerFlavorTextOriginObjectName_Vermilion0::
 	.string "Historian$"
