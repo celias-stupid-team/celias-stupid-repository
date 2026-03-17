@@ -1413,6 +1413,7 @@ static void (*const sLWPEmblemWarpOutEffectFuncs[])(struct Task *task) =
 #define tTimer       data[9]
 #define tSpinEnded   data[10]
 #define tCurrentDir  data[11]
+#define tStandalone  data[12] // indicates the effect is occurring without the item being used
 #define tDirection   data[15]
 
 static void Task_LWPEmblemWarpOut(u8 taskId)
@@ -1466,6 +1467,28 @@ static void LWPEmblemWarpOutEffect_Spin(struct Task *task)
         tCurrentDir = SpinObjectEvent(playerObj, &task->tSpinDelay, &task->tNumTurns);
     
     tTimer++;
+}
+
+void StandaloneGenderFluidEffect(void)
+{
+    u32 taskId;
+    LockPlayerFieldControls();
+
+    if (gSaveBlock2Ptr->playerGender == MALE)
+    {
+        gSaveBlock2Ptr->playerGender = FEMALE;
+        gPlayerAvatar.gender = FEMALE;
+    }
+    else
+    {
+        gSaveBlock2Ptr->playerGender = MALE;
+        gPlayerAvatar.gender = MALE;
+    }
+    
+    ResetInitialPlayerAvatarState();
+
+    taskId = CreateTask(Task_GenderFluidWarpOut, 80);
+    gTasks[taskId].tStandalone = TRUE;
 }
 
 void FieldUseFunc_GenderFluid(u8 taskId)
@@ -1765,8 +1788,16 @@ static void GenderFluidWarpOutEffect_Spin(struct Task *task)
     }
     else if (tSpinEnded && tTimer >= GF_SHOW_MESSAGE)
     {
-        StringExpandPlaceholders(gStringVar4, gText_GenderFluidEnd);
-        DisplayItemMessageOnField(FindTaskIdByFunc(Task_GenderFluidWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        if (tStandalone)
+        {
+            DestroyTask(FindTaskIdByFunc(Task_GenderFluidWarpOut));
+            ScriptContext_Enable();
+        }                
+        else
+        {
+            StringExpandPlaceholders(gStringVar4, gText_GenderFluidEnd);
+            DisplayItemMessageOnField(FindTaskIdByFunc(Task_GenderFluidWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        }
     }
 
     if (!tSpinEnded)
@@ -1774,6 +1805,7 @@ static void GenderFluidWarpOutEffect_Spin(struct Task *task)
     
     tTimer++;
 }
+
 #undef tState       
 #undef tSpinDelay   
 #undef tNumTurns    
