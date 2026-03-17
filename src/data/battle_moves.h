@@ -13307,9 +13307,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_LANDS_MATH] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_GHOST,
+        .effect = EFFECT_MAGNITUDE,
+        .power = 90,
+        .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
