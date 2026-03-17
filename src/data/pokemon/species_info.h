@@ -11196,6 +11196,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
     },
+
     [SPECIES_DEOXYS] =
     {
         .baseHP = 50,
@@ -11204,7 +11205,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed = 150,
         .baseSpAttack = 150,
         .baseSpDefense = 50,
-        .types = {TYPE_STEEL, TYPE_STEEL},
+        .types = {TYPE_BUG, TYPE_STEEL},
         .catchRate = 255,
         .expYield = 215,
         .evYield_HP = 0,
@@ -11225,6 +11226,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
     },
+    
     [SPECIES_CHIMECHO] =
     {
         .baseHP = 65,

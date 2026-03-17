@@ -1052,11 +1052,22 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNDODGEDATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} dodged the attack!"),
     [STRINGID_PKMNSHELLHASBEENBROKEN - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("Oh no!\n{B_ATK_NAME_WITH_PREFIX}'s shell has been smashed!"),
     [STRINGID_PKMNREPEATSDANCEMOVE - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s DANCER ability\nrepeated the dance move!"),
-    
     [STRINGID_EARTHEATER - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s EARTH EATER…{PAUSE 20}"),
     [STRINGID_SUPERSONIC - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("But it failed!{PAUSE 20}\pThere's no CHAOS EMERALDS!{PAUSE 45}"),
     [STRINGID_TAUNT - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("lol"),
     [STRINGID_SHED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} doesn't have a\nTAIL to SHED!{PAUSE 45}"),
+    [STRINGID_PKMNWASBADLYBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_EFF_NAME_WITH_PREFIX} was badly burned!\pIts attacking stats have been\nmassively cut!"),
+    [STRINGID_PKMNWENTBACK - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} went back to {B_ATK_TRAINER_NAME}!"),
+    [STRINGID_GRAVITY_STARTS - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("The gravity intensified!"),
+    [STRINGID_GRAVITY_CONTINUES - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Gravity is intensified!"),
+    [STRINGID_PKMNSTATSMAXED - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s stats\nwere maxed!"),
+    [STRINGID_PKMNSTATSWEREFLIPPED - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s stats\nwere flipped!"),
+    [STRINGID_TOXICBERRYFAINT - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} ate the TOXIC BERRY!\pWHAT..?\nNO!?!"),
+    [STRINGID_PKMNATEBERRYNOEFFECT - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} ate the {B_LAST_ITEM},\nbut nothing happened!"),
+    [STRINGID_PKMNBERRYWASBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nwas burned."),
+    [STRINGID_BESTOWITEMGIVING - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} received {B_LAST_ITEM}\nfrom {B_ATK_NAME_WITH_PREFIX}!"),
+    [STRINGID_REVELATIONDANCEMATCHEDTYPE - BATTLESTRINGS_TABLE_START]    = COMPOUND_STRING("REVELATION DANCE matched\n{B_ATK_NAME_WITH_PREFIX}'s typing!"),
+    [STRINGID_REFLECTTARGETSTYPE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} became {B_BUFF1} type\nand {B_BUFF2} type."),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -2525,6 +2536,12 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 break;
             case B_TXT_PLAYER_NAME: // player name
                 toCpy = gSaveBlock2Ptr->playerName;
+                break;
+            case B_TXT_ATK_TRAINER_NAME: // attacker's trainer name
+                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+                    toCpy = gSaveBlock2Ptr->playerName;
+                else
+                    toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
                 break;
             case B_TXT_TRAINER1_LOSE_TEXT: // trainerA lose text
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)

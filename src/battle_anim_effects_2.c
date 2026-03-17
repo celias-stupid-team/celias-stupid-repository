@@ -83,7 +83,6 @@ static void AnimPerishSongMusicNote_Step2(struct Sprite *);
 static void AnimCirclingFinger(struct Sprite *);
 static void AnimVibrateBattlerBack(struct Sprite *);
 static void AnimKinesisZapEnergy(struct Sprite *);
-static void AnimSonicBoomProjectile(struct Sprite *);
 static void AnimAirWaveProjectile(struct Sprite *);
 static void AnimCoinThrow(struct Sprite *);
 static void AnimRazorWindTornado(struct Sprite *);
@@ -91,7 +90,6 @@ static void AnimBreathPuff(struct Sprite *);
 static void AnimAngerMark(struct Sprite *);
 static void AnimBlendThinRing(struct Sprite *);
 static void AnimHyperVoiceRing(struct Sprite *);
-static void AnimUproarRing(struct Sprite *);
 static void AnimRotomRing(struct Sprite *);
 static void AnimSpeedDust(struct Sprite *);
 static void AnimHealBellMusicNote(struct Sprite *);
@@ -829,7 +827,7 @@ static const union AffineAnimCmd sHyperVoiceRingAffineAnimCmds[] =
     AFFINEANIMCMD_END_ALT(1),
 };
 
-static const union AffineAnimCmd *const sThinRingExpandingAffineAnimTable[] =
+const union AffineAnimCmd *const gThinRingExpandingAffineAnimTable[] =
 {
     sThinRingExpandingAffineAnimCmds1,
     sThinRingExpandingAffineAnimCmds2,
@@ -847,7 +845,7 @@ const struct SpriteTemplate gThinRingExpandingSpriteTemplate =
     .oam = &gOamData_AffineDouble_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimSpriteOnMonPos,
 };
 
@@ -881,7 +879,7 @@ const struct SpriteTemplate gBlendThinRingExpandingSpriteTemplate =
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimBlendThinRing,
 };
 
@@ -903,7 +901,7 @@ const struct SpriteTemplate gUproarRingSpriteTemplate =
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimUproarRing,
 };
 
@@ -914,7 +912,7 @@ const struct SpriteTemplate gRotomRingSpriteTemplate =
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimRotomRing,
 };
 
@@ -1682,7 +1680,7 @@ const struct SpriteTemplate gElectrifyYellowRingTemplate =
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimUproarRing
 };
 
@@ -1916,7 +1914,7 @@ static void AnimSwordsDanceBlade_Step(struct Sprite *sprite)
 // arg 2: target x pixel offset
 // arg 3: target y pixel offset
 // arg 4: duration
-static void AnimSonicBoomProjectile(struct Sprite *sprite)
+void AnimSonicBoomProjectile(struct Sprite *sprite)
 {
     s16 targetXPos;
     s16 targetYPos;
@@ -3307,7 +3305,7 @@ static void AnimHyperVoiceRing(struct Sprite *sprite)
     sprite->callback(sprite);
 }
 
-static void AnimUproarRing(struct Sprite *sprite)
+void AnimUproarRing(struct Sprite *sprite)
 {
     u8 index = IndexOfSpritePaletteTag(ANIM_TAG_THIN_RING);
     

@@ -112,6 +112,7 @@
 #define STATUS1_TOXIC_POISON     (1 << 7)
 #define STATUS1_TOXIC_COUNTER    (1 << 8 | 1 << 9 | 1 << 10 | 1 << 11)
 #define STATUS1_TOXIC_TURN(num)  ((num) << 8)
+#define STATUS1_BAD_BURN         (1 << 12)
 #define STATUS1_PSN_ANY          (STATUS1_POISON | STATUS1_TOXIC_POISON)
 #define STATUS1_ANY              (STATUS1_SLEEP | STATUS1_POISON | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON)
 
@@ -242,6 +243,7 @@
 #define B_WEATHER_HAIL                (B_WEATHER_HAIL_TEMPORARY)
 #define B_WEATHER_ANY                 (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_SUN | B_WEATHER_HAIL)
 #define B_WEATHER_SHADOW_SKY          (1 << 8)
+#define B_WEATHER_GRAVITY             (1 << 9)
 
 // Move Effects
 #define MOVE_EFFECT_SLEEP               1
@@ -299,7 +301,7 @@
 #define MOVE_EFFECT_EVS_MINUS_2         52
 #define MOVE_EFFECT_THRASH              53
 #define MOVE_EFFECT_KNOCK_OFF           54
-#define MOVE_EFFECT_NOTHING_37          55
+#define MOVE_EFFECT_FLIP_STATS          55
 #define MOVE_EFFECT_NOTHING_38          56
 #define MOVE_EFFECT_NOTHING_39          57
 #define MOVE_EFFECT_NOTHING_3A          58
@@ -307,7 +309,8 @@
 #define MOVE_EFFECT_FEINT               60
 #define MOVE_EFFECT_ATK_TWO_DOWN        61
 #define MOVE_EFFECT_RECOIL_100          62
-#define NUM_MOVE_EFFECTS                63
+#define MOVE_EFFECT_MAX_ALL_STATS       63
+#define NUM_MOVE_EFFECTS                64
 
 #define MOVE_EFFECT_AFFECTS_USER        (1 << 6) // 64
 #define MOVE_EFFECT_CERTAIN             (1 << 7) // 128

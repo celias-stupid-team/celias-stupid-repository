@@ -716,3 +716,8 @@ bool8 Item_IsBall(u16 item) {
     }
     return FALSE;
 }
+
+bool32 IsBerry(u16 item)
+{
+    return item >= FIRST_BERRY_INDEX && item <= LAST_BERRY_INDEX;
+}
