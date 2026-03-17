@@ -2026,3 +2026,7 @@
 	.byte 0xe7
 	.endm
 
+	.macro dogenderfluideffect
+	callnative StandaloneGenderFluidEffect
+	waitstate
+	.endm
