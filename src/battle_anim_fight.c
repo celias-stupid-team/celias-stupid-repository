@@ -211,6 +211,17 @@ const struct SpriteTemplate gMegaPunchKickSpriteTemplate =
     .callback = AnimSpinningKickOrPunch,
 };
 
+const struct SpriteTemplate gShoeKickSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHOEPRINT,
+    .paletteTag = ANIM_TAG_SHOEPRINT,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_MegaPunchKick,
+    .callback = AnimSpinningKickOrPunch,
+};
+
 const struct SpriteTemplate gStompFootSpriteTemplate =
 {
     .tileTag = ANIM_TAG_HANDS_AND_FEET,
@@ -248,6 +259,17 @@ const struct SpriteTemplate gBrickBreakWallShardSpriteTemplate =
 {
     .tileTag = ANIM_TAG_TORN_METAL,
     .paletteTag = ANIM_TAG_TORN_METAL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBrickBreakWallShard,
+};
+
+const struct SpriteTemplate gVaseShardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHATTERED_VASE,
+    .paletteTag = ANIM_TAG_SHATTERED_VASE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -555,7 +577,10 @@ void AnimTask_CentennialKick(u8 taskId)
     x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
     y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
 
-    spriteId = CreateSprite(&gFistFootStaticSpriteTemplate, x, y, 3);
+    if(gBattleAnimArgs[3] == 6)
+        spriteId = CreateSprite(&gBasicHitSplatSpriteTemplate, x, y, 3);
+    else
+        spriteId = CreateSprite(&gFistFootStaticSpriteTemplate, x, y, 3);
     if (spriteId == MAX_SPRITES)
     {
         DestroyAnimVisualTask(taskId);
@@ -660,9 +685,10 @@ static void AnimTask_CentennialKick_Step(u8 taskId)
 
     if (task->data[4] < 0)
         StartSpriteAnim(spr, Random() % 5);
-    else
+    else if (task->data[4] < 5)
         StartSpriteAnim(spr, (u8)task->data[4]);
-
+    else
+        StartSpriteAnim(spr, 0);
     spr->invisible = FALSE;
     task->data[6] = task->data[5];
 

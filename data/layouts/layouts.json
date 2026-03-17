@@ -773,7 +773,7 @@
       "id": "LAYOUT_LAVENDER_TOWN",
       "name": "LavenderTown_Layout",
       "width": 79,
-      "height": 28,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7416,6 +7416,30 @@
       "secondary_tileset": "gTileset_PokemonMansion",
       "border_filepath": "data/layouts/PokemonMansion_2F_OPEN/border.bin",
       "blockdata_filepath": "data/layouts/PokemonMansion_2F_OPEN/map.bin"
+    },
+    {
+      "id": "LAYOUT_ONIX_ROOM",
+      "name": "OnixRoom_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/OnixRoom/border.bin",
+      "blockdata_filepath": "data/layouts/OnixRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_FARAWAY_ISLAND",
+      "name": "FarawayIsland_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/FarawayIsland/border.bin",
+      "blockdata_filepath": "data/layouts/FarawayIsland/map.bin"
     }
   ]
 }

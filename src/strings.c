@@ -211,6 +211,8 @@ const u8 gText_TMHMContainedVar1[] = _("なかには {STR_VAR_1}が\nきろく�
 const u8 gText_PlayerUsedVar2[] = _("{PLAYER} used the\n{STR_VAR_2}.{PAUSE_UNTIL_PRESS}");
 const u8 gText_RepelEffectsLingered[] = _("But the effects of a REPEL\nlingered from earlier.{PAUSE_UNTIL_PRESS}");
 const u8 gText_MaxRepelTurnedOff[] = _("{PLAYER} untoggled the\nMAX REPEL!\pWild POKéMON will now\nappear again!{PAUSE_UNTIL_PRESS}");
+const u8 gText_RunningScrews[] = _("{PAUSE 45}Aaaaaaand they're gone!");
+const u8 gText_Ligma[] = _("ligma balls");
 const u8 gText_TMContainedCopycat[] = _("{PLAYER} booted up the TM!\pIt contained\nCOPYCAT!{PAUSE_UNTIL_PRESS}");
 const u8 gText_CeliaMessage[] = _("Hi, this is CELIA.\pDue to technical limitations, I\nwas forced to remove several\lexcess ITEMS from your BAG.\pDon't worry! Nothing that was\nremoved will ever be important.\pI'm sorry I had to do this, and it\nis my fault for not thinking ahead.\pThanks for understanding!\nThis page will now self-destruct.{PAUSE_UNTIL_PRESS}{PLAY_BGM}{SE_M_EXPLOSION}");
 const u8 gText_HeldRuby[] = _("{PLAYER} held the RUBY!{PAUSE_UNTIL_PRESS}");
@@ -308,6 +310,8 @@ const u8 gText_StopLearningMove2[] = _("Stop trying to teach\n{STR_VAR_2}?");
 const u8 gText_MoveNotLearned[] = _("{STR_VAR_1} did not learn the\nmove {STR_VAR_2}.{PAUSE_UNTIL_PRESS}");
 const u8 gText_WhichMoveToForget[] = _("Which move should be forgotten?{PAUSE_UNTIL_PRESS}");
 const u8 gText_12PoofForgotMove[] = _("1, {PAUSE 0x0F}2, and{PAUSE 0x0F}‥ {PAUSE 0x0F}‥ {PAUSE 0x0F}‥ {PAUSE 0x0F}{PLAY_SE SE_BALL_BOUNCE_1}Poof!\p{STR_VAR_1} forgot how to\nuse {STR_VAR_2}.\pAnd...{PAUSE_UNTIL_PRESS}");
+
+const u8 gText_12PoofSoftreset[] = _("1, {PAUSE 0x0F}2, and{PAUSE 0x0F}‥ {PAUSE 0x0F}‥ {PAUSE 0x0F}‥ {PAUSE 0x0F}");
 const u8 gText_PkmnAlreadyKnows[] = _("{STR_VAR_1} already knows\n{STR_VAR_2}.{PAUSE_UNTIL_PRESS}");
 const u8 gText_PkmnHPRestoredByVar2[] = _("{STR_VAR_1}'s HP was restored\nby {STR_VAR_2} point(s).{PAUSE_UNTIL_PRESS}");
 const u8 gText_PkmnCuredOfPoison[] = _("{STR_VAR_1} was cured of its\npoisoning.{PAUSE_UNTIL_PRESS}");

@@ -78,6 +78,7 @@ bool8 MetatileBehavior_IsWaterfall(u8 metatileBehavior);
 bool8 MetatileBehavior_IsGirlHole(u8 metatileBehavior);
 bool8 MetatileBehavior_IsFishableStatue(u8 metatileBehavior);
 bool8 MetatileBehavior_IsLuvdiscTile(u8 metatileBehavior);
+bool8 MetatileBehavior_IsNormalLuvdiscTile(u8 metatileBehavior);
 bool8 MetatileBehavior_IsPencilStatue(u8 metatileBehavior);
 bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior);
 bool8 MetatileBehavior_IsPacifidlogLog(u8 metatileBehavior);

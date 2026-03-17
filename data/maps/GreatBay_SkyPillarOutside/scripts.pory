@@ -3,6 +3,9 @@ mapscripts GreatBay_SkyPillarOutside_MapScripts {
         if(!flag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)) {
             setflag(FLAG_TEMP_1)
         }
+        if(flag(FLAG_TRIANGLE_PUT_IN_HOLE)) {
+            setflag(FLAG_TEMP_1)
+        }
         setvar(VAR_TEMP_5, 19)
         setflag(FLAG_TEMP_A)
     }

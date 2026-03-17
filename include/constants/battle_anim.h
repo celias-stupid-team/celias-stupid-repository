@@ -352,6 +352,36 @@
 #define ANIM_TAG_THROWN_FORRETRESS          (ANIM_SPRITES_START + 342)
 #define ANIM_TAG_SHINE                      (ANIM_SPRITES_START + 343)
 #define ANIM_TAG_SUMMONING_CIRCLE           (ANIM_SPRITES_START + 344)
+#define ANIM_TAG_BUS_LEFT                   (ANIM_SPRITES_START + 345)
+#define ANIM_TAG_BUS_RIGHT                  (ANIM_SPRITES_START + 346)
+#define ANIM_TAG_CRASHED                    (ANIM_SPRITES_START + 347)
+#define ANIM_TAG_ALLEGIANCE                 (ANIM_SPRITES_START + 348)
+#define ANIM_TAG_EAGLE                      (ANIM_SPRITES_START + 349)
+#define ANIM_TAG_BIBLE_STUFF                (ANIM_SPRITES_START + 350)
+#define ANIM_TAG_GASTER_BLASTER             (ANIM_SPRITES_START + 351)
+#define ANIM_TAG_GASTER_BEAM                (ANIM_SPRITES_START + 352)
+#define ANIM_TAG_TEACUP                     (ANIM_SPRITES_START + 353)
+#define ANIM_TAG_BALL_QUICK                 (ANIM_SPRITES_START + 354)
+#define ANIM_TAG_BALL_DIVE                  (ANIM_SPRITES_START + 355)
+#define ANIM_TAG_BALL_REPEAT                (ANIM_SPRITES_START + 356)
+#define ANIM_TAG_BALL_LURE                  (ANIM_SPRITES_START + 357)
+#define ANIM_TAG_BALL_HEAL                  (ANIM_SPRITES_START + 358)
+#define ANIM_TAG_BALL_DREAM                 (ANIM_SPRITES_START + 359)
+#define ANIM_TAG_BALL_TIMER                 (ANIM_SPRITES_START + 360)
+#define ANIM_TAG_BALL_DUSK                  (ANIM_SPRITES_START + 361)
+#define ANIM_TAG_BALL_LIGHT                 (ANIM_SPRITES_START + 362)
+#define ANIM_TAG_BALL_ENERGY                (ANIM_SPRITES_START + 363)
+#define ANIM_TAG_PLASTO                     (ANIM_SPRITES_START + 364)
+#define ANIM_TAG_PISS_DROP                  (ANIM_SPRITES_START + 365)
+#define ANIM_TAG_CLAM                       (ANIM_SPRITES_START + 366)
+#define ANIM_TAG_MING_VASE                  (ANIM_SPRITES_START + 367)
+#define ANIM_TAG_SHATTERED_VASE             (ANIM_SPRITES_START + 368)
+#define ANIM_TAG_RED_DIAMOND                (ANIM_SPRITES_START + 369)
+#define ANIM_TAG_BLACK_SPADE                (ANIM_SPRITES_START + 370)
+#define ANIM_TAG_BLACK_CLUB                 (ANIM_SPRITES_START + 371)
+#define ANIM_TAG_HAMMER                     (ANIM_SPRITES_START + 372)
+#define ANIM_TAG_SHOEPRINT                  (ANIM_SPRITES_START + 373)
+#define ANIM_TAG_SKYRIM                     (ANIM_SPRITES_START + 374)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -408,6 +438,10 @@
 #define BG_DARK_VOID 27
 #define BG_TRICK_ROOM 28
 #define BG_FIRE 29
+#define BG_AMERICAN_FLAG 30
+#define BG_IRAN_FLAG 31
+#define BG_BSOD 32
+#define BG_SKYRIM 33
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

@@ -224,8 +224,8 @@ script Route8_GrowlitheSign {
 				//set map
 				setmetatile(22, 18, 0x3B2, FALSE)
 				setmetatile(23, 18, 0x3B3, FALSE)
-				setmetatile(22, 19, 0x3BA, FALSE)
-				setmetatile(23, 19, 0x3BB, FALSE)
+				setmetatile(22, 19, 0x3BA, TRUE)
+				setmetatile(23, 19, 0x3BB, TRUE)
 				special(DrawWholeMapView)
 				closemessage
 				waitmoncry
@@ -243,8 +243,8 @@ script Route8_GrowlitheSign {
 				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
 				setmetatile(22, 18, 0x3B4, FALSE)
 				setmetatile(23, 18, 0x3B5, FALSE)
-				setmetatile(22, 19, 0x3BC, FALSE)
-				setmetatile(23, 19, 0x3BD, FALSE)
+				setmetatile(22, 19, 0x3BC, TRUE)
+				setmetatile(23, 19, 0x3BD, TRUE)
 				special(DrawWholeMapView)
 				closemessage
 				waitmoncry

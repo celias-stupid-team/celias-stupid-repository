@@ -129,7 +129,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                    @ EFFECT_FALSE_SWIPE
 	.4byte BattleScript_EffectHealBell               @ EFFECT_HEAL_BELL
 	.4byte BattleScript_EffectHit                    @ EFFECT_QUICK_ATTACK
-	.4byte BattleScript_EffectTripleKick             @ EFFECT_TRIPLE_KICK
+	.4byte BattleScript_EffectNewTripleKick             @ EFFECT_TRIPLE_KICK
 	.4byte BattleScript_EffectThief                  @ EFFECT_THIEF
 	.4byte BattleScript_EffectMeanLook               @ EFFECT_MEAN_LOOK
 	.4byte BattleScript_EffectNightmare              @ EFFECT_NIGHTMARE
@@ -4511,7 +4511,7 @@ BattleScript_SturdyPreventsOHKO::
 
 BattleScript_EarthEaterPreventsOHKO::
 	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_PKMNPROTECTEDBY
+	printstring STRINGID_EARTHEATER
 	pause B_WAIT_TIME_LONG
 	callnative BattleDebug_LeftBattle
 	goto BattleScript_MoveEnd
@@ -5250,9 +5250,10 @@ BattleScript_AirBalloonMsgPop::
 
 BattleScript_EffectElectrify::
 	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	@ accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	orword gHitMarker, HITMARKER_IGNORE_ON_AIR
 	tryelectrify BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -5971,3 +5972,54 @@ BattleScript_EffectReflectType::
 	printstring STRINGID_REFLECTTARGETSTYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectNewTripleKick::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubDoubleHit
+	setmultihitcounter 3
+	initmultihitstring
+	setbyte sMULTIHIT_EFFECT, 0
+	goto BattleScript_NewTripleKickLoop
+
+BattleScript_NewTripleKickLoop::
+	jumpifhasnohp BS_ATTACKER, BattleScript_MultiHitEnd
+	jumpifhasnohp BS_TARGET, BattleScript_MultiHitPrintStrings
+	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_SLEEP_TALK, BattleScript_DoNewTripleKick
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_MultiHitPrintStrings
+
+BattleScript_DoNewTripleKick::
+	movevaluescleanup
+	copybyte cEFFECT_CHOOSER, sMULTIHIT_EFFECT
+	critcalc
+	damagecalc
+	typecalc
+	jumpifmovehadnoeffect BattleScript_MultiHitNoMoreHits
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	multihitresultmessage
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	addbyte sMULTIHIT_STRING + 4, 1
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_FOE_ENDURED, BattleScript_MultiHitPrintStrings
+	goto BattleScript_NewTripleKickHeal
+
+BattleScript_NewTripleKickHeal::
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	goto BattleScript_EffectHit

@@ -830,6 +830,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_TRICK,
     MOVE_FOCUS_PUNCH,
     MOVE_10000_VOLTS,
+    MOVE_SUBSTITUTE_TEACHER,
     MOVE_COLONIZE,
     METRONOME_FORBIDDEN_END
 };
@@ -8840,7 +8841,7 @@ static void Cmd_metronome(void)
     {
         s32 i;
 
-        gCurrentMove = (Random() & 0x1FF) + 1;
+        gCurrentMove = (Random() & 0x7FF) + 1;
         if (gCurrentMove >= MOVES_COUNT)
             continue;
 
@@ -11052,6 +11053,10 @@ static void Cmd_trysetcaughtmondexflags(void)
 
     if (isShiny)
         FlagSet(FLAG_SHINY_CREATION); // used for dex flag handling afterwards
+    
+    if (species == SPECIES_MAGNEMITE && !GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT)) {
+        VarSet(VAR_SHINY_MAGNEMITE, 1);
+    }
 
     if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
     {

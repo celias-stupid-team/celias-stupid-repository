@@ -122,6 +122,7 @@ const u32 gProtectedMoves[] = {
     MOVE_DOUBLE_DIP,
     MOVE_RAINBOW_BEAM,
     MOVE_SLASH_TCG,
+    MOVE_LUNAR_DANCE,
     MOVE_FLY_CYNTHIA
 };
 

@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "help_system.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_interface.h"
@@ -404,7 +405,13 @@ static bool8 CanFish(void)
     }
     if (MetatileBehavior_IsLuvdiscTile(behavior)) {
             //DebugPrintf("true");
-            FlagSet(FLAG_SYS_LUVDISC_TILE);
+            VarSet(VAR_LUVDISC_TILE, 1);
+            return TRUE;
+
+    }
+    if (MetatileBehavior_IsNormalLuvdiscTile(behavior)) {
+            //DebugPrintf("true");
+            VarSet(VAR_LUVDISC_TILE, 2);
             return TRUE;
 
     }
@@ -686,6 +693,19 @@ void FieldUseFunc_Repel(u8 taskId)
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RepelEffectsLingered, Task_ReturnToBagFromContextMenu);
 }
 
+void FieldUseFunc_RunningScrews(u8 taskId)
+{
+    PlaySE(SE_FLEE);
+    RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RunningScrews, Task_ReturnToBagFromContextMenu);
+}
+
+void FieldUseFunc_Ligma(u8 taskId)
+{
+    //PlaySE(SE_FLEE);
+    //RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_Ligma, Task_ReturnToBagFromContextMenu);
+}
 static void ItemUseOnFieldCB_Unlock(u8 taskId)
 {
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
@@ -1236,6 +1256,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+    
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
@@ -1265,6 +1286,7 @@ void FieldUseFunc_BalmMushroom(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
@@ -1294,6 +1316,7 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
@@ -1393,6 +1416,7 @@ static void (*const sLWPEmblemWarpOutEffectFuncs[])(struct Task *task) =
 #define tTimer       data[9]
 #define tSpinEnded   data[10]
 #define tCurrentDir  data[11]
+#define tStandalone  data[12] // indicates the effect is occurring without the item being used
 #define tDirection   data[15]
 
 static void Task_LWPEmblemWarpOut(u8 taskId)
@@ -1446,6 +1470,28 @@ static void LWPEmblemWarpOutEffect_Spin(struct Task *task)
         tCurrentDir = SpinObjectEvent(playerObj, &task->tSpinDelay, &task->tNumTurns);
     
     tTimer++;
+}
+
+void StandaloneGenderFluidEffect(void)
+{
+    u32 taskId;
+    LockPlayerFieldControls();
+
+    if (gSaveBlock2Ptr->playerGender == MALE)
+    {
+        gSaveBlock2Ptr->playerGender = FEMALE;
+        gPlayerAvatar.gender = FEMALE;
+    }
+    else
+    {
+        gSaveBlock2Ptr->playerGender = MALE;
+        gPlayerAvatar.gender = MALE;
+    }
+    
+    ResetInitialPlayerAvatarState();
+
+    taskId = CreateTask(Task_GenderFluidWarpOut, 80);
+    gTasks[taskId].tStandalone = TRUE;
 }
 
 void FieldUseFunc_GenderFluid(u8 taskId)
@@ -1745,8 +1791,16 @@ static void GenderFluidWarpOutEffect_Spin(struct Task *task)
     }
     else if (tSpinEnded && tTimer >= GF_SHOW_MESSAGE)
     {
-        StringExpandPlaceholders(gStringVar4, gText_GenderFluidEnd);
-        DisplayItemMessageOnField(FindTaskIdByFunc(Task_GenderFluidWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        if (tStandalone)
+        {
+            DestroyTask(FindTaskIdByFunc(Task_GenderFluidWarpOut));
+            ScriptContext_Enable();
+        }                
+        else
+        {
+            StringExpandPlaceholders(gStringVar4, gText_GenderFluidEnd);
+            DisplayItemMessageOnField(FindTaskIdByFunc(Task_GenderFluidWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        }
     }
 
     if (!tSpinEnded)
@@ -1754,6 +1808,7 @@ static void GenderFluidWarpOutEffect_Spin(struct Task *task)
     
     tTimer++;
 }
+
 #undef tState       
 #undef tSpinDelay   
 #undef tNumTurns    

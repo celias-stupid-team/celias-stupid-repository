@@ -8,7 +8,7 @@ Route14_EventScript_RouteSign::
 
 script Route15_PokeRap_Trainer1 {
     trainerbattle_single(TRAINER_POKERAP_1, Rapper_1_Intro, "Nice!", Route15_PokeRap_Trainer1_Defeat)
-    msgbox("Diglett done by Jogaklaa!\pMankey's hat by PKMNTRAINERSPRITERC")
+    msgbox("Electrode by QBCubed!\nDiglett done by Jogaklaa!\lMankey by QBCubed!")
     release
 }
 
@@ -51,7 +51,7 @@ script Route15_PokeRap_Trainer1_Defeat {
 
 script Route15_PokeRap_Trainer2 {
     trainerbattle_single(TRAINER_POKERAP_2, Rapper_2_Intro, "Nice!", Route15_PokeRap_Trainer2_Defeat)
-    msgbox("FEAROW by SimpleMary!\n", MSGBOX_DEFAULT)
+    msgbox("RATTATA by The Scrub\nFEAROW by SimpleMary!\lPIDGEY by QBCubed!", MSGBOX_DEFAULT)
     release
 }
 
@@ -117,7 +117,7 @@ script Route15_PokeRap_Trainer5_Defeat {
 
 script Route15_PokeRap_Trainer6 {
     trainerbattle_single(TRAINER_POKERAP_6, Rapper_6_Intro, "Nice!", Route15_PokeRap_Trainer6_Defeat)
-    msgbox("VICTREEBEL by Swiwious!\n", MSGBOX_DEFAULT)
+    msgbox("VICTREEBEL by Swiwious!\nGrimer by Fayren", MSGBOX_DEFAULT)
     release
 }
 
@@ -275,7 +275,7 @@ script Route15_PokeRap_Trainer14_Defeat {
 
 script Route15_PokeRap_Trainer15 {
     trainerbattle_single(TRAINER_POKERAP_15, Rapper_15_Intro, "Nice!", Route15_PokeRap_Trainer15_Defeat)
-    msgbox("DITTO by Jogaklaa\nCloyster by Sky Ankou", MSGBOX_DEFAULT)
+    msgbox("DITTO by Jogaklaa\nCloyster by Sky Ankou\nSandshrew by QBCubed", MSGBOX_DEFAULT)
     release
 }
 
@@ -305,7 +305,7 @@ script Route15_PokeRap_Trainer16_Defeat {
 
 script Route15_PokeRap_Trainer17 {
     trainerbattle_single(TRAINER_POKERAP_17, Rapper_17_Intro, "Nice!", Route15_PokeRap_Trainer17_Defeat)
-    msgbox("ALAKAZAM by Boba Tea\nDODUO by Boba Tea\lMachoke by Sky Ankou", MSGBOX_DEFAULT)
+    msgbox("ALAKAZAM by Boba Tea\nDODUO by Boba Tea\pVenonat by Fayren!\nMachoke by Sky Ankou", MSGBOX_DEFAULT)
     release
 }
 
@@ -325,7 +325,7 @@ script Route15_PokeRap_Trainer17_Defeat {
 
 script Route15_PokeRap_Trainer18 {
     trainerbattle_single(TRAINER_POKERAP_18, Rapper_18_Intro, "Nice!", Route15_PokeRap_Trainer18_Defeat)
-    msgbox("ELECTABUZZ by FoF\nFlareon by FoF", MSGBOX_DEFAULT)
+    msgbox("Hypno by Fayren!\nELECTABUZZ by FoF\lFlareon by FoF", MSGBOX_DEFAULT)
     release
 }
 
@@ -407,7 +407,7 @@ script Route15_PokeRap_Trainer22_Defeat {
 
 script Route15_PokeRap_Trainer23 {
     trainerbattle_single(TRAINER_POKERAP_23, Rapper_23_Intro, "Nice!", Route15_PokeRap_Trainer23_Defeat)
-    msgbox("TAUROS by Jogaklaa\nNIDORAN by Misofa", MSGBOX_DEFAULT)
+    msgbox("TAUROS by Jogaklaa\nWEEDLE by QBCubed!\lNIDORAN by Misofa", MSGBOX_DEFAULT)
     release
 }
 
@@ -564,7 +564,7 @@ script Route15_PokeRap_Trainer32_Defeat {
 
 script Route15_PokeRap_Trainer33 {
     trainerbattle_single(TRAINER_POKERAP_33, Rapper_33_Intro, "Nice!", Route15_PokeRap_Trainer33_Defeat)
-    msgbox("HITMONLEE by number1jojofan\nPSYDUCK by", MSGBOX_DEFAULT)
+    msgbox("HITMONLEE by number1jojofan\nPSYDUCK by danstrider6025", MSGBOX_DEFAULT)
     release
 }
 
@@ -580,7 +580,7 @@ script Route15_PokeRap_Trainer33_Defeat {
 
 script Route15_PokeRap_Trainer34 {
     trainerbattle_single(TRAINER_POKERAP_34, Rapper_34_Intro, "Nice!", Route15_PokeRap_Trainer34_Defeat)
-    msgbox("EXEGGUTOR by Lichen\nZAPDOS by HoodlumCal!", MSGBOX_DEFAULT)
+    msgbox("EXEGGUTOR by Lichen\nKABUTOPS by Gayren\nZAPDOS by HoodlumCal!", MSGBOX_DEFAULT)
     release
 }
 
@@ -615,7 +615,7 @@ script Route15_PokeRap_Trainer36 {
         release
         end
     }
-    msgbox("VOLTORB by Lichen\nGLOOM by Jogaklaa\p…Huh?\nWhat's that?\lI missed one?", MSGBOX_DEFAULT)
+    msgbox("GRAVELER by Game Freak\nVOLTORB by Lichen\lGLOOM by Jogaklaa\p…Huh?\nWhat's that?\lI missed one?", MSGBOX_DEFAULT)
     special(ChoosePartyMon)
     waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {
@@ -656,7 +656,7 @@ script Route15_PokeRap_Trainer36_Defeat {
 
 script Route15_PokeRap_Trainer37 {
     trainerbattle_single(TRAINER_POKERAP_37, Rapper_37_Intro, "Nice!", Route15_PokeRap_Trainer37_Defeat)
-    msgbox("Charmeleon by Sky Ankou\n", MSGBOX_DEFAULT)
+    msgbox("Charmeleon by Sky Ankou\nWartortle by The Scrub", MSGBOX_DEFAULT)
     release
 }
 

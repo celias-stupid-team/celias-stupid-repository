@@ -269,13 +269,41 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route15_Chuckster",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
+      "x": 44,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Silph_Dummy",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
+      "x": 47,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Silph_Honesty",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_HUB",
-      "x": 47,
-      "y": 15,
+      "x": 59,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_CALLCENTER"
@@ -308,7 +336,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 55,
+      "x": 57,
       "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -335,7 +363,7 @@
     },
     {
       "type": "trigger",
-      "x": 54,
+      "x": 58,
       "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -380,8 +408,8 @@
     },
     {
       "type": "sign",
-      "x": 53,
-      "y": 14,
+      "x": 58,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Silph_TourTrash"
@@ -424,7 +452,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Silph_RareItems"
     },
     {
       "type": "sign",
@@ -433,6 +461,94 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Silph_Television"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_AntiSoftlock"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_AntiSoftlock"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_JoeyComputer"
+    },
+    {
+      "type": "sign",
+      "x": 52,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_Marketing"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_UmbrellaShop"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_Tandemaus"
+    },
+    {
+      "type": "sign",
+      "x": 52,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_Marketing"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_JoeyComputer"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_UmbrellaShop"
+    },
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_BookshelfTop"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_BookshelfTop"
     }
   ]
 }
