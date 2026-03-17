@@ -22432,9 +22432,6 @@ Move_TEATIME:
 	waitforvisualfinish
 	end
 
-Move_COLONIZE:
-	goto Move_TACKLE
-
 Move_STUPORPOWER:
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
 	loadspritegfx ANIM_TAG_METEOR
