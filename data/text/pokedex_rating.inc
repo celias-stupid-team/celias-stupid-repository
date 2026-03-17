@@ -459,7 +459,9 @@ PokedexRating_Text_HintKangaskhan::
 	.string "What did that TM say?$"
 	
 PokedexRating_Text_HintAlakazam::
-	.string "Do the trade\n$"
+	.string "Hmm, what did the note on your\n"
+	.string "MR. MIME say?$"
+
 
 PokedexRating_Text_HintPlugOink::
 	.string "Looking for sandwich ingredients,\n"
@@ -551,7 +553,7 @@ PokedexRating_Text_HintUnown::
 	.string "Maybe you could go find her for him?\n$"
 
 PokedexRating_Text_HintMagnemite::
-	.string "THIRTY EIGHT ISLAND has a wild"
+	.string "THIRTY EIGHT ISLAND has a wild\n"
 	.string "POKéMON you never caught.\p"
 	.string "Be sure to go back for it!\n$"
 
@@ -827,8 +829,12 @@ PokedexRating_Text_HintScyther::
 	.string "can take it!$"
 
 PokedexRating_Text_HintPikablu::
-	.string "solve Bil's PC\n$"
-
+	.string "That PC system in BILL'S GARDEN\n"
+	.string "looked very complicated.\p"
+	.string "You'll have to figure it out by\n"
+	.string "trial and error.\p"
+	.string "You're a clever one.\n"
+	.string "I know you can do it!$"
 
 PokedexRating_Text_HintLuvdisc::
 	.string "Northeast of CINNABAR, a fisherman\n"
@@ -901,8 +907,9 @@ PokedexRating_Text_HintOmanyte::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintTyranastar::
-	.string "give fossils to fossil person\n$"
-
+	.string "You've collected two FOSSILS now.\p"
+	.string "Perhaps the scientists in CINNABAR\n"
+	.string "could finally put them together!$"
 	
 PokedexRating_Text_HintBuzzwole::
 	.string "Scientists found a sample of OLD\n"
