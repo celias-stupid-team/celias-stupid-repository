@@ -1816,7 +1816,7 @@ bool8 ScrCmd_bufferitemnameplural(struct ScriptContext * ctx)
     CopyItemName(itemId, sScriptStringVars[stringVarIndex]);
     if (itemId == ITEM_POKE_BALL && quantity >= 2)
         StringAppend(sScriptStringVars[stringVarIndex], sText_S);
-    else if (itemId >= FIRST_BERRY_INDEX && itemId < LAST_BERRY_INDEX && quantity >= 2)
+    else if (IsBerry(itemId) && quantity >= 2)
     {
         u16 strlength = StringLength(sScriptStringVars[stringVarIndex]);
         if (strlength != 0)

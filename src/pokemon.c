@@ -2714,6 +2714,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             else
                 damageHelper = defense;
         }
+        else if (gCurrentMove == MOVE_G_MAX_CUDDLE)
+            damageHelper = defense;
         else
             APPLY_STAT_MOD(damageHelper, defender, defense, STAT_DEF)
 
@@ -2722,7 +2724,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
         // Burn cuts attack in half
         if ((attacker->status1 & STATUS1_BURN) && attacker->ability != ABILITY_GUTS)
-            damage /= 2;
+                damage /= 2;
 
         // Apply Reflect
         if ((sideStatus & SIDE_STATUS_REFLECT) && gCritMultiplier == 1)
@@ -2769,6 +2771,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             else
                 damageHelper = spDefense;
         }
+        else if (gCurrentMove == MOVE_G_MAX_CUDDLE)
+            damageHelper = spDefense;
         else
             APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_SPDEF)
 
@@ -2828,6 +2832,10 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         if ((gBattleResources->flags->flags[battlerIdAtk] & RESOURCE_FLAG_FLASH_FIRE) && type == TYPE_FIRE)
             damage = (15 * damage) / 10;
     }
+
+    // Bad Burn reduces the damage to 1, no matter if physical or special
+    if ((attacker->status1 & STATUS1_BAD_BURN) && attacker->ability != ABILITY_GUTS)
+        damage = 1;
 
     return damage + 2;
 }
@@ -4429,7 +4437,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             }
             if ((itemEffect[cmdIndex] & ITEM3_POISON) && HealStatusConditions(mon, partyIndex, STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER, battleMonId) == 0)
                 retVal = FALSE;
-            if ((itemEffect[cmdIndex] & ITEM3_BURN) && HealStatusConditions(mon, partyIndex, STATUS1_BURN, battleMonId) == 0)
+            if ((itemEffect[cmdIndex] & ITEM3_BURN) && HealStatusConditions(mon, partyIndex, STATUS1_BURN | STATUS1_BAD_BURN, battleMonId) == 0)
                 retVal = FALSE;
             if ((itemEffect[cmdIndex] & ITEM3_FREEZE) && HealStatusConditions(mon, partyIndex, STATUS1_FREEZE, battleMonId) == 0)
                 retVal = FALSE;

@@ -3068,7 +3068,7 @@ static void PreviewDeterminativeMoveTargets(void)
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
-        u8 moveTarget;
+        u16 moveTarget;
         struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleBufferA[gActiveBattler][4]);
         u16 move = moveInfo->moves[gMoveSelectionCursor[gActiveBattler]];
 

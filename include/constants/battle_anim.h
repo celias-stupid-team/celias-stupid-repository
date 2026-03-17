@@ -487,6 +487,7 @@
 #define B_ANIM_CHARGE_TURN              40
 #define B_ANIM_GHOST_DODGE              41
 #define B_ANIM_SLOWPOKE_TRANSFORM       42
+#define B_ANIM_GRAVITY_CONTINUES        43
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

@@ -204,7 +204,8 @@ struct DisableStruct
              u8 substitute2CurrentLayer : 2;
              u8 neutralizingGas : 1;
              u8 used108TupleTeam : 1;
-             u8 padding : 2;
+             u8 roostActive : 1;
+             u8 padding : 1;
 };
 
 extern struct DisableStruct gDisableStructs[MAX_BATTLERS_COUNT];
@@ -541,6 +542,14 @@ extern struct BattleStruct *gBattleStruct;
     gBattleMons[battlerId].type2 = type;    \
 }
 
+#define IS_BATTLER_TYPELESS(battlerId)                     \
+({                                                         \
+    u32 types[2];                                          \
+    types[0] = gBattleMons[battlerId].type1;               \
+    types[1] = gBattleMons[battlerId].type2;               \
+    types[0] == TYPE_MYSTERY && types[1] == TYPE_MYSTERY;  \
+})
+
 #define GET_STAT_BUFF_ID(n)((n & 0xF))              // first four bits 0x1, 0x2, 0x4, 0x8
 #define GET_STAT_BUFF_VALUE2(n)((n & 0xF0))
 #define GET_STAT_BUFF_VALUE(n)(((n >> 4) & 7))      // 0x10, 0x20, 0x40
@@ -580,6 +589,7 @@ struct BattleScripting
     u8 levelUpHP;
     u8 savedBattler;
     s32 savedData;
+    u8 overrideBerryRequirements;
 };
 
 struct BattleSpriteInfo
