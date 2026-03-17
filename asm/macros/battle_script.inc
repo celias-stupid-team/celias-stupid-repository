@@ -1782,6 +1782,10 @@
 	callnative BS_SetTechnoBlastType
 	.endm
 
+	.macro setrevelationdancetype
+	callnative BS_SetRevelationDanceType
+	.endm
+
 	.macro wturnsaveoriginalbattledata
 	callnative BS_WTurnSaveOriginalBattleData
 	.endm

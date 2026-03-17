@@ -7485,7 +7485,17 @@ static void Cmd_tryhealhalfhealth(void)
     if (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
         gBattlescriptCurrInstr = failPtr;
     else
+    {
+        if (gCurrentMove == MOVE_ROOST)
+        {
+            gDisableStructs[gBattlerAttacker].roostActive = TRUE;
+            if (gBattleMons[gBattlerAttacker].type1 == TYPE_FLYING)
+                gBattleMons[gBattlerAttacker].type1 = TYPE_MYSTERY;
+            if (gBattleMons[gBattlerAttacker].type2 == TYPE_FLYING)
+                gBattleMons[gBattlerAttacker].type2 = TYPE_MYSTERY;
+        }
         gBattlescriptCurrInstr += 6;
+    }
 }
 
 static void Cmd_trymirrormove(void)
@@ -12544,6 +12554,28 @@ void BS_SetTechnoBlastType(void)
         moveType = TYPE_ELECTRIC;
     else if (itemId == ITEM_CHILL_DRIVE)
         moveType = TYPE_ICE;
+
+    gBattleStruct->dynamicMoveType = moveType;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetRevelationDanceType(void)
+{
+    NATIVE_ARGS();
+
+    u16 moveType;
+    u16 type1 = gBattleMons[gBattlerAttacker].type1;
+    u16 type2 = gBattleMons[gBattlerAttacker].type2;
+
+    if (type1 != TYPE_MYSTERY && !(gDisableStructs[gBattlerAttacker].roostActive && type1 == TYPE_FLYING))
+        moveType = type1;
+    else if (type2 != TYPE_MYSTERY && !(gDisableStructs[gBattlerAttacker].roostActive && type2 == TYPE_FLYING))
+        moveType = type2;
+    else if (gDisableStructs[gBattlerAttacker].roostActive) // always a mono flying type!
+        moveType = TYPE_NORMAL;
+    else
+        moveType = TYPE_MYSTERY;
 
     gBattleStruct->dynamicMoveType = moveType;
 

@@ -289,6 +289,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTeatime		         @ EFFECT_TEATIME
 	.4byte BattleScript_EffectBurnBerry              @ EFFECT_BURN_BERRY
 	.4byte BattleScript_EffectBestow                 @ EFFECT_BESTOW
+	.4byte BattleScript_EffectRevelationDance        @ EFFECT_REVELATION_DANCE
 
 BattleScript_End2::
 	end2
@@ -354,6 +355,7 @@ BattleScript_HitFromAtkAnimation_2::
 	waitmessage B_WAIT_TIME_LONG
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
+	jumpifmove MOVE_REVELATION_DANCE, BattleScript_RevelationDanceString
 	seteffectwithchance
 	tryfaintmon BS_TARGET
 	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
@@ -5945,4 +5947,14 @@ BattleScript_EffectBestow::
 	waitanimation
 	printstring STRINGID_BESTOWITEMGIVING
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRevelationDance::
+	setrevelationdancetype
+	goto BattleScript_EffectHit
+
+BattleScript_RevelationDanceString::
+	printstring STRINGID_REVELATIONDANCEMATCHEDTYPE
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd

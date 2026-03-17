@@ -11196,6 +11196,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
     },
+
     [SPECIES_DEOXYS] =
     {
         .baseHP = 50,
@@ -11225,6 +11226,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
     },
+    
     [SPECIES_CHIMECHO] =
     {
         .baseHP = 65,

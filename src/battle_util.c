@@ -508,6 +508,7 @@ enum
     ENDTURN_SAFEGUARD,
     ENDTURN_WISH,
     ENDTURN_DOUBLE_DIP,
+    ENDTURN_ROOST,
     ENDTURN_RAIN,
     ENDTURN_SANDSTORM,
     ENDTURN_SUN,
@@ -699,6 +700,21 @@ u8 DoFieldEndTurnEffects(void)
                 gBattleStruct->turnCountersTracker++;
                 gBattleStruct->turnSideTracker = 0;
             }
+            break;
+        case ENDTURN_ROOST:
+            for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
+            {
+                if (gDisableStructs[gActiveBattler].roostActive)
+                {
+                    gDisableStructs[gActiveBattler].roostActive = FALSE;
+                    if (gBattleMons[gActiveBattler].type1 == TYPE_MYSTERY)
+                        gBattleMons[gActiveBattler].type1 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[0];
+                    if (gBattleMons[gActiveBattler].type2 == TYPE_MYSTERY)
+                        gBattleMons[gActiveBattler].type2 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[1];
+                }
+            }
+            gBattleStruct->turnCountersTracker++;
+            gBattleStruct->turnSideTracker = 0;
             break;
         case ENDTURN_RAIN:
             if (gBattleWeather & B_WEATHER_RAIN)

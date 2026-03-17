@@ -13587,15 +13587,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_REVELATION_DANCE] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_ICE,
+        .effect = EFFECT_REVELATION_DANCE,
+        .power = 90,
+        .type = TYPE_NORMAL,
         .accuracy = 100,
-        .pp = 35,
-        .secondaryEffectChance = 10,
+        .pp = 15,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
         .danceMove = TRUE,
     },
 
