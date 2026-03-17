@@ -13067,3 +13067,6 @@ extern const u32 gItemIconPalette_ScopeCreep[];
 
 extern const u32 gItemIcon_AlienProof[];
 extern const u32 gItemIconPalette_AlienProof[];
+
+extern const u32 gItemIcon_Quarter[];
+extern const u32 gItemIconPalette_Quarter[];

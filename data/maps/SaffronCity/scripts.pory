@@ -390,6 +390,9 @@ script SaffronCity_TheLeekMan {
 script TheLeek_ProofOfAliens {
 	
 	if(var(VAR_TRADING_QUEST_PHASE) == 3) {
+		if(checkitem(ITEM_ALIEN_PROOF)) {
+			removeitem(ITEM_ALIEN_PROOF)
+		}
 		msgbox(
 		"Oh! Oh! Oh!\n"
 		"That's it!\l"
@@ -400,14 +403,18 @@ script TheLeek_ProofOfAliens {
 
 		"Here, take this.\n"
 		"Full market rate!", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		giveitem_msg("{PLAYER} was awarded\n25 CENTS!", ITEM_QUARTER)
+		waitfanfare
+		textcolor(NPC_TEXT_COLOR_BLUE)
 
 		msgbox(
 		"What?\n"
 		"I said I'd give full market rate.\p"
 
 		"I never promised that we'd pay\n"
-		"you WELL.\l"
-		"Ha ha!", MSGBOX_DEFAULT)
+		"you a living wage!\l"
+		"Ha!", MSGBOX_DEFAULT)
 		setvar(VAR_TRADING_QUEST_PHASE, 4)
 		release
 		end
