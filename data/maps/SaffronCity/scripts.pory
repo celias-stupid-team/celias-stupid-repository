@@ -599,11 +599,7 @@ script SaffronCity_TrainSign {
 		msgbox(
 		"A particularly un-noteworthy\n"
 		"patch of tiles.\l"
-		"There is nothing here.", MSGBOX_DEFAULT)
-		if(!flag(FLAG_SAFFRON_NOTHING)) {
-			finditem(ITEM_NOTHING)
-			setflag(FLAG_SAFFRON_NOTHING)
-		}
+		"There isn't anything here.", MSGBOX_DEFAULT)
 		release
 	}
 	msgbox(
