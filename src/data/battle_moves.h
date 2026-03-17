@@ -9798,10 +9798,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_SUNNY_DAYCARE] =
     {
-        .effect = EFFECT_SUNNY_DAY,
-        .power = 0,
+        .effect = EFFECT_TAILSLAP,
+        .power = 10,
         .type = TYPE_WATER,
-        .accuracy = 0,
+        .accuracy = 95,
         .pp = 35,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -11171,7 +11171,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CAFEINT_ATTACK] =
     {
-        .effect = EFFECT_EXPLOSION,
+        .effect = EFFECT_HIT,
         .power = 250,
         .type = TYPE_DARK,
         .accuracy = 100,

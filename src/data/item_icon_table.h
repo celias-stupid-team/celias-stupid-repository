@@ -497,5 +497,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_MAP]      =  {gItemIcon_MAP, gItemIconPalette_MAP},
     [ITEM_STAIR_ORB]      =  {gItemIcon_STAIRORB, gItemIconPalette_STAIRORB},
     [ITEM_SCOPE_CREEP]      =  {gItemIcon_ScopeCreep, gItemIconPalette_ScopeCreep},
+    [ITEM_ALIEN_PROOF]      =  {gItemIcon_AlienProof, gItemIconPalette_AlienProof},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

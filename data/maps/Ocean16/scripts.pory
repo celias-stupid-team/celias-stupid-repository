@@ -91,12 +91,12 @@ script Desert_AlienInDisguise {
 		"Thank you, child.\p"
 
 		"You've shown me who I truly am.\n"
-		"And so, I'll leave you with a gift:\l"
-		"A sub-prime mortgage!", MSGBOX_DEFAULT)
+		"And so, I'll leave you with the gift\l"
+		"of knowledge!", MSGBOX_DEFAULT)
 		
 		closemessage
 		removeitem(ITEM_TM13)
-		giveitem_msg("{PLAYER} got a\nHOUSE VOUCHER!", ITEM_HOUSEVOUCHER)
+		giveitem_msg("{PLAYER} obtained\nUNDENIABLE PROOF OF ALIENS!", ITEM_ALIEN_PROOF)
 		waitfanfare
 		msgbox(
 		"See ya later!\n"

@@ -486,7 +486,7 @@
 #define FLAG_GOT_SHINY_PSYDUCK                 0x1B3
 #define FLAG_NO_SHINY_LOCK                 0x1B4
 #define FLAG_SHINY_KENYA                        0x1B5
-#define FLAG_0x1B6                   0x1B6
+#define FLAG_TALKED_TO_THE_LEEK                   0x1B6
 #define FLAG_0x1B7                  0x1B7
 #define FLAG_0x1B8                  0x1B8
 #define FLAG_HIDE_FUSHCIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9

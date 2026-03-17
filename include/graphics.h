@@ -13064,3 +13064,6 @@ extern const u32 gTrainerPalette_Eusine[];
 
 extern const u32 gItemIcon_ScopeCreep[];
 extern const u32 gItemIconPalette_ScopeCreep[];
+
+extern const u32 gItemIcon_AlienProof[];
+extern const u32 gItemIconPalette_AlienProof[];

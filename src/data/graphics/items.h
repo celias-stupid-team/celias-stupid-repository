@@ -975,3 +975,6 @@ const u32 gItemIconPalette_STAIRORB[] = INCBIN_U32("graphics/items/icon_palettes
 
 const u32 gItemIcon_ScopeCreep[] = INCBIN_U32("graphics/items/icons/scope_creep.4bpp.lz");
 const u32 gItemIconPalette_ScopeCreep[] = INCBIN_U32("graphics/items/icon_palettes/scope_creep.gbapal.lz");
+
+const u32 gItemIcon_AlienProof[] = INCBIN_U32("graphics/items/icons/alien_proof.4bpp.lz");
+const u32 gItemIconPalette_AlienProof[] = INCBIN_U32("graphics/items/icon_palettes/alien_proof.gbapal.lz");

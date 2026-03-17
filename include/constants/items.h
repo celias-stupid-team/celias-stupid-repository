@@ -551,7 +551,8 @@
 #define ITEM_SHOCK_DRIVE 469
 #define ITEM_CHILL_DRIVE 470
 #define ITEM_SCOPE_CREEP 471
-#define ITEMS_COUNT 472
+#define ITEM_ALIEN_PROOF 472
+#define ITEMS_COUNT 473
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
