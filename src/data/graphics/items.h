@@ -972,3 +972,12 @@ const u32 gItemIconPalette_MAP[] = INCBIN_U32("graphics/items/icon_palettes/map.
 
 const u32 gItemIcon_STAIRORB[] = INCBIN_U32("graphics/items/icons/stair_orb.4bpp.lz");
 const u32 gItemIconPalette_STAIRORB[] = INCBIN_U32("graphics/items/icon_palettes/stair_orb.gbapal.lz");
+
+const u32 gItemIcon_ScopeCreep[] = INCBIN_U32("graphics/items/icons/scope_creep.4bpp.lz");
+const u32 gItemIconPalette_ScopeCreep[] = INCBIN_U32("graphics/items/icon_palettes/scope_creep.gbapal.lz");
+
+const u32 gItemIcon_AlienProof[] = INCBIN_U32("graphics/items/icons/alien_proof.4bpp.lz");
+const u32 gItemIconPalette_AlienProof[] = INCBIN_U32("graphics/items/icon_palettes/alien_proof.gbapal.lz");
+
+const u32 gItemIcon_Quarter[] = INCBIN_U32("graphics/items/icons/quarter.4bpp.lz");
+const u32 gItemIconPalette_Quarter[] = INCBIN_U32("graphics/items/icon_palettes/quarter.gbapal.lz");

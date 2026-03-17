@@ -151,7 +151,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "graphics_id": "OBJ_EVENT_GFX_GOURL",
       "x": 58,
       "y": 23,
       "elevation": 0,

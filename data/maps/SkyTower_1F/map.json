@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_SKY_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_INDOOR",
+  "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
       "x": 13,
-      "y": 55,
+      "y": 60,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -59,25 +59,25 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MEOWTH",
+      "graphics_id": "OBJ_EVENT_GFX_MACHOP",
       "x": 27,
-      "y": 39,
+      "y": 41,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SkyTower_Meowth",
+      "script": "SkyTower_Machop",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUBONE",
-      "x": 28,
-      "y": 39,
+      "x": 30,
+      "y": 36,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -87,16 +87,16 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_NIDORAN_M",
+      "graphics_id": "OBJ_EVENT_GFX_NIDORINO",
       "x": 27,
-      "y": 41,
+      "y": 40,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SkyTower_Nidorino",
       "flag": "0"
     },
     {
@@ -115,16 +115,16 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MACHOP",
+      "graphics_id": "OBJ_EVENT_GFX_MEOWTH",
       "x": 27,
-      "y": 40,
+      "y": 39,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SkyTower_Machop",
+      "script": "SkyTower_Meowth",
       "flag": "0"
     },
     {
@@ -144,10 +144,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 29,
-      "y": 44,
+      "x": 35,
+      "y": 64,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -156,6 +156,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_SKY_TOWER_1F_KECLEON",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_KECLEON",
       "x": 11,
@@ -244,10 +245,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OMANYTE",
-      "x": 15,
-      "y": 12,
+      "x": 18,
+      "y": 13,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -258,16 +259,118 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BILL",
-      "x": 40,
-      "y": 12,
+      "x": 28,
+      "y": 1,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_LEFT_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SkyTower_Bill",
       "flag": "FLAG_SKY_TOWER_BILL"
+    },
+    {
+      "local_id": "LOCALID_SKY_TOWER_CHATOT",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CHATOT",
+      "x": 22,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_Chatot",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WIGGLYTUFF",
+      "x": 20,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_Wigglytuff",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_DEAD_BILL",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DEAD_BILL",
+      "x": 17,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_DeadBill",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SPEAROW",
+      "x": 22,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_CuboneAgain",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_SKY_TOWER_TRAP_FINDER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_TORCHIC",
+      "x": 33,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_TrapRoomMapper",
+      "flag": "FLAG_TEMP_B"
+    },
+    {
+      "local_id": "LOCALID_SKY_TOWER_ITEMIZER_ITEM",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 33,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_ItemizerItem",
+      "flag": "FLAG_TEMP_A"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_NIDORAN_F",
+      "x": 28,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_Nidorina",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -281,12 +384,166 @@
     {
       "warp_id": "WARPID_SKY_TOWER_INSIDE",
       "x": 28,
-      "y": 58,
+      "y": 57,
       "elevation": 0,
       "dest_map": "MAP_GREAT_BAY_NORTH",
       "dest_warp_id": "WARPID_SKY_TOWER_OUTSIDE"
+    },
+    {
+      "x": 49,
+      "y": 55,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_1F",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 5,
+      "y": 54,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_1F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 11,
+      "y": 54,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_2F",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 8,
+      "y": 53,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_1F",
+      "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_Trap1"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_1F_WarpTrap"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_1F_HboxTrap"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_ChuckTrap"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_ChuckTrap"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_ChuckTrap2"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_BombTrap1"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_BombTrap1"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_Itemizer"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_PPTrap"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_ChuckTrap"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "SkyTower_ChuckTrap"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SkyTower_TrapsSign"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 43,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SkyTower_PersonalityQuiz"
+    }
+  ]
 }

@@ -691,9 +691,7 @@ script ViridianCity_OnTransition {
 	call_if_ge(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2, ViridianCity_EventScript_SetOldManNormal)
 	call_if_eq(VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR, 0, ViridianCity_EventScript_TryUnlockGym)
 	call(SetPlayerPokedexValues)
-	if(flag(FLAG_BADGE02_GET) && !flag(FLAG_BADGE08_GET)) {
-		setflag(FLAG_HIDE_RATICATE_TRADE_GUY)
-	}
+	clearflag(FLAG_HIDE_RATICATE_TRADE_GUY)
 	
 }
 
@@ -791,7 +789,8 @@ script ViridianCity_TradeKid {
 	copyvar(VAR_0x8005, VAR_0x800A)
 	specialvar(VAR_RESULT, GetTradeSpecies)
 	copyvar(VAR_0x800B, VAR_RESULT)
-	goto_if_ne(VAR_RESULT, VAR_0x8009, CinnabarIsland_PokemonLab_Lounge_EventScript_NormaNotRequestedMon)
+	
+	goto_if_ne(VAR_0x800B, VAR_0x8009, ViridianCity_NotPokemon)
 	copyvar(VAR_0x8004, VAR_0x8008)
 	copyvar(VAR_0x8005, VAR_0x800A)
 	special(CreateInGameTradePokemon)
@@ -802,6 +801,27 @@ script ViridianCity_TradeKid {
 	release
 	end
 
+}
+
+script ViridianCity_NotPokemon {
+	callnative(IsNicknameMewtwo)
+	if(var(VAR_RESULT)) { //If the mon's nickname is Mewtwo
+		bufferspeciesname(STR_VAR_1, VAR_0x8014)
+		msgbox(
+		"Uhhh, that's not a MEWTWO.\n"
+		"{PAUSE 30}That's a {STR_VAR_1} you named MEWTWO.\p"
+
+		"Please try harder next time.\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"…This is no MEWTWO.\p"
+
+		"If you get one, trade it with me.\n"
+		"", MSGBOX_DEFAULT)
+	}
+	release
+	end
 }
 
 

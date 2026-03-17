@@ -86,7 +86,7 @@ gCryTable::
 	cry Cry_Shellder
 	cry Cry_Slowbro
 	cry Cry_Mimikyu
-	cry Cry_Plug_Oink
+	cry Cry_Woobat
 	cry Cry_Eevee
 	cry Cry_SOLACEON
 	cry Cry_Sylveon
@@ -526,7 +526,7 @@ gCryTable::
 	cry Cry_Roggenrola
 	cry Cry_Boldore
 	cry Cry_Gigalith
-	cry Cry_Woobat
+	cry Cry_Plug_Oink
 	cry Cry_Swoobat
 	cry Cry_Drilbur
 	cry Cry_Excadrill
@@ -1350,7 +1350,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Shellder
 	cry_reverse Cry_Slowbro
 	cry_reverse Cry_Mimikyu
-	cry_reverse Cry_Plug_Oink
+	cry_reverse Cry_Woobat
 	cry_reverse Cry_Eevee
 	cry_reverse Cry_SOLACEON
 	cry_reverse Cry_Sylveon
@@ -1790,7 +1790,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Roggenrola
 	cry_reverse Cry_Boldore
 	cry_reverse Cry_Gigalith
-	cry_reverse Cry_Woobat
+	cry_reverse Cry_Plug_Oink
 	cry_reverse Cry_Swoobat
 	cry_reverse Cry_Drilbur
 	cry_reverse Cry_Excadrill

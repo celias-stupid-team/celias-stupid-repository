@@ -600,5 +600,6 @@ script Route22_CountCandies {
 	setflag(FLAG_ROUTE_24_CANDY)
 	setflag(FLAG_ROUTE_25_CANDY)
 	setflag(FLAG_VIRIDIAN_FOREST_CANDY)
+	clearflag(FLAG_TEMP_1)
 	return
 }

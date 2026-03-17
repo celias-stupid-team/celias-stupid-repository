@@ -35,7 +35,7 @@ script ViridianGym_Falkner {
     lock
     textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
-	"SILVER: So.\n"
+	"???: So.\n"
 	"You've come all this way."
 
     , MSGBOX_DEFAULT)

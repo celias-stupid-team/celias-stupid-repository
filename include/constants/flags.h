@@ -478,7 +478,7 @@
 #define FLAG_GOT_TREASURE_MAP                    0x1AB
 #define FLAG_SAFFRON_GYM_SHORTCUT                          0x1AC
 #define FLAG_SAFFRON_CHECKED_MONKEY_WINDOW                     0x1AD
-#define FLAG_0x1AE                          0x1AE
+#define FLAG_HIDE_SCOPE_CREEP                          0x1AE
 #define FLAG_0x1AF                    0x1AF
 #define FLAG_GOT_TM50                          0x1B0
 #define FLAG_SOFT_SAND_GIRL                   0x1B1
@@ -486,7 +486,7 @@
 #define FLAG_GOT_SHINY_PSYDUCK                 0x1B3
 #define FLAG_NO_SHINY_LOCK                 0x1B4
 #define FLAG_SHINY_KENYA                        0x1B5
-#define FLAG_0x1B6                   0x1B6
+#define FLAG_TALKED_TO_THE_LEEK                   0x1B6
 #define FLAG_0x1B7                  0x1B7
 #define FLAG_0x1B8                  0x1B8
 #define FLAG_HIDE_FUSHCIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
@@ -1410,7 +1410,7 @@
 #define FLAG_DEFEATED_FINAL_BOSS                                    (SYS_FLAGS + 0x13)
 #define FLAG_SYS_ROTOM_BATTLE_UI                                    (SYS_FLAGS + 0x14)
 #define FLAG_SYS_CARRYING_OPEN_BOX                                                  (SYS_FLAGS + 0x15)
-#define FLAG_0x816                                                  (SYS_FLAGS + 0x16)
+#define FLAG_GOT_FRIEND_AREA                                                  (SYS_FLAGS + 0x16)
 #define FLAG_0x817                                                  (SYS_FLAGS + 0x17)
 #define FLAG_0x818                                                  (SYS_FLAGS + 0x18)
 #define FLAG_0x819                                                  (SYS_FLAGS + 0x19)

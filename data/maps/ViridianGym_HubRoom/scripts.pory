@@ -61,7 +61,11 @@ script ViridianGym_HintManSwitch {
                 "Yes, quite a formidable foe.\p"
 
                 "Say, is it just me or did one of\n"
-                "those BRICK WALLS look familiar?", MSGBOX_DEFAULT)
+                "those BRICK WALLS look funny?\p"
+
+                "Those BRICKS are nowhere else in\n"
+                "the whole region, but nonetheless\l"
+                "they look strangely familiar…", MSGBOX_DEFAULT)
             case 6:
                 msgbox(
                 "There's a milk farm on THIRTY EIGHT\n"
@@ -70,13 +74,26 @@ script ViridianGym_HintManSwitch {
                 "If you get something from them,\n"
                 "there may be a way to churn it.", MSGBOX_DEFAULT)
             case 7:
-                msgbox(
-                "After releasing the ZUBATS, there\n"
-                "was strange writing on the wall.\l"
-                "I wonder what it said…\p"
+                if(flag(FLAG_BOUGHT_A_HOUSE)) {
+                    msgbox(
+                    "Congratulations on becoming a\n"
+                    "homeowner!\l"
+                    "I'm so proud of you!\p"
 
-                "Incidentally, were you ever able\n"
-                "to purchase a HOUSE?", MSGBOX_DEFAULT)
+                    "That ITEM you found there…\n"
+                    "It's a little familiar, no?\p"
+
+                    "Where have you seen that letter\n"
+                    "before?", MSGBOX_DEFAULT)
+                } else {
+                    msgbox(
+                    "On one end, a child was stranded\n"
+                    "in his home.\l"
+                    "At the other, a man selling his.\p"
+
+                    "Connect the dots from start to end,\n"
+                    "and you'll find what you need.", MSGBOX_DEFAULT)
+                }
             case 8:
                 msgbox(
                 "Your RUMOR LOG may be helpful, but\n"

@@ -149,6 +149,15 @@ script SilphCo_DMCADad {
 script EventScript_DoorUnlocked {
 	msgbox(
 	"Why do they let you check the\n"
-	"door when there's no door?", MSGBOX_DEFAULT)
+	"door when it's open?", MSGBOX_DEFAULT)
 	releaseall
+}
+
+script SilphCo_StuckScientist {
+	msgbox(
+	"Oh geez…\n"
+	"I'm stuck.\p"
+
+	"I knew these teleporter warps\n"
+	"were a bad idea…", MSGBOX_NPC)
 }

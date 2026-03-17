@@ -1,8 +1,5 @@
 raw `
-PokemonLeague_ChampionsRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PokemonLeague_ChampionsRoom_OnWarp
-	map_script MAP_SCRIPT_ON_RESUME, PokemonLeague_ChampionsRoom_OnResume
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonLeague_ChampionsRoom_OnFrame
+
 	.byte 0
 
 PokemonLeague_ChampionsRoom_OnResume::
@@ -14,18 +11,12 @@ PokemonLeague_ChampionsRoom_OnResume::
 	end
 
 PokemonLeague_ChampionsRoom_EventScript_CheckStopTriggerSquirtle::
-	goto_if_defeated TRAINER_CHAMPION_FIRST_SQUIRTLE, PokemonLeague_ChampionsRoom_EventScript_StopSceneTrigger
-	goto_if_defeated TRAINER_CHAMPION_REMATCH_SQUIRTLE, PokemonLeague_ChampionsRoom_EventScript_StopSceneTrigger
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_CheckStopTriggerBulbasaur::
-	goto_if_defeated TRAINER_CHAMPION_FIRST_BULBASAUR, PokemonLeague_ChampionsRoom_EventScript_StopSceneTrigger
-	goto_if_defeated TRAINER_CHAMPION_REMATCH_BULBASAUR, PokemonLeague_ChampionsRoom_EventScript_StopSceneTrigger
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_CheckStopTriggerCharmander::
-	goto_if_defeated TRAINER_CHAMPION_FIRST_CHARMANDER, PokemonLeague_ChampionsRoom_EventScript_StopSceneTrigger
-	goto_if_defeated TRAINER_CHAMPION_REMATCH_CHARMANDER, PokemonLeague_ChampionsRoom_EventScript_StopSceneTrigger
 	return
 
 PokemonLeague_ChampionsRoom_EventScript_StopSceneTrigger::
@@ -36,9 +27,7 @@ PokemonLeague_ChampionsRoom_OnWarp::
 	map_script_2 VAR_TEMP_1, 0, PokemonLeague_ChampionsRoom_EventScript_TurnPlayerNorth
 	.2byte 0
 
-PokemonLeague_ChampionsRoom_EventScript_TurnPlayerNorth::
-	turnobject LOCALID_PLAYER, DIR_NORTH
-	end
+
 
 PokemonLeague_ChampionsRoom_OnFrame::
 	map_script_2 VAR_TEMP_1, 0, PokemonLeague_ChampionsRoom_EventScript_EnterRoom
@@ -175,10 +164,28 @@ PokemonLeague_ChampionsRoom_Movement_RivalWatchOakEnter::
 	walk_in_place_faster_left
 	step_end
 `
+
+script PokemonLeague_ChampionsRoom_EventScript_TurnPlayerNorth {
+	turnobject (LOCALID_PLAYER, DIR_NORTH)
+	if(flag(FLAG_DEFEATED_FINAL_BOSS)) {
+		setvar(VAR_TEMP_1, 0)
+	}
+	end
+}
+
+mapscripts PokemonLeague_ChampionsRoom_MapScripts {
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: PokemonLeague_ChampionsRoom_OnWarp
+	MAP_SCRIPT_ON_RESUME: PokemonLeague_ChampionsRoom_OnResume
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_1, 0: PokemonLeague_ChampionsRoom_EventScript_EnterRoom
+	]
+}
+
 script PokemonLeague_ChampionsRoom_EventScript_EnterRoom {
 	lockall
 	textcolor (NPC_TEXT_COLOR_MALE)
 	if(flag(FLAG_DEFEATED_FINAL_BOSS)) {
+		clearflag(FLAG_DEFEATED_FINAL_BOSS)
 		goto(PokemonLeagueChampionsRoom_FinishedBattle)
 	}
 	setflag (FLAG_TEMP_2)

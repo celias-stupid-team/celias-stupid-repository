@@ -247,6 +247,21 @@ script DMCAKoga_BrickWall4 {
             ))
             waitmovement(0)
             setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
+        } else {
+                if(checkpartymon(SPECIES_DITTO_MEW)) {
+                    playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
+                    waitmoncry
+                    msgbox(
+                    "Oh!\n"
+                    "Your DITTO noticed the BRICK WALL!\l"
+                    "Maybe it knows how to help.\p"
+
+                    "Quick, go put DITTO right where\n"
+                    "he belongs!", MSGBOX_DEFAULT)
+                }
+                release
+                end
+
         }
     }
     call(DMCAKoga_StopSnowing)

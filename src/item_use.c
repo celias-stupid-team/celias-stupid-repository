@@ -700,12 +700,6 @@ void FieldUseFunc_RunningScrews(u8 taskId)
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RunningScrews, Task_ReturnToBagFromContextMenu);
 }
 
-void FieldUseFunc_HelixFossil(u8 taskId)
-{
-    
-    
-}
-
 
 
 void FieldUseFunc_Ligma(u8 taskId)

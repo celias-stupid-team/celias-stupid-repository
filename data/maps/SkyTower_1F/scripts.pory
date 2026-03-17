@@ -1,6 +1,13 @@
 mapscripts SkyTower_1F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		setflag(FLAG_TEMP_3)
+		if(!flag(FLAG_SKY_TOWER_GYARADOS_EVOLVED)) {
+			setflag(FLAG_TEMP_3)
+
+		}
+		if(!flag(FLAG_SKY_TOWER_BILL)) {
+			setflag(FLAG_TEMP_5)
+		}
+		setflag(FLAG_TEMP_A)
 	}
 }
 
@@ -22,9 +29,19 @@ script SkyTower_PersonalityQuiz {
 
 
 script SkyTower_Psyduck {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
 	"My innermost nature is being\n"
-	"WEIGHED{PAUSE 30} as PROF. OAK's POKéMON.", MSGBOX_NPC)
+	"WEIGHED{PAUSE 30} as PROF. OAK's POKéMON.", MSGBOX_DEFAULT)
+	
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
 }
 
 
@@ -37,6 +54,21 @@ script SkyTower_Froslass {
 	"Now anyone can look at me!", MSGBOX_DEFAULT)
 	release
 }
+
+
+script SkyTower_CuboneAgain {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	lock
+	msgbox(
+	"Aw, man…\n"
+	"That meanie GYARADOS attacked me!\p"
+
+	"He even stole all the cool ITEMS\n"
+	"I bought at the SHOP…\l"
+	"Waaaa-!", MSGBOX_DEFAULT)
+	release
+}
+
 
 
 script SkyTower_MonsterHouseSign {
@@ -249,7 +281,7 @@ script SkyTower_Machop {
 	"Ooh, I wonder what POKéMON\n"
 	"I'll become!\p"
 
-	"I really hope I'm a MEOWTH!\n"
+	"I really hope I'm a MACHOP!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
@@ -267,7 +299,7 @@ script SkyTower_Meowth {
 	"Ooh, I wonder what POKéMON\n"
 	"I'll become!\p"
 
-	"I really hope I'm a MACHOP!\n"
+	"I really hope I'm a HAXORUS!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
@@ -276,6 +308,46 @@ script SkyTower_Meowth {
 	waitmovement(0)
 	release
 }
+
+
+
+script SkyTower_Nidorino {
+	lock
+	faceplayer
+	playmoncry(SPECIES_NIDORAN_M, CRY_MODE_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Ooh, I wonder what POKéMON\n"
+	"I'll become!\p"
+
+	"I really hope I'm a NIDORINA!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+script SkyTower_Nidorina {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	playmoncry(SPECIES_NIDORAN_F, CRY_MODE_DEFAULT)
+	msgbox(
+	"Ooh, I wonder what POKéMON\n"
+	"I'll become!\p"
+
+	"I really hope I'm a NIDORINO!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
 
 
 script SkyTower_Skitty {
@@ -334,56 +406,154 @@ script SkyTower_PersonalityQuizQuestion {
 
 script SkyTower_KecleonShop1 {
 	lock
+	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"Kecleon Shop 1\n"
-	"", MSGBOX_DEFAULT)
+	"Welcome to the KECLEON SHOP!\n"
+	"I hope I can be of service!", MSGBOX_DEFAULT)
 	release
 }
 
 script SkyTower_1FShop_Orb {
 	lock
+	applymovement(VAR_LAST_TALKED, moves(
+			set_invisible
+	))
+	waitse
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SKY_TOWER_1F_KECLEON, moves(
+		jump_in_place_down
+	))
+	waitmovement(0)
+	waitse
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"MONEY ORB\n"
-	"Price: 500 POKé", MSGBOX_DEFAULT)
+	"That's a MONEY ORB.\n"
+	"It costs 500 POKé.\l"
+	"Is that acceptable to you?", MSGBOX_YESNO) 
+	if(!var(VAR_RESULT)) {
+		playse(SE_BALL_CLICK)
+		applymovement(VAR_LAST_TALKED, moves(
+			set_visible
+		))
+		waitmovement(0)
+		release
+		end
+	}
 	if(var(VAR_SKY_TOWER_POKE) >= 500) {
 		removeobject(VAR_LAST_TALKED)
+		playse(SE_SHOP)
+		waitse
 		msgbox(
-		"You buy the MONEY ORB\p"
-
-		"You use the MONEY ORB\p"
-
-		"You get 501 POKé!\n"
+		"Thank you for your patronage!\n"
 		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+		"{PLAYER} used the\n"
+		"MONEY ORB…", MSGBOX_DEFAULT)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} got 5000 POKé!\n"
+		"Nice!", MSGBOX_DEFAULT)
+
 		setvar(VAR_SKY_TOWER_POKE, 501)
+		release
+		end
 	} elif(var(VAR_SKY_TOWER_POKE) < 500) {
 		msgbox(
-		"You take the MONEY ORB\p"
+		"…Wait a minute!\n"
+		"You don't have enough POKé!\p"
 
-		"Kecleon fucking kills you\n"
-		"", MSGBOX_DEFAULT)
+		"Stop!!\n"
+		"Thief!!!", MSGBOX_DEFAULT)
+		fadescreeninstant(FADE_TO_WHITE)
+		playse(SE_M_EXPLOSION)
+		waitse
 		msgbox(
-		"The money orb is now back\n"
+		"{PLAYER} fucking died!\n"
 		"", MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, moves(
+			set_visible
+		))
+		waitmovement(0)
+		fadescreenswapbuffers(FADE_FROM_WHITE)
+
 	}
 	release
 }
 
 script SkyTower_1FShop_Seed {
 	lock
+	applymovement(VAR_LAST_TALKED, moves(
+			set_invisible
+	))
+	waitse
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SKY_TOWER_1F_KECLEON, moves(
+		jump_in_place_down
+	))
+	waitmovement(0)
+	waitse
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"JOY SEED\n"
-	"Price: 501 POKé", MSGBOX_DEFAULT)
-	if(var(VAR_SKY_TOWER_POKE) > 500) {
-		removeobject(VAR_LAST_TALKED)
-		msgbox(
-		"You buy the JOY SEED\n"
-		"", MSGBOX_DEFAULT)
+	"That's a JOY SEED.\n"
+	"It costs 5000 POKé.\l"
+	"Is that acceptable to you?", MSGBOX_YESNO) 
+	if(!var(VAR_RESULT)) {
+		playse(SE_BALL_CLICK)
+		applymovement(VAR_LAST_TALKED, moves(
+			set_visible
+		))
+		waitmovement(0)
+		release
+		end
 	}
-	
-	release
-	end
+	if(var(VAR_SKY_TOWER_POKE) >= 501) {
+		removeobject(VAR_LAST_TALKED)
+		playse(SE_SHOP)
+		waitse
+		msgbox(
+		"Thank you for your patronage!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} got the JOY SEED!\n"
+		"", MSGBOX_DEFAULT)
+		waitfanfare
+		msgbox(
+		"{PLAYER} put the JOY SEED into\n"
+		"the SEED POUCH.", MSGBOX_DEFAULT)
+		setvar(VAR_SKY_TOWER_POKE, 0)
+		release
+		end
+	} elif(var(VAR_SKY_TOWER_POKE) < 501) {
+		msgbox(
+		"…Wait a minute!\n"
+		"You don't have enough POKé!\p"
 
+		"Stop!!\n"
+		"Thief!!!", MSGBOX_DEFAULT)
+		fadescreeninstant(FADE_TO_WHITE)
+		playse(SE_M_EXPLOSION)
+		waitse
+		msgbox(
+		"{PLAYER} fucking died!\n"
+		"", MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, moves(
+			set_visible
+		))
+		waitmovement(0)
+		fadescreenswapbuffers(FADE_FROM_WHITE)
+
+	}
+	release
 }
 
 
@@ -513,19 +683,33 @@ script SkyTower_Gengar {
 script SkyTower_Gyarados {
 	lock
 	faceplayer
-	msgbox(
-	"Gyarados\n"
-	"", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	if(flag(FLAG_SKY_TOWER_JOY_SEED)) {
 		msgbox(
-		"Gyarados took your\n"
-		"joy seed", MSGBOX_DEFAULT)
+		"GYARADOS: Hey there, kid?\n"
+		"What are you up to?\p"
+
+		"Heh, is that a JOY SEED I see?\n"
+		"I bet you wanna use it.\p"
+
+		"Too bad!\n"
+		"It's mine now!\l"
+		"Gah ha ha!", MSGBOX_DEFAULT)
 		closemessage
 		delay(60)
 		playse(SE_M_SPIT_UP)
 		removeobject(VAR_LAST_TALKED)
 		addobject(LOCALID_SKY_TOWER_MAGIKARP)
+		release
+		end
 	}
+	
+	msgbox(
+	"GYARADOS: Hey there, kid.\n"
+	"You want through here?\p"
+
+	"That's cute. Beat it!\n"
+	"Gah ha ha!", MSGBOX_DEFAULT)
 
 	release
 }
@@ -542,16 +726,26 @@ script SkyTower_ScaredOfGyarados {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	if(flag(FLAG_SKY_TOWER_GYARADOS_EVOLVED)) {
 		msgbox(
-		"Oh boy sashimi time\n"
-		"", MSGBOX_DEFAULT)
+		"Oh, boy!\n"
+		"SASHIMI time!", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"Oh no Gyarados is scary\n"
-		"", MSGBOX_DEFAULT)
+		"Oh, boo…\n"
+		"GYARADOS is blocking the way.\p"
+
+		"He's such a big bully.\n"
+		"I don't think we can fight him…", MSGBOX_DEFAULT)
 
 	}
 	release
 }
+
+script SkyTower_TrapsSign {
+	msgbox(
+	"WARNING!\n"
+	"Watch out for traps!", MSGBOX_NPC)
+}
+
 
 script SkyTower_Omanyte {
 	textcolor(NPC_TEXT_COLOR_BLUE)
@@ -575,6 +769,7 @@ script SkyTower_ShortcutSign {
 
 script SkyTower_Bill {
 	lock
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	removeobject(VAR_LAST_TALKED)
 	playfanfare(MUS_LEVEL_UP)
 	msgbox(
@@ -588,6 +783,409 @@ script SkyTower_Bill {
 	"…Wait, no!\p"
 
 	"{PLAYER} found\n"
-	"500 POKé{PAUSE 20} {ASTERISK}inside a DOLL!{ASTERISK}", MSGBOX_DEFAULT)
+	"5000 POKé{PAUSE 20} {ASTERISK}inside{ASTERISK} a DOLL!", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	playse(SE_PIN)
+	applymovement(LOCALID_SKY_TOWER_CHATOT, moves(
+		face_right
+		emote_exclamation_mark
+		delay_16 * 3
+		walk_faster_right * 6
+		face_up
+	))
+	waitmovement(0)
+	delay(20)
+	applymovement(LOCALID_PLAYER, moves(
+		face_down
+	))
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"CHATOT: Oho, I see you've found\n"
+	"some POKé!\l"
+	"That's the currency of the world.\p"
+
+	"However because this is our GUILD,\n"
+	"we claim 90% of all POKé earned!", MSGBOX_DEFAULT)
+	closemessage
+	playse(SE_M_PAY_DAY)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"CHATOT took 90% of your POKé,\n"
+	"leaving you with only 500…", MSGBOX_DEFAULT)
+	closemessage
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"CHATOT: Anyway, carry on!\n"
+	"You've done excellent work!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_SKY_TOWER_CHATOT, moves(
+		walk_faster_left * 6
+		face_down
+	))
+	addobject(LOCALID_DEAD_BILL)
+	clearflag(FLAG_TEMP_5)
+	waitmovement(0)
+
+
+
 	release
+}
+
+script SkyTower_DeadBill {
+	msgbox(
+	"The GUILD's share of the profits.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script SkyTower_Trap1 {
+	lock
+	
+	setplayermetatile(METATILE_NavelRock_ExplosionTrap, FALSE)
+	call(EventScript_PlayerJumpInPlace)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	waitmovement(0)
+	playse(SE_M_EXPLOSION)
+	fadescreeninstant(FADE_TO_WHITE)
+
+	setmetatile(20, 19, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(21, 19, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(22, 19, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(23, 19, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(24, 19, METATILE_NavelRock_Floor, FALSE)
+
+	
+	setmetatile(20, 20, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(21, 20, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(22, 20, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(23, 20, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(24, 20, METATILE_NavelRock_Floor, FALSE)
+
+	setmetatile(20, 21, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(21, 21, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(22, 21, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(23, 21, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(24, 21, METATILE_NavelRock_Floor, FALSE)
+
+	setmetatile(20, 22, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(21, 22, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(22, 22, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(23, 22, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(24, 22, METATILE_NavelRock_Floor, FALSE)
+	
+	setmetatile(20, 23, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(21, 23, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(22, 23, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(23, 23, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(24, 23, METATILE_NavelRock_Floor, FALSE)
+	setplayermetatile(METATILE_NavelRock_ExplosionTrap, FALSE)
+
+	waitse
+	special(DrawWholeMapView)
+	fadescreenswapbuffers(FADE_FROM_WHITE)
+	release
+}
+
+
+script SkyTower_ChuckTrap {
+	lock
+	
+	setplayermetatile(METATILE_NavelRock_ChucksterTrap, FALSE)
+	call(EventScript_PlayerJumpInPlace)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	waitmovement(0)
+	playse(SE_FALL)
+	applymovement(LOCALID_PLAYER, moves(
+		face_up
+		lock_facing_direction
+		walk_faster_down * 4
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, moves(
+		jump_up
+	))
+	waitmovement(0)
+	goto(SkyTower_BombTrap1)
+}
+
+
+
+
+script SkyTower_BombTrap1 {
+	lock
+	
+	setplayermetatile(METATILE_NavelRock_ExplosionTrap, FALSE)
+	call(EventScript_PlayerJumpInPlace)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	waitmovement(0)
+	playse(SE_M_EXPLOSION)
+	fadescreeninstant(FADE_TO_WHITE)
+
+	setmetatile(32, 26, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(33, 26, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(34, 26, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(34, 25, METATILE_NavelRock_Floor, FALSE)
+	setmetatile(34, 24, METATILE_NavelRock_Floor, FALSE)
+
+
+	setplayermetatile(METATILE_NavelRock_ExplosionTrap, FALSE)
+
+	waitse
+	special(DrawWholeMapView)
+	fadescreenswapbuffers(FADE_FROM_WHITE)
+	release
+}
+
+
+
+
+
+
+
+script SkyTower_ChuckTrap2 {
+	lock
+	
+	setplayermetatile(METATILE_NavelRock_ChucksterTrap, FALSE)
+	call(EventScript_PlayerJumpInPlace)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	waitmovement(0)
+	playse(SE_FALL)
+	applymovement(LOCALID_PLAYER, moves(
+		face_up
+		lock_facing_direction
+		walk_faster_down * 8
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, moves(
+		jump_up
+	))
+	waitmovement(0)
+	delay(30)
+	call(SkyTower_1F_WarpTrap)
+}
+
+
+
+script SkyTower_Itemizer {
+	lock
+	
+	setplayermetatile(METATILE_NavelRock_Itemizer, FALSE)
+	call(EventScript_PlayerJumpInPlace)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	if(!flag(FLAG_TEMP_C)) {
+		playse(SE_M_SPIT_UP)
+		removeobject(LOCALID_SKY_TOWER_TRAP_FINDER)
+		addobject(LOCALID_SKY_TOWER_ITEMIZER_ITEM)
+	} else {
+		msgbox(
+		"The ITEMIZER trap had no effect…\n"
+		"", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script SkyTower_ItemizerItem {
+	setflag(FLAG_TEMP_C)
+	finditem(ITEM_NUGGET)
+}
+
+
+script SkyTower_PPTrap {
+	lock
+	
+	setplayermetatile(METATILE_NavelRock_PPZero, FALSE)
+	call(EventScript_PlayerJumpInPlace)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	if(checkplayergender == MALE) {
+		//callnative(ItemUseOnFieldCB_GenderFluid)
+	} else {
+		msgbox(
+		"The PP ZERO trap had no effect…\n"
+		"", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script SkyTower_TrapRoomMapper {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Hey, watch it!\n"
+	"Be careful where you step!\p"
+
+	"This room's full of tricky and\n"
+	"scary traps.\l"
+	"Some are downright terrifying…\p"
+
+	"Follow my footsteps, okay?\n"
+	"I know for sure they're safe.", MSGBOX_NPC)
+}
+
+
+
+
+script SkyTower_1F_WarpTrap {
+    lock
+    playse(SE_CLICK)
+    call(EventScript_PlayerJumpInPlace)
+    setplayermetatile(METATILE_NavelRock_WarpTrap, FALSE)
+    special(DrawWholeMapView)
+    waitse
+    delay(30)
+    waitmovement(0)
+    playse(SE_WARP_OUT)
+    fadescreen(FADE_TO_WHITE)
+    applymovement(LOCALID_PLAYER, moves(
+        walk_fastest_left * 13
+		walk_fastest_down * 6
+        face_down
+    ))
+    waitmovement(0)
+    waitse
+    playse(SE_WARP_IN)
+    fadescreen(FADE_FROM_WHITE)
+    release
+    end
+
+}
+
+
+script SkyTower_1F_HboxTrap {
+    lock
+    playse(SE_CLICK)
+    call(EventScript_PlayerJumpInPlace)
+    setplayermetatile(METATILE_NavelRock_HboxTrap, FALSE)
+    special(DrawWholeMapView)
+    waitse
+    delay(30)
+    waitmovement(0)
+    playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+	waitmoncry
+	setwildbattle(SPECIES_JIGGLYPUFF, 30)
+	dowildbattle
+    release
+    end
+
+}
+
+
+script EventScript_PlayerJumpInPlace {
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				jump_in_place_up
+			))
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				jump_in_place_down
+			))
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, moves(
+				jump_in_place_right
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, moves(
+				jump_in_place_left
+			))
+
+	}
+	return
+}
+
+
+script SkyTower_Wigglytuff {
+	lock
+	waitse
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	playse(SE_LEDGE)
+	applymovement(VAR_LAST_TALKED, moves(
+		jump_in_place_down
+	))
+	waitmovement(0)
+	waitse
+	playse(SE_LEDGE)
+	applymovement(VAR_LAST_TALKED, moves(
+		jump_in_place_down
+	))
+	waitmovement(0)
+	waitse
+	faceplayer
+	if(flag(FLAG_GOT_FRIEND_AREA)) {
+		msgbox(
+		"WIGGLYTUFF: Hi, new friend!\p"
+
+		"Keep up the good work!\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"Hiya!\n"
+	"I'm WIGGLYTUFF, and I love friends.\p"
+
+	"In fact, I can even show you how\n"
+	"to make new friends!\l"
+	"Yoom… {PAUSE 20}TAH!", MSGBOX_DEFAULT)
+	fadescreeninstant(FADE_TO_WHITE)
+	closemessage
+	fadescreenswapbuffers(FADE_FROM_WHITE)
+	playfanfare(MUS_LEVEL_UP)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"You've unlocked a FRIEND AREA!\n"
+	"", MSGBOX_DEFAULT)
+	waitfanfare
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	closemessage
+	playse(SE_LEDGE)
+	applymovement(VAR_LAST_TALKED, moves(
+		jump_in_place_down
+	))
+	waitmovement(0)
+	faceplayer
+	setflag(FLAG_GOT_FRIEND_AREA)
+	msgbox(
+	"WIGGLYTUFF: Hooray!\n"
+	"Now you can make new friends!\p"
+
+	"When you find a new friend, they'll\n"
+	"wait for you in the FRIEND AREA.\l"
+	"How fun!", MSGBOX_DEFAULT)
+	release
+}
+
+script SkyTower_Chatot {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"CHATOT: Yes, hello.\n"
+	"I'm the GUILDMASTER's assistant.\p"
+
+	"Carry on, then!\n"
+	"We have important work to do!", MSGBOX_DEFAULT)
+	release
+	end
 }

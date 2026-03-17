@@ -273,8 +273,7 @@ script SecretGarden_PCMonitor {
             buffernumberstring(STR_VAR_1, STRING_INCREMENTED_SYSTEM_BOX)
 
             msgbox(
-            "Current Box:\n"
-            "BOX {STR_VAR_1}", MSGBOX_DEFAULT)
+            "BOX {STR_VAR_1} Loaded", MSGBOX_DEFAULT)
             call(SecretGarden_GetCurrentPCPokemon)
             showmonpic(PC_CURRENT_POKEMON, 10, 3)
             //waitbuttonpress
@@ -339,10 +338,10 @@ script SecretGarden_RetrievalChute {
                 end
             }
         } else {
-            if((compare_var_to_var(LOADED_SYSTEM_BOX, PC_CURRENT_BOX) && flag(LEFT_BOX_IN_PC))
-            ||(compare_var_to_var(LOADED_SYSTEM_BOX, LEFT_BOX_NUMBER) && flag(LEFT_BOX_THERE) )
-            ||(compare_var_to_var(LOADED_SYSTEM_BOX, PLAYER_BOX_NUMBER) && flag(PLAYER_BOX_THERE))
-            ||(compare_var_to_var(LOADED_SYSTEM_BOX, CRIMP_BOX_NUMBER) && flag(CRIMP_BOX_THERE))) {
+            if((are_vars_equal(LOADED_SYSTEM_BOX, PC_CURRENT_BOX) && flag(LEFT_BOX_IN_PC))
+            ||(are_vars_equal(LOADED_SYSTEM_BOX, LEFT_BOX_NUMBER) && flag(LEFT_BOX_THERE) )
+            ||(are_vars_equal(LOADED_SYSTEM_BOX, PLAYER_BOX_NUMBER) && flag(PLAYER_BOX_THERE))
+            ||(are_vars_equal(LOADED_SYSTEM_BOX, CRIMP_BOX_NUMBER) && flag(CRIMP_BOX_THERE))) {
 
                 playse(SE_BOO)
                 waitse
@@ -844,7 +843,9 @@ script SecretGarden_BoxCrimper {
 
 script SecretGarden_BoxCrimperControl {
     lock
-	
+	msgbox(
+	"BOX CLOSER\n"
+	"Control Panel", MSGBOX_DEFAULT)
     if(flag(CRIMP_BOX_THERE)) {
         closemessage
         delay(20)

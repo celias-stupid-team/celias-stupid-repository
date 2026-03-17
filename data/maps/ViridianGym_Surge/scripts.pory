@@ -78,21 +78,6 @@ script ViridianGym_SurgeBattle {
 	"I am the lightning japanese person\n"
 	"", MSGBOX_DEFAULT)
     trainerbattle_no_intro(TRAINER_DMCA_SURGE, ViridianGym_SurgeBattle_End)
-    if(checkpartymon(SPECIES_PORYGON_Z) != PARTY_SIZE) {
-        textcolor(NPC_TEXT_COLOR_NEUTRAL)
-        msgbox(
-        "He sends out a DIGIMON, which uses\n"
-        "ADOBE FLASH.\p"
-
-        "ADOBE FLASH will obviously go\n"
-        "through SICK SHADES.\p"
-
-        "You did not have the solution to\n"
-        "the fight.\l"
-        "You will die now.", MSGBOX_DEFAULT)
-        goto(EventScript_FieldWhiteOutNoMoney)
-        end
-    }
     call(ViridianGym_Surge_DrawSecondGateOpen)
     msgbox(
 	"i'm dead\n"

@@ -1458,3 +1458,18 @@ script TwoIsland_LivingSans {
 script TwoIsland_Bookshelf {
 	msgbox(Text_SecretLifeMother3, MSGBOX_SIGN)
 }
+
+
+
+script TwoIsland_Cop {
+	msgbox(
+	"Aww, man…\n"
+	"A runaway DOG just stole my gun.\l"
+	"Again.\p"
+
+	"This is the fifth time this week…\p"
+
+	"I gotta go beat up children to\n"
+	"blow off steam.", MSGBOX_NPC)
+}
+

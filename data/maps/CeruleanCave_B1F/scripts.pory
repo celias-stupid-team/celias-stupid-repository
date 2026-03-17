@@ -16,11 +16,11 @@ CeruleanCave_B1F_EventScript_TryRemoveMewtwo::
 
 CeruleanCave_B1F_OnTransition::
 	setflag FLAG_TEMP_10
-	call_if_unset FLAG_FOUGHT_MEWTWO, CeruleanCave_B1F_EventScript_ShowMewtwo
+	call_if_set FLAG_FOUGHT_MEWTWO, CeruleanCave_B1F_EventScript_ShowMewtwo
 	end
 
 CeruleanCave_B1F_EventScript_ShowMewtwo::
-	clearflag FLAG_TEMP_5
+	clearflag FLAG_TEMP_10
 	return
 
 CeruleanCave_B1F_EventScript_Mewtwo::

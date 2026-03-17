@@ -20,6 +20,17 @@ script SilphCo_RD_Sign {
 
 }
 
+script SilphCo_RD_AssDotMeatGrinder {
+	msgbox(
+	"A large stockpile of discarded\n"
+	"inventions.\l"
+	"You check the to of the list…\p"
+
+	"“TORCHIC BUTT DOT MEAT GRINDER\n"
+	"MINIGAME FOR NUGGETS”", MSGBOX_SIGN)
+
+}
+
 
 script SilphCo_RD_ApplinKid {
 	lock

@@ -590,6 +590,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GTS_AIDE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SMALL_BRICK_WALL;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DITTO_BRICK_WALL;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LASER_SHARK;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WIDE_OAK;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DEAD_BILL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TORCHIC;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_YOSHI;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1181,4 +1185,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SMALL_BRICK_WALL] = &gObjectEventGraphicsInfo_SMALL_BRICK_WALL,
     [OBJ_EVENT_GFX_DITTO_BRICK_WALL] = &gObjectEventGraphicsInfo_DITTO_BRICK_WALL,
     [OBJ_EVENT_GFX_LASER_SHARK] = &gObjectEventGraphicsInfo_LASER_SHARK,
+    [OBJ_EVENT_GFX_WIDE_OAK] = &gObjectEventGraphicsInfo_WIDE_OAK,
+    [OBJ_EVENT_GFX_DEAD_BILL] = &gObjectEventGraphicsInfo_DEAD_BILL,
+    [OBJ_EVENT_GFX_TORCHIC] = &gObjectEventGraphicsInfo_TORCHIC,
+    [OBJ_EVENT_GFX_YOSHI] = &gObjectEventGraphicsInfo_YOSHI,
 };
