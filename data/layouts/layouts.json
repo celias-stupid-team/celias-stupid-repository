@@ -6285,7 +6285,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_SkullRoom",
       "border_filepath": "data/layouts/AetherParadise_SkullRoom/border.bin",
       "blockdata_filepath": "data/layouts/AetherParadise_SkullRoom/map.bin"
     },
