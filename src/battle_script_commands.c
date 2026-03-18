@@ -2431,8 +2431,16 @@ static void Cmd_resultmessage(void)
         case MOVE_RESULT_DOESNT_AFFECT_FOE:
             if (gCurrentMove == MOVE_THORN_WHIP)
                 stringId = STRINGID_PKMNIMMUNETOPOISON;
-            else
-                stringId = STRINGID_ITDOESNTAFFECT;
+            else {
+                    if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    stringId = STRINGID_ITDOESNTAFFECT;
+
+                }
+                
             break;
         case MOVE_RESULT_FOE_HUNG_ON:
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
@@ -2473,6 +2481,11 @@ static void Cmd_resultmessage(void)
                 }
                 gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                 BattleScriptPushCursor();
+                if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                }
                 gBattlescriptCurrInstr = BattleScript_SturdiedMsg;
                 return;
             }

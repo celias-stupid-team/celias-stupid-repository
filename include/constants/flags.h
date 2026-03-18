@@ -538,7 +538,7 @@
 #define FLAG_0x1E7  0x1E7
 #define FLAG_0x1E8  0x1E8
 #define FLAG_0x1E9      0x1E9
-#define FLAG_0x1EA     0x1EA
+#define FLAG_FOUND_RAT_STONE     0x1EA
 #define FLAG_GOT_SHINY_CHANSEY      0x1EB
 #define FLAG_SHINY_GOLDEEN_TRADE    0x1EC
 #define FLAG_FINAL_SHINY            0x1ED

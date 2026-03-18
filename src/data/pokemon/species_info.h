@@ -95,7 +95,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_VENUSAUR] =
     {
-        .baseHP = 80,
+        .baseHP = 40,
         .baseAttack = 82,
         .baseDefense = 83,
         .baseSpeed = 80,
