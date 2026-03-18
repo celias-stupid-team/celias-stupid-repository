@@ -561,13 +561,13 @@ script SkyTower_1FShop_Seed {
 
 script SkyTower_DadStatue {
 	lock
-	faceplayer
+	
 	msgbox(
 	"A fatherly statue stands in the\n"
 	"room.\p"
 
-	"Approaching it, you feel the urge\n"
-	"to take a rest.", MSGBOX_DEFAULT)
+	"Approaching it, you feel overcome\n"
+	"by a restful presence.", MSGBOX_DEFAULT)
 	
 	fadescreenswapbuffers(FADE_TO_BLACK)
 	closemessage
@@ -648,11 +648,15 @@ script SkyTower_FroslassScene {
 	"FROSLASS: Excuse me!\n"
 	"Did you look at me?", MSGBOX_DEFAULT)
 	closemessage
-	fadedefaultbgm
 	delay(30)
+	fadedefaultbgm
+	
 	msgbox(
-	"…Well, whatever.\n"
-	"", MSGBOX_DEFAULT)
+	"… … … …\n"
+	"Well, whatever.\p"
+
+	"This is why I like to live in\n"
+	"the mountaintops.", MSGBOX_DEFAULT)
 	
 	closemessage
 	delay(45)
