@@ -2299,6 +2299,7 @@ static void Cmd_datahpupdate(void)
                     if (oldDmg < 49 && gBattleStruct->damageAccumulated == 49
                       && ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_49_DAMAGE))
                     {
+                        VarSet(VAR_TEMP_4, 1);
                         yamask49DmgTriggered = TRUE;
                         gBattleScripting.battler = gActiveBattler;
                     }

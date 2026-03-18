@@ -4,6 +4,30 @@ mapscripts Ocean16_MapScripts {
 			setflag(FLAG_TEMP_1)
 		}
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_4, 1 {
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox(
+			"Perfect!\n"
+			"That's exactly what I needed!\p"
+
+			"Here's a present for you.\n"
+			"Thanks!", MSGBOX_DEFAULT)
+			if(checkitem(ITEM_JAW_FOSSIL)) {
+				removeitem(ITEM_JAW_FOSSIL)
+			}
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			giveitem_msg("{PLAYER} was given a\nshiny JAW FOSSIL!", ITEM_SHINY_FOSSIL)
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			setvar(VAR_TEMP_4, 0)
+			msgbox(
+			"Now, time to test my hunch…\n"
+			"", MSGBOX_DEFAULT)
+			release
+			end
+			
+		}
+	]
 }
 
 

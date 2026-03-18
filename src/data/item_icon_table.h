@@ -499,5 +499,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SCOPE_CREEP]      =  {gItemIcon_ScopeCreep, gItemIconPalette_ScopeCreep},
     [ITEM_ALIEN_PROOF]      =  {gItemIcon_AlienProof, gItemIconPalette_AlienProof},
     [ITEM_QUARTER]      =  {gItemIcon_Quarter, gItemIconPalette_Quarter},
+    [ITEM_SHINY_FOSSIL]      =  {gItemIcon_ShinyFossil, gItemIconPalette_ShinyFossil},
+    [ITEM_RUSTED_GUN]      =  {gItemIcon_RustedGun, gItemIconPalette_RustedGun},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

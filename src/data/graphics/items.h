@@ -981,3 +981,9 @@ const u32 gItemIconPalette_AlienProof[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_Quarter[] = INCBIN_U32("graphics/items/icons/quarter.4bpp.lz");
 const u32 gItemIconPalette_Quarter[] = INCBIN_U32("graphics/items/icon_palettes/quarter.gbapal.lz");
+
+const u32 gItemIcon_ShinyFossil[] = INCBIN_U32("graphics/items/icons/shiny_fossil.4bpp.lz");
+const u32 gItemIconPalette_ShinyFossil[] = INCBIN_U32("graphics/items/icon_palettes/shiny_fossil.gbapal.lz");
+
+const u32 gItemIcon_RustedGun[] = INCBIN_U32("graphics/items/icons/rusted_gun.4bpp.lz");
+const u32 gItemIconPalette_RustedGun[] = INCBIN_U32("graphics/items/icon_palettes/rusted_gun.gbapal.lz");

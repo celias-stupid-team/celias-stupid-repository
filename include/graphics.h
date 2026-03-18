@@ -13070,3 +13070,9 @@ extern const u32 gItemIconPalette_AlienProof[];
 
 extern const u32 gItemIcon_Quarter[];
 extern const u32 gItemIconPalette_Quarter[];
+
+extern const u32 gItemIcon_ShinyFossil[];
+extern const u32 gItemIconPalette_ShinyFossil[];
+
+extern const u32 gItemIcon_RustedGun[];
+extern const u32 gItemIconPalette_RustedGun[];

@@ -480,6 +480,21 @@ script TwoIsland_Stufful {
 }
 
 script TwoIsland_MartAttendant {
+	if(checkitem(ITEM_QUARTER)) {
+		msgbox(
+		"Hi, there!\n"
+		"Welcome to the DRUGSTORE!\p"
+
+		"Uh, I see you have… 25 cents.\p"
+
+		"Sadly, the smallest unit of cash\n"
+		"we accept is the dollar.\l"
+		"Inflation's a bitch!\p"
+
+		"Maybe you could find a machine\n"
+		"that accepts that instead.", MSGBOX_NPC)
+		end
+	}
 	msgbox(
 	"Hi, there!\n"
 	"Welcome to the DRUGSTORE!\p"
