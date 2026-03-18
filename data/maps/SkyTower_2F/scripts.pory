@@ -97,6 +97,25 @@ script SkyTower_BikeHoleOutside {
 
 
 script SkyTower_TeamTeamHeroes {
+    lock
+    waitse
+    playse(SE_LEDGE)
+    applymovement(LOCALID_SKY_TOWER_SQUIRTLE_1, moves(
+        jump_in_place_down
+    ))
+    waitse
+    playse(SE_LEDGE)
+    applymovement(LOCALID_SKY_TOWER_SQUIRTLE_2, moves(
+        jump_in_place_down
+    ))
+    waitse
+    playse(SE_LEDGE)
+    applymovement(LOCALID_SKY_TOWER_SQUIRTLE_3, moves(
+        jump_in_place_down
+    ))
+    waitse
+    waitmovement(LOCALID_SKY_TOWER_SQUIRTLE_3)
+    delay(20)
     textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"What's up?\n"
@@ -104,7 +123,8 @@ script SkyTower_TeamTeamHeroes {
 
 	"…{PAUSE 20}We wanted to just call ourselves\n"
 	"“TEAM HEROES”, but…\l"
-	"The application form was confusing.", MSGBOX_NPC)
+	"The application form was confusing.", MSGBOX_DEFAULT)
+    release
 }
 
 script SkyTower_BikeHoles {
@@ -147,4 +167,37 @@ script SkyTower_Sentry {
 
 	"No HUMANS are gonna slip past me!\n"
 	"", MSGBOX_NPC)
+}
+
+script SkyTower_2F_ThePit {
+    setlayouttiles(LAYOUT_SKY_TOWER_2F_PIT, 0,0,0,0,63, 51)
+
+    release
+}
+
+
+script SkyTower_2F_KillThePit {
+    setlayouttiles(LAYOUT_SKY_TOWER_2F, 0,0,0,0,63, 51)
+    setmetatile(39, 20, METATILE_NavelRock_PitTrap, FALSE)
+    special(DrawWholeMapView)
+    setvar(VAR_TEMP_4, 1)
+    release
+}
+
+
+script SkyTower_2F_DeadThePit {
+	lock
+	
+	setplayermetatile(METATILE_NavelRock_PitTrap, FALSE)
+	call(EventScript_PlayerJumpInPlace)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	
+		msgbox(
+		"The THE PIT trap had no effect…\n"
+		"", MSGBOX_DEFAULT)
+
+	release
 }
