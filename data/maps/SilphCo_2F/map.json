@@ -219,8 +219,8 @@
       "x": 2,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_SILPH_HOSTAGE_ROOM",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND"
     }
   ],
   "coord_events": [
