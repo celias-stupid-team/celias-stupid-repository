@@ -22456,7 +22456,6 @@ Move_STUPORPOWER:
 	delay 8
 	createsprite gSuperpowerRockSpriteTemplate, ANIM_ATTACKER, 41, 60, 288, 3, 88
 	delay 74
-	
 	createsprite gQuestionMarkSpriteTemplate, ANIM_ATTACKER, 20
 	playsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER
 	delay 54
@@ -22473,7 +22472,6 @@ Move_STUPORPOWER:
 	delay 1
 	end
 
-	
 Move_YEST:
 	playsewithpan SE_M_SNORE, SOUND_PAN_ATTACKER
 	loadspritegfx ANIM_TAG_THUMBS_UP
@@ -22491,7 +22489,6 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	setalpha 12, 8
 	fadetobg BG_AMERICAN_FLAG
 	waitbgfadein
-	
 	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_SKY_UPPERCUT, SOUND_PAN_ATTACKER
 	createsprite gEagleSpriteTemplate, ANIM_TARGET, 2
 	delay 14
@@ -22506,13 +22503,13 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
 	createsprite gAllegianceSpriteTemplate, ANIM_TARGET, 2,   0, 16, 24, 0, 0, 0, 0, 1
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 12, 0, 20, 1
-
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
 	restorebg
 	waitbgfadein
 	blendoff
 	end
+
 Move_PERISH_TONGUE:
 	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_TELEPORT, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 2, 9, 0, 10
 	call SetPsychicBackground
@@ -22520,7 +22517,6 @@ Move_PERISH_TONGUE:
 	createvisualtask AnimTask_PushDownAndShake, 2, ANIM_TARGET,   16, 8, 3, 10, 2
 	createvisualtask AnimTask_PushDownAndShake, 2, ANIM_ATK_PARTNER, 16, 8, 3, 10, 2
 	createvisualtask AnimTask_PushDownAndShake, 2, ANIM_DEF_PARTNER, 16, 8, 3, 10, 2
-
 	waitforvisualfinish
 	call UnsetPsychicBackground
 	waitforvisualfinish

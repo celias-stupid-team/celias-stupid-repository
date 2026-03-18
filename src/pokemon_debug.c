@@ -240,15 +240,15 @@ const u8 gBattleBackgroundNames[][30] =
     [MAP_BATTLE_SCENE_AGATHA]   = _("AGATHA                  "),
     [MAP_BATTLE_SCENE_LANCE]    = _("LANCE                   "),
     [MAP_BATTLE_SCENE_CHAMPION] = _("CHAMPION                "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI] = _("ZAPMOLTICUNO-OHGIA      "),
-    [MAP_BATTLE_SCENE_CHAPTER_3] = _("CHAPTER 3      "),
-    [MAP_BATTLE_SCENE_BLAINE] = _("BLAINE      "),
-    [MAP_BATTLE_SCENE_SPACE] = _("SPACE      "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI_2] = _("ZAPMOLTI 2      "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI_3] = _("ZAPMOLTI 3      "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI_4] = _("ZAPMOLTI 4      "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI_5] = _("ZAPMOLTI 5      "),
-
+    [MAP_BATTLE_SCENE_ZAPMOLTI_1] = _("ZAPMOL 1                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_2] = _("ZAPMOL 2                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_3] = _("ZAPMOL 3                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_4] = _("ZAPMOL 4                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_5] = _("ZAPMOL 5                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_PLATFORMS] = _("ZAPMOL P                "),
+    [MAP_BATTLE_SCENE_CHAPTER_3]  = _("CHAPTER 3               "),
+    [MAP_BATTLE_SCENE_BLAINE]     = _("BLAINE                  "),
+    [MAP_BATTLE_SCENE_SPACE]      = _("SPACE                   "),
 };
 const u8 gBattleBackgroundTerrainNames[][26] =
 {
@@ -735,10 +735,50 @@ static void LoadBattleBg(u8 battleBgType, u8 battleTerrain)
             LZDecompressVram(gBattleTerrainTilemap_Indoor, (void*)(BG_SCREEN_ADDR(26)));
             LoadCompressedPalette(gBattleTerrainPalette_Champion, 0x20, 0x60);
             break;
-        case MAP_BATTLE_SCENE_ZAPMOLTI:
-            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia, (void*)(BG_CHAR_ADDR(2)));
-            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia, (void*)(BG_SCREEN_ADDR(26)));
-            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia, 10 * 16, 5* PLTT_SIZE_4BPP);
+        case MAP_BATTLE_SCENE_ZAPMOLTI_1:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia1, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia1, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia1, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_2:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia2, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia2, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia2, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_3:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia3, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia3, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia3, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_4:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia4, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia4, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia4, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_5:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia5, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia5, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia5, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_PLATFORMS:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia_Platforms, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia_Platforms, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia_Platforms, 0x20, 0x60);
+            break;
+        case MAP_BATTLE_SCENE_CHAPTER_3:
+            LZDecompressVram(gBattleTerrainTiles_Chapter3, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Chapter3, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Chapter3, 0x20, 0x60);
+            break;
+        case MAP_BATTLE_SCENE_BLAINE:
+            LZDecompressVram(gBattleTerrainTiles_Blaine, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Blaine, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Blaine, 0x20, 0x60);
+            break;
+        case MAP_BATTLE_SCENE_SPACE:
+            LZDecompressVram(gBattleTerrainTiles_Space, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Space, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Space, 0x20, 0x60);
             break;
     }
 }
@@ -763,16 +803,14 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
         if (increment)
         {
             if (data->battleTerrain == BATTLE_TERRAIN_PLAIN)
-                data->battleBgType += 1;
+                data->battleBgType = MAP_BATTLE_SCENE_LINK;
             else
                 data->battleTerrain += 1;
         }
         else
         {
             if (data->battleTerrain == BATTLE_TERRAIN_GRASS)
-            {
-                data->battleBgType = MAP_BATTLE_SCENE_ZAPMOLTI;
-            }
+                data->battleBgType = MAP_BATTLE_SCENE_SPACE;
             else
                 data->battleTerrain -= 1;
         }
@@ -789,7 +827,7 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
             data->battleTerrain = BATTLE_TERRAIN_PLAIN;
         }
     }
-    else if (data->battleBgType == MAP_BATTLE_SCENE_ZAPMOLTI)
+    else if (data->battleBgType == MAP_BATTLE_SCENE_SPACE)
     {
         if (increment)
         {
@@ -797,17 +835,9 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
             data->battleTerrain = BATTLE_TERRAIN_GRASS;
         }
         else
-            data->battleBgType -= 1;
-    }
-    else if (data->battleBgType == MAP_BATTLE_SCENE_GYM || data->battleBgType == MAP_BATTLE_SCENE_LEADER)
-    {
-        if (increment)
         {
-            data->battleBgType = MAP_BATTLE_SCENE_NORMAL;
-            data->battleTerrain = BATTLE_TERRAIN_GRASS;
-        }
-        else
             data->battleBgType -= 1;
+        }
     }
     else
     {

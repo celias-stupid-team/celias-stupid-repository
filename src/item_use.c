@@ -706,6 +706,7 @@ void FieldUseFunc_Ligma(u8 taskId)
     //RemoveUsedItem();
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_Ligma, Task_ReturnToBagFromContextMenu);
 }
+
 static void ItemUseOnFieldCB_Unlock(u8 taskId)
 {
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
@@ -721,8 +722,6 @@ void Task_ReturnToFieldFromBagMenu(u8 taskId)
     Bag_BeginCloseWin0Animation();
     ItemMenu_StartFadeToExitCallback(taskId);
 }
-
-
 
 void FieldUseFunc_CopycatTM(u8 taskId)
 {
@@ -743,7 +742,6 @@ void FieldUseFunc_CeliaMessage(u8 taskId)
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_CeliaMessage, Task_ReturnToFieldFromBagMenu);
 }
 
-
 void FieldUseFunc_Ruby(u8 taskId)
 {
     if(VarGet(VAR_READY_FOR_TORNADO) == 1) {
@@ -754,8 +752,6 @@ void FieldUseFunc_Ruby(u8 taskId)
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
     }
 }
-
-
 
 void FieldUseFunc_Cigarette(u8 taskId)
 {
@@ -785,8 +781,6 @@ static void Task_UseMaxRepel(u8 taskId) {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelWorks, Task_ReturnToBagFromContextMenu);
     }
-
-
 }
 
 static void RemoveUsedItem(void)

@@ -575,13 +575,45 @@ const struct BattleBackground sBattleTerrainTable[] = {
         .entryTilemap = sBattleTerrainAnimTilemap_Building,
         .palette = gBattleTerrainPalette_Champion
     },
-    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA] =
+    [BATTLE_TERRAIN_ZAPMOLTI_1] =
     {
-        .tileset = gBattleTerrainTiles_Zapmolcunoohgia,
-        .tilemap = gBattleTerrainTilemap_Zapmolcunoohgia,
+        .tileset = gBattleTerrainTiles_Zapmolcunoohgia1,
+        .tilemap = gBattleTerrainTilemap_Zapmolcunoohgia1,
         .entryTileset = sBattleTerrainAnimTiles_Building,
         .entryTilemap = sBattleTerrainAnimTilemap_Building,
-        .palette = gBattleTerrainPalette_Zapmolcunoohgia
+        .palette = gBattleTerrainPalette_Zapmolcunoohgia1
+    },
+    [BATTLE_TERRAIN_ZAPMOLTI_2] =
+    {
+        .tileset = gBattleTerrainTiles_Zapmolcunoohgia2,
+        .tilemap = gBattleTerrainTilemap_Zapmolcunoohgia2,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Zapmolcunoohgia2
+    },
+    [BATTLE_TERRAIN_ZAPMOLTI_3] =
+    {
+        .tileset = gBattleTerrainTiles_Zapmolcunoohgia3,
+        .tilemap = gBattleTerrainTilemap_Zapmolcunoohgia3,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Zapmolcunoohgia3
+    },
+    [BATTLE_TERRAIN_ZAPMOLTI_4] =
+    {
+        .tileset = gBattleTerrainTiles_Zapmolcunoohgia4,
+        .tilemap = gBattleTerrainTilemap_Zapmolcunoohgia4,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Zapmolcunoohgia4
+    },
+    [BATTLE_TERRAIN_ZAPMOLTI_5] =
+    {
+        .tileset = gBattleTerrainTiles_Zapmolcunoohgia5,
+        .tilemap = gBattleTerrainTilemap_Zapmolcunoohgia5,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Zapmolcunoohgia5
     },
     [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS] =
     {
@@ -590,7 +622,31 @@ const struct BattleBackground sBattleTerrainTable[] = {
         .entryTileset = sBattleTerrainAnimTiles_Building,
         .entryTilemap = sBattleTerrainAnimTilemap_Building,
         .palette = gBattleTerrainPalette_Zapmolcunoohgia_Platforms
-    }
+    },
+    [BATTLE_TERRAIN_CHAPTER_3] =
+    {
+        .tileset = gBattleTerrainTiles_Chapter3,
+        .tilemap = gBattleTerrainTilemap_Chapter3,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Chapter3
+    },
+    [BATTLE_TERRAIN_BLAINE] =
+    {
+        .tileset = gBattleTerrainTiles_Blaine,
+        .tilemap = gBattleTerrainTilemap_Blaine,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Blaine
+    },
+    [BATTLE_TERRAIN_SPACE] =
+    {
+        .tileset = gBattleTerrainTiles_Space,
+        .tilemap = gBattleTerrainTilemap_Space,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Space
+    },
 };
 
 static const struct {
@@ -604,14 +660,7 @@ static const struct {
     {MAP_BATTLE_SCENE_BRUNO,    BATTLE_TERRAIN_BRUNO},
     {MAP_BATTLE_SCENE_AGATHA,   BATTLE_TERRAIN_AGATHA},
     {MAP_BATTLE_SCENE_LANCE,    BATTLE_TERRAIN_LANCE},
-    {MAP_BATTLE_SCENE_LINK,     BATTLE_TERRAIN_LINK},
-    {MAP_BATTLE_SCENE_CHAPTER_3,     BATTLE_TERRAIN_LINK},
-    {MAP_BATTLE_SCENE_BLAINE,     BATTLE_TERRAIN_LINK},
-    {MAP_BATTLE_SCENE_SPACE,     BATTLE_TERRAIN_LINK},
-    {MAP_BATTLE_SCENE_ZAPMOLTI_2,     BATTLE_TERRAIN_LINK},
-    {MAP_BATTLE_SCENE_ZAPMOLTI_3,     BATTLE_TERRAIN_LINK},
-    {MAP_BATTLE_SCENE_ZAPMOLTI_4,     BATTLE_TERRAIN_LINK},
-    {MAP_BATTLE_SCENE_ZAPMOLTI_5,     BATTLE_TERRAIN_LINK}
+    {MAP_BATTLE_SCENE_LINK,     BATTLE_TERRAIN_LINK}
 };
 
 // Unused
@@ -647,12 +696,12 @@ static void LoadBattleTerrainGfx(u16 terrain)
     if (terrain >= NELEMS(sBattleTerrainTable))
         terrain = BATTLE_TERRAIN_PLAIN;
     // Copy to bg3
-    if (terrain == BATTLE_TERRAIN_ZAPMOLCUNOOHGIA)
+    if (terrain >= BATTLE_TERRAIN_ZAPMOLTI_1 && terrain <= BATTLE_TERRAIN_ZAPMOLTI_5)
     {
-        LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia, (void*)(BG_CHAR_ADDR(2)));
-        LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia, (void*)(BG_SCREEN_ADDR(26)));
+        LZDecompressVram(sBattleTerrainTable[terrain].tileset, (void*)(BG_CHAR_ADDR(2)));
+        LZDecompressVram(sBattleTerrainTable[terrain].tilemap, (void*)(BG_SCREEN_ADDR(26)));
         // special handling for multiple palettes
-        LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia, 10 * 16, 5* PLTT_SIZE_4BPP);
+        LoadCompressedPalette(sBattleTerrainTable[terrain].palette, 10 * 16, 5 * PLTT_SIZE_4BPP);
     }
     else
     {
@@ -1033,7 +1082,7 @@ void DrawBattleEntryBackground(void)
         if (USE_TEST_TERRAIN)
             LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_GRASS);
         else
-            LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_ZAPMOLCUNOOHGIA);
+            LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_ZAPMOLTI_1);
     }
     else
     {
@@ -1087,12 +1136,20 @@ static u8 GetBattleTerrainOverride(void)
             switch (VarGet(VAR_CSR_FINAL_BATTLE_PHASE))
             {
                 case B_FINAL_BATTLE_LUGIA:
+                    gBattleTerrain = BATTLE_TERRAIN_ZAPMOLTI_1;
+                    return BATTLE_TERRAIN_ZAPMOLTI_1;
                 case B_FINAL_BATTLE_ARTICUNO:
+                    gBattleTerrain = BATTLE_TERRAIN_ZAPMOLTI_2;
+                    return BATTLE_TERRAIN_ZAPMOLTI_2;
                 case B_FINAL_BATTLE_HOOH:
+                    gBattleTerrain = BATTLE_TERRAIN_ZAPMOLTI_3;
+                    return BATTLE_TERRAIN_ZAPMOLTI_3;
                 case B_FINAL_BATTLE_ZAPDOS:
+                    gBattleTerrain = BATTLE_TERRAIN_ZAPMOLTI_4;
+                    return BATTLE_TERRAIN_ZAPMOLTI_4;
                 case B_FINAL_BATTLE_MOLTRES:
-                    gBattleTerrain = BATTLE_TERRAIN_ZAPMOLCUNOOHGIA;
-                    return BATTLE_TERRAIN_ZAPMOLCUNOOHGIA;
+                    gBattleTerrain = BATTLE_TERRAIN_ZAPMOLTI_5;
+                    return BATTLE_TERRAIN_ZAPMOLTI_5;
                 case B_FINAL_BATTLE_WARTORTLE:
                 default:
                     gBattleTerrain = BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS;
