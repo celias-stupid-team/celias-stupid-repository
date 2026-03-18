@@ -2041,3 +2041,8 @@
 	.2byte \var1
 	.2byte \var2
 	.endm
+
+	.macro dogenderfluideffect
+	callnative StandaloneGenderFluidEffect
+	waitstate
+	.endm

@@ -286,6 +286,17 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFlipStats			     @ EFFECT_FLIP_STATS
 	.4byte BattleScript_EffectMeFirst			     @ EFFECT_ME_FIRST
 	.4byte BattleScript_EffectHpDamage		         @ EFFECT_FINAL_GAMBIT
+	.4byte BattleScript_EffectTeatime		         @ EFFECT_TEATIME
+	.4byte BattleScript_EffectBurnBerry              @ EFFECT_BURN_BERRY
+	.4byte BattleScript_EffectBestow                 @ EFFECT_BESTOW
+	.4byte BattleScript_EffectRevelationDance        @ EFFECT_REVELATION_DANCE
+	.4byte BattleScript_EffectReflectType            @ EFFECT_REFLECT_TYPE
+
+BattleScript_End2::
+	end2
+
+BattleScript_Ret::
+	return
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -345,6 +356,7 @@ BattleScript_HitFromAtkAnimation_2::
 	waitmessage B_WAIT_TIME_LONG
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
+	jumpifmove MOVE_REVELATION_DANCE, BattleScript_RevelationDanceString
 	seteffectwithchance
 	tryfaintmon BS_TARGET
 	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
@@ -4783,6 +4795,7 @@ BattleScript_ItemHealHP_RemoveItemEnd2::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_ItemHealHP_RemoveItemRet::
@@ -4800,6 +4813,7 @@ BattleScript_BerryPPHealEnd2::
 	printstring STRINGID_PKMNSITEMRESTOREDPP
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_ItemHealHP_End2::
@@ -4844,6 +4858,7 @@ BattleScript_BerryConfuseHealEnd2::
 	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_AFFECTS_USER
 	seteffectprimary
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_BerryStatRaiseEnd2::
@@ -4853,6 +4868,7 @@ BattleScript_BerryStatRaiseDoStatUp::
 	setbyte cMULTISTRING_CHOOSER, B_MSG_STAT_ROSE_ITEM
 	call BattleScript_StatUp
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_BerryFocusEnergyEnd2::
@@ -4860,6 +4876,7 @@ BattleScript_BerryFocusEnergyEnd2::
 	printstring STRINGID_PKMNUSEDXTOGETPUMPED
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, sBERRY_OVERRIDE, FALSE, BattleScript_Ret
 	end2
 
 BattleScript_ActionSelectionItemsCantBeUsed::
@@ -5869,10 +5886,92 @@ BattleScript_FinalGambit::
 	tryfaintmon BS_ATTACKER
 	return
 
-BattleScript_End2::
-	end2
+BattleScript_ToxicBerryFaint::
+	printstring STRINGID_TOXICBERRYFAINT
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	removeitem BS_TARGET
+	tryfaintmon BS_TARGET
+	return
 
+BattleScript_EffectTeatime::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifteanoberry BattleScript_ButItFailed
+@ at least one battler is affected
+	attackanimation
+	waitanimation
+	setbyte gBattlerTarget, 0
+BattleScript_TeatimeLoop:
+	jumpifteainvulnerable BS_TARGET, BattleScript_Teatimevul @ in semi-invulnerable state OR held item is not a Berry
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setbyte sBERRY_OVERRIDE, TRUE   @ override the requirements for eating berries
+	consumeberry BS_TARGET, TRUE
+	bicword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setbyte sBERRY_OVERRIDE, FALSE
+	jumpifnexttargetvalidallbattlers BattleScript_TeatimeLoop
+	goto BattleScript_MoveEnd
+BattleScript_Teatimevul:
+	jumpifnexttargetvalidallbattlers BattleScript_TeatimeLoop
+	goto BattleScript_MoveEnd
 
+BattleScript_BerryEatenNoEffectRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_PKMNATEBERRYNOEFFECT
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+	return
+
+BattleScript_EffectBurnBerry::
+	attackcanceler
+	tryburnberry BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce @ if no berry was burned
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNBERRYWASBURNED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectBestow::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, NO_ACC_CALC_CHECK_LOCK_ON
+	attackstring
+	ppreduce
+	@ jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	trybestow BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_BESTOWITEMGIVING
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRevelationDance::
+	setrevelationdancetype
+	goto BattleScript_EffectHit
+
+BattleScript_RevelationDanceString::
+	printstring STRINGID_REVELATIONDANCEMATCHEDTYPE
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectReflectType::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	tryreflecttype BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_REFLECTTARGETSTYPE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectNewTripleKick::
 	attackcanceler
@@ -5885,8 +5984,7 @@ BattleScript_EffectNewTripleKick::
 	setbyte sMULTIHIT_EFFECT, 0
 	goto BattleScript_NewTripleKickLoop
 
-
-	BattleScript_NewTripleKickLoop::
+BattleScript_NewTripleKickLoop::
 	jumpifhasnohp BS_ATTACKER, BattleScript_MultiHitEnd
 	jumpifhasnohp BS_TARGET, BattleScript_MultiHitPrintStrings
 	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_SLEEP_TALK, BattleScript_DoNewTripleKick
@@ -5924,5 +6022,4 @@ BattleScript_NewTripleKickHeal::
 	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
-		
 	goto BattleScript_EffectHit

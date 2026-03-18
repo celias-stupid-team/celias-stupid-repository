@@ -93,6 +93,7 @@ void ApplyNewEncryptionKeyToBagItems_(u32 newKey);
 bool8 HasAtLeastOneBerry(void);
 void ItemId_GetHoldEffectParam_Script(void);
 bool8 Item_IsBall(u16 item);
+bool32 IsBerry(u16 item);
 
 
 #endif // GUARD_ITEM_H
