@@ -1477,6 +1477,7 @@ static void LWPEmblemWarpOutEffect_Spin(struct Task *task)
 void StandaloneGenderFluidEffect(void)
 {
     u32 taskId;
+    struct ObjectEvent *playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
     LockPlayerFieldControls();
 
     if (gSaveBlock2Ptr->playerGender == MALE)
@@ -1491,8 +1492,8 @@ void StandaloneGenderFluidEffect(void)
     }
     
     ResetInitialPlayerAvatarState();
-
-    taskId = CreateTask(Task_GenderFluidWarpOut, 80);
+    ObjectEventSetGraphicsId(playerObj, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_NORMAL));
+    //taskId = CreateTask(Task_GenderFluidWarpOut, 80);
     gTasks[taskId].tStandalone = TRUE;
 }
 

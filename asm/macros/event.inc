@@ -2044,5 +2044,5 @@
 
 	.macro dogenderfluideffect
 	callnative StandaloneGenderFluidEffect
-	waitstate
+	
 	.endm

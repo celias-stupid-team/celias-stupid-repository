@@ -1026,14 +1026,23 @@ script SkyTower_PPTrap {
 	lock
 	
 	setplayermetatile(METATILE_NavelRock_PPZero, FALSE)
-	call(EventScript_PlayerJumpInPlace)
-	special(DrawWholeMapView)
-	playse(SE_CLICK)
-	waitse
-	delay(30)
 	if(checkplayergender == MALE) {
-		//callnative(dogenderfluideffect)
+		dogenderfluideffect
+		call(EventScript_PlayerJumpInPlace)
+		special(DrawWholeMapView)
+		playse(SE_CLICK)
+		waitse
+		delay(45)
+		msgbox(
+		"The PP ZERO trap removed\n"
+		"{PLAYER}'s PP!", MSGBOX_DEFAULT)
 	} else {
+		
+		call(EventScript_PlayerJumpInPlace)
+		special(DrawWholeMapView)
+		playse(SE_CLICK)
+		waitse
+		delay(30)
 		msgbox(
 		"The PP ZERO trap had no effect…\n"
 		"", MSGBOX_DEFAULT)
