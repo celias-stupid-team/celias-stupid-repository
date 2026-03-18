@@ -3198,12 +3198,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_WEEZING] =
     {
-        .baseHP = 65,
+        .baseHP = 20,
         .baseAttack = 90,
-        .baseDefense = 120,
+        .baseDefense = 20,
         .baseSpeed = 60,
         .baseSpAttack = 85,
-        .baseSpDefense = 70,
+        .baseSpDefense = 20,
         .types = {TYPE_POISON, TYPE_POISON},
         .catchRate = 255,
         .expYield = 173,
