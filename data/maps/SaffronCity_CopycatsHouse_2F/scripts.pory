@@ -66,9 +66,19 @@ script CopycatHouse_GiveMimikyuPlaceholder {
 
 
 script CopycatHouse_Dad {
+	if(var(VAR_COPYCAT_USED) < 2) {
+		msgbox(
+		"My daughter is still missing…!\p"
+
+		"Until she's back safely, I can't\n"
+		"bear to let anyone into her room.", MSGBOX_NPC)
+		end
+	}
 	msgbox(
-	"placeholder dialogue\n"
-	"", MSGBOX_NPC)
+	"My wife has an odd way of speaking.\p"
+
+	"I think it may have rubbed off\n"
+	"on our daughter.", MSGBOX_NPC)
 }
 
 script CopycatHouse_Mom {
@@ -84,8 +94,9 @@ script CopycatHouse_Mom {
 		end
 	}
 	msgbox(
-	"placeholder dialogue\n"
-	"", MSGBOX_NPC)
+	"Please, please, please come back\n"
+	"any time.\l"
+	"You're always welcome here.", MSGBOX_NPC)
 }
 
 
