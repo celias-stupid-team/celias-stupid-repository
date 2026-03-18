@@ -51,11 +51,16 @@ FiveIsland_RocketWarehouse_Text_Grunt3PostBattle::
 
     
 FiveIsland_RocketWarehouse_Text_Admin1Intro::
-	.string "copyright\n$"
+	.string "Huh?\n"
+	.string "Who are you?\p"
+	.string "This is the DMCA's WAREHOUSE!\n"
+	.string "We've been doing good work here.\p"
+	.string "You want something we've taken?\n"
+	.string "Then you'd better fight for it!$"
+
 
 FiveIsland_RocketWarehouse_Text_Admin1Defeat::
-    .string "I…\n"
-    .string "I'm shattered…$"
+    .string "I…\$"
 
 FiveIsland_RocketWarehouse_Text_Admin1PostBattle::
     .string "You're doing things according to\n"

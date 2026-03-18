@@ -629,6 +629,7 @@ script SilphCo_FinancialReport {
 	playse(SE_ICE_BREAK)
 	addobject(LOCALID_SILPH_COMPUTER_WINDOW)
 	removeobject(LOCALID_SILPH_COMPUTER)
+	clearflag(FLAG_TEMP_6)
 	waitse
 	delay(60)
 	applymovement(LOCALID_SILPH_CHUCKSTER, moves(
