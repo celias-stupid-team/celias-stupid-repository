@@ -70,7 +70,10 @@
     "Credits",
     "HouseOfOldManWhoTeachesTrendySayings",
     "FinalBossCutscene",
-    "Chapter7_Chapter2"
+    "Chapter7_Chapter2",
+    "Route23Extended",
+    "Starlight_House2",
+    "Starlight_House3"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -733,7 +736,8 @@
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",
     "AetherParadise_NebbyRoom",
-    "AetherParadise_SkullRoom"
+    "AetherParadise_SkullRoom",
+    "Starlight_House"
   ],
   "gMapGroup_Ocean": [
     "Ocean1",

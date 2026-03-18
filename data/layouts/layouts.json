@@ -1120,7 +1120,7 @@
     {
       "id": "LAYOUT_ROUTE23",
       "name": "Route23_Layout",
-      "width": 30,
+      "width": 40,
       "height": 92,
       "border_width": 2,
       "border_height": 2,
@@ -6777,7 +6777,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Hi/border.bin",
       "blockdata_filepath": "data/layouts/Hi/map.bin"
     },
@@ -7440,6 +7440,54 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/FarawayIsland/border.bin",
       "blockdata_filepath": "data/layouts/FarawayIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE23EXTENDED",
+      "name": "Route23Extended_Layout",
+      "width": 12,
+      "height": 8,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IndigoPlateau",
+      "border_filepath": "data/layouts/Route23Extended/border.bin",
+      "blockdata_filepath": "data/layouts/Route23Extended/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE",
+      "name": "Starlight_House_Layout",
+      "width": 20,
+      "height": 13,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Starlight_Interior",
+      "border_filepath": "data/layouts/Starlight_House/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE2",
+      "name": "Starlight_House2_Layout",
+      "width": 31,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Starlight_Interior",
+      "border_filepath": "data/layouts/Starlight_House2/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE3",
+      "name": "Starlight_House3_Layout",
+      "width": 20,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Starlight_Interior2",
+      "border_filepath": "data/layouts/Starlight_House3/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House3/map.bin"
     }
   ]
 }

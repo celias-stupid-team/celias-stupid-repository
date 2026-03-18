@@ -1921,3 +1921,15 @@ Text_TestMsg::
 
 	.include "data/maps/FarawayIsland/scripts.inc"
 	.include "data/maps/FarawayIsland/text.inc"
+
+	.include "data/maps/Route23Extended/scripts.inc"
+	.include "data/maps/Route23Extended/text.inc"
+
+	.include "data/maps/Starlight_House/scripts.inc"
+	.include "data/maps/Starlight_House/text.inc"
+
+	.include "data/maps/Starlight_House2/scripts.inc"
+	.include "data/maps/Starlight_House2/text.inc"
+
+	.include "data/maps/Starlight_House3/scripts.inc"
+	.include "data/maps/Starlight_House3/text.inc"
