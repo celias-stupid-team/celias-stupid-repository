@@ -636,17 +636,18 @@ script SkyTower_FroslassScene {
 	msgbox(
 	"FROSLASS: Excuse me!\n"
 	"Did you look at me?", MSGBOX_DEFAULT)
-	playbgm(MUS_CSR_SKY_TOWER, TRUE)
-	msgbox(
-	"(battle)\n"
-	"", MSGBOX_DEFAULT)
-	msgbox(
-	"after battle\n"
-	"", MSGBOX_DEFAULT)
 	closemessage
+	fadedefaultbgm
 	delay(30)
+	msgbox(
+	"…Well, whatever.\n"
+	"", MSGBOX_DEFAULT)
+	
+	closemessage
+	delay(45)
 	applymovement(LOCALID_SKY_TOWER_FROSLASS, moves(
-		walk_fast_right * 8
+		walk_fast_left
+		walk_fast_down * 7
 	))
 	waitmovement(LOCALID_SKY_TOWER_FROSLASS)
 	setobjectxy(LOCALID_SKY_TOWER_FROSLASS, 46, 18)

@@ -1,5 +1,12 @@
 mapscripts SkyTower_2F_MapScripts {
     //On transition froslass on revisit
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_GOT_WIDE_CUT)) {
+            setflag(FLAG_TEMP_A)
+            setflag(FLAG_TEMP_B)
+            setobjectxy(LOCALID_SKY_TOWER_FROSLASS, 18, 27)
+        }
+    }
 }
 
 
@@ -23,6 +30,41 @@ script SkyTower_TeamForretress2 {
     release
 }
 
+script SkyTower_SentryHole {
+    lock
+    playse(SE_ITEMFINDER)
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"POKéMON Detected!\n"
+	"", MSGBOX_DEFAULT)
+    specialvar(VAR_RESULT, GetPlayerAvatarBike)
+    if(!var(VAR_RESULT)) {
+        msgbox(
+        "…{PAUSE 20}Wait a sec!\n"
+        "That's no POKéMON!\l"
+        "That's a HUMAN!\p"
+
+        "HUMANS aren't allowed up here!\n"
+        "Go away!", MSGBOX_DEFAULT)
+        closemessage
+        delay(20)
+        applymovement(LOCALID_PLAYER, moves(
+            walk_down
+        ))
+        waitmovement(0)
+        release
+        end
+    } else {
+        msgbox(
+        "…{PAUSE 20}It's KORAIDON!\p"
+
+        "Okay, you're good!\n"
+        "Come on through!", MSGBOX_DEFAULT)
+        setvar(VAR_TEMP_3, 1)
+        release
+        end
+    }
+}
 
 script SkyTower_BikeHole {
     setplayermetatile(METATILE_NavelRock_Hole, TRUE)
@@ -51,4 +93,58 @@ script SkyTower_BikeHoleOutside {
     special(DrawWholeMapView)
     setvar(VAR_TEMP_1, 0)
     release
+}
+
+
+script SkyTower_TeamTeamHeroes {
+    textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"What's up?\n"
+	"We're TEAM {PAUSE 10}TEAMHEROES!\p"
+
+	"…{PAUSE 20}We wanted to just call ourselves\n"
+	"“TEAM HEROES”, but…\l"
+	"The application form was confusing.", MSGBOX_NPC)
+}
+
+script SkyTower_BikeHoles {
+    setplayermetatile(METATILE_NavelRock_Hole, TRUE)
+    release
+
+}
+
+
+script SkyTower_2F_Itemizer {
+	lock
+	
+	setplayermetatile(METATILE_NavelRock_Itemizer, FALSE)
+	call(EventScript_PlayerJumpInPlace)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	if(!flag(FLAG_TEMP_C) || flag(FLAG_GOT_WIDE_CUT)) {
+		playse(SE_M_SPIT_UP)
+        setflag(FLAG_TEMP_C)
+		removeobject(LOCALID_SKY_TOWER_TRAP_FINDER)
+		addobject(LOCALID_SKY_TOWER_ITEMIZER_ITEM)
+	} else {
+		msgbox(
+		"The ITEMIZER trap had no effect…\n"
+		"", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script SkyTower_2F_FindWideCut {
+    setflag(FLAG_GOT_WIDE_CUT)
+    finditem(ITEM_TM26)
+}
+
+script SkyTower_Sentry {
+	msgbox(
+	"I'm on SENTRY duty today.\p"
+
+	"No HUMANS are gonna slip past me!\n"
+	"", MSGBOX_NPC)
 }

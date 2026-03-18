@@ -865,3 +865,6 @@ const u32 gObjectEventPic_TORCHIC[] = INCBIN_U32("graphics/object_events/pics/st
 const u16 gObjectEventPal_TORCHIC[] = INCBIN_U16("graphics/object_events/palettes/TORCHIC.gbapal");
 const u32 gObjectEventPic_YOSHI[] = INCBIN_U32("graphics/object_events/pics/stupid/YOSHI.4bpp");
 const u16 gObjectEventPal_YOSHI[] = INCBIN_U16("graphics/object_events/palettes/YOSHI.gbapal");
+const u32 gObjectEventPic_SENTRY[] = INCBIN_U32("graphics/object_events/pics/stupid/SENTRY.4bpp");
+const u16 gObjectEventPal_SENTRY[] = INCBIN_U16("graphics/object_events/palettes/SENTRY.gbapal");
+const u32 gObjectEventPic_SENTRY_BUTT[] = INCBIN_U32("graphics/object_events/pics/stupid/SENTRY_BUTT.4bpp");

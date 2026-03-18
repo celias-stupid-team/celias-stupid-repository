@@ -479,7 +479,7 @@
 #define FLAG_SAFFRON_GYM_SHORTCUT                          0x1AC
 #define FLAG_SAFFRON_CHECKED_MONKEY_WINDOW                     0x1AD
 #define FLAG_HIDE_SCOPE_CREEP                          0x1AE
-#define FLAG_0x1AF                    0x1AF
+#define FLAG_GOT_WIDE_CUT                    0x1AF
 #define FLAG_GOT_TM50                          0x1B0
 #define FLAG_SOFT_SAND_GIRL                   0x1B1
 #define FLAG_GOT_SHINY_LATIAS                       0x1B2
