@@ -479,7 +479,7 @@
 #define FLAG_SAFFRON_GYM_SHORTCUT                          0x1AC
 #define FLAG_SAFFRON_CHECKED_MONKEY_WINDOW                     0x1AD
 #define FLAG_HIDE_SCOPE_CREEP                          0x1AE
-#define FLAG_0x1AF                    0x1AF
+#define FLAG_GOT_WIDE_CUT                    0x1AF
 #define FLAG_GOT_TM50                          0x1B0
 #define FLAG_SOFT_SAND_GIRL                   0x1B1
 #define FLAG_GOT_SHINY_LATIAS                       0x1B2
@@ -487,8 +487,8 @@
 #define FLAG_NO_SHINY_LOCK                 0x1B4
 #define FLAG_SHINY_KENYA                        0x1B5
 #define FLAG_TALKED_TO_THE_LEEK                   0x1B6
-#define FLAG_0x1B7                  0x1B7
-#define FLAG_0x1B8                  0x1B8
+#define FLAG_WIDE_CUT                  0x1B7
+#define FLAG_OAK_IN_FRIEND_AREA                  0x1B8
 #define FLAG_HIDE_FUSHCIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
 #define FLAG_HIDE_TWO_ISLAND_REVIVE                             0x1BA
 #define FLAG_FOUND_ZINC                             0x1BB
@@ -537,7 +537,7 @@
 #define FLAG_0x1E6        0x1E6
 #define FLAG_0x1E7  0x1E7
 #define FLAG_0x1E8  0x1E8
-#define FLAG_0x1E9      0x1E9
+#define FLAG_GOT_MOVE_NOTHING      0x1E9
 #define FLAG_FOUND_RAT_STONE     0x1EA
 #define FLAG_GOT_SHINY_CHANSEY      0x1EB
 #define FLAG_SHINY_GOLDEEN_TRADE    0x1EC

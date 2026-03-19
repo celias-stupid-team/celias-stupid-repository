@@ -1,5 +1,15 @@
 mapscripts SkyTower_3F_MapScripts {
     //Drampa 
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_TEMP_B)
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_SKY_TOWER_HURL_ORB)) {
+            setobjectxyperm(LOCALID_SKY_TOWER_DRAMPA, 45, 35)
+            
+            setobjectmovementtype(LOCALID_SKY_TOWER_DRAMPA, MOVEMENT_TYPE_FACE_UP)
+        }
+    }
 }
 
 
@@ -267,4 +277,53 @@ script SkyTower_3F_WarpTrap {
     release
     end
 
+}
+
+
+
+script SkyTower_3F_ThePit {
+    playse(SE_CLICK)
+    addobject(LOCALID_SKY_TOWER_3F_FRIEND_OAK)
+    removeobject(LOCALID_SKY_TOWER_3F_UNFRIEND)
+    setlayouttiles(LAYOUT_SKY_TOWER_3F_PIT, 0,0,0,0,67, 62)
+
+    release
+}
+
+
+script SkyTower_3F_KillThePit {
+    setlayouttiles(LAYOUT_SKY_TOWER_3F, 0,0,0,0,67, 62)
+    setmetatile(22, 49, METATILE_NavelRock_PitTrap, FALSE)
+    removeobject(LOCALID_SKY_TOWER_3F_FRIEND_OAK)
+    addobject(LOCALID_SKY_TOWER_3F_UNFRIEND)
+    clearflag(FLAG_TEMP_A)
+    special(DrawWholeMapView)
+    setvar(VAR_TEMP_4, 1)
+    release
+}
+
+
+script SkyTower_3F_DeadThePit {
+	lock
+	
+	setplayermetatile(METATILE_NavelRock_PitTrap, FALSE)
+	call(EventScript_PlayerJumpInPlace)
+	special(DrawWholeMapView)
+	playse(SE_CLICK)
+	waitse
+	delay(30)
+	
+		msgbox(
+		"The THE PIT trap had no effect…\n"
+		"", MSGBOX_DEFAULT)
+
+	release
+}
+
+
+script SkyTower_3F_Unfriend {
+    textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(
+	"Hmmm…\n"
+	"I don't trust this.", MSGBOX_NPC)
 }

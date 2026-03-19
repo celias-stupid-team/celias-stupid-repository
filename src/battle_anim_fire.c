@@ -8,7 +8,6 @@
 #include "constants/songs.h"
 
 static void AnimFireSpiralInward(struct Sprite *sprite);
-static void AnimFireSpread(struct Sprite *sprite);
 static void AnimLargeFlame(struct Sprite *sprite);
 static void AnimFirePlume(struct Sprite *sprite);
 static void AnimFirePlumeUnanchored(struct Sprite *sprite);
@@ -73,6 +72,17 @@ const struct SpriteTemplate gFireSpiralInwardSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFireSpiralInward,
+};
+
+const struct SpriteTemplate gFemaleSpreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FEMALE,
+    .paletteTag = ANIM_TAG_FEMALE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpread,
 };
 
 const struct SpriteTemplate gFireSpreadSpriteTemplate =
@@ -605,7 +615,7 @@ static void AnimFireSpiralInward(struct Sprite *sprite)
 }
 
 // For the impact spread of fire sprites for moves like Blaze Kick or Fire Punch
-static void AnimFireSpread(struct Sprite *sprite)
+void AnimFireSpread(struct Sprite *sprite)
 {
     SetAnimSpriteInitialXOffset(sprite, gBattleAnimArgs[0]);
     sprite->y += gBattleAnimArgs[1];

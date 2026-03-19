@@ -9830,12 +9830,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_FushciaGymLance[] = {
         .species = SPECIES_GYARADOS_LANCE,
         .moves = {MOVE_ELECTRIFY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
-    {
-        .iv = 0,
-        .lvl = 30,
-        .species = SPECIES_DRAGONITE,
-        .moves = {MOVE_REFLECT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
 
 };
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainNoland[] = {
@@ -10289,9 +10283,9 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine4[] = {
     {
         .iv = 0,
         .lvl = 20,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_TOXIC_BERRY,
         .species = SPECIES_UNITEDKINGDOM,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_COLONIZE, MOVE_TEATIME, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -10311,7 +10305,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine6[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_DEOXYS,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_REVELATION_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -10633,5 +10627,15 @@ static const struct TrainerMonItemCustomMoves sParty_TeamSkull[] = {
         .heldItem = ITEM_NONE,
         .species = SPECIES_ZUBAT,
         .moves = {MOVE_LEECH_LIFE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_Dummy_169[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_DITTO,
+        .moves = {MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };

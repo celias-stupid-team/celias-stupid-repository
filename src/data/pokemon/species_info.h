@@ -3198,12 +3198,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_WEEZING] =
     {
-        .baseHP = 65,
+        .baseHP = 20,
         .baseAttack = 90,
-        .baseDefense = 120,
+        .baseDefense = 20,
         .baseSpeed = 60,
         .baseSpAttack = 85,
-        .baseSpDefense = 70,
+        .baseSpDefense = 20,
         .types = {TYPE_POISON, TYPE_POISON},
         .catchRate = 255,
         .expYield = 173,
@@ -11196,15 +11196,16 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
     },
+
     [SPECIES_DEOXYS] =
     {
-        .baseHP = 50,
-        .baseAttack = 150,
-        .baseDefense = 50,
-        .baseSpeed = 150,
-        .baseSpAttack = 150,
-        .baseSpDefense = 50,
-        .types = {TYPE_STEEL, TYPE_BUG},
+        .baseHP = 1,
+        .baseAttack = 1,
+        .baseDefense = 1,
+        .baseSpeed = 1,
+        .baseSpAttack = 1,
+        .baseSpDefense = 1,
+        .types = {TYPE_BUG, TYPE_STEEL},
         .catchRate = 255,
         .expYield = 215,
         .evYield_HP = 0,
@@ -11225,6 +11226,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
     },
+    
     [SPECIES_CHIMECHO] =
     {
         .baseHP = 65,

@@ -1361,3 +1361,7 @@ $(OBJEVENTGFXDIR)/stupid/TORCHIC.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/YOSHI.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/SENTRY.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8
+$(OBJEVENTGFXDIR)/stupid/SENTRY_BUTT.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8

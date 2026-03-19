@@ -85,7 +85,6 @@ static void AnimPerishSongMusicNote_Step2(struct Sprite *);
 static void AnimCirclingFinger(struct Sprite *);
 static void AnimVibrateBattlerBack(struct Sprite *);
 static void AnimKinesisZapEnergy(struct Sprite *);
-static void AnimSonicBoomProjectile(struct Sprite *);
 static void AnimAirWaveProjectile(struct Sprite *);
 static void AnimCoinThrow(struct Sprite *);
 static void AnimRazorWindTornado(struct Sprite *);
@@ -93,7 +92,6 @@ static void AnimBreathPuff(struct Sprite *);
 static void AnimAngerMark(struct Sprite *);
 static void AnimBlendThinRing(struct Sprite *);
 static void AnimHyperVoiceRing(struct Sprite *);
-static void AnimUproarRing(struct Sprite *);
 static void AnimRotomRing(struct Sprite *);
 static void AnimSpeedDust(struct Sprite *);
 static void AnimHealBellMusicNote(struct Sprite *);
@@ -111,6 +109,7 @@ static void AnimBallAttack_Arc(struct Sprite *sprite);
 static void AnimBallAttack_Bounce(struct Sprite *sprite);
 static void AnimSprite_MoveThenWait(struct Sprite *sprite);
 static void AnimHammerSwing(struct Sprite *sprite);
+static void AnimTask_OnionCutter_Step(u8 taskId);
 
 
 // Unused
@@ -403,6 +402,43 @@ static const struct SpriteTemplate sVoidLinesSpriteTemplate =
     .callback = AnimVoidLines,
 };
 
+static const union AnimCmd sOnionCutterAnimCmds1[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sOnionCutterAnimCmds2[] =    
+{
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd sOnionCutterAnimCmds3[] =    
+{
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sOnionCutterAnimTable[] =
+{
+    sOnionCutterAnimCmds1,
+    sOnionCutterAnimCmds2,
+    sOnionCutterAnimCmds3,
+};
+
+const struct SpriteTemplate gOnionCutterSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ONION,
+    .paletteTag = ANIM_TAG_ONION,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sOnionCutterAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 static const union AnimCmd sCoinAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -458,6 +494,30 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sWinFlagAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(16, 20),
+    ANIMCMD_FRAME(32, 20),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sWinFlagAnimTable[] =
+{
+    sWinFlagAnimCmds,
+};
+
+const struct SpriteTemplate gWinFlagSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WIN_FLAG,
+    .paletteTag = ANIM_TAG_WIN_FLAG,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sWinFlagAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gAppleLiftSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GRAVEL_APPLE,
@@ -475,6 +535,27 @@ const struct SpriteTemplate gCensoredBarSpriteTemplate =
     .paletteTag = ANIM_TAG_CENSORED,
     .oam = &gOamData_AffineOff_ObjNormal_64x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sOnionLiftAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sOnionLiftAnimTable[] =
+{
+    sOnionLiftAnimCmds,
+};
+const struct SpriteTemplate gOnionLiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ONION,
+    .paletteTag = ANIM_TAG_ONION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sOnionLiftAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -875,7 +956,7 @@ static const union AffineAnimCmd sHyperVoiceRingAffineAnimCmds[] =
     AFFINEANIMCMD_END_ALT(1),
 };
 
-static const union AffineAnimCmd *const sThinRingExpandingAffineAnimTable[] =
+const union AffineAnimCmd *const gThinRingExpandingAffineAnimTable[] =
 {
     sThinRingExpandingAffineAnimCmds1,
     sThinRingExpandingAffineAnimCmds2,
@@ -893,7 +974,7 @@ const struct SpriteTemplate gThinRingExpandingSpriteTemplate =
     .oam = &gOamData_AffineDouble_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimSpriteOnMonPos,
 };
 
@@ -927,7 +1008,7 @@ const struct SpriteTemplate gBlendThinRingExpandingSpriteTemplate =
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimBlendThinRing,
 };
 
@@ -949,7 +1030,7 @@ const struct SpriteTemplate gUproarRingSpriteTemplate =
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimUproarRing,
 };
 
@@ -960,7 +1041,7 @@ const struct SpriteTemplate gRotomRingSpriteTemplate =
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimRotomRing,
 };
 
@@ -1333,12 +1414,28 @@ const struct SpriteTemplate gRedHeartProjectileSpriteTemplate =
     .callback = AnimRedHeartProjectile,
 };
 
-const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
+static const union AnimCmd sSparkleBurstAnimCmds[] =
 {
-    .tileTag = ANIM_TAG_RED_HEART,
-    .paletteTag = ANIM_TAG_RED_HEART,
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sSparkleBurstAnimTable[] =
+{
+    sSparkleBurstAnimCmds,
+};
+
+
+const struct SpriteTemplate gSparkleBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EYE_SPARKLE,
+    .paletteTag = ANIM_TAG_EYE_SPARKLE,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
-    .anims = gDummySpriteAnimTable,
+    .anims = sSparkleBurstAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimParticleBurst,
@@ -1348,6 +1445,17 @@ const struct SpriteTemplate gWeedBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEED_SMALL,
     .paletteTag = ANIM_TAG_WEED_SMALL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RED_HEART,
+    .paletteTag = ANIM_TAG_RED_HEART,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -1739,7 +1847,7 @@ const struct SpriteTemplate gElectrifyYellowRingTemplate =
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimUproarRing
 };
 
@@ -1973,7 +2081,7 @@ static void AnimSwordsDanceBlade_Step(struct Sprite *sprite)
 // arg 2: target x pixel offset
 // arg 3: target y pixel offset
 // arg 4: duration
-static void AnimSonicBoomProjectile(struct Sprite *sprite)
+void AnimSonicBoomProjectile(struct Sprite *sprite)
 {
     s16 targetXPos;
     s16 targetYPos;
@@ -3398,7 +3506,7 @@ static void AnimHyperVoiceRing(struct Sprite *sprite)
     sprite->callback(sprite);
 }
 
-static void AnimUproarRing(struct Sprite *sprite)
+void AnimUproarRing(struct Sprite *sprite)
 {
     u8 index = IndexOfSpritePaletteTag(ANIM_TAG_THIN_RING);
     
@@ -4923,6 +5031,101 @@ static void AnimHammerSwing(struct Sprite *sprite)
     case 5:
         if (++sprite->data[1] >= sprite->data[4])
             DestroyAnimSprite(sprite);
+        break;
+    }
+}
+
+void AnimTask_OnionCutter(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 battler;
+    s16 x, y;
+
+    battler = (gBattleAnimArgs[0] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+    x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2) + gBattleAnimArgs[1];
+    y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[2];
+
+    task->data[10] = x;
+    task->data[11] = y;
+    task->data[12] = gBattleAnimArgs[3];
+    task->data[13] = gBattleAnimArgs[4];
+
+    task->data[14] = CreateSprite(&gOnionCutterSpriteTemplate, x, y,
+                                  GetBattlerSpriteSubpriority(battler) + 1);
+
+    if (task->data[14] == MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    StartSpriteAnim(&gSprites[task->data[14]], 0);
+
+    task->data[0] = 0;
+    task->data[1] = 0;
+    task->func = AnimTask_OnionCutter_Step;
+}
+
+static void AnimTask_OnionCutter_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite;
+
+    switch (task->data[0])
+    {
+    // WAIT BEFORE SPLIT
+    case 0:
+        if (++task->data[1] >= task->data[12])
+        {
+            DestroySprite(&gSprites[task->data[14]]);
+
+            // create left half
+            task->data[14] = CreateSprite(&gOnionCutterSpriteTemplate,
+                                          task->data[10], task->data[11], 0);
+            StartSpriteAnim(&gSprites[task->data[14]], 1);
+            gSprites[task->data[14]].data[0] = -8;   // velocity
+            gSprites[task->data[14]].data[1] = 0;
+
+            // create right half
+            task->data[15] = CreateSprite(&gOnionCutterSpriteTemplate,
+                                          task->data[10], task->data[11], 0);
+            StartSpriteAnim(&gSprites[task->data[15]], 2);
+            gSprites[task->data[15]].data[0] = 8;
+            gSprites[task->data[15]].data[1] = 0;
+
+            task->data[0] = 1;
+            task->data[1] = 0;
+        }
+        break;
+
+    // MOVE HALVES WITH DECELERATION
+    case 1:
+    {
+        struct Sprite *left = &gSprites[task->data[14]];
+        struct Sprite *right = &gSprites[task->data[15]];
+
+        // left half
+        left->x2 += left->data[0];
+        if (left->data[0] < 0)
+            left->data[0]++;
+
+        // right half
+        right->x2 += right->data[0];
+        if (right->data[0] > 0)
+            right->data[0]--;
+
+        if (++task->data[1] >= task->data[13])
+        {
+            DestroySprite(left);
+            DestroySprite(right);
+            task->data[0] = 2;
+        }
+        break;
+    }
+
+    case 2:
+        DestroyAnimVisualTask(taskId);
         break;
     }
 }

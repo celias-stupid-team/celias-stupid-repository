@@ -6404,3 +6404,25 @@ const struct SpriteFrameImage gObjectEventPicTable_YOSHI[] = {
     overworld_frame(gObjectEventPic_YOSHI, 4, 4, 2),
     overworld_frame(gObjectEventPic_YOSHI, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_SENTRY[] = {
+    overworld_frame(gObjectEventPic_SENTRY, 8, 8, 0),
+    overworld_frame(gObjectEventPic_SENTRY, 8, 8, 1),
+    overworld_frame(gObjectEventPic_SENTRY, 8, 8, 2),
+    overworld_frame(gObjectEventPic_SENTRY, 8, 8, 3),
+    overworld_frame(gObjectEventPic_SENTRY, 8, 8, 4),
+    overworld_frame(gObjectEventPic_SENTRY, 8, 8, 5),
+    overworld_frame(gObjectEventPic_SENTRY, 8, 8, 6),
+    overworld_frame(gObjectEventPic_SENTRY, 8, 8, 7),
+    overworld_frame(gObjectEventPic_SENTRY, 8, 8, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_SENTRY_BUTT[] = {
+    overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 0),
+    overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 1),
+    overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 2),
+    overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 3),
+    overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 4),
+    overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 5),
+    overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 6),
+    overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 7),
+    overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 8),
+};

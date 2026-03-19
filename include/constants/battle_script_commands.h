@@ -26,6 +26,9 @@
 #define sRESHOW_MAIN_STATE           gBattleScripting + 0x21 // reshowMainState
 #define sRESHOW_HELPER_STATE         gBattleScripting + 0x22 // reshowHelperState
 #define sLVLUP_HP                    gBattleScripting + 0x23 // levelUpHP
+#define sSAVED_BATTLER               gBattleScripting + 0x24 // savedBattler
+#define sSAVED_DATA                  gBattleScripting + 0x28 // savedData
+#define sBERRY_OVERRIDE              gBattleScripting + 0x2C // overrideBerryRequirements
 
 // Array entries for battle communication
 #define MULTIUSE_STATE          0

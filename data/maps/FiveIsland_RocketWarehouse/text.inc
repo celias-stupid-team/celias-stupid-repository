@@ -60,7 +60,7 @@ FiveIsland_RocketWarehouse_Text_Admin1Intro::
 
 
 FiveIsland_RocketWarehouse_Text_Admin1Defeat::
-    .string "I…\$"
+    .string "I…$"
 
 FiveIsland_RocketWarehouse_Text_Admin1PostBattle::
     .string "You're doing things according to\n"

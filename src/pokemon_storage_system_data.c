@@ -739,6 +739,7 @@ static void CheckBrickPieceGet(u8 boxId, u8 position){
     && !FlagGet(FLAG_GOT_MEW_BRICK_PIECE)){
         FlagSet(FLAG_GOT_MEW_BRICK_PIECE);
         PlayFanfare(MUS_LEVEL_UP);
+        AddBagItem(ITEM_BRICK_PIECE, 1);
         //PrintStorageMessage(gText_ObtainedBrickPiece);
 
 

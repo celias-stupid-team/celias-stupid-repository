@@ -177,18 +177,34 @@
       "flag": "FLAG_SKY_TOWER_HURL_ORB"
     },
     {
+      "local_id": "LOCALID_SKY_TOWER_3F_UNFRIEND",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PIDGEOT",
-      "x": 23,
-      "y": 49,
+      "x": 19,
+      "y": 64,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
+      "script": "SkyTower_3F_Unfriend",
+      "flag": "FLAG_TEMP_A"
+    },
+    {
+      "local_id": "LOCALID_SKY_TOWER_3F_FRIEND_OAK",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+      "x": 21,
+      "y": 55,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_B"
     }
   ],
   "warp_events": [
@@ -223,6 +239,24 @@
       "var": "VAR_TEMP_5",
       "var_value": "0",
       "script": "SkyTower_3F_WarpTrap"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "SkyTower_3F_DeadThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 56,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "SkyTower_3F_KillThePit"
     }
   ],
   "bg_events": [

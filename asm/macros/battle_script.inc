@@ -1782,6 +1782,10 @@
 	callnative BS_SetTechnoBlastType
 	.endm
 
+	.macro setrevelationdancetype
+	callnative BS_SetRevelationDanceType
+	.endm
+
 	.macro wturnsaveoriginalbattledata
 	callnative BS_WTurnSaveOriginalBattleData
 	.endm
@@ -1799,4 +1803,46 @@
 
 	.macro dmgtohp
 	callnative BS_DmgToHp
+	.endm
+
+	.macro jumpifteainvulnerable battler:req, jumpInstr:req
+	callnative BS_TeatimeInvul
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifteanoberry failInstr:req
+	callnative BS_TeatimeTargets
+	.4byte \failInstr
+	.endm
+
+	.macro consumeberry battler:req, fromBattler:req
+	callnative BS_ConsumeBerry
+	.byte \battler
+	.byte \fromBattler
+	.endm
+
+	.macro jumpifnexttargetvalidallbattlers ptr:req
+	callnative BS_JumpIfNextTargetValidAllBattlers
+	.4byte \ptr
+	.endm
+
+	.macro tryburnberry battler:req, failInstr:req
+	callnative BS_TryBurnBerry
+	.byte \battler
+	.4byte \failInstr
+	.endm
+
+	.macro trybestow failInstr:req
+	callnative BS_TryBestow
+	.4byte \failInstr
+	.endm
+
+	.macro tryreflecttype failInstr:req
+	callnative BS_TryReflectType
+	.4byte \failInstr
+	.endm
+
+	.macro trygivenothing
+	callnative BS_TryGiveNothing
 	.endm

@@ -2509,6 +2509,7 @@ AI_CV_SmellingSalt_End::
 	end
 
 AI_CV_Trick::
+	if_move MOVE_COLONIZE, AI_CV_Trick_Colonize
 	get_hold_effect AI_USER
 	if_in_bytes AI_CV_Trick_ChoiceEffects, AI_CV_Trick3
 	if_in_bytes AI_CV_Trick_EffectsToEncourage, AI_CV_Trick4
@@ -2528,6 +2529,12 @@ AI_CV_Trick4::
 	if_in_bytes AI_CV_Trick_EffectsToEncourage, AI_CV_Trick2
 	if_random_less_than 50, AI_CV_Trick_End
 	score +2
+
+AI_CV_Trick_Colonize::
+	is_first_turn_for AI_USER
+	if_equal 0, Score_Minus5
+	if_held_item_equal AI_USER, ITEM_NONE, Score_Minus5
+	score +3
 
 AI_CV_Trick_End::
 	end

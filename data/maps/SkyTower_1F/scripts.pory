@@ -59,6 +59,7 @@ script SkyTower_Froslass {
 script SkyTower_CuboneAgain {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	lock
+	faceplayer
 	msgbox(
 	"Aw, man…\n"
 	"That meanie GYARADOS attacked me!\p"
@@ -560,11 +561,21 @@ script SkyTower_1FShop_Seed {
 
 script SkyTower_DadStatue {
 	lock
-	faceplayer
+	
 	msgbox(
-	"Dad Statue\n"
-	"", MSGBOX_DEFAULT)
-	call(EventScript_DadHeal)
+	"A fatherly statue stands in the\n"
+	"room.\p"
+
+	"Approaching it, you feel overcome\n"
+	"by a restful presence.", MSGBOX_DEFAULT)
+	
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	closemessage
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	special(HealPlayerParty)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	
 	release
 	end
 }
@@ -636,20 +647,25 @@ script SkyTower_FroslassScene {
 	msgbox(
 	"FROSLASS: Excuse me!\n"
 	"Did you look at me?", MSGBOX_DEFAULT)
-	playbgm(MUS_CSR_SKY_TOWER, TRUE)
-	msgbox(
-	"(battle)\n"
-	"", MSGBOX_DEFAULT)
-	msgbox(
-	"after battle\n"
-	"", MSGBOX_DEFAULT)
 	closemessage
 	delay(30)
+	fadedefaultbgm
+	
+	msgbox(
+	"… … … …\n"
+	"Well, whatever.\p"
+
+	"This is why I like to live in\n"
+	"the mountaintops.", MSGBOX_DEFAULT)
+	
+	closemessage
+	delay(45)
 	applymovement(LOCALID_SKY_TOWER_FROSLASS, moves(
-		walk_fast_right * 8
+		walk_left
+		walk_down * 7
 	))
 	waitmovement(LOCALID_SKY_TOWER_FROSLASS)
-	setobjectxy(LOCALID_SKY_TOWER_FROSLASS, 46, 18)
+	
 	copyobjectxytoperm(LOCALID_SKY_TOWER_FROSLASS)
 	setvar(VAR_SKY_TOWER_LASS, 1)
 }
@@ -723,6 +739,7 @@ script SkyTower_Magikarp {
 
 script SkyTower_ScaredOfGyarados {
 	lock
+	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	if(flag(FLAG_SKY_TOWER_GYARADOS_EVOLVED)) {
 		msgbox(
@@ -783,7 +800,7 @@ script SkyTower_Bill {
 	"…Wait, no!\p"
 
 	"{PLAYER} found\n"
-	"5000 POKé{PAUSE 20} {ASTERISK}inside{ASTERISK} a DOLL!", MSGBOX_DEFAULT)
+	"5000 POKé{PAUSE 20} {ASTERISK}inside{ASTERISK}{PAUSE 10} a DOLL!", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
 	playse(SE_PIN)
@@ -1013,14 +1030,23 @@ script SkyTower_PPTrap {
 	lock
 	
 	setplayermetatile(METATILE_NavelRock_PPZero, FALSE)
-	call(EventScript_PlayerJumpInPlace)
-	special(DrawWholeMapView)
-	playse(SE_CLICK)
-	waitse
-	delay(30)
 	if(checkplayergender == MALE) {
-		//callnative(ItemUseOnFieldCB_GenderFluid)
+		dogenderfluideffect
+		call(EventScript_PlayerJumpInPlace)
+		special(DrawWholeMapView)
+		playse(SE_CLICK)
+		waitse
+		delay(45)
+		msgbox(
+		"The PP ZERO trap removed\n"
+		"{PLAYER}'s PP!", MSGBOX_DEFAULT)
 	} else {
+		
+		call(EventScript_PlayerJumpInPlace)
+		special(DrawWholeMapView)
+		playse(SE_CLICK)
+		waitse
+		delay(30)
 		msgbox(
 		"The PP ZERO trap had no effect…\n"
 		"", MSGBOX_DEFAULT)

@@ -49,6 +49,7 @@
 #define ITEMEFFECT_MOVE_END                     3
 #define ITEMEFFECT_KINGSROCK_SHELLBELL          4
 #define ITEMEFFECT_TARGET                       5
+#define ITEMEFFECT_FORCE_BERRY_CONSUMPTION      6
 
 #define WEATHER_HAS_EFFECT ((!AbilityBattleEffects(ABILITYEFFECT_CHECK_ON_FIELD, 0, ABILITY_CLOUD_NINE, 0, 0) && !AbilityBattleEffects(ABILITYEFFECT_CHECK_ON_FIELD, 0, ABILITY_AIR_LOCK, 0, 0)))
 #define WEATHER_HAS_EFFECT2 ((!AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_CLOUD_NINE, 0, 0) && !AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_AIR_LOCK, 0, 0)))
@@ -107,5 +108,6 @@ void TryRestoreHeldItems(void);
 bool32 IsSingleWildRattata(void);
 bool32 IsZapmolcunoOhgiaSpecies(u16 species);
 bool32 CanBePoisoned(u8 battlerTarget, u8 abilityTarget);
+bool32 CanBattlerGetOrLoseItem(u32 battler, u16 itemId);
 
 #endif // GUARD_BATTLE_UTIL_H
