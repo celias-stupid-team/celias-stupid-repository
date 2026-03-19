@@ -1344,6 +1344,7 @@ extern const u8 EventScript_FillPsyduckPail[];
 extern const u8 SafariZone_GlitchCityActivates[];
 extern const u8 TwoIsland_ThePit[];
 extern const u8 SkyTower_2F_ThePit[];
+extern const u8 SkyTower_3F_ThePit[];
 
 #endif //GUARD_EVENT_SCRIPTS_H
 

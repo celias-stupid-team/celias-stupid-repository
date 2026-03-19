@@ -1384,7 +1384,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_MIMIC] =
     {
-        .effect = EFFECT_MIMIC,
+        .effect = EFFECT_MIRROR_MOVE,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -10898,7 +10898,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_NOTHING] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_NOTHING,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,

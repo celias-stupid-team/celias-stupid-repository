@@ -7500,6 +7500,18 @@
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/SkyTower_2F_Pit/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_2F_Pit/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKY_TOWER_3F_PIT",
+      "name": "SkyTower_3F_Pit",
+      "width": 68,
+      "height": 63,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/SkyTower_3F_Pit/border.bin",
+      "blockdata_filepath": "data/layouts/SkyTower_3F_Pit/map.bin"
     }
   ]
 }

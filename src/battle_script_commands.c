@@ -12841,3 +12841,13 @@ void BS_TryReflectType(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
+
+void BS_TryGiveNothing(void) {
+    NATIVE_ARGS(const u8 *failInstr);
+    
+    if(!FlagGet(FLAG_GOT_MOVE_NOTHING)) {
+        AddBagItem(ITEM_NOTHING, 1);
+        FlagSet(FLAG_GOT_MOVE_NOTHING);
+    }
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

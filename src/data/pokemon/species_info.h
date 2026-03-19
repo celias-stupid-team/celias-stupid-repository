@@ -11199,12 +11199,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_DEOXYS] =
     {
-        .baseHP = 50,
-        .baseAttack = 150,
-        .baseDefense = 50,
-        .baseSpeed = 150,
-        .baseSpAttack = 150,
-        .baseSpDefense = 50,
+        .baseHP = 1,
+        .baseAttack = 1,
+        .baseDefense = 1,
+        .baseSpeed = 1,
+        .baseSpAttack = 1,
+        .baseSpDefense = 1,
         .types = {TYPE_BUG, TYPE_STEEL},
         .catchRate = 255,
         .expYield = 215,

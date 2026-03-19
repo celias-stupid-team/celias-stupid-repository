@@ -1842,3 +1842,7 @@
 	callnative BS_TryReflectType
 	.4byte \failInstr
 	.endm
+
+	.macro trygivenothing
+	callnative BS_TryGiveNothing
+	.endm

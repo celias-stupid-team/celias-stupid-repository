@@ -971,6 +971,9 @@ void PlayerJumpLedge(u8 direction)
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_2F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_2F)) {
         RunScriptImmediately(SkyTower_2F_ThePit);
     }
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_3F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_3F)) {
+        RunScriptImmediately(SkyTower_3F_ThePit);
+    }
     PlaySE(SE_LEDGE);
     PlayerSetAnimId(GetJump2MovementAction(direction), 8);
 }
