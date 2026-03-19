@@ -46,6 +46,7 @@
 #include "pokedex.h"
 #include "pokedex_screen.h"
 #include "pokemon.h"
+#include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_storage_system_internal.h"
 #include "region_map.h"
@@ -181,26 +182,6 @@ enum RotomMoveMessage
     ROTOM_MSG_COUNT,
 };
 
-enum RotomMonIcon
-{
-    ICON_GHOLDENGO,
-    ICON_SEAKING,
-    ICON_MACHAMP,
-    ICON_BIDOOF,
-    ICON_FARFETCHD,
-    ICON_GOLURK,
-    ICON_SMEARGLE,
-    ICON_EXEGGUTOR,
-    ICON_KANGASKHAN,
-    ICON_AMPHAROS_MEGA,
-    ICON_MR_MIME,
-    ICON_SCYTHER,
-    ICON_KRABBY,
-    ICON_AMPHAROS,
-    ICON_EXEGGCUTE,
-    MON_ICON_COUNT,
-};
-
 enum RotomSpriteID
 {
     SPRITE_ROTOM_EYE_TOP,
@@ -296,7 +277,7 @@ struct RotomMove
 };
 
 #define ROTOM_MON_ICON_X_POS(move) (sRotomMoves[move].spriteXPos + 14)
-#define ROTOM_MON_ICON_Y_POS       143
+#define ROTOM_MON_ICON_Y_POS       139
 
 #define MOVE_SELECTOR_X_POS(move)  (((move >= ROTOM_MOVE_ROW_SIZE ? (move - ROTOM_MOVE_ROW_SIZE) : move) * 32) + 9)
 #define MOVE_SELECTOR_Y_POS        107
@@ -417,24 +398,6 @@ struct RotomStartMenu
     u8 screenWraparoundCounter:2;
 };
 
-static const u16 sRotomMonIconToSpecies[] = {
-    [ICON_GHOLDENGO] = SPECIES_GHOLDENGO,
-    [ICON_SEAKING] = SPECIES_SEAKING,
-    [ICON_MACHAMP] = SPECIES_MACHAMP,
-    [ICON_BIDOOF] = SPECIES_BIDOOF,
-    [ICON_FARFETCHD] = SPECIES_FARFETCHD,
-    [ICON_GOLURK] = SPECIES_GOLURK,
-    [ICON_SMEARGLE] = SPECIES_SMEARGLE,
-    [ICON_EXEGGUTOR] = SPECIES_EXEGGUTOR,
-    [ICON_KANGASKHAN] = SPECIES_KANGASKHAN,
-    [ICON_AMPHAROS_MEGA] = SPECIES_AMPHAROS_MEGA,
-    [ICON_MR_MIME] = SPECIES_MR_MIME,
-    [ICON_SCYTHER] = SPECIES_SCYTHER,
-    [ICON_KRABBY] = SPECIES_KRABBY,
-    [ICON_AMPHAROS] = SPECIES_AMPHAROS,
-    [ICON_EXEGGCUTE] = SPECIES_EXEGGCUTE,
-};
-
 EWRAM_DATA bool8 gUsingRotomMenuMove = 0;
 EWRAM_DATA u16 gRotomMoveSlotOrBoxPos = 0;
 static EWRAM_DATA struct RotomStartMenu *sRotomStartMenu = NULL;
@@ -471,8 +434,6 @@ static const u16 sIconPal[] = INCBIN_U16("graphics/rotom_menu/icons.gbapal");
 static const u32 sMoveSelectorGfx[] = INCBIN_U32("graphics/rotom_menu/move_selector.4bpp.lz");
 static const u32 sMoveSelectorMiddleGfx[] = INCBIN_U32("graphics/rotom_menu/move_selector_middle.4bpp.lz");
 static const u32 sRotomEyesGfx[] = INCBIN_U32("graphics/rotom_menu/rotom_eyes.4bpp.lz");
-static const u32 sMonIconGfx[] = INCBIN_U32("graphics/rotom_menu/mon_icons.4bpp.lz");
-static const u16 sMonIconPal[] = INCBIN_U16("graphics/rotom_menu/mon_icons.gbapal");
 static const u32 sArrowGfx[] = INCBIN_U32("graphics/rotom_menu/arrow.4bpp.lz");
 
 static const struct WindowTemplate sSaveInfoWindowTemplate = {
@@ -503,118 +464,6 @@ static const struct WindowTemplate sWindowTemplate_MoveNames = {
     .height = 2,
     .paletteNum = 15,
     .baseBlock = 258
-};
-
-#define MON_ICON_FRAME_SIZE      32
-#define MON_ICON_TILES_PER_FRAME 16
-
-static const union AnimCmd sAnimCmd_MonIcon_Gholdengo[] = {
-    ANIMCMD_FRAME((ICON_GHOLDENGO * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Seaking[] = {
-    ANIMCMD_FRAME((ICON_SEAKING * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Machamp[] = {
-    ANIMCMD_FRAME((ICON_MACHAMP * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Bidoof[] = {
-    ANIMCMD_FRAME((ICON_BIDOOF * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Farfetchd[] = {
-    ANIMCMD_FRAME((ICON_FARFETCHD * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Golurk[] = {
-    ANIMCMD_FRAME((ICON_GOLURK * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Smeargle[] = {
-    ANIMCMD_FRAME((ICON_SMEARGLE * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Exeggutor[] = {
-    ANIMCMD_FRAME((ICON_EXEGGUTOR * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Kangaskhan[] = {
-    ANIMCMD_FRAME((ICON_KANGASKHAN * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_AmpharosMega[] = {
-    ANIMCMD_FRAME((ICON_AMPHAROS_MEGA * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_MrMime[] = {
-    ANIMCMD_FRAME((ICON_MR_MIME * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Scyther[] = {
-    ANIMCMD_FRAME((ICON_SCYTHER * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Krabby[] = {
-    ANIMCMD_FRAME((ICON_KRABBY * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-static const union AnimCmd sAnimCmd_MonIcon_Ampharos[] = {
-    ANIMCMD_FRAME((ICON_AMPHAROS * MON_ICON_TILES_PER_FRAME), 0),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd *const sMonIconAnimTable[MON_ICON_COUNT] = {
-    [ICON_GHOLDENGO] = sAnimCmd_MonIcon_Gholdengo,
-    [ICON_SEAKING] = sAnimCmd_MonIcon_Seaking,
-    [ICON_MACHAMP] = sAnimCmd_MonIcon_Machamp,
-    [ICON_BIDOOF] = sAnimCmd_MonIcon_Bidoof,
-    [ICON_FARFETCHD] = sAnimCmd_MonIcon_Farfetchd,
-    [ICON_GOLURK] = sAnimCmd_MonIcon_Golurk,
-    [ICON_SMEARGLE] = sAnimCmd_MonIcon_Smeargle,
-    [ICON_EXEGGUTOR] = sAnimCmd_MonIcon_Exeggutor,
-    [ICON_KANGASKHAN] = sAnimCmd_MonIcon_Kangaskhan,
-    [ICON_AMPHAROS_MEGA] = sAnimCmd_MonIcon_AmpharosMega,
-    [ICON_MR_MIME] = sAnimCmd_MonIcon_MrMime,
-    [ICON_SCYTHER] = sAnimCmd_MonIcon_Scyther,
-    [ICON_KRABBY] = sAnimCmd_MonIcon_Krabby,
-    [ICON_AMPHAROS] = sAnimCmd_MonIcon_Ampharos,
-    [ICON_EXEGGCUTE] = sAnimCmd_MonIcon_Exeggutor,
-};
-
-static const struct SpritePalette sSpritePal_MonIcon[] = {
-    { sMonIconPal, TAG_MON_ICON_PAL },
-    { NULL },
-};
-
-static const struct CompressedSpriteSheet sSpriteSheet_MonIcon[] = {
-    { sMonIconGfx, (MON_ICON_FRAME_SIZE * MON_ICON_FRAME_SIZE * MON_ICON_COUNT) / 2, TAG_MON_ICON_GFX },
-    { NULL },
-};
-
-static const struct OamData sOamMonIcon = {
-    .y = 0,
-    .affineMode = ST_OAM_AFFINE_OFF,
-    .objMode = 0,
-    .bpp = ST_OAM_4BPP,
-    .shape = SPRITE_SHAPE(32x32),
-    .x = 0,
-    .matrixNum = 0,
-    .size = SPRITE_SIZE(32x32),
-    .tileNum = 0,
-    .priority = 0,
-    .paletteNum = 0,
-};
-
-static const struct SpriteTemplate sSpriteMonIcon = {
-    .tileTag = TAG_MON_ICON_GFX,
-    .paletteTag = TAG_MON_ICON_PAL,
-    .oam = &sOamMonIcon,
-    .anims = sMonIconAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCallbackDummy,
 };
 
 #define ROW_ARROW_FRAME_SIZE 8
@@ -1547,10 +1396,7 @@ static void RotomStartMenu_LoadSprites(void)
     LoadCompressedSpriteSheet(sSpriteSheet_RowArrow);
     LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
 
-    LoadSpritePalette(sSpritePal_MonIcon);
-    index = IndexOfSpritePaletteTag(TAG_MON_ICON_PAL);
-    LoadPalette(sMonIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
-    LoadCompressedSpriteSheet(sSpriteSheet_MonIcon);
+    LoadMonIconPalettes();
 }
 
 #define MON_SQUARE_SIZE 4
@@ -1629,30 +1475,41 @@ static void UpdateMonTilemaps(void)
 static void RotomStartMenu_UpdateMonSprites(void)
 {
     u32 i, j;
+    u32 rotomMove;
     u32 rotomMoveOffset = (sRotomStartMenu->fieldMoveCursor > ROTOM_MOVE_TOP_ROW_MAX) ? ROTOM_MOVE_ROW_SIZE : 0;
 
     for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
     {
-        gSprites[sRotomStartMenu->spriteIDs[i]].invisible = TRUE;
-        if (Overworld_GetFlashLevel() && sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] != SPRITE_NONE)
+        rotomMove = i - SPRITE_MON_ICON_0 + rotomMoveOffset;
+
+        if (sRotomStartMenu->spriteIDs[i] != SPRITE_NONE)
         {
-            gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]].invisible = TRUE;
+            DestroyMonIcon(&gSprites[sRotomStartMenu->spriteIDs[i]]);
+            sRotomStartMenu->spriteIDs[i] = SPRITE_NONE;
         }
 
-        if (sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset] != SPECIES_NONE)
+        if (Overworld_GetFlashLevel() && sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] != SPRITE_NONE)
         {
-            for (j = 0; j < MON_ICON_COUNT; j++)
+            DestroyMonIcon(&gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]]);
+            sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] = SPRITE_NONE;
+        }
+
+        if (sRotomStartMenu->monSpecies[rotomMove] != SPECIES_NONE)
+        {
+            sRotomStartMenu->spriteIDs[i] = CreateMonIcon(sRotomStartMenu->monSpecies[rotomMove], SpriteCB_MonIcon, ROTOM_MON_ICON_X_POS(rotomMove), ROTOM_MON_ICON_Y_POS, 0, 0, FALSE);
+            gSprites[sRotomStartMenu->spriteIDs[i]].oam.priority = 0;
+
+            if (Overworld_GetFlashLevel())
             {
-                if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset])
-                {
-                    gSprites[sRotomStartMenu->spriteIDs[i]].invisible = FALSE;
-                    StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
-                    if (Overworld_GetFlashLevel() && sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] != SPRITE_NONE)
-                    {
-                        gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]].invisible = FALSE;
-                        StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]], j);
-                    }
-                }
+                SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
+                SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
+
+                sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] = CreateMonIcon(sRotomStartMenu->monSpecies[rotomMove], SpriteCB_MonIcon, ROTOM_MON_ICON_X_POS(rotomMove), ROTOM_MON_ICON_Y_POS, 0, 0, FALSE);
+                gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]].oam.priority = 0;
+                gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]].oam.objMode = ST_OAM_OBJ_WINDOW;
+
+                SetGpuRegBits(REG_OFFSET_DISPCNT, 0);
+                SetGpuRegBits(REG_OFFSET_WINOUT, 0);
             }
         }
     }
@@ -1696,18 +1553,22 @@ static void RotomStartMenu_CreateSprites(void)
     for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
     {
         rotomMove = i - SPRITE_MON_ICON_0 + rotomMoveOffset;
-        sRotomStartMenu->spriteIDs[i] = CreateSprite(&sSpriteMonIcon, ROTOM_MON_ICON_X_POS(rotomMove), ROTOM_MON_ICON_Y_POS, 0);
-        gSprites[sRotomStartMenu->spriteIDs[i]].invisible = TRUE;
-
         if (sRotomStartMenu->monSpecies[rotomMove] != SPECIES_NONE)
         {
-            for (j = 0; j < MON_ICON_COUNT; j++)
+            sRotomStartMenu->spriteIDs[i] = CreateMonIcon(sRotomStartMenu->monSpecies[rotomMove], SpriteCB_MonIcon, ROTOM_MON_ICON_X_POS(rotomMove), ROTOM_MON_ICON_Y_POS, 0, 0, FALSE);
+            gSprites[sRotomStartMenu->spriteIDs[i]].oam.priority = 0;
+
+            if (Overworld_GetFlashLevel())
             {
-                if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset])
-                {
-                    gSprites[sRotomStartMenu->spriteIDs[i]].invisible = FALSE;
-                    StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
-                }
+                SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
+                SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
+
+                sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] = CreateMonIcon(sRotomStartMenu->monSpecies[rotomMove], SpriteCB_MonIcon, ROTOM_MON_ICON_X_POS(rotomMove), ROTOM_MON_ICON_Y_POS, 0, 0, FALSE);
+                gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]].oam.priority = 0;
+                gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]].oam.objMode = ST_OAM_OBJ_WINDOW;
+
+                SetGpuRegBits(REG_OFFSET_DISPCNT, 0);
+                SetGpuRegBits(REG_OFFSET_WINOUT, 0);
             }
         }
     }
@@ -1737,6 +1598,9 @@ static void RotomStartMenu_CreateSpriteMasks(void)
 
     for (i = 0; i < ROTOM_SPRITE_COUNT; i++)
     {
+        // mon icon sprite masks are handled independently when creating and updating them
+        if (i >= SPRITE_MON_ICON_0 && i <= SPRITE_MON_ICON_5) continue;
+
         spriteID = sRotomStartMenu->spriteIDs[i];
         if (spriteID != SPRITE_NONE)
         {
@@ -1786,7 +1650,7 @@ static void RotomStartMenu_DisableSpriteAffineModes(void)
     for (i = 0; i < ROTOM_SPRITE_COUNT_WITH_MASKS; i++)
     {
         spriteID = sRotomStartMenu->spriteIDs[i];
-        if (spriteID != SPRITE_NONE)
+        if (spriteID != SPRITE_NONE && (gSprites[spriteID].oam.affineMode & ST_OAM_AFFINE_ON_MASK))
         {
             // this is hardcoded to ensure the double size sprites stay in the same place
             // even after disabling that mode
@@ -1881,7 +1745,15 @@ static void RotomStartMenu_DestroySprites(void)
             {
                 FreeSpriteOamMatrix(&gSprites[spriteID]);
             }
-            DestroySprite(&gSprites[spriteID]);
+
+            if (gSprites[spriteID].callback == SpriteCB_MonIcon)
+            {
+                DestroyMonIcon(&gSprites[spriteID]);
+            }
+            else
+            {
+                DestroySprite(&gSprites[spriteID]);
+            }
         }
     }
 }
@@ -1931,9 +1803,9 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
         FreeSpriteTilesByTag(TAG_ICON_GFX);
         FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_GFX);
         FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_MIDDLE_GFX);
-        FreeSpriteTilesByTag(TAG_MON_ICON_GFX);
         FreeSpriteTilesByTag(TAG_ROTOM_EYES_GFX);
         FreeSpriteTilesByTag(TAG_ARROW_GFX);
+        FreeMonIconPalettes();
         Free(sRotomStartMenu);
         sRotomStartMenu = NULL;
     }
