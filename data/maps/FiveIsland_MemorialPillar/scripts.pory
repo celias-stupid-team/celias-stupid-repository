@@ -129,6 +129,51 @@ script MemorialPillar_OnixSign {
 
 
 script MemorialPillar_Guy {
+	if(checkitem(ITEM_LEMONADE) && !flag(FLAG_TEMP_5) && !flag(FLAG_ONIX_TAIL_SIGN)) {
+		lock
+		faceplayer
+		msgbox(
+		"This is where I buried my ONIX.\p"
+
+		"I think I did an excellent job\n"
+		"burying him.", MSGBOX_DEFAULT)
+		closemessage
+		playse(SE_PIN)
+		applymovement(VAR_LAST_TALKED, moves(
+			emote_exclamation_mark
+			delay_16 * 3
+		))
+		waitmovement(0)
+		msgbox(
+		"Hey! You have LEMONADE!\p"
+
+		"That was my ONIX's favorite drink.\n"
+		"I wanna leave it as an offering.\l"
+		"May I please have one?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			setflag(FLAG_TEMP_5)
+			removeitem(ITEM_LEMONADE)
+			msgbox(
+			"Thank you.\p"
+
+			"Say… When I buried him, we popped\n"
+			"out of the other side of the world.\p"
+
+			"I think there was construction\n"
+			"equipment around?\l"
+			"Dunno where that'd be.", MSGBOX_DEFAULT)
+			release
+			end
+		} else {
+			msgbox(
+			"Wow.\p"
+
+			"Okay, asshole.\n"
+			"", MSGBOX_DEFAULT)
+			release
+			end
+		}
+	}
 	msgbox(
 	"This is where I buried my ONIX.\p"
 

@@ -18,6 +18,7 @@ script BrendanMay_Machoke {
     waitfanfare
     setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MACHOKE)
     if(!flag(FLAG_GOT_MACHOKE)) {
+        setflag(FLAG_GOT_MACHOKE)
         call(BrendanMay_GiveMachokeWithBrick)
 
     } else {

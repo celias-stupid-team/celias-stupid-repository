@@ -175,7 +175,7 @@ script ContestHall_Judge {
 
 script Sootopolis_DeliveryService {
 	msgbox(
-	"Another child, safely delivered\n"
+	"Another child, safely delivered!\n"
 	"Thank you!\l"
 	"HOENN CHILD DELIVERY SERVICE!", MSGBOX_SIGN)
 

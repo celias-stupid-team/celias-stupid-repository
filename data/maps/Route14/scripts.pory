@@ -99,7 +99,7 @@ script Route15_PokeRap_Trainer4_Defeat {
 
 script Route15_PokeRap_Trainer5 {
     trainerbattle_single(TRAINER_POKERAP_5, Rapper_5_Intro, "Nice!", Route15_PokeRap_Trainer5_Defeat)
-    msgbox("POLIWAG by Jogaklaa\nNIDORINO by SharkGuy\lGOLDUCK by Jogaklaa", MSGBOX_DEFAULT)
+    msgbox("VENOMOTH by Fayren\nPOLIWAG by Jogaklaa\pNIDORINO by SharkGuy\lGOLDUCK by Jogaklaa", MSGBOX_DEFAULT)
     release
 }
 
@@ -505,7 +505,7 @@ script Route15_PokeRap_Trainer28_Defeat {
 
 script Route15_PokeRap_Trainer29 {
     trainerbattle_single(TRAINER_POKERAP_29, Rapper_29_Intro, "Nice!", Route15_PokeRap_Trainer29_Defeat)
-    msgbox("CHARIZARD made by Crow\nMACHAMP made by The GameJumper623", MSGBOX_NPC)
+    msgbox("CHARIZARD made by Crow\nMACHAMP made by The GameJumper623\lPINSIR by The Scrub", MSGBOX_NPC)
 }
 
 script Route15_PokeRap_Trainer29_Defeat {

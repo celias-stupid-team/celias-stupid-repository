@@ -90,8 +90,10 @@ script ViridianGym_MistyBattle {
         applymovement(LOCALID_DMCA_YUGIOH, moves(
             lock_facing_direction
             slide_up * 3
+            walk_left
         ))
         waitmovement(LOCALID_DMCA_YUGIOH)
+        copyobjectxytoperm(LOCALID_DMCA_YUGIOH)
         waitse
         delay(60)
         special(SpawnCameraObject)

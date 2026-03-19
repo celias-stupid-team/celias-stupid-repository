@@ -1003,10 +1003,67 @@ const struct SpriteTemplate gBarrageBallSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+
+static const union AnimCmd sNormallyNormalAnimCmds1[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sNormallyNormalAnimCmds2[] =    
+{
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd sNormallyNormalAnimCmds3[] =    
+{
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd sNormallyNormalAnimCmds4[] =    
+{
+    ANIMCMD_FRAME(48, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sNormallyNormalAnimTable[] =
+{
+    sNormallyNormalAnimCmds1,
+    sNormallyNormalAnimCmds2,
+    sNormallyNormalAnimCmds3,
+    sNormallyNormalAnimCmds4,
+};
+
+const struct SpriteTemplate gNormallyNormalSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_NORMAL,
+    .paletteTag = ANIM_TAG_NORMAL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sNormallyNormalAnimTable,
+    .images = NULL,
+    .affineAnims = sBarrageBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 const struct SpriteTemplate gMingVaseThrowSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MING_VASE,
     .paletteTag = ANIM_TAG_MING_VASE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBarrageBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+const struct SpriteTemplate gAppleThrowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GRAVEL_APPLE,
+    .paletteTag = ANIM_TAG_GRAVEL_APPLE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -4411,6 +4468,50 @@ void AnimTask_CheeseDry(u8 taskId)
     }
 }
 
+void AnimTask_NormallyNormal(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 spriteId;
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET)
+                   + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+
+    spriteId = CreateSprite(&gNormallyNormalSpriteTemplate,
+                            task->data[11],
+                            task->data[12],
+                            GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+
+    task->data[15] = spriteId;
+
+    if (spriteId != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+
+        // Select variant frame
+        StartSpriteAnim(sprite, gBattleAnimArgs[0]);
+
+        sprite->data[0] = 16;
+        sprite->data[2] = task->data[13];
+        sprite->data[4] = task->data[14];
+        sprite->data[5] = -32;
+
+        InitAnimArcTranslation(sprite);
+
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(sprite, 1);
+
+        task->func = AnimTask_BarrageBall_Step; // reuse existing step logic
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+
 // Moves a ball in an arc twoards the target, and rotates the ball while arcing.
 // No args.
 void AnimTask_BarrageBall(u8 taskId)
@@ -6025,6 +6126,43 @@ void AnimTask_MingVaseThrow(u8 taskId)
                    + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
 
     task->data[15] = CreateSprite(&gMingVaseThrowSpriteTemplate,
+                                  task->data[11],
+                                  task->data[12],
+                                  GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+
+    if (task->data[15] != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[task->data[15]];
+
+        sprite->data[0] = 16;            // arc duration
+        sprite->data[2] = task->data[13];
+        sprite->data[4] = task->data[14];
+        sprite->data[5] = -32;           // arc height
+
+        InitAnimArcTranslation(sprite);
+
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(sprite, 1);
+
+        task->func = AnimTask_MingVaseThrow_Step;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+void AnimTask_AppleThrow(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET)
+                   + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+
+    task->data[15] = CreateSprite(&gAppleThrowSpriteTemplate,
                                   task->data[11],
                                   task->data[12],
                                   GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);

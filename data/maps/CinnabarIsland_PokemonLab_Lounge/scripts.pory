@@ -125,21 +125,30 @@ script CinnabarIslandLab_StevenStone {
 	"", MSGBOX_DEFAULT)
 	if(checkitem(ITEM_LETTER_W)) {
 		msgbox(
-		"STEVEN: Ah, a letter for me?\p"
+		"STEVEN: Ah, a letter from me?\p"
 
-		"something something\p"
+		"… … … …\n"
+		"… … … …\p"
 
-		"Take this\n"
-		"", MSGBOX_DEFAULT)
+		"It's from by associate BRENDAN.\n"
+		"I totally forgot about him!\p"
+
+		"Thank you for delivering it to me.\n"
+		"Take this.", MSGBOX_DEFAULT)
 		closemessage
 		removeitem(ITEM_LETTER_W)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		giveitem_msg("{PLAYER} received the\n"
-		"TM13!", ITEM_TM13, 1, MUS_LEVEL_UP)
+		"TM13!", ITEM_TM13)
 		waitfanfare
 		closemessage
+		textcolor(NPC_TEXT_COLOR_BLUE)
 		msgbox(
-		"STEVEN: That is STEEL WING.\n"
-		"", MSGBOX_DEFAULT)
+		"STEVEN: That is STEEL WING.\p"
+
+		"It's an aggressively mediocre\n"
+		"move, but for some unknown reason\l"
+		"I apparently love it.", MSGBOX_DEFAULT)
 		setvar(VAR_TRADING_QUEST_PHASE, 2)
 	}
 	release

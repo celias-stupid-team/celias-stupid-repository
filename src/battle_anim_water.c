@@ -224,6 +224,17 @@ const struct SpriteTemplate gSignalBeamRedOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+const struct SpriteTemplate gLickleBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PERISH_TONGUE,
+    .paletteTag = ANIM_TAG_PERISH_TONGUE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 const struct SpriteTemplate gSignalBeamGreenOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GLOWY_GREEN_ORB,
@@ -883,8 +894,12 @@ void AnimTask_CreateSurfWave(u8 taskId)
     AnimLoadCompressedBgGfx(animBg.bgId, gBattleAnimBgImage_Surf, animBg.tilesOffset);
     if (gBattleAnimArgs[0] == 0)
         LoadCompressedPalette(gBattleAnimBgPalette_Surf, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
-    else
+    else if(gBattleAnimArgs[0] == 1)
         LoadCompressedPalette(gBattleAnimBgPalette_MuddyWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+    else if(gBattleAnimArgs[0] == 2)
+        LoadCompressedPalette(gBattleAnimBgPalette_RedWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+    else if(gBattleAnimArgs[0] == 3)
+        LoadCompressedPalette(gBattleAnimBgPalette_RainbowWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
     taskId2 = CreateTask(AnimTask_SurfWaveScanlineEffect, gTasks[taskId].priority + 1);
     gTasks[taskId].data[15] = taskId2;
     gTasks[taskId2].data[0] = 0;

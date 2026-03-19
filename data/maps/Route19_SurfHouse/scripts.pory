@@ -93,3 +93,11 @@ script SandwichHouse_Rotom {
     fadescreen(FADE_FROM_BLACK)
 	release
 }
+
+
+script FurretHouse_OakNotSurfing {
+	msgbox(
+	"OAK is not surfing.\n"
+	"", MSGBOX_SIGN)
+
+}

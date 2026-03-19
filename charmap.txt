@@ -905,6 +905,8 @@ SATURN_N                  = F9 2E
 SATURN_G                  = F9 2F
 SATURN_BANG                  = F9 30
 
+WALUIGI                  = F9 40
+
 
 EMOJI_UNDERSCORE = F9 D0
 EMOJI_PIPE = F9 D1

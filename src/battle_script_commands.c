@@ -2300,6 +2300,7 @@ static void Cmd_datahpupdate(void)
                     if (oldDmg < 49 && gBattleStruct->damageAccumulated == 49
                       && ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_49_DAMAGE))
                     {
+                        VarSet(VAR_TEMP_4, 1);
                         yamask49DmgTriggered = TRUE;
                         gBattleScripting.battler = gActiveBattler;
                     }
@@ -2431,8 +2432,16 @@ static void Cmd_resultmessage(void)
         case MOVE_RESULT_DOESNT_AFFECT_FOE:
             if (gCurrentMove == MOVE_THORN_WHIP)
                 stringId = STRINGID_PKMNIMMUNETOPOISON;
-            else
-                stringId = STRINGID_ITDOESNTAFFECT;
+            else {
+                    if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    stringId = STRINGID_ITDOESNTAFFECT;
+
+                }
+                
             break;
         case MOVE_RESULT_FOE_HUNG_ON:
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
@@ -2473,6 +2482,11 @@ static void Cmd_resultmessage(void)
                 }
                 gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                 BattleScriptPushCursor();
+                if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                }
                 gBattlescriptCurrInstr = BattleScript_SturdiedMsg;
                 return;
             }
@@ -12826,4 +12840,14 @@ void BS_TryReflectType(void)
         PREPARE_TYPE_BUFFER(gBattleTextBuff2, targetTypes[1]);
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
+}
+
+void BS_TryGiveNothing(void) {
+    NATIVE_ARGS(const u8 *failInstr);
+    
+    if(!FlagGet(FLAG_GOT_MOVE_NOTHING)) {
+        AddBagItem(ITEM_NOTHING, 1);
+        FlagSet(FLAG_GOT_MOVE_NOTHING);
+    }
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }

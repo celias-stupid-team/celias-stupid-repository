@@ -497,3 +497,13 @@ movement GrowlitheIsHappy {
 movement GrowlitheAbsconds {
 	walk_fast_left * 10
 }
+
+
+script Route8_HiddenDaisy {
+	msgbox(
+	"I am the legendary hidden DAISY!\p"
+
+	"Thank you for finding me.\n"
+	"", MSGBOX_SIGN)
+
+}

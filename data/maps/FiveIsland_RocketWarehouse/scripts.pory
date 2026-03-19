@@ -207,9 +207,18 @@ script DMCAWarehouse_ThievulFight {
 
 script DMCAWarehouse_AdminLeaves {
 	msgbox(
-	"We took the letter Y because it\n"
-	"was infriging the copyright of\l"
-	"both E and I!", MSGBOX_DEFAULT)
+	"Grr…\n"
+	"Fine!\p"
+
+	"You wanna know about that LETTER we\n"
+	"confiscated?\l"
+	"Ha!\p"
+
+	"We took it cuz it was infringing on\n"
+	"the copyright of both E and I!\p"
+
+	"Whatever. It's time that we, the\n"
+	"DMCA, finally take our leave.", MSGBOX_DEFAULT)
 	closemessage
 	playse(SE_M_EXPLOSION)
 	removeobject(VAR_LAST_TALKED)

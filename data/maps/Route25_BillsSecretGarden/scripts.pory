@@ -142,6 +142,12 @@ script SecretGarden_PCTerminal {
                 "BOX {STR_VAR_1}")
                 waitmessage
                 dynmultichoice(0,0,FALSE,4, 0, DYN_MULTICHOICE_CB_NONE, "BOX 1   ", "BOX 2   ", "BOX 3", "BOX 4", "BOX 5", "BOX 6")
+                if(var(VAR_RESULT) == 127 || var(VAR_RESULT) == 128 ) {
+                    closemessage
+                    release
+                    end
+
+                }
                 copyvar(LOADED_SYSTEM_BOX, VAR_RESULT)
                 copyvar(STRING_INCREMENTED_SYSTEM_BOX, LOADED_SYSTEM_BOX)
                 addvar(STRING_INCREMENTED_SYSTEM_BOX, 1)
@@ -261,10 +267,13 @@ script SecretGarden_PCMonitor {
             //setvar(VAR_VIEWING_PC, 1)
             release
         } else {
-            buffernumberstring(STR_VAR_1, LOADED_SYSTEM_BOX)
+
+            copyvar(STRING_INCREMENTED_SYSTEM_BOX, PC_CURRENT_BOX)
+            addvar(STRING_INCREMENTED_SYSTEM_BOX, 1)
+            buffernumberstring(STR_VAR_1, STRING_INCREMENTED_SYSTEM_BOX)
+
             msgbox(
-            "Current Box:\n"
-            "BOX {STR_VAR_1}", MSGBOX_DEFAULT)
+            "BOX {STR_VAR_1} Loaded", MSGBOX_DEFAULT)
             call(SecretGarden_GetCurrentPCPokemon)
             showmonpic(PC_CURRENT_POKEMON, 10, 3)
             //waitbuttonpress
@@ -285,9 +294,7 @@ script SecretGarden_PCMonitor {
 script SecretGarden_RetrievalChute {
     lock
 	if(flag(FLAG_SYS_BILL_GARDEN)) {
-        msgbox(
-        "RETRIEVAL DEPOT\n"
-        "", MSGBOX_DEFAULT)
+        
         if(flag(RIGHT_BOX_THERE)) {
             if(flag(RIGHT_BOX_OPEN)) {
                 closemessage
@@ -331,10 +338,11 @@ script SecretGarden_RetrievalChute {
                 end
             }
         } else {
-            if((compare_var_to_var(LOADED_SYSTEM_BOX, PC_CURRENT_BOX) && flag(LEFT_BOX_IN_PC))
-            ||(compare_var_to_var(LOADED_SYSTEM_BOX, LEFT_BOX_NUMBER) && flag(LEFT_BOX_THERE) )
-            ||(compare_var_to_var(LOADED_SYSTEM_BOX, PLAYER_BOX_NUMBER) && flag(PLAYER_BOX_THERE))
-            ||(compare_var_to_var(LOADED_SYSTEM_BOX, CRIMP_BOX_NUMBER) && flag(CRIMP_BOX_THERE))) {
+            if((are_vars_equal(LOADED_SYSTEM_BOX, PC_CURRENT_BOX) && flag(LEFT_BOX_IN_PC))
+            ||(are_vars_equal(LOADED_SYSTEM_BOX, LEFT_BOX_NUMBER) && flag(LEFT_BOX_THERE) )
+            ||(are_vars_equal(LOADED_SYSTEM_BOX, PLAYER_BOX_NUMBER) && flag(PLAYER_BOX_THERE))
+            ||(are_vars_equal(LOADED_SYSTEM_BOX, CRIMP_BOX_NUMBER) && flag(CRIMP_BOX_THERE))) {
+
                 playse(SE_BOO)
                 waitse
                 msgbox(
@@ -367,9 +375,7 @@ script SecretGarden_RetrievalChute {
             end
         }
     } else {
-        msgbox(
-        "RETRIEVAL DEPOT\n"
-        "", MSGBOX_DEFAULT)
+        
         closemessage
         delay(20)
         playse(SE_CLICK)
@@ -495,9 +501,7 @@ script SecretGarden_PCLeftButton {
 script SecretGarden_PCBoxDock {
     lock
 	if(flag(FLAG_SYS_BILL_GARDEN)) {
-        msgbox(
-        "IMPORT DEPOT\n"
-        "", MSGBOX_DEFAULT)
+        
         if(flag(FLAG_SYS_CARRYING_BOX)) {
 
         }
@@ -515,6 +519,22 @@ script SecretGarden_PCBoxDock {
                 release
                 end
             } else {
+                if(flag(RIGHT_BOX_THERE) || flag(CRIMP_BOX_THERE) || flag(PLAYER_BOX_THERE)) {
+                    closemessage
+                    delay(20)
+                    playse(SE_BOO)
+                    msgbox(
+                    "SYSTEM ERROR\p"
+
+                    "Cannot import box while another\n"
+                    "box is out.\p"
+
+                    "Please return all other boxes\n"
+                    "to storage first.", MSGBOX_DEFAULT)
+                    closemessage
+                    release
+                    end
+                }
                 closemessage
                 delay(20)
                 playse(SE_CLICK)
@@ -610,9 +630,7 @@ script SecretGarden_PCBoxDock {
 
 script SecretGarden_ExportBoxDock {
     lock
-	msgbox(
-	"LOADING BAY DOCK\n"
-	"", MSGBOX_DEFAULT)
+	
     if(flag(RIGHT_BOX_THERE)) {
         if(flag(FLAG_SYS_CARRYING_BOX)) {
             closemessage
@@ -681,8 +699,7 @@ script SecretGarden_ExportBoxDock {
 
 script SecretGarden_PCBoxPallet {
     lock
-	msgbox(
-	"PC BOX PALETTE\n", MSGBOX_DEFAULT)
+	
     if(flag(LEFT_BOX_THERE)) {
         if(flag(FLAG_SYS_CARRYING_BOX)) {
             closemessage
@@ -756,9 +773,7 @@ script SecretGarden_PCBoxPallet {
 
 script SecretGarden_BoxCrimper {
     lock
-	msgbox(
-	"BOX CLOSER\n"
-	"", MSGBOX_DEFAULT)
+	
     if(flag(CRIMP_BOX_THERE)) {
         if(flag(FLAG_SYS_CARRYING_BOX)) {
             closemessage
@@ -829,8 +844,8 @@ script SecretGarden_BoxCrimper {
 script SecretGarden_BoxCrimperControl {
     lock
 	msgbox(
-	"BOX CLOSER CONTROL PANEL\n"
-	"", MSGBOX_DEFAULT)
+	"BOX CLOSER\n"
+	"Control Panel", MSGBOX_DEFAULT)
     if(flag(CRIMP_BOX_THERE)) {
         closemessage
         delay(20)

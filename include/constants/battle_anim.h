@@ -382,6 +382,14 @@
 #define ANIM_TAG_HAMMER                     (ANIM_SPRITES_START + 372)
 #define ANIM_TAG_SHOEPRINT                  (ANIM_SPRITES_START + 373)
 #define ANIM_TAG_SKYRIM                     (ANIM_SPRITES_START + 374)
+#define ANIM_TAG_MISTY                      (ANIM_SPRITES_START + 375)
+#define ANIM_TAG_PERISH_TONGUE              (ANIM_SPRITES_START + 376)
+#define ANIM_TAG_CENSORED                   (ANIM_SPRITES_START + 377)
+#define ANIM_TAG_GRAVEL_APPLE               (ANIM_SPRITES_START + 378)
+#define ANIM_TAG_ONION                      (ANIM_SPRITES_START + 379)
+#define ANIM_TAG_EXTREME_SLOTH              (ANIM_SPRITES_START + 380)
+#define ANIM_TAG_CEREAL                     (ANIM_SPRITES_START + 381)
+#define ANIM_TAG_CREAM                      (ANIM_SPRITES_START + 382)
 
 // battlers
 #define ANIM_ATTACKER       0

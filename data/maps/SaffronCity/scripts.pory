@@ -334,9 +334,92 @@ script SaffronCity_ExistentialDude {
 
 
 script SaffronCity_TheLeekMan {
-	msgbox(
-	"I work at The Leek\n"
-	"", MSGBOX_NPC)
+	lock
+	faceplayer
+	if(var(VAR_TRADING_QUEST_PHASE) >= 4) {
+		call(TheLeek_ProofOfAliens)
+		msgbox(
+		"Look kid, we're running a business\n"
+		"here.\p"
+
+		"Next thing I know, you'll be askin\n"
+		"for paid time off, or benefits!\p"
+
+		"I gotta keep your expectations\n"
+		"low so you stay grateful!", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	if(flag(FLAG_TALKED_TO_THE_LEEK)) {
+		msgbox(
+		"Hey again, kid.\n"
+		"Have you found proof of ALIENS?\p"
+
+		"You might be able to find something\n"
+		"in the DESERT.\l"
+		"Y'know, the one west of VERMILION?\p"
+
+		"If you can find me that, I'll pay\n"
+		"you back at full market rate!", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Busy! Busy! Busy!\n"
+		"There's so much to do!\p"
+
+		"I'm the lead JOURNALIST here at\n"
+		"the LEEK.\l"
+		"No one tracks a story like me.\p"
+
+		"But… After the DMCA tried to take\n"
+		"us down, we lost a ton of cash.\p"
+
+		"That's where you come in.\n"
+		"I need a real good story.\l"
+		"How about this:\p"
+
+		"“UNDENIABLE PROOF OF ALIENS!”\n"
+		"Catchy headline. It's perfect.\p"
+
+		"If you can find me that, I'll pay\n"
+		"you back at full market rate!", MSGBOX_DEFAULT)
+		call(TheLeek_ProofOfAliens)
+
+	}
+}
+
+script TheLeek_ProofOfAliens {
+	
+	if(var(VAR_TRADING_QUEST_PHASE) == 3) {
+		if(checkitem(ITEM_ALIEN_PROOF)) {
+			removeitem(ITEM_ALIEN_PROOF)
+		}
+		msgbox(
+		"Oh! Oh! Oh!\n"
+		"That's it!\l"
+		"Undeniable proof of aliens!\p"
+
+		"Thanks so much, kid!\n"
+		"This will make a great story!\p"
+
+		"Here, take this.\n"
+		"Full market rate!", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		giveitem_msg("{PLAYER} was awarded\n25 CENTS!", ITEM_QUARTER)
+		waitfanfare
+		textcolor(NPC_TEXT_COLOR_BLUE)
+
+		msgbox(
+		"What?\n"
+		"I said I'd give full market rate.\p"
+
+		"I never promised that we'd pay\n"
+		"you a living wage!\l"
+		"Ha!", MSGBOX_DEFAULT)
+		setvar(VAR_TRADING_QUEST_PHASE, 4)
+		release
+		end
+	}
+	return
 }
 
 script TheLeek_Report1 {
@@ -516,11 +599,7 @@ script SaffronCity_TrainSign {
 		msgbox(
 		"A particularly un-noteworthy\n"
 		"patch of tiles.\l"
-		"There is nothing here.", MSGBOX_DEFAULT)
-		if(!flag(FLAG_SAFFRON_NOTHING)) {
-			finditem(ITEM_NOTHING)
-			setflag(FLAG_SAFFRON_NOTHING)
-		}
+		"There isn't anything here.", MSGBOX_DEFAULT)
 		release
 	}
 	msgbox(

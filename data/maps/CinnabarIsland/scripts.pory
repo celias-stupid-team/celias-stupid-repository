@@ -689,8 +689,15 @@ script CinnabarIsland_CenterNPC2 {
 
 script CinnabarIsland_MartNPC1 {
 	msgbox(
-	"Cinnabar Mart NPC 1\n"
-	"", MSGBOX_NPC)
+	"Our GYM here in CINNABAR is tricky.\n"
+	"BLAINE loves a good challenge.\p"
+
+	"I hear he was once good friends\n"
+	"with MR. FUJI.\p"
+
+	"If a fight has you stumped, it may\n"
+	"help to check your HISTORY BOOK.\l"
+	"It might teach you what you need.", MSGBOX_NPC)
 }
 
 

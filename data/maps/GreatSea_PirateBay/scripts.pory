@@ -291,6 +291,7 @@ script PirateBay_Dad {
 }
 
 script PirateBay_DontGoToWarehouse {
+	
 	msgbox(
 	"See that building up there?\n"
 	"It's the DMCA's WAREHOUSE.\p"

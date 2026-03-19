@@ -82,7 +82,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 5,
+      "x": 6,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -96,10 +96,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUIT_GIRL",
-      "x": 9,
-      "y": 3,
+      "x": 33,
+      "y": -15,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 2,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -110,8 +110,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BILL_BOARD",
-      "x": 24,
-      "y": 5,
+      "x": 15,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -124,8 +124,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 25,
-      "y": 8,
+      "x": 15,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -133,6 +133,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_BillBoard",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LASER_SHARK",
+      "x": 29,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 4,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_LaserShark",
       "flag": "0"
     }
   ],

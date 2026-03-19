@@ -149,6 +149,17 @@
 // gTileset_MtEmber
 #define METATILE_MtEmber_CaveEntrance  0x346
 
+// gTileset_NavelRock
+#define METATILE_NavelRock_ChucksterTrap  0x377
+#define METATILE_NavelRock_ExplosionTrap  0x35E
+#define METATILE_NavelRock_Floor          0x2D9
+#define METATILE_NavelRock_HboxTrap       0x36E
+#define METATILE_NavelRock_Hole           0x286
+#define METATILE_NavelRock_Itemizer       0x37F
+#define METATILE_NavelRock_PPZero         0x36F
+#define METATILE_NavelRock_PitTrap        0x376
+#define METATILE_NavelRock_WarpTrap       0x35F
+
 // gTileset_NewFuchsiaGym
 #define METATILE_NewFuchsiaGym_FushciaDoor          0x357
 #define METATILE_NewFuchsiaGym_GreenOpenCurtain1    0x2D5

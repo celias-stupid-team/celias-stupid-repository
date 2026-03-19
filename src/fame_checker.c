@@ -326,7 +326,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_BLUE,
     OBJ_EVENT_GFX_PICNICKER,
     OBJ_EVENT_GFX_YOUNGSTER,
-    OBJ_EVENT_GFX_BEAUTY,
+    OBJ_EVENT_GFX_GENTLEMAN,
     // Vermilion
     OBJ_EVENT_GFX_OLD_MAN_1,
     OBJ_EVENT_GFX_BATTLE_GIRL,
@@ -1463,7 +1463,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE) //Magical Leaf - beat sans
+                    if(FlagGet(FLAG_NO_SANS_ITEM)) //Magical Leaf - beat sans
                         isQuestCompleted = TRUE;
                     break;
             }

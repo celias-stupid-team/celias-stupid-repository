@@ -594,7 +594,7 @@
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SilphCo_PotionEraser"
+      "script": "SilphCo_RD_AssDotMeatGrinder"
     },
     {
       "type": "sign",
@@ -602,7 +602,7 @@
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SilphCo_PotionEraser"
+      "script": "SilphCo_RD_AssDotMeatGrinder"
     },
     {
       "type": "sign",
@@ -610,7 +610,7 @@
       "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SilphCo_PotionEraser"
+      "script": "SilphCo_RD_AssDotMeatGrinder"
     },
     {
       "type": "sign",
@@ -618,7 +618,7 @@
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SilphCo_PotionEraser"
+      "script": "SilphCo_RD_AssDotMeatGrinder"
     },
     {
       "type": "sign",
@@ -626,7 +626,7 @@
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SilphCo_PotionEraser"
+      "script": "SilphCo_RD_AssDotMeatGrinder"
     },
     {
       "type": "sign",
@@ -634,7 +634,7 @@
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SilphCo_PotionEraser"
+      "script": "SilphCo_RD_AssDotMeatGrinder"
     },
     {
       "type": "sign",

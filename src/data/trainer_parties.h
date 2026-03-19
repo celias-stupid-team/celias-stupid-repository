@@ -9830,12 +9830,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_FushciaGymLance[] = {
         .species = SPECIES_GYARADOS_LANCE,
         .moves = {MOVE_ELECTRIFY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
-    {
-        .iv = 0,
-        .lvl = 30,
-        .species = SPECIES_DRAGONITE,
-        .moves = {MOVE_REFLECT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
 
 };
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainNoland[] = {
@@ -9974,7 +9968,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAMisty[] = {
         .lvl = 50,
         .heldItem = ITEM_NONE,
         .species = SPECIES_HYDREIGON,
-        .moves = {MOVE_CRUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_WHITE_LIGHTNING, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -9994,14 +9988,14 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAErika[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_BRAVIARY,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_PLEDGE_OF_ALLEGIANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_BUTTERFREE_FEMALE,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SHOOT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -10331,7 +10325,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine8[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_ARCEUS,
-        .moves = {MOVE_FINAL_GAMBIT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_ME_FIRST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -10633,5 +10627,15 @@ static const struct TrainerMonItemCustomMoves sParty_TeamSkull[] = {
         .heldItem = ITEM_NONE,
         .species = SPECIES_ZUBAT,
         .moves = {MOVE_LEECH_LIFE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_Dummy_169[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_DITTO,
+        .moves = {MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };

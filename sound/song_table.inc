@@ -29,7 +29,7 @@ gSongTable::
 	song se_exp, 1, 1
 	song se_bike_hop, 1, 1
 	song se_switch, 1, 1
-	song se_click, 1, 1
+	song se_click, 2, 2
 	song se_fu_zaku, 1, 1
 	song se_contest_condition_lose, 1, 1
 	song se_lavaridge_fall_warp, 1, 1

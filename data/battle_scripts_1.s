@@ -291,6 +291,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBestow                 @ EFFECT_BESTOW
 	.4byte BattleScript_EffectRevelationDance        @ EFFECT_REVELATION_DANCE
 	.4byte BattleScript_EffectReflectType            @ EFFECT_REFLECT_TYPE
+	.4byte BattleScript_EffectNothing            		@ EFFECT_NOTHING
 
 BattleScript_End2::
 	end2
@@ -6023,3 +6024,17 @@ BattleScript_NewTripleKickHeal::
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
 	goto BattleScript_EffectHit
+
+
+
+BattleScript_EffectNothing::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	trygivenothing
+	printstring STRINGID_BUTNOTHINGHAPPENED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+

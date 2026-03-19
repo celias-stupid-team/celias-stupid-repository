@@ -480,6 +480,21 @@ script TwoIsland_Stufful {
 }
 
 script TwoIsland_MartAttendant {
+	if(checkitem(ITEM_QUARTER)) {
+		msgbox(
+		"Hi, there!\n"
+		"Welcome to the DRUGSTORE!\p"
+
+		"Uh, I see you have… 25 cents.\p"
+
+		"Sadly, the smallest unit of cash\n"
+		"we accept is the dollar.\l"
+		"Inflation's a bitch!\p"
+
+		"Maybe you could find a machine\n"
+		"that accepts that instead.", MSGBOX_NPC)
+		end
+	}
 	msgbox(
 	"Hi, there!\n"
 	"Welcome to the DRUGSTORE!\p"
@@ -926,6 +941,7 @@ script TwoIsland_BurnHeal {
 		setflag(FLAG_SHINY_DACHSBUN)
 		setflag(FLAG_KILLED_SANS)
 		setflag(FLAG_NO_SANS_ITEM)
+		removeobject(LOCALID_SANS_BURN_HEAL)
 		release
 		end
 
@@ -1457,3 +1473,18 @@ script TwoIsland_LivingSans {
 script TwoIsland_Bookshelf {
 	msgbox(Text_SecretLifeMother3, MSGBOX_SIGN)
 }
+
+
+
+script TwoIsland_Cop {
+	msgbox(
+	"Aww, man…\n"
+	"A runaway DOG just stole my gun.\l"
+	"Again.\p"
+
+	"This is the fifth time this week…\p"
+
+	"I gotta go beat up children to\n"
+	"blow off steam.", MSGBOX_NPC)
+}
+

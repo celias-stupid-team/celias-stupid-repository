@@ -1400,6 +1400,14 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Hammer, 0x0200, ANIM_TAG_HAMMER},
     {gBattleAnimSpriteGfx_Shoe, 0x0200, ANIM_TAG_SHOEPRINT},
     {gBattleAnimSpriteGfx_Skyrim, 0x0800, ANIM_TAG_SKYRIM},
+    {gBattleAnimSpriteGfx_Misty, 0x0200, ANIM_TAG_MISTY},
+    {gBattleAnimSpriteGfx_PerishTongue, 0x0080, ANIM_TAG_PERISH_TONGUE},
+    {gBattleAnimSpriteGfx_Censored, 0x0400, ANIM_TAG_CENSORED},
+    {gBattleAnimSpriteGfx_GravelApple, 0x0200, ANIM_TAG_GRAVEL_APPLE},
+    {gBattleAnimSpriteGfx_Onion, 0x0600, ANIM_TAG_ONION},
+    {gBattleAnimSpriteGfx_ExtremeSloth, 0x0800, ANIM_TAG_EXTREME_SLOTH},
+    {gBattleAnimSpriteGfx_Cereal, 0x0380, ANIM_TAG_CEREAL},
+    {gBattleAnimSpriteGfx_Cream, 0x0A00, ANIM_TAG_CREAM},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1779,6 +1787,14 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Hammer, ANIM_TAG_HAMMER},
     {gBattleAnimSpritePal_Shoe, ANIM_TAG_SHOEPRINT},
     {gBattleAnimSpritePal_Skyrim, ANIM_TAG_SKYRIM},
+    {gBattleAnimSpritePal_Misty, ANIM_TAG_MISTY},
+    {gBattleAnimSpritePal_PerishTongue, ANIM_TAG_PERISH_TONGUE},
+    {gBattleAnimSpritePal_Censored, ANIM_TAG_CENSORED},
+    {gBattleAnimSpritePal_GravelApple, ANIM_TAG_GRAVEL_APPLE},
+    {gBattleAnimSpritePal_Onion, ANIM_TAG_ONION},
+    {gBattleAnimSpritePal_ExtremeSloth, ANIM_TAG_EXTREME_SLOTH},
+    {gBattleAnimSpritePal_Cereal, ANIM_TAG_CEREAL},
+    {gBattleAnimSpritePal_Cream, ANIM_TAG_CREAM},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

@@ -147,6 +147,10 @@ script EventScript_RemoveUselessItems {
 		removeitem(ITEM_TORN_PAPER_GEODUDE)
 		addvar(VAR_TEMP_5, 1)
 	}
+	while(checkitem(ITEM_DEVON_SCOPE) && flag(FLAG_CSR_FUSHCIA_HBOX)) {
+		removeitem(ITEM_DEVON_SCOPE)
+		addvar(VAR_TEMP_5, 1)
+	}
 	if(var(VAR_TEMP_5) > 10) {
 		additem(ITEM_SECRETPAGE)
 	}
@@ -1170,7 +1174,7 @@ script GreatSea_Buoy_AetherRight {
 script GreatSea_Buoy_AetherTop {
 	lock
 	msgbox(
-	"It's a buoy…\n"
+	"It's a guorl…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(

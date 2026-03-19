@@ -17740,13 +17740,8 @@
                 "species": "SPECIES_GOLURK"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
-                "species": "SPECIES_GOLURK"
-              },
-              {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_GOLURK"
               },
               {
@@ -17755,8 +17750,8 @@
                 "species": "SPECIES_GOLURK"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_GOLURK"
               },
               {
@@ -17765,28 +17760,33 @@
                 "species": "SPECIES_GOLURK"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_GOLURK"
               },
               {
-                "min_level": 22,
-                "max_level": 22,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_GOLURK"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_GOLURK"
               },
               {
-                "min_level": 23,
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_GOLURK"
+              },
+              {
+                "min_level": 20,
                 "max_level": 23,
                 "species": "SPECIES_GOLURK"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_GOLURK"
               },
               {
@@ -24868,6 +24868,61 @@
                 "min_level": 19,
                 "max_level": 19,
                 "species": "SPECIES_TENTACOOL"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CLEFAIRY"
               }
             ]
           }

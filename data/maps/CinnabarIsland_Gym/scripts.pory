@@ -721,7 +721,10 @@ script CinnabarGym_Blaine {
 	faceplayer
 	if(flag(FLAG_BADGE07_GET)) {
 		msgbox(
-		"You beat me\n"
+		"Ahaha!\n"
+		"I love to see a challenger win!\p"
+
+		"Nicely done!\n"
 		"", MSGBOX_DEFAULT)
 		release
 		end
@@ -833,7 +836,7 @@ script CinnabarGym_GymQuestionLoop {
 	copyvar(VAR_TEMP_A, VAR_0x8004)
 	
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
-	special(ReducePlayerPartyToOne)
+	
 	switch(var(VAR_CINNABAR_GYM_PHASE)) {
 		case 1:
 			if(var(VAR_RESULT) == SPECIES_BULBASAUR || var(VAR_RESULT) == SPECIES_RHYDON) {
@@ -846,6 +849,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				special(ReducePlayerPartyToOne)
 				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_1, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
@@ -862,6 +866,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				special(ReducePlayerPartyToOne)
 				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_2, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
@@ -878,6 +883,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				special(ReducePlayerPartyToOne)
 				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_3, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
@@ -894,6 +900,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				special(ReducePlayerPartyToOne)
 				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_4, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
@@ -910,6 +917,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				special(ReducePlayerPartyToOne)
 				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_5, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
@@ -926,6 +934,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				special(ReducePlayerPartyToOne)
 				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_6, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
@@ -942,6 +951,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				special(ReducePlayerPartyToOne)
 				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_7, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
@@ -958,6 +968,7 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				special(ReducePlayerPartyToOne)
 				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_8, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {

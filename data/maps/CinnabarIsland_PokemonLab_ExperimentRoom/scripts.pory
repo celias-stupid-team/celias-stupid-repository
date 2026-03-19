@@ -342,7 +342,12 @@ script CinnabarIsland_ReviveFossils {
 		"Now, looking at parts I think JAW\n"
 		"goes here, and TAIL goes there, and…", MSGBOX_DEFAULT)
 		removeitem(ITEM_HELIX_FOSSIL)
-		removeitem(ITEM_JAW_FOSSIL)
+		if(checkitem(ITEM_SHINY_FOSSIL)) {
+			removeitem(ITEM_SHINY_FOSSIL)
+			setflag(FLAG_SHINY_CREATION)
+		} else {
+			removeitem(ITEM_JAW_FOSSIL)
+		}
 		closemessage
 		fadescreenswapbuffers(FADE_TO_BLACK)
 		delay(30)

@@ -8770,6 +8770,14 @@ extern const u32 gBattleAnimSpriteGfx_BlackClub[];
 extern const u32 gBattleAnimSpriteGfx_Hammer[];
 extern const u32 gBattleAnimSpriteGfx_Shoe[];
 extern const u32 gBattleAnimSpriteGfx_Skyrim[];
+extern const u32 gBattleAnimSpriteGfx_Misty[];
+extern const u32 gBattleAnimSpriteGfx_PerishTongue[];
+extern const u32 gBattleAnimSpriteGfx_Censored[];
+extern const u32 gBattleAnimSpriteGfx_GravelApple[];
+extern const u32 gBattleAnimSpriteGfx_Onion[];
+extern const u32 gBattleAnimSpriteGfx_ExtremeSloth[];
+extern const u32 gBattleAnimSpriteGfx_Cereal[];
+extern const u32 gBattleAnimSpriteGfx_Cream[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9099,6 +9107,14 @@ extern const u32 gBattleAnimSpritePal_BlackClub[];
 extern const u32 gBattleAnimSpritePal_Hammer[];
 extern const u32 gBattleAnimSpritePal_Shoe[];
 extern const u32 gBattleAnimSpritePal_Skyrim[];
+extern const u32 gBattleAnimSpritePal_Misty[];
+extern const u32 gBattleAnimSpritePal_PerishTongue[];
+extern const u32 gBattleAnimSpritePal_Censored[];
+extern const u32 gBattleAnimSpritePal_GravelApple[];
+extern const u32 gBattleAnimSpritePal_Onion[];
+extern const u32 gBattleAnimSpritePal_ExtremeSloth[];
+extern const u32 gBattleAnimSpritePal_Cereal[];
+extern const u32 gBattleAnimSpritePal_Cream[];
 
 
 
@@ -9176,6 +9192,8 @@ extern const u32 gBattleAnimBgPalette_AmericanFlag[];
 extern const u32 gBattleAnimBgPalette_IranFlag[];
 extern const u32 gBattleAnimBgPalette_BSOD[];
 extern const u32 gBattleAnimBgPalette_Skyrim[];
+extern const u32 gBattleAnimBgPalette_RedWater[];
+extern const u32 gBattleAnimBgPalette_RainbowWater[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -13045,3 +13063,18 @@ extern const u8 gMonIcon_CELIASSTUPIDROMHACK[];
 
 extern const u32 gTrainerFrontPic_Eusine[];
 extern const u32 gTrainerPalette_Eusine[];
+
+extern const u32 gItemIcon_ScopeCreep[];
+extern const u32 gItemIconPalette_ScopeCreep[];
+
+extern const u32 gItemIcon_AlienProof[];
+extern const u32 gItemIconPalette_AlienProof[];
+
+extern const u32 gItemIcon_Quarter[];
+extern const u32 gItemIconPalette_Quarter[];
+
+extern const u32 gItemIcon_ShinyFossil[];
+extern const u32 gItemIconPalette_ShinyFossil[];
+
+extern const u32 gItemIcon_RustedGun[];
+extern const u32 gItemIconPalette_RustedGun[];

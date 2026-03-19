@@ -29,3 +29,64 @@ script Laundromat_Rotom {
     fadescreen(FADE_FROM_BLACK)
 	release
 }
+
+script Laundromat_Quarters {
+	lock
+	if(var(VAR_TRADING_QUEST_PHASE) >= 5) {
+		msgbox(
+		"I love my shirt.\n"
+		"", MSGBOX_DEFAULT)
+	}
+	msgbox(
+	"Oh, man…\n"
+	"", MSGBOX_DEFAULT)
+	faceplayer
+	msgbox(
+	"I wanted to wash my favorite shirt,\n"
+	"but I'm all out of quarters…\p"
+
+	"I ran out while washing my 11\n"
+	"other copies!\l"
+	"What a shame…", MSGBOX_DEFAULT)
+	if(checkitem(ITEM_QUARTER) || var(VAR_TRADING_QUEST_PHASE) == 4) {
+		setvar(VAR_TRADING_QUEST_PHASE, 5)
+		msgbox(
+		"Oh!\n"
+		"You're gonna give me a QUARTER?\l"
+		"Thanks so much!", MSGBOX_DEFAULT)
+		removeitem(ITEM_QUARTER)
+		closemessage
+		applymovement(VAR_LAST_TALKED, moves(
+			face_original_direction
+		))
+		waitmovement(0)
+		playmoncry(SPECIES_WISHIWASHI, CRY_MODE_DEFAULT)
+		waitmoncry
+		msgbox(
+		"Perfect!\n"
+		"That's a fresh, clean shirt!", MSGBOX_DEFAULT)
+		faceplayer
+		msgbox(
+		"Let me give you a reward, kind\n"
+		"stranger.\l"
+		"I can really hook you up!\p"
+
+		"I can give you the greatest and\n"
+		"most valuable thing in MINNESOTA:\l"
+		"A SUB-PRIME MORTGAGE!", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		giveitem_msg("{PLAYER} was given a\nHOUSE VOUCHER!", ITEM_HOUSEVOUCHER)
+		waitfanfare
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		msgbox(
+		"Thanks!\n"
+		"", MSGBOX_DEFAULT)
+
+	}
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
