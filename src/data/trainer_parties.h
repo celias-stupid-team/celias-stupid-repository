@@ -10629,3 +10629,13 @@ static const struct TrainerMonItemCustomMoves sParty_TeamSkull[] = {
         .moves = {MOVE_LEECH_LIFE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+
+static const struct TrainerMonItemCustomMoves sParty_Dummy_169[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_DITTO,
+        .moves = {MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};

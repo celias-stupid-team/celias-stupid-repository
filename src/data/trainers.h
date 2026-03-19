@@ -7122,4 +7122,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_YamaskGuy),
     },
+
+    [TRAINER_CSR_DUMMY_169] = {
+        .trainerClass = TRAINER_CLASS_RS_BEAUTY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_RS_BEAUTY,
+        .trainerName = _("ANIMTEST"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_Dummy_169),
+    },
 };
