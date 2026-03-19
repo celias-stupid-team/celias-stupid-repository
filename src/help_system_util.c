@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "field_specials.h"
 #include "decompress.h"
 #include "m4a.h"
 #include "event_data.h"
@@ -50,6 +51,8 @@ u8 RunHelpSystemCallback(void)
         if (gSaveBlock2Ptr->optionsButtonMode != OPTIONS_BUTTON_MODE_HELP)
             return 0;
         if (JOY_NEW(R_BUTTON) && gHelpSystemToggleWithRButtonDisabled == TRUE)
+            return 0;
+        if (gChapterTitleRunning)
             return 0;
         if (JOY_NEW(HELP_KEYS))
         {
