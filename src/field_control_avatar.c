@@ -111,11 +111,11 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     {
         if (GetPlayerSpeed() != PLAYER_SPEED_FASTEST)
         {
-            if ((newKeys & START_BUTTON) && !(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED))
+            if ((newKeys & START_BUTTON) && !(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !gChapterTitleRunning)
                 input->pressedStartButton = TRUE;
             if (!QL_IS_PLAYBACK_STATE)
             {
-                if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED))
+                if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !gChapterTitleRunning)
                 {
                     if (newKeys & SELECT_BUTTON)
                         input->pressedSelectButton = TRUE;
