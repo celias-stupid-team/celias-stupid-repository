@@ -423,6 +423,32 @@ const struct SpriteTemplate gMeatballSpriteTemplate =
     .callback = AnimMeateorBeamOrb,
 };
 
+static const union AnimCmd sCreamBeamAffineAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_FRAME(64, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_CreamBeam[] =
+{
+    sCreamBeamAffineAnimCmds,
+};
+
+const struct SpriteTemplate gCreamBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CREAM,
+    .paletteTag = ANIM_TAG_CREAM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_CreamBeam,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMeateorBeamOrb,
+};
+
 static const union AnimCmd sLeechSeedAnimCmds1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -529,6 +555,29 @@ const struct SpriteTemplate gHParticleSpriteTemplate =
     .callback = AnimSporeParticle,
 };
 
+static const union AnimCmd sGoonAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sGoonAnimTable[] =    
+{
+    sGoonAnimCmds,
+};
+
+const struct SpriteTemplate gGoonParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GOON,
+    .paletteTag = ANIM_TAG_GOON,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sGoonAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeParticle,
+};
+
 static const union AnimCmd sPetalDanceBigFlowerAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -557,6 +606,17 @@ const struct SpriteTemplate gPetalDanceBigFlowerSpriteTemplate =
     .paletteTag = ANIM_TAG_FLOWER,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = sPetalDanceBigFlowerAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPetalDanceBigFlower,
+};
+
+const struct SpriteTemplate gWeedDanceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WEED_SMALL,
+    .paletteTag = ANIM_TAG_WEED_SMALL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimPetalDanceBigFlower,
@@ -3338,11 +3398,20 @@ static void AnimPetalDanceSmallFlower_Step(struct Sprite* sprite)
 // arg 2: upward duration
 static void AnimMoneyParticle(struct Sprite* sprite)
 {
-    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
-    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    u8 battler;
+
+    // NEW: choose battler
+    if (gBattleAnimArgs[3] == 0)
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
+
+    sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
     sprite->data[0] = gBattleAnimArgs[0];
     sprite->data[1] = gBattleAnimArgs[1];
     sprite->data[2] = gBattleAnimArgs[2];
+    sprite->data[7] = battler;
     sprite->callback = AnimMoneyParticle_Step1;
 }
 
@@ -3374,7 +3443,7 @@ static void AnimMoneyParticle_Step1(struct Sprite* sprite)
 
 static void AnimMoneyParticle_Step2(struct Sprite* sprite)
 {
-    if (GetBattlerSide(gBattleAnimTarget))
+    if (GetBattlerSide(sprite->data[7]))
         sprite->x2 = -Sin(sprite->data[0], 25);
     else
         sprite->x2 = Sin(sprite->data[0], 25);

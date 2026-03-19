@@ -8778,6 +8778,11 @@ extern const u32 gBattleAnimSpriteGfx_Onion[];
 extern const u32 gBattleAnimSpriteGfx_ExtremeSloth[];
 extern const u32 gBattleAnimSpriteGfx_Cereal[];
 extern const u32 gBattleAnimSpriteGfx_Cream[];
+extern const u32 gBattleAnimSpriteGfx_Goon[];
+extern const u32 gBattleAnimSpriteGfx_Cafe[];
+extern const u32 gBattleAnimSpriteGfx_Daycare[];
+extern const u32 gBattleAnimSpriteGfx_PokemonCenter[];
+extern const u32 gBattleAnimSpriteGfx_Mart[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9115,6 +9120,11 @@ extern const u32 gBattleAnimSpritePal_Onion[];
 extern const u32 gBattleAnimSpritePal_ExtremeSloth[];
 extern const u32 gBattleAnimSpritePal_Cereal[];
 extern const u32 gBattleAnimSpritePal_Cream[];
+extern const u32 gBattleAnimSpritePal_Goon[];
+extern const u32 gBattleAnimSpritePal_Cafe[];
+extern const u32 gBattleAnimSpritePal_Daycare[];
+extern const u32 gBattleAnimSpritePal_PokemonCenter[];
+extern const u32 gBattleAnimSpritePal_Mart[];
 
 
 
@@ -9166,6 +9176,9 @@ extern const u32 gBattleAnimBgImage_AmericanFlag[];
 extern const u32 gBattleAnimBgImage_IranFlag[];
 extern const u32 gBattleAnimBgImage_BSOD[];
 extern const u32 gBattleAnimBgImage_Skyrim[];
+extern const u32 gBattleAnimBgImage_IraqFlag[];
+extern const u32 gBattleAnimBgImage_AceFlag[];
+extern const u32 gBattleAnimBgImage_SolaceonTown[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9194,6 +9207,9 @@ extern const u32 gBattleAnimBgPalette_BSOD[];
 extern const u32 gBattleAnimBgPalette_Skyrim[];
 extern const u32 gBattleAnimBgPalette_RedWater[];
 extern const u32 gBattleAnimBgPalette_RainbowWater[];
+extern const u32 gBattleAnimBgPalette_IraqFlag[];
+extern const u32 gBattleAnimBgPalette_AceFlag[];
+extern const u32 gBattleAnimBgPalette_SolaceonTown[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9224,6 +9240,9 @@ extern const u32 gBattleAnimBgTilemap_AmericanFlag[];
 extern const u32 gBattleAnimBgTilemap_IranFlag[];
 extern const u32 gBattleAnimBgTilemap_BSOD[];
 extern const u32 gBattleAnimBgTilemap_Skyrim[];
+extern const u32 gBattleAnimBgTilemap_IraqFlag[];
+extern const u32 gBattleAnimBgTilemap_AceFlag[];
+extern const u32 gBattleAnimBgTilemap_SolaceonTown[];
 
 // dark
 extern const u32 gMetalShineGfx[];

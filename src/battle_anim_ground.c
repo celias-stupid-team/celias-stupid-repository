@@ -236,6 +236,17 @@ const struct SpriteTemplate gDirtPlumeSpriteTemplate =
     .callback = AnimDirtPlumeParticle,
 };
 
+const struct SpriteTemplate gOnePlumeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ONE,
+    .paletteTag = ANIM_TAG_ONE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimDirtPlumeParticle,
+};
+
 const struct SpriteTemplate gDirtMoundSpriteTemplate =
 {
     .tileTag = ANIM_TAG_DIRT_MOUND,

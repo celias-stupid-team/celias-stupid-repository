@@ -54,6 +54,8 @@ static void AnimGreenStar_Callback(struct Sprite *);
 static void AnimTask_RockMonBackAndForth_Step(u8);
 static void AnimSweetScentPetal(struct Sprite *);
 static void AnimSweetScentPetal_Step(struct Sprite *);
+static void AnimSweetCenter(struct Sprite *);
+static void AnimSweetCenter_Step(struct Sprite *);
 static void AnimTask_FlailMovement_Step(u8);
 static void AnimFlatterConfetti(struct Sprite *);
 static void AnimFlatterConfetti_Step(struct Sprite *);
@@ -709,6 +711,17 @@ const struct SpriteTemplate gSweetScentPetalSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSweetScentPetal,
+};
+
+const struct SpriteTemplate gSweetCenterSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POKEMON_CENTER,
+    .paletteTag = ANIM_TAG_POKEMON_CENTER,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSweetCenter,
 };
 
 static const u16 sUnusedPalette[] = INCBIN_U16("graphics/battle_anims/unused/unknown.gbapal");
@@ -3131,6 +3144,51 @@ static void AnimSweetScentPetal_Step(struct Sprite *sprite)
         sprite->y2 = Cos(sprite->data[0] & 0xFF, 16);
     }
 }
+
+static void AnimSweetCenter(struct Sprite *sprite)
+{
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+    {
+        sprite->x = -32; // offset so 64x64 is centered correctly
+        sprite->y = gBattleAnimArgs[0];
+        sprite->data[7] = 1; // moving right
+    }
+    else
+    {
+        sprite->x = DISPLAY_WIDTH + 32;
+        sprite->y = gBattleAnimArgs[0] - 30;
+        sprite->data[7] = -1; // moving left
+    }
+
+    sprite->data[0] = 0; // sine counter
+
+    // IMPORTANT: no StartSpriteAnim()
+
+    sprite->callback = AnimSweetCenter_Step;
+}
+
+static void AnimSweetCenter_Step(struct Sprite *sprite)
+{
+    sprite->data[0] += 3;
+
+    // horizontal movement
+    sprite->x += 5 * sprite->data[7];
+
+    // vertical drift
+    sprite->y += (sprite->data[7] > 0) ? -1 : 1;
+
+    // sine sway
+    if (sprite->data[7] > 0)
+        sprite->y2 = Sin(sprite->data[0] & 0xFF, 16);
+    else
+        sprite->y2 = Cos(sprite->data[0] & 0xFF, 16);
+
+    // destroy when offscreen (account for 64x64 size)
+    if (sprite->x < -64 || sprite->x > DISPLAY_WIDTH + 64)
+        DestroyAnimSprite(sprite);
+}
+
+
 
 // Moves the mon sprite in a flailing back-and-forth motion.
 // arg 0: which battler

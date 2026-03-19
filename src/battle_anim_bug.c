@@ -135,10 +135,32 @@ const struct SpriteTemplate gWebThreadSpriteTemplate =
     .callback = AnimTranslateWebThread,
 };
 
+const struct SpriteTemplate gGrassKnotThreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WEB_THREAD,
+    .paletteTag = ANIM_TAG_WEED_SMALL,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTranslateWebThread,
+};
+
 const struct SpriteTemplate gStringWrapSpriteTemplate =
 {
     .tileTag = ANIM_TAG_STRING,
     .paletteTag = ANIM_TAG_STRING,
+    .oam = &gOamData_AffineOff_ObjNormal_64x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimStringWrap,
+};
+
+const struct SpriteTemplate gGrassWrapSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STRING,
+    .paletteTag = ANIM_TAG_WEED_SMALL,
     .oam = &gOamData_AffineOff_ObjNormal_64x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

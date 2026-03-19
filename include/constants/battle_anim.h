@@ -390,6 +390,11 @@
 #define ANIM_TAG_EXTREME_SLOTH              (ANIM_SPRITES_START + 380)
 #define ANIM_TAG_CEREAL                     (ANIM_SPRITES_START + 381)
 #define ANIM_TAG_CREAM                      (ANIM_SPRITES_START + 382)
+#define ANIM_TAG_GOON                       (ANIM_SPRITES_START + 383)
+#define ANIM_TAG_CAFE                       (ANIM_SPRITES_START + 384)
+#define ANIM_TAG_DAYCARE                    (ANIM_SPRITES_START + 385)
+#define ANIM_TAG_POKEMON_CENTER             (ANIM_SPRITES_START + 386)
+#define ANIM_TAG_MART                       (ANIM_SPRITES_START + 387)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -450,6 +455,9 @@
 #define BG_IRAN_FLAG 31
 #define BG_BSOD 32
 #define BG_SKYRIM 33
+#define BG_IRAQ_FLAG 34
+#define BG_ACE_FLAG 35
+#define BG_SOLACEON_TOWN 36
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

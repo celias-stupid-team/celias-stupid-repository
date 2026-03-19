@@ -496,6 +496,40 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+
+const struct SpriteTemplate gClamLiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CLAM,
+    .paletteTag = ANIM_TAG_CLAM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gDaycareFallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DAYCARE,
+    .paletteTag = ANIM_TAG_DAYCARE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gArtStrikeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PENCIL,
+    .paletteTag = ANIM_TAG_PENCIL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sWinFlagAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 20),
@@ -535,7 +569,7 @@ const struct SpriteTemplate gCensoredBarSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CENSORED,
     .paletteTag = ANIM_TAG_CENSORED,
-    .oam = &gOamData_AffineOff_ObjNormal_64x32,
+    .oam = &gOamData_CensoredBar,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -601,6 +635,17 @@ const struct SpriteTemplate gFallingBreadSpriteTemplate =
     .tileTag = ANIM_TAG_BREAD,
     .paletteTag = ANIM_TAG_BREAD,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallingCafeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CAFE,
+    .paletteTag = ANIM_TAG_CAFE,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -1462,6 +1507,17 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gAngerMarkBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ANGER,
+    .paletteTag = ANIM_TAG_ANGER,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAngerMarkAffineAnimTable,
     .callback = AnimParticleBurst,
 };
 

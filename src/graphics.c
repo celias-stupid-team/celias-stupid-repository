@@ -261,6 +261,21 @@ const u32 gBattleAnimSpritePal_Cereal[] = INCBIN_U32("graphics/battle_anims/spri
 const u32 gBattleAnimSpriteGfx_Cream[] = INCBIN_U32("graphics/battle_anims/sprites/cream.4bpp.lz");
 const u32 gBattleAnimSpritePal_Cream[] = INCBIN_U32("graphics/battle_anims/sprites/cream.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Goon[] = INCBIN_U32("graphics/battle_anims/sprites/goon.4bpp.lz");
+const u32 gBattleAnimSpritePal_Goon[] = INCBIN_U32("graphics/battle_anims/sprites/goon.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Cafe[] = INCBIN_U32("graphics/battle_anims/sprites/cafe.4bpp.lz");
+const u32 gBattleAnimSpritePal_Cafe[] = INCBIN_U32("graphics/battle_anims/sprites/cafe.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Daycare[] = INCBIN_U32("graphics/battle_anims/sprites/daycare.4bpp.lz");
+const u32 gBattleAnimSpritePal_Daycare[] = INCBIN_U32("graphics/battle_anims/sprites/daycare.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_PokemonCenter[] = INCBIN_U32("graphics/battle_anims/sprites/pokemon_center.4bpp.lz");
+const u32 gBattleAnimSpritePal_PokemonCenter[] = INCBIN_U32("graphics/battle_anims/sprites/pokemon_center.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Mart[] = INCBIN_U32("graphics/battle_anims/sprites/mart.4bpp.lz");
+const u32 gBattleAnimSpritePal_Mart[] = INCBIN_U32("graphics/battle_anims/sprites/mart.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");
@@ -982,6 +997,18 @@ const u32 gBattleAnimBgTilemap_AmericanFlag[] = INCBIN_U32("graphics/battle_anim
 const u32 gBattleAnimBgImage_IranFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/iran_flag.4bpp.lz");
 const u32 gBattleAnimBgPalette_IranFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/iran_flag.gbapal.lz");
 const u32 gBattleAnimBgTilemap_IranFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/iran_flag.bin.lz");
+
+const u32 gBattleAnimBgImage_IraqFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/iraq_flag.4bpp.lz");
+const u32 gBattleAnimBgPalette_IraqFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/iraq_flag.gbapal.lz");
+const u32 gBattleAnimBgTilemap_IraqFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/iraq_flag.bin.lz");
+
+const u32 gBattleAnimBgImage_AceFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/ace.4bpp.lz");
+const u32 gBattleAnimBgPalette_AceFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/ace.gbapal.lz");
+const u32 gBattleAnimBgTilemap_AceFlag[] = INCBIN_U32("graphics/battle_anims/backgrounds/ace.bin.lz");
+
+const u32 gBattleAnimBgImage_SolaceonTown[] = INCBIN_U32("graphics/battle_anims/backgrounds/solaceon.4bpp.lz");
+const u32 gBattleAnimBgPalette_SolaceonTown[] = INCBIN_U32("graphics/battle_anims/backgrounds/solaceon.gbapal.lz");
+const u32 gBattleAnimBgTilemap_SolaceonTown[] = INCBIN_U32("graphics/battle_anims/backgrounds/solaceon.bin.lz");
 
 const u32 gBattleAnimBgImage_BSOD[] = INCBIN_U32("graphics/battle_anims/backgrounds/bsod.4bpp.lz");
 const u32 gBattleAnimBgPalette_BSOD[] = INCBIN_U32("graphics/battle_anims/backgrounds/bsod.gbapal.lz");

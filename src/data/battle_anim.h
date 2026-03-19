@@ -111,6 +111,20 @@ const struct OamData gOamData_AffineOff_ObjNormal_64x32 =
     .paletteNum = 0,
 };
 
+const struct OamData gOamData_CensoredBar =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x32),
+    .x = 0,
+    .size = SPRITE_SIZE(64x32),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+};
+
 const struct OamData gOamData_AffineOff_ObjNormal_8x16 =
 {
     .y = 0,
@@ -1408,6 +1422,11 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_ExtremeSloth, 0x0800, ANIM_TAG_EXTREME_SLOTH},
     {gBattleAnimSpriteGfx_Cereal, 0x0380, ANIM_TAG_CEREAL},
     {gBattleAnimSpriteGfx_Cream, 0x0A00, ANIM_TAG_CREAM},
+    {gBattleAnimSpriteGfx_Goon, 0x0400, ANIM_TAG_GOON},
+    {gBattleAnimSpriteGfx_Cafe, 0x0800, ANIM_TAG_CAFE},
+    {gBattleAnimSpriteGfx_Daycare, 0x0800, ANIM_TAG_DAYCARE},
+    {gBattleAnimSpriteGfx_PokemonCenter, 0x0800, ANIM_TAG_POKEMON_CENTER},
+    {gBattleAnimSpriteGfx_Mart, 0x0800, ANIM_TAG_MART},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1795,6 +1814,11 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_ExtremeSloth, ANIM_TAG_EXTREME_SLOTH},
     {gBattleAnimSpritePal_Cereal, ANIM_TAG_CEREAL},
     {gBattleAnimSpritePal_Cream, ANIM_TAG_CREAM},
+    {gBattleAnimSpritePal_Goon, ANIM_TAG_GOON},
+    {gBattleAnimSpritePal_Cafe, ANIM_TAG_CAFE},
+    {gBattleAnimSpritePal_Daycare, ANIM_TAG_DAYCARE},
+    {gBattleAnimSpritePal_PokemonCenter, ANIM_TAG_POKEMON_CENTER},
+    {gBattleAnimSpritePal_Mart, ANIM_TAG_MART},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -1832,4 +1856,7 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_IRAN_FLAG]           = {gBattleAnimBgImage_IranFlag,   gBattleAnimBgPalette_IranFlag,   gBattleAnimBgTilemap_IranFlag},
     [BG_BSOD]                = {gBattleAnimBgImage_BSOD,       gBattleAnimBgPalette_BSOD,       gBattleAnimBgTilemap_BSOD},
     [BG_SKYRIM]              = {gBattleAnimBgImage_Skyrim,     gBattleAnimBgPalette_Skyrim,     gBattleAnimBgTilemap_Skyrim},
+    [BG_IRAQ_FLAG]           = {gBattleAnimBgImage_IraqFlag,   gBattleAnimBgPalette_IraqFlag,   gBattleAnimBgTilemap_IraqFlag},
+    [BG_ACE_FLAG]            = {gBattleAnimBgImage_AceFlag,    gBattleAnimBgPalette_AceFlag,    gBattleAnimBgTilemap_AceFlag},
+    [BG_SOLACEON_TOWN]       = {gBattleAnimBgImage_SolaceonTown,     gBattleAnimBgPalette_SolaceonTown,     gBattleAnimBgTilemap_SolaceonTown},
 };

@@ -224,6 +224,29 @@ const struct SpriteTemplate gSignalBeamRedOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+static const union AffineAnimCmd sAffineAnim_PickleBeam[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 96, 1),
+    AFFINEANIMCMD_END,
+};
+
+
+static const union AffineAnimCmd *const sAffineAnims_PickleBeam[] =
+{
+    sAffineAnim_PickleBeam,
+};
+
+const struct SpriteTemplate gPickleBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PICKLE_SPEAR,
+    .paletteTag = ANIM_TAG_PICKLE_SPEAR,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_PickleBeam,
+    .callback = AnimToTargetInSinWave,
+};
+
 const struct SpriteTemplate gLickleBeamSpriteTemplate =
 {
     .tileTag = ANIM_TAG_PERISH_TONGUE,

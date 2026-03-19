@@ -64,6 +64,56 @@ const struct SpriteTemplate gFallingRockSpriteTemplate =
     .callback = AnimFallingRock,
 };
 
+static const union AnimCmd sAnim_FlyingCereal_0[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingCereal_1[] =
+{
+    ANIMCMD_FRAME(4, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingCereal_2[] =
+{
+    ANIMCMD_FRAME(8, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingCereal_3[] =
+{
+    ANIMCMD_FRAME(12, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingCereal_4[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_FlyingCereal[] =
+{
+    sAnim_FlyingCereal_0,
+    sAnim_FlyingCereal_1,
+    sAnim_FlyingCereal_2,
+    sAnim_FlyingCereal_3,
+    sAnim_FlyingCereal_4,
+};
+
+const struct SpriteTemplate gFallingCerealSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CEREAL,
+    .paletteTag = ANIM_TAG_CEREAL,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_FlyingCereal,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingRock,
+};
+
 const struct SpriteTemplate gFallingBrockSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BROCKS,

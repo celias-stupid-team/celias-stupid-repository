@@ -4914,7 +4914,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED
     },
@@ -11441,13 +11441,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_HONE_CLAWS] =
     {
-        .effect = EFFECT_ATTACK_UP,
+        .effect = EFFECT_ATTACK_ACCURACY_UP,
         .power = 0,
         .type = TYPE_DARK,
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
@@ -13284,7 +13284,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
