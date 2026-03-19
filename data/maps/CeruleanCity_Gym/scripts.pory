@@ -100,8 +100,19 @@ script CeruleanClub_CeliaReward {
 		fadescreenswapbuffers(FADE_FROM_BLACK)
 		release
 		end
-	}
-	if(flag(FLAG_CSR_CELIA_BONUS)) {
+	} elif(!flag(FLAG_DEMO_3_CELIA_BONUS) && flag(FLAG_CSR_CELIA_BONUS)) {
+		msgbox("Hi, there!\nWelcome back from Demo 3!\pIt looks like last update, you\nunlocked the Dev Commentary!\lNicely done!\pThis time, there's new quests to\nfind, so I've disabled it for now.\lYou need to find the new stuff too!\pHere's a hint to get you started:\n", MSGBOX_DEFAULT)
+		setflag(FLAG_DEMO_3_CELIA_BONUS)
+		clearflag(FLAG_CELIA_SECRETS_FINISHED)
+		call(CeliaSecrets_GetNextHint)
+		fadescreenswapbuffers(FADE_TO_BLACK)
+		removeobject(VAR_LAST_TALKED)
+		special(DrawWholeMapView)
+		fadescreenswapbuffers(FADE_FROM_BLACK)
+		release
+		end
+	} 
+	if(flag(FLAG_CSR_CELIA_BONUS) && !flag(FLAG_DISABLED_DEV_COMMENTARY)) {
 
 		msgbox(CeruleanCity_Gym_Celia)
 		closemessage
@@ -118,7 +129,48 @@ script CeruleanClub_CeliaReward {
 		clearflag(FLAG_HIDE_MISTY_IN_CERULEAN)
 
 	} else {
-		msgbox(CeruleanCity_Gym_AfterUnlock)
+		if(flag(FLAG_DISABLED_DEV_COMMENTARY)) {
+			msgbox(
+			"Hiya!\n"
+			"Thanks so much for playing!\p"
+
+			"Would you like to re-enable the\n"
+			"Dev Commentary?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				clearflag(FLAG_CSR_CELIA_BONUS)
+				clearflag(FLAG_DISABLED_DEV_COMMENTARY)
+				msgbox(
+				"Aaaaand done!\n"
+				"I hope you have fun!", MSGBOX_DEFAULT)
+				release
+				end
+			} else {
+				msgbox(
+					"Gotcha!\n"
+					"Good luck!", MSGBOX_DEFAULT)
+				release
+				end
+			}
+		}
+		msgbox(
+		"Hiya!\n"
+		"Thank you so much for playing!\p"
+
+		"Would you like to disable the\n"
+		"Dev Commentary?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			setflag(FLAG_CSR_CELIA_BONUS)
+			setflag(FLAG_DISABLED_DEV_COMMENTARY)
+			msgbox(
+			"Aaaaand done!\p"
+
+			"Good luck hunting for secrets!\n"
+			"You got this!", MSGBOX_DEFAULT)
+		} else {
+			msgbox(
+			"All righty.\n"
+			"Have fun!", MSGBOX_DEFAULT)
+		}
 	}
 	release
 	end
