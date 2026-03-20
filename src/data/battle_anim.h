@@ -1427,6 +1427,16 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Daycare, 0x0800, ANIM_TAG_DAYCARE},
     {gBattleAnimSpriteGfx_PokemonCenter, 0x0800, ANIM_TAG_POKEMON_CENTER},
     {gBattleAnimSpriteGfx_Mart, 0x0800, ANIM_TAG_MART},
+    {gBattleAnimSpriteGfx_Rick, 0x2000, ANIM_TAG_RICK},
+    {gBattleAnimSpriteGfx_RickLeft, 0x2000, ANIM_TAG_RICK_LEFT},
+    {gBattleAnimSpriteGfx_Dodgeball, 0x0080, ANIM_TAG_DODGEBALL},
+    {gBattleAnimSpriteGfx_LookLook, 0x0600, ANIM_TAG_LOOK_LOOK},
+    {gBattleAnimSpriteGfx_Hair, 0x0400, ANIM_TAG_HAIR},
+    {gBattleAnimSpriteGfx_CheriBomb, 0x0200, ANIM_TAG_CHERI_BOMB},
+    {gBattleAnimSpriteGfx_ZipBomb, 0x0200, ANIM_TAG_ZIP_BOMB},
+    {gBattleAnimSpriteGfx_MovieFile, 0x0200, ANIM_TAG_MOVIE_FILE},
+    {gBattleAnimSpriteGfx_Toolbar, 0x1000, ANIM_TAG_TOOLBAR},
+    {gBattleAnimSpriteGfx_Norton, 0x1000, ANIM_TAG_NORTON},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1819,6 +1829,16 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Daycare, ANIM_TAG_DAYCARE},
     {gBattleAnimSpritePal_PokemonCenter, ANIM_TAG_POKEMON_CENTER},
     {gBattleAnimSpritePal_Mart, ANIM_TAG_MART},
+    {gBattleAnimSpritePal_Rick, ANIM_TAG_RICK},
+    {gBattleAnimSpritePal_RickLeft, ANIM_TAG_RICK_LEFT},
+    {gBattleAnimSpritePal_Dodgeball, ANIM_TAG_DODGEBALL},
+    {gBattleAnimSpritePal_LookLook, ANIM_TAG_LOOK_LOOK},
+    {gBattleAnimSpritePal_Hair, ANIM_TAG_HAIR},
+    {gBattleAnimSpritePal_CheriBomb, ANIM_TAG_CHERI_BOMB},
+    {gBattleAnimSpritePal_ZipBomb, ANIM_TAG_ZIP_BOMB},
+    {gBattleAnimSpritePal_MovieFile, ANIM_TAG_MOVIE_FILE},
+    {gBattleAnimSpritePal_Toolbar, ANIM_TAG_TOOLBAR},
+    {gBattleAnimSpritePal_Norton, ANIM_TAG_NORTON},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

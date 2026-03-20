@@ -8783,6 +8783,16 @@ extern const u32 gBattleAnimSpriteGfx_Cafe[];
 extern const u32 gBattleAnimSpriteGfx_Daycare[];
 extern const u32 gBattleAnimSpriteGfx_PokemonCenter[];
 extern const u32 gBattleAnimSpriteGfx_Mart[];
+extern const u32 gBattleAnimSpriteGfx_Rick[];
+extern const u32 gBattleAnimSpriteGfx_RickLeft[];
+extern const u32 gBattleAnimSpriteGfx_Dodgeball[];
+extern const u32 gBattleAnimSpriteGfx_LookLook[];
+extern const u32 gBattleAnimSpriteGfx_Hair[];
+extern const u32 gBattleAnimSpriteGfx_CheriBomb[];
+extern const u32 gBattleAnimSpriteGfx_ZipBomb[];
+extern const u32 gBattleAnimSpriteGfx_MovieFile[];
+extern const u32 gBattleAnimSpriteGfx_Toolbar[];
+extern const u32 gBattleAnimSpriteGfx_Norton[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9125,6 +9135,16 @@ extern const u32 gBattleAnimSpritePal_Cafe[];
 extern const u32 gBattleAnimSpritePal_Daycare[];
 extern const u32 gBattleAnimSpritePal_PokemonCenter[];
 extern const u32 gBattleAnimSpritePal_Mart[];
+extern const u32 gBattleAnimSpritePal_Rick[];
+extern const u32 gBattleAnimSpritePal_RickLeft[];
+extern const u32 gBattleAnimSpritePal_Dodgeball[];
+extern const u32 gBattleAnimSpritePal_LookLook[];
+extern const u32 gBattleAnimSpritePal_Hair[];
+extern const u32 gBattleAnimSpritePal_CheriBomb[];
+extern const u32 gBattleAnimSpritePal_ZipBomb[];
+extern const u32 gBattleAnimSpritePal_MovieFile[];
+extern const u32 gBattleAnimSpritePal_Toolbar[];
+extern const u32 gBattleAnimSpritePal_Norton[];
 
 
 

@@ -395,6 +395,16 @@
 #define ANIM_TAG_DAYCARE                    (ANIM_SPRITES_START + 385)
 #define ANIM_TAG_POKEMON_CENTER             (ANIM_SPRITES_START + 386)
 #define ANIM_TAG_MART                       (ANIM_SPRITES_START + 387)
+#define ANIM_TAG_RICK                       (ANIM_SPRITES_START + 388)
+#define ANIM_TAG_RICK_LEFT                  (ANIM_SPRITES_START + 389)
+#define ANIM_TAG_DODGEBALL                  (ANIM_SPRITES_START + 390)
+#define ANIM_TAG_LOOK_LOOK                  (ANIM_SPRITES_START + 391)
+#define ANIM_TAG_HAIR                       (ANIM_SPRITES_START + 392)
+#define ANIM_TAG_CHERI_BOMB                 (ANIM_SPRITES_START + 393)
+#define ANIM_TAG_ZIP_BOMB                   (ANIM_SPRITES_START + 394)
+#define ANIM_TAG_MOVIE_FILE                 (ANIM_SPRITES_START + 395)
+#define ANIM_TAG_TOOLBAR                    (ANIM_SPRITES_START + 396)
+#define ANIM_TAG_NORTON                     (ANIM_SPRITES_START + 397)
 
 // battlers
 #define ANIM_ATTACKER       0

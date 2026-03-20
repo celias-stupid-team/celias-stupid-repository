@@ -904,6 +904,17 @@ const struct SpriteTemplate gIngrainRootSpriteTemplate =
     .callback = AnimIngrainRoot,
 };
 
+const struct SpriteTemplate gIceRootSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROOTS,
+    .paletteTag = ANIM_TAG_ICICLE_SPEAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sIngrainRootAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimIngrainRoot,
+};
+
 const struct SpriteTemplate gFrenzyPlantRootSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROOTS,
@@ -978,6 +989,17 @@ const struct SpriteTemplate gPresentSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ITEM_BAG,
     .paletteTag = ANIM_TAG_ITEM_BAG,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sFallingBagAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingBagAffineAnimTable,
+    .callback = AnimPresent,
+};
+
+const struct SpriteTemplate gZipBombSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ZIP_BOMB,
+    .paletteTag = ANIM_TAG_ZIP_BOMB,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = sFallingBagAnimTable,
     .images = NULL,

@@ -97,6 +97,38 @@ const struct SpriteTemplate gFireSpreadSpriteTemplate =
     .callback = AnimFireSpread,
 };
 
+
+static const union AnimCmd sAnim_HairSpiralSpread_0[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_HairSpiralSpread_1[] =
+{
+    ANIMCMD_FRAME(16, 4, .vFlip = TRUE, .hFlip = TRUE),
+    ANIMCMD_FRAME(0, 4, .vFlip = TRUE, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_HairSpiralSpread[] =
+{
+    sAnim_HairSpiralSpread_0,
+    sAnim_HairSpiralSpread_1,
+};
+
+const struct SpriteTemplate gHairSpreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HAIR,
+    .paletteTag = ANIM_TAG_HAIR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_HairSpiralSpread,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpread,
+};
+
 static const union AnimCmd sAnim_LargeFlame[] =
 {
     ANIMCMD_FRAME(0, 3),
@@ -425,6 +457,29 @@ const struct SpriteTemplate gFireSpiralOutwardSpriteTemplate =
     .paletteTag = ANIM_TAG_SMALL_EMBER,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gAnims_BasicFire,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpiralOutward,
+};
+
+static const union AnimCmd sAnim_BasicHair[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd *const gAnims_BasicHair[] =
+{
+    sAnim_BasicHair,
+};
+
+const struct SpriteTemplate gHairSpiralOutwardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HAIR,
+    .paletteTag = ANIM_TAG_HAIR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_BasicHair,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFireSpiralOutward,

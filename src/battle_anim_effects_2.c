@@ -28,6 +28,8 @@ static void AnimBulletSeed_Step1(struct Sprite *);
 static void AnimBulletSeed_Step2(struct Sprite *);
 static void AnimBulletPiss(struct Sprite *sprite);
 static void AnimBulletPiss_Step1(struct Sprite *sprite);
+static void AnimDodgeball(struct Sprite *sprite);
+static void AnimDodgeball_Step1(struct Sprite *sprite);
 static void AnimViceGripPincer(struct Sprite *);
 static void AnimViceGripPincer_Step(struct Sprite *);
 static void AnimGuillotinePincer(struct Sprite *);
@@ -382,6 +384,17 @@ const struct SpriteTemplate gYoshiEggThrowSpriteTemplate =
     .callback = AnimThrowProjectile,
 };
 
+const struct SpriteTemplate gCheriBombThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_CHERI_BOMB,
+    .paletteTag = ANIM_TAG_CHERI_BOMB,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
 const struct SpriteTemplate gSesameSeedSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_SESAME,
@@ -496,6 +509,16 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gFemaleLiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FEMALE,
+    .paletteTag = ANIM_TAG_FEMALE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
 
 const struct SpriteTemplate gClamLiftSpriteTemplate =
 {
@@ -571,6 +594,35 @@ const struct SpriteTemplate gCensoredBarSpriteTemplate =
     .paletteTag = ANIM_TAG_CENSORED,
     .oam = &gOamData_CensoredBar,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sToolbarAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 50),
+    ANIMCMD_FRAME(16, 40),
+    ANIMCMD_FRAME(32, 40),
+    ANIMCMD_FRAME(48, 40),
+    ANIMCMD_FRAME(64, 40),
+    ANIMCMD_FRAME(80, 40),
+    ANIMCMD_FRAME(96, 40),
+    ANIMCMD_FRAME(112, 40),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sToolbarAnimTable[] =
+{
+    sToolbarAnimCmds,
+};
+
+const struct SpriteTemplate gToolbarSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOOLBAR,
+    .paletteTag = ANIM_TAG_TOOLBAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sToolbarAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -672,6 +724,17 @@ const struct SpriteTemplate gBulletSeedSpriteTemplate =
     .images = NULL,
     .affineAnims = sBulletSeedAffineAnimTable,
     .callback = AnimBulletSeed,
+};
+
+const struct SpriteTemplate gDodgeballSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_DODGEBALL,
+    .paletteTag = ANIM_TAG_DODGEBALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBulletSeedAffineAnimTable,
+    .callback = AnimDodgeball,
 };
 
 const struct SpriteTemplate gBulletPissSpriteTemplate =    
@@ -1515,6 +1578,17 @@ const struct SpriteTemplate gAngerMarkBurstSpriteTemplate =
     .tileTag = ANIM_TAG_ANGER,
     .paletteTag = ANIM_TAG_ANGER,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAngerMarkAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gMovieFileBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOVIE_FILE,
+    .paletteTag = ANIM_TAG_MOVIE_FILE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sAngerMarkAffineAnimTable,
@@ -2526,6 +2600,40 @@ static void AnimBulletPiss_Step1(struct Sprite *sprite)
     s16 *ptr;
     
     //PlaySE12WithPanning(SE_M_HORN_ATTACK, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+    sprite->x += sprite->x2;
+    sprite->y += sprite->y2;
+    sprite->y2 = 0;
+    sprite->x2 = 0;
+    ptr = &sprite->data[7];
+    for (i = 0; i < 8; i++)
+        ptr[i - 7] = 0;
+
+    rand = Random();
+    sprite->data[6] = 0xFFF4 - (rand & 7);
+    rand = Random();
+    sprite->data[7] = (rand % 0xA0) + 0xA0;
+    sprite->callback = AnimBulletSeed_Step2;
+    sprite->affineAnimPaused = FALSE;
+}
+
+static void AnimDodgeball(struct Sprite *sprite)
+{
+    InitSpritePosToAnimAttacker(sprite, TRUE);
+    sprite->data[0] = 20;
+    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    sprite->callback = StartAnimLinearTranslation;
+    sprite->affineAnimPaused = TRUE;
+    StoreSpriteCallbackInData6(sprite, AnimDodgeball_Step1);
+}
+
+static void AnimDodgeball_Step1(struct Sprite *sprite)
+{
+    int i;
+    u16 rand;
+    s16 *ptr;
+    
+    PlaySE12WithPanning(SE_BALL_BOUNCE_1, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
     sprite->x += sprite->x2;
     sprite->y += sprite->y2;
     sprite->y2 = 0;

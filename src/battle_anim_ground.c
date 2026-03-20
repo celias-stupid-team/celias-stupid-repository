@@ -891,3 +891,4 @@ static void WaitForFissureCompletion(u8 taskId)
         gBattle_BG3_Y = task->data[2];
     }
 }
+
