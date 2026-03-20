@@ -2163,6 +2163,7 @@ BattleScript_EffectSemiInvulnerable::
 	jumpifmove MOVE_DIVE, BattleScript_FirstTurnDive
 	jumpifmove MOVE_BOUNCE, BattleScript_FirstTurnBounce
 	jumpifmove MOVE_DOUBLE_JUMP, BattleScript_FirstTurnBounce
+	jumpifmove MOVE_PHANTOM_FORCE, BattleScript_FirstTurnPhantomForce
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIG
 	goto BattleScript_FirstTurnSemiInvulnerable
 
@@ -2172,6 +2173,10 @@ BattleScript_FirstTurnBounce::
 
 BattleScript_FirstTurnDive::
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIVE
+	goto BattleScript_FirstTurnSemiInvulnerable
+
+BattleScript_FirstTurnPhantomForce::
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_PHANTOM_FORCE
 	goto BattleScript_FirstTurnSemiInvulnerable
 
 BattleScript_FirstTurnFly::
@@ -5327,8 +5332,6 @@ BattleScript_EffectAgilityDumb::
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 
-
-
 BattleScript_EffectSemiInvulnerableHaunter::
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerableHaunter
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerableHaunter
@@ -5336,7 +5339,6 @@ BattleScript_EffectSemiInvulnerableHaunter::
 	jumpifmove MOVE_SHADOW_FORCE_CANCEL, BattleScript_FirstTurnShadowForce
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIG
 	goto BattleScript_FirstTurnSemiInvulnerable
-
 
 BattleScript_FirstTurnShadowForce::
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_SHADOW_FORCE

@@ -1424,18 +1424,18 @@ static void Cmd_get_weather(void)
 
 static void Cmd_if_effect(void)
 {
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect == sAIScriptPtr[1])
-        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 2);
+    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect == T1_READ_16(sAIScriptPtr + 1))
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
     else
-        sAIScriptPtr += 6;
+        sAIScriptPtr += 7;
 }
 
 static void Cmd_if_not_effect(void)
 {
-    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect != sAIScriptPtr[1])
-        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 2);
+    if (gBattleMoves[AI_THINKING_STRUCT->moveConsidered].effect != T1_READ_16(sAIScriptPtr + 1))
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
     else
-        sAIScriptPtr += 6;
+        sAIScriptPtr += 7;
 }
 
 static void Cmd_if_stat_level_less_than(void)

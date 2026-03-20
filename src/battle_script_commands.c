@@ -9967,6 +9967,7 @@ static void Cmd_setsemiinvulnerablebit(void)
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
     case MOVE_SHADOW_FORCE_CANCEL:
+    case MOVE_PHANTOM_FORCE:
         gStatuses3[gBattlerAttacker] |= STATUS3_ON_AIR;
         break;
     case MOVE_DIG:
@@ -9991,6 +9992,7 @@ static void Cmd_clearsemiinvulnerablebit(void)
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
     case MOVE_SHADOW_FORCE_CANCEL:
+    case MOVE_PHANTOM_FORCE:
         gStatuses3[gBattlerAttacker] &= ~STATUS3_ON_AIR;
         break;
     case MOVE_DIG:
