@@ -934,8 +934,6 @@ static const struct LevelUpMove sMachopLevelUpLearnset[] = {
 
 static const struct LevelUpMove sMachokeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_SUBMISSION),
-    LEVEL_UP_MOVE(1, MOVE_WISH),
-    LEVEL_UP_MOVE(1, MOVE_FOCUS_ENERGY),
     LEVEL_UP_MOVE(1, MOVE_BURNING_JEALOUSY),
     LEVEL_UP_END
 };
@@ -1756,8 +1754,8 @@ static const struct LevelUpMove sMrMimeLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sScytherLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_SWORDS_DANCE),
-    LEVEL_UP_MOVE(1, MOVE_SLASH),
+    LEVEL_UP_MOVE(1, MOVE_SWORDSDANCE_TCG),
+    LEVEL_UP_MOVE(1, MOVE_SLASH_TCG),
     LEVEL_UP_MOVE(1, MOVE_RETREAT),
     LEVEL_UP_MOVE(19, MOVE_SHADOW_IMAGES),
     LEVEL_UP_MOVE(20, MOVE_FURY_CUTTER),
