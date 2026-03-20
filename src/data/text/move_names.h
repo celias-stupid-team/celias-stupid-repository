@@ -1047,7 +1047,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_PLEDGE_OF_ALLEGIANCE]     = _("FALSE"),
     [MOVE_PERISH_TONGUE]     = _("FALSE"),
     [MOVE_MULTISHINE]     = _("MULTISHINE"),
-    [MOVE_REVELATION_DANCE]     = _("FALSE"),
+    [MOVE_REVELATION_DANCE]     = _("REV. DANCE"),
     [MOVE_TRICK_OR_TREAT]     = _("FALSE"),
     [MOVE_AURORA_VEIL]     = _("AURORA VEIL"),
 };
