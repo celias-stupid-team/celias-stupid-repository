@@ -2192,8 +2192,12 @@ BattleScript_SecondTurnSemiInvulnerable::
 	setbyte sB_ANIM_TURN, 1
 	clearstatusfromeffect BS_ATTACKER
 	orword gHitMarker, HITMARKER_NO_PPDEDUCT
-	jumpifnotmove MOVE_BOUNCE, BattleScript_SemiInvulnerableTryHit
+	jumpifnotmove MOVE_BOUNCE, BattleScript_SemiInvulnerableCheckPhantomForce
 	setmoveeffect MOVE_EFFECT_PARALYSIS
+	goto BattleScript_SemiInvulnerableTryHit
+BattleScript_SemiInvulnerableCheckPhantomForce::
+	jumpifnotmove MOVE_PHANTOM_FORCE, BattleScript_SemiInvulnerableTryHit
+	setmoveeffect MOVE_EFFECT_FEINT
 BattleScript_SemiInvulnerableTryHit::
 	accuracycheck BattleScript_SemiInvulnerableMiss, ACC_CURR_MOVE
 	clearsemiinvulnerablebit
