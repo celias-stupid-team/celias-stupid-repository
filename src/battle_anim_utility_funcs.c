@@ -143,14 +143,6 @@ void AnimTask_SetCamouflageBlend(u8 taskId)
     
     switch (gBattleTerrain)
     {
-    case BATTLE_TERRAIN_ZAPMOLTI_1:
-    case BATTLE_TERRAIN_ZAPMOLTI_2:
-    case BATTLE_TERRAIN_ZAPMOLTI_3:
-    case BATTLE_TERRAIN_ZAPMOLTI_4:
-    case BATTLE_TERRAIN_ZAPMOLTI_5:
-    case BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS:
-    case BATTLE_TERRAIN_CHAPTER_3:
-    case BATTLE_TERRAIN_SPACE:
     case BATTLE_TERRAIN_GRASS:
         gBattleAnimArgs[4] = RGB(12, 24, 2);
         break;
@@ -181,6 +173,14 @@ void AnimTask_SetCamouflageBlend(u8 taskId)
     case BATTLE_TERRAIN_BUILDING:
         gBattleAnimArgs[4] = RGB(31, 31, 31);
         break;
+    case BATTLE_TERRAIN_ZAPMOLTI_1:
+    case BATTLE_TERRAIN_ZAPMOLTI_2:
+    case BATTLE_TERRAIN_ZAPMOLTI_3:
+    case BATTLE_TERRAIN_ZAPMOLTI_4:
+    case BATTLE_TERRAIN_ZAPMOLTI_5:
+    case BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS:
+    case BATTLE_TERRAIN_CHAPTER_3:
+    case BATTLE_TERRAIN_SPACE:
     case BATTLE_TERRAIN_PLAIN:
         gBattleAnimArgs[4] = RGB(31, 31, 31);
         break;
