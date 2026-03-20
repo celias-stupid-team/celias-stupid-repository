@@ -12843,3 +12843,20 @@ void BS_TryReflectType(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
+
+void BS_TryTrickOrTreat(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    if (!(gBattleMons[gBattlerTarget].type1 == TYPE_GHOST && gBattleMons[gBattlerTarget].type2 == TYPE_GHOST))
+    {
+        SET_BATTLER_TYPE(gBattlerTarget, TYPE_GHOST);
+        PREPARE_TYPE_BUFFER(gBattleTextBuff1, TYPE_GHOST);
+
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+}

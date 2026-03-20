@@ -1842,3 +1842,8 @@
 	callnative BS_TryReflectType
 	.4byte \failInstr
 	.endm
+
+	.macro trytrickortreat failInstr:req
+	callnative BS_TryTrickOrTreat
+	.4byte \failInstr
+	.endm

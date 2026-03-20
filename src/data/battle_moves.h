@@ -13605,15 +13605,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_TRICK_OR_TREAT] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_ICE,
-        .accuracy = 100,
-        .pp = 35,
-        .secondaryEffectChance = 10,
+        .effect = EFFECT_TRICK_OR_TREAT,
+        .power = 0,
+        .type = TYPE_DARK,
+        .accuracy = 0,
+        .pp = 15,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_MAGIC_COAT_AFFECTED,
     },
 
 
