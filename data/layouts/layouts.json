@@ -4904,7 +4904,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_NewFuchsiaGym",
       "border_filepath": "data/layouts/FushciaGym_ShedinjaRoom/border.bin",
       "blockdata_filepath": "data/layouts/FushciaGym_ShedinjaRoom/map.bin"

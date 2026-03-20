@@ -1526,18 +1526,18 @@ u8 AtkCanceller_UnableToUseMove(void)
             }
             gBattleStruct->atkCancellerTracker++;
             break;
-        case CANCELLER_TRUANT: // truant
-            if (gBattleMons[gBattlerAttacker].ability == ABILITY_TRUANT && gDisableStructs[gBattlerAttacker].truantCounter)
-            {
-                CancelMultiTurnMoves(gBattlerAttacker);
-                gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;
-                gBattlescriptCurrInstr = BattleScript_MoveUsedLoafingAround;
-                gMoveResultFlags |= MOVE_RESULT_MISSED;
-                effect = 1;
-            }
-            gBattleStruct->atkCancellerTracker++;
-            break;
+        // case CANCELLER_TRUANT: // truant
+        //     if (gBattleMons[gBattlerAttacker].ability == ABILITY_TRUANT && gDisableStructs[gBattlerAttacker].truantCounter)
+        //     {
+        //         CancelMultiTurnMoves(gBattlerAttacker);
+        //         gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
+        //         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;
+        //         gBattlescriptCurrInstr = BattleScript_MoveUsedLoafingAround;
+        //         gMoveResultFlags |= MOVE_RESULT_MISSED;
+        //         effect = 1;
+        //     }
+        //     gBattleStruct->atkCancellerTracker++;
+        //     break;
         case CANCELLER_RECHARGE: // recharge
             if (gBattleMons[gBattlerAttacker].status2 & STATUS2_RECHARGE)
             {
@@ -2126,9 +2126,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
-                case ABILITY_TRUANT:
-                    gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
-                    break;
+                // case ABILITY_TRUANT:
+                //     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
+                //     break;
                 case ABILITY_RECHARGE:
                     if (gBattleMons[battler].maxHP > gBattleMons[battler].hp)
                     {
