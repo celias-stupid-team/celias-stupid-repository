@@ -5405,7 +5405,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_REST_HBOX] =    {
-        .effect = EFFECT_EXPLOSION,
+        .effect = EFFECT_REST_HBOX,
         .power = 150,
         .type = TYPE_PSYCHIC,
         .accuracy = 50,

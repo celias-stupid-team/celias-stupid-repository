@@ -292,6 +292,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRevelationDance        @ EFFECT_REVELATION_DANCE
 	.4byte BattleScript_EffectReflectType            @ EFFECT_REFLECT_TYPE
 	.4byte BattleScript_EffectTrickOrTreat		     @ EFFECT_TRICK_OR_TREAT
+	.4byte BattleScript_EffectRestHBox               @ EFFECT_REST_HBOX
 
 BattleScript_End2::
 	end2
@@ -6041,4 +6042,41 @@ BattleScript_EffectTrickOrTreat::
 	waitanimation
 	printstring STRINGID_PKMNBECAMETYPE
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRestHBox::
+	attackcanceler
+	accuracycheck BattleScript_RestHBoxMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	setmoveeffect MOVE_EFFECT_SLEEP | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
+BattleScript_RestHBoxMissed::
+	attackstring
+	ppreduce
+	pause B_WAIT_TIME_SHORT
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	setatkhptozero
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
