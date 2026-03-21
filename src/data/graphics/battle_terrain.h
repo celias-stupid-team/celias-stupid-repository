@@ -32,7 +32,6 @@ const u32 gBattleTerrainPalette_Rainbow[] = INCBIN_U32("graphics/battle_terrain/
 const u32 gBattleTerrainTiles_Rainbow[] = INCBIN_U32("graphics/battle_terrain/rainbow/terrain.4bpp.lz");
 const u32 gBattleTerrainTilemap_Rainbow[] = INCBIN_U32("graphics/battle_terrain/rainbow/terrain.bin.lz");
 
-
 const u32 gBattleTerrainPalette_Link[] = INCBIN_U32("graphics/battle_terrain/indoor/link.gbapal.lz");
 const u32 gBattleTerrainPalette_Gym[] = INCBIN_U32("graphics/battle_terrain/indoor/gym.gbapal.lz");
 const u32 gBattleTerrainPalette_Leader[] = INCBIN_U32("graphics/battle_terrain/indoor/leader.gbapal.lz");

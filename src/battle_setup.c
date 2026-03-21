@@ -523,6 +523,13 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_LONG_GRASS;
     if (MetatileBehavior_IsSandOrShallowFlowingWater(tileBehavior))
         return BATTLE_TERRAIN_SAND;
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_MANSION_B1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_MANSION_B1F))
+        return BATTLE_TERRAIN_CHAPTER_3;
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD))
+        return BATTLE_TERRAIN_RAINBOW;
+    if (gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
+        return BATTLE_TERRAIN_SPACE;    
+
     switch (gMapHeader.mapType)
     {
     case MAP_TYPE_TOWN:
