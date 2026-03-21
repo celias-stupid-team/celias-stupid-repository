@@ -48,6 +48,7 @@
 #define MAP_BATTLE_SCENE_CHAPTER_3    17
 #define MAP_BATTLE_SCENE_BLAINE       18
 #define MAP_BATTLE_SCENE_SPACE        19
+#define MAP_BATTLE_SCENE_RAINBOW      20
 
 // enable debug menu
 #ifdef RELEASE

@@ -647,6 +647,14 @@ const struct BattleBackground sBattleTerrainTable[] = {
         .entryTilemap = sBattleTerrainAnimTilemap_Building,
         .palette = gBattleTerrainPalette_Space
     },
+    [BATTLE_TERRAIN_RAINBOW] =
+    {
+        .tileset = gBattleTerrainTiles_Rainbow,
+        .tilemap = gBattleTerrainTilemap_Rainbow,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Rainbow
+    }
 };
 
 static const struct {
@@ -1119,6 +1127,21 @@ static u8 GetBattleTerrainOverride(void)
     {
         gBattleTerrain = BATTLE_TERRAIN_BLAINE;
         return BATTLE_TERRAIN_BLAINE;
+    }
+    else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_MANSION_B1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_MANSION_B1F))
+    {
+        gBattleTerrain = BATTLE_TERRAIN_CHAPTER_3;
+        return BATTLE_TERRAIN_CHAPTER_3;
+    }
+    else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD))
+    {
+        gBattleTerrain = BATTLE_TERRAIN_RAINBOW;
+        return BATTLE_TERRAIN_RAINBOW;
+    }
+    else if (gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
+    {
+        gBattleTerrain = BATTLE_TERRAIN_SPACE;
+        return BATTLE_TERRAIN_SPACE;
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER))
     {
