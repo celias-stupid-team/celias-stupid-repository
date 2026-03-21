@@ -12963,3 +12963,14 @@ void BS_SetUpThrow(void)
     gStatuses3[battler] |= STATUS3_UP_THROW;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_TryRemoveAllEntryHazards(void)
+{
+    NATIVE_ARGS(u8 side);
+
+    gSideStatuses[cmd->side] &= ~SIDE_STATUS_SPIKES;
+    gSideStatuses[cmd->side] &= ~SIDE_STATUS_STEALTH_ROCK;
+    gSideStatuses[cmd->side] &= ~SIDE_STATUS_SHADOW_SPIKES;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

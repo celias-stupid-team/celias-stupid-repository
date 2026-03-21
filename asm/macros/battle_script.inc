@@ -1858,3 +1858,7 @@
 	.byte \battler
 	.endm
 
+	.macro tryremoveallentryhazards side:req
+	callnative BS_TryRemoveAllEntryHazards
+	.byte \side
+	.endm
