@@ -13099,3 +13099,6 @@ extern const u32 gItemIconPalette_ShinyFossil[];
 
 extern const u32 gItemIcon_RustedGun[];
 extern const u32 gItemIconPalette_RustedGun[];
+
+extern const u32 gTrainerFrontPic_Paul[];
+extern const u32 gTrainerPalette_Paul[];

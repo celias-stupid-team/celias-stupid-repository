@@ -10005,7 +10005,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCAKoga[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_MR_RIME,
-        .moves = {MOVE_REFLECT_2, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_AURORA_VEIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -10024,8 +10024,8 @@ static const struct TrainerMonItemCustomMoves sParty_DMCABlaine[] = {
         .iv = 0,
         .lvl = 50,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_GOLBAT,
-        .moves = {MOVE_PERISH_SONG, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_MAGMAR,
+        .moves = {MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -10275,7 +10275,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine3[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_MALAMAR,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_STUPORPOWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 

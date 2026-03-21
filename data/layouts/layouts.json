@@ -7512,6 +7512,18 @@
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/SkyTower_3F_Pit/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_3F_Pit/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_KOGA_OPEN",
+      "name": "ViridianGym_Koga_Open",
+      "width": 32,
+      "height": 27,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_NewFuchsiaGym",
+      "border_filepath": "data/layouts/ViridianGym_Koga_Open/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Koga_Open/map.bin"
     }
   ]
 }

@@ -3468,11 +3468,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_WILL_O_WISP,
         .power = 0,
         .type = TYPE_FIRE,
-        .accuracy = 75,
+        .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
@@ -13510,7 +13510,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_TRICK,
         .power = 0,
-        .type = TYPE_STEEL, // get it?
+        .type = TYPE_STEEL, // get it? 
         .accuracy = 0,
         .pp = 10,
         .secondaryEffectChance = 0,
@@ -13550,7 +13550,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_PLEDGE_OF_ALLEGIANCE] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_PROTECT,
         .power = 40,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -13621,14 +13621,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_AURORA_VEIL] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
+        .effect = EFFECT_REFLECT_2,
+        .power = 0,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 3,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
