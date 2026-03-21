@@ -436,6 +436,7 @@ script Yes_TM {
 	waitmovement(LOCALID_YES_NERD)
 	removeobject(LOCALID_YES_NERD)
 	delay(10)
+	removeobject(VAR_LAST_TALKED)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
 	release
 	end
