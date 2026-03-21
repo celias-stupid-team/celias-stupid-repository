@@ -129,7 +129,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                    @ EFFECT_FALSE_SWIPE
 	.4byte BattleScript_EffectHealBell               @ EFFECT_HEAL_BELL
 	.4byte BattleScript_EffectHit                    @ EFFECT_QUICK_ATTACK
-	.4byte BattleScript_EffectNewTripleKick             @ EFFECT_TRIPLE_KICK
+	.4byte BattleScript_EffectNewTripleKick          @ EFFECT_TRIPLE_KICK
 	.4byte BattleScript_EffectThief                  @ EFFECT_THIEF
 	.4byte BattleScript_EffectMeanLook               @ EFFECT_MEAN_LOOK
 	.4byte BattleScript_EffectNightmare              @ EFFECT_NIGHTMARE
@@ -293,6 +293,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectReflectType            @ EFFECT_REFLECT_TYPE
 	.4byte BattleScript_EffectTrickOrTreat		     @ EFFECT_TRICK_OR_TREAT
 	.4byte BattleScript_EffectRestHBox               @ EFFECT_REST_HBOX
+	.4byte BattleScript_EffectUpThrow                @ EFFECT_UP_THROW
+	.4byte BattleScript_EffectShine                  @ EFFECT_SHINE
 
 BattleScript_End2::
 	end2
@@ -6079,4 +6081,29 @@ BattleScript_RestHBoxMissed::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectUpThrow::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	setupthrow BS_TARGET
+	setalwayshitflag
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNTOOKAIM
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectShine::
+	attackcanceler
+	jumpifstatus3 BS_ATTACKER, STATUS3_UP_THROW, BattleScript_ButItFailedAtkStringPpReduce
+	trysetshine BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce
+	attackstring
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNCOVEREDBYVEIL
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

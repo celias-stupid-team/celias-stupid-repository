@@ -1428,6 +1428,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trysetshine battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_SET_SHINE
+	.4byte \failInstr
+	.endm
+
 	.macro handlespriteupdate battler:req
 	various \battler, VARIOUS_HANDLE_SPRITE_UPDATE
 	.endm
@@ -1847,3 +1852,9 @@
 	callnative BS_TryTrickOrTreat
 	.4byte \failInstr
 	.endm
+
+	.macro setupthrow battler:req
+	callnative BS_SetUpThrow
+	.byte \battler
+	.endm
+
