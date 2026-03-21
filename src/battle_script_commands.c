@@ -5947,11 +5947,11 @@ static void Cmd_switchineffects(void)
     {
         // There is a hack here in pokeemerald to ensure the truant counter will be 0 when the battler's next turn starts.
         // The truant counter is not updated in the case where a mon switches in after a lost judgement in the battle arena.
-        // if (gBattleMons[gActiveBattler].ability == ABILITY_TRUANT)
+        if (gBattleMons[gActiveBattler].ability == ABILITY_TRUANT)
         // //if (gBattleMons[gActiveBattler].ability == ABILITY_TRUANT && !gDisableStructs[gActiveBattler].truantSwitchInHack) // In pokeemerald.
-        //     gDisableStructs[gActiveBattler].truantCounter = 1;
+             gDisableStructs[gActiveBattler].truantCounter = 1;
 
-        //gDisableStructs[gActiveBattler].truantSwitchInHack = 0; // In pokeemerald, otherwise unused.
+        gDisableStructs[gActiveBattler].truantSwitchInHack = 0; // In pokeemerald, otherwise unused.
 
         if (!AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, gActiveBattler, 0, 0, 0)
             && !ItemBattleEffects(ITEMEFFECT_ON_SWITCH_IN, gActiveBattler, FALSE))

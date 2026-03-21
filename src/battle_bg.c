@@ -1115,7 +1115,7 @@ void DrawBattleEntryBackground(void)
 static u8 GetBattleTerrainOverride(void)
 {
     u8 battleScene;
-    if (gTrainerBattleOpponent_A == TRAINER_BLAINE_PHASE_6)
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CINNABAR_ISLAND_GYM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CINNABAR_ISLAND_GYM))
     {
         gBattleTerrain = BATTLE_TERRAIN_BLAINE;
         return BATTLE_TERRAIN_BLAINE;
