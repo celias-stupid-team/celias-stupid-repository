@@ -332,6 +332,7 @@ void AnimSonicBoomProjectile(struct Sprite *sprite);
 void AnimHitSplatBasic(struct Sprite *sprite);
 void AnimFireSpread(struct Sprite *sprite);
 void AnimUproarRing(struct Sprite *);
+void AnimTask_GrudgeFlames_Step(u8 taskId);
 
 extern const union AffineAnimCmd *const gThinRingShrinkingAffineAnimTable[];
 extern const union AffineAnimCmd *const gAffineAnims_HitSplat[];

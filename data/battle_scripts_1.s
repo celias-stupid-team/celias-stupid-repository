@@ -291,6 +291,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBestow                 @ EFFECT_BESTOW
 	.4byte BattleScript_EffectRevelationDance        @ EFFECT_REVELATION_DANCE
 	.4byte BattleScript_EffectReflectType            @ EFFECT_REFLECT_TYPE
+	.4byte BattleScript_EffectTrickOrTreat		     @ EFFECT_TRICK_OR_TREAT
+	.4byte BattleScript_EffectRestHBox               @ EFFECT_REST_HBOX
 	.4byte BattleScript_EffectNothing            		@ EFFECT_NOTHING
 
 BattleScript_End2::
@@ -2163,6 +2165,7 @@ BattleScript_EffectSemiInvulnerable::
 	jumpifmove MOVE_DIVE, BattleScript_FirstTurnDive
 	jumpifmove MOVE_BOUNCE, BattleScript_FirstTurnBounce
 	jumpifmove MOVE_DOUBLE_JUMP, BattleScript_FirstTurnBounce
+	jumpifmove MOVE_PHANTOM_FORCE, BattleScript_FirstTurnPhantomForce
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIG
 	goto BattleScript_FirstTurnSemiInvulnerable
 
@@ -2172,6 +2175,10 @@ BattleScript_FirstTurnBounce::
 
 BattleScript_FirstTurnDive::
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIVE
+	goto BattleScript_FirstTurnSemiInvulnerable
+
+BattleScript_FirstTurnPhantomForce::
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_PHANTOM_FORCE
 	goto BattleScript_FirstTurnSemiInvulnerable
 
 BattleScript_FirstTurnFly::
@@ -2187,8 +2194,12 @@ BattleScript_SecondTurnSemiInvulnerable::
 	setbyte sB_ANIM_TURN, 1
 	clearstatusfromeffect BS_ATTACKER
 	orword gHitMarker, HITMARKER_NO_PPDEDUCT
-	jumpifnotmove MOVE_BOUNCE, BattleScript_SemiInvulnerableTryHit
+	jumpifnotmove MOVE_BOUNCE, BattleScript_SemiInvulnerableCheckPhantomForce
 	setmoveeffect MOVE_EFFECT_PARALYSIS
+	goto BattleScript_SemiInvulnerableTryHit
+BattleScript_SemiInvulnerableCheckPhantomForce::
+	jumpifnotmove MOVE_PHANTOM_FORCE, BattleScript_SemiInvulnerableTryHit
+	setmoveeffect MOVE_EFFECT_FEINT
 BattleScript_SemiInvulnerableTryHit::
 	accuracycheck BattleScript_SemiInvulnerableMiss, ACC_CURR_MOVE
 	clearsemiinvulnerablebit
@@ -5327,8 +5338,6 @@ BattleScript_EffectAgilityDumb::
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 
-
-
 BattleScript_EffectSemiInvulnerableHaunter::
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerableHaunter
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerableHaunter
@@ -5336,7 +5345,6 @@ BattleScript_EffectSemiInvulnerableHaunter::
 	jumpifmove MOVE_SHADOW_FORCE_CANCEL, BattleScript_FirstTurnShadowForce
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIG
 	goto BattleScript_FirstTurnSemiInvulnerable
-
 
 BattleScript_FirstTurnShadowForce::
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_SHADOW_FORCE
@@ -6038,3 +6046,51 @@ BattleScript_EffectNothing::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectTrickOrTreat::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	trytrickortreat BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNBECAMETYPE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRestHBox::
+	attackcanceler
+	accuracycheck BattleScript_RestHBoxMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	setmoveeffect MOVE_EFFECT_SLEEP | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
+BattleScript_RestHBoxMissed::
+	attackstring
+	ppreduce
+	pause B_WAIT_TIME_SHORT
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	setatkhptozero
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd

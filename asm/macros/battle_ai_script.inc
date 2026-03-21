@@ -325,13 +325,13 @@
 
 	.macro if_effect byte:req, ptr:req
 	.byte 0x37
-	.byte \byte
+	.2byte \byte
 	.4byte \ptr
 	.endm
 
 	.macro if_not_effect byte:req, ptr:req
 	.byte 0x38
-	.byte \byte
+	.2byte \byte
 	.4byte \ptr
 	.endm
 

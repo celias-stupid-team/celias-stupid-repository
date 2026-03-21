@@ -870,8 +870,15 @@ static const u16 sNaturePowerMoves[] =
     [BATTLE_TERRAIN_CAVE]       = MOVE_SHADOW_BALL,
     [BATTLE_TERRAIN_BUILDING]   = MOVE_SWIFT,
     [BATTLE_TERRAIN_PLAIN]      = MOVE_SWIFT,
-    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA] = MOVE_SWIFT,
-    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS] = MOVE_SWIFT
+    [BATTLE_TERRAIN_ZAPMOLTI_1] = MOVE_SWIFT,
+    [BATTLE_TERRAIN_ZAPMOLTI_2] = MOVE_SWIFT,
+    [BATTLE_TERRAIN_ZAPMOLTI_3] = MOVE_SWIFT,
+    [BATTLE_TERRAIN_ZAPMOLTI_4] = MOVE_SWIFT,
+    [BATTLE_TERRAIN_ZAPMOLTI_5] = MOVE_SWIFT,
+    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS] = MOVE_SWIFT,
+    [BATTLE_TERRAIN_BLAINE]     = MOVE_FIRE_BLAST,
+    [BATTLE_TERRAIN_SPACE]      = MOVE_METEOR_MASH,
+    [BATTLE_TERRAIN_CHAPTER_3]   = MOVE_SWIFT,
 };
 
 // format: min. weight (hectograms), base power
@@ -924,6 +931,15 @@ static const u8 sTerrainToType[] =
     [BATTLE_TERRAIN_CAVE]       = TYPE_ROCK,
     [BATTLE_TERRAIN_BUILDING]   = TYPE_NORMAL,
     [BATTLE_TERRAIN_PLAIN]      = TYPE_NORMAL,
+    [BATTLE_TERRAIN_ZAPMOLTI_1] = TYPE_NORMAL,
+    [BATTLE_TERRAIN_ZAPMOLTI_2] = TYPE_NORMAL,
+    [BATTLE_TERRAIN_ZAPMOLTI_3] = TYPE_NORMAL,
+    [BATTLE_TERRAIN_ZAPMOLTI_4] = TYPE_NORMAL,
+    [BATTLE_TERRAIN_ZAPMOLTI_5] = TYPE_NORMAL,
+    [BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS] = TYPE_NORMAL,
+    [BATTLE_TERRAIN_BLAINE]     = TYPE_FIRE,
+    [BATTLE_TERRAIN_SPACE]      = TYPE_NORMAL,
+    [BATTLE_TERRAIN_CHAPTER_3]   = TYPE_NORMAL,
 };
 
 // - ITEM_ULTRA_BALL skips Master Ball and ITEM_NONE
@@ -1118,6 +1134,13 @@ static bool8 AccuracyCalcHelper(u16 move)
         return TRUE;
     }
 
+    if (gStatuses3[gBattlerTarget] & STATUS3_VANISHED)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
+
     if (!(gHitMarker & HITMARKER_IGNORE_ON_AIR) && gStatuses3[gBattlerTarget] & STATUS3_ON_AIR)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
@@ -1192,7 +1215,7 @@ static void Cmd_accuracycheck(void)
     {
         if (gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS && move == NO_ACC_CALC_CHECK_LOCK_ON && gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker)
             gBattlescriptCurrInstr += 7;
-        else if (gStatuses3[gBattlerTarget] & (STATUS3_ON_AIR | STATUS3_UNDERGROUND | STATUS3_UNDERWATER))
+        else if (gStatuses3[gBattlerTarget] & (STATUS3_ON_AIR | STATUS3_UNDERGROUND | STATUS3_UNDERWATER | STATUS3_VANISHED))
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
         else if (!JumpIfMoveAffectedByProtect(0))
             gBattlescriptCurrInstr += 7;
@@ -9964,8 +9987,11 @@ static void Cmd_setsemiinvulnerablebit(void)
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
-    case MOVE_SHADOW_FORCE_CANCEL:
         gStatuses3[gBattlerAttacker] |= STATUS3_ON_AIR;
+        break;
+    case MOVE_SHADOW_FORCE_CANCEL:
+    case MOVE_PHANTOM_FORCE:
+        gStatuses3[gBattlerAttacker] |= STATUS3_VANISHED;
         break;
     case MOVE_DIG:
     case MOVE_DIG_CANCEL:
@@ -9988,8 +10014,11 @@ static void Cmd_clearsemiinvulnerablebit(void)
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
-    case MOVE_SHADOW_FORCE_CANCEL:
         gStatuses3[gBattlerAttacker] &= ~STATUS3_ON_AIR;
+        break;
+    case MOVE_SHADOW_FORCE_CANCEL:
+    case MOVE_PHANTOM_FORCE:
+        gStatuses3[gBattlerAttacker] &= ~STATUS3_VANISHED;
         break;
     case MOVE_DIG:
     case MOVE_DIG_CANCEL:
@@ -12850,4 +12879,22 @@ void BS_TryGiveNothing(void) {
         FlagSet(FLAG_GOT_MOVE_NOTHING);
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+
+void BS_TryTrickOrTreat(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    if (!(gBattleMons[gBattlerTarget].type1 == TYPE_GHOST && gBattleMons[gBattlerTarget].type2 == TYPE_GHOST))
+    {
+        SET_BATTLER_TYPE(gBattlerTarget, TYPE_GHOST);
+        PREPARE_TYPE_BUFFER(gBattleTextBuff1, TYPE_GHOST);
+
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
 }

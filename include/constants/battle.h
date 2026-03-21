@@ -167,11 +167,12 @@
 #define STATUS3_UNDERWATER              (1 << 18)
 #define STATUS3_INTIMIDATE_POKES        (1 << 19)
 #define STATUS3_TRACE                   (1 << 20)
-#define STATUS3_SEMI_INVULNERABLE       (STATUS3_UNDERGROUND | STATUS3_ON_AIR | STATUS3_UNDERWATER)
+#define STATUS3_SEMI_INVULNERABLE       (STATUS3_UNDERGROUND | STATUS3_ON_AIR | STATUS3_UNDERWATER | STATUS3_VANISHED)
 #define STATUS3_ELECTRIFIED             (1 << 21)
 #define STATUS3_TOXIC_SEED              (1 << 22)
 #define STATUS3_PERMA_PARA              (1 << 23)
 #define STATUS3_DOUBLE_DIP              (1 << 24)
+#define STATUS3_VANISHED                (1 << 25)
 
 // Not really sure what a "hitmarker" is.
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
@@ -336,8 +337,15 @@
 #define BATTLE_TERRAIN_AGATHA      17
 #define BATTLE_TERRAIN_LANCE       18
 #define BATTLE_TERRAIN_CHAMPION    19
-#define BATTLE_TERRAIN_ZAPMOLCUNOOHGIA 20
-#define BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS 21
+#define BATTLE_TERRAIN_ZAPMOLTI_1  20
+#define BATTLE_TERRAIN_ZAPMOLTI_2  21
+#define BATTLE_TERRAIN_ZAPMOLTI_3  22
+#define BATTLE_TERRAIN_ZAPMOLTI_4  23
+#define BATTLE_TERRAIN_ZAPMOLTI_5  24
+#define BATTLE_TERRAIN_ZAPMOLCUNOOHGIA_PLATFORMS 25
+#define BATTLE_TERRAIN_CHAPTER_3   26
+#define BATTLE_TERRAIN_BLAINE      27
+#define BATTLE_TERRAIN_SPACE       28
 
 #define USE_TEST_TERRAIN FALSE // set to FALSE for public release, only used for Zapmolcuno testing
 
