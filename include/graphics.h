@@ -8793,6 +8793,11 @@ extern const u32 gBattleAnimSpriteGfx_ZipBomb[];
 extern const u32 gBattleAnimSpriteGfx_MovieFile[];
 extern const u32 gBattleAnimSpriteGfx_Toolbar[];
 extern const u32 gBattleAnimSpriteGfx_Norton[];
+extern const u32 gBattleAnimSpriteGfx_Ruins[];
+extern const u32 gBattleAnimSpriteGfx_NaCl[];
+extern const u32 gBattleAnimSpriteGfx_Envelope[];
+extern const u32 gBattleAnimSpriteGfx_Fries[];
+extern const u32 gBattleAnimSpriteGfx_MiniDiglett[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9145,7 +9150,11 @@ extern const u32 gBattleAnimSpritePal_ZipBomb[];
 extern const u32 gBattleAnimSpritePal_MovieFile[];
 extern const u32 gBattleAnimSpritePal_Toolbar[];
 extern const u32 gBattleAnimSpritePal_Norton[];
-
+extern const u32 gBattleAnimSpritePal_Ruins[];
+extern const u32 gBattleAnimSpritePal_NaCl[];
+extern const u32 gBattleAnimSpritePal_Envelope[];
+extern const u32 gBattleAnimSpritePal_Fries[];
+extern const u32 gBattleAnimSpritePal_MiniDiglett[];
 
 
 //CSR Moves
@@ -9227,6 +9236,7 @@ extern const u32 gBattleAnimBgPalette_BSOD[];
 extern const u32 gBattleAnimBgPalette_Skyrim[];
 extern const u32 gBattleAnimBgPalette_RedWater[];
 extern const u32 gBattleAnimBgPalette_RainbowWater[];
+extern const u32 gBattleAnimBgPalette_ChocolateWater[];
 extern const u32 gBattleAnimBgPalette_IraqFlag[];
 extern const u32 gBattleAnimBgPalette_AceFlag[];
 extern const u32 gBattleAnimBgPalette_SolaceonTown[];

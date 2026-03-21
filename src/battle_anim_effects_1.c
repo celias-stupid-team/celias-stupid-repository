@@ -753,6 +753,17 @@ const struct SpriteTemplate gSwiftStarSpriteTemplate =
     .callback = AnimTranslateLinearSingleSineWave,
 };
 
+const struct SpriteTemplate gMoviesFreeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOVIE_FILE,
+    .paletteTag = ANIM_TAG_MOVIE_FILE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sSwiftStarAffineAnimTable,
+    .callback = AnimTranslateLinearSingleSineWave,
+};
+
 const struct SpriteTemplate gWaterShurikenSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WATER_SHURIKEN,

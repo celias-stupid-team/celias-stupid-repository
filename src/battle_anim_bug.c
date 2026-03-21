@@ -160,7 +160,7 @@ const struct SpriteTemplate gStringWrapSpriteTemplate =
 const struct SpriteTemplate gGrassWrapSpriteTemplate =
 {
     .tileTag = ANIM_TAG_STRING,
-    .paletteTag = ANIM_TAG_WEED_SMALL,
+    .paletteTag = ANIM_TAG_GREEN_SPIKE,
     .oam = &gOamData_AffineOff_ObjNormal_64x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

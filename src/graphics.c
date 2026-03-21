@@ -306,6 +306,21 @@ const u32 gBattleAnimSpritePal_Toolbar[] = INCBIN_U32("graphics/battle_anims/spr
 const u32 gBattleAnimSpriteGfx_Norton[] = INCBIN_U32("graphics/battle_anims/sprites/norton.4bpp.lz");
 const u32 gBattleAnimSpritePal_Norton[] = INCBIN_U32("graphics/battle_anims/sprites/norton.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Ruins[] = INCBIN_U32("graphics/battle_anims/sprites/ruins.4bpp.lz");
+const u32 gBattleAnimSpritePal_Ruins[] = INCBIN_U32("graphics/battle_anims/sprites/ruins.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_NaCl[] = INCBIN_U32("graphics/battle_anims/sprites/nacl.4bpp.lz");
+const u32 gBattleAnimSpritePal_NaCl[] = INCBIN_U32("graphics/battle_anims/sprites/nacl.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Envelope[] = INCBIN_U32("graphics/battle_anims/sprites/envelope.4bpp.lz");
+const u32 gBattleAnimSpritePal_Envelope[] = INCBIN_U32("graphics/battle_anims/sprites/envelope.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Fries[] = INCBIN_U32("graphics/battle_anims/sprites/fries.4bpp.lz");
+const u32 gBattleAnimSpritePal_Fries[] = INCBIN_U32("graphics/battle_anims/sprites/fries.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_MiniDiglett[] = INCBIN_U32("graphics/battle_anims/sprites/diglett.4bpp.lz");
+const u32 gBattleAnimSpritePal_MiniDiglett[] = INCBIN_U32("graphics/battle_anims/sprites/diglett.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");
@@ -1255,6 +1270,7 @@ const u32 gBattleAnimSpritePal_OneProtect[] = INCBIN_U32("graphics/battle_anims/
 const u32 gBattleAnimBgPalette_MuddyWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_muddy.gbapal.lz");
 const u32 gBattleAnimBgPalette_RedWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_red.gbapal.lz");
 const u32 gBattleAnimBgPalette_RainbowWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_rainbow.gbapal.lz");
+const u32 gBattleAnimBgPalette_ChocolateWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_chocolate.gbapal.lz");
 
 const u32 gEnemyMonShadow_Gfx[] = INCBIN_U32("graphics/battle_interface/enemy_mon_shadow.4bpp.lz");
 

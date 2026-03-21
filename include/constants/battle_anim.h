@@ -405,6 +405,11 @@
 #define ANIM_TAG_MOVIE_FILE                 (ANIM_SPRITES_START + 395)
 #define ANIM_TAG_TOOLBAR                    (ANIM_SPRITES_START + 396)
 #define ANIM_TAG_NORTON                     (ANIM_SPRITES_START + 397)
+#define ANIM_TAG_RUINS                      (ANIM_SPRITES_START + 398)
+#define ANIM_TAG_NACL                       (ANIM_SPRITES_START + 399)
+#define ANIM_TAG_ENVELOPE                   (ANIM_SPRITES_START + 400)
+#define ANIM_TAG_FRIES                      (ANIM_SPRITES_START + 401)
+#define ANIM_TAG_MINI_DIGLETT               (ANIM_SPRITES_START + 402)
 
 // battlers
 #define ANIM_ATTACKER       0

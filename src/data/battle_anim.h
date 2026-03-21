@@ -1437,6 +1437,11 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_MovieFile, 0x0200, ANIM_TAG_MOVIE_FILE},
     {gBattleAnimSpriteGfx_Toolbar, 0x1000, ANIM_TAG_TOOLBAR},
     {gBattleAnimSpriteGfx_Norton, 0x1000, ANIM_TAG_NORTON},
+    {gBattleAnimSpriteGfx_Ruins, 0x0800, ANIM_TAG_RUINS},
+    {gBattleAnimSpriteGfx_NaCl, 0x0400, ANIM_TAG_NACL},
+    {gBattleAnimSpriteGfx_Envelope, 0x0200, ANIM_TAG_ENVELOPE},
+    {gBattleAnimSpriteGfx_Fries, 0x0800, ANIM_TAG_FRIES},
+    {gBattleAnimSpriteGfx_MiniDiglett, 0x0100, ANIM_TAG_MINI_DIGLETT},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1839,6 +1844,11 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_MovieFile, ANIM_TAG_MOVIE_FILE},
     {gBattleAnimSpritePal_Toolbar, ANIM_TAG_TOOLBAR},
     {gBattleAnimSpritePal_Norton, ANIM_TAG_NORTON},
+    {gBattleAnimSpritePal_Ruins, ANIM_TAG_RUINS},
+    {gBattleAnimSpritePal_NaCl, ANIM_TAG_NACL},
+    {gBattleAnimSpritePal_Envelope, ANIM_TAG_ENVELOPE},
+    {gBattleAnimSpritePal_Fries, ANIM_TAG_FRIES},
+    {gBattleAnimSpritePal_MiniDiglett, ANIM_TAG_MINI_DIGLETT},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

@@ -599,6 +599,29 @@ const struct SpriteTemplate gCensoredBarSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sMiniDiglettAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(4, 10),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sMiniDiglettAnimTable[] =
+{
+    sMiniDiglettAnimCmds,
+};
+
+const struct SpriteTemplate gMiniDiglettSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MINI_DIGLETT,
+    .paletteTag = ANIM_TAG_MINI_DIGLETT,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sMiniDiglettAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sToolbarAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 50),
@@ -1567,6 +1590,83 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .tileTag = ANIM_TAG_RED_HEART,
     .paletteTag = ANIM_TAG_RED_HEART,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gBreadBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BREAD,
+    .paletteTag = ANIM_TAG_BREAD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gLettuceBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LETTUCE,
+    .paletteTag = ANIM_TAG_LETTUCE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gKetchupBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KETCHUP,
+    .paletteTag = ANIM_TAG_KETCHUP,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gPickleBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PICKLE_SPEAR,
+    .paletteTag = ANIM_TAG_PICKLE_SPEAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gCheeseBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CHEESE,
+    .paletteTag = ANIM_TAG_CHEESE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gTomatoBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOMATO,
+    .paletteTag = ANIM_TAG_TOMATO,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gSesameBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SESAME,
+    .paletteTag = ANIM_TAG_SESAME,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,

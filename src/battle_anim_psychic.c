@@ -527,6 +527,17 @@ const struct SpriteTemplate gPsychoBoostOrbSpriteTemplate =
     .callback = AnimPsychoBoost,
 };
 
+const struct SpriteTemplate gRuinsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RUINS,
+    .paletteTag = ANIM_TAG_RUINS,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_PsychoBoostOrb,
+    .callback = AnimPsychoBoost,
+};
+
 static void AnimPositionableDefensiveWall(struct Sprite *sprite)
 {
     u8 battler = GetAnimBattlerSpriteId(gBattleAnimArgs[3]);
