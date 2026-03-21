@@ -531,3 +531,10 @@ script PokemonIsland_Signs {
     release
 
 }
+
+script PokemonIsland_OakPhoto {
+	msgbox(
+	"It's a photo of OAK!\n"
+	"", MSGBOX_SIGN)
+
+}

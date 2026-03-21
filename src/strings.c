@@ -217,6 +217,7 @@ const u8 gText_TMContainedCopycat[] = _("{PLAYER} booted up the TM!\pIt containe
 const u8 gText_CeliaMessage[] = _("Hi, this is CELIA.\pDue to technical limitations, I\nwas forced to remove several\lexcess ITEMS from your BAG.\pDon't worry! Nothing that was\nremoved will ever be important.\pI'm sorry I had to do this, and it\nis my fault for not thinking ahead.\pThanks for understanding!\nThis page will now self-destruct.{PAUSE_UNTIL_PRESS}{PLAY_BGM}{SE_M_EXPLOSION}");
 const u8 gText_HeldRuby[] = _("{PLAYER} held the RUBY!{PAUSE_UNTIL_PRESS}");
 const u8 gText_PlayerCancer[] = _("{PLAYER} got cancer!{PAUSE_UNTIL_PRESS}");
+const u8 gText_PlayerPremierCancer[] = _("{PLAYER} got premier cancer!{PAUSE_UNTIL_PRESS}");
 const u8 gText_MaxRepelWorks[] = _("{PLAYER} used the MAX REPEL!\pWild POKéMON will no longer\nappear!{PAUSE_UNTIL_PRESS}");
 const u8 gText_MaxRepelDoesntWork[] = _("{PLAYER} used\n{STR_VAR_1}.\l...But it failed!\pThere's no DYNAMAX ENERGY in\nthe area!{PAUSE_UNTIL_PRESS}");
 const u8 gText_PayDayTM[] = _("Booted up the TM!{PAUSE_UNTIL_PRESS}");
@@ -251,6 +252,8 @@ const u8 gText_ThankYouIllSendItHome[] = _("どうも ありがとう!\nじた�
 const u8 gText_ThanksIllSendItHome[] = _("どうも ありがとう!\nじたくの パソコンに おくって おくね!");
 const u8 gText_YouDontHaveMoney[] = _("You don't have enough money.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ThrowInPremierBall[] = _("Oh, were you trying to get a free\nPREMIER BALL?\pThat's not actually a feature in\nFIRE RED version. Sorry!{PAUSE_UNTIL_PRESS}");
+const u8 gText_ThrowInPremierCigar[] = _("You also get a PREMIER CIGARETTE\nas an added bonus.{PAUSE_UNTIL_PRESS}");
+
 const u8 gText_NoMoreRoomForThis[] = _("You have no more room for this\nitem.{PAUSE_UNTIL_PRESS}");
 const u8 gText_SpaceForVar1Full[] = _("{STR_VAR_1}を\nいれる ばしょが いっぱいです{PAUSE_UNTIL_PRESS}");
 const u8 gText_AnythingElseICanHelp[] = _("Is there anything else I can do?");

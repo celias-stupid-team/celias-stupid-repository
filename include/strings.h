@@ -201,6 +201,7 @@ extern const u8 gText_Ligma[];
 extern const u8 gText_TMContainedCopycat[];
 extern const u8 gText_HeldRuby[];
 extern const u8 gText_PlayerCancer[];
+extern const u8 gText_PlayerPremierCancer[];
 extern const u8 gText_CeliaMessage[];
 
 
@@ -1022,6 +1023,7 @@ extern const u8 gText_HereYouGoThankYou[];
 extern const u8 gText_PlayerObtainedClefairy[];
 extern const u8 gText_NoMoreRoomForThis[];
 extern const u8 gText_ThrowInPremierBall[];
+extern const u8 gText_ThrowInPremierCigar[];
 
 // pokedex_screen
 extern const u8 gText_PokedexTableOfContents[];

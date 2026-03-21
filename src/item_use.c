@@ -760,8 +760,13 @@ void FieldUseFunc_Cigarette(u8 taskId)
 
         PlaySE(SE_M_EMBER);
         RemoveUsedItem();
+        if(gSpecialVar_ItemId == ITEM_PREMIERCIGAR) {
+            DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PlayerPremierCancer, Task_ReturnToBagFromContextMenu);
 
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PlayerCancer, Task_ReturnToBagFromContextMenu);
+        } else {
+            DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PlayerCancer, Task_ReturnToBagFromContextMenu);
+        }
+        
     
 }
 

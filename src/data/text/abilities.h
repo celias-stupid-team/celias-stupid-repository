@@ -234,7 +234,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 {
     [ABILITY_NONE] = _("-------"),
-    [ABILITY_STENCH] = _("STENCH"),
+    [ABILITY_STENCH] = _("LICK"),
     [ABILITY_DRIZZLE] = _("DRIZZLE"),
     [ABILITY_SPEED_BOOST] = _("SPEED BOOST"),
     [ABILITY_BATTLE_ARMOR] = _("BATTLE ARMS"),
