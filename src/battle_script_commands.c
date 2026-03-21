@@ -1033,10 +1033,21 @@ static void Cmd_attackcanceler(void)
         return;
     }
 
+    // EFFECT_REFLECT_2
     if (gProtectStructs[gBattlerTarget].bounceReflectMove && gCurrentMove != MOVE_BRICK_BREAK)
     {
         PressurePPLose(gBattlerAttacker, gBattlerTarget, MOVE_REFLECT);
         gProtectStructs[gBattlerTarget].bounceReflectMove = FALSE;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_ReflectBounce;
+        return;
+    }
+
+    // EFFECT_SHINE
+    if (gProtectStructs[gBattlerTarget].bounceShineMove && gCurrentMove != MOVE_UP_THROW)
+    {
+        PressurePPLose(gBattlerAttacker, gBattlerTarget, MOVE_REFLECT);
+        gProtectStructs[gBattlerTarget].bounceShineMove = FALSE;
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_ReflectBounce;
         return;
@@ -1548,6 +1559,13 @@ static void Cmd_typecalc(void)
         {
             modifier = UQ_4_12(1.0);
         }
+        if (moveType == TYPE_PSYCHIC
+          && defType1 == TYPE_DARK
+          && gStatuses3[gBattlerTarget] & STATUS3_UP_THROW
+          && modifier == TYPE_MUL_NO_EFFECT)
+        {
+            modifier = UQ_4_12(1.0);
+        }
         // DebugPrintf("Cmd_typecalc modifier1 = %d", modifier);
         
         if (defType2 != defType1)
@@ -1557,6 +1575,13 @@ static void Cmd_typecalc(void)
             if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
               && (defType2 == TYPE_GHOST)
               && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
+              && modifier_temp == TYPE_MUL_NO_EFFECT)
+            {
+                modifier_temp = UQ_4_12(1.0);
+            }
+            if (moveType == TYPE_PSYCHIC
+              && defType2 == TYPE_DARK
+              && gStatuses3[gBattlerTarget] & STATUS3_UP_THROW
               && modifier_temp == TYPE_MUL_NO_EFFECT)
             {
                 modifier_temp = UQ_4_12(1.0);
@@ -1635,6 +1660,14 @@ static void CheckWonderGuardAndLevitate(void)
         modifier = UQ_4_12(1.0);
     }
 
+    if (moveType == TYPE_PSYCHIC
+      && defType1 == TYPE_DARK
+      && gStatuses3[gBattlerTarget] & STATUS3_UP_THROW
+      && modifier == TYPE_MUL_NO_EFFECT)
+    {
+        modifier = UQ_4_12(1.0);
+    }
+
     if (defType2 != defType1)
     {
         modifier_temp = GetTypeModifier(moveType, defType2);
@@ -1642,6 +1675,13 @@ static void CheckWonderGuardAndLevitate(void)
         if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
             && (defType2 == TYPE_GHOST)
             && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
+            && modifier_temp == TYPE_MUL_NO_EFFECT)
+        {
+            modifier_temp = UQ_4_12(1.0);
+        }
+        if (moveType == TYPE_PSYCHIC
+            && defType2 == TYPE_DARK
+            && gStatuses3[gBattlerTarget] & STATUS3_UP_THROW
             && modifier_temp == TYPE_MUL_NO_EFFECT)
         {
             modifier_temp = UQ_4_12(1.0);
@@ -1773,6 +1813,14 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
             modifier = UQ_4_12(1.0);
         }
 
+        if (moveType == TYPE_PSYCHIC
+          && defType1 == TYPE_DARK
+          && gStatuses3[defender] & STATUS3_UP_THROW
+          && modifier == TYPE_MUL_NO_EFFECT)
+        {
+            modifier = UQ_4_12(1.0);
+        }
+
         if (defType2 != defType1)
         {
             modifier_temp = GetTypeModifier(moveType, defType2);
@@ -1780,6 +1828,13 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
             if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
               && (defType2 == TYPE_GHOST)
               && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
+              && modifier_temp == TYPE_MUL_NO_EFFECT)
+            {
+                modifier_temp = UQ_4_12(1.0);
+            }
+            if (moveType == TYPE_PSYCHIC
+              && defType2 == TYPE_DARK
+              && gStatuses3[gBattlerTarget] & STATUS3_UP_THROW
               && modifier_temp == TYPE_MUL_NO_EFFECT)
             {
                 modifier_temp = UQ_4_12(1.0);
@@ -5293,6 +5348,14 @@ static void Cmd_typecalc2(void)
             modifier = UQ_4_12(1.0);
         }
 
+        if (moveType == TYPE_PSYCHIC
+          && (defType1 == TYPE_DARK || defType2 == TYPE_DARK)
+          && gStatuses3[gBattlerTarget] & STATUS3_UP_THROW
+          && modifier == TYPE_MUL_NO_EFFECT)
+        {
+            modifier = UQ_4_12(1.0);
+        }
+
         mult = (modifier * TYPE_MUL_NORMAL) / 4096;
 
         if (mult == TYPE_MUL_NO_EFFECT)
@@ -7289,6 +7352,23 @@ static void Cmd_various(void)
             else
             {
                 gProtectStructs[battler].bounceReflectMove = TRUE;
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            }
+            return;
+        }
+        case VARIOUS_TRY_SET_SHINE:
+        {
+            VARIOUS_ARGS(const u8 *failInstr);
+            u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+            gSpecialStatuses[battler].ppNotAffectedByPressure = 1;
+            if (gCurrentTurnActionNumber == gBattlersCount - 1) // moves last turn
+            {
+                gBattlescriptCurrInstr = cmd->failInstr;
+            }
+            else
+            {
+                gProtectStructs[battler].bounceShineMove = TRUE;
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
             return;
@@ -12897,4 +12977,14 @@ void BS_TryTrickOrTreat(void)
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }
+}
+
+void BS_SetUpThrow(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    gStatuses3[battler] |= STATUS3_UP_THROW;
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }

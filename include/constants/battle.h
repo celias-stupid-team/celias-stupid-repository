@@ -173,6 +173,7 @@
 #define STATUS3_PERMA_PARA              (1 << 23)
 #define STATUS3_DOUBLE_DIP              (1 << 24)
 #define STATUS3_VANISHED                (1 << 25)
+#define STATUS3_UP_THROW                (1 << 26)
 
 // Not really sure what a "hitmarker" is.
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.

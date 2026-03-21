@@ -5429,7 +5429,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_UP_THROW] =    {
-        .effect = EFFECT_LOCK_ON,
+        .effect = EFFECT_UP_THROW,
         .power = 0,
         .type = TYPE_FIGHTING,
         .accuracy = 0,
@@ -13578,15 +13578,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_MULTISHINE] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_ICE,
-        .accuracy = 100,
-        .pp = 35,
-        .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .effect = EFFECT_SHINE,
+        .power = 0,
+        .type = TYPE_DARK,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_DEPENDS,
+        .priority = 4,
+        .flags = 0,
     },
 
     
@@ -13673,7 +13673,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_SHINE] =
     {
-        .effect = EFFECT_REFLECT_2,
+        .effect = EFFECT_SHINE,
         .power = 0,
         .type = TYPE_DARK,
         .accuracy = 0,
