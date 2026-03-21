@@ -539,7 +539,7 @@ u8 BattleSetup_GetTerrainId(void)
     case MAP_TYPE_SECRET_BASE:
         return BATTLE_TERRAIN_BUILDING;
     case MAP_TYPE_BLAINE_GYM:
-        return BATTLE_TERRAIN_MOUNTAIN;
+        return BATTLE_TERRAIN_BLAINE;
     case MAP_TYPE_UNDERWATER:
         return BATTLE_TERRAIN_UNDERWATER;
     case MAP_TYPE_OCEAN_ROUTE:
