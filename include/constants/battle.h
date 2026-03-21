@@ -346,6 +346,7 @@
 #define BATTLE_TERRAIN_CHAPTER_3   26
 #define BATTLE_TERRAIN_BLAINE      27
 #define BATTLE_TERRAIN_SPACE       28
+#define BATTLE_TERRAIN_RAINBOW     29
 
 #define USE_TEST_TERRAIN FALSE // set to FALSE for public release, only used for Zapmolcuno testing
 

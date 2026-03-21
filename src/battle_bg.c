@@ -647,6 +647,14 @@ const struct BattleBackground sBattleTerrainTable[] = {
         .entryTilemap = sBattleTerrainAnimTilemap_Building,
         .palette = gBattleTerrainPalette_Space
     },
+    [BATTLE_TERRAIN_RAINBOW] =
+    {
+        .tileset = gBattleTerrainTiles_Rainbow,
+        .tilemap = gBattleTerrainTilemap_Rainbow,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Rainbow
+    }
 };
 
 static const struct {

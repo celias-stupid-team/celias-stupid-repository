@@ -12377,6 +12377,9 @@ extern const u32 gBattleTerrainTilemap_Space[];
 extern const u32 gBattleTerrainPalette_Chapter3[];
 extern const u32 gBattleTerrainTiles_Chapter3[];
 extern const u32 gBattleTerrainTilemap_Chapter3[];
+extern const u32 gBattleTerrainPalette_Rainbow[];
+extern const u32 gBattleTerrainTiles_Rainbow[];
+extern const u32 gBattleTerrainTilemap_Rainbow[];
 extern const u32 gBattleTerrainTiles_Indoor[];
 extern const u32 gBattleTerrainTilemap_Indoor[];
 

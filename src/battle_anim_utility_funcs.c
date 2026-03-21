@@ -168,6 +168,7 @@ void AnimTask_SetCamouflageBlend(u8 taskId)
         gBattleAnimArgs[4] = RGB(14, 9, 3);
         break;
     case BATTLE_TERRAIN_BLAINE:
+    case BATTLE_TERRAIN_RAINBOW:
         gBattleAnimArgs[4] = RGB(31, 12, 0);
         break;
     case BATTLE_TERRAIN_BUILDING:

@@ -229,17 +229,17 @@ static const struct WindowTemplate sPokemonDebugWindowTemplate[] =
 //Lookup tables
 const u8 gBattleBackgroundNames[][30] =
 {
-    [MAP_BATTLE_SCENE_NORMAL]   = _("NORMAL                  "),
-    [MAP_BATTLE_SCENE_LINK]     = _("LINK                    "),
-    [MAP_BATTLE_SCENE_GYM]      = _("GYM                     "),
-    [MAP_BATTLE_SCENE_LEADER]   = _("LEADER                  "),
-    [MAP_BATTLE_SCENE_INDOOR_1] = _("INDOOR1                 "),
-    [MAP_BATTLE_SCENE_INDOOR_2] = _("INDOOR2                 "),
-    [MAP_BATTLE_SCENE_LORELEI]  = _("LORELEI                 "),
-    [MAP_BATTLE_SCENE_BRUNO]    = _("BRUNO                   "),
-    [MAP_BATTLE_SCENE_AGATHA]   = _("AGATHA                  "),
-    [MAP_BATTLE_SCENE_LANCE]    = _("LANCE                   "),
-    [MAP_BATTLE_SCENE_CHAMPION] = _("CHAMPION                "),
+    [MAP_BATTLE_SCENE_NORMAL]     = _("NORMAL                  "),
+    [MAP_BATTLE_SCENE_LINK]       = _("LINK                    "),
+    [MAP_BATTLE_SCENE_GYM]        = _("GYM                     "),
+    [MAP_BATTLE_SCENE_LEADER]     = _("LEADER                  "),
+    [MAP_BATTLE_SCENE_INDOOR_1]   = _("INDOOR1                 "),
+    [MAP_BATTLE_SCENE_INDOOR_2]   = _("INDOOR2                 "),
+    [MAP_BATTLE_SCENE_LORELEI]    = _("LORELEI                 "),
+    [MAP_BATTLE_SCENE_BRUNO]      = _("BRUNO                   "),
+    [MAP_BATTLE_SCENE_AGATHA]     = _("AGATHA                  "),
+    [MAP_BATTLE_SCENE_LANCE]      = _("LANCE                   "),
+    [MAP_BATTLE_SCENE_CHAMPION]   = _("CHAMPION                "),
     [MAP_BATTLE_SCENE_ZAPMOLTI_1] = _("ZAPMOL 1                "),
     [MAP_BATTLE_SCENE_ZAPMOLTI_2] = _("ZAPMOL 2                "),
     [MAP_BATTLE_SCENE_ZAPMOLTI_3] = _("ZAPMOL 3                "),
@@ -249,6 +249,7 @@ const u8 gBattleBackgroundNames[][30] =
     [MAP_BATTLE_SCENE_CHAPTER_3]  = _("CHAPTER 3               "),
     [MAP_BATTLE_SCENE_BLAINE]     = _("BLAINE                  "),
     [MAP_BATTLE_SCENE_SPACE]      = _("SPACE                   "),
+    [MAP_BATTLE_SCENE_RAINBOW]    = _("RAINBOW                 "),
 };
 const u8 gBattleBackgroundTerrainNames[][26] =
 {
@@ -780,6 +781,11 @@ static void LoadBattleBg(u8 battleBgType, u8 battleTerrain)
             LZDecompressVram(gBattleTerrainTilemap_Space, (void*)(BG_SCREEN_ADDR(26)));
             LoadCompressedPalette(gBattleTerrainPalette_Space, 0x20, 0x60);
             break;
+        case MAP_BATTLE_SCENE_RAINBOW:
+            LZDecompressVram(gBattleTerrainTiles_Rainbow, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Rainbow, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Rainbow, 0x20, 0x60);
+            break;
     }
 }
 static void PrintBattleBgName(u8 taskId)
@@ -810,7 +816,7 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
         else
         {
             if (data->battleTerrain == BATTLE_TERRAIN_GRASS)
-                data->battleBgType = MAP_BATTLE_SCENE_SPACE;
+                data->battleBgType = MAP_BATTLE_SCENE_RAINBOW;
             else
                 data->battleTerrain -= 1;
         }
@@ -827,7 +833,7 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
             data->battleTerrain = BATTLE_TERRAIN_PLAIN;
         }
     }
-    else if (data->battleBgType == MAP_BATTLE_SCENE_SPACE)
+    else if (data->battleBgType == MAP_BATTLE_SCENE_RAINBOW)
     {
         if (increment)
         {

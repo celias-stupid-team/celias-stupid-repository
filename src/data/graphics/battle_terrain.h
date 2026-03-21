@@ -22,12 +22,16 @@ const u32 gBattleTerrainTilemap_Zapmolcunoohgia_Platforms[] = INCBIN_U32("graphi
 const u32 gBattleTerrainPalette_Blaine[] = INCBIN_U32("graphics/battle_terrain/blaine/terrain.gbapal.lz");
 const u32 gBattleTerrainTiles_Blaine[] = INCBIN_U32("graphics/battle_terrain/blaine/terrain.4bpp.lz");
 const u32 gBattleTerrainTilemap_Blaine[] = INCBIN_U32("graphics/battle_terrain/blaine/terrain.bin.lz");
-const u32 gBattleTerrainPalette_Space[] = INCBIN_U32("graphics/battle_terrain/zapmolticunoohgia_platforms/terrain.gbapal.lz");
-const u32 gBattleTerrainTiles_Space[] = INCBIN_U32("graphics/battle_terrain/zapmolticunoohgia_platforms/terrain.4bpp.lz");
-const u32 gBattleTerrainTilemap_Space[] = INCBIN_U32("graphics/battle_terrain/zapmolticunoohgia_platforms/terrain.bin.lz");
-const u32 gBattleTerrainPalette_Chapter3[] = INCBIN_U32("graphics/battle_terrain/zapmolticunoohgia_platforms/terrain.gbapal.lz");
-const u32 gBattleTerrainTiles_Chapter3[] = INCBIN_U32("graphics/battle_terrain/zapmolticunoohgia_platforms/terrain.4bpp.lz");
-const u32 gBattleTerrainTilemap_Chapter3[] = INCBIN_U32("graphics/battle_terrain/zapmolticunoohgia_platforms/terrain.bin.lz");
+const u32 gBattleTerrainPalette_Space[] = INCBIN_U32("graphics/battle_terrain/space/terrain.gbapal.lz");
+const u32 gBattleTerrainTiles_Space[] = INCBIN_U32("graphics/battle_terrain/space/terrain.4bpp.lz");
+const u32 gBattleTerrainTilemap_Space[] = INCBIN_U32("graphics/battle_terrain/space/terrain.bin.lz");
+const u32 gBattleTerrainPalette_Chapter3[] = INCBIN_U32("graphics/battle_terrain/chapter3/terrain.gbapal.lz");
+const u32 gBattleTerrainTiles_Chapter3[] = INCBIN_U32("graphics/battle_terrain/chapter3/terrain.4bpp.lz");
+const u32 gBattleTerrainTilemap_Chapter3[] = INCBIN_U32("graphics/battle_terrain/chapter3/terrain.bin.lz");
+const u32 gBattleTerrainPalette_Rainbow[] = INCBIN_U32("graphics/battle_terrain/rainbow/terrain.gbapal.lz");
+const u32 gBattleTerrainTiles_Rainbow[] = INCBIN_U32("graphics/battle_terrain/rainbow/terrain.4bpp.lz");
+const u32 gBattleTerrainTilemap_Rainbow[] = INCBIN_U32("graphics/battle_terrain/rainbow/terrain.bin.lz");
+
 
 const u32 gBattleTerrainPalette_Link[] = INCBIN_U32("graphics/battle_terrain/indoor/link.gbapal.lz");
 const u32 gBattleTerrainPalette_Gym[] = INCBIN_U32("graphics/battle_terrain/indoor/gym.gbapal.lz");
