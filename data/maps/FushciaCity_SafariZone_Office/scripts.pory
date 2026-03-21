@@ -17,6 +17,8 @@ script FushciaCity_SlowpokeGuy {
 
 			"I need to make them look valuable\n"
 			"so other people buy them!", MSGBOX_DEFAULT)
+			release
+			end
 		} else {
 			msgbox(
 			"Hey there, kid!\n"
@@ -35,6 +37,8 @@ script FushciaCity_SlowpokeGuy {
 			waitfanfare
 			call(Common_Script_GiftPokemon)
 			msgbox("Trust me - You'll thank me later!\n", MSGBOX_DEFAULT)
+			release
+			end
 
 
 		}
