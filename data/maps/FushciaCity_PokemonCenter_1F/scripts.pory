@@ -29,14 +29,35 @@ FushciaCity_PokemonCenter_1F_EventScript_Youngster::
 `
 
 script FushciaCity_GetOakPC {
-	msgbox("D'ya ever find yourself completely\nstuck with no clue what to do?\lI do sometimes.\pWhenever I'm completely stumped, I\ncheck OAK's PC.\lThere's no shame in getting help.", MSGBOX_NPC)
+	msgbox(
+	"C'ya ever find yourself completely\n"
+	"stuck with no clue what to do?\l"
+	"I do sometimes.\p"
+
+	"Thankfully I always keep my RUMOR\n"
+	"LOG handy.\p"
+
+	"Once you've figured a RUMOR out, a\n"
+	"check will appear to mark it off.\p"
+
+	"Use that feature to be sure you're\n"
+	"not missing anything.", MSGBOX_NPC)
 	end
 }
 
 
 script FushciaCity_GetThroughGym {
 	//msgbox("This NPC's dialogue revoked\nuntil the full release.\pSorry!\n-Celia", MSGBOX_NPC)
-	msgbox("Hey, TRAINER!\nYou been using your RUMOR LOG?\pIf I'm not sure what to do, I'll\npull it up first thing.\lHelps me keep track of everything.\pOnce you've figured a RUMOR out, a\ncheck will appear to mark it off.\pUse that feature to be sure you're\nnot missing anything!", MSGBOX_NPC)
+	msgbox(
+	"Hey, TRAINER!\n"
+	"Have you been using your POKéDEX?\p"
+
+	"There's a lot of useful info you\n"
+	"can gather just by reading it.\p"
+
+	"Keep an eye on it if you're ever\n"
+	"stuck.\l"
+	"You might notice something useful.", MSGBOX_NPC)
 }
 
 script FushciaCity_PlaceholderNPC {

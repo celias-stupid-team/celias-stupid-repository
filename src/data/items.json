@@ -1137,12 +1137,12 @@
       "secondaryId": 0
     },
     {
-      "english": "PP MAX",
+      "english": "PP P",
       "itemId": "ITEM_PP_MAX",
       "price": 9800,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Raises the PP of a selected move\\nto its maximum level for one\\nPOKéMON.",
+      "description_english": "Slightly raises the maximum PP of\\na selected move for one POKéMON.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
