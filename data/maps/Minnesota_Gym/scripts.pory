@@ -205,7 +205,7 @@ script MinnesotaGym_Biker {
     msgbox(
 	"Pff.\p"
 
-	"Ameteur.\n"
+	"Amateur.\n"
 	"", MSGBOX_DEFAULT)
     closemessage
     applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)

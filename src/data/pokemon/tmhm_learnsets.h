@@ -1797,7 +1797,8 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+                                        TMHM(TM49_MIMIC) |
+                                        TMHM(HM01_CUT)),
 
     [SPECIES_DODUO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |

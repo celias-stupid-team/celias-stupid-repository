@@ -1127,7 +1127,7 @@ script TwoIsland_EventScript_SansTest {
 
 		"we're running out of stock so\n"
 		"you'd better act fast.\l"
-		"we only have forty-seven left.", MSGBOX_DEFAULT)
+		"we only have seventy-three left.", MSGBOX_DEFAULT)
 	}	
 	release
 	end
