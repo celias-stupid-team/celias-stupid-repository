@@ -3930,7 +3930,7 @@ static const struct TrainerMonItemCustomMoves sParty_BossGiovanni2[] = {
         .lvl = 30,
         .heldItem = ITEM_MACHO_BRACE,
         .species = SPECIES_GENESECT,
-        .moves = {MOVE_OVERHEAT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_TECHNO_BLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 

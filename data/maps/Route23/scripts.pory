@@ -206,7 +206,7 @@ script Route23_GetNationalDexRotomLeaves {
 		face_right
 	))
 	addobject(LOCALID_ROUTE23_ROTOM)
-	setobjectxy(LOCALID_ROUTE23_ROTOM, 18, 11)
+	setobjectxy(LOCALID_ROUTE23_ROTOM, 17, 11)
 	applymovement(LOCALID_ROUTE23_ROTOM, moves(
 		set_visible
 	))
