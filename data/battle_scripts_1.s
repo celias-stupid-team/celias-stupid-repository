@@ -5650,7 +5650,8 @@ BattleScript_FaintedMon_SendOutCharmander::
 	hidepartystatussummary BS_FAINTED
 	switchinanim BS_FAINTED, FALSE
 	waitstate
-	tryremoveshadowspikes B_SIDE_PLAYER
+	tryremoveallentryhazards B_SIDE_PLAYER
+	tryremoveallentryhazards B_SIDE_OPPONENT
 	clearbattleweather
 	switchineffects BS_FAINTED
 	cancelallactions
