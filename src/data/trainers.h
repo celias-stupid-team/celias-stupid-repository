@@ -5028,7 +5028,7 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_DMCA_RUNT,
         .trainerName = _("RUNT"),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_DMCAGrunt47),
     },
