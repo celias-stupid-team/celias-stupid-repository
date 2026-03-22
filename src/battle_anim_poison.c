@@ -120,6 +120,17 @@ const struct SpriteTemplate gAcidPoisonBubbleSpriteTemplate =
     .callback = AnimAcidPoisonBubble,
 };
 
+const struct SpriteTemplate gBloodBubbleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POISON_BUBBLE,
+    .paletteTag = ANIM_TAG_RED_HEART,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = sAnims_PoisonProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_PoisonProjectile,
+    .callback = AnimAcidPoisonBubble,
+};
+
 const struct SpriteTemplate gSludgeBombHitParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_POISON_BUBBLE,

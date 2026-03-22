@@ -224,6 +224,29 @@ const struct SpriteTemplate gSignalBeamRedOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+static const union AffineAnimCmd sAffineAnim_PickleBeam[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 96, 1),
+    AFFINEANIMCMD_END,
+};
+
+
+static const union AffineAnimCmd *const sAffineAnims_PickleBeam[] =
+{
+    sAffineAnim_PickleBeam,
+};
+
+const struct SpriteTemplate gPickleBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PICKLE_SPEAR,
+    .paletteTag = ANIM_TAG_PICKLE_SPEAR,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_PickleBeam,
+    .callback = AnimToTargetInSinWave,
+};
+
 const struct SpriteTemplate gLickleBeamSpriteTemplate =
 {
     .tileTag = ANIM_TAG_PERISH_TONGUE,
@@ -900,6 +923,8 @@ void AnimTask_CreateSurfWave(u8 taskId)
         LoadCompressedPalette(gBattleAnimBgPalette_RedWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
     else if(gBattleAnimArgs[0] == 3)
         LoadCompressedPalette(gBattleAnimBgPalette_RainbowWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+    else if(gBattleAnimArgs[0] == 4)
+        LoadCompressedPalette(gBattleAnimBgPalette_ChocolateWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
     taskId2 = CreateTask(AnimTask_SurfWaveScanlineEffect, gTasks[taskId].priority + 1);
     gTasks[taskId].data[15] = taskId2;
     gTasks[taskId2].data[0] = 0;

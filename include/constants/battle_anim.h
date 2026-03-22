@@ -390,6 +390,26 @@
 #define ANIM_TAG_EXTREME_SLOTH              (ANIM_SPRITES_START + 380)
 #define ANIM_TAG_CEREAL                     (ANIM_SPRITES_START + 381)
 #define ANIM_TAG_CREAM                      (ANIM_SPRITES_START + 382)
+#define ANIM_TAG_GOON                       (ANIM_SPRITES_START + 383)
+#define ANIM_TAG_CAFE                       (ANIM_SPRITES_START + 384)
+#define ANIM_TAG_DAYCARE                    (ANIM_SPRITES_START + 385)
+#define ANIM_TAG_POKEMON_CENTER             (ANIM_SPRITES_START + 386)
+#define ANIM_TAG_MART                       (ANIM_SPRITES_START + 387)
+#define ANIM_TAG_RICK                       (ANIM_SPRITES_START + 388)
+#define ANIM_TAG_RICK_LEFT                  (ANIM_SPRITES_START + 389)
+#define ANIM_TAG_DODGEBALL                  (ANIM_SPRITES_START + 390)
+#define ANIM_TAG_LOOK_LOOK                  (ANIM_SPRITES_START + 391)
+#define ANIM_TAG_HAIR                       (ANIM_SPRITES_START + 392)
+#define ANIM_TAG_CHERI_BOMB                 (ANIM_SPRITES_START + 393)
+#define ANIM_TAG_ZIP_BOMB                   (ANIM_SPRITES_START + 394)
+#define ANIM_TAG_MOVIE_FILE                 (ANIM_SPRITES_START + 395)
+#define ANIM_TAG_TOOLBAR                    (ANIM_SPRITES_START + 396)
+#define ANIM_TAG_NORTON                     (ANIM_SPRITES_START + 397)
+#define ANIM_TAG_RUINS                      (ANIM_SPRITES_START + 398)
+#define ANIM_TAG_NACL                       (ANIM_SPRITES_START + 399)
+#define ANIM_TAG_ENVELOPE                   (ANIM_SPRITES_START + 400)
+#define ANIM_TAG_FRIES                      (ANIM_SPRITES_START + 401)
+#define ANIM_TAG_MINI_DIGLETT               (ANIM_SPRITES_START + 402)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -450,6 +470,9 @@
 #define BG_IRAN_FLAG 31
 #define BG_BSOD 32
 #define BG_SKYRIM 33
+#define BG_IRAQ_FLAG 34
+#define BG_ACE_FLAG 35
+#define BG_SOLACEON_TOWN 36
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
