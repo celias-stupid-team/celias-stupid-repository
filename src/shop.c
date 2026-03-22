@@ -1051,7 +1051,7 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
         if (tItemId == ITEM_POKE_BALL && tItemCount >= 10) { //Makes fun of you if you try to buy premier balls
             BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBall, BuyMenuReturnToItemList);
         } else if (tItemId == ITEM_CIGARETTES && tItemCount == 500) {
-            AddBagItem(ITEM_PREMIERCIGAR);
+            AddBagItem(ITEM_PREMIERCIGAR, 1);
             BuyMenuDisplayMessage(taskId, gText_ThrowInPremierCigar, BuyMenuReturnToItemList);
         } else 
         {
