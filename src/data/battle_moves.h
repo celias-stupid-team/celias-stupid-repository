@@ -12018,7 +12018,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SNOW_FORECAST] =
     {
-        .effect = EFFECT_HAIL,
+        .effect = EFFECT_MIST,
         .power = 0,
         .type = TYPE_ICE,
         .accuracy = 0,
@@ -12031,7 +12031,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ICE_TERRAIN] =
     {
-        .effect = EFFECT_HAIL,
+        .effect = EFFECT_MIST,
         .power = 0,
         .type = TYPE_ICE,
         .accuracy = 0,

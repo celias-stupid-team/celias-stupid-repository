@@ -92,7 +92,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
       "x": 28,
-      "y": 20,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,

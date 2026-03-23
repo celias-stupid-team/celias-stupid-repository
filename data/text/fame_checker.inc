@@ -195,7 +195,7 @@ gFameCheckerFlavorText_Cerulean4:: @ 0x81ADEEC
 
 gFameCheckerFlavorText_Cerulean5:: @ 0x81ADF6A
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}\n"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
     .string "My EKANS evolved right away, but\n"
     .string "my ABRA won't no matter what!\p"
     .string "It seems most POKéMON are hitting\n"

@@ -501,8 +501,8 @@
       "x": 15,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "1",
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "4",
       "script": "Route19_CeliaTurnsYouAround"
     },
     {
@@ -510,8 +510,17 @@
       "x": 14,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "1",
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "4",
+      "script": "Route19_CeliaTurnsYouAround"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "4",
       "script": "Route19_CeliaTurnsYouAround"
     }
   ],
