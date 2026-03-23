@@ -36,6 +36,7 @@ script SilphCo_RD_ApplinKid {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	famechecker(FAMECHECKER_SAFFRON, 5)
 	if(flag(FLAG_GOT_PENCIL_ERASER)) {
 		msgbox(
 		"That PENCIL ERASER is something\n"
