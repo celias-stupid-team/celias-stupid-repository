@@ -115,7 +115,7 @@ mapscripts SeafoamIslands_B3F_MapScripts {
 	}
 	MAP_SCRIPT_ON_LOAD {
 		if(flag(FLAG_CAPTAIN_DIRECTS_SPHEALS)) {
-			setmetatile(24, 12, 0x387, FALSE)
+			setmetatile(24, 11, 0x387, FALSE)
 		}
 	}
 	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
@@ -607,7 +607,7 @@ script SeafoamIslands_B3F_CaptainGetsTheSpheals {
 	special(RemoveCameraObject)
 	setvar(VAR_SEAFOAM_CAPTAIN_FLOOR, 4)
 	setflag(FLAG_CAPTAIN_DIRECTS_SPHEALS)
-	setmetatile(24, 12, 0x387, FALSE)
+	setmetatile(24, 11, 0x387, FALSE)
 	special(DrawWholeMapView)
 	release
 }
@@ -973,7 +973,7 @@ script Seafoam3F_CaptainAfter {
 }
 
 script Seafoam3F_DrawThingy {
-	setmetatile(20, 12, 0x386, TRUE)
+	setmetatile(20, 11, 0x386, TRUE)
 	special(DrawWholeMapView)
 	return
 }
