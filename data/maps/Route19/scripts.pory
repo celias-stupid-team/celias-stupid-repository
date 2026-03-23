@@ -16,6 +16,9 @@ mapscripts Route19_MapScripts {
 			setvar(VAR_TEMP_1, 1)
 			clearflag(FLAG_TEMP_2)
 		}
+		if(var(VAR_CURRENT_CHAPTER) < 3) {
+			setvar(VAR_CURRENT_CHAPTER, 3)
+		}
 	}
 }
 
