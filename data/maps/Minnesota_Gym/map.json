@@ -214,7 +214,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 11,
       "y": 7,
       "elevation": 0,

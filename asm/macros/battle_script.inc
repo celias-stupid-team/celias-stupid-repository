@@ -1866,3 +1866,19 @@
 	callnative BS_TryRemoveAllEntryHazards
 	.byte \side
 	.endm
+
+	.macro glitchbattlescreen
+	callnative BS_GlitchBattleScreen
+	.endm
+
+	.macro restoreglitchbattlescreen
+	callnative BS_RestoreGlitchBattleScreen
+	.endm
+
+	.macro restorebattlebackground
+	callnative BS_RestoreBattleBackground
+	.endm
+
+	.macro glitchbattlebgm
+	callnative BS_GlitchBattleBgm
+	.endm
