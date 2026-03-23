@@ -1266,6 +1266,7 @@ const u8 *const gMonIconTable[] = {
 	[SPECIES_MEWTWO_POKERAP]   = gMonIcon_Mewtwo_POKERAP,
 	[SPECIES_SOLACEON]   = gMonIcon_SOLACEON,
     [SPECIES_FINALCHARMANDER]  = gMonIcon_Charmander,
+    [SPECIES_KECLEON_WIZ1989]     = gMonIcon_Kecleon,
 
 
 
@@ -1783,6 +1784,7 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_HOOPA]         = 0,
     [SPECIES_MELTAN]         = 2,
     [SPECIES_FINALCHARMANDER]  = 0,
+    [SPECIES_KECLEON_WIZ1989]     = 1,
 };
 
 const struct SpritePalette gMonIconPaletteTable[] = {

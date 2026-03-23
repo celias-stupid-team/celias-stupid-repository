@@ -355,7 +355,6 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_SOUND] = _("SOUND"),
     [TYPE_GRASS_TCG] = _("{TCG_GRASS_1}{TCG_GRASS_2}"),
     [TYPE_FIGHTING_SPECIAL] = _("FIGHT"),
-
 };
 
 // This is a factor in how much money you get for beating a trainer.

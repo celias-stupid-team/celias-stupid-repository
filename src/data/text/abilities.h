@@ -192,7 +192,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_REVENGE] = COMPOUND_STRING("Always survives at 1HP."),
     [ABILITY_RECHARGE] = COMPOUND_STRING("Recharges to restore health."),
     [ABILITY_REVEALING_LIGHT] = COMPOUND_STRING("Opposing MONSTERS cannot attack."),
-
     [ABILITY_VICTOTY_STAR] = COMPOUND_STRING("The user always wins."),
     [ABILITY_AS_ONE_BULBASAUR] = COMPOUND_STRING("ONEY GATHER and ONEDER SKIN."),
     [ABILITY_DISGUISE] = COMPOUND_STRING("As opposed to datguise."),
@@ -229,6 +228,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SANDWICH_FORCE] = COMPOUND_STRING("Powers up by snacking."),
     [ABILITY_WAS_ONE] = COMPOUND_STRING("The user moves LAST."),
     [ABILITY_DANCER] = COMPOUND_STRING("Copies the last dance move."),
+    [ABILITY_COLOR_CHANGE_DEF] = sColorChangeDescription,
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -337,7 +337,6 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_REVENGE] = _("REVENGE"),
     [ABILITY_RECHARGE] = _("RECHARGE"),
     [ABILITY_REVEALING_LIGHT] = _("{FONT_SMALL}REVEALING LIGHT"),
-
     [ABILITY_VICTOTY_STAR] = _("VICTORY STAR"),
     [ABILITY_AS_ONE_BULBASAUR] = _("AS ONE"),
     [ABILITY_DISGUISE] = _("DISGUISE"),
@@ -374,4 +373,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SANDWICH_FORCE] = _("{FONT_SMALL}SANDWICH FORCE"),
     [ABILITY_WAS_ONE] = _("WAS ONE"),
     [ABILITY_DANCER] = _("DANCER"),
+    [ABILITY_COLOR_CHANGE_DEF] = _("COLOR CHANGE"),
 };
