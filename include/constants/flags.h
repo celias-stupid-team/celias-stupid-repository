@@ -536,7 +536,7 @@
 #define FLAG_0x1E5            0x1E5
 #define FLAG_0x1E6        0x1E6
 #define FLAG_0x1E7  0x1E7
-#define FLAG_0x1E8  0x1E8
+#define FLAG_DISABLED_DEV_COMMENTARY  0x1E8
 #define FLAG_GOT_MOVE_NOTHING      0x1E9
 #define FLAG_FOUND_RAT_STONE     0x1EA
 #define FLAG_GOT_SHINY_CHANSEY      0x1EB

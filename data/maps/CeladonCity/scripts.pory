@@ -109,15 +109,17 @@ mapscripts CeladonCity_MapScripts {
 		if(!flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
 			setflag(FLAG_TEMP_3)
 		} 
-		if(checkitem(ITEM_HM06)) {
+		getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
+		if(checkitem(ITEM_HM06) && var(VAR_TEMP_A) == 5) {
 			setmaplayoutindex(LAYOUT_CELADON_CITY_TROLL_LAYOUT)
 		}
 	
 	}
 
 	MAP_SCRIPT_ON_LOAD {
-		
-		if(checkitem(ITEM_HM06)) {
+		getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
+
+		if(checkitem(ITEM_HM06) && var(VAR_TEMP_A) == 5) {
 			setobjectxyperm(LOCALID_CELADON_FAKE_ITEM, 9, 12)
 			setobjectmovementtype(LOCALID_CELADON_FAKE_BOULDER, MOVEMENT_TYPE_FACE_DOWN)
 		}
@@ -213,6 +215,27 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 			msgbox("Going through POKéMON TOWER was a\nreal pain.\lIt was like being in school again!\pSay, wasn't there something odd\nwritten in the other TRAINER SCHOOL?", MSGBOX_DEFAULT)
 		case CELIA_SECRET_PALLET: //Placeholder
 			msgbox("Hey, remember when you got dropped\noff right at the start of the game?\pI bet you could chase that TRUCK\ndown if you had the right tool.\lWanna give it a try?", MSGBOX_DEFAULT)
+		case CELIA_SECRET_PIT: //Placeholder
+			msgbox(
+			"I've been teasing you with the\n"
+			"softlock pit on ROUTE 1 for the\l"
+			"whole game now, but…\p"
+
+			"Well, one of the trees in it feels\n"
+			"a bit… off.\p"
+
+			"I wonder if you could chase it\n"
+			"away somehow.", MSGBOX_DEFAULT)
+		case CELIA_SECRET_CINNABAR: //Placeholder
+			msgbox(
+			"There's a few rugged rocks\n"
+			"scattered across the world.\p"
+
+			"With ROCK SMASH, you should be able\n"
+			"to break through them.\p"
+
+			"Who knows? Maybe they're hiding\n"
+			"something special.", MSGBOX_DEFAULT)
 
 
 	}
@@ -235,10 +258,13 @@ script CeliaSecrets_GetNextHint {
 		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
 		return
 	}
-	//Cinnabar goes here
-
 	if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
 		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+		return
+	}
+
+	if(!flag(FLAG_CELIA_SECRET_CINNABAR)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CINNABAR)
 		return
 	}
 	
@@ -258,12 +284,18 @@ script CeliaSecrets_GetNextHint {
 		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
 		return
 	}
+	if(!flag(FLAG_CELIA_SECRET_PIT)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PIT)
+		return
+	}
+
+	
 	if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
 		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
 		return
 	}
 
-		
+	
 	
 	setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
 	return
