@@ -31,6 +31,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/songs.h"
 #include "constants/sound.h"
+#include "constants/maps.h"
 
 extern struct CompressedSpritePalette gMonPaletteTable[]; // Intentionally declared (incorrectly) without const in order to match
 extern const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[];
@@ -3315,7 +3316,8 @@ static void UseSurfEffect_5(struct Task *task)
         FieldEffectActiveListRemove(FLDEFF_USE_SURF);
         DestroyTask(FindTaskIdByFunc(Task_FldEffUseSurf));
         SetHelpContext(HELPCONTEXT_SURFING);
-        if(VarGet(VAR_CURRENT_CHAPTER) == 4) {
+        if(VarGet(VAR_CURRENT_CHAPTER) == 4
+            && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE19_UNUSED_HOUSE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE19_UNUSED_HOUSE))) { //MAP_ROUTE19_UNUSED_HOUSE
             VarSet(VAR_CURRENT_CHAPTER, 7);
             FlagClear(FLAG_SYS_FUSHCIA_DISABLE_FLY);
             DrawChapterTitle();

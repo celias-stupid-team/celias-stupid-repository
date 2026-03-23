@@ -1,5 +1,6 @@
 mapscripts Zero_Island_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
+        setworldmapflag(FLAG_CSR_MAP_ZERO_ISLAND)
         if(flag(FLAG_OPENED_ZERO_ISLAND)) {
             setmetatile(19, 17, 0x0A9, FALSE)
         } else {

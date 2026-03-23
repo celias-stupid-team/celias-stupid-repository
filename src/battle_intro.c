@@ -29,6 +29,8 @@ static const TaskFunc sBattleIntroSlideFuncs[] =
     BattleIntroSlide1, // BATTLE_TERRAIN_CAVE
     BattleIntroSlide3, // BATTLE_TERRAIN_BUILDING
     BattleIntroSlide3, // BATTLE_TERRAIN_PLAIN
+
+    // additional terrains are defaulted to BattleIntroSlide3 in HandleIntroSlide
 };
 
 void SetAnimBgAttribute(u8 bgId, u8 attributeId, u8 value)
@@ -106,6 +108,10 @@ void HandleIntroSlide(u8 terrain)
         taskId = CreateTask(BattleIntroSlide2, 0);
     }
     else if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+    {
+        taskId = CreateTask(BattleIntroSlide3, 0);
+    }
+    else if (terrain >= NELEMS(sBattleIntroSlideFuncs)) // all additional CSR battle terrains after BATTLE_TERRAIN_CHAMPION
     {
         taskId = CreateTask(BattleIntroSlide3, 0);
     }

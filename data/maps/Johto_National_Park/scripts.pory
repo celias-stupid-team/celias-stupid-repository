@@ -50,7 +50,7 @@ script NationalPark_Woman {
 
 	"He was bad at spelling, but he was\n"
 	"way better than me at HISTORY.", MSGBOX_DEFAULT)
-	random(5)
+	random(6)
 	switch(var(VAR_RESULT)) {
 		case 0:
 			msgbox(
@@ -72,7 +72,7 @@ script NationalPark_Woman {
 		case 4:
 			msgbox(
 			"I'm gonna need a miracle, like when\n"
-			"NELDON MANDELA fought at TRAFALGAR!", MSGBOX_DEFAULT)
+			"NELSON MANDELA fought at TRAFALGAR!", MSGBOX_DEFAULT)
 		case 5:
 			msgbox(
 			"I'll be struggling like CAESER when\n"

@@ -128,6 +128,10 @@ script EventScript_RemoveUselessItems {
 		removeitem(ITEM_AWAKENING_FIRE_EMBLEM)
 		addvar(VAR_TEMP_5, 1)
 	}
+	while(checkitem(ITEM_AWAKENING_FIRE_EMBLEM)) {
+		removeitem(ITEM_DMC)
+		addvar(VAR_TEMP_5, 1)
+	}
 	while(checkitem(ITEM_SECRETETHER)) {
 		removeitem(ITEM_SECRETETHER)
 		addvar(VAR_TEMP_5, 1)

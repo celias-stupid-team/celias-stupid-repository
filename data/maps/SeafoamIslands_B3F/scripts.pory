@@ -1,8 +1,6 @@
 raw `
 .equ NUM_BOULDERS_PRESENT, VAR_TEMP_2
 
-
-
 SeafoamIslands_B3F_OnTransition::
 	call_if_unset FLAG_STOPPED_SEAFOAM_B3F_CURRENT, SeafoamIslands_B3F_EventScript_CheckStoppedCurrent
 	end
@@ -94,6 +92,7 @@ SeafoamIslands_B3F_Movement_RideCurrentClose::
 
 mapscripts SeafoamIslands_B3F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_SEAFOAM)
 		setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPHEAL_SWIMMING)
 		setflag(FLAG_TEMP_2)
 		if(!flag(FLAG_CAPTAIN_DIRECTS_SPHEALS)) {
@@ -973,9 +972,27 @@ script Seafoam3F_CaptainAfter {
 	"Just like old times.", MSGBOX_NPC)
 }
 
-
 script Seafoam3F_DrawThingy {
 	setmetatile(20, 11, 0x386, TRUE)
 	special(DrawWholeMapView)
 	return
+}
+
+script SeafoamIslands_Battle_wiz1989 { // tbc wiz1989
+	trainerbattle_single(TRAINER_WIZ1989,
+	"You're trying to mess with us?\p"
+
+	"You'd better be ready for our\n"
+	"LEADER!",
+	//
+	"No!\n"
+	"LEADER! I let you down!")
+
+
+	msgbox(
+	"The LEADER of the SHORTS GANG is\n"
+	"way tougher than me!\p"
+
+	"When he gets whipped into a frenzy,\n"
+	"there's no stopping him!", MSGBOX_NPC)
 }

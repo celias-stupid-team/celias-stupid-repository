@@ -24,6 +24,7 @@ static void AnimTask_MeditateStretchAttacker_Step(u8 taskId);
 static void AnimTask_Teleport_Step(u8 taskId);
 static void AnimTask_ImprisonOrbs_Step(u8 taskId);
 static void AnimTask_SkillSwap_Step(u8 taskId);
+static void AnimTask_HeartSwap_Step(u8 taskId);
 static void AnimTask_ExtrasensoryDistortion_Step(u8 taskId);
 static void AnimTask_TransparentCloneGrowAndShrink_Step(u8 taskId);
 static void AnimTask_Flattened_Step(u8 taskId);
@@ -401,6 +402,17 @@ static const struct SpriteTemplate sSkillSwapOrbSpriteTemplate =
     .callback = AnimSkillSwapOrb,
 };
 
+static const struct SpriteTemplate sHeartSwapSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MAGENTA_HEART,
+    .paletteTag = ANIM_TAG_MAGENTA_HEART,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SkillSwapOrb,
+    .callback = AnimSkillSwapOrb,
+};
+
 static const union AffineAnimCmd sAffineAnim_LusterPurgeCircle[] =
 {
     AFFINEANIMCMD_FRAME(0x20, 0x20, 0, 0),
@@ -508,6 +520,17 @@ const struct SpriteTemplate gPsychoBoostOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
     .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_PsychoBoostOrb,
+    .callback = AnimPsychoBoost,
+};
+
+const struct SpriteTemplate gRuinsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RUINS,
+    .paletteTag = ANIM_TAG_RUINS,
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -1051,6 +1074,85 @@ static void AnimSkillSwapOrb(struct Sprite *sprite)
     {
         FreeOamMatrix(sprite->oam.matrixNum);
         DestroySprite(sprite);
+    }
+}
+
+void AnimTask_HeartSwap(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    if (IsContest())
+    {
+        if (gBattleAnimArgs[0] == ANIM_TARGET)
+        {
+            task->data[10] = -10;
+            task->data[11] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_RIGHT) - 8;
+            task->data[12] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_TOP) + 8;
+            task->data[13] = GetBattlerSpriteCoordAttr(gBattleAnimAttacker, BATTLER_COORD_ATTR_RIGHT) - 8;
+            task->data[14] = GetBattlerSpriteCoordAttr(gBattleAnimAttacker, BATTLER_COORD_ATTR_TOP) + 8;
+        }
+        else
+        {
+            task->data[10] = 10;
+            task->data[11] = GetBattlerSpriteCoordAttr(gBattleAnimAttacker, BATTLER_COORD_ATTR_LEFT) + 8;
+            task->data[12] = GetBattlerSpriteCoordAttr(gBattleAnimAttacker, BATTLER_COORD_ATTR_BOTTOM) - 8;
+            task->data[13] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_LEFT) + 8;
+            task->data[14] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_BOTTOM) - 8;
+        }
+    }
+    else
+    {
+        if (gBattleAnimArgs[0] == 1)
+        {
+            task->data[10] = -10;
+            task->data[11] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_LEFT) + 8;
+            task->data[12] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_TOP) + 8;
+            task->data[13] = GetBattlerSpriteCoordAttr(gBattleAnimAttacker, BATTLER_COORD_ATTR_LEFT) + 8;
+            task->data[14] = GetBattlerSpriteCoordAttr(gBattleAnimAttacker, BATTLER_COORD_ATTR_TOP) + 8;
+        }
+        else
+        {
+            task->data[10] = 10;
+            task->data[11] = GetBattlerSpriteCoordAttr(gBattleAnimAttacker, BATTLER_COORD_ATTR_RIGHT) - 8;
+            task->data[12] = GetBattlerSpriteCoordAttr(gBattleAnimAttacker, BATTLER_COORD_ATTR_BOTTOM) - 8;
+            task->data[13] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_RIGHT) - 8;
+            task->data[14] = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_BOTTOM) - 8;
+        }
+    }
+    task->data[1] = 6;
+    task->func = AnimTask_HeartSwap_Step;
+}
+
+static void AnimTask_HeartSwap_Step(u8 taskId)
+{
+    u8 spriteId;
+    struct Task *task = &gTasks[taskId];
+
+    switch (task->data[0])
+    {
+    case 0:
+        if (++task->data[1] > 6)
+        {
+            task->data[1] = 0;
+            spriteId = CreateSprite(&sHeartSwapSpriteTemplate, task->data[11], task->data[12], 0);
+            if (spriteId != 64)
+            {
+                gSprites[spriteId].data[0] = 16;
+                gSprites[spriteId].data[2] = task->data[13];
+                gSprites[spriteId].data[4] = task->data[14];
+                gSprites[spriteId].data[5] = task->data[10];
+                InitAnimArcTranslation(&gSprites[spriteId]);
+                StartSpriteAffineAnim(&gSprites[spriteId], task->data[2] & 3);
+            }
+
+            if (++task->data[2] == 12)
+                ++task->data[0];
+        }
+        break;
+    case 1:
+        if (++task->data[1] > 17)
+            DestroyAnimVisualTask(taskId);
+        break;
     }
 }
 

@@ -114756,10 +114756,8 @@ Bible_Text_Ezekiel_23_19::
     .string "of her youth, wherein she had played\l"
     .string "the harlot in the land of Egypt.$"
 Bible_Text_Ezekiel_23_20::
-    .string "For she doted upon their\n"
-    .string "paramours, whose flesh is as the\l"
-    .string "flesh of asses, and whose issue is\l"
-    .string "like the issue of horses.$"
+	.string "(this verse has been censored\n"
+	.string "to keep my PG rating)$"
 Bible_Text_Ezekiel_23_21::
     .string "Thus thou calledst to remembrance\n"
     .string "the lewdness of thy youth, in\l"

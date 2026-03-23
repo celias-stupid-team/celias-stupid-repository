@@ -201,7 +201,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SSAnne_Kitchen_FlavorText"
+      "script": "SSAnne_UmamiText"
     },
     {
       "type": "sign",

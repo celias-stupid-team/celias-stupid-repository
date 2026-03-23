@@ -217,3 +217,4 @@ DebugText_DaycareOnePokemon:
 
 DebugText_DaycarePokemonNotCompatible:
 	.string "Your Pokémon at Daycare can't\nhave babies together!$"
+

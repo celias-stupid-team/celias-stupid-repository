@@ -231,6 +231,7 @@ script DMCAWarehouse_AZStory {
 	lock
 	faceplayer
 	fadenewbgm(MUS_NONE)
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"AZ: Hm?\n"
 	"A trainer?\p"
@@ -401,6 +402,7 @@ script DMCAWarehouse_Martphone {
 	ITEM_NEST_BALL
 	ITEM_X_ATTACK
 	ITEM_X_DEFEND
+	ITEM_PP_MAX
 	ITEM_NONE
  }
 

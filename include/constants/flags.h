@@ -80,7 +80,7 @@
 #define FLAG_HIDE_SEAFOAM_1F_BOULDER_1                     0x040
 #define FLAG_HIDE_SEAFOAM_1F_BOULDER_2                     0x041
 #define FLAG_HIDE_SEAFOAM_B1F_BOULDER_1                    0x042
-#define FLAG_HIDE_SEAFOAM_B1F_BOULDER_2                    0x043
+#define FLAG_HIDE_MEGA_KICK_TM                    0x043
 #define FLAG_HIDE_SEAFOAM_B2F_BOULDER_1                    0x044
 #define FLAG_HIDE_SEAFOAM_B2F_BOULDER_2                    0x045
 #define FLAG_HIDE_SEAFOAM_B3F_BOULDER_1                    0x046
@@ -182,7 +182,7 @@
 #define FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL               0x0A6
 #define FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL            0x0A7
 #define FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL            0x0A8
-#define FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_M_DOLL            0x0A9
+#define FLAG_HIDE_BONUS_STARLIGHTS            0x0A9
 #define FLAG_HIDE_LORELEIS_HOUSE_FEAROW_DOLL               0x0AA
 #define FLAG_HIDE_LORELEIS_HOUSE_PIDGEOT_DOLL              0x0AB
 #define FLAG_HIDE_LORELEIS_HOUSE_LAPRAS_DOLL               0x0AC
@@ -508,7 +508,7 @@
 #define FLAG_HAMBURGER_GUY                             0x1C9
 #define FLAG_HIDE_RATICATE_TRADE_GUY                    0x1CA
 #define FLAG_NOT_OAK_TEMP                       0x1CB
-#define FLAG_0x1CC                      0x1CC
+#define FLAG_STARTED_BLAINE_FUN                      0x1CC
 #define FLAG_HIDE_VIRIDIAN_CITY_POTION                          0x1CD
 #define FLAG_HIDE_ROUTE11_GREAT_BALL                            0x1CE
 #define FLAG_MINNESOTA_GYM_STRENGTH                             0x1CF

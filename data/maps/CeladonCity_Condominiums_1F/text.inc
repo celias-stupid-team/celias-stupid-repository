@@ -17,7 +17,7 @@ CeladonCity_Condominiums_1F_Text_MyDearMonsKeepMeCompany::
 	.string "chance, from PALLET TOWN?\p"
 	.string "A girl from PALLET TOWN, DAISY,\n"
 	.string "she buys TOXIC SLUDGE every day.\p"
-	.string "I hear she uses it on the POKeMON\n"
+	.string "I hear she uses it on the POKéMON\n"
 	.string "she treats.$"
 
 CeladonCity_Condominiums_1F_Text_DaisyComesToBuyTea::
@@ -27,7 +27,7 @@ CeladonCity_Condominiums_1F_Text_DaisyComesToBuyTea::
 	.string "chance, from PALLET TOWN?\p"
 	.string "A girl from PALLET TOWN, DAISY,\n"
 	.string "she buys TOXIC SLUDGE every day.\p"
-	.string "I hear she uses it on the POKeMON\n"
+	.string "I hear she uses it on the POKéMON\n"
 	.string "she treats.$"
 
 CeladonCity_Condominiums_1F_Text_Clefairy::
