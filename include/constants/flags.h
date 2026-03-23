@@ -153,7 +153,7 @@
 #define FLAG_HIDE_MT_EMBER_EXTERIOR_ROCKETS                0x089
 #define FLAG_HIDE_RUBY                                     0x08A
 #define FLAG_HIDE_ICEFALL_CAVE_LORELEI                     0x08B
-#define FLAG_HIDE_LORELEI_IN_HER_HOUSE                     0x08C
+#define FLAG_RETURNING_DEMO_3_SAVE                     0x08C
 #define FLAG_HIDE_ICEFALL_CAVE_ROCKETS                     0x08D
 #define FLAG_HIDE_RUIN_VALLEY_SCIENTIST                    0x08E
 #define FLAG_HIDE_SAPPHIRE                                 0x08F
@@ -1444,7 +1444,7 @@
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_SYS_ON_SHINY_BIKE                                                  (SYS_FLAGS + 0x31)
-#define FLAG_0x832                                                  (SYS_FLAGS + 0x32)
+#define FLAG_SYS_FULL_RELEASE_SAVE                                                  (SYS_FLAGS + 0x32)
 #define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)
 #define FLAG_0x835                                                  (SYS_FLAGS + 0x35)
