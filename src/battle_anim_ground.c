@@ -71,6 +71,17 @@ const struct SpriteTemplate gBonemerangSpriteTemplate =
     .callback = AnimBonemerangProjectile,
 };
 
+const struct SpriteTemplate gMailSlapSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ENVELOPE,
+    .paletteTag = ANIM_TAG_ENVELOPE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
 const struct SpriteTemplate gSrirachaGotchaSpriteTemplate =
 {
     .tileTag = ANIM_TAG_KETCHUP,
@@ -230,6 +241,17 @@ const struct SpriteTemplate gDirtPlumeSpriteTemplate =
     .tileTag = ANIM_TAG_MUD_SAND,
     .paletteTag = ANIM_TAG_MUD_SAND,
     .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimDirtPlumeParticle,
+};
+
+const struct SpriteTemplate gOnePlumeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ONE,
+    .paletteTag = ANIM_TAG_ONE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -880,3 +902,4 @@ static void WaitForFissureCompletion(u8 taskId)
         gBattle_BG3_Y = task->data[2];
     }
 }
+

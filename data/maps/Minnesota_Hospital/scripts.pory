@@ -101,6 +101,7 @@ script Hospital_AshDreams {
 }
 
 script Hospital_AshComa {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
 	"He's in a coma…\n"
 	"", MSGBOX_SIGN)

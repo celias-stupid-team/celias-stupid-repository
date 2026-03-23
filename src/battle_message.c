@@ -563,6 +563,7 @@ const u8 gText_KeepAnEyeOnHP[] = _("OAK: Keep your eyes on your\nPOKéMON's HP.\
 const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI think running turned them off.\pCould you stay here until we\nget them back up again?\pThanks!\p");
 const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
+static const u8 sText_ClassWiz1989[] = _("CSR DEVELOPER");
 
 // New battle strings.
 static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} survived with\nits {B_DEF_ABILITY} ability!");
@@ -1069,6 +1070,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_BESTOWITEMGIVING - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} received {B_LAST_ITEM}\nfrom {B_ATK_NAME_WITH_PREFIX}!"),
     [STRINGID_REVELATIONDANCEMATCHEDTYPE - BATTLESTRINGS_TABLE_START]    = COMPOUND_STRING("REVELATION DANCE matched\n{B_ATK_NAME_WITH_PREFIX}'s typing!"),
     [STRINGID_REFLECTTARGETSTYPE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} became {B_BUFF1} type\nand {B_BUFF2} type."),
+    [STRINGID_PKMNBECAMETYPE - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} became {B_BUFF1} type."),
+    [STRINGID_VANISHEDINSTANTLY - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} vanished instantly!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1227,7 +1230,8 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_DIG]        = STRINGID_PKMNDUGHOLE,
     [B_MSG_TURN1_DIVE]       = STRINGID_PKMNHIDUNDERWATER,
     [B_MSG_TURN1_BOUNCE]     = STRINGID_PKMNSPRANGUP, 
-    [B_MSG_TURN1_SHADOW_FORCE]     = STRINGID_SHADOW_FORCE, 
+    [B_MSG_TURN1_SHADOW_FORCE] = STRINGID_SHADOW_FORCE,
+    [B_MSG_TURN1_PHANTOM_FORCE] = STRINGID_VANISHEDINSTANTLY,
 };
 
 // Index copied from move's index in gTrappingMoves
@@ -2054,15 +2058,17 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
-                /*
+                
                 case EVENT_BATTLE_GIOVANNI_2: 
-                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_FIRE )  { //This one is wonky rn
+                    //DebugPrintf("Type is %d", gBattleMoves[sBattleMsgDataPtr->currentMove].type);
+                    //DebugPrintf("Move is %d", sBattleMsgDataPtr->currentMove);
+                        if(gBattleStruct->dynamicMoveType == TYPE_FIRE )  { //This one is wonky rn
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
-                 */
+                 
                 case EVENT_BATTLE_THIEVUL: 
                         if(sBattleMsgDataPtr->currentMove == MOVE_V_CREATE )  {
                         BattleStopLowHpSound();
@@ -2480,11 +2486,10 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                     toCpy = gTrainerClassNames[GetTrainerTowerOpponentClass()];
                 else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
                     toCpy = gTrainerClassNames[GetEreaderTrainerClassId()];
-                else if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TRANS_BUGS && (gBattleOutcome == B_OUTCOME_WON)) {
+                else if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TRANS_BUGS && (gBattleOutcome == B_OUTCOME_WON))
                     toCpy = gTrainerClassNames[TRAINER_CLASS_SIS_AND_BRO];
-                    //DebugPrintf("Setting trainer class name to sis and bro");
-
-                }
+                else if (gTrainerBattleOpponent_A == TRAINER_WIZ1989)
+                    toCpy = sText_ClassWiz1989;
                 else
                     toCpy = gTrainerClassNames[gTrainers[gTrainerBattleOpponent_A].trainerClass];
                 break;

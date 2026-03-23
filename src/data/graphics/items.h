@@ -987,3 +987,6 @@ const u32 gItemIconPalette_ShinyFossil[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_RustedGun[] = INCBIN_U32("graphics/items/icons/rusted_gun.4bpp.lz");
 const u32 gItemIconPalette_RustedGun[] = INCBIN_U32("graphics/items/icon_palettes/rusted_gun.gbapal.lz");
+
+const u32 gItemIcon_PREMIERCIGAR[] = INCBIN_U32("graphics/items/icons/premiercigar.4bpp.lz");
+const u32 gItemIconPalette_PREMIERCIGAR[] = INCBIN_U32("graphics/items/icon_palettes/premiercigar.gbapal.lz");

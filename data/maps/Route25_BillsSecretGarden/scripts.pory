@@ -197,6 +197,18 @@ script SecretGarden_PCMonitor {
         "", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
             if(checkpartymove(MOVE_MEGA_KICK) == PARTY_SIZE) {
+                playse(SE_WALL_HIT)
+                applymovement(LOCALID_PLAYER, moves(
+                    walk_in_place_up * 2
+                ))
+                waitmovement(0)
+                delay(40)
+                msgbox(
+                "The PC does not respond.\n"
+                "", MSGBOX_DEFAULT)
+                fadedefaultbgm
+                release
+                end
                 
             }
             playse(SE_PC_ON)
@@ -236,7 +248,9 @@ script SecretGarden_PCMonitor {
 
             
         } else {
-            fadedefaultbgm  
+            fadedefaultbgm
+            release
+            end  
 
         }
         

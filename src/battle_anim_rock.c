@@ -8,6 +8,7 @@
 
 static void AnimFallingRock(struct Sprite *sprite);
 static void AnimRockFragment(struct Sprite *sprite);
+static void AnimRockFragmentSelf(struct Sprite *sprite);
 static void AnimFlyingSandCrescent(struct Sprite *sprite);
 static void AnimRaiseSprite(struct Sprite *sprite);
 static void AnimTask_Rollout_Step(u8 taskId);
@@ -53,12 +54,63 @@ static const union AnimCmd *const sAnims_FlyingRock[] =
     sAnim_FlyingRock_2,
 };
 
+
 const struct SpriteTemplate gFallingRockSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROCKS,
     .paletteTag = ANIM_TAG_ROCKS,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_FlyingRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingRock,
+};
+
+static const union AnimCmd sAnim_FlyingCereal_0[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingCereal_1[] =
+{
+    ANIMCMD_FRAME(4, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingCereal_2[] =
+{
+    ANIMCMD_FRAME(8, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingCereal_3[] =
+{
+    ANIMCMD_FRAME(12, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingCereal_4[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_FlyingCereal[] =
+{
+    sAnim_FlyingCereal_0,
+    sAnim_FlyingCereal_1,
+    sAnim_FlyingCereal_2,
+    sAnim_FlyingCereal_3,
+    sAnim_FlyingCereal_4,
+};
+
+const struct SpriteTemplate gFallingCerealSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CEREAL,
+    .paletteTag = ANIM_TAG_CEREAL,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_FlyingCereal,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFallingRock,
@@ -92,6 +144,54 @@ const struct SpriteTemplate gRockFragmentSpriteTemplate =
     .paletteTag = ANIM_TAG_ROCKS,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_FlyingRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockFragment,
+};
+
+const struct SpriteTemplate gRockFragmentSelfSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROCKS,
+    .paletteTag = ANIM_TAG_ROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FlyingRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockFragmentSelf,
+};
+
+
+static const union AnimCmd sAnim_FlyingHair_0[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingHair_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingHair_2[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_FlyingHair[] =
+{
+    sAnim_FlyingHair_0,
+    sAnim_FlyingHair_1,
+    sAnim_FlyingHair_2,
+};
+
+const struct SpriteTemplate gHairFragmentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HAIR,
+    .paletteTag = ANIM_TAG_HAIR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FlyingHair,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimRockFragment,
@@ -431,6 +531,30 @@ static void AnimRockFragment(struct Sprite *sprite)
         sprite->x -= gBattleAnimArgs[0];
     else
         sprite->x += gBattleAnimArgs[0];
+    sprite->y += gBattleAnimArgs[1];
+    sprite->data[0] = gBattleAnimArgs[4];
+    sprite->data[1] = sprite->x;
+    sprite->data[2] = sprite->x + gBattleAnimArgs[2];
+    sprite->data[3] = sprite->y;
+    sprite->data[4] = sprite->y + gBattleAnimArgs[3];
+    InitSpriteDataForLinearTranslation(sprite);
+    sprite->data[3] = 0;
+    sprite->data[4] = 0;
+    sprite->callback = TranslateSpriteLinearFixedPoint;
+    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
+}
+
+// Animates the rock particles that are shown on the impact for Rock Blast / Rock Smash
+static void AnimRockFragmentSelf(struct Sprite *sprite)
+{
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    StartSpriteAnim(sprite, gBattleAnimArgs[5]);
+    AnimateSprite(sprite);
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        sprite->x += gBattleAnimArgs[0];
+    else
+        sprite->x -= gBattleAnimArgs[0];
     sprite->y += gBattleAnimArgs[1];
     sprite->data[0] = gBattleAnimArgs[4];
     sprite->data[1] = sprite->x;

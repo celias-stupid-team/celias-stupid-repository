@@ -169,6 +169,7 @@ script Route1_ImposterOak {
 			delay(90)
 			addobject(LOCALID_ROUTE1_CELIA)
 			setobjectxy(LOCALID_ROUTE1_CELIA, 6, 2)
+			addobject(LOCALID_ROUTE1_CELIA)
 			applymovement(LOCALID_ROUTE1_CELIA, moves(
 				walk_down * 2
 				
@@ -196,7 +197,7 @@ script Route1_ImposterOak {
 
 			"But if you like to find the sneaky\n"
 			"secrets, how about you try this…", MSGBOX_DEFAULT)
-			setvar(VAR_CSR_CURRENT_CELIA_SECRET, 9)
+			setvar(VAR_CSR_CURRENT_CELIA_SECRET, CELIA_SECRET_PIT)
 			call(CeliaSecrets_CeliaTellsYouNextHint)
 			applymovement(LOCALID_ROUTE1_CELIA, moves(
 				walk_down * 5

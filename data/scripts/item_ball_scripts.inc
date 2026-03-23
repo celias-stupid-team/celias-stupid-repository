@@ -904,6 +904,10 @@ ViridianForest_EventScript_CSR_ItemOddCandy::
 	finditem ITEM_ODD_CANDY
 	end
 
+Seafoam_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_ODD_CANDY
+	end
+
 
 EventScript_FindItem::
 	callnative GetObjectEventTrainerRangeFromTemplate

@@ -106,3 +106,9 @@ script SSAnne_Kitchen_Screws {
 	"", MSGBOX_SIGN)
 
 }
+
+script SSAnne_UmamiText {
+	msgbox(
+	"Ooh, this one's UMAMI text!\n"
+	"", MSGBOX_NPC)
+}

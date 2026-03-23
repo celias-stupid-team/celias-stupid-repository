@@ -226,6 +226,17 @@ const struct SpriteTemplate gIceCrystalHitLargeSpriteTemplate =
     .callback = AnimIceEffectParticle,
 };
 
+const struct SpriteTemplate gNiceWeedHitLargeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WEED_SMALL,
+    .paletteTag = ANIM_TAG_WEED_SMALL,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_IceCrystalHit,
+    .callback = AnimIceEffectParticle,
+};
+
 const struct SpriteTemplate gDiamondHitSpriteTemplate =
 {
     .tileTag = ANIM_TAG_RED_DIAMOND,
@@ -290,6 +301,28 @@ const struct SpriteTemplate gDiamondCrystalSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimMoveParticleBeyondTarget,
+};
+
+
+const struct SpriteTemplate gFemaleCrystalSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FEMALE,
+    .paletteTag = ANIM_TAG_FEMALE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoveParticleBeyondTarget,
+};
+const struct SpriteTemplate gSwirlingFemaleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FEMALE,
+    .paletteTag = ANIM_TAG_FEMALE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSwirlingSnowball,
 };
 
 const struct SpriteTemplate gPowderSnowSnowballSpriteTemplate =

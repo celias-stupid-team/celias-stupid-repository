@@ -161,3 +161,4 @@ script SilphCo_StuckScientist {
 	"I knew these teleporter warps\n"
 	"were a bad idea…", MSGBOX_NPC)
 }
+

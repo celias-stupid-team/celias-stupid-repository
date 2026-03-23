@@ -16,6 +16,9 @@ mapscripts Route19_MapScripts {
 			setvar(VAR_TEMP_1, 1)
 			clearflag(FLAG_TEMP_2)
 		}
+		if(var(VAR_CURRENT_CHAPTER) < 3) {
+			setvar(VAR_CURRENT_CHAPTER, 3)
+		}
 	}
 }
 
@@ -126,6 +129,10 @@ script EventScript_RemoveUselessItems {
 	}
 	while(checkitem(ITEM_AWAKENING_FIRE_EMBLEM)) {
 		removeitem(ITEM_AWAKENING_FIRE_EMBLEM)
+		addvar(VAR_TEMP_5, 1)
+	}
+	while(checkitem(ITEM_AWAKENING_FIRE_EMBLEM)) {
+		removeitem(ITEM_DMC)
 		addvar(VAR_TEMP_5, 1)
 	}
 	while(checkitem(ITEM_SECRETETHER)) {

@@ -59,8 +59,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DODUO",
-      "x": 49,
-      "y": 30,
+      "x": 44,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -426,8 +426,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 55,
-      "y": 43,
+      "x": 56,
+      "y": 37,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -449,7 +449,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_BONUS_STARLIGHTS"
     },
     {
       "type": "object",
@@ -538,10 +538,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
-      "x": 51,
-      "y": 34,
+      "x": 48,
+      "y": 61,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",

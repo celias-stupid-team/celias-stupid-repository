@@ -2722,7 +2722,7 @@ const u8 gHoopaPokedexText[] = _(
 
 
 const u8 gZygardePokedexText[] = _(
-	"Smh I truly was born in the\n"
+	"Smh I was born in the\n"
 	"wrong generation… … …");
 
     

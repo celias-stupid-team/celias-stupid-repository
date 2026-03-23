@@ -24,9 +24,9 @@ script SilphCo_RD_AssDotMeatGrinder {
 	msgbox(
 	"A large stockpile of discarded\n"
 	"inventions.\l"
-	"You check the to of the list…\p"
+	"You check the top of the list…\p"
 
-	"“TORCHIC BUTT DOT MEAT GRINDER\n"
+	"“TORCHIC ASS DOT MEAT GRINDER\n"
 	"MINIGAME FOR NUGGETS”", MSGBOX_SIGN)
 
 }
@@ -628,6 +628,7 @@ script SilphCo_FinancialReport {
 	waitmovement(LOCALID_SILPH_COMPUTER)
 	playse(SE_ICE_BREAK)
 	addobject(LOCALID_SILPH_COMPUTER_WINDOW)
+	addobject(LOCALID_SILPH_COMPUTER_BUTT)
 	removeobject(LOCALID_SILPH_COMPUTER)
 	clearflag(FLAG_TEMP_6)
 	waitse
@@ -694,5 +695,14 @@ script SilphCo_SnackTrash {
 
 	"Despite this, it seems it was\n"
 	"emptied just this morning.", MSGBOX_SIGN)
+
+}
+
+
+
+script SilphCo_ComputerButt {
+	msgbox(
+	"Thankfully he only threw the\n"
+	"monitor.", MSGBOX_SIGN)
 
 }

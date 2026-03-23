@@ -237,7 +237,7 @@ struct ProtectStruct
     u32 flinchImmobility:1;     // 0x4
     u32 notFirstStrike:1;       // 0x8
     u32 banefulBunker:1;        // 0x10
-    u32 flag_x20 : 1;           // 0x20
+    u32 bounceShineMove:1;      // 0x20
     u32 flag_x40 : 1;           // 0x40
     u32 flag_x80 : 1;           // 0x80
     u32 field3 : 8;

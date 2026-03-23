@@ -21,6 +21,9 @@ static void AnimTask_MoveAttackerMementoShadow_Step(u8 taskId);
 static void DoMementoShadowEffect(struct Task *task);
 static void AnimTask_MoveTargetMementoShadow_Step(u8 taskId);
 static void AnimTask_MetallicShine_Step(u8 taskId);
+static void AnimTask_RickFall_Step(u8 taskId);
+static void AnimTask_RickRun_Step(u8 taskId);
+static void AnimTask_RickCrash_Step(u8 taskId);
 
 // Unused
 const struct SpriteTemplate sUnusedBagStealSpriteTemplate =
@@ -182,6 +185,60 @@ const struct SpriteTemplate gClawSlashSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimClawSlash,
+};
+
+static const union AnimCmd sAnim_RickSit[] =
+{
+    ANIMCMD_FRAME(0,  1),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_RickRun[] =
+{
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_FRAME(192, 4),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_FRAME(64,  4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_RickRunFast[] =
+{
+    ANIMCMD_FRAME(128, 2),
+    ANIMCMD_FRAME(192, 2),
+    ANIMCMD_FRAME(128, 2),
+    ANIMCMD_FRAME(64,  2),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd *const sAnims_RickAnims[] =
+{
+    sAnim_RickSit,
+    sAnim_RickRun,
+    sAnim_RickRunFast,
+};
+
+const struct SpriteTemplate gRickSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RICK,
+    .paletteTag = ANIM_TAG_RICK,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sAnims_RickAnims,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+const struct SpriteTemplate gRickLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RICK_LEFT,
+    .paletteTag = ANIM_TAG_RICK_LEFT,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sAnims_RickAnims,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
 };
 
 void AnimTask_AttackerFadeToInvisible(u8 taskId)
@@ -921,3 +978,328 @@ void GetIsDoomDesireHitTurn(u8 taskId)
         gBattleAnimArgs[ARG_RET_ID] = TRUE;
     DestroyAnimVisualTask(taskId);
 }
+
+// data usage (consistent across all 3)
+#define rickState      data[0]
+#define rickTimer      data[1]
+#define rickSpeedX     data[2]
+#define rickSpeedY     data[3]
+#define rickDir        data[4] // +1 or -1
+#define rickTargetX    data[5]
+#define rickFreezeTime data[6]
+#define rickBaseY      data[7]
+
+void AnimTask_RickFall(u8 taskId)
+{
+    struct Sprite *sprite;
+    s16 x, y;
+    u8 spriteId;
+
+    x = DISPLAY_WIDTH / 2;
+    y = -32;
+
+    if((GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER))
+        spriteId = CreateSprite(&gRickSpriteTemplate, x, y, 2);
+    else
+        spriteId = CreateSprite(&gRickLeftSpriteTemplate, x, y, 2);
+    if (spriteId == MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    sprite = &gSprites[spriteId];
+
+    sprite->rickDir = (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER) ? 1 : -1;
+    if (sprite->rickDir < 0)
+        StartSpriteAnim(sprite, 0);
+    else
+        StartSpriteAnim(sprite, 0);
+
+    sprite->rickState = 0;
+    sprite->rickSpeedY = 1;
+    sprite->rickBaseY = 64;//DISPLAY_HEIGHT / 2;//GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y);
+
+    gTasks[taskId].data[0] = spriteId;
+    gTasks[taskId].func = AnimTask_RickFall_Step;
+}
+
+static void AnimTask_RickFall_Step(u8 taskId)
+{
+    struct Sprite *sprite = &gSprites[gTasks[taskId].data[0]];
+
+    switch (sprite->rickState)
+    {
+    case 0: // falling
+        sprite->rickFreezeTime += 1;
+        if (sprite->rickFreezeTime > 1)
+        {
+            sprite->rickSpeedY += 1;
+            sprite->rickFreezeTime = 0;
+        }
+        sprite->y += sprite->rickSpeedY;
+
+        if (sprite->y >= sprite->rickBaseY)
+        {
+            sprite->y = sprite->rickBaseY;
+            sprite->rickSpeedY = -6;
+            sprite->rickState++;
+        }
+        break;
+
+    case 1: // bounce
+        sprite->rickFreezeTime += 1;
+        if (sprite->rickFreezeTime > 1)
+        {
+            sprite->rickSpeedY += 1;
+            sprite->rickFreezeTime = 0;
+        }
+        sprite->y += sprite->rickSpeedY;
+
+        if (sprite->rickSpeedY >= 0 && sprite->y >= sprite->rickBaseY)
+        {
+            sprite->y = sprite->rickBaseY;
+            sprite->rickTimer = 60;
+            sprite->rickState++;
+        }
+        break;
+
+    case 2: // wait before jump
+        if (--sprite->rickTimer <= 0)
+        {
+            if (sprite->rickDir < 0)
+                StartSpriteAnim(sprite, 1);
+            else
+                StartSpriteAnim(sprite, 1);
+            sprite->rickSpeedX = 1 * sprite->rickDir;
+            sprite->rickSpeedY = -6;
+            sprite->rickFreezeTime = 0;
+            sprite->rickState++;
+        }
+        break;
+
+    case 3: // jump arc
+        sprite->rickFreezeTime += 1;
+        if (sprite->rickFreezeTime > 1)
+        {
+            sprite->rickSpeedY += 1;
+            sprite->rickFreezeTime = 0;
+        }
+        sprite->x -= sprite->rickSpeedX;
+        sprite->y += sprite->rickSpeedY;
+
+        if (sprite->y >= sprite->rickBaseY)
+        {
+            sprite->y = sprite->rickBaseY;
+            sprite->rickTimer = 60;
+            sprite->rickState++;
+        }
+        break;
+
+    case 4: // slight drift
+        //sprite->x -= sprite->rickDir * 1;
+
+        if (--sprite->rickTimer <= 0)
+        {
+            if (sprite->rickDir < 0)
+                StartSpriteAnim(sprite, 2);
+            else
+                StartSpriteAnim(sprite, 2);
+            sprite->rickSpeedX = 1 * sprite->rickDir;
+            sprite->rickFreezeTime = 0;
+            sprite->rickState++;
+        }
+        break;
+
+    case 5: // run off-screen
+        sprite->rickFreezeTime += 1;
+        if (sprite->rickFreezeTime > 1)
+        {
+            sprite->rickSpeedX += 1 * sprite->rickDir;
+            sprite->rickFreezeTime = 0;
+        }
+        sprite->x += sprite->rickSpeedX;
+        if ((sprite->rickDir > 0 && sprite->x > DISPLAY_WIDTH + 32) ||
+            (sprite->rickDir < 0 && sprite->x < -32))
+        {
+            DestroySprite(sprite);
+            DestroyAnimVisualTask(taskId);
+        }
+        break;
+    }
+}
+
+void AnimTask_RickRun(u8 taskId)
+{
+    struct Sprite *sprite;
+    u8 spriteId;
+    s16 y = gBattleAnimArgs[1];
+
+    if((GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER))
+        spriteId = CreateSprite(&gRickSpriteTemplate, 0, 0, 2);
+    else
+        spriteId = CreateSprite(&gRickLeftSpriteTemplate, 0, 0, 2);
+    if (spriteId == MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    sprite = &gSprites[spriteId];
+
+    sprite->rickDir = (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER) ? 1 : -1;
+
+    sprite->rickSpeedX = gBattleAnimArgs[0];
+    if (sprite->rickSpeedX == 0)
+        sprite->rickSpeedX = 2;
+
+    sprite->y = y;
+
+    if (sprite->rickDir > 0)
+    {
+        sprite->x = -32;
+    }
+    else
+    {
+        sprite->x = DISPLAY_WIDTH + 32;
+        sprite->rickSpeedX = -sprite->rickSpeedX;
+        sprite->oam.matrixNum |= ST_OAM_HFLIP;
+    }
+
+    if (sprite->rickDir < 0)
+        StartSpriteAnim(sprite, 2);
+    else
+        StartSpriteAnim(sprite, 2);
+
+    gTasks[taskId].data[0] = spriteId;
+    gTasks[taskId].func = AnimTask_RickRun_Step;
+}
+
+
+static void AnimTask_RickRun_Step(u8 taskId)
+{
+    struct Sprite *sprite = &gSprites[gTasks[taskId].data[0]];
+
+    sprite->x += sprite->rickSpeedX;
+
+    if ((sprite->rickSpeedX > 0 && sprite->x > DISPLAY_WIDTH + 32) ||
+        (sprite->rickSpeedX < 0 && sprite->x < -32))
+    {
+        DestroySprite(sprite);
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+void AnimTask_RickCrash(u8 taskId)
+{
+    struct Sprite *sprite;
+    u8 spriteId;
+    u8 playerBattler;
+    u8 opponentBattler;
+    u8 playerSub;
+    u8 opponentSub;
+    s16 y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+
+    if((GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER))
+        spriteId = CreateSprite(&gRickSpriteTemplate, 0, 0, 2);
+    else
+        spriteId = CreateSprite(&gRickLeftSpriteTemplate, 0, 0, 2);
+    if (spriteId == MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    playerBattler = (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+    opponentBattler = (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+    playerSub = GetBattlerSpriteSubpriority(playerBattler);
+    opponentSub = GetBattlerSpriteSubpriority(opponentBattler);
+
+    // Rick sits between them
+    sprite->subpriority = opponentSub + ((playerSub - opponentSub) / 2);
+
+    sprite = &gSprites[spriteId];
+
+    sprite->rickDir = (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER) ? 1 : -1;
+
+    sprite->rickSpeedX = gBattleAnimArgs[0];
+    if (sprite->rickSpeedX == 0)
+        sprite->rickSpeedX = 2;
+
+    sprite->rickFreezeTime = gBattleAnimArgs[1];
+
+    sprite->rickTargetX = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X);
+    sprite->y = y;
+
+    if (sprite->rickDir > 0)
+    {
+        sprite->x = -32;
+    }
+    else
+    {
+        sprite->x = DISPLAY_WIDTH + 32;
+        sprite->rickSpeedX = -sprite->rickSpeedX;
+        sprite->oam.matrixNum |= ST_OAM_HFLIP;
+    }
+
+    if (sprite->rickDir < 0)
+        StartSpriteAnim(sprite, 2);
+    else
+        StartSpriteAnim(sprite, 2);
+    sprite->rickState = 0;
+
+    gTasks[taskId].data[0] = spriteId;
+    gTasks[taskId].func = AnimTask_RickCrash_Step;
+}
+
+
+static void AnimTask_RickCrash_Step(u8 taskId)
+{
+    struct Sprite *sprite = &gSprites[gTasks[taskId].data[0]];
+
+    switch (sprite->rickState)
+    {
+    case 0:
+        sprite->x += sprite->rickSpeedX;
+
+        if ((sprite->rickSpeedX > 0 && sprite->x >= sprite->rickTargetX) ||
+            (sprite->rickSpeedX < 0 && sprite->x <= sprite->rickTargetX))
+        {
+            sprite->rickState++;
+        }
+        break;
+
+    case 1:
+        sprite->animPaused = TRUE;
+
+        if (--sprite->rickFreezeTime <= 0)
+        {
+            sprite->animPaused = FALSE;
+            sprite->rickState++;
+        }
+        break;
+
+    case 2:
+        sprite->x += sprite->rickSpeedX;
+
+        if ((sprite->rickSpeedX > 0 && sprite->x > DISPLAY_WIDTH + 32) ||
+            (sprite->rickSpeedX < 0 && sprite->x < -32))
+        {
+            DestroySprite(sprite);
+            DestroyAnimVisualTask(taskId);
+        }
+        break;
+    }
+}
+
+
+#undef rickState
+#undef rickTimer
+#undef rickSpeedX
+#undef rickSpeedY
+#undef rickDir
+#undef rickTargetX
+#undef rickFreezeTime
+#undef rickBaseY

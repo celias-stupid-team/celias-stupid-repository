@@ -804,6 +804,7 @@ AI_CheckViability::
 	if_effect EFFECT_REVIVAL_BLESSING, AI_CV_RevivalBlessing
 	if_effect EFFECT_FOLLOW_HIM, AI_CV_FollowHim
 	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack
+	if_effect EFFECT_TRICK_OR_TREAT, AI_CV_TrickOrTreat
 	if_move MOVE_WATER_SHURIKEN, AI_CV_WaterShuriken
 	if_move MOVE_COMET_PUNCH, AI_CV_CometPunch
 	end
@@ -2529,12 +2530,14 @@ AI_CV_Trick4::
 	if_in_bytes AI_CV_Trick_EffectsToEncourage, AI_CV_Trick2
 	if_random_less_than 50, AI_CV_Trick_End
 	score +2
+	end
 
 AI_CV_Trick_Colonize::
 	is_first_turn_for AI_USER
 	if_equal 0, Score_Minus5
 	if_held_item_equal AI_USER, ITEM_NONE, Score_Minus5
 	score +3
+	end
 
 AI_CV_Trick_End::
 	end
@@ -2896,6 +2899,20 @@ AI_CV_CometPunch:: @ special AI behavior for Kangashkan Teacher fight
 
 AI_CV_QuickAttack::
 	if_can_faint Score_Plus5
+	end
+
+AI_CV_TrickOrTreat::
+	is_first_turn_for AI_USER
+	if_equal 0, Score_Minus5
+	get_target_type1
+	if_equal TYPE_GHOST, AI_CV_TrickOrTreat_GhostType
+	score +3
+	end
+
+AI_CV_TrickOrTreat_GhostType::
+	get_target_type2
+	if_equal TYPE_GHOST, Score_Minus5
+	score +3
 	end
 
 AI_TryToFaint::

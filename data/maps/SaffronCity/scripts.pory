@@ -362,12 +362,13 @@ script SaffronCity_TheLeekMan {
 		"If you can find me that, I'll pay\n"
 		"you back at full market rate!", MSGBOX_DEFAULT)
 	} else {
+		setflag(FLAG_TALKED_TO_THE_LEEK)
 		msgbox(
 		"Busy! Busy! Busy!\n"
 		"There's so much to do!\p"
 
 		"I'm the lead JOURNALIST here at\n"
-		"the LEEK.\l"
+		"THE LEEK.\l"
 		"No one tracks a story like me.\p"
 
 		"But… After the DMCA tried to take\n"
@@ -444,8 +445,8 @@ script TheLeek_Report2 {
 	"THIS JUST IN!\n"
 	"A new TYPE has been classified!\p"
 
-	"After much research, scientists\n"
-	"have documented a new POKéMON TYPE.\p"
+	"After much research, scientists have\n"
+	"documented a new POKéMON TYPE.\p"
 
 	"When FAIRY was first documented,\n"
 	"previous sanctioned battle results\l"
@@ -605,5 +606,12 @@ script SaffronCity_TrainSign {
 	msgbox(
 	"MAGNET TRAIN\n"
 	"SAFFRON CITY - GOLDEN ROD", MSGBOX_SIGN)
+
+}
+
+script Saffron_CopyCatCamera {
+	msgbox(
+	"There's a hidden camera in this\n"
+	"tree…", MSGBOX_SIGN)
 
 }

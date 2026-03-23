@@ -164,6 +164,17 @@ const struct SpriteTemplate gSlidingKickSpriteTemplate =
     .callback = AnimSlidingKick,
 };
 
+const struct SpriteTemplate gSlidingHandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HANDS_AND_FEET,
+    .paletteTag = ANIM_TAG_HANDS_AND_FEET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sAnims_HandsAndFeet[3],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSlidingKick,
+};
+
 static const union AffineAnimCmd sAffineAnim_SpinningHandOrFoot[] =
 {
     AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
@@ -222,12 +233,34 @@ const struct SpriteTemplate gShoeKickSpriteTemplate =
     .callback = AnimSpinningKickOrPunch,
 };
 
+const struct SpriteTemplate gMartStrikeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MART,
+    .paletteTag = ANIM_TAG_MART,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_MegaPunchKick,
+    .callback = AnimSpinningKickOrPunch,
+};
+
 const struct SpriteTemplate gStompFootSpriteTemplate =
 {
     .tileTag = ANIM_TAG_HANDS_AND_FEET,
     .paletteTag = ANIM_TAG_HANDS_AND_FEET,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = &sAnims_HandsAndFeet[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimStompFoot,
+};
+
+const struct SpriteTemplate gStompShoeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHOEPRINT,
+    .paletteTag = ANIM_TAG_SHOEPRINT,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimStompFoot,

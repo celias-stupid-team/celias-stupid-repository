@@ -54,6 +54,8 @@ static void AnimGreenStar_Callback(struct Sprite *);
 static void AnimTask_RockMonBackAndForth_Step(u8);
 static void AnimSweetScentPetal(struct Sprite *);
 static void AnimSweetScentPetal_Step(struct Sprite *);
+static void AnimSweetCenter(struct Sprite *);
+static void AnimSweetCenter_Step(struct Sprite *);
 static void AnimTask_FlailMovement_Step(u8);
 static void AnimFlatterConfetti(struct Sprite *);
 static void AnimFlatterConfetti_Step(struct Sprite *);
@@ -113,6 +115,7 @@ static void AnimKnockOffStrike(struct Sprite *);
 static void AnimTask_Glitch_Step(u8 taskId);
 static u8 CreateGlitchQuadrantSprite(u8 battlerSpriteId, s16 x, s16 y, u8 subpriority, u16 tileOffset);
 static void AnimTask_MingVaseThrow_Step(u8 taskId);
+static void AnimSpellingSalts(struct Sprite *sprite);
 
 static const union AnimCmd sScratchAnimCmds[] =
 {
@@ -711,6 +714,17 @@ const struct SpriteTemplate gSweetScentPetalSpriteTemplate =
     .callback = AnimSweetScentPetal,
 };
 
+const struct SpriteTemplate gSweetCenterSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POKEMON_CENTER,
+    .paletteTag = ANIM_TAG_POKEMON_CENTER,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSweetCenter,
+};
+
 static const u16 sUnusedPalette[] = INCBIN_U16("graphics/battle_anims/unused/unknown.gbapal");
 
 static const union AnimCmd sPainSplitAnimCmds[] =
@@ -1102,6 +1116,36 @@ const struct SpriteTemplate gSmellingSaltsHandSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSmellingSaltsHand,
+};
+
+static const union AnimCmd sSpellingSaltsAnimCmds1[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSpellingSaltsAnimCmds2[] =    
+{
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sSpellingSaltsAnimTable[] =
+{
+    sSpellingSaltsAnimCmds1,
+    sSpellingSaltsAnimCmds2,
+};
+
+
+const struct SpriteTemplate gSpellingSaltsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_NACL,
+    .paletteTag = ANIM_TAG_NACL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sSpellingSaltsAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpellingSalts,
 };
 
 static const union AffineAnimCmd sSmellingSaltsSquishAffineAnimCmds[] =
@@ -3132,6 +3176,51 @@ static void AnimSweetScentPetal_Step(struct Sprite *sprite)
     }
 }
 
+static void AnimSweetCenter(struct Sprite *sprite)
+{
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+    {
+        sprite->x = -32; // offset so 64x64 is centered correctly
+        sprite->y = gBattleAnimArgs[0];
+        sprite->data[7] = 1; // moving right
+    }
+    else
+    {
+        sprite->x = DISPLAY_WIDTH + 32;
+        sprite->y = gBattleAnimArgs[0] - 30;
+        sprite->data[7] = -1; // moving left
+    }
+
+    sprite->data[0] = 0; // sine counter
+
+    // IMPORTANT: no StartSpriteAnim()
+
+    sprite->callback = AnimSweetCenter_Step;
+}
+
+static void AnimSweetCenter_Step(struct Sprite *sprite)
+{
+    sprite->data[0] += 3;
+
+    // horizontal movement
+    sprite->x += 5 * sprite->data[7];
+
+    // vertical drift
+    sprite->y += (sprite->data[7] > 0) ? -1 : 1;
+
+    // sine sway
+    if (sprite->data[7] > 0)
+        sprite->y2 = Sin(sprite->data[0] & 0xFF, 16);
+    else
+        sprite->y2 = Cos(sprite->data[0] & 0xFF, 16);
+
+    // destroy when offscreen (account for 64x64 size)
+    if (sprite->x < -64 || sprite->x > DISPLAY_WIDTH + 64)
+        DestroyAnimSprite(sprite);
+}
+
+
+
 // Moves the mon sprite in a flailing back-and-forth motion.
 // arg 0: which battler
 void AnimTask_FlailMovement(u8 taskId)
@@ -4606,6 +4695,37 @@ static void AnimSmellingSaltsHand(struct Sprite *sprite)
     if (gBattleAnimArgs[1] == 0)
     {
         sprite->oam.matrixNum |= ST_OAM_HFLIP;
+        sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_LEFT) - 8;
+    }
+    else
+    {
+        sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_RIGHT) + 8;
+    }
+
+    sprite->callback = AnimSmellingSaltsHand_Step;
+}
+
+// Moves nacl back and forth in a squishing motion.
+// arg 0: which battler
+// arg 1: horizontal flip
+// arg 2: num squishes
+static void AnimSpellingSalts(struct Sprite *sprite)
+{
+    u8 battler;
+
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
+
+    sprite->oam.tileNum += 16;
+    sprite->data[6] = gBattleAnimArgs[2];
+    sprite->data[7] = gBattleAnimArgs[1] == 0 ? -1 : 1;
+    sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+    StartSpriteAnim(sprite, gBattleAnimArgs[1]);
+    if (gBattleAnimArgs[1] == 0)
+    {
+        //sprite->oam.matrixNum |= ST_OAM_HFLIP;
         sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_LEFT) - 8;
     }
     else
