@@ -9,6 +9,7 @@
 #include "constants/moves.h"
 #include "constants/abilities.h"
 #include "item.h"
+#include "fieldmap.h"
 #include "util.h"
 #include "pokemon.h"
 #include "random.h"
@@ -13004,6 +13005,86 @@ void BS_TryRemoveAllEntryHazards(void)
     gSideStatuses[cmd->side] &= ~SIDE_STATUS_SPIKES;
     gSideStatuses[cmd->side] &= ~SIDE_STATUS_STEALTH_ROCK;
     gSideStatuses[cmd->side] &= ~SIDE_STATUS_SHADOW_SPIKES;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+// BG3 terrain layer: mapBaseIndex=26, screenSize=1 (2 screen blocks = 0x1000 bytes)
+#define BATTLE_BG3_TILEMAP_ENTRIES (0x1000 / sizeof(u16))
+
+static u16 GlitchTilemapXor(u16 i)
+{
+    u32 v = (u32)i * 0x6C37u;
+    v ^= v >> 9;
+    v ^= v << 5;
+    return (u16)v;
+}
+
+// runs every frame for continuous glitching
+static void Task_GlitchBattleScreen(u8 taskId)
+{
+    u16 *tilemap = (u16 *)BG_SCREEN_ADDR(26);
+    u16 frame = (u16)gMain.vblankCounter2;
+    s32 i;
+    for (i = 0; i < BATTLE_BG3_TILEMAP_ENTRIES; i++)
+        tilemap[i] = GlitchTilemapXor((u16)(i + frame));
+}
+
+static u16 sGlitchBattleScreenSavedPalette[PLTT_BUFFER_SIZE];
+
+void BS_GlitchBattleScreen(void)
+{
+    NATIVE_ARGS();
+
+    s32 i;
+
+    for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+    {
+        sGlitchBattleScreenSavedPalette[i] = gPlttBufferFaded[i];
+        gPlttBufferFaded[i] = Random();
+    }
+    
+    if (!FuncIsActiveTask(Task_GlitchBattleScreen))
+        CreateTask(Task_GlitchBattleScreen, 200); // prio 200 runs after the move anim tasks
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+// restores the palette and stops the task.
+// needs an additional restorebattlebackground to fix the BG3
+void BS_RestoreGlitchBattleScreen(void)
+{
+    NATIVE_ARGS();
+
+    s32 i;
+    u8 taskId;
+
+    if (FuncIsActiveTask(Task_GlitchBattleScreen))
+    {
+        taskId = FindTaskIdByFunc(Task_GlitchBattleScreen);
+        DestroyTask(taskId);
+    }
+    for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+        gPlttBufferFaded[i] = sGlitchBattleScreenSavedPalette[i];
+    
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_RestoreBattleBackground(void)
+{
+    NATIVE_ARGS();
+
+    DrawMainBattleBackground();
+    
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_GlitchBattleBgm(void)
+{
+    NATIVE_ARGS();
+
+    m4aSongNumStart(GetBattleBGM());
+    gMPlayInfo_BGM.tempoU = 0xabbb;
+    gMPlayInfo_BGM.tempoC = 0x7999;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

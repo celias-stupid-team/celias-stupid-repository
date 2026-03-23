@@ -531,7 +531,7 @@ script FourIsland_SealCase {
 	lock
 	faceplayer
 	famechecker(FAMECHECKER_GREAT_SEA_EAST, 1)
-	if(!checkitem(ITEM_SEAL_CASE) && !checkmoncaught(SPECIES_SEAL)) {
+	if(!checkitem(ITEM_SEAL_CASE) && !checkmoncaught(SPECIES_SEEL)) {
 		clearflag(FLAG_GOT_SEAL_CASE)
 	}
 	if(flag(FLAG_GOT_SEAL_CASE)) {
