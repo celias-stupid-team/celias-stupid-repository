@@ -248,7 +248,9 @@ script SecretGarden_PCMonitor {
 
             
         } else {
-            fadedefaultbgm  
+            fadedefaultbgm
+            release
+            end  
 
         }
         

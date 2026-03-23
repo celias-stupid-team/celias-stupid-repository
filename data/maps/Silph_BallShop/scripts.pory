@@ -118,7 +118,7 @@ script Silph_LookGirl_Balls {
 					waitmovement(0)
 					break
         }
-	if(var(VAR_TEMP_5) == 6 && var(VAR_SILPH_LOOK_GIRL) == 1) {
+	if(var(VAR_TEMP_5) == 7 && var(VAR_SILPH_LOOK_GIRL) == 1) {
 		playse(SE_BIKE_BELL)
 		waitse
 		

@@ -10947,6 +10947,11 @@ static void Cmd_handleballthrow(void)
 {
     u8 ballMultiplier = 0;
 
+    //sorry wiz this is ugly
+    if(ItemId_GetSecondaryId(gLastUsedItem) == SEAL_CASE_BALL && gBattleMons[gBattlerTarget].species != SPECIES_SEEL) {
+        AddBagItem(ITEM_SEAL_CASE, 1);
+    }
+
     if (gBattleControllerExecFlags)
         return;
 
@@ -11042,7 +11047,7 @@ static void Cmd_handleballthrow(void)
                 }
                 else
                 {
-                    AddBagItem(ITEM_SEAL_CASE, 1);
+                    //AddBagItem(ITEM_SEAL_CASE, 1);
                     ballMultiplier = 0;
                 }
             case MASTER_BALL:
