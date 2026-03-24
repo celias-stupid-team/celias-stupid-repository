@@ -32,6 +32,7 @@
 #include "event_scripts.h"
 #include "event_data.h"
 #include "script.h"
+#include "trainer_slide.h"
 
 #define X UQ_4_12
 #define ______ X(1.0) // Regular effectiveness.
@@ -517,6 +518,7 @@ enum
     ENDTURN_TRICK_ROOM,
     ENDTURN_GRAVITY,
     ENDTURN_SHADOW_SKY,
+    ENDTURN_WIZ1989_TURN5_SLIDE,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -834,6 +836,18 @@ u8 DoFieldEndTurnEffects(void)
             }
             gBattleStruct->turnCountersTracker++;
             break;
+        case ENDTURN_WIZ1989_TURN5_SLIDE:
+        {
+            u32 battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            if (ShouldDoTrainerSlide(battler, TRAINER_SLIDE_AFTER_TURN_5))
+            {
+                gBattleScripting.battler = battler;
+                BattleScriptExecute(BattleScript_Wiz1989Turn5SlideAndFaint);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
+        }
         case ENDTURN_FIELD_COUNT:
             effect++;
             break;

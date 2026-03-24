@@ -19033,10 +19033,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_DELPHOX] =
     {
         .baseHP = 75,
-        .baseAttack = 69,
+        .baseAttack = 30, //69
         .baseDefense = 72,
         .baseSpeed = 104,
-        .baseSpAttack = 114,
+        .baseSpAttack = 35, //114
         .baseSpDefense = 100,
         .types = {TYPE_FIRE, TYPE_PSYCHIC},
         .catchRate = 255,

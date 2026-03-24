@@ -289,3 +289,8 @@ BattleScript_TrainerASlideMsgEnd2::
 BattleScript_49DamageYamaskEvent::
 	callnative BattleDebug_LeftBattle
 	goto BattleScript_MoveEnd
+
+BattleScript_Wiz1989Turn5SlideAndFaint::
+	call BattleScript_TrainerASlideMsgRet
+	faintenemyfirstslot
+	end2

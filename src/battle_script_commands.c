@@ -11946,6 +11946,30 @@ void BS_TryTrainerSlideMsgSwitchIn(void)
     }
 }
 
+// doesn't consider benched battlers
+void BS_FaintEnemyFirstSlot(void)
+{
+    NATIVE_ARGS();
+
+    u16 hp = 0;
+    u32 i;
+
+    for (i = 0; i < gBattlersCount; i++)
+    {
+        if (GetBattlerSide(i) == B_SIDE_OPPONENT && gBattlerPartyIndexes[i] == 0 && IsBattlerAlive(i))
+        {
+            gBattleMons[i].hp = 0;
+            SetMonData(&gEnemyParty[0], MON_DATA_HP, &hp);
+            gHitMarker |= HITMARKER_FAINTED(i);
+            gBattlerTarget = i;
+            gBattlerFainted = i;
+            BattleScriptPush(cmd->nextInstr);
+            gBattlescriptCurrInstr = BattleScript_FaintTarget;
+            return;
+        }
+    }
+}
+
 void BS_UpdateBattlerData(void)
 {
     NATIVE_ARGS(u8 battler);

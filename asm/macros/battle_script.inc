@@ -1888,3 +1888,7 @@
 	callnative BS_PrepareTypeBuff2
 	.4byte \type_arg
 	.endm
+
+	.macro faintenemyfirstslot
+	callnative BS_FaintEnemyFirstSlot
+	.endm
