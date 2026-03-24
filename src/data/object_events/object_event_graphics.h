@@ -869,3 +869,7 @@ const u32 gObjectEventPic_SENTRY[] = INCBIN_U32("graphics/object_events/pics/stu
 const u16 gObjectEventPal_SENTRY[] = INCBIN_U16("graphics/object_events/palettes/SENTRY.gbapal");
 const u32 gObjectEventPic_SENTRY_BUTT[] = INCBIN_U32("graphics/object_events/pics/stupid/SENTRY_BUTT.4bpp");
 const u32 gObjectEventPic_DEAD_BIKER[] = INCBIN_U32("graphics/object_events/pics/stupid/DEAD_BIKER.4bpp");
+const u32 gObjectEventPic_CRUFICIED[] = INCBIN_U32("graphics/object_events/pics/stupid/CRUFICIED.4bpp");
+const u16 gObjectEventPal_CRUFICIED[] = INCBIN_U16("graphics/object_events/palettes/CRUFICIED.gbapal");
+const u32 gObjectEventPic_CRUFICIED_2[] = INCBIN_U32("graphics/object_events/pics/stupid/CRUFICIED_2.4bpp");
+const u16 gObjectEventPal_CRUFICIED_2[] = INCBIN_U16("graphics/object_events/palettes/CRUFICIED_2.gbapal");
