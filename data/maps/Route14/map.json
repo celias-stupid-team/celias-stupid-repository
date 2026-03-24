@@ -634,6 +634,7 @@
       "flag": "FLAG_ROUTE_14_CANDY"
     },
     {
+      "local_id": "LOCALID_POKERAP_DAD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
       "x": 16,

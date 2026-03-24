@@ -64,7 +64,7 @@ script Route15_PokeRap_Trainer2_Defeat {
 }
 
 script Route15_PokeRap_Trainer3 {
-    trainerbattle_single(TRAINER_POKERAP_3, "Let's get it on!", "Nice", Route15_PokeRap_Trainer3_Defeat)
+    trainerbattle_single(TRAINER_POKERAP_3, Rapper_3_Intro, "Nice", Route15_PokeRap_Trainer3_Defeat)
     msgbox("GASTLY by Jogaklaa\n", MSGBOX_DEFAULT)
     release
 }
@@ -558,6 +558,7 @@ script Route15_PokeRap_Trainer32_Defeat {
     setvar(VAR_0x8004, SPECIES_TENTACOOL)
     special(SetSeenMon)
     special(HealPlayerParty)
+    addobject(LOCALID_POKERAP_DAD)
     special(DrawWholeMapView)
     release
 }
