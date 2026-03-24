@@ -289,6 +289,9 @@ extern const u8 BattleScript_ColorChangeWizActivates[];
 extern const u8 BattleScript_ColorChangeWizActivates_PPLoss[];
 extern const u8 BattleScript_ColorChangeWizDamage[];
 extern const u8 BattleScript_FlameOrbActivates[];
+extern const u8 BattleScript_Wiz1989Turn5SlideAndFaint[];
+extern const u8 BattleScript_TwistedRealityActivates[];
+extern const u8 BattleScript_TwistedRealityRecoil[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];
@@ -299,6 +302,5 @@ extern const u8 BattleScript_ThrowBall[];
 extern const u8 BattleScript_TrainerASlidePreMessage[];
 extern const u8 BattleScript_TrainerASlideMsgRet[];
 extern const u8 BattleScript_TrainerASlideMsgEnd2[];
-extern const u8 BattleScript_Wiz1989Turn5SlideAndFaint[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

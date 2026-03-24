@@ -294,3 +294,14 @@ BattleScript_Wiz1989Turn5SlideAndFaint::
 	call BattleScript_TrainerASlideMsgRet
 	faintenemyfirstslot
 	end2
+
+BattleScript_TwistedRealityActivates::
+	printstring STRINGID_TWISTED_REALITY_ACTIVATES
+	waitmessage B_WAIT_TIME_LONG
+	callnative SetCurrentMoveScript
+	end @ not reached
+
+BattleScript_TwistedRealityRecoil::
+	printstring STRINGID_TWISTED_REALITY_RECOIL
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_DoTurnDmg

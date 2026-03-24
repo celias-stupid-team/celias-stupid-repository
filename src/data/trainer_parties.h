@@ -10649,14 +10649,14 @@ static const struct TrainerMonItemCustomMoves sParty_wiz1989[] = {
     },
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 25,
         .species = SPECIES_DELPHOX,
         .moves = {MOVE_PSY_BEAM, MOVE_FLAMETHROWER_MEWTWO, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
-        .lvl = 20,
-        .species = SPECIES_DELPHOX,
-        .moves = {MOVE_PSY_BEAM, MOVE_FLAMETHROWER_MEWTWO, MOVE_NONE, MOVE_NONE}
+        .lvl = 25,
+        .species = SPECIES_MISSINGNO,
+        .moves = {MOVE_BADGEBOOST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };

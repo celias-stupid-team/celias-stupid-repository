@@ -877,6 +877,7 @@ enum
     ENDTURN_TAUNT,
     ENDTURN_YAWN,
     ENDTURN_ITEMS2,
+    ENDTURN_TWISTED_REALITY,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -1191,6 +1192,20 @@ u8 DoBattlerEndTurnEffects(void)
                         BattleScriptExecute(BattleScript_YawnMakesAsleep);
                         effect++;
                     }
+                }
+                gBattleStruct->turnEffectsTracker++;
+                break;
+            case ENDTURN_TWISTED_REALITY:
+                if (gBattleMons[gActiveBattler].ability == ABILITY_TWISTED_REALITY
+                 && gBattleStruct->twistedRealityBaseMove != MOVE_NONE
+                 && gBattleMons[gActiveBattler].hp != 0)
+                {
+                    gBattleMoveDamage = (gBattleMons[gActiveBattler].maxHP + 3) / 4;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleStruct->twistedRealityBaseMove = MOVE_NONE;
+                    BattleScriptExecute(BattleScript_TwistedRealityRecoil);
+                    effect++;
                 }
                 gBattleStruct->turnEffectsTracker++;
                 break;
@@ -4326,4 +4341,24 @@ u8 GetColorChangeDefType(u8 moveType)
         default:
             return COLOR_CHANGE_DEF_TYPE_MYSTERY;
     }
+}
+
+static const u16 sTwistedRealityMoves[] =
+{
+    MOVE_SPLASH,
+    MOVE_CELEBRATE,
+    MOVE_MEMENTO,
+};
+
+u16 GetTwistedRealityMove(u8 index)
+{
+    if (index < ARRAY_COUNT(sTwistedRealityMoves))
+        return sTwistedRealityMoves[index];
+    else
+        return MOVE_SPLASH;
+}
+
+u8 GetTwistedRealityMoveCount(void)
+{
+    return ARRAY_COUNT(sTwistedRealityMoves);
 }

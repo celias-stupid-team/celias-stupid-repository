@@ -110,6 +110,8 @@ bool32 IsZapmolcunoOhgiaSpecies(u16 species);
 bool32 CanBePoisoned(u8 battlerTarget, u8 abilityTarget);
 bool32 CanBattlerGetOrLoseItem(u32 battler, u16 itemId);
 u8 GetColorChangeDefType(u8 moveType);
+u16 GetTwistedRealityMove(u8 index);
+u8 GetTwistedRealityMoveCount(void);
 
 #define COLOR_CHANGE_DEF_TYPE_GHOST          0
 #define COLOR_CHANGE_DEF_TYPE_SUBMARINE      1
