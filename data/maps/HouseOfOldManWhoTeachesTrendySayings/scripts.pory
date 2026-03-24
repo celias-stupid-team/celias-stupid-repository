@@ -4,9 +4,12 @@ mapscripts HouseOfOldManWhoTeachesTrendySayings_MapScripts {
 
 
 script OldManWhoTeachesTrendySayings {
-    random(5)
+    random(6)
     lock
     faceplayer
+    while(are_vars_equal(VAR_RESULT, VAR_TEMP_1)) {
+        random(6)
+    }
     switch(var(VAR_RESULT)) {
         case 0:
             msgbox(
@@ -34,6 +37,7 @@ script OldManWhoTeachesTrendySayings {
             "", MSGBOX_DEFAULT)
 
     }
+    copyvar(VAR_TEMP_1, VAR_RESULT)
     closemessage
     delay(40)
     msgbox(

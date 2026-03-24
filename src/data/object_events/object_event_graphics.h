@@ -868,3 +868,4 @@ const u16 gObjectEventPal_YOSHI[] = INCBIN_U16("graphics/object_events/palettes/
 const u32 gObjectEventPic_SENTRY[] = INCBIN_U32("graphics/object_events/pics/stupid/SENTRY.4bpp");
 const u16 gObjectEventPal_SENTRY[] = INCBIN_U16("graphics/object_events/palettes/SENTRY.gbapal");
 const u32 gObjectEventPic_SENTRY_BUTT[] = INCBIN_U32("graphics/object_events/pics/stupid/SENTRY_BUTT.4bpp");
+const u32 gObjectEventPic_DEAD_BIKER[] = INCBIN_U32("graphics/object_events/pics/stupid/DEAD_BIKER.4bpp");
