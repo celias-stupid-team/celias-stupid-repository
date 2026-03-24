@@ -93,7 +93,17 @@ script MtMoon_EventScript_HyperDrill {
 
 script MtMoon_Lichen {
 	textcolor(NPC_TEXT_COLOR_RED)
+	if(checktrainerflag(TRAINER_LICHEN)) {
+		msgbox(
+		"I'm lichen what I'm seein'\n"
+		"", MSGBOX_DEFAULT)
+		}
+		release
+		end
 	msgbox(
-	"I'm lichen what I'm seein'\n"
-	"", MSGBOX_NPC)
+	"LICHEN: Hi, there.\n"
+	"", MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_LICHEN, "Yessssss")
+	
+	
 }

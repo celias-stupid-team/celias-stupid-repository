@@ -222,6 +222,7 @@
 #define TRAINER_PIC_CHAMPIONS   200
 #define TRAINER_PIC_EUSINE   201
 #define TRAINER_PIC_PAUL   202
+#define TRAINER_PIC_LICHEN   203
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
