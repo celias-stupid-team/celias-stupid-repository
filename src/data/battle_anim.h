@@ -1442,6 +1442,16 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Envelope, 0x0200, ANIM_TAG_ENVELOPE},
     {gBattleAnimSpriteGfx_Fries, 0x0800, ANIM_TAG_FRIES},
     {gBattleAnimSpriteGfx_MiniDiglett, 0x0100, ANIM_TAG_MINI_DIGLETT},
+    {gBattleAnimSpriteGfx_LetterR, 0x0080, ANIM_TAG_LETTER_R},
+    {gBattleAnimSpriteGfx_LetterE, 0x0200, ANIM_TAG_LETTER_E},
+    {gBattleAnimSpriteGfx_LetterGMB, 0x0600, ANIM_TAG_LETTER_GMB},
+    {gBattleAnimSpriteGfx_MrBonding, 0x0800, ANIM_TAG_MR_BONDING},
+    {gBattleAnimSpriteGfx_LetterT, 0x0800, ANIM_TAG_LETTER_T},
+    {gBattleAnimSpriteGfx_DadOfLight, 0x0800, ANIM_TAG_DAD_OF_LIGHT},
+    {gBattleAnimSpriteGfx_Lass, 0x0800, ANIM_TAG_LASS},
+    {gBattleAnimSpriteGfx_Spoon, 0x0200, ANIM_TAG_SPOON},
+    {gBattleAnimSpriteGfx_Slurf, 0x0800, ANIM_TAG_SLURF},
+    {gBattleAnimSpriteGfx_Peanut, 0x0200, ANIM_TAG_PEANUT},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1849,6 +1859,16 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Envelope, ANIM_TAG_ENVELOPE},
     {gBattleAnimSpritePal_Fries, ANIM_TAG_FRIES},
     {gBattleAnimSpritePal_MiniDiglett, ANIM_TAG_MINI_DIGLETT},
+    {gBattleAnimSpritePal_LetterR, ANIM_TAG_LETTER_R},
+    {gBattleAnimSpritePal_LetterE, ANIM_TAG_LETTER_E},
+    {gBattleAnimSpritePal_LetterGMB, ANIM_TAG_LETTER_GMB},
+    {gBattleAnimSpritePal_MrBonding, ANIM_TAG_MR_BONDING},
+    {gBattleAnimSpritePal_LetterT, ANIM_TAG_LETTER_T},
+    {gBattleAnimSpritePal_DadOfLight, ANIM_TAG_DAD_OF_LIGHT},
+    {gBattleAnimSpritePal_Lass, ANIM_TAG_LASS},
+    {gBattleAnimSpritePal_Spoon, ANIM_TAG_SPOON},
+    {gBattleAnimSpritePal_Slurf, ANIM_TAG_SLURF},
+    {gBattleAnimSpritePal_Peanut, ANIM_TAG_PEANUT},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -1889,4 +1909,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_IRAQ_FLAG]           = {gBattleAnimBgImage_IraqFlag,   gBattleAnimBgPalette_IraqFlag,   gBattleAnimBgTilemap_IraqFlag},
     [BG_ACE_FLAG]            = {gBattleAnimBgImage_AceFlag,    gBattleAnimBgPalette_AceFlag,    gBattleAnimBgTilemap_AceFlag},
     [BG_SOLACEON_TOWN]       = {gBattleAnimBgImage_SolaceonTown,     gBattleAnimBgPalette_SolaceonTown,     gBattleAnimBgTilemap_SolaceonTown},
+    [BG_PEWTER]              = {gBattleAnimBgImage_Pewter,     gBattleAnimBgPalette_Pewter,     gBattleAnimBgTilemap_Pewter},
 };

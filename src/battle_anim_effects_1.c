@@ -221,6 +221,17 @@ const struct SpriteTemplate gPoisonPowderParticleSpriteTemplate =
     .callback = AnimMovePowderParticle,
 };
 
+const struct SpriteTemplate gRPowderParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LETTER_R,
+    .paletteTag = ANIM_TAG_LETTER_R,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMovePowderParticle,
+};
+
 static const union AnimCmd sSolarBeamBigOrbAnimCmds1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -2327,6 +2338,17 @@ const struct SpriteTemplate gMoonSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MOON,
     .paletteTag = ANIM_TAG_MOON,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoon,
+};
+
+const struct SpriteTemplate gLetterTSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LETTER_T,
+    .paletteTag = ANIM_TAG_LETTER_T,
     .oam = &gOamData_AffineOff_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -6061,6 +6083,10 @@ void AnimTask_MoonlightEndFade(u8 taskId)
     int c;
     int d;
 
+    u16 moonPal = IndexOfSpritePaletteTag(ANIM_TAG_MOON);
+    u16 sparklePal = IndexOfSpritePaletteTag(ANIM_TAG_GREEN_SPARKLE);
+    u16 letterTPal = IndexOfSpritePaletteTag(ANIM_TAG_LETTER_T);
+
     gTasks[taskId].data[0] = 0;
     gTasks[taskId].data[1] = 0;
     gTasks[taskId].data[2] = 0;
@@ -6074,9 +6100,19 @@ void AnimTask_MoonlightEndFade(u8 taskId)
     b = GetBattleMonSpritePalettesMask(1, 1, 1, 1);
     c = a | b;
     StorePointerInVars(&gTasks[taskId].data[14], &gTasks[taskId].data[15], (void *)c);
-    b = b | (0x10000 << IndexOfSpritePaletteTag(ANIM_TAG_MOON));
-    d = IndexOfSpritePaletteTag(ANIM_TAG_GREEN_SPARKLE);
-    BeginNormalPaletteFade((0x10000 << d) | b, 0, 0, 16, RGB(27, 29, 31));
+    
+    //Below is the original code
+    //b = b | (0x10000 << IndexOfSpritePaletteTag(ANIM_TAG_MOON));
+    //d = IndexOfSpritePaletteTag(ANIM_TAG_GREEN_SPARKLE);
+    //BeginNormalPaletteFade((0x10000 << d) | b, 0, 0, 16, RGB(27, 29, 31));
+    //End original
+
+    b |= (0x10000 << moonPal);
+    b |= (0x10000 << sparklePal);
+    b |= (0x10000 << letterTPal);
+
+    BeginNormalPaletteFade(b, 0, 0, 16, RGB(27, 29, 31));
+
     gTasks[taskId].func = AnimTask_MoonlightEndFade_Step;
     gTasks[taskId].func(taskId);
 }
@@ -6138,7 +6174,7 @@ void AnimTask_MoonlightEndFade_Step(u8 taskId)
             u8 spriteId;
             for (spriteId = 0; spriteId < MAX_SPRITES; spriteId++)
             {
-                if (gSprites[spriteId].template == &gMoonSpriteTemplate || gSprites[spriteId].template == &gMoonlightSparkleSpriteTemplate)
+                if (gSprites[spriteId].template == &gMoonSpriteTemplate || gSprites[spriteId].template == &gMoonlightSparkleSpriteTemplate || gSprites[spriteId].template == &gLetterTSpriteTemplate)
                     gSprites[spriteId].data[0] = 1;
             }
 

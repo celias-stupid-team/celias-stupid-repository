@@ -120,6 +120,17 @@ const struct SpriteTemplate gFistFootSpriteTemplate =
     .callback = AnimBasicFistOrFoot,
 };
 
+const struct SpriteTemplate gAccelebrockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BROCKS,
+    .paletteTag = ANIM_TAG_BROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_HandsAndFeet,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBasicFistOrFoot,
+};
+
 const struct SpriteTemplate gFistFootRandomPosSpriteTemplate =
 {
     .tileTag = ANIM_TAG_HANDS_AND_FEET,

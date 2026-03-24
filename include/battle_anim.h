@@ -318,6 +318,7 @@ void AnimSpinningSparkle(struct Sprite *sprite);
 void AnimWeatherBallUp(struct Sprite *sprite);
 void AnimWeatherBallDown(struct Sprite *sprite);
 void AnimParticleBurst(struct Sprite *);
+void AnimParticleBurstWithFrame(struct Sprite *);
 void AnimMoveTwisterParticle(struct Sprite *);
 u32 UnpackSelectedBattlePalettes(s16 selector);
 void AnimTask_HorizontalShake(u8 taskId);

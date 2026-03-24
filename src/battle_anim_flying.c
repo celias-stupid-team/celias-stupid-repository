@@ -53,6 +53,17 @@ const struct SpriteTemplate gEllipticalGustSpriteTemplate =
     .callback = AnimEllipticalGust,
 };
 
+const struct SpriteTemplate gMrBondingSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MR_BONDING,
+    .paletteTag = ANIM_TAG_MR_BONDING,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimEllipticalGust,
+};
+
 static const union AffineAnimCmd sAffineAnim_GustToTarget[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x100, 0, 0),

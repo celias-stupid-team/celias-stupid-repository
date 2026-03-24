@@ -243,6 +243,17 @@ const struct SpriteTemplate gMeanLookEyeSpriteTemplate =
     .callback = AnimMeanLookEye,
 };
 
+const struct SpriteTemplate gMeanLookLassSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LASS,
+    .paletteTag = ANIM_TAG_LASS,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMeanLookEyeAffineAnimTable,
+    .callback = AnimMeanLookEye,
+};
+
 const struct SpriteTemplate gSpikesSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_SPIKES,
