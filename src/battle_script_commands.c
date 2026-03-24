@@ -13082,3 +13082,12 @@ void BS_GlitchBattleBgm(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_PrepareTypeBuff2(void)
+{
+    NATIVE_ARGS(const u8 *type);
+
+    PREPARE_TYPE_BUFFER(gBattleTextBuff2, *cmd->type);
+    
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

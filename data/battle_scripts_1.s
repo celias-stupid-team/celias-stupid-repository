@@ -4642,6 +4642,18 @@ BattleScript_ColorChangeActivates::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_ColorChangeWizActivates_PPLoss::
+	ppreduce
+BattleScript_ColorChangeWizActivates::
+	attackstring
+	playanimation BS_TARGET, B_ANIM_COLOR_CHANGE_WIZ1989
+	waitanimation
+	preparetypebuff2 sB_ANIM_ARG1
+	printstring STRINGID_PKMNCOLORCHANGEWIZIMMUNE
+	waitmessage B_WAIT_TIME_LONGEST
+	orbyte gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE
+	goto BattleScript_MoveEnd
+
 BattleScript_RoughSkinActivates::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_ATTACKER

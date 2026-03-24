@@ -2257,6 +2257,18 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         }
                     }
                     break;
+                case ABILITY_COLOR_CHANGE_WIZ:
+                    if (gBattleMoves[move].power != 0)
+                    {
+                        StringCopy(gBattleTextBuff3, gColorChangeDefTypeNames[GetColorChangeDefType(moveType)]);
+                        gBattleScripting.animArg1 = moveType;
+                        if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                            gBattlescriptCurrInstr = BattleScript_ColorChangeWizActivates;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_ColorChangeWizActivates_PPLoss;
+                        effect = ABILITY_EFFECT_NULLIFY;
+                    }
+                    break;
                 }
                 if (effect == ABILITY_EFFECT_ABSORB)
                 {
@@ -4188,7 +4200,6 @@ const u8 gColorChangeDefTypeNames[COLOR_CHANGE_DEF_TYPE_COUNT][20] =
     [COLOR_CHANGE_DEF_TYPE_OIL] = _("OIL"),
     [COLOR_CHANGE_DEF_TYPE_MOWER] = _("LAWN MOWER"),
     [COLOR_CHANGE_DEF_TYPE_GROUND] = _("GROUND"),
-    [COLOR_CHANGE_DEF_TYPE_BOSS] = _("BOSS"),
     [COLOR_CHANGE_DEF_TYPE_DARK] = _("DARK"),
     [COLOR_CHANGE_DEF_TYPE_GLOBAL_WARMING] = _("GLOBAL WARMING"),
     [COLOR_CHANGE_DEF_TYPE_FAIRY] = _("FAIRY"),
@@ -4201,7 +4212,7 @@ const u8 gColorChangeDefTypeNames[COLOR_CHANGE_DEF_TYPE_COUNT][20] =
     [COLOR_CHANGE_DEF_TYPE_MYSTERY] = _("MYSTERY"),
 };
 
-u16 gColorChangeDefTypeHue[COLOR_CHANGE_DEF_TYPE_COUNT] =
+const u16 gColorChangeDefTypeHue[COLOR_CHANGE_DEF_TYPE_COUNT] =
 {
     [COLOR_CHANGE_DEF_TYPE_GHOST]          = RGB(10,  4, 14), // pale purple
     [COLOR_CHANGE_DEF_TYPE_SUBMARINE]      = RGB( 0,  5, 20), // deep navy

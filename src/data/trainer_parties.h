@@ -10643,9 +10643,8 @@ static const struct TrainerMonItemCustomMoves sParty_Dummy_169[] = {
 static const struct TrainerMonItemCustomMoves sParty_wiz1989[] = {
     {
         .iv = 0,
-        .lvl = 20,
-        .heldItem = ITEM_NONE,
-        .species = SPECIES_WOBBUFFET,
-        .moves = {MOVE_COUNTER, MOVE_MIRROR_COAT, MOVE_SAFEGUARD, MOVE_DESTINY_BOND}
+        .lvl = 25,
+        .species = SPECIES_KECLEON_WIZ1989,
+        .moves = {MOVE_TACKLE, MOVE_LICK, MOVE_NONE, MOVE_NONE}
     },
 };

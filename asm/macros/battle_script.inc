@@ -1882,3 +1882,9 @@
 	.macro glitchbattlebgm
 	callnative BS_GlitchBattleBgm
 	.endm
+
+	@ type_arg is the address of sB_ANIM_ARG1 or similar
+	.macro preparetypebuff2 type_arg:req
+	callnative BS_PrepareTypeBuff2
+	.4byte \type_arg
+	.endm
