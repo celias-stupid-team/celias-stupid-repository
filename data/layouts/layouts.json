@@ -7524,6 +7524,18 @@
       "secondary_tileset": "gTileset_NewFuchsiaGym",
       "border_filepath": "data/layouts/ViridianGym_Koga_Open/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Koga_Open/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_EXPANDED",
+      "name": "UndergroundPath_NorthSouthTunnel_EXPANDED",
+      "width": 50,
+      "height": 63,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_UndergroundPath",
+      "border_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_EXPANDED/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_EXPANDED/map.bin"
     }
   ]
 }
