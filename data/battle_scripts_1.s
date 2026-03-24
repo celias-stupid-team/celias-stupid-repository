@@ -6135,3 +6135,9 @@ BattleScript_EffectShine::
 	printstring STRINGID_PKMNCOVEREDBYVEIL
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_FlameOrbActivates::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setmoveeffect MOVE_EFFECT_BURN | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	end2

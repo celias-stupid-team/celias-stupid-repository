@@ -502,5 +502,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SHINY_FOSSIL]      =  {gItemIcon_ShinyFossil, gItemIconPalette_ShinyFossil},
     [ITEM_RUSTED_GUN]      =  {gItemIcon_RustedGun, gItemIconPalette_RustedGun},
     [ITEM_PREMIERCIGAR]      =  {gItemIcon_PREMIERCIGAR, gItemIconPalette_PREMIERCIGAR},
+    [ITEM_FLAME_ORB]      =  {gItemIcon_FlameOrb, gItemIconPalette_FlameOrb},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

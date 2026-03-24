@@ -3481,6 +3481,14 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     effect = ITEM_EFFECT_OTHER;
                 }
                 break;
+            case HOLD_EFFECT_FLAME_ORB:
+                if (!(gBattleMons[battlerId].status1 & STATUS1_ANY) && !IS_BATTLER_OF_TYPE(battlerId, TYPE_FIRE) && !moveTurn)
+                {
+                    BattleScriptExecute(BattleScript_FlameOrbActivates);
+                    effect = ITEM_EFFECT_OTHER;
+                    RecordItemEffectBattle(battlerId, battlerHoldEffect);
+                }
+                break;
             }
             if (effect != 0)
             {

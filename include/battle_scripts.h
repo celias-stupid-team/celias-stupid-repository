@@ -287,6 +287,7 @@ extern const u8 BattleScript_ToxicBerryFaint[];
 extern const u8 BattleScript_BerryEatenNoEffectRet[];
 extern const u8 BattleScript_ColorChangeWizActivates[];
 extern const u8 BattleScript_ColorChangeWizActivates_PPLoss[];
+extern const u8 BattleScript_FlameOrbActivates[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];

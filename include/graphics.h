@@ -13164,3 +13164,6 @@ extern const u32 gTrainerPalette_Paul[];
 
 extern const u32 gItemIcon_PREMIERCIGAR[];
 extern const u32 gItemIconPalette_PREMIERCIGAR[];
+
+extern const u32 gItemIcon_FlameOrb[];
+extern const u32 gItemIconPalette_FlameOrb[];
