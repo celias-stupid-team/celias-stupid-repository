@@ -10644,7 +10644,6 @@ static const struct TrainerMonItemCustomMoves sParty_wiz1989[] = {
     {
         .iv = 0,
         .lvl = 25,
-        .heldItem = ITEM_FLAME_ORB,
         .species = SPECIES_KECLEON_WIZ1989,
         .moves = {MOVE_TACKLE, MOVE_LICK, MOVE_NONE, MOVE_NONE}
     },

@@ -1848,6 +1848,7 @@ u8 CastformDataTypeChange(u8 battler)
 #define ABILITY_EFFECT_NONE    0
 #define ABILITY_EFFECT_ABSORB  1
 #define ABILITY_EFFECT_NULLIFY 2
+#define ABILITY_EFFECT_DAMAGE  3
 
 u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveArg)
 {
@@ -2268,6 +2269,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                             gBattlescriptCurrInstr = BattleScript_ColorChangeWizActivates_PPLoss;
                         effect = ABILITY_EFFECT_NULLIFY;
                     }
+                    else
+                    {
+                        gBattlescriptCurrInstr = BattleScript_ColorChangeWizDamage;
+                        effect = ABILITY_EFFECT_DAMAGE;
+                    }
                     break;
                 }
                 if (effect == ABILITY_EFFECT_ABSORB)
@@ -2286,6 +2292,12 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                             gBattleMoveDamage = 1;
                         gBattleMoveDamage *= -1;
                     }
+                }
+                else if (effect == ABILITY_EFFECT_DAMAGE) // for ABILITY_COLOR_CHANGE_WIZ
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 5;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
                 }
                 else if (gLastUsedAbility == ABILITY_LIGHTNING_ROD)
                 {
@@ -2839,6 +2851,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 #undef ABILITY_EFFECT_NONE
 #undef ABILITY_EFFECT_ABSORB
 #undef ABILITY_EFFECT_NULLIFY
+#undef ABILITY_EFFECT_DAMAGE
 
 void BattleScriptExecute(const u8 *BS_ptr)
 {
