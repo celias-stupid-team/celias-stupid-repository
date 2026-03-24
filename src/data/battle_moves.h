@@ -13683,4 +13683,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 4,
         .flags = 0,
     },
+
+    [MOVE_HACK_ATTACK] =
+    {
+        .effect = EFFECT_DO_NOTHING,
+        .power = 0,
+        .type = TYPE_STEEL,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 5,
+        .flags = 0,
+        .stringId = B_MSG_HACK_ATTACK,
+    },
 };
