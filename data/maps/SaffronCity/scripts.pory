@@ -616,3 +616,14 @@ script Saffron_CopyCatCamera {
 	"tree…", MSGBOX_SIGN)
 
 }
+
+
+script Saffron_KarateMan {
+	msgbox(
+	"Hiyyyyyah!\n"
+	"I'm building up my STRENGTH.\p"
+
+	"The best GYM in the land for that\n"
+	"can be found in the GREAT SEA.\l"
+	"Have you trained there yet?", MSGBOX_NPC)
+}

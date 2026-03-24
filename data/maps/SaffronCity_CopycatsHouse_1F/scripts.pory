@@ -237,6 +237,10 @@ mapscripts SaffronCity_CopycatsHouse_1F_MapScripts {
 			copyobjectxytoperm(LOCALID_COPYCAT_MOM)
 			setobjectmovementtype(LOCALID_COPYCAT_MOM, MOVEMENT_TYPE_FACE_LEFT)
 			setvar(VAR_COPYCAT_USED, 2)
+			if(flag(FLAG_STOLE_COPYCAT)) {
+				setvar(VAR_COPYCAT_USED, 3)
+				clearflag(FLAG_STOLE_COPYCAT)
+			}
 			releaseall
 
 
