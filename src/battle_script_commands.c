@@ -380,6 +380,8 @@ static void Cmd_compare_var_to_value(void);
 static void Cmd_compare_var_to_var(void);
 static void Cmd_jumpifhelditem(void);
 
+void CallNativeMetronome(void);
+
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
     Cmd_attackcanceler,                          //0x0
@@ -8959,13 +8961,32 @@ static void Cmd_mimicattackcopy(void)
     }
 }
 
+
+void CallNativeMetronome(void) {
+    u32 i;
+    u32 moves;
+    //u16 moveCount = MOVES_COUNT;
+    for(i = 0; i < 21; i++) {
+        moves = (Random() % MOVES_COUNT) + 1;
+        while(moves >= MOVES_COUNT) {
+            DebugPrintf("while is executed");
+            moves = (Random() % MOVES_COUNT) + 1;
+        }
+        DebugPrintf("%d", moves);
+        
+
+    }
+    
+}
+
 static void Cmd_metronome(void)
 {
     while (TRUE)
     {
         s32 i;
 
-        gCurrentMove = (Random() & 0x7FF) + 1;
+        gCurrentMove = (Random() % MOVES_COUNT) + 1;
+        
         if (gCurrentMove >= MOVES_COUNT)
             continue;
 
@@ -9207,6 +9228,11 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_STRUGGLE
         && gLastPrintedMoves[gBattlerTarget] != MOVE_NONE
         && gLastPrintedMoves[gBattlerTarget] != MOVE_UNAVAILABLE
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_SUBSTITUTE_TEACHER
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_DARK_VOID
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_LION_LADDER
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_CRUSH_CLAW
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_ELECTRIFY
         && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
     {

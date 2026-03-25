@@ -116,20 +116,6 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
-      "x": 5,
-      "y": 7,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_POKE_DOLL",
-      "script": "EventScript_FindItem",
-      "flag": "FLAG_TEMP_6"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
       "x": 2,
       "y": 7,
       "elevation": 0,

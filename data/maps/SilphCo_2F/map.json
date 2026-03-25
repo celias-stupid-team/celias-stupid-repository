@@ -204,8 +204,8 @@
       "x": 32,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
-      "dest_warp_id": "WARP_ID_SAFFRON_GYM_SILPH"
+      "dest_map": "MAP_SILPH_BACKROOMS",
+      "dest_warp_id": "0"
     },
     {
       "x": 9,

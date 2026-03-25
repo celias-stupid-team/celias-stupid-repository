@@ -77,8 +77,8 @@
       "x": 6,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_SILPH_CO_7F",
-      "dest_warp_id": "WARP_ID_SILPH_LARRY_HUB"
+      "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [],

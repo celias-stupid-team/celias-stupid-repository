@@ -560,6 +560,7 @@ script GreatSea_LoveTirtouga {
 script GreatSea_FontTest {
 	lock
 	callnative(FullyUnlockFameChecker)
+	callnative(CallNativeMetronome)
 	call(EventScript_RemoveUselessItems)
 	msgbox(
 	"{FONT_SMALL}SURF WATERFALL ROCK CLIMB\n"

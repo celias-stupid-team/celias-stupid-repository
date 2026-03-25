@@ -105,8 +105,8 @@
       "x": 27,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_SILPH_BACKROOMS",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_LARRY"
     },
     {
       "warp_id": "WARP_ID_DMCA_HIDEOUT",
