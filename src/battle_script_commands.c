@@ -12685,7 +12685,7 @@ void BS_SetTechnoBlastType(void)
     NATIVE_ARGS();
 
     u16 itemId = gBattleMons[gBattlerAttacker].item;
-    u16 moveType = TYPE_NORMAL;
+    u16 moveType = TYPE_ICE;
 
     if (itemId == ITEM_BURN_DRIVE)
         moveType = TYPE_FIRE;

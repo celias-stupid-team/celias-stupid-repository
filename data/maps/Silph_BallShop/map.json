@@ -234,7 +234,7 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 6,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Silph_RingBell"
@@ -242,7 +242,7 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 5,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_RingBellForService"

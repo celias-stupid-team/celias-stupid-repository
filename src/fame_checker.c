@@ -1426,7 +1426,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FlagGet(FLAG_GOT_MOVE_BOOK))
+                    if(FlagGet(FLAG_GOT_HISTORY_BOOK))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:

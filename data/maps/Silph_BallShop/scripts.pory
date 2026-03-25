@@ -37,6 +37,7 @@ script SilphCo_BallShop_Kurt {
 			removeitem(ITEM_BIG_MUSHROOM)
 		}
 		closemessage
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		playfanfare(MUS_LEVEL_UP)
 		msgbox(
 		"{PLAYER} bought an AMOONGUSS!\n"

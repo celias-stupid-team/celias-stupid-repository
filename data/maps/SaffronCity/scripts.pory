@@ -537,11 +537,9 @@ script SaffronCity_NPC5 {
 	closemessage
 	faceplayer
 	msgbox(
-	"You might think this is someone's\n"
-	"house, but I'm not so sure.\p"
-
-	"They don't even have a front door…\n"
-	"Who built this thing, anyway?", MSGBOX_DEFAULT)
+	"Ah yes.\n"
+	"The latest in the new design craze:\l"
+	"Houses without front doors.", MSGBOX_DEFAULT)
 	release
 }
 

@@ -1524,7 +1524,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_GOLDEEN] =
     {
-        .categoryName = _("USELESS"),
+        .categoryName = _("ROD"),
         .height = 6,
         .weight = 150,
         .description = gGoldeenPokedexText,
