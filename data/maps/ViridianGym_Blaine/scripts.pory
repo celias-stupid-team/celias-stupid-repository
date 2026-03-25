@@ -30,6 +30,8 @@ mapscripts ViridianGym_Blaine_MapScripts {
             
             playbgm(MUS_NONE, TRUE)
         } else {
+            setflag(FLAG_TEMP_1)
+            setflag(FLAG_TEMP_2)
             setflashlevel(0)
         }
     }
@@ -306,13 +308,20 @@ mapscripts ViridianGym_Blaine_MapScripts {
 }
 
 script ViridianGym_BlaineEnding {
-    msgbox(
-	"Oh no\n"
-	"", MSGBOX_DEFAULT)
-    removeobject(LOCALID_BLAINE_ROADBLOCK)
-    
-    closemessage
     delay(30)
+    playse(SE_CONTEST_ICON_CHANGE)
+    setmetatile(4, 1, METATILE_DMCABlaine_LetterW, TRUE)
+    special(DrawWholeMapView)
+    waitse
+    delay(40)
+    playse(SE_DING_DONG)
+    waitse
+    msgbox(
+	"That's completely correct!\p"
+
+	"…{PAUSE 30}Wait!\n"
+	"No-!", MSGBOX_DEFAULT)
+    waitse
     addobject(LOCALID_BLAINE_SNORLAX_3)
     playse(SE_FALL)
     applymovement(LOCALID_BLAINE_SNORLAX_3, moves(
@@ -320,6 +329,7 @@ script ViridianGym_BlaineEnding {
         slide_down * 7
     ))
     waitmovement(0)
+    closemessage
     removeobject(LOCALID_BLAINE_DMCA_3)
     playse(SE_BANG)
     delay(60)
@@ -335,11 +345,34 @@ script ViridianGym_BlaineEnding {
 
 script ViridianGym_BlaineBattle {
     lock
-    textcolor(NPC_TEXT_COLOR_BLUE)
-
-    msgbox(
-        "fight\n"
+    if(flag(FLAG_BEAT_DMCA_BLAINE)) {
+        msgbox(
+        "He deserved it.\n"
         "", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Welcome back, contestant!\n"
+	"Are you ready for another ROUND?", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
+    playse(SE_CONTEST_ICON_CHANGE)
+    setmetatile(4, 1, METATILE_DMCABlaine_BlankLetter, TRUE)
+    setmetatile(5, 1, METATILE_DMCABlaine_LetterA, TRUE)
+    setmetatile(6, 1, METATILE_DMCABlaine_LetterR, TRUE)
+    setmetatile(7, 1, METATILE_DMCABlaine_LetterI, TRUE)
+    setmetatile(8, 1, METATILE_DMCABlaine_LetterO, TRUE)
+    special(DrawWholeMapView)
+    waitse
+    msgbox(
+    "“This NINTENDO mascot is also a\n"
+    "playable character in the famous\l"
+    "game series SUPER SMASH BROS!”", MSGBOX_DEFAULT)
+    msgbox(
+	"Let's see your answer!\n"
+	"", MSGBOX_DEFAULT)
     trainerbattle_no_intro(TRAINER_DMCA_BLAINE, ViridianGym_BlaineBattle_End)
     goto(ViridianGym_BlaineEnding)
     
@@ -352,4 +385,23 @@ text ViridianGym_BlaineBattle_Start {
 
 text ViridianGym_BlaineBattle_End {
    "you were right\n"
+}
+
+
+script ViidianGym_Blaine_Talk {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Oh ho ho!\n"
+	"I'm the host!\p"
+
+	"If you want another crack at it,\n"
+	"head over to your PODIUM!", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, moves(
+        face_original_direction
+    ))
+    waitmovement(0)
+    release
 }
