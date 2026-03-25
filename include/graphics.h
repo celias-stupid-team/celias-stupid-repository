@@ -10927,6 +10927,13 @@ extern const u32 gMonShinyPalette_Kecleon_Sans[];
 extern const u8 gMonIcon_Kecleon_Sans[];
 extern const u8 gMonFootprint_Kecleon_Sans[];
 
+// Kecleon wiz1989
+extern const u32 gMonFrontPic_Kecleon_wiz1989[];
+extern const u32 gMonPalette_Kecleon_wiz1989[];
+extern const u32 gMonBackPic_Kecleon_wiz1989[];
+extern const u32 gMonShinyPalette_Kecleon_wiz1989[];
+extern const u8 gMonIcon_Kecleon_wiz1989[];
+extern const u8 gMonFootprint_Kecleon_wiz1989[];
 
 // Porygon_16
 extern const u32 gMonFrontPic_Porygon_16[];
@@ -13188,3 +13195,6 @@ extern const u32 gItemIconPalette_RareAndy[];
 
 extern const u32 gItemIcon_Mesprit[];
 extern const u32 gItemIconPalette_Mesprit[];
+
+extern const u32 gItemIcon_FlameOrb[];
+extern const u32 gItemIconPalette_FlameOrb[];

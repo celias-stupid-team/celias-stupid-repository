@@ -2251,6 +2251,10 @@ void CalculateMonStats(struct Pokemon *mon)
     {
         newMaxHP = 1;
     }
+    else if (species == SPECIES_KECLEON_WIZ1989)
+    {
+        newMaxHP = 5;
+    }
     else
     {
         s32 n = 2 * gSpeciesInfo[species].baseHP + hpIV;

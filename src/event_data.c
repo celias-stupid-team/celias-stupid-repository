@@ -74,12 +74,12 @@ void ClearTempData_CSR(void)
     FlagClear(FLAG_USED_GENDER_FLUID);
     FlagClear(FLAG_SYS_CARRYING_BOX);
     FlagClear(FLAG_CSR_V_CREATE_IN_BATTLE);
-    FlagClear(FLAG_SYS_BILL_GARDEN);
     FlagClear(FLAG_USED_SNOWGRAVY);
     
     
     FlagClear(FLAG_SYS_BILL_GARDEN);
     FlagClear(FLAG_NOT_OAK_TEMP);
+    FlagClear(FLAG_HACK_ATTACK_USED);
     VarSet(VAR_USED_CUT, 0);
     RunScriptImmediately(SetPlayerPokedexValues);
 }

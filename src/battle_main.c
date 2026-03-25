@@ -1848,7 +1848,9 @@ void SpriteCB_EnemyMon(struct Sprite *sprite)
 {
     sprite->callback = SpriteCB_MoveWildMonToRight;
     StartSpriteAnimIfDifferent(sprite, 0);
-    BeginNormalPaletteFade(0x20000, 0, 10, 10, RGB(8, 8, 8));
+    // no sprite tinting during slide in for Zapmolcuno
+    if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+        BeginNormalPaletteFade(0x20000, 0, 10, 10, RGB(8, 8, 8));
 }
 
 static void SpriteCB_MoveWildMonToRight(struct Sprite *sprite)
@@ -1872,7 +1874,9 @@ static void SpriteCB_WildMonShowHealthbox(struct Sprite *sprite)
         SetHealthboxSpriteVisible(gHealthboxSpriteIds[sprite->sBattler]);
         sprite->callback = SpriteCallbackDummy_2;
         StartSpriteAnimIfDifferent(sprite, 0);
-        BeginNormalPaletteFade(0x20000, 0, 10, 0, RGB(8, 8, 8));
+        // no sprite tinting during slide in for Zapmolcuno
+        if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+            BeginNormalPaletteFade(0x20000, 0, 10, 0, RGB(8, 8, 8));
     }
 }
 
@@ -4165,6 +4169,7 @@ static void HandleAction_UseMove(void)
 {
     u8 side;
     u8 var = 4;
+    bool8 twistedRealityActivated = FALSE;
 
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     if (*(&gBattleStruct->absentBattlerFlags) & gBitTable[gBattlerAttacker])
@@ -4188,7 +4193,17 @@ static void HandleAction_UseMove(void)
         gHitMarker |= HITMARKER_NO_PPDEDUCT;
         *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(MOVE_EXPLOSION_USELESS, NO_TARGET_OVERRIDE);
     }
-    
+    else if (gBattleMons[BATTLE_OPPOSITE(gBattlerAttacker)].ability == ABILITY_TWISTED_REALITY)
+    {
+        gBattleStruct->twistedRealityBaseMove = gBattleMons[gBattlerAttacker].moves[gCurrMovePos];
+        gCurrentMove = gChosenMove = GetTwistedRealityMove(Random() % GetTwistedRealityMoveCount());
+        twistedRealityActivated = TRUE;
+        gHitMarker |= HITMARKER_NO_PPDEDUCT;
+
+        PREPARE_MOVE_BUFFER(gBattleTextBuff1, gBattleStruct->twistedRealityBaseMove);
+        PREPARE_MOVE_BUFFER(gBattleTextBuff2, gCurrentMove);
+        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(gChosenMove, NO_TARGET_OVERRIDE);
+    }
     else if (gProtectStructs[gBattlerAttacker].noValidMoves)
     {
         gProtectStructs[gBattlerAttacker].noValidMoves = 0;
@@ -4347,7 +4362,10 @@ static void HandleAction_UseMove(void)
     if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
         gBattleTurnMonUsedMove = TRUE;
 
-    gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+    if (twistedRealityActivated)
+        gBattlescriptCurrInstr = BattleScript_TwistedRealityActivates;
+    else
+        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
 
@@ -4814,4 +4832,9 @@ void BattleDebug_LeftBattle(void)
 {
     gBattleOutcome = B_OUTCOME_LEFT_BATTLE;
     gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
+}
+
+void SetCurrentMoveScript(void)
+{
+    gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
 }

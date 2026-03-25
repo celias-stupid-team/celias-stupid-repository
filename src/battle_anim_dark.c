@@ -243,10 +243,10 @@ const struct SpriteTemplate gRickLeftSpriteTemplate =
 
 void AnimTask_AttackerFadeToInvisible(u8 taskId)
 {
-    s32 battler;
+    u8 battler = (gBattleAnimArgs[1] == ANIM_TARGET) ? gBattleAnimTarget : gBattleAnimAttacker;
 
     gTasks[taskId].data[0] = gBattleAnimArgs[0];
-    battler = gBattleAnimAttacker;
+    gTasks[taskId].data[3] = battler;
     gTasks[taskId].data[1] = 16;
     SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16, 0));
     if (GetBattlerSpriteBGPriorityRank(battler) == 1)
@@ -270,7 +270,7 @@ static void AnimTask_AttackerFadeToInvisible_Step(u8 taskId)
         gTasks[taskId].data[2] = 0;
         if (blendA == 16)
         {
-            gSprites[gBattlerSpriteIds[gBattleAnimAttacker]].invisible = TRUE;
+            gSprites[gBattlerSpriteIds[gTasks[taskId].data[3]]].invisible = TRUE;
             DestroyAnimVisualTask(taskId);
         }
     }
@@ -282,8 +282,12 @@ static void AnimTask_AttackerFadeToInvisible_Step(u8 taskId)
 
 void AnimTask_AttackerFadeFromInvisible(u8 taskId)
 {
+    u8 battler = (gBattleAnimArgs[1] == ANIM_TARGET) ? gBattleAnimTarget : gBattleAnimAttacker;
+
     gTasks[taskId].data[0] = gBattleAnimArgs[0];
+    gTasks[taskId].data[3] = battler;
     gTasks[taskId].data[1] = BLDALPHA_BLEND(0, 16);
+    gSprites[gBattlerSpriteIds[battler]].invisible = FALSE;
     gTasks[taskId].func = AnimTask_AttackerFadeFromInvisible_Step;
     SetGpuReg(REG_OFFSET_BLDALPHA, gTasks[taskId].data[1]);
 }

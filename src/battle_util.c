@@ -32,6 +32,7 @@
 #include "event_scripts.h"
 #include "event_data.h"
 #include "script.h"
+#include "trainer_slide.h"
 
 #define X UQ_4_12
 #define ______ X(1.0) // Regular effectiveness.
@@ -517,6 +518,7 @@ enum
     ENDTURN_TRICK_ROOM,
     ENDTURN_GRAVITY,
     ENDTURN_SHADOW_SKY,
+    ENDTURN_WIZ1989_TURN5_SLIDE,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -834,6 +836,18 @@ u8 DoFieldEndTurnEffects(void)
             }
             gBattleStruct->turnCountersTracker++;
             break;
+        case ENDTURN_WIZ1989_TURN5_SLIDE:
+        {
+            u32 battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            if (ShouldDoTrainerSlide(battler, TRAINER_SLIDE_AFTER_TURN_5))
+            {
+                gBattleScripting.battler = battler;
+                BattleScriptExecute(BattleScript_Wiz1989Turn5SlideAndFaint);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
+        }
         case ENDTURN_FIELD_COUNT:
             effect++;
             break;
@@ -863,6 +877,7 @@ enum
     ENDTURN_TAUNT,
     ENDTURN_YAWN,
     ENDTURN_ITEMS2,
+    ENDTURN_TWISTED_REALITY,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -1177,6 +1192,20 @@ u8 DoBattlerEndTurnEffects(void)
                         BattleScriptExecute(BattleScript_YawnMakesAsleep);
                         effect++;
                     }
+                }
+                gBattleStruct->turnEffectsTracker++;
+                break;
+            case ENDTURN_TWISTED_REALITY:
+                if (gBattleMons[gActiveBattler].ability == ABILITY_TWISTED_REALITY
+                 && gBattleStruct->twistedRealityBaseMove != MOVE_NONE
+                 && gBattleMons[gActiveBattler].hp != 0)
+                {
+                    gBattleMoveDamage = (gBattleMons[gActiveBattler].maxHP + 3) / 4;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleStruct->twistedRealityBaseMove = MOVE_NONE;
+                    BattleScriptExecute(BattleScript_TwistedRealityRecoil);
+                    effect++;
                 }
                 gBattleStruct->turnEffectsTracker++;
                 break;
@@ -1848,6 +1877,7 @@ u8 CastformDataTypeChange(u8 battler)
 #define ABILITY_EFFECT_NONE    0
 #define ABILITY_EFFECT_ABSORB  1
 #define ABILITY_EFFECT_NULLIFY 2
+#define ABILITY_EFFECT_DAMAGE  3
 
 u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveArg)
 {
@@ -2257,6 +2287,23 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         }
                     }
                     break;
+                case ABILITY_COLOR_CHANGE_WIZ:
+                    if (gBattleMoves[move].power != 0)
+                    {
+                        StringCopy(gBattleTextBuff3, gColorChangeDefTypeNames[GetColorChangeDefType(moveType)]);
+                        gBattleScripting.animArg1 = moveType;
+                        if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                            gBattlescriptCurrInstr = BattleScript_ColorChangeWizActivates;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_ColorChangeWizActivates_PPLoss;
+                        effect = ABILITY_EFFECT_NULLIFY;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr = BattleScript_ColorChangeWizDamage;
+                        effect = ABILITY_EFFECT_DAMAGE;
+                    }
+                    break;
                 }
                 if (effect == ABILITY_EFFECT_ABSORB)
                 {
@@ -2274,6 +2321,12 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                             gBattleMoveDamage = 1;
                         gBattleMoveDamage *= -1;
                     }
+                }
+                else if (effect == ABILITY_EFFECT_DAMAGE) // for ABILITY_COLOR_CHANGE_WIZ
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 5;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
                 }
                 else if (gLastUsedAbility == ABILITY_LIGHTNING_ROD)
                 {
@@ -2827,6 +2880,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 #undef ABILITY_EFFECT_NONE
 #undef ABILITY_EFFECT_ABSORB
 #undef ABILITY_EFFECT_NULLIFY
+#undef ABILITY_EFFECT_DAMAGE
 
 void BattleScriptExecute(const u8 *BS_ptr)
 {
@@ -3467,6 +3521,14 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
                     effect = ITEM_EFFECT_OTHER;
+                }
+                break;
+            case HOLD_EFFECT_FLAME_ORB:
+                if (!(gBattleMons[battlerId].status1 & STATUS1_ANY) && !IS_BATTLER_OF_TYPE(battlerId, TYPE_FIRE) && !moveTurn)
+                {
+                    BattleScriptExecute(BattleScript_FlameOrbActivates);
+                    effect = ITEM_EFFECT_OTHER;
+                    RecordItemEffectBattle(battlerId, battlerHoldEffect);
                 }
                 break;
             }
@@ -4188,7 +4250,6 @@ const u8 gColorChangeDefTypeNames[COLOR_CHANGE_DEF_TYPE_COUNT][20] =
     [COLOR_CHANGE_DEF_TYPE_OIL] = _("OIL"),
     [COLOR_CHANGE_DEF_TYPE_MOWER] = _("LAWN MOWER"),
     [COLOR_CHANGE_DEF_TYPE_GROUND] = _("GROUND"),
-    //[COLOR_CHANGE_DEF_TYPE_BOSS] = _("BOSS"),
     [COLOR_CHANGE_DEF_TYPE_DARK] = _("DARK"),
     [COLOR_CHANGE_DEF_TYPE_GLOBAL_WARMING] = _("GLOBAL WARMING"),
     [COLOR_CHANGE_DEF_TYPE_FAIRY] = _("FAIRY"),
@@ -4201,7 +4262,7 @@ const u8 gColorChangeDefTypeNames[COLOR_CHANGE_DEF_TYPE_COUNT][20] =
     [COLOR_CHANGE_DEF_TYPE_MYSTERY] = _("MYSTERY"),
 };
 
-u16 gColorChangeDefTypeHue[COLOR_CHANGE_DEF_TYPE_COUNT] =
+const u16 gColorChangeDefTypeHue[COLOR_CHANGE_DEF_TYPE_COUNT] =
 {
     [COLOR_CHANGE_DEF_TYPE_GHOST]          = RGB(10,  4, 14), // pale purple
     [COLOR_CHANGE_DEF_TYPE_SUBMARINE]      = RGB( 0,  5, 20), // deep navy
@@ -4280,4 +4341,24 @@ u8 GetColorChangeDefType(u8 moveType)
         default:
             return COLOR_CHANGE_DEF_TYPE_MYSTERY;
     }
+}
+
+static const u16 sTwistedRealityMoves[] =
+{
+    MOVE_SPLASH,
+    MOVE_CELEBRATE,
+    MOVE_MEMENTO,
+};
+
+u16 GetTwistedRealityMove(u8 index)
+{
+    if (index < ARRAY_COUNT(sTwistedRealityMoves))
+        return sTwistedRealityMoves[index];
+    else
+        return MOVE_SPLASH;
+}
+
+u8 GetTwistedRealityMoveCount(void)
+{
+    return ARRAY_COUNT(sTwistedRealityMoves);
 }

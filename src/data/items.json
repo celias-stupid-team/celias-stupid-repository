@@ -7673,6 +7673,22 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "FLAME ORB",
+      "itemId": "ITEM_FLAME_ORB",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_FLAME_ORB",
+      "holdEffectParam": 0,
+      "description_english": "A bizarre orb that\\ninflicts a burn on\\nholder in battle.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

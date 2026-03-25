@@ -505,7 +505,14 @@
 #define STRINGID_REFLECTTARGETSTYPE 503
 #define STRINGID_PKMNBECAMETYPE 504
 #define STRINGID_VANISHEDINSTANTLY 505
-#define STRINGID_NONE 506
+#define STRINGID_PKMNCOLORCHANGEWIZIMMUNE 506
+#define STRINGID_PKMNCOLORCHANGEWIZDAMAGE 507
+#define STRINGID_TWISTED_REALITY_ACTIVATES 508
+#define STRINGID_TWISTED_REALITY_RECOIL 509
+#define STRINGID_HACK_ATTACK 510
+#define STRINGID_WAITWHAT 511
+#define STRINGID_FINISHHACKATTACK 512
+#define STRINGID_NONE 513
 // #define STRINGID_NONE 
 // ^ for easier copypaste
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
@@ -741,21 +748,22 @@
 #define B_MSG_PKMNHURTBYSHADOWSPIKES 6
 
 // gDoNothingStringIds
-#define B_MSG_NONE                 0
+#define B_MSG_NONE             0
 #define B_MSG_CELEBRATE        1
 #define B_MSG_1DER_ROOM        2
-#define B_MSG_SECRETPOWER        3
-#define B_MSG_UPDOG        4
+#define B_MSG_SECRETPOWER      3
+#define B_MSG_UPDOG            4
 #define B_MSG_TRYATTACK        5
 #define B_MSG_GMAX_MOVE        6
-#define B_MSG_EXTREME_EVOBOOST        7
-#define B_MSG_VEEVEE_VOLLEY        8
-#define B_MSG_FICKLE_BEAM        9
-#define B_MSG_MIST        10
-#define B_MSG_MAGNET_RISE        11
-#define B_MSG_TAUNT        12
-#define B_MSG_SUPERSONIC        13
-#define B_MSG_SHED        14
+#define B_MSG_EXTREME_EVOBOOST 7
+#define B_MSG_VEEVEE_VOLLEY    8
+#define B_MSG_FICKLE_BEAM      9
+#define B_MSG_MIST             10
+#define B_MSG_MAGNET_RISE      11
+#define B_MSG_TAUNT            12
+#define B_MSG_SUPERSONIC       13
+#define B_MSG_SHED             14
+#define B_MSG_HACK_ATTACK      15
 
 // gSwitchInAbilityStringIds
 enum SwitchInAbilityStringID

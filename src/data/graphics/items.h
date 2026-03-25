@@ -996,3 +996,6 @@ const u32 gItemIconPalette_RareAndy[] = INCBIN_U32("graphics/items/icon_palettes
 
 const u32 gItemIcon_Mesprit[] = INCBIN_U32("graphics/items/icons/mesprit.4bpp.lz");
 const u32 gItemIconPalette_Mesprit[] = INCBIN_U32("graphics/items/icon_palettes/mesprit.gbapal.lz");
+
+const u32 gItemIcon_FlameOrb[] = INCBIN_U32("graphics/items/icons/flame_orb.4bpp.lz");
+const u32 gItemIconPalette_FlameOrb[] = INCBIN_U32("graphics/items/icon_palettes/flame_orb.gbapal.lz");
