@@ -16,6 +16,7 @@ static void AnimTranslateStinger(struct Sprite *sprite);
 static void AnimMissileArc(struct Sprite *sprite);
 static void AnimMissileArc_Step(struct Sprite *sprite);
 static void AnimTailGlowOrb(struct Sprite *sprite);
+static void AnimLookLook(struct Sprite *sprite);
 
 static const union AffineAnimCmd sAffineAnim_MegahornHorn_0[] =
 {
@@ -328,6 +329,42 @@ const struct SpriteTemplate gFailerGlowOrbSpriteTemplate =
     .callback = AnimTailGlowOrb,
 };
 
+static const union AnimCmd sLookLookAnimCmd_0[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sLookLookAnimCmd_1[] =
+{
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sLookLookAnimCmd_2[] =
+{
+    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const gLookLookAnimTable[] =
+{
+    sLookLookAnimCmd_0,
+    sLookLookAnimCmd_1,
+    sLookLookAnimCmd_2,
+};
+
+const struct SpriteTemplate gLookLookSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOOK_LOOK,
+    .paletteTag = ANIM_TAG_LOOK_LOOK,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32, // adjust if needed
+    .anims = gLookLookAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimLookLook,
+};
+
 static void AnimMegahornHorn(struct Sprite *sprite)
 {
     if (IsContest())
@@ -593,4 +630,94 @@ static void AnimTailGlowOrb(struct Sprite *sprite)
     }
     StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
     sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
+}
+
+static void AnimLookLook(struct Sprite *sprite)
+{
+    sprite->data[5] = gBattleAnimArgs[0];
+    sprite->data[6] = gBattleAnimArgs[1];
+    sprite->data[7] = gBattleAnimArgs[2];
+
+    switch (sprite->data[0]) // state
+    {
+    // -----------------------------------
+    // INITIALISE
+    // -----------------------------------
+    case 0:
+        // Position relative to battler
+        if (sprite->data[7] == 0)
+            InitSpritePosToAnimAttacker(sprite, FALSE);
+        else
+            InitSpritePosToAnimTarget(sprite, FALSE);
+
+        sprite->x += sprite->data[5]; // initial X offset
+        sprite->y += sprite->data[6]; // initial Y offset
+
+        StartSpriteAnim(sprite, 0);
+
+        sprite->data[1] = 0; // frame counter
+        sprite->data[0] = 1;
+        break;
+
+    // -----------------------------------
+    // STATE 0 movement (upwards)
+    // -----------------------------------
+    case 1:
+        switch (sprite->data[1]++)
+        {
+        case 0: sprite->y -= 8; break;
+        case 1: sprite->y -= 4; break;
+        case 2: sprite->y -= 4; break;
+        default:
+            StartSpriteAnim(sprite, 1);
+            sprite->data[1] = 0;
+            sprite->data[0] = 2;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // STATE 1 movement (downwards + pause)
+    // -----------------------------------
+    case 2:
+        switch (sprite->data[1]++)
+        {
+        case 0: sprite->y += 8; break;
+        case 1: /* stay */ break;
+        case 2: sprite->y += 2; break;
+        case 3: sprite->y += 4; break;
+        default:
+            StartSpriteAnim(sprite, 2);
+            sprite->data[1] = 0;
+            sprite->data[0] = 3;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // STATE 2 movement (final drop)
+    // -----------------------------------
+    case 3:
+        switch (sprite->data[1]++)
+        {
+        case 0: /* stay */ break;
+        case 1: sprite->y += 8; break;
+        case 2: sprite->y += 12; break;
+        default:
+            sprite->data[1] = 0;
+            sprite->data[0] = 4;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // FINAL HOLD (50 frames)
+    // -----------------------------------
+    case 4:
+        if (++sprite->data[1] >= 50)
+        {
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
 }

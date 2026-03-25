@@ -410,6 +410,16 @@
 #define ANIM_TAG_ENVELOPE                   (ANIM_SPRITES_START + 400)
 #define ANIM_TAG_FRIES                      (ANIM_SPRITES_START + 401)
 #define ANIM_TAG_MINI_DIGLETT               (ANIM_SPRITES_START + 402)
+#define ANIM_TAG_LETTER_R                   (ANIM_SPRITES_START + 403)
+#define ANIM_TAG_LETTER_E                   (ANIM_SPRITES_START + 404)
+#define ANIM_TAG_LETTER_GMB                 (ANIM_SPRITES_START + 405)
+#define ANIM_TAG_MR_BONDING                 (ANIM_SPRITES_START + 406)
+#define ANIM_TAG_LETTER_T                   (ANIM_SPRITES_START + 407)
+#define ANIM_TAG_DAD_OF_LIGHT               (ANIM_SPRITES_START + 408)
+#define ANIM_TAG_LASS                       (ANIM_SPRITES_START + 409)
+#define ANIM_TAG_SPOON                      (ANIM_SPRITES_START + 410)
+#define ANIM_TAG_SLURF                      (ANIM_SPRITES_START + 411)
+#define ANIM_TAG_PEANUT                     (ANIM_SPRITES_START + 412)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -473,6 +483,7 @@
 #define BG_IRAQ_FLAG 34
 #define BG_ACE_FLAG 35
 #define BG_SOLACEON_TOWN 36
+#define BG_PEWTER 37
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
