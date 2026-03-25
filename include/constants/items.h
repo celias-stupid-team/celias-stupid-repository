@@ -554,7 +554,8 @@
 #define ITEM_RUSTED_GUN 472
 #define ITEM_PREMIERCIGAR 473
 #define ITEM_RARE_ANDY 474
-#define ITEMS_COUNT 475
+#define ITEM_MESPRIT 475
+#define ITEMS_COUNT 476
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

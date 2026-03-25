@@ -993,3 +993,6 @@ const u32 gItemIconPalette_PREMIERCIGAR[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_RareAndy[] = INCBIN_U32("graphics/items/icons/rare_andy.4bpp.lz");
 const u32 gItemIconPalette_RareAndy[] = INCBIN_U32("graphics/items/icon_palettes/rare_andy.gbapal.lz");
+
+const u32 gItemIcon_Mesprit[] = INCBIN_U32("graphics/items/icons/mesprit.4bpp.lz");
+const u32 gItemIconPalette_Mesprit[] = INCBIN_U32("graphics/items/icon_palettes/mesprit.gbapal.lz");

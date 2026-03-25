@@ -7657,6 +7657,22 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "MESPRIT",
+      "itemId": "ITEM_MESPRIT",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Oh, hey!\\nThat's where she flew off to!",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }
