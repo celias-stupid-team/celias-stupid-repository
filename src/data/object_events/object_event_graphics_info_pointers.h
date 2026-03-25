@@ -599,6 +599,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SENTRY_BUTT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DEAD_BIKER;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CRUFICIED;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CRUFICIED_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WHISCASH;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1199,4 +1200,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEAD_BIKER] = &gObjectEventGraphicsInfo_DEAD_BIKER,
     [OBJ_EVENT_GFX_CRUFICIED] = &gObjectEventGraphicsInfo_CRUFICIED,
     [OBJ_EVENT_GFX_CRUFICIED_2] = &gObjectEventGraphicsInfo_CRUFICIED_2,
+    [OBJ_EVENT_GFX_WHISCASH] = &gObjectEventGraphicsInfo_WHISCASH,
 };

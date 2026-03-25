@@ -63,7 +63,7 @@ script SilphCo_BallShop_Kurt {
 script SilphCo_BallShop_Sign {
 	lock
 	msgbox(
-	"SILPH CO\n"
+	"SILPH CO 3F\n"
 	"POKé BALL SHOP", MSGBOX_SIGN)
 
 }
@@ -178,3 +178,27 @@ script Silph_KurtNotThere {
 	"notice you.", MSGBOX_SIGN)
 
 }
+
+
+script Silph_WhisMan {
+	
+	msgbox(
+	"…\p"
+
+	"I spend my entire life savings\n"
+	"to purchase a MASTER BALL.\p"
+
+	"It…{PAUSE 30} didn't work out.\n"
+	"", MSGBOX_SIGN)
+}
+
+script Silph_Whiscash {
+	lock
+	playmoncry(SPECIES_WHISCASH, CRY_MODE_DEFAULT)
+	waitmoncry
+	msgbox(
+	"{ASTERISK}burp{ASTERISK}\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
