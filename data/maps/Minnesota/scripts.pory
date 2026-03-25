@@ -185,6 +185,14 @@ script MinnesotaZoo_FirstCage {
 script MinnesotaZoo_Mongoose {
 	lock
 	playmoncry(SPECIES_ZANGOOSE, CRY_MODE_DEFAULT)
+	if(checkpartymon(SPECIES_SEVIPER) != PARTY_SIZE) {
+		msgbox(
+		"Your SEVIPER…\n"
+		"My sworn enemy.", MSGBOX_DEFAULT)
+		waitmoncry
+		release
+		end
+	}
 	msgbox(
 	"If there were more of me,{PAUSE 30} we'd\n"
 	"be MONGEESE.", MSGBOX_DEFAULT)

@@ -628,7 +628,7 @@ gFameCheckerFlavorText_GreatBay0:: @ 0x81AFB0C
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Somehwere in KANTO, there exists\n"
-	.string "the ALTAR OF THE MOONE.\p"
+	.string "the ALTAR OF THE MOON.\p"
 	.string "Legends say if you bring this\n"
 	.string "POKéMON there and hold it up,\l"
 	.string "something incredible may happen.$"
@@ -659,7 +659,7 @@ gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
 	.string "and powerful, we humans had to\l"
 	.string "Seal it away for our own safety.\p"
 	.string "Some day, someone may come along\n"
-	.string "and break the Seal themselves…$"
+	.string "and destroy the Seal themselves…$"
 
 gFameCheckerFlavorText_GreatBay4:: @ 0x81AFD49
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"

@@ -493,8 +493,9 @@ const u8 gMagnetonPokedexText[] = _(
 const u8 gMagnetonPokedexTextUnused[] = _("");
 
 const u8 gFarfetchdPokedexText[] = _(
-	"The most edible Pokemon");
+	"“Fearful.”");
 
+    
 const u8 gFarfetchdPokedexTextUnused[] = _("");
 
 const u8 gDoduoPokedexText[] = _(

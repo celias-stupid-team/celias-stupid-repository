@@ -8980,6 +8980,7 @@ static void Cmd_metronome(void)
             if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
                 break;
         }
+        
 
         if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
         {
