@@ -6470,3 +6470,14 @@ const struct SpriteFrameImage gObjectEventPicTable_WHISCASH[] = {
     overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 7),
     overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_FROZEN_ARTY[] = {
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 0),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 1),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 2),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 0),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 0),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 1),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 1),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 2),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 2),
+};

@@ -1445,7 +1445,7 @@
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_SYS_ON_SHINY_BIKE                                                  (SYS_FLAGS + 0x31)
 #define FLAG_SYS_FULL_RELEASE_SAVE                                                  (SYS_FLAGS + 0x32)
-#define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
+#define FLAG_USED_SNOWGRAVY                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)
 #define FLAG_0x835                                                  (SYS_FLAGS + 0x35)
 #define FLAG_0x836                                                  (SYS_FLAGS + 0x36)

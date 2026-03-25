@@ -229,6 +229,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_WAS_ONE] = COMPOUND_STRING("The user moves LAST."),
     [ABILITY_DANCER] = COMPOUND_STRING("Copies the last dance move."),
     [ABILITY_COLOR_CHANGE_DEF] = sColorChangeDescription,
+    [ABILITY_RIGHTNINGROD] = COMPOUND_STRING("The user was RIGHT."),
+
+    
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -374,4 +377,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WAS_ONE] = _("WAS ONE"),
     [ABILITY_DANCER] = _("DANCER"),
     [ABILITY_COLOR_CHANGE_DEF] = _("COLOR CHANGE"),
+    [ABILITY_RIGHTNINGROD] = _("RIGHTNINGROD"),
+
+    
 };

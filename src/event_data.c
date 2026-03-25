@@ -75,6 +75,7 @@ void ClearTempData_CSR(void)
     FlagClear(FLAG_SYS_CARRYING_BOX);
     FlagClear(FLAG_CSR_V_CREATE_IN_BATTLE);
     FlagClear(FLAG_SYS_BILL_GARDEN);
+    FlagClear(FLAG_USED_SNOWGRAVY);
     
     
     FlagClear(FLAG_SYS_BILL_GARDEN);
