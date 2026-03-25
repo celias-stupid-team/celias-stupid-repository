@@ -1744,6 +1744,7 @@ static const u8 *const sHoldEffectNames[] =
     [HOLD_EFFECT_THICK_CLUB] = sText_HoldEffectThickClub,
     [HOLD_EFFECT_STICK] = sText_HoldEffectLeek,
 };
+
 static const u8 *GetHoldEffectName(u16 holdEffect)
 {
     if (holdEffect > ARRAY_COUNT(sHoldEffectNames))

@@ -293,9 +293,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectReflectType            @ EFFECT_REFLECT_TYPE
 	.4byte BattleScript_EffectTrickOrTreat		     @ EFFECT_TRICK_OR_TREAT
 	.4byte BattleScript_EffectRestHBox               @ EFFECT_REST_HBOX
-	.4byte BattleScript_EffectNothing            		@ EFFECT_NOTHING
+	.4byte BattleScript_EffectNothing                @ EFFECT_NOTHING
 	.4byte BattleScript_EffectUpThrow                @ EFFECT_UP_THROW
 	.4byte BattleScript_EffectShine                  @ EFFECT_SHINE
+	.4byte BattleScript_EffectHackAttack             @ EFFECT_HACK_ATTACK
 
 BattleScript_End2::
 	end2
@@ -5124,7 +5125,6 @@ BattleScript_EffectDoNothing::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-
 BattleScript_EffectFickleBeam::
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
@@ -6153,3 +6153,51 @@ BattleScript_FlameOrbActivates::
 	setmoveeffect MOVE_EFFECT_BURN | MOVE_EFFECT_AFFECTS_USER
 	seteffectprimary
 	end2
+
+BattleScript_EffectHackAttack::
+	jumpifflagset FLAG_HACK_ATTACK_USED, BattleScript_EffectHackAttack_2
+BattleScript_EffectHackAttack_1::
+	@ attackcanceler
+	attackstring
+	flicker FADE_TO_BLACK, 2
+	ppreduce
+	attackanimation
+	flicker FADE_TO_BLACK, 4
+	flicker FADE_TO_BLACK, 2
+	waitanimation
+	flicker FADE_TO_BLACK, 7
+	setbattlestringid
+	glitchpalettes
+	printfromtable gDoNothingStringIds
+	flicker FADE_TO_BLACK, 4
+	flicker FADE_TO_BLACK, 2
+	waitmessage B_WAIT_TIME_LONG
+	restoreglitchpalettes
+	setflag FLAG_HACK_ATTACK_USED
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectHackAttack_2::
+	@ attackcanceler
+	flicker FADE_TO_BLACK, 2
+	flicker FADE_TO_BLACK, 4
+	attackstring
+	ppreduce
+	glitchbattlescreen
+	attackanimation
+	flicker FADE_TO_BLACK, 6
+	restoreglitchbattlescreen
+	glitchbattlebgm
+	glitchbattlescreen
+	waitanimation
+	setbattlestringid
+	printstring STRINGID_WAITWHAT
+	flicker FADE_TO_BLACK, 4
+	flicker FADE_TO_BLACK, 2
+	waitmessage B_WAIT_TIME_LONG
+	restoreglitchbattlescreen
+	printstring STRINGID_FINISHHACKATTACK
+	@ restorebattlebackground
+	waitmessage B_WAIT_TIME_LONG
+	pause B_WAIT_TIME_LONGEST
+	instantwin
+	end

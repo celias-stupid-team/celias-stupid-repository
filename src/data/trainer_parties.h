@@ -10656,6 +10656,7 @@ static const struct TrainerMonItemCustomMoves sParty_wiz1989[] = {
     {
         .iv = 0,
         .lvl = 25,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_MISSINGNO,
         .moves = {MOVE_HACK_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },

@@ -1892,3 +1892,21 @@
 	.macro faintenemyfirstslot
 	callnative BS_FaintEnemyFirstSlot
 	.endm
+
+	.macro flicker mode:req frames:req
+	callnative BS_Flicker
+	.byte \mode
+	.byte \frames
+	.endm
+
+	.macro glitchpalettes
+	callnative BS_GlitchPalettes
+	.endm
+
+	.macro restoreglitchpalettes
+	callnative BS_RestoreGlitchPalettes
+	.endm
+
+	.macro instantwin
+	callnative BattleDebug_WonBattle
+	.endm

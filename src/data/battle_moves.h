@@ -13686,7 +13686,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_HACK_ATTACK] =
     {
-        .effect = EFFECT_DO_NOTHING,
+        .effect = EFFECT_HACK_ATTACK,
         .power = 0,
         .type = TYPE_STEEL,
         .accuracy = 0,

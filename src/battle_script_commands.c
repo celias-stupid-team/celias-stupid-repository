@@ -955,6 +955,10 @@ static const u8 sBallCatchBonuses[] =
     [SAFARI_BALL - ULTRA_BALL] = 15
 };
 
+static u16 sGlitchBattleScreenSavedPalette[PLTT_BUFFER_SIZE];
+static u8 sFlickerPhase;
+static u8 sFlickerTimer;
+
 // unused
 ALIGNED(4) static const u8 sJPText_Turn[] = _("ターン");
 
@@ -1783,9 +1787,6 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     moveType = gBattleMoves[move].type;
     if(gBattleMons[attacker].ability == ABILITY_NORMALIZE) //couldn't figure out how typeOverride works
             moveType = TYPE_NORMAL;
-    
-    DebugPrintf("Type %d", moveType);
-
 
     // check stab
     if (IS_BATTLER_OF_TYPE(attacker, moveType))
@@ -13048,8 +13049,6 @@ static void Task_GlitchBattleScreen(u8 taskId)
         tilemap[i] = GlitchTilemapXor((u16)(i + frame));
 }
 
-static u16 sGlitchBattleScreenSavedPalette[PLTT_BUFFER_SIZE];
-
 void BS_GlitchBattleScreen(void)
 {
     NATIVE_ARGS();
@@ -13096,13 +13095,22 @@ void BS_RestoreBattleBackground(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+static void Task_GlitchBattleBgm(u8 taskId)
+{
+    m4aMPlayPitchControl(&gMPlayInfo_BGM, TRACKS_ALL, (s16)Random());
+
+    // every 8 frames, randomly jump the speed
+    if ((gMain.vblankCounter2 & 7) == 0)
+        m4aMPlayTempoControl(&gMPlayInfo_BGM, 0x80 + (u16)(Random() % 0x180));
+}
+
 void BS_GlitchBattleBgm(void)
 {
     NATIVE_ARGS();
 
     m4aSongNumStart(GetBattleBGM());
-    gMPlayInfo_BGM.tempoU = 0xabbb;
-    gMPlayInfo_BGM.tempoC = 0x7999;
+    if (!FuncIsActiveTask(Task_GlitchBattleBgm))
+        CreateTask(Task_GlitchBattleBgm, 200);
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -13112,6 +13120,67 @@ void BS_PrepareTypeBuff2(void)
     NATIVE_ARGS(const u8 *type);
 
     PREPARE_TYPE_BUFFER(gBattleTextBuff2, *cmd->type);
+    
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_Flicker(void)
+{
+    NATIVE_ARGS(u8 mode, u8 frames);
+
+    s32 i;
+    u16 fillColor;
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    switch (sFlickerPhase)
+    {
+    case 0: // instantly fade full palette
+        fillColor = (cmd->mode == FADE_TO_WHITE || cmd->mode == FADE_FROM_WHITE) ? RGB_WHITEALPHA : RGB_BLACK;
+        for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+            gPlttBufferFaded[i] = fillColor;
+        sFlickerTimer = cmd->frames;
+        sFlickerPhase = 1;
+        break;
+    case 1: // wait x frames
+        if (sFlickerTimer > 0)
+            sFlickerTimer--;
+        else
+            sFlickerPhase = 2;
+        break;
+    case 2: // instantly restore palette
+        for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+            gPlttBufferFaded[i] = gPlttBufferUnfaded[i];
+        sFlickerPhase = 0;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+        break;
+    }
+}
+
+void BS_GlitchPalettes(void)
+{
+    NATIVE_ARGS();
+
+    s32 i;
+
+    for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+    {
+        sGlitchBattleScreenSavedPalette[i] = gPlttBufferFaded[i];
+        gPlttBufferFaded[i] = Random();
+    }
+    
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_RestoreGlitchPalettes(void)
+{
+    NATIVE_ARGS();
+
+    s32 i;
+    
+    for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+        gPlttBufferFaded[i] = sGlitchBattleScreenSavedPalette[i];
     
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
