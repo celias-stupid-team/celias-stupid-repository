@@ -247,61 +247,130 @@ script OneIsland_Kaylee {
 		release
 		end
 	}
-	applymovement(LOCALID_KAYLEE, moves(
-		face_player
-	))
-	msgbox(
-	"KAYLEE: Why, hello!\n"
-	"", MSGBOX_DEFAULT)
-	closemessage
-	applymovement(LOCALID_KAILEE, moves(
-		face_player
-	))
-	delay(10)
-	msgbox(
-	"KAILEE: We're dancers from the\n"
-	"land of MINNESOTA.", MSGBOX_DEFAULT)
-	closemessage
-	applymovement(LOCALID_KAILIE, moves(
-		face_player
-	))
-	delay(10)
-	msgbox(
-	"KAILIE: We hear that if a crew of\n"
-	"five dancers comes together…", MSGBOX_DEFAULT)
-	closemessage
-	applymovement(LOCALID_KAYLEIGH, moves(
-		face_player
-	))
-	delay(10)
-	msgbox(
-	"KAYLEIGH: …A rare POKéMON will\n"
-	"hatch from this egg.", MSGBOX_DEFAULT)
-	delay(10)
-	closemessage
+	if(flag(FLAG_TEMP_5)) {
+		applymovement(LOCALID_KAILEE, moves(
+			face_down
+		))
+		msgbox(
+		"KAILEE: Why, hello!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_KAILIE, moves(
+			face_player
+		))
+		delay(10)
+		msgbox(
+		"KAILIE: We're dancers from the\n"
+		"land of MINNESOTA.", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_KAYLEE, moves(
+			face_down
+		))
+		delay(10)
+		msgbox(
+		"KAYLEE: We hear that if a crew of\n"
+		"five dancers comes together…", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_KAYLEIGH, moves(
+			face_down
+		))
+		delay(10)
+		msgbox(
+		"KAYLEIGH: …A rare POKéMON will\n"
+		"hatch from this egg.", MSGBOX_DEFAULT)
+		delay(10)
+		closemessage
+	} else {
+		applymovement(LOCALID_KAILEE, moves(
+			face_down
+		))
+		msgbox(
+		"KAILEE: Welcome back!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_KAILIE, moves(
+			face_player
+		))
+		delay(10)
+		msgbox(
+		"KAILIE: Have you found another\n"
+		"dancer to join us?", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_KAYLEE, moves(
+			face_down
+		))
+		delay(10)
+		msgbox(
+		"KAYLEE: We need just one more.\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_KAYLEIGH, moves(
+			face_down
+		))
+		delay(10)
+		msgbox(
+		"KAYLEIGH: I'm sure you have\n"
+		"someone.", MSGBOX_DEFAULT)
+		delay(10)
+		closemessage
+	}
+
+	setflag(FLAG_TEMP_5)
 	if(checkpartymon(SPECIES_JYNX)) {
 		msgbox(
-		"KAYLEE: Oh, incredible!\n"
-		"A fifth dancer like us!", MSGBOX_DEFAULT)
-		closemessage
-		msgbox(
-		"We dance.\p"
+		"KAYLEE: Oh, wonderful!\n"
+		"You've brought a fifth dancer!\p"
 
-		"It is implied that the egg\n"
-		"hatches.", MSGBOX_DEFAULT)
-		closemessage
+		"Come along, now.\n"
+		"It's time to dance!", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_DANCERS, "Wow!\nWhat a show!")
+		applymovement(LOCALID_KAILEE, moves(
+			face_up
+		))
+		applymovement(LOCALID_KAILIE, moves(
+			face_up
+		))
+		applymovement(LOCALID_KAYLEE, moves(
+			face_right
+		))
+		applymovement(LOCALID_KAYLEIGH, moves(
+			face_left
+		))
 		delay(30)
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 15)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+		special(ShakeScreen)
+		playse(SE_M_MEGA_KICK)
+		fadescreenswapbuffers(FADE_TO_WHITE)
+		waitse
+		delay(10)
 		applymovement(LOCALID_ONE_ISLAND_ARTICUNO_EGG, moves(
 			set_invisible
 		))
 		applymovement(LOCALID_ONE_ISLAND_ARTICUNO, moves(
 			set_visible
 		))
+		playse(SE_EGG_HATCH)
+		fadescreeninstant(FADE_FROM_WHITE)
+		waitse
+		delay(20)
+
+
+
+		additem(ITEM_POKE_BALL, 1)
 		playmoncry(SPECIES_ARTICUNO, CRY_MODE_ENCOUNTER)
 		setwildbattle(SPECIES_ARTICUNO, 50, ITEM_MYSTIC_SEAL)
 		dowildbattle
-		delay(60)
+		delay(40)
+		while(!checkmoncaught(SPECIES_ARTICUNO)) {
+			giveitem_msg("Try again", ITEM_POKE_BALL, 1)
+			dowildbattle
+			delay(60)
+		}
 		removeobject(LOCALID_ONE_ISLAND_ARTICUNO)
+		setvar(VAR_TEMP_0, 1)
 		msgbox(
 		"What an incredible sight!\n"
 		"Thank you for the show.\p"
@@ -325,6 +394,25 @@ script OneIsland_Kaylee {
 		msgbox(
 		"KAILEE: Have you by chance found\n"
 		"someone like us?", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+		applymovement(LOCALID_PLAYER,moves(
+			walk_down
+		))
+		waitmovement(0)
+		applymovement(LOCALID_KAILEE, moves(
+			face_original_direction
+		))
+		applymovement(LOCALID_KAILIE, moves(
+			face_original_direction
+		))
+		applymovement(LOCALID_KAYLEE, moves(
+			face_original_direction
+		))
+		applymovement(LOCALID_KAYLEIGH, moves(
+			face_original_direction
+		))
+		waitmovement(0)
 	}
 	release
 }
