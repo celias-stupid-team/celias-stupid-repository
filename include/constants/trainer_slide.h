@@ -30,6 +30,7 @@ enum TrainerSlideType
     TRAINER_SLIDE_DYNAMAX,
     TRAINER_SLIDE_AFTER_DEFEAT,
     TRAINER_SLIDE_49_DAMAGE,
+    TRAINER_SLIDE_AFTER_TURN_5, // special slide for wiz1989 cameo battle
     TRAINER_SLIDE_COUNT,
 };
 

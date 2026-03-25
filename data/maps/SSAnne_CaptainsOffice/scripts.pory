@@ -60,9 +60,17 @@ script SSAnne_Captain {
 }
 
 script SSAnne_TrashCan {
-	msgbox(
-	"Forty-seven HMs for CUT."
-	"", MSGBOX_SIGN)
+	if(!flag(FLAG_GOT_HM01)) {
+		msgbox(
+		"Forty-eight HMs for CUT."
+		"", MSGBOX_SIGN)
+
+	} else {
+		msgbox(
+		"Forty-seven HMs for CUT."
+		"", MSGBOX_SIGN)
+
+	}
 
 }
 

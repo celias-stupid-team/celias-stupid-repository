@@ -4,7 +4,7 @@
   "layout": "LAYOUT_VIRIDIAN_GYM_BLAINE",
   "music": "MUS_BLAINE_GYM",
   "region_map_section": "MAPSEC_VIRIDIAN_GYM_2",
-  "requires_flash": false,
+  "requires_flash": true,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
   "allow_cycling": false,
@@ -22,20 +22,20 @@
       "x": 12,
       "y": 4,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ViridianGym_BlaineBattle",
-      "flag": "FLAG_TEMP_3"
+      "script": "ViidianGym_Blaine_Talk",
+      "flag": "FLAG_BEAT_DMCA_BLAINE"
     },
     {
       "local_id": "LOCALID_BLAINE_SNORLAX_2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SNORLAX",
       "x": 8,
-      "y": -2,
+      "y": -3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -50,7 +50,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SNORLAX",
       "x": 4,
-      "y": -2,
+      "y": -3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -64,7 +64,7 @@
       "local_id": "LOCALID_BLAINE_DMCA_2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 4,
+      "x": 8,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -79,7 +79,7 @@
       "local_id": "LOCALID_BLAINE_DMCA_1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 8,
+      "x": 4,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -119,21 +119,42 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_BEAT_DMCA_BLAINE"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GYM_SIGN",
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SecretGarden_PCSystem",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
       "x": 10,
-      "y": 16,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     },
     {
       "x": 12,
-      "y": 2,
+      "y": 1,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_FALKNER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_BLAINE",
       "dest_warp_id": "0"
     }
   ],
@@ -142,7 +163,7 @@
     {
       "type": "sign",
       "x": 8,
-      "y": 14,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_Gym_EventScript_GymStatue"
@@ -150,10 +171,18 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 14,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_Gym_EventScript_GymStatue"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",
+      "script": "ViridianGym_BlaineBattle"
     }
   ]
 }

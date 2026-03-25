@@ -108,7 +108,7 @@
         "checkpartymonslotegg": {
             "var_name": "VAR_RESULT"
         },
-        "compare_var_to_var": {
+        "are_vars_equal": {
             "var_name": "VAR_RESULT"
         }
     }

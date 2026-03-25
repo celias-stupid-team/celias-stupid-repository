@@ -32,6 +32,9 @@ mapscripts ViridianGym_Sabrina_MapScripts {
         if(flag(FLAG_SILPH_WARP_THREE_ISLAND)) {
             setmetatile(7, 12, 0x293, FALSE)
         }
+        if(flag(FLAG_BEAT_DMCA_SABRINA)) {
+            setmetatile(21, 9, 0x293, FALSE)
+        }
     }
 }
 
@@ -55,6 +58,9 @@ script ViridianGym_SabrinaBattle {
     msgbox(
 	"I get inexplicably decapitated\n"
 	"", MSGBOX_DEFAULT)
+    playse(SE_SWITCH)
+    setmetatile(21, 9, 0x293, FALSE)
+    special(DrawWholeMapView)
     release
 }
 

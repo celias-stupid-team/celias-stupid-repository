@@ -232,6 +232,7 @@ It is reset after every battle.
 #define EVENT_BATTLE_LARRY_2  18 //check
 #define EVENT_BATTLE_BARRY  19 //check
 #define EVENT_BATTLE_JAMES  20 //check
+#define EVENT_BATTLE_MARY  21 //check
 
 
 
@@ -345,8 +346,8 @@ It is reset after every battle.
 #define VAR_DAILY_PLANTED_BERRIES  0x40E9
 #define VAR_DAILY_PICKED_BERRIES   0x40EA
 #define VAR_DAILY_ROULETTE         0x40EB
-#define VAR_0x40EC                 0x40EC
-#define VAR_0x40ED                 0x40ED
+#define VAR_LUVDISC_TILE                 0x40EC
+#define VAR_ARTICUNO_SCENE                 0x40ED
 #define VAR_0x40EE                 0x40EE
 #define VAR_0x40EF                 0x40EF
 #define VAR_0x40F0                 0x40F0

@@ -5,7 +5,7 @@ mapscripts FushciaGym_DoubleBattleRoom_MapScripts {
         if(flag(FLAG_GOT_POISONED_ONCE)) {
             addvar(VAR_CANT_FIGURE_OUT_DARACH, 1)
         }
-        if(var(VAR_CANT_FIGURE_OUT_DARACH) < 4 || checktrainerflag(TRAINER_BATTLE_FRONTIER_CAITLIN)) {
+        if(var(VAR_CANT_FIGURE_OUT_DARACH) < 3 || checktrainerflag(TRAINER_BATTLE_FRONTIER_CAITLIN)) {
             setflag(FLAG_TEMP_5)
         }
     }

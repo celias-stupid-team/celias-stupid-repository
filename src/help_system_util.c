@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "field_specials.h"
 #include "decompress.h"
 #include "m4a.h"
 #include "event_data.h"
@@ -32,6 +33,7 @@ EWRAM_DATA bool8 gHelpSystemToggleWithRButtonDisabled = FALSE;
 static EWRAM_DATA u8 sDelayTimer = 0;
 static EWRAM_DATA u8 sInHelpSystem = 0;
 static EWRAM_DATA struct HelpSystemVideoState sVideoState = {0};
+static EWRAM_DATA bool8 sLoadBibleDirectly = FALSE;
 EWRAM_DATA struct HelpSystemListMenu gHelpSystemListMenu = {0};
 EWRAM_DATA struct ListMenuItem gHelpSystemListMenuItems[200] = {0};
 
@@ -49,6 +51,8 @@ u8 RunHelpSystemCallback(void)
         if (gSaveBlock2Ptr->optionsButtonMode != OPTIONS_BUTTON_MODE_HELP)
             return 0;
         if (JOY_NEW(R_BUTTON) && gHelpSystemToggleWithRButtonDisabled == TRUE)
+            return 0;
+        if (gChapterTitleRunning)
             return 0;
         if (JOY_NEW(HELP_KEYS))
         {
@@ -87,11 +91,15 @@ u8 RunHelpSystemCallback(void)
         HelpSystem_FillPanel2();
         HelpSystem_PrintTextInTopLeftCorner(gString_Help);
         HS_ShowOrHideWordHELPinTopLeft(1);
-        HelpSystemSubroutine_PrintWelcomeMessage(&gHelpSystemListMenu, gHelpSystemListMenuItems);
-        /*
-        else
+        if (sLoadBibleDirectly) // only set from FieldUseFunc_HelixFossil
+        {
+            sLoadBibleDirectly = FALSE;
             HelpSystemSubroutine_WelcomeEndGotoMenu(&gHelpSystemListMenu, gHelpSystemListMenuItems);
-        */
+        }
+        else
+        {
+            HelpSystemSubroutine_PrintWelcomeMessage(&gHelpSystemListMenu, gHelpSystemListMenuItems);
+        }
         HS_ShowOrHideHeaderAndFooterLines_Lighter(1);
         HS_ShowOrHideVerticalBlackBarsAlongSides(1);
         CommitTilemap();
@@ -866,4 +874,19 @@ bool8 MoveCursor(u8 by, u8 dirn)
         break;
     }
     return FALSE;
+}
+
+void OpenHelpSystem(void) // copied from RunHelpSystemCallback
+{
+    if (!HelpSystem_IsSinglePlayer() || !gHelpSystemEnabled)
+        return;
+    m4aMPlayStop(&gMPlayInfo_SE1);
+    m4aMPlayStop(&gMPlayInfo_SE2);
+    PlaySE(SE_HELP_OPEN);
+    if (!gDisableHelpSystemVolumeReduce)
+        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x80);
+    SaveCallbacks();
+    sInHelpSystem = 1;
+    sVideoState.state = 1;
+    sLoadBibleDirectly = TRUE;
 }

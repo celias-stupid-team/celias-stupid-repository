@@ -31,7 +31,7 @@ SaffronCity_Gym_Text_ReceivedTM04FromSabrina::
     .string "the big NERD.$"
 
 SaffronCity_Gym_Text_ExplainTM04::
-	.string "TM39 contains…{PAUSE 30} BIDE.\p"
+	.string "TM34 contains…{PAUSE 30} BIDE.\p"
 	.string "It is a move that definitely\n"
 	.string "exists.$"
 

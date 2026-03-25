@@ -1270,3 +1270,58 @@ const struct Tileset gTileset_DMCABlaine =
     .metatileAttributes = gMetatileAttributes_DMCABlaine,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Cave_Of_Origin =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Cave_Of_Origin,
+    .palettes = gTilesetPalettes_Cave_Of_Origin,
+    .metatiles = gMetatiles_Cave_Of_Origin,
+    .metatileAttributes = gMetatileAttributes_Cave_Of_Origin,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Starlight_Interior =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Starlight_Interior,
+    .palettes = gTilesetPalettes_Starlight_Interior,
+    .metatiles = gMetatiles_Starlight_Interior,
+    .metatileAttributes = gMetatileAttributes_Starlight_Interior,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Unused =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Unused,
+    .palettes = gTilesetPalettes_Unused,
+    .metatiles = gMetatiles_Unused,
+    .metatileAttributes = gMetatileAttributes_Unused,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Starlight_Interior2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Starlight_Interior2,
+    .palettes = gTilesetPalettes_Starlight_Interior2,
+    .metatiles = gMetatiles_Starlight_Interior2,
+    .metatileAttributes = gMetatileAttributes_Starlight_Interior2,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_SkullRoom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SkullRoom,
+    .palettes = gTilesetPalettes_SkullRoom,
+    .metatiles = gMetatiles_SkullRoom,
+    .metatileAttributes = gMetatileAttributes_SkullRoom,
+    .callback = NULL,
+};

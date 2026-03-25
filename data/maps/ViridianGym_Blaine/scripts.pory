@@ -24,70 +24,304 @@ mapscripts ViridianGym_Blaine_MapScripts {
             case 9:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 7)
         }
+        
+        getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+        if(var(VAR_TEMP_1) == 6) {
+            
+            playbgm(MUS_NONE, TRUE)
+        } else {
+            setflag(FLAG_TEMP_1)
+            setflag(FLAG_TEMP_2)
+            setflashlevel(0)
+        }
     }
+    MAP_SCRIPT_ON_LOAD {
+        getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+        if(var(VAR_TEMP_1) == 6) {
+            
+            playbgm(MUS_NONE, TRUE)
+        }else {
+            setflashlevel(0)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_1, 6 {
+            applymovement(LOCALID_PLAYER, moves(
+                face_down
+            ))
+            setflag(FLAG_STARTED_BLAINE_FUN)
+            delay(60)
+            msgbox(
+            "Ladies and Gentlemen!\n"
+            "{PAUSE 30}(and misc.)\l"
+            "Put your hands together foooooor-!", MSGBOX_DEFAULT)
+            playbgm(MUS_BLAINE_GYM, TRUE)
+            fadescreenswapbuffers(FADE_TO_WHITE)
+            closemessage
+            animateflash(0)
+            setflashlevel(0)
+            fadescreeninstant(FADE_FROM_WHITE)
+            msgbox(
+            "The 68th Trivia Quiz-Off!\n"
+            "", MSGBOX_DEFAULT)
+            playse(SE_APPLAUSE)
+            delay(60)
+            special(SpawnCameraObject)
+            applymovement(LOCALID_CAMERA, moves(
+                walk_fast_right * 3
+            ))
+            waitmovement(0)
+            textcolor(NPC_TEXT_COLOR_BLUE)
+            msgbox(
+            "I'm your host:{PAUSE 20} PAUL!\n"
+            "{PAUSE 20}The favorite of all!", MSGBOX_DEFAULT)
+            closemessage
+            applymovement(LOCALID_BLAINE_DMCA_3, moves(
+                face_left
+            ))
+            applymovement(LOCALID_CAMERA, moves(
+                walk_faster_left * 3
+            ))
+            waitmovement(LOCALID_CAMERA)
+            msgbox(
+            "And here we have our three\n"
+            "lovely contestants!", MSGBOX_DEFAULT)
+            closemessage
+            applymovement(LOCALID_BLAINE_DMCA_2, moves(
+                walk_in_place_down * 5
+            ))
+            applymovement(LOCALID_BLAINE_DMCA_1, moves(
+                jump_in_place_down
+                delay_8 
+                jump_in_place_down
+            ))
+            applymovement(LOCALID_PLAYER, moves(
+                delay_16
+                delay_8 
+                face_left
+                delay_16
+                face_right
+                delay_16
+                face_down
+            ))
+            waitmovement(LOCALID_BLAINE_DMCA_1)
+            waitmovement(LOCALID_PLAYER)
+            msgbox(
+            "(more text here idk)\n"
+            "", MSGBOX_DEFAULT)
+            closemessage
+            delay(20)
+            applymovement(LOCALID_PLAYER, moves(
+                face_up
+            ))
+            applymovement(LOCALID_BLAINE_DMCA_1, moves(
+                face_up
+            ))
+            applymovement(LOCALID_BLAINE_DMCA_2, moves(
+                face_up
+            ))
+            applymovement(LOCALID_BLAINE_DMCA_3, moves(
+                face_up
+            ))
+            applymovement(LOCALID_CAMERA, moves(
+                walk_up * 2
+            ))
+            waitmovement(LOCALID_CAMERA)
+            delay(30)
+            playse(SE_PC_LOGIN)
+            setmetatile(4, 1, METATILE_DMCABlaine_BlankLetter, TRUE)
+            setmetatile(5, 1, METATILE_DMCABlaine_LetterA, TRUE)
+            setmetatile(6, 1, METATILE_DMCABlaine_LetterR, TRUE)
+            setmetatile(7, 1, METATILE_DMCABlaine_LetterI, TRUE)
+            setmetatile(8, 1, METATILE_DMCABlaine_LetterO, TRUE)
+            special(DrawWholeMapView)
+            delay(60)
+            msgbox(
+            "“This NINTENDO mascot is also a\n"
+            "playable character in the famous\l"
+            "game series SUPER SMASH BROS!”", MSGBOX_DEFAULT)
+            closemessage
+
+
+
+            delay(60)
+            playse(SE_CONTEST_HEART)
+            applymovement(LOCALID_BLAINE_DMCA_1, moves(
+                face_down
+            ))
+            setmetatile(4, 5, METATILE_DMCABlaine_BlueTopDing, TRUE)
+            setmetatile(4, 6, METATILE_DMCABlaine_BlueBottomDing, TRUE)
+            special(DrawWholeMapView)
+            delay(45)
+            msgbox(
+            "We have a guess!\n"
+            "What will it be?", MSGBOX_DEFAULT)
+            closemessage
+            delay(40)
+            playse(SE_CONTEST_HEART)
+            setmetatile(4, 1, METATILE_DMCABlaine_LetterM, TRUE)
+            special(DrawWholeMapView)
+            waitse
+            
+            delay(60)
+            setmetatile(3, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(4, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(5, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(6, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(7, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(8, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(9, 1, METATILE_DMCABlaine_RedX, TRUE)
+            special(DrawWholeMapView)
+
+            playse(SE_BOO)
+            waitse
+            msgbox(
+            "I'm sorry, that is INCORRECT!\n"
+            "", MSGBOX_DEFAULT)
+            addobject(LOCALID_BLAINE_SNORLAX_1)
+            playse(SE_FALL)
+            applymovement(LOCALID_BLAINE_SNORLAX_1, moves(
+                set_visible
+                slide_down * 8
+            ))
+            waitmovement(0)
+            removeobject(LOCALID_BLAINE_DMCA_1)
+            setmetatile(3, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(4, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(5, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(6, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(7, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(8, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(9, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            special(DrawWholeMapView)
+            closemessage
+            playse(SE_BANG)
+            delay(60)
+            applymovement(LOCALID_BLAINE_SNORLAX_1, moves(
+                lock_facing_direction
+                walk_fast_up * 8
+                set_invisible
+            ))
+            waitmovement(0)
+            setmetatile(4, 1, METATILE_DMCABlaine_BlankLetter, TRUE)
+            setmetatile(5, 1, METATILE_DMCABlaine_LetterA, TRUE)
+            setmetatile(6, 1, METATILE_DMCABlaine_LetterR, TRUE)
+            setmetatile(7, 1, METATILE_DMCABlaine_LetterI, TRUE)
+            setmetatile(8, 1, METATILE_DMCABlaine_LetterO, TRUE)
+            special(DrawWholeMapView)
+            msgbox(
+            "Do we have another guess?\n"
+            "", MSGBOX_DEFAULT)
+            closemessage
+
+
+
+
+            
+            delay(60)
+            playse(SE_CONTEST_HEART)
+            applymovement(LOCALID_BLAINE_DMCA_2, moves(
+                face_down
+            ))
+            setmetatile(4, 5, METATILE_DMCABlaine_BlueTopDing, TRUE)
+            setmetatile(4, 6, METATILE_DMCABlaine_BlueBottomDing, TRUE)
+            special(DrawWholeMapView)
+            delay(45)
+            msgbox(
+            "Things are heating up!\n"
+            "What will it be?", MSGBOX_DEFAULT)
+            closemessage
+            delay(40)
+            playse(SE_CONTEST_HEART)
+            setmetatile(4, 1, METATILE_DMCABlaine_LetterLuc, TRUE)
+            special(DrawWholeMapView)
+            waitse
+            
+            delay(60)
+            setmetatile(3, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(4, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(5, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(6, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(7, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(8, 1, METATILE_DMCABlaine_RedX, TRUE)
+            setmetatile(9, 1, METATILE_DMCABlaine_RedX, TRUE)
+            special(DrawWholeMapView)
+
+            playse(SE_BOO)
+            waitse
+            msgbox(
+            "I'm sorry, that is INCORRECT!\n"
+            "", MSGBOX_DEFAULT)
+            addobject(LOCALID_BLAINE_SNORLAX_2)
+            playse(SE_FALL)
+            applymovement(LOCALID_BLAINE_SNORLAX_2, moves(
+                set_visible
+                slide_down * 8
+            ))
+            waitmovement(0)
+            removeobject(LOCALID_BLAINE_DMCA_2)
+            setmetatile(3, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(4, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(5, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(6, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(7, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(8, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            setmetatile(9, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
+            special(DrawWholeMapView)
+            closemessage
+            playse(SE_BANG)
+            delay(60)
+            applymovement(LOCALID_BLAINE_SNORLAX_2, moves(
+                lock_facing_direction
+                walk_fast_up * 8
+                set_invisible
+            ))
+            waitmovement(0)
+            setmetatile(4, 1, METATILE_DMCABlaine_BlankLetter, TRUE)
+            setmetatile(5, 1, METATILE_DMCABlaine_LetterA, TRUE)
+            setmetatile(6, 1, METATILE_DMCABlaine_LetterR, TRUE)
+            setmetatile(7, 1, METATILE_DMCABlaine_LetterI, TRUE)
+            setmetatile(8, 1, METATILE_DMCABlaine_LetterO, TRUE)
+            special(DrawWholeMapView)
+            delay(30)
+            applymovement(LOCALID_CAMERA, moves(
+                walk_down * 2
+            ))
+            waitmovement(0)
+            msgbox(
+            "Looks like there's only one\n"
+            "CONTESTANT left.\p"
+
+            "Do you have what it takes to\n"
+            "win?\l"
+            "Let's see!", MSGBOX_DEFAULT)
+            trainerbattle_no_intro(TRAINER_DMCA_BLAINE, ViridianGym_BlaineBattle_End)
+            
+            goto(ViridianGym_BlaineEnding)
+
+
+
+
+
+        }
+    ]
 }
 
-
-
-script ViridianGym_BlaineBattle {
-    lock
-    textcolor(NPC_TEXT_COLOR_BLUE)
-    if(!flag(FLAG_TEMP_1)) {
-        msgbox(
-        "I'm PAUL, the favorite of all!\p"
-
-        "There is a cool quiz game show\n"
-        "here.\p"
-
-        "Every time they get a question\n"
-        "wrong, they get crushed.\l"
-        "Like this.", MSGBOX_DEFAULT)
-        closemessage
-        delay(30)
-        addobject(LOCALID_BLAINE_SNORLAX_1)
-        playse(SE_FALL)
-        applymovement(LOCALID_BLAINE_SNORLAX_1, moves(
-            set_visible
-            slide_down * 7
-        ))
-        waitmovement(0)
-        removeobject(LOCALID_BLAINE_DMCA_1)
-        playse(SE_BANG)
-        delay(60)
-        applymovement(LOCALID_BLAINE_SNORLAX_1, moves(
-            lock_facing_direction
-            walk_fast_up * 7
-            set_invisible
-        ))
-        waitmovement(0)
-    }
-    
-    msgbox(
-	"Then you fight me and I say\p"
-
-	"Your answer had better be RIGHT!\n"
-	"", MSGBOX_DEFAULT)
-
-
-    trainerbattle_no_intro(TRAINER_DMCA_BLAINE, ViridianGym_BlaineBattle_End)
-    if(!checkpartymon(SPECIES_SEVIPER)) {
-        msgbox(
-        "I don't know the mechanical\n"
-        "justification for this one\l"
-        "yet, but…\p"
-
-        "Your answer needs to be right.\n"
-        "", MSGBOX_DEFAULT)
-        goto(EventScript_FieldWhiteOutNoMoney)
-        
-    }
-    msgbox(
-	"Oh no\n"
-	"", MSGBOX_DEFAULT)
-    removeobject(LOCALID_BLAINE_ROADBLOCK)
-    
-    closemessage
+script ViridianGym_BlaineEnding {
     delay(30)
+    playse(SE_CONTEST_ICON_CHANGE)
+    setmetatile(4, 1, METATILE_DMCABlaine_LetterW, TRUE)
+    special(DrawWholeMapView)
+    waitse
+    delay(40)
+    playse(SE_DING_DONG)
+    waitse
+    msgbox(
+	"That's completely correct!\p"
+
+	"…{PAUSE 30}Wait!\n"
+	"No-!", MSGBOX_DEFAULT)
+    waitse
     addobject(LOCALID_BLAINE_SNORLAX_3)
     playse(SE_FALL)
     applymovement(LOCALID_BLAINE_SNORLAX_3, moves(
@@ -95,6 +329,7 @@ script ViridianGym_BlaineBattle {
         slide_down * 7
     ))
     waitmovement(0)
+    closemessage
     removeobject(LOCALID_BLAINE_DMCA_3)
     playse(SE_BANG)
     delay(60)
@@ -107,6 +342,42 @@ script ViridianGym_BlaineBattle {
     end
 }
 
+
+script ViridianGym_BlaineBattle {
+    lock
+    if(flag(FLAG_BEAT_DMCA_BLAINE)) {
+        msgbox(
+        "He deserved it.\n"
+        "", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Welcome back, contestant!\n"
+	"Are you ready for another ROUND?", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
+    playse(SE_CONTEST_ICON_CHANGE)
+    setmetatile(4, 1, METATILE_DMCABlaine_BlankLetter, TRUE)
+    setmetatile(5, 1, METATILE_DMCABlaine_LetterA, TRUE)
+    setmetatile(6, 1, METATILE_DMCABlaine_LetterR, TRUE)
+    setmetatile(7, 1, METATILE_DMCABlaine_LetterI, TRUE)
+    setmetatile(8, 1, METATILE_DMCABlaine_LetterO, TRUE)
+    special(DrawWholeMapView)
+    waitse
+    msgbox(
+    "“This NINTENDO mascot is also a\n"
+    "playable character in the famous\l"
+    "game series SUPER SMASH BROS!”", MSGBOX_DEFAULT)
+    msgbox(
+	"Let's see your answer!\n"
+	"", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_DMCA_BLAINE, ViridianGym_BlaineBattle_End)
+    goto(ViridianGym_BlaineEnding)
+    
+}
+
 text ViridianGym_BlaineBattle_Start {
     "they killed my gym\n"
 }
@@ -114,4 +385,23 @@ text ViridianGym_BlaineBattle_Start {
 
 text ViridianGym_BlaineBattle_End {
    "you were right\n"
+}
+
+
+script ViidianGym_Blaine_Talk {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Oh ho ho!\n"
+	"I'm the host!\p"
+
+	"If you want another crack at it,\n"
+	"head over to your PODIUM!", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, moves(
+        face_original_direction
+    ))
+    waitmovement(0)
+    release
 }

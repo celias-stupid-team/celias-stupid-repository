@@ -16,6 +16,7 @@
 #include "field_specials.h"
 #include "field_weather.h"
 #include "fieldmap.h"
+#include "help_system.h"
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
@@ -404,7 +405,13 @@ static bool8 CanFish(void)
     }
     if (MetatileBehavior_IsLuvdiscTile(behavior)) {
             //DebugPrintf("true");
-            FlagSet(FLAG_SYS_LUVDISC_TILE);
+            VarSet(VAR_LUVDISC_TILE, 1);
+            return TRUE;
+
+    }
+    if (MetatileBehavior_IsNormalLuvdiscTile(behavior)) {
+            //DebugPrintf("true");
+            VarSet(VAR_LUVDISC_TILE, 2);
             return TRUE;
 
     }
@@ -693,12 +700,6 @@ void FieldUseFunc_RunningScrews(u8 taskId)
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RunningScrews, Task_ReturnToBagFromContextMenu);
 }
 
-void FieldUseFunc_HelixFossil(u8 taskId)
-{
-    
-    
-}
-
 
 
 void FieldUseFunc_Ligma(u8 taskId)
@@ -707,6 +708,7 @@ void FieldUseFunc_Ligma(u8 taskId)
     //RemoveUsedItem();
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_Ligma, Task_ReturnToBagFromContextMenu);
 }
+
 static void ItemUseOnFieldCB_Unlock(u8 taskId)
 {
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
@@ -722,8 +724,6 @@ void Task_ReturnToFieldFromBagMenu(u8 taskId)
     Bag_BeginCloseWin0Animation();
     ItemMenu_StartFadeToExitCallback(taskId);
 }
-
-
 
 void FieldUseFunc_CopycatTM(u8 taskId)
 {
@@ -744,7 +744,6 @@ void FieldUseFunc_CeliaMessage(u8 taskId)
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_CeliaMessage, Task_ReturnToFieldFromBagMenu);
 }
 
-
 void FieldUseFunc_Ruby(u8 taskId)
 {
     if(VarGet(VAR_READY_FOR_TORNADO) == 1) {
@@ -756,15 +755,18 @@ void FieldUseFunc_Ruby(u8 taskId)
     }
 }
 
-
-
 void FieldUseFunc_Cigarette(u8 taskId)
 {
 
         PlaySE(SE_M_EMBER);
         RemoveUsedItem();
+        if(gSpecialVar_ItemId == ITEM_PREMIERCIGAR) {
+            DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PlayerPremierCancer, Task_ReturnToBagFromContextMenu);
 
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PlayerCancer, Task_ReturnToBagFromContextMenu);
+        } else {
+            DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PlayerCancer, Task_ReturnToBagFromContextMenu);
+        }
+        
     
 }
 
@@ -786,8 +788,6 @@ static void Task_UseMaxRepel(u8 taskId) {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelWorks, Task_ReturnToBagFromContextMenu);
     }
-
-
 }
 
 static void RemoveUsedItem(void)
@@ -1257,6 +1257,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+    
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
@@ -1286,6 +1287,7 @@ void FieldUseFunc_BalmMushroom(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
@@ -1315,6 +1317,7 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
@@ -1325,7 +1328,17 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
     }
 }
 
+static void OpenHelpSystemFromBag(void)
+{
+    SetMainCallback2(gBagMenuState.bagCallback);
+    OpenHelpSystem();
+}
 
+void FieldUseFunc_HelixFossil(u8 taskId)
+{
+    ItemMenu_SetExitCallback(OpenHelpSystemFromBag);
+    ItemMenu_StartFadeToExitCallback(taskId);
+}
 
 static void LWPEmblem_EquipOutfit(void)
 {
@@ -1404,6 +1417,7 @@ static void (*const sLWPEmblemWarpOutEffectFuncs[])(struct Task *task) =
 #define tTimer       data[9]
 #define tSpinEnded   data[10]
 #define tCurrentDir  data[11]
+#define tStandalone  data[12] // indicates the effect is occurring without the item being used
 #define tDirection   data[15]
 
 static void Task_LWPEmblemWarpOut(u8 taskId)
@@ -1457,6 +1471,29 @@ static void LWPEmblemWarpOutEffect_Spin(struct Task *task)
         tCurrentDir = SpinObjectEvent(playerObj, &task->tSpinDelay, &task->tNumTurns);
     
     tTimer++;
+}
+
+void StandaloneGenderFluidEffect(void)
+{
+    u32 taskId;
+    struct ObjectEvent *playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
+    LockPlayerFieldControls();
+
+    if (gSaveBlock2Ptr->playerGender == MALE)
+    {
+        gSaveBlock2Ptr->playerGender = FEMALE;
+        gPlayerAvatar.gender = FEMALE;
+    }
+    else
+    {
+        gSaveBlock2Ptr->playerGender = MALE;
+        gPlayerAvatar.gender = MALE;
+    }
+    
+    ResetInitialPlayerAvatarState();
+    ObjectEventSetGraphicsId(playerObj, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_NORMAL));
+    //taskId = CreateTask(Task_GenderFluidWarpOut, 80);
+    gTasks[taskId].tStandalone = TRUE;
 }
 
 void FieldUseFunc_GenderFluid(u8 taskId)
@@ -1756,8 +1793,16 @@ static void GenderFluidWarpOutEffect_Spin(struct Task *task)
     }
     else if (tSpinEnded && tTimer >= GF_SHOW_MESSAGE)
     {
-        StringExpandPlaceholders(gStringVar4, gText_GenderFluidEnd);
-        DisplayItemMessageOnField(FindTaskIdByFunc(Task_GenderFluidWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        if (tStandalone)
+        {
+            DestroyTask(FindTaskIdByFunc(Task_GenderFluidWarpOut));
+            ScriptContext_Enable();
+        }                
+        else
+        {
+            StringExpandPlaceholders(gStringVar4, gText_GenderFluidEnd);
+            DisplayItemMessageOnField(FindTaskIdByFunc(Task_GenderFluidWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        }
     }
 
     if (!tSpinEnded)
@@ -1765,6 +1810,7 @@ static void GenderFluidWarpOutEffect_Spin(struct Task *task)
     
     tTimer++;
 }
+
 #undef tState       
 #undef tSpinDelay   
 #undef tNumTurns    

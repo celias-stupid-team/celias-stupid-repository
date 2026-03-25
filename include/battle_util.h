@@ -49,6 +49,7 @@
 #define ITEMEFFECT_MOVE_END                     3
 #define ITEMEFFECT_KINGSROCK_SHELLBELL          4
 #define ITEMEFFECT_TARGET                       5
+#define ITEMEFFECT_FORCE_BERRY_CONSUMPTION      6
 
 #define WEATHER_HAS_EFFECT ((!AbilityBattleEffects(ABILITYEFFECT_CHECK_ON_FIELD, 0, ABILITY_CLOUD_NINE, 0, 0) && !AbilityBattleEffects(ABILITYEFFECT_CHECK_ON_FIELD, 0, ABILITY_AIR_LOCK, 0, 0)))
 #define WEATHER_HAS_EFFECT2 ((!AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_CLOUD_NINE, 0, 0) && !AbilityBattleEffects(ABILITYEFFECT_FIELD_SPORT, 0, ABILITY_AIR_LOCK, 0, 0)))
@@ -107,5 +108,37 @@ void TryRestoreHeldItems(void);
 bool32 IsSingleWildRattata(void);
 bool32 IsZapmolcunoOhgiaSpecies(u16 species);
 bool32 CanBePoisoned(u8 battlerTarget, u8 abilityTarget);
+bool32 CanBattlerGetOrLoseItem(u32 battler, u16 itemId);
+u8 GetColorChangeDefType(u8 moveType);
+u16 GetTwistedRealityMove(u8 index);
+u8 GetTwistedRealityMoveCount(void);
+
+#define COLOR_CHANGE_DEF_TYPE_GHOST          0
+#define COLOR_CHANGE_DEF_TYPE_SUBMARINE      1
+#define COLOR_CHANGE_DEF_TYPE_STEEL          2
+#define COLOR_CHANGE_DEF_TYPE_POLICE         3
+#define COLOR_CHANGE_DEF_TYPE_CARPENTER      4
+#define COLOR_CHANGE_DEF_TYPE_MICROSOFT      5
+#define COLOR_CHANGE_DEF_TYPE_NORMAL         6
+#define COLOR_CHANGE_DEF_TYPE_YUGIOH         7
+#define COLOR_CHANGE_DEF_TYPE_FLYING         8
+#define COLOR_CHANGE_DEF_TYPE_BOSS           9
+#define COLOR_CHANGE_DEF_TYPE_OIL            10
+#define COLOR_CHANGE_DEF_TYPE_MOWER          11
+#define COLOR_CHANGE_DEF_TYPE_GROUND         12
+#define COLOR_CHANGE_DEF_TYPE_DARK           13
+#define COLOR_CHANGE_DEF_TYPE_GLOBAL_WARMING 14
+#define COLOR_CHANGE_DEF_TYPE_FAIRY          15
+#define COLOR_CHANGE_DEF_TYPE_BLACKHOLE      16
+#define COLOR_CHANGE_DEF_TYPE_TOOTH          17
+#define COLOR_CHANGE_DEF_TYPE_GIRLS          18
+#define COLOR_CHANGE_DEF_TYPE_BORED          19
+#define COLOR_CHANGE_DEF_TYPE_MOM            20
+#define COLOR_CHANGE_DEF_TYPE_SUN            21
+#define COLOR_CHANGE_DEF_TYPE_MYSTERY        22
+#define COLOR_CHANGE_DEF_TYPE_COUNT          23
+
+extern const u8 gColorChangeDefTypeNames[COLOR_CHANGE_DEF_TYPE_COUNT][20];
+extern const u16 gColorChangeDefTypeHue[COLOR_CHANGE_DEF_TYPE_COUNT];
 
 #endif // GUARD_BATTLE_UTIL_H

@@ -28,6 +28,11 @@
       "map": "MAP_ROUTE12",
       "offset": 49,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE23EXTENDED",
+      "offset": 41,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -307,6 +312,20 @@
       "trainer_sight_or_berry_tree_id": "ITEM_RAT_STONE",
       "script": "EventScript_FindItem",
       "flag": "FLAG_RAT_STONE"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 36,
+      "y": 64,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_RAT_STONE",
+      "script": "EventScript_FindItem",
+      "flag": "FLAG_FOUND_RAT_STONE"
     }
   ],
   "warp_events": [
@@ -684,16 +703,16 @@
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 42,
+      "x": 18,
+      "y": 44,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "IndigoPlateau_Theater"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 44,
+      "x": 18,
+      "y": 45,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "IndigoPlateau_TheaterSign"

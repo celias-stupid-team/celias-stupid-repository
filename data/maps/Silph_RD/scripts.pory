@@ -15,8 +15,19 @@ mapscripts Silph_RD_MapScripts {
 
 script SilphCo_RD_Sign {
 	msgbox(
-	"SILPH CO\n"
+	"SILPH CO 4F\n"
 	"R&D", MSGBOX_SIGN)
+
+}
+
+script SilphCo_RD_AssDotMeatGrinder {
+	msgbox(
+	"A large stockpile of discarded\n"
+	"inventions.\l"
+	"You check the top of the list…\p"
+
+	"“TORCHIC ASS DOT MEAT GRINDER\n"
+	"MINIGAME FOR NUGGETS”", MSGBOX_SIGN)
 
 }
 
@@ -25,6 +36,7 @@ script SilphCo_RD_ApplinKid {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	famechecker(FAMECHECKER_SAFFRON, 5)
 	if(flag(FLAG_GOT_PENCIL_ERASER)) {
 		msgbox(
 		"That PENCIL ERASER is something\n"
@@ -617,7 +629,9 @@ script SilphCo_FinancialReport {
 	waitmovement(LOCALID_SILPH_COMPUTER)
 	playse(SE_ICE_BREAK)
 	addobject(LOCALID_SILPH_COMPUTER_WINDOW)
+	addobject(LOCALID_SILPH_COMPUTER_BUTT)
 	removeobject(LOCALID_SILPH_COMPUTER)
+	clearflag(FLAG_TEMP_6)
 	waitse
 	delay(60)
 	applymovement(LOCALID_SILPH_CHUCKSTER, moves(
@@ -682,5 +696,14 @@ script SilphCo_SnackTrash {
 
 	"Despite this, it seems it was\n"
 	"emptied just this morning.", MSGBOX_SIGN)
+
+}
+
+
+
+script SilphCo_ComputerButt {
+	msgbox(
+	"Thankfully he only threw the\n"
+	"monitor.", MSGBOX_SIGN)
 
 }

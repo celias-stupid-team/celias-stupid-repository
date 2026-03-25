@@ -30,6 +30,7 @@
       "flag": "FLAG_TEMP_4"
     },
     {
+      "local_id": "LOCALID_B1F_CAPTAIN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CAPTAIN",
       "x": 40,
@@ -126,6 +127,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
       "flag": "FLAG_TEMP_3"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 59,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM05",
+      "script": "EventScript_FindItem",
+      "flag": "FLAG_TEMP_A"
     }
   ],
   "warp_events": [
@@ -214,7 +229,44 @@
       "dest_warp_id": "11"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

@@ -72,7 +72,7 @@ script PirateBay_BreakTheSealHint {
 	"world, and no one knows where.\p"
 
 	"Some day, someone may come along\n"
-	"and break the Seal themselves…", MSGBOX_NPC)
+	"and destroy the Seal themselves…", MSGBOX_NPC)
 }
 
 
@@ -291,6 +291,7 @@ script PirateBay_Dad {
 }
 
 script PirateBay_DontGoToWarehouse {
+	
 	msgbox(
 	"See that building up there?\n"
 	"It's the DMCA's WAREHOUSE.\p"

@@ -83,6 +83,7 @@ script FiveIsland_PokemonCenter_1F_EventScript_Nurse {
 
 script Yes_Fisher {
 	lock
+	faceplayer
 	msgbox(
 	"When I visited CINNABAR ISLAND, I\n"
 	"fished up a fascinating POKéMON!\p"

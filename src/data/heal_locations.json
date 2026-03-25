@@ -219,8 +219,8 @@
     {
       "id": "HEAL_LOCATION_FUSHCIA_GYM_SHEDINJA_ROOM",
       "map": "MAP_FUSHCIA_GYM_SHEDINJA_ROOM",
-      "x": 10,
-      "y": 14,
+      "x": 13,
+      "y": 13,
       "respawn_map": "MAP_FUSHCIA_GYM_SHEDINJA_ROOM",
       "respawn_npc": "1"
     },
@@ -484,7 +484,7 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_BLAINE",
       "map": "MAP_VIRIDIAN_GYM_BLAINE",
       "x": 10,
-      "y": 12,
+      "y": 14,
       "respawn_map": "MAP_VIRIDIAN_GYM_BLAINE",
       "respawn_npc": "1"
     },
@@ -606,6 +606,14 @@
       "x": 26,
       "y": 17,
       "respawn_map": "MAP_OCEAN11",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_THIRTY_EIGHT_ISLAND",
+      "map": "MAP_THIRTY_EIGHT_ISLAND",
+      "x": 21,
+      "y": 17,
+      "respawn_map": "MAP_THIRTY_EIGHT_ISLAND",
       "respawn_npc": "1"
     }
   ]

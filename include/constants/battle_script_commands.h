@@ -26,6 +26,9 @@
 #define sRESHOW_MAIN_STATE           gBattleScripting + 0x21 // reshowMainState
 #define sRESHOW_HELPER_STATE         gBattleScripting + 0x22 // reshowHelperState
 #define sLVLUP_HP                    gBattleScripting + 0x23 // levelUpHP
+#define sSAVED_BATTLER               gBattleScripting + 0x24 // savedBattler
+#define sSAVED_DATA                  gBattleScripting + 0x28 // savedData
+#define sBERRY_OVERRIDE              gBattleScripting + 0x2C // overrideBerryRequirements
 
 // Array entries for battle communication
 #define MULTIUSE_STATE          0
@@ -99,6 +102,7 @@
 #define VARIOUS_TRY_ELECTRIFY                   21
 #define VARIOUS_TRY_END_NEUTRALIZING_GAS        22
 #define VARIOUS_SWITCHIN_ABILITIES              23
+#define VARIOUS_TRY_SET_SHINE                   24
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0
@@ -133,27 +137,30 @@
 
 // cases for Cmd_moveend
 #define MOVEEND_PROTECT_LIKE_EFFECT             0
-#define MOVEEND_RAGE                            1
-#define MOVEEND_DEFROST                         2
-#define MOVEEND_SYNCHRONIZE_TARGET              3
-#define MOVEEND_ON_DAMAGE_ABILITIES             4
-#define MOVEEND_QUEUE_DANCER                    5
-#define MOVEEND_IMMUNITY_ABILITIES              6
-#define MOVEEND_SYNCHRONIZE_ATTACKER            7
-#define MOVEEND_CHOICE_MOVE                     8
-#define MOVEEND_CHANGED_ITEMS                   9
-#define MOVEEND_ATTACKER_INVISIBLE              10
-#define MOVEEND_ATTACKER_VISIBLE                11
-#define MOVEEND_TARGET_VISIBLE                  12
-#define MOVEEND_ITEM_EFFECTS_ALL                13
-#define MOVEEND_KINGSROCK_SHELLBELL             14
-#define MOVEEND_SUBSTITUTE                      15
-#define MOVEEND_UPDATE_LAST_MOVES               16
-#define MOVEEND_MIRROR_MOVE                     17
-#define MOVEEND_NEXT_TARGET                     18
-#define MOVEEND_ITEM_EFFECTS_TARGET             19
-#define MOVEEND_CLEAR_BITS                      20
-#define MOVEEND_DANCER                          21
-#define MOVEEND_COUNT                           22
+#define MOVEEND_FAINT_ATTACKER                  1
+#define MOVEEND_RAGE                            2
+#define MOVEEND_DEFROST                         3
+#define MOVEEND_SYNCHRONIZE_TARGET              4
+#define MOVEEND_ON_DAMAGE_ABILITIES             5
+#define MOVEEND_QUEUE_DANCER                    6
+#define MOVEEND_IMMUNITY_ABILITIES              7
+#define MOVEEND_SYNCHRONIZE_ATTACKER            8
+#define MOVEEND_CHOICE_MOVE                     9
+#define MOVEEND_CHANGED_ITEMS                   10
+#define MOVEEND_ATTACKER_INVISIBLE              11
+#define MOVEEND_ATTACKER_VISIBLE                12
+#define MOVEEND_TARGET_VISIBLE                  13
+#define MOVEEND_ITEM_EFFECTS_ALL                14
+#define MOVEEND_KINGSROCK_SHELLBELL             15
+#define MOVEEND_SUBSTITUTE                      16
+#define MOVEEND_UPDATE_LAST_MOVES               17
+#define MOVEEND_MIRROR_MOVE                     18
+#define MOVEEND_NEXT_TARGET                     19
+#define MOVEEND_ITEM_EFFECTS_TARGET             20
+#define MOVEEND_HIT_ESCAPE                      21
+#define MOVEEND_W_TURN                          22
+#define MOVEEND_CLEAR_BITS                      23
+#define MOVEEND_DANCER                          24
+#define MOVEEND_COUNT                           25
 
 #endif // GUARD_CONSTANTS_BATTLE_SCRIPT_COMMANDS_H

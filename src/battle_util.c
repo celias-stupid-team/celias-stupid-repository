@@ -5,6 +5,7 @@
 #include "link.h"
 #include "berry.h"
 #include "random.h"
+#include "mail_data.h"
 #include "pokemon.h"
 #include "string_util.h"
 #include "field_weather.h"
@@ -13,6 +14,7 @@
 #include "battle_anim.h"
 #include "battle_interface.h"
 #include "battle_scripts.h"
+#include "battle_util.h"
 #include "battle_message.h"
 #include "constants/battle_anim.h"
 #include "battle_controllers.h"
@@ -30,47 +32,48 @@
 #include "event_scripts.h"
 #include "event_data.h"
 #include "script.h"
+#include "trainer_slide.h"
 
 #define X UQ_4_12
 #define ______ X(1.0) // Regular effectiveness.
 
 static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
 {//                   Defender -->                                                                                                                                                                                                                                                                                                                                                                                          GrassTCG's resists are 0.2x
-	// Attacker  	NORMAL 	FIGHTING 	FLYING 	POISON 	STEEL 	ROCK 	BUG 	GHOST 	WATER_PHYSICAL 	ELECTRIC_PHYSICAL 	PSYCHIC_PHYSICAL 	GRASS_TCG 	MYSTERY 	GROUND 	FIRE 	WATER 	GRASS 	ELECTRIC 	PSYCHIC 	ICE 	DRAGON 	DARK 	FAIRY 	BROCK 	WEIRD 	DAD 	CHOCOLATE 	SHADOW 	LARGE 	BIRD 	SHIT 	FAIRY_TRANS 	SOUND 	FIGHTING_SPECIAL 	
-	[TYPE_NORMAL]   = {	______, 	______, 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(0.0), 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_FIGHTING]   = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	X(0.2), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	______ 	},
-	[TYPE_FLYING]   = {	______, 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_POISON]   = {	______, 	______, 	______, 	X(0.5), 	X(0.0), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______ 	},
-	[TYPE_STEEL]   = {	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(0.5), 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______ 	},
-	[TYPE_ROCK]   = {	______, 	X(0.5), 	X(2.0), 	______, 	X(0.5), 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	X(0.2), 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	X(0.5) 	},
-	[TYPE_BUG]   = {	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	X(0.5), 	______, 	X(2.0), 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	X(0.5) 	},
-	[TYPE_GHOST]   = {	X(0.0), 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	X(0.5), 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_WATER_PHYSICAL]   = {	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_ELECTRIC_PHYSICAL]   = {	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	X(2.0), 	X(0.5), 	X(0.5), 	______, 	______, 	X(0.5), 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______ 	},
-	[TYPE_PSYCHIC_PHYSICAL]   = {	______, 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(0.0), 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_GRASS_TCG]   = {	______, 	X(2.0), 	______, 	X(0.5), 	X(0.5), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	X(0.5), 	______, 	X(0.5), 	X(2.0), 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_MYSTERY]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_GROUND]   = {	______, 	______, 	X(0.0), 	X(2.0), 	X(2.0), 	X(2.0), 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	X(0.2), 	______, 	______, 	X(2.0), 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______ 	},
-	[TYPE_FIRE]   = {	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	X(2.0), 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_WATER]   = {	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	X(0.5), 	______, 	______, 	X(0.2), 	______, 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_GRASS]   = {	______, 	______, 	X(0.5), 	X(0.5), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______ 	},
-	[TYPE_ELECTRIC]   = {	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.2), 	______, 	X(0.0), 	______, 	X(2.0), 	X(0.5), 	X(0.5), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______ 	},
-	[TYPE_PSYCHIC]   = {	______, 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_ICE]   = {	______, 	______, 	X(2.0), 	______, 	X(0.5), 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(0.2), 	______, 	X(2.0), 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______ 	},
-	[TYPE_DRAGON]   = {	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______ 	},
-	[TYPE_DARK]   = {	______, 	X(0.5), 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	X(0.5) 	},
-	[TYPE_FAIRY]   = {	______, 	X(2.0), 	______, 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_BROCK]   = {	______, 	X(0.5), 	X(5.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5) 	},
-	[TYPE_WEIRD]   = {	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_DAD]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_CHOCOLATE]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_SHADOW]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_LARGE]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_BIRD]   = {	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_SHIT]   = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_FAIRY_TRANS]   = {	______, 	X(2.0), 	______, 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
-	[TYPE_SOUND]   = {	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_FIGHTING_SPECIAL]   = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	X(0.2), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	______ 	},
+	// Attacker              = { NORMAL, FIGHTING, FLYING, POISON, STEEL , ROCK  , BUG   , GHOST , WATER_PHYSICAL, ELECTRIC_PHYSICAL, PSYCHIC_PHYSICAL, GRASS_TCG, MYSTERY, GROUND, FIRE  , WATER , GRASS , ELECTRIC, PSYCHIC, ICE   , DRAGON, DARK  , FAIRY , BROCK , WEIRD , DAD   , CHOCOLATE, SHADOW, LARGE , BIRD  , SHIT  , FAIRY_TRANS, SOUND , FIGHTING_SPECIAL
+	[TYPE_NORMAL]            = { ______, ______  , ______, ______, X(0.5), X(0.5), ______, X(0.0), ______        , ______           , ______          , X(2.0)   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_FIGHTING]          = { X(2.0), ______  , X(0.5), X(0.5), X(2.0), X(2.0), X(0.5), X(0.0), ______        , ______           , X(0.5)          , X(0.2)   , ______ , ______, ______, ______, ______, ______  , X(0.5) , X(2.0), ______, X(2.0), X(0.5), X(0.0), ______, X(2.0), ______   , ______, X(2.0), X(0.5), ______, X(0.5)     , ______, ______ },
+	[TYPE_FLYING]            = { ______, X(2.0)  , ______, ______, X(0.5), X(0.5), X(2.0), ______, ______        , X(0.5)           , ______          , ______   , ______ , ______, ______, ______, X(2.0), X(0.5)  , ______ , ______, ______, ______, ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
+	[TYPE_POISON]            = { ______, ______  , ______, X(0.5), X(0.0), X(0.5), X(2.0), X(0.5), ______        , ______           , ______          , ______   , ______ , X(0.5), ______, ______, X(2.0), ______  , ______ , ______, ______, ______, X(2.0), X(0.0), ______, ______, ______   , ______, ______, ______, ______, X(2.0)     , ______, ______ },
+	[TYPE_STEEL]             = { ______, ______  , ______, ______, X(0.5), X(2.0), ______, ______, X(0.5)        , X(0.5)           , ______          , ______   , ______ , ______, X(0.5), X(0.5), ______, X(0.5)  , ______ , X(2.0), ______, ______, X(2.0), X(0.0), ______, ______, ______   , ______, ______, ______, ______, X(2.0)     , ______, ______ },
+	[TYPE_ROCK]              = { ______, X(0.5)  , X(2.0), ______, X(0.5), ______, X(2.0), ______, ______        , ______           , ______          , X(0.2)   , ______ , X(0.5), X(2.0), ______, ______, ______  , ______ , X(2.0), ______, ______, ______, X(0.0), ______, ______, ______   , ______, ______, X(2.0), ______, ______     , ______, X(0.5) },
+	[TYPE_BUG]               = { ______, X(0.5)  , X(0.5), X(2.0), X(0.5), ______, ______, X(0.5), ______        , ______           , X(2.0)          , ______   , ______ , ______, X(0.5), ______, X(2.0), ______  , X(2.0) , ______, ______, X(2.0), X(0.5), X(0.0), ______, ______, ______   , ______, ______, X(0.5), ______, ______     , ______, X(0.5) },
+	[TYPE_GHOST]             = { X(0.0), ______  , ______, ______, X(0.5), ______, ______, X(2.0), ______        , ______           , X(2.0)          , X(2.0)   , ______ , ______, ______, ______, ______, ______  , X(2.0) , ______, ______, X(0.5), ______, X(0.0), ______, ______, ______   , ______, X(0.0), ______, ______, ______     , ______, ______ },
+	[TYPE_WATER_PHYSICAL]    = { ______, ______  , ______, ______, ______, X(2.0), ______, ______, X(0.5)        , ______           , ______          , ______   , ______ , X(2.0), X(2.0), X(0.5), X(0.5), ______  , ______ , ______, X(0.5), ______, ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_ELECTRIC_PHYSICAL] = { ______, ______  , X(2.0), ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , X(0.0), ______, X(2.0), X(0.5), X(0.5)  , ______ , ______, X(0.5), ______, ______, X(0.0), ______, ______, ______   , ______, ______, X(2.0), ______, ______     , ______, ______ },
+	[TYPE_PSYCHIC_PHYSICAL]  = { ______, X(2.0)  , ______, X(2.0), X(0.5), ______, ______, ______, ______        , ______           , X(0.5)          , ______   , ______ , ______, ______, ______, ______, ______  , X(0.5) , ______, ______, X(0.0), ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
+	[TYPE_GRASS_TCG]         = { ______, X(2.0)  , ______, X(0.5), X(0.5), ______, ______, X(0.5), ______        , ______           , ______          , ______   , ______ , ______, ______, X(2.0), ______, ______  , X(0.5) , ______, X(0.5), X(2.0), ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
+	[TYPE_MYSTERY]           = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_GROUND]            = { ______, ______  , X(0.0), X(2.0), X(2.0), X(2.0), X(0.5), ______, ______        , X(2.0)           , ______          , X(0.2)   , ______ , ______, X(2.0), ______, X(0.5), X(2.0)  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, X(0.0), ______, ______     , ______, ______ },
+	[TYPE_FIRE]              = { ______, ______  , ______, ______, X(2.0), X(0.5), X(2.0), ______, X(0.5)        , ______           , ______          , X(2.0)   , ______ , ______, X(0.5), X(0.5), X(2.0), ______  , ______ , X(2.0), X(0.5), ______, ______, ______, ______, ______, X(2.0)   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_WATER]             = { ______, ______  , ______, ______, ______, X(2.0), ______, ______, X(0.5)        , ______           , ______          , X(0.2)   , ______ , X(2.0), X(2.0), X(0.5), X(0.5), ______  , ______ , ______, X(0.5), ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_GRASS]             = { ______, ______  , X(0.5), X(0.5), X(0.5), X(2.0), X(0.5), ______, X(2.0)        , ______           , ______          , ______   , ______ , X(2.0), X(0.5), X(2.0), X(0.5), ______  , ______ , ______, X(0.5), ______, ______, ______, ______, ______, ______   , ______, ______, X(0.5), ______, ______     , ______, ______ },
+	[TYPE_ELECTRIC]          = { ______, ______  , X(2.0), ______, ______, ______, ______, ______, ______        , ______           , ______          , X(0.2)   , ______ , X(0.0), ______, X(2.0), X(0.5), X(0.5)  , ______ , ______, X(0.5), ______, ______, ______, ______, ______, ______   , ______, ______, X(2.0), ______, ______     , ______, ______ },
+	[TYPE_PSYCHIC]           = { ______, X(2.0)  , ______, X(2.0), X(0.5), ______, ______, ______, ______        , ______           , X(0.5)          , X(2.0)   , ______ , ______, ______, ______, ______, ______  , X(0.5) , ______, ______, X(0.0), ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
+	[TYPE_ICE]               = { ______, ______  , X(2.0), ______, X(0.5), ______, ______, ______, X(0.5)        , ______           , ______          , X(0.2)   , ______ , X(2.0), ______, X(0.5), X(2.0), ______  , ______ , X(0.5), X(2.0), ______, ______, ______, ______, ______, ______   , ______, ______, X(2.0), ______, ______     , ______, ______ },
+	[TYPE_DRAGON]            = { ______, ______  , ______, ______, X(0.5), ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, X(2.0), ______, X(0.0), ______, ______, ______, ______   , ______, ______, ______, ______, X(0.0)     , ______, ______ },
+	[TYPE_DARK]              = { ______, X(0.5)  , ______, ______, X(0.5), ______, ______, X(2.0), ______        , ______           , X(2.0)          , ______   , ______ , ______, ______, ______, ______, ______  , X(2.0) , ______, ______, X(0.5), X(0.5), ______, X(2.0), ______, ______   , ______, ______, ______, ______, X(0.5)     , ______, X(0.5) },
+	[TYPE_FAIRY]             = { ______, X(2.0)  , ______, X(0.5), X(0.5), ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, X(0.5), ______, ______, ______  , ______ , ______, X(2.0), X(2.0), ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
+	[TYPE_BROCK]             = { ______, X(0.5)  , X(5.0), ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , X(2.0) , ______, X(2.0), ______, ______, ______  , ______ , X(2.0), ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(0.5) },
+	[TYPE_WEIRD]             = { X(2.0), ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, X(2.0), ______, ______, ______     , ______, ______ },
+	[TYPE_DAD]               = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_CHOCOLATE]         = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_SHADOW]            = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , X(0.5), X(2.0), X(2.0), ______, ______     , ______, X(2.0) },
+	[TYPE_LARGE]             = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_BIRD]              = { ______, X(2.0)  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
+	[TYPE_SHIT]              = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_FAIRY_TRANS]       = { ______, X(2.0)  , ______, X(0.5), X(0.5), ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, X(0.5), ______, ______, ______  , ______ , ______, X(2.0), X(2.0), ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
+	[TYPE_SOUND]             = { ______, ______  , ______, ______, X(0.5), ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_FIGHTING_SPECIAL]  = { X(2.0), ______  , X(0.5), X(0.5), X(2.0), X(2.0), X(0.5), X(0.0), ______        , ______           , X(0.5)          , X(0.2)   , ______ , ______, ______, ______, ______, ______  , X(0.5) , X(2.0), ______, X(2.0), X(0.5), ______, ______, ______, ______   , ______, X(2.0), X(0.5), ______, X(0.5)     , ______, ______ },
 };
 
 #undef ______
@@ -507,12 +510,15 @@ enum
     ENDTURN_SAFEGUARD,
     ENDTURN_WISH,
     ENDTURN_DOUBLE_DIP,
+    ENDTURN_ROOST,
     ENDTURN_RAIN,
     ENDTURN_SANDSTORM,
     ENDTURN_SUN,
     ENDTURN_HAIL,
     ENDTURN_TRICK_ROOM,
+    ENDTURN_GRAVITY,
     ENDTURN_SHADOW_SKY,
+    ENDTURN_WIZ1989_TURN5_SLIDE,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -698,6 +704,21 @@ u8 DoFieldEndTurnEffects(void)
                 gBattleStruct->turnSideTracker = 0;
             }
             break;
+        case ENDTURN_ROOST:
+            for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
+            {
+                if (gDisableStructs[gActiveBattler].roostActive)
+                {
+                    gDisableStructs[gActiveBattler].roostActive = FALSE;
+                    if (gBattleMons[gActiveBattler].type1 == TYPE_MYSTERY)
+                        gBattleMons[gActiveBattler].type1 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[0];
+                    if (gBattleMons[gActiveBattler].type2 == TYPE_MYSTERY)
+                        gBattleMons[gActiveBattler].type2 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[1];
+                }
+            }
+            gBattleStruct->turnCountersTracker++;
+            gBattleStruct->turnSideTracker = 0;
+            break;
         case ENDTURN_RAIN:
             if (gBattleWeather & B_WEATHER_RAIN)
             {
@@ -795,6 +816,15 @@ u8 DoFieldEndTurnEffects(void)
             }
             gBattleStruct->turnCountersTracker++;
             break;
+        case ENDTURN_GRAVITY: // ENDTURN not required
+            // if (gBattleWeather & B_WEATHER_GRAVITY)
+            // {
+            //     gBattlescriptCurrInstr = BattleScript_GravityContinues;
+            //     BattleScriptExecute(gBattlescriptCurrInstr);
+            //     effect++;
+            // }
+            gBattleStruct->turnCountersTracker++;
+            break;
         case ENDTURN_SHADOW_SKY:
             if ((gBattleWeather & B_WEATHER_SHADOW_SKY) && (gBattleTurnMonUsedMove && !gBattleTurnMonFainted))
             {
@@ -806,6 +836,18 @@ u8 DoFieldEndTurnEffects(void)
             }
             gBattleStruct->turnCountersTracker++;
             break;
+        case ENDTURN_WIZ1989_TURN5_SLIDE:
+        {
+            u32 battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+            if (ShouldDoTrainerSlide(battler, TRAINER_SLIDE_AFTER_TURN_5))
+            {
+                gBattleScripting.battler = battler;
+                BattleScriptExecute(BattleScript_Wiz1989Turn5SlideAndFaint);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
+        }
         case ENDTURN_FIELD_COUNT:
             effect++;
             break;
@@ -835,6 +877,7 @@ enum
     ENDTURN_TAUNT,
     ENDTURN_YAWN,
     ENDTURN_ITEMS2,
+    ENDTURN_TWISTED_REALITY,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -934,7 +977,7 @@ u8 DoBattlerEndTurnEffects(void)
             case ENDTURN_BURN:  // burn
                 if ((gBattleMons[gActiveBattler].status1 & STATUS1_BURN) && gBattleMons[gActiveBattler].hp != 0)
                 {
-                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 3;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_BurnTurnDmg);
@@ -965,7 +1008,7 @@ u8 DoBattlerEndTurnEffects(void)
             case ENDTURN_CURSE:  // curse
                 if ((gBattleMons[gActiveBattler].status2 & STATUS2_CURSED) && gBattleMons[gActiveBattler].hp != 0)
                 {
-                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 2; //Curse affliction deals half HP so Greninja dies fast
+                    gBattleMoveDamage = (gBattleMons[gActiveBattler].maxHP + 1) / 2; //Curse affliction deals half HP(rounded up) so Greninja dies fast
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_CurseTurnDmg);
@@ -1149,6 +1192,20 @@ u8 DoBattlerEndTurnEffects(void)
                         BattleScriptExecute(BattleScript_YawnMakesAsleep);
                         effect++;
                     }
+                }
+                gBattleStruct->turnEffectsTracker++;
+                break;
+            case ENDTURN_TWISTED_REALITY:
+                if (gBattleMons[gActiveBattler].ability == ABILITY_TWISTED_REALITY
+                 && gBattleStruct->twistedRealityBaseMove != MOVE_NONE
+                 && gBattleMons[gActiveBattler].hp != 0)
+                {
+                    gBattleMoveDamage = (gBattleMons[gActiveBattler].maxHP + 3) / 4;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleStruct->twistedRealityBaseMove = MOVE_NONE;
+                    BattleScriptExecute(BattleScript_TwistedRealityRecoil);
+                    effect++;
                 }
                 gBattleStruct->turnEffectsTracker++;
                 break;
@@ -1820,6 +1877,7 @@ u8 CastformDataTypeChange(u8 battler)
 #define ABILITY_EFFECT_NONE    0
 #define ABILITY_EFFECT_ABSORB  1
 #define ABILITY_EFFECT_NULLIFY 2
+#define ABILITY_EFFECT_DAMAGE  3
 
 u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveArg)
 {
@@ -1888,6 +1946,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             switch (gLastUsedAbility)
             {
             case ABILITYEFFECT_SWITCH_IN_WEATHER:
+            {
+                bool8 noRelevantWeather = FALSE;
+
                 switch (GetCurrentWeather())
                 {
                 case WEATHER_RAIN:
@@ -1935,15 +1996,27 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     gBattleScripting.battler = battler;
                     effect++;
                     break;
+                default:
+                    noRelevantWeather = TRUE;
+                    break;
                 }
-                if (effect != 0)
+                // special handling for DMCA_BROCK
+                if (noRelevantWeather && gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
+                {
+                    gBattleWeather = B_WEATHER_GRAVITY;
+                    gBattleScripting.battler = battler;
+                    BattleScriptPushCursorAndCallback(BattleScript_GravityStarts);
+                    effect++;
+                }
+                else if (effect != 0)
                 {
                     gBattleCommunication[MULTISTRING_CHOOSER] = GetCurrentWeather();
                     BattleScriptPushCursorAndCallback(BattleScript_OverworldWeatherStarts);
                 }
                 break;
+            }
             case ABILITY_DRIZZLE:
-                if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY))
+                if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
                 {
                     gBattleWeather = (B_WEATHER_RAIN_PERMANENT | B_WEATHER_RAIN_TEMPORARY);
                     BattleScriptPushCursorAndCallback(BattleScript_DrizzleActivates);
@@ -1952,7 +2025,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_SAND_STREAM:
-                if (!(gBattleWeather & B_WEATHER_SANDSTORM_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY))
+                if (!(gBattleWeather & B_WEATHER_SANDSTORM_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
                 {
                     gBattleWeather = B_WEATHER_SANDSTORM;
                     BattleScriptPushCursorAndCallback(BattleScript_SandstreamActivates);
@@ -1961,7 +2034,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_DROUGHT:
-                if (!(gBattleWeather & B_WEATHER_SUN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY))
+                if (!(gBattleWeather & B_WEATHER_SUN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
                 {
                     gBattleWeather = B_WEATHER_SUN;
                     BattleScriptPushCursorAndCallback(BattleScript_DroughtActivates);
@@ -2214,6 +2287,23 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         }
                     }
                     break;
+                case ABILITY_COLOR_CHANGE_WIZ:
+                    if (gBattleMoves[move].power != 0)
+                    {
+                        StringCopy(gBattleTextBuff3, gColorChangeDefTypeNames[GetColorChangeDefType(moveType)]);
+                        gBattleScripting.animArg1 = moveType;
+                        if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                            gBattlescriptCurrInstr = BattleScript_ColorChangeWizActivates;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_ColorChangeWizActivates_PPLoss;
+                        effect = ABILITY_EFFECT_NULLIFY;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr = BattleScript_ColorChangeWizDamage;
+                        effect = ABILITY_EFFECT_DAMAGE;
+                    }
+                    break;
                 }
                 if (effect == ABILITY_EFFECT_ABSORB)
                 {
@@ -2231,6 +2321,12 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                             gBattleMoveDamage = 1;
                         gBattleMoveDamage *= -1;
                     }
+                }
+                else if (effect == ABILITY_EFFECT_DAMAGE) // for ABILITY_COLOR_CHANGE_WIZ
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 5;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
                 }
                 else if (gLastUsedAbility == ABILITY_LIGHTNING_ROD)
                 {
@@ -2784,6 +2880,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 #undef ABILITY_EFFECT_NONE
 #undef ABILITY_EFFECT_ABSORB
 #undef ABILITY_EFFECT_NULLIFY
+#undef ABILITY_EFFECT_DAMAGE
 
 void BattleScriptExecute(const u8 *BS_ptr)
 {
@@ -2812,7 +2909,10 @@ enum
 };
 
 #define TRY_EAT_CONFUSE_BERRY(flavor)                                                       \
-    if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)         \
+    if (((gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2)                    \
+      || (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements              \
+        && (gBattleMons[battlerId].hp < gBattleMons[battlerId].maxHP)))                     \
+    && !moveTurn)                                                                           \
     {                                                                                       \
         PREPARE_FLAVOR_BUFFER(gBattleTextBuff1, flavor);                                    \
         gBattleMoveDamage = gBattleMons[battlerId].maxHP / battlerHoldEffectParam;          \
@@ -2821,15 +2921,33 @@ enum
         if (gBattleMons[battlerId].hp + gBattleMoveDamage > gBattleMons[battlerId].maxHP)   \
             gBattleMoveDamage = gBattleMons[battlerId].maxHP - gBattleMons[battlerId].hp;   \
         gBattleMoveDamage *= -1;                                                            \
-        if (GetFlavorRelationByPersonality(gBattleMons[battlerId].personality, flavor) < 0) \
-            BattleScriptExecute(BattleScript_BerryConfuseHealEnd2);                         \
+        if (gBattleScripting.overrideBerryRequirements)                                     \
+        {                                                                                   \
+            BattleScriptPushCursor();                                                       \
+            if (GetFlavorRelationByPersonality(gBattleMons[battlerId].personality, flavor) < 0) \
+                gBattlescriptCurrInstr = BattleScript_BerryConfuseHealEnd2;                 \
+            else                                                                            \
+                gBattlescriptCurrInstr = BattleScript_ItemHealHP_RemoveItemEnd2;            \
+        }                                                                                   \
         else                                                                                \
-            BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);                        \
+        {                                                                                   \
+            if (GetFlavorRelationByPersonality(gBattleMons[battlerId].personality, flavor) < 0) \
+                BattleScriptExecute(BattleScript_BerryConfuseHealEnd2);                     \
+            else                                                                            \
+                BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);                \
+        }                                                                                   \
         effect = ITEM_HP_CHANGE;                                                            \
+    }                                                                                       \
+    else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)          \
+    {                                                                                       \
+        BattleScriptPushCursor();                                                           \
+        gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;                        \
+        effect = ITEM_EFFECT_OTHER;                                                         \
     }
 
 #define TRY_EAT_STAT_UP_BERRY(stat)                                                         \
-    if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam  \
+    if (((gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam) \
+      || (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements))            \
     && !moveTurn && gBattleMons[battlerId].statStages[stat] < MAX_STAT_STAGE)               \
     {                                                                                       \
         PREPARE_STAT_BUFFER(gBattleTextBuff1, stat);                                        \
@@ -2837,8 +2955,20 @@ enum
         SET_STATCHANGER(stat, 1, FALSE);                                                    \
         gBattleScripting.animArg1 = 14 + (stat);                                            \
         gBattleScripting.animArg2 = 0;                                                      \
-        BattleScriptExecute(BattleScript_BerryStatRaiseEnd2);                               \
+        if (gBattleScripting.overrideBerryRequirements)                                     \
+        {                                                                                   \
+            BattleScriptPushCursor();                                                       \
+            gBattlescriptCurrInstr = BattleScript_BerryStatRaiseEnd2;                       \
+        }                                                                                   \
+        else                                                                                \
+            BattleScriptExecute(BattleScript_BerryStatRaiseEnd2);                           \
         effect = ITEM_STATS_CHANGE;                                                         \
+    }                                                                                       \
+    else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)          \
+    {                                                                                       \
+        BattleScriptPushCursor();                                                           \
+        gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;                        \
+        effect = ITEM_EFFECT_OTHER;                                                         \
     }
 
 u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
@@ -2928,23 +3058,51 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             switch (battlerHoldEffect)
             {
             case HOLD_EFFECT_RESTORE_HP:
-                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)
+                if (((gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2)
+                  || (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements
+                    && (gBattleMons[battlerId].hp < gBattleMons[battlerId].maxHP))) && !moveTurn)
                 {
                     gBattleMoveDamage = battlerHoldEffectParam;
                     if (gBattleMons[battlerId].hp + battlerHoldEffectParam > gBattleMons[battlerId].maxHP)
                         gBattleMoveDamage = gBattleMons[battlerId].maxHP - gBattleMons[battlerId].hp;
                     gBattleMoveDamage *= -1;
-                    BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_ItemHealHP_RemoveItemEnd2;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);
                     effect = ITEM_HP_CHANGE;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_RESTORE_PCT_HP:
-                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)
+                if (((gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2)
+                  || (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements
+                    && (gBattleMons[battlerId].hp < gBattleMons[battlerId].maxHP))) && !moveTurn)
                 {
                     gBattleMoveDamage = gBattleMons[battlerId].maxHP * battlerHoldEffectParam / 100;
                     gBattleMoveDamage *= -1;
-                    BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_ItemHealHP_RemoveItemEnd2;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);
                     effect = ITEM_HP_CHANGE;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_RESTORE_PP:
@@ -2976,10 +3134,22 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
 
                         PREPARE_MOVE_BUFFER(gBattleTextBuff1, move);
 
-                        BattleScriptExecute(BattleScript_BerryPPHealEnd2);
+                        if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                        {
+                            BattleScriptPushCursor();
+                            gBattlescriptCurrInstr = BattleScript_BerryPPHealEnd2;
+                        }
+                        else
+                            BattleScriptExecute(BattleScript_BerryPPHealEnd2);
                         BtlController_EmitSetMonData(BUFFER_A, i + REQUEST_PPMOVE1_BATTLE, 0, 1, &changedPP);
                         MarkBattlerForControllerExec(gActiveBattler);
                         effect = ITEM_PP_CHANGE;
+                    }
+                    else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                        effect = ITEM_EFFECT_OTHER;
                     }
                 }
                 break;
@@ -3030,7 +3200,8 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 TRY_EAT_CONFUSE_BERRY(FLAVOR_SOUR);
                 break;
             case HOLD_EFFECT_ATTACK_UP:
-                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam
+                if (((gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam)
+                  || (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements))
                 && !moveTurn && gBattleMons[battlerId].statStages[STAT_ATK] < MAX_STAT_STAGE)
                 {
                     PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_ATK);
@@ -3039,8 +3210,20 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     SET_STATCHANGER(STAT_ATK, 1, FALSE);
                     gBattleScripting.animArg1 = 14 + STAT_ATK;
                     gBattleScripting.animArg2 = 0;
-                    BattleScriptExecute(BattleScript_BerryStatRaiseEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryStatRaiseEnd2;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryStatRaiseEnd2);
                     effect = ITEM_STATS_CHANGE;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_DEFENSE_UP:
@@ -3056,16 +3239,31 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 TRY_EAT_STAT_UP_BERRY(STAT_SPDEF);
                 break;
             case HOLD_EFFECT_CRITICAL_UP:
-                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam && !moveTurn
-                    && !(gBattleMons[battlerId].status2 & STATUS2_FOCUS_ENERGY))
+                if (((gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam)
+                  || (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements))
+                && !moveTurn && !(gBattleMons[battlerId].status2 & STATUS2_FOCUS_ENERGY))
                 {
                     gBattleMons[battlerId].status2 |= STATUS2_FOCUS_ENERGY;
-                    BattleScriptExecute(BattleScript_BerryFocusEnergyEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryFocusEnergyEnd2;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryFocusEnergyEnd2);
+                    effect = ITEM_EFFECT_OTHER;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
                     effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_RANDOM_STAT_UP:
-                if (!moveTurn && gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam)
+                if (((gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam)
+                  || (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements))
+                && !moveTurn)
                 {
                     for (i = 0; i < NUM_STATS - 1; i++)
                     {
@@ -3094,9 +3292,28 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                         SET_STATCHANGER(i + 1, 2, FALSE);
                         gBattleScripting.animArg1 = 0x21 + i + 6;
                         gBattleScripting.animArg2 = 0;
-                        BattleScriptExecute(BattleScript_BerryStatRaiseEnd2);
+                        if (gBattleScripting.overrideBerryRequirements)
+                        {
+                            BattleScriptPushCursor();
+                            gBattlescriptCurrInstr = BattleScript_BerryStatRaiseEnd2;
+                        }
+                        else
+                            BattleScriptExecute(BattleScript_BerryStatRaiseEnd2);
                         effect = ITEM_STATS_CHANGE;
                     }
+                    else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                    {
+                        // All stats are maxed; berry was consumed for nothing
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                        effect = ITEM_EFFECT_OTHER;
+                    }
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_CURE_PAR:
@@ -3104,24 +3321,60 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 {
                     gBattleMons[battlerId].status1 &= ~STATUS1_PARALYSIS;
                     gStatuses3[battlerId] &= ~STATUS3_PERMA_PARA;
-                    BattleScriptExecute(BattleScript_BerryCurePrlzEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryCureParRet;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryCurePrlzEnd2);
                     effect = ITEM_STATUS_CHANGE;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_CURE_PSN:
                 if (gBattleMons[battlerId].status1 & STATUS1_PSN_ANY)
                 {
                     gBattleMons[battlerId].status1 &= ~(STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER);
-                    BattleScriptExecute(BattleScript_BerryCurePsnEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryCurePsnRet;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryCurePsnEnd2);
                     effect = ITEM_STATUS_CHANGE;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_CURE_BRN:
                 if (gBattleMons[battlerId].status1 & STATUS1_BURN)
                 {
-                    gBattleMons[battlerId].status1 &= ~STATUS1_BURN;
-                    BattleScriptExecute(BattleScript_BerryCureBrnEnd2);
+                    gBattleMons[battlerId].status1 &= ~(STATUS1_BURN | STATUS1_BAD_BURN);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryCureBrnRet;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryCureBrnEnd2);
                     effect = ITEM_STATUS_CHANGE;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_CURE_FRZ:
@@ -3134,8 +3387,20 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     gBattleMons[battlerId].status1 &= ~STATUS1_FREEZE;
-                    BattleScriptExecute(BattleScript_BerryCureFrzEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryCureFrzRet;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryCureFrzEnd2);
                     effect = ITEM_STATUS_CHANGE;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_CURE_SLP:
@@ -3143,15 +3408,39 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 {
                     gBattleMons[battlerId].status1 &= ~STATUS1_SLEEP;
                     gBattleMons[battlerId].status2 &= ~STATUS2_NIGHTMARE;
-                    BattleScriptExecute(BattleScript_BerryCureSlpEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryCureSlpRet;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryCureSlpEnd2);
                     effect = ITEM_STATUS_CHANGE;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_CURE_CONFUSION:
                 if (gBattleMons[battlerId].status2 & STATUS2_CONFUSION)
                 {
                     gBattleMons[battlerId].status2 &= ~STATUS2_CONFUSION;
-                    BattleScriptExecute(BattleScript_BerryCureConfusionEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryCureConfusionRet;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryCureConfusionEnd2);
+                    effect = ITEM_EFFECT_OTHER;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
                     effect = ITEM_EFFECT_OTHER;
                 }
                 break;
@@ -3196,8 +3485,20 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_NORMALIZED_STATUS;
                     gBattleMons[battlerId].status1 = 0;
                     gBattleMons[battlerId].status2 &= ~STATUS2_CONFUSION;
-                    BattleScriptExecute(BattleScript_BerryCureChosenStatusEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryCureChosenStatusRet;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryCureChosenStatusEnd2);
                     effect = ITEM_STATUS_CHANGE;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
                 }
                 break;
             case HOLD_EFFECT_CURE_ATTRACT:
@@ -3205,9 +3506,29 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 {
                     gBattleMons[battlerId].status2 &= ~STATUS2_INFATUATION;
                     StringCopy(gBattleTextBuff1, gStatusConditionString_LoveJpn);
-                    BattleScriptExecute(BattleScript_BerryCureChosenStatusEnd2);
+                    if (gBattleScripting.overrideBerryRequirements)
+                    {
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_BerryCureChosenStatusRet;
+                    }
+                    else
+                        BattleScriptExecute(BattleScript_BerryCureChosenStatusEnd2);
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PROBLEM;
                     effect = ITEM_EFFECT_OTHER;
+                }
+                else if (IsBerry(gLastUsedItem) && gBattleScripting.overrideBerryRequirements)
+                {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryEatenNoEffectRet;
+                    effect = ITEM_EFFECT_OTHER;
+                }
+                break;
+            case HOLD_EFFECT_FLAME_ORB:
+                if (!(gBattleMons[battlerId].status1 & STATUS1_ANY) && !IS_BATTLER_OF_TYPE(battlerId, TYPE_FIRE) && !moveTurn)
+                {
+                    BattleScriptExecute(BattleScript_FlameOrbActivates);
+                    effect = ITEM_EFFECT_OTHER;
+                    RecordItemEffectBattle(battlerId, battlerHoldEffect);
                 }
                 break;
             }
@@ -3245,6 +3566,23 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_AirBalloonMsgPop;
                 }
+                break;
+            }
+        }
+        break;
+    case ITEMEFFECT_FORCE_BERRY_CONSUMPTION:
+        if (gBattleMons[battlerId].hp > 0)
+        {
+            switch (battlerHoldEffect)
+            {
+            case HOLD_EFFECT_TOXIC_BERRY:
+                gBattleMoveDamage = gBattleMons[battlerId].hp;
+                gBattleMons[battlerId].hp = 0;
+                gBattleScripting.battler = battlerId;
+                gPotentialItemEffectBattler = battlerId;
+                effect = ITEM_HP_CHANGE;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_ToxicBerryFaint;
                 break;
             }
         }
@@ -3290,7 +3628,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             case HOLD_EFFECT_CURE_BRN:
                 if (gBattleMons[battlerId].status1 & STATUS1_BURN)
                 {
-                    gBattleMons[battlerId].status1 &= ~STATUS1_BURN;
+                    gBattleMons[battlerId].status1 &= ~(STATUS1_BURN | STATUS1_BAD_BURN);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BerryCureBrnRet;
                     effect = ITEM_STATUS_CHANGE;
@@ -3496,7 +3834,7 @@ void HandleAction_RunBattleScript(void) // identical to RunBattleScriptCommands
 u8 GetMoveTarget(u16 move, u8 setTarget)
 {
     u8 targetBattler = 0;
-    u8 moveTarget;
+    u16 moveTarget;
     u8 side;
 
     if (setTarget != NO_TARGET_OVERRIDE)
@@ -3563,6 +3901,7 @@ u8 GetMoveTarget(u16 move, u8 setTarget)
         break;
     case MOVE_TARGET_USER_OR_SELECTED:
     case MOVE_TARGET_USER:
+    case MOVE_TARGET_ALL_BATTLERS:
         targetBattler = gBattlerAttacker;
         break;
     }
@@ -3882,4 +4221,144 @@ bool32 CanBePoisoned(u8 battlerTarget, u8 abilityTarget)
         return FALSE;
 
     return TRUE;
+}
+
+bool32 CanBattlerGetOrLoseItem(u32 battler, u16 itemId)
+{
+    u16 species = gBattleMons[battler].species;
+
+    if (ItemIsMail(itemId))
+        return FALSE;
+    // else if (DoesSpeciesUseHoldItemToChangeForm(species, itemId))
+    //     return FALSE;
+    else
+        return TRUE;
+}
+
+const u8 gColorChangeDefTypeNames[COLOR_CHANGE_DEF_TYPE_COUNT][20] =
+{
+    [COLOR_CHANGE_DEF_TYPE_GHOST] = _("GHOST"),
+    [COLOR_CHANGE_DEF_TYPE_SUBMARINE] = _("SUBMARINE"),
+    [COLOR_CHANGE_DEF_TYPE_STEEL] = _("STEEL"),
+    [COLOR_CHANGE_DEF_TYPE_POLICE] = _("POLICE"),
+    [COLOR_CHANGE_DEF_TYPE_CARPENTER] = _("SABRINA CARPENTER"),
+    [COLOR_CHANGE_DEF_TYPE_MICROSOFT] = _("MICROSOFT"),
+    [COLOR_CHANGE_DEF_TYPE_NORMAL] = _("NORMAL"),
+    [COLOR_CHANGE_DEF_TYPE_YUGIOH] = _("YUGIOH"),
+    [COLOR_CHANGE_DEF_TYPE_FLYING] = _("FLYING"),
+    [COLOR_CHANGE_DEF_TYPE_BOSS] = _("BOSS"),
+    [COLOR_CHANGE_DEF_TYPE_OIL] = _("OIL"),
+    [COLOR_CHANGE_DEF_TYPE_MOWER] = _("LAWN MOWER"),
+    [COLOR_CHANGE_DEF_TYPE_GROUND] = _("GROUND"),
+    [COLOR_CHANGE_DEF_TYPE_DARK] = _("DARK"),
+    [COLOR_CHANGE_DEF_TYPE_GLOBAL_WARMING] = _("GLOBAL WARMING"),
+    [COLOR_CHANGE_DEF_TYPE_FAIRY] = _("FAIRY"),
+    [COLOR_CHANGE_DEF_TYPE_BLACKHOLE] = _("BLACKHOLE"),
+    [COLOR_CHANGE_DEF_TYPE_TOOTH] = _("TOOTH"),
+    [COLOR_CHANGE_DEF_TYPE_GIRLS] = _("GIRLS"),
+    [COLOR_CHANGE_DEF_TYPE_BORED] = _("BORED"),
+    [COLOR_CHANGE_DEF_TYPE_MOM] = _("MOM"),
+    [COLOR_CHANGE_DEF_TYPE_SUN] = _("SUN"),
+    [COLOR_CHANGE_DEF_TYPE_MYSTERY] = _("MYSTERY"),
+};
+
+const u16 gColorChangeDefTypeHue[COLOR_CHANGE_DEF_TYPE_COUNT] =
+{
+    [COLOR_CHANGE_DEF_TYPE_GHOST]          = RGB(10,  4, 14), // pale purple
+    [COLOR_CHANGE_DEF_TYPE_SUBMARINE]      = RGB( 0,  5, 20), // deep navy
+    [COLOR_CHANGE_DEF_TYPE_STEEL]          = RGB(18, 18, 20), // silver gray
+    [COLOR_CHANGE_DEF_TYPE_POLICE]         = RGB( 0,  0, 15), // dark blue
+    [COLOR_CHANGE_DEF_TYPE_CARPENTER]      = RGB(31, 18, 24), // pink-blonde
+    [COLOR_CHANGE_DEF_TYPE_MICROSOFT]      = RGB( 0, 10, 31), // bright blue
+    [COLOR_CHANGE_DEF_TYPE_NORMAL]         = RGB(26, 21, 16), // beige
+    [COLOR_CHANGE_DEF_TYPE_YUGIOH]         = RGB(28, 22,  4), // gold
+    [COLOR_CHANGE_DEF_TYPE_FLYING]         = RGB(18, 24, 31), // sky blue
+    [COLOR_CHANGE_DEF_TYPE_BOSS]           = RGB(20,  2,  2), // dark crimson
+    [COLOR_CHANGE_DEF_TYPE_OIL]            = RGB( 6,  4,  0), // dark brown-black
+    [COLOR_CHANGE_DEF_TYPE_MOWER]          = RGB( 6, 24,  6), // green
+    [COLOR_CHANGE_DEF_TYPE_GROUND]         = RGB(24, 18,  6), // earthy brown
+    [COLOR_CHANGE_DEF_TYPE_DARK]           = RGB( 8,  4, 12), // very dark purple
+    [COLOR_CHANGE_DEF_TYPE_GLOBAL_WARMING] = RGB(31, 14,  0), // hot orange
+    [COLOR_CHANGE_DEF_TYPE_FAIRY]          = RGB(31, 18, 26), // light pink
+    [COLOR_CHANGE_DEF_TYPE_BLACKHOLE]      = RGB( 2,  2,  4), // near black
+    [COLOR_CHANGE_DEF_TYPE_TOOTH]          = RGB(30, 30, 26), // off white
+    [COLOR_CHANGE_DEF_TYPE_GIRLS]          = RGB(31, 10, 22), // hot pink
+    [COLOR_CHANGE_DEF_TYPE_BORED]          = RGB(14, 14, 14), // dull gray
+    [COLOR_CHANGE_DEF_TYPE_MOM]            = RGB(28, 20, 16), // warm peach
+    [COLOR_CHANGE_DEF_TYPE_SUN]            = RGB(31, 28,  2), // bright yellow
+    [COLOR_CHANGE_DEF_TYPE_MYSTERY]        = RGB(16,  4, 24), // deep purple
+};
+
+u8 GetColorChangeDefType(u8 moveType)
+{
+    switch (moveType)
+    {
+        case TYPE_NORMAL:
+        case TYPE_FIGHTING:
+            return COLOR_CHANGE_DEF_TYPE_GHOST;
+        case TYPE_FLYING:
+            return COLOR_CHANGE_DEF_TYPE_SUBMARINE;
+        case TYPE_POISON:
+            return COLOR_CHANGE_DEF_TYPE_STEEL;
+        case TYPE_STEEL:
+            return COLOR_CHANGE_DEF_TYPE_POLICE;
+        case TYPE_ROCK:
+            return COLOR_CHANGE_DEF_TYPE_CARPENTER;
+        case TYPE_BUG:
+            return COLOR_CHANGE_DEF_TYPE_MICROSOFT;
+        case TYPE_GHOST:
+            return COLOR_CHANGE_DEF_TYPE_NORMAL;
+        case TYPE_GRASS_TCG:
+            return COLOR_CHANGE_DEF_TYPE_YUGIOH;
+        case TYPE_GROUND:
+            return COLOR_CHANGE_DEF_TYPE_FLYING;
+        case TYPE_FIRE:
+            return COLOR_CHANGE_DEF_TYPE_BOSS;
+        case TYPE_WATER:
+            return COLOR_CHANGE_DEF_TYPE_OIL;
+        case TYPE_GRASS:
+            return COLOR_CHANGE_DEF_TYPE_MOWER;
+        case TYPE_ELECTRIC:
+            return COLOR_CHANGE_DEF_TYPE_GROUND;
+        case TYPE_PSYCHIC:
+            return COLOR_CHANGE_DEF_TYPE_DARK;
+        case TYPE_ICE:
+            return COLOR_CHANGE_DEF_TYPE_GLOBAL_WARMING;
+        case TYPE_DRAGON:
+            return COLOR_CHANGE_DEF_TYPE_FAIRY;
+        case TYPE_DARK:
+            return COLOR_CHANGE_DEF_TYPE_BLACKHOLE;
+        case TYPE_FAIRY:
+            return COLOR_CHANGE_DEF_TYPE_TOOTH;
+        case TYPE_BROCK:
+            return COLOR_CHANGE_DEF_TYPE_GIRLS;
+        case TYPE_WEIRD:
+            return COLOR_CHANGE_DEF_TYPE_BORED;
+        case TYPE_DAD:
+            return COLOR_CHANGE_DEF_TYPE_MOM;
+        case TYPE_CHOCOLATE:
+            return COLOR_CHANGE_DEF_TYPE_SUN;
+        default:
+            return COLOR_CHANGE_DEF_TYPE_MYSTERY;
+    }
+}
+
+static const u16 sTwistedRealityMoves[] =
+{
+    MOVE_SPLASH,
+    MOVE_CELEBRATE,
+    MOVE_MEMENTO,
+};
+
+u16 GetTwistedRealityMove(u8 index)
+{
+    if (index < ARRAY_COUNT(sTwistedRealityMoves))
+        return sTwistedRealityMoves[index];
+    else
+        return MOVE_SPLASH;
+}
+
+u8 GetTwistedRealityMoveCount(void)
+{
+    return ARRAY_COUNT(sTwistedRealityMoves);
 }

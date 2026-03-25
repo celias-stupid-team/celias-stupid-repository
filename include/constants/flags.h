@@ -80,7 +80,7 @@
 #define FLAG_HIDE_SEAFOAM_1F_BOULDER_1                     0x040
 #define FLAG_HIDE_SEAFOAM_1F_BOULDER_2                     0x041
 #define FLAG_HIDE_SEAFOAM_B1F_BOULDER_1                    0x042
-#define FLAG_HIDE_SEAFOAM_B1F_BOULDER_2                    0x043
+#define FLAG_HIDE_MEGA_KICK_TM                    0x043
 #define FLAG_HIDE_SEAFOAM_B2F_BOULDER_1                    0x044
 #define FLAG_HIDE_SEAFOAM_B2F_BOULDER_2                    0x045
 #define FLAG_HIDE_SEAFOAM_B3F_BOULDER_1                    0x046
@@ -153,7 +153,7 @@
 #define FLAG_HIDE_MT_EMBER_EXTERIOR_ROCKETS                0x089
 #define FLAG_HIDE_RUBY                                     0x08A
 #define FLAG_HIDE_ICEFALL_CAVE_LORELEI                     0x08B
-#define FLAG_HIDE_LORELEI_IN_HER_HOUSE                     0x08C
+#define FLAG_RETURNING_DEMO_3_SAVE                     0x08C
 #define FLAG_HIDE_ICEFALL_CAVE_ROCKETS                     0x08D
 #define FLAG_HIDE_RUIN_VALLEY_SCIENTIST                    0x08E
 #define FLAG_HIDE_SAPPHIRE                                 0x08F
@@ -182,7 +182,7 @@
 #define FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL               0x0A6
 #define FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL            0x0A7
 #define FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL            0x0A8
-#define FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_M_DOLL            0x0A9
+#define FLAG_HIDE_BONUS_STARLIGHTS            0x0A9
 #define FLAG_HIDE_LORELEIS_HOUSE_FEAROW_DOLL               0x0AA
 #define FLAG_HIDE_LORELEIS_HOUSE_PIDGEOT_DOLL              0x0AB
 #define FLAG_HIDE_LORELEIS_HOUSE_LAPRAS_DOLL               0x0AC
@@ -478,17 +478,17 @@
 #define FLAG_GOT_TREASURE_MAP                    0x1AB
 #define FLAG_SAFFRON_GYM_SHORTCUT                          0x1AC
 #define FLAG_SAFFRON_CHECKED_MONKEY_WINDOW                     0x1AD
-#define FLAG_0x1AE                          0x1AE
-#define FLAG_0x1AF                    0x1AF
+#define FLAG_HIDE_SCOPE_CREEP                          0x1AE
+#define FLAG_GOT_WIDE_CUT                    0x1AF
 #define FLAG_GOT_TM50                          0x1B0
 #define FLAG_SOFT_SAND_GIRL                   0x1B1
 #define FLAG_GOT_SHINY_LATIAS                       0x1B2
 #define FLAG_GOT_SHINY_PSYDUCK                 0x1B3
 #define FLAG_NO_SHINY_LOCK                 0x1B4
 #define FLAG_SHINY_KENYA                        0x1B5
-#define FLAG_0x1B6                   0x1B6
-#define FLAG_0x1B7                  0x1B7
-#define FLAG_0x1B8                  0x1B8
+#define FLAG_TALKED_TO_THE_LEEK                   0x1B6
+#define FLAG_WIDE_CUT                  0x1B7
+#define FLAG_OAK_IN_FRIEND_AREA                  0x1B8
 #define FLAG_HIDE_FUSHCIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
 #define FLAG_HIDE_TWO_ISLAND_REVIVE                             0x1BA
 #define FLAG_FOUND_ZINC                             0x1BB
@@ -508,7 +508,7 @@
 #define FLAG_HAMBURGER_GUY                             0x1C9
 #define FLAG_HIDE_RATICATE_TRADE_GUY                    0x1CA
 #define FLAG_NOT_OAK_TEMP                       0x1CB
-#define FLAG_0x1CC                      0x1CC
+#define FLAG_STARTED_BLAINE_FUN                      0x1CC
 #define FLAG_HIDE_VIRIDIAN_CITY_POTION                          0x1CD
 #define FLAG_HIDE_ROUTE11_GREAT_BALL                            0x1CE
 #define FLAG_MINNESOTA_GYM_STRENGTH                             0x1CF
@@ -535,12 +535,12 @@
 #define FLAG_0x1E4     0x1E4
 #define FLAG_0x1E5            0x1E5
 #define FLAG_0x1E6        0x1E6
-#define FLAG_0x1E7  0x1E7
-#define FLAG_0x1E8  0x1E8
-#define FLAG_0x1E9      0x1E9
-#define FLAG_0x1EA     0x1EA
-#define FLAG_0x1EB      0x1EB
-#define FLAG_0x1EC    0x1EC
+#define FLAG_HACK_ATTACK_USED 0x1E7
+#define FLAG_DISABLED_DEV_COMMENTARY  0x1E8
+#define FLAG_GOT_MOVE_NOTHING      0x1E9
+#define FLAG_FOUND_RAT_STONE     0x1EA
+#define FLAG_GOT_SHINY_CHANSEY      0x1EB
+#define FLAG_SHINY_GOLDEEN_TRADE    0x1EC
 #define FLAG_FINAL_SHINY            0x1ED
 #define FLAG_POST_GAME            0x1EE
 #define FLAG_BILL_PC_BROKE              0x1EF
@@ -736,11 +736,11 @@
 #define FLAG_RECEIVED_AURORA_TICKET                      0x2A7
 #define FLAG_RECEIVED_MYSTIC_TICKET                      0x2A8
 #define FLAG_RECEIVED_OLD_SEA_MAP                        0x2A9
-#define FLAG_WONDER_CARD_UNUSED_1                        0x2AA
-#define FLAG_WONDER_CARD_UNUSED_2                        0x2AB
-#define FLAG_WONDER_CARD_UNUSED_3                        0x2AC
-#define FLAG_WONDER_CARD_UNUSED_4                        0x2AD
-#define FLAG_WONDER_CARD_UNUSED_5                        0x2AE
+#define FLAG_DMCA_KOGA_BRICK_1                        0x2AA
+#define FLAG_DMCA_KOGA_BRICK_2                        0x2AB
+#define FLAG_DMCA_KOGA_BRICK_3                        0x2AC
+#define FLAG_DMCA_KOGA_BRICK_4                        0x2AD
+#define FLAG_DMCA_KOGA_BRICK_5                        0x2AE
 #define FLAG_WONDER_CARD_UNUSED_6                        0x2AF
 #define FLAG_WONDER_CARD_UNUSED_7                        0x2B0
 #define FLAG_WONDER_CARD_UNUSED_8                        0x2B1
@@ -1115,7 +1115,7 @@
 #define FLAG_HIDDEN_ITEM_POKE_DOLL_10                                (FLAG_HIDDEN_ITEMS_START +  21)
 #define FLAG_HIDDEN_ITEM_ROUTE22_NOTHING                     (FLAG_HIDDEN_ITEMS_START +  22)
 #define FLAG_HIDDEN_ITEM_SPONGEBOB                           (FLAG_HIDDEN_ITEMS_START +  23)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_17                                (FLAG_HIDDEN_ITEMS_START +  24)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_A                                (FLAG_HIDDEN_ITEMS_START +  24)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_18                            (FLAG_HIDDEN_ITEMS_START +  25)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_19             (FLAG_HIDDEN_ITEMS_START +  26)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_33                            (FLAG_HIDDEN_ITEMS_START +  27) //smh Rave I can't believe you missed this
@@ -1410,13 +1410,13 @@
 #define FLAG_DEFEATED_FINAL_BOSS                                    (SYS_FLAGS + 0x13)
 #define FLAG_SYS_ROTOM_BATTLE_UI                                    (SYS_FLAGS + 0x14)
 #define FLAG_SYS_CARRYING_OPEN_BOX                                                  (SYS_FLAGS + 0x15)
-#define FLAG_0x816                                                  (SYS_FLAGS + 0x16)
+#define FLAG_GOT_FRIEND_AREA                                                  (SYS_FLAGS + 0x16)
 #define FLAG_0x817                                                  (SYS_FLAGS + 0x17)
 #define FLAG_0x818                                                  (SYS_FLAGS + 0x18)
 #define FLAG_0x819                                                  (SYS_FLAGS + 0x19)
 #define FLAG_0x81A                                                  (SYS_FLAGS + 0x1A)
 #define FLAG_0x81B                                                  (SYS_FLAGS + 0x1B)
-#define FLAG_SYS_LUVDISC_TILE                                                  (SYS_FLAGS + 0x1C)
+#define FLAG_HOENN_DELIVERY_SERVICE                                                  (SYS_FLAGS + 0x1C)
 #define FLAG_SYS_ZAPDOS_STATUE                                                  (SYS_FLAGS + 0x1D)
 #define FLAG_SYS_GIRL_HOLE                                                  (SYS_FLAGS + 0x1E)
 #define FLAG_0x81F                                                  (SYS_FLAGS + 0x1F)
@@ -1444,8 +1444,8 @@
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_SYS_ON_SHINY_BIKE                                                  (SYS_FLAGS + 0x31)
-#define FLAG_0x832                                                  (SYS_FLAGS + 0x32)
-#define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
+#define FLAG_SYS_FULL_RELEASE_SAVE                                                  (SYS_FLAGS + 0x32)
+#define FLAG_USED_SNOWGRAVY                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)
 #define FLAG_0x835                                                  (SYS_FLAGS + 0x35)
 #define FLAG_0x836                                                  (SYS_FLAGS + 0x36)

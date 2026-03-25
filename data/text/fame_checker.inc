@@ -195,10 +195,11 @@ gFameCheckerFlavorText_Cerulean4:: @ 0x81ADEEC
 
 gFameCheckerFlavorText_Cerulean5:: @ 0x81ADF6A
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}If you look behind that cottage,\n"
-	.string "you can see a path going north!\p"
-	.string "I bet that's where you can catch\n"
-	.string "the starters!$"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+    .string "My EKANS evolved right away, but\n"
+    .string "my ABRA won't no matter what!\p"
+    .string "It seems most POKéMON are hitting\n"
+    .string "their final form by Level 20.$"
 
 gFameCheckerFlavorText_Vermilion0:: @ 0x81AE009
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
@@ -627,7 +628,7 @@ gFameCheckerFlavorText_GreatBay0:: @ 0x81AFB0C
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Somehwere in KANTO, there exists\n"
-	.string "the ALTAR OF THE MOONE.\p"
+	.string "the ALTAR OF THE MOON.\p"
 	.string "Legends say if you bring this\n"
 	.string "POKéMON there and hold it up,\l"
 	.string "something incredible may happen.$"
@@ -658,7 +659,7 @@ gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
 	.string "and powerful, we humans had to\l"
 	.string "Seal it away for our own safety.\p"
 	.string "Some day, someone may come along\n"
-	.string "and break the Seal themselves…$"
+	.string "and destroy the Seal themselves…$"
 
 gFameCheckerFlavorText_GreatBay4:: @ 0x81AFD49
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
@@ -673,7 +674,7 @@ gFameCheckerFlavorText_GreatBay5:: @ 0x81AFDC4
 	.string "BRENDAN's house\n$"
 
 gFameCheckerFlavorText_Saffron0:: @ 0x81AFE68
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "All these staircases were idenitcal\n"
 	.string "copies of each other.\p"
@@ -681,7 +682,7 @@ gFameCheckerFlavorText_Saffron0:: @ 0x81AFE68
 	.string "took them out!$"
 
 gFameCheckerFlavorText_Saffron1:: @ 0x81AFF23
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "It's out secret prototype MISTER\n"
 	.string "BALL.\p"
@@ -689,7 +690,7 @@ gFameCheckerFlavorText_Saffron1:: @ 0x81AFF23
 	.string "fail.$"
 
 gFameCheckerFlavorText_Saffron2:: @ 0x81AFFA8
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Feel free to explore the rest of\n"
 	.string "this building.\l"
@@ -698,15 +699,14 @@ gFameCheckerFlavorText_Saffron2:: @ 0x81AFFA8
 	.string "facility for POKé BALL development!$"
 
 gFameCheckerFlavorText_Saffron3:: @ 0x81B0022
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-	.string "They say there's a POKéMON made to\n"
-	.string "help traverse across the world.\p"
-	.string "A specimen is being kept safe in\n"
-	.string "SILPH CO. right now, in fact.$"
+	.string "How about this:\n"
+	.string "“UNDENIABLE PROOF OF ALIENS!”\l"
+	.string "Catchy headline. It's perfect.$"
 
 gFameCheckerFlavorText_Saffron4:: @ 0x81B00A6
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Local child COPYCAT still missing\n"
 	.string "after DMCA takeover!\p"
@@ -714,9 +714,12 @@ gFameCheckerFlavorText_Saffron4:: @ 0x81B00A6
 	.string "hideout, still in captivity.$"
 
 gFameCheckerFlavorText_Saffron5:: @ 0x81B0106
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}INTRO\p"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-
+	.string "Sorry, my office is a pig sty…\n"
+	.string "And I haven't taken a bath in ages.\p"
+	.string "By the way, I'm starving.\n"
+	.string "Can I have something to eat?$"
 
 
 gFameCheckerPersonName_Pallet:: @ 0x81B0188
@@ -993,7 +996,7 @@ gRumorLogFlavorTextIntoLine1_Cerulean4::
 	.string "Revenue$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean5::
-	.string "Garden$"
+	.string "Darwinist$"
 
 gRumorLogFlavorTextIntoLine1_Vermilion0::
 	.string "Harbor$"
@@ -1176,22 +1179,22 @@ gRumorLogFlavorTextIntoLine1_MrFuji5::
 	.string "Courier$"
 
 gRumorLogFlavorTextIntoLine1_Giovanni0::
-	.string "SAFFRON$"
+	.string "Staircase$"
 
 gRumorLogFlavorTextIntoLine1_Giovanni1::
-	.string "SAFFRON$"
+	.string "Father$"
 
 gRumorLogFlavorTextIntoLine1_Giovanni2::
-	.string "SAFFRON$"
+	.string "Clerical$"
 
 gRumorLogFlavorTextIntoLine1_Giovanni3::
-	.string "SAFFRON$"
+	.string "Extraterrestrial$"
 
 gRumorLogFlavorTextIntoLine1_Giovanni4::
-	.string "SAFFRON$"
+	.string "Missing$"
 
 gRumorLogFlavorTextIntoLine1_Giovanni5::
-	.string "SAFFRON$"
+	.string "Distant$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet0::
 	.string "Timber$"
@@ -1281,7 +1284,7 @@ gFameCheckerFlavorTextOriginObjectName_Cerulean4::
 	.string "Recommendation$"
 
 gFameCheckerFlavorTextOriginObjectName_Cerulean5::
-	.string "Gossip$"
+	.string "Deviation$"
 
 gFameCheckerFlavorTextOriginObjectName_Vermilion0::
 	.string "Historian$"
@@ -1464,22 +1467,22 @@ gFameCheckerFlavorTextOriginObjectName_MrFuji5::
 	.string "Concealment$"
 
 gFameCheckerFlavorTextOriginObjectName_Giovanni0::
-	.string "SAFFRON$"
+	.string "Suppression$"
 
 gFameCheckerFlavorTextOriginObjectName_Giovanni1::
-	.string "SAFFRON$"
+	.string "Fetcher$"
 
 gFameCheckerFlavorTextOriginObjectName_Giovanni2::
-	.string "SAFFRON$"
+	.string "Counsel$"
 
 gFameCheckerFlavorTextOriginObjectName_Giovanni3::
-	.string "SAFFRON$"
+	.string "Evidence$"
 
 gFameCheckerFlavorTextOriginObjectName_Giovanni4::
-	.string "SAFFRON$"
+	.string "Mimic$"
 
 gFameCheckerFlavorTextOriginObjectName_Giovanni5::
-	.string "SAFFRON$"
+	.string "Dinner$"
 
 PokemonJournal_Text_SpecialFeatureBrock::
 	.string "POKéMON JOURNAL\p"

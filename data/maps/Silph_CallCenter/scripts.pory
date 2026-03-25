@@ -9,7 +9,7 @@ mapscripts Silph_CallCenter_MapScripts {
 
 script Silph_CallCenter_Sign {
 	msgbox(
-	"SILPH CO\n"
+	"SILPH CO 5F\n"
 	"MARKETING", MSGBOX_SIGN)
 
 }
@@ -136,9 +136,32 @@ script Silph_NervousOfficeWorker {
 }
 
 script Silph_TourGuide {
+	lock
+	faceplayer
 	msgbox(
-	"i'm bad at tours\n"
-	"placeholder", MSGBOX_NPC)
+	"Wha-?\n"
+	"Oh, um. Hello.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_up
+	))
+	delay(45)
+	msgbox(
+	"W{PAUSE 2}e{PAUSE 2}l{PAUSE 2}c{PAUSE 2}o{PAUSE 2}m{PAUSE 2}e{PAUSE 2} t{PAUSE 2}o S{PAUSE 2}I{PAUSE 2}L{PAUSE 2}P{PAUSE 2}H {PAUSE 4}C{PAUSE 2}O{PAUSE 2}.\p"
+
+	"I {PAUSE 2}h{PAUSE 2}o{PAUSE 2}p{PAUSE 2}e{PAUSE 2} y{PAUSE 2}o{PAUSE 2}u{PAUSE 2}r{PAUSE 2} d{PAUSE 2}a{PAUSE 2}y {PAUSE 2}i{PAUSE 2}s{PAUSE 8} m{PAUSE 2}a{PAUSE 2}g{PAUSE 2}n{PAUSE 2}i{PAUSE 2}f{PAUSE 2}i{PAUSE 2}c{PAUSE 2}e{PAUSE 2}n{PAUSE 2}t{PAUSE 2}l{PAUSE 2}y{PAUSE 2}\n"
+	"m{PAUSE 2}a{PAUSE 2}g{PAUSE 2}i{PAUSE 2}c{PAUSE 2}a{PAUSE 2}l{PAUSE 2},{PAUSE 8} {PAUSE 2}T{PAUSE 6} M{PAUSE 2} .", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	faceplayer
+	msgbox(
+	"We've changed the slogan six times\n"
+	"already.\p"
+
+	"I always need a moment to check.\n"
+	"", MSGBOX_DEFAULT)
+	release
+	end
 }
 
 script Silph_TourTrash {
@@ -148,9 +171,37 @@ script Silph_TourTrash {
 
 }
 script Silph_WallSign {
+	lock
 	msgbox(
-	"Sign with note placeholder\n"
-	"", MSGBOX_SIGN)
+	"NOTICE!\n"
+	"Updated reception guidelines!\p"
+
+	"Our new line for greeting guests:\p"
+
+	"“Welcome to SILPH CO.”\p"
+
+	"“I hope your day is marvelously\n"
+	"magical!”", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	msgbox(
+	"Peeling back the poster, you see a\n"
+	"different poster underneath.", MSGBOX_DEFAULT)
+	delay(20)
+	msgbox(
+	"NOTICE!\n"
+	"Updated reception guidelines!\p"
+
+	"Our new line for greeting guests:\p"
+
+	"“Welcome to SILPH CO!{PAUSE 45}\n"
+	"We are not evil!”", MSGBOX_DEFAULT)
+	closemessage
+	msgbox(
+	"The poster has been scribbled over\n"
+	"with the word “OUTDATED!”", MSGBOX_DEFAULT)
+	release
+
 
 }
 
@@ -473,5 +524,95 @@ script Silph_SecurityMemoriam {
 	"IN MEMORIAM{PAUSE 30}\n"
 	"SAFFRON CITY Gate Guards\l"
 	"Gone but not forgotten.", MSGBOX_SIGN)
+
+}
+
+
+script Silph_AntiSoftlock {
+	msgbox(
+	"A SILPH CO. Patent-Pending\n"
+	"Anti-Softlock Wall!\l"
+	"Neat!", MSGBOX_NPC)
+}
+
+
+script Silph_JoeyComputer {
+	msgbox(
+	"A detailed spreadsheet listing\n"
+	"every player who's ever wanted to\l"
+	"hear about JOEY's RATTATA.\p"
+
+	"The listings are as follows:\p"
+	" ", MSGBOX_SIGN)
+
+}
+
+
+script Silph_Marketing {
+	msgbox(
+	"HOW TO MARKET YOUR ROMHACK\n"
+	"{PAUSE 20}A Slideshow\p"
+
+	"All POKéMON gens 1-10,{PAUSE 10} dynamax,{PAUSE 10} z\n"
+	"move,{PAUSE 10} megas,{PAUSE 10} difficulty,{PAUSE 10} shiny odds{PAUSE 10}\l"
+	"Phys/Special split,{PAUSE 10} Following PkMn,{PAUSE 10}\l"
+	"hardcore mode,{PAUSE 5} INFINTIE candy,{PAUSE 5}\l"
+	"new forms??{PAUSE 5} new battle background,{PAUSE 5}\l"
+	"high-framerate windmill animation", MSGBOX_SIGN)
+
+}
+
+script Silph_UmbrellaShop {
+	msgbox(
+	"It's opened to a retailer for\n"
+	"heavy-duty umbrellas.", MSGBOX_SIGN)
+
+}
+
+script Silph_Dummy {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"Sitting at the desk is an extremely\n"
+	"life-like dummy.\p"
+
+	"His computer has a spreadsheet\n"
+	"taped to the display.", MSGBOX_SIGN)
+
+}
+
+script Silph_Tandemaus {
+	msgbox(
+	"Tandemaus…\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Silph_Honesty {
+	msgbox(
+	"The common wisdom is that honesty\n"
+	"is the best policy.\p"
+
+	"That's why I lie constantly.\p"
+
+	"Y'know.\n"
+	"For balance.", MSGBOX_NPC)
+}
+
+script Silph_RareItems {
+	msgbox(
+	"A list of potentially high-selling\n"
+	"items.\p"
+
+	"MUSHROOMS{PAUSE 20} STARDUST{PAUSE 20}\n"
+	"PEARLS{PAUSE 20}    FEATHERS{PAUSE 20}\l"
+	"CHICKEN{PAUSE 20}   MUD", MSGBOX_SIGN)
+
+}
+
+script Silph_BookshelfTop {
+	msgbox(
+	"Just barely peeking out from the\n"
+	"back of the wall, you can read\l"
+	"My Secret Life, chapter three", MSGBOX_SIGN)
 
 }

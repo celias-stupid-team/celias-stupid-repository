@@ -3,6 +3,7 @@ PewterCity_House2_MapScripts::
 	.byte 0
 
 PewterCity_House2_EventScript_OldMan::
+	famechecker FAMECHECKER_PEWTER, 1
 	msgbox PewterCity_House2_Text_MonsLearnTechniquesAsTheyGrow, MSGBOX_NPC
 	end
 

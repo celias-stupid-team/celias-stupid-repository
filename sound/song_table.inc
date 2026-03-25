@@ -29,7 +29,7 @@ gSongTable::
 	song se_exp, 1, 1
 	song se_bike_hop, 1, 1
 	song se_switch, 1, 1
-	song se_click, 1, 1
+	song se_click, 2, 2
 	song se_fu_zaku, 1, 1
 	song se_contest_condition_lose, 1, 1
 	song se_lavaridge_fall_warp, 1, 1
@@ -249,9 +249,9 @@ gSongTable::
 	song se_ball_click, 1, 1
 	song se_shop, 1, 1
 	song se_ss_anne_horn, 1, 1
-	song se_help_open, 1, 1
-	song se_help_close, 1, 1
-	song se_help_error, 1, 1
+	song se_help_open, 2, 2
+	song se_help_close, 2, 2
+	song se_help_error, 2, 2
 	song se_deoxys_move, 1, 1
 	song se_poke_jump_success, 1, 1
 	song se_poke_jump_failure, 1, 1

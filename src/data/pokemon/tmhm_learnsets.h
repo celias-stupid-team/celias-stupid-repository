@@ -1471,26 +1471,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_MACHOKE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEAN_LOOK) |
-                                        TMHM(TM06_TOXIC) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_SLASH) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_W_TURN) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_MACHOKE]   = TMHM_LEARNSET(0),
 
     [SPECIES_MACHAMP]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -1816,7 +1797,8 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+                                        TMHM(TM49_MIMIC) |
+                                        TMHM(HM01_CUT)),
 
     [SPECIES_DODUO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2196,26 +2178,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_EXEGGCUTE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM06_TOXIC) |
-                                        TMHM(TM13_PSY_BEAM) |
-                                        TMHM(TM14_PSYSTORM) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_SLASH) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_STEEL_WING) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_EXEGGCUTE]   = TMHM_LEARNSET(0),
 
     [SPECIES_EXEGGUTOR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM06_TOXIC) |
@@ -10675,4 +10638,5 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_EARRAT]    = TMHM_LEARNSET(0),
     [SPECIES_FINALCHARMANDER]    = TMHM_LEARNSET(0),
 	[SPECIES_CELIASSTUPIDROMHACK]    = TMHM_LEARNSET(0),
+	[SPECIES_KECLEON_WIZ1989]    = TMHM_LEARNSET(0),
 };

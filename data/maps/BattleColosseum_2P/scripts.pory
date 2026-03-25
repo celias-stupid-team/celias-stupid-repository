@@ -226,8 +226,9 @@ script SetPlayerPokedexValues {
 	}
 	if(flag(FLAG_HIDE_W_EMBLEM) && checkmoncaught(SPECIES_ZUBAT)) {
 		setobtainable(SPECIES_WOOBAT) // 73
+		setobtainable(SPECIES_PLUG_OINK) // 73
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && checkmoncaught(SPECIES_HORSEA) && checkmoncaught(SPECIES_GOLURK)) {
+	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) {
 		setobtainable(SPECIES_HORSEA) // 74
 	}
 	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) { 
@@ -429,7 +430,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F)) { //TODO figure out logic
 		setobtainable(SPECIES_MOLTRES) // 140 
 	}
-	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || checkmoncaught(SPECIES_FLAREON)) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out logic
+	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || (checkmoncaught(SPECIES_FLAREON)) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)))) { //TODO figure out logic
 		setobtainable(SPECIES_FLAREON) // 141
 	}
 	if(flag(FLAG_CSR_PHIONE_EGG)) {
@@ -626,6 +627,7 @@ script GetOakPCPokedexMessage {
 		case SPECIES_ZUBAT: 
 			 msgbox(PokedexRating_Text_HintZubat)
 		case SPECIES_WOOBAT: 
+		case SPECIES_PLUG_OINK: 
 			 msgbox(PokedexRating_Text_HintWoobat)
 		case SPECIES_HORSEA: 
 			 msgbox(PokedexRating_Text_HintHorsea)

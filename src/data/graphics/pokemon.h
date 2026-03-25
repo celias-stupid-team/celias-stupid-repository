@@ -8068,7 +8068,13 @@ const u32 gMonShinyPalette_Kecleon_Sans[] = INCBIN_U32("graphics/pokemon/kecleon
 const u8 gMonIcon_Kecleon_Sans[] = INCBIN_U8("graphics/pokemon/kecleon_sans/icon.4bpp");
 const u8 gMonFootprint_Kecleon_Sans[] = INCBIN_U8("graphics/pokemon/kecleon_sans/footprint.1bpp");
 
-
+// Kecleon wiz1989
+const u32 gMonFrontPic_Kecleon_wiz1989[] = INCBIN_U32("graphics/pokemon/kecleon_wiz1989/front.4bpp.lz");
+const u32 gMonPalette_Kecleon_wiz1989[] = INCBIN_U32("graphics/pokemon/kecleon_wiz1989/normal.gbapal.lz");
+const u32 gMonBackPic_Kecleon_wiz1989[] = INCBIN_U32("graphics/pokemon/kecleon_wiz1989/back.4bpp.lz");
+const u32 gMonShinyPalette_Kecleon_wiz1989[] = INCBIN_U32("graphics/pokemon/kecleon_wiz1989/shiny.gbapal.lz");
+const u8 gMonIcon_Kecleon_wiz1989[] = INCBIN_U8("graphics/pokemon/kecleon_wiz1989/icon.4bpp");
+const u8 gMonFootprint_Kecleon_wiz1989[] = INCBIN_U8("graphics/pokemon/kecleon_wiz1989/footprint.1bpp");
 
 // Porygon_16
 const u32 gMonFrontPic_Porygon_16[] = INCBIN_U32("graphics/pokemon/porygon_16/front.4bpp.lz");

@@ -173,3 +173,12 @@ script FushciaGym_ShedinjaRoom_OpenDoors {
 
     return
 }
+
+
+script FushciaGym_Chairry {
+	msgbox(
+	"CHAIRRY: If you're stumped, take\n"
+	"a sit and have a think.\l"
+	"I'm good for that.", MSGBOX_SIGN)
+
+}

@@ -54,7 +54,7 @@ NavelRock_Summit_EventScript_HoOh::
 	applymovement LOCALID_NAVEL_ROCK_HO_OH, Movement_HoOhApproach
 	waitmovement 0
 	special RemoveCameraObject
-	seteventmon SPECIES_PIDGEY, 70
+	seteventmon SPECIES_PIDGEY, 70, ITEM_DRAGON_FANG
 	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
 	special StartLegendaryBattle
 	waitstate
@@ -128,6 +128,7 @@ script NavelRock_Summit_OnTransition {
 script NavelRock_Chuckster {
 	lock
 	faceplayer
+	setflag(FLAG_HOENN_DELIVERY_SERVICE)
 	msgbox(
 	"I'm a CHUCKSTER!\n"
 	"", MSGBOX_DEFAULT)

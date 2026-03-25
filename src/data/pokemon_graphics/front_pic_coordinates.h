@@ -6360,4 +6360,9 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = MON_COORDS_SIZE(40, 40),
         .y_offset = 16,
     },
+    [SPECIES_KECLEON_WIZ1989] =
+    {
+        .size = MON_COORDS_SIZE(48, 56),
+        .y_offset = 7,
+    },
 };

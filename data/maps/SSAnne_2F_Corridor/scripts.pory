@@ -156,6 +156,13 @@ mapscripts SSAnne_2F_Corridor_MapScripts {
 		if(flag(FLAG_HIDE_HARRY_RAT)) {
 			setvar(VAR_TEMP_0, 1)
 		}
+		setflag(FLAG_TEMP_2)
+	}
+	MAP_SCRIPT_ON_RESUME {
+		if(flag(FLAG_USED_SNOWGRAVY)) {
+			addobject(LOCALID_FROZEN_ARTICUNO)
+			clearflag(FLAG_TEMP_2)
+		}
 	}
 }
 
@@ -307,4 +314,19 @@ script SSAnne_RatHole {
 	"There is a 437-foot drop to the\n"
 	"water below.", MSGBOX_SIGN)
 
+}
+
+script SSAnne_DeadArticuno {
+	msgbox(
+	"The ice-encrusted ARTICUNO lay\n"
+	"dormant in the hall.", MSGBOX_DEFAULT)
+	removeobject(VAR_LAST_TALKED)
+	msgbox(
+	"{PLAYER} obtained the\n"
+	"ARTICUNO…", MSGBOX_DEFAULT)
+	setflag(FLAG_SHINY_CREATION)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ARTICUNO)
+	call(Common_Script_GiftPokemon30)
+	release
+	end
 }

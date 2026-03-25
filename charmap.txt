@@ -407,6 +407,7 @@ B_DEF_PREFIX3 = FD 2D
 B_TRAINER2_LOSE_TEXT = FD 2E
 B_TRAINER2_WIN_TEXT = FD 2F
 B_BUFF3 = FD 30
+B_ATK_TRAINER_NAME = FD 31
 
 @ indicates the end of a town/city name (before " TOWN" or " CITY")
 NAME_END = FC 00
@@ -903,6 +904,8 @@ SATURN_I                  = F9 2D
 SATURN_N                  = F9 2E
 SATURN_G                  = F9 2F
 SATURN_BANG                  = F9 30
+
+WALUIGI                  = F9 40
 
 
 EMOJI_UNDERSCORE = F9 D0

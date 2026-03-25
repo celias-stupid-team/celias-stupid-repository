@@ -185,14 +185,14 @@
 #define ITEM_STARF_BERRY 174
 #define ITEM_ENIGMA_BERRY 175
 #define ITEM_LIBERRY 176
+#define ITEM_TOXIC_BERRY 177
 
 #define FIRST_BERRY_INDEX ITEM_CHERI_BERRY
-#define LAST_BERRY_INDEX ITEM_LIBERRY
+#define LAST_BERRY_INDEX ITEM_TOXIC_BERRY
 
-#define ITEM_UNUSED_BERRY_1 177
-#define ITEM_UNUSED_BERRY_2 178
+#define ITEM_UNUSED_BERRY_1 178
 
-#define MAX_BERRY_INDEX ITEM_UNUSED_BERRY_2
+#define MAX_BERRY_INDEX ITEM_UNUSED_BERRY_1
 
 #define ITEM_BRIGHT_POWDER 179
 #define ITEM_WHITE_HERB 180
@@ -547,10 +547,16 @@
 #define ITEM_SECRETPAGE 465
 #define ITEM_MAP 466
 #define ITEM_STAIR_ORB 467
-#define ITEM_DOUSE_DRIVE 468
-#define ITEM_SHOCK_DRIVE 469
-#define ITEM_CHILL_DRIVE 470
-#define ITEMS_COUNT 471
+#define ITEM_SCOPE_CREEP 468
+#define ITEM_ALIEN_PROOF 469
+#define ITEM_QUARTER 470
+#define ITEM_SHINY_FOSSIL 471
+#define ITEM_RUSTED_GUN 472
+#define ITEM_PREMIERCIGAR 473
+#define ITEM_RARE_ANDY 474
+#define ITEM_MESPRIT 475
+#define ITEM_FLAME_ORB 476
+#define ITEMS_COUNT 477
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
@@ -570,7 +576,7 @@
 #define SUPER_ROD 2
 
 // Check if the item is one that can be used on a Pokemon.
-#define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX) || (item >= ITEM_CSR_START && item < ITEMS_COUNT) || (item == ITEM_SUPER_SCOPE) || (item == ITEM_SOUL_DEW))
+#define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX) || (item >= ITEM_CSR_START && item < ITEMS_COUNT) || (item == ITEM_SUPER_SCOPE) || (item == ITEM_SOUL_DEW) || (item == ITEM_RAT_STONE) || (item == ITEM_SCOPE_CREEP))
 // rave - yeah this shit's hacky but we can come up with a more robust solution later
 
 // SDH: Secondary IDs for Poké Balls

@@ -24,6 +24,25 @@ mapscripts ViridianGym_Koga_MapScripts {
             case 9:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 5)
         }
+        call(DMCAKoga_StopSnowing)
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_DMCA_KOGA_BRICK_1)) {
+            setobjectmovementtype(LOCALID_KOGA_BRICK_1, MOVEMENT_TYPE_FACE_DOWN)
+        }
+        if(flag(FLAG_DMCA_KOGA_BRICK_2)) {
+            setobjectmovementtype(LOCALID_KOGA_BRICK_2, MOVEMENT_TYPE_FACE_DOWN)
+        }
+        if(flag(FLAG_DMCA_KOGA_BRICK_3)) {
+            setobjectmovementtype(LOCALID_KOGA_BRICK_3, MOVEMENT_TYPE_FACE_DOWN)
+        }
+        if(flag(FLAG_DMCA_KOGA_BRICK_4)) {
+            setobjectmovementtype(LOCALID_KOGA_BRICK_4, MOVEMENT_TYPE_FACE_DOWN)
+        }
+        if(flag(FLAG_DMCA_KOGA_BRICK_5)) {
+            setobjectmovementtype(LOCALID_KOGA_BRICK_5, MOVEMENT_TYPE_FACE_DOWN)
+        }
+        call(DMCAKoga_StopSnowing)
     }
 }
 
@@ -33,22 +52,10 @@ mapscripts ViridianGym_Koga_MapScripts {
 script ViridianGym_KogaBattle {
     lock
     msgbox(
-	"This is your uncle from Nintendo.\p"
-
-	"He will use Aurora Veil, which you\n"
-	"cannot Brick Break.\p"
-
-	"There will be a cute maze behind\n"
-	"him with the Snover.\p"
-
-	"You chase the Snover around to the\n"
-	"back and the block it in using the\l"
-	"BRICK PIECES you've collected.\p"
-
-	"It will be very cool.\n"
+	"I am your uncle from NINTENDO.\n"
 	"", MSGBOX_DEFAULT)
 
-    //trainerbattle_single(TRAINER_DMCA_KOGA, ViridianGym_KogaBattle_Start, ViridianGym_KogaBattle_End)
+    trainerbattle_no_intro(TRAINER_DMCA_KOGA, ViridianGym_KogaBattle_End)
     msgbox(
 	"i'm dead\n"
 	"", MSGBOX_DEFAULT)
@@ -75,4 +82,245 @@ script ViridianGym_Koga_Snover {
 	"", MSGBOX_DEFAULT)
     waitmoncry
     release
+}
+
+script DMCAKoga_BrickWall1 {
+    lock
+    if(flag(FLAG_DMCA_KOGA_BRICK_1)) {
+        msgbox(
+        "The BRICKS have been unbroken.\n"
+        "", MSGBOX_DEFAULT)
+
+    } else {
+        msgbox(
+        "There is a BRICK missing from the\n"
+        "wall.\l"
+        "SNOVER's hail is seeping through.", MSGBOX_DEFAULT)
+        if(checkitem(ITEM_BRICK_PIECE, 1)) {
+            msgbox(
+            "{PLAYER} deposited a\n"
+            "BRICK PIECE.", MSGBOX_DEFAULT)
+            closemessage
+            playse(SE_M_SPIT_UP)
+            removeitem(ITEM_BRICK_PIECE, 1)
+            closemessage
+            setflag(FLAG_DMCA_KOGA_BRICK_1)
+            playse(SE_M_SPIT_UP)
+            applymovement(VAR_LAST_TALKED, moves(
+                face_down
+            ))
+            waitmovement(0)
+            setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
+        }
+    }
+    call(DMCAKoga_StopSnowing)
+    call(DMCAKoga_StopSnowingString)
+    release
+}
+
+script DMCAKoga_BrickWall2 {
+    lock
+    if(flag(FLAG_DMCA_KOGA_BRICK_2)) {
+        msgbox(
+        "The BRICKS have been unbroken.\n"
+        "", MSGBOX_DEFAULT)
+
+    } else {
+        msgbox(
+        "There is a BRICK missing from the\n"
+        "wall.\l"
+        "SNOVER's hail is seeping through.", MSGBOX_DEFAULT)
+        if(checkitem(ITEM_BRICK_PIECE, 1)) {
+            msgbox(
+            "{PLAYER} deposited a\n"
+            "BRICK PIECE.", MSGBOX_DEFAULT)
+            closemessage
+            playse(SE_M_SPIT_UP)
+            removeitem(ITEM_BRICK_PIECE, 1)
+            closemessage
+            setflag(FLAG_DMCA_KOGA_BRICK_2)
+            playse(SE_M_SPIT_UP)
+            applymovement(VAR_LAST_TALKED, moves(
+                face_down
+            ))
+            waitmovement(0)
+            setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
+        }
+    }
+    call(DMCAKoga_StopSnowing)
+    call(DMCAKoga_StopSnowingString)
+    release
+}
+
+script DMCAKoga_BrickWall3 {
+    lock
+    if(flag(FLAG_DMCA_KOGA_BRICK_3)) {
+        msgbox(
+        "The BRICKS have been unbroken.\n"
+        "", MSGBOX_DEFAULT)
+
+    } else {
+        msgbox(
+        "There is a BRICK missing from the\n"
+        "wall.\l"
+        "SNOVER's hail is seeping through.", MSGBOX_DEFAULT)
+        if(checkitem(ITEM_BRICK_PIECE, 1)) {
+            msgbox(
+            "{PLAYER} deposited a\n"
+            "BRICK PIECE.", MSGBOX_DEFAULT)
+            closemessage
+            playse(SE_M_SPIT_UP)
+            removeitem(ITEM_BRICK_PIECE, 1)
+            closemessage
+            setflag(FLAG_DMCA_KOGA_BRICK_3)
+            playse(SE_M_SPIT_UP)
+            applymovement(VAR_LAST_TALKED, moves(
+                face_down
+            ))
+            waitmovement(0)
+            setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
+        }
+    }
+    call(DMCAKoga_StopSnowing)
+    call(DMCAKoga_StopSnowingString)
+    release
+}
+
+script DMCAKoga_BrickWall4 {
+    lock
+    if(flag(FLAG_DMCA_KOGA_BRICK_4)) {
+        msgbox(
+        "The BRICKS have been unbroken.\n"
+        "", MSGBOX_DEFAULT)
+
+    } else {
+        msgbox(
+        "There is a BRICK missing from the\n"
+        "wall.\l"
+        "SNOVER's hail is seeping through.", MSGBOX_DEFAULT)
+        if(checkitem(ITEM_BRICK_PIECE, 1)) {
+            if(!flag(FLAG_GOT_MEW_BRICK_PIECE)) {
+                msgbox(
+                "{PLAYER} attempted to deposit\n"
+                "a BRICK PIECE…", MSGBOX_DEFAULT)
+                closemessage
+                playse(SE_BOO)
+                waitse
+                msgbox(
+                "Hmm…\n"
+                "Your BRICK PIECE won't fit.", MSGBOX_DEFAULT)
+                if(checkpartymon(SPECIES_DITTO_MEW)) {
+                    playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
+                    waitmoncry
+                    msgbox(
+                    "Your DITTO noticed the BRICK WALL.\p"
+
+                    "Maybe it knows how to help…\n"
+                    "", MSGBOX_DEFAULT)
+                }
+                release
+                end
+            }
+            msgbox(
+            "{PLAYER} deposited a\n"
+            "purple BRICK PIECE.", MSGBOX_DEFAULT)
+            closemessage
+            playse(SE_M_SPIT_UP)
+            removeitem(ITEM_BRICK_PIECE, 1)
+            closemessage
+            setflag(FLAG_DMCA_KOGA_BRICK_4)
+            playse(SE_M_SPIT_UP)
+            applymovement(VAR_LAST_TALKED, moves(
+                face_down
+            ))
+            waitmovement(0)
+            setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
+        } else {
+                if(checkpartymon(SPECIES_DITTO_MEW)) {
+                    playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
+                    waitmoncry
+                    msgbox(
+                    "Oh!\n"
+                    "Your DITTO noticed the BRICK WALL!\l"
+                    "Maybe it knows how to help.\p"
+
+                    "Quick, go put DITTO right where\n"
+                    "he belongs!", MSGBOX_DEFAULT)
+                }
+                release
+                end
+
+        }
+    }
+    call(DMCAKoga_StopSnowing)
+    call(DMCAKoga_StopSnowingString)
+    release
+}
+
+script DMCAKoga_BrickWall5 {
+    lock
+    if(flag(FLAG_DMCA_KOGA_BRICK_5)) {
+        msgbox(
+        "The BRICKS have been unbroken.\n"
+        "", MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+        "There is a BRICK missing from the\n"
+        "wall.\l"
+        "SNOVER's hail is seeping through.", MSGBOX_DEFAULT)
+        if(checkitem(ITEM_BRICK_PIECE, 1)) {
+            msgbox(
+            "{PLAYER} deposited a\n"
+            "BRICK PIECE.", MSGBOX_DEFAULT)
+            closemessage
+            playse(SE_M_SPIT_UP)
+            removeitem(ITEM_BRICK_PIECE, 1)
+            closemessage
+            setflag(FLAG_DMCA_KOGA_BRICK_5)
+            playse(SE_M_SPIT_UP)
+            applymovement(VAR_LAST_TALKED, moves(
+                face_down
+            ))
+            waitmovement(0)
+            setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
+        }
+    }
+    call(DMCAKoga_StopSnowing)
+    call(DMCAKoga_StopSnowingString)
+    release
+}
+
+script DMCAKoga_StopSnowing {
+    if(flag(FLAG_DMCA_KOGA_BRICK_5)
+    && flag(FLAG_DMCA_KOGA_BRICK_1)
+    && flag(FLAG_DMCA_KOGA_BRICK_2)
+    && flag(FLAG_DMCA_KOGA_BRICK_3)
+    && flag(FLAG_DMCA_KOGA_BRICK_4)) {
+        setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
+        setweather(WEATHER_NONE)
+        doweather
+        
+
+    }
+    return
+}
+script DMCAKoga_StopSnowingString {
+    if(flag(FLAG_DMCA_KOGA_BRICK_5)
+    && flag(FLAG_DMCA_KOGA_BRICK_1)
+    && flag(FLAG_DMCA_KOGA_BRICK_2)
+    && flag(FLAG_DMCA_KOGA_BRICK_3)
+    && flag(FLAG_DMCA_KOGA_BRICK_4)) {
+        msgbox(
+        "The SNOVER is now sealed away.\n"
+        "", MSGBOX_DEFAULT)
+        playmoncry(SPECIES_SNOVER, CRY_MODE_FAINT)
+        waitmoncry
+        msgbox(
+        "The snow has stopped.\n"
+        "", MSGBOX_DEFAULT)
+        setlayouttiles(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN, 0,0,0,0,31,25)
+        
+
+    }
+    return
 }

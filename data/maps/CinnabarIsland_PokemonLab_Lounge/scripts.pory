@@ -59,6 +59,10 @@ CinnabarIsland_PokemonLab_Lounge_EventScript_NormaAlreadyTraded::
 `
 
 mapscripts CinnabarIsland_PokemonLab_Lounge_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setvar(VAR_USED_ROCK_SMASH, 0)
+		setflag(FLAG_TEMP_A)
+	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_USED_ROCK_SMASH, 1 {
 			if(flag(FLAG_CELIA_SECRET_CINNABAR)) {
@@ -72,14 +76,40 @@ mapscripts CinnabarIsland_PokemonLab_Lounge_MapScripts {
 				end
 			}
 			setflag(FLAG_CELIA_SECRET_CINNABAR)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			delay(60)
+			playse(SE_EXIT)
+			addobject(LOCALID_CINNABAR_SECRET_CELIA)
+			waitse
+			applymovement(LOCALID_CINNABAR_SECRET_CELIA, moves(
+				walk_up * 2
+				face_right
+			))
+			waitmovement(0)
 			msgbox(
-			"Celia comes in\n"
-			"does some stuff", MSGBOX_DEFAULT)
+			"Hey, STEVEN!\n"
+			"I'm here for my appointment… … …\l"
+			"…Oh.\p"
+
+			"Looks like my plans for today have\n"
+			"been cancelled.\l"
+			"Poor guy…\p"
+
+			"But since you seem to enjoy\n"
+			"backtracking, try this on for size!", MSGBOX_DEFAULT)
 			setvar(VAR_CSR_CURRENT_CELIA_SECRET, CELIA_SECRET_CINNABAR)
 			call(CeliaSecrets_CeliaTellsYouNextHint)
-			msgbox(
-			"Celia leaves\n"
-			"", MSGBOX_DEFAULT)
+			closemessage
+			delay(30)
+			applymovement(LOCALID_CINNABAR_SECRET_CELIA, moves(
+				walk_down * 2
+				set_invisible
+			))
+			waitmovement(0)
+			removeobject(LOCALID_CINNABAR_SECRET_CELIA)
+			setvar(VAR_USED_ROCK_SMASH, 0)
+			release
+			end
 
 
 		}
@@ -125,21 +155,30 @@ script CinnabarIslandLab_StevenStone {
 	"", MSGBOX_DEFAULT)
 	if(checkitem(ITEM_LETTER_W)) {
 		msgbox(
-		"STEVEN: Ah, a letter for me?\p"
+		"STEVEN: Ah, a letter from me?\p"
 
-		"something something\p"
+		"… … … …\n"
+		"… … … …\p"
 
-		"Take this\n"
-		"", MSGBOX_DEFAULT)
+		"It's from by associate BRENDAN.\n"
+		"I totally forgot about him!\p"
+
+		"Thank you for delivering it to me.\n"
+		"Take this.", MSGBOX_DEFAULT)
 		closemessage
 		removeitem(ITEM_LETTER_W)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		giveitem_msg("{PLAYER} received the\n"
-		"TM13!", ITEM_TM13, 1, MUS_LEVEL_UP)
+		"TM13!", ITEM_TM13)
 		waitfanfare
 		closemessage
+		textcolor(NPC_TEXT_COLOR_BLUE)
 		msgbox(
-		"STEVEN: That is STEEL WING.\n"
-		"", MSGBOX_DEFAULT)
+		"STEVEN: That is STEEL WING.\p"
+
+		"It's an aggressively mediocre\n"
+		"move, but for some unknown reason\l"
+		"I apparently love it.", MSGBOX_DEFAULT)
 		setvar(VAR_TRADING_QUEST_PHASE, 2)
 	}
 	release

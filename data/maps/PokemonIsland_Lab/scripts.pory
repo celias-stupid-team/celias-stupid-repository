@@ -122,11 +122,8 @@ script PokemonIslandLab_Ivy {
         "one right here on this island!\l"
         "It's in the back room there.\p"
 
-        "But…{PAUSE 30} We can't get it yet.\n"
-        "We still need one more thing.\p"
-
-        "We're missing a G.S. BALL.\n"
-        "Have you heard of it?\p"
+        "There's just one thing we need.\n"
+        "It's called the G.S. BALL.\p"
 
         "I think PROFESSOR OAK ordered one\n"
         "in the mail recently.\l"
@@ -529,5 +526,12 @@ script PokemonIsland_Signs {
         "", MSGBOX_DEFAULT)
     }
     release
+
+}
+
+script PokemonIsland_OakPhoto {
+	msgbox(
+	"It's a photo of OAK!\n"
+	"", MSGBOX_SIGN)
 
 }

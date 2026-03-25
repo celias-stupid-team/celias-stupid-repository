@@ -563,6 +563,7 @@ const u8 gText_KeepAnEyeOnHP[] = _("OAK: Keep your eyes on your\nPOKéMON's HP.\
 const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI think running turned them off.\pCould you stay here until we\nget them back up again?\pThanks!\p");
 const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
+static const u8 sText_ClassWiz1989[] = _("CSR DEVELOPER");
 
 // New battle strings.
 static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} survived with\nits {B_DEF_ABILITY} ability!");
@@ -1050,8 +1051,33 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_CANTESCAPEFINAL - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("No! There's no running\nfrom the final battle!\p"),
     [STRINGID_PKMNHPWASRESTORED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s HP was restored!"),
     [STRINGID_PKMNDODGEDATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} dodged the attack!"),
-    [STRINGID_PKMNSHELLHASBEENBROKEN - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("Oh no!\n{B_ATK_NAME_WITH_PREFIX}'s shell has been broken!"),
+    [STRINGID_PKMNSHELLHASBEENBROKEN - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("Oh no!\n{B_ATK_NAME_WITH_PREFIX}'s shell has been smashed!"),
     [STRINGID_PKMNREPEATSDANCEMOVE - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s DANCER ability\nrepeated the dance move!"),
+    [STRINGID_EARTHEATER - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s EARTH EATER…{PAUSE 20}"),
+    [STRINGID_SUPERSONIC - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("But it failed!{PAUSE 20}\pThere's no CHAOS EMERALDS!{PAUSE 45}"),
+    [STRINGID_TAUNT - BATTLESTRINGS_TABLE_START]                         = COMPOUND_STRING("lol"),
+    [STRINGID_SHED - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} doesn't have a\nTAIL to SHED!{PAUSE 45}"),
+    [STRINGID_PKMNWASBADLYBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_EFF_NAME_WITH_PREFIX} was badly burned!\pIts attacking stats have been\nmassively cut!"),
+    [STRINGID_PKMNWENTBACK - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} went back to {B_ATK_TRAINER_NAME}!"),
+    [STRINGID_GRAVITY_STARTS - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("The gravity intensified!"),
+    [STRINGID_GRAVITY_CONTINUES - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Gravity is intensified!"),
+    [STRINGID_PKMNSTATSMAXED - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s stats\nwere maxed!"),
+    [STRINGID_PKMNSTATSWEREFLIPPED - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s stats\nwere flipped!"),
+    [STRINGID_TOXICBERRYFAINT - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} ate the TOXIC BERRY!\pWHAT..?\nNO!?!"),
+    [STRINGID_PKMNATEBERRYNOEFFECT - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} ate the {B_LAST_ITEM},\nbut nothing happened!"),
+    [STRINGID_PKMNBERRYWASBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nwas burned."),
+    [STRINGID_BESTOWITEMGIVING - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} received {B_LAST_ITEM}\nfrom {B_ATK_NAME_WITH_PREFIX}!"),
+    [STRINGID_REVELATIONDANCEMATCHEDTYPE - BATTLESTRINGS_TABLE_START]    = COMPOUND_STRING("REVELATION DANCE matched\n{B_ATK_NAME_WITH_PREFIX}'s typing!"),
+    [STRINGID_REFLECTTARGETSTYPE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} became {B_BUFF1} type\nand {B_BUFF2} type."),
+    [STRINGID_PKMNBECAMETYPE - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} became {B_BUFF1} type."),
+    [STRINGID_VANISHEDINSTANTLY - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} vanished instantly!"),
+    [STRINGID_PKMNCOLORCHANGEWIZIMMUNE - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} changed to {B_BUFF3}\ntype making it immune to {B_BUFF2}!"),
+    [STRINGID_PKMNCOLORCHANGEWIZDAMAGE - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_OPPONENT_MON1_NAME}'s COLOR CHANGE made it\nhurt by the status move!"),
+    [STRINGID_TWISTED_REALITY_ACTIVATES - BATTLESTRINGS_TABLE_START]     = COMPOUND_STRING("{B_OPPONENT_MON1_NAME}'s TWISTED REALITY transformed\n{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} to {B_BUFF2}!"),
+    [STRINGID_TWISTED_REALITY_RECOIL - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} got hurt by the\nexcessive use of magic!"),
+    [STRINGID_HACK_ATTACK - BATTLESTRINGS_TABLE_START]                   = COMPOUND_STRING("Mess with the best,\ndie like the rest!"),
+    [STRINGID_WAITWHAT - BATTLESTRINGS_TABLE_START]                      = COMPOUND_STRING("Wait\nWHAT?"),
+    [STRINGID_FINISHHACKATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("THIS SHOULDN'T BE HAPPENING!{PAUSE 30}\nCRAP!!!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1210,7 +1236,8 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_DIG]        = STRINGID_PKMNDUGHOLE,
     [B_MSG_TURN1_DIVE]       = STRINGID_PKMNHIDUNDERWATER,
     [B_MSG_TURN1_BOUNCE]     = STRINGID_PKMNSPRANGUP, 
-    [B_MSG_TURN1_SHADOW_FORCE]     = STRINGID_SHADOW_FORCE, 
+    [B_MSG_TURN1_SHADOW_FORCE] = STRINGID_SHADOW_FORCE,
+    [B_MSG_TURN1_PHANTOM_FORCE] = STRINGID_VANISHEDINSTANTLY,
 };
 
 // Index copied from move's index in gTrappingMoves
@@ -1483,6 +1510,10 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_FICKLE_BEAM] = STRINGID_FICKLE_BEAM,
     [B_MSG_MIST] = STRINGID_IT_MIST,
     [B_MSG_MAGNET_RISE] = STRINGID_MAGNET_RISE,
+    [B_MSG_TAUNT] = STRINGID_TAUNT,
+    [B_MSG_SUPERSONIC] = STRINGID_SUPERSONIC,
+    [B_MSG_SHED] = STRINGID_SHED,
+    [B_MSG_HACK_ATTACK] = STRINGID_HACK_ATTACK,
 };
 
 const u16 gSwitchInAbilityStringIds[] =
@@ -2034,15 +2065,17 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
-                /*
+                
                 case EVENT_BATTLE_GIOVANNI_2: 
-                        if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_FIRE )  { //This one is wonky rn
+                    //DebugPrintf("Type is %d", gBattleMoves[sBattleMsgDataPtr->currentMove].type);
+                    //DebugPrintf("Move is %d", sBattleMsgDataPtr->currentMove);
+                        if(gBattleStruct->dynamicMoveType == TYPE_FIRE )  { //This one is wonky rn
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
-                 */
+                 
                 case EVENT_BATTLE_THIEVUL: 
                         if(sBattleMsgDataPtr->currentMove == MOVE_V_CREATE )  {
                         BattleStopLowHpSound();
@@ -2460,11 +2493,10 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                     toCpy = gTrainerClassNames[GetTrainerTowerOpponentClass()];
                 else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
                     toCpy = gTrainerClassNames[GetEreaderTrainerClassId()];
-                else if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TRANS_BUGS && (gBattleOutcome == B_OUTCOME_WON)) {
+                else if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TRANS_BUGS && (gBattleOutcome == B_OUTCOME_WON))
                     toCpy = gTrainerClassNames[TRAINER_CLASS_SIS_AND_BRO];
-                    //DebugPrintf("Setting trainer class name to sis and bro");
-
-                }
+                else if (gTrainerBattleOpponent_A == TRAINER_WIZ1989)
+                    toCpy = sText_ClassWiz1989;
                 else
                     toCpy = gTrainerClassNames[gTrainers[gTrainerBattleOpponent_A].trainerClass];
                 break;
@@ -2517,6 +2549,12 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 break;
             case B_TXT_PLAYER_NAME: // player name
                 toCpy = gSaveBlock2Ptr->playerName;
+                break;
+            case B_TXT_ATK_TRAINER_NAME: // attacker's trainer name
+                if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+                    toCpy = gSaveBlock2Ptr->playerName;
+                else
+                    toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
                 break;
             case B_TXT_TRAINER1_LOSE_TEXT: // trainerA lose text
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)

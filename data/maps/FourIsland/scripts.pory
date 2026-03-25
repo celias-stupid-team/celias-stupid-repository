@@ -531,6 +531,9 @@ script FourIsland_SealCase {
 	lock
 	faceplayer
 	famechecker(FAMECHECKER_GREAT_SEA_EAST, 1)
+	if(!checkitem(ITEM_SEAL_CASE) && !checkmoncaught(SPECIES_SEEL)) {
+		clearflag(FLAG_GOT_SEAL_CASE)
+	}
 	if(flag(FLAG_GOT_SEAL_CASE)) {
 		msgbox(
 		"Alternatively, you can always call\n"
@@ -597,7 +600,7 @@ script FourIsland_BarryHater {
 
 
 script FourIsland_BidoofHint {
-	famechecker(FAMECHECKER_SAFFRON, 3)
+	//famechecker(FAMECHECKER_SAFFRON, 3)
 	msgbox(
 	"They say there's a POKéMON made to\n"
 	"help traverse across the world.\p"

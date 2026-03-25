@@ -1428,6 +1428,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trysetshine battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_SET_SHINE
+	.4byte \failInstr
+	.endm
+
 	.macro handlespriteupdate battler:req
 	various \battler, VARIOUS_HANDLE_SPRITE_UPDATE
 	.endm
@@ -1780,4 +1785,128 @@
 
 	.macro settechnoblasttype
 	callnative BS_SetTechnoBlastType
+	.endm
+
+	.macro setrevelationdancetype
+	callnative BS_SetRevelationDanceType
+	.endm
+
+	.macro wturnsaveoriginalbattledata
+	callnative BS_WTurnSaveOriginalBattleData
+	.endm
+
+	.macro jumpifflagset flag:req, jumpptr:req
+	callnative BS_JumpIfFlagSet
+	.2byte \flag
+	.4byte \jumpptr
+	.endm
+
+	.macro trymefirst failInstr:req
+	callnative BS_TryMeFirst
+	.4byte \failInstr
+	.endm
+
+	.macro dmgtohp
+	callnative BS_DmgToHp
+	.endm
+
+	.macro jumpifteainvulnerable battler:req, jumpInstr:req
+	callnative BS_TeatimeInvul
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifteanoberry failInstr:req
+	callnative BS_TeatimeTargets
+	.4byte \failInstr
+	.endm
+
+	.macro consumeberry battler:req, fromBattler:req
+	callnative BS_ConsumeBerry
+	.byte \battler
+	.byte \fromBattler
+	.endm
+
+	.macro jumpifnexttargetvalidallbattlers ptr:req
+	callnative BS_JumpIfNextTargetValidAllBattlers
+	.4byte \ptr
+	.endm
+
+	.macro tryburnberry battler:req, failInstr:req
+	callnative BS_TryBurnBerry
+	.byte \battler
+	.4byte \failInstr
+	.endm
+
+	.macro trybestow failInstr:req
+	callnative BS_TryBestow
+	.4byte \failInstr
+	.endm
+
+	.macro tryreflecttype failInstr:req
+	callnative BS_TryReflectType
+	.4byte \failInstr
+	.endm
+
+	.macro trygivenothing
+	callnative BS_TryGiveNothing
+	.endm
+
+	.macro trytrickortreat failInstr:req
+	callnative BS_TryTrickOrTreat
+	.4byte \failInstr
+	.endm
+
+	.macro setupthrow battler:req
+	callnative BS_SetUpThrow
+	.byte \battler
+	.endm
+
+	.macro tryremoveallentryhazards side:req
+	callnative BS_TryRemoveAllEntryHazards
+	.byte \side
+	.endm
+
+	.macro glitchbattlescreen
+	callnative BS_GlitchBattleScreen
+	.endm
+
+	.macro restoreglitchbattlescreen
+	callnative BS_RestoreGlitchBattleScreen
+	.endm
+
+	.macro restorebattlebackground
+	callnative BS_RestoreBattleBackground
+	.endm
+
+	.macro glitchbattlebgm
+	callnative BS_GlitchBattleBgm
+	.endm
+
+	@ type_arg is the address of sB_ANIM_ARG1 or similar
+	.macro preparetypebuff2 type_arg:req
+	callnative BS_PrepareTypeBuff2
+	.4byte \type_arg
+	.endm
+
+	.macro faintenemyfirstslot
+	callnative BS_FaintEnemyFirstSlot
+	.endm
+
+	.macro flicker mode:req frames:req
+	callnative BS_Flicker
+	.byte \mode
+	.byte \frames
+	.endm
+
+	.macro glitchpalettes
+	callnative BS_GlitchPalettes
+	.endm
+
+	.macro restoreglitchpalettes
+	callnative BS_RestoreGlitchPalettes
+	.endm
+
+	.macro instantwin
+	callnative BattleDebug_WonBattle
 	.endm

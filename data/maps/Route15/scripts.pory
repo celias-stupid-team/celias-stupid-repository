@@ -510,3 +510,11 @@ script Route15_Chuckster {
 	release
 
 }
+
+
+script GreatSea_LaserShark {
+	msgbox(
+	"It's a LASER SHARK!\n"
+	"{PAUSE 20}With LASER EYES!", MSGBOX_SIGN)
+
+}

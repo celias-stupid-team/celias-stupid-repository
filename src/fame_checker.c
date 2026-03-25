@@ -326,7 +326,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_BLUE,
     OBJ_EVENT_GFX_PICNICKER,
     OBJ_EVENT_GFX_YOUNGSTER,
-    OBJ_EVENT_GFX_BEAUTY,
+    OBJ_EVENT_GFX_GENTLEMAN,
     // Vermilion
     OBJ_EVENT_GFX_OLD_MAN_1,
     OBJ_EVENT_GFX_BATTLE_GIRL,
@@ -386,7 +386,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     // Great Sea East
     OBJ_EVENT_GFX_BOY,
     OBJ_EVENT_GFX_BEAUTY,
-    OBJ_EVENT_GFX_BATTLE_GIRL,
+    OBJ_EVENT_GFX_PICNICKER,
     OBJ_EVENT_GFX_ROCK_SMASH_ROCK,
     OBJ_EVENT_GFX_WOMAN_2,
     OBJ_EVENT_GFX_CAPTAIN,
@@ -401,9 +401,9 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_ROCKET_M,
     OBJ_EVENT_GFX_OLD_MAN_2,
     OBJ_EVENT_GFX_WORKER_M,
-    OBJ_EVENT_GFX_SCIENTIST,
+    OBJ_EVENT_GFX_ROCKER,
     OBJ_EVENT_GFX_CLIPBOARD,
-    OBJ_EVENT_GFX_SCIENTIST
+    OBJ_EVENT_GFX_APPLIN_KID
 };
 
 static const u8 *const sFlavorTextOriginLocationTexts[] = {
@@ -1426,7 +1426,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FlagGet(FLAG_GOT_MOVE_BOOK))
+                    if(FlagGet(FLAG_GOT_HISTORY_BOOK))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
@@ -1463,7 +1463,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE) //Magical Leaf - beat sans
+                    if(FlagGet(FLAG_NO_SANS_ITEM)) //Magical Leaf - beat sans
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1658,7 +1658,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(DexScreen_GetSetPokedexFlag(SPECIES_BIDOOF, FLAG_GET_CAUGHT, TRUE))
+                    if(VarGet(VAR_TRADING_QUEST_PHASE) >= 4)
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
@@ -1666,7 +1666,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(FlagGet(FLAG_GOT_PENCIL_ERASER))
                         isQuestCompleted = TRUE;
                     break;
             }

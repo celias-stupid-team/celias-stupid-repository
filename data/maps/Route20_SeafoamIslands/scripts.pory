@@ -30,3 +30,9 @@ script Route20_DeadRatFisher {
 	"I'm sure it won't be the fuel for\n"
 	"many poorly-written fanworks!", MSGBOX_NPC)
 }
+
+script Route20_ButtTouch {
+	msgbox(
+	"{PLAYER} touched the butt.\n"
+	"", MSGBOX_NPC)
+}

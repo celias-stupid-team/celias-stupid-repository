@@ -10,6 +10,7 @@
 #include "field_effect.h"
 #include "field_effect_helpers.h"
 #include "field_player_avatar.h"
+#include "field_specials.h"
 #include "help_system.h"
 #include "metatile_behavior.h"
 #include "new_menu_helpers.h"
@@ -642,7 +643,8 @@ static bool8 CanStopSurfing(s16 x, s16 y, u8 direction)
 {
     if ((gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
         && MapGridGetElevationAt(x, y) == 3
-        && GetObjectEventIdByPosition(x, y, 3) == OBJECT_EVENTS_COUNT)
+        && GetObjectEventIdByPosition(x, y, 3) == OBJECT_EVENTS_COUNT
+        && !gChapterTitleRunning)
     {
         QuestLogRecordPlayerAvatarGfxTransitionWithDuration(sQuestLogSurfDismountActionIds[direction], 16);
         CreateStopSurfingTask(direction);
@@ -968,6 +970,12 @@ void PlayerJumpLedge(u8 direction)
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_TWO_ISLAND) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_TWO_ISLAND)) {
         RunScriptImmediately(TwoIsland_ThePit);
     }
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_2F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_2F)) {
+        RunScriptImmediately(SkyTower_2F_ThePit);
+    }
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_3F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_3F)) {
+        RunScriptImmediately(SkyTower_3F_ThePit);
+    }
     PlaySE(SE_LEDGE);
     PlayerSetAnimId(GetJump2MovementAction(direction), 8);
 }
@@ -1073,7 +1081,7 @@ static void PlayCollisionSoundIfNotFacingWarp(u8 direction)
     s16 x, y;
     u8 metatileBehavior = gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior;
 
-    if (!sArrowWarpMetatileBehaviorChecks[direction - 1](metatileBehavior))
+    if (!sArrowWarpMetatileBehaviorChecks[direction - 1](metatileBehavior) && !gChapterTitleRunning)
     {
         if (direction == DIR_WEST)
         {

@@ -330,7 +330,14 @@ void StartMonScrollingBgMask(u8 taskId, s32 unused, u16 arg2, u8 battler1, u8 ar
 void SpriteCB_SurroundingRing(struct Sprite *sprite);
 bool8 LoadBattlerSpriteGfx(u8 battlerId);
 void LoadDefaultBg(void);
+void AnimSonicBoomProjectile(struct Sprite *sprite);
+void AnimHitSplatBasic(struct Sprite *sprite);
+void AnimFireSpread(struct Sprite *sprite);
+void AnimUproarRing(struct Sprite *);
+void AnimTask_GrudgeFlames_Step(u8 taskId);
 
 extern const union AffineAnimCmd *const gThinRingShrinkingAffineAnimTable[];
+extern const union AffineAnimCmd *const gAffineAnims_HitSplat[];
+extern const union AffineAnimCmd *const gThinRingExpandingAffineAnimTable[];
 
 #endif // GUARD_BATTLE_ANIM_H

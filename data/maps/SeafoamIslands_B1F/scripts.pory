@@ -13,3 +13,8 @@ mapscripts SeafoamIslands_B1F_MapScripts {
 		}
 	}
 }
+
+script SeafoamCaptainToPerm {
+	copyobjectxytoperm(LOCALID_B1F_CAPTAIN)
+	release
+}

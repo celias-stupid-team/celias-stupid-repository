@@ -1,0 +1,43 @@
+{
+  "id": "MAP_STARLIGHT_HOUSE",
+  "name": "Starlight_House",
+  "layout": "LAYOUT_STARLIGHT_HOUSE",
+  "music": "MUS_SEVII_45",
+  "region_map_section": "MAPSEC_GREAT_SEA",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 2,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_STARLIGHT_HOUSE3",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_STARLIGHT_HOUSE2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_AETHER_PARADISE_ISLAND",
+      "dest_warp_id": "3"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_VIRIDIAN_GYM_2",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
@@ -75,8 +75,8 @@
       "local_id": "LOCALID_SABRINA_ROADBLOCK",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
-      "x": 21,
-      "y": 11,
+      "x": 25,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -97,10 +97,10 @@
     },
     {
       "x": 21,
-      "y": 10,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_BLAINE",
-      "dest_warp_id": "0"
+      "dest_warp_id": "2"
     },
     {
       "x": 17,
@@ -136,8 +136,8 @@
       "x": 4,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_SILPH_CO_2F",
-      "dest_warp_id": "6"
+      "dest_map": "MAP_SILPH_CO_7F",
+      "dest_warp_id": "1"
     },
     {
       "warp_id": "WARP_ID_SAFFRON_GYM_DMCA",
@@ -145,7 +145,7 @@
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
-      "dest_warp_id": "WARP_ID_DMCA_HIDEOUT"
+      "dest_warp_id": "5"
     },
     {
       "x": 7,

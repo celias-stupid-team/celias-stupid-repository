@@ -110,7 +110,15 @@ script Yes_WhereAreYouFrom {
 script Yes_ChanseyNPC {
 	lock
 	faceplayer
-	famechecker(FAMECHECKER_GREAT_BAY, 2)
+	famechecker(FAMECHECKER_GREAT_BAY, 4)
+	if(flag(FLAG_LEARNED_YES_NAH_CHANSEY)) {
+		msgbox(
+		"You're really happy CHANSEY's\n"
+		"journeying by accompanying you,\l"
+		"yeah?", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	msgbox(
 	"Hi, there!\n"
 	"I'm giving away a free CHANSEY!\l"
@@ -120,12 +128,15 @@ script Yes_ChanseyNPC {
 	waitstate
 	if(var(VAR_RESULT)) {
 		msgbox(
-		"here\n"
+		"Glad to hear it!\p"
+
+		"Here you go!\n"
 		"", MSGBOX_DEFAULT)
 		playfanfare(MUS_LEVEL_UP)
 		msgbox(
 		"{PLAYER} was gifted a CHANSEY!\n"
 		"Yes!", MSGBOX_DEFAULT)
+		setflag(FLAG_LEARNED_YES_NAH_CHANSEY)
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CHANSEY)
 		call(Common_Script_GiftPokemon)
 		release
@@ -291,7 +302,7 @@ script Yes_BrendanShirt {
 
 
 script Yes_BrendanHouseSign {
-	famechecker(FAMECHECKER_GREAT_BAY, 4)
+	famechecker(FAMECHECKER_GREAT_BAY, 5)
 	msgbox(
 	"BRENDAN's house.\n"
 	"", MSGBOX_SIGN)
@@ -425,6 +436,7 @@ script Yes_TM {
 	waitmovement(LOCALID_YES_NERD)
 	removeobject(LOCALID_YES_NERD)
 	delay(10)
+	removeobject(VAR_LAST_TALKED)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
 	release
 	end

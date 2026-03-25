@@ -137,11 +137,11 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 3,
-      "y": 3,
+      "x": 8,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CopycatHouse_PlaceholderScriptStarter"
+      "script": "Saffron_CopyCatCamera"
     },
     {
       "type": "sign",
@@ -161,8 +161,8 @@
     },
     {
       "type": "sign",
-      "x": 1,
-      "y": 5,
+      "x": -3,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CopycatHouse_NotOak"
@@ -171,6 +171,14 @@
       "type": "sign",
       "x": 1,
       "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CopycatHouse_NotOak"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CopycatHouse_NotOak"

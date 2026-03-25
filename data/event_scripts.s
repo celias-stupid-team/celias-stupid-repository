@@ -1055,7 +1055,6 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_CINNABAR_BILL
 	setflag FLAG_HIDE_CINNABAR_ALOLAN_GROWLITHE
 	setflag FLAG_HIDE_CINNABAR_POKECENTER_BILL
-	setflag FLAG_HIDE_LORELEI_IN_HER_HOUSE
 	setflag FLAG_HIDE_SAFFRON_FAN_CLUB_BLACKBELT
 	setflag FLAG_HIDE_SAFFRON_FAN_CLUB_ROCKER
 	setflag FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN
@@ -1078,7 +1077,7 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL
 	setflag FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL
 	setflag FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL
-	setflag FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_M_DOLL
+	setflag FLAG_HIDE_BONUS_STARLIGHTS
 	setflag FLAG_HIDE_LORELEIS_HOUSE_FEAROW_DOLL
 	setflag FLAG_HIDE_LORELEIS_HOUSE_PIDGEOT_DOLL
 	setflag FLAG_HIDE_LORELEIS_HOUSE_LAPRAS_DOLL
@@ -1915,3 +1914,24 @@ Text_TestMsg::
 
 	.include "data/maps/Stonehenge/scripts.inc"
 	.include "data/maps/Stonehenge/text.inc"
+
+	.include "data/maps/OnixRoom/scripts.inc"
+	.include "data/maps/OnixRoom/text.inc"
+
+	.include "data/maps/FarawayIsland/scripts.inc"
+	.include "data/maps/FarawayIsland/text.inc"
+
+	.include "data/maps/Route23Extended/scripts.inc"
+	.include "data/maps/Route23Extended/text.inc"
+
+	.include "data/maps/Starlight_House/scripts.inc"
+	.include "data/maps/Starlight_House/text.inc"
+
+	.include "data/maps/Starlight_House2/scripts.inc"
+	.include "data/maps/Starlight_House2/text.inc"
+
+	.include "data/maps/Starlight_House3/scripts.inc"
+	.include "data/maps/Starlight_House3/text.inc"
+
+	.include "data/maps/One_Island_Cave/scripts.inc"
+	.include "data/maps/One_Island_Cave/text.inc"

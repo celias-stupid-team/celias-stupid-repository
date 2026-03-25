@@ -142,6 +142,7 @@ static void SetFieldVBlankCallback(void);
 static void VBlankCB_Field(void);
 void ReloadMap(void);
 void Task_ReloadMap(u8 taskId);
+void GlitchScreen(void);
 
 
 static bool32 LoadMapInStepsLink(u8 *state);
@@ -1251,7 +1252,11 @@ bool32 Overworld_MusicCanOverrideMapMusic(u16 music)
 {
     if (music == MUS_CYCLING || music == MUS_SURF)
     {
-        if (gMapHeader.regionMapSectionId == MAPSEC_KANTO_VICTORY_ROAD || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 || gMapHeader.regionMapSectionId == MAPSEC_INDIGO_PLATEAU)
+        if (gMapHeader.regionMapSectionId == MAPSEC_KANTO_VICTORY_ROAD 
+            || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_23 
+            || gMapHeader.regionMapSectionId == MAPSEC_INDIGO_PLATEAU 
+            || gMapHeader.regionMapSectionId == MAPSEC_SKY_TOWER
+            || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE19_UNUSED_HOUSE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE19_UNUSED_HOUSE)))
             return FALSE;
     }
     return TRUE;
@@ -3645,4 +3650,20 @@ void Task_ReloadMap(u8 taskId)
 bool32 inline IsCurrentMap(u16 map)
 {
     return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(map) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(map);
+}
+
+void GlitchScreen(void)
+{
+    s32 i, x, y;
+
+    for (x = 0; x < (MAP_OFFSET * 2) + 1; x++)
+    {
+        for (y = 0; y < (MAP_OFFSET * 2) + 1; y++)
+        {
+            MapGridSetMetatileIdAt(gSaveBlock1Ptr->pos.x + x, gSaveBlock1Ptr->pos.y + y, Random() % 0x200);
+        }
+    }
+    DrawWholeMapView();
+    for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+        gPlttBufferFaded[i] = Random();
 }

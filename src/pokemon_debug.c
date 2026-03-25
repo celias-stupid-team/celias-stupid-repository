@@ -5,6 +5,7 @@
 #include "battle_anim.h"
 #include "battle_bg.h"
 #include "battle_gfx_sfx_util.h"
+#include "battle_util.h"
 #include "bg.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -46,7 +47,7 @@ extern const struct CompressedSpriteSheet gSpriteSheet_EnemyShadow;
 extern const struct SpriteTemplate gSpriteTemplate_EnemyShadow;
 extern const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2];
 extern const struct UCoords8 sBattlerCoords[][MAX_BATTLERS_COUNT] ;
-static const u16 sBgColor[] = {RGB_WHITE};
+static const u16 sBgColor[] = {RGB_BLACK};
 
 static struct PokemonDebugMenu *GetStructPtr(u8 taskId)
 {
@@ -229,26 +230,27 @@ static const struct WindowTemplate sPokemonDebugWindowTemplate[] =
 //Lookup tables
 const u8 gBattleBackgroundNames[][30] =
 {
-    [MAP_BATTLE_SCENE_NORMAL]   = _("NORMAL                  "),
-    [MAP_BATTLE_SCENE_LINK]     = _("LINK                    "),
-    [MAP_BATTLE_SCENE_GYM]      = _("GYM                     "),
-    [MAP_BATTLE_SCENE_LEADER]   = _("LEADER                  "),
-    [MAP_BATTLE_SCENE_INDOOR_1] = _("INDOOR1                 "),
-    [MAP_BATTLE_SCENE_INDOOR_2] = _("INDOOR2                 "),
-    [MAP_BATTLE_SCENE_LORELEI]  = _("LORELEI                 "),
-    [MAP_BATTLE_SCENE_BRUNO]    = _("BRUNO                   "),
-    [MAP_BATTLE_SCENE_AGATHA]   = _("AGATHA                  "),
-    [MAP_BATTLE_SCENE_LANCE]    = _("LANCE                   "),
-    [MAP_BATTLE_SCENE_CHAMPION] = _("CHAMPION                "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI] = _("ZAPMOLTICUNO-OHGIA      "),
-    [MAP_BATTLE_SCENE_CHAPTER_3] = _("CHAPTER 3      "),
-    [MAP_BATTLE_SCENE_BLAINE] = _("BLAINE      "),
-    [MAP_BATTLE_SCENE_SPACE] = _("SPACE      "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI_2] = _("ZAPMOLTI 2      "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI_3] = _("ZAPMOLTI 3      "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI_4] = _("ZAPMOLTI 4      "),
-    [MAP_BATTLE_SCENE_ZAPMOLTI_5] = _("ZAPMOLTI 5      "),
-
+    [MAP_BATTLE_SCENE_NORMAL]     = _("NORMAL                  "),
+    [MAP_BATTLE_SCENE_LINK]       = _("LINK                    "),
+    [MAP_BATTLE_SCENE_GYM]        = _("GYM                     "),
+    [MAP_BATTLE_SCENE_LEADER]     = _("LEADER                  "),
+    [MAP_BATTLE_SCENE_INDOOR_1]   = _("INDOOR1                 "),
+    [MAP_BATTLE_SCENE_INDOOR_2]   = _("INDOOR2                 "),
+    [MAP_BATTLE_SCENE_LORELEI]    = _("LORELEI                 "),
+    [MAP_BATTLE_SCENE_BRUNO]      = _("BRUNO                   "),
+    [MAP_BATTLE_SCENE_AGATHA]     = _("AGATHA                  "),
+    [MAP_BATTLE_SCENE_LANCE]      = _("LANCE                   "),
+    [MAP_BATTLE_SCENE_CHAMPION]   = _("CHAMPION                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_1] = _("ZAPMOL 1                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_2] = _("ZAPMOL 2                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_3] = _("ZAPMOL 3                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_4] = _("ZAPMOL 4                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_5] = _("ZAPMOL 5                "),
+    [MAP_BATTLE_SCENE_ZAPMOLTI_PLATFORMS] = _("ZAPMOL P                "),
+    [MAP_BATTLE_SCENE_CHAPTER_3]  = _("CHAPTER 3               "),
+    [MAP_BATTLE_SCENE_BLAINE]     = _("BLAINE                  "),
+    [MAP_BATTLE_SCENE_SPACE]      = _("SPACE                   "),
+    [MAP_BATTLE_SCENE_RAINBOW]    = _("RAINBOW                 "),
 };
 const u8 gBattleBackgroundTerrainNames[][26] =
 {
@@ -302,7 +304,7 @@ static void PrintInstructionsOnWindow(struct PokemonDebugMenu *data)
     CopyWindowToVram(WIN_INSTRUCTIONS, COPYWIN_FULL);
 
     //Bottom text
-    FillWindowPixelBuffer(WIN_BOTTOM_LEFT, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_BOTTOM_LEFT, PIXEL_FILL(1));
     if (data->currentSubmenu != 2)
         AddTextPrinterParameterized(WIN_BOTTOM_LEFT, fontId, textBottom, 0, 0, 0, NULL);
     else
@@ -633,7 +635,7 @@ static void LoadAndCreateEnemyShadowSpriteCustom(struct PokemonDebugMenu *data, 
     u8 x, y;
     bool8 invisible = FALSE;
     species = species > NUM_SPECIES - 1 ? SPECIES_BULBASAUR : species;
-    if (gEnemyMonElevation[species] == 0)
+    if (gEnemyMonElevation[species] == 0 || IsZapmolcunoOhgiaSpecies(species))
         invisible = TRUE;
     LoadCompressedSpriteSheet(&gSpriteSheet_EnemyShadow);
     LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[0]);
@@ -677,6 +679,9 @@ static void DrawFootprintCustom(u8 windowId, u16 species)
 //Battle background functions
 static void LoadBattleBg(u8 battleBgType, u8 battleTerrain)
 {
+    // clear all terrain palette slots (2-14) before loading
+    FillPalette(0, BG_PLTT_ID(2), 13 * PLTT_SIZE_4BPP);
+
     switch (battleBgType)
     {
         default:
@@ -735,10 +740,55 @@ static void LoadBattleBg(u8 battleBgType, u8 battleTerrain)
             LZDecompressVram(gBattleTerrainTilemap_Indoor, (void*)(BG_SCREEN_ADDR(26)));
             LoadCompressedPalette(gBattleTerrainPalette_Champion, 0x20, 0x60);
             break;
-        case MAP_BATTLE_SCENE_ZAPMOLTI:
-            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia, (void*)(BG_CHAR_ADDR(2)));
-            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia, (void*)(BG_SCREEN_ADDR(26)));
-            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia, 10 * 16, 5* PLTT_SIZE_4BPP);
+        case MAP_BATTLE_SCENE_ZAPMOLTI_1:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia1, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia1, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia1, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_2:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia2, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia2, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia2, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_3:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia3, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia3, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia3, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_4:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia4, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia4, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia4, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_5:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia5, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia5, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia5, 10 * 16, 5* PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_ZAPMOLTI_PLATFORMS:
+            LZDecompressVram(gBattleTerrainTiles_Zapmolcunoohgia_Platforms, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Zapmolcunoohgia_Platforms, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Zapmolcunoohgia_Platforms, 0x20, 0x60);
+            break;
+        case MAP_BATTLE_SCENE_CHAPTER_3:
+            LZDecompressVram(gBattleTerrainTiles_Chapter3, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Chapter3, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Chapter3, 0x20, 0x60);
+            break;
+        case MAP_BATTLE_SCENE_BLAINE:
+            LZDecompressVram(gBattleTerrainTiles_Blaine, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Blaine, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Blaine, 0x20, 0x60);
+            break;
+        case MAP_BATTLE_SCENE_SPACE:
+            LZDecompressVram(gBattleTerrainTiles_Space, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Space, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Space, 0x20, 0x60);
+            break;
+        case MAP_BATTLE_SCENE_RAINBOW:
+            LZDecompressVram(gBattleTerrainTiles_Rainbow, (void*)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(gBattleTerrainTilemap_Rainbow, (void*)(BG_SCREEN_ADDR(26)));
+            LoadCompressedPalette(gBattleTerrainPalette_Rainbow, 0x20, 0x60);
             break;
     }
 }
@@ -763,16 +813,14 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
         if (increment)
         {
             if (data->battleTerrain == BATTLE_TERRAIN_PLAIN)
-                data->battleBgType += 1;
+                data->battleBgType = MAP_BATTLE_SCENE_LINK;
             else
                 data->battleTerrain += 1;
         }
         else
         {
             if (data->battleTerrain == BATTLE_TERRAIN_GRASS)
-            {
-                data->battleBgType = MAP_BATTLE_SCENE_ZAPMOLTI;
-            }
+                data->battleBgType = MAP_BATTLE_SCENE_RAINBOW;
             else
                 data->battleTerrain -= 1;
         }
@@ -789,7 +837,7 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
             data->battleTerrain = BATTLE_TERRAIN_PLAIN;
         }
     }
-    else if (data->battleBgType == MAP_BATTLE_SCENE_ZAPMOLTI)
+    else if (data->battleBgType == MAP_BATTLE_SCENE_RAINBOW)
     {
         if (increment)
         {
@@ -797,17 +845,9 @@ static void UpdateBattleBg(u8 taskId, bool8 increment)
             data->battleTerrain = BATTLE_TERRAIN_GRASS;
         }
         else
-            data->battleBgType -= 1;
-    }
-    else if (data->battleBgType == MAP_BATTLE_SCENE_GYM || data->battleBgType == MAP_BATTLE_SCENE_LEADER)
-    {
-        if (increment)
         {
-            data->battleBgType = MAP_BATTLE_SCENE_NORMAL;
-            data->battleTerrain = BATTLE_TERRAIN_GRASS;
-        }
-        else
             data->battleBgType -= 1;
+        }
     }
     else
     {
@@ -847,7 +887,7 @@ static void UpdateYPosOffsetText(struct PokemonDebugMenu *data)
     u8 newFrontPicCoords   = frontPicCoords  +  offset_front_picCoords;
     u8 newFrontElevation   = frontElevation  +  offset_front_elevation;
 
-    FillWindowPixelBuffer(WIN_BOTTOM_RIGHT, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_BOTTOM_RIGHT, PIXEL_FILL(1));
 
     //Back
     y = 0;
@@ -884,7 +924,7 @@ static void ResetPokemonDebugWindows(void)
 
     for (i = 0; i < WIN_END + 1; i++)
     {
-        FillWindowPixelBuffer(i, PIXEL_FILL(0));
+        FillWindowPixelBuffer(i, PIXEL_FILL(1));
         PutWindowTilemap(i);
         CopyWindowToVram(i, COPYWIN_FULL);
     }
@@ -1307,7 +1347,7 @@ static void Handle_Input_Debug_Pokemon(u8 taskId)
         if (JOY_NEW(B_BUTTON))
         {
             data->currentSubmenu = 1;
-            FillWindowPixelBuffer(WIN_BOTTOM_RIGHT, PIXEL_FILL(0));
+            FillWindowPixelBuffer(WIN_BOTTOM_RIGHT, PIXEL_FILL(1));
             PrintBattleBgName(taskId);
             SetArrowInvisibility(data);
             PrintInstructionsOnWindow(data);

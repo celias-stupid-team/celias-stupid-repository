@@ -168,6 +168,7 @@ static void InitCSRData(void)
     FlagSet(FLAG_CSR_HIDE_GS_BALL);
     FlagSet(FLAG_SYS_B_DASH);
     FlagSet(FLAG_CSR_CELIA_DEV_CREW);
+    FlagSet(FLAG_SYS_FULL_RELEASE_SAVE);
     
 }
 

@@ -10927,6 +10927,13 @@ extern const u32 gMonShinyPalette_Kecleon_Sans[];
 extern const u8 gMonIcon_Kecleon_Sans[];
 extern const u8 gMonFootprint_Kecleon_Sans[];
 
+// Kecleon wiz1989
+extern const u32 gMonFrontPic_Kecleon_wiz1989[];
+extern const u32 gMonPalette_Kecleon_wiz1989[];
+extern const u32 gMonBackPic_Kecleon_wiz1989[];
+extern const u32 gMonShinyPalette_Kecleon_wiz1989[];
+extern const u8 gMonIcon_Kecleon_wiz1989[];
+extern const u8 gMonFootprint_Kecleon_wiz1989[];
 
 // Porygon_16
 extern const u32 gMonFrontPic_Porygon_16[];
@@ -12421,12 +12428,36 @@ extern const u32 gBattleTerrainPalette_Agatha[];
 extern const u32 gBattleTerrainPalette_Lance[];
 extern const u32 gBattleTerrainPalette_Champion[];
 extern const u32 gBattleTerrainPalette_Plain[];
-extern const u32 gBattleTerrainPalette_Zapmolcunoohgia[];
-extern const u32 gBattleTerrainTiles_Zapmolcunoohgia[];
-extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia[];
+extern const u32 gBattleTerrainPalette_Zapmolcunoohgia1[];
+extern const u32 gBattleTerrainTiles_Zapmolcunoohgia1[];
+extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia1[];
+extern const u32 gBattleTerrainPalette_Zapmolcunoohgia2[];
+extern const u32 gBattleTerrainTiles_Zapmolcunoohgia2[];
+extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia2[];
+extern const u32 gBattleTerrainPalette_Zapmolcunoohgia3[];
+extern const u32 gBattleTerrainTiles_Zapmolcunoohgia3[];
+extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia3[];
+extern const u32 gBattleTerrainPalette_Zapmolcunoohgia4[];
+extern const u32 gBattleTerrainTiles_Zapmolcunoohgia4[];
+extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia4[];
+extern const u32 gBattleTerrainPalette_Zapmolcunoohgia5[];
+extern const u32 gBattleTerrainTiles_Zapmolcunoohgia5[];
+extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia5[];
 extern const u32 gBattleTerrainPalette_Zapmolcunoohgia_Platforms[];
 extern const u32 gBattleTerrainTiles_Zapmolcunoohgia_Platforms[];
 extern const u32 gBattleTerrainTilemap_Zapmolcunoohgia_Platforms[];
+extern const u32 gBattleTerrainPalette_Blaine[];
+extern const u32 gBattleTerrainTiles_Blaine[];
+extern const u32 gBattleTerrainTilemap_Blaine[];
+extern const u32 gBattleTerrainPalette_Space[];
+extern const u32 gBattleTerrainTiles_Space[];
+extern const u32 gBattleTerrainTilemap_Space[];
+extern const u32 gBattleTerrainPalette_Chapter3[];
+extern const u32 gBattleTerrainTiles_Chapter3[];
+extern const u32 gBattleTerrainTilemap_Chapter3[];
+extern const u32 gBattleTerrainPalette_Rainbow[];
+extern const u32 gBattleTerrainTiles_Rainbow[];
+extern const u32 gBattleTerrainTilemap_Rainbow[];
 extern const u32 gBattleTerrainTiles_Indoor[];
 extern const u32 gBattleTerrainTilemap_Indoor[];
 
@@ -13131,3 +13162,39 @@ extern const u32 gMonShinyPalette_CELIASSTUPIDROMHACK[];
 extern const u8 gMonFootprint_CELIASSTUPIDROMHACK[];
 extern const u8 gMonIcon_CELIASSTUPIDROMHACK[];
 
+
+extern const u32 gTrainerFrontPic_Eusine[];
+extern const u32 gTrainerPalette_Eusine[];
+
+extern const u32 gItemIcon_ScopeCreep[];
+extern const u32 gItemIconPalette_ScopeCreep[];
+
+extern const u32 gItemIcon_AlienProof[];
+extern const u32 gItemIconPalette_AlienProof[];
+
+extern const u32 gItemIcon_Quarter[];
+extern const u32 gItemIconPalette_Quarter[];
+
+extern const u32 gItemIcon_ShinyFossil[];
+extern const u32 gItemIconPalette_ShinyFossil[];
+
+extern const u32 gItemIcon_RustedGun[];
+extern const u32 gItemIconPalette_RustedGun[];
+
+extern const u32 gTrainerFrontPic_Paul[];
+extern const u32 gTrainerPalette_Paul[];
+
+extern const u32 gItemIcon_PREMIERCIGAR[];
+extern const u32 gItemIconPalette_PREMIERCIGAR[];
+
+extern const u32 gTrainerFrontPic_Lichen[];
+extern const u32 gTrainerPalette_Lichen[];
+
+extern const u32 gItemIcon_RareAndy[];
+extern const u32 gItemIconPalette_RareAndy[];
+
+extern const u32 gItemIcon_Mesprit[];
+extern const u32 gItemIconPalette_Mesprit[];
+
+extern const u32 gItemIcon_FlameOrb[];
+extern const u32 gItemIconPalette_FlameOrb[];

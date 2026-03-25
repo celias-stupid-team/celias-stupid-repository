@@ -204,7 +204,8 @@ struct DisableStruct
              u8 substitute2CurrentLayer : 2;
              u8 neutralizingGas : 1;
              u8 used108TupleTeam : 1;
-             u8 padding : 2;
+             u8 roostActive : 1;
+             u8 padding : 1;
 };
 
 extern struct DisableStruct gDisableStructs[MAX_BATTLERS_COUNT];
@@ -236,7 +237,7 @@ struct ProtectStruct
     u32 flinchImmobility:1;     // 0x4
     u32 notFirstStrike:1;       // 0x8
     u32 banefulBunker:1;        // 0x10
-    u32 flag_x20 : 1;           // 0x20
+    u32 bounceShineMove:1;      // 0x20
     u32 flag_x40 : 1;           // 0x40
     u32 flag_x80 : 1;           // 0x80
     u32 field3 : 8;
@@ -512,7 +513,8 @@ struct BattleStruct
     u8 savedAttackerCount:4;
     u16 itemLost[PARTY_SIZE];
     u16 damageAccumulated;
-    u8 padding_1E4[3];
+    u8 padding_1E4;
+    u16 twistedRealityBaseMove;
 }; // size == 0x200 bytes
 
 extern struct BattleStruct *gBattleStruct;
@@ -540,6 +542,14 @@ extern struct BattleStruct *gBattleStruct;
     gBattleMons[battlerId].type1 = type;    \
     gBattleMons[battlerId].type2 = type;    \
 }
+
+#define IS_BATTLER_TYPELESS(battlerId)                     \
+({                                                         \
+    u32 types[2];                                          \
+    types[0] = gBattleMons[battlerId].type1;               \
+    types[1] = gBattleMons[battlerId].type2;               \
+    types[0] == TYPE_MYSTERY && types[1] == TYPE_MYSTERY;  \
+})
 
 #define GET_STAT_BUFF_ID(n)((n & 0xF))              // first four bits 0x1, 0x2, 0x4, 0x8
 #define GET_STAT_BUFF_VALUE2(n)((n & 0xF0))
@@ -580,6 +590,7 @@ struct BattleScripting
     u8 levelUpHP;
     u8 savedBattler;
     s32 savedData;
+    u8 overrideBerryRequirements;
 };
 
 struct BattleSpriteInfo

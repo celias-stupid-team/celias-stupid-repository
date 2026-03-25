@@ -455,7 +455,11 @@ script PalletTown_PostgameCelia {
 
 	"By the way: Check the right side\n"
 	"of the TV in your house.\l"
-	"A present has been waiting there.", MSGBOX_NPC)
+	"A present has been waiting there.\p"
+	
+	"And when you're ready, go visit\n"
+	"RAINBOW CLOUD again to uncover\l"
+	"the final trial.", MSGBOX_NPC)
 }
 
 

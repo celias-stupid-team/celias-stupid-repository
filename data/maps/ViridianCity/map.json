@@ -187,7 +187,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ViridianCity_TradeKid",
-      "flag": "FLAG_HIDE_RATICATE_TRADE_GUY"
+      "flag": "0"
     },
     {
       "type": "object",

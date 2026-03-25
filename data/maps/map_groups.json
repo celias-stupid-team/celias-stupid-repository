@@ -70,7 +70,11 @@
     "Credits",
     "HouseOfOldManWhoTeachesTrendySayings",
     "FinalBossCutscene",
-    "Chapter7_Chapter2"
+    "Chapter7_Chapter2",
+    "Route23Extended",
+    "Starlight_House2",
+    "Starlight_House3",
+    "One_Island_Cave"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -476,7 +480,8 @@
     "SaffronCity_PokemonCenter_2F",
     "SaffronCity_MrPsychicsHouse",
     "SaffronCity_PokemonTrainerFanClub",
-    "BrunoBackRoom"
+    "BrunoBackRoom",
+    "OnixRoom"
   ],
   "gMapGroup_IndoorRoute2": [
     "Route2_ViridianForest_SouthEntrance",
@@ -732,7 +737,8 @@
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",
     "AetherParadise_NebbyRoom",
-    "AetherParadise_SkullRoom"
+    "AetherParadise_SkullRoom",
+    "Starlight_House"
   ],
   "gMapGroup_Ocean": [
     "Ocean1",
@@ -752,6 +758,7 @@
     "Ocean15",
     "Ocean16",
     "Ocean17",
-    "SpindaFamilyRuinion"
+    "SpindaFamilyRuinion",
+    "FarawayIsland"
   ]
 }

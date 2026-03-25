@@ -10,7 +10,7 @@
 #define WEATHER_FOG_HORIZONTAL     6
 #define WEATHER_VOLCANIC_ASH       7   // unused
 #define WEATHER_SANDSTORM          8   // unused
-#define WEATHER_TRICK_ROOM       9   // unused
+#define WEATHER_TRICK_ROOM         9   // unused
 #define WEATHER_UNDERWATER         10  // unused
 #define WEATHER_SHADE              11
 #define WEATHER_DROUGHT            12  // used and unbroken in overworld

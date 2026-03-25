@@ -24,8 +24,6 @@ void BattleUseFunc_BerryPouch(u8 taskId);
 void FieldUseFunc_TeachyTv(u8 taskId);
 void FieldUseFunc_Repel(u8 taskId);
 void FieldUseFunc_RunningScrews(u8 taskId);
-void FieldUseFunc_HelixFossil(u8 taskId);
-
 void FieldUseFunc_Ligma(u8 taskId);
 void FieldUseFunc_CopycatTM(u8 taskId);
 void FieldUseFunc_CeliaMessage(u8 taskId);
@@ -55,11 +53,10 @@ void FieldUseFunc_GenderFluid(u8 taskId);
 void FieldUseFunc_MoveRelearner(u8 taskId);
 void FieldUseFunc_Cigarette(u8 taskId);
 void ItemUseOutOfBattle_StairOrb(u8 taskId);
-
-
 void FieldUseFunc_PayDayTM(u8 taskId);
 void FieldUseFunc_BalmMushroom(u8 taskId);
 void FieldUseFunc_DragoniteBag(u8 taskId);
+void FieldUseFunc_HelixFossil(u8 taskId);
 
 extern bool8 gUsingRegisteredPartyMenuItem;
 

@@ -442,7 +442,7 @@
     {
       "type": "trigger",
       "x": 21,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -451,7 +451,7 @@
     {
       "type": "trigger",
       "x": 20,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -460,7 +460,7 @@
     {
       "type": "trigger",
       "x": 22,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -469,7 +469,7 @@
     {
       "type": "trigger",
       "x": 23,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -478,7 +478,7 @@
     {
       "type": "trigger",
       "x": 24,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -523,7 +523,7 @@
     {
       "type": "trigger",
       "x": 16,
-      "y": 13,
+      "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -532,7 +532,7 @@
     {
       "type": "trigger",
       "x": 17,
-      "y": 13,
+      "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -541,7 +541,7 @@
     {
       "type": "trigger",
       "x": 18,
-      "y": 13,
+      "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -1161,6 +1161,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route8_DrySoil"
+    },
+    {
+      "type": "sign",
+      "x": 57,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route8_HiddenDaisy"
     }
   ]
 }

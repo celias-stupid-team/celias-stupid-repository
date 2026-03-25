@@ -52,6 +52,7 @@ script PokemonLeague_HallOfFame_EventScript_EnterRoom {
 	removeobject(LOCALID_HALL_OF_FAME_PROF_OAK)
 	delay(60)
 	setvar(VAR_TEMP_1, 1)
+	clearflag(FLAG_DEFEATED_CHAMP)
 	call(EventScript_SetDefeatedEliteFourFlagsVars)
 	setrespawn(HEAL_LOCATION_PALLET_TOWN)
 	fadescreenspeed(FADE_TO_BLACK, 0)

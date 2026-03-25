@@ -250,7 +250,7 @@ script AetherParadise_SkullGruntDmca {
 			"That other TEAM SKULL is gone!\p"
 
 			"Now we can get back to taking all\n"
-			"their search engine results!", MSGBOX_DEFAULT)
+			"their search engine results!", MSGBOX_NPC)
 	} else {
 		msgbox(
 		"Yo!\n"
@@ -289,7 +289,7 @@ script AetherParadise_NebbyGuy {
 	famechecker(FAMECHECKER_GREAT_BAY, 0)
 	msgbox(
 	"Somewhere in KANTO, there exists\n"
-	"the ALTAR OF THE MOONE.\p"
+	"the ALTAR OF THE MOON.\p"
 
 	"Legends say if you bring this\n"
 	"POKéMON there and hold it up,\l"

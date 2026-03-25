@@ -77,7 +77,7 @@ static const struct FlashStruct sTransitionTypes[] = {
         .func1 = FlashTransition_Enter,
         .func2 = RunMapPreviewScreen
     }, {
-        .fromType = MAP_TYPE_UNKNOWN,
+        .fromType = MAP_TYPE_BLAINE_GYM,
         .toType = MAP_TYPE_UNDERGROUND,
         .isEnter = TRUE,
         .isExit = FALSE,
@@ -134,7 +134,7 @@ static const struct FlashStruct sTransitionTypes[] = {
         .func2 = RunMapPreviewScreen
     }, {
         .fromType = MAP_TYPE_UNDERGROUND,
-        .toType = MAP_TYPE_UNKNOWN,
+        .toType = MAP_TYPE_BLAINE_GYM,
         .isEnter = FALSE,
         .isExit = TRUE,
         .func1 = FlashTransition_Exit,

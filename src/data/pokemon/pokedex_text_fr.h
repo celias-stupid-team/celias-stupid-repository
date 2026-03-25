@@ -220,7 +220,7 @@ const u8 gVulpixPokedexText[] = _(
 const u8 gVulpixPokedexTextUnused[] = _("");
 
 const u8 gNinetalesPokedexText[] = _(
-	"I want my wife back, TALES.");
+	"I miss my wife, TALES.");
     
 const u8 gNinetalesPokedexTextUnused[] = _("");
 
@@ -493,8 +493,9 @@ const u8 gMagnetonPokedexText[] = _(
 const u8 gMagnetonPokedexTextUnused[] = _("");
 
 const u8 gFarfetchdPokedexText[] = _(
-	"The most edible Pokemon");
+	"“Fearful.”");
 
+    
 const u8 gFarfetchdPokedexTextUnused[] = _("");
 
 const u8 gDoduoPokedexText[] = _(
@@ -2722,7 +2723,7 @@ const u8 gHoopaPokedexText[] = _(
 
 
 const u8 gZygardePokedexText[] = _(
-	"Smh I truly was born in the\n"
+	"Smh I was born in the\n"
 	"wrong generation… … …");
 
     
