@@ -7536,6 +7536,18 @@
       "secondary_tileset": "gTileset_UndergroundPath",
       "border_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_EXPANDED/border.bin",
       "blockdata_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_EXPANDED/map.bin"
+    },
+    {
+      "id": "LAYOUT_ONE_ISLAND_CAVE",
+      "name": "One_Island_Cave_Layout",
+      "width": 40,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/One_Island_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/One_Island_Cave/map.bin"
     }
   ]
 }

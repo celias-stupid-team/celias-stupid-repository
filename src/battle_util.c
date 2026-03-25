@@ -14,6 +14,7 @@
 #include "battle_anim.h"
 #include "battle_interface.h"
 #include "battle_scripts.h"
+#include "battle_util.h"
 #include "battle_message.h"
 #include "constants/battle_anim.h"
 #include "battle_controllers.h"
@@ -4170,4 +4171,113 @@ bool32 CanBattlerGetOrLoseItem(u32 battler, u16 itemId)
     //     return FALSE;
     else
         return TRUE;
+}
+
+const u8 gColorChangeDefTypeNames[COLOR_CHANGE_DEF_TYPE_COUNT][20] =
+{
+    [COLOR_CHANGE_DEF_TYPE_GHOST] = _("GHOST"),
+    [COLOR_CHANGE_DEF_TYPE_SUBMARINE] = _("SUBMARINE"),
+    [COLOR_CHANGE_DEF_TYPE_STEEL] = _("STEEL"),
+    [COLOR_CHANGE_DEF_TYPE_POLICE] = _("POLICE"),
+    [COLOR_CHANGE_DEF_TYPE_CARPENTER] = _("SABRINA CARPENTER"),
+    [COLOR_CHANGE_DEF_TYPE_MICROSOFT] = _("MICROSOFT"),
+    [COLOR_CHANGE_DEF_TYPE_NORMAL] = _("NORMAL"),
+    [COLOR_CHANGE_DEF_TYPE_YUGIOH] = _("YUGIOH"),
+    [COLOR_CHANGE_DEF_TYPE_FLYING] = _("FLYING"),
+    [COLOR_CHANGE_DEF_TYPE_BOSS] = _("BOSS"),
+    [COLOR_CHANGE_DEF_TYPE_OIL] = _("OIL"),
+    [COLOR_CHANGE_DEF_TYPE_MOWER] = _("LAWN MOWER"),
+    [COLOR_CHANGE_DEF_TYPE_GROUND] = _("GROUND"),
+    [COLOR_CHANGE_DEF_TYPE_BOSS] = _("BOSS"),
+    [COLOR_CHANGE_DEF_TYPE_DARK] = _("DARK"),
+    [COLOR_CHANGE_DEF_TYPE_GLOBAL_WARMING] = _("GLOBAL WARMING"),
+    [COLOR_CHANGE_DEF_TYPE_FAIRY] = _("FAIRY"),
+    [COLOR_CHANGE_DEF_TYPE_BLACKHOLE] = _("BLACKHOLE"),
+    [COLOR_CHANGE_DEF_TYPE_TOOTH] = _("TOOTH"),
+    [COLOR_CHANGE_DEF_TYPE_GIRLS] = _("GIRLS"),
+    [COLOR_CHANGE_DEF_TYPE_BORED] = _("BORED"),
+    [COLOR_CHANGE_DEF_TYPE_MOM] = _("MOM"),
+    [COLOR_CHANGE_DEF_TYPE_SUN] = _("SUN"),
+    [COLOR_CHANGE_DEF_TYPE_MYSTERY] = _("MYSTERY"),
+};
+
+u16 gColorChangeDefTypeHue[COLOR_CHANGE_DEF_TYPE_COUNT] =
+{
+    [COLOR_CHANGE_DEF_TYPE_GHOST]          = RGB(10,  4, 14), // pale purple
+    [COLOR_CHANGE_DEF_TYPE_SUBMARINE]      = RGB( 0,  5, 20), // deep navy
+    [COLOR_CHANGE_DEF_TYPE_STEEL]          = RGB(18, 18, 20), // silver gray
+    [COLOR_CHANGE_DEF_TYPE_POLICE]         = RGB( 0,  0, 15), // dark blue
+    [COLOR_CHANGE_DEF_TYPE_CARPENTER]      = RGB(31, 18, 24), // pink-blonde
+    [COLOR_CHANGE_DEF_TYPE_MICROSOFT]      = RGB( 0, 10, 31), // bright blue
+    [COLOR_CHANGE_DEF_TYPE_NORMAL]         = RGB(26, 21, 16), // beige
+    [COLOR_CHANGE_DEF_TYPE_YUGIOH]         = RGB(28, 22,  4), // gold
+    [COLOR_CHANGE_DEF_TYPE_FLYING]         = RGB(18, 24, 31), // sky blue
+    [COLOR_CHANGE_DEF_TYPE_BOSS]           = RGB(20,  2,  2), // dark crimson
+    [COLOR_CHANGE_DEF_TYPE_OIL]            = RGB( 6,  4,  0), // dark brown-black
+    [COLOR_CHANGE_DEF_TYPE_MOWER]          = RGB( 6, 24,  6), // green
+    [COLOR_CHANGE_DEF_TYPE_GROUND]         = RGB(24, 18,  6), // earthy brown
+    [COLOR_CHANGE_DEF_TYPE_DARK]           = RGB( 8,  4, 12), // very dark purple
+    [COLOR_CHANGE_DEF_TYPE_GLOBAL_WARMING] = RGB(31, 14,  0), // hot orange
+    [COLOR_CHANGE_DEF_TYPE_FAIRY]          = RGB(31, 18, 26), // light pink
+    [COLOR_CHANGE_DEF_TYPE_BLACKHOLE]      = RGB( 2,  2,  4), // near black
+    [COLOR_CHANGE_DEF_TYPE_TOOTH]          = RGB(30, 30, 26), // off white
+    [COLOR_CHANGE_DEF_TYPE_GIRLS]          = RGB(31, 10, 22), // hot pink
+    [COLOR_CHANGE_DEF_TYPE_BORED]          = RGB(14, 14, 14), // dull gray
+    [COLOR_CHANGE_DEF_TYPE_MOM]            = RGB(28, 20, 16), // warm peach
+    [COLOR_CHANGE_DEF_TYPE_SUN]            = RGB(31, 28,  2), // bright yellow
+    [COLOR_CHANGE_DEF_TYPE_MYSTERY]        = RGB(16,  4, 24), // deep purple
+};
+
+u8 GetColorChangeDefType(u8 moveType)
+{
+    switch (moveType)
+    {
+        case TYPE_NORMAL:
+        case TYPE_FIGHTING:
+            return COLOR_CHANGE_DEF_TYPE_GHOST;
+        case TYPE_FLYING:
+            return COLOR_CHANGE_DEF_TYPE_SUBMARINE;
+        case TYPE_POISON:
+            return COLOR_CHANGE_DEF_TYPE_STEEL;
+        case TYPE_STEEL:
+            return COLOR_CHANGE_DEF_TYPE_POLICE;
+        case TYPE_ROCK:
+            return COLOR_CHANGE_DEF_TYPE_CARPENTER;
+        case TYPE_BUG:
+            return COLOR_CHANGE_DEF_TYPE_MICROSOFT;
+        case TYPE_GHOST:
+            return COLOR_CHANGE_DEF_TYPE_NORMAL;
+        case TYPE_GRASS_TCG:
+            return COLOR_CHANGE_DEF_TYPE_YUGIOH;
+        case TYPE_GROUND:
+            return COLOR_CHANGE_DEF_TYPE_FLYING;
+        case TYPE_FIRE:
+            return COLOR_CHANGE_DEF_TYPE_BOSS;
+        case TYPE_WATER:
+            return COLOR_CHANGE_DEF_TYPE_OIL;
+        case TYPE_GRASS:
+            return COLOR_CHANGE_DEF_TYPE_MOWER;
+        case TYPE_ELECTRIC:
+            return COLOR_CHANGE_DEF_TYPE_GROUND;
+        case TYPE_PSYCHIC:
+            return COLOR_CHANGE_DEF_TYPE_DARK;
+        case TYPE_ICE:
+            return COLOR_CHANGE_DEF_TYPE_GLOBAL_WARMING;
+        case TYPE_DRAGON:
+            return COLOR_CHANGE_DEF_TYPE_FAIRY;
+        case TYPE_DARK:
+            return COLOR_CHANGE_DEF_TYPE_BLACKHOLE;
+        case TYPE_FAIRY:
+            return COLOR_CHANGE_DEF_TYPE_TOOTH;
+        case TYPE_BROCK:
+            return COLOR_CHANGE_DEF_TYPE_GIRLS;
+        case TYPE_WEIRD:
+            return COLOR_CHANGE_DEF_TYPE_BORED;
+        case TYPE_DAD:
+            return COLOR_CHANGE_DEF_TYPE_MOM;
+        case TYPE_CHOCOLATE:
+            return COLOR_CHANGE_DEF_TYPE_SUN;
+        default:
+            return COLOR_CHANGE_DEF_TYPE_MYSTERY;
+    }
 }
