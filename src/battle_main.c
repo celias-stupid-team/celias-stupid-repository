@@ -1846,7 +1846,9 @@ void SpriteCB_EnemyMon(struct Sprite *sprite)
 {
     sprite->callback = SpriteCB_MoveWildMonToRight;
     StartSpriteAnimIfDifferent(sprite, 0);
-    BeginNormalPaletteFade(0x20000, 0, 10, 10, RGB(8, 8, 8));
+    // no sprite tinting during slide in for Zapmolcuno
+    if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+        BeginNormalPaletteFade(0x20000, 0, 10, 10, RGB(8, 8, 8));
 }
 
 static void SpriteCB_MoveWildMonToRight(struct Sprite *sprite)
@@ -1870,7 +1872,9 @@ static void SpriteCB_WildMonShowHealthbox(struct Sprite *sprite)
         SetHealthboxSpriteVisible(gHealthboxSpriteIds[sprite->sBattler]);
         sprite->callback = SpriteCallbackDummy_2;
         StartSpriteAnimIfDifferent(sprite, 0);
-        BeginNormalPaletteFade(0x20000, 0, 10, 0, RGB(8, 8, 8));
+        // no sprite tinting during slide in for Zapmolcuno
+        if (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
+            BeginNormalPaletteFade(0x20000, 0, 10, 0, RGB(8, 8, 8));
     }
 }
 
