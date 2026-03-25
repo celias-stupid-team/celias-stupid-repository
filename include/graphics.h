@@ -13157,3 +13157,9 @@ extern const u32 gTrainerPalette_Paul[];
 
 extern const u32 gItemIcon_PREMIERCIGAR[];
 extern const u32 gItemIconPalette_PREMIERCIGAR[];
+
+extern const u32 gTrainerFrontPic_Lichen[];
+extern const u32 gTrainerPalette_Lichen[];
+
+extern const u32 gItemIcon_RareAndy[];
+extern const u32 gItemIconPalette_RareAndy[];

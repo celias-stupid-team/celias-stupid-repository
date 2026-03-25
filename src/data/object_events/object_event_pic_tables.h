@@ -6426,3 +6426,36 @@ const struct SpriteFrameImage gObjectEventPicTable_SENTRY_BUTT[] = {
     overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 7),
     overworld_frame(gObjectEventPic_SENTRY_BUTT, 8, 8, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_DEAD_BIKER[] = {
+    overworld_frame(gObjectEventPic_DEAD_BIKER, 4, 4, 0),
+    overworld_frame(gObjectEventPic_DEAD_BIKER, 4, 4, 1),
+    overworld_frame(gObjectEventPic_DEAD_BIKER, 4, 4, 2),
+    overworld_frame(gObjectEventPic_DEAD_BIKER, 4, 4, 3),
+    overworld_frame(gObjectEventPic_DEAD_BIKER, 4, 4, 4),
+    overworld_frame(gObjectEventPic_DEAD_BIKER, 4, 4, 5),
+    overworld_frame(gObjectEventPic_DEAD_BIKER, 4, 4, 6),
+    overworld_frame(gObjectEventPic_DEAD_BIKER, 4, 4, 7),
+    overworld_frame(gObjectEventPic_DEAD_BIKER, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_CRUFICIED[] = {
+    overworld_frame(gObjectEventPic_CRUFICIED, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CRUFICIED, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CRUFICIED, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CRUFICIED, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CRUFICIED, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CRUFICIED, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CRUFICIED, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CRUFICIED, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CRUFICIED, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_CRUFICIED_2[] = {
+    overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 2),
+    overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 2),
+};

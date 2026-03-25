@@ -10,6 +10,9 @@ mapscripts Minnesota_MapScripts {
 				clearflag(FLAG_TEMP_5)
 			}
 		}
+		if(!flag(FLAG_SENT_BIKER_FLYING)) {
+			setflag(FLAG_TEMP_6)
+		}
 		
 	}
 }
@@ -182,6 +185,14 @@ script MinnesotaZoo_FirstCage {
 script MinnesotaZoo_Mongoose {
 	lock
 	playmoncry(SPECIES_ZANGOOSE, CRY_MODE_DEFAULT)
+	if(checkpartymon(SPECIES_SEVIPER) != PARTY_SIZE) {
+		msgbox(
+		"Your SEVIPER…\n"
+		"My sworn enemy.", MSGBOX_DEFAULT)
+		waitmoncry
+		release
+		end
+	}
 	msgbox(
 	"If there were more of me,{PAUSE 30} we'd\n"
 	"be MONGEESE.", MSGBOX_DEFAULT)
@@ -431,4 +442,13 @@ script Minnesota_DollarTree {
 
 	"I hear it's an excellent authority\n"
 	"on POKéMON!", MSGBOX_NPC)
+}
+
+
+script Minnesota_DeadBiker {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Glub…\n"
+	"", MSGBOX_SIGN)
+
 }

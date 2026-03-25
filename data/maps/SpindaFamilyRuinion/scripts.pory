@@ -30,3 +30,7 @@ script SpindaFamilyReunion_Bakebeat {
 	"Volcano Bakemeat!", MSGBOX_SIGN)
 
 }
+
+script SpindaReuinion_Bookshelf {
+	msgbox(Text_SpindaBookshelf, MSGBOX_SIGN)
+}

@@ -607,6 +607,14 @@
       "y": 17,
       "respawn_map": "MAP_OCEAN11",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_THIRTY_EIGHT_ISLAND",
+      "map": "MAP_THIRTY_EIGHT_ISLAND",
+      "x": 21,
+      "y": 17,
+      "respawn_map": "MAP_THIRTY_EIGHT_ISLAND",
+      "respawn_npc": "1"
     }
   ]
 }

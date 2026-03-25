@@ -7144,4 +7144,26 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_wiz1989),
     },
+
+    [TRAINER_LICHEN] = {
+        .trainerClass = TRAINER_CLASS_ARTIST,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_LICHEN,
+        .trainerName = _("LICHEN"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_Lichen),
+    },
+
+    [TRAINER_DANCERS] = {
+        .trainerClass = TRAINER_CLASS_KIMONO,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_LICHEN,
+        .trainerName = _("GIRLS"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_KimonoGirls),
+    },
 };

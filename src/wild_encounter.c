@@ -320,7 +320,7 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
         //DebugPrintf("Girl Hole");
         FlagSet(FLAG_SHINY_CREATION);
         VarSet(VAR_LUVDISC_TILE, 0);
-        GenerateWildMon(SPECIES_LUVDISC, level, slot);
+        GenerateWildMon(SPECIES_ALOMOMOLA, level, slot);
 
     } else if (VarGet(VAR_LUVDISC_TILE) == 2) {
         VarSet(VAR_LUVDISC_TILE, 0);

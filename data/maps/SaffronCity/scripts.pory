@@ -336,6 +336,7 @@ script SaffronCity_ExistentialDude {
 script SaffronCity_TheLeekMan {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_SAFFRON, 3)
 	if(var(VAR_TRADING_QUEST_PHASE) >= 4) {
 		call(TheLeek_ProofOfAliens)
 		msgbox(
@@ -614,4 +615,15 @@ script Saffron_CopyCatCamera {
 	"There's a hidden camera in this\n"
 	"tree…", MSGBOX_SIGN)
 
+}
+
+
+script Saffron_KarateMan {
+	msgbox(
+	"Hiyyyyyah!\n"
+	"I'm building up my STRENGTH.\p"
+
+	"The best GYM in the land for that\n"
+	"can be found in the GREAT SEA.\l"
+	"Have you trained there yet?", MSGBOX_NPC)
 }

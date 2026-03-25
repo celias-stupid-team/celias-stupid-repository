@@ -649,3 +649,6 @@ const u32 gTrainerPalette_Eusine[] = INCBIN_U32("graphics/trainers/palettes/eusi
 
 const u32 gTrainerFrontPic_Paul[] = INCBIN_U32("graphics/trainers/front_pics/paul_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Paul[] = INCBIN_U32("graphics/trainers/palettes/paul.gbapal.lz");
+
+const u32 gTrainerFrontPic_Lichen[] = INCBIN_U32("graphics/trainers/front_pics/lichen_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Lichen[] = INCBIN_U32("graphics/trainers/palettes/lichen.gbapal.lz");

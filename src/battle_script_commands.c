@@ -3955,7 +3955,10 @@ static void Cmd_getexp(void)
                 gBattleScripting.getexpState = 5;
                 gBattleMoveDamage = 0; // used for exp
             }
-            else if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) == MAX_LEVEL || GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) >= GetCurrentLevelCap(GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES, NULL)))
+            else if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) == MAX_LEVEL
+            || GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) >= GetCurrentLevelCap(GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES, NULL))
+            || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE14) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE14)) //comment this line to enable pokerap exp
+            )
             { //Checks for level cap; if it's at the cap then there's no experience 
                 *(&gBattleStruct->sentInPokes) >>= 1;
                 gBattleScripting.getexpState = 5;
@@ -8977,6 +8980,7 @@ static void Cmd_metronome(void)
             if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
                 break;
         }
+        
 
         if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
         {

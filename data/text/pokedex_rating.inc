@@ -757,11 +757,12 @@ PokedexRating_Text_HintChansey::
 	.string "a POKéMON?$"
 
 PokedexRating_Text_HintHorsea::
-	.string "Your POKéDEX has many valuable\n"
-	.string "features.\p"
-	.string "Did you know you can check the\n"
-	.string "AREA where a POKéMON can be found?\l"
-	.string "Be sure to check it often!$"
+	.string "The more you pay attention to your\n"
+	.string "POKéDEX, the more you'll be able\l"
+	.string "to gleam from it.\p"
+	.string "Look past your immediate objective\n"
+	.string "and try to see the bigger picture.\l"
+	.string "You can learn more than you think.$"
 
 PokedexRating_Text_HintDragonite::
 	.string "Your POKéDEX has many valuable\n"

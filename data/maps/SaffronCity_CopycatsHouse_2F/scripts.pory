@@ -1,6 +1,5 @@
 raw `
-SaffronCity_CopycatsHouse_2F_MapScripts::
-	.byte 0
+
 
 SaffronCity_CopycatsHouse_2F_EventScript_Doduo::
 	lock
@@ -48,7 +47,27 @@ SaffronCity_CopycatsHouse_2F_EventScript_Game::
 	end
 `
 
-
+mapscripts SaffronCity_CopycatsHouse_2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_STOLE_COPYCAT)) {
+			
+			setflag(FLAG_TEMP_1F)
+			setflag(FLAG_TEMP_1) 
+			setflag(FLAG_TEMP_2) 
+			setflag(FLAG_TEMP_3) 
+			setflag(FLAG_TEMP_4) 
+			setflag(FLAG_TEMP_5) 
+			setflag(FLAG_TEMP_6) 
+			setflag(FLAG_TEMP_7) 
+			setflag(FLAG_TEMP_8) 
+			setflag(FLAG_TEMP_9) 
+			setflag(FLAG_TEMP_A)  
+			setflag(FLAG_TEMP_B)  
+			setflag(FLAG_TEMP_C)
+			setflag(FLAG_TEMP_D)
+		}
+	}
+}
 
 script CopycatHouse_GiveMimikyuPlaceholder {
     lock

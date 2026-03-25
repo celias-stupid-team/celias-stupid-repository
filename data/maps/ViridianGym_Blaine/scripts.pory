@@ -60,7 +60,7 @@ mapscripts ViridianGym_Blaine_MapScripts {
             setflashlevel(0)
             fadescreeninstant(FADE_FROM_WHITE)
             msgbox(
-            "The 67th Trivia Quiz-Off!\n"
+            "The 68th Trivia Quiz-Off!\n"
             "", MSGBOX_DEFAULT)
             playse(SE_APPLAUSE)
             delay(60)

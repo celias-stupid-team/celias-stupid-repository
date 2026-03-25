@@ -10649,3 +10649,29 @@ static const struct TrainerMonItemCustomMoves sParty_wiz1989[] = {
         .moves = {MOVE_COUNTER, MOVE_MIRROR_COAT, MOVE_SAFEGUARD, MOVE_DESTINY_BOND}
     },
 };
+
+static const struct TrainerMonItemCustomMoves sParty_Lichen[] = {
+    {
+        .iv = 0,
+        .lvl = 16,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_SUNKERN,
+        .moves = {MOVE_LEECH_SEED, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+static const struct TrainerMonItemCustomMoves sParty_KimonoGirls[] = {
+    {
+        .iv = 0,
+        .lvl = 100,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_ORICORIO,
+        .moves = {MOVE_REVELATION_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 100,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_ORICORIO,
+        .moves = {MOVE_REVELATION_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};

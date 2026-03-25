@@ -1648,7 +1648,7 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
         if (type1 != gSpeciesInfo[species].types[1])
             BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, gSpeciesInfo[species].types[1] + 1, 0x98, y);
     } else {
-        if (obtainable && species != SPECIES_DRAGONITE) {
+        if (obtainable && species != SPECIES_DRAGONITE && species != SPECIES_HORSEA) {
             BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_OBTAINABLE, 0x28, y); // Icon Obtainable
         }
     }
