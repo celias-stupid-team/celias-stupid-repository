@@ -32,6 +32,7 @@ static void AnimSpikes(struct Sprite *);
 static void AnimSpikes_Step1(struct Sprite *);
 static void AnimSpikes_Step2(struct Sprite *);
 static void AnimSpotlight(struct Sprite *);
+static void AnimSpotlightAttacker(struct Sprite *sprite);
 static void AnimSpotlight_Step1(struct Sprite *);
 static void AnimSpotlight_Step2(struct Sprite *);
 static void AnimClappingHand(struct Sprite *);
@@ -116,6 +117,7 @@ static void AnimTask_Glitch_Step(u8 taskId);
 static u8 CreateGlitchQuadrantSprite(u8 battlerSpriteId, s16 x, s16 y, u8 subpriority, u16 tileOffset);
 static void AnimTask_MingVaseThrow_Step(u8 taskId);
 static void AnimSpellingSalts(struct Sprite *sprite);
+static void AnimTask_TranslateMonAndReturn_Step(u8 taskId);
 
 static const union AnimCmd sScratchAnimCmds[] =
 {
@@ -391,6 +393,17 @@ const struct SpriteTemplate gSpotlightSpriteTemplate =
     .images = NULL,
     .affineAnims = sSpotlightAffineAnimTable,
     .callback = AnimSpotlight,
+};
+
+const struct SpriteTemplate gSpotlightSelfSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPOTLIGHT,
+    .paletteTag = ANIM_TAG_SPOTLIGHT,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sSpotlightAffineAnimTable,
+    .callback = AnimSpotlightAttacker,
 };
 
 const struct SpriteTemplate gClappingHandSpriteTemplate =
@@ -1680,6 +1693,20 @@ static void AnimSpotlight(struct Sprite *sprite)
     SetGpuReg(REG_OFFSET_WIN0H, gBattle_WIN0H);
     SetGpuReg(REG_OFFSET_WIN0V, gBattle_WIN0V);
     InitSpritePosToAnimTarget(sprite, FALSE);
+    sprite->oam.objMode = ST_OAM_OBJ_WINDOW;
+    sprite->invisible = TRUE;
+    sprite->callback = AnimSpotlight_Step1;
+}
+
+static void AnimSpotlightAttacker(struct Sprite *sprite)
+{
+    SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG_ALL | WINOUT_WIN01_OBJ | WINOUT_WIN01_CLR | WINOUT_WINOBJ_BG_ALL | WINOUT_WINOBJ_OBJ);
+    SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
+    gBattle_WIN0H = 0;
+    gBattle_WIN0V = 0;
+    SetGpuReg(REG_OFFSET_WIN0H, gBattle_WIN0H);
+    SetGpuReg(REG_OFFSET_WIN0V, gBattle_WIN0V);
+    InitSpritePosToAnimAttacker(sprite, FALSE);
     sprite->oam.objMode = ST_OAM_OBJ_WINDOW;
     sprite->invisible = TRUE;
     sprite->callback = AnimSpotlight_Step1;
@@ -6330,5 +6357,78 @@ static void AnimTask_MingVaseThrow_Step(u8 taskId)
         FreeOamMatrix(sprite->oam.matrixNum);
         DestroySprite(sprite);
         DestroyAnimVisualTask(taskId);
+    }
+}
+
+void AnimTask_TranslateMonAndReturn(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    u8 battler = gBattleAnimArgs[0];
+    u8 spriteId = GetAnimBattlerSpriteId(battler);
+
+    task->data[0] = 0; // state
+
+    task->data[1] = 0; // frame counter
+    task->data[2] = gBattleAnimArgs[1]; // dx per frame
+    task->data[3] = gBattleAnimArgs[2]; // dy per frame
+    task->data[4] = gBattleAnimArgs[3]; // duration
+    task->data[5] = gBattleAnimArgs[4]; // hold time
+
+    task->data[6] = spriteId;
+
+    // Accumulated offsets (so we can restore cleanly)
+    task->data[7] = 0; // total x offset applied
+    task->data[8] = 0; // total y offset applied
+
+    task->func = AnimTask_TranslateMonAndReturn_Step;
+}
+
+static void AnimTask_TranslateMonAndReturn_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite = &gSprites[task->data[6]];
+
+    switch (task->data[0])
+    {
+    // -----------------------------------
+    // 0. MOVE PHASE
+    // -----------------------------------
+    case 0:
+        sprite->x2 += task->data[2];
+        sprite->y2 += task->data[3];
+
+        task->data[7] += task->data[2];
+        task->data[8] += task->data[3];
+
+        if (++task->data[1] >= task->data[4])
+        {
+            task->data[1] = 0;
+            task->data[0] = 1;
+        }
+        break;
+
+    // -----------------------------------
+    // 1. HOLD PHASE
+    // -----------------------------------
+    case 1:
+        if (++task->data[1] >= task->data[5])
+        {
+            task->data[0] = 2;
+            task->data[1] = 0;
+        }
+        break;
+
+    // -----------------------------------
+    // 2. RETURN TO ORIGINAL POSITION
+    // -----------------------------------
+    case 2:
+        // Instantly reset offsets
+        sprite->x2 -= task->data[7];
+        sprite->y2 -= task->data[8];
+
+        // Clean exit
+        DestroyAnimVisualTask(taskId);
+        break;
     }
 }

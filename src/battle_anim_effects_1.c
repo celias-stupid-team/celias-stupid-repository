@@ -396,6 +396,17 @@ const struct SpriteTemplate gAbsorptionOrbSpriteTemplate =
     .callback = AnimAbsorptionOrb,
 };
 
+const struct SpriteTemplate gAbsorptionZSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ZYGARDE_Z,
+    .paletteTag = ANIM_TAG_ZYGARDE_Z,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAbsorptionOrbAffineAnimTable,
+    .callback = AnimAbsorptionOrb,
+};
+
 const struct SpriteTemplate gHyperBeamOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ORBS,
