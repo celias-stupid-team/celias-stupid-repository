@@ -991,7 +991,10 @@ static void Cmd_attackcanceler(void)
     }
     if (AtkCanceller_UnableToUseMove())
         return;
-    
+
+    if (gCurrentMove == MOVE_V_CREATE)
+        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
+
     if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM)
     {
         // gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
@@ -1000,6 +1003,14 @@ static void Cmd_attackcanceler(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
+        gBattlescriptCurrInstr++;
+        return;
+    }
+
+    if (gBattleMons[gBattlerTarget].species == SPECIES_YVELTAL && !FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE))
+    {
+        CancelMultiTurnMoves(gBattlerAttacker);
+        gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
         gBattlescriptCurrInstr++;
         return;
     }
@@ -2129,9 +2140,6 @@ static void Cmd_attackanimation(void)
 {
     if (gBattleControllerExecFlags)
         return;
-
-    if (gCurrentMove == MOVE_V_CREATE)
-        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
 
     if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE && gCurrentMove != MOVE_SUBSTITUTE_TEACHER && gCurrentMove != MOVE_SUBSTITUTE_2))
     {
