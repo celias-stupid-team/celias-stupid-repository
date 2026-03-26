@@ -4587,7 +4587,8 @@ static void HandleAction_Run(void)
         else
         {
             if ((gBattleMons[gBattlerAttacker].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-             || ABILITY_ON_OPPOSING_FIELD(gBattlerAttacker, ABILITY_SHADOW_TAG))
+             || ABILITY_ON_OPPOSING_FIELD(gBattlerAttacker, ABILITY_SHADOW_TAG)
+             || ABILITY_ON_OPPOSING_FIELD(gBattlerAttacker, ABILITY_ARENA_TRAP))
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
                 gBattlescriptCurrInstr = BattleScript_PrintFailedToRunString;
