@@ -1012,7 +1012,7 @@
 #define FLAG_VIRIDIAN_CANDY              0x3A0 //placed
 #define FLAG_PEWTER_CANDY                0x3A1 //placed 
 #define FLAG_CERULEAN_CANDY              0x3A2 //placed
-#define FLAG_VERMILLION_CANDY            0x3A3 //placed
+#define FLAG_VERMILLION_CANDY            0x3A3 //n.a
 #define FLAG_LAVENDER_CANDY              0x3A4 //placed
 #define FLAG_CELADON_CANDY               0x3A5 //placed
 #define FLAG_FUSHCIA_CANDY               0x3A6 //placed
@@ -1023,13 +1023,13 @@
 #define FLAG_POKEMON_TOWER_CANDY         0x3AC //placed
 #define FLAG_SAFARI_ZONE_CANDY           0x3AD //placed
 #define FLAG_SILPH_CO_CANDY              0x3AF //placed
-#define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2 
-#define FLAG_SKY_PILLAR_CANDY            0x3B4 //Dumb bike puzzle maybe
+#define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2 //Placed
+#define FLAG_SKY_PILLAR_CANDY            0x3B4 //Wiz
 #define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6 //placed
 #define FLAG_CERULEAN_CAVE_CANDY           0x3B7  //placed
-#define FLAG_ONE_ISLAND_CANDY            0x3B8 
+#define FLAG_ONE_ISLAND_CANDY            0x3B8 //n.a
 #define FLAG_TWO_ISLAND_CANDY            0x3B9 // placed
-#define FLAG_THREE_ISLAND_CANDY          0x3BA // Inside the mansion somewhere
+#define FLAG_THREE_ISLAND_CANDY          0x3BA // n.a
 #define FLAG_FOUR_ISLAND_CANDY           0x3BB //In Mart
 #define FLAG_THIRTY_EIGHT_ISLAND_CANDY   0x3BC //Placed
 #define FLAG_POKEMON_ISLAND_CANDY        0x3BD //Placed
@@ -1060,7 +1060,7 @@
 #define FLAG_CANDY_MAN_FELL          0x3A7 // REPURPOSE
 #define FLAG_RETRIEVED_CANDIES         0x3AE // REPURPOSE
 #define FLAG_GOT_SHINY_MELTAN         0x3B0 // REPURPOSE
-#define FLAG_UNUSED_CANDY_4           0x3B1 // REPURPOSE
+#define FLAG_ROUTE_17_CANDY           0x3B1 // used
 #define FLAG_UNUSED_CANDY_5      0x3B3 // REPURPOSE
 #define FLAG_UNUSED_CANDY_6               0x3C6 //REPURPOSE
 #define FLAG_UNUSED_CANDY_7              0x3CE //REPURPOSE

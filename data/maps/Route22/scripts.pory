@@ -555,6 +555,9 @@ script Route22_CountCandies {
 	buffernumberstring(STR_VAR_2, VAR_STACK_OF_CANDY)
 	//msgbox("Your candies: {STR_VAR_1}\nStack: {STR_VAR_2}")
 	
+
+
+	
 	setflag(FLAG_PALLET_CANDY)
 	setflag(FLAG_VIRIDIAN_CANDY)
 	setflag(FLAG_PEWTER_CANDY)
@@ -601,6 +604,13 @@ script Route22_CountCandies {
 	setflag(FLAG_ROUTE_24_CANDY)
 	setflag(FLAG_ROUTE_25_CANDY)
 	setflag(FLAG_VIRIDIAN_FOREST_CANDY)
+
+
+	setflag(FLAG_PIRATE_BAY_CANDY)
+	setflag(FLAG_YES_CANDY)
+	setflag(FLAG_ROUTE_17_CANDY)
+
+
 	clearflag(FLAG_TEMP_1)
 	return
 }
