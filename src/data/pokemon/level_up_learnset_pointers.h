@@ -1288,6 +1288,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_FINALCHARMANDER] = sFINALCHARMANDERLevelUpLearnset,
 	[SPECIES_CELIASSTUPIDROMHACK] = sCELIASSTUPIDROMHACKLevelUpLearnset,
     [SPECIES_KECLEON_WIZ1989] = sKecleonLevelUpLearnset,
+	[SPECIES_GREGORY] = sGREGORYLevelUpLearnset,
 
 
 };

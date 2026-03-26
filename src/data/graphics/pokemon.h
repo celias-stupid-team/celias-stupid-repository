@@ -9830,3 +9830,11 @@ const u32 gMonShinyPalette_CELIASSTUPIDROMHACK[] = INCBIN_U32("graphics/pokemon/
 const u8 gMonIcon_CELIASSTUPIDROMHACK[] = INCBIN_U8("graphics/pokemon/celiasstupidromhack/icon.4bpp");
 const u8 gMonFootprint_CELIASSTUPIDROMHACK[] = INCBIN_U8("graphics/pokemon/celiasstupidromhack/footprint.1bpp");
 
+// GREGORY
+const u32 gMonFrontPic_GREGORY[] = INCBIN_U32("graphics/pokemon/gregory/front.4bpp.lz");
+const u32 gMonPalette_GREGORY[] = INCBIN_U32("graphics/pokemon/gregory/normal.gbapal.lz");
+const u32 gMonBackPic_GREGORY[] = INCBIN_U32("graphics/pokemon/gregory/back.4bpp.lz");
+const u32 gMonShinyPalette_GREGORY[] = INCBIN_U32("graphics/pokemon/gregory/shiny.gbapal.lz");
+const u8 gMonIcon_GREGORY[] = INCBIN_U8("graphics/pokemon/gregory/icon.4bpp");
+const u8 gMonFootprint_GREGORY[] = INCBIN_U8("graphics/pokemon/gregory/footprint.1bpp");
+

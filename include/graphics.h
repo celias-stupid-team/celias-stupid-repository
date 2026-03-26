@@ -13198,3 +13198,11 @@ extern const u32 gItemIconPalette_Mesprit[];
 
 extern const u32 gItemIcon_FlameOrb[];
 extern const u32 gItemIconPalette_FlameOrb[];
+// GREGORY
+extern const u32 gMonFrontPic_GREGORY[];
+extern const u32 gMonPalette_GREGORY[];
+extern const u32 gMonBackPic_GREGORY[];
+extern const u32 gMonShinyPalette_GREGORY[];
+extern const u8 gMonFootprint_GREGORY[];
+extern const u8 gMonIcon_GREGORY[];
+
