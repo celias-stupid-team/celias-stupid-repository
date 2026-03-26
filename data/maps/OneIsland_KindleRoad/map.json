@@ -133,7 +133,14 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ONE_ISLAND_KINDLE_ROAD",
-      "dest_warp_id": "0"
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 34,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_ONE_ISLAND_KINDLE_ROAD",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],
