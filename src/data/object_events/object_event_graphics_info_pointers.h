@@ -602,6 +602,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CRUFICIED_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WHISCASH;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FROZEN_ARTY;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EEL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARIN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PAUL;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1205,4 +1207,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_WHISCASH] = &gObjectEventGraphicsInfo_WHISCASH,
     [OBJ_EVENT_GFX_FROZEN_ARTY] = &gObjectEventGraphicsInfo_FROZEN_ARTY,
     [OBJ_EVENT_GFX_EEL] = &gObjectEventGraphicsInfo_EEL,
+    [OBJ_EVENT_GFX_MARIN] = &gObjectEventGraphicsInfo_MARIN,
+    [OBJ_EVENT_GFX_PAUL] = &gObjectEventGraphicsInfo_PAUL,
 };

@@ -6492,3 +6492,25 @@ const struct SpriteFrameImage gObjectEventPicTable_EEL[] = {
     overworld_frame(gObjectEventPic_EEL, 8, 8, 2),
     overworld_frame(gObjectEventPic_EEL, 8, 8, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_MARIN[] = {
+    overworld_frame(gObjectEventPic_MARIN, 2, 2, 0),
+    overworld_frame(gObjectEventPic_MARIN, 2, 2, 1),
+    overworld_frame(gObjectEventPic_MARIN, 2, 2, 2),
+    overworld_frame(gObjectEventPic_MARIN, 2, 2, 0),
+    overworld_frame(gObjectEventPic_MARIN, 2, 2, 0),
+    overworld_frame(gObjectEventPic_MARIN, 2, 2, 1),
+    overworld_frame(gObjectEventPic_MARIN, 2, 2, 1),
+    overworld_frame(gObjectEventPic_MARIN, 2, 2, 2),
+    overworld_frame(gObjectEventPic_MARIN, 2, 2, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_PAUL[] = {
+    overworld_frame(gObjectEventPic_PAUL, 2, 4, 0),
+    overworld_frame(gObjectEventPic_PAUL, 2, 4, 1),
+    overworld_frame(gObjectEventPic_PAUL, 2, 4, 2),
+    overworld_frame(gObjectEventPic_PAUL, 2, 4, 0),
+    overworld_frame(gObjectEventPic_PAUL, 2, 4, 0),
+    overworld_frame(gObjectEventPic_PAUL, 2, 4, 1),
+    overworld_frame(gObjectEventPic_PAUL, 2, 4, 1),
+    overworld_frame(gObjectEventPic_PAUL, 2, 4, 2),
+    overworld_frame(gObjectEventPic_PAUL, 2, 4, 2),
+};
