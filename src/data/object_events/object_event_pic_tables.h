@@ -6481,3 +6481,14 @@ const struct SpriteFrameImage gObjectEventPicTable_FROZEN_ARTY[] = {
     overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 2),
     overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_EEL[] = {
+    overworld_frame(gObjectEventPic_EEL, 8, 8, 0),
+    overworld_frame(gObjectEventPic_EEL, 8, 8, 1),
+    overworld_frame(gObjectEventPic_EEL, 8, 8, 2),
+    overworld_frame(gObjectEventPic_EEL, 8, 8, 0),
+    overworld_frame(gObjectEventPic_EEL, 8, 8, 0),
+    overworld_frame(gObjectEventPic_EEL, 8, 8, 1),
+    overworld_frame(gObjectEventPic_EEL, 8, 8, 1),
+    overworld_frame(gObjectEventPic_EEL, 8, 8, 2),
+    overworld_frame(gObjectEventPic_EEL, 8, 8, 2),
+};

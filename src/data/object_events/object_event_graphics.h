@@ -877,3 +877,5 @@ const u32 gObjectEventPic_WHISCASH[] = INCBIN_U32("graphics/object_events/pics/s
 const u16 gObjectEventPal_WHISCASH[] = INCBIN_U16("graphics/object_events/palettes/WHISCASH.gbapal");
 const u32 gObjectEventPic_FROZEN_ARTY[] = INCBIN_U32("graphics/object_events/pics/stupid/FROZEN_ARTY.4bpp");
 const u16 gObjectEventPal_FROZEN_ARTY[] = INCBIN_U16("graphics/object_events/palettes/FROZEN_ARTY.gbapal");
+const u32 gObjectEventPic_EEL[] = INCBIN_U32("graphics/object_events/pics/stupid/EEL.4bpp");
+const u16 gObjectEventPal_EEL[] = INCBIN_U16("graphics/object_events/palettes/EEL.gbapal");
