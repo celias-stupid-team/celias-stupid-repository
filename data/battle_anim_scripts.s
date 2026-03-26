@@ -15221,16 +15221,6 @@ Move_AUTOMOTIZE:
 	blendoff
 	end
 	
-Move_HI_HORSEPOWER:
-	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
-	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
-	playsewithpan SE_M_EARTHQUAKE, 0
-	delay 10
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
-	delay 16
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
-	end
-	
 Move_HEAL_BLOCK:
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES
 	loadspritegfx ANIM_TAG_BLUE_RING_2
@@ -19069,8 +19059,7 @@ Move_TIMER_BALL:
     loadspritegfx ANIM_TAG_IMPACT
     playsewithpan SE_BALL_THROW, 0
     createsprite gBallTimerAttackSpriteTemplate, ANIM_ATTACKER, 2, 15, 90
-	delay 105
-    playsewithpan SE_BALL_THROW, 0
+	delay 90
 	call BallAttack
 	end
 
@@ -22915,6 +22904,7 @@ Move_VACUUM_WAVE:
 Move_CRUSH_GRIP:
 	goto Move_CRUSH_CLAW
 	
+Move_HI_HORSEPOWER:
 Move_HIGH_HORSEPOWER:
 	loadspritegfx ANIM_TAG_WEED_SMALL
 	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
