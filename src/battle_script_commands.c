@@ -52,6 +52,7 @@
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/item_effects.h"
+#include "constants/trainers.h"
 #include "constants/map_types.h"
 #include "constants/maps.h"
 #include "constants/moves.h"
@@ -1214,6 +1215,12 @@ static void Cmd_accuracycheck(void)
      || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
      || (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
+        JumpIfMoveFailed(7, move);
+        return;
+    }
+    if (gCurrentMove == MOVE_TRUMP_CARD && gTrainerBattleOpponent_A != TRAINER_DMCA_MISTY)
+    {
+        gMoveResultFlags |= MOVE_RESULT_NO_EFFECT;
         JumpIfMoveFailed(7, move);
         return;
     }
