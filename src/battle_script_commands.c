@@ -2865,8 +2865,8 @@ void SetMoveEffect(bool8 primary, u8 certain)
             case STATUS1_FREEZE:
                 // if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN)
                 //     noSunCanFreeze = FALSE;
-                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ICE))
-                    break;
+                // if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ICE))
+                //     break;
                 if (gBattleMons[gEffectBattler].status1)
                     break;
                 // if (noSunCanFreeze == FALSE)
