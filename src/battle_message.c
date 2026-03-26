@@ -564,6 +564,7 @@ const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI 
 const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 static const u8 sText_ClassWiz1989[] = _("CSR DEVELOPER");
+static const u8 sText_ClassIdiotPlasto[] = _("IDIOT PLASTO");
 
 // New battle strings.
 static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} survived with\nits {B_DEF_ABILITY} ability!");
@@ -2497,6 +2498,8 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                     toCpy = gTrainerClassNames[TRAINER_CLASS_SIS_AND_BRO];
                 else if (gTrainerBattleOpponent_A == TRAINER_WIZ1989)
                     toCpy = sText_ClassWiz1989;
+                else if (gTrainerBattleOpponent_A == TRAINER_PLASTO)
+                    toCpy = sText_ClassIdiotPlasto;
                 else
                     toCpy = gTrainerClassNames[gTrainers[gTrainerBattleOpponent_A].trainerClass];
                 break;
