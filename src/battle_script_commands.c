@@ -2861,7 +2861,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
                     return;
                 }
-                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE))
+                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE) && gCurrentMove != MOVE_WILL_O_WISP)
                     break;
                 if (gBattleMons[gEffectBattler].ability == ABILITY_WATER_VEIL)
                     break;
