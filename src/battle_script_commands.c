@@ -52,6 +52,7 @@
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/item_effects.h"
+#include "constants/trainers.h"
 #include "constants/map_types.h"
 #include "constants/maps.h"
 #include "constants/moves.h"
@@ -990,7 +991,10 @@ static void Cmd_attackcanceler(void)
     }
     if (AtkCanceller_UnableToUseMove())
         return;
-    
+
+    if (gCurrentMove == MOVE_V_CREATE)
+        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
+
     if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM)
     {
         // gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
@@ -999,6 +1003,14 @@ static void Cmd_attackcanceler(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
+        gBattlescriptCurrInstr++;
+        return;
+    }
+
+    if (gBattleMons[gBattlerTarget].species == SPECIES_YVELTAL && !FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE))
+    {
+        CancelMultiTurnMoves(gBattlerAttacker);
+        gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
         gBattlescriptCurrInstr++;
         return;
     }
@@ -1214,6 +1226,12 @@ static void Cmd_accuracycheck(void)
      || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
      || (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
+        JumpIfMoveFailed(7, move);
+        return;
+    }
+    if (gCurrentMove == MOVE_TRUMP_CARD && gTrainerBattleOpponent_A != TRAINER_DMCA_MISTY)
+    {
+        gMoveResultFlags |= MOVE_RESULT_NO_EFFECT;
         JumpIfMoveFailed(7, move);
         return;
     }
@@ -2123,9 +2141,6 @@ static void Cmd_attackanimation(void)
     if (gBattleControllerExecFlags)
         return;
 
-    if (gCurrentMove == MOVE_V_CREATE)
-        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
-
     if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE && gCurrentMove != MOVE_SUBSTITUTE_TEACHER && gCurrentMove != MOVE_SUBSTITUTE_2))
     {
         BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -2846,7 +2861,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
                     return;
                 }
-                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE))
+                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE) && gCurrentMove != MOVE_WILL_O_WISP)
                     break;
                 if (gBattleMons[gEffectBattler].ability == ABILITY_WATER_VEIL)
                     break;
@@ -2858,8 +2873,8 @@ void SetMoveEffect(bool8 primary, u8 certain)
             case STATUS1_FREEZE:
                 // if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN)
                 //     noSunCanFreeze = FALSE;
-                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ICE))
-                    break;
+                // if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ICE))
+                //     break;
                 if (gBattleMons[gEffectBattler].status1)
                     break;
                 // if (noSunCanFreeze == FALSE)
@@ -4647,7 +4662,8 @@ static void Cmd_playanimation(void)
      || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE
      || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM
-     || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM)
+     || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM
+     || gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
     {
         //create Alomomola right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
@@ -4677,6 +4693,27 @@ static void Cmd_playanimation(void)
         {
             u16 species = SPECIES_SLOWPOKE;
             gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+        }
+        // create Inkay right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
+        {
+            u16 originalSpecies = gBattleMons[gActiveBattler].species;
+            u16 species = SPECIES_INKAY;
+            u8 *bufPtr = gBattleTextBuff2;
+            
+            gBattleMons[gActiveBattler].species = species;
+            // handle battle strings
+            if (GetBattlerSide(gActiveBattler) != B_SIDE_PLAYER)
+            {
+                if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    bufPtr = StringCopy(bufPtr, gText_FoePkmnPrefix);
+                else
+                    bufPtr = StringCopy(bufPtr, gText_WildPkmnPrefix);
+            }
+            GetSpeciesName(bufPtr, originalSpecies); // MALAMAR
+            PREPARE_SPECIES_BUFFER(gBattleTextBuff3, species); // INKAY
+
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);

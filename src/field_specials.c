@@ -122,10 +122,8 @@ void ForcePlayerOntoBike(void)
 
 void ForcePlayerOffBike(void)
 {
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-    //FlagClear(FLAG_SYS_ON_SHINY_BIKE);
-
 }
 
 void ResetCyclingRoadChallengeData(void)
@@ -3065,3 +3063,16 @@ const u8 *const gKayleeNameTable[] = {
     COMPOUND_STRING("CAL EIGH"),
 };
 
+void IsPlayerNameKaylee(void)
+{
+    u32 i;
+    for (i = 0; i < NELEMS(gKayleeNameTable); i++)
+    {
+        if (StringCompareIgnoreCase(gSaveBlock2Ptr->playerName, gKayleeNameTable[i]))
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
