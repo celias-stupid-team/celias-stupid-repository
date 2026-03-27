@@ -20831,7 +20831,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_YVELTAL] =
     {
         .baseHP = 10,
-        .baseAttack = 10,
+        .baseAttack = 131,
         .baseDefense = 95,
         .baseSpeed = 99,
         .baseSpAttack = 131,
