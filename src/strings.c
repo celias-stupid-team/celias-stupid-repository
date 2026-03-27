@@ -676,6 +676,7 @@ const u8 gText_PutItemInBag[] = _("Put this item in the BAG?");
 const u8 gText_ItemIsNowHeld[] = _("{DYNAMIC 0x00} is now held.");
 const u8 gText_ChangedToNewItem[] = _("Changed to {DYNAMIC 0x00}.");
 const u8 gText_MailCantBeStored[] = _("MAIL can't be stored!");
+const u8 gText_ObtainedBrickPiece[] = _("Obtained the BRICK PIECE!");
 const u8 gPCText_Cancel[] = _("CANCEL");
 const u8 gPCText_Store[] = _("STORE");
 const u8 gPCText_Withdraw[] = _("WITHDRAW");
