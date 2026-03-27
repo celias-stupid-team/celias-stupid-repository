@@ -3065,3 +3065,16 @@ const u8 *const gKayleeNameTable[] = {
     COMPOUND_STRING("CAL EIGH"),
 };
 
+void IsPlayerNameKaylee(void)
+{
+    u32 i;
+    for (i = 0; i < NELEMS(gKayleeNameTable); i++)
+    {
+        if (StringCompareIgnoreCase(gSaveBlock2Ptr->playerName, gKayleeNameTable[i]))
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
