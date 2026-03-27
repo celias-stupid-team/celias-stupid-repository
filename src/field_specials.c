@@ -122,10 +122,8 @@ void ForcePlayerOntoBike(void)
 
 void ForcePlayerOffBike(void)
 {
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-    //FlagClear(FLAG_SYS_ON_SHINY_BIKE);
-
 }
 
 void ResetCyclingRoadChallengeData(void)
