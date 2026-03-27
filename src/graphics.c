@@ -351,6 +351,21 @@ const u32 gBattleAnimSpritePal_Slurf[] = INCBIN_U32("graphics/battle_anims/sprit
 const u32 gBattleAnimSpriteGfx_Peanut[] = INCBIN_U32("graphics/battle_anims/sprites/peanut.4bpp.lz");
 const u32 gBattleAnimSpritePal_Peanut[] = INCBIN_U32("graphics/battle_anims/sprites/peanut.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Burger[] = INCBIN_U32("graphics/battle_anims/sprites/burger.4bpp.lz");
+const u32 gBattleAnimSpritePal_Burger[] = INCBIN_U32("graphics/battle_anims/sprites/burger.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TowerTop[] = INCBIN_U32("graphics/battle_anims/sprites/tower_top.4bpp.lz");
+const u32 gBattleAnimSpritePal_TowerTop[] = INCBIN_U32("graphics/battle_anims/sprites/tower_top.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TowerBottom[] = INCBIN_U32("graphics/battle_anims/sprites/tower_bottom.4bpp.lz");
+const u32 gBattleAnimSpritePal_TowerBottom[] = INCBIN_U32("graphics/battle_anims/sprites/tower_bottom.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_CashRegister[] = INCBIN_U32("graphics/battle_anims/sprites/cash_register.4bpp.lz");
+const u32 gBattleAnimSpritePal_CashRegister[] = INCBIN_U32("graphics/battle_anims/sprites/cash_register.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Ranch[] = INCBIN_U32("graphics/battle_anims/sprites/ranch.4bpp.lz");
+const u32 gBattleAnimSpritePal_Ranch[] = INCBIN_U32("graphics/battle_anims/sprites/ranch.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");
