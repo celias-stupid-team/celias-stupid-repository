@@ -1240,7 +1240,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(FALSE) //Last Potion in universe. Condition = Orthworm
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ORTHWORM, FLAG_GET_CAUGHT, TRUE)) //Last Potion in universe. Condition = Orthworm
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
@@ -1356,7 +1356,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(FALSE) //Go on SS Anne
+                    if(FlagGet(FLAG_GOT_HM01)) //Go on SS Anne
                         isQuestCompleted = TRUE;
                     break;
                 case 1: //Hatched spearow
@@ -1463,7 +1463,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FlagGet(FLAG_NO_SANS_ITEM)) //Magical Leaf - beat sans
+                    if(FlagGet(FLAG_KILLED_SANS)) //Magical Leaf - beat sans
                         isQuestCompleted = TRUE;
                     break;
             }

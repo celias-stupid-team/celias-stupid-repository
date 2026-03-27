@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
       "x": 13,
-      "y": 60,
+      "y": 65,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

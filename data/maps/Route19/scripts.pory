@@ -23,6 +23,7 @@ mapscripts Route19_MapScripts {
 }
 
 script EventScript_RemoveUselessItems {
+	additem(ITEM_POKE_BALL, 20)
 	while(checkitem(ITEM_ANTIDOTE)) {
 		removeitem(ITEM_ANTIDOTE)
 		addvar(VAR_TEMP_5, 1)

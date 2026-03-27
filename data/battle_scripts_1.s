@@ -5987,12 +5987,11 @@ BattleScript_EffectBestow::
 
 BattleScript_EffectRevelationDance::
 	setrevelationdancetype
-	printstring STRINGID_REVELATIONDANCEMATCHEDTYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_EffectHit
 
 BattleScript_RevelationDanceString::
-
+	printstring STRINGID_REVELATIONDANCEMATCHEDTYPE
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 

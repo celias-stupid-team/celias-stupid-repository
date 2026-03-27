@@ -393,7 +393,7 @@ script Route15_PokeRap_Trainer21_Defeat {
 
 script Route15_PokeRap_Trainer22 {
     trainerbattle_single(TRAINER_POKERAP_22, Rapper_22_Intro, "Nice!", Route15_PokeRap_Trainer22_Defeat)
-    msgbox("DODRIO by FeelgoodInk\nSEADRA  by KaizenStarlight\pVILEPLUME by Raw Meat Arrow\nKRABBY by Reverend", MSGBOX_DEFAULT)
+    msgbox("DODRIO by FeelgoodInk\nSEADRA by Fluffy\pVILEPLUME by Raw Meat Arrow\nKRABBY by Reverend", MSGBOX_DEFAULT)
     release
 }
 

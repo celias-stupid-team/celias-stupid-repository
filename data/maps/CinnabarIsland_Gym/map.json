@@ -344,7 +344,7 @@
       "x": 17,
       "y": 6,
       "elevation": 0,
-      "var": "VAR_TEMP_A",
+      "var": "VAR_TEMP_7",
       "var_value": "0",
       "script": "CinnabarGym_AddChuckster"
     },
@@ -353,7 +353,7 @@
       "x": 18,
       "y": 6,
       "elevation": 0,
-      "var": "VAR_TEMP_A",
+      "var": "VAR_TEMP_7",
       "var_value": "0",
       "script": "CinnabarGym_AddChuckster"
     }

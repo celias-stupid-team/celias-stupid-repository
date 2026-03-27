@@ -9955,7 +9955,7 @@ static const struct TrainerMonItemCustomMoves sParty_LeaderFalkner[] = {
 static const struct TrainerMonItemCustomMoves sParty_DMCABrock[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 75,
         .heldItem = ITEM_NONE,
         .species = SPECIES_STEELIX,
         .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
@@ -10282,7 +10282,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine3[] = {
 static const struct TrainerMonItemCustomMoves sParty_Blaine4[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 90,
         .heldItem = ITEM_TOXIC_BERRY,
         .species = SPECIES_UNITEDKINGDOM,
         .moves = {MOVE_COLONIZE, MOVE_TEATIME, MOVE_NONE, MOVE_NONE}
@@ -10295,7 +10295,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine5[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_NICKIT,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_MULTISHINE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
