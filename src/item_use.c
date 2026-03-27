@@ -1222,12 +1222,10 @@ static void ItemUseOnFieldCB_PayDayTM(u8 taskId)
 
 void FieldUseFunc_PayDayTM(u8 taskId)
 {
-    //ToDo: messages not working correctly
     u16 species;
-    u8 speciesName[POKEMON_NAME_LENGTH + 1];
 
     species = SPECIES_GIMMIGHOUL;
-    
+
     if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
     {
 
@@ -1238,11 +1236,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
         After the cry is finished, then the game returns to the field and prints the "{PLAYER} recieved a GIMMIEGHOUL!" line
         
         */
-
-        //DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PayDayTM, Task_ReturnToBagFromContextMenu);
         gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
-        
-        
     }
     else
     {
@@ -1257,27 +1251,21 @@ void FieldUseFunc_PayDayTM(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
-    
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
-        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
-        GetSpeciesName(speciesName, species);
-        StringExpandPlaceholders(gStringVar1, speciesName);
+        GetSpeciesName(gStringVar1, species);
         sItemUseOnFieldCB = ItemUseOnFieldCB_PayDayTM;
-        SetUpItemUseOnFieldCallback(taskId);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_GimmieghoulTMUsed, SetUpItemUseOnFieldCallback);
         break;
     }
 }
-
 
 void FieldUseFunc_BalmMushroom(u8 taskId)
 {
-    //ToDo: messages not working correctly
     u16 species;
-    u8 speciesName[POKEMON_NAME_LENGTH + 1];
 
     species = SPECIES_AMOONGUSS;
     FlagSet(FLAG_SHINY_CREATION);
-    
+
     gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
 
     switch (gSpecialVar_Result)
@@ -1287,27 +1275,20 @@ void FieldUseFunc_BalmMushroom(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
-        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
-        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
-        GetSpeciesName(speciesName, species);
-        StringExpandPlaceholders(gStringVar1, speciesName);
+        GetSpeciesName(gStringVar1, species);
         sItemUseOnFieldCB = ItemUseOnFieldCB_PayDayTM;
-        SetUpItemUseOnFieldCallback(taskId);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_GimmieghoulTMUsed, SetUpItemUseOnFieldCallback);
         break;
     }
 }
 
-
 void FieldUseFunc_DragoniteBag(u8 taskId)
 {
-    //ToDo: messages not working correctly
     u16 species;
-    u8 speciesName[POKEMON_NAME_LENGTH + 1];
 
     species = SPECIES_DRAGONITE;
-    
-    
+
     gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
 
     switch (gSpecialVar_Result)
@@ -1317,13 +1298,10 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
-        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
-        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
-        GetSpeciesName(speciesName, species);
-        StringExpandPlaceholders(gStringVar1, speciesName);
+        GetSpeciesName(gStringVar1, species);
         sItemUseOnFieldCB = ItemUseOnFieldCB_PayDayTM;
-        SetUpItemUseOnFieldCallback(taskId);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_GimmieghoulTMUsed, SetUpItemUseOnFieldCallback);
         break;
     }
 }
