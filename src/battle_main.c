@@ -2965,6 +2965,12 @@ static void TryDoEventsBeforeFirstTurn(void)
 
     if (ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_BEFORE_FIRST_TURN))
         BattleScriptExecute(BattleScript_TrainerASlideMsgEnd2);
+
+    if (gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS)
+    {
+        u8 oppBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        gBattleMons[oppBattler].status2 |= STATUS2_CONFUSION_TURN(5);
+    }
 }
 
 static void HandleEndTurn_ContinueBattle(void)
@@ -4587,7 +4593,8 @@ static void HandleAction_Run(void)
         else
         {
             if ((gBattleMons[gBattlerAttacker].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-             || ABILITY_ON_OPPOSING_FIELD(gBattlerAttacker, ABILITY_SHADOW_TAG))
+             || ABILITY_ON_OPPOSING_FIELD(gBattlerAttacker, ABILITY_SHADOW_TAG)
+             || ABILITY_ON_OPPOSING_FIELD(gBattlerAttacker, ABILITY_ARENA_TRAP))
             {
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
                 gBattlescriptCurrInstr = BattleScript_PrintFailedToRunString;

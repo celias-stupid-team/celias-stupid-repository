@@ -2013,7 +2013,7 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
     }
 
     // handle shininess for species transformations
-    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA || species == SPECIES_SLOWPOKE) && GetMonData(mon, MON_DATA_CSR_SHINY))
+    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA || species == SPECIES_SLOWPOKE || species == SPECIES_INKAY) && GetMonData(mon, MON_DATA_CSR_SHINY))
         FlagSet(FLAG_SHINY_CREATION);
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
