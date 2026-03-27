@@ -430,8 +430,8 @@ const u8 sText_PkmnGoodComeBack[] = _("{B_BUFF1}, good!\nCome back!");
 static const u8 sText_Trainer1WithdrewPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwithdrew {B_BUFF1}!");
 static const u8 sText_LinkTrainer1WithdrewPkmn[] = _("{B_LINK_OPPONENT1_NAME} withdrew\n{B_BUFF1}!");
 static const u8 sText_LinkTrainer2WithdrewPkmn[] = _("{B_LINK_SCR_TRAINER_NAME} withdrew\n{B_BUFF1}!");
-static const u8 sText_WildPkmnPrefix[] = _("Wild ");
-static const u8 sText_FoePkmnPrefix[] = _("Foe ");
+const u8 gText_WildPkmnPrefix[] = _("Wild ");
+const u8 gText_FoePkmnPrefix[] = _("Foe ");
 static const u8 sText_FoePkmnPrefix2[] = _("Foe");
 static const u8 sText_AllyPkmnPrefix[] = _("Ally");
 static const u8 sText_FoePkmnPrefix3[] = _("Foe");
@@ -1079,6 +1079,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_HACK_ATTACK - BATTLESTRINGS_TABLE_START]                   = COMPOUND_STRING("Mess with the best,\ndie like the rest!"),
     [STRINGID_WAITWHAT - BATTLESTRINGS_TABLE_START]                      = COMPOUND_STRING("Wait\nWHAT?"),
     [STRINGID_FINISHHACKATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("THIS SHOULDN'T BE HAPPENING!{PAUSE 30}\nCRAP!!!"),
+    [STRINGID_PKMNTURNEDINTO - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_BUFF2} turned into {B_BUFF3}!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -2256,9 +2257,9 @@ static const u8 *TryGetStatusString(u8 *src)
     if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)                     \
     {                                                                   \
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                     \
-            toCpy = sText_FoePkmnPrefix;                                \
+            toCpy = gText_FoePkmnPrefix;                                \
         else                                                            \
-            toCpy = sText_WildPkmnPrefix;                               \
+            toCpy = gText_WildPkmnPrefix;                               \
         while (*toCpy != EOS)                                           \
         {                                                               \
             dst[dstId] = *toCpy;                                        \
@@ -2710,9 +2711,9 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             else
             {
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                    StringAppend(dst, sText_FoePkmnPrefix);
+                    StringAppend(dst, gText_FoePkmnPrefix);
                 else
-                    StringAppend(dst, sText_WildPkmnPrefix);
+                    StringAppend(dst, gText_WildPkmnPrefix);
 
                 GetMonData(&gEnemyParty[src[srcId + 2]], MON_DATA_NICKNAME, text);
             }

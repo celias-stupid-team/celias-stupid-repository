@@ -4254,9 +4254,16 @@ BattleScript_SlowpokeTransform::
 	pause B_WAIT_TIME_LONG
     updatebattlerdata BS_ATTACKER
 	redrawhealthbox BS_ATTACKER
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
-	return
+	end2
+
+BattleScript_FlipTurnTransform::
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_TARGET, B_ANIM_FLIP_TURN_TRANSFORM
+	printstring STRINGID_PKMNTURNEDINTO
+	waitmessage B_WAIT_TIME_LONG
+	updatebattlerdata BS_TARGET
+	redrawhealthbox BS_TARGET
+	end2
 
 BattleScript_ZapmolcunoTransform::
 	playse SE_M_MEGA_KICK
@@ -5884,6 +5891,11 @@ BattleScript_EffectFlipStats::
 	waitanimation
 	setmoveeffect MOVE_EFFECT_FLIP_STATS
 	seteffectprimary
+BattleScript_TransformMalamar::
+	@ only trigger form change effect, when opponent is SPECIES_MALAMAR
+	jumpifnotmove MOVE_FLIP_TURN, BattleScript_MoveEnd
+	jumpifnotspecies BS_TARGET, SPECIES_MALAMAR, BattleScript_MoveEnd
+	call BattleScript_FlipTurnTransform
 	goto BattleScript_MoveEnd
 
 @ only visual and strings, stat changes have already been applied in C

@@ -531,6 +531,7 @@
 #define B_ANIM_SLOWPOKE_TRANSFORM       42
 #define B_ANIM_GRAVITY_CONTINUES        43
 #define B_ANIM_COLOR_CHANGE_WIZ1989     44
+#define B_ANIM_FLIP_TURN_TRANSFORM      45
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

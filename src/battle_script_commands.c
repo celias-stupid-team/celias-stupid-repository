@@ -4662,7 +4662,8 @@ static void Cmd_playanimation(void)
      || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE
      || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM
-     || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM)
+     || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM
+     || gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
     {
         //create Alomomola right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
@@ -4692,6 +4693,27 @@ static void Cmd_playanimation(void)
         {
             u16 species = SPECIES_SLOWPOKE;
             gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+        }
+        // create Inkay right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
+        {
+            u16 originalSpecies = gBattleMons[gActiveBattler].species;
+            u16 species = SPECIES_INKAY;
+            u8 *bufPtr = gBattleTextBuff2;
+            
+            gBattleMons[gActiveBattler].species = species;
+            // handle battle strings
+            if (GetBattlerSide(gActiveBattler) != B_SIDE_PLAYER)
+            {
+                if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    bufPtr = StringCopy(bufPtr, gText_FoePkmnPrefix);
+                else
+                    bufPtr = StringCopy(bufPtr, gText_WildPkmnPrefix);
+            }
+            GetSpeciesName(bufPtr, originalSpecies); // MALAMAR
+            PREPARE_SPECIES_BUFFER(gBattleTextBuff3, species); // INKAY
+
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
