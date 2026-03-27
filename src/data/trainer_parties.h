@@ -10643,10 +10643,22 @@ static const struct TrainerMonItemCustomMoves sParty_Dummy_169[] = {
 static const struct TrainerMonItemCustomMoves sParty_wiz1989[] = {
     {
         .iv = 0,
-        .lvl = 20,
-        .heldItem = ITEM_NONE,
-        .species = SPECIES_WOBBUFFET,
-        .moves = {MOVE_COUNTER, MOVE_MIRROR_COAT, MOVE_SAFEGUARD, MOVE_DESTINY_BOND}
+        .lvl = 25,
+        .species = SPECIES_KECLEON_WIZ1989,
+        .moves = {MOVE_TACKLE, MOVE_LICK, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 25,
+        .species = SPECIES_DELPHOX,
+        .moves = {MOVE_PSY_BEAM, MOVE_FLAMETHROWER_MEWTWO, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 25,
+        .heldItem = ITEM_FOCUS_SASH,
+        .species = SPECIES_MISSINGNO,
+        .moves = {MOVE_HACK_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -10659,6 +10671,7 @@ static const struct TrainerMonItemCustomMoves sParty_Lichen[] = {
         .moves = {MOVE_LEECH_SEED, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+
 static const struct TrainerMonItemCustomMoves sParty_KimonoGirls[] = {
     {
         .iv = 0,
@@ -10673,5 +10686,25 @@ static const struct TrainerMonItemCustomMoves sParty_KimonoGirls[] = {
         .heldItem = ITEM_NONE,
         .species = SPECIES_ORICORIO,
         .moves = {MOVE_REVELATION_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STARMIE,
+        .moves = {MOVE_THUNDERBOLT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STARMIE,
+        .moves = {MOVE_THUNDERBOLT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };

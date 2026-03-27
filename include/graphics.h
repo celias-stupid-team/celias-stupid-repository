@@ -8798,6 +8798,16 @@ extern const u32 gBattleAnimSpriteGfx_NaCl[];
 extern const u32 gBattleAnimSpriteGfx_Envelope[];
 extern const u32 gBattleAnimSpriteGfx_Fries[];
 extern const u32 gBattleAnimSpriteGfx_MiniDiglett[];
+extern const u32 gBattleAnimSpriteGfx_LetterR[];
+extern const u32 gBattleAnimSpriteGfx_LetterE[];
+extern const u32 gBattleAnimSpriteGfx_LetterGMB[];
+extern const u32 gBattleAnimSpriteGfx_MrBonding[];
+extern const u32 gBattleAnimSpriteGfx_LetterT[];
+extern const u32 gBattleAnimSpriteGfx_DadOfLight[];
+extern const u32 gBattleAnimSpriteGfx_Lass[];
+extern const u32 gBattleAnimSpriteGfx_Spoon[];
+extern const u32 gBattleAnimSpriteGfx_Slurf[];
+extern const u32 gBattleAnimSpriteGfx_Peanut[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9155,7 +9165,16 @@ extern const u32 gBattleAnimSpritePal_NaCl[];
 extern const u32 gBattleAnimSpritePal_Envelope[];
 extern const u32 gBattleAnimSpritePal_Fries[];
 extern const u32 gBattleAnimSpritePal_MiniDiglett[];
-
+extern const u32 gBattleAnimSpritePal_LetterR[];
+extern const u32 gBattleAnimSpritePal_LetterE[];
+extern const u32 gBattleAnimSpritePal_LetterGMB[];
+extern const u32 gBattleAnimSpritePal_MrBonding[];
+extern const u32 gBattleAnimSpritePal_LetterT[];
+extern const u32 gBattleAnimSpritePal_DadOfLight[];
+extern const u32 gBattleAnimSpritePal_Lass[];
+extern const u32 gBattleAnimSpritePal_Spoon[];
+extern const u32 gBattleAnimSpritePal_Slurf[];
+extern const u32 gBattleAnimSpritePal_Peanut[];
 
 //CSR Moves
 
@@ -9208,6 +9227,7 @@ extern const u32 gBattleAnimBgImage_Skyrim[];
 extern const u32 gBattleAnimBgImage_IraqFlag[];
 extern const u32 gBattleAnimBgImage_AceFlag[];
 extern const u32 gBattleAnimBgImage_SolaceonTown[];
+extern const u32 gBattleAnimBgImage_Pewter[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9240,6 +9260,7 @@ extern const u32 gBattleAnimBgPalette_ChocolateWater[];
 extern const u32 gBattleAnimBgPalette_IraqFlag[];
 extern const u32 gBattleAnimBgPalette_AceFlag[];
 extern const u32 gBattleAnimBgPalette_SolaceonTown[];
+extern const u32 gBattleAnimBgPalette_Pewter[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9273,6 +9294,7 @@ extern const u32 gBattleAnimBgTilemap_Skyrim[];
 extern const u32 gBattleAnimBgTilemap_IraqFlag[];
 extern const u32 gBattleAnimBgTilemap_AceFlag[];
 extern const u32 gBattleAnimBgTilemap_SolaceonTown[];
+extern const u32 gBattleAnimBgTilemap_Pewter[];
 
 // dark
 extern const u32 gMetalShineGfx[];
@@ -10905,6 +10927,13 @@ extern const u32 gMonShinyPalette_Kecleon_Sans[];
 extern const u8 gMonIcon_Kecleon_Sans[];
 extern const u8 gMonFootprint_Kecleon_Sans[];
 
+// Kecleon wiz1989
+extern const u32 gMonFrontPic_Kecleon_wiz1989[];
+extern const u32 gMonPalette_Kecleon_wiz1989[];
+extern const u32 gMonBackPic_Kecleon_wiz1989[];
+extern const u32 gMonShinyPalette_Kecleon_wiz1989[];
+extern const u8 gMonIcon_Kecleon_wiz1989[];
+extern const u8 gMonFootprint_Kecleon_wiz1989[];
 
 // Porygon_16
 extern const u32 gMonFrontPic_Porygon_16[];
@@ -13163,3 +13192,17 @@ extern const u32 gTrainerPalette_Lichen[];
 
 extern const u32 gItemIcon_RareAndy[];
 extern const u32 gItemIconPalette_RareAndy[];
+
+extern const u32 gItemIcon_Mesprit[];
+extern const u32 gItemIconPalette_Mesprit[];
+
+extern const u32 gItemIcon_FlameOrb[];
+extern const u32 gItemIconPalette_FlameOrb[];
+// GREGORY
+extern const u32 gMonFrontPic_GREGORY[];
+extern const u32 gMonPalette_GREGORY[];
+extern const u32 gMonBackPic_GREGORY[];
+extern const u32 gMonShinyPalette_GREGORY[];
+extern const u8 gMonFootprint_GREGORY[];
+extern const u8 gMonIcon_GREGORY[];
+

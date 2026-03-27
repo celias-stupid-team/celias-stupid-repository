@@ -57,7 +57,6 @@ mapscripts SaffronCity_CopycatsHouse_2F_MapScripts {
 			setflag(FLAG_TEMP_3) 
 			setflag(FLAG_TEMP_4) 
 			setflag(FLAG_TEMP_5) 
-			setflag(FLAG_TEMP_6) 
 			setflag(FLAG_TEMP_7) 
 			setflag(FLAG_TEMP_8) 
 			setflag(FLAG_TEMP_9) 
@@ -128,7 +127,6 @@ script CopycatHouse_Child {
 	flag(FLAG_TEMP_3) && 
 	flag(FLAG_TEMP_4) && 
 	flag(FLAG_TEMP_5) && 
-	flag(FLAG_TEMP_6) && 
 	flag(FLAG_TEMP_7) && 
 	flag(FLAG_TEMP_8) && 
 	flag(FLAG_TEMP_9) && 

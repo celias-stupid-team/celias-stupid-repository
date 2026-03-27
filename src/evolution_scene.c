@@ -769,8 +769,9 @@ static void Task_EvolutionScene(u8 taskId)
         }
         break;
     case EVOSTATE_RESTORE_SCREEN:
-        if (IsSEPlaying())
+        if (IsSEPlaying() || ++sEvoStructPtr->delayTimer > 60) // fallback timer for buggy SEs
         {
+            sEvoStructPtr->delayTimer = 0;
             m4aMPlayAllStop();
             memcpy(&gPlttBufferUnfaded[BG_PLTT_ID(2)], sEvoStructPtr->savedPalette, sizeof(sEvoStructPtr->savedPalette));
             RestoreBgAfterAnim();
@@ -802,8 +803,6 @@ static void Task_EvolutionScene(u8 taskId)
                 GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_SHINY_FOUND);
             }
             IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
-            //call the SetPlayerPokedexValues script?
-            RunScriptImmediately(SetPlayerPokedexValues);
         }
         break;
     case EVOSTATE_TRY_LEARN_MOVE:
@@ -815,6 +814,9 @@ static void Task_EvolutionScene(u8 taskId)
             {
                 u8 text[20];
 
+                if (var == MON_ALREADY_KNOWS_MOVE)
+                    break;
+
                 StopMapMusic();
                 Overworld_PlaySpecialMapMusic();
                 gTasks[taskId].tBits |= TASK_BIT_LEARN_MOVE;
@@ -825,8 +827,6 @@ static void Task_EvolutionScene(u8 taskId)
 
                 if (var == MON_HAS_MAX_MOVES)
                     gTasks[taskId].tState = EVOSTATE_REPLACE_MOVE;
-                else if (var == MON_ALREADY_KNOWS_MOVE)
-                    break;
                 else
                     gTasks[taskId].tState = EVOSTATE_LEARNED_MOVE;
             }

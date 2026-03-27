@@ -250,7 +250,7 @@ script AetherParadise_SkullGruntDmca {
 			"That other TEAM SKULL is gone!\p"
 
 			"Now we can get back to taking all\n"
-			"their search engine results!", MSGBOX_DEFAULT)
+			"their search engine results!", MSGBOX_NPC)
 	} else {
 		msgbox(
 		"Yo!\n"

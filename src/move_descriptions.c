@@ -1045,6 +1045,7 @@ const u8 gMoveDescription_TrickOrTreat[] = _("UNUSED");
 const u8 gMoveDescription_AuroraVeil[] = _("UNUSED");
 const u8 gMoveDescription_PhantomForce[] = _("UNUSED");
 const u8 gMoveDescription_Shine[] = _("UNUSED");
+const u8 gMoveDescription_HackAttack[] = _("UNUSED");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -2099,4 +2100,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_AURORA_VEIL     -1 ] = gMoveDescription_AuroraVeil,
     [MOVE_PHANTOM_FORCE     -1 ] = gMoveDescription_PhantomForce,
     [MOVE_SHINE     -1 ] = gMoveDescription_Shine,
+    [MOVE_HACK_ATTACK     -1 ] = gMoveDescription_HackAttack,
 };

@@ -104,6 +104,28 @@ script MtMoon_Lichen {
 	"LICHEN: Hi, there.\n"
 	"", MSGBOX_DEFAULT)
 	trainerbattle_no_intro(TRAINER_LICHEN, "Yessssss")
-	
+	if(flag(FLAG_BADGE02_GET)) {
+		msgbox(
+		"Good job\p"
+
+		"Someone already got here first,\n"
+		"tho.\p"
+
+		"Next time come here sooner, and\n"
+		"I'll have a gift for you!", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Here's a present\n"
+		"", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		giveitem_msg("{PLAYER} got the\nSCOPE CREEP!", ITEM_SCOPE_CREEP, 1)
+		textcolor(NPC_TEXT_COLOR_RED)
+		msgbox(
+		"That's what this game's dev cycle\n"
+		"looked like.", MSGBOX_DEFAULT)
+
+	}
+	release
+	end
 	
 }

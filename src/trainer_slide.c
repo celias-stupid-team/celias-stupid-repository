@@ -52,12 +52,14 @@ static const u8 sText_SwitchInSlidePhase5[] = _("Your victory won't come easily.
 static const u8 sText_SwitchInSlidePhase6[] = _("It all comes down to this.\pYou've made it this far.\nI know you can taste the end.\pNow, step up!\nIt's time to end it!");
 static const u8 sText_AfterDefeat[]         = _("{PAUSE 20}Yeah!{PAUSE 30}\nAre we great or what?");
 static const u8 sText_49Damage[]            = _("Oh! That's it!\nThanks so much!");
+static const u8 sText_BoringAfterTurn5[]    = _("It's getting boring.\pLet me spice things up a bit!");
 
 const u8 *const sTrainerSlides[TRAINER_SLIDE_COUNT] =
 {
     [TRAINER_SLIDE_AFTER_SWITCHIN] = sText_SwitchInSlidePhase1, // default value, actual message is set in GetSlideMessage()
     [TRAINER_SLIDE_AFTER_DEFEAT]  = sText_AfterDefeat,
     [TRAINER_SLIDE_49_DAMAGE]     = sText_49Damage,
+    [TRAINER_SLIDE_AFTER_TURN_5]  = sText_BoringAfterTurn5,
 };
 
 static u32 BattlerHPPercentage(u32 battler, u32 operation, u32 threshold)
@@ -103,6 +105,8 @@ static bool32 DoesTrainerHaveSlideMessage(u32 slideId)
     else if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && slideId == TRAINER_SLIDE_AFTER_DEFEAT)
         return TRUE;
     else if (slideId == TRAINER_SLIDE_49_DAMAGE) // just a general check to get the TRUE value
+        return TRUE;
+    else if (gTrainerBattleOpponent_A == TRAINER_WIZ1989 && slideId == TRAINER_SLIDE_AFTER_TURN_5)
         return TRUE;
     else
         return FALSE;
@@ -177,6 +181,15 @@ static bool32 ShouldRunTrainerSlideLastHalfHP(u32 firstId, u32 lastId, u32 battl
     return (BattlerHPPercentage(battler, GREATER_THAN, 4));
 }
 
+static bool32 ShouldRunTrainerSlideAfterTurn5(void)
+{
+    if (gBattleResults.battleTurnCounter != 4)
+        return FALSE;
+
+    // only trigger if first mon is still alive
+    return (GetMonData(&gEnemyParty[0], MON_DATA_HP, NULL) > 0);
+}
+
 static bool32 ShouldRunTrainerSlideLastLowHp(u32 firstId, u32 lastId, u32 battler)
 {
     if (GetEnemyMonCount(firstId, lastId, TRUE) != 1)
@@ -238,6 +251,9 @@ enum TrainerSlideTargets ShouldDoTrainerSlide(u32 battler, enum TrainerSlideType
         case TRAINER_SLIDE_LAST_LOW_HP:
             shouldRun = ShouldRunTrainerSlideLastLowHp(firstId, lastId, battler);
             break;            
+        case TRAINER_SLIDE_AFTER_TURN_5:
+            shouldRun = ShouldRunTrainerSlideAfterTurn5();
+            break;
         case TRAINER_SLIDE_AFTER_SWITCHIN:
         case TRAINER_SLIDE_BEFORE_FIRST_TURN:
         case TRAINER_SLIDE_MEGA_EVOLUTION:

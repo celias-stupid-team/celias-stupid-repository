@@ -120,6 +120,17 @@ const struct SpriteTemplate gFistFootSpriteTemplate =
     .callback = AnimBasicFistOrFoot,
 };
 
+const struct SpriteTemplate gAccelebrockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BROCKS,
+    .paletteTag = ANIM_TAG_BROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_HandsAndFeet,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBasicFistOrFoot,
+};
+
 const struct SpriteTemplate gFistFootRandomPosSpriteTemplate =
 {
     .tileTag = ANIM_TAG_HANDS_AND_FEET,
@@ -335,6 +346,17 @@ const struct SpriteTemplate gSuperpowerOrbSpriteTemplate =
     .callback = AnimSuperpowerOrb,
 };
 
+const struct SpriteTemplate gSouperpowerSpoonSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPOON,
+    .paletteTag = ANIM_TAG_SPOON,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SuperpowerOrb,
+    .callback = AnimSuperpowerOrb,
+};
+
 const struct SpriteTemplate gSuperpowerRockSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FLAT_ROCK,
@@ -345,12 +367,57 @@ const struct SpriteTemplate gSuperpowerRockSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSuperpowerRock,
 };
+static const union AnimCmd sAnim_SoupProjectile[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_SoupProjectile[] =
+{
+    sAnim_SoupProjectile,
+};
+
+static const union AffineAnimCmd sAffineAnim_SoupProjectile[] =
+{
+    AFFINEANIMCMD_FRAME(0x160, 0x160, 0, 0),
+    AFFINEANIMCMD_FRAME(-0xA, -0xA, 0, 10),
+    AFFINEANIMCMD_FRAME(0xA, 0xA, 0, 10),
+    AFFINEANIMCMD_JUMP(0),
+};
+
+static const union AffineAnimCmd *const sAffineAnims_SoupProjectile[] =
+{
+    sAffineAnim_SoupProjectile,
+};
+
+const struct SpriteTemplate gSoupBubbleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POISON_BUBBLE,
+    .paletteTag = ANIM_TAG_ROCKS,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = sAnims_SoupProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SoupProjectile,
+    .callback = AnimSuperpowerRock,
+};
 
 const struct SpriteTemplate gSuperpowerFireballSpriteTemplate =
 {
     .tileTag = ANIM_TAG_METEOR,
     .paletteTag = ANIM_TAG_METEOR,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSuperpowerFireball,
+};
+
+const struct SpriteTemplate gSouperpowerFireballSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPOON,
+    .paletteTag = ANIM_TAG_SPOON,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,

@@ -3408,7 +3408,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_FROAKIE] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 0,
 	},
 	[SPECIES_FROGADIER] =
 	{
@@ -5256,9 +5256,6 @@ const struct MonCoords gMonFrontPicCoords[] =
 		.size = MON_COORDS_SIZE(48, 32),
 		.y_offset = 10,
 	},
-
-
-
     [SPECIES_EGG] =
     {
         .size = MON_COORDS_SIZE(24, 24),
@@ -6363,6 +6360,6 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_KECLEON_WIZ1989] =
     {
         .size = MON_COORDS_SIZE(48, 56),
-        .y_offset = 7,
+        .y_offset = 3,
     },
 };

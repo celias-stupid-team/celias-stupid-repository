@@ -27,7 +27,7 @@ script CaveOfOrigin_OnixEncounter2 {
 }
 script CaveOfOrigin_CloysterEncounter {
 	lock
-	setvar(VAR_CAVE_OF_ORIGIN, 2)
+	setvar(VAR_CAVE_OF_ORIGIN, 3)
 	setwildbattle(SPECIES_CLOYSTER, 30)
 	dowildbattle
 }

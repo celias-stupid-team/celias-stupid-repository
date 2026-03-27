@@ -6459,3 +6459,25 @@ const struct SpriteFrameImage gObjectEventPicTable_CRUFICIED_2[] = {
     overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 2),
     overworld_frame(gObjectEventPic_CRUFICIED_2, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_WHISCASH[] = {
+    overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 0),
+    overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 1),
+    overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 2),
+    overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 3),
+    overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 4),
+    overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 5),
+    overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 6),
+    overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 7),
+    overworld_frame(gObjectEventPic_WHISCASH, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_FROZEN_ARTY[] = {
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 0),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 1),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 2),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 0),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 0),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 1),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 1),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 2),
+    overworld_frame(gObjectEventPic_FROZEN_ARTY, 6, 6, 2),
+};

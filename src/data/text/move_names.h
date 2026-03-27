@@ -1052,6 +1052,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_AURORA_VEIL]     = _("AURORA VEIL"),
     [MOVE_PHANTOM_FORCE]     = _("PHANTOM F."),
     [MOVE_SHINE]     = _("SHINE"),
+    [MOVE_HACK_ATTACK]     = _("HACK ATTACK"),
 };
 
 
@@ -2110,4 +2111,5 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_AURORA_VEIL]     = _("AURORA VEIL"),
     [MOVE_PHANTOM_FORCE]     = _("PHANTOM FORCE"),
     [MOVE_SHINE]     = _("SHINE"),
+    [MOVE_HACK_ATTACK]     = _("HACK ATTACK"),
 }; //For any move which needs its name lengthened, these will display in battle.

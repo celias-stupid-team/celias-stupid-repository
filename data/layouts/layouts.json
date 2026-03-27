@@ -3616,12 +3616,12 @@
     {
       "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ENTRANCE",
       "name": "FiveIsland_LostCave_Entrance_Layout",
-      "width": 11,
-      "height": 11,
+      "width": 15,
+      "height": 12,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_CableClub",
       "border_filepath": "data/layouts/FiveIsland_LostCave_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Entrance/map.bin"
     },
@@ -6016,7 +6016,7 @@
     {
       "id": "LAYOUT_SILPH_BALL_SHOP",
       "name": "Silph_BallShop_Layout",
-      "width": 24,
+      "width": 26,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -7545,7 +7545,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeafoamIslands",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/One_Island_Cave/border.bin",
       "blockdata_filepath": "data/layouts/One_Island_Cave/map.bin"
     }

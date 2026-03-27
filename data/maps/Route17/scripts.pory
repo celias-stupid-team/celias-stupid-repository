@@ -47,6 +47,12 @@ script Route17_GoAboveBridge {
 }
 
 
+script Route17_KoraidonNeedsSandwhich_CandyRoute {
+	setflag(FLAG_TEMP_A)
+	goto(Route17_KoraidonNeedsSandwich)
+}
+
+
 script Route17_KoraidonNeedsSandwich {
 	lock
 	setflag(FLAG_TRIED_SLOPE)
@@ -151,7 +157,31 @@ script Route17_BikeFliesUp {
 	applymovement(LOCALID_PLAYER, Route17_BikeCatchesUpToCamera)
 	waitmovement(0)
 	special(RemoveCameraObject)
-	applymovement(LOCALID_PLAYER, Route17_BikeZoomsUp)
+	if(flag(FLAG_TEMP_A) && !flag(FLAG_ROUTE_17_CANDY)) {
+		applymovement(LOCALID_PLAYER, moves(
+			walk_faster_up * 18
+			walk_fastest_up * 12
+			face_up
+		))
+		waitmovement(0)
+		
+
+		delay(5)
+		removeobject(LOCALID_ROUTE17_CANDY)
+		giveitem(ITEM_ODD_CANDY)
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+		
+		walk_fastest_up * 56
+		walk_faster_up * 8
+		walk_fast_up * 4
+		walk_up * 2
+		))
+
+	} else {
+		applymovement(LOCALID_PLAYER, Route17_BikeZoomsUp)
+
+	}
 	waitmovement(0)
 	playbgm(MUS_CYCLING, TRUE)
 	release
@@ -193,3 +223,4 @@ script Route17_DickBridge {
 	msgbox("DICK BRIDGE\pThis bridge is DICK.\n", MSGBOX_SIGN)
 	end
 }
+

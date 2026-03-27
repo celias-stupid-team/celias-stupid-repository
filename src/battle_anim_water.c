@@ -56,6 +56,7 @@ static void CreateWaterPulseRingBubbles(struct Sprite *, s32, s32);
 static void AnimTask_PCreate_Step(u8 taskId);
 static void AnimYellowDroplet(struct Sprite *sprite);
 static void AnimYellowDroplet_Step(struct Sprite *sprite);
+static void AnimTask_RotateFlipRockReturn_Step(u8 taskId);
 
 static const u8 sUnusedWater_Gfx[] = INCBIN_U8("graphics/battle_anims/unused/water.4bpp");
 static const u8 sUnusedWater[] = INCBIN_U8("graphics/battle_anims/unused/water.bin");
@@ -244,6 +245,29 @@ const struct SpriteTemplate gPickleBeamSpriteTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sAffineAnims_PickleBeam,
+    .callback = AnimToTargetInSinWave,
+};
+
+static const union AffineAnimCmd sAffineAnim_SpoonBeam[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, -32, 1),
+    AFFINEANIMCMD_END,
+};
+
+
+static const union AffineAnimCmd *const sAffineAnims_SpoonBeam[] =
+{
+    sAffineAnim_SpoonBeam,
+};
+
+const struct SpriteTemplate gSpoonBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPOON,
+    .paletteTag = ANIM_TAG_SPOON,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SpoonBeam,
     .callback = AnimToTargetInSinWave,
 };
 
@@ -1794,3 +1818,84 @@ static void CreateWaterPulseRingBubbles(struct Sprite *sprite, s32 xDiff, s32 yD
     }
 }
 
+void AnimTask_RotateFlipRockReturn(u8 taskId)
+{
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
+
+    PrepareBattlerSpriteForRotScale(spriteId, 0);
+
+    gTasks[taskId].data[0] = 0; // state
+    gTasks[taskId].data[1] = 0; // frame counter
+    gTasks[taskId].data[2] = 0; // angle accumulator
+
+    gTasks[taskId].data[3] = gBattleAnimArgs[0]; // hold duration
+    gTasks[taskId].data[4] = gBattleAnimArgs[1]; // rotation speed
+
+    if (gTasks[taskId].data[4] <= 0)
+        gTasks[taskId].data[4] = 0x80; // default speed
+
+    // steps for 180° rotation
+    gTasks[taskId].data[6] = 0x8000 / gTasks[taskId].data[4];
+
+    gTasks[taskId].data[5] = spriteId;
+
+    gTasks[taskId].func = AnimTask_RotateFlipRockReturn_Step;
+}
+
+static void AnimTask_RotateFlipRockReturn_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 spriteId = task->data[5];
+
+    switch (task->data[0])
+    {
+    // -------------------------------
+    // 0. Rotate to 180°
+    // -------------------------------
+    case 0:
+        task->data[2] += task->data[4];
+        task->data[1]++;
+
+        if (task->data[1] >= task->data[6])
+        {
+            task->data[2] = 0x8000; // exact upside-down
+            task->data[1] = 0;
+            task->data[0] = 1;
+        }
+        break;
+
+    // -------------------------------
+    // 1. Hold upside down
+    // -------------------------------
+    case 1:
+        if (++task->data[1] >= task->data[3])
+        {
+            task->data[1] = 0;
+            task->data[0] = 2;
+        }
+        break;
+
+    // -------------------------------
+    // 2. Continue rotation to 360°
+    // -------------------------------
+    case 2:
+        task->data[2] += task->data[4];
+        task->data[1]++;
+
+        if (task->data[1] >= task->data[6])
+        {
+            task->data[2] = 0;
+
+            ResetSpriteRotScale(spriteId);
+            gSprites[spriteId].x2 = 0;
+            gSprites[spriteId].y2 = 0;
+            DestroyAnimVisualTask(taskId);
+            return;
+        }
+        break;
+    }
+
+    // Apply rotation every frame
+    SetSpriteRotScale(spriteId, 0x100, 0x100, task->data[2]);
+    SetBattlerSpriteYOffsetFromRotation(spriteId);
+}

@@ -293,9 +293,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectReflectType            @ EFFECT_REFLECT_TYPE
 	.4byte BattleScript_EffectTrickOrTreat		     @ EFFECT_TRICK_OR_TREAT
 	.4byte BattleScript_EffectRestHBox               @ EFFECT_REST_HBOX
-	.4byte BattleScript_EffectNothing            		@ EFFECT_NOTHING
+	.4byte BattleScript_EffectNothing                @ EFFECT_NOTHING
 	.4byte BattleScript_EffectUpThrow                @ EFFECT_UP_THROW
 	.4byte BattleScript_EffectShine                  @ EFFECT_SHINE
+	.4byte BattleScript_EffectHackAttack             @ EFFECT_HACK_ATTACK
 
 BattleScript_End2::
 	end2
@@ -4253,9 +4254,16 @@ BattleScript_SlowpokeTransform::
 	pause B_WAIT_TIME_LONG
     updatebattlerdata BS_ATTACKER
 	redrawhealthbox BS_ATTACKER
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
-	return
+	end2
+
+BattleScript_FlipTurnTransform::
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_TARGET, B_ANIM_FLIP_TURN_TRANSFORM
+	printstring STRINGID_PKMNTURNEDINTO
+	waitmessage B_WAIT_TIME_LONG
+	updatebattlerdata BS_TARGET
+	redrawhealthbox BS_TARGET
+	end2
 
 BattleScript_ZapmolcunoTransform::
 	playse SE_M_MEGA_KICK
@@ -4639,6 +4647,30 @@ BattleScript_ColorChangeActivates::
 	printstring STRINGID_PKMNCHANGEDTYPEWITH
 	waitmessage B_WAIT_TIME_LONG
 	return
+
+BattleScript_ColorChangeWizActivates_PPLoss::
+	ppreduce
+BattleScript_ColorChangeWizActivates::
+	attackstring
+	playanimation BS_TARGET, B_ANIM_COLOR_CHANGE_WIZ1989
+	waitanimation
+	preparetypebuff2 sB_ANIM_ARG1
+	printstring STRINGID_PKMNCOLORCHANGEWIZIMMUNE
+	waitmessage B_WAIT_TIME_LONGEST
+	orbyte gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE
+	goto BattleScript_MoveEnd
+
+BattleScript_ColorChangeWizDamage::
+	ppreduce
+	attackstring
+	pause B_WAIT_TIME_SHORT
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printstring STRINGID_PKMNCOLORCHANGEWIZDAMAGE
+	waitmessage B_WAIT_TIME_LONG
+	orbyte gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE
+	goto BattleScript_MoveEnd
 
 BattleScript_RoughSkinActivates::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
@@ -5097,7 +5129,6 @@ BattleScript_EffectDoNothing::
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
-
 
 BattleScript_EffectFickleBeam::
 	attackcanceler
@@ -5860,6 +5891,11 @@ BattleScript_EffectFlipStats::
 	waitanimation
 	setmoveeffect MOVE_EFFECT_FLIP_STATS
 	seteffectprimary
+BattleScript_TransformMalamar::
+	@ only trigger form change effect, when opponent is SPECIES_MALAMAR
+	jumpifnotmove MOVE_FLIP_TURN, BattleScript_MoveEnd
+	jumpifnotspecies BS_TARGET, SPECIES_MALAMAR, BattleScript_MoveEnd
+	call BattleScript_FlipTurnTransform
 	goto BattleScript_MoveEnd
 
 @ only visual and strings, stat changes have already been applied in C
@@ -6121,3 +6157,57 @@ BattleScript_EffectShine::
 	printstring STRINGID_PKMNCOVEREDBYVEIL
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_FlameOrbActivates::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setmoveeffect MOVE_EFFECT_BURN | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	end2
+
+BattleScript_EffectHackAttack::
+	jumpifflagset FLAG_HACK_ATTACK_USED, BattleScript_EffectHackAttack_2
+BattleScript_EffectHackAttack_1::
+	@ attackcanceler
+	attackstring
+	flicker FADE_TO_BLACK, 2
+	ppreduce
+	attackanimation
+	flicker FADE_TO_BLACK, 4
+	flicker FADE_TO_BLACK, 2
+	waitanimation
+	flicker FADE_TO_BLACK, 7
+	setbattlestringid
+	glitchpalettes
+	printfromtable gDoNothingStringIds
+	flicker FADE_TO_BLACK, 4
+	flicker FADE_TO_BLACK, 2
+	waitmessage B_WAIT_TIME_LONG
+	restoreglitchpalettes
+	setflag FLAG_HACK_ATTACK_USED
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectHackAttack_2::
+	@ attackcanceler
+	flicker FADE_TO_BLACK, 2
+	flicker FADE_TO_BLACK, 4
+	attackstring
+	ppreduce
+	glitchbattlescreen
+	attackanimation
+	flicker FADE_TO_BLACK, 6
+	restoreglitchbattlescreen
+	glitchbattlebgm
+	glitchbattlescreen
+	waitanimation
+	setbattlestringid
+	printstring STRINGID_WAITWHAT
+	flicker FADE_TO_BLACK, 4
+	flicker FADE_TO_BLACK, 2
+	waitmessage B_WAIT_TIME_LONG
+	restoreglitchbattlescreen
+	printstring STRINGID_FINISHHACKATTACK
+	@ restorebattlebackground
+	waitmessage B_WAIT_TIME_LONG
+	pause B_WAIT_TIME_LONGEST
+	instantwin
+	end

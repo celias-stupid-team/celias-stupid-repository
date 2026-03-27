@@ -8068,7 +8068,13 @@ const u32 gMonShinyPalette_Kecleon_Sans[] = INCBIN_U32("graphics/pokemon/kecleon
 const u8 gMonIcon_Kecleon_Sans[] = INCBIN_U8("graphics/pokemon/kecleon_sans/icon.4bpp");
 const u8 gMonFootprint_Kecleon_Sans[] = INCBIN_U8("graphics/pokemon/kecleon_sans/footprint.1bpp");
 
-
+// Kecleon wiz1989
+const u32 gMonFrontPic_Kecleon_wiz1989[] = INCBIN_U32("graphics/pokemon/kecleon_wiz1989/front.4bpp.lz");
+const u32 gMonPalette_Kecleon_wiz1989[] = INCBIN_U32("graphics/pokemon/kecleon_wiz1989/normal.gbapal.lz");
+const u32 gMonBackPic_Kecleon_wiz1989[] = INCBIN_U32("graphics/pokemon/kecleon_wiz1989/back.4bpp.lz");
+const u32 gMonShinyPalette_Kecleon_wiz1989[] = INCBIN_U32("graphics/pokemon/kecleon_wiz1989/shiny.gbapal.lz");
+const u8 gMonIcon_Kecleon_wiz1989[] = INCBIN_U8("graphics/pokemon/kecleon_wiz1989/icon.4bpp");
+const u8 gMonFootprint_Kecleon_wiz1989[] = INCBIN_U8("graphics/pokemon/kecleon_wiz1989/footprint.1bpp");
 
 // Porygon_16
 const u32 gMonFrontPic_Porygon_16[] = INCBIN_U32("graphics/pokemon/porygon_16/front.4bpp.lz");
@@ -9823,4 +9829,12 @@ const u32 gMonBackPic_CELIASSTUPIDROMHACK[] = INCBIN_U32("graphics/pokemon/celia
 const u32 gMonShinyPalette_CELIASSTUPIDROMHACK[] = INCBIN_U32("graphics/pokemon/celiasstupidromhack/shiny.gbapal.lz");
 const u8 gMonIcon_CELIASSTUPIDROMHACK[] = INCBIN_U8("graphics/pokemon/celiasstupidromhack/icon.4bpp");
 const u8 gMonFootprint_CELIASSTUPIDROMHACK[] = INCBIN_U8("graphics/pokemon/celiasstupidromhack/footprint.1bpp");
+
+// GREGORY
+const u32 gMonFrontPic_GREGORY[] = INCBIN_U32("graphics/pokemon/gregory/front.4bpp.lz");
+const u32 gMonPalette_GREGORY[] = INCBIN_U32("graphics/pokemon/gregory/normal.gbapal.lz");
+const u32 gMonBackPic_GREGORY[] = INCBIN_U32("graphics/pokemon/gregory/back.4bpp.lz");
+const u32 gMonShinyPalette_GREGORY[] = INCBIN_U32("graphics/pokemon/gregory/shiny.gbapal.lz");
+const u8 gMonIcon_GREGORY[] = INCBIN_U8("graphics/pokemon/gregory/icon.4bpp");
+const u8 gMonFootprint_GREGORY[] = INCBIN_U8("graphics/pokemon/gregory/footprint.1bpp");
 

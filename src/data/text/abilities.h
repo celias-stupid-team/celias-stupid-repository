@@ -202,7 +202,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_ALVANIZE] = COMPOUND_STRING("Boosts WEIRD moves."),
     [ABILITY_LOSSPITALITY] = COMPOUND_STRING("User of L'osspital's rule."),
     [ABILITY_DOWNLOAD] = COMPOUND_STRING("Downloads whatever it clicks on."),
-    [ABILITY_MISTY_SURGE] = COMPOUND_STRING("Names of two GYM LEADERS."),
+    [ABILITY_MISTY_SURGE] = COMPOUND_STRING("Ability that's the names of two GYM LEADERS."),
     [ABILITY_NICE_FACE] = COMPOUND_STRING("Damn, nice face."),
     [ABILITY_NICE_FACES] = COMPOUND_STRING("Damn, nice faces."),
     [ABILITY_WELL_BAKED_BOD] =COMPOUND_STRING("DUMMY."), //unused
@@ -228,7 +228,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SANDWICH_FORCE] = COMPOUND_STRING("Powers up by snacking."),
     [ABILITY_WAS_ONE] = COMPOUND_STRING("The user moves LAST."),
     [ABILITY_DANCER] = COMPOUND_STRING("Copies the last dance move."),
-    [ABILITY_COLOR_CHANGE_DEF] = sColorChangeDescription,
+    [ABILITY_COLOR_CHANGE_WIZ] = sColorChangeDescription,
+    [ABILITY_RIGHTNINGROD] = COMPOUND_STRING("The user was RIGHT."),
+    [ABILITY_TWISTED_REALITY] = COMPOUND_STRING("Replaces the opponent's moves."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -373,5 +375,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SANDWICH_FORCE] = _("{FONT_SMALL}SANDWICH FORCE"),
     [ABILITY_WAS_ONE] = _("WAS ONE"),
     [ABILITY_DANCER] = _("DANCER"),
-    [ABILITY_COLOR_CHANGE_DEF] = _("COLOR CHANGE"),
+    [ABILITY_COLOR_CHANGE_WIZ] = _("COLOR CHANGE"),
+    [ABILITY_RIGHTNINGROD] = _("RIGHTNINGROD"),
+    [ABILITY_TWISTED_REALITY] = _("{FONT_SMALL}TWISTED REALITY"),
 };

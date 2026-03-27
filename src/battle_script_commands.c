@@ -52,6 +52,7 @@
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/item_effects.h"
+#include "constants/trainers.h"
 #include "constants/map_types.h"
 #include "constants/maps.h"
 #include "constants/moves.h"
@@ -379,6 +380,8 @@ static void Cmd_call_if(void);
 static void Cmd_compare_var_to_value(void);
 static void Cmd_compare_var_to_var(void);
 static void Cmd_jumpifhelditem(void);
+
+void CallNativeMetronome(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -955,6 +958,10 @@ static const u8 sBallCatchBonuses[] =
     [SAFARI_BALL - ULTRA_BALL] = 15
 };
 
+static u16 sGlitchBattleScreenSavedPalette[PLTT_BUFFER_SIZE];
+static u8 sFlickerPhase;
+static u8 sFlickerTimer;
+
 // unused
 ALIGNED(4) static const u8 sJPText_Turn[] = _("ターン");
 
@@ -984,7 +991,10 @@ static void Cmd_attackcanceler(void)
     }
     if (AtkCanceller_UnableToUseMove())
         return;
-    
+
+    if (gCurrentMove == MOVE_V_CREATE)
+        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
+
     if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM)
     {
         // gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
@@ -993,6 +1003,14 @@ static void Cmd_attackcanceler(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
+        gBattlescriptCurrInstr++;
+        return;
+    }
+
+    if (gBattleMons[gBattlerTarget].species == SPECIES_YVELTAL && !FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE))
+    {
+        CancelMultiTurnMoves(gBattlerAttacker);
+        gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
         gBattlescriptCurrInstr++;
         return;
     }
@@ -1208,6 +1226,12 @@ static void Cmd_accuracycheck(void)
      || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
      || (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
+        JumpIfMoveFailed(7, move);
+        return;
+    }
+    if (gCurrentMove == MOVE_TRUMP_CARD && gTrainerBattleOpponent_A != TRAINER_DMCA_MISTY)
+    {
+        gMoveResultFlags |= MOVE_RESULT_NO_EFFECT;
         JumpIfMoveFailed(7, move);
         return;
     }
@@ -1783,9 +1807,6 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     moveType = gBattleMoves[move].type;
     if(gBattleMons[attacker].ability == ABILITY_NORMALIZE) //couldn't figure out how typeOverride works
             moveType = TYPE_NORMAL;
-    
-    DebugPrintf("Type %d", moveType);
-
 
     // check stab
     if (IS_BATTLER_OF_TYPE(attacker, moveType))
@@ -2119,9 +2140,6 @@ static void Cmd_attackanimation(void)
 {
     if (gBattleControllerExecFlags)
         return;
-
-    if (gCurrentMove == MOVE_V_CREATE)
-        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
 
     if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE && gCurrentMove != MOVE_SUBSTITUTE_TEACHER && gCurrentMove != MOVE_SUBSTITUTE_2))
     {
@@ -2843,7 +2861,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
                     return;
                 }
-                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE))
+                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE) && gCurrentMove != MOVE_WILL_O_WISP)
                     break;
                 if (gBattleMons[gEffectBattler].ability == ABILITY_WATER_VEIL)
                     break;
@@ -2855,8 +2873,8 @@ void SetMoveEffect(bool8 primary, u8 certain)
             case STATUS1_FREEZE:
                 // if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN)
                 //     noSunCanFreeze = FALSE;
-                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ICE))
-                    break;
+                // if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ICE))
+                //     break;
                 if (gBattleMons[gEffectBattler].status1)
                     break;
                 // if (noSunCanFreeze == FALSE)
@@ -4644,7 +4662,8 @@ static void Cmd_playanimation(void)
      || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE
      || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM
-     || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM)
+     || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM
+     || gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
     {
         //create Alomomola right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
@@ -4674,6 +4693,27 @@ static void Cmd_playanimation(void)
         {
             u16 species = SPECIES_SLOWPOKE;
             gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+        }
+        // create Inkay right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
+        {
+            u16 originalSpecies = gBattleMons[gActiveBattler].species;
+            u16 species = SPECIES_INKAY;
+            u8 *bufPtr = gBattleTextBuff2;
+            
+            gBattleMons[gActiveBattler].species = species;
+            // handle battle strings
+            if (GetBattlerSide(gActiveBattler) != B_SIDE_PLAYER)
+            {
+                if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    bufPtr = StringCopy(bufPtr, gText_FoePkmnPrefix);
+                else
+                    bufPtr = StringCopy(bufPtr, gText_WildPkmnPrefix);
+            }
+            GetSpeciesName(bufPtr, originalSpecies); // MALAMAR
+            PREPARE_SPECIES_BUFFER(gBattleTextBuff3, species); // INKAY
+
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
@@ -8959,13 +8999,32 @@ static void Cmd_mimicattackcopy(void)
     }
 }
 
+
+void CallNativeMetronome(void) {
+    u32 i;
+    u32 moves;
+    //u16 moveCount = MOVES_COUNT;
+    for(i = 0; i < 21; i++) {
+        moves = (Random() % MOVES_COUNT) + 1;
+        while(moves >= MOVES_COUNT) {
+            DebugPrintf("while is executed");
+            moves = (Random() % MOVES_COUNT) + 1;
+        }
+        DebugPrintf("%d", moves);
+        
+
+    }
+    
+}
+
 static void Cmd_metronome(void)
 {
     while (TRUE)
     {
         s32 i;
 
-        gCurrentMove = (Random() & 0x7FF) + 1;
+        gCurrentMove = (Random() % MOVES_COUNT) + 1;
+        
         if (gCurrentMove >= MOVES_COUNT)
             continue;
 
@@ -9207,6 +9266,11 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_STRUGGLE
         && gLastPrintedMoves[gBattlerTarget] != MOVE_NONE
         && gLastPrintedMoves[gBattlerTarget] != MOVE_UNAVAILABLE
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_SUBSTITUTE_TEACHER
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_DARK_VOID
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_LION_LADDER
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_CRUSH_CLAW
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_ELECTRIFY
         && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
     {
@@ -11950,6 +12014,30 @@ void BS_TryTrainerSlideMsgSwitchIn(void)
     }
 }
 
+// doesn't consider benched battlers
+void BS_FaintEnemyFirstSlot(void)
+{
+    NATIVE_ARGS();
+
+    u16 hp = 0;
+    u32 i;
+
+    for (i = 0; i < gBattlersCount; i++)
+    {
+        if (GetBattlerSide(i) == B_SIDE_OPPONENT && gBattlerPartyIndexes[i] == 0 && IsBattlerAlive(i))
+        {
+            gBattleMons[i].hp = 0;
+            SetMonData(&gEnemyParty[0], MON_DATA_HP, &hp);
+            gHitMarker |= HITMARKER_FAINTED(i);
+            gBattlerTarget = i;
+            gBattlerFainted = i;
+            BattleScriptPush(cmd->nextInstr);
+            gBattlescriptCurrInstr = BattleScript_FaintTarget;
+            return;
+        }
+    }
+}
+
 void BS_UpdateBattlerData(void)
 {
     NATIVE_ARGS(u8 battler);
@@ -12685,7 +12773,7 @@ void BS_SetTechnoBlastType(void)
     NATIVE_ARGS();
 
     u16 itemId = gBattleMons[gBattlerAttacker].item;
-    u16 moveType = TYPE_NORMAL;
+    u16 moveType = TYPE_ICE;
 
     if (itemId == ITEM_BURN_DRIVE)
         moveType = TYPE_FIRE;
@@ -13028,8 +13116,6 @@ static void Task_GlitchBattleScreen(u8 taskId)
         tilemap[i] = GlitchTilemapXor((u16)(i + frame));
 }
 
-static u16 sGlitchBattleScreenSavedPalette[PLTT_BUFFER_SIZE];
-
 void BS_GlitchBattleScreen(void)
 {
     NATIVE_ARGS();
@@ -13076,13 +13162,92 @@ void BS_RestoreBattleBackground(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+static void Task_GlitchBattleBgm(u8 taskId)
+{
+    m4aMPlayPitchControl(&gMPlayInfo_BGM, TRACKS_ALL, (s16)Random());
+
+    // every 8 frames, randomly jump the speed
+    if ((gMain.vblankCounter2 & 7) == 0)
+        m4aMPlayTempoControl(&gMPlayInfo_BGM, 0x80 + (u16)(Random() % 0x180));
+}
+
 void BS_GlitchBattleBgm(void)
 {
     NATIVE_ARGS();
 
     m4aSongNumStart(GetBattleBGM());
-    gMPlayInfo_BGM.tempoU = 0xabbb;
-    gMPlayInfo_BGM.tempoC = 0x7999;
+    if (!FuncIsActiveTask(Task_GlitchBattleBgm))
+        CreateTask(Task_GlitchBattleBgm, 200);
 
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_PrepareTypeBuff2(void)
+{
+    NATIVE_ARGS(const u8 *type);
+
+    PREPARE_TYPE_BUFFER(gBattleTextBuff2, *cmd->type);
+    
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_Flicker(void)
+{
+    NATIVE_ARGS(u8 mode, u8 frames);
+
+    s32 i;
+    u16 fillColor;
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    switch (sFlickerPhase)
+    {
+    case 0: // instantly fade full palette
+        fillColor = (cmd->mode == FADE_TO_WHITE || cmd->mode == FADE_FROM_WHITE) ? RGB_WHITEALPHA : RGB_BLACK;
+        for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+            gPlttBufferFaded[i] = fillColor;
+        sFlickerTimer = cmd->frames;
+        sFlickerPhase = 1;
+        break;
+    case 1: // wait x frames
+        if (sFlickerTimer > 0)
+            sFlickerTimer--;
+        else
+            sFlickerPhase = 2;
+        break;
+    case 2: // instantly restore palette
+        for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+            gPlttBufferFaded[i] = gPlttBufferUnfaded[i];
+        sFlickerPhase = 0;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+        break;
+    }
+}
+
+void BS_GlitchPalettes(void)
+{
+    NATIVE_ARGS();
+
+    s32 i;
+
+    for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+    {
+        sGlitchBattleScreenSavedPalette[i] = gPlttBufferFaded[i];
+        gPlttBufferFaded[i] = Random();
+    }
+    
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_RestoreGlitchPalettes(void)
+{
+    NATIVE_ARGS();
+
+    s32 i;
+    
+    for (i = 0; i < PLTT_BUFFER_SIZE; i++)
+        gPlttBufferFaded[i] = sGlitchBattleScreenSavedPalette[i];
+    
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
