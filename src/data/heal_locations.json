@@ -459,8 +459,8 @@
     {
       "id": "HEAL_LOCATION_ONE_ISLAND_KINDLE_ROAD",
       "map": "MAP_ONE_ISLAND_KINDLE_ROAD",
-      "x": 15,
-      "y": 21,
+      "x": 20,
+      "y": 24,
       "respawn_map": "MAP_ONE_ISLAND_KINDLE_ROAD",
       "respawn_npc": "1"
     },

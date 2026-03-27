@@ -2620,8 +2620,8 @@
     {
       "id": "LAYOUT_ONE_ISLAND_KINDLE_ROAD",
       "name": "OneIsland_KindleRoad_Layout",
-      "width": 38,
-      "height": 34,
+      "width": 42,
+      "height": 36,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
