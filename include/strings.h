@@ -707,6 +707,8 @@ extern const u8 gSaveStatName_Player[];
 extern const u8 gSaveStatName_Badges[];
 extern const u8 gSaveStatName_Pokedex[];
 extern const u8 gSaveStatName_Time[];
+extern const u8 gSaveStatName_Version[];
+extern const u8 gSaveStatName_VersionNumber[];
 
 // mail
 extern const u8 gText_From[];
