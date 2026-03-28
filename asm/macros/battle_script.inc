@@ -1667,6 +1667,12 @@
 	.byte \mode
 	.endm
 
+	@ without actual fade steps, just snaps colors immediately
+	.macro fadescreensuperinstant mode:req
+	callnative BS_FadeScreenSuperInstant
+	.byte \mode
+	.endm
+
 	.macro playmoncry species:req
 	callnative BS_PlayMonCry
 	.2byte \species

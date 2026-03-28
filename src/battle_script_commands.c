@@ -12188,6 +12188,33 @@ void BS_FadeScreenInstant(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+// without actual fade steps, just snaps colors immediately
+void BS_FadeScreenSuperInstant(void)
+{
+    NATIVE_ARGS(u8 mode);
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    switch (cmd->mode)
+    {
+        case FADE_TO_BLACK:
+            BlendPalettes(PALETTES_ALL, 16, RGB_BLACK);
+            break;
+        case FADE_TO_WHITE:
+            BlendPalettes(PALETTES_ALL, 16, RGB_WHITEALPHA);
+            break;
+        case FADE_FROM_BLACK:
+            BlendPalettes(PALETTES_ALL, 0, RGB_BLACK);
+            break;
+        case FADE_FROM_WHITE:
+            BlendPalettes(PALETTES_ALL, 0, RGB_WHITEALPHA);
+            break;
+    }
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 
 void BS_PlayMonCry(void)
 {
