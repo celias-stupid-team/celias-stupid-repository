@@ -128,6 +128,17 @@ const struct SpriteTemplate gHairSpreadSpriteTemplate =
     .callback = AnimFireSpread,
 };
 
+const struct SpriteTemplate gBlueHairSpreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLUE_HAIR,
+    .paletteTag = ANIM_TAG_BLUE_HAIR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_HairSpiralSpread,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpread,
+};
+
 static const union AnimCmd sAnim_LargeFlame[] =
 {
     ANIMCMD_FRAME(0, 3),
@@ -281,6 +292,17 @@ const struct SpriteTemplate gSunlightRaySpriteTemplate =
     .tileTag = ANIM_TAG_SUNLIGHT,
     .paletteTag = ANIM_TAG_SUNLIGHT,
     .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SunlightRay,
+    .callback = AnimSunlight,
+};
+
+const struct SpriteTemplate gShadowOfRuinRaySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOON,
+    .paletteTag = ANIM_TAG_MOON,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sAffineAnims_SunlightRay,
@@ -477,6 +499,17 @@ const struct SpriteTemplate gHairSpiralOutwardSpriteTemplate =
 {
     .tileTag = ANIM_TAG_HAIR,
     .paletteTag = ANIM_TAG_HAIR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_BasicHair,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpiralOutward,
+};
+
+const struct SpriteTemplate gBlueHairSpiralOutwardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLUE_HAIR,
+    .paletteTag = ANIM_TAG_BLUE_HAIR,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gAnims_BasicHair,
     .images = NULL,

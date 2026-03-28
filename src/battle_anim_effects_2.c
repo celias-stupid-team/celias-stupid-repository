@@ -73,6 +73,8 @@ static void AnimTask_ScaryFace_Step(u8);
 static void AnimTask_CherryFace_Step(u8);
 static void AnimOrbitFast(struct Sprite *);
 static void AnimOrbitFast_Step(struct Sprite *);
+static void AnimOrbitShort(struct Sprite *sprite);
+static void AnimOrbitShort_Step(struct Sprite *sprite);
 static void AnimOrbitScatter(struct Sprite *);
 static void AnimOrbitScatter_Step(struct Sprite *);
 static void AnimMovementWaves(struct Sprite *);
@@ -583,6 +585,17 @@ const struct SpriteTemplate gDaycareFallSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gRanchFallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RANCH,
+    .paletteTag = ANIM_TAG_RANCH,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gArtStrikeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_PENCIL,
@@ -634,6 +647,17 @@ const struct SpriteTemplate gCensoredBarSpriteTemplate =
     .tileTag = ANIM_TAG_CENSORED,
     .paletteTag = ANIM_TAG_CENSORED,
     .oam = &gOamData_CensoredBar,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gCashRegisterSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CASH_REGISTER,
+    .paletteTag = ANIM_TAG_CASH_REGISTER,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -702,6 +726,28 @@ const struct SpriteTemplate gMiniDiglettSpriteTemplate =
     .paletteTag = ANIM_TAG_MINI_DIGLETT,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = sMiniDiglettAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTowerTopSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOWER_TOP,
+    .paletteTag = ANIM_TAG_TOWER_TOP,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTowerBottomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOWER_BOTTOM,
+    .paletteTag = ANIM_TAG_TOWER_BOTTOM,
+    .oam = &gOamData_AffineOff_ObjNormal_64x32,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -1290,6 +1336,17 @@ const struct SpriteTemplate gBallDiveAttackSpriteTemplate =
     .tileTag = ANIM_TAG_BALL_DIVE,
     .paletteTag = ANIM_TAG_BALL_DIVE,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBallAttack,
+};
+
+const struct SpriteTemplate gFlingSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ITEM_BAG,
+    .paletteTag = ANIM_TAG_ITEM_BAG,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -1924,6 +1981,17 @@ const struct SpriteTemplate gHiddenPowerOrbSpriteTemplate =
     .images = NULL,
     .affineAnims = sHiddenPowerOrbAffineAnimTable,
     .callback = AnimOrbitFast,
+};
+
+const struct SpriteTemplate gHiddenTowerOrbSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_RED_ORB,
+    .paletteTag = ANIM_TAG_RED_ORB,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sHiddenPowerOrbAffineAnimTable,
+    .callback = AnimOrbitShort,
 };
 
 const struct SpriteTemplate gHiddenPowerOrbScatterSpriteTemplate =
@@ -4908,6 +4976,70 @@ static void AnimOrbitFast_Step(struct Sprite *sprite)
     if ((u16)gBattleAnimArgs[7] == 0xFFFF)
         DestroyAnimSprite(sprite);
 }
+
+static void AnimOrbitShort(struct Sprite *sprite)
+{
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+
+    sprite->affineAnimPaused = TRUE;
+
+    sprite->data[0] = gBattleAnimArgs[0]; // duration
+    sprite->data[1] = gBattleAnimArgs[1]; // angle
+    sprite->data[2] = 0;                 // x radius (fixed-point)
+    sprite->data[3] = 0;                 // y radius (fixed-point)
+    sprite->data[4] = 0;                 // frame counter
+    sprite->data[5] = 0;                 // phase
+    sprite->data[6] = 0;                 // finished flag
+
+    sprite->data[7] = GetBattlerSpriteSubpriority(gBattleAnimAttacker);
+
+    sprite->callback = AnimOrbitShort_Step;
+    sprite->callback(sprite);
+}
+
+static void AnimOrbitShort_Step(struct Sprite *sprite)
+{
+    // Layering (front/back)
+    if (sprite->data[1] >= 64 && sprite->data[1] <= 191)
+        sprite->subpriority = sprite->data[7] + 1;
+    else
+        sprite->subpriority = sprite->data[7] - 1;
+
+    // Orbit motion
+    sprite->x2 = Sin(sprite->data[1], sprite->data[2] >> 8);
+    sprite->y2 = Cos(sprite->data[1], sprite->data[3] >> 8);
+    sprite->data[1] = (sprite->data[1] + 9) & 0xFF;
+
+    // Radius expansion/contraction
+    switch (sprite->data[5])
+    {
+    case 0: // expand
+        sprite->data[2] += 0x400;
+        sprite->data[3] += 0x100;
+        if (++sprite->data[4] >= sprite->data[0])
+        {
+            sprite->data[4] = 0;
+            sprite->data[5] = 1;
+        }
+        break;
+
+    case 1: // contract
+        sprite->data[2] -= 0x400;
+        sprite->data[3] -= 0x100;
+        if (++sprite->data[4] >= sprite->data[0])
+        {
+            // Orbit complete → mark finished
+            sprite->data[6] = 1;
+        }
+        break;
+    }
+
+    // Clean termination
+    if (sprite->data[6])
+        DestroyAnimSprite(sprite);
+}
+
 
 // Moves orbs away from the mon, based on where they are in their orbit.
 // Used in MOVE_HIDDEN_POWER.
