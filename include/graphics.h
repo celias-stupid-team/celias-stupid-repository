@@ -13224,3 +13224,9 @@ extern const u32 gMonShinyPalette_GREGORY[];
 extern const u8 gMonFootprint_GREGORY[];
 extern const u8 gMonIcon_GREGORY[];
 
+
+extern const u32 gTrainerFrontPic_Wiz[];
+extern const u32 gTrainerPalette_Wiz[];
+
+extern const u32 gTrainerFrontPic_Plasto[];
+extern const u32 gTrainerPalette_Plasto[];
