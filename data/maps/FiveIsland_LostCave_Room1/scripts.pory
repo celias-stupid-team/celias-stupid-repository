@@ -7,3 +7,10 @@ FiveIsland_LostCave_Room1_EventScript_Lawson::
 	msgbox FiveIsland_LostCave_Room1_Text_LawsonPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+script DawnMaintenanceService {
+	msgbox(
+	"The KANTO DAWN MAINTENANCE SERVICE…\n"
+	"", MSGBOX_SIGN)
+
+}

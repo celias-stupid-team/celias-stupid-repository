@@ -59,7 +59,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_POLIWHIRL]  = {{EVO_ITEM, ITEM_WATER_STONE, SPECIES_POLIWRATH}},
     
     
-    [SPECIES_ABRA]       = {{EVO_TRADE_ITEM, ITEM_NEVER_MELT_ICE, SPECIES_ALAKAZAM}},
+    [SPECIES_ABRA]       = {{EVO_TRADE, 0, SPECIES_ALAKAZAM}},
     
 
     

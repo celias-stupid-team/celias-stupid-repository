@@ -9027,6 +9027,8 @@ static const struct LevelUpMove sMiraidonLevelUpLearnset[] = {
 
 static const struct LevelUpMove sJigglypuff_AboveLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_ROUND),
+    LEVEL_UP_MOVE(1, MOVE_UP_THROW),
+    LEVEL_UP_MOVE(1, MOVE_REST_HBOX),
     LEVEL_UP_MOVE(21, MOVE_HEADBUTT),
     LEVEL_UP_MOVE(22, MOVE_CIRCLE_THROW),
     LEVEL_UP_MOVE(23, MOVE_CHILL_HEADBUTT),
