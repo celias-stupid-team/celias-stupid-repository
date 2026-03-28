@@ -1457,6 +1457,10 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_TowerBottom, 0x0400, ANIM_TAG_TOWER_BOTTOM},
     {gBattleAnimSpriteGfx_CashRegister, 0x0800, ANIM_TAG_CASH_REGISTER},
     {gBattleAnimSpriteGfx_Ranch, 0x0800, ANIM_TAG_RANCH},
+    {gBattleAnimSpriteGfx_UselessCard, 0x0A00, ANIM_TAG_USELESS_CARD},
+    {gBattleAnimSpriteGfx_Soldier, 0x0A00, ANIM_TAG_SOLDIER},
+    {gBattleAnimSpriteGfx_BlueHair, 0x0400, ANIM_TAG_BLUE_HAIR},
+    {gBattleAnimSpriteGfx_Capt, 0x0400, ANIM_TAG_CAPT},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1879,6 +1883,10 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_TowerBottom, ANIM_TAG_TOWER_BOTTOM},
     {gBattleAnimSpritePal_CashRegister, ANIM_TAG_CASH_REGISTER},
     {gBattleAnimSpritePal_Ranch, ANIM_TAG_RANCH},
+    {gBattleAnimSpritePal_UselessCard, ANIM_TAG_USELESS_CARD},
+    {gBattleAnimSpritePal_Soldier, ANIM_TAG_SOLDIER},
+    {gBattleAnimSpritePal_BlueHair, ANIM_TAG_BLUE_HAIR},
+    {gBattleAnimSpritePal_Capt, ANIM_TAG_CAPT},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

@@ -366,6 +366,18 @@ const u32 gBattleAnimSpritePal_CashRegister[] = INCBIN_U32("graphics/battle_anim
 const u32 gBattleAnimSpriteGfx_Ranch[] = INCBIN_U32("graphics/battle_anims/sprites/ranch.4bpp.lz");
 const u32 gBattleAnimSpritePal_Ranch[] = INCBIN_U32("graphics/battle_anims/sprites/ranch.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_UselessCard[] = INCBIN_U32("graphics/battle_anims/sprites/useless_card.4bpp.lz");
+const u32 gBattleAnimSpritePal_UselessCard[] = INCBIN_U32("graphics/battle_anims/sprites/useless_card.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Soldier[] = INCBIN_U32("graphics/battle_anims/sprites/soldier.4bpp.lz");
+const u32 gBattleAnimSpritePal_Soldier[] = INCBIN_U32("graphics/battle_anims/sprites/soldier.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BlueHair[] = INCBIN_U32("graphics/battle_anims/sprites/blue_hair.4bpp.lz");
+const u32 gBattleAnimSpritePal_BlueHair[] = INCBIN_U32("graphics/battle_anims/sprites/blue_hair.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Capt[] = INCBIN_U32("graphics/battle_anims/sprites/capt.4bpp.lz");
+const u32 gBattleAnimSpritePal_Capt[] = INCBIN_U32("graphics/battle_anims/sprites/capt.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

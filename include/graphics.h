@@ -8813,6 +8813,10 @@ extern const u32 gBattleAnimSpriteGfx_TowerTop[];
 extern const u32 gBattleAnimSpriteGfx_TowerBottom[];
 extern const u32 gBattleAnimSpriteGfx_CashRegister[];
 extern const u32 gBattleAnimSpriteGfx_Ranch[];
+extern const u32 gBattleAnimSpriteGfx_UselessCard[];
+extern const u32 gBattleAnimSpriteGfx_Soldier[];
+extern const u32 gBattleAnimSpriteGfx_BlueHair[];
+extern const u32 gBattleAnimSpriteGfx_Capt[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9185,6 +9189,10 @@ extern const u32 gBattleAnimSpritePal_TowerTop[];
 extern const u32 gBattleAnimSpritePal_TowerBottom[];
 extern const u32 gBattleAnimSpritePal_CashRegister[];
 extern const u32 gBattleAnimSpritePal_Ranch[];
+extern const u32 gBattleAnimSpritePal_UselessCard[];
+extern const u32 gBattleAnimSpritePal_Soldier[];
+extern const u32 gBattleAnimSpritePal_BlueHair[];
+extern const u32 gBattleAnimSpritePal_Capt[];
 
 //CSR Moves
 
