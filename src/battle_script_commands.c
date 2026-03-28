@@ -10830,6 +10830,13 @@ static void Cmd_pickup(void)
                     break;
             SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &sPickupItems[j]);
         }
+        if (ability == ABILITY_TOWNLOAD && species != SPECIES_NONE && species != SPECIES_EGG && heldItem == ITEM_NONE && !(Random() % 10) && FlagGet(FLAG_MESPRIT_RAN_AWAY) && !FlagGet(FLAG_RECEIVED_MESPRIT))
+        {
+            u16 item = ITEM_MESPRIT;
+
+            FlagSet(FLAG_RECEIVED_MESPRIT);
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &item);
+        }
     }
     gBattlescriptCurrInstr++;
 }
