@@ -19931,12 +19931,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_INKAY] =
     {
-        .baseHP = 53,
-        .baseAttack = 54,
-        .baseDefense = 53,
-        .baseSpeed = 45,
-        .baseSpAttack = 37,
-        .baseSpDefense = 46,
+        .baseHP = 86,
+        .baseAttack = 1,
+        .baseDefense = 1,
+        .baseSpeed = 1,
+        .baseSpAttack = 1,
+        .baseSpDefense = 1,
         .types = {TYPE_DARK, TYPE_PSYCHIC},
         .catchRate = 255,
         .expYield = 150,

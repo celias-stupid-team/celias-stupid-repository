@@ -4277,7 +4277,7 @@ BattleScript_ZapmolcunoTransform::
 	healthbarupdate BS_FAINTED @ updates the health bar to match the new species
 	datahpupdate BS_FAINTED @ updates the HP data to full again
 	pause B_WAIT_TIME_SHORT
-	fadescreen FADE_FROM_WHITE
+	fadescreensuperinstant FADE_FROM_WHITE
 	waitforfade
 	playse MUS_SE_GUILTY
 	pause B_WAIT_TIME_SHORT
@@ -5555,7 +5555,7 @@ BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	togglebattlerspritevisibility BS_OPPONENT1 @ hide the Moltres sprite
 	sethealthboxspriteinvisible BS_OPPONENT1 @ hide healthbox sprite
 	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
+	fadescreensuperinstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_FINALMOLTRES
 	waitforcry
