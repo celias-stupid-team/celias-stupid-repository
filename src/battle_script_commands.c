@@ -10830,6 +10830,13 @@ static void Cmd_pickup(void)
                     break;
             SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &sPickupItems[j]);
         }
+        if (ability == ABILITY_TOWNLOAD && species != SPECIES_NONE && species != SPECIES_EGG && heldItem == ITEM_NONE && !(Random() % 10) && FlagGet(FLAG_MESPRIT_RAN_AWAY) && !FlagGet(FLAG_RECEIVED_MESPRIT))
+        {
+            u16 item = ITEM_MESPRIT;
+
+            FlagSet(FLAG_RECEIVED_MESPRIT);
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &item);
+        }
     }
     gBattlescriptCurrInstr++;
 }
@@ -12178,6 +12185,33 @@ void BS_FadeScreenInstant(void)
             FadeScreen(FADE_FROM_WHITE, 0);
             break;
     }
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+// without actual fade steps, just snaps colors immediately
+void BS_FadeScreenSuperInstant(void)
+{
+    NATIVE_ARGS(u8 mode);
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    switch (cmd->mode)
+    {
+        case FADE_TO_BLACK:
+            BlendPalettes(PALETTES_ALL, 16, RGB_BLACK);
+            break;
+        case FADE_TO_WHITE:
+            BlendPalettes(PALETTES_ALL, 16, RGB_WHITEALPHA);
+            break;
+        case FADE_FROM_BLACK:
+            BlendPalettes(PALETTES_ALL, 0, RGB_BLACK);
+            break;
+        case FADE_FROM_WHITE:
+            BlendPalettes(PALETTES_ALL, 0, RGB_WHITEALPHA);
+            break;
+    }
+
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

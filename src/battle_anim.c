@@ -1832,18 +1832,18 @@ static void Cmd_debugprintf(void)
 }
 
 static const u8 sYveltal[] = _("YVELTAL");
+static const u8 sLetterV[] = _("V");
 
 // adds the letter V to Yveltal
 static void Cmd_addletterv(void)
 {
     u8 animBattler;
     u8 battlerId;
-    const u8 *nickname;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
     struct Pokemon *mon;
 
     sBattleAnimScriptPtr++;
     animBattler = sBattleAnimScriptPtr[0];
-    nickname = sYveltal;
 
     switch (animBattler)
     {
@@ -1866,6 +1866,15 @@ static void Cmd_addletterv(void)
         mon = &gPlayerParty[gBattlerPartyIndexes[battlerId]];
     else
         mon = &gEnemyParty[gBattlerPartyIndexes[battlerId]];
+
+    if (gBattleMons[battlerId].species == SPECIES_YVELTAL)
+        StringCopy(nickname, sYveltal);
+    else
+    {
+        GetMonData(mon, MON_DATA_NICKNAME, nickname);
+        nickname[StringLength(nickname) - 1] = sLetterV[0];
+        SetMonData(mon, MON_DATA_NICKNAME, nickname);
+    }
 
     SetMonData(mon, MON_DATA_NICKNAME, nickname);
     UpdateNickInHealthbox(gHealthboxSpriteIds[battlerId], mon);
