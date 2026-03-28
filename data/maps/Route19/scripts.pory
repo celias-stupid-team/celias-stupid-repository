@@ -211,6 +211,7 @@ script Route19_LookerScene {
 	delay(30)
 	applymovement(LOCALID_LOOKER_LAYING, moves(
 		set_invisible
+		walk_up
 	))
 	applymovement(LOCALID_LOOKER_UP, moves(
 		set_visible

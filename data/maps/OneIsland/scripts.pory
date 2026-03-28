@@ -317,7 +317,7 @@ script OneIsland_Kaylee {
 
 	setflag(FLAG_TEMP_5)
 	special(IsPlayerNameKaylee)
-	if(var(VAR_RESULT) && checkplayergender == GENDER_FEMALE) {
+	if(var(VAR_RESULT) && checkplayergender == FEMALE) {
 		msgbox(
 		"KAYLEE: Oh! You…\n"
 		"You're just like us!", MSGBOX_DEFAULT)

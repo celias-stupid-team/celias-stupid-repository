@@ -4276,7 +4276,7 @@ BattleScript_ZapmolcunoTransform::
 	redrawhealthbox BS_FAINTED @ updates the health box to match the new species
 	healthbarupdate BS_FAINTED @ updates the health bar to match the new species
 	datahpupdate BS_FAINTED @ updates the HP data to full again
-	pause B_WAIT_TIME_SHORT
+	@ pause B_WAIT_TIME_SHORT
 	fadescreensuperinstant FADE_FROM_WHITE
 	waitforfade
 	playse MUS_SE_GUILTY

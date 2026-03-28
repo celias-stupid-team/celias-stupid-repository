@@ -333,7 +333,7 @@ static const struct LevelUpMove sRaichuLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_THUNDERBOLT),
     LEVEL_UP_MOVE(1, MOVE_VOLT_TACKLE),
     LEVEL_UP_MOVE(1, MOVE_DIVE),
-    LEVEL_UP_MOVE(1, MOVE_BABY_DOLL_EYES),
+    //LEVEL_UP_MOVE(1, MOVE_BABY_DOLL_EYES),
     LEVEL_UP_END
 };
 
@@ -713,7 +713,7 @@ static const struct LevelUpMove sDugtrioLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMeowthLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(0, MOVE_FURRY_SWIPES),
+    LEVEL_UP_MOVE(0, MOVE_CURSE),
     LEVEL_UP_MOVE(1, MOVE_THUNDERBOLT),
     LEVEL_UP_MOVE(1, MOVE_VOLT_TACKLE),
     LEVEL_UP_MOVE(1, MOVE_DIVE),

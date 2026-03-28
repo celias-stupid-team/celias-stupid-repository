@@ -102,15 +102,25 @@ script FalknerGym_Falkner {
             end
 
         } else {
-            
-            msgbox(
-            "Behind this GYM is a cave.\p"
+            if(flag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)) {
+                msgbox(
+                "After solving the puzzle on\n"
+                "BIRTH ISLAND, follow the stone\l"
+                "to the GREAT BAY.\p"
 
-            "This cave is the start to finding\n"
-            "a BIRD POKéMON spoken in legends.\p"
+                "There, you can climb the SKY TOWER\n"
+                "and meet the BIRD POKéMON of legend.", MSGBOX_DEFAULT)
+            } else {
+                msgbox(
+                    "Behind this GYM is a cave.\p"
 
-            "Meet with this POKéMON, and I'll\n"
-            "relent and admit defeat.", MSGBOX_DEFAULT)
+                    "This cave is the start to finding\n"
+                    "a BIRD POKéMON spoken in legends.\p"
+
+                    "Meet with this POKéMON, and I'll\n"
+                    "relent and admit defeat.", MSGBOX_DEFAULT)
+
+            }
             release
             end
 
