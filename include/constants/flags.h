@@ -534,7 +534,7 @@
 #define FLAG_0x1E3      0x1E3
 #define FLAG_0x1E4     0x1E4
 #define FLAG_0x1E5            0x1E5
-#define FLAG_0x1E6        0x1E6
+#define FLAG_RECEIVED_MESPRIT 0x1E6
 #define FLAG_HACK_ATTACK_USED 0x1E7
 #define FLAG_DISABLED_DEV_COMMENTARY  0x1E8
 #define FLAG_GOT_MOVE_NOTHING      0x1E9
