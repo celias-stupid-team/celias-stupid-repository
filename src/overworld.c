@@ -1760,11 +1760,30 @@ static void FieldCB_ShowMapNameOnContinue(void)
     FieldCB_WarpExitFadeFromBlack();
 }
 
+static inline bool32 CheckForFullReleaseLoadIn(void)
+{
+    return FlagGet(FLAG_CSR_GOT_PAY_DAY) 
+            && FlagGet(FLAG_BADGE05_GET) 
+            && FlagGet(FLAG_RETURNING_DEMO_3_SAVE) 
+            && !FlagGet(FLAG_LOOKER_SCENE) 
+            && !FlagGet(FLAG_SYS_FULL_RELEASE_SAVE);
+}
+
+static void TrySetFullReleaseLoadIn(void)
+{
+    if (CheckForFullReleaseLoadIn())
+    {
+        SetDynamicWarpWithCoords(0, MAP_GROUP(MAP_FUSHCIA_GYM_GYM_LEADER_ROOM), MAP_NUM(MAP_FUSHCIA_GYM_GYM_LEADER_ROOM), -1, 12, 12);
+        SetContinueGameWarpStatusToDynamicWarp();
+    }
+}
+
 void CB2_ContinueSavedGame(void)
 {
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     //ResetSafariZoneFlag_();
+    TrySetFullReleaseLoadIn();
     LoadSaveblockMapHeader();
     LoadSaveblockObjEventScripts();
     UnfreezeObjectEvents();
@@ -2394,6 +2413,7 @@ void CB2_EnterFieldFromQuestLog(void)
     StopMapMusic();
     gGlobalFieldTintMode = QL_TINT_BACKUP_GRAYSCALE;
     //ResetSafariZoneFlag_();
+    TrySetFullReleaseLoadIn();
     LoadSaveblockMapHeader();
     LoadSaveblockObjEventScripts();
     UnfreezeObjectEvents();

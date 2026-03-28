@@ -9,6 +9,7 @@
 #include "fieldmap.h"
 #include "pokemon_storage_system.h"
 #include "gba/flash_internal.h"
+#include "event_data.h"
 
 static u8 HandleWriteSector(u16 sectorId, const struct SaveSectorLocation *locations);
 static u8 TryWriteSector(u8 sectorNum, u8 *data);
@@ -689,6 +690,8 @@ u8 TrySavingData(u8 saveType)
         gSaveAttemptStatus = SAVE_STATUS_ERROR;
         return SAVE_STATUS_ERROR;
     }
+
+    FlagSet(FLAG_SYS_FULL_RELEASE_SAVE);
 
     HandleSavingData(saveType);
     if (!gDamagedSaveSectors)
