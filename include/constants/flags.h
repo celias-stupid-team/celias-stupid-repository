@@ -1557,7 +1557,7 @@
 #define FLAG_CSR_MAP_EEVEE_ROOM                                     (SYS_FLAGS + 0xE1)
 #define FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND                            (SYS_FLAGS + 0xE2)
 #define FLAG_CSR_MAP_EGG_DELIVERY                                       (SYS_FLAGS + 0xE3)
-#define FLAG_CSR_MAP_DUMMY_11                                       (SYS_FLAGS + 0xE4)
+#define FLAG_AMITY_SQUARE_ENTRANCE                                       (SYS_FLAGS + 0xE4)
 #define FLAG_CSR_MAP_DUMMY_12                                       (SYS_FLAGS + 0xE5)
 #define FLAG_CSR_MAP_DUMMY_13                                       (SYS_FLAGS + 0xE6)
 #define FLAG_CSR_MAP_DUMMY_14                                       (SYS_FLAGS + 0xE7)

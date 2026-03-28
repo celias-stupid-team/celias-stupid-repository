@@ -153,6 +153,27 @@ script DMCAHideout_Vent {
 		waitfanfare
 		release
 	} else {
-		release
+		
+		if(checkpartymon(SPECIES_DITTO_MEW) && !flag(FLAG_GOT_BALM_MUSHROOM)) {
+			msgbox(
+			"Your DITTO is acting a bit\n"
+			"sus…", MSGBOX_DEFAULT)
+			closemessage
+			playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
+			waitmoncry
+			msgbox(
+			"It went through the vent!\p"
+
+			"…{PAUSE 30} …{PAUSE 30} …{PAUSE 30}\p"
+
+			"And now it's back!\n"
+			"", MSGBOX_DEFAULT)
+			setflag(FLAG_GOT_BALM_MUSHROOM)
+			giveitem_msg("DITTO returned with a\nBALM MUSHROOM!", ITEM_BALM_MUSHROOM, 1)
+			waitfanfare
+			release
+		} else {
+			release
+		}
 	}
 }
