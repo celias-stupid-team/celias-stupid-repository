@@ -8114,7 +8114,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_DOUBLE_DAD] =
     
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_DOUBLE_DIP,
         .power = 80,
         .type = TYPE_FAIRY,
         .accuracy = 100,

@@ -882,3 +882,7 @@ const u16 gObjectEventPal_EEL[] = INCBIN_U16("graphics/object_events/palettes/EE
 const u32 gObjectEventPic_MARIN[] = INCBIN_U32("graphics/object_events/pics/stupid/MARIN.4bpp");
 const u32 gObjectEventPic_PAUL[] = INCBIN_U32("graphics/object_events/pics/stupid/PAUL.4bpp");
 const u16 gObjectEventPal_PAUL[] = INCBIN_U16("graphics/object_events/palettes/PAUL.gbapal");
+const u32 gObjectEventPic_DEERLING[] = INCBIN_U32("graphics/object_events/pics/stupid/DEERLING.4bpp");
+const u16 gObjectEventPal_DEERLING[] = INCBIN_U16("graphics/object_events/palettes/DEERLING.gbapal");
+const u32 gObjectEventPic_SMEARGLE[] = INCBIN_U32("graphics/object_events/pics/stupid/SMEARGLE.4bpp");
+const u16 gObjectEventPal_SMEARGLE[] = INCBIN_U16("graphics/object_events/palettes/SMEARGLE.gbapal");

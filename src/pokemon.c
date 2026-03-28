@@ -124,6 +124,7 @@ const u32 gProtectedMoves[] = {
     MOVE_SLASH_TCG,
     MOVE_LUNAR_DANCE,
     MOVE_BESTOW,
+    MOVE_DOUBLE_DAD,
     MOVE_FLY_CYNTHIA
 };
 

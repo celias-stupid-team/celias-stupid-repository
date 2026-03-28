@@ -3398,7 +3398,7 @@
       "price": 100,
       "holdEffect": "HOLD_EFFECT_ICE_POWER",
       "holdEffectParam": 10,
-      "description_english": "CASTELIA CITY's famous ice cream,\\neaten with a NEVERMELTSPOON.\\nInduces ABRA to evolve via TRADE.",
+      "description_english": "CASTELIA CITY's famous ice cream,\\ntraditionally eaten using a\\nNEVERMELTSPOON.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

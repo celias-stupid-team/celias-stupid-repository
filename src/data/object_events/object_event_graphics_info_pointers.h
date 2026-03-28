@@ -604,6 +604,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FROZEN_ARTY;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EEL;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARIN;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PAUL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DEERLING;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SMEARGLE;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1209,4 +1211,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_EEL] = &gObjectEventGraphicsInfo_EEL,
     [OBJ_EVENT_GFX_MARIN] = &gObjectEventGraphicsInfo_MARIN,
     [OBJ_EVENT_GFX_PAUL] = &gObjectEventGraphicsInfo_PAUL,
+    [OBJ_EVENT_GFX_DEERLING] = &gObjectEventGraphicsInfo_DEERLING,
+    [OBJ_EVENT_GFX_SMEARGLE] = &gObjectEventGraphicsInfo_SMEARGLE,
 };
