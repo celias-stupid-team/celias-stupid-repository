@@ -1342,6 +1342,17 @@ const struct SpriteTemplate gBallDiveAttackSpriteTemplate =
     .callback = AnimBallAttack,
 };
 
+const struct SpriteTemplate gFlingSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ITEM_BAG,
+    .paletteTag = ANIM_TAG_ITEM_BAG,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBallAttack,
+};
+
 const struct SpriteTemplate gBallRepeatAttackSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BALL_REPEAT,
