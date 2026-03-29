@@ -1933,6 +1933,9 @@ static const struct LevelUpMove sJolteonLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_THUNDER),
     LEVEL_UP_MOVE(1, MOVE_DUAL_WINGBEAT),
     LEVEL_UP_MOVE(1, MOVE_LIGHTNING),
+    LEVEL_UP_MOVE(1, MOVE_THUNDER),
+    LEVEL_UP_MOVE(1, MOVE_THUNDERBOLT),
+    LEVEL_UP_MOVE(0, MOVE_TWINEEDLE),
     LEVEL_UP_MOVE(55, MOVE_VICE_GRIP),
     LEVEL_UP_END
 };
@@ -5861,7 +5864,7 @@ static const struct LevelUpMove sFloatzelLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sCherubiLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(0, MOVE_NICE_BEAM),
+    LEVEL_UP_MOVE(0, MOVE_ROLLOUT),
     LEVEL_UP_MOVE(1, MOVE_VINE_WHIP),
     LEVEL_UP_MOVE(1, MOVE_VINE_WHIP),
     LEVEL_UP_MOVE(16, MOVE_WRAP),
@@ -5871,6 +5874,7 @@ static const struct LevelUpMove sCherubiLevelUpLearnset[] = {
     LEVEL_UP_MOVE(18, MOVE_RAZOR_LEAF),
     LEVEL_UP_MOVE(19, MOVE_SOLAR_BEAM),
     LEVEL_UP_MOVE(20, MOVE_ABSORB),
+    LEVEL_UP_MOVE(21, MOVE_NICE_BEAM),
     LEVEL_UP_MOVE(22, MOVE_NICE_SHARD),
     LEVEL_UP_MOVE(24, MOVE_CHERRY_FACE),
     LEVEL_UP_MOVE(27, MOVE_GIGA_DRAIN),

@@ -227,7 +227,11 @@ script CeliaSecrets_Bonus_BooFuckingHoo {
 }
 
 script CeliaSecrets_Bonus_NewRetreatBench {
-	msgbox("New Demo 2.5 puzzle!\pI wanted to emphasize the benches\na lot more going forward, so I\ladded this here.\pHopefully players will now remember\nthat Retreat exists!", MSGBOX_NPC)
+	msgbox(
+	"This puzzle exists to help you\n"
+	"remember that Retreat exists,\l"
+	"and to emphasize that it'll still\l"
+	"be important going forward.", MSGBOX_NPC)
 	end
 }
 
@@ -245,7 +249,15 @@ script CeliaSecrets_Bonus_LeafStone {
 }
 
 script CeliaSecrets_Bonus_WEmblem {
-	msgbox("If you think finding the W Emblem is\na bit odd, that's okay.\lThis is just a secret method!\pLater in the game there'll be a\nmore comprehensive quest to get in.", MSGBOX_NPC)
+	msgbox(
+	"The long, arduous trading quest\n"
+	"is the intended way to find the\l"
+	"W emblem, but you can just sneak\l"
+	"in the back at any time.\p"
+
+	"The For Sale signs are here so that\n"
+	"if you come in early, there's still\l"
+	"something fun to find on revisit!", MSGBOX_NPC)
 	end
 }
 
@@ -383,7 +395,23 @@ script CeliaSecrets_Bonus_LEmblem {
 }
 
 script CeliaSecrets_Bonus_KantoLawnMaintenance {
-	msgbox("And here is the perfect example\nof how I write:\pI make a silly one off gag, like\nthe Kanto Lawn Service back in\lViridian.\pThen, I quote it again, turning it\ninto a running joke.\pAnd then?\nWell...\lYou'll need to stay tuned to see!", MSGBOX_NPC)
+	msgbox(
+	"Here's a perfect example of how I\n"
+	"write:\p"
+
+	"I make a silly one off gag, like\n"
+	"the Kanto Lawn service back in\l"
+	"Viridian.\p"
+
+	"Then I quote it again, turning it\n"
+	"into a running gag.\p"
+
+	"Then, I add it to my toolkit of\n"
+	"bits - ready to deploy at any time!\p"
+
+	"Sadly the ultimate lawn service\n"
+	"punchline eventually got scrapped.\l"
+	"Oh well!", MSGBOX_NPC)
 	end
 }
 
@@ -752,4 +780,291 @@ script CeliaSecret_GrassEnergy {
 	"softlocked by running out of\l"
 	"money for pokeballs and being\l"
 	"unable to beat Jerry.", MSGBOX_NPC)
+}
+
+script CeliaSecret_TCGIsland {
+	msgbox(
+	"Music here is the world map from\n"
+	"Pokemon TCG!\p"
+
+	"I completely re-imagined the\n"
+	"original track to fit the style.\l"
+	"Very happy with how it came out!", MSGBOX_NPC)
+}
+
+script CeliaSecret_TCGPause {
+	msgbox(
+	"This center uses the pause music\n"
+	"from Pokemon TCG.\p"
+
+	"This is a center you'll spend a lot\n"
+	"of time in cuz of early game\l"
+	"evolutions, so I gave it a custom\l"
+	"track to make it more fun.", MSGBOX_NPC)
+}
+
+script CeliaSecret_RockTunnelGirl {
+	msgbox(
+	"This girl is a new addition.\p"
+
+	"She shows up as a way to build\n"
+	"anticipation for the upcoming\l"
+	"ROCK TUNNEL fakeout.\p"
+
+	"I needed to plant the idea in your\n"
+	"head so the skip gag landed right.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_NoOneLivesHere {
+	msgbox(
+	"The line on the day care door\n"
+	"is actually a line from GSC!\p"
+
+	"If you examine this house's door\n"
+	"in that game, you'll see this line.\p"
+
+	"Only thing is, the house ISN'T for\n"
+	"sale.\l"
+	"The door isn't locked, and there's\l"
+	"people there.\p"
+
+	"It's an odd case of a leftover\n"
+	"from a different design direction.", MSGBOX_NPC)
+}
+
+script CeliaSecret_ScrappedComms {
+	msgbox(
+	"The very, very first instance of\n"
+	"the dev commentary quest was to\l"
+	"bring your Toxic Sludge to this\l"
+	"map and melt the north guard first.\p"
+
+	"That's how hidden I WANTED the\n"
+	"puzzles to be.\p"
+
+	"However, I didn't want to make the\n"
+	"dev commentary a missable reward,\l"
+	"so that method is scrapped.", MSGBOX_NPC)
+}
+
+script CeliaSecret_LookGirlPC {
+	msgbox(
+	"Here's where I discovered the true\n"
+	"use of the Look girl:\l"
+	"Making players actually fucking\l"
+	"look at the screen.\p"
+
+	"Nobody noticed that I put a PC here\n"
+	"for convenience with the trade,\l"
+	"so I put her here to draw attention\l"
+	"to it.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_UndergroundHaircut {
+	msgbox(
+	"One element I wanted to emphasize\n"
+	"was hiding things under your nose.\p"
+
+	"Putting a whole secret area just\n"
+	"offscreen in the underground map\l"
+	"with giant arrows but they can't\l"
+	"be seen without flash?\l"
+	"Genius.", MSGBOX_NPC)
+}
+
+script CeliaSecret_HaircutDialogue {
+	msgbox(
+	"This guy has a few bonus lines of\n"
+	"dialogue if you show him different\l"
+	"Pokemon!", MSGBOX_NPC)
+}
+
+script CeliaSecret_ShinyBellsprout {
+	msgbox(
+	"This shiny went from being the\n"
+	"worst in the game to one of my\l"
+	"favorites!\p"
+
+	"I really hope most people find it\n"
+	"with the 2-stage shiny bike like\l"
+	"they're supposed to.", MSGBOX_NPC)
+}
+
+script CeliaSecret_UndergroundCandy {
+	msgbox(
+	"Making people WILLINGLY return to\n"
+	"Underground Path Hell a second\l"
+	"time to get a candy?\l"
+	"Devious.", MSGBOX_NPC)
+}
+
+script CeliaSecret_InvisibleHeal {
+	msgbox(
+	"There's a hidden line of triggers\n"
+	"that heals your party right here!\p"
+
+	"That's cuz the Butterfree fight is\n"
+	"weirdly difficult, and I didn't\l"
+	"want people to white out all the\l"
+	"way back to Cerulean.\p"
+
+	"I just don't draw attention to the\n"
+	"fact that it happens, and people\l"
+	"usually don't notice.\p"
+
+	"Invisible game design!\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_TentacruelStoryline {
+	msgbox(
+	"This guy's the remnants of a\n"
+	"scrapped storyline!\p"
+
+	"I wanted to have a DMCA radio tower\n"
+	"takedown bit involving Tentacruel\l"
+	"from the anime, but the pieces\l"
+	"never quite lined up right.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_BulldozeItems {
+	msgbox(
+	"The fact that placing two items\n"
+	"here took me line 5 seperate tries\l"
+	"was my first clue that decomp was\l"
+	"gonna be WAY harder than HMA.\p"
+
+	"geez.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_OnixHead {
+	msgbox(
+	"Okay so look TECHNICALLY Vermilion\n"
+	"isn't exactly on the other side of\l"
+	"the globe from the Onix guy, but-\p"
+
+	"This was the one place I could be\n"
+	"reasonably sure you'd revisit\l"
+	"at least twice, regardless of\l"
+	"if you'd gotten statues early.\p"
+
+	"That made it the best possible\n"
+	"spot to put the rest of the sign.", MSGBOX_NPC)
+}
+
+script CeliaSecret_VermilionHbox {
+	msgbox(
+	"I hope at least one person finds\n"
+	"the hidden item back here.", MSGBOX_NPC)
+}
+
+script CeliaSecret_NextToTruck {
+	msgbox(
+	"This bonus Celia has been sitting\n"
+	"here since the first release,\l"
+	"with no purpose but taunting you.\p"
+
+	"What can I say?\n"
+	"I like fucking with people.", MSGBOX_NPC)
+}
+
+script CeliaSecret_FirstCan {
+	msgbox(
+	"Fun fact: There's only one unique\n"
+	"solution to the trash can puzzle.\p"
+
+	"The first can NEEDS to be here,\n"
+	"otherwise the rest of the switches\l"
+	"cannot logically be placed.\p"
+
+	"It is technically possible to\n"
+	"deduce the starting can.\l"
+	"If you're, idk, fuckin insane.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Loss_1 {
+	msgbox(
+	"Okay so listen.\n"
+	"I like the loss route.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Loss_2 {
+	msgbox(
+	"However…\n"
+	"I hate what it means for the game.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Loss_3 {
+	msgbox(
+	"This is not “Hahaha pokemon but\n"
+	"there's memes lol internet jokes”\p"
+
+	"And I really resent the perception\n"
+	"it had for a while.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Loss_4 {
+	msgbox(
+	"To me, this route was always a bit\n"
+	"emblematic of the way I didn't\l"
+	"want this game to be seen.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Loss_5 {
+	msgbox(
+	"Which is a shame cuz I think that\n"
+	"hiding a loss joke within the\l"
+	"layout of a route is pretty\l"
+	"goddamn funny!!", MSGBOX_NPC)
+}
+
+script CeliaSecret_Loss_6 {
+	msgbox(
+	"Oh well.\p"
+
+	"At the end of the day, anyone who\n"
+	"ACTUALLY plays the game instead of\l"
+	"watching youtube videos of it\l"
+	"will understand this.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Misberriage {
+	msgbox(
+	"This hidden item caused me immense\n"
+	"suffering, cuz sometimes it just\l"
+	"wouldn't show up.\p"
+
+	"Apparently it was linked to a weird\n"
+	"gen 3 mechanic of hidden items\l"
+	"only occasionally being available.\p"
+
+	"I thiiiiiiiiiink I fixed it, but\n"
+	"I can never really be sure.", MSGBOX_NPC)
+}
+
+script CeliaSecret_LossPond {
+	msgbox(
+	"At one point I planned to add a\n"
+	"secret over here.\p"
+
+	"Alas, nothing ever really stuck.\n"
+	"So there isn't anything here.", MSGBOX_NPC)
+}
+
+script CeliaSecret_LosselleDisappears {
+	msgbox(
+	"The reason Losselle says she'll\n"
+	"stay there at the end of the scene\l"
+	"is cuz when I first made it, I\l"
+	"didn't know how to make NPCs\l"
+	"disappear from the overworld.\p"
+
+	"I never re-visited it cuz I didn't\n"
+	"wanna re-write anything here.", MSGBOX_NPC)
 }
