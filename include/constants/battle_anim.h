@@ -410,6 +410,25 @@
 #define ANIM_TAG_ENVELOPE                   (ANIM_SPRITES_START + 400)
 #define ANIM_TAG_FRIES                      (ANIM_SPRITES_START + 401)
 #define ANIM_TAG_MINI_DIGLETT               (ANIM_SPRITES_START + 402)
+#define ANIM_TAG_LETTER_R                   (ANIM_SPRITES_START + 403)
+#define ANIM_TAG_LETTER_E                   (ANIM_SPRITES_START + 404)
+#define ANIM_TAG_LETTER_GMB                 (ANIM_SPRITES_START + 405)
+#define ANIM_TAG_MR_BONDING                 (ANIM_SPRITES_START + 406)
+#define ANIM_TAG_LETTER_T                   (ANIM_SPRITES_START + 407)
+#define ANIM_TAG_DAD_OF_LIGHT               (ANIM_SPRITES_START + 408)
+#define ANIM_TAG_LASS                       (ANIM_SPRITES_START + 409)
+#define ANIM_TAG_SPOON                      (ANIM_SPRITES_START + 410)
+#define ANIM_TAG_SLURF                      (ANIM_SPRITES_START + 411)
+#define ANIM_TAG_PEANUT                     (ANIM_SPRITES_START + 412)
+#define ANIM_TAG_BURGER                     (ANIM_SPRITES_START + 413)
+#define ANIM_TAG_TOWER_TOP                  (ANIM_SPRITES_START + 414)
+#define ANIM_TAG_TOWER_BOTTOM               (ANIM_SPRITES_START + 415)
+#define ANIM_TAG_CASH_REGISTER              (ANIM_SPRITES_START + 416)
+#define ANIM_TAG_RANCH                      (ANIM_SPRITES_START + 417)
+#define ANIM_TAG_USELESS_CARD               (ANIM_SPRITES_START + 418)
+#define ANIM_TAG_SOLDIER                    (ANIM_SPRITES_START + 419)
+#define ANIM_TAG_BLUE_HAIR                  (ANIM_SPRITES_START + 420)
+#define ANIM_TAG_CAPT                       (ANIM_SPRITES_START + 421)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -473,6 +492,7 @@
 #define BG_IRAQ_FLAG 34
 #define BG_ACE_FLAG 35
 #define BG_SOLACEON_TOWN 36
+#define BG_PEWTER 37
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
@@ -519,6 +539,8 @@
 #define B_ANIM_GHOST_DODGE              41
 #define B_ANIM_SLOWPOKE_TRANSFORM       42
 #define B_ANIM_GRAVITY_CONTINUES        43
+#define B_ANIM_COLOR_CHANGE_WIZ1989     44
+#define B_ANIM_FLIP_TURN_TRANSFORM      45
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

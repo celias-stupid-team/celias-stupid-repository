@@ -46,8 +46,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 15,
-      "y": 7,
+      "x": 17,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
@@ -105,8 +105,8 @@
       "x": 27,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_SILPH_BACKROOMS",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_LARRY"
     },
     {
       "warp_id": "WARP_ID_DMCA_HIDEOUT",
@@ -117,7 +117,44 @@
       "dest_warp_id": "WARP_ID_SAFFRON_GYM_DMCA"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Larry"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Larry"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Larry"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Larry"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

@@ -649,3 +649,15 @@ const u32 gTrainerPalette_Eusine[] = INCBIN_U32("graphics/trainers/palettes/eusi
 
 const u32 gTrainerFrontPic_Paul[] = INCBIN_U32("graphics/trainers/front_pics/paul_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Paul[] = INCBIN_U32("graphics/trainers/palettes/paul.gbapal.lz");
+
+const u32 gTrainerFrontPic_Lichen[] = INCBIN_U32("graphics/trainers/front_pics/lichen_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Lichen[] = INCBIN_U32("graphics/trainers/palettes/lichen.gbapal.lz");
+
+const u32 gTrainerFrontPic_Wiz[] = INCBIN_U32("graphics/trainers/front_pics/wiz_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Wiz[] = INCBIN_U32("graphics/trainers/palettes/wiz.gbapal.lz");
+
+const u32 gTrainerFrontPic_Plasto[] = INCBIN_U32("graphics/trainers/front_pics/plasto_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Plasto[] = INCBIN_U32("graphics/trainers/palettes/plasto.gbapal.lz");
+
+const u32 gTrainerFrontPic_Starlight[] = INCBIN_U32("graphics/trainers/front_pics/starlight_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Starlight[] = INCBIN_U32("graphics/trainers/palettes/starlight.gbapal.lz");

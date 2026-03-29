@@ -1009,6 +1009,9 @@ static const u16 sSpeciesIdToCryId[] =
 	[SPECIES_EARRAT] = CRY_EARRAT,
 	[SPECIES_FINALCHARMANDER] = CRY_FINALCHARMANDER,
 	[SPECIES_CELIASSTUPIDROMHACK] = CRY_CELIASSTUPIDROMHACK,
+	[SPECIES_KECLEON_WIZ1989] =  CRY_KECLEON,
+	[SPECIES_GREGORY] = CRY_GREGORY,
+
 
 //End
 	// ^ I use the End thing here in my species inserter to find where to insert the new line

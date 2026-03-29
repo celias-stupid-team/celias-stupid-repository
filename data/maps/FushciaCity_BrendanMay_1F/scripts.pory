@@ -161,7 +161,7 @@ script BrendanMay_Arranging {
 }
 
 script BrendanMay_TVDownstairs {
-    if(var(VAR_LANCE_LASS_ATTACK) == 2 && !flag(FLAG_GOT_SHINY_LATIAS)) {
+    if(flag(FLAG_BADGE08_GET) && !flag(FLAG_GOT_SHINY_LATIAS)) {
         waitse
         playse(SE_PIN)
         applymovement(LOCALID_BRENDAN_MOM, moves(

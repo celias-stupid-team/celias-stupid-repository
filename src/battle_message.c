@@ -430,8 +430,8 @@ const u8 sText_PkmnGoodComeBack[] = _("{B_BUFF1}, good!\nCome back!");
 static const u8 sText_Trainer1WithdrewPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwithdrew {B_BUFF1}!");
 static const u8 sText_LinkTrainer1WithdrewPkmn[] = _("{B_LINK_OPPONENT1_NAME} withdrew\n{B_BUFF1}!");
 static const u8 sText_LinkTrainer2WithdrewPkmn[] = _("{B_LINK_SCR_TRAINER_NAME} withdrew\n{B_BUFF1}!");
-static const u8 sText_WildPkmnPrefix[] = _("Wild ");
-static const u8 sText_FoePkmnPrefix[] = _("Foe ");
+const u8 gText_WildPkmnPrefix[] = _("Wild ");
+const u8 gText_FoePkmnPrefix[] = _("Foe ");
 static const u8 sText_FoePkmnPrefix2[] = _("Foe");
 static const u8 sText_AllyPkmnPrefix[] = _("Ally");
 static const u8 sText_FoePkmnPrefix3[] = _("Foe");
@@ -564,6 +564,8 @@ const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI 
 const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 static const u8 sText_ClassWiz1989[] = _("CSR DEVELOPER");
+static const u8 sText_ClassIdiotPlasto[] = _("IDIOT PLASTO");
+static const u8 sText_ClassStarlight[] = _("CSR MAP DESIGNER");
 
 // New battle strings.
 static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} survived with\nits {B_DEF_ABILITY} ability!");
@@ -1053,18 +1055,17 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNDODGEDATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} dodged the attack!"),
     [STRINGID_PKMNSHELLHASBEENBROKEN - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("Oh no!\n{B_ATK_NAME_WITH_PREFIX}'s shell has been smashed!"),
     [STRINGID_PKMNREPEATSDANCEMOVE - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s DANCER ability\nrepeated the dance move!"),
-    
-    [STRINGID_EARTHEATER - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s EARTH EATER…{PAUSE 20}"),
-    [STRINGID_SUPERSONIC - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("But it failed!{PAUSE 20}\pThere's no CHAOS EMERALDS!{PAUSE 45}"),
-    [STRINGID_TAUNT - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("lol"),
-    [STRINGID_SHED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} doesn't have a\nTAIL to SHED!{PAUSE 45}"),
+    [STRINGID_EARTHEATER - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s EARTH EATER…{PAUSE 20}"),
+    [STRINGID_SUPERSONIC - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("But it failed!{PAUSE 20}\pThere's no CHAOS EMERALDS!{PAUSE 45}"),
+    [STRINGID_TAUNT - BATTLESTRINGS_TABLE_START]                         = COMPOUND_STRING("lol"),
+    [STRINGID_SHED - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} doesn't have a\nTAIL to SHED!{PAUSE 45}"),
     [STRINGID_PKMNWASBADLYBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_EFF_NAME_WITH_PREFIX} was badly burned!\pIts attacking stats have been\nmassively cut!"),
     [STRINGID_PKMNWENTBACK - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} went back to {B_ATK_TRAINER_NAME}!"),
     [STRINGID_GRAVITY_STARTS - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("The gravity intensified!"),
     [STRINGID_GRAVITY_CONTINUES - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("Gravity is intensified!"),
     [STRINGID_PKMNSTATSMAXED - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s stats\nwere maxed!"),
     [STRINGID_PKMNSTATSWEREFLIPPED - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s stats\nwere flipped!"),
-    [STRINGID_TOXICBERRYFAINT - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} ate the TOXIC BERRY!\pWHAT..?\nNO!?!"),
+    [STRINGID_TOXICBERRYFAINT - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} ate the TOXIC BERRY…\pOh no!"),
     [STRINGID_PKMNATEBERRYNOEFFECT - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} ate the {B_LAST_ITEM},\nbut nothing happened!"),
     [STRINGID_PKMNBERRYWASBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nwas burned."),
     [STRINGID_BESTOWITEMGIVING - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} received {B_LAST_ITEM}\nfrom {B_ATK_NAME_WITH_PREFIX}!"),
@@ -1072,6 +1073,14 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_REFLECTTARGETSTYPE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} became {B_BUFF1} type\nand {B_BUFF2} type."),
     [STRINGID_PKMNBECAMETYPE - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} became {B_BUFF1} type."),
     [STRINGID_VANISHEDINSTANTLY - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} vanished instantly!"),
+    [STRINGID_PKMNCOLORCHANGEWIZIMMUNE - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} changed to {B_BUFF3}\ntype making it immune to {B_BUFF2}!"),
+    [STRINGID_PKMNCOLORCHANGEWIZDAMAGE - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_OPPONENT_MON1_NAME}'s COLOR CHANGE made it\nhurt by the status move!"),
+    [STRINGID_TWISTED_REALITY_ACTIVATES - BATTLESTRINGS_TABLE_START]     = COMPOUND_STRING("{B_OPPONENT_MON1_NAME}'s TWISTED REALITY transformed\n{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} to {B_BUFF2}!"),
+    [STRINGID_TWISTED_REALITY_RECOIL - BATTLESTRINGS_TABLE_START]        = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} got hurt by the\nexcessive use of magic!"),
+    [STRINGID_HACK_ATTACK - BATTLESTRINGS_TABLE_START]                   = COMPOUND_STRING("Mess with the best,\ndie like the rest!"),
+    [STRINGID_WAITWHAT - BATTLESTRINGS_TABLE_START]                      = COMPOUND_STRING("Wait\nWHAT?"),
+    [STRINGID_FINISHHACKATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("THIS SHOULDN'T BE HAPPENING!{PAUSE 30}\nCRAP!!!"),
+    [STRINGID_PKMNTURNEDINTO - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_BUFF2} turned into {B_BUFF3}!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1504,9 +1513,10 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_FICKLE_BEAM] = STRINGID_FICKLE_BEAM,
     [B_MSG_MIST] = STRINGID_IT_MIST,
     [B_MSG_MAGNET_RISE] = STRINGID_MAGNET_RISE,
-    [B_MSG_TAUNT] = STRINGID_MAGNET_RISE,
-    [B_MSG_SUPERSONIC] = STRINGID_MAGNET_RISE,
-    [B_MSG_SHED] = STRINGID_MAGNET_RISE,
+    [B_MSG_TAUNT] = STRINGID_TAUNT,
+    [B_MSG_SUPERSONIC] = STRINGID_SUPERSONIC,
+    [B_MSG_SHED] = STRINGID_SHED,
+    [B_MSG_HACK_ATTACK] = STRINGID_HACK_ATTACK,
 };
 
 const u16 gSwitchInAbilityStringIds[] =
@@ -2248,9 +2258,9 @@ static const u8 *TryGetStatusString(u8 *src)
     if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)                     \
     {                                                                   \
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                     \
-            toCpy = sText_FoePkmnPrefix;                                \
+            toCpy = gText_FoePkmnPrefix;                                \
         else                                                            \
-            toCpy = sText_WildPkmnPrefix;                               \
+            toCpy = gText_WildPkmnPrefix;                               \
         while (*toCpy != EOS)                                           \
         {                                                               \
             dst[dstId] = *toCpy;                                        \
@@ -2490,6 +2500,10 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                     toCpy = gTrainerClassNames[TRAINER_CLASS_SIS_AND_BRO];
                 else if (gTrainerBattleOpponent_A == TRAINER_WIZ1989)
                     toCpy = sText_ClassWiz1989;
+                else if (gTrainerBattleOpponent_A == TRAINER_PLASTO)
+                    toCpy = sText_ClassIdiotPlasto;
+                else if (gTrainerBattleOpponent_A == TRAINER_STARLIGHT)
+                    toCpy = sText_ClassStarlight;
                 else
                     toCpy = gTrainerClassNames[gTrainers[gTrainerBattleOpponent_A].trainerClass];
                 break;
@@ -2700,9 +2714,9 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             else
             {
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                    StringAppend(dst, sText_FoePkmnPrefix);
+                    StringAppend(dst, gText_FoePkmnPrefix);
                 else
-                    StringAppend(dst, sText_WildPkmnPrefix);
+                    StringAppend(dst, gText_WildPkmnPrefix);
 
                 GetMonData(&gEnemyParty[src[srcId + 2]], MON_DATA_NICKNAME, text);
             }

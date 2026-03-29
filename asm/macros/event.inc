@@ -2044,5 +2044,8 @@
 
 	.macro dogenderfluideffect
 	callnative StandaloneGenderFluidEffect
+	.endm
 	
+	.macro jumpoffbike
+	special ForcePlayerOffBike
 	.endm

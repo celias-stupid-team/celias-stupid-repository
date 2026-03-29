@@ -533,9 +533,9 @@
 #define FLAG_0x1E2            0x1E2
 #define FLAG_0x1E3      0x1E3
 #define FLAG_0x1E4     0x1E4
-#define FLAG_0x1E5            0x1E5
-#define FLAG_0x1E6        0x1E6
-#define FLAG_0x1E7  0x1E7
+#define FLAG_DEFEATED_DMCA_KOGA            0x1E5
+#define FLAG_RECEIVED_MESPRIT 0x1E6
+#define FLAG_HACK_ATTACK_USED 0x1E7
 #define FLAG_DISABLED_DEV_COMMENTARY  0x1E8
 #define FLAG_GOT_MOVE_NOTHING      0x1E9
 #define FLAG_FOUND_RAT_STONE     0x1EA
@@ -1012,7 +1012,7 @@
 #define FLAG_VIRIDIAN_CANDY              0x3A0 //placed
 #define FLAG_PEWTER_CANDY                0x3A1 //placed 
 #define FLAG_CERULEAN_CANDY              0x3A2 //placed
-#define FLAG_VERMILLION_CANDY            0x3A3 //placed
+#define FLAG_VERMILLION_CANDY            0x3A3 //n.a
 #define FLAG_LAVENDER_CANDY              0x3A4 //placed
 #define FLAG_CELADON_CANDY               0x3A5 //placed
 #define FLAG_FUSHCIA_CANDY               0x3A6 //placed
@@ -1023,13 +1023,13 @@
 #define FLAG_POKEMON_TOWER_CANDY         0x3AC //placed
 #define FLAG_SAFARI_ZONE_CANDY           0x3AD //placed
 #define FLAG_SILPH_CO_CANDY              0x3AF //placed
-#define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2 
-#define FLAG_SKY_PILLAR_CANDY            0x3B4 //Dumb bike puzzle maybe
+#define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2 //Placed
+#define FLAG_SKY_PILLAR_CANDY            0x3B4 //Wiz
 #define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6 //placed
 #define FLAG_CERULEAN_CAVE_CANDY           0x3B7  //placed
-#define FLAG_ONE_ISLAND_CANDY            0x3B8 
+#define FLAG_ONE_ISLAND_CANDY            0x3B8 //n.a
 #define FLAG_TWO_ISLAND_CANDY            0x3B9 // placed
-#define FLAG_THREE_ISLAND_CANDY          0x3BA // Inside the mansion somewhere
+#define FLAG_THREE_ISLAND_CANDY          0x3BA // n.a
 #define FLAG_FOUR_ISLAND_CANDY           0x3BB //In Mart
 #define FLAG_THIRTY_EIGHT_ISLAND_CANDY   0x3BC //Placed
 #define FLAG_POKEMON_ISLAND_CANDY        0x3BD //Placed
@@ -1060,7 +1060,7 @@
 #define FLAG_CANDY_MAN_FELL          0x3A7 // REPURPOSE
 #define FLAG_RETRIEVED_CANDIES         0x3AE // REPURPOSE
 #define FLAG_GOT_SHINY_MELTAN         0x3B0 // REPURPOSE
-#define FLAG_UNUSED_CANDY_4           0x3B1 // REPURPOSE
+#define FLAG_ROUTE_17_CANDY           0x3B1 // used
 #define FLAG_UNUSED_CANDY_5      0x3B3 // REPURPOSE
 #define FLAG_UNUSED_CANDY_6               0x3C6 //REPURPOSE
 #define FLAG_UNUSED_CANDY_7              0x3CE //REPURPOSE
@@ -1415,7 +1415,7 @@
 #define FLAG_0x818                                                  (SYS_FLAGS + 0x18)
 #define FLAG_0x819                                                  (SYS_FLAGS + 0x19)
 #define FLAG_0x81A                                                  (SYS_FLAGS + 0x1A)
-#define FLAG_0x81B                                                  (SYS_FLAGS + 0x1B)
+#define FLAG_ROTOM_BATTLE_UI                                                  (SYS_FLAGS + 0x1B)
 #define FLAG_HOENN_DELIVERY_SERVICE                                                  (SYS_FLAGS + 0x1C)
 #define FLAG_SYS_ZAPDOS_STATUE                                                  (SYS_FLAGS + 0x1D)
 #define FLAG_SYS_GIRL_HOLE                                                  (SYS_FLAGS + 0x1E)
@@ -1445,12 +1445,12 @@
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_SYS_ON_SHINY_BIKE                                                  (SYS_FLAGS + 0x31)
 #define FLAG_SYS_FULL_RELEASE_SAVE                                                  (SYS_FLAGS + 0x32)
-#define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
+#define FLAG_USED_SNOWGRAVY                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)
 #define FLAG_0x835                                                  (SYS_FLAGS + 0x35)
 #define FLAG_0x836                                                  (SYS_FLAGS + 0x36)
 #define FLAG_SYS_RESET_RTC_ENABLE                                   (SYS_FLAGS + 0x37)
-#define FLAG_0x838                                                  (SYS_FLAGS + 0x38) // Set, never read
+#define FLAG_SYS_HAS_SWITCHED_GENDERS                                                  (SYS_FLAGS + 0x38) // Set, never read
 #define FLAG_SYS_MYSTERY_GIFT_ENABLED                               (SYS_FLAGS + 0x39)
 #define FLAG_0x83A                                                  (SYS_FLAGS + 0x3A)
 #define FLAG_SYS_RIBBON_GET                                         (SYS_FLAGS + 0x3B)
@@ -1557,7 +1557,7 @@
 #define FLAG_CSR_MAP_EEVEE_ROOM                                     (SYS_FLAGS + 0xE1)
 #define FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND                            (SYS_FLAGS + 0xE2)
 #define FLAG_CSR_MAP_EGG_DELIVERY                                       (SYS_FLAGS + 0xE3)
-#define FLAG_CSR_MAP_DUMMY_11                                       (SYS_FLAGS + 0xE4)
+#define FLAG_AMITY_SQUARE_ENTRANCE                                       (SYS_FLAGS + 0xE4)
 #define FLAG_CSR_MAP_DUMMY_12                                       (SYS_FLAGS + 0xE5)
 #define FLAG_CSR_MAP_DUMMY_13                                       (SYS_FLAGS + 0xE6)
 #define FLAG_CSR_MAP_DUMMY_14                                       (SYS_FLAGS + 0xE7)

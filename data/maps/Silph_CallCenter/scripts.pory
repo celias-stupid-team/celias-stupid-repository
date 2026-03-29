@@ -9,7 +9,7 @@ mapscripts Silph_CallCenter_MapScripts {
 
 script Silph_CallCenter_Sign {
 	msgbox(
-	"SILPH CO\n"
+	"SILPH CO 5F\n"
 	"MARKETING", MSGBOX_SIGN)
 
 }

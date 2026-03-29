@@ -3,9 +3,7 @@ FourIsland_LoreleisHouse_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FourIsland_LoreleisHouse_OnTransition
 	.byte 0
 
-FourIsland_LoreleisHouse_OnTransition::
-	special UpdateLoreleiDollCollection
-	end
+
 
 FourIsland_LoreleisHouse_EventScript_Lorelei::
 	lock
@@ -33,3 +31,10 @@ FourIsland_LoreleisHouse_EventScript_Doll::
 	release
 	end
 `
+script FourIsland_LoreleisHouse_OnTransition {
+	setflag(FLAG_TEMP_5)
+	if(flag(FLAG_AMITY_SQUARE_ENTRANCE)) {
+		clearflag(FLAG_TEMP_5)
+	}
+	setflag(FLAG_AMITY_SQUARE_ENTRANCE)
+}

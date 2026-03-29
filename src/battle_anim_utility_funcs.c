@@ -189,6 +189,14 @@ void AnimTask_SetCamouflageBlend(u8 taskId)
     StartBlendAnimSpriteColor(taskId, selectedPalettes);
 }
 
+void AnimTask_SetColorChangeWiz1989Blend(u8 taskId)
+{
+    u32 selectedPalettes = UnpackSelectedBattlePalettes(gBattleAnimArgs[0]);
+    gBattleAnimArgs[4] = gColorChangeDefTypeHue[GetColorChangeDefType(gBattleMoves[gCurrentMove].type)];
+    
+    StartBlendAnimSpriteColor(taskId, selectedPalettes);
+}
+
 void AnimTask_BlendParticle(u8 taskId)
 {
     u8 paletteIndex = IndexOfSpritePaletteTag(gBattleAnimArgs[0]);

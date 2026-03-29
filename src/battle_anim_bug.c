@@ -2,6 +2,9 @@
 #include "battle_anim.h"
 #include "gpu_regs.h"
 #include "trig.h"
+#include "constants/songs.h"
+
+#include "gflib.h"
 
 static void AnimMegahornHorn(struct Sprite *sprite);
 static void AnimLeechLifeNeedle(struct Sprite *sprite);
@@ -16,6 +19,10 @@ static void AnimTranslateStinger(struct Sprite *sprite);
 static void AnimMissileArc(struct Sprite *sprite);
 static void AnimMissileArc_Step(struct Sprite *sprite);
 static void AnimTailGlowOrb(struct Sprite *sprite);
+static void AnimLookLook(struct Sprite *sprite);
+static void AnimCapture(struct Sprite *sprite);
+static void AnimTask_CaptureTargetBounce_Step(u8 taskId);
+static void AnimCaptureOverlay(struct Sprite *sprite);
 
 static const union AffineAnimCmd sAffineAnim_MegahornHorn_0[] =
 {
@@ -328,6 +335,116 @@ const struct SpriteTemplate gFailerGlowOrbSpriteTemplate =
     .callback = AnimTailGlowOrb,
 };
 
+static const union AnimCmd sLookLookAnimCmd_0[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sLookLookAnimCmd_1[] =
+{
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sLookLookAnimCmd_2[] =
+{
+    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const gLookLookAnimTable[] =
+{
+    sLookLookAnimCmd_0,
+    sLookLookAnimCmd_1,
+    sLookLookAnimCmd_2,
+};
+
+const struct SpriteTemplate gLookLookSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOOK_LOOK,
+    .paletteTag = ANIM_TAG_LOOK_LOOK,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32, // adjust if needed
+    .anims = gLookLookAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimLookLook,
+};
+
+
+static const union AnimCmd sSoldierAnimCmd_0[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSoldierAnimCmd_1[] =
+{
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSoldierAnimCmd_2[] =
+{
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSoldierAnimCmd_3[] =
+{
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSoldierAnimCmd_4[] =
+{
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const gSoldierAnimTable[] =
+{
+    sSoldierAnimCmd_0,
+    sSoldierAnimCmd_1,
+    sSoldierAnimCmd_2,
+    sSoldierAnimCmd_3,
+    sSoldierAnimCmd_4,
+};
+
+const struct SpriteTemplate gSoldierSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SOLDIER,
+    .paletteTag = ANIM_TAG_SOLDIER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gSoldierAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCapture,
+};
+
+static const union AffineAnimCmd sCaptureAffineAnimCmd[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x1E, 0x1E, 0, 8),
+    AFFINEANIMCMD_END,
+};
+static const union AffineAnimCmd *const sAffineAnims_Capture[] =
+{
+    sCaptureAffineAnimCmd,
+};
+const struct SpriteTemplate gCaptSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CAPT,
+    .paletteTag = ANIM_TAG_CAPT,
+    .oam = &gOamData_AffineOff_ObjBlend_64x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Capture,
+    .callback = AnimCaptureOverlay,
+};
+
+
+
 static void AnimMegahornHorn(struct Sprite *sprite)
 {
     if (IsContest())
@@ -593,4 +710,478 @@ static void AnimTailGlowOrb(struct Sprite *sprite)
     }
     StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
     sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
+}
+
+static void AnimLookLook(struct Sprite *sprite)
+{
+    sprite->data[5] = gBattleAnimArgs[0];
+    sprite->data[6] = gBattleAnimArgs[1];
+    sprite->data[7] = gBattleAnimArgs[2];
+
+    switch (sprite->data[0]) // state
+    {
+    // -----------------------------------
+    // INITIALISE
+    // -----------------------------------
+    case 0:
+        // Position relative to battler
+        if (sprite->data[7] == 0)
+            InitSpritePosToAnimAttacker(sprite, FALSE);
+        else
+            InitSpritePosToAnimTarget(sprite, FALSE);
+
+        sprite->x += sprite->data[5]; // initial X offset
+        sprite->y += sprite->data[6]; // initial Y offset
+
+        StartSpriteAnim(sprite, 0);
+
+        sprite->data[1] = 0; // frame counter
+        sprite->data[0] = 1;
+        break;
+
+    // -----------------------------------
+    // STATE 0 movement (upwards)
+    // -----------------------------------
+    case 1:
+        switch (sprite->data[1]++)
+        {
+        case 0: sprite->y -= 8; break;
+        case 1: sprite->y -= 4; break;
+        case 2: sprite->y -= 4; break;
+        default:
+            StartSpriteAnim(sprite, 1);
+            sprite->data[1] = 0;
+            sprite->data[0] = 2;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // STATE 1 movement (downwards + pause)
+    // -----------------------------------
+    case 2:
+        switch (sprite->data[1]++)
+        {
+        case 0: sprite->y += 8; break;
+        case 1: /* stay */ break;
+        case 2: sprite->y += 2; break;
+        case 3: sprite->y += 4; break;
+        default:
+            StartSpriteAnim(sprite, 2);
+            sprite->data[1] = 0;
+            sprite->data[0] = 3;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // STATE 2 movement (final drop)
+    // -----------------------------------
+    case 3:
+        switch (sprite->data[1]++)
+        {
+        case 0: /* stay */ break;
+        case 1: sprite->y += 8; break;
+        case 2: sprite->y += 12; break;
+        default:
+            sprite->data[1] = 0;
+            sprite->data[0] = 4;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // FINAL HOLD (50 frames)
+    // -----------------------------------
+    case 4:
+        if (++sprite->data[1] >= 50)
+        {
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
+
+static void AnimCapture(struct Sprite *sprite)
+{
+    // -----------------------------------
+    // INITIALISE ARGUMENTS ON FIRST CALL
+    // -----------------------------------
+    if (sprite->data[0] == 0 && sprite->data[1] == 0)
+    {
+        sprite->data[5] = gBattleAnimArgs[0]; // x offset
+        sprite->data[6] = gBattleAnimArgs[1]; // y offset
+        sprite->data[7] = gBattleAnimArgs[2]; // 0 attacker, 1 target
+    }
+
+    switch (sprite->data[0])
+    {
+    // -----------------------------------
+    // 0. INITIAL SETUP + 30 FRAME WAIT
+    // -----------------------------------
+    case 0:
+        if (sprite->data[1] == 0)
+        {
+            if (sprite->data[7] == 0)
+                InitSpritePosToAnimAttacker(sprite, FALSE);
+            else
+                InitSpritePosToAnimTarget(sprite, FALSE);
+
+            sprite->x += sprite->data[5];
+            sprite->y += sprite->data[6];
+            StartSpriteAnim(sprite, 0);
+        }
+
+        if (++sprite->data[1] >= 30)
+        {
+            sprite->data[1] = 0;
+            sprite->data[2] = 0; // jump loop counter
+            sprite->data[0] = 1;
+        }
+        break;
+
+    // -----------------------------------
+    // 1. JUMP LOOP x3 (⅓ speed)
+    // -----------------------------------
+    case 1:
+        switch (sprite->data[1]++)
+        {
+        // anim 1, move 1 up
+        case 0:
+            StartSpriteAnim(sprite, 1);
+            sprite->y -= 1;
+            break;
+
+        // first 6 up = 2+2+2
+        case 1:
+            sprite->y -= 2;
+            break;
+        case 2:
+            StartSpriteAnim(sprite, 2);
+            sprite->y -= 2;
+            break;
+        case 3:
+            sprite->y -= 2;
+            break;
+
+        // second 6 up = 2+2+2
+        case 4:
+            sprite->y -= 2;
+            break;
+        case 5:
+            sprite->y -= 2;
+            break;
+        case 6:
+            sprite->y -= 2;
+            break;
+
+        // 8 down = 3+3+2
+        case 7:
+            sprite->y += 3;
+            break;
+        case 8:
+            sprite->y += 3;
+            break;
+        case 9:
+            sprite->y += 2;
+            break;
+
+        // 5 down = 2+2+1
+        case 10:
+            sprite->y += 2;
+            break;
+        case 11:
+            sprite->y += 2;
+            break;
+        case 12:
+            StartSpriteAnim(sprite, 0);
+            sprite->y += 1;
+            break;
+
+        // 12 frame pause
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+        case 21:
+        case 22:
+        case 23:
+        case 24:
+            break;
+
+        default:
+            sprite->data[1] = 0;
+            sprite->data[2]++;
+
+            if (sprite->data[2] >= 3)
+                sprite->data[0] = 2;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // 2. DROP DOWN (⅓ speed)
+    // -----------------------------------
+    case 2:
+        switch (sprite->data[1]++)
+        {
+        case 0: break; // pause first frame
+        case 1: break; // pause second frame
+        // 4 = 1+1+2
+        case 2: sprite->y += 1; break;
+        case 3: sprite->y += 1; break;
+        case 4: sprite->y += 2; break;
+
+        // 6 = 2+2+2
+        case 5: sprite->y += 2; break;
+        case 6: sprite->y += 2; break;
+        case 7: sprite->y += 2; break;
+
+        // 6 = 2+2+2
+        case 8: sprite->y += 2; break;
+        case 9: sprite->y += 2; break;
+        case 10: sprite->y += 2; break;
+
+        // 4 = 1+1+2
+        case 11:  sprite->y += 1; break;
+        case 12: sprite->y += 1; break;
+        case 13: sprite->y += 2; break;
+
+        default:
+            sprite->data[1] = 0;
+            sprite->data[0] = 3;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // 3. WAIT 33 FRAMES
+    // -----------------------------------
+    case 3:
+        if (++sprite->data[1] >= 33)
+        {
+            sprite->data[1] = 0;
+            sprite->data[0] = 4;
+        }
+        break;
+
+    // -----------------------------------
+    // 4. FINAL RISE (⅓ speed)
+    // -----------------------------------
+    case 4:
+        switch (sprite->data[1]++)
+        {
+        // first 6 = 2+2+2
+        case 0: 
+            StartSpriteAnim(sprite, 3);
+            sprite->y -= 2; 
+            break;
+        case 1: sprite->y -= 2; break;
+        case 2: sprite->y -= 2; break;
+
+        // second 6 = 2+2+2
+        case 3: sprite->y -= 2; break;
+        case 4: sprite->y -= 2; break;
+        case 5: sprite->y -= 2; break;
+
+        // third 6 = 2+2+2
+        case 6: sprite->y -= 2; break;
+        case 7: sprite->y -= 2; break;
+        case 8: sprite->y -= 2; break;
+
+        // final 2 = 1+1
+        case 9:
+            sprite->y -= 1;
+            break;
+        case 10:
+            sprite->y -= 1;
+            break;
+
+        default:
+            StartSpriteAnim(sprite, 4);
+            sprite->data[1] = 0;
+            sprite->data[0] = 5;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // 5. FINAL HOLD (90 FRAMES)
+    // -----------------------------------
+    case 5:
+        if (++sprite->data[1] >= 90)
+            DestroyAnimSprite(sprite);
+        break;
+    }
+}
+
+void AnimTask_CaptureTargetBounce(u8 taskId)
+{
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
+
+    gTasks[taskId].data[0] = 1;        // start at jump loop phase
+    gTasks[taskId].data[1] = 0;        // frame counter
+    gTasks[taskId].data[2] = 0;        // jump loop counter
+    gTasks[taskId].data[3] = spriteId; // target sprite
+    gTasks[taskId].data[4] = 0;        // current y offset
+
+    gTasks[taskId].func = AnimTask_CaptureTargetBounce_Step;
+}
+
+static void AnimTask_CaptureTargetBounce_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *monSprite = &gSprites[task->data[3]];
+
+    switch (task->data[0])
+    {
+    // -----------------------------------
+    // 1. JUMP LOOP x3
+    // only landing dip: +1 then -1 next frame
+    // -----------------------------------
+    case 1:
+        switch (task->data[1]++)
+        {
+        // landing frame
+        case 10:
+            PlaySE12WithPanning(SE_M_COMET_PUNCH, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+            task->data[4] += 1;
+            break;
+
+        // rebound frame
+        case 11:
+            task->data[4] -= 1;
+            break;
+
+        // 12 frame loop pause ends at 24
+        case 25:
+            task->data[1] = 0;
+            task->data[2]++;
+
+            if (task->data[2] >= 3)
+                task->data[0] = 2;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // 2. DROP DOWN
+    // exactly matches capture sprite
+    // -----------------------------------
+    case 2:
+        switch (task->data[1]++)
+        {
+        case 0: 
+            PlaySE12WithPanning(SE_M_STRENGTH, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+            task->data[4] += 1; 
+            break;
+        case 1: task->data[4] += 1; break;
+        case 2: task->data[4] += 2; break;
+
+        case 3: task->data[4] += 2; break;
+        case 4: task->data[4] += 2; break;
+        case 5: task->data[4] += 2; break;
+
+        case 6: task->data[4] += 2; break;
+        case 7: task->data[4] += 2; break;
+        case 8: task->data[4] += 2; break;
+
+        case 9:  task->data[4] += 1; break;
+        case 10: task->data[4] += 1; break;
+        case 11: task->data[4] += 2; break;
+
+        default:
+            task->data[1] = 0;
+            task->data[0] = 3;
+            break;
+        }
+        break;
+
+    // -----------------------------------
+    // 3. WAIT 33 FRAMES
+    // -----------------------------------
+    case 3:
+        if (++task->data[1] >= 33)
+        {
+            task->data[1] = 0;
+            task->data[0] = 4;
+        }
+        break;
+
+    // -----------------------------------
+    // 4. FINAL RISE
+    // exactly matches capture sprite
+    // -----------------------------------
+    case 4:
+        switch (task->data[1]++)
+        {
+        case 0: 
+            PlaySE12WithPanning(SE_M_ATTRACT, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+            task->data[4] -= 2; 
+            break;
+        case 1: task->data[4] -= 2; break;
+        case 2: task->data[4] -= 2; break;
+
+        case 3: task->data[4] -= 2; break;
+        case 4: task->data[4] -= 2; break;
+        case 5: task->data[4] -= 2; break;
+
+        case 6: task->data[4] -= 2; break;
+        case 7: task->data[4] -= 2; break;
+        case 8: task->data[4] -= 2; break;
+
+        case 9: task->data[4] -= 1; break;
+        case 10: task->data[4] -= 1; break;
+
+        default:
+            task->data[4] = 0;
+            monSprite->y2 = 0;
+            DestroyAnimVisualTask(taskId);
+            return;
+        }
+        break;
+    }
+
+    monSprite->y2 = task->data[4];
+}
+
+static void AnimCaptureOverlay(struct Sprite *sprite)
+{
+    switch (sprite->data[0])
+    {
+    // -----------------------------------
+    // INITIALISE
+    // -----------------------------------
+    case 0:
+        // arg0 = x offset
+        // arg1 = y offset
+        // arg2 = battler (0 attacker, 1 target)
+        // arg3 = lifetime in frames
+
+        if (gBattleAnimArgs[2] == 0)
+            InitSpritePosToAnimAttacker(sprite, FALSE);
+        else
+            InitSpritePosToAnimTarget(sprite, FALSE);
+
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+
+        StartSpriteAffineAnim(sprite, 0);
+
+        sprite->data[1] = gBattleAnimArgs[3];
+        sprite->data[0] = 1;
+        break;
+
+    // -----------------------------------
+    // WAIT
+    // -----------------------------------
+    case 1:
+        if (--sprite->data[1] <= 0)
+            DestroyAnimSprite(sprite);
+        break;
+    }
 }

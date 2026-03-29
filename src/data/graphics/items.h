@@ -990,3 +990,15 @@ const u32 gItemIconPalette_RustedGun[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_PREMIERCIGAR[] = INCBIN_U32("graphics/items/icons/premiercigar.4bpp.lz");
 const u32 gItemIconPalette_PREMIERCIGAR[] = INCBIN_U32("graphics/items/icon_palettes/premiercigar.gbapal.lz");
+
+const u32 gItemIcon_RareAndy[] = INCBIN_U32("graphics/items/icons/rare_andy.4bpp.lz");
+const u32 gItemIconPalette_RareAndy[] = INCBIN_U32("graphics/items/icon_palettes/rare_andy.gbapal.lz");
+
+const u32 gItemIcon_Mesprit[] = INCBIN_U32("graphics/items/icons/mesprit.4bpp.lz");
+const u32 gItemIconPalette_Mesprit[] = INCBIN_U32("graphics/items/icon_palettes/mesprit.gbapal.lz");
+
+const u32 gItemIcon_FlameOrb[] = INCBIN_U32("graphics/items/icons/flame_orb.4bpp.lz");
+const u32 gItemIconPalette_FlameOrb[] = INCBIN_U32("graphics/items/icon_palettes/flame_orb.gbapal.lz");
+
+const u32 gItemIcon_StunSeed[] = INCBIN_U32("graphics/items/icons/stun_seed.4bpp.lz");
+const u32 gItemIconPalette_StunSeed[] = INCBIN_U32("graphics/items/icon_palettes/stun_seed.gbapal.lz");

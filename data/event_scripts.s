@@ -1932,3 +1932,6 @@ Text_TestMsg::
 
 	.include "data/maps/Starlight_House3/scripts.inc"
 	.include "data/maps/Starlight_House3/text.inc"
+
+	.include "data/maps/One_Island_Cave/scripts.inc"
+	.include "data/maps/One_Island_Cave/text.inc"

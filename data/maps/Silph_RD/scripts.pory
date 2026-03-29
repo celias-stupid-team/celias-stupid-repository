@@ -15,7 +15,7 @@ mapscripts Silph_RD_MapScripts {
 
 script SilphCo_RD_Sign {
 	msgbox(
-	"SILPH CO\n"
+	"SILPH CO 4F\n"
 	"R&D", MSGBOX_SIGN)
 
 }
@@ -36,6 +36,7 @@ script SilphCo_RD_ApplinKid {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	famechecker(FAMECHECKER_SAFFRON, 5)
 	if(flag(FLAG_GOT_PENCIL_ERASER)) {
 		msgbox(
 		"That PENCIL ERASER is something\n"

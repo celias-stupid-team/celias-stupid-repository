@@ -1009,6 +1009,26 @@ static const union AnimCmd *const sAnims_Paul[] =
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Lichen[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Wiz[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Plasto[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Starlight[] =
+{
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_AQUA_LEADER_ARCHIE]    = sAnims_AquaLeaderArchie,
@@ -1215,5 +1235,9 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_DMCA_RUNT]             = sAnims_DmcaRunt,
     [TRAINER_PIC_CHAMPIONS]             = sAnims_Champions,
     [TRAINER_PIC_EUSINE]             = sAnims_Eusine,
-    [TRAINER_PIC_PAUL]             = sAnims_Paul
+    [TRAINER_PIC_PAUL]             = sAnims_Paul,
+    [TRAINER_PIC_LICHEN]             = sAnims_Lichen,
+    [TRAINER_PIC_WIZ]             = sAnims_Wiz,
+    [TRAINER_PIC_PLASTO]             = sAnims_Plasto,
+    [TRAINER_PIC_STARLIGHT]             = sAnims_Starlight
 };

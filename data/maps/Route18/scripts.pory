@@ -10,9 +10,7 @@ Route18_OnWarp::
 	map_script_2 VAR_MAP_SCENE_ROUTE16, 1, Route18_OnWarpCyclingRoad
 	.2byte 0
 
-Route18_OnWarpCyclingRoad::
-	special ForcePlayerOntoBike
-	end
+
 
 Route18_EventScript_RouteSign::
 	msgbox Route18_Text_RouteSign, MSGBOX_SIGN
@@ -32,6 +30,14 @@ mapscripts Route18_MapScripts {
 		}
 		
 	}
+}
+
+script Route18_OnWarpCyclingRoad {
+	if(checkitem(ITEM_SHINY_BIKE)) {
+		setflag(FLAG_SYS_ON_SHINY_BIKE)
+	}
+	special(ForcePlayerOntoBike)
+
 }
 
 script Route18_OnTransition {

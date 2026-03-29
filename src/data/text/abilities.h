@@ -192,18 +192,17 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_REVENGE] = COMPOUND_STRING("Always survives at 1HP."),
     [ABILITY_RECHARGE] = COMPOUND_STRING("Recharges to restore health."),
     [ABILITY_REVEALING_LIGHT] = COMPOUND_STRING("Opposing MONSTERS cannot attack."),
-
     [ABILITY_VICTOTY_STAR] = COMPOUND_STRING("The user always wins."),
     [ABILITY_AS_ONE_BULBASAUR] = COMPOUND_STRING("ONEY GATHER and ONEDER SKIN."),
     [ABILITY_DISGUISE] = COMPOUND_STRING("As opposed to datguise."),
     [ABILITY_ETAADIMITNI] = COMPOUND_STRING(".KCATTA s'eof eht srewoL"), //unused
-    [ABILITY_IMPOSTER] = COMPOUND_STRING("Hmm, seems pretty sus."),
+    [ABILITY_IMPOSTER] = COMPOUND_STRING("Seems like a good ability, but it's an IMPOSTER."),
     [ABILITY_IRON_FIST] = COMPOUND_STRING("Punching moves up."),
     [ABILITY_AIDAPTABILITY] = COMPOUND_STRING("Studying STAB moves."),
     [ABILITY_ALVANIZE] = COMPOUND_STRING("Boosts WEIRD moves."),
     [ABILITY_LOSSPITALITY] = COMPOUND_STRING("User of L'osspital's rule."),
     [ABILITY_DOWNLOAD] = COMPOUND_STRING("Downloads whatever it clicks on."),
-    [ABILITY_MISTY_SURGE] = COMPOUND_STRING("Names of two GYM LEADERS."),
+    [ABILITY_MISTY_SURGE] = COMPOUND_STRING("Ability that's the names of two GYM LEADERS."),
     [ABILITY_NICE_FACE] = COMPOUND_STRING("Damn, nice face."),
     [ABILITY_NICE_FACES] = COMPOUND_STRING("Damn, nice faces."),
     [ABILITY_WELL_BAKED_BOD] =COMPOUND_STRING("DUMMY."), //unused
@@ -229,6 +228,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SANDWICH_FORCE] = COMPOUND_STRING("Powers up by snacking."),
     [ABILITY_WAS_ONE] = COMPOUND_STRING("The user moves LAST."),
     [ABILITY_DANCER] = COMPOUND_STRING("Copies the last dance move."),
+    [ABILITY_COLOR_CHANGE_WIZ] = sColorChangeDescription,
+    [ABILITY_RIGHTNINGROD] = COMPOUND_STRING("The user was RIGHT."),
+    [ABILITY_TWISTED_REALITY] = COMPOUND_STRING("Replaces the opponent's moves."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -337,7 +339,6 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_REVENGE] = _("REVENGE"),
     [ABILITY_RECHARGE] = _("RECHARGE"),
     [ABILITY_REVEALING_LIGHT] = _("{FONT_SMALL}REVEALING LIGHT"),
-
     [ABILITY_VICTOTY_STAR] = _("VICTORY STAR"),
     [ABILITY_AS_ONE_BULBASAUR] = _("AS ONE"),
     [ABILITY_DISGUISE] = _("DISGUISE"),
@@ -374,4 +375,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SANDWICH_FORCE] = _("{FONT_SMALL}SANDWICH FORCE"),
     [ABILITY_WAS_ONE] = _("WAS ONE"),
     [ABILITY_DANCER] = _("DANCER"),
+    [ABILITY_COLOR_CHANGE_WIZ] = _("COLOR CHANGE"),
+    [ABILITY_RIGHTNINGROD] = _("RIGHTNINGROD"),
+    [ABILITY_TWISTED_REALITY] = _("{FONT_SMALL}TWISTED REALITY"),
 };

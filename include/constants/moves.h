@@ -1053,8 +1053,9 @@
 #define MOVE_MOLTRES_KICK 1048
 #define MOVE_PHANTOM_FORCE 1049
 #define MOVE_SHINE 1050
+#define MOVE_HACK_ATTACK 1051
 
-#define MOVES_COUNT 1051
+#define MOVES_COUNT 1052
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
 

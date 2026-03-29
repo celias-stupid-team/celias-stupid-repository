@@ -1408,48 +1408,49 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
                 if(ndex_num >= NATIONAL_DEX_PIKACHU) {
                     ndex_num++;
                 }
+                
+                // exit if end of Kanto dex is reached early
+                if (ndex_num > KANTO_DEX_COUNT)
+                    break;
+
                 seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
                 caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
                 if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
                     ndex_num = NATIONAL_DEX_MEW;
                 }
                 if (seen)
-                {
                     sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
-                    ret = ndex_num;
-                }
                 else
-                {
                     sPokedexScreenData->listItems[i].label = gText_5Dashes;
-                }
                 sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
             }
+            ret = i; // total number of list entries
         }
         else {
             //start Pokedex list at 001
             for (i = 0; i < KANTO_DEX_COUNT; i++)
             {
-                
                 ndex_num = i + 2;
                 if(ndex_num >= NATIONAL_DEX_PIKACHU) {
                     ndex_num++;
                 }
+                
+                // exit if end of Kanto dex is reached early
+                if (ndex_num > KANTO_DEX_COUNT)
+                    break;
+                    
                 seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
                 caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
                 if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
                     ndex_num = NATIONAL_DEX_MEW;
                 }
                 if (seen)
-                {
                     sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
-                    ret = ndex_num;
-                }
                 else
-                {
                     sPokedexScreenData->listItems[i].label = gText_5Dashes;
-                }
                 sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
             }
+            ret = i; // total number of list entries
         }
         break;
     case DEX_ORDER_ATOZ:
@@ -1648,7 +1649,7 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
         if (type1 != gSpeciesInfo[species].types[1])
             BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, gSpeciesInfo[species].types[1] + 1, 0x98, y);
     } else {
-        if (obtainable && species != SPECIES_DRAGONITE) {
+        if (obtainable && species != SPECIES_DRAGONITE && species != SPECIES_HORSEA) {
             BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_OBTAINABLE, 0x28, y); // Icon Obtainable
         }
     }

@@ -119,6 +119,7 @@ SaffronCity_EventScript_TrainerFanClubSign::
 const SneakyGuy = 20
 mapscripts SaffronCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_SAFFRON)
 	if(var(VAR_CURRENT_CHAPTER) == 7 && !flag(FLAG_CHAPTER_7_CHAPTER_2)) {
 		setdynamicwarp(MAP_CHAPTER7_CHAPTER2, 1)
 	} else {
@@ -336,6 +337,7 @@ script SaffronCity_ExistentialDude {
 script SaffronCity_TheLeekMan {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_SAFFRON, 3)
 	if(var(VAR_TRADING_QUEST_PHASE) >= 4) {
 		call(TheLeek_ProofOfAliens)
 		msgbox(
@@ -536,11 +538,9 @@ script SaffronCity_NPC5 {
 	closemessage
 	faceplayer
 	msgbox(
-	"You might think this is someone's\n"
-	"house, but I'm not so sure.\p"
-
-	"They don't even have a front door…\n"
-	"Who built this thing, anyway?", MSGBOX_DEFAULT)
+	"Ah yes.\n"
+	"The latest in the new design craze:\l"
+	"Houses without front doors.", MSGBOX_DEFAULT)
 	release
 }
 
@@ -614,4 +614,30 @@ script Saffron_CopyCatCamera {
 	"There's a hidden camera in this\n"
 	"tree…", MSGBOX_SIGN)
 
+}
+
+
+script Saffron_KarateMan {
+	msgbox(
+	"Hiyyyyyah!\n"
+	"I'm building up my STRENGTH.\p"
+
+	"The best GYM in the land for that\n"
+	"can be found in the GREAT SEA.\l"
+	"Have you trained there yet?", MSGBOX_NPC)
+}
+
+script Saffron_BenchFriend {
+	msgbox(
+	"Boy, I tell ya.\n"
+	"This city…\p"
+
+	"Y-you're not from around here,\n"
+	"are you?\p"
+
+	"You're the first person to ever\n"
+	"just sit down next to me.\p"
+
+	"It's a lonely city.\n"
+	"Thanks for reaching out.", MSGBOX_NPC)
 }

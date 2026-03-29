@@ -464,4 +464,5 @@ gSpecials::
 	def_special RemovePartyMon
 	def_special GetShinyCount
 	def_special ShakeScreenSilent
+	def_special IsPlayerNameKaylee
 gSpecialsEnd::

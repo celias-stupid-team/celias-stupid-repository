@@ -596,6 +596,22 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TORCHIC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_YOSHI;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SENTRY;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SENTRY_BUTT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DEAD_BIKER;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CRUFICIED;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CRUFICIED_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WHISCASH;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FROZEN_ARTY;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EEL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MARIN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PAUL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DEERLING;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SMEARGLE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ARTICUNO_EGG_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MOLTRES_EGG_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BURNING_EGG_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MEDIARM;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GAY_BOYS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DEAD_SABRINA;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1193,4 +1209,20 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_YOSHI] = &gObjectEventGraphicsInfo_YOSHI,
     [OBJ_EVENT_GFX_SENTRY] = &gObjectEventGraphicsInfo_SENTRY,
     [OBJ_EVENT_GFX_SENTRY_BUTT] = &gObjectEventGraphicsInfo_SENTRY_BUTT,
+    [OBJ_EVENT_GFX_DEAD_BIKER] = &gObjectEventGraphicsInfo_DEAD_BIKER,
+    [OBJ_EVENT_GFX_CRUFICIED] = &gObjectEventGraphicsInfo_CRUFICIED,
+    [OBJ_EVENT_GFX_CRUFICIED_2] = &gObjectEventGraphicsInfo_CRUFICIED_2,
+    [OBJ_EVENT_GFX_WHISCASH] = &gObjectEventGraphicsInfo_WHISCASH,
+    [OBJ_EVENT_GFX_FROZEN_ARTY] = &gObjectEventGraphicsInfo_FROZEN_ARTY,
+    [OBJ_EVENT_GFX_EEL] = &gObjectEventGraphicsInfo_EEL,
+    [OBJ_EVENT_GFX_MARIN] = &gObjectEventGraphicsInfo_MARIN,
+    [OBJ_EVENT_GFX_PAUL] = &gObjectEventGraphicsInfo_PAUL,
+    [OBJ_EVENT_GFX_DEERLING] = &gObjectEventGraphicsInfo_DEERLING,
+    [OBJ_EVENT_GFX_SMEARGLE] = &gObjectEventGraphicsInfo_SMEARGLE,
+    [OBJ_EVENT_GFX_ARTICUNO_EGG_2] = &gObjectEventGraphicsInfo_ARTICUNO_EGG_2,
+    [OBJ_EVENT_GFX_MOLTRES_EGG_2] = &gObjectEventGraphicsInfo_MOLTRES_EGG_2,
+    [OBJ_EVENT_GFX_BURNING_EGG_2] = &gObjectEventGraphicsInfo_BURNING_EGG_2,
+    [OBJ_EVENT_GFX_MEDIARM] = &gObjectEventGraphicsInfo_MEDIARM,
+    [OBJ_EVENT_GFX_GAY_BOYS] = &gObjectEventGraphicsInfo_GAY_BOYS,
+    [OBJ_EVENT_GFX_DEAD_SABRINA] = &gObjectEventGraphicsInfo_DEAD_SABRINA,
 };

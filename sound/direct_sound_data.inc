@@ -5440,3 +5440,7 @@ Cry_CELIASSTUPIDROMHACK::
 	.incbin "sound/direct_sound_samples/cries/celiasstupidromhack.bin"
 
 	.align 2
+Cry_GREGORY::
+	.incbin "sound/direct_sound_samples/cries/gregory.bin"
+
+	.align 2

@@ -380,6 +380,42 @@ const struct SpriteTemplate gRockTombRockSpriteTemplate =
     .callback = AnimRockTomb,
 };
 
+static const union AnimCmd sAnim_GMB_G[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GMB_M[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GMB_B[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_GMB[] =
+{
+    sAnim_GMB_G,
+    sAnim_GMB_M,
+    sAnim_GMB_B,
+};
+
+const struct SpriteTemplate gGMBSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LETTER_GMB,
+    .paletteTag = ANIM_TAG_LETTER_GMB,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_GMB,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockTomb,
+};
+
 const struct SpriteTemplate gBrockTombRockSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BROCKS,

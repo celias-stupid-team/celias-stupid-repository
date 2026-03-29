@@ -441,7 +441,7 @@ static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .tilemapLeft = 1,
     .tilemapTop = 1,
     .width = 14,
-    .height = 10,
+    .height = 11,
     .paletteNum = 15,
     .baseBlock = 8
 };
@@ -2150,9 +2150,13 @@ static void ShowSaveInfoWindow(void)
     y = 56;
 
     AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 2, y, sTextColor_StatName, -1, gSaveStatName_Time);
-
     SaveStatToString(SAVE_STAT_TIME, gStringVar4, 2);
     AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 60, y, sTextColor_StatValue, -1, gStringVar4);
+    y = 70;
+
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 2, y, sTextColor_StatName, -1, gSaveStatName_Version);
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 60, y, sTextColor_StatValue, -1, gSaveStatName_VersionNumber);
+
     CopyWindowToVram(sSaveInfoWindowId, COPYWIN_GFX);
 }
 

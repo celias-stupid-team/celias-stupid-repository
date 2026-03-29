@@ -327,3 +327,21 @@ script SkyTower_3F_Unfriend {
 	"Hmmm…\n"
 	"I don't trust this.", MSGBOX_NPC)
 }
+
+
+
+script SkyTower_3F_Smeargle {
+    textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox("At long last, I have completed\nmy life's work!\pI've painted photorealistic traps\nall along the floor of this room!\lMy artistic genius knows no limits!", MSGBOX_NPC)
+	end
+}
+
+script SkyTower_FawnMaintenance {
+    textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Hmm, my coat is growing out a bit\n"
+	"too much…\p"
+
+	"Hopefully the SKY TOWER FAWN\n"
+	"MAINTENENCE SERVICE comes by soon!", MSGBOX_NPC)
+}

@@ -1697,7 +1697,7 @@
       "id": "LAYOUT_SEAFOAM_ISLANDS_B3F",
       "name": "SeafoamIslands_B3F_Layout",
       "width": 38,
-      "height": 26,
+      "height": 25,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -2620,8 +2620,8 @@
     {
       "id": "LAYOUT_ONE_ISLAND_KINDLE_ROAD",
       "name": "OneIsland_KindleRoad_Layout",
-      "width": 18,
-      "height": 15,
+      "width": 42,
+      "height": 36,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -3616,12 +3616,12 @@
     {
       "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ENTRANCE",
       "name": "FiveIsland_LostCave_Entrance_Layout",
-      "width": 11,
-      "height": 11,
+      "width": 15,
+      "height": 12,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_CableClub",
       "border_filepath": "data/layouts/FiveIsland_LostCave_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Entrance/map.bin"
     },
@@ -5728,7 +5728,7 @@
     {
       "id": "LAYOUT_AETHER_PARADISE_NEBBY_ROOM",
       "name": "AetherParadise_NebbyRoom_Layout",
-      "width": 20,
+      "width": 21,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -6016,7 +6016,7 @@
     {
       "id": "LAYOUT_SILPH_BALL_SHOP",
       "name": "Silph_BallShop_Layout",
-      "width": 24,
+      "width": 26,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -6165,7 +6165,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_Cave_Of_Origin",
       "border_filepath": "data/layouts/CaveOfOrigin_1F/border.bin",
       "blockdata_filepath": "data/layouts/CaveOfOrigin_1F/map.bin"
     },
@@ -6285,7 +6285,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_SkullRoom",
       "border_filepath": "data/layouts/AetherParadise_SkullRoom/border.bin",
       "blockdata_filepath": "data/layouts/AetherParadise_SkullRoom/map.bin"
     },
@@ -7432,8 +7432,8 @@
     {
       "id": "LAYOUT_FARAWAY_ISLAND",
       "name": "FarawayIsland_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 60,
+      "height": 60,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7524,6 +7524,42 @@
       "secondary_tileset": "gTileset_NewFuchsiaGym",
       "border_filepath": "data/layouts/ViridianGym_Koga_Open/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Koga_Open/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_EXPANDED",
+      "name": "UndergroundPath_NorthSouthTunnel_EXPANDED",
+      "width": 50,
+      "height": 63,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_UndergroundPath",
+      "border_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_EXPANDED/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_EXPANDED/map.bin"
+    },
+    {
+      "id": "LAYOUT_ONE_ISLAND_CAVE",
+      "name": "One_Island_Cave_Layout",
+      "width": 40,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/One_Island_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/One_Island_Cave/map.bin"
+    },
+    {
+      "id": "LAYOUT_CREDITS_FRAME7",
+      "name": "Credits_Frame7",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Credits",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Credits_Frame7/border.bin",
+      "blockdata_filepath": "data/layouts/Credits_Frame7/map.bin"
     }
   ]
 }

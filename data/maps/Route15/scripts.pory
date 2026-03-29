@@ -330,7 +330,21 @@ script Route15_BeachDad {
 	lock
 	faceplayer
 	textcolor(0)
+	if(flag(FLAG_SYS_HAS_SWITCHED_GENDERS)) {
+		msgbox(
+		"DAD: {PLAYER}!\n"
+		"What are you doing out here?\p"
+
+		"Wow! It looks like you've changed\n"
+		"your gender!\l"
+		"That's okay. I still love you!\p"
+
+		"Well, never mind that.\n"
+		"Why don't you take a rest?", MSGBOX_DEFAULT)
+	} else {
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm enjoying some time off on the\nbeach.\lIt's always nice to take a rest.\pBut never mind that.\nHow about you take one too?", MSGBOX_DEFAULT)
+
+	}
 	call(EventScript_DadHeal)
 	release
 	end

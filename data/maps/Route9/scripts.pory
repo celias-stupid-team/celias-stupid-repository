@@ -78,6 +78,7 @@ script Route9_SetBenchCerulean {
 
 script Route9_SetBenchRoute9 {
 	setbench(BENCH_ROUTE9)
+	jumpoffbike
 	setflag(FLAG_CSR_MAP_ROUTE_9_FAR)
 	setvar(VAR_TEMP_0, 1)
 	release

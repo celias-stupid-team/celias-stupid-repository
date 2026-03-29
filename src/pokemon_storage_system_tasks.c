@@ -61,6 +61,7 @@ static void Task_OnSelectedMon(u8 taskId);
 static void Task_MoveMon(u8 taskId);
 static void Task_PlaceMon(u8 taskId);
 static void Task_ShiftMon(u8 taskId);
+static void Task_ShowBrickPieceMessage(u8 taskId);
 static void Task_WithdrawMon(u8 taskId);
 static void Task_DepositMenu(u8 taskId);
 static void Task_ReleaseMon(u8 taskId);
@@ -172,6 +173,7 @@ enum
     MSG_CHANGED_TO_ITEM,
     MSG_CANT_STORE_MAIL,
     MSG_PORYGON_VIRUS,
+    MSG_BRICK_PIECE_OBTAINED,
 };
 
 enum
@@ -324,7 +326,8 @@ static const struct StorageMessage sMessages[] = {
     [MSG_ITEM_IS_HELD]         = {gText_ItemIsNowHeld,           MSG_FMT_ITEM_NAME},
     [MSG_CHANGED_TO_ITEM]      = {gText_ChangedToNewItem,        MSG_FMT_ITEM_NAME},
     [MSG_CANT_STORE_MAIL]      = {gText_MailCantBeStored,        MSG_FMT_NONE},
-    [MSG_PORYGON_VIRUS]      = {gText_PkmnGotVirus,        MSG_FMT_MON_NAME_1},
+    [MSG_PORYGON_VIRUS]        = {gText_PkmnGotVirus,            MSG_FMT_MON_NAME_1},
+    [MSG_BRICK_PIECE_OBTAINED] = {gText_ObtainedBrickPiece,      MSG_FMT_NONE},
 };
 
 static const struct WindowTemplate sYesNoWindowTemplate = {
@@ -1138,11 +1141,33 @@ static void Task_PlaceMon(u8 taskId)
     case 1:
         if (!DoMonPlaceChange())
         {
-            if (sInPartyMenu)
+            if (WasBrickPieceObtained()) // always check first, when placing a mon
+            {
+                ClearBrickPieceObtained();
+                SetPokeStorageTask(Task_ShowBrickPieceMessage);
+            }
+            else if (sInPartyMenu)
                 SetPokeStorageTask(Task_HandleMovingMonFromParty);
             else
-                
                 SetPokeStorageTask(Task_PokeStorageMain);
+        }
+        break;
+    }
+}
+
+static void Task_ShowBrickPieceMessage(u8 taskId)
+{
+    switch (gStorage->state)
+    {
+    case 0:
+        PrintStorageMessage(MSG_BRICK_PIECE_OBTAINED);
+        gStorage->state++;
+        break;
+    case 1:
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
+        {
+            ClearBottomWindow();
+            SetPokeStorageTask(Task_PokeStorageMain);
         }
         break;
     }

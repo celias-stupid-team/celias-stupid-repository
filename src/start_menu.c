@@ -187,7 +187,7 @@ static const struct WindowTemplate sSaveStatsWindowTemplate = {
     .tilemapLeft = 1,
     .tilemapTop = 1,
     .width = 14,
-    .height = 9,
+    .height = 11,
     .paletteNum = 13,
     .baseBlock = 0x008
 };
@@ -1060,6 +1060,7 @@ static void PrintSaveStats(void)
     SaveStatToString(SAVE_STAT_BADGES, gStringVar4, 2);
     AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 60, 28, sTextColor_StatValue, -1, gStringVar4);
     y = 42;
+
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
     {
         AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 2, 42, sTextColor_StatName, -1, gSaveStatName_Pokedex);
@@ -1067,9 +1068,15 @@ static void PrintSaveStats(void)
         AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 60, 42, sTextColor_StatValue, -1, gStringVar4);
         y = 56;
     }
+
     AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 2, y, sTextColor_StatName, -1, gSaveStatName_Time);
     SaveStatToString(SAVE_STAT_TIME, gStringVar4, 2);
     AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 60, y, sTextColor_StatValue, -1, gStringVar4);
+    y = 70;
+
+    AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 2, y, sTextColor_StatName, -1, gSaveStatName_Version);
+    AddTextPrinterParameterized3(sSaveStatsWindowId, FONT_SMALL, 60, y, sTextColor_StatValue, -1, gSaveStatName_VersionNumber);
+
     CopyWindowToVram(sSaveStatsWindowId, COPYWIN_GFX);
 }
 

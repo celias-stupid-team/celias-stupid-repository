@@ -707,6 +707,8 @@ extern const u8 gSaveStatName_Player[];
 extern const u8 gSaveStatName_Badges[];
 extern const u8 gSaveStatName_Pokedex[];
 extern const u8 gSaveStatName_Time[];
+extern const u8 gSaveStatName_Version[];
+extern const u8 gSaveStatName_VersionNumber[];
 
 // mail
 extern const u8 gText_From[];
@@ -1507,6 +1509,7 @@ extern const u8 gText_PutItemInBag[];
 extern const u8 gText_ItemIsNowHeld[];
 extern const u8 gText_ChangedToNewItem[];
 extern const u8 gText_MailCantBeStored[];
+extern const u8 gText_ObtainedBrickPiece[];
 extern const u8 gPCText_Cancel[];
 extern const u8 gPCText_Store[];
 extern const u8 gPCText_Withdraw[];

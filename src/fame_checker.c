@@ -386,7 +386,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     // Great Sea East
     OBJ_EVENT_GFX_BOY,
     OBJ_EVENT_GFX_BEAUTY,
-    OBJ_EVENT_GFX_BATTLE_GIRL,
+    OBJ_EVENT_GFX_PICNICKER,
     OBJ_EVENT_GFX_ROCK_SMASH_ROCK,
     OBJ_EVENT_GFX_WOMAN_2,
     OBJ_EVENT_GFX_CAPTAIN,
@@ -401,9 +401,9 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_ROCKET_M,
     OBJ_EVENT_GFX_OLD_MAN_2,
     OBJ_EVENT_GFX_WORKER_M,
-    OBJ_EVENT_GFX_SCIENTIST,
+    OBJ_EVENT_GFX_ROCKER,
     OBJ_EVENT_GFX_CLIPBOARD,
-    OBJ_EVENT_GFX_SCIENTIST
+    OBJ_EVENT_GFX_APPLIN_KID
 };
 
 static const u8 *const sFlavorTextOriginLocationTexts[] = {
@@ -1240,7 +1240,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(FALSE) //Last Potion in universe. Condition = Orthworm
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ORTHWORM, FLAG_GET_CAUGHT, TRUE)) //Last Potion in universe. Condition = Orthworm
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
@@ -1356,7 +1356,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(FALSE) //Go on SS Anne
+                    if(FlagGet(FLAG_GOT_HM01)) //Go on SS Anne
                         isQuestCompleted = TRUE;
                     break;
                 case 1: //Hatched spearow
@@ -1426,7 +1426,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FlagGet(FLAG_GOT_MOVE_BOOK))
+                    if(FlagGet(FLAG_GOT_HISTORY_BOOK))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
@@ -1463,7 +1463,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FlagGet(FLAG_NO_SANS_ITEM)) //Magical Leaf - beat sans
+                    if(FlagGet(FLAG_KILLED_SANS)) //Magical Leaf - beat sans
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1658,7 +1658,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(DexScreen_GetSetPokedexFlag(SPECIES_BIDOOF, FLAG_GET_CAUGHT, TRUE))
+                    if(VarGet(VAR_TRADING_QUEST_PHASE) >= 4)
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
@@ -1666,7 +1666,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(FlagGet(FLAG_GOT_PENCIL_ERASER))
                         isQuestCompleted = TRUE;
                     break;
             }

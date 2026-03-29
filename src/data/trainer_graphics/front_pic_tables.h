@@ -202,7 +202,11 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1}, // Dmca Runt,
     {.size = 8, .y_offset = 1}, // Champions,
     {.size = 8, .y_offset = 1}, // Eusine,
-    {.size = 8, .y_offset = 1}, // Paul
+    {.size = 8, .y_offset = 1}, // Paul,
+    {.size = 8, .y_offset = 1}, // Lichen,
+    {.size = 8, .y_offset = 1}, // Wiz,
+    {.size = 8, .y_offset = 1}, // Plasto,
+    {.size = 8, .y_offset = 1}, // Starlight
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -411,6 +415,10 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(CHAMPIONS, gTrainerFrontPic_Champions, 0x800),
     TRAINER_SPRITE(EUSINE, gTrainerFrontPic_Eusine, 0x800),
     TRAINER_SPRITE(PAUL, gTrainerFrontPic_Paul, 0x800),
+    TRAINER_SPRITE(LICHEN, gTrainerFrontPic_Lichen, 0x800),
+    TRAINER_SPRITE(WIZ, gTrainerFrontPic_Wiz, 0x800),
+    TRAINER_SPRITE(PLASTO, gTrainerFrontPic_Plasto, 0x800),
+    TRAINER_SPRITE(STARLIGHT, gTrainerFrontPic_Starlight, 0x800),
 };
 
 const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
@@ -629,4 +637,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(CHAMPIONS, gTrainerPalette_Champions),
     TRAINER_PAL(EUSINE, gTrainerPalette_Eusine),
     TRAINER_PAL(PAUL, gTrainerPalette_Paul),
+    TRAINER_PAL(LICHEN, gTrainerPalette_Lichen),
+    TRAINER_PAL(WIZ, gTrainerPalette_Wiz),
+    TRAINER_PAL(PLASTO, gTrainerPalette_Plasto),
+    TRAINER_PAL(STARLIGHT, gTrainerPalette_Starlight),
 };

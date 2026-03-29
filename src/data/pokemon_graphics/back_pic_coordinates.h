@@ -5163,7 +5163,7 @@ const struct MonCoords gMonBackPicCoords[] =
 	[SPECIES_KORAIDON] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 9,
 	},
 	[SPECIES_MIRAIDON] =
 	{
@@ -6329,6 +6329,11 @@ const struct MonCoords gMonBackPicCoords[] =
     {
         .size = MON_COORDS_SIZE(48, 48),
         .y_offset = 10,
+    },
+    [SPECIES_KECLEON_WIZ1989] =
+    {
+        .size = MON_COORDS_SIZE(64, 56),
+        .y_offset = 6,
     },
 };
 

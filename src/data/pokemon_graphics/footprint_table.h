@@ -1291,4 +1291,6 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_EARRAT]    = gMonFootprint_EARRAT,
 	[SPECIES_FINALCHARMANDER]	= gMonFootprint_Charmander,
 	[SPECIES_CELIASSTUPIDROMHACK]    = gMonFootprint_CELIASSTUPIDROMHACK,
+    [SPECIES_KECLEON_WIZ1989] = gMonFootprint_Kecleon,
+	[SPECIES_GREGORY]    = gMonFootprint_GREGORY,
 };

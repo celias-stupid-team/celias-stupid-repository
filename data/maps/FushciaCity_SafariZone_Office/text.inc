@@ -33,7 +33,7 @@ FushciaCity_SafariZone_Office_Text_PrizeInSafariZone::
 
 FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke2::
 	.string "What, you don't believe that\n"
-	.string "MANKEY price is gonna spike?\p"
+	.string "MANKEY PICS price is gonna spike?\p"
 	.string "C'mon, man! We don't need that kind\n"
 	.string "of talk here.\l"
 	.string "We need to put our full faith in it!\p"
@@ -42,7 +42,7 @@ FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke2::
 
 FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable2::
 	.string "Yo, dude!\n"
-	.string "Have you heard of MANKEY?\p"
+	.string "Have you heard of MANKEY PICS?\p"
 	.string "It's the hottest new thing!\n"
 	.string "Everyone's investing into it.\p"
 	.string "Next thing you know, the value's\n"
@@ -50,7 +50,7 @@ FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable2::
 
 FushciaCity_SafariZone_Office_Text_CouldntUnderstandWarden2::
 	.string "How do you actually make money off\n"
-	.string "MANKEY?\l"
+	.string "MANKEY PICS?\l"
 	.string "Easy!\p"
 	.string "All you do is buy a bunch now and\n"
 	.string "hope that later, others believe\l"

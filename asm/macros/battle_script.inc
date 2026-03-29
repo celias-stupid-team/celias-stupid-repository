@@ -1667,6 +1667,12 @@
 	.byte \mode
 	.endm
 
+	@ without actual fade steps, just snaps colors immediately
+	.macro fadescreensuperinstant mode:req
+	callnative BS_FadeScreenSuperInstant
+	.byte \mode
+	.endm
+
 	.macro playmoncry species:req
 	callnative BS_PlayMonCry
 	.2byte \species
@@ -1865,4 +1871,48 @@
 	.macro tryremoveallentryhazards side:req
 	callnative BS_TryRemoveAllEntryHazards
 	.byte \side
+	.endm
+
+	.macro glitchbattlescreen
+	callnative BS_GlitchBattleScreen
+	.endm
+
+	.macro restoreglitchbattlescreen
+	callnative BS_RestoreGlitchBattleScreen
+	.endm
+
+	.macro restorebattlebackground
+	callnative BS_RestoreBattleBackground
+	.endm
+
+	.macro glitchbattlebgm
+	callnative BS_GlitchBattleBgm
+	.endm
+
+	@ type_arg is the address of sB_ANIM_ARG1 or similar
+	.macro preparetypebuff2 type_arg:req
+	callnative BS_PrepareTypeBuff2
+	.4byte \type_arg
+	.endm
+
+	.macro faintenemyfirstslot
+	callnative BS_FaintEnemyFirstSlot
+	.endm
+
+	.macro flicker mode:req frames:req
+	callnative BS_Flicker
+	.byte \mode
+	.byte \frames
+	.endm
+
+	.macro glitchpalettes
+	callnative BS_GlitchPalettes
+	.endm
+
+	.macro restoreglitchpalettes
+	callnative BS_RestoreGlitchPalettes
+	.endm
+
+	.macro instantwin
+	callnative BattleDebug_WonBattle
 	.endm
