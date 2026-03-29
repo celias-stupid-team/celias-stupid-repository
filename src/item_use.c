@@ -1510,6 +1510,11 @@ static void ItemUseOnFieldCB_GenderFluid(u8 taskId)
         gPlayerAvatar.gender = MALE;
     }
     FlagSet(FLAG_USED_GENDER_FLUID);
+    if(!FlagGet(FLAG_SYS_HAS_SWITCHED_GENDERS)) {
+        FlagSet(FLAG_SYS_HAS_SWITCHED_GENDERS);
+    } else {
+        FlagClear(FLAG_SYS_HAS_SWITCHED_GENDERS);
+    }
 
     TryToTransTheNidotrans(taskId);
     

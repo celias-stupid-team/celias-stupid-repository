@@ -894,3 +894,5 @@ const u32 gObjectEventPic_BURNING_EGG_2[] = INCBIN_U32("graphics/object_events/p
 const u16 gObjectEventPal_BURNING_EGG_2[] = INCBIN_U16("graphics/object_events/palettes/BURNING_EGG_2.gbapal");
 const u32 gObjectEventPic_MEDIARM[] = INCBIN_U32("graphics/object_events/pics/stupid/MEDIARM.4bpp");
 const u16 gObjectEventPal_MEDIARM[] = INCBIN_U16("graphics/object_events/palettes/MEDIARM.gbapal");
+const u32 gObjectEventPic_GAY_BOYS[] = INCBIN_U32("graphics/object_events/pics/stupid/GAY_BOYS.4bpp");
+const u16 gObjectEventPal_GAY_BOYS[] = INCBIN_U16("graphics/object_events/palettes/GAY_BOYS.gbapal");

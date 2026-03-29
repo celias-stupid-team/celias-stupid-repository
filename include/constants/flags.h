@@ -1450,7 +1450,7 @@
 #define FLAG_0x835                                                  (SYS_FLAGS + 0x35)
 #define FLAG_0x836                                                  (SYS_FLAGS + 0x36)
 #define FLAG_SYS_RESET_RTC_ENABLE                                   (SYS_FLAGS + 0x37)
-#define FLAG_0x838                                                  (SYS_FLAGS + 0x38) // Set, never read
+#define FLAG_SYS_HAS_SWITCHED_GENDERS                                                  (SYS_FLAGS + 0x38) // Set, never read
 #define FLAG_SYS_MYSTERY_GIFT_ENABLED                               (SYS_FLAGS + 0x39)
 #define FLAG_0x83A                                                  (SYS_FLAGS + 0x3A)
 #define FLAG_SYS_RIBBON_GET                                         (SYS_FLAGS + 0x3B)
