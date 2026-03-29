@@ -67,6 +67,8 @@
 #include "script.h"
 #include "trainer_slide.h"
 #include "battle_gfx_sfx_util.h"
+#include "graphics.h"
+#include "decompress.h"
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
 //
@@ -12816,6 +12818,20 @@ void BS_SetTechnoBlastType(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+void LoadRotomBattleUI(void)
+{
+    NATIVE_ARGS();
+
+    FlagSet(FLAG_ROTOM_BATTLE_UI);
+    LZDecompressVram(gBattleInterface_Textbox_Rotom_Gfx, (void *)BG_CHAR_ADDR(0));
+    CopyToBgTilemapBuffer(0, gBattleInterface_Textbox_Rotom_Tilemap, 0, 0x000);
+    LZDecompressWram(gBattleInterface_Textbox_Rotom_Pal, gPaletteDecompressionBuffer);
+    CpuCopy16(gPaletteDecompressionBuffer, &gPlttBufferUnfaded[BG_PLTT_ID(0)], 2 * PLTT_SIZE_4BPP);
+    CopyBgTilemapBufferToVram(0);
+    LoadBattleMenuWindowGfx();
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
 
 void BS_SetRevelationDanceType(void)
 {
@@ -12838,6 +12854,7 @@ void BS_SetRevelationDanceType(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
 
 // saves the original battle data for W-Turn
 void BS_WTurnSaveOriginalBattleData(void)

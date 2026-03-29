@@ -5538,8 +5538,8 @@ BattleScript_RunRotomAnimation::
 	waitforfade
 	fadenewbgm MUS_NONE
 	pause B_WAIT_TIME_LONGEST
-	@ callnative LoadRotomBattleUI
-	@ waitstate
+	callnative LoadRotomBattleUI
+	waitstate
 	printstring STRINGID_DUMMY288 @ to clear the message box during the fade back
 	fadescreen FADE_FROM_WHITE
 	waitforfade

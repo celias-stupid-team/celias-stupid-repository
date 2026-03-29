@@ -1419,7 +1419,7 @@
 #define FLAG_HOENN_DELIVERY_SERVICE                                                  (SYS_FLAGS + 0x1C)
 #define FLAG_SYS_ZAPDOS_STATUE                                                  (SYS_FLAGS + 0x1D)
 #define FLAG_SYS_GIRL_HOLE                                                  (SYS_FLAGS + 0x1E)
-#define FLAG_0x81F                                                  (SYS_FLAGS + 0x1F)
+#define FLAG_ROTOM_BATTLE_UI                                                  (SYS_FLAGS + 0x1F)
 
 // Permanent system flags
 #define PERMA_SYS_FLAGS_START                                       (FLAG_0x81F + 1)
