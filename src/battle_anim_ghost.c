@@ -34,7 +34,6 @@ static void AnimCurseNail(struct Sprite *sprite);
 static void AnimCurseNail_Step1(struct Sprite *sprite);
 static void AnimCurseNail_Step2(struct Sprite *sprite);
 static void AnimCurseNail_End(struct Sprite *sprite);
-static void AnimGhostStatusSprite(struct Sprite *sprite);
 static void AnimGhostStatusSprite_End(struct Sprite *sprite);
 static void AnimGrudgeFlame(struct Sprite *sprite);
 static void AnimMonMoveCircular(struct Sprite *sprite);
@@ -1121,7 +1120,7 @@ static void AnimCurseNail_End(struct Sprite *sprite)
     DestroyAnimSprite(sprite);
 }
 
-static void AnimGhostStatusSprite(struct Sprite *sprite)
+void AnimGhostStatusSprite(struct Sprite *sprite)
 {
     u16 coeffB, coeffA;
 

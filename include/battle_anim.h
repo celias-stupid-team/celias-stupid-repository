@@ -181,12 +181,18 @@ extern const union AffineAnimCmd *const gAffineAnims_Droplet[];
 extern const union AffineAnimCmd *const gGrowingRingAffineAnimTable[];
 extern const union AffineAnimCmd *const gGuardRingAffineAnimTable[];
 extern const union AffineAnimCmd *const gAffineAnims_SpinningBone[];
+extern const union AffineAnimCmd *const gAffineAnims_LusterPurgeCircle[];
+extern const union AffineAnimCmd *const gPowerAbsorptionOrbAffineAnimTable[];
+extern const union AffineAnimCmd *const gThinRingShrinkingAffineAnimTable[];
+extern const union AffineAnimCmd *const gAffineAnims_HitSplat[];
+extern const union AffineAnimCmd *const gThinRingExpandingAffineAnimTable[];
 extern const union AnimCmd *const gAnims_SmallBubblePair[];
 extern const union AnimCmd *const gAnims_BasicFire[];
 extern const union AnimCmd *const sAnims_FireBlastCross[];
 extern const union AnimCmd *const gAnims_WaterMudOrb[];
 extern const union AnimCmd *const gAnims_WaterBubble[];
 extern const union AnimCmd *const gMusicNotesAnimTable[];
+extern const union AnimCmd *const gPowerAbsorptionOrbAnimTable[];
 extern const u8 *const gBattleAnims_StatusConditions[];
 extern const u8 *const gBattleAnims_Moves[];
 extern const u16 gMovesWithQuietBGM[];
@@ -335,9 +341,7 @@ void AnimHitSplatBasic(struct Sprite *sprite);
 void AnimFireSpread(struct Sprite *sprite);
 void AnimUproarRing(struct Sprite *);
 void AnimTask_GrudgeFlames_Step(u8 taskId);
-
-extern const union AffineAnimCmd *const gThinRingShrinkingAffineAnimTable[];
-extern const union AffineAnimCmd *const gAffineAnims_HitSplat[];
-extern const union AffineAnimCmd *const gThinRingExpandingAffineAnimTable[];
+void AnimPowerAbsorptionOrb(struct Sprite *);
+void AnimGhostStatusSprite(struct Sprite *sprite);
 
 #endif // GUARD_BATTLE_ANIM_H

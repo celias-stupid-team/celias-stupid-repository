@@ -114,6 +114,7 @@ static void AnimTimerBallAttack_Arc(struct Sprite *sprite);
 static void AnimSprite_MoveThenWait(struct Sprite *sprite);
 static void AnimHammerSwing(struct Sprite *sprite);
 static void AnimTask_OnionCutter_Step(u8 taskId);
+static void AnimTask_DynamaxGrowthStep(u8 taskId);
 
 
 // Unused
@@ -2267,6 +2268,39 @@ const struct SpriteTemplate gElectrifyYellowRingTemplate =
     .images = NULL,
     .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimUproarRing
+};
+
+const struct SpriteTemplate gMegaStoneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MEGA_STONE,
+    .paletteTag = ANIM_TAG_MEGA_STONE,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_LusterPurgeCircle,
+    .callback = AnimSpriteOnMonPos,
+};
+
+const struct SpriteTemplate gMegaParticlesSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MEGA_PARTICLES,
+    .paletteTag = ANIM_TAG_MEGA_PARTICLES,
+    .oam = &gOamData_AffineNormal_ObjBlend_16x16,
+    .anims = gPowerAbsorptionOrbAnimTable,
+    .images = NULL,
+    .affineAnims = gPowerAbsorptionOrbAffineAnimTable,
+    .callback = AnimPowerAbsorptionOrb,
+};
+
+const struct SpriteTemplate gMegaSymbolSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MEGA_SYMBOL,
+    .paletteTag = ANIM_TAG_MEGA_SYMBOL,
+    .oam = &gOamData_AffineOff_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGhostStatusSprite,
 };
 
 #define sAmplitudeX  data[1]
@@ -5674,4 +5708,41 @@ static void AnimTask_OnionCutter_Step(u8 taskId)
         DestroyAnimVisualTask(taskId);
         break;
     }
+}
+
+static void AnimTask_DynamaxGrowthStep(u8 taskId) // from CFRU
+{
+    struct Task* task = &gTasks[taskId];
+    if (!RunAffineAnimFromTaskData(task))
+        DestroyAnimVisualTask(taskId);
+}
+
+// DYNAMAX
+static const union AffineAnimCmd sDynamaxGrowthAffineAnimCmds[] = // from CFRU
+{
+    AFFINEANIMCMD_FRAME(-2, -2, 0, 64), //Double in size over 1 second
+    AFFINEANIMCMD_FRAME(0, 0, 0, 64), //Pause for 1 seconds
+    AFFINEANIMCMD_FRAME(16, 16, 0, 8), //Shrink back down in 1/8 of a second
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sDynamaxGrowthAttackAnimationAffineAnimCmds[] =
+{
+    AFFINEANIMCMD_FRAME(-4, -4, 0, 32), //Double in size quicker
+    AFFINEANIMCMD_FRAME(0, 0, 0, 32), //Pause for less
+    AFFINEANIMCMD_FRAME(16, 16, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+//Arg 0: Animation for attack
+void AnimTask_DynamaxGrowth(u8 taskId) // from CFRU
+{
+    struct Task* task = &gTasks[taskId];
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+
+    if (gBattleAnimArgs[0] == 0)
+        PrepareAffineAnimInTaskData(task, spriteId, sDynamaxGrowthAffineAnimCmds);
+    else
+        PrepareAffineAnimInTaskData(task, spriteId, sDynamaxGrowthAttackAnimationAffineAnimCmds);
+    task->func = AnimTask_DynamaxGrowthStep;
 }

@@ -420,6 +420,9 @@
 #define ANIM_TAG_SPOON                      (ANIM_SPRITES_START + 410)
 #define ANIM_TAG_SLURF                      (ANIM_SPRITES_START + 411)
 #define ANIM_TAG_PEANUT                     (ANIM_SPRITES_START + 412)
+#define ANIM_TAG_MEGA_STONE                 (ANIM_SPRITES_START + 413)
+#define ANIM_TAG_MEGA_PARTICLES             (ANIM_SPRITES_START + 414)
+#define ANIM_TAG_MEGA_SYMBOL                (ANIM_SPRITES_START + 415)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -532,6 +535,8 @@
 #define B_ANIM_GRAVITY_CONTINUES        43
 #define B_ANIM_COLOR_CHANGE_WIZ1989     44
 #define B_ANIM_FLIP_TURN_TRANSFORM      45
+#define B_ANIM_MEGA_EVOLUTION           46
+#define B_ANIM_DYNAMAX_GROWTH           47
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
