@@ -8933,15 +8933,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_SNOWGRAVY] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_SNOWGRAVY,
         .power = 200,
         .type = TYPE_WEIRD,
-        .accuracy = 100,
+        .accuracy = 0,
         .pp = 1,
-        .secondaryEffectChance = 100,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .stringId = B_MSG_SNOWGRAVY,
     },
 
     

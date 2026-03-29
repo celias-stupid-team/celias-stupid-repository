@@ -298,6 +298,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectShine                  @ EFFECT_SHINE
 	.4byte BattleScript_EffectHackAttack             @ EFFECT_HACK_ATTACK
 	.4byte BattleScript_EffectAuroraVeil             @ EFFECT_AURORA_VEIL
+	.4byte BattleScript_EffectSnowGravy              @ EFFECT_SNOWGRAVY
 
 BattleScript_End2::
 	end2
@@ -6224,3 +6225,21 @@ BattleScript_EffectHackAttack_2::
 	pause B_WAIT_TIME_LONGEST
 	instantwin
 	end
+
+BattleScript_EffectSnowGravy::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifopponent TRAINER_RIVAL_BARRY, BattleScript_EffectSnowGravy_Barry
+	attackanimation
+	waitanimation
+	setbattlestringid
+	printfromtable gDoNothingStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectSnowGravy_Barry:
+	setflag FLAG_USED_SNOWGRAVY
+	printstring STRINGID_PROCEED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc

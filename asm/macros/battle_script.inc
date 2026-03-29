@@ -1515,6 +1515,10 @@
 	jumpifhalfword CMP_EQUAL, gCurrentMove, \move, \jumpptr
 	.endm
 
+	.macro jumpifopponent trainer:req, jumpptr:req
+	jumpifhalfword CMP_EQUAL, gTrainerBattleOpponent_A, \trainer, \jumpptr
+	.endm
+
 	.macro jumpifnotmove move:req, jumpptr:req
 	jumpifhalfword CMP_NOT_EQUAL, gCurrentMove, \move, \jumpptr
 	.endm

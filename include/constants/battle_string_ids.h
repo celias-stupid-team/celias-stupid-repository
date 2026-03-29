@@ -513,7 +513,9 @@
 #define STRINGID_WAITWHAT 511
 #define STRINGID_FINISHHACKATTACK 512
 #define STRINGID_PKMNTURNEDINTO 513
-#define STRINGID_NONE 514
+#define STRINGID_SNOWGRAVY 514
+#define STRINGID_PROCEED 515
+#define STRINGID_NONE 516
 // #define STRINGID_NONE 
 // ^ for easier copypaste
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
@@ -765,6 +767,7 @@
 #define B_MSG_SUPERSONIC       13
 #define B_MSG_SHED             14
 #define B_MSG_HACK_ATTACK      15
+#define B_MSG_SNOWGRAVY        16
 
 // gSwitchInAbilityStringIds
 enum SwitchInAbilityStringID
