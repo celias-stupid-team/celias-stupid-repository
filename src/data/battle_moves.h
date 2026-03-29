@@ -4213,7 +4213,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ALL_STATS_UP_HIT,
         .power = 60,
-        .type = TYPE_BUG,
+        .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 10,
@@ -8303,9 +8303,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_MEAN_LOOK_LOOK] =
     {
-        .effect = EFFECT_MEAN_LOOK,
-        .power = 0,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_HIT,
+        .power = 75,
+        .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,

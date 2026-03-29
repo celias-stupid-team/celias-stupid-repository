@@ -303,7 +303,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubPsychic[] = {
     },
     {
         .iv = 0,
-        .lvl = 19,
+        .lvl = 1,
         .species = SPECIES_GASTLY,
         .moves = {MOVE_SLEEP_POWDER, MOVE_DESTINY_BOND, MOVE_NONE, MOVE_NONE},
     },
@@ -550,16 +550,19 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherConner[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_LassJanice[] = {
+static const struct TrainerMonItemDefaultMoves sParty_LassJanice[] = {
     {
         .iv = 0,
         .lvl = 9,
         .species = SPECIES_NIDORAN_M,
+        .heldItem = ITEM_NONE,
+
     },
     {
         .iv = 0,
         .lvl = 9,
         .species = SPECIES_RATTATA,
+        .heldItem = ITEM_FOCUS_SASH,
     },
 };
 
@@ -916,13 +919,13 @@ static const struct TrainerMonNoItemCustomMoves sParty_CamperEthan[] = {
         .iv = 0,
         .lvl = 11,
         .species = SPECIES_GENGAR,
-        .moves = {MOVE_PROTECT, MOVE_TAUNT, MOVE_SLUDGE_BOMB, MOVE_WILL_O_WISP},
+        .moves = {MOVE_PROTECT, MOVE_WILL_O_WISP, MOVE_SLUDGE_BOMB, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 11,
         .species = SPECIES_INCINEROAR,
-        .moves = {MOVE_PROTECT, MOVE_TAUNT, MOVE_FAKE_OUT, MOVE_KNOCK_OFF},
+        .moves = {MOVE_PROTECT, MOVE_KNOCK_OFF, MOVE_FAKE_OUT, MOVE_NONE},
     },
     {
         .iv = 0,

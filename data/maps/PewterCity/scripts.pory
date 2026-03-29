@@ -1092,7 +1092,13 @@ script PewterCity_EventScript_CeliaFurret {
 }
 
 script PewterCity_EventScript_CeliaLightYears {
-	msgbox("Pokemon Clover did the 10,000\nLight Year thing better and I'm\lso mad about it.", MSGBOX_NPC)
+	msgbox(
+	"I wanted to do the light year joke\n"
+	"that Clover did, but they did it\l"
+	"first so I couldn't.\p"
+
+	"I'm still salty over it.\n"
+	"", MSGBOX_NPC)
 	end
 }
 
@@ -1102,7 +1108,7 @@ script PewterCity_EventScript_CeliaDad {
 }
 
 script PewterCity_EventScript_CeliaCut {
-	msgbox("This guy has different dialogue\nbased on how many trees you cut.\pEvery time you cut one he has\nsomething new to say!", MSGBOX_NPC)
+	msgbox("This guy has different dialogue\nbased on how many trees you cut.\pEvery time you cut one he has\nsomething new to say!\pPS you can kill him", MSGBOX_NPC)
 	end
 }
 
@@ -1139,3 +1145,4 @@ script PewterCity_Sign {
 	msgbox("TRAINER TIPS\pGYM signs will tell you what level\nyou should want for a fight.\pYou won't need to grind anything\nhigher than that!", MSGBOX_SIGN)
 	end
 }
+

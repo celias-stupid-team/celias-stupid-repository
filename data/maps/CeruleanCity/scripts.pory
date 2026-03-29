@@ -391,12 +391,29 @@ script CeruleanCity_StealCandy {
 }
 
 script CeruleanCity_Celia_BerryPowder {
-	msgbox("There's a flag that gets set when\nyou check this sign here.\pWhat is the flag for?\nI wonder!\pYou'll just have to stay tuned\nand see for yourself!", MSGBOX_NPC)
+	msgbox(
+	"If you haven't read this sign when\n"
+	"you need to report the BERRY\l"
+	"POWDER MAN's demise, it triggers\l"
+	"Chapter 7 Chapter 2 Chapter 2.\p"
+
+	"It's really funny.\n"
+	"", MSGBOX_NPC)
 	end
 }
 
 script CeruleanCity_Celia_Politics {
-	msgbox("Behold, the only bit of overt\npolitical messaging in the hack.\pWhy people have a problem with the\ngay shit but not him is beyond me.", MSGBOX_NPC)
+	msgbox(
+	"In the early versions, this guy\n"
+	"had the only bit of overt\l"
+	"political messaging in the hack.\p"
+
+	"Despite this, everyone complained\n"
+	"about the gay shit, and no one\l"
+	"complained about him.\p"
+
+	"Really makes you think.\n"
+	"", MSGBOX_NPC)
 	end
 }
 

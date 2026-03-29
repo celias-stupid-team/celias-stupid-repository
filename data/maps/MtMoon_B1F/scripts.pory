@@ -15,6 +15,13 @@ mapscripts MtMoon_B1F_MapScripts {
 
 script MtMoon_Basement_DrillWall {
 	lock
+	if(!checkitem(ITEM_DRILL_DOZER)) {
+		msgbox(
+		"There's a hole in the wall…\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	msgbox(
 	"There's a hole in the wall…\n"
 	"Would you like to DRILL it?", MSGBOX_YESNO)
@@ -39,6 +46,10 @@ script MtMoon_Basement_DrillWall {
 					end
 
 	}
+	msgbox(
+	"Who the fuck says No here?\n"
+	"", MSGBOX_DEFAULT)	
+	release
 }
 
 script MtMoon_EventScript_DadWeather {

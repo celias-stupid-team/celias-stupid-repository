@@ -684,9 +684,9 @@ static const struct LevelUpMove sVenomothLevelUpLearnset[] = {
 
 static const struct LevelUpMove sDiglettLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_DOUBLE_KICK),
-    LEVEL_UP_MOVE(1, MOVE_TRIPLE_KICK),
     LEVEL_UP_MOVE(1, MOVE_BLAZE_KICK),
-    LEVEL_UP_MOVE(17, MOVE_HI_JUMP_KICK),
+    LEVEL_UP_MOVE(1, MOVE_HI_JUMP_KICK),
+    LEVEL_UP_MOVE(17, MOVE_TRIPLE_KICK),
     LEVEL_UP_END
 };
 
