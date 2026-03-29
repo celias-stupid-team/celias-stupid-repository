@@ -1385,3 +1385,11 @@ $(OBJEVENTGFXDIR)/stupid/DEERLING.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/SMEARGLE.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/ARTICUNO_EGG_2.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/MOLTRES_EGG_2.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/BURNING_EGG_2.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/MEDIARM.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 2

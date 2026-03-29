@@ -13230,3 +13230,9 @@ extern const u32 gTrainerPalette_Wiz[];
 
 extern const u32 gTrainerFrontPic_Plasto[];
 extern const u32 gTrainerPalette_Plasto[];
+
+extern const u32 gItemIcon_StunSeed[];
+extern const u32 gItemIconPalette_StunSeed[];
+
+extern const u32 gTrainerFrontPic_Starlight[];
+extern const u32 gTrainerPalette_Starlight[];

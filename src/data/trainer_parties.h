@@ -10022,8 +10022,8 @@ static const struct TrainerMonItemCustomMoves sParty_DMCASabrina[] = {
 static const struct TrainerMonItemCustomMoves sParty_DMCABlaine[] = {
     {
         .iv = 0,
-        .lvl = 50,
-        .heldItem = ITEM_NONE,
+        .lvl = 45,
+        .heldItem = ITEM_SITRUS_BERRY,
         .species = SPECIES_MAGMAR,
         .moves = {MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }

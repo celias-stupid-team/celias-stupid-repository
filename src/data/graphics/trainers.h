@@ -658,3 +658,6 @@ const u32 gTrainerPalette_Wiz[] = INCBIN_U32("graphics/trainers/palettes/wiz.gba
 
 const u32 gTrainerFrontPic_Plasto[] = INCBIN_U32("graphics/trainers/front_pics/plasto_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Plasto[] = INCBIN_U32("graphics/trainers/palettes/plasto.gbapal.lz");
+
+const u32 gTrainerFrontPic_Starlight[] = INCBIN_U32("graphics/trainers/front_pics/starlight_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Starlight[] = INCBIN_U32("graphics/trainers/palettes/starlight.gbapal.lz");

@@ -225,6 +225,7 @@
 #define TRAINER_PIC_LICHEN   203
 #define TRAINER_PIC_WIZ   204
 #define TRAINER_PIC_PLASTO   205
+#define TRAINER_PIC_STARLIGHT   206
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)

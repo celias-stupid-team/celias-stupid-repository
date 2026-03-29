@@ -259,7 +259,7 @@
     {
       "local_id": "LOCALID_MOLTRES_EGG",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BURNING_EGG",
+      "graphics_id": "OBJ_EVENT_GFX_BURNING_EGG_2",
       "x": 8,
       "y": 16,
       "elevation": 0,

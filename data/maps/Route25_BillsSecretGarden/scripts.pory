@@ -176,6 +176,7 @@ script SecretGarden_PCTerminal {
 
 script SecretGarden_PCMonitor {
     lock
+    jumpoffbike
     if(flag(FLAG_BILL_PC_BROKE)) {
         msgbox(
         "A large, complicated PC sits\n"

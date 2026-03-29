@@ -55,9 +55,11 @@ mapscripts ViridianGym_Blaine_MapScripts {
             "Ladies and Gentlemen!\n"
             "{PAUSE 30}(and misc.)\l"
             "Put your hands together foooooor-!", MSGBOX_DEFAULT)
-            playbgm(MUS_BLAINE_GYM, TRUE)
+            
             fadescreenswapbuffers(FADE_TO_WHITE)
+            playbgm(MUS_BLAINE_GYM, TRUE)
             closemessage
+            
             animateflash(0)
             setflashlevel(0)
             fadescreeninstant(FADE_FROM_WHITE)
@@ -65,12 +67,13 @@ mapscripts ViridianGym_Blaine_MapScripts {
             "The 68th Trivia Quiz-Off!\n"
             "", MSGBOX_DEFAULT)
             playse(SE_APPLAUSE)
-            delay(60)
+            delay(120)
             special(SpawnCameraObject)
             applymovement(LOCALID_CAMERA, moves(
                 walk_fast_right * 3
             ))
             waitmovement(0)
+            setvar(VAR_TEMP_1, 0)
             textcolor(NPC_TEXT_COLOR_BLUE)
             msgbox(
             "I'm your host:{PAUSE 20} PAUL!\n"
@@ -80,37 +83,51 @@ mapscripts ViridianGym_Blaine_MapScripts {
                 face_left
             ))
             applymovement(LOCALID_CAMERA, moves(
-                walk_faster_left * 3
+                walk_fast_left * 3
             ))
             waitmovement(LOCALID_CAMERA)
+            delay(10)
             msgbox(
             "And here we have our three\n"
             "lovely contestants!", MSGBOX_DEFAULT)
             closemessage
+            playse(SE_APPLAUSE)
             applymovement(LOCALID_BLAINE_DMCA_2, moves(
-                walk_in_place_down * 5
+                walk_in_place_down * 7
             ))
             applymovement(LOCALID_BLAINE_DMCA_1, moves(
                 jump_in_place_down
                 delay_8 
                 jump_in_place_down
+                delay_8 
+                jump_in_place_down
+                delay_8 
+                jump_in_place_down
             ))
             applymovement(LOCALID_PLAYER, moves(
-                delay_16
-                delay_8 
+                delay_16 * 2
+                delay_8  * 2
                 face_left
-                delay_16
+                delay_16 * 2
                 face_right
-                delay_16
+                delay_16 * 2
                 face_down
             ))
             waitmovement(LOCALID_BLAINE_DMCA_1)
             waitmovement(LOCALID_PLAYER)
-            msgbox(
-            "(more text here idk)\n"
-            "", MSGBOX_DEFAULT)
-            closemessage
+            applymovement(LOCALID_BLAINE_DMCA_3, moves(
+                face_down
+            ))
             delay(20)
+            msgbox(
+            "Now, who's ready for the trickiest\n"
+            "of tricks?\l"
+            "The craftiest conundrums?\p"
+
+            "Tonight's question awaits!\n"
+            "Here we go-!", MSGBOX_DEFAULT)
+            closemessage
+            delay(10)
             applymovement(LOCALID_PLAYER, moves(
                 face_up
             ))
@@ -128,7 +145,12 @@ mapscripts ViridianGym_Blaine_MapScripts {
             ))
             waitmovement(LOCALID_CAMERA)
             delay(30)
-            playse(SE_PC_LOGIN)
+            msgbox(
+            "“This NINTENDO mascot is also a\n"
+            "playable character in the famous\l"
+            "game series SUPER SMASH BROS!”", MSGBOX_DEFAULT)
+            waitse
+            playse(SE_CONTEST_PLACE)
             setmetatile(4, 1, METATILE_DMCABlaine_BlankLetter, TRUE)
             setmetatile(5, 1, METATILE_DMCABlaine_LetterA, TRUE)
             setmetatile(6, 1, METATILE_DMCABlaine_LetterR, TRUE)
@@ -136,16 +158,17 @@ mapscripts ViridianGym_Blaine_MapScripts {
             setmetatile(8, 1, METATILE_DMCABlaine_LetterO, TRUE)
             special(DrawWholeMapView)
             delay(60)
-            msgbox(
-            "“This NINTENDO mascot is also a\n"
-            "playable character in the famous\l"
-            "game series SUPER SMASH BROS!”", MSGBOX_DEFAULT)
             closemessage
 
 
 
             delay(60)
             playse(SE_CONTEST_HEART)
+            waitse
+            playse(SE_CONTEST_HEART)
+            waitse
+            playse(SE_CONTEST_HEART)
+            waitse
             applymovement(LOCALID_BLAINE_DMCA_1, moves(
                 face_down
             ))
@@ -158,7 +181,7 @@ mapscripts ViridianGym_Blaine_MapScripts {
             "What will it be?", MSGBOX_DEFAULT)
             closemessage
             delay(40)
-            playse(SE_CONTEST_HEART)
+            playse(SE_CONTEST_PLACE)
             setmetatile(4, 1, METATILE_DMCABlaine_LetterM, TRUE)
             special(DrawWholeMapView)
             waitse
@@ -178,9 +201,11 @@ mapscripts ViridianGym_Blaine_MapScripts {
             msgbox(
             "I'm sorry, that is INCORRECT!\n"
             "", MSGBOX_DEFAULT)
+            closemessage
             addobject(LOCALID_BLAINE_SNORLAX_1)
             playse(SE_FALL)
             applymovement(LOCALID_BLAINE_SNORLAX_1, moves(
+                delay_16
                 set_visible
                 slide_down * 8
             ))
@@ -195,8 +220,8 @@ mapscripts ViridianGym_Blaine_MapScripts {
             setmetatile(9, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
             special(DrawWholeMapView)
             closemessage
-            playse(SE_BANG)
-            delay(60)
+            playse(SE_EFFECTIVE)
+            delay(90)
             applymovement(LOCALID_BLAINE_SNORLAX_1, moves(
                 lock_facing_direction
                 walk_fast_up * 8
@@ -223,8 +248,8 @@ mapscripts ViridianGym_Blaine_MapScripts {
             applymovement(LOCALID_BLAINE_DMCA_2, moves(
                 face_down
             ))
-            setmetatile(4, 5, METATILE_DMCABlaine_BlueTopDing, TRUE)
-            setmetatile(4, 6, METATILE_DMCABlaine_BlueBottomDing, TRUE)
+            setmetatile(8, 5, METATILE_DMCABlaine_RedTopDing, TRUE)
+            setmetatile(8, 6, METATILE_DMCABlaine_RedBottomDing, TRUE)
             special(DrawWholeMapView)
             delay(45)
             msgbox(
@@ -255,6 +280,7 @@ mapscripts ViridianGym_Blaine_MapScripts {
             addobject(LOCALID_BLAINE_SNORLAX_2)
             playse(SE_FALL)
             applymovement(LOCALID_BLAINE_SNORLAX_2, moves(
+                delay_16
                 set_visible
                 slide_down * 8
             ))
@@ -269,8 +295,8 @@ mapscripts ViridianGym_Blaine_MapScripts {
             setmetatile(9, 1, METATILE_DMCABlaine_BackgroundTile, TRUE)
             special(DrawWholeMapView)
             closemessage
-            playse(SE_BANG)
-            delay(60)
+            playse(SE_EFFECTIVE)
+            delay(90)
             applymovement(LOCALID_BLAINE_SNORLAX_2, moves(
                 lock_facing_direction
                 walk_fast_up * 8
@@ -325,14 +351,15 @@ script ViridianGym_BlaineEnding {
     addobject(LOCALID_BLAINE_SNORLAX_3)
     playse(SE_FALL)
     applymovement(LOCALID_BLAINE_SNORLAX_3, moves(
+        delay_16
         set_visible
         slide_down * 7
     ))
     waitmovement(0)
     closemessage
     removeobject(LOCALID_BLAINE_DMCA_3)
-    playse(SE_BANG)
-    delay(60)
+    playse(SE_EFFECTIVE)
+    delay(90)
     applymovement(LOCALID_BLAINE_SNORLAX_3, moves(
         lock_facing_direction
         walk_fast_up * 7
@@ -384,7 +411,8 @@ text ViridianGym_BlaineBattle_Start {
 
 
 text ViridianGym_BlaineBattle_End {
-   "you were right\n"
+   "Correct!\n"
+   "That's absolutely correct!"
 }
 
 
