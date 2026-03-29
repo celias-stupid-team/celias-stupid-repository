@@ -297,6 +297,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectUpThrow                @ EFFECT_UP_THROW
 	.4byte BattleScript_EffectShine                  @ EFFECT_SHINE
 	.4byte BattleScript_EffectHackAttack             @ EFFECT_HACK_ATTACK
+	.4byte BattleScript_EffectAuroraVeil             @ EFFECT_AURORA_VEIL
 
 BattleScript_End2::
 	end2
@@ -306,8 +307,21 @@ BattleScript_Ret::
 
 BattleScript_EffectReflect2::
 	attackcanceler
-	trysetspecialreflect BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce
 	attackstring
+	ppreduce
+	trysetspecialreflect BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNCOVEREDBYVEIL
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectAuroraVeil::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifhalfword CMP_NO_COMMON_BITS, gBattleWeather, B_WEATHER_HAIL, BattleScript_ButItFailed
+	trysetauroraveil BS_ATTACKER, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNCOVEREDBYVEIL
