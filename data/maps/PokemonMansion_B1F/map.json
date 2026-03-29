@@ -117,7 +117,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TABITHA",
-      "x": 25,
+      "x": 26,
       "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -173,8 +173,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLIPBOARD",
-      "x": 9,
-      "y": 10,
+      "x": 41,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -270,6 +270,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonMansion_MoltresEgg",
       "flag": "FLAG_TEMP_5"
+    },
+    {
+      "local_id": "LOCALID_MOLTRES_2",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MOLTRES",
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PokemonMansion_MoltresEgg",
+      "flag": "FLAG_TEMP_7"
     }
   ],
   "warp_events": [
@@ -314,11 +329,11 @@
     },
     {
       "type": "sign",
-      "x": 38,
-      "y": 1,
+      "x": 4,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "PokemonMansion_B1F_EventScript_Statue"
+      "script": "PokemonMansion_Statues"
     },
     {
       "type": "sign",
@@ -338,11 +353,11 @@
     },
     {
       "type": "sign",
-      "x": 39,
-      "y": 1,
+      "x": 6,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonMansion_CoolLava"
+      "script": "PokemonMansion_Statues"
     },
     {
       "type": "sign",
@@ -370,11 +385,11 @@
     },
     {
       "type": "sign",
-      "x": 38,
-      "y": 2,
+      "x": 12,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonMansion_CoolLava"
+      "script": "PokemonMansion_Statues"
     },
     {
       "type": "sign",
@@ -394,19 +409,19 @@
     },
     {
       "type": "sign",
-      "x": 36,
-      "y": 0,
+      "x": 9,
+      "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonMansion_CoolLava"
+      "script": "PokemonMansion_FujiPhoto"
     },
     {
       "type": "sign",
-      "x": 39,
-      "y": 2,
+      "x": 10,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonMansion_CoolLava"
+      "script": "PokemonMansion_Statues"
     },
     {
       "type": "sign",
@@ -426,7 +441,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 8,
       "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -439,6 +454,134 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonMansion_MrFlamethrowerGrave"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Eruption"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Eruption"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonMansion_Chapter3"
     }
   ]
 }

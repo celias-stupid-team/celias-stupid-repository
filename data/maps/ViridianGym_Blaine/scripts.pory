@@ -358,6 +358,7 @@ script ViridianGym_BlaineEnding {
     waitmovement(0)
     closemessage
     removeobject(LOCALID_BLAINE_DMCA_3)
+    removeobject(LOCALID_BLAINE_BLOCKER)
     playse(SE_EFFECTIVE)
     delay(90)
     applymovement(LOCALID_BLAINE_SNORLAX_3, moves(
@@ -432,4 +433,11 @@ script ViidianGym_Blaine_Talk {
     ))
     waitmovement(0)
     release
+}
+
+script ViridianGym_BlaineStop {
+	msgbox(
+	"The unimaginable power of\n"
+	"commitment to the bit hold you back.", MSGBOX_SIGN)
+
 }

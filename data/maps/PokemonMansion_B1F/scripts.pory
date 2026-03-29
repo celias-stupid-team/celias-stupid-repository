@@ -198,15 +198,19 @@ script PokemonMansion_Pedestal {
 		playse(SE_CLICK)
 		waitse
 		closemessage
-		msgbox(
-		"It is implied that the wall opens.\p"
-
-		"Moltres is there.\n"
-		"", MSGBOX_DEFAULT)
+		delay(30)
+		playmoncry(SPECIES_MOLTRES, CRY_MODE_ENCOUNTER)
+		addobject(LOCALID_MOLTRES_2)
+		applymovement(LOCALID_MOLTRES_2, moves(
+			walk_slow_down * 6
+		))
 		closemessage
 		setflag(FLAG_SHINY_CREATION)
 		setwildbattle(SPECIES_MOLTRES, 50)
 		dowildbattle
+		removeobject(LOCALID_MOLTRES_2)
+		removeitem(ITEM_FUJI_BALL)
+
 		release
 		end
 	}
@@ -273,5 +277,26 @@ script PokemonMansion_MoltresEgg {
 	setflag (FLAG_FOUGHT_MOLTRES)
 	release
 	end
+
+}
+
+script PokemonMansion_Chapter3 {
+	msgbox(
+	"Shelf after shelf plasters the\n"
+	"walls, all bearing the telltale\l"
+	"title of “My Secret Life.”\p"
+
+	"You feel overcome with a sense of\n"
+	"deep understanding.\p"
+
+	"Truly, you've found yourself in\n"
+	"the depths of THREE{PAUSE 20} ISLAND.", MSGBOX_SIGN)
+
+}
+
+script PokemonMansion_Statues {
+	msgbox(
+	"The remains of a scrapped puzzle.\n"
+	"", MSGBOX_SIGN)
 
 }

@@ -27,6 +27,11 @@ mapscripts ViridianGym_Sabrina_MapScripts {
             case 9:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 6)
         }
+        setflag(FLAG_TEMP_4)
+        if(flag(FLAG_BEAT_DMCA_SABRINA)) {
+            clearflag(FLAG_TEMP_4)
+        }
+
     }
     MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_SILPH_WARP_THREE_ISLAND)) {
@@ -36,6 +41,13 @@ mapscripts ViridianGym_Sabrina_MapScripts {
             setmetatile(21, 9, 0x293, FALSE)
         }
     }
+}
+
+
+script ViridianGym_SabrinaDead {
+	msgbox(
+	"The little doll has had her head\n"
+	"removed.", MSGBOX_SIGN)
 }
 
 
@@ -55,9 +67,15 @@ script ViridianGym_SabrinaBattle {
 	"", MSGBOX_DEFAULT)
     trainerbattle_no_intro(TRAINER_DMCA_SABRINA, ViridianGym_SabrinaBattle_End)
     removeobject(LOCALID_SABRINA_ROADBLOCK)
-    msgbox(
-	"I get inexplicably decapitated\n"
-	"", MSGBOX_DEFAULT)
+    playse(SE_WARP_OUT)
+    fadescreenswapbuffers(FADE_TO_WHITE)
+    addobject(LOCALID_DEAD_SABRINA)
+    removeobject(VAR_LAST_TALKED)
+    waitse
+    fadescreeninstant(FADE_FROM_WHITE)
+    playse(SE_M_CUT)
+    waitse
+    delay(60)
     playse(SE_SWITCH)
     setmetatile(21, 9, 0x293, FALSE)
     special(DrawWholeMapView)
@@ -70,8 +88,8 @@ text ViridianGym_SabrinaBattle_Start {
 
 
 text ViridianGym_SabrinaBattle_End {
-   "oh no\n"
-	"death"
+   "No!\n"
+	"My powers failed me-!"
 }
 
 

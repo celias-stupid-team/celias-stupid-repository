@@ -90,7 +90,7 @@ static void DisableNationalPokedex_RSE(void)
     u16 *ptr = GetVarPointer(VAR_0x403C);
     gSaveBlock2Ptr->pokedex.unused = 0;
     *ptr = 0;
-    FlagClear(FLAG_0x838);
+    //FlagClear(FLAG_0x838);
 }
 
 // The magic numbers used here (0xDA and 0x0302) correspond to those
@@ -101,7 +101,7 @@ void EnableNationalPokedex_RSE(void)
     u16 *ptr = GetVarPointer(VAR_0x403C);
     gSaveBlock2Ptr->pokedex.unused = 0xDA;
     *ptr = 0x0302;
-    FlagSet(FLAG_0x838);
+    //FlagSet(FLAG_0x838);
 }
 
 // Unused
@@ -109,7 +109,7 @@ static bool32 IsNationalPokedexEnabled_RSE(void)
 {
     if (gSaveBlock2Ptr->pokedex.unused == 0xDA
             && VarGet(VAR_0x403C) == 0x0302
-            && FlagGet(FLAG_0x838))
+            )
         return TRUE;
 
     return FALSE;

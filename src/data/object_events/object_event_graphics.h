@@ -896,3 +896,4 @@ const u32 gObjectEventPic_MEDIARM[] = INCBIN_U32("graphics/object_events/pics/st
 const u16 gObjectEventPal_MEDIARM[] = INCBIN_U16("graphics/object_events/palettes/MEDIARM.gbapal");
 const u32 gObjectEventPic_GAY_BOYS[] = INCBIN_U32("graphics/object_events/pics/stupid/GAY_BOYS.4bpp");
 const u16 gObjectEventPal_GAY_BOYS[] = INCBIN_U16("graphics/object_events/palettes/GAY_BOYS.gbapal");
+const u32 gObjectEventPic_DEAD_SABRINA[] = INCBIN_U32("graphics/object_events/pics/stupid/DEAD_SABRINA.4bpp");

@@ -611,6 +611,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MOLTRES_EGG_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BURNING_EGG_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MEDIARM;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GAY_BOYS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DEAD_SABRINA;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1223,4 +1224,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BURNING_EGG_2] = &gObjectEventGraphicsInfo_BURNING_EGG_2,
     [OBJ_EVENT_GFX_MEDIARM] = &gObjectEventGraphicsInfo_MEDIARM,
     [OBJ_EVENT_GFX_GAY_BOYS] = &gObjectEventGraphicsInfo_GAY_BOYS,
+    [OBJ_EVENT_GFX_DEAD_SABRINA] = &gObjectEventGraphicsInfo_DEAD_SABRINA,
 };

@@ -25,6 +25,9 @@ mapscripts ViridianGym_Koga_MapScripts {
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 5)
         }
         call(DMCAKoga_StopSnowing)
+        if(flag(FLAG_DEFEATED_DMCA_KOGA)) {
+            setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
+        }
     }
     MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_DMCA_KOGA_BRICK_1)) {
@@ -56,9 +59,9 @@ script ViridianGym_KogaBattle {
 	"", MSGBOX_DEFAULT)
 
     trainerbattle_no_intro(TRAINER_DMCA_KOGA, ViridianGym_KogaBattle_End)
-    msgbox(
-	"i'm dead\n"
-	"", MSGBOX_DEFAULT)
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_DEFEATED_DMCA_KOGA)
+    setlayouttiles(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN, 0,0,0,0,30,23)
     release
 }
 
