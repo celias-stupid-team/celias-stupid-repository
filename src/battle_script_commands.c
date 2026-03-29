@@ -13132,12 +13132,15 @@ void BS_TryReflectType(void)
 
 void BS_TryGiveNothing(void) {
     NATIVE_ARGS(const u8 *failInstr);
-    
+    //DebugPrintf("Nothing");
     if(!FlagGet(FLAG_GOT_MOVE_NOTHING)) {
         AddBagItem(ITEM_NOTHING, 1);
+        //DebugPrintf("Nothing 2");
         FlagSet(FLAG_GOT_MOVE_NOTHING);
     }
+    //DebugPrintf("Nothing 3");
     gBattlescriptCurrInstr = cmd->nextInstr;
+    //DebugPrintf("Nothing 4");
 }
 
 

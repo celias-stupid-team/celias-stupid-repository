@@ -140,7 +140,17 @@ script MtMoon_Celia_AVGN {
 }
 
 script MtMoon_Celia_Repel {
-	msgbox("Did you figure out how to properly\nactivate the MAX REPEL?\pIt's available in this demo!\n", MSGBOX_NPC)
+	msgbox(
+	"I give the Max Repel and Min Repel\n"
+	"in a specific order.\p"
+
+	"When you pick up a Max repel, you\n"
+	"don't think anything of it, but\l"
+	"the Min Repel makes you curious.\p"
+
+	"Then when scrolling through your\n"
+	"bag, you notice that Max Repel is\l"
+	"changed too!", MSGBOX_NPC)
 	end
 }
 
@@ -170,7 +180,13 @@ script MtMoon_Celia_Mushrooms {
 }
 
 script MtMoon_Celia_Candy {
-	msgbox("There was an Odd Candy on the other\nside of this pond in the last demo.\pDue to some structure changes with\nhow the end of the hack is planned\lto go, I decided to move it.\pNow you can actually get it in the\ndemo!", MSGBOX_NPC)
+	msgbox(
+	"In older versions, the Mt Moon\n"
+	"candy was on the other side of\l"
+	"this water here.\p"
+
+	"I moved it to not be too easy\n"
+	"with the Nebby plotline later.", MSGBOX_NPC)
 	end
 }
 
@@ -200,7 +216,13 @@ script MtMoon_Celia_Miguel {
 }
 
 script MtMoon_Celia_EndLass {
-	msgbox("The LASS attack here is brand\nnew to this version!\pMt Moon really needed a good\npunchline at the end of it.\pPlus, it helps set up the\nlasses coming up in the future.", MSGBOX_NPC)
+	msgbox(
+	"The Lass Attack here was new to the\n"
+	"decomp updates!\p"
+
+	"Mt Moon needed a good punchline at\n"
+	"the end, so she gets to cap off\l"
+	"the other two lass attacks.", MSGBOX_NPC)
 	end
 }
 

@@ -2019,6 +2019,13 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
+                case EVENT_BATTLE_MISTY: //Koffing
+                        if(sBattleMsgDataPtr->currentMove == MOVE_SLASH_TCG)  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
                 case 4: //Moltres
                     
                      if (gBattleMons[gBattlerTarget].ability == ABILITY_WATER_ABSORB) {

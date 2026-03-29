@@ -6093,7 +6093,7 @@ BattleScript_EffectNothing::
 	ppreduce
 	attackanimation
 	waitanimation
-	trygivenothing
+	trygivenothing BattleScript_EffectNothing
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

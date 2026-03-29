@@ -33,7 +33,17 @@ script ViridianCity_House_EventScript_Window {
 //For my own sanity, I'm going to put all Celia Secret Reward Scripts in here.
 
 script CeliaSecrets_Bonus_ShinyRatExplode {
-	msgbox("I really like the new scene where\nthe shiny rat explodes the old man.\pAdmittedly, it kinda breaks the\njoke with Weedle being wild here.\lAlas!\pI'm not compromising on only 2\nPOKéMON in Viridian Forest, so\lthis discrepancy will have to stay.", MSGBOX_NPC)
+	msgbox(
+	"After half the game was already\n"
+	"done, I made this guy's weedle\l"
+	"blow up and kill him.\p"
+
+	"This meant that suddenly, I needed\n"
+	"to retroactively add a bit where\l"
+	"weedle explodes everywhere.\p"
+
+	"This was not planned LOL\n"
+	"", MSGBOX_NPC)
 	end
 }
 
@@ -43,7 +53,7 @@ script CeliaSecrets_Bonus_ViridianLedge {
 }
 
 script CeliaSecrets_Bonus_UselessLedge {
-	msgbox("No, there's nothing up here.\nThis ledge is completely pointless.\pIt's that way in vanilla too.\pI have no clue why.\n", MSGBOX_NPC)
+	msgbox("Yes, there's nothing up here.\nThis ledge is completely pointless.\pIt's that way in vanilla too.\pI have no clue why.\n", MSGBOX_NPC)
 	end
 }
 
@@ -58,7 +68,13 @@ script CeliaSecrets_Bonus_Gambler {
 }
 
 script CeliaSecrets_Bonus_PoisoningEveryone {
-	msgbox("Y'know, I don't actually have a\npunchline prepared for the “They're\lpoisoning everyone” line.\pUsually I try to follow up on every\njoke/plot thread I set up.\lOh well.", MSGBOX_NPC)
+	msgbox(
+	"The old Celia here said I didn't\n"
+	"have a punchline for the Poisoning\l"
+	"everyone gag.\p"
+
+	"Thus, I felt obligated to finish\n"
+	"the bit.", MSGBOX_NPC)
 	end
 }
 
@@ -103,7 +119,10 @@ script CeliaSecrets_Bonus_Signposts {
 }
 
 script CeliaSecrets_Bonus_MimeTrade {
-	msgbox("When the time eventually comes and\nyou're able to catch Mr Mime, I\lhope people remember the trade here\pI get the feeling that everyone is\ngonna forget and get stuck.\lOh well.", MSGBOX_NPC)
+	msgbox(
+	"Listen, I REALLY didn't want\n"
+	"people to forget that you can\l"
+	"trade with this guy.", MSGBOX_DEFAULT)
 	end
 }
 
@@ -231,12 +250,25 @@ script CeliaSecrets_Bonus_WEmblem {
 }
 
 script CeliaSecrets_Bonus_MtMoonBench {
-	msgbox("Hiding this area behind the world's\nmost hidden bench is so cool.\pYou need to dig DEEP if you wanna\nfind it.", MSGBOX_NPC)
+	msgbox(
+	"I love how if you wanna get here\n"
+	"early, you have to find the\l"
+	"world's most hidden bench.\p"
+
+	"If you don't find it, then later\n"
+	"when you return with Surf you'll\l"
+	"see that it was here all along!", MSGBOX_NPC)
 	end
 }
 
 script CeliaSecrets_Bonus_AltarOfTheMoone {
-	msgbox("What is this area for, I wonder?\pAnd why is there a PC here, of all\nthings?\pExcellent questions!\nStay tuned!", MSGBOX_NPC)
+	msgbox(
+	"The PC here in the demos made\n"
+	"everyone speculate about which\l"
+	"Pokemon you needed to bring here.\p"
+
+	"Nope!\n"
+	"Not a Pokemon, silly!", MSGBOX_NPC)
 	end
 }
 
@@ -419,4 +451,305 @@ script CeliaSecrets_Bonus_CeladonRandom {
 script CeliaSecrets_Bonus_DiglettsCave {
 	msgbox("Digletts' Cave is WAY shorter than\nin vanilla.\pI absolutely hate running through\nthis place, so I needed to make\lit better.", MSGBOX_NPC)
 	end
+}
+
+
+script CeliaSecret_PitMessage {
+	lock
+	faceplayer
+	msgbox(
+	"Incidentally, there used to be a\n"
+	"scene if you Walk Through Walls\l"
+	"cheated to escape.\p"
+
+	"It was a very lovely and cute\n"
+	"message, and I'm sad that code\l"
+	"no longer works.\l"
+	"Here it is in its entirety:", MSGBOX_DEFAULT)
+	closemessage
+	goto(Route1_EventScript_PitEscaped)
+}
+
+script CeliaSecret_OakParcelMessage {
+	msgbox(
+	"If you talk to an Oak tree with the\n"
+	"PARCEL, he has unique dialogue!", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_OakForceSurf {
+	msgbox(
+	"Yes, I put that Celia there just to\n"
+	"force you to get here via surf.\p"
+
+	"I cannot stop myself from making\n"
+	"new gags.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Aidsjoke {
+	msgbox(
+	"This AIDS line used to appear first\n"
+	"in Lavender Town school.\p"
+
+	"I moved it here to more properly\n"
+	"establish the bit before riffing\l"
+	"on it later.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Teala {
+	msgbox(
+	"In the first releases, these\n"
+	"just took you to the cable club.\p"
+
+	"There wasn't anything fun there,\n"
+	"just teala telling you that nothing\l"
+	"was there.\p"
+
+	"I couldn't think of anything, so I\n"
+	"had them send you right back down.\p"
+
+	"Fun fact, that's map index 0 so\n"
+	"anytime you go out of bounds it\l"
+	"warps you there.\p"
+
+	"Teala still talks to you, so I made\n"
+	"her line into:\p"
+
+	"“Hey dumbass.\n"
+	"Don't go out of bounds.”\p"
+
+	"I see that line very, very, very\n"
+	"frequently", MSGBOX_NPC)
+}
+
+script CeliaSecret_Route22Grass {
+	msgbox(
+	"There's specific tiles in this\n"
+	"grass guaranteed to get all 3\l"
+	"encounters.\p"
+
+	"This is so speedruns and replays\n"
+	"are more consistent.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Impeckable {
+	msgbox(
+	"The Larry fight used to have\n"
+	"Drill Peck, which is a way cooler\l"
+	"animation than Tbolt.\p"
+
+	"However, I also wanted to give\n"
+	"nidotran the Impeckable ability.\p"
+
+	"That conflicted with Rattata as\n"
+	"the answer, so I had to swap\l"
+	"the moves out.", MSGBOX_NPC)
+}
+
+script CeliaSecret_CalPit {
+	msgbox(
+	"This guy has unique dialogue if\n"
+	"you nickname a pokemon MEWTWO\l"
+	"and try to give it to him.\p"
+
+	"People kept trying it lmfao\p"
+
+	"Also, RIP to the scene of him\n"
+	"chucking you in the pit if you\l"
+	"hacked in a mewtwo early.\l"
+	"Fuck you Cal LOL", MSGBOX_NPC)
+}
+
+script CeliaSecret_Nonmalicious {
+	msgbox(
+	"The primary purpose of Dad here\n"
+	"in the forest is subtle:\l"
+	"He's here to make you trust me.\p"
+
+	"I need people to trust that I won't\n"
+	"be mean to them, so they can solve\l"
+	"the Butterfree puzzle.\p"
+
+	"After spending the whole opening\n"
+	"bullying you, I needed to be nice\l"
+	"so you'd know I'm not malicious.", MSGBOX_NPC)
+}
+
+script CeliaSecret_10UPokedex {
+	msgbox(
+	"This guy serves an important\n"
+	"purpose as well:\l"
+	"The Pokedex is changed. Look at it.\p"
+
+	"With how important the dex is to\n"
+	"this hack, giving you an early\l"
+	"piqueing of curiosity helps\l"
+	"build intuition for later.", MSGBOX_NPC)
+}
+
+script CeliaSecret_OaksPC {
+	msgbox(
+	"Oak's PC has been a thorn in my\n"
+	"side relentlessly.\p"
+
+	"On one hand I want it available as\n"
+	"hints for people who get stuck.\p"
+
+	"On the other, I HATE that some folk\n"
+	"will default to it before even\l"
+	"trying to solve a puzzle.\p"
+
+	"For the full release, I went through\n"
+	"and made every hint 20x worse.\p"
+
+	"At least now you have to sometimes\n"
+	"use your goddamn brain.", MSGBOX_NPC)
+}
+
+script CeliaSecret_BrockGymGuy {
+	msgbox(
+	"Lots of folks were getting into\n"
+	"Brock's gym entirely by chance\l"
+	"while talking to NPCS.\p"
+
+	"Thus, I moved the guy who walks\n"
+	"you over a bit offscreen.\l"
+	"Now you have to actively go to him.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_NerdBuglar {
+	msgbox(
+	"This nerd doesn't actually have\n"
+	"an ending lol\p"
+
+	"Originally it did, but it was\n"
+	"scrapped.\p"
+
+	"But then I didn't wanna rewrite\n"
+	"the scene where he robs the\l"
+	"museum.\p"
+
+	"Thus uhhhhhhhhhhhhhhhhhhhh\n"
+	"he dies the end", MSGBOX_NPC)
+}
+
+script CeliaSecret_MoonStones {
+	msgbox(
+	"MUK was the last Pokemon whose\n"
+	"quest was decided.\p"
+
+	"Originally Moon stones were gone\n"
+	"from the game period.\l"
+	"I had no plans with them.\p"
+
+	"But then a few months before the\n"
+	"release, I put those last pieces\l"
+	"together and voila!", MSGBOX_NPC)
+}
+
+script CeliaSecret_BrockSneaky {
+	msgbox(
+	"If you try to sneak past the\n"
+	"trainer, he walks around the\l"
+	"rock to battle you anyway.\p"
+
+	"Tbh you should know better by now\n"
+	"anyway.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Xrays {
+	msgbox(
+	"Yes.\p"
+
+	"X Rays.\p"
+
+	"From the moon.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_MoonShortcut {
+	msgbox(
+	"Holy fuck getting people to\n"
+	"read this sign and then actually\l"
+	"fucking TAKE the shortcut\p"
+
+	"I have no clue why it's so hard\n"
+	"to be nice to people.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_MoonCandy {
+	msgbox(
+	"I like how there's two ways to get\n"
+	"to this candy.\p"
+
+	"Either you figure out walking thru\n"
+	"walls early, or you remember it\l"
+	"and come back with surf.\p"
+
+	"Either way it's a satisfying\n"
+	"puzzle!", MSGBOX_NPC)
+}
+
+script CeliaSecret_GreatBayEarly {
+	msgbox(
+	"You can access this tiny bit of\n"
+	"Great Bay early!\p"
+
+	"If you stumble upon it, I love how\n"
+	"it gives the vibe of there being\l"
+	"WAY more adventure to come.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_NoMorePC {
+	msgbox(
+	"There used to be a PC here for one\n"
+	"update, but I got rid of it for\l"
+	"pacing reasons.\p"
+
+	"Here's the deleted dev commentary\n"
+	"Celias that talked about the PC!", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_MoltresFight {
+	msgbox(
+	"In the first versions, there was no\n"
+	"puzzle to this fight.\p"
+
+	"Realizing that the sandshrew in\n"
+	"the grass would match up perfectly\l"
+	"to a Moltres here was what made me\l"
+	"commit to all rivals having puzzles.\p"
+
+	"That then led to the glorious\n"
+	"final battle.", MSGBOX_NPC)
+}
+
+script CeliaSecret_SingingFerret {
+	msgbox(
+	"This lady is the reason for the\n"
+	"beautiful release patch of:\p"
+
+	"Celias' Stupid Romhack Demo 2 v2\n"
+	"Removed the Singing Ferret\p"
+
+	"Also apparently this fight fucking\n"
+	"sucked in the speedrun.", MSGBOX_NPC)
+}
+
+script CeliaSecret_GrassEnergy {
+	msgbox(
+	"When this guy gives you scyther,\n"
+	"it's holding a Grass energy.\p"
+
+	"This is to prevent you being\n"
+	"softlocked by running out of\l"
+	"money for pokeballs and being\l"
+	"unable to beat Jerry.", MSGBOX_NPC)
 }

@@ -28515,12 +28515,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_DUDUNSPARCE] =
     {
-        .baseHP = 125,
-        .baseAttack = 100,
-        .baseDefense = 80,
-        .baseSpeed = 55,
-        .baseSpAttack = 85,
-        .baseSpDefense = 75,
+        .baseHP = 40,
+        .baseAttack = 40,
+        .baseDefense = 40,
+        .baseSpeed = 40,
+        .baseSpAttack = 40,
+        .baseSpDefense = 40,
         .types = {TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 255,
         .expYield = 150,
