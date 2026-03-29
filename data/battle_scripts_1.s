@@ -4290,7 +4290,7 @@ BattleScript_ZapmolcunoTransform::
 	redrawhealthbox BS_FAINTED @ updates the health box to match the new species
 	healthbarupdate BS_FAINTED @ updates the health bar to match the new species
 	datahpupdate BS_FAINTED @ updates the HP data to full again
-	pause B_WAIT_TIME_SHORT
+	@ pause B_WAIT_TIME_SHORT
 	fadescreensuperinstant FADE_FROM_WHITE
 	waitforfade
 	playse MUS_SE_GUILTY
@@ -5552,8 +5552,8 @@ BattleScript_RunRotomAnimation::
 	waitforfade
 	fadenewbgm MUS_NONE
 	pause B_WAIT_TIME_LONGEST
-	@ callnative LoadRotomBattleUI
-	@ waitstate
+	callnative LoadRotomBattleUI
+	waitstate
 	printstring STRINGID_DUMMY288 @ to clear the message box during the fade back
 	fadescreen FADE_FROM_WHITE
 	waitforfade
@@ -6013,12 +6013,11 @@ BattleScript_EffectBestow::
 
 BattleScript_EffectRevelationDance::
 	setrevelationdancetype
-	printstring STRINGID_REVELATIONDANCEMATCHEDTYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_EffectHit
 
 BattleScript_RevelationDanceString::
-
+	printstring STRINGID_REVELATIONDANCEMATCHEDTYPE
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 

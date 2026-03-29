@@ -556,7 +556,8 @@
 #define ITEM_RARE_ANDY 474
 #define ITEM_MESPRIT 475
 #define ITEM_FLAME_ORB 476
-#define ITEMS_COUNT 477
+#define ITEM_STUN_SEED 477
+#define ITEMS_COUNT 478
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

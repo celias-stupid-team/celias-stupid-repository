@@ -152,3 +152,12 @@ script AmitySquare_Garbodor {
 	release
 	end
 }
+
+script FourIsland_Marin {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"MARIN: Oh, man…\p"
+
+	"They let my FRIEND in there, but\n"
+	"not me-!", MSGBOX_NPC)
+}

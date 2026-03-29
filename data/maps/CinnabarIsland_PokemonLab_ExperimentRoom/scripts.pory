@@ -515,3 +515,37 @@ script Cinnabar_Gunther {
 	"My friends are dickheads.\n"
 	"", MSGBOX_NPC)
 }
+
+script ExperimentRoom_FlavorText1 {
+	msgbox(
+	"“OPERATION by MILTON BRADLEY\n"
+	"Speedrun Strats”", MSGBOX_SIGN)
+
+}
+
+script ExperimentRoom_FlavorText2 {
+	msgbox(
+	"A slot machine displays three body\n"
+	"parts lined up perfectly.\p"
+
+	"The full payout is given, despite\n"
+	"the species being fully mismatched.", MSGBOX_SIGN)
+
+}
+
+script ExperimentRoom_FlavorText3 {
+	msgbox(
+	"SPORE (2008)\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script ExperimentRoom_FlavorText4 {
+	msgbox(
+	"A list of various animals, with\n"
+	"different body parts circled.\p"
+
+	"Annotations reading “This one!”\n"
+	"and “Try this!” adorn the display.", MSGBOX_SIGN)
+
+}

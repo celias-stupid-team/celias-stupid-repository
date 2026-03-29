@@ -39,6 +39,12 @@ script SevenIsland_Mart_EventScript_Clerk {
 	"What do you want?", MSGBOX_DEFAULT)
 	waitmessage
 	pokemart(Walmart_Mart)
+	if(checkitem(ITEM_CIGARETTES, 500)) {
+		msgbox(
+		"You also get a PREMIER CIGARETTE\n"
+		"as an added bonus.", MSGBOX_DEFAULT)
+		additem(ITEM_PREMIERCIGAR)
+	}
 	if(checkitem(ITEM_GUN)) {
 		while(checkitem(ITEM_GUN)) {
 			removeitem(ITEM_GUN)

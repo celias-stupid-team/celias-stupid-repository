@@ -23,6 +23,7 @@ mapscripts Route19_MapScripts {
 }
 
 script EventScript_RemoveUselessItems {
+	additem(ITEM_POKE_BALL, 20)
 	while(checkitem(ITEM_ANTIDOTE)) {
 		removeitem(ITEM_ANTIDOTE)
 		addvar(VAR_TEMP_5, 1)
@@ -210,6 +211,7 @@ script Route19_LookerScene {
 	delay(30)
 	applymovement(LOCALID_LOOKER_LAYING, moves(
 		set_invisible
+		walk_up
 	))
 	applymovement(LOCALID_LOOKER_UP, moves(
 		set_visible

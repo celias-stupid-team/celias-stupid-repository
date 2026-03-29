@@ -1237,7 +1237,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
     u16 species;
 
     species = SPECIES_GIMMIGHOUL;
-
+    FlagClear(FLAG_SHINY_CREATION);
     if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
     {
         gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
@@ -1293,6 +1293,7 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
     species = SPECIES_DRAGONITE;
 
     gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
+    FlagClear(FLAG_SHINY_CREATION);
 
     switch (gSpecialVar_Result)
     {
@@ -1509,6 +1510,11 @@ static void ItemUseOnFieldCB_GenderFluid(u8 taskId)
         gPlayerAvatar.gender = MALE;
     }
     FlagSet(FLAG_USED_GENDER_FLUID);
+    if(!FlagGet(FLAG_SYS_HAS_SWITCHED_GENDERS)) {
+        FlagSet(FLAG_SYS_HAS_SWITCHED_GENDERS);
+    } else {
+        FlagClear(FLAG_SYS_HAS_SWITCHED_GENDERS);
+    }
 
     TryToTransTheNidotrans(taskId);
     

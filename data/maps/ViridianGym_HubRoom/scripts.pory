@@ -34,8 +34,8 @@ script ViridianGym_HintManSwitch {
                 "Legends speak of a POKéMON so\n"
                 "powerful, it had to be Sealed away.\p"
 
-                "Perhaps if you could Break the\n"
-                "Seal, you'd be able to get through!", MSGBOX_DEFAULT)
+                "Perhaps once the Seal has been\n"
+                "broken, you'll find a way through!", MSGBOX_DEFAULT)
             case 3:
                 msgbox(
                 "Did you ever talk to the PHISHING\n"

@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_VIRIDIAN_GYM_2",
   "requires_flash": true,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
@@ -18,7 +18,7 @@
     {
       "local_id": "LOCALID_BLAINE_DMCA_3",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_DAZZLE",
+      "graphics_id": "OBJ_EVENT_GFX_PAUL",
       "x": 12,
       "y": 4,
       "elevation": 0,
@@ -121,18 +121,19 @@
       "flag": "FLAG_BEAT_DMCA_BLAINE"
     },
     {
+      "local_id": "LOCALID_BLAINE_BLOCKER",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GYM_SIGN",
-      "x": 18,
-      "y": 8,
+      "x": 12,
+      "y": 2,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SecretGarden_PCSystem",
-      "flag": "0"
+      "script": "ViridianGym_BlaineStop",
+      "flag": "FLAG_BEAT_DMCA_BLAINE"
     }
   ],
   "warp_events": [

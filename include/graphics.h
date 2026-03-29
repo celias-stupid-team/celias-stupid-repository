@@ -8811,6 +8811,15 @@ extern const u32 gBattleAnimSpriteGfx_Peanut[];
 extern const u32 gBattleAnimSpriteGfx_MegaStone[];
 extern const u32 gBattleAnimSpriteGfx_MegaParticles[];
 extern const u32 gBattleAnimSpriteGfx_MegaSymbol[];
+extern const u32 gBattleAnimSpriteGfx_Burger[];
+extern const u32 gBattleAnimSpriteGfx_TowerTop[];
+extern const u32 gBattleAnimSpriteGfx_TowerBottom[];
+extern const u32 gBattleAnimSpriteGfx_CashRegister[];
+extern const u32 gBattleAnimSpriteGfx_Ranch[];
+extern const u32 gBattleAnimSpriteGfx_UselessCard[];
+extern const u32 gBattleAnimSpriteGfx_Soldier[];
+extern const u32 gBattleAnimSpriteGfx_BlueHair[];
+extern const u32 gBattleAnimSpriteGfx_Capt[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9181,6 +9190,15 @@ extern const u32 gBattleAnimSpritePal_Peanut[];
 extern const u32 gBattleAnimSpritePal_MegaStone[];
 extern const u32 gBattleAnimSpritePal_MegaParticles[];
 extern const u32 gBattleAnimSpritePal_MegaSymbol[];
+extern const u32 gBattleAnimSpritePal_Burger[];
+extern const u32 gBattleAnimSpritePal_TowerTop[];
+extern const u32 gBattleAnimSpritePal_TowerBottom[];
+extern const u32 gBattleAnimSpritePal_CashRegister[];
+extern const u32 gBattleAnimSpritePal_Ranch[];
+extern const u32 gBattleAnimSpritePal_UselessCard[];
+extern const u32 gBattleAnimSpritePal_Soldier[];
+extern const u32 gBattleAnimSpritePal_BlueHair[];
+extern const u32 gBattleAnimSpritePal_Capt[];
 
 //CSR Moves
 
@@ -12348,6 +12366,10 @@ extern const u8 gBattleInterface_Gfx[][32];
 extern const u16 gBattleInterface_Healthbox_Pal[];
 extern const u16 gBattleInterface_Healthbar_Pal[];
 
+extern const u32 gBattleInterface_Textbox_Rotom_Gfx[];
+extern const u32 gBattleInterface_Textbox_Rotom_Pal[];
+extern const u32 gBattleInterface_Textbox_Rotom_Tilemap[];
+
 // item_menu
 extern const u32 gBagBg_Gfx[];
 extern const u32 gBagBg_Tilemap[];
@@ -13212,3 +13234,15 @@ extern const u32 gMonShinyPalette_GREGORY[];
 extern const u8 gMonFootprint_GREGORY[];
 extern const u8 gMonIcon_GREGORY[];
 
+
+extern const u32 gTrainerFrontPic_Wiz[];
+extern const u32 gTrainerPalette_Wiz[];
+
+extern const u32 gTrainerFrontPic_Plasto[];
+extern const u32 gTrainerPalette_Plasto[];
+
+extern const u32 gItemIcon_StunSeed[];
+extern const u32 gItemIconPalette_StunSeed[];
+
+extern const u32 gTrainerFrontPic_Starlight[];
+extern const u32 gTrainerPalette_Starlight[];

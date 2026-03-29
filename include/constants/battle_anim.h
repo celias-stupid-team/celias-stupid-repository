@@ -423,6 +423,15 @@
 #define ANIM_TAG_MEGA_STONE                 (ANIM_SPRITES_START + 413)
 #define ANIM_TAG_MEGA_PARTICLES             (ANIM_SPRITES_START + 414)
 #define ANIM_TAG_MEGA_SYMBOL                (ANIM_SPRITES_START + 415)
+#define ANIM_TAG_BURGER                     (ANIM_SPRITES_START + 416)
+#define ANIM_TAG_TOWER_TOP                  (ANIM_SPRITES_START + 417)
+#define ANIM_TAG_TOWER_BOTTOM               (ANIM_SPRITES_START + 418)
+#define ANIM_TAG_CASH_REGISTER              (ANIM_SPRITES_START + 419)
+#define ANIM_TAG_RANCH                      (ANIM_SPRITES_START + 420)
+#define ANIM_TAG_USELESS_CARD               (ANIM_SPRITES_START + 421)
+#define ANIM_TAG_SOLDIER                    (ANIM_SPRITES_START + 422)
+#define ANIM_TAG_BLUE_HAIR                  (ANIM_SPRITES_START + 423)
+#define ANIM_TAG_CAPT                       (ANIM_SPRITES_START + 424)
 
 // battlers
 #define ANIM_ATTACKER       0

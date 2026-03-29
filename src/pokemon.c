@@ -124,6 +124,8 @@ const u32 gProtectedMoves[] = {
     MOVE_SLASH_TCG,
     MOVE_LUNAR_DANCE,
     MOVE_BESTOW,
+    MOVE_DOUBLE_DAD,
+    MOVE_CURSE,
     MOVE_FLY_CYNTHIA
 };
 
@@ -6412,6 +6414,9 @@ u16 FacilityClassToPicIndex(u16 facilityClass)
 // If FALSE, should load this game's Deoxys form. If TRUE, should load normal Deoxys form
 bool8 ShouldIgnoreDeoxysForm(u8 caseId, u8 battlerId)
 {
+    return TRUE; //Make the Blaine fight load default deoxys
+
+
     switch (caseId)
     {
     case 0:

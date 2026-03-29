@@ -551,9 +551,9 @@ const u8 gShellderPokedexText[] = _(
 const u8 gShellderPokedexTextUnused[] = _("");
 
 const u8 gCloysterPokedexText[] = _(
-	"No, I am not above\n"
-	"making these jokes.");
+	"Google “MANDIBUZZ Japanese name”");
 
+    
 const u8 gCloysterPokedexTextUnused[] = _("");
 
 const u8 gGastlyPokedexText[] = _(

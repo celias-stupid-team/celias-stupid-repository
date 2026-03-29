@@ -2620,8 +2620,8 @@
     {
       "id": "LAYOUT_ONE_ISLAND_KINDLE_ROAD",
       "name": "OneIsland_KindleRoad_Layout",
-      "width": 18,
-      "height": 15,
+      "width": 42,
+      "height": 36,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7432,8 +7432,8 @@
     {
       "id": "LAYOUT_FARAWAY_ISLAND",
       "name": "FarawayIsland_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 60,
+      "height": 60,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7548,6 +7548,18 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/One_Island_Cave/border.bin",
       "blockdata_filepath": "data/layouts/One_Island_Cave/map.bin"
+    },
+    {
+      "id": "LAYOUT_CREDITS_FRAME7",
+      "name": "Credits_Frame7",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Credits",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Credits_Frame7/border.bin",
+      "blockdata_filepath": "data/layouts/Credits_Frame7/map.bin"
     }
   ]
 }
