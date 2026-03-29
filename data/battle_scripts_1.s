@@ -6239,7 +6239,9 @@ BattleScript_EffectSnowGravy::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSnowGravy_Barry:
+	fadenewbgm MUS_NONE
 	setflag FLAG_USED_SNOWGRAVY
+	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PROCEED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_HitFromCritCalc

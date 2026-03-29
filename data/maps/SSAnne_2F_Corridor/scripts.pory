@@ -157,9 +157,11 @@ mapscripts SSAnne_2F_Corridor_MapScripts {
 			setvar(VAR_TEMP_0, 1)
 		}
 		setflag(FLAG_TEMP_2)
+		clearflag(FLAG_USED_SNOWGRAVY)
 	}
 	MAP_SCRIPT_ON_RESUME {
 		if(flag(FLAG_USED_SNOWGRAVY)) {
+			playbgm(MUS_NONE, TRUE)
 			addobject(LOCALID_FROZEN_ARTICUNO)
 			clearflag(FLAG_TEMP_2)
 		}
@@ -262,7 +264,14 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	msgbox(SSAnne_2F_Corridor_Text_RivalIntro)
 	setvar(VAR_LAST_TALKED, LOCALID_SS_ANNE_RIVAL)
 	call(SSAnne_2F_Corridor_EventScript_RivalCharmander)
-	msgbox(SSAnne_2F_Corridor_Text_RivalPostBattle)
+	if(flag(FLAG_USED_SNOWGRAVY)) {
+		msgbox(
+		"BARRY: …{PAUSE 40} …{PAUSE 40} …{PAUSE 40}\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(SSAnne_2F_Corridor_Text_RivalPostBattle)
+	}
+	
 	closemessage
 	delay(10)
 	playbgm(MUS_RIVAL_EXIT, 0) //idk
