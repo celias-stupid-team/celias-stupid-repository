@@ -2262,6 +2262,8 @@ void CalculateMonStats(struct Pokemon *mon)
 
         if (species == SPECIES_FINALZAPDOS)
             newMaxHP *= 2; // over-increase HP for Final Zapdos
+        if (species == SPECIES_FINALHOOH)
+            newMaxHP = 48;
         if (species == SPECIES_FINALWARTORTLE)
             newMaxHP = 24;
         if (species == SPECIES_FINALCHARMANDER)
@@ -2321,9 +2323,15 @@ void CalculateMonStats(struct Pokemon *mon)
     }
 
     // special defense values for final battle
-    if (species == SPECIES_FINALARTICUNO || species == SPECIES_FINALHOOH)
+    if (species == SPECIES_FINALARTICUNO)
     {
         arg = 9;
+        SetMonData(mon, MON_DATA_DEF, &arg);
+        SetMonData(mon, MON_DATA_SPDEF, &arg);
+    }
+    if (species == SPECIES_FINALHOOH)
+    {
+        arg = 10;
         SetMonData(mon, MON_DATA_DEF, &arg);
         SetMonData(mon, MON_DATA_SPDEF, &arg);
     }
