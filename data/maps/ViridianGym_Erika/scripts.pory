@@ -33,6 +33,7 @@ mapscripts ViridianGym_Erika_MapScripts {
 
 script ViridianGym_ErikaBattle {
     lock
+    setvar(VAR_TEMP_1, 1)
     call(Viridian_ErikaBattleStartBegin)
     trainerbattle_no_intro(TRAINER_DMCA_ERIKA, ViridianGym_ErikaBattle_End)
     goto(Viridian_ErikaBattleEnd)
