@@ -2451,6 +2451,7 @@ void FaintClearSetData(void)
     gProtectStructs[gActiveBattler].bounceMove = FALSE;
     gProtectStructs[gActiveBattler].bounceReflectMove = FALSE;
     gProtectStructs[gActiveBattler].bounceShineMove = FALSE;
+    gProtectStructs[gActiveBattler].bounceAuroraVeilMove = FALSE;
     gProtectStructs[gActiveBattler].stealMove = FALSE;
     gProtectStructs[gActiveBattler].flag0Unknown = FALSE;
     gProtectStructs[gActiveBattler].prlzImmobility = FALSE;

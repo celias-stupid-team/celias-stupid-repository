@@ -103,6 +103,7 @@
 #define VARIOUS_TRY_END_NEUTRALIZING_GAS        22
 #define VARIOUS_SWITCHIN_ABILITIES              23
 #define VARIOUS_TRY_SET_SHINE                   24
+#define VARIOUS_TRY_SET_AURORA_VEIL             25
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0

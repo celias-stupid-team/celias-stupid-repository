@@ -13622,7 +13622,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_AURORA_VEIL] =
     {
-        .effect = EFFECT_REFLECT_2,
+        .effect = EFFECT_AURORA_VEIL,
         .power = 0,
         .type = TYPE_ICE,
         .accuracy = 100,
