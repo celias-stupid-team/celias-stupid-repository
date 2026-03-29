@@ -67,15 +67,15 @@ u8 *StringGet_Nickname(u8 *str)
     return &str[i];
 }
 
-u8 Get_String_to_gStringVar1(char *str, u8 limit)
+void Get_String_to_gStringVar1(char *str, u8 limit)
 {
     u8 i;
 
-    *gStringVar1 = EOS;
     for (i = 0; i < limit; i++)
     {
         gStringVar1[i] = *(str + i);
     }
+    gStringVar1[limit] = EOS;
 }
 
 u8 *StringCopy_PlayerName(u8 *dest, const u8 *src)

@@ -1433,6 +1433,12 @@
 	.4byte \failInstr
 	.endm
 
+	// it's a copy of REFLECT_2
+	.macro trysetauroraveil battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_SET_AURORA_VEIL
+	.4byte \failInstr
+	.endm
+
 	.macro handlespriteupdate battler:req
 	various \battler, VARIOUS_HANDLE_SPRITE_UPDATE
 	.endm
@@ -1507,6 +1513,10 @@
 
 	.macro jumpifmove move:req, jumpptr:req
 	jumpifhalfword CMP_EQUAL, gCurrentMove, \move, \jumpptr
+	.endm
+
+	.macro jumpifopponent trainer:req, jumpptr:req
+	jumpifhalfword CMP_EQUAL, gTrainerBattleOpponent_A, \trainer, \jumpptr
 	.endm
 
 	.macro jumpifnotmove move:req, jumpptr:req

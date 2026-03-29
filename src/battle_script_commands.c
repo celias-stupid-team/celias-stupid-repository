@@ -1076,6 +1076,16 @@ static void Cmd_attackcanceler(void)
         gBattlescriptCurrInstr = BattleScript_ReflectBounce;
         return;
     }
+
+    // EFFECT_AURORA_VEIL
+    if (gProtectStructs[gBattlerTarget].bounceAuroraVeilMove)
+    {
+        PressurePPLose(gBattlerAttacker, gBattlerTarget, MOVE_REFLECT);
+        gProtectStructs[gBattlerTarget].bounceAuroraVeilMove = FALSE;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_ReflectBounce;
+        return;
+    }
     
     for (i = 0; i < gBattlersCount; i++)
     {
@@ -7422,6 +7432,23 @@ static void Cmd_various(void)
             }
             return;
         }
+        case VARIOUS_TRY_SET_AURORA_VEIL:
+        {
+            VARIOUS_ARGS(const u8 *failInstr);
+            u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+            gSpecialStatuses[battler].ppNotAffectedByPressure = 1;
+            if (gCurrentTurnActionNumber == gBattlersCount - 1) // moves last turn
+            {
+                gBattlescriptCurrInstr = cmd->failInstr;
+            }
+            else
+            {
+                gProtectStructs[battler].bounceAuroraVeilMove = TRUE;
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            }
+            return;
+        }
         case VARIOUS_HANDLE_SPRITE_UPDATE:
         {
             VARIOUS_ARGS();
@@ -11009,6 +11036,12 @@ static void Cmd_removelightscreenreflect(void)
         gSideStatuses[opposingSide] &= ~SIDE_STATUS_LIGHTSCREEN;
         gSideTimers[opposingSide].reflectTimer = 0;
         gSideTimers[opposingSide].lightscreenTimer = 0;
+        gBattleScripting.animTurn = 1;
+        gBattleScripting.animTargetsHit = 1;
+    }
+    else if (gProtectStructs[gBattlerTarget].bounceReflectMove)
+    {
+        gProtectStructs[gBattlerTarget].bounceReflectMove = FALSE;
         gBattleScripting.animTurn = 1;
         gBattleScripting.animTargetsHit = 1;
     }

@@ -420,15 +420,18 @@
 #define ANIM_TAG_SPOON                      (ANIM_SPRITES_START + 410)
 #define ANIM_TAG_SLURF                      (ANIM_SPRITES_START + 411)
 #define ANIM_TAG_PEANUT                     (ANIM_SPRITES_START + 412)
-#define ANIM_TAG_BURGER                     (ANIM_SPRITES_START + 413)
-#define ANIM_TAG_TOWER_TOP                  (ANIM_SPRITES_START + 414)
-#define ANIM_TAG_TOWER_BOTTOM               (ANIM_SPRITES_START + 415)
-#define ANIM_TAG_CASH_REGISTER              (ANIM_SPRITES_START + 416)
-#define ANIM_TAG_RANCH                      (ANIM_SPRITES_START + 417)
-#define ANIM_TAG_USELESS_CARD               (ANIM_SPRITES_START + 418)
-#define ANIM_TAG_SOLDIER                    (ANIM_SPRITES_START + 419)
-#define ANIM_TAG_BLUE_HAIR                  (ANIM_SPRITES_START + 420)
-#define ANIM_TAG_CAPT                       (ANIM_SPRITES_START + 421)
+#define ANIM_TAG_MEGA_STONE                 (ANIM_SPRITES_START + 413)
+#define ANIM_TAG_MEGA_PARTICLES             (ANIM_SPRITES_START + 414)
+#define ANIM_TAG_MEGA_SYMBOL                (ANIM_SPRITES_START + 415)
+#define ANIM_TAG_BURGER                     (ANIM_SPRITES_START + 416)
+#define ANIM_TAG_TOWER_TOP                  (ANIM_SPRITES_START + 417)
+#define ANIM_TAG_TOWER_BOTTOM               (ANIM_SPRITES_START + 418)
+#define ANIM_TAG_CASH_REGISTER              (ANIM_SPRITES_START + 419)
+#define ANIM_TAG_RANCH                      (ANIM_SPRITES_START + 420)
+#define ANIM_TAG_USELESS_CARD               (ANIM_SPRITES_START + 421)
+#define ANIM_TAG_SOLDIER                    (ANIM_SPRITES_START + 422)
+#define ANIM_TAG_BLUE_HAIR                  (ANIM_SPRITES_START + 423)
+#define ANIM_TAG_CAPT                       (ANIM_SPRITES_START + 424)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -541,6 +544,8 @@
 #define B_ANIM_GRAVITY_CONTINUES        43
 #define B_ANIM_COLOR_CHANGE_WIZ1989     44
 #define B_ANIM_FLIP_TURN_TRANSFORM      45
+#define B_ANIM_MEGA_EVOLUTION           46
+#define B_ANIM_DYNAMAX_GROWTH           47
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
