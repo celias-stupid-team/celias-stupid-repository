@@ -93,6 +93,7 @@ script Route10_SecretDad {
 	lock
 	faceplayer
 	textcolor(0)
+	setflag(FLAG_GOT_HORSEA_FROM_DAD)
 	if(flag(FLAG_GOT_HORSEA_FROM_DAD)) {
 		msgbox("DAD: {PLAYER}!\nWhat are you doing back here?\pBe careful not to get stuck.\nOnce you jump down here, that's it!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 			call(EventScript_DadHeal)
@@ -226,6 +227,12 @@ script Route10_CeliaLook {
 }
 
 script Route10_CeliaDadSecret {
-	msgbox("It took me quite a few tries to get\na line for this secret that wasn't\lcreepy or gross.\pI don't wanna punch down on folks.\nI'm very committed to that.", MSGBOX_NPC)
+	msgbox(
+	"This used to be the spot for a\n"
+	"shiny, but the method sucked so\l"
+	"I changed it.\p"
+
+	"Now it's just a fun easter egg.\n"
+	"", MSGBOX_NPC)
 	end
 }

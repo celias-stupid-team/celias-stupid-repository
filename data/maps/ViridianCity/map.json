@@ -200,7 +200,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeliaSecret_OakForceSurf",
+      "script": "ViridianCity_EventScript_CeliaKenya",
       "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
@@ -340,7 +340,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeliaSecret_OakParcelMessage",
+      "script": "CeliaSecret_OakForceSurf",
       "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],

@@ -4131,13 +4131,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt11[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt12[] = {
     {
         .iv = 0,
-        .lvl = 22,
+        .lvl = 18,
         .species = SPECIES_GRIMER,
         .moves = {MOVE_MINIMIZE, MOVE_SLUDGE, MOVE_DISABLE, MOVE_HARDEN},
     },
     {
         .iv = 0,
-        .lvl = 22,
+        .lvl = 17,
         .species = SPECIES_GRIMER,
         .moves = {MOVE_SLUDGE, MOVE_SMOG, MOVE_TACKLE, MOVE_POISON_GAS},
     },

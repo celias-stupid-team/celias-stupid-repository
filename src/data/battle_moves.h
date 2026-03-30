@@ -9271,7 +9271,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_NICE_BEAM] =
     {
         .effect = EFFECT_HIT,
-        .power = 95,
+        .power = 69,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 35,
@@ -10864,7 +10864,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SKULL_ISSUE] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 70,
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 35,
