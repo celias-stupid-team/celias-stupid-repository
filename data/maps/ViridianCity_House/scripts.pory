@@ -451,7 +451,17 @@ script CeliaSecrets_Bonus_FlowerWindows {
 }
 
 script CeliaSecrets_Bonus_Route8 {
-	msgbox("This was the last route I made for\nthe demo, and it shows.\pI wanted to show off all the dumb\nthings I learned how to do:\pFrom the weather tiles to the\nGrowlithe sign to pushing the bench,\lthere's plenty of fun stuff here!", MSGBOX_NPC)
+	msgbox(
+	"This was the last route I made\n"
+	"before switching from binary to\l"
+	"decomp.\p"
+
+	"I designed it to show everything\n"
+	"I'd learned, and push the limits\l"
+	"of what I could do.\p"
+
+	"It's a little clunky, but I'm\n"
+	"prout of what I accomplished here.", MSGBOX_NPC)
 	end
 }
 
@@ -1241,4 +1251,99 @@ script CeliaSecrets_Frick {
 	"This guy's Igglybuff's cry being\n"
 	"FRICKING FRICK is distressingly\l"
 	"underrated.", MSGBOX_NPC)
+}
+
+
+script CeliaSecrets_Porygon {
+	msgbox(
+	"I'll confess that finding coins\n"
+	"on the ground to buy a Porygon\l"
+	"is prolly the weakest puzzle here.\p"
+
+	"It stems from a time when this was\n"
+	"more of a trivia game, and progress\l"
+	"was gated by knowing details.\p"
+
+	"It's not a puzzle I would design\n"
+	"nowadays, but it was one I couldn't\l"
+	"ever really change. Oh well.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_PrinterMachine {
+	msgbox(
+	"One of my goals in this project was\n"
+	"getting people to engage with the\l"
+	"fun, silly casual side of things.\p"
+
+	"When's the last time you used the\n"
+	"printer machine in a romhack?", MSGBOX_NPC)
+}
+
+
+script CeliaSecrets_MeltedGuard {
+	msgbox(
+	"This quest was based on a story told\n"
+	"by BikdipOnABus, about when he\l"
+	"played Japanese FRLG first.\p"
+
+	"Apparently he interpreted the Tea\n"
+	"sprite as being a vat of toxic\l"
+	"waste, which is fucking hilarious.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_MeltedGuardSteps {
+	msgbox(
+	"After you step in the melted guard,\n"
+	"you leave footprints on the floor!", MSGBOX_NPC)
+}
+
+
+script CeliaSecrets_GrowlitheSign {
+	msgbox(
+	"When the growlithe sign blinks,\n"
+	"it's not the sprite animating.\p"
+
+	"Instead, I draw map tiles under him\n"
+	"with his eyes closed, and then I\l"
+	"toggle the sprite visibility!\p"
+
+	"…I have since learned how to\n"
+	"make sprites blink.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_MewNerd {
+	msgbox(
+	"This joke sadly gets lost in\n"
+	"translation.\p"
+
+	"He's one of the trainers you could\n"
+	"perform the Mew glitch with in RBY.\p"
+
+	"The idea is that he thinks the\n"
+	"glitch was the intended method, so\l"
+	"he complains that it's obscure.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_LegendaryDaisy {
+	msgbox(
+	"I wonder if that flower tile\n"
+	"under the Lass is special…", MSGBOX_NPC)
+}
+
+script CeliaSecrets_BenchPush {
+	msgbox(
+	"In the demos, no one realized the\n"
+	"bench was interactable.\p"
+
+	"Thus, I added a little bobbing\n"
+	"animation to it to draw your eye.\p"
+
+	"Now you talk to it without thinking,\n"
+	"triggering the bench push scene.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_NoCutscene {
+	msgbox(
+	"Narrator voice:\n"
+	"She never put a cutscene here.", MSGBOX_NPC)
 }
