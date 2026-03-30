@@ -425,6 +425,42 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 63,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 63,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route9_SetMap"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route9_SetMap"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
     }
   ],
   "bg_events": [
