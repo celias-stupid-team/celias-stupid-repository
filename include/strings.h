@@ -964,6 +964,7 @@ extern const u8 gText_MainMenuTime[];
 
 // learn_move
 extern const u8 gText_TeachWhichMoveToMon[];
+extern const u8 gText_TeachWhichMove[];
 extern const u8 gText_MonLearnedMove[];
 extern const u8 gText_MonIsTryingToLearnMove[];
 extern const u8 gText_StopLearningMove[];
@@ -972,6 +973,7 @@ extern const u8 gText_MonForgotOldMoveAndMonLearnedNewMove[];
 extern const u8 gText_WhichMoveShouldBeForgotten[];
 extern const u8 gText_TeachMoveQues[];
 extern const u8 gText_GiveUpTryingToTeachNewMove[];
+extern const u8 gText_GiveUpTryingToTeachNewMove_NoMon[];
 
 // pokemon_size_record
 extern const u8 gText_DecimalPoint[];

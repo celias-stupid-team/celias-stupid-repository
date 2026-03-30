@@ -235,6 +235,7 @@ static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr);
 static void MoveCursorToConfirm(void);
 static bool8 IsSelectedMonNotEgg(u8 *slotPtr);
 static void TryTutorSelectedMon(u8 taskId);
+static void TryMultiMoveTutorSelectedMon(u8 taskId);
 static void TryGiveMailToSelectedMon(u8 taskId);
 static void SwitchSelectedMons(u8 taskId);
 static void TryEnterMonForMinigame(u8 taskId, u8 slot);
@@ -864,6 +865,32 @@ static bool8 DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(u8 slot)
             return FALSE;
         DisplayPartyPokemonDataToTeachMove(slot, 0, gSpecialVar_0x8005);
     }
+    else if (gPartyMenu.action == PARTY_ACTION_MULTI_MOVE_TUTOR) // display move compatibility
+    {
+        u8 tutor;
+        u16 species;
+        gSpecialVar_Result = FALSE;
+        if (GetMonData(currentPokemon, MON_DATA_IS_EGG))
+        {
+            DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+        }
+        else
+        {
+            species = GetMonData(currentPokemon, MON_DATA_SPECIES);
+            // new moves require additional entries in GetTutorMove(), CanLearnTutorMove()
+            for (tutor = 0; tutor < TUTOR_MOVE_COUNT; tutor++)
+            {
+                if (GetTutorMove(tutor) == gSpecialVar_0x8006)
+                    break;
+            }
+            if (tutor == TUTOR_MOVE_COUNT || !CanLearnTutorMove(species, tutor))
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+            else if (MonKnowsMove(currentPokemon, gSpecialVar_0x8006))
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_LEARNED);
+            else
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+        }
+    }
     else
     {
         if (gPartyMenu.action != PARTY_ACTION_USE_ITEM)
@@ -1191,6 +1218,13 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             {
                 PlaySE(SE_SELECT);
                 TryTutorSelectedMon(taskId);
+            }
+            break;
+        case PARTY_ACTION_MULTI_MOVE_TUTOR: // try teaching the move
+            if (IsSelectedMonNotEgg((u8 *)slotPtr))
+            {
+                PlaySE(SE_SELECT);
+                TryMultiMoveTutorSelectedMon(taskId);
             }
             break;
         case PARTY_ACTION_GIVE_MAILBOX_MAIL:
@@ -5615,6 +5649,48 @@ static void TryTutorSelectedMon(u8 taskId)
     }
 }
 
+static void TryMultiMoveTutorSelectedMon(u8 taskId)
+{
+    struct Pokemon *mon;
+    s16 *data;
+
+    if (!gPaletteFade.active)
+    {
+        mon = &gPlayerParty[gPartyMenu.slotId];
+        data = gPartyMenu.data;
+        GetMonNickname(mon, gStringVar1);
+        gPartyMenu.learnMoveId = gSpecialVar_0x8006;
+        StringCopy(gStringVar2, gLongMoveNames[gPartyMenu.learnMoveId]);
+        learnMoveMethod = LEARN_VIA_TUTOR;
+        {
+            u8 tutor;
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            for (tutor = 0; tutor < TUTOR_MOVE_COUNT; tutor++)
+            {
+                if (GetTutorMove(tutor) == gPartyMenu.learnMoveId)
+                    break;
+            }
+            if (tutor == TUTOR_MOVE_COUNT || !CanLearnTutorMove(species, tutor))
+            {
+                DisplayLearnMoveMessageAndClose(taskId, gText_PkmnCantLearnMove);
+                return;
+            }
+        }
+        if (MonKnowsMove(mon, gPartyMenu.learnMoveId))
+        {
+            DisplayLearnMoveMessageAndClose(taskId, gText_PkmnAlreadyKnows);
+            return;
+        }
+        if (GiveMoveToMon(mon, gPartyMenu.learnMoveId) != MON_HAS_MAX_MOVES)
+        {
+            Task_LearnedMove(taskId);
+            return;
+        }
+        DisplayLearnMoveMessage(gText_PkmnNeedsToReplaceMove);
+        gTasks[taskId].func = Task_ReplaceMoveYesNo;
+    }
+}
+
 #undef learnMoveId
 #undef learnMoveMethod
 
@@ -6006,6 +6082,17 @@ void ChooseMonForMoveTutor(void)
                       CB2_ReturnToFieldContinueScriptPlayMapMusic);
         gPartyMenu.slotId = gSpecialVar_0x8007;
     }
+}
+
+void CB2_ChooseMonForMultiMoveTutor(void) // call party screen with PARTY_ACTION_MULTI_MOVE_TUTOR
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD,
+                  PARTY_LAYOUT_SINGLE,
+                  PARTY_ACTION_MULTI_MOVE_TUTOR,
+                  FALSE,
+                  PARTY_MSG_TEACH_WHICH_MON,
+                  Task_HandleChooseMonInput,
+                  CB2_MultiMoveTutor_Init);
 }
 
 void ChooseMonForWirelessMinigame(void)

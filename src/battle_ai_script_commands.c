@@ -143,6 +143,7 @@ static void Cmd_get_battler_id(void);
 static void Cmd_if_last_used_move(void);
 static void Cmd_if_held_item_equal(void);
 static void Cmd_if_has108evasion(void);
+static void Cmd_if_trainer_equal(void);
 
 static void RecordLastUsedMoveByTarget(void);
 static void BattleAI_DoAIProcessing(void);
@@ -253,6 +254,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_last_used_move,                // 0x61
     Cmd_if_held_item_equal,               // 0x62
     Cmd_if_has108evasion,                 // 0x63
+    Cmd_if_trainer_equal,                 // 0x64
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -2084,4 +2086,14 @@ static void Cmd_if_has108evasion(void)
         sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 2);
     else
         sAIScriptPtr += 6;
+}
+
+static void Cmd_if_trainer_equal(void)
+{
+    u16 trainerId = T1_READ_16(sAIScriptPtr + 1);
+
+    if (gTrainerBattleOpponent_A == trainerId)
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
+    else
+        sAIScriptPtr += 7;
 }

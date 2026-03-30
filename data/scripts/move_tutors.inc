@@ -498,3 +498,10 @@ Movement_JumpInPlaceLeft:
 Movement_JumpInPlaceRight:
 	jump_in_place_right
 	step_end
+
+EventScript_MultiMoveTutor::
+	msgbox TwoIsland_House_Text_TeachWhichMove
+	special TeachMultiMoveTutorMove
+	waitstate
+	goto TwoIsland_House_EventScript_EndTutorMove
+	end

@@ -233,6 +233,7 @@ gSpecials::
 	def_special BufferMoveDeleterNicknameAndMove
 	def_special GetNumMovesSelectedMonHas
 	def_special TeachMoveRelearnerMove
+	def_special TeachMultiMoveTutorMove
 	def_special NullFieldSpecial  @ Hoenn Cycling Road specials
 	def_special NullFieldSpecial
 	def_special GetPlayerAvatarBike
