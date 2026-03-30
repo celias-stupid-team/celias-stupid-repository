@@ -8817,6 +8817,16 @@ extern const u32 gBattleAnimSpriteGfx_UselessCard[];
 extern const u32 gBattleAnimSpriteGfx_Soldier[];
 extern const u32 gBattleAnimSpriteGfx_BlueHair[];
 extern const u32 gBattleAnimSpriteGfx_Capt[];
+extern const u32 gBattleAnimSpriteGfx_TcgCharge[];
+extern const u32 gBattleAnimSpriteGfx_TcgDash[];
+extern const u32 gBattleAnimSpriteGfx_TcgGoo[];
+extern const u32 gBattleAnimSpriteGfx_TcgSlash[];
+extern const u32 gBattleAnimSpriteGfx_TcgImpact[];
+extern const u32 gBattleAnimSpriteGfx_TcgPunch[];
+extern const u32 gBattleAnimSpriteGfx_TcgPowder[];
+extern const u32 gBattleAnimSpriteGfx_TcgWater[];
+extern const u32 gBattleAnimSpriteGfx_TcgRocks[];
+extern const u32 gBattleAnimSpriteGfx_TcgSword[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9193,6 +9203,16 @@ extern const u32 gBattleAnimSpritePal_UselessCard[];
 extern const u32 gBattleAnimSpritePal_Soldier[];
 extern const u32 gBattleAnimSpritePal_BlueHair[];
 extern const u32 gBattleAnimSpritePal_Capt[];
+extern const u32 gBattleAnimSpritePal_TcgCharge[];
+extern const u32 gBattleAnimSpritePal_TcgDash[];
+extern const u32 gBattleAnimSpritePal_TcgGoo[];
+extern const u32 gBattleAnimSpritePal_TcgSlash[];
+extern const u32 gBattleAnimSpritePal_TcgImpact[];
+extern const u32 gBattleAnimSpritePal_TcgPunch[];
+extern const u32 gBattleAnimSpritePal_TcgPowder[];
+extern const u32 gBattleAnimSpritePal_TcgWater[];
+extern const u32 gBattleAnimSpritePal_TcgRocks[];
+extern const u32 gBattleAnimSpritePal_TcgSword[];
 
 //CSR Moves
 

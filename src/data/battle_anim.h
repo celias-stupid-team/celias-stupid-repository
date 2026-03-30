@@ -1455,12 +1455,22 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Burger, 0x0200, ANIM_TAG_BURGER},
     {gBattleAnimSpriteGfx_TowerTop, 0x0800, ANIM_TAG_TOWER_TOP},
     {gBattleAnimSpriteGfx_TowerBottom, 0x0400, ANIM_TAG_TOWER_BOTTOM},
-    {gBattleAnimSpriteGfx_CashRegister, 0x0800, ANIM_TAG_CASH_REGISTER},
+    {gBattleAnimSpriteGfx_CashRegister, 0x0200, ANIM_TAG_CASH_REGISTER},
     {gBattleAnimSpriteGfx_Ranch, 0x0800, ANIM_TAG_RANCH},
     {gBattleAnimSpriteGfx_UselessCard, 0x0A00, ANIM_TAG_USELESS_CARD},
     {gBattleAnimSpriteGfx_Soldier, 0x0A00, ANIM_TAG_SOLDIER},
     {gBattleAnimSpriteGfx_BlueHair, 0x0400, ANIM_TAG_BLUE_HAIR},
     {gBattleAnimSpriteGfx_Capt, 0x0400, ANIM_TAG_CAPT},
+    {gBattleAnimSpriteGfx_TcgCharge, 0x0600, ANIM_TAG_TCG_CHARGE},
+    {gBattleAnimSpriteGfx_TcgDash, 0x1000, ANIM_TAG_TCG_DASH},
+    {gBattleAnimSpriteGfx_TcgGoo, 0x2000, ANIM_TAG_TCG_GOO},
+    {gBattleAnimSpriteGfx_TcgSlash, 0x0600, ANIM_TAG_TCG_SLASH},
+    {gBattleAnimSpriteGfx_TcgImpact, 0x0600, ANIM_TAG_TCG_IMPACT},
+    {gBattleAnimSpriteGfx_TcgPunch, 0x1000, ANIM_TAG_TCG_PUNCH},
+    {gBattleAnimSpriteGfx_TcgPowder, 0x0020, ANIM_TAG_TCG_POWDER},
+    {gBattleAnimSpriteGfx_TcgWater, 0x00C0, ANIM_TAG_TCG_WATER},
+    {gBattleAnimSpriteGfx_TcgRocks, 0x0E00, ANIM_TAG_TCG_ROCKS},
+    {gBattleAnimSpriteGfx_TcgSword, 0x0400, ANIM_TAG_TCG_SWORD},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1887,6 +1897,16 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Soldier, ANIM_TAG_SOLDIER},
     {gBattleAnimSpritePal_BlueHair, ANIM_TAG_BLUE_HAIR},
     {gBattleAnimSpritePal_Capt, ANIM_TAG_CAPT},
+    {gBattleAnimSpritePal_TcgCharge, ANIM_TAG_TCG_CHARGE},
+    {gBattleAnimSpritePal_TcgDash, ANIM_TAG_TCG_DASH},
+    {gBattleAnimSpritePal_TcgGoo, ANIM_TAG_TCG_GOO},
+    {gBattleAnimSpritePal_TcgSlash, ANIM_TAG_TCG_SLASH},
+    {gBattleAnimSpritePal_TcgImpact, ANIM_TAG_TCG_IMPACT},
+    {gBattleAnimSpritePal_TcgPunch, ANIM_TAG_TCG_PUNCH},
+    {gBattleAnimSpritePal_TcgPowder, ANIM_TAG_TCG_POWDER},
+    {gBattleAnimSpritePal_TcgWater, ANIM_TAG_TCG_WATER},
+    {gBattleAnimSpritePal_TcgRocks, ANIM_TAG_TCG_ROCKS},
+    {gBattleAnimSpritePal_TcgSword, ANIM_TAG_TCG_SWORD},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

@@ -429,6 +429,16 @@
 #define ANIM_TAG_SOLDIER                    (ANIM_SPRITES_START + 419)
 #define ANIM_TAG_BLUE_HAIR                  (ANIM_SPRITES_START + 420)
 #define ANIM_TAG_CAPT                       (ANIM_SPRITES_START + 421)
+#define ANIM_TAG_TCG_CHARGE                 (ANIM_SPRITES_START + 422)
+#define ANIM_TAG_TCG_DASH                   (ANIM_SPRITES_START + 423)
+#define ANIM_TAG_TCG_GOO                    (ANIM_SPRITES_START + 424)
+#define ANIM_TAG_TCG_SLASH                  (ANIM_SPRITES_START + 425)
+#define ANIM_TAG_TCG_IMPACT                 (ANIM_SPRITES_START + 426)
+#define ANIM_TAG_TCG_PUNCH                  (ANIM_SPRITES_START + 427)
+#define ANIM_TAG_TCG_POWDER                 (ANIM_SPRITES_START + 428)
+#define ANIM_TAG_TCG_WATER                  (ANIM_SPRITES_START + 429)
+#define ANIM_TAG_TCG_ROCKS                  (ANIM_SPRITES_START + 430)
+#define ANIM_TAG_TCG_SWORD                  (ANIM_SPRITES_START + 431)
 
 // battlers
 #define ANIM_ATTACKER       0
