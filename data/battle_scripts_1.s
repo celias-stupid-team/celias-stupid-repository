@@ -6231,8 +6231,7 @@ BattleScript_EffectSnowGravy::
 	attackstring
 	ppreduce
 	jumpifopponent TRAINER_RIVAL_BARRY, BattleScript_EffectSnowGravy_Barry
-	attackanimation
-	waitanimation
+	
 	setbattlestringid
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
