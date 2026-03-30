@@ -8,6 +8,7 @@
 #include "constants/pokemon.h"
 #include "constants/species.h"
 #include "constants/global.h"
+#include "constants/opponents.h"
 	.include "asm/macros/battle_ai_script.inc"
 
 	.section script_data, "aw", %progbits
@@ -834,6 +835,7 @@ AI_CV_Absorb_End::
 	end
 
 AI_CV_SelfKO::
+	if_trainer_equal TRAINER_SUPER_NERD_MIGUEL, Score_Plus5
 	if_stat_level_less_than AI_TARGET, STAT_EVASION, 7, AI_CV_SelfKO_Encourage1
 	score -1
 	if_stat_level_less_than AI_TARGET, STAT_EVASION, 10, AI_CV_SelfKO_Encourage1
