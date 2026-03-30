@@ -409,7 +409,7 @@ script CeliaSecrets_CeladonAngryNerd {
 }
 
 script CeliaSecrets_CeladonLGBTQIA {
-	msgbox("I included one trainer in this gym\nfor every letter of LGBTQAP, but\lI couldn't think of something for I.\pSorry, Intersex community!\nY'all are still awesome!", MSGBOX_NPC)
+	msgbox("I included one trainer in this gym\nfor every letter of LGBTQAP, but\lI couldn't think of something for I.\pSorry, Intersex community!\nY'all are still awesome!\pI just couldn't figure out how to\nmake fun of you!", MSGBOX_NPC)
 	end
 }
 
@@ -453,7 +453,13 @@ script CeliaSecrets_CeladonTragic {
 }
 
 script CeliaSecrets_CeladonBikeGate {
-	msgbox("This gate ensures that the player\ngets the bike before finishing\lCeladon.\pI wonder why!\n", MSGBOX_NPC)
+	msgbox(
+	"This gate ensures the player gets\n"
+	"the Bike before beating celadon.\p"
+
+	"That way they won't have to\n"
+	"backtrack from fushcia if they\l"
+	"missed it!", MSGBOX_NPC)
 	end
 }
 
@@ -473,7 +479,13 @@ script CeliaSecrets_CeladonNPCs {
 }
 
 script CeliaSecrets_CeladonSootopolis {
-	msgbox("haha\n", MSGBOX_NPC)
+	msgbox(
+	"Sootopolis is great cuz at first\n"
+	"blush it's a hilarious throwaway\l"
+	"gag.\p"
+
+	"But then you realize Oh Shit.\n"
+	"I can DO STUFF here.", MSGBOX_NPC)
 	end
 }
 

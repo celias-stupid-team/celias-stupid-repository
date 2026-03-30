@@ -1116,3 +1116,129 @@ script CeliaSecret_EllipsisExclamation {
 	"in order to balance the tone of\l"
 	"this game.", MSGBOX_NPC)
 }
+
+script CeliaSecret_LarryWarp {
+	msgbox(
+	"Originally this warp tile led to\n"
+	"the Larry 2 fight.\p"
+
+	"However people kept completely\n"
+	"ignoring it, meaning they'd get\l"
+	"stuck trying to find bidoof.\p"
+
+	"Thus, I re-arranged the Silph\n"
+	"warp maze such that this just\l"
+	"leads you back.\p"
+
+	"PS you can check the wall where\n"
+	"the elevator used to be.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Masuda {
+	msgbox(
+	"This is Masuda's daughter!\p"
+
+	"Sadly the line about her daddy\n"
+	"making sure you can catch\l"
+	"psyduck in every game doesn't\l"
+	"quite hold true  anymore.\p"
+
+	"Alas!\n"
+	"", MSGBOX_NPC)
+}
+
+
+
+
+script CeliaSecrets_Litwicks {
+	msgbox(
+	"Well, here we are.\n"
+	"Burning.\p"
+
+	"There are 27 unique conversations\n"
+	"that these guys can have!\p"
+
+	"Sadly the vast majority of people\n"
+	"only talk to them once each.\p"
+
+	"Alas.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Misspelling {
+	msgbox(
+	"Sigh… … …\p"
+
+	"Yes.\p"
+
+	"This guy's mispellings are on\n"
+	"purpose.\l"
+	"{PAUSE 45}…That one was too.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_PrincipleDefinitions {
+	msgbox(
+	"This is a joke that I'm sure\n"
+	"single-digit numbers of players\l"
+	"will actually understand.\p"
+
+	"Oh well.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CeliaSecrets_Poincare {
+	msgbox(
+	"This is the only one of the\n"
+	"Millennium Problems that's been\l"
+	"solved!\p"
+
+	"I had to consult some mathy folk\n"
+	"to make sure I phrased the question\l"
+	"correctly.", MSGBOX_NPC)
+}
+
+
+script CeliaSecrets_Stanley {
+	msgbox(
+	"The purified and protected zone\n"
+	"is me trying to channel the\l"
+	"Stanley Parable as best I can.\p"
+
+	"Frustratingly, I apparently did it\n"
+	"so well that some folks think I\l"
+	"just ripped quotes from the game.\p"
+
+	"Alas.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecrets_OldManIsland {
+	msgbox(
+	"I don't actually have a line for\n"
+	"this celia.\p"
+
+	"It's just here to fuck with people\n"
+	"before Surf was available.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_BirdCultists {
+	msgbox(
+	"The “Bird Cultist” here is a\n"
+	"leftover from a dropped plotline.\p"
+
+	"Originally there was a boss rush\n"
+	"against a bunch of 'em to get the\l"
+	"float stone, but I couldn't get it\l"
+	"to work.\p"
+
+	"So there's just one or two guys\n"
+	"hanging out.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Frick {
+	msgbox(
+	"This guy's Igglybuff's cry being\n"
+	"FRICKING FRICK is distressingly\l"
+	"underrated.", MSGBOX_NPC)
+}
