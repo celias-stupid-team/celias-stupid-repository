@@ -14218,12 +14218,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_PHIONE] = //Dex Mon
     {
-        .baseHP = 110,
-        .baseAttack = 110,
-        .baseDefense = 110,
-        .baseSpeed = 110,
-        .baseSpAttack = 110,
-        .baseSpDefense = 110,
+        .baseHP = 120,
+        .baseAttack = 120,
+        .baseDefense = 120,
+        .baseSpeed = 120,
+        .baseSpAttack = 120,
+        .baseSpDefense = 120,
         .types = {TYPE_WATER, TYPE_WATER},
         .catchRate = 255,
         .expYield = 150,
