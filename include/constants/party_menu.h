@@ -28,7 +28,8 @@
 #define TUTOR_MOVE_GRASS_PLEDGE    15
 #define TUTOR_MOVE_FIRE_PLEDGE     16
 #define TUTOR_MOVE_WATER_PLEDGE    17
-#define TUTOR_MOVE_COUNT           18 // regular tutor move count
+#define TUTOR_MOVE_PLEDGE_OF_ALLEGIANCE 18
+#define TUTOR_MOVE_COUNT           19 // regular tutor move count
 
 #define FIELD_MOVE_STRENGTH        0
 #define FIELD_MOVE_CUT          1
@@ -94,6 +95,7 @@ define FIELD_MOVE_GUILLOTINE   13
 #define PARTY_ACTION_REUSABLE_ITEM      14
 #define PARTY_ACTION_CHOOSE_FAINTED_MON 15
 #define PARTY_ACTION_MULTI_MOVE_TUTOR   16
+#define PARTY_ACTION_PLEDGE_TUTOR       17
 
 // IDs for DisplayPartyMenuStdMessage, to display the message at the bottom of the party menu
 #define PARTY_MSG_CHOOSE_MON                0

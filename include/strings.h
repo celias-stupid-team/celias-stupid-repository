@@ -428,6 +428,7 @@ extern const u8 gText_PPWasRestored[];
 extern const u8 gText_PkmnHPRestoredByVar2[];
 extern const u8 gText_PkmnNeedsToReplaceMove[];
 extern const u8 gText_PkmnCantLearnMove[];
+extern const u8 gText_PkmnLearnedMove2[];
 extern const u8 gText_PkmnAlreadyKnows[];
 extern const u8 gText_PkmnLearnedMove3[];
 extern const u8 gText_WhichMoveToForget[];
