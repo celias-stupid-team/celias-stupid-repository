@@ -4,6 +4,10 @@ const u32 gBattleInterface_Textbox_Gfx[] = INCBIN_U32("graphics/battle_interface
 const u32 gBattleInterface_Textbox_Pal[] = INCBIN_U32("graphics/battle_interface/textbox.gbapal.lz");
 const u32 gBattleInterface_Textbox_Tilemap[] = INCBIN_U32("graphics/battle_interface/textbox.bin.lz");
 
+const u32 gBattleInterface_Textbox_Rotom_Gfx[] = INCBIN_U32("graphics/battle_interface/textbox_rotom.4bpp.lz");
+const u32 gBattleInterface_Textbox_Rotom_Pal[] = INCBIN_U32("graphics/battle_interface/textbox_rotom.gbapal.lz");
+const u32 gBattleInterface_Textbox_Rotom_Tilemap[] = INCBIN_U32("graphics/battle_interface/textbox_rotom.bin.lz");
+
 #include "data/graphics/battle_terrain.h"
 
 const u32 gMonFrontPic_CircledQuestionMark[] = INCBIN_U32("graphics/pokemon/question_mark/circled/front.4bpp.lz");
@@ -350,6 +354,15 @@ const u32 gBattleAnimSpritePal_Slurf[] = INCBIN_U32("graphics/battle_anims/sprit
 
 const u32 gBattleAnimSpriteGfx_Peanut[] = INCBIN_U32("graphics/battle_anims/sprites/peanut.4bpp.lz");
 const u32 gBattleAnimSpritePal_Peanut[] = INCBIN_U32("graphics/battle_anims/sprites/peanut.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_MegaStone[] = INCBIN_U32("graphics/battle_anims/sprites/mega_stone.4bpp.lz");
+const u32 gBattleAnimSpritePal_MegaStone[] = INCBIN_U32("graphics/battle_anims/sprites/mega_stone.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_MegaParticles[] = INCBIN_U32("graphics/battle_anims/sprites/mega_particles.4bpp.lz");
+const u32 gBattleAnimSpritePal_MegaParticles[] = INCBIN_U32("graphics/battle_anims/sprites/mega_particles.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_MegaSymbol[] = INCBIN_U32("graphics/battle_anims/sprites/mega_symbol.4bpp.lz");
+const u32 gBattleAnimSpritePal_MegaSymbol[] = INCBIN_U32("graphics/battle_anims/sprites/mega_symbol.gbapal.lz");
 
 const u32 gBattleAnimSpriteGfx_Burger[] = INCBIN_U32("graphics/battle_anims/sprites/burger.4bpp.lz");
 const u32 gBattleAnimSpritePal_Burger[] = INCBIN_U32("graphics/battle_anims/sprites/burger.gbapal.lz");

@@ -19,7 +19,6 @@ static void AnimMovePowderParticle_Step(struct Sprite *);
 static void AnimSolarBeamSmallOrb(struct Sprite *);
 static void AnimSolarBeamSmallOrb_Step(struct Sprite *);
 static void AnimSolarBeamBigOrb(struct Sprite *);
-static void AnimPowerAbsorptionOrb(struct Sprite *);
 static void AnimAbsorptionOrb(struct Sprite *);
 static void AnimAbsorptionOrb_Step(struct Sprite *);
 static void AnimHyperBeamOrb(struct Sprite *);
@@ -302,7 +301,7 @@ static const union AnimCmd *const sSolarBeamSmallOrbAnimTable[] =
     sSolarBeamSmallOrbAnimCms,
 };
 
-static const union AnimCmd *const sPowerAbsorptionOrbAnimTable[] =
+const union AnimCmd *const gPowerAbsorptionOrbAnimTable[] =
 {
     sPowerAbsorptionOrbAnimCmds,
 };
@@ -313,7 +312,7 @@ static const union AffineAnimCmd sPowerAbsorptionOrbAffineAnimCmds[] =
     AFFINEANIMCMD_JUMP(0),
 };
 
-static const union AffineAnimCmd *const sPowerAbsorptionOrbAffineAnimTable[] =
+const union AffineAnimCmd *const gPowerAbsorptionOrbAffineAnimTable[] =
 {
     sPowerAbsorptionOrbAffineAnimCmds,
 };
@@ -323,9 +322,9 @@ const struct SpriteTemplate gPowerAbsorptionOrbSpriteTemplate =
     .tileTag = ANIM_TAG_ORBS,
     .paletteTag = ANIM_TAG_ORBS,
     .oam = &gOamData_AffineNormal_ObjBlend_16x16,
-    .anims = sPowerAbsorptionOrbAnimTable,
+    .anims = gPowerAbsorptionOrbAnimTable,
     .images = NULL,
-    .affineAnims = sPowerAbsorptionOrbAffineAnimTable,
+    .affineAnims = gPowerAbsorptionOrbAffineAnimTable,
     .callback = AnimPowerAbsorptionOrb,
 };
 
@@ -390,7 +389,7 @@ const struct SpriteTemplate gAbsorptionOrbSpriteTemplate =
     .tileTag = ANIM_TAG_ORBS,
     .paletteTag = ANIM_TAG_ORBS,
     .oam = &gOamData_AffineNormal_ObjBlend_16x16,
-    .anims = sPowerAbsorptionOrbAnimTable,
+    .anims = gPowerAbsorptionOrbAnimTable,
     .images = NULL,
     .affineAnims = sAbsorptionOrbAffineAnimTable,
     .callback = AnimAbsorptionOrb,
@@ -878,7 +877,7 @@ const struct SpriteTemplate gMimicOrbSpriteTemplate =
     .tileTag = ANIM_TAG_ORBS,
     .paletteTag = ANIM_TAG_ORBS,
     .oam = &gOamData_AffineDouble_ObjNormal_16x16,
-    .anims = sPowerAbsorptionOrbAnimTable,
+    .anims = gPowerAbsorptionOrbAnimTable,
     .images = NULL,
     .affineAnims = sMimicOrbAffineAnimTable,
     .callback = AnimMimicOrb,
@@ -2953,7 +2952,7 @@ const struct SpriteTemplate gRevelationDanceYellowOrbsTemplate =
     .tileTag = ANIM_TAG_ORBS,
     .paletteTag = ANIM_TAG_ORBS,
     .oam = &gOamData_AffineNormal_ObjBlend_16x16,
-    .anims = sPowerAbsorptionOrbAnimTable,
+    .anims = gPowerAbsorptionOrbAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimPetalDanceBigFlower
@@ -3008,7 +3007,7 @@ const struct SpriteTemplate gRevelationDanceYellowDispersalTemplate =
     .tileTag = ANIM_TAG_ORBS,
     .paletteTag = ANIM_TAG_ORBS,
     .oam = &gOamData_AffineNormal_ObjBlend_16x16,
-    .anims = sPowerAbsorptionOrbAnimTable,
+    .anims = gPowerAbsorptionOrbAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFireSpread
@@ -3112,7 +3111,7 @@ static void AnimMovePowderParticle_Step(struct Sprite* sprite)
 // arg 0: initial x pixel offset
 // arg 1: initial y pixel offset
 // arg 2: duration
-static void AnimPowerAbsorptionOrb(struct Sprite* sprite)
+void AnimPowerAbsorptionOrb(struct Sprite* sprite)
 {
     InitSpritePosToAnimAttacker(sprite, TRUE);
     sprite->data[0] = gBattleAnimArgs[2];

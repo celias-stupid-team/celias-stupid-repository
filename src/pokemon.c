@@ -124,6 +124,8 @@ const u32 gProtectedMoves[] = {
     MOVE_SLASH_TCG,
     MOVE_LUNAR_DANCE,
     MOVE_BESTOW,
+    MOVE_DOUBLE_DAD,
+    MOVE_CURSE,
     MOVE_FLY_CYNTHIA
 };
 
@@ -2013,7 +2015,7 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
     }
 
     // handle shininess for species transformations
-    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA || species == SPECIES_SLOWPOKE) && GetMonData(mon, MON_DATA_CSR_SHINY))
+    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA || species == SPECIES_SLOWPOKE || species == SPECIES_INKAY) && GetMonData(mon, MON_DATA_CSR_SHINY))
         FlagSet(FLAG_SHINY_CREATION);
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
@@ -2262,6 +2264,8 @@ void CalculateMonStats(struct Pokemon *mon)
 
         if (species == SPECIES_FINALZAPDOS)
             newMaxHP *= 2; // over-increase HP for Final Zapdos
+        if (species == SPECIES_FINALHOOH)
+            newMaxHP = 48;
         if (species == SPECIES_FINALWARTORTLE)
             newMaxHP = 24;
         if (species == SPECIES_FINALCHARMANDER)
@@ -2321,9 +2325,15 @@ void CalculateMonStats(struct Pokemon *mon)
     }
 
     // special defense values for final battle
-    if (species == SPECIES_FINALARTICUNO || species == SPECIES_FINALHOOH)
+    if (species == SPECIES_FINALARTICUNO)
     {
         arg = 9;
+        SetMonData(mon, MON_DATA_DEF, &arg);
+        SetMonData(mon, MON_DATA_SPDEF, &arg);
+    }
+    if (species == SPECIES_FINALHOOH)
+    {
+        arg = 10;
         SetMonData(mon, MON_DATA_DEF, &arg);
         SetMonData(mon, MON_DATA_SPDEF, &arg);
     }
@@ -6404,6 +6414,9 @@ u16 FacilityClassToPicIndex(u16 facilityClass)
 // If FALSE, should load this game's Deoxys form. If TRUE, should load normal Deoxys form
 bool8 ShouldIgnoreDeoxysForm(u8 caseId, u8 battlerId)
 {
+    return TRUE; //Make the Blaine fight load default deoxys
+
+
     switch (caseId)
     {
     case 0:

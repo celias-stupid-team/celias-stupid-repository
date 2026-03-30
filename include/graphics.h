@@ -8808,6 +8808,9 @@ extern const u32 gBattleAnimSpriteGfx_Lass[];
 extern const u32 gBattleAnimSpriteGfx_Spoon[];
 extern const u32 gBattleAnimSpriteGfx_Slurf[];
 extern const u32 gBattleAnimSpriteGfx_Peanut[];
+extern const u32 gBattleAnimSpriteGfx_MegaStone[];
+extern const u32 gBattleAnimSpriteGfx_MegaParticles[];
+extern const u32 gBattleAnimSpriteGfx_MegaSymbol[];
 extern const u32 gBattleAnimSpriteGfx_Burger[];
 extern const u32 gBattleAnimSpriteGfx_TowerTop[];
 extern const u32 gBattleAnimSpriteGfx_TowerBottom[];
@@ -9194,6 +9197,9 @@ extern const u32 gBattleAnimSpritePal_Lass[];
 extern const u32 gBattleAnimSpritePal_Spoon[];
 extern const u32 gBattleAnimSpritePal_Slurf[];
 extern const u32 gBattleAnimSpritePal_Peanut[];
+extern const u32 gBattleAnimSpritePal_MegaStone[];
+extern const u32 gBattleAnimSpritePal_MegaParticles[];
+extern const u32 gBattleAnimSpritePal_MegaSymbol[];
 extern const u32 gBattleAnimSpritePal_Burger[];
 extern const u32 gBattleAnimSpritePal_TowerTop[];
 extern const u32 gBattleAnimSpritePal_TowerBottom[];
@@ -12380,6 +12386,10 @@ extern const u8 gBattleInterface_Gfx[][32];
 extern const u16 gBattleInterface_Healthbox_Pal[];
 extern const u16 gBattleInterface_Healthbar_Pal[];
 
+extern const u32 gBattleInterface_Textbox_Rotom_Gfx[];
+extern const u32 gBattleInterface_Textbox_Rotom_Pal[];
+extern const u32 gBattleInterface_Textbox_Rotom_Tilemap[];
+
 // item_menu
 extern const u32 gBagBg_Gfx[];
 extern const u32 gBagBg_Tilemap[];
@@ -13236,3 +13246,23 @@ extern const u32 gItemIconPalette_Mesprit[];
 
 extern const u32 gItemIcon_FlameOrb[];
 extern const u32 gItemIconPalette_FlameOrb[];
+// GREGORY
+extern const u32 gMonFrontPic_GREGORY[];
+extern const u32 gMonPalette_GREGORY[];
+extern const u32 gMonBackPic_GREGORY[];
+extern const u32 gMonShinyPalette_GREGORY[];
+extern const u8 gMonFootprint_GREGORY[];
+extern const u8 gMonIcon_GREGORY[];
+
+
+extern const u32 gTrainerFrontPic_Wiz[];
+extern const u32 gTrainerPalette_Wiz[];
+
+extern const u32 gTrainerFrontPic_Plasto[];
+extern const u32 gTrainerPalette_Plasto[];
+
+extern const u32 gItemIcon_StunSeed[];
+extern const u32 gItemIconPalette_StunSeed[];
+
+extern const u32 gTrainerFrontPic_Starlight[];
+extern const u32 gTrainerPalette_Starlight[];

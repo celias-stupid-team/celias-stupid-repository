@@ -52,6 +52,7 @@
 #include "constants/hold_effects.h"
 #include "constants/items.h"
 #include "constants/item_effects.h"
+#include "constants/trainers.h"
 #include "constants/map_types.h"
 #include "constants/maps.h"
 #include "constants/moves.h"
@@ -66,6 +67,8 @@
 #include "script.h"
 #include "trainer_slide.h"
 #include "battle_gfx_sfx_util.h"
+#include "graphics.h"
+#include "decompress.h"
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
 //
@@ -990,7 +993,10 @@ static void Cmd_attackcanceler(void)
     }
     if (AtkCanceller_UnableToUseMove())
         return;
-    
+
+    if (gCurrentMove == MOVE_V_CREATE)
+        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
+
     if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM)
     {
         // gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
@@ -999,6 +1005,14 @@ static void Cmd_attackcanceler(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
+        gBattlescriptCurrInstr++;
+        return;
+    }
+
+    if (gBattleMons[gBattlerTarget].species == SPECIES_YVELTAL && !FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE))
+    {
+        CancelMultiTurnMoves(gBattlerAttacker);
+        gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
         gBattlescriptCurrInstr++;
         return;
     }
@@ -1058,6 +1072,16 @@ static void Cmd_attackcanceler(void)
     {
         PressurePPLose(gBattlerAttacker, gBattlerTarget, MOVE_REFLECT);
         gProtectStructs[gBattlerTarget].bounceShineMove = FALSE;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_ReflectBounce;
+        return;
+    }
+
+    // EFFECT_AURORA_VEIL
+    if (gProtectStructs[gBattlerTarget].bounceAuroraVeilMove)
+    {
+        PressurePPLose(gBattlerAttacker, gBattlerTarget, MOVE_REFLECT);
+        gProtectStructs[gBattlerTarget].bounceAuroraVeilMove = FALSE;
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_ReflectBounce;
         return;
@@ -1214,6 +1238,12 @@ static void Cmd_accuracycheck(void)
      || (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
      || (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
+        JumpIfMoveFailed(7, move);
+        return;
+    }
+    if (gCurrentMove == MOVE_TRUMP_CARD && gTrainerBattleOpponent_A != TRAINER_DMCA_MISTY)
+    {
+        gMoveResultFlags |= MOVE_RESULT_NO_EFFECT;
         JumpIfMoveFailed(7, move);
         return;
     }
@@ -2123,9 +2153,6 @@ static void Cmd_attackanimation(void)
     if (gBattleControllerExecFlags)
         return;
 
-    if (gCurrentMove == MOVE_V_CREATE)
-        FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
-
     if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE && gCurrentMove != MOVE_SUBSTITUTE_TEACHER && gCurrentMove != MOVE_SUBSTITUTE_2))
     {
         BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -2846,7 +2873,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
                     return;
                 }
-                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE))
+                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE) && gCurrentMove != MOVE_WILL_O_WISP)
                     break;
                 if (gBattleMons[gEffectBattler].ability == ABILITY_WATER_VEIL)
                     break;
@@ -2858,8 +2885,8 @@ void SetMoveEffect(bool8 primary, u8 certain)
             case STATUS1_FREEZE:
                 // if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN)
                 //     noSunCanFreeze = FALSE;
-                if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ICE))
-                    break;
+                // if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ICE))
+                //     break;
                 if (gBattleMons[gEffectBattler].status1)
                     break;
                 // if (noSunCanFreeze == FALSE)
@@ -4647,7 +4674,8 @@ static void Cmd_playanimation(void)
      || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE
      || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM
-     || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM)
+     || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM
+     || gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
     {
         //create Alomomola right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
@@ -4677,6 +4705,27 @@ static void Cmd_playanimation(void)
         {
             u16 species = SPECIES_SLOWPOKE;
             gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+        }
+        // create Inkay right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
+        {
+            u16 originalSpecies = gBattleMons[gActiveBattler].species;
+            u16 species = SPECIES_INKAY;
+            u8 *bufPtr = gBattleTextBuff2;
+            
+            gBattleMons[gActiveBattler].species = species;
+            // handle battle strings
+            if (GetBattlerSide(gActiveBattler) != B_SIDE_PLAYER)
+            {
+                if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    bufPtr = StringCopy(bufPtr, gText_FoePkmnPrefix);
+                else
+                    bufPtr = StringCopy(bufPtr, gText_WildPkmnPrefix);
+            }
+            GetSpeciesName(bufPtr, originalSpecies); // MALAMAR
+            PREPARE_SPECIES_BUFFER(gBattleTextBuff3, species); // INKAY
+
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
@@ -7379,6 +7428,23 @@ static void Cmd_various(void)
             else
             {
                 gProtectStructs[battler].bounceShineMove = TRUE;
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            }
+            return;
+        }
+        case VARIOUS_TRY_SET_AURORA_VEIL:
+        {
+            VARIOUS_ARGS(const u8 *failInstr);
+            u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+            gSpecialStatuses[battler].ppNotAffectedByPressure = 1;
+            if (gCurrentTurnActionNumber == gBattlersCount - 1) // moves last turn
+            {
+                gBattlescriptCurrInstr = cmd->failInstr;
+            }
+            else
+            {
+                gProtectStructs[battler].bounceAuroraVeilMove = TRUE;
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
             return;
@@ -10793,6 +10859,13 @@ static void Cmd_pickup(void)
                     break;
             SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &sPickupItems[j]);
         }
+        if (ability == ABILITY_TOWNLOAD && species != SPECIES_NONE && species != SPECIES_EGG && heldItem == ITEM_NONE && !(Random() % 10) && FlagGet(FLAG_MESPRIT_RAN_AWAY) && !FlagGet(FLAG_RECEIVED_MESPRIT))
+        {
+            u16 item = ITEM_MESPRIT;
+
+            FlagSet(FLAG_RECEIVED_MESPRIT);
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &item);
+        }
     }
     gBattlescriptCurrInstr++;
 }
@@ -10963,6 +11036,12 @@ static void Cmd_removelightscreenreflect(void)
         gSideStatuses[opposingSide] &= ~SIDE_STATUS_LIGHTSCREEN;
         gSideTimers[opposingSide].reflectTimer = 0;
         gSideTimers[opposingSide].lightscreenTimer = 0;
+        gBattleScripting.animTurn = 1;
+        gBattleScripting.animTargetsHit = 1;
+    }
+    else if (gProtectStructs[gBattlerTarget].bounceReflectMove)
+    {
+        gProtectStructs[gBattlerTarget].bounceReflectMove = FALSE;
         gBattleScripting.animTurn = 1;
         gBattleScripting.animTargetsHit = 1;
     }
@@ -12144,6 +12223,33 @@ void BS_FadeScreenInstant(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+// without actual fade steps, just snaps colors immediately
+void BS_FadeScreenSuperInstant(void)
+{
+    NATIVE_ARGS(u8 mode);
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    switch (cmd->mode)
+    {
+        case FADE_TO_BLACK:
+            BlendPalettes(PALETTES_ALL, 16, RGB_BLACK);
+            break;
+        case FADE_TO_WHITE:
+            BlendPalettes(PALETTES_ALL, 16, RGB_WHITEALPHA);
+            break;
+        case FADE_FROM_BLACK:
+            BlendPalettes(PALETTES_ALL, 0, RGB_BLACK);
+            break;
+        case FADE_FROM_WHITE:
+            BlendPalettes(PALETTES_ALL, 0, RGB_WHITEALPHA);
+            break;
+    }
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 
 void BS_PlayMonCry(void)
 {
@@ -12745,6 +12851,20 @@ void BS_SetTechnoBlastType(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+void LoadRotomBattleUI(void)
+{
+    NATIVE_ARGS();
+
+    FlagSet(FLAG_ROTOM_BATTLE_UI);
+    LZDecompressVram(gBattleInterface_Textbox_Rotom_Gfx, (void *)BG_CHAR_ADDR(0));
+    CopyToBgTilemapBuffer(0, gBattleInterface_Textbox_Rotom_Tilemap, 0, 0x000);
+    LZDecompressWram(gBattleInterface_Textbox_Rotom_Pal, gPaletteDecompressionBuffer);
+    CpuCopy16(gPaletteDecompressionBuffer, &gPlttBufferUnfaded[BG_PLTT_ID(0)], 2 * PLTT_SIZE_4BPP);
+    CopyBgTilemapBufferToVram(0);
+    LoadBattleMenuWindowGfx();
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
 
 void BS_SetRevelationDanceType(void)
 {
@@ -12767,6 +12887,7 @@ void BS_SetRevelationDanceType(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
 
 // saves the original battle data for W-Turn
 void BS_WTurnSaveOriginalBattleData(void)
@@ -13011,12 +13132,15 @@ void BS_TryReflectType(void)
 
 void BS_TryGiveNothing(void) {
     NATIVE_ARGS(const u8 *failInstr);
-    
+    //DebugPrintf("Nothing");
     if(!FlagGet(FLAG_GOT_MOVE_NOTHING)) {
         AddBagItem(ITEM_NOTHING, 1);
+        //DebugPrintf("Nothing 2");
         FlagSet(FLAG_GOT_MOVE_NOTHING);
     }
+    //DebugPrintf("Nothing 3");
     gBattlescriptCurrInstr = cmd->nextInstr;
+    //DebugPrintf("Nothing 4");
 }
 
 

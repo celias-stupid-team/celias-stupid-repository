@@ -51,7 +51,7 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
 	[TYPE_WATER_PHYSICAL]    = { ______, ______  , ______, ______, ______, X(2.0), ______, ______, X(0.5)        , ______           , ______          , ______   , ______ , X(2.0), X(2.0), X(0.5), X(0.5), ______  , ______ , ______, X(0.5), ______, ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
 	[TYPE_ELECTRIC_PHYSICAL] = { ______, ______  , X(2.0), ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , X(0.0), ______, X(2.0), X(0.5), X(0.5)  , ______ , ______, X(0.5), ______, ______, X(0.0), ______, ______, ______   , ______, ______, X(2.0), ______, ______     , ______, ______ },
 	[TYPE_PSYCHIC_PHYSICAL]  = { ______, X(2.0)  , ______, X(2.0), X(0.5), ______, ______, ______, ______        , ______           , X(0.5)          , ______   , ______ , ______, ______, ______, ______, ______  , X(0.5) , ______, ______, X(0.0), ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
-	[TYPE_GRASS_TCG]         = { ______, X(2.0)  , ______, X(0.5), X(0.5), ______, ______, X(0.5), ______        , ______           , ______          , ______   , ______ , ______, ______, X(2.0), ______, ______  , X(0.5) , ______, X(0.5), X(2.0), ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
+	[TYPE_GRASS_TCG]         = { ______, X(2.0)  , ______, X(0.5), X(0.5), X(2.0), ______, X(0.5), ______        , ______           , ______          , ______   , ______ , X(2.0), ______, X(2.0), ______, ______  , X(0.5) , ______, X(0.5), X(2.0), ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
 	[TYPE_MYSTERY]           = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
 	[TYPE_GROUND]            = { ______, ______  , X(0.0), X(2.0), X(2.0), X(2.0), X(0.5), ______, ______        , X(2.0)           , ______          , X(0.2)   , ______ , ______, X(2.0), ______, X(0.5), X(2.0)  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, X(0.0), ______, ______     , ______, ______ },
 	[TYPE_FIRE]              = { ______, ______  , ______, ______, X(2.0), X(0.5), X(2.0), ______, X(0.5)        , ______           , ______          , X(2.0)   , ______ , ______, X(0.5), X(0.5), X(2.0), ______  , ______ , X(2.0), X(0.5), ______, ______, ______, ______, ______, X(2.0)   , ______, ______, ______, ______, ______     , ______, ______ },
@@ -1632,7 +1632,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                 gBattleMons[gBattlerAttacker].status2 -= STATUS2_CONFUSION_TURN(1);
                 if (gBattleMons[gBattlerAttacker].status2 & STATUS2_CONFUSION)
                 {
-                    if (Random() & 1)
+                    if (!(gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT) && (Random() & 1))
                     {
                         // The MULTISTRING_CHOOSER is used here as a bool to signal
                         // to BattleScript_MoveUsedIsConfused whether or not damage was taken
@@ -1644,6 +1644,8 @@ u8 AtkCanceller_UnableToUseMove(void)
                         gBattleCommunication[MULTISTRING_CHOOSER] = TRUE;
                         gBattlerTarget = gBattlerAttacker;
                         gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerAttacker], MOVE_POUND, 0, 40, 0, gBattlerAttacker, gBattlerAttacker);
+                        if (gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+                            gBattleMoveDamage = gBattleMons[gBattlerAttacker].hp;
                         gProtectStructs[gBattlerAttacker].confusionSelfDmg = 1;
                         gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
                     }

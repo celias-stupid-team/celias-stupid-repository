@@ -634,6 +634,15 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_CRUFICIED_2  0x11CE
 #define OBJ_EVENT_PAL_TAG_WHISCASH  0x11CF
 #define OBJ_EVENT_PAL_TAG_FROZEN_ARTY  0x11D0
+#define OBJ_EVENT_PAL_TAG_EEL  0x11D1
+#define OBJ_EVENT_PAL_TAG_PAUL  0x11D2
+#define OBJ_EVENT_PAL_TAG_DEERLING  0x11D3
+#define OBJ_EVENT_PAL_TAG_SMEARGLE  0x11D4
+#define OBJ_EVENT_PAL_TAG_ARTICUNO_EGG_2  0x11D5
+#define OBJ_EVENT_PAL_TAG_MOLTRES_EGG_2  0x11D6
+#define OBJ_EVENT_PAL_TAG_BURNING_EGG_2  0x11D7
+#define OBJ_EVENT_PAL_TAG_MEDIARM  0x11D8
+#define OBJ_EVENT_PAL_TAG_GAY_BOYS  0x11D9
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -840,6 +849,15 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_CRUFICIED_2,             OBJ_EVENT_PAL_TAG_CRUFICIED_2},
     {gObjectEventPal_WHISCASH,             OBJ_EVENT_PAL_TAG_WHISCASH},
     {gObjectEventPal_FROZEN_ARTY,             OBJ_EVENT_PAL_TAG_FROZEN_ARTY},
+    {gObjectEventPal_EEL,             OBJ_EVENT_PAL_TAG_EEL},
+    {gObjectEventPal_PAUL,             OBJ_EVENT_PAL_TAG_PAUL},
+    {gObjectEventPal_DEERLING,             OBJ_EVENT_PAL_TAG_DEERLING},
+    {gObjectEventPal_SMEARGLE,             OBJ_EVENT_PAL_TAG_SMEARGLE},
+    {gObjectEventPal_ARTICUNO_EGG_2,             OBJ_EVENT_PAL_TAG_ARTICUNO_EGG_2},
+    {gObjectEventPal_MOLTRES_EGG_2,             OBJ_EVENT_PAL_TAG_MOLTRES_EGG_2},
+    {gObjectEventPal_BURNING_EGG_2,             OBJ_EVENT_PAL_TAG_BURNING_EGG_2},
+    {gObjectEventPal_MEDIARM,             OBJ_EVENT_PAL_TAG_MEDIARM},
+    {gObjectEventPal_GAY_BOYS,             OBJ_EVENT_PAL_TAG_GAY_BOYS},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

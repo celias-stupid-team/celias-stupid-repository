@@ -586,7 +586,7 @@ movement GamblerReturns {
 }
 
 script ViridianCity_EventScript_CeliaKenya {
-	msgbox("Why yes, that WAS the national\nanthem of Kenya.", MSGBOX_NPC)
+	msgbox("Why yes, that IS the national\nanthem of Kenya.", MSGBOX_NPC)
 	end
 }
 

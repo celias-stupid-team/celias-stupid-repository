@@ -25,6 +25,7 @@ static EWRAM_DATA u8 sMovingMonOrigBoxId = 0;
 static EWRAM_DATA u8 sMovingMonOrigBoxPos = 0;
 static EWRAM_DATA bool8 sInMultiMoveMode = FALSE;
 static EWRAM_DATA u8 sSavedCursorPosition = 0;
+static EWRAM_DATA bool8 sBrickPieceObtained = FALSE;
 
 static void DoCursorNewPosUpdate(void);
 static bool8 MonPlaceChange_Grab(void);
@@ -723,30 +724,34 @@ static void CheckPorygonEvolve(u8 boxId){
      }
 }
 
-const u8 gText_ObtainedBrickPiece[] = _("Obtained the BRICK PIECE!");
+#define MEW_BRICK_PIECE_BOX_POSITION 22
 
-static void CheckBrickPieceGet(u8 boxId, u8 position){
+static void CheckBrickPieceGet(u8 boxId, u8 position)
+{
     u8 current_wallpaper_id = GetBoxWallpaper(boxId);
-    u16 target_item = ITEM_BRICK_PIECE;
-    u8 wallpaperCheck;
-    u8 mewPosition = 22;
 
-    
-
-    if ((GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_DITTO_MEW)
-    && (current_wallpaper_id == WALLPAPER_CITY)
-    && (position == mewPosition)
-    && !FlagGet(FLAG_GOT_MEW_BRICK_PIECE)){
+    if (GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_DITTO_MEW
+     && current_wallpaper_id == WALLPAPER_CITY
+     && position == MEW_BRICK_PIECE_BOX_POSITION
+     && !FlagGet(FLAG_GOT_MEW_BRICK_PIECE)
+     && AddBagItem(ITEM_BRICK_PIECE, 1))
+    {
         FlagSet(FLAG_GOT_MEW_BRICK_PIECE);
         PlayFanfare(MUS_LEVEL_UP);
-        AddBagItem(ITEM_BRICK_PIECE, 1);
-        //PrintStorageMessage(gText_ObtainedBrickPiece);
-
-
-        
-        //Task_EvolvePorygon();
-     }
+        sBrickPieceObtained = TRUE;
+    }
 }
+
+bool8 WasBrickPieceObtained(void)
+{
+    return sBrickPieceObtained;
+}
+
+void ClearBrickPieceObtained(void)
+{
+    sBrickPieceObtained = FALSE;
+}
+
 
 static void SetPlacedMonData(u8 boxId, u8 position)
 {

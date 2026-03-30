@@ -297,6 +297,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectUpThrow                @ EFFECT_UP_THROW
 	.4byte BattleScript_EffectShine                  @ EFFECT_SHINE
 	.4byte BattleScript_EffectHackAttack             @ EFFECT_HACK_ATTACK
+	.4byte BattleScript_EffectAuroraVeil             @ EFFECT_AURORA_VEIL
+	.4byte BattleScript_EffectSnowGravy              @ EFFECT_SNOWGRAVY
 
 BattleScript_End2::
 	end2
@@ -306,8 +308,21 @@ BattleScript_Ret::
 
 BattleScript_EffectReflect2::
 	attackcanceler
-	trysetspecialreflect BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce
 	attackstring
+	ppreduce
+	trysetspecialreflect BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNCOVEREDBYVEIL
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectAuroraVeil::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifhalfword CMP_NO_COMMON_BITS, gBattleWeather, B_WEATHER_HAIL, BattleScript_ButItFailed
+	trysetauroraveil BS_ATTACKER, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNCOVEREDBYVEIL
@@ -4254,9 +4269,16 @@ BattleScript_SlowpokeTransform::
 	pause B_WAIT_TIME_LONG
     updatebattlerdata BS_ATTACKER
 	redrawhealthbox BS_ATTACKER
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
-	return
+	end2
+
+BattleScript_FlipTurnTransform::
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_TARGET, B_ANIM_FLIP_TURN_TRANSFORM
+	printstring STRINGID_PKMNTURNEDINTO
+	waitmessage B_WAIT_TIME_LONG
+	updatebattlerdata BS_TARGET
+	redrawhealthbox BS_TARGET
+	end2
 
 BattleScript_ZapmolcunoTransform::
 	playse SE_M_MEGA_KICK
@@ -4269,8 +4291,8 @@ BattleScript_ZapmolcunoTransform::
 	redrawhealthbox BS_FAINTED @ updates the health box to match the new species
 	healthbarupdate BS_FAINTED @ updates the health bar to match the new species
 	datahpupdate BS_FAINTED @ updates the HP data to full again
-	pause B_WAIT_TIME_SHORT
-	fadescreen FADE_FROM_WHITE
+	@ pause B_WAIT_TIME_SHORT
+	fadescreensuperinstant FADE_FROM_WHITE
 	waitforfade
 	playse MUS_SE_GUILTY
 	pause B_WAIT_TIME_SHORT
@@ -5531,8 +5553,8 @@ BattleScript_RunRotomAnimation::
 	waitforfade
 	fadenewbgm MUS_NONE
 	pause B_WAIT_TIME_LONGEST
-	@ callnative LoadRotomBattleUI
-	@ waitstate
+	callnative LoadRotomBattleUI
+	waitstate
 	printstring STRINGID_DUMMY288 @ to clear the message box during the fade back
 	fadescreen FADE_FROM_WHITE
 	waitforfade
@@ -5548,7 +5570,7 @@ BattleScript_FinalMoltresFaint:: @ this script probably needs more work
 	togglebattlerspritevisibility BS_OPPONENT1 @ hide the Moltres sprite
 	sethealthboxspriteinvisible BS_OPPONENT1 @ hide healthbox sprite
 	pause B_WAIT_TIME_LONG
-	fadescreeninstant FADE_FROM_WHITE
+	fadescreensuperinstant FADE_FROM_WHITE
 	playse MUS_SE_GUILTY
 	playmoncry SPECIES_FINALMOLTRES
 	waitforcry
@@ -5884,6 +5906,11 @@ BattleScript_EffectFlipStats::
 	waitanimation
 	setmoveeffect MOVE_EFFECT_FLIP_STATS
 	seteffectprimary
+BattleScript_TransformMalamar::
+	@ only trigger form change effect, when opponent is SPECIES_MALAMAR
+	jumpifnotmove MOVE_FLIP_TURN, BattleScript_MoveEnd
+	jumpifnotspecies BS_TARGET, SPECIES_MALAMAR, BattleScript_MoveEnd
+	call BattleScript_FlipTurnTransform
 	goto BattleScript_MoveEnd
 
 @ only visual and strings, stat changes have already been applied in C
@@ -5987,12 +6014,11 @@ BattleScript_EffectBestow::
 
 BattleScript_EffectRevelationDance::
 	setrevelationdancetype
-	printstring STRINGID_REVELATIONDANCEMATCHEDTYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_EffectHit
 
 BattleScript_RevelationDanceString::
-
+	printstring STRINGID_REVELATIONDANCEMATCHEDTYPE
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
@@ -6067,7 +6093,7 @@ BattleScript_EffectNothing::
 	ppreduce
 	attackanimation
 	waitanimation
-	trygivenothing
+	trygivenothing BattleScript_EffectNothing
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -6199,3 +6225,23 @@ BattleScript_EffectHackAttack_2::
 	pause B_WAIT_TIME_LONGEST
 	instantwin
 	end
+
+BattleScript_EffectSnowGravy::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifopponent TRAINER_RIVAL_BARRY, BattleScript_EffectSnowGravy_Barry
+	attackanimation
+	waitanimation
+	setbattlestringid
+	printfromtable gDoNothingStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectSnowGravy_Barry:
+	fadenewbgm MUS_NONE
+	setflag FLAG_USED_SNOWGRAVY
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PROCEED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc

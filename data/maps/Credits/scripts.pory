@@ -17,8 +17,11 @@ mapscripts Credits_MapScripts {
             delay(20)
             setlayouttiles(LAYOUT_CREDITS_FRAME6, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
+            applymovement(LOCALID_PLAYER, moves(
+                set_invisible
+            ))
             delay(20)
-            setlayouttiles(LAYOUT_CREDITS_Frame1, 0, 0, 0, 0, 14, 10)
+            setlayouttiles(LAYOUT_CREDITS_FRAME7, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
             if(flag(FLAG_CREDITS_FAKEOUT)) { 
                 playbgm(MUS_DUMMY, TRUE)

@@ -180,7 +180,19 @@ script Route24_Celia_Verlisify {
 }
 
 script Route24_Celia_Ending {
-	msgbox("I am deeply sorry that this hack\ndoesn't have a Yes/No option\lto join the DMCA right here.\pI know that's the one feature that\npeople look for in these things.\pMaybe I'll add a Copyright Law\nending to the game eventually...", MSGBOX_NPC)
+	msgbox(
+	"I have no clue why people are so\n"
+	"obsessed with the idea of telling\l"
+	"this guy Yes.\p"
+
+	"People literally beg for a game\n"
+	"that's identical to vanilla until\l"
+	"exactly here, where they're just\l"
+	"allowed to say Yes.\p"
+
+	"I am begging these people to learn\n"
+	"basic storytelling.\l"
+	"That's not how this works.", MSGBOX_NPC)
 	end
 }
 

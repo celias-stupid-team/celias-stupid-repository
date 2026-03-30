@@ -154,6 +154,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route22_CandyStack",
       "flag": "FLAG_TEMP_2"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 35,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_Route22Grass",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 31,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_Impeckable",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [
@@ -259,7 +287,7 @@
       "x": 18,
       "y": 9,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -268,7 +296,7 @@
       "x": 18,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -277,7 +305,7 @@
       "x": 16,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -286,7 +314,7 @@
       "x": 19,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -295,7 +323,7 @@
       "x": 17,
       "y": 10,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -304,7 +332,7 @@
       "x": 19,
       "y": 10,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -313,7 +341,7 @@
       "x": 17,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -322,7 +350,7 @@
       "x": 20,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -331,7 +359,7 @@
       "x": 16,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -340,7 +368,7 @@
       "x": 15,
       "y": 10,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -349,7 +377,7 @@
       "x": 15,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -358,7 +386,7 @@
       "x": 20,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -367,7 +395,7 @@
       "x": 21,
       "y": 10,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -376,7 +404,7 @@
       "x": 21,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -385,7 +413,7 @@
       "x": 16,
       "y": 9,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     },
@@ -394,7 +422,7 @@
       "x": 20,
       "y": 9,
       "elevation": 0,
-      "var": "VAR_ROUTE22_MANKEY",
+      "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_MankeySpot2"
     }

@@ -24,9 +24,7 @@ LavenderTown_PokemonCenter_1F_EventScript_Lass::
 	msgbox LavenderTown_PokemonCenter_1F_Text_CubonesMotherKilledByRockets, MSGBOX_NPC
 	end
 
-LavenderTown_PokemonCenter_1F_EventScript_Youngster::
-	msgbox LavenderTown_PokemonCenter_1F_Text_Alphabet, MSGBOX_NPC
-	end
+
 
 LavenderTown_PokemonCenter_1F_EventScript_Riddler::
 	lock
@@ -45,3 +43,18 @@ script LavenderTown_PokemonCenter_Picnicker {
 	msgbox("I recently moved to this town.\pWhen I got here, the DMCA forced me\nto take down my fanfic…", MSGBOX_NPC)
 	end
 }
+
+
+script LavenderTown_PokemonCenter_1F_EventScript_Youngster 
+{
+	if(flag(FLAG_FOUND_Y)) {
+		msgbox(
+			"Oh, there was another letter too?\p"
+
+			"Fuck.\n"
+			"", MSGBOX_NPC)
+	} else {
+		msgbox (LavenderTown_PokemonCenter_1F_Text_Alphabet, MSGBOX_NPC)
+
+	}
+	end}

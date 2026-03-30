@@ -92,7 +92,7 @@ SeafoamIslands_B3F_Movement_RideCurrentClose::
 
 mapscripts SeafoamIslands_B3F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		setbench(BENCH_SEAFOAM)
+		//setbench(BENCH_SEAFOAM)
 		setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPHEAL_SWIMMING)
 		setflag(FLAG_TEMP_2)
 		if(!flag(FLAG_CAPTAIN_DIRECTS_SPHEALS)) {

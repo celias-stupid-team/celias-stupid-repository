@@ -192,6 +192,19 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
         }
     }
 
+    // correct handling if key item pocket is full, unlikely to happen
+    if (pocket == POCKET_TM_CASE - 1 && !CheckBagHasItem(ITEM_TM_CASE, 1))
+    {
+        if (BagPocketGetFirstEmptySlot(POCKET_KEY_ITEMS - 1) == -1)
+            return FALSE;
+    }
+    // correct handling if key item pocket is full, unlikely to happen
+    if (pocket == POCKET_BERRY_POUCH - 1 && !CheckBagHasItem(ITEM_BERRY_POUCH, 1))
+    {
+        if (BagPocketGetFirstEmptySlot(POCKET_KEY_ITEMS - 1) == -1)
+            return FALSE;
+    }
+
     if (BagPocketGetFirstEmptySlot(pocket) != -1)
         return TRUE;
 
@@ -560,7 +573,7 @@ void SortAndCompactBagPocket(struct BagPocket * pocket)
     {
         for (j = i + 1; j < pocket->capacity; j++)
         {
-            if (GetBagItemQuantity(&pocket->itemSlots[i].quantity) == 0 || (GetBagItemQuantity(&pocket->itemSlots[j].quantity) != 0 && pocket->itemSlots[i].itemId > pocket->itemSlots[j].itemId))
+            if (pocket->itemSlots[i].itemId == ITEM_NONE || (pocket->itemSlots[j].itemId != ITEM_NONE && pocket->itemSlots[i].itemId > pocket->itemSlots[j].itemId))
                 SwapItemSlots(&pocket->itemSlots[i], &pocket->itemSlots[j]);
         }
     }

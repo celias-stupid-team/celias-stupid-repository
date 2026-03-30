@@ -257,7 +257,7 @@ movement ExtraRunDown {
 }
 
 script Route1_EventScript_CeliaShiny {
-	msgbox("Every week on my Discord I see\na new person asking if I raised\lthe shiny odds.\pNope!\nThey're completely vanilla, haha!", MSGBOX_NPC)
+	msgbox("Every week on my Discord I see\na new person asking if I raised\lthe shiny odds.\pNope!\nThey're actually reduced, haha!", MSGBOX_NPC)
 	end
 }
 

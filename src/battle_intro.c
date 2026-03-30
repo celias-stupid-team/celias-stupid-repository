@@ -378,10 +378,16 @@ static void BattleIntroSlide3(u8 taskId)
         if (gTasks[taskId].data[2])
             gTasks[taskId].data[2] -= 2;
         // Scanline settings have already been set in CB2_InitBattleInternal()
-        for (i = 0; i < 80; ++i)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
-        while (i < 160)
-            gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i++] = -gTasks[taskId].data[2];
+        {
+            s32 splitLine = 80;
+            
+            if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+                splitLine = 88; // adjust split for final battle
+            for (i = 0; i < splitLine; ++i)
+                gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i] = gTasks[taskId].data[2];
+            while (i < 160)
+                gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer][i++] = -gTasks[taskId].data[2];
+        }
         if (!gTasks[taskId].data[2])
         {
             gScanlineEffect.state = 3;

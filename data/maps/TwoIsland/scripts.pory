@@ -1009,7 +1009,6 @@ script TwoIsland_BurnHeal {
 		
 		setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_SANS)
 		trainerbattle_no_intro(TRAINER_SANS, "darn")
-		if(checkpartymove(MOVE_MAGICAL_LEAF) != PARTY_SIZE) {
 			
 			msgbox(
 			"{FONT_COMIC_SANS}Oh.\n"
@@ -1051,25 +1050,14 @@ script TwoIsland_BurnHeal {
 			delay(16)
 			removeobject(LOCALID_TWO_ISLAND_SANS)
 			removeobject(LOCALID_TWO_ISLAND_SANS_DEAD)
+			removeobject(LOCALID_SANS_BURN_HEAL)
 			delay(60)
 			fadedefaultbgm
 			additem(ITEM_BURN_HEAL)
 			release
 			end
-		}
-		msgbox(
-		"Foe KECLEON dodges all of your\n"
-		"attacks.", MSGBOX_DEFAULT)
-		closemessage
-		delay(120)
-		msgbox(
-		"{FONT_COMIC_SANS}you lose\p"
-
-		"no burn heal for you\n"
-		"", MSGBOX_DEFAULT)
-		goto(EventScript_FieldWhiteOut)
-		release
-		end
+		
+		
 	} else {
 		msgbox(
 		"{FONT_COMIC_SANS}okay\p"

@@ -7,6 +7,6 @@ PalletTown_PlayersHouse_2F_Text_PressLRForHelp::
     .string "If you're confused, ask for HELP!\n"
     .string "Press the L or R Button!\p"
     .string "This is definitely a feature that\n"
-    .string "people wanted and will definitely\l"
+    .string "people wanted and shall surely\l"
     .string "not be annoying.$"
     

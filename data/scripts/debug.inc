@@ -91,7 +91,7 @@ Debug_BoxFilledMessage_Text:
 
 Debug_EventScript_Script_1::
 	setflag FLAG_SHINY_CREATION
-	setwildbattle SPECIES_MAGNEMITE, 10
+	setwildbattle SPECIES_MALAMAR, 10
 	dowildbattle
 	end
 

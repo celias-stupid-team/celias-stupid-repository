@@ -73,25 +73,36 @@ script ViridianGym_Surge_TrashCan {
 
 script ViridianGym_SurgeBattle {
     lock
+    if(checktrainerflag(TRAINER_DMCA_SURGE)) {
+            
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(
+        "He's having a seizure…\n"
+        "", MSGBOX_DEFAULT)
+        release
+        end
+    }
     textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
-	"I am the lightning japanese person\n"
-	"", MSGBOX_DEFAULT)
+	"So, you've come.\n"
+	"No matter.\p"
+
+	"I'm here to click on you,{PAUSE 20} and\n"
+	"then drag you to the RECYCLE BIN.\p"
+
+	"And then, I shall right click and\n"
+	"then press,{PAUSE 20} “Empty RECYCLE BIN”!\l"
+	"Get ready!", MSGBOX_DEFAULT)
     trainerbattle_no_intro(TRAINER_DMCA_SURGE, ViridianGym_SurgeBattle_End)
     call(ViridianGym_Surge_DrawSecondGateOpen)
-    msgbox(
-	"i'm dead\n"
-	"", MSGBOX_NPC)
-}
+    release
 
-text ViridianGym_SurgeBattle_Start {
-    "Ah\n"
 }
 
 
 text ViridianGym_SurgeBattle_End {
-   "oh no\n"
-	"dead"
+   "Aaaah-!\n"
+	"My eyes-!"
 }
 
 script ViridianGym_Surge_DrawFirstGateOpen {
