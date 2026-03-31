@@ -83,7 +83,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_ARBOK)) {
 		setobtainable(SPECIES_SEVIPER) // 24
 	}
-	if(flag(FLAG_CSR_MAP_SECRET_GARDEN)) {
+	if(flag(FLAG_CSR_MAP_SECRET_GARDEN) && flag(FLAG_CAPTAIN_DIRECTS_SPHEALS) || checkmoncaught(SPECIES_PIKABLU)) {
 		setobtainable(SPECIES_PIKABLU) // 25
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_10)) {

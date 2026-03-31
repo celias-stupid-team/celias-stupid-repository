@@ -5049,7 +5049,8 @@ static void Cmd_moveend(void)
             || WasUnableToUseMove(gBattlerAttacker)
             || gSpecialStatuses[gBattlerAttacker].dancerUsedMove
             || gProtectStructs[gBattlerAttacker].stealMove
-            || gProtectStructs[gBattlerAttacker].bounceMove)
+            || gProtectStructs[gBattlerAttacker].bounceMove
+            || (gHitMarker & HITMARKER_FAINTED(gBattlerTarget))) // don't dance if the target has already fainted
             {
                 gBattleScripting.moveendState++;
                 break;
