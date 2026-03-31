@@ -1474,6 +1474,18 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_TcgWater, 0x00C0, ANIM_TAG_TCG_WATER},
     {gBattleAnimSpriteGfx_TcgRocks, 0x0E00, ANIM_TAG_TCG_ROCKS},
     {gBattleAnimSpriteGfx_TcgSword, 0x0400, ANIM_TAG_TCG_SWORD},
+    {gBattleAnimSpriteGfx_Lloyd, 0x1000, ANIM_TAG_LLOYD},
+    {gBattleAnimSpriteGfx_DarkLloyd, 0x1000, ANIM_TAG_DARK_LLOYD},
+    {gBattleAnimSpriteGfx_Protagonists, 0x0800, ANIM_TAG_PROTAGONISTS},
+    {gBattleAnimSpriteGfx_Latinas, 0x0800, ANIM_TAG_LATINAS},
+    {gBattleAnimSpriteGfx_GameGenie, 0x0400, ANIM_TAG_GAME_GENIE},
+    {gBattleAnimSpriteGfx_Furby, 0x0200, ANIM_TAG_FURBY},
+    {gBattleAnimSpriteGfx_Firered, 0x0200, ANIM_TAG_FIRERED},
+    {gBattleAnimSpriteGfx_PrideFlag, 0x0200, ANIM_TAG_PRIDE_FLAG},
+    {gBattleAnimSpriteGfx_CreamBubbles, 0x0180, ANIM_TAG_CREAM_BUBBLES},
+    {gBattleAnimSpriteGfx_Earth, 0x0800, ANIM_TAG_EARTH},
+    {gBattleAnimSpriteGfx_HumanLegOne, 0x0800, ANIM_TAG_HUMAN_LEG_ONE},
+    {gBattleAnimSpriteGfx_HumanLegTwo, 0x2000, ANIM_TAG_HUMAN_LEG_TWO},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1913,6 +1925,18 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_TcgWater, ANIM_TAG_TCG_WATER},
     {gBattleAnimSpritePal_TcgRocks, ANIM_TAG_TCG_ROCKS},
     {gBattleAnimSpritePal_TcgSword, ANIM_TAG_TCG_SWORD},
+    {gBattleAnimSpritePal_Lloyd, ANIM_TAG_LLOYD},
+    {gBattleAnimSpritePal_DarkLloyd, ANIM_TAG_DARK_LLOYD},
+    {gBattleAnimSpritePal_Protagonists, ANIM_TAG_PROTAGONISTS},
+    {gBattleAnimSpritePal_Latinas, ANIM_TAG_LATINAS},
+    {gBattleAnimSpritePal_GameGenie, ANIM_TAG_GAME_GENIE},
+    {gBattleAnimSpritePal_Furby, ANIM_TAG_FURBY},
+    {gBattleAnimSpritePal_Firered, ANIM_TAG_FIRERED},
+    {gBattleAnimSpritePal_PrideFlag, ANIM_TAG_PRIDE_FLAG},
+    {gBattleAnimSpritePal_CreamBubbles, ANIM_TAG_CREAM_BUBBLES},
+    {gBattleAnimSpritePal_Earth, ANIM_TAG_EARTH},
+    {gBattleAnimSpritePal_HumanLegOne, ANIM_TAG_HUMAN_LEG_ONE},
+    {gBattleAnimSpritePal_HumanLegTwo, ANIM_TAG_HUMAN_LEG_TWO},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

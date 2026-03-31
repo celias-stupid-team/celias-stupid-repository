@@ -442,6 +442,18 @@
 #define ANIM_TAG_TCG_WATER                  (ANIM_SPRITES_START + 432)
 #define ANIM_TAG_TCG_ROCKS                  (ANIM_SPRITES_START + 433)
 #define ANIM_TAG_TCG_SWORD                  (ANIM_SPRITES_START + 434)
+#define ANIM_TAG_LLOYD                      (ANIM_SPRITES_START + 435)
+#define ANIM_TAG_DARK_LLOYD                 (ANIM_SPRITES_START + 436)
+#define ANIM_TAG_PROTAGONISTS               (ANIM_SPRITES_START + 437)
+#define ANIM_TAG_LATINAS                    (ANIM_SPRITES_START + 438)
+#define ANIM_TAG_GAME_GENIE                 (ANIM_SPRITES_START + 439)
+#define ANIM_TAG_FURBY                      (ANIM_SPRITES_START + 440)
+#define ANIM_TAG_FIRERED                    (ANIM_SPRITES_START + 441)
+#define ANIM_TAG_PRIDE_FLAG                 (ANIM_SPRITES_START + 442)
+#define ANIM_TAG_CREAM_BUBBLES              (ANIM_SPRITES_START + 443)
+#define ANIM_TAG_EARTH                      (ANIM_SPRITES_START + 444)
+#define ANIM_TAG_HUMAN_LEG_ONE              (ANIM_SPRITES_START + 445)
+#define ANIM_TAG_HUMAN_LEG_TWO              (ANIM_SPRITES_START + 446)
 
 // battlers
 #define ANIM_ATTACKER       0

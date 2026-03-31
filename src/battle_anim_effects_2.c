@@ -119,6 +119,9 @@ static void AnimHammerSwing(struct Sprite *sprite);
 static void AnimTask_OnionCutter_Step(u8 taskId);
 static void AnimGarbotoxin(struct Sprite *sprite);
 static void AnimTask_DynamaxGrowthStep(u8 taskId);
+static void AnimSprite_FadeInOut(struct Sprite *sprite);
+void AnimThrowProtagonist(struct Sprite *sprite);
+static void AnimThrowProtagonist_Step(struct Sprite *sprite);
 
 
 // Unused
@@ -389,6 +392,46 @@ const struct SpriteTemplate gYoshiEggThrowSpriteTemplate =
     .callback = AnimThrowProjectile,
 };
 
+static const union AnimCmd sProtagonistThrowAnimCmd_1[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_END,
+};
+static const union AnimCmd sProtagonistThrowAnimCmd_2[] =
+{
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_END,
+};
+static const union AnimCmd sProtagonistThrowAnimCmd_3[] =
+{
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_END,
+};
+static const union AnimCmd sProtagonistThrowAnimCmd_4[] =
+{
+    ANIMCMD_FRAME(48, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sProtagonistThrowAnimTable[] =
+{
+    sProtagonistThrowAnimCmd_1,
+    sProtagonistThrowAnimCmd_2,
+    sProtagonistThrowAnimCmd_3,
+    sProtagonistThrowAnimCmd_4,
+};
+
+const struct SpriteTemplate gProtagonistThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_PROTAGONISTS,
+    .paletteTag = ANIM_TAG_PROTAGONISTS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sProtagonistThrowAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProtagonist,
+};
+
 const struct SpriteTemplate gCheriBombThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_CHERI_BOMB,
@@ -514,6 +557,187 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+
+const struct SpriteTemplate gEarthLiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EARTH,
+    .paletteTag = ANIM_TAG_EARTH,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sHumanLegOneAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sHumanLegOneAnimTable[] =
+{
+    sHumanLegOneAnimCmds,
+};
+
+const struct SpriteTemplate gHumanLegOneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HUMAN_LEG_ONE,
+    .paletteTag = ANIM_TAG_HUMAN_LEG_ONE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sHumanLegOneAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sHumanLegTwoAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_FRAME(192, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sHumanLegTwoAnimTable[] =
+{
+    sHumanLegTwoAnimCmds,
+};
+
+const struct SpriteTemplate gHumanLegTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HUMAN_LEG_TWO,
+    .paletteTag = ANIM_TAG_HUMAN_LEG_TWO,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sHumanLegTwoAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+static const union AnimCmd sHumanLegThreeAnimCmds[] =
+{
+    ANIMCMD_FRAME(192, 6),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sHumanLegThreeAnimTable[] =
+{
+    sHumanLegThreeAnimCmds,
+};
+
+const struct SpriteTemplate gHumanLegThreeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HUMAN_LEG_TWO,
+    .paletteTag = ANIM_TAG_HUMAN_LEG_TWO,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sHumanLegThreeAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
+static const union AnimCmd sLloydTopAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd *const sLloydTopAnimTable[] =
+{
+    sLloydTopAnimCmds,
+};
+const struct SpriteTemplate gLloydMoveTopSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LLOYD,
+    .paletteTag = ANIM_TAG_LLOYD,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sLloydTopAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+const struct SpriteTemplate gLloydFadeTopSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LLOYD,
+    .paletteTag = ANIM_TAG_LLOYD,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = sLloydTopAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_FadeInOut,
+};
+const struct SpriteTemplate gDarkLloydTopSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DARK_LLOYD,
+    .paletteTag = ANIM_TAG_DARK_LLOYD,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = sLloydTopAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_FadeInOut,
+};
+const struct SpriteTemplate gDarkLloydMoveTopSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DARK_LLOYD,
+    .paletteTag = ANIM_TAG_DARK_LLOYD,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sLloydTopAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+static const union AnimCmd sLloydBottomAnimCmds[] =
+{
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd *const sLloydBottomAnimTable[] =
+{
+    sLloydBottomAnimCmds,
+};
+const struct SpriteTemplate gLloydMoveBottomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LLOYD,
+    .paletteTag = ANIM_TAG_LLOYD,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sLloydBottomAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+const struct SpriteTemplate gLloydFadeBottomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LLOYD,
+    .paletteTag = ANIM_TAG_LLOYD,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = sLloydBottomAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_FadeInOut,
+};
+const struct SpriteTemplate gDarkLloydBottomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DARK_LLOYD,
+    .paletteTag = ANIM_TAG_DARK_LLOYD,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = sLloydBottomAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_FadeInOut,
+};
+const struct SpriteTemplate gDarkLloydMoveBottomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DARK_LLOYD,
+    .paletteTag = ANIM_TAG_DARK_LLOYD,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sLloydBottomAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
 
 static const union AnimCmd sTCGChargeAnimCmds[] =
 {
@@ -2000,6 +2224,17 @@ const struct SpriteTemplate gWeedBurstSpriteTemplate =
     .callback = AnimParticleBurst,
 };
 
+const struct SpriteTemplate gLetterRBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LETTER_R,
+    .paletteTag = ANIM_TAG_LETTER_R,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
 const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_RED_HEART,
@@ -2314,6 +2549,16 @@ const struct SpriteTemplate gEyeSparkleSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimEyeSparkle,
+};
+const struct SpriteTemplate gEyeSparkleAbsoluteSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EYE_SPARKLE,
+    .paletteTag = ANIM_TAG_EYE_SPARKLE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sEyeSparkleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
 };
 
 static const union AnimCmd sAngelSpriteAnimCmds[] =
@@ -6435,6 +6680,84 @@ static void AnimGarbotoxin(struct Sprite *sprite)
         break;
     }
 }
+
+static void AnimSprite_FadeInOut(struct Sprite *sprite)
+{
+    u8 palIndex = IndexOfSpritePaletteTag(sprite->template->paletteTag);
+    switch (sprite->data[0]) // state machine
+    {
+    case 0: // INIT
+        // Absolute screen position
+        sprite->x = gBattleAnimArgs[0];
+        sprite->y = gBattleAnimArgs[1];
+
+        sprite->data[1] = gBattleAnimArgs[2]; // initial wait
+        sprite->data[2] = gBattleAnimArgs[3]; // fade speed
+        sprite->data[3] = gBattleAnimArgs[4]; // target colour
+        sprite->data[4] = gBattleAnimArgs[5]; // direction
+        sprite->data[5] = gBattleAnimArgs[6]; // post wait
+
+        sprite->data[6] = 0; // blend coefficient
+        sprite->data[7] = 0; // frame counter
+
+        // If fading FROM colour, start fully blended
+        if (sprite->data[4] != 0)
+            sprite->data[6] = 16;
+
+        sprite->data[0] = 1;
+        break;
+
+    case 1: // INITIAL WAIT
+        if (--sprite->data[1] <= 0)
+            sprite->data[0] = 2;
+        break;
+
+    case 2: // FADING
+        if (++sprite->data[7] >= sprite->data[2])
+        {
+            sprite->data[7] = 0;
+
+            if (sprite->data[4] == 0)
+            {
+                // Fade TO colour
+                if (sprite->data[6] < 16)
+                    sprite->data[6]++;
+            }
+            else
+            {
+                // Fade FROM colour
+                if (sprite->data[6] > 0)
+                    sprite->data[6]--;
+            }
+
+            if (palIndex != 0xFF)
+            {
+                BlendPalette(
+                    OBJ_PLTT_ID(palIndex),
+                    16,
+                    sprite->data[6],
+                    sprite->data[3]
+                );
+            }
+
+
+            // Check completion
+            if ((sprite->data[4] == 0 && sprite->data[6] == 16) ||
+                (sprite->data[4] != 0 && sprite->data[6] == 0))
+            {
+                sprite->data[0] = 3;
+            }
+        }
+        break;
+
+    case 3: // POST WAIT
+        if (--sprite->data[5] <= 0)
+            DestroyAnimSprite(sprite);
+        break;
+    }
+}
+
+
 static void AnimTask_DynamaxGrowthStep(u8 taskId) // from CFRU
 {
     struct Task* task = &gTasks[taskId];
@@ -6470,4 +6793,23 @@ void AnimTask_DynamaxGrowth(u8 taskId) // from CFRU
     else
         PrepareAffineAnimInTaskData(task, spriteId, sDynamaxGrowthAttackAnimationAffineAnimCmds);
     task->func = AnimTask_DynamaxGrowthStep;
+}
+
+void AnimThrowProtagonist(struct Sprite *sprite)
+{
+    StartSpriteAnim(sprite, Random() % 4);
+    InitSpritePosToAnimAttacker(sprite, 1);
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+    sprite->data[0] = gBattleAnimArgs[4];
+    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2) + gBattleAnimArgs[2];
+    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[3];
+    sprite->data[5] = gBattleAnimArgs[5];
+    InitAnimArcTranslation(sprite);
+    sprite->callback = AnimThrowProtagonist_Step;
+}
+static void AnimThrowProtagonist_Step(struct Sprite *sprite)
+{
+    if (TranslateAnimHorizontalArc(sprite))
+        DestroyAnimSprite(sprite);
 }
