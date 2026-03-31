@@ -426,7 +426,7 @@ script Route19_LookerScene {
 
 script Route19_CeliaAsksYouNotToGo {
 	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
-		giveitem(ITEM_RARE_CANDY, 1)
+		additem(ITEM_RARE_CANDY, 1)
 		msgbox(
 		"Don't worry!\n"
 		"You don't need to go back!\p"
@@ -435,7 +435,7 @@ script Route19_CeliaAsksYouNotToGo {
 		"", MSGBOX_NPC)
 	} else {
 		if(!checkmoncaught(SPECIES_GHOLDENGO)) {
-			giveitem(ITEM_RARE_CANDY, 1)
+			additem(ITEM_RARE_CANDY, 1)
 			msgbox(
 			"Pssst!\n"
 			"Check your POKéMON carefully!\p"

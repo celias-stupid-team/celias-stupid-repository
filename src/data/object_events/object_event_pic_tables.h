@@ -6602,3 +6602,25 @@ const struct SpriteFrameImage gObjectEventPicTable_DEAD_SABRINA[] = {
     overworld_frame(gObjectEventPic_DEAD_SABRINA, 4, 4, 7),
     overworld_frame(gObjectEventPic_DEAD_SABRINA, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_DRACULA[] = {
+    overworld_frame(gObjectEventPic_DRACULA, 2, 4, 0),
+    overworld_frame(gObjectEventPic_DRACULA, 2, 4, 1),
+    overworld_frame(gObjectEventPic_DRACULA, 2, 4, 2),
+    overworld_frame(gObjectEventPic_DRACULA, 2, 4, 0),
+    overworld_frame(gObjectEventPic_DRACULA, 2, 4, 0),
+    overworld_frame(gObjectEventPic_DRACULA, 2, 4, 1),
+    overworld_frame(gObjectEventPic_DRACULA, 2, 4, 1),
+    overworld_frame(gObjectEventPic_DRACULA, 2, 4, 2),
+    overworld_frame(gObjectEventPic_DRACULA, 2, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_WEREWOLF[] = {
+    overworld_frame(gObjectEventPic_WEREWOLF, 2, 3, 0),
+    overworld_frame(gObjectEventPic_WEREWOLF, 2, 3, 1),
+    overworld_frame(gObjectEventPic_WEREWOLF, 2, 3, 2),
+    overworld_frame(gObjectEventPic_WEREWOLF, 2, 3, 0),
+    overworld_frame(gObjectEventPic_WEREWOLF, 2, 3, 0),
+    overworld_frame(gObjectEventPic_WEREWOLF, 2, 3, 1),
+    overworld_frame(gObjectEventPic_WEREWOLF, 2, 3, 1),
+    overworld_frame(gObjectEventPic_WEREWOLF, 2, 3, 2),
+    overworld_frame(gObjectEventPic_WEREWOLF, 2, 3, 2),
+};

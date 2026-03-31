@@ -1397,3 +1397,7 @@ $(OBJEVENTGFXDIR)/stupid/GAY_BOYS.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/DEAD_SABRINA.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/DRACULA.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/WEREWOLF.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 3
