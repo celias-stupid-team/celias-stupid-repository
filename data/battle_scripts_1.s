@@ -6244,3 +6244,10 @@ BattleScript_EffectSnowGravy_Barry:
 	printstring STRINGID_PROCEED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_HitFromCritCalc
+
+BattleScript_FireWaterPledgeCombo::
+    pause B_WAIT_TIME_SHORT
+    playanimation BS_TARGET, B_ANIM_RAINBOW
+	printstring STRINGID_CREATEDRAINBOW
+	waitmessage B_WAIT_TIME_LONG
+    return

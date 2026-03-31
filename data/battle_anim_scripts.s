@@ -1140,6 +1140,7 @@ gBattleAnims_General::
 	.4byte General_FlipTurnTransform        @ B_ANIM_FLIP_TURN_TRANSFORM
 	.4byte General_MegaEvolution            @ B_ANIM_MEGA_EVOLUTION
 	.4byte General_DynamaxGrowth            @ B_ANIM_DYNAMAX_GROWTH
+	.4byte General_Rainbow					@ B_ANIM_RAINBOW
 
 	.align 2
 gBattleAnims_Special::

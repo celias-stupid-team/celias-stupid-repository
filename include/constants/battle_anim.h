@@ -546,6 +546,7 @@
 #define B_ANIM_FLIP_TURN_TRANSFORM      45
 #define B_ANIM_MEGA_EVOLUTION           46
 #define B_ANIM_DYNAMAX_GROWTH           47
+#define B_ANIM_RAINBOW                  48
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

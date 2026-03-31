@@ -5352,6 +5352,25 @@ static void Cmd_moveend(void)
             gBattleScripting.moveendState++;
             break;
         }
+        case MOVEEND_PLEDGE_COMBO:
+            // if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+            {
+                u8 side = GetBattlerSide(gBattlerAttacker);
+                if (gCurrentMove == MOVE_FIRE_PLEDGE)
+                    gBattleStruct->pledgeFlags[side] |= PLEDGE_FLAG_FIRE;
+                else if (gCurrentMove == MOVE_WATER_PLEDGE)
+                    gBattleStruct->pledgeFlags[side] |= PLEDGE_FLAG_WATER;
+
+                if (gBattleStruct->pledgeFlags[side] == (PLEDGE_FLAG_FIRE | PLEDGE_FLAG_WATER))
+                {
+                    gBattleStruct->pledgeFlags[side] = 0;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_FireWaterPledgeCombo;
+                    effect = TRUE;
+                }
+            }
+            gBattleScripting.moveendState++;
+            break;
         case MOVEEND_COUNT:
             break;
         }
