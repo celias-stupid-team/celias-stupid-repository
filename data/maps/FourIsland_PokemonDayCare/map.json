@@ -99,6 +99,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PewterCity_Furret_F",
       "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DAWN",
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_FurretButt",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [

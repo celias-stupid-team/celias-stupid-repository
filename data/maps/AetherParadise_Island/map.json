@@ -202,7 +202,7 @@
     },
     {
       "x": 56,
-      "y": 15,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_STARLIGHT_HOUSE",
       "dest_warp_id": "2"
@@ -312,11 +312,11 @@
     },
     {
       "type": "sign",
-      "x": 58,
-      "y": 13,
+      "x": 56,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "StarlightIslandSign"
+      "script": "StarLightHouseComingSoon"
     }
   ]
 }
