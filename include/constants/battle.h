@@ -34,8 +34,10 @@
 #define BATTLE_OPPOSITE(id) ((id) ^ 1)
 #define BATTLE_PARTNER(id) ((id) ^ 2)
 
-#define B_SIDE_PLAYER     0
-#define B_SIDE_OPPONENT   1
+#define B_SIDES_COUNT   2
+
+#define B_SIDE_PLAYER   0
+#define B_SIDE_OPPONENT 1
 
 #define B_FLANK_LEFT 0
 #define B_FLANK_RIGHT 1
@@ -217,6 +219,10 @@
 #define SIDE_STATUS_SPIKY_SHIELD     (1 << 12)
 #define SIDE_STATUS_SHADOW_SPIKES    (1 << 13)
 #define SIDE_STATUS_SHADOW_SHIELD    (1 << 14)
+
+// gBattleStruct->pledgeFlags[side]
+#define PLEDGE_FLAG_FIRE    (1 << 0)
+#define PLEDGE_FLAG_WATER   (1 << 1)
 
 // Flags describing move's result
 #define MOVE_RESULT_MISSED             (1 << 0)

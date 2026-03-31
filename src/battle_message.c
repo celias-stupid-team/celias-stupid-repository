@@ -155,7 +155,7 @@ static const u8 sText_PkmnProtectedByMist[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}
 const u8 gBattleText_GetPumped[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\npumped!");
 static const u8 sText_PkmnHitWithRecoil[] = _("{B_ATK_NAME_WITH_PREFIX} is hit\nwith recoil!");
 static const u8 sText_PkmnProtectedItself2[] = _("{B_ATK_NAME_WITH_PREFIX} protected\nitself!");
-static const u8 sText_ProtectedTeam[] =_("SPIKY SHIELD protected\nthe opposing team!");
+static const u8 sText_ProtectedTeam[] =_("{B_BUFF3} protected\nthe opposing team!");
 static const u8 sText_PkmnBuffetedBySandstorm[] = _("{B_ATK_NAME_WITH_PREFIX} is buffeted\nby the sandstorm!");
 static const u8 sText_PkmnPeltedByHail[] = _("{B_ATK_NAME_WITH_PREFIX} is pelted\nby HAIL!");
 static const u8 sText_PkmnsXWoreOff[] = _("{B_ATK_PREFIX1}'s {B_BUFF1}\nwore off!");
@@ -1083,6 +1083,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNTURNEDINTO - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_BUFF2} turned into {B_BUFF3}!"),
     [STRINGID_SNOWGRAVY - BATTLESTRINGS_TABLE_START]                     = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} doesn't know the move\nSNOWGRAVY!"),
     [STRINGID_PROCEED - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Proceed."),
+    [STRINGID_CREATEDRAINBOW - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} created a RAINBOW!"),
+    [STRINGID_FREEDOMREIGNED - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("And FREEDOM reigned!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 

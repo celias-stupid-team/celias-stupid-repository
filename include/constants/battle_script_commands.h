@@ -162,6 +162,7 @@
 #define MOVEEND_W_TURN                          22
 #define MOVEEND_CLEAR_BITS                      23
 #define MOVEEND_DANCER                          24
-#define MOVEEND_COUNT                           25
+#define MOVEEND_PLEDGE_COMBO                    25
+#define MOVEEND_COUNT                           26
 
 #endif // GUARD_CONSTANTS_BATTLE_SCRIPT_COMMANDS_H

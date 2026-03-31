@@ -4548,8 +4548,7 @@ BattleScript_EarthEaterPreventsOHKO::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_EARTHEATER
 	pause B_WAIT_TIME_LONG
-	callnative BattleDebug_LeftBattle
-	goto BattleScript_MoveEnd
+	goto BattleScript_LeaveBattleImmediately
 
 BattleScript_DampStopsExplosion::
 	pause B_WAIT_TIME_SHORT
@@ -6244,3 +6243,18 @@ BattleScript_EffectSnowGravy_Barry:
 	printstring STRINGID_PROCEED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_HitFromCritCalc
+
+BattleScript_FireWaterPledgeCombo::
+    pause B_WAIT_TIME_SHORT
+    playanimation BS_TARGET, B_ANIM_RAINBOW
+	printstring STRINGID_CREATEDRAINBOW
+	waitmessage B_WAIT_TIME_LONG
+	jumpifopponent TRAINER_DMCA_ERIKA, BattleScript_LeaveBattleImmediately
+    return
+
+BattleScript_ShowMoveAnimation::
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	goto BattleScript_MoveMissedPause

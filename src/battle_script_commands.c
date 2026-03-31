@@ -103,7 +103,7 @@
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
-#define DEFENDER_IS_PROTECTED (((gProtectStructs[gBattlerTarget].protected || gProtectStructs[gBattlerTarget].banefulBunker || gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED)) || (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM))
+#define DEFENDER_IS_PROTECTED (((gProtectStructs[gBattlerTarget].protected || gProtectStructs[gBattlerTarget].banefulBunker || gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED)) || (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) || gCurrentMove != MOVE_RAINBOW_BEAM)))
 
 #define LEVEL_UP_BANNER_START 416
 #define LEVEL_UP_BANNER_END   512
@@ -997,7 +997,7 @@ static void Cmd_attackcanceler(void)
     if (gCurrentMove == MOVE_V_CREATE)
         FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
 
-    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM)
+    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) || gCurrentMove != MOVE_RAINBOW_BEAM))
     {
         // gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
         CancelMultiTurnMoves(gBattlerAttacker);
@@ -1005,7 +1005,10 @@ static void Cmd_attackcanceler(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
-        gBattlescriptCurrInstr++;
+        if (gCurrentMove == MOVE_FIRE_PLEDGE || gCurrentMove == MOVE_WATER_PLEDGE)
+            gBattlescriptCurrInstr = BattleScript_ShowMoveAnimation;
+        else
+            gBattlescriptCurrInstr++;
         return;
     }
 
@@ -2170,7 +2173,9 @@ static void Cmd_attackanimation(void)
             gBattlescriptCurrInstr++;
             return;
         }
-        if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            || ((gCurrentMove == MOVE_FIRE_PLEDGE || gCurrentMove == MOVE_WATER_PLEDGE)
+                && gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD))
         {
             gActiveBattler = gBattlerAttacker;
 
@@ -5352,6 +5357,25 @@ static void Cmd_moveend(void)
             gBattleScripting.moveendState++;
             break;
         }
+        case MOVEEND_PLEDGE_COMBO:
+            // if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+            {
+                u8 side = GetBattlerSide(gBattlerAttacker);
+                if (gCurrentMove == MOVE_FIRE_PLEDGE)
+                    gBattleStruct->pledgeFlags[side] |= PLEDGE_FLAG_FIRE;
+                else if (gCurrentMove == MOVE_WATER_PLEDGE)
+                    gBattleStruct->pledgeFlags[side] |= PLEDGE_FLAG_WATER;
+
+                if (gBattleStruct->pledgeFlags[side] == (PLEDGE_FLAG_FIRE | PLEDGE_FLAG_WATER))
+                {
+                    gBattleStruct->pledgeFlags[side] = 0;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_FireWaterPledgeCombo;
+                    effect = TRUE;
+                }
+            }
+            gBattleScripting.moveendState++;
+            break;
         case MOVEEND_COUNT:
             break;
         }
@@ -7564,6 +7588,7 @@ static void Cmd_setprotectlike(void)
         if (gBattleMoves[gCurrentMove].effect == EFFECT_SPIKY_SHIELD)
         {
             gSideStatuses[side] |= SIDE_STATUS_SPIKY_SHIELD;
+            PREPARE_MOVE_BUFFER(gBattleTextBuff3, gCurrentMove);
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_TEAM;
         }
         if (gBattleMoves[gCurrentMove].effect == EFFECT_BANEFUL_BUNKER)
@@ -12163,11 +12188,17 @@ void BS_SetShadowShield(void)
 {
     NATIVE_ARGS();
 
-    u16 lastMove = gLastResultingMoves[gBattlerAttacker];
     u8 side = GET_BATTLER_SIDE(gBattlerAttacker);
 
     gSideStatuses[side] |= SIDE_STATUS_SHADOW_SHIELD;
-    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+
+    if (gCurrentMove == MOVE_SHADOW_SHIELD)
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+    else
+    {
+        PREPARE_MOVE_BUFFER(gBattleTextBuff3, gCurrentMove);
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_TEAM;
+    }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
