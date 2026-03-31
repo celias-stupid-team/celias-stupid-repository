@@ -103,7 +103,7 @@
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
-#define DEFENDER_IS_PROTECTED (((gProtectStructs[gBattlerTarget].protected || gProtectStructs[gBattlerTarget].banefulBunker || gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED)) || (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM))
+#define DEFENDER_IS_PROTECTED (((gProtectStructs[gBattlerTarget].protected || gProtectStructs[gBattlerTarget].banefulBunker || gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED)) || (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) || gCurrentMove != MOVE_RAINBOW_BEAM)))
 
 #define LEVEL_UP_BANNER_START 416
 #define LEVEL_UP_BANNER_END   512
@@ -997,7 +997,7 @@ static void Cmd_attackcanceler(void)
     if (gCurrentMove == MOVE_V_CREATE)
         FlagSet(FLAG_CSR_V_CREATE_IN_BATTLE);
 
-    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && gCurrentMove != MOVE_RAINBOW_BEAM)
+    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD && (!(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) || gCurrentMove != MOVE_RAINBOW_BEAM))
     {
         // gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
         CancelMultiTurnMoves(gBattlerAttacker);
