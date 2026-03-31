@@ -1400,4 +1400,4 @@ $(OBJEVENTGFXDIR)/stupid/DEAD_SABRINA.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/stupid/DRACULA.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/WEREWOLF.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 3
+	$(GFX) $< $@ -mwidth 2 -mheight 4

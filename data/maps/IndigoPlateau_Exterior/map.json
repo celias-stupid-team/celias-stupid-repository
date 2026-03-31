@@ -166,7 +166,6 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_ROUTE1_CELIA",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 44,
@@ -181,7 +180,6 @@
       "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
-      "local_id": "LOCALID_ROUTE1_CELIA",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 82,
@@ -196,7 +194,6 @@
       "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
-      "local_id": "LOCALID_ROUTE1_CELIA",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 11,
@@ -211,7 +208,6 @@
       "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
-      "local_id": "LOCALID_ROUTE1_CELIA",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 54,
@@ -226,7 +222,6 @@
       "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
-      "local_id": "LOCALID_ROUTE1_CELIA",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 48,

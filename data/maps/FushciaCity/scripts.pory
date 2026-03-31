@@ -286,12 +286,19 @@ script FushciaCity_OnTransition {
 	if(flag(FLAG_LOOKER_SCENE) || !flag(FLAG_BADGE05_GET) || !flag(FLAG_CSR_GOT_PAY_DAY)) {
 		setflag(FLAG_TEMP_3)
 	} else {
-		setflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
-		if(!flag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)) {
-			setvar(VAR_TEMP_6, 1)
-			//Put the girl in the right spot
+		if(flag(FLAG_SYS_ROTOM_MENU)) {
+			setflag(FLAG_TEMP_3)
+			setflag(FLAG_LOOKER_SCENE)
+			setvar(VAR_CURRENT_CHAPTER, 4)
 		} else {
-			setvar(VAR_TEMP_6, 2)
+			setflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
+			if(!flag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)) {
+				setvar(VAR_TEMP_6, 1)
+				//Put the girl in the right spot
+			} else {
+				setvar(VAR_TEMP_6, 2)
+			}
+
 		}
 	}
 	if(!flag(FLAG_MADE_A_SANDWICH)) {
