@@ -549,6 +549,17 @@ const struct SpriteTemplate gPsychoBoostOrbSpriteTemplate =
     .callback = AnimPsychoBoost,
 };
 
+const struct SpriteTemplate gPsychoScoopSpoonSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPOON,
+    .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_PsychoBoostOrb,
+    .callback = AnimPsychoBoost,
+};
+
 const struct SpriteTemplate gRuinsSpriteTemplate =
 {
     .tileTag = ANIM_TAG_RUINS,

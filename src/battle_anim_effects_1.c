@@ -166,6 +166,7 @@ static void AnimTask_PushDownAndShake_Step(u8 taskId);
 static void AnimGasterBlaster(struct Sprite *);
 static void AnimGasterBlaster_Step(struct Sprite *);
 static void AnimGasterBeam_Step(struct Sprite *);
+static void AnimAllySwitch(struct Sprite* sprite);
 
 static const u8 sUnused[] = {2, 4, 1, 3};
 
@@ -390,6 +391,30 @@ const struct SpriteTemplate gAbsorptionOrbSpriteTemplate =
     .paletteTag = ANIM_TAG_ORBS,
     .oam = &gOamData_AffineNormal_ObjBlend_16x16,
     .anims = gPowerAbsorptionOrbAnimTable,
+    .images = NULL,
+    .affineAnims = sAbsorptionOrbAffineAnimTable,
+    .callback = AnimAbsorptionOrb,
+};
+
+static const union AnimCmd sPowerAbsorptionCreamAnimCmds[] =
+{
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gPowerAbsorptionCreamAnimTable[] =
+{
+    sPowerAbsorptionCreamAnimCmds,
+};
+
+const struct SpriteTemplate gAbsorptionCreamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CREAM_BUBBLES,
+    .paletteTag = ANIM_TAG_CREAM_BUBBLES,
+    .oam = &gOamData_AffineNormal_ObjBlend_16x16,
+    .anims = gPowerAbsorptionCreamAnimTable,
     .images = NULL,
     .affineAnims = sAbsorptionOrbAffineAnimTable,
     .callback = AnimAbsorptionOrb,
@@ -2713,6 +2738,17 @@ const struct SpriteTemplate gMetronomeFingerSpriteTemplate =
     .images = NULL,
     .affineAnims = sMetronomeFingerAffineAnimTable,
     .callback = AnimMetronomeFinger,
+};
+
+const struct SpriteTemplate gAllySwitchSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIDE_FLAG,
+    .paletteTag = ANIM_TAG_PRIDE_FLAG,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimAllySwitch,
 };
 
 const struct SpriteTemplate gBurgerOrderSpriteTemplate =
@@ -6689,6 +6725,27 @@ static void AnimThoughtBubble_Step(struct Sprite* sprite)
         StartSpriteAnim(sprite, sprite->data[1]);
         sprite->callback = RunStoredCallbackWhenAnimEnds;
     }
+}
+
+static void AnimAllySwitch(struct Sprite* sprite)
+{
+    u8 battler;
+    
+    if (gBattleAnimArgs[0] == 0)
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
+
+    if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_RIGHT) + 8;
+    else
+        sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_LEFT) - 8;
+
+    sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET) - (s16)GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_HEIGHT) / 4;
+
+    sprite->data[0] = 0;
+    StoreSpriteCallbackInData6(sprite, AnimMetronomeFinger_Step);
+    sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
 }
 
 static void AnimMetronomeFinger(struct Sprite* sprite)
