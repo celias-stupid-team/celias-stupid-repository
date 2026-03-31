@@ -407,6 +407,7 @@ gSpecials::
 	def_special OpenMuseumFossilPic
 	def_special CloseMuseumFossilPic
 	def_special ChooseMonForMoveTutor
+	def_special ChooseMonForPledgeTutor
 	def_special ChooseMonForWirelessMinigame
 	def_special SetBattledTrainerFlag
 	def_special SetHelpContextForMap
