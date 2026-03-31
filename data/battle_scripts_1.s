@@ -6251,3 +6251,10 @@ BattleScript_FireWaterPledgeCombo::
 	waitmessage B_WAIT_TIME_LONG
 	jumpifopponent TRAINER_DMCA_ERIKA, BattleScript_LeaveBattleImmediately
     return
+
+BattleScript_ShowMoveAnimation::
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	goto BattleScript_MoveMissedPause

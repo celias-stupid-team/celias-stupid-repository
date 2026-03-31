@@ -1005,7 +1005,10 @@ static void Cmd_attackcanceler(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gLastHitByType[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
-        gBattlescriptCurrInstr++;
+        if (gCurrentMove == MOVE_FIRE_PLEDGE || gCurrentMove == MOVE_WATER_PLEDGE)
+            gBattlescriptCurrInstr = BattleScript_ShowMoveAnimation;
+        else
+            gBattlescriptCurrInstr++;
         return;
     }
 
@@ -2170,7 +2173,9 @@ static void Cmd_attackanimation(void)
             gBattlescriptCurrInstr++;
             return;
         }
-        if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            || ((gCurrentMove == MOVE_FIRE_PLEDGE || gCurrentMove == MOVE_WATER_PLEDGE)
+                && gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SHADOW_SHIELD))
         {
             gActiveBattler = gBattlerAttacker;
 
@@ -7583,6 +7588,7 @@ static void Cmd_setprotectlike(void)
         if (gBattleMoves[gCurrentMove].effect == EFFECT_SPIKY_SHIELD)
         {
             gSideStatuses[side] |= SIDE_STATUS_SPIKY_SHIELD;
+            PREPARE_MOVE_BUFFER(gBattleTextBuff3, gCurrentMove);
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_TEAM;
         }
         if (gBattleMoves[gCurrentMove].effect == EFFECT_BANEFUL_BUNKER)
@@ -12184,11 +12190,17 @@ void BS_SetShadowShield(void)
 {
     NATIVE_ARGS();
 
-    u16 lastMove = gLastResultingMoves[gBattlerAttacker];
     u8 side = GET_BATTLER_SIDE(gBattlerAttacker);
 
     gSideStatuses[side] |= SIDE_STATUS_SHADOW_SHIELD;
-    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+
+    if (gCurrentMove == MOVE_SHADOW_SHIELD)
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+    else
+    {
+        PREPARE_MOVE_BUFFER(gBattleTextBuff3, gCurrentMove);
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_TEAM;
+    }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
