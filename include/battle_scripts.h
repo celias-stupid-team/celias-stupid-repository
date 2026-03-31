@@ -293,6 +293,7 @@ extern const u8 BattleScript_Wiz1989Turn5SlideAndFaint[];
 extern const u8 BattleScript_TwistedRealityActivates[];
 extern const u8 BattleScript_TwistedRealityRecoil[];
 extern const u8 BattleScript_FlipTurnTransform[];
+extern const u8 BattleScript_LeaveBattleImmediately[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];
