@@ -108,9 +108,9 @@ script MtMoon_Lichen {
 		msgbox(
 		"I'm lichen what I'm seein'\n"
 		"", MSGBOX_DEFAULT)
-		}
 		release
 		end
+		}
 	msgbox(
 	"LICHEN: Hi, there.\n"
 	"", MSGBOX_DEFAULT)

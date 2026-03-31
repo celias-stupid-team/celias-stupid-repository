@@ -1455,6 +1455,7 @@ script TwoIsland_LivingSans {
 
 			"maybe i should capitalize on the\n"
 			"market", MSGBOX_DEFAULT)
+			release
 	}
 }
 
