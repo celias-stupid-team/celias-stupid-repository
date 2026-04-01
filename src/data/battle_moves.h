@@ -9439,9 +9439,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_NOGGIN_FLOGGIN] =
     {
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = 115,
         .type = TYPE_DRAGON,
-        .accuracy = 85,
+        .accuracy = 95,
         .pp = 35,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
