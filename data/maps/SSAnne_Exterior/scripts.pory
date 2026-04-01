@@ -183,3 +183,25 @@ script VermilionHarbor_LeftArrow {
 	"", MSGBOX_SIGN)
 
 }
+
+
+
+script VermillionHarbor_ShinyRealFakeMew {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+	setwildbattle(SPECIES_DITTO_MEW, 34)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	playmoncry(SPECIES_DITTO_MEW, CRY_MODE_ENCOUNTER)
+	addobject(LOCALID_PIRATE_SIGN)
+	clearflag(FLAG_TEMP_5)
+	setflag(FLAG_SHINY_CREATION)
+	msgbox("Mew?\n", MSGBOX_DEFAULT)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	release
+	end
+}
