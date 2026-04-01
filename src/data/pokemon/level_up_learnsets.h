@@ -185,6 +185,7 @@ static const struct LevelUpMove sKakunaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_WEEDLE_ARM),
     LEVEL_UP_MOVE(1, MOVE_HARDEN),
     LEVEL_UP_MOVE(11, MOVE_CLOSE_COMBAT),
+    LEVEL_UP_MOVE(12, MOVE_SHOOT),
     LEVEL_UP_END
 };
 
@@ -1022,9 +1023,9 @@ static const struct LevelUpMove sTentacruelLevelUpLearnset[] = {
 
 static const struct LevelUpMove sGeodudeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_DIVE),
-    LEVEL_UP_MOVE(1, MOVE_ROCK_SLIDE),
-    LEVEL_UP_MOVE(1, MOVE_EARTHQUAKE),
-    LEVEL_UP_MOVE(1, MOVE_WISH),
+    LEVEL_UP_MOVE(15, MOVE_ROCK_SLIDE),
+    LEVEL_UP_MOVE(15, MOVE_EARTHQUAKE),
+    LEVEL_UP_MOVE(15, MOVE_WISH),
     LEVEL_UP_END
 };
 
@@ -1377,8 +1378,8 @@ static const struct LevelUpMove sKinglerLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sVoltorbLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_ROLE_PLAY),
     LEVEL_UP_MOVE(1, MOVE_SELF_DESTRUCT),
+    LEVEL_UP_MOVE(18, MOVE_ROLE_PLAY),
     LEVEL_UP_MOVE(20, MOVE_EXPLOSION),
     LEVEL_UP_END
 };

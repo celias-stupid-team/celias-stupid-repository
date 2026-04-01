@@ -148,7 +148,7 @@ script MtMoon_Lichen {
 		giveitem_msg("{PLAYER} got the\nSCOPE CREEP!", ITEM_SCOPE_CREEP, 1)
 		textcolor(NPC_TEXT_COLOR_RED)
 		msgbox(
-	"My sprites gave thsi game so much\n"
+	"My sprites gave this game so much\n"
 	"SCOPE CREEP, but now that we're\l"
 	"done, we don't need it anymore.\p"
 
