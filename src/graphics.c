@@ -457,6 +457,15 @@ const u32 gBattleAnimSpritePal_HumanLegOne[] = INCBIN_U32("graphics/battle_anims
 const u32 gBattleAnimSpriteGfx_HumanLegTwo[] = INCBIN_U32("graphics/battle_anims/sprites/human_leg_two.4bpp.lz");
 const u32 gBattleAnimSpritePal_HumanLegTwo[] = INCBIN_U32("graphics/battle_anims/sprites/human_leg_two.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_MoltresKick[] = INCBIN_U32("graphics/battle_anims/sprites/moltres_kick.4bpp.lz");
+const u32 gBattleAnimSpritePal_MoltresKick[] = INCBIN_U32("graphics/battle_anims/sprites/moltres_kick.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_MoltresFlare[] = INCBIN_U32("graphics/battle_anims/sprites/moltres_flare.4bpp.lz");
+const u32 gBattleAnimSpritePal_MoltresFlare[] = INCBIN_U32("graphics/battle_anims/sprites/moltres_flare.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_MoltresAppear[] = INCBIN_U32("graphics/battle_anims/sprites/moltres_appear.4bpp.lz");
+const u32 gBattleAnimSpritePal_MoltresAppear[] = INCBIN_U32("graphics/battle_anims/sprites/moltres_appear.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

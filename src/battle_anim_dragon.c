@@ -9,6 +9,7 @@ static void AnimDragonFireToTarget(struct Sprite *sprite);
 static void AnimDragonRageFirePlume(struct Sprite *sprite);
 static void AnimDragonDanceOrb(struct Sprite *sprite);
 static void AnimOverheatFlame(struct Sprite *sprite);
+static void AnimMoltresOutrageFlame(struct Sprite *sprite);
 static void AnimDragonDanceOrb_Step(struct Sprite *sprite);
 static void AnimTask_DragonDanceWaver_Step(u8 taskId);
 static void UpdateDragonDanceScanlineEffect(struct Task *task);
@@ -40,6 +41,17 @@ const struct SpriteTemplate gOutrageFlameSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimOutrageFlame,
+};
+
+const struct SpriteTemplate gMoltresOutrageFlameSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_OutrageOverheatFire,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoltresOutrageFlame,
 };
 
 static const union AnimCmd sAnim_DragonBreathFire_0[] =
@@ -190,6 +202,30 @@ static void AnimOutrageFlame(struct Sprite *sprite)
 {
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
     sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+    {
+        sprite->x -= gBattleAnimArgs[0];
+        gBattleAnimArgs[3] = -gBattleAnimArgs[3];
+        gBattleAnimArgs[4] = -gBattleAnimArgs[4];
+    }
+    else
+    {
+        sprite->x += gBattleAnimArgs[0];
+    }
+    sprite->y += gBattleAnimArgs[1];
+    sprite->data[0] = gBattleAnimArgs[2];
+    sprite->data[1] = gBattleAnimArgs[3];
+    sprite->data[3] = gBattleAnimArgs[4];
+    sprite->data[5] = gBattleAnimArgs[5];
+    sprite->invisible = TRUE;
+    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
+    sprite->callback = TranslateSpriteLinearAndFlicker;
+}
+
+static void AnimMoltresOutrageFlame(struct Sprite *sprite)
+{
+    sprite->x = 120;//GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    sprite->y = 55;//GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
     if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
     {
         sprite->x -= gBattleAnimArgs[0];

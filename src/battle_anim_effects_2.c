@@ -594,6 +594,91 @@ const struct SpriteTemplate gHumanLegOneSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sMoltresAppearAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMoltresAppearAnimTable[] =
+{
+    sMoltresAppearAnimCmds,
+};
+
+const struct SpriteTemplate gMoltresAppearSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_APPEAR,
+    .paletteTag = ANIM_TAG_MOLTRES_APPEAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sMoltresAppearAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sMoltresRetractAnimCmds[] =
+{
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMoltresRetractAnimTable[] =
+{
+    sMoltresRetractAnimCmds,
+};
+
+const struct SpriteTemplate gMoltresRetractSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_APPEAR,
+    .paletteTag = ANIM_TAG_MOLTRES_APPEAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sMoltresRetractAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sMoltresFlareAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sMoltresFlareAnimTable[] =
+{
+    sMoltresFlareAnimCmds,
+};
+
+const struct SpriteTemplate gMoltresFlareSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_FLARE,
+    .paletteTag = ANIM_TAG_MOLTRES_FLARE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sMoltresFlareAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+
+const struct SpriteTemplate gMoltresFlySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_KICK,
+    .paletteTag = ANIM_TAG_MOLTRES_KICK,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sHumanLegTwoAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),

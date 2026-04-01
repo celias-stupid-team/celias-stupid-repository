@@ -1486,6 +1486,9 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Earth, 0x0800, ANIM_TAG_EARTH},
     {gBattleAnimSpriteGfx_HumanLegOne, 0x0800, ANIM_TAG_HUMAN_LEG_ONE},
     {gBattleAnimSpriteGfx_HumanLegTwo, 0x2000, ANIM_TAG_HUMAN_LEG_TWO},
+    {gBattleAnimSpriteGfx_MoltresKick, 0x0800, ANIM_TAG_MOLTRES_KICK},
+    {gBattleAnimSpriteGfx_MoltresFlare, 0x1000, ANIM_TAG_MOLTRES_FLARE},
+    {gBattleAnimSpriteGfx_MoltresAppear, 0x0800, ANIM_TAG_MOLTRES_APPEAR},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1937,6 +1940,9 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Earth, ANIM_TAG_EARTH},
     {gBattleAnimSpritePal_HumanLegOne, ANIM_TAG_HUMAN_LEG_ONE},
     {gBattleAnimSpritePal_HumanLegTwo, ANIM_TAG_HUMAN_LEG_TWO},
+    {gBattleAnimSpritePal_MoltresKick, ANIM_TAG_MOLTRES_KICK},
+    {gBattleAnimSpritePal_MoltresFlare, ANIM_TAG_MOLTRES_FLARE},
+    {gBattleAnimSpritePal_MoltresAppear, ANIM_TAG_MOLTRES_APPEAR},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
