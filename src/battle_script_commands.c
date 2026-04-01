@@ -3947,7 +3947,8 @@ static void Cmd_getexp(void)
             }
 
             calculatedExp = gSpeciesInfo[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
-            if(gBattleMons[gBattlerFainted].species == SPECIES_ARCEUS) {
+            if(gBattleMons[gBattlerFainted].species == SPECIES_ARCEUS
+                || gBattleMons[gBattlerFainted].species == SPECIES_ARCEUSLAST) {
                 calculatedExp = 1000;
             }
 

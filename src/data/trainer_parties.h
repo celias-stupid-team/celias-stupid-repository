@@ -10325,9 +10325,9 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine7[] = {
 static const struct TrainerMonItemCustomMoves sParty_Blaine8[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 100,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_ARCEUS,
+        .species = SPECIES_ARCEUSLAST,
         .moves = {MOVE_ME_FIRST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
