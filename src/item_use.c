@@ -1080,6 +1080,7 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
     struct Pokemon *mon;
     u16 species = SPECIES_KORAIDON;
     u8 i;
+    FlagClear(FLAG_ROTOM_BATTLE_UI);
 
     // send all mons to the PC
     for (i = 0; i < PARTY_SIZE; i++)

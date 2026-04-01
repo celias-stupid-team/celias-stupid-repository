@@ -1579,7 +1579,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BIDE] =
     {
-        .effect = EFFECT_BIDE,
+        .effect = EFFECT_MULTI_HIT,
         .power = 1,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -12026,7 +12026,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },

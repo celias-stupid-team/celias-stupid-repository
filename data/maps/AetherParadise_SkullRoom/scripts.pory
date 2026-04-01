@@ -5,3 +5,23 @@ mapscripts AetherParadise_SkullRoom_MapScripts {
         }
     }
 }
+
+
+script AetherParadise_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"I'd be careful. I think these\n"
+	"SKULL guys are a bad influence.\l"
+	"This room is a mess!\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

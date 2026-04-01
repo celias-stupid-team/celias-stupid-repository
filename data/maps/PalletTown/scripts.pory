@@ -435,7 +435,7 @@ script PalletTown_OnTransition {
 			setmetatile(1, 4, 0x009, FALSE)
 			setmetatile(1, 5, 0x00F, FALSE)
 	}
-	if(!flag(FLAG_DEFEATED_FINAL_BOSS)) {
+	if(!flag(FLAG_POST_GAME)) {
 		setflag(FLAG_TEMP_4)
 	}
 }
@@ -459,7 +459,7 @@ script PalletTown_PostgameCelia {
 	
 	"And when you're ready, go visit\n"
 	"RAINBOW CLOUD again to uncover\l"
-	"the final trial.", MSGBOX_NPC)
+	"my final challenge for you.", MSGBOX_NPC)
 }
 
 

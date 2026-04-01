@@ -235,7 +235,7 @@ script AetherParadise_SkuntankBattle {
 			release
 			end
 		default:
-			delay(30)
+			delay(5)
 			warp(MAP_AETHER_PARADISE_ENTRANCE, 0)
 	}
 	release

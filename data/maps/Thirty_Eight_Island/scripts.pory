@@ -304,8 +304,12 @@ script ThirtyEightIsland_GoldenRod {
     faceplayer
 	if(flag(FLAG_CSR_GOT_GOLDEN_ROD)) {
 		msgbox(
-		"goldenrod\n"
-		"", MSGBOX_DEFAULT)
+		"I spend every day toiling away to\n"
+		"keep the world fed.\p"
+
+		"I put the food on their plate, yet\n"
+		"I'm not given a seat at the table.\l"
+		"Really makes ya think.", MSGBOX_DEFAULT)
 		release
 		end
 	}
@@ -682,7 +686,7 @@ script ThirtyEightIsland_CenterSign {
 script ThirtyEightIsland_FarmSign {
 	msgbox(
 	"MOOMOO FARM\n"
-	"Enjoy our fresh, tasty something!", MSGBOX_SIGN)
+	"(not the MARIO KART one)", MSGBOX_SIGN)
 
 }
 

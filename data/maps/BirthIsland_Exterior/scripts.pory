@@ -46,9 +46,9 @@ BirthIsland_Exterior_EventScript_Triangle::
 	waitstate
 	switch VAR_RESULT
 	case 0, BirthIsland_Exterior_EventScript_NotSolved1
-	case 1, BirthIsland_Exterior_EventScript_NotSolved2
+	case 1, BirthIsland_Exterior_EventScript_NotSolved1
 	case 2, BirthIsland_StoneFlewAway
-	case 3, BirthIsland_Exterior_EventScript_NotSolved3
+	case 3, BirthIsland_Exterior_EventScript_NotSolved1
 	end
 
 
@@ -110,7 +110,7 @@ Movement_DeoxysApproach:
 
 script BirthIsland_Exterior_EventScript_NotSolved1 {
 	addvar(VAR_TEMP_A, 1)
-	if(var(VAR_TEMP_A) > 4) {
+	if(var(VAR_TEMP_A) > 3) {
 		waitse
 		playbgm(MUS_NONE, TRUE)
 		playse(SE_M_EXPLOSION)

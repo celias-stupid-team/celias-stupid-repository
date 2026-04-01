@@ -104,38 +104,58 @@ script MtMoon_EventScript_HyperDrill {
 
 script MtMoon_Lichen {
 	textcolor(NPC_TEXT_COLOR_RED)
+	lock
+	waitse
+	playse(SE_LEDGE)
+	applymovement(VAR_LAST_TALKED, moves(
+		set_visible
+		jump_in_place_down
+	))
+	waitmovement(0)
+	delay(20)
+	faceplayer
 	if(checktrainerflag(TRAINER_LICHEN)) {
 		msgbox(
-		"I'm lichen what I'm seein'\n"
-		"", MSGBOX_DEFAULT)
-		}
+		"Hey, hey!\n"
+		"Let me sleep!\p"
+
+		"I've been working on this game so\n"
+		"late that I forgot to…", MSGBOX_DEFAULT)
 		release
 		end
+		}
 	msgbox(
-	"LICHEN: Hi, there.\n"
-	"", MSGBOX_DEFAULT)
+	"LICHEN: Whoa, you found me!\p"
+
+	"You're some kinda secret hunter\n"
+	"completionist type, aren't cha?\p"
+
+	"You wanna see ALL the sprites I\n"
+	"made, huh?\l"
+	"Let's tussle!", MSGBOX_DEFAULT)
 	trainerbattle_no_intro(TRAINER_LICHEN, "Yessssss")
-	if(flag(FLAG_BADGE02_GET)) {
-		msgbox(
-		"Good job\p"
 
-		"Someone already got here first,\n"
-		"tho.\p"
-
-		"Next time come here sooner, and\n"
-		"I'll have a gift for you!", MSGBOX_DEFAULT)
-	} else {
 		msgbox(
-		"Here's a present\n"
-		"", MSGBOX_DEFAULT)
+		"Damn, I really thought that one\n"
+		"would stump you.\p"
+
+		"I fell for the “SUNKERN Cost\n"
+		"Fallacy” a little there.\p"
+
+		"Anyway, good work!\n"
+		"I have a gift for you…", MSGBOX_DEFAULT)
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		giveitem_msg("{PLAYER} got the\nSCOPE CREEP!", ITEM_SCOPE_CREEP, 1)
 		textcolor(NPC_TEXT_COLOR_RED)
 		msgbox(
-		"That's what this game's dev cycle\n"
-		"looked like.", MSGBOX_DEFAULT)
+	"My sprites gave thsi game so much\n"
+	"SCOPE CREEP, but now that we're\l"
+	"done, we don't need it anymore.\p"
 
-	}
+	"I'm sure there's something you\n"
+	"can use this for…", MSGBOX_DEFAULT)
+
+
 	release
 	end
 	

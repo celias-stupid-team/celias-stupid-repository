@@ -13,7 +13,23 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_FARAWAY_ISLAND",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_CINNABAR_ISLAND",
+      "offset": -5,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN8",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

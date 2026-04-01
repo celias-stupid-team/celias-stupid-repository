@@ -435,6 +435,13 @@ script SaffronDojo_James {
 		"If you want the GYM BADGE, you'll\n"
 		"need to go into the back room and\l"
 		"defeat the biggest nerd of all!", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+		applymovement(VAR_LAST_TALKED, moves(
+			walk_right
+			face_left
+		))
+		waitmovement(0)
 		release
 		end
 	}

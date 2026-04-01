@@ -92,7 +92,7 @@ script NationalPark_ContestNPC {
 	"of rare BUGS into the park for it.\p"
 
 	"I'm sure doing this has no side\n"
-	"effects on the environment at all!", MSGBOX_NPC)
+	"effects on the environment!", MSGBOX_NPC)
 }
 
 

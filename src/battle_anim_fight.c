@@ -36,6 +36,7 @@ static void AnimSuperpowerOrb_Step(struct Sprite *sprite);
 static void AnimSuperpowerRock_Step1(struct Sprite *sprite);
 static void AnimSuperpowerRock_Step2(struct Sprite *sprite);
 static void AnimTask_CentennialKick_Step(u8 taskId);
+static void AnimUselessCard(struct Sprite *sprite);
 
 static const struct SpriteTemplate sUnusedHumanoidFootSpriteTemplate =
 {
@@ -96,6 +97,57 @@ const struct SpriteTemplate gKarateChopSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSlideHandOrFootToTarget,
+};
+
+
+static const union AnimCmd sAnim_UselessCard1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_UselessCard2[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_UselessCard3[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_UselessCard4[] =
+{
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_UselessCard5[] =
+{
+    ANIMCMD_FRAME(64, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_UselessCards[] =
+{
+    sAnim_UselessCard1,
+    sAnim_UselessCard2,
+    sAnim_UselessCard3,
+    sAnim_UselessCard4,
+    sAnim_UselessCard5,
+};
+
+const struct SpriteTemplate gUselessCardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_USELESS_CARD,
+    .paletteTag = ANIM_TAG_USELESS_CARD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_UselessCards,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimUselessCard,
 };
 
 const struct SpriteTemplate gJumpKickSpriteTemplate =
@@ -1261,5 +1313,95 @@ void AnimTask_MoveSkyUppercutBg(u8 taskId)
         gBattle_BG3_Y = 0;
         ToggleBg3Mode(1);
         DestroyAnimVisualTask(taskId);
+    }
+}
+
+static void AnimUselessCard(struct Sprite *sprite)
+{
+    s16 battler;
+
+    switch (sprite->data[0])
+    {
+    // -----------------------------------
+    // INITIALIZE
+    // -----------------------------------
+    case 0:
+        battler = (gBattleAnimArgs[7] == 0)
+            ? gBattleAnimAttacker
+            : gBattleAnimTarget;
+
+        // Base battler position
+        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+        // Apply initial offset
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+
+        // -----------------------------------
+        // RANDOMLY PICK ONE OF 5 ANIM STATES
+        // -----------------------------------
+        StartSpriteAnim(sprite, Random() % 5);
+
+        // Movement settings
+        sprite->data[1] = gBattleAnimArgs[2]; // x speed
+        sprite->data[2] = gBattleAnimArgs[3]; // y speed
+        sprite->data[3] = gBattleAnimArgs[4]; // move duration
+        sprite->data[4] = gBattleAnimArgs[5]; // wait duration
+        sprite->data[5] = gBattleAnimArgs[6]; // shake mode
+
+        sprite->data[6] = 0; // phase timer
+        sprite->data[7] = 0; // shake timer
+        sprite->data[0] = 1;
+        break;
+
+    // -----------------------------------
+    // MOVEMENT PHASE
+    // -----------------------------------
+    case 1:
+        sprite->x += sprite->data[1];
+        sprite->y += sprite->data[2];
+
+        if (++sprite->data[6] >= sprite->data[3])
+        {
+            sprite->data[6] = 0;
+            sprite->data[7] = 0;
+            sprite->data[0] = 2;
+        }
+        break;
+
+    // -----------------------------------
+    // WAIT + SHAKE PHASE
+    // -----------------------------------
+    case 2:
+        sprite->data[7]++;
+
+        if (sprite->data[7] >= 6)
+        {
+            sprite->data[7] = 0;
+
+            if (sprite->data[5] == 1) // vertical shake
+            {
+                if (sprite->y2 == 0)
+                    sprite->y2 = 2;
+                else
+                    sprite->y2 = -sprite->y2;
+            }
+            else if (sprite->data[5] == 2) // horizontal shake
+            {
+                if (sprite->x2 == 0)
+                    sprite->x2 = 2;
+                else
+                    sprite->x2 = -sprite->x2;
+            }
+        }
+
+        if (++sprite->data[6] >= sprite->data[4])
+        {
+            sprite->x2 = 0;
+            sprite->y2 = 0;
+            DestroyAnimSprite(sprite);
+        }
+        break;
     }
 }

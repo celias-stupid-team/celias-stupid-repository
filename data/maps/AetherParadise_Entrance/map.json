@@ -134,8 +134,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN",
-      "x": 8,
-      "y": 24,
+      "x": 28,
+      "y": 30,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

@@ -264,7 +264,7 @@ script Route22_EventScript_OddCandyMan {
 		end
 	}
 	faceplayer
-	if(flag(FLAG_CANDY_MAN_FELL) && flag(FLAG_RETRIEVED_CANDIES)) {
+	if(flag(FLAG_CANDY_MAN_FELL) && flag(FLAG_RETRIEVED_CANDIES) && !checkmoncaught(SPECIES_MELTAN)) {
 		msgbox(
 		"Ahh…\n"
 		"Apologies!\p"

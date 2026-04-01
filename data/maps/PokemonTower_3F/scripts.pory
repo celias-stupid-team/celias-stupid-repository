@@ -177,7 +177,10 @@ script PokemonTower_TrainerTipsSign {
 	msgbox(
 	"TRAINER TIPS\p"
 
-	"They have more to say!\n"
+	"Keep talking to them!\n"
+	"They have more to say!\p"
+
+	"Like, a LOT more to say."
 	"", MSGBOX_SIGN)
 
 }

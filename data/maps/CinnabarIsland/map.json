@@ -55,8 +55,8 @@
       "direction": "right"
     },
     {
-      "map": "MAP_HI",
-      "offset": 0,
+      "map": "MAP_OCEAN12",
+      "offset": 5,
       "direction": "down"
     }
   ],

@@ -8820,6 +8820,28 @@ extern const u32 gBattleAnimSpriteGfx_UselessCard[];
 extern const u32 gBattleAnimSpriteGfx_Soldier[];
 extern const u32 gBattleAnimSpriteGfx_BlueHair[];
 extern const u32 gBattleAnimSpriteGfx_Capt[];
+extern const u32 gBattleAnimSpriteGfx_TcgCharge[];
+extern const u32 gBattleAnimSpriteGfx_TcgDash[];
+extern const u32 gBattleAnimSpriteGfx_TcgGoo[];
+extern const u32 gBattleAnimSpriteGfx_TcgSlash[];
+extern const u32 gBattleAnimSpriteGfx_TcgImpact[];
+extern const u32 gBattleAnimSpriteGfx_TcgPunch[];
+extern const u32 gBattleAnimSpriteGfx_TcgPowder[];
+extern const u32 gBattleAnimSpriteGfx_TcgWater[];
+extern const u32 gBattleAnimSpriteGfx_TcgRocks[];
+extern const u32 gBattleAnimSpriteGfx_TcgSword[];
+extern const u32 gBattleAnimSpriteGfx_Lloyd[];
+extern const u32 gBattleAnimSpriteGfx_DarkLloyd[];
+extern const u32 gBattleAnimSpriteGfx_Protagonists[];
+extern const u32 gBattleAnimSpriteGfx_Latinas[];
+extern const u32 gBattleAnimSpriteGfx_GameGenie[];
+extern const u32 gBattleAnimSpriteGfx_Furby[];
+extern const u32 gBattleAnimSpriteGfx_Firered[];
+extern const u32 gBattleAnimSpriteGfx_PrideFlag[];
+extern const u32 gBattleAnimSpriteGfx_CreamBubbles[];
+extern const u32 gBattleAnimSpriteGfx_Earth[];
+extern const u32 gBattleAnimSpriteGfx_HumanLegOne[];
+extern const u32 gBattleAnimSpriteGfx_HumanLegTwo[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9199,6 +9221,28 @@ extern const u32 gBattleAnimSpritePal_UselessCard[];
 extern const u32 gBattleAnimSpritePal_Soldier[];
 extern const u32 gBattleAnimSpritePal_BlueHair[];
 extern const u32 gBattleAnimSpritePal_Capt[];
+extern const u32 gBattleAnimSpritePal_TcgCharge[];
+extern const u32 gBattleAnimSpritePal_TcgDash[];
+extern const u32 gBattleAnimSpritePal_TcgGoo[];
+extern const u32 gBattleAnimSpritePal_TcgSlash[];
+extern const u32 gBattleAnimSpritePal_TcgImpact[];
+extern const u32 gBattleAnimSpritePal_TcgPunch[];
+extern const u32 gBattleAnimSpritePal_TcgPowder[];
+extern const u32 gBattleAnimSpritePal_TcgWater[];
+extern const u32 gBattleAnimSpritePal_TcgRocks[];
+extern const u32 gBattleAnimSpritePal_TcgSword[];
+extern const u32 gBattleAnimSpritePal_Lloyd[];
+extern const u32 gBattleAnimSpritePal_DarkLloyd[];
+extern const u32 gBattleAnimSpritePal_Protagonists[];
+extern const u32 gBattleAnimSpritePal_Latinas[];
+extern const u32 gBattleAnimSpritePal_GameGenie[];
+extern const u32 gBattleAnimSpritePal_Furby[];
+extern const u32 gBattleAnimSpritePal_Firered[];
+extern const u32 gBattleAnimSpritePal_PrideFlag[];
+extern const u32 gBattleAnimSpritePal_CreamBubbles[];
+extern const u32 gBattleAnimSpritePal_Earth[];
+extern const u32 gBattleAnimSpritePal_HumanLegOne[];
+extern const u32 gBattleAnimSpritePal_HumanLegTwo[];
 
 //CSR Moves
 
@@ -13249,3 +13293,11 @@ extern const u32 gTrainerPalette_Starlight[];
 
 extern const u32 gTrainerFrontPic_Kimono[];
 extern const u32 gTrainerPalette_Kimono[];
+// ARCEUS_LAST
+extern const u32 gMonFrontPic_ARCEUSLAST[];
+extern const u32 gMonPalette_ARCEUSLAST[];
+extern const u32 gMonBackPic_ARCEUSLAST[];
+extern const u32 gMonShinyPalette_ARCEUSLAST[];
+extern const u8 gMonFootprint_ARCEUSLAST[];
+extern const u8 gMonIcon_ARCEUSLAST[];
+
