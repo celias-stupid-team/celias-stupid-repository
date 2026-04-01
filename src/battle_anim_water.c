@@ -126,6 +126,31 @@ const struct SpriteTemplate gWaterBubbleProjectileSpriteTemplate =
     .callback = AnimWaterBubbleProjectile,
 };
 
+static const union AnimCmd sAnim_ClubbleProjectile[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+
+static const union AnimCmd *const sAnims_ClubbleProjectile[] =
+{
+    sAnim_ClubbleProjectile,
+};
+
+const struct SpriteTemplate gClubbleProjectileSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLACK_CLUB,
+    .paletteTag = ANIM_TAG_BLACK_CLUB,
+    .oam = &gOamData_AffineNormal_ObjBlend_16x16,
+    .anims = sAnims_ClubbleProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
 const struct SpriteTemplate gBeeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BEE,
