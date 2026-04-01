@@ -292,6 +292,7 @@ script Route1_Bonus_Chris {
 
 
 script Route1_CeliaCrew_Lichen {
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox("LICHEN: No! Not into the pit!\nIt buuuuuuuurns!", MSGBOX_NPC)
 	end
 }
@@ -307,6 +308,7 @@ script Route1_CeliaCrew_Wiz {
 }
 
 script Route1_CeliaCrew_RavePossum {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox("RavePossum: I keep asking CELIA for\nwater, but all she ever brings me is\lmore code to review…", MSGBOX_NPC)
 	end
 }
@@ -335,4 +337,22 @@ script Route1_CeliaCrew_Chairry {
 	"CHAIRRY: Please don't piss in my\n"
 	"keys", MSGBOX_SIGN)
 
+}
+
+script Route1_CeliaCrew_Rammiloh {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"RAMMILOH: “They say marriage is\n"
+	"a lot like starving to death in a\l"
+	"shallow pit.”\p"
+
+	"…Bliz said I could write my own\n"
+	"vows.", MSGBOX_NPC)
+}
+
+script Route1_CeliaCrew_Bliz {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Bliz: This is what I get for\n"
+	"fast-forwarding down Route 1.", MSGBOX_NPC)
 }
