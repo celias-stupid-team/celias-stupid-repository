@@ -58,6 +58,8 @@ script PokemonLeague_HallOfFame_EventScript_EnterRoom {
 	fadescreenspeed(FADE_TO_BLACK, 0)
 	setvar(VAR_CSR_CYNTHIA_BATTLE, 0)
 	setvar(VAR_LANCE_LASS_ATTACK, 0)
+	setvar(VAR_CSR_FINAL_BATTLE_TURN, 0)
+	setvar(VAR_CSR_FINAL_BATTLE_PHASE, 0)
 	special(EnterHallOfFame)
 	waitstate
 	releaseall

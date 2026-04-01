@@ -2020,6 +2020,13 @@ static void Cmd_adjustnormaldamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
+        DebugPrintf("Case 1");
+
+        if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+        }
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
@@ -2104,6 +2111,7 @@ static void Cmd_adjustnormaldamage2(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
+        
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
@@ -2133,6 +2141,7 @@ static void Cmd_adjustnormaldamage2(void)
      && (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP || gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
      && (gBattleMons[gBattlerTarget].maxHP <= gBattleMoveDamage || gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE))
      {
+        
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
         if (gSpecialStatuses[gBattlerTarget].focusSashed)
         {
@@ -2593,17 +2602,15 @@ static void Cmd_resultmessage(void)
             }
             else if (gMoveResultFlags & MOVE_RESULT_STURDIED)
             {
+                DebugPrintf("Case 1");
+                DebugPrintf("Case 2");
                 if (gLastUsedAbility != ABILITY_REVENGE)
                 {
                     gSpecialStatuses[gBattlerTarget].sturdied = FALSE;
                 }
                 gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                 BattleScriptPushCursor();
-                if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY) {
-                        BattleStopLowHpSound();
-                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
-                        FlagSet(FLAG_SYS_CSR_VICTORY);
-                }
+
                 gBattlescriptCurrInstr = BattleScript_SturdiedMsg;
                 return;
             }
@@ -6731,6 +6738,7 @@ static void Cmd_adjustsetdamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
+        
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }

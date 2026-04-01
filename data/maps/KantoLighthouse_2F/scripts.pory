@@ -22,9 +22,16 @@ script KantoLighthouse_2F_DeadMan {
 
 script KantoLighthouse_2F_FallDownHole {
 	setflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
-	call(DrawHoleFloorCovers)
+	setmetatile(47, 34, 0x378, TRUE)
+	setmetatile(47, 35, 0x380, TRUE)
+	special(DrawWholeMapView)
 	special(SpawnCameraObject)
-	applymovement(LOCALID_PLAYER, PlayerFallsDownHole)
+	applymovement(LOCALID_PLAYER, moves(
+		delay_16 * 2
+
+		slide_down * 2
+		delay_16
+	))
 	delay(46)
 	playse(SE_FALL)
 	waitmovement(0)

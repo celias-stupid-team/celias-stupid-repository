@@ -117,6 +117,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5:: @ directly used in C code
+	goto Route22_EventScript_LateRival
 	end
 
 Debug_EventScript_Script_6::
