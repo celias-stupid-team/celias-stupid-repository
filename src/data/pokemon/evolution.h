@@ -21,6 +21,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_PIDGEOT]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},     
 
     [SPECIES_RATTATA]    = {{EVO_ITEM, ITEM_RAT_STONE, SPECIES_RATICATE}}, //You get Raticate from the trade
+    [SPECIES_RATTATA_SHINY]    = {{EVO_ITEM, ITEM_RAT_STONE, SPECIES_RATICATE}}, //You get Raticate from the trade
     [SPECIES_RATICATE]    = {{EVO_ITEM, ITEM_RAT_STONE, SPECIES_RATICATE}}, //You get Raticate from the trade
     [SPECIES_EKANS]      = {{EVO_LEVEL, 1, SPECIES_ARBOK}},
     [SPECIES_ARBOK]      = {{EVO_LEVEL, 1, SPECIES_SEVIPER}},
