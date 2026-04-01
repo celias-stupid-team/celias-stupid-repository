@@ -104,6 +104,16 @@ script MtMoon_EventScript_HyperDrill {
 
 script MtMoon_Lichen {
 	textcolor(NPC_TEXT_COLOR_RED)
+	lock
+	waitse
+	playse(SE_LEDGE)
+	applymovement(VAR_LAST_TALKED, moves(
+		set_visible
+		jump_in_place_down
+	))
+	waitmovement(0)
+	delay(20)
+	faceplayer
 	if(checktrainerflag(TRAINER_LICHEN)) {
 		msgbox(
 		"Hey, hey!\n"
