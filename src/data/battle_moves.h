@@ -13454,8 +13454,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_MOLTRES_KICK] =
     {
-        .effect = EFFECT_HIT,
-        .power = 100,
+        .effect = EFFECT_FALSE_SWIPE,
+        .power = 1000,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 35,

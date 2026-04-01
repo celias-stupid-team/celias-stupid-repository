@@ -599,11 +599,12 @@ static const struct TrainerMonNoItemCustomMoves sParty_GentlemanFalknerSr[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_LassCrissy[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_LassCrissy[] = {
     {
         .iv = 0,
         .lvl = 70,
         .species = SPECIES_MEWTWO,
+        .moves = {MOVE_PSY_BEAM, MOVE_NONE, MOVE_NONE,MOVE_NONE},
     },
 };
 
@@ -919,7 +920,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CamperEthan[] = {
         .iv = 0,
         .lvl = 11,
         .species = SPECIES_GENGAR,
-        .moves = {MOVE_PROTECT, MOVE_WILL_O_WISP, MOVE_SLUDGE_BOMB, MOVE_NONE},
+        .moves = {MOVE_PROTECT, MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_NONE},
     },
     {
         .iv = 0,

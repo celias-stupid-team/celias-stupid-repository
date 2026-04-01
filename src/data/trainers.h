@@ -1210,7 +1210,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_LassCrissy),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_LassCrissy),
     },
     [TRAINER_LASS_MIRIAM] = {
         .trainerClass = TRAINER_CLASS_PICNICKER,

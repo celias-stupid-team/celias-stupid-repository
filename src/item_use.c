@@ -700,6 +700,13 @@ void FieldUseFunc_RunningScrews(u8 taskId)
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RunningScrews, Task_ReturnToBagFromContextMenu);
 }
 
+void FieldUseFunc_Mesprit(u8 taskId)
+{
+    PlayCry_Normal(SPECIES_MESPRIT, CRY_MODE_DEFAULT);
+
+    RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MespritRan, Task_ReturnToBagFromContextMenu);
+}
 
 
 void FieldUseFunc_Ligma(u8 taskId)

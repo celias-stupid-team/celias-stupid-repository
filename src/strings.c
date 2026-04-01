@@ -122,7 +122,7 @@ const u8 gSaveStatName_Pokedex[] = _("POKéDEX");
 const u8 gSaveStatName_Time[] = _("TIME");
 const u8 gSaveStatName_Version[] = _("VERSION");
 // CSR version number - update before each release!
-const u8 gSaveStatName_VersionNumber[] = _("0.9.1");
+const u8 gSaveStatName_VersionNumber[] = _("0.9.3");
 const u8 gText_FlyToWhere[] = _("どこへ とびますか?");
 const u8 gOtherText_Use[] = _("USE");
 const u8 gOtherText_Toss[] = _("TOSS");
@@ -215,6 +215,9 @@ const u8 gText_PlayerUsedVar2[] = _("{PLAYER} used the\n{STR_VAR_2}.{PAUSE_UNTIL
 const u8 gText_RepelEffectsLingered[] = _("But the effects of a REPEL\nlingered from earlier.{PAUSE_UNTIL_PRESS}");
 const u8 gText_MaxRepelTurnedOff[] = _("{PLAYER} untoggled the\nMAX REPEL!\pWild POKéMON will now\nappear again!{PAUSE_UNTIL_PRESS}");
 const u8 gText_RunningScrews[] = _("{PAUSE 45}Aaaaaaand they're gone!");
+const u8 gText_MespritRan[] = _("{PAUSE 45}MESPRIT flew away!");
+
+
 const u8 gText_Ligma[] = _("ligma balls");
 const u8 gText_TMContainedCopycat[] = _("{PLAYER} booted up the TM!\pIt contained\nCOPYCAT!{PAUSE_UNTIL_PRESS}");
 const u8 gText_CeliaMessage[] = _("Hi, this is CELIA.\pDue to technical limitations, I\nwas forced to remove several\lexcess ITEMS from your BAG.\pDon't worry! Nothing that was\nremoved will ever be important.\pI'm sorry I had to do this, and it\nis my fault for not thinking ahead.\pThanks for understanding!\nThis page will now self-destruct.{PAUSE_UNTIL_PRESS}{PLAY_BGM}{SE_M_EXPLOSION}");
