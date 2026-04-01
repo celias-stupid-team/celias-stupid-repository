@@ -10131,7 +10131,7 @@ static const struct TrainerMonItemCustomMoves sParty_BerserkJeans[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_SPINDA,
-        .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_YEST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };

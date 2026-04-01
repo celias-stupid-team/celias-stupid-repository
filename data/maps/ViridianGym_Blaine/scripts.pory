@@ -437,7 +437,7 @@ script ViidianGym_Blaine_Talk {
 
 script ViridianGym_BlaineStop {
 	msgbox(
-	"The unimaginable power of\n"
-	"commitment to the bit hold you back.", MSGBOX_SIGN)
+	"The unimaginable power of commitment\n"
+	"to the bit holds you back.", MSGBOX_SIGN)
 
 }

@@ -21,7 +21,7 @@ script WaterfallCave_MoveTutor {
 	msgbox(
 	"Here, to whom shall I teach one?\n"
 	"", MSGBOX_DEFAULT)
-	special(TeachMultiMoveTutorMove)
+	special(ChooseMonForPledgeTutor)
 	waitstate
 	goto_if_eq(VAR_RESULT, FALSE, CapeBrinkTutor_EventScript_DeclineMove)
 	goto(CapeBrinkTutor_EventScript_TaughtMove)

@@ -1579,7 +1579,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BIDE] =
     {
-        .effect = EFFECT_BIDE,
+        .effect = EFFECT_MULTI_HIT,
         .power = 1,
         .type = TYPE_NORMAL,
         .accuracy = 100,

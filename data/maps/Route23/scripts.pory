@@ -1128,6 +1128,7 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 	delay(60)
 	closemessage
 	
+	setvar(VAR_MAP_SCENE_ROUTE23, 10)
 	release
 	end
 }
