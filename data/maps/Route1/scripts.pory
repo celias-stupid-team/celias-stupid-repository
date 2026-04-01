@@ -336,3 +336,21 @@ script Route1_CeliaCrew_Chairry {
 	"keys", MSGBOX_SIGN)
 
 }
+
+script Route1_CeliaCrew_Rammiloh {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"RAMMILOH: “They say marriage is\n"
+	"a lot like starving to death in a\l"
+	"shallow pit.”\p"
+
+	"…Bliz said I could write my own\n"
+	"vows.", MSGBOX_NPC)
+}
+
+script Route1_CeliaCrew_Bliz {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Bliz: This is what I get for\n"
+	"fast-forwarding down Route 1.", MSGBOX_NPC)
+}

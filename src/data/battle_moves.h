@@ -7920,7 +7920,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_OHKO_FLASH,
         .power = 1000,
-        .type = TYPE_FAIRY,
+        .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 25,
         .secondaryEffectChance = 0,
@@ -13455,7 +13455,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_MOLTRES_KICK] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 100,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 35,
