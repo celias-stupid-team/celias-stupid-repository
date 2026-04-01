@@ -292,6 +292,7 @@ script Route1_Bonus_Chris {
 
 
 script Route1_CeliaCrew_Lichen {
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox("LICHEN: No! Not into the pit!\nIt buuuuuuuurns!", MSGBOX_NPC)
 	end
 }
@@ -307,6 +308,7 @@ script Route1_CeliaCrew_Wiz {
 }
 
 script Route1_CeliaCrew_RavePossum {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox("RavePossum: I keep asking CELIA for\nwater, but all she ever brings me is\lmore code to review…", MSGBOX_NPC)
 	end
 }
