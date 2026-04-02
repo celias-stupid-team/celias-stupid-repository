@@ -548,7 +548,7 @@ script Route15_PokeRap_Trainer31_Defeat {
 
 script Route15_PokeRap_Trainer32 {
     trainerbattle_single(TRAINER_POKERAP_32, Rapper_32_Intro, "Nice!", Route15_PokeRap_Trainer32_Defeat)
-    msgbox("TENTACOOL by KaizanStarlight\nDRAGONAIR by sonicfachero\lMAGMAR by GarfieldTheLightning", MSGBOX_DEFAULT)
+    msgbox("SCYTHER by Drazden\nTENTACOOL by KaizanStarlight\pDRAGONAIR by sonicfachero\nMAGMAR by GarfieldTheLightning", MSGBOX_DEFAULT)
     release
 }
 
