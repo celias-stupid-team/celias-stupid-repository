@@ -392,6 +392,17 @@ const struct SpriteTemplate gYoshiEggThrowSpriteTemplate =
     .callback = AnimThrowProjectile,
 };
 
+const struct SpriteTemplate gFireredThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_FIRERED,
+    .paletteTag = ANIM_TAG_FIRERED,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
 static const union AnimCmd sProtagonistThrowAnimCmd_1[] =
 {
     ANIMCMD_FRAME(0, 3),
@@ -562,6 +573,18 @@ const struct SpriteTemplate gEarthLiftSpriteTemplate =
 {
     .tileTag = ANIM_TAG_EARTH,
     .paletteTag = ANIM_TAG_EARTH,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+
+const struct SpriteTemplate gMoonLiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOON,
+    .paletteTag = ANIM_TAG_MOON,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -2302,6 +2325,17 @@ const struct SpriteTemplate gWeedBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEED_SMALL,
     .paletteTag = ANIM_TAG_WEED_SMALL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gCandyBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RARE_CANDY,
+    .paletteTag = ANIM_TAG_RARE_CANDY,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

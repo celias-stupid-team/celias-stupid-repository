@@ -457,6 +457,7 @@
 #define ANIM_TAG_MOLTRES_KICK               (ANIM_SPRITES_START + 447)
 #define ANIM_TAG_MOLTRES_FLARE              (ANIM_SPRITES_START + 448)
 #define ANIM_TAG_MOLTRES_APPEAR             (ANIM_SPRITES_START + 449)
+#define ANIM_TAG_RARE_CANDY                 (ANIM_SPRITES_START + 450)
 
 // battlers
 #define ANIM_ATTACKER       0

@@ -7285,6 +7285,7 @@ Move_SLUDGE:
 	waitforvisualfinish
 	end
 
+Move_BELCH:
 Move_SLUDGE_BOMB:
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	call SludgeBombProjectile
@@ -14962,7 +14963,7 @@ Move_MOONGEIST_BEAM:
 	setalpha 0, 16
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 16, RGB_BLACK
 	waitforvisualfinish
-	createsprite gMoonSpriteTemplate, ANIM_ATTACKER, 2, 120, 56
+	createsprite gMoonSpriteTemplate, ANIM_ATTACKER, 2, 120, 24
 	createvisualtask AnimTask_AlphaFadeIn, 3, 0, 16, 16, 0, 1
 	playsewithpan SE_M_MOONLIGHT, 0
 	delay 30
@@ -19008,8 +19009,9 @@ General_RotomAppears:
     loadspritegfx ANIM_TAG_ROTOM_DESCEND
     createsprite gRotomAppearSpriteTemplate, 2, 0, 0
 	playse SE_M_SWIFT
-	delay 104
-	delay 24
+	delay 64
+	createvisualtask SoundTask_PlaySpecificCry, 2, 504
+	delay 64
 	playse SE_M_SWIFT
     waitforvisualfinish
     end
@@ -20106,7 +20108,46 @@ ZipBombFiles:
 	return
 	
 Move_FIREREDCHEATS:
-	goto Move_TACKLE
+    loadspritegfx ANIM_TAG_FIRERED
+    loadspritegfx ANIM_TAG_RARE_CANDY
+	loadspritegfx ANIM_TAG_EXPLOSION
+	
+	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
+	createsprite gFireredThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 16, 1
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	createsprite gCandyBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	waitforvisualfinish
+	end
 	
 Move_ANTI_VIRUS:
 	loadspritegfx ANIM_TAG_NORTON
@@ -21223,8 +21264,8 @@ Move_EXTREMESLOTH:
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end
-	
-Move_SHELLSIDEASS:
+
+RickMove:
 	createvisualtask AnimTask_GetAttackerSide, 2
 	jumprettrue RickAgainstPlayer
 
@@ -21769,11 +21810,30 @@ Move_LUNAR_DANCE:
 	end
 	
 Move_ROAR_OF_GRIME:
-	@Tackle
-	goto Move_TACKLE
-Move_BELCH:
-	@Tackle
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_POISON_BUBBLE
+	loadspritegfx ANIM_TAG_THIN_RING
+	@call HyperVoiceEffect
+	@waitforvisualfinish
+	@delay 8
+	call HyperVoiceEffect
+	delay 40
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_DEF_SIDE, 2, 2, 0, 12, RGB(30, 0, 31)
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -22, 0, 15, 55
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_TARGET
+	delay 10
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, -26, -24, 0, 15, 55
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_TARGET
+	delay 10
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 15, -27, 0, 15, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_TARGET
+	delay 10
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, -15, -17, 0, 10, 45
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_TARGET
+	delay 10
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 27, -22, 0, 15, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_TARGET
+	waitforvisualfinish
+	end
 
 Move_MUSTARD_SLAP:
 	loadspritegfx ANIM_TAG_TAG_HAND
@@ -23040,6 +23100,30 @@ Move_MOONLIGHT_YEAR:
 	@createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 16, RGB_BLACK
 	@waitforvisualfinish
 
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createsprite gMoonLiftSpriteTemplate, ANIM_ATTACKER, 2, 16, 16, 0, -1, 30, 60, 1, 0
+	waitforvisualfinish
+
+	createvisualtask AnimTask_MoonThrow, 3
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	delay 24
+	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 8, 1, 40, 1
+	createvisualtask AnimTask_ShakeMon, 3, ANIM_TARGET, 0, 4, 20, 1
+	createvisualtask AnimTask_ShakeMon, 3, ANIM_DEF_PARTNER, 0, 4, 20, 1
+	loopsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET, 8, 2
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFFF
+	waitbgfadein
+	end
+
+
 	createsprite gMoonSpriteTemplate, ANIM_ATTACKER, 2, 120, 56
 	createvisualtask AnimTask_AlphaFadeIn, 3, 0, 16, 16, 0, 1
 	playsewithpan SE_M_MOONLIGHT, 0
@@ -23342,6 +23426,8 @@ Move_EXTREME_SLOW:
 	setarg 7, 0x1000
 	delay 1
 	end
+	
+Move_SHELLSIDEASS:
 Move_SHELL_SIDE_ASS:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_CLAM
@@ -27475,7 +27561,7 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	setalpha 12, 8
 	fadetobg BG_AMERICAN_FLAG
 	waitbgfadein
-	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_SKY_UPPERCUT, SOUND_PAN_ATTACKER
+	@createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_SKY_UPPERCUT, SOUND_PAN_ATTACKER
 	@ createsprite gEagleSpriteTemplate, ANIM_ATTACKER, 2
 	delay 14
 	playsewithpan SE_M_SACRED_FIRE, SOUND_PAN_ATTACKER
