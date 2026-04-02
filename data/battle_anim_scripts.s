@@ -27076,12 +27076,12 @@ Move_HEART_STAMP:
 	end
 
 Move_TECHNO_BLAST:
-	loadspritegfx ANIM_TAG_USELESS_CARD
-	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER
-	createsprite gUselessCardSpriteTemplate, ANIM_ATTACKER, 2, 32, 48, 0, -4, 16, 60, 0, 0
-	waitforvisualfinish
-	end
-	@goto Move_SIGNAL_BEAM
+	@loadspritegfx ANIM_TAG_USELESS_CARD
+	@playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER
+	@createsprite gUselessCardSpriteTemplate, ANIM_ATTACKER, 2, 32, 48, 0, -4, 16, 60, 0, 0
+	@waitforvisualfinish
+	@end
+	goto Move_SIGNAL_BEAM
 	
 Move_OBLI_ION_WING:
 	loadspritegfx ANIM_TAG_ORBS
