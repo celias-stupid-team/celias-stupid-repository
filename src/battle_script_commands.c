@@ -4685,6 +4685,7 @@ static void Cmd_playanimation(void)
      || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE
      || gBattlescriptCurrInstr[2] == B_ANIM_SILPH_SCOPED
      || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE
+     || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE_REVERSE
      || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM
@@ -4696,6 +4697,15 @@ static void Cmd_playanimation(void)
             u16 species = SPECIES_ALOMOMOLA;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
+        }
+        //create Luvdisc right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE_REVERSE)
+        {
+            u16 species = SPECIES_LUVDISC;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         //create Hoopa right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
@@ -4703,6 +4713,7 @@ static void Cmd_playanimation(void)
             u16 species = SPECIES_HOOPA;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         //create Zapmolcuno birds right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM)
@@ -4712,6 +4723,7 @@ static void Cmd_playanimation(void)
             gBattleTurnMonFainted = TRUE;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         // create Slowpoke right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM)
@@ -4719,6 +4731,7 @@ static void Cmd_playanimation(void)
             u16 species = SPECIES_SLOWPOKE;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         // create Inkay right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
@@ -4740,6 +4753,7 @@ static void Cmd_playanimation(void)
             PREPARE_SPECIES_BUFFER(gBattleTextBuff3, species); // INKAY
 
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);

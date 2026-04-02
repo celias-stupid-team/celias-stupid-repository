@@ -254,6 +254,7 @@ extern const u8 BattleScript_SilphScopeUnveiled[];
 extern const u8 BattleScript_TerastallizeShedinja[];
 extern const u8 BattleScript_BattleTowerTrainerBattleWon[];
 extern const u8 BattleScript_AlomomolaMidBattleEvo[];
+extern const u8 BattleScript_AlomomolaMidBattleEvoReverse[];
 extern const u8 BattleScript_HangedOnMsg[];
 extern const u8 BattleScript_EffectStealthRock[];
 extern const u8 BattleScript_BadDreamsActivates[];
