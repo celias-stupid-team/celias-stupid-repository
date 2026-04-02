@@ -2352,15 +2352,15 @@ u16 GetRandomUnobtainedSpecies(void)
     u32 i;
     // yeah I know this is sus but according to Egg theoretically the stack should be able to handle less than 1000 bytes
     // if we need to we can trim the size a bit since in practice we should never get remotely close to KANTO_DEX_COUNT
-    u16 unobtained[KANTO_DEX_COUNT]; 
+    u16 unobtained[NATIONAL_DEX_VENUSAUR + 1]; 
     u16 *currSpecies = unobtained;
     u32 maxSpecies = 0;
 
-    for (i = 0; i < KANTO_DEX_COUNT; i++)
+    for (i = 0; i <= NATIONAL_DEX_VENUSAUR; i++)
     {
-        if (DexScreen_GetSetPokedexFlag(i, FLAG_GET_OBTAINABLE, TRUE) && !DexScreen_GetSetPokedexFlag(i, FLAG_GET_CAUGHT, TRUE))
+        if (DexScreen_GetSetPokedexFlag(i, FLAG_GET_OBTAINABLE, FALSE) && !DexScreen_GetSetPokedexFlag(i, FLAG_GET_CAUGHT, FALSE))
         {
-            *currSpecies = i;
+            *currSpecies = NationalPokedexNumToSpecies(i);
             currSpecies++;   
             maxSpecies++;   
         }
