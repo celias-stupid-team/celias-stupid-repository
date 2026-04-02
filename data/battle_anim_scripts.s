@@ -27167,6 +27167,38 @@ Move_OBLI_ION_WING:
 
 
 Move_MOLTRES_KICK:
+	choosetwoturnanim MoltresKickSetUp, MoltresKickUnleash
+MoltresKickEnd:
+	end
+
+MoltresKickSetUp:
+
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	playsewithpan SE_M_SACRED_FIRE2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 47, 1
+	call MoltresBuildupEffect
+	call MoltresBuildupEffect
+	call MoltresBuildupEffect
+	waitforvisualfinish
+	
+	goto MoltresKickEnd
+
+MoltresBuildupEffect:
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 28, 528, 30, 13, 50, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, 480, 20, 16, -46, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 33, 576, 20, 8, 42, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 31, 400, 25, 11, -42, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 28, 512, 25, 16, 46, ANIM_ATTACKER
+	delay 2
+	createsprite gFireSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 33, 464, 30, 15, -50, ANIM_ATTACKER
+	delay 2
+	return
+
+MoltresKickUnleash:
 	loadspritegfx ANIM_TAG_MOLTRES_KICK
 	loadspritegfx ANIM_TAG_MOLTRES_APPEAR
 	loadspritegfx ANIM_TAG_MOLTRES_FLARE
@@ -27210,25 +27242,25 @@ Move_MOLTRES_KICK:
 	waitforvisualfinish
 	delay 45
 
-	playse SE_M_DOUBLE_TEAM
+	playse SE_M_FLAME_WHEEL2
 	createsprite gMoltresKickSpriteTemplate, 2, 0, 126, -59, 190, 206, 9, 4
 	delay 40
-	playse SE_M_DOUBLE_TEAM
+	playse SE_M_FLAME_WHEEL2
 	createsprite gMoltresKickSpriteTemplate, 2, 0, 252, 112, -46, 2, 10, 4
 	delay 36
-	playse SE_M_DOUBLE_TEAM
+	playse SE_M_FLAME_WHEEL2
 	createsprite gMoltresKickSpriteTemplate, 2, 0, -51, 16, 282, 50, 11, 4
 	delay 32
-	playse SE_M_DOUBLE_TEAM
+	playse SE_M_FLAME_WHEEL2
 	createsprite gMoltresKickSpriteTemplate, 2, 0, 272, -37, 80, 230, 11, 4
 	delay 28
-	playse SE_M_DOUBLE_TEAM
+	playse SE_M_FLAME_WHEEL2
 	createsprite gMoltresKickSpriteTemplate, 2, 0, 126, 224, 98, -42, 12, 4
 	delay 24
-	playse SE_M_DOUBLE_TEAM
+	playse SE_M_FLAME_WHEEL2
 	createsprite gMoltresKickSpriteTemplate, 2, 0, 200, -21, -48, 88, 12, 4
 	delay 20
-	playse SE_M_DOUBLE_TEAM
+	playse SE_M_FLAME_WHEEL2
 	createsprite gMoltresKickSpriteTemplate, 2, 0, -41, 88, 298, 36, 13, 4
 	waitforvisualfinish
 	delay 16
@@ -27239,7 +27271,7 @@ Move_MOLTRES_KICK:
 	delay 13
 	createsprite gMegaPunchKickSpriteTemplate, ANIM_TARGET, 3, 0, 0, 1, 50
 	delay 32
-	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER
 	@createsprite gSkyAttackMoltresSpriteTemplate, ANIM_TARGET, 2
 	
 	createvisualtask AnimTask_GetTargetSide, 2
@@ -27265,18 +27297,11 @@ MoltresKickContinue:
 	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_EXPLOSION, SOUND_PAN_TARGET
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
-	end
+	goto MoltresKickEnd
 
 MoltresKickOnPlayer:
 	createsprite gMoltresKickSpriteTemplate, 2, 0, -58, 154, 296, -27, 14, 4
 	goto MoltresKickContinue
-
-	loadspritegfx ANIM_TAG_SMALL_EMBER
-	loopsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER, 8, 3
-	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_BG | F_PAL_ATTACKER | F_PAL_TARGET, 2, 5, 3, 8, RGB(14, 13, 0)
-	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 12, 6, 5, 4
-	waitforvisualfinish
-	end
 
 MoltresOutrageFlames:
 	createsprite gMoltresOutrageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, 1280, 0, 3 @R
@@ -27296,10 +27321,6 @@ MoltresOutrageFlames:
 	createsprite gMoltresOutrageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, 1280, -768, 3 @UR
 	delay 0
 	return
-
-
-
-
 
 Move_WHITE_LIGHTNING:
 	loadspritegfx ANIM_TAG_LIGHTNING
