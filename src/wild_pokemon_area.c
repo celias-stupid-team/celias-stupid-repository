@@ -61,6 +61,7 @@ static const u16 sDexAreas_Kanto[][2] = {
     { MAPSEC_ROUTE_23,            DEX_AREA_ROUTE_23 },
     { MAPSEC_ROUTE_24,            DEX_AREA_ROUTE_24 },
     { MAPSEC_ROUTE_25,            DEX_AREA_ROUTE_25 },
+    { MAPSEC_SECRET_GARDEN,            DEX_AREA_ROUTE_25 },
     { MAPSEC_VIRIDIAN_FOREST,     DEX_AREA_VIRIDIAN_FOREST },
     { MAPSEC_MT_MOON,             DEX_AREA_MT_MOON },
     { MAPSEC_S_S_ANNE,            DEX_AREA_VERMILION_CITY },
