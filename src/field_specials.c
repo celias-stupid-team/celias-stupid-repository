@@ -2563,8 +2563,11 @@ static void MoveDeoxysObject(u8 num)
     LoadPalette(sDeoxysObjectPals[num], OBJ_PLTT_ID(10), PLTT_SIZEOF(4));
     ApplyGlobalFieldPaletteTint(10);
     TryGetObjectEventIdByLocalIdAndMap(LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, &mapObjId);
-    if (num == 0)
+    if (num == 0) {
+        VarSet(VAR_TEMP_A, VarGet(VAR_TEMP_A) + 1);
         PlaySE(SE_M_CONFUSE_RAY);
+
+    }
     else
         PlaySE(SE_DEOXYS_MOVE);
     CreateTask(Task_WaitDeoxysFieldEffect, 8);

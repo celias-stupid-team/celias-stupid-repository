@@ -890,7 +890,7 @@ PokedexRating_Text_HintSolaceon::
 PokedexRating_Text_HintHoopa::
 	.string "There's legends of a POKéMON so\n"
 	.string "powerful, it had to be Sealed away.\p"
-	.string "How might you go about breaking the\n"
+	.string "How might you go about destroying the\n"
 	.string "Seal and unleashing it?$"
 
 
