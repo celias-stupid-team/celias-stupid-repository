@@ -4313,6 +4313,7 @@ BattleScript_ZapdosCutScene::
 	stopbattlebgm
 	@ playanimation BS_FAINTED, B_ANIM_ZAPDOS_LIGHTNING
 	@ waitanimation
+	clearflag FLAG_ROTOM_BATTLE_UI
 	fadedarken FADE_ALL_EXC_UI, FADE_DIR_DARKEN
 	waitforfade
 	printstring STRINGID_OHSHOOT
