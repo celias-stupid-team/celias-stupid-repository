@@ -814,8 +814,12 @@ static void Task_EvolutionScene(u8 taskId)
             {
                 u8 text[20];
 
+                // skip moves that are already learned
                 if (var == MON_ALREADY_KNOWS_MOVE)
+                {
+                    gTasks[taskId].tLearnsFirstMove = FALSE;
                     break;
+                }
 
                 StopMapMusic();
                 Overworld_PlaySpecialMapMusic();

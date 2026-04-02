@@ -299,6 +299,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHackAttack             @ EFFECT_HACK_ATTACK
 	.4byte BattleScript_EffectAuroraVeil             @ EFFECT_AURORA_VEIL
 	.4byte BattleScript_EffectSnowGravy              @ EFFECT_SNOWGRAVY
+	.4byte BattleScript_EffectRhydon                 @ EFFECT_RHYDON
 
 BattleScript_End2::
 	end2
@@ -414,9 +415,13 @@ BattleScript_EffectHeartSwap::
 	printstring STRINGID_PKMNSWITCHEDSTATCHANGES
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_EvolveAlomomola::
-	@ only trigger form change effect, when opponent is SPECIES_LUVDISC
-	jumpifnotspecies BS_TARGET, SPECIES_LUVDISC, BattleScript_MoveEnd
+	@ only trigger form change effect, when opponent is SPECIES_LUVDISC or SPECIES_ALOMOMOLA
+	jumpifnotspecies BS_TARGET, SPECIES_LUVDISC, BattleScript_CheckAlomomola
 	call BattleScript_AlomomolaMidBattleEvo
+	goto BattleScript_MoveEnd
+BattleScript_CheckAlomomola::
+	jumpifnotspecies BS_TARGET, SPECIES_ALOMOMOLA, BattleScript_MoveEnd
+	call BattleScript_AlomomolaMidBattleEvoReverse
 	goto BattleScript_MoveEnd
 
 BattleScript_MakeMoveMissed::
@@ -4248,6 +4253,20 @@ BattleScript_AlomomolaMidBattleEvo::
 	datahpupdate BS_TARGET
 	end2
 
+BattleScript_AlomomolaMidBattleEvoReverse::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_ALOMOMOLAEVO_REVERSE
+	waitstate
+	playanimation BS_TARGET, B_ANIM_ALOMOMOLA_EVOLVE_REVERSE
+	pause B_WAIT_TIME_LONG
+	printstring STRINGID_ALOMOMOLAEVOLVED_REVERSE
+	waitmessage B_WAIT_TIME_LONG
+    updatebattlerdata BS_TARGET
+	redrawhealthbox BS_TARGET
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	end2
+
 BattleScript_SeelHoopaTransform::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_SEELHOOPATRANSFORMSTART
@@ -4266,6 +4285,15 @@ BattleScript_SlowpokeTransform::
 	waitmessage B_WAIT_TIME_LONG
 	playanimation BS_ATTACKER, B_ANIM_SLOWPOKE_TRANSFORM
 	pause B_WAIT_TIME_LONG
+    updatebattlerdata BS_ATTACKER
+	redrawhealthbox BS_ATTACKER
+	end2
+
+BattleScript_RhydonTransform::
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_ATTACKER, B_ANIM_RHYDON_TRANSFORM
+	printstring STRINGID_RHYDONTRANSFORM
+	waitmessage B_WAIT_TIME_LONG
     updatebattlerdata BS_ATTACKER
 	redrawhealthbox BS_ATTACKER
 	end2
@@ -6258,3 +6286,19 @@ BattleScript_ShowMoveAnimation::
 	attackanimation
 	waitanimation
 	goto BattleScript_MoveMissedPause
+
+BattleScript_CantCopyAbility::
+	pause B_WAIT_TIME_SHORT
+	orbyte gMoveResultFlags, MOVE_RESULT_FAILED
+	printstring STRINGID_CANTCOPYABILITY
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRhydon::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	call BattleScript_RhydonTransform
+	goto BattleScript_MoveEnd

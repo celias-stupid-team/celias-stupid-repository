@@ -254,6 +254,7 @@ extern const u8 BattleScript_SilphScopeUnveiled[];
 extern const u8 BattleScript_TerastallizeShedinja[];
 extern const u8 BattleScript_BattleTowerTrainerBattleWon[];
 extern const u8 BattleScript_AlomomolaMidBattleEvo[];
+extern const u8 BattleScript_AlomomolaMidBattleEvoReverse[];
 extern const u8 BattleScript_HangedOnMsg[];
 extern const u8 BattleScript_EffectStealthRock[];
 extern const u8 BattleScript_BadDreamsActivates[];
@@ -306,5 +307,6 @@ extern const u8 BattleScript_TrainerASlidePreMessage[];
 extern const u8 BattleScript_TrainerASlideMsgRet[];
 extern const u8 BattleScript_TrainerASlideMsgEnd2[];
 extern const u8 BattleScript_FireWaterPledgeCombo[];
+extern const u8 BattleScript_CantCopyAbility[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

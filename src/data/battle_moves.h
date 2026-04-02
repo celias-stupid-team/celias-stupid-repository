@@ -8734,18 +8734,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
-    
     [MOVE_RHYDON] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_RHYDON,
         .power = 0,
         .type = TYPE_ROCK,
         .accuracy = 0,
         .pp = 35,
-        .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_SELECTED,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .flags = 0,
     },
 
     

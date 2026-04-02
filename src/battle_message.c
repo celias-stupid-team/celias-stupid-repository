@@ -401,6 +401,8 @@ static const u8 sText_SilphScopeUnveil[] = _("{B_PLAYER_NAME} unveiled the GHOST
 static const u8 sText_TheGhostWas[] = _("…Wait, no.\pI guess this one is actually just\na GHOST.\p{PAUSE 60}Whelp.");
 static const u8 sText_AlomomolaEvo[] = _("Look! LUVDISC is evolving!");
 static const u8 sText_AlomomolaEvolved[] = _("LUVDISC evolved to ALOMOMOLA!");
+static const u8 sText_AlomomolaEvoReverse[] = _("Look! ALOMOMOLA is devolving!");
+static const u8 sText_AlomomolaEvolvedReverse[] = _("ALOMOMOLA devolved to LUVDISC!");
 static const u8 sText_PkmnSwitchedStatChanges[] = _("{B_ATK_NAME_WITH_PREFIX} switched stat changes\nwith the target!");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
 static const u8 sText_LightGaryAndDarkGary[] = _("LIGHT GARY & DARK GARY\nwould like to battle!\p");
@@ -955,6 +957,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_TRAINER1MON1AND2COMEBACK - BATTLESTRINGS_TABLE_START]      = sText_Trainer1RecallBoth,
     [STRINGID_ALOMOMOLAEVO - BATTLESTRINGS_TABLE_START]                  = sText_AlomomolaEvo,
     [STRINGID_ALOMOMOLAEVOLVED - BATTLESTRINGS_TABLE_START]              = sText_AlomomolaEvolved,
+    [STRINGID_ALOMOMOLAEVO_REVERSE - BATTLESTRINGS_TABLE_START]          = sText_AlomomolaEvoReverse,
+    [STRINGID_ALOMOMOLAEVOLVED_REVERSE - BATTLESTRINGS_TABLE_START]      = sText_AlomomolaEvolvedReverse,
     [STRINGID_PKMNSWITCHEDSTATCHANGES - BATTLESTRINGS_TABLE_START]       = sText_PkmnSwitchedStatChanges,
     [STRINGID_ENDUREDSTURDY - BATTLESTRINGS_TABLE_START]                 = sText_EnduredViaSturdy,
     [STRINGID_FORFEITEDMATCH - BATTLESTRINGS_TABLE_START]                = sText_ForfeitedMatch,
@@ -1085,6 +1089,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PROCEED - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Proceed."),
     [STRINGID_CREATEDRAINBOW - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} created a RAINBOW!"),
     [STRINGID_FREEDOMREIGNED - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("And FREEDOM reigned!"),
+    [STRINGID_CANTCOPYABILITY - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("You can't copy abilities during\nSHADOW SKY!"),
+    [STRINGID_RHYDONTRANSFORM - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} transformed into RHYDON!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 

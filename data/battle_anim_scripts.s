@@ -1142,6 +1142,8 @@ gBattleAnims_General::
 	.4byte General_MegaEvolution            @ B_ANIM_MEGA_EVOLUTION
 	.4byte General_DynamaxGrowth            @ B_ANIM_DYNAMAX_GROWTH
 	.4byte General_Rainbow					@ B_ANIM_RAINBOW
+	.4byte General_AlomomolaEvolveReverse   @ B_ANIM_ALOMOMOLA_EVOLVE_REVERSE
+	.4byte General_RhydonTransform          @ B_ANIM_RHYDON_TRANSFORM
 
 	.align 2
 gBattleAnims_Special::
@@ -12340,6 +12342,16 @@ General_AlomomolaEvolve:
 	clearmonbg ANIM_ATTACKER
 	end
 
+General_AlomomolaEvolveReverse:
+	monbg ANIM_ATTACKER
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
+	createvisualtask AnimTask_TransformMon, 2, 255
+	waitsound
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+
 General_SeelHoopaTransform:
 	monbg ANIM_ATTACKER
 	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
@@ -12354,6 +12366,16 @@ General_ZapmolcunoTransform: @ doesn't need an actual transformation since it wo
 	end
 
 General_SlowpokeTransform:
+	monbg ANIM_ATTACKER
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
+	createvisualtask AnimTask_TransformMon, 2, 255
+	waitsound
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+
+General_RhydonTransform:
 	monbg ANIM_ATTACKER
 	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
 	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
