@@ -235,6 +235,8 @@ static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr);
 static void MoveCursorToConfirm(void);
 static bool8 IsSelectedMonNotEgg(u8 *slotPtr);
 static void TryTutorSelectedMon(u8 taskId);
+static void TryMultiMoveTutorSelectedMon(u8 taskId);
+static void TryPledgeTutorSelectedMon(u8 taskId);
 static void TryGiveMailToSelectedMon(u8 taskId);
 static void SwitchSelectedMons(u8 taskId);
 static void TryEnterMonForMinigame(u8 taskId, u8 slot);
@@ -851,6 +853,29 @@ static void DisplayPartyPokemonDataForWirelessMinigame(u8 slot)
         DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE);
 }
 
+static u8 GetPledgeTutorIdForSpecies(u16 species)
+{
+    switch (species)
+    {
+    case SPECIES_BULBASAUR:
+    case SPECIES_IVYSAUR:
+    case SPECIES_VENUSAUR:
+        return TUTOR_MOVE_GRASS_PLEDGE;
+    case SPECIES_CHARMANDER:
+    case SPECIES_CHARMELEON:
+    case SPECIES_CHARIZARD:
+        return TUTOR_MOVE_FIRE_PLEDGE;
+    case SPECIES_SQUIRTLE:
+    case SPECIES_WARTORTLE:
+    case SPECIES_BLASTOISE:
+        return TUTOR_MOVE_WATER_PLEDGE;
+    case SPECIES_EEVEE:
+        return TUTOR_MOVE_PLEDGE_OF_ALLEGIANCE;
+    default:
+        return TUTOR_MOVE_COUNT;
+    }
+}
+
 // Returns TRUE if teaching move or cant evolve with item (i.e. description data is shown), FALSE otherwise
 static bool8 DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(u8 slot)
 {
@@ -863,6 +888,53 @@ static bool8 DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(u8 slot)
         if (gSpecialVar_0x8005 >= TUTOR_MOVE_COUNT)
             return FALSE;
         DisplayPartyPokemonDataToTeachMove(slot, 0, gSpecialVar_0x8005);
+    }
+    else if (gPartyMenu.action == PARTY_ACTION_MULTI_MOVE_TUTOR) // display move compatibility
+    {
+        u8 tutor;
+        u16 species;
+        gSpecialVar_Result = FALSE;
+        if (GetMonData(currentPokemon, MON_DATA_IS_EGG))
+        {
+            DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+        }
+        else
+        {
+            species = GetMonData(currentPokemon, MON_DATA_SPECIES);
+            // new moves require additional entries in GetTutorMove(), CanLearnTutorMove()
+            for (tutor = 0; tutor < TUTOR_MOVE_COUNT; tutor++)
+            {
+                if (GetTutorMove(tutor) == gSpecialVar_0x8006)
+                    break;
+            }
+            if (tutor == TUTOR_MOVE_COUNT || !CanLearnTutorMove(species, tutor))
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+            else if (MonKnowsMove(currentPokemon, gSpecialVar_0x8006))
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_LEARNED);
+            else
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+        }
+    }
+    else if (gPartyMenu.action == PARTY_ACTION_PLEDGE_TUTOR)
+    {
+        u8 pledgeId;
+        u16 species;
+        gSpecialVar_Result = FALSE;
+        if (GetMonData(currentPokemon, MON_DATA_IS_EGG))
+        {
+            DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+        }
+        else
+        {
+            species = GetMonData(currentPokemon, MON_DATA_SPECIES);
+            pledgeId = GetPledgeTutorIdForSpecies(species);
+            if (pledgeId >= TUTOR_MOVE_COUNT)
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
+            else if (MonKnowsMove(currentPokemon, GetTutorMove(pledgeId)))
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_LEARNED);
+            else
+                DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
+        }
     }
     else
     {
@@ -1191,6 +1263,20 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             {
                 PlaySE(SE_SELECT);
                 TryTutorSelectedMon(taskId);
+            }
+            break;
+        case PARTY_ACTION_MULTI_MOVE_TUTOR: // try teaching the move
+            if (IsSelectedMonNotEgg((u8 *)slotPtr))
+            {
+                PlaySE(SE_SELECT);
+                TryMultiMoveTutorSelectedMon(taskId);
+            }
+            break;
+        case PARTY_ACTION_PLEDGE_TUTOR:
+            if (IsSelectedMonNotEgg((u8 *)slotPtr))
+            {
+                PlaySE(SE_SELECT);
+                TryPledgeTutorSelectedMon(taskId);
             }
             break;
         case PARTY_ACTION_GIVE_MAILBOX_MAIL:
@@ -3985,13 +4071,14 @@ static void CursorCB_FieldMove(u8 taskId)
     else
     {
         // All field moves before WATERFALL are HMs.
-        /*
-        if (fieldMove == FIELD_MOVE_SURF) { // remove this if full release
-            DisplayPartyMenuMessage(gText_CantUseUntilNewDemo, TRUE);
+        
+        if (fieldMove == FIELD_MOVE_SURF
+            && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12)) { // remove this if full release
+            DisplayPartyMenuStdMessage(PARTY_MSG_NO_SURF);
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
 
         }
-        */
+        
         if (fieldMove <= FIELD_MOVE_WATERFALL && FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE)
         {
             DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
@@ -4046,8 +4133,6 @@ static void CursorCB_FieldMove(u8 taskId)
                 else
                 {
                     
-                    DebugPrintf("Num %d Group %d", gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-                    DebugPrintf("Route 12 is %d and %d", MAP_NUM(MAP_ROUTE12));
                     if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12)) { //Route12
                         
                         DisplayNoRetreatMessage();
@@ -4189,6 +4274,9 @@ static bool8 SetUpFieldMove_Surf(void)
     if(FlagGet(FLAG_FUSHCIA_GO_TO_SHORE_SCENE) && !FlagGet(FLAG_LOOKER_SCENE)) {
         return FALSE;
     }
+    if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12)) {
+        return FALSE;
+    }
     if (MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y)) != TRUE
      && PartyHasMonWithSurf() == TRUE
      && IsPlayerFacingSurfableFishableWater() == TRUE)
@@ -4210,6 +4298,10 @@ static void DisplayCantUseSurfMessage(void)
     }
     else
     {
+        DebugPrintf("Mapgroup %d", gSaveBlock1Ptr->location.mapGroup);
+        DebugPrintf("Route12  %d", MAP_GROUP(MAP_ROUTE12));
+
+        
         GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
         if (MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y)) == TRUE)
             DisplayPartyMenuStdMessage(PARTY_MSG_CURRENT_TOO_FAST);
@@ -4219,7 +4311,10 @@ static void DisplayCantUseSurfMessage(void)
             DisplayPartyMenuStdMessage(PARTY_MSG_ENJOY_CYCLING);
         else if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12))
               && ((gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12))))
+            {
+                
             DisplayPartyMenuStdMessage(PARTY_MSG_NO_SURF);
+            }
         else if (FlagGet(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)) {
             DisplayPartyMenuStdMessage(PARTY_MSG_CANT_SURF_HERE);
         }
@@ -5615,6 +5710,85 @@ static void TryTutorSelectedMon(u8 taskId)
     }
 }
 
+static void TryMultiMoveTutorSelectedMon(u8 taskId)
+{
+    struct Pokemon *mon;
+    s16 *data;
+
+    if (!gPaletteFade.active)
+    {
+        mon = &gPlayerParty[gPartyMenu.slotId];
+        data = gPartyMenu.data;
+        GetMonNickname(mon, gStringVar1);
+        gPartyMenu.learnMoveId = gSpecialVar_0x8006;
+        StringCopy(gStringVar2, gLongMoveNames[gPartyMenu.learnMoveId]);
+        learnMoveMethod = LEARN_VIA_TUTOR;
+        {
+            u8 tutor;
+            u16 species = GetMonData(mon, MON_DATA_SPECIES);
+            for (tutor = 0; tutor < TUTOR_MOVE_COUNT; tutor++)
+            {
+                if (GetTutorMove(tutor) == gPartyMenu.learnMoveId)
+                    break;
+            }
+            if (tutor == TUTOR_MOVE_COUNT || !CanLearnTutorMove(species, tutor))
+            {
+                DisplayLearnMoveMessageAndClose(taskId, gText_PkmnCantLearnMove);
+                return;
+            }
+        }
+        if (MonKnowsMove(mon, gPartyMenu.learnMoveId))
+        {
+            DisplayLearnMoveMessageAndClose(taskId, gText_PkmnAlreadyKnows);
+            return;
+        }
+        if (GiveMoveToMon(mon, gPartyMenu.learnMoveId) != MON_HAS_MAX_MOVES)
+        {
+            Task_LearnedMove(taskId);
+            return;
+        }
+        DisplayLearnMoveMessage(gText_PkmnNeedsToReplaceMove);
+        gTasks[taskId].func = Task_ReplaceMoveYesNo;
+    }
+}
+
+static void TryPledgeTutorSelectedMon(u8 taskId)
+{
+    struct Pokemon *mon;
+    s16 *data;
+    u16 species;
+    u8 pledgeId;
+
+    if (!gPaletteFade.active)
+    {
+        mon = &gPlayerParty[gPartyMenu.slotId];
+        data = gPartyMenu.data;
+        species = GetMonData(mon, MON_DATA_SPECIES);
+        pledgeId = GetPledgeTutorIdForSpecies(species);
+        GetMonNickname(mon, gStringVar1);
+        if (pledgeId >= TUTOR_MOVE_COUNT)
+        {
+            DisplayLearnMoveMessageAndClose(taskId, gText_PkmnLearnedMove2);
+            return;
+        }
+        gPartyMenu.learnMoveId = GetTutorMove(pledgeId);
+        StringCopy(gStringVar2, gLongMoveNames[gPartyMenu.learnMoveId]);
+        learnMoveMethod = LEARN_VIA_TUTOR;
+        if (MonKnowsMove(mon, gPartyMenu.learnMoveId))
+        {
+            DisplayLearnMoveMessageAndClose(taskId, gText_PkmnAlreadyKnows);
+            return;
+        }
+        if (GiveMoveToMon(mon, gPartyMenu.learnMoveId) != MON_HAS_MAX_MOVES)
+        {
+            Task_LearnedMove(taskId);
+            return;
+        }
+        DisplayLearnMoveMessage(gText_PkmnNeedsToReplaceMove);
+        gTasks[taskId].func = Task_ReplaceMoveYesNo;
+    }
+}
+
 #undef learnMoveId
 #undef learnMoveMethod
 
@@ -6006,6 +6180,28 @@ void ChooseMonForMoveTutor(void)
                       CB2_ReturnToFieldContinueScriptPlayMapMusic);
         gPartyMenu.slotId = gSpecialVar_0x8007;
     }
+}
+
+void CB2_ChooseMonForMultiMoveTutor(void) // call party screen with PARTY_ACTION_MULTI_MOVE_TUTOR
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD,
+                  PARTY_LAYOUT_SINGLE,
+                  PARTY_ACTION_MULTI_MOVE_TUTOR,
+                  FALSE,
+                  PARTY_MSG_TEACH_WHICH_MON,
+                  Task_HandleChooseMonInput,
+                  CB2_MultiMoveTutor_Init);
+}
+
+void ChooseMonForPledgeTutor(void)
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD,
+                  PARTY_LAYOUT_SINGLE,
+                  PARTY_ACTION_PLEDGE_TUTOR,
+                  FALSE,
+                  PARTY_MSG_TEACH_WHICH_MON,
+                  Task_HandleChooseMonInput,
+                  CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
 void ChooseMonForWirelessMinigame(void)

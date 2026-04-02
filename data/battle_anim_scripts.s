@@ -1141,6 +1141,7 @@ gBattleAnims_General::
 	.4byte General_FlipTurnTransform        @ B_ANIM_FLIP_TURN_TRANSFORM
 	.4byte General_MegaEvolution            @ B_ANIM_MEGA_EVOLUTION
 	.4byte General_DynamaxGrowth            @ B_ANIM_DYNAMAX_GROWTH
+	.4byte General_Rainbow					@ B_ANIM_RAINBOW
 
 	.align 2
 gBattleAnims_Special::
@@ -27072,12 +27073,12 @@ Move_HEART_STAMP:
 	end
 
 Move_TECHNO_BLAST:
-	loadspritegfx ANIM_TAG_USELESS_CARD
-	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER
-	createsprite gUselessCardSpriteTemplate, ANIM_ATTACKER, 2, 32, 48, 0, -4, 16, 60, 0, 0
-	waitforvisualfinish
-	end
-	@goto Move_SIGNAL_BEAM
+	@loadspritegfx ANIM_TAG_USELESS_CARD
+	@playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER
+	@createsprite gUselessCardSpriteTemplate, ANIM_ATTACKER, 2, 32, 48, 0, -4, 16, 60, 0, 0
+	@waitforvisualfinish
+	@end
+	goto Move_SIGNAL_BEAM
 	
 Move_OBLI_ION_WING:
 	loadspritegfx ANIM_TAG_ORBS
@@ -27445,29 +27446,30 @@ Move_YEST:
 	createsprite gSleepThumbsUpSpriteTemplate, ANIM_ATTACKER, 2, 4, -10, 16, 0, 0
 	waitforvisualfinish
 	end
+
 Move_PLEDGE_OF_ALLEGIANCE:
 	loadspritegfx ANIM_TAG_ALLEGIANCE
-	loadspritegfx ANIM_TAG_EAGLE
-	monbg ANIM_DEF_PARTNER
+	@ loadspritegfx ANIM_TAG_EAGLE
+	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
 	fadetobg BG_AMERICAN_FLAG
 	waitbgfadein
 	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_SKY_UPPERCUT, SOUND_PAN_ATTACKER
-	createsprite gEagleSpriteTemplate, ANIM_TARGET, 2
+	@ createsprite gEagleSpriteTemplate, ANIM_ATTACKER, 2
 	delay 14
-	playsewithpan SE_M_SACRED_FIRE, SOUND_PAN_TARGET
-	createsprite gAllegianceSpriteTemplate, ANIM_TARGET, 2, -16, 16, 24, 0, 0, 0, 0, 1
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 6, 0, 8, 1
+	playsewithpan SE_M_SACRED_FIRE, SOUND_PAN_ATTACKER
+	createsprite gAllegianceSpriteTemplate, ANIM_ATTACKER, 2, -16, 16, 24, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 6, 0, 8, 1
 	delay 10
-	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
-	createsprite gAllegianceSpriteTemplate, ANIM_TARGET, 2,  16, 16, 24, 0, 0, 0, 0, 1
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 10, 0, 12, 1
+	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER
+	createsprite gAllegianceSpriteTemplate, ANIM_ATTACKER, 2,  16, 16, 24, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 10, 0, 12, 1
 	delay 10
-	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
-	createsprite gAllegianceSpriteTemplate, ANIM_TARGET, 2,   0, 16, 24, 0, 0, 0, 0, 1
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 12, 0, 20, 1
+	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER
+	createsprite gAllegianceSpriteTemplate, ANIM_ATTACKER, 2,   0, 16, 24, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 12, 0, 20, 1
 	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
+	clearmonbg ANIM_ATK_PARTNER
 	restorebg
 	waitbgfadein
 	blendoff

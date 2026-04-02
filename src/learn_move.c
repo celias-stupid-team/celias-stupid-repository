@@ -17,6 +17,7 @@
 #include "strings.h"
 #include "constants/songs.h"
 #include "constants/moves.h"
+#include "party_menu.h"
 
 /*
  * Move relearner state machine
@@ -113,6 +114,7 @@
 #define MENU_STATE_PRINT_TEXT_THEN_FANFARE 31
 #define MENU_STATE_WAIT_FOR_FANFARE 32
 #define MENU_STATE_WAIT_FOR_A_BUTTON 33
+#define MENU_STATE_PARTY_SELECT 34
 
 struct MoveTutorMoveInfoHeaders
 {
@@ -126,7 +128,7 @@ struct LearnMoveGfxResources
 {
     u8 state;
     u8 unk_01;
-    u8 unk_02;
+    u8 isMultiMoveTutor; // used to distinguish Relearner from Multi Move Tutor in shared functions
     u8 spriteIds[2];
     u8 filler_05[0x13];
     u8 unk_18;
@@ -169,6 +171,8 @@ static void PrintMoveInfoHandleCancel_CopyToVram(void);
 static void MoveRelearnerMenu_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *list);
 static s8 YesNoMenuProcessInput(void);
 static void PrintTextOnWindow(u8 windowId, const u8 *str, u8 x, u8 y, s32 speed, s32 colorIdx);
+static void MultiMoveTutorInitListMenuBuffersEtc(void);
+static void MoveRelearnerLoadBgGfx(void);
 
 static const u16 sLearnMoveInterfaceSpritesPalette[] = INCBIN_U16("graphics/learn_move/interface_sprites.gbapal");
 static const u16 sLearnMoveInterfaceSpritesTiles[] = INCBIN_U16("graphics/learn_move/interface_sprites.4bpp");
@@ -202,6 +206,12 @@ static const struct MoveTutorMoveInfoHeaders sMoveTutorMoveInfoHeaders[][5] =
         {NULL,        0, 0, 0},
         {NULL,        0, 0, 0},
     },
+};
+
+static const u16 sMultiMoveTutorMoves[] = {
+    MOVE_GRASS_PLEDGE,
+    MOVE_FIRE_PLEDGE,
+    MOVE_WATER_PLEDGE,
 };
 
 static const struct SpriteSheet sSpriteSheet_ListMenuScrollIndicators = {
@@ -362,6 +372,43 @@ static void VBlankCB_MoveRelearner(void)
     LoadOam();
     ProcessSpriteCopyRequests();
     TransferPlttBuffer();
+}
+
+void TeachMultiMoveTutorMove(void)
+{
+    LockPlayerFieldControls();
+    CreateTask(Task_InitMultiMoveTutorMenu, 10);
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+}
+
+void Task_InitMultiMoveTutorMenu(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        SetMainCallback2(CB2_MultiMoveTutor_Init);
+        gFieldCallback = FieldCB_ContinueScriptHandleMusic;
+        DestroyTask(taskId);
+    }
+}
+
+void CB2_MultiMoveTutor_Init(void)
+{
+    SetGpuReg(REG_OFFSET_DISPCNT, 0);
+    ResetSpriteData();
+    FreeAllSpritePalettes();
+    ResetTasks();
+    sMoveRelearner = AllocZeroed(sizeof(struct LearnMoveGfxResources));
+    InitMoveRelearnerStateVariables();
+    sMoveRelearner->isMultiMoveTutor = TRUE;
+    MultiMoveTutorInitListMenuBuffersEtc();
+    SetVBlankCallback(VBlankCB_MoveRelearner);
+    MoveRelearnerLoadBgGfx();
+    SpawnListMenuScrollIndicatorSprites();
+    RunTasks();
+    AnimateSprites();
+    BuildOamBuffer();
+    UpdatePaletteFade();
+    SetMainCallback2(CB2_MoveRelearner);
 }
 
 void TeachMoveRelearnerMove(void)
@@ -673,6 +720,20 @@ static void MoveRelearnerStateMachine(void)
             sMoveRelearner->state = 14;
         }
         break;
+    case MENU_STATE_PARTY_SELECT:
+        if (!gPaletteFade.active)
+        {
+            if (gSpecialVar_0x8006 == MOVE_NONE)
+            {
+                sMoveRelearner->state = MENU_STATE_SETUP_BATTLE_MODE;
+                break;
+            }
+            FreeAllWindowBuffers();
+            Free(sMoveRelearner);
+            sMoveRelearner = NULL;
+            SetMainCallback2(CB2_ChooseMonForMultiMoveTutor);
+        }
+        break;
     }
 }
 
@@ -687,7 +748,13 @@ static void PrintTeachWhichMoveToStrVar1(bool8 onInit)
 {
     if (!onInit)
     {
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToMon);
+        const u8 *str;
+        
+        if (sMoveRelearner->isMultiMoveTutor)
+            str = gText_TeachWhichMove;
+        else
+            str = gText_TeachWhichMoveToMon;
+        StringExpandPlaceholders(gStringVar4, str);
         PrintTextOnWindow(7, gStringVar4, 0, 2, 0, 2);
         PutWindowTilemap(7);
         CopyWindowToVram(7, COPYWIN_FULL);
@@ -698,7 +765,7 @@ static void InitMoveRelearnerStateVariables(void)
 {
     int i;
     sMoveRelearner->state = 0;
-    sMoveRelearner->unk_02 = 0;
+    sMoveRelearner->isMultiMoveTutor = FALSE;
     sMoveRelearner->scrollPositionMaybe = 0;
     sMoveRelearner->unk_18 = 0;
     sMoveRelearner->unk_1C = 0;
@@ -775,6 +842,31 @@ static void MoveRelearnerInitListMenuBuffersEtc(void)
     gMultiuseListMenuTemplate.totalItems = count + 1;
 }
 
+static void MultiMoveTutorInitListMenuBuffersEtc(void)
+{
+    int i;
+    s32 count = ARRAY_COUNT(sMultiMoveTutorMoves);
+
+    sMoveRelearner->numLearnableMoves = count;
+    for (i = 0; i < count; i++)
+    {
+        sMoveRelearner->learnableMoves[i] = sMultiMoveTutorMoves[i];
+        StringCopy(sMoveRelearner->listMenuStrbufs[i], gMoveNames[sMultiMoveTutorMoves[i]]);
+    }
+    StringCopy(sMoveRelearner->listMenuStrbufs[count], gFameCheckerText_Cancel);
+    sMoveRelearner->numLearnableMoves++;
+    for (i = 0; i < count; i++)
+    {
+        sMoveRelearner->listMenuItems[i].label = sMoveRelearner->listMenuStrbufs[i];
+        sMoveRelearner->listMenuItems[i].index = i;
+    }
+    sMoveRelearner->listMenuItems[i].label = gFameCheckerText_Cancel;
+    sMoveRelearner->listMenuItems[i].index = 0xFE;
+    gMultiuseListMenuTemplate = sMoveRelearnerListMenuTemplate;
+    gMultiuseListMenuTemplate.items = sMoveRelearner->listMenuItems;
+    gMultiuseListMenuTemplate.totalItems = count + 1;
+}
+
 static void MoveRelearnerMenuHandleInput(void)
 {
     ListMenu_ProcessInput(sMoveRelearner->listMenuTaskId);
@@ -783,14 +875,30 @@ static void MoveRelearnerMenuHandleInput(void)
         PlaySE(SE_SELECT);
         if (sMoveRelearner->selectedIndex != 0xFE)
         {
-            sMoveRelearner->state = 8;
-            StringCopy(gStringVar2, gLongMoveNames[sMoveRelearner->learnableMoves[sMoveRelearner->selectedIndex]]);
-            // sMoveRelearner->listMenuStrbufs[i], gLongMoveNames[sMoveRelearner->learnableMoves[sMoveRelearner->selectedIndex]]
-            StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_TeachMoveQues); //this needs to grab the long move and not the short one
+            if (sMoveRelearner->isMultiMoveTutor)
+            {
+                u16 selectedMove = sMoveRelearner->learnableMoves[sMoveRelearner->selectedIndex];
+                if (selectedMove != MOVE_NONE)
+                {
+                    gSpecialVar_0x8006 = selectedMove;
+                    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+                    sMoveRelearner->state = MENU_STATE_PARTY_SELECT;
+                }
+            }
+            else
+            {
+                sMoveRelearner->state = 8;
+                StringCopy(gStringVar2, gLongMoveNames[sMoveRelearner->learnableMoves[sMoveRelearner->selectedIndex]]);
+                // sMoveRelearner->listMenuStrbufs[i], gLongMoveNames[sMoveRelearner->learnableMoves[sMoveRelearner->selectedIndex]]
+                StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_TeachMoveQues); //this needs to grab the long move and not the short one
+            }
         }
         else
         {
-            StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_GiveUpTryingToTeachNewMove);
+            if (sMoveRelearner->isMultiMoveTutor)
+                StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_GiveUpTryingToTeachNewMove_NoMon);
+            else
+                StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_GiveUpTryingToTeachNewMove);
             sMoveRelearner->state = 12;
         }
     }
@@ -798,7 +906,10 @@ static void MoveRelearnerMenuHandleInput(void)
     {
         PlaySE(SE_SELECT);
         sMoveRelearner->state = 12;
-        StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_GiveUpTryingToTeachNewMove);
+        if (sMoveRelearner->isMultiMoveTutor)
+            StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_GiveUpTryingToTeachNewMove_NoMon);
+        else
+            StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_GiveUpTryingToTeachNewMove);
     }
     if (sMoveRelearner->numLearnableMoves > 6)
     {
@@ -890,11 +1001,9 @@ static void PrintMoveInfoHandleCancel_CopyToVram(void)
 static void MoveRelearnerMenu_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *list)
 {
     if (!onInit)
-    {
         PlaySE(SE_SELECT);
-        sMoveRelearner->scheduleMoveInfoUpdate = TRUE;
-        sMoveRelearner->selectedIndex = itemIndex;
-    }
+    sMoveRelearner->scheduleMoveInfoUpdate = TRUE;
+    sMoveRelearner->selectedIndex = itemIndex;
 }
 
 static s8 YesNoMenuProcessInput(void)

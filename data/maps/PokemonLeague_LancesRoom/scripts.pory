@@ -149,9 +149,10 @@ script PokemonLeague_LancesRoom_EventScript_Lance {
 	lock
 	faceplayer
 	clearflag(FLAG_SHINY_CREATION)
-	playbgm(MUS_ENCOUNTER_MAY, TRUE)
+	
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	goto_if_set(FLAG_DEFEATED_LANCE, PokemonLeague_LancesRoom_EventScript_PostBattle)
+	playbgm(MUS_ENCOUNTER_MAY, TRUE)
 	call_if_unset(FLAG_SYS_GAME_CLEAR, PokemonLeague_LancesRoom_EventScript_Intro)
 	call_if_set(FLAG_SYS_GAME_CLEAR, PokemonLeague_LancesRoom_EventScript_RematchIntro)
 	setflag(FLAG_TEMP_3)
@@ -168,7 +169,12 @@ script PokemonLeague_LancesRoom_EventScript_DefeatedLance {
 	//special(Script_TryGainNewFanFromCounter)
 	setflag(FLAG_DEFEATED_LANCE)
 	call(PokemonLeague_EventScript_OpenDoorLance)
-	msgbox(PokemonLeague_LancesRoom_Text_PostBattle)
+	msgbox(
+	"MAY: {PLAYER}, you've been busy\n"
+	"training, too, haven't you?\p"
+
+	"I think you deserve a reward!\n"
+	"This is from me!", MSGBOX_DEFAULT)
 	giveitem_msg("{PLAYER} got the ITEMFINDER!\n", ITEM_ITEMFINDER, 1)
 	waitfanfare
 	setvar(VAR_LANCE_LASS_ATTACK, 1)

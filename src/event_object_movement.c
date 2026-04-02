@@ -643,6 +643,9 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_BURNING_EGG_2  0x11D7
 #define OBJ_EVENT_PAL_TAG_MEDIARM  0x11D8
 #define OBJ_EVENT_PAL_TAG_GAY_BOYS  0x11D9
+#define OBJ_EVENT_PAL_TAG_DRACULA  0x11DA
+#define OBJ_EVENT_PAL_TAG_WEREWOLF  0x11DB
+#define OBJ_EVENT_PAL_TAG_GAY_1  0x11DC
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -858,6 +861,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_BURNING_EGG_2,             OBJ_EVENT_PAL_TAG_BURNING_EGG_2},
     {gObjectEventPal_MEDIARM,             OBJ_EVENT_PAL_TAG_MEDIARM},
     {gObjectEventPal_GAY_BOYS,             OBJ_EVENT_PAL_TAG_GAY_BOYS},
+    {gObjectEventPal_DRACULA,             OBJ_EVENT_PAL_TAG_DRACULA},
+    {gObjectEventPal_WEREWOLF,             OBJ_EVENT_PAL_TAG_WEREWOLF},
+    {gObjectEventPal_GAY_1,             OBJ_EVENT_PAL_TAG_GAY_1},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

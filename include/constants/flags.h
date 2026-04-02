@@ -528,7 +528,7 @@
 #define FLAG_SKY_TOWER_HURL_ORB           0x1DD
 #define FLAG_SKY_TOWER_BILL           0x1DE
 #define FLAG_SKY_TOWER_MONEY_ORB                0x1DF
-#define FLAG_0x1E0  0x1E0
+#define FLAG_RAT_GUY_EVOLVED  0x1E0
 #define FLAG_0x1E1         0x1E1
 #define FLAG_0x1E2            0x1E2
 #define FLAG_0x1E3      0x1E3

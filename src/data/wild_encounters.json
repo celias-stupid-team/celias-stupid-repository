@@ -24872,7 +24872,7 @@
               {
                 "min_level": 19,
                 "max_level": 19,
-                "species": "SPECIES_BULBASAUR"
+                "species": "SPECIES_CHARMANDER"
               },
               {
                 "min_level": 19,
@@ -24902,7 +24902,7 @@
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_CHARMANDER"
+                "species": "SPECIES_BULBASAUR"
               },
               {
                 "min_level": 15,
@@ -24986,7 +24986,7 @@
           "map": "MAP_CAVE_OF_ORIGIN_1F",
           "base_label": "gCaveOfOrigin_1F",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 1,
             "mons": [
               {
                 "min_level": 30,

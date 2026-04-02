@@ -13,7 +13,7 @@ mapscripts RainbowCloud_MapScripts {
 
 script RainbowCloud_Thesis {
 	msgbox(
-	"Creativity is the spark of the\n"
+	"Curiosity is the spark of the\n"
 	"human soul!\p"
 
 	"Break past the flimsy walls of your\n"
@@ -40,17 +40,17 @@ script RainbowCloud_FindTheShinies {
 	if(flag(FLAG_POST_GAME)) {
 		lock
 		msgbox(
-		"{FONT_SMALL}The rainbow hides {PAUSE 30}within its skies\n"
-		"{PAUSE 25}A brilliant stellar hue               \p"
+		"{FONT_SMALL}The rainbow hides within its skies\n"
+		"A brilliant stellar hue               \p"
 
-		"Indulge the quest {PAUSE 10}and seek the rest\n"
-		"{PAUSE 20}The veil soon {PAUSE 5}shall rise               \p"
+		"Indulge the quest and seek the rest\n"
+		"The veil soon shall rise               \p"
 
-		"To find the one {PAUSE 5}for all you've done\n"
-		"{PAUSE 25}My final test to you:{PAUSE 10}               \p"
+		"To find the one for all you've done\n"
+		"My final test to you:               \p"
 
-		"Unravel the puzzle within {PAUSE 5}the puzzle\n"
-		"{PAUSE 30}and claim your shining prize.", MSGBOX_DEFAULT)
+		"Unravel the puzzle within the puzzle\n"
+		"and claim your shining prize.", MSGBOX_DEFAULT)
 		closemessage
 		delay(20)
 		special(GetShinyCount)
@@ -79,17 +79,17 @@ script RainbowCloud_FindTheShinies {
 
 	}
 		msgbox(
-		"{FONT_SMALL}The rainbow hides {PAUSE 30}within its skies\n"
-		"{PAUSE 25}A brilliant stellar hue               \p"
+		"{FONT_SMALL}The rainbow hides within its skies\n"
+		"A brilliant stellar hue               \p"
 
-		"Indulge the quest {PAUSE 10}and seek the rest\n"
-		"{PAUSE 20}The veil soon {PAUSE 5}shall rise               \p"
+		"Indulge the quest and seek the rest\n"
+		"The veil soon shall rise               \p"
 
-		"To find the one {PAUSE 5}for all you've done\n"
-		"{PAUSE 25}My final test to you:{PAUSE 10}               \p"
+		"To find the one for all you've done\n"
+		"My final test to you:               \p"
 
-		"Unravel the puzzle within {PAUSE 5}the puzzle\n"
-		"{PAUSE 30}and claim your shining prize.", MSGBOX_SIGN)
+		"Unravel the puzzle within the puzzle\n"
+		"and claim your shining prize.", MSGBOX_SIGN)
 
 }
 

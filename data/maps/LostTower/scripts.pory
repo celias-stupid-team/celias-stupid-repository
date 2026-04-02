@@ -17,6 +17,7 @@ script LostTower_Gravestone {
 		"Wow!\n"
 		"The LOST TOWER laid an EGG!", MSGBOX_DEFAULT)
 		waitfanfare
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_EXEGGCUTE)
 		call(Common_Script_GiftPokemon)
 		release
 

@@ -590,6 +590,12 @@
 	.4byte \ptr
 	.endm
 
+	.macro if_trainer_equal trainer:req, ptr:req
+	.byte 0x64
+	.2byte \trainer
+	.4byte \ptr
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE

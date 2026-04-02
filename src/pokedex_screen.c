@@ -2938,7 +2938,7 @@ void DexScreen_PrintMonHeight(u8 windowId, u16 species, u8 x, u8 y)
     if (DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, FALSE))
     {
         inches = 10000 * height / 254; // actually tenths of inches here
-        DebugPrintf("Species is %d",species);
+        DebugPrintf("NatDex ID is %d",species);
         switch(species) {
             
             case SPECIES_UNOWN_LOSS: // ?????? I have literally no clue why 

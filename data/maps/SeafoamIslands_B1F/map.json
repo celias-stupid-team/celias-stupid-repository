@@ -141,6 +141,34 @@
       "trainer_sight_or_berry_tree_id": "ITEM_TM05",
       "script": "EventScript_FindItem",
       "flag": "FLAG_TEMP_A"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 39,
+      "y": 31,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_4"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 35,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_4"
     }
   ],
   "warp_events": [
@@ -180,15 +208,15 @@
       "dest_warp_id": "4"
     },
     {
-      "x": 39,
-      "y": 29,
+      "x": 40,
+      "y": 33,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B2F",
       "dest_warp_id": "5"
     },
     {
-      "x": 40,
-      "y": 31,
+      "x": 41,
+      "y": 33,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "2"

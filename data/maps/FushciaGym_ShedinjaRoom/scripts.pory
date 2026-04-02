@@ -18,11 +18,11 @@ mapscripts FushciaGym_ShedinjaRoom_MapScripts {
         }
         if(!flag(FLAG_DEFEATED_TRAINER_2)) {
             setmetatile(15, 14, 0x281, FALSE)
-            setmetatile(15, 15, 0x280, TRUE)
+            setmetatile(15, 15, 0x008, TRUE)
             setmetatile(16, 14, 0x281, FALSE)
-            setmetatile(16, 15, 0x280, TRUE)
+            setmetatile(16, 15, 0x008, TRUE)
             setmetatile(17, 14, 0x281, FALSE)
-            setmetatile(17, 15, 0x280, TRUE)
+            setmetatile(17, 15, 0x008, TRUE)
         }
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_SHEDINJA_ROOM)

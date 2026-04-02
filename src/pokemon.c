@@ -126,6 +126,7 @@ const u32 gProtectedMoves[] = {
     MOVE_BESTOW,
     MOVE_DOUBLE_DAD,
     MOVE_CURSE,
+    MOVE_TRUMP_CARD,
     MOVE_FLY_CYNTHIA
 };
 
@@ -1680,10 +1681,10 @@ static const u8 sStatsToRaise[] =
 // 0-99, 100-199, 200+
 static const s8 sFriendshipEventDeltas[][3] = 
 {
-    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 5,  1,  0 },
+    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 2,  0,  0 },
     [FRIENDSHIP_EVENT_VITAMIN]              = { 0,  0,  0 },
     [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 4,  2,  1 },
+    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 4,  3,  3 },
     [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 0,  0,  0 },
     [FRIENDSHIP_EVENT_WALKING]              = { 1,  0,  0 },
     [FRIENDSHIP_EVENT_MASSAGE]              = { 3,  3,  3 },
@@ -2249,7 +2250,11 @@ void CalculateMonStats(struct Pokemon *mon)
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
 
-    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_SHEDINJA_ELECTRIC || species == SPECIES_ARCEUS)
+    if (species == SPECIES_SHEDINJA 
+        || species == SPECIES_RATICATE 
+        || species == SPECIES_SHEDINJA_ELECTRIC 
+        || species == SPECIES_ARCEUSLAST 
+        || species == SPECIES_ARCEUS)
     {
         newMaxHP = 1;
     }
@@ -2284,7 +2289,12 @@ void CalculateMonStats(struct Pokemon *mon)
     CALC_STAT(baseSpAttack, spAttackIV, spAttackEV, STAT_SPATK, MON_DATA_SPATK)
     CALC_STAT(baseSpDefense, spDefenseIV, spDefenseEV, STAT_SPDEF, MON_DATA_SPDEF)
 
-    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_RATICATE_DEAD || species == SPECIES_SHEDINJA_ELECTRIC || species == SPECIES_ARCEUS)
+    if (species == SPECIES_SHEDINJA 
+        || species == SPECIES_RATICATE 
+        || species == SPECIES_RATICATE_DEAD 
+        || species == SPECIES_SHEDINJA_ELECTRIC 
+        || species == SPECIES_ARCEUSLAST 
+        || species == SPECIES_ARCEUS)
     {
         if (currentHP != 0 || oldMaxHP == 0)
             currentHP = 1;

@@ -52,11 +52,11 @@ script EventScript_RemoveUselessItems {
 		removeitem(ITEM_NUGGET)
 		addvar(VAR_TEMP_5, 1)
 	}
-	while(checkitem(ITEM_DAWN_STONE)) {
+	while(checkitem(ITEM_DAWN_STONE) && checkmoncaught(SPECIES_NIDOQUEEN) && checkmoncaught(SPECIES_NIDOKING) && checkmoncaught(SPECIES_SYLVEON)) {
 		removeitem(ITEM_DAWN_STONE)
 		addvar(VAR_TEMP_5, 1)
 	}
-	while(checkitem(ITEM_LEAF_STONE)) {
+	while(checkitem(ITEM_LEAF_STONE) && checkmoncaught(SPECIES_EXEGGUTOR)) {
 		removeitem(ITEM_LEAF_STONE)
 		addvar(VAR_TEMP_5, 1)
 	}
@@ -72,7 +72,7 @@ script EventScript_RemoveUselessItems {
 		removeitem(ITEM_HP_UP)
 		addvar(VAR_TEMP_5, 1)
 	}
-	while(checkitem(ITEM_WATER_STONE)) {
+	while(checkitem(ITEM_WATER_STONE) && checkmoncaught(SPECIES_NINETALES)) {
 		removeitem(ITEM_WATER_STONE)
 		addvar(VAR_TEMP_5, 1)
 	}
@@ -426,7 +426,7 @@ script Route19_LookerScene {
 
 script Route19_CeliaAsksYouNotToGo {
 	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
-		giveitem(ITEM_RARE_CANDY, 1)
+		additem(ITEM_RARE_CANDY, 1)
 		msgbox(
 		"Don't worry!\n"
 		"You don't need to go back!\p"
@@ -435,7 +435,7 @@ script Route19_CeliaAsksYouNotToGo {
 		"", MSGBOX_NPC)
 	} else {
 		if(!checkmoncaught(SPECIES_GHOLDENGO)) {
-			giveitem(ITEM_RARE_CANDY, 1)
+			additem(ITEM_RARE_CANDY, 1)
 			msgbox(
 			"Pssst!\n"
 			"Check your POKéMON carefully!\p"

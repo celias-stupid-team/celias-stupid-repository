@@ -1261,6 +1261,7 @@ gCryTable::
 	cry Cry_FINALCHARMANDER
 	cry Cry_CELIASSTUPIDROMHACK
 	cry Cry_GREGORY
+	cry Cry_ARCEUSLAST
 
 
 	.align 2
@@ -2526,3 +2527,4 @@ gCryTable_Reverse::
 	cry_reverse Cry_FINALCHARMANDER
 	cry_reverse Cry_CELIASSTUPIDROMHACK
 	cry_reverse Cry_GREGORY
+	cry_reverse Cry_ARCEUSLAST

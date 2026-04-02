@@ -3837,6 +3837,8 @@ static void TurnValuesCleanUp(bool8 var0)
     gSideStatuses[1] &= ~(SIDE_STATUS_SHADOW_SHIELD);
     gSideTimers[0].followmeTimer = 0;
     gSideTimers[1].followmeTimer = 0;
+    gBattleStruct->pledgeFlags[0] = 0;
+    gBattleStruct->pledgeFlags[1] = 0;
 }
 
 static void SpecialStatusesClear(void)

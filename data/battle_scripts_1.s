@@ -2394,7 +2394,6 @@ BattleScript_EffectWillOWisp::
 	ppreduce
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_BURN, BattleScript_AlreadyBurned
-	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_NotAffected
 	jumpifability BS_TARGET, ABILITY_WATER_VEIL, BattleScript_WaterVeilPrevents
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
@@ -4314,6 +4313,7 @@ BattleScript_ZapdosCutScene::
 	stopbattlebgm
 	@ playanimation BS_FAINTED, B_ANIM_ZAPDOS_LIGHTNING
 	@ waitanimation
+	clearflag FLAG_ROTOM_BATTLE_UI
 	fadedarken FADE_ALL_EXC_UI, FADE_DIR_DARKEN
 	waitforfade
 	printstring STRINGID_OHSHOOT
@@ -4548,8 +4548,7 @@ BattleScript_EarthEaterPreventsOHKO::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_EARTHEATER
 	pause B_WAIT_TIME_LONG
-	callnative BattleDebug_LeftBattle
-	goto BattleScript_MoveEnd
+	goto BattleScript_LeaveBattleImmediately
 
 BattleScript_DampStopsExplosion::
 	pause B_WAIT_TIME_SHORT
@@ -6231,8 +6230,7 @@ BattleScript_EffectSnowGravy::
 	attackstring
 	ppreduce
 	jumpifopponent TRAINER_RIVAL_BARRY, BattleScript_EffectSnowGravy_Barry
-	attackanimation
-	waitanimation
+	
 	setbattlestringid
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -6245,3 +6243,18 @@ BattleScript_EffectSnowGravy_Barry:
 	printstring STRINGID_PROCEED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_HitFromCritCalc
+
+BattleScript_FireWaterPledgeCombo::
+    pause B_WAIT_TIME_SHORT
+    playanimation BS_TARGET, B_ANIM_RAINBOW
+	printstring STRINGID_CREATEDRAINBOW
+	waitmessage B_WAIT_TIME_LONG
+	jumpifopponent TRAINER_DMCA_ERIKA, BattleScript_LeaveBattleImmediately
+    return
+
+BattleScript_ShowMoveAnimation::
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	goto BattleScript_MoveMissedPause

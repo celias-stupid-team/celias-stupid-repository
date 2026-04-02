@@ -94,7 +94,7 @@
     },
     {
       "type": "trigger",
-      "x": 8,
+      "x": 3,
       "y": 10,
       "elevation": 0,
       "var": "VAR_CAVE_OF_ORIGIN",
@@ -103,8 +103,8 @@
     },
     {
       "type": "trigger",
-      "x": 9,
-      "y": 10,
+      "x": 0,
+      "y": 12,
       "elevation": 0,
       "var": "VAR_CAVE_OF_ORIGIN",
       "var_value": "1",
@@ -112,7 +112,7 @@
     },
     {
       "type": "trigger",
-      "x": 10,
+      "x": 4,
       "y": 10,
       "elevation": 0,
       "var": "VAR_CAVE_OF_ORIGIN",
@@ -122,46 +122,46 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_CAVE_OF_ORIGIN",
-      "var_value": "2",
+      "var_value": "1",
       "script": "CaveOfOrigin_CloysterEncounter"
     },
     {
       "type": "trigger",
       "x": 8,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_CAVE_OF_ORIGIN",
-      "var_value": "2",
-      "script": "CaveOfOrigin_CloysterEncounter"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_CAVE_OF_ORIGIN",
-      "var_value": "2",
+      "var_value": "1",
       "script": "CaveOfOrigin_CloysterEncounter"
     },
     {
       "type": "trigger",
       "x": 10,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_CAVE_OF_ORIGIN",
-      "var_value": "2",
+      "var_value": "1",
       "script": "CaveOfOrigin_CloysterEncounter"
     },
     {
       "type": "trigger",
       "x": 11,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_CAVE_OF_ORIGIN",
-      "var_value": "2",
+      "var_value": "1",
+      "script": "CaveOfOrigin_CloysterEncounter"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_CAVE_OF_ORIGIN",
+      "var_value": "1",
       "script": "CaveOfOrigin_CloysterEncounter"
     }
   ],

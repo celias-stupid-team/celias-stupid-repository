@@ -13296,3 +13296,14 @@ extern const u32 gItemIconPalette_StunSeed[];
 
 extern const u32 gTrainerFrontPic_Starlight[];
 extern const u32 gTrainerPalette_Starlight[];
+
+extern const u32 gTrainerFrontPic_Kimono[];
+extern const u32 gTrainerPalette_Kimono[];
+// ARCEUS_LAST
+extern const u32 gMonFrontPic_ARCEUSLAST[];
+extern const u32 gMonPalette_ARCEUSLAST[];
+extern const u32 gMonBackPic_ARCEUSLAST[];
+extern const u32 gMonShinyPalette_ARCEUSLAST[];
+extern const u8 gMonFootprint_ARCEUSLAST[];
+extern const u8 gMonIcon_ARCEUSLAST[];
+

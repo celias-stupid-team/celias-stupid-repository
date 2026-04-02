@@ -498,3 +498,52 @@ Movement_JumpInPlaceLeft:
 Movement_JumpInPlaceRight:
 	jump_in_place_right
 	step_end
+
+EventScript_MultiMoveTutor::
+	msgbox TwoIsland_House_Text_TeachWhichMove
+	special TeachMultiMoveTutorMove
+	waitstate
+	goto TwoIsland_House_EventScript_EndTutorMove
+	end
+
+EventScript_PledgeTutor::
+	lock
+	faceplayer
+	msgbox Text_TeachMove, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_MoveDeclined
+	msgbox Text_TeachWhichMon
+	special ChooseMonForPledgeTutor
+	waitstate
+	lock
+	faceplayer
+	goto_if_eq VAR_RESULT, FALSE, EventScript_MoveDeclined
+	goto EventScript_MoveTaught
+	end
+
+EventScript_MoveDeclined::
+	msgbox Text_MoveDeclined
+	release
+	end
+
+EventScript_MoveTaught::
+	msgbox Text_MoveTaught
+	release
+	end
+
+Text_TeachMove::
+    .string "Would you like me to teach your\n"
+    .string "starter a move?$"
+
+Text_MoveDeclined::
+    .string "I'll teach you the technique\n"
+    .string "anytime.$"
+
+Text_TeachWhichMon::
+    .string "Which POKéMON should I teach\n"
+    .string "a move?$"
+
+Text_MoveTaught::
+    .string "Keep that drive going for the\n"
+    .string "POKéMON LEAGUE!\p"
+    .string "Take a run at them and knock 'em\n"
+    .string "out!$"

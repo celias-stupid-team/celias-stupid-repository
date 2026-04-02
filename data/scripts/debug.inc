@@ -117,6 +117,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5:: @ directly used in C code
+	trainerbattle_no_intro TRAINER_FUSHCIA_GYM_JANINE, PokemonLeague_AgathasRoom_Text_Defeat
 	end
 
 Debug_EventScript_Script_6::

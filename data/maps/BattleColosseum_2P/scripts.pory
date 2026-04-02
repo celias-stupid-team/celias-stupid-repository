@@ -83,7 +83,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_ARBOK)) {
 		setobtainable(SPECIES_SEVIPER) // 24
 	}
-	if(flag(FLAG_CSR_MAP_SECRET_GARDEN)) {
+	if(flag(FLAG_CSR_MAP_SECRET_GARDEN) && flag(FLAG_CAPTAIN_DIRECTS_SPHEALS) || checkmoncaught(SPECIES_PIKABLU)) {
 		setobtainable(SPECIES_PIKABLU) // 25
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_10)) {
@@ -182,7 +182,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_MISSINGNO) || checkmoncaught(SPECIES_MISSINGNO)) {
 		setobtainable(SPECIES_MISSINGNO) // 57
 	}
-	if(flag(FLAG_CSR_HINT_ABRA_TRADE) && checkmoncaught(SPECIES_MR_MIME)) {
+	if(checkmoncaught(SPECIES_MR_MIME)) {
 		setobtainable(SPECIES_ALAKAZAM) // 58
 	}
 	if(flag(FLAG_HIDE_SAFARI_ZONE_CENTER_TM32)) { //if got Brick Break
@@ -427,7 +427,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_BADGE08_GET) && checkmoncaught(SPECIES_ZAPDOS)) { //TODO figure out logic
 		setobtainable(SPECIES_JOLTEON) // 139
 	}
-	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F) && checkmoncaught(SPECIES_RHYDON)) { //TODO figure out logic
+	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F)) { //TODO figure out logic
 		setobtainable(SPECIES_MOLTRES) // 140 
 	}
 	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || (checkmoncaught(SPECIES_FLAREON)) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)))) { //TODO figure out logic

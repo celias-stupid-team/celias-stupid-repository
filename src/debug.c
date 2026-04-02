@@ -1769,7 +1769,7 @@ static void DebugAction_Util_CheatStart(u8 taskId)
 // Actions Scripts
 static void DebugAction_Util_Script_1(u8 taskId)
 {
-    Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_1);
+    Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_5);
 }
 
 static void DebugAction_Util_Script_2(u8 taskId)

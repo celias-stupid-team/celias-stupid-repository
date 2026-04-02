@@ -1293,4 +1293,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_CELIASSTUPIDROMHACK]    = gMonFootprint_CELIASSTUPIDROMHACK,
     [SPECIES_KECLEON_WIZ1989] = gMonFootprint_Kecleon,
 	[SPECIES_GREGORY]    = gMonFootprint_GREGORY,
+	[SPECIES_ARCEUSLAST]    = gMonFootprint_ARCEUSLAST,
 };

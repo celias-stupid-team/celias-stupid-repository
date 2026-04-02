@@ -890,7 +890,7 @@ PokedexRating_Text_HintSolaceon::
 PokedexRating_Text_HintHoopa::
 	.string "There's legends of a POKéMON so\n"
 	.string "powerful, it had to be Sealed away.\p"
-	.string "How might you go about breaking the\n"
+	.string "How might you go about destroying the\n"
 	.string "Seal and unleashing it?$"
 
 
@@ -993,8 +993,8 @@ PokedexRating_Text_HintArcanine::
 PokedexRating_Text_HintPokemonGun::
 	.string "Your RUMOR LOG is very helpful, but\n"
 	.string "even it has its limits.\p"
-	.string "Think carefully about everything\n"
-	.string "you've seen across the GREAT SEA.\p"
+	.string "Re-visit everywhere in the GREAT\n"
+	.string "SEA. FLY to every island again.\p"
 	.string "There was a common thread across\n"
 	.string "every location that will lead\l"
 	.string "you to what you need.$"

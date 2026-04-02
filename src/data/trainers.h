@@ -1210,7 +1210,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_LassCrissy),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_LassCrissy),
     },
     [TRAINER_LASS_MIRIAM] = {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -1702,7 +1702,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("WOLFF"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_RISKY | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_HP_AWARE,
+        .aiFlags = AI_SCRIPT_CHECK_VIABILITY,
         .party = ITEM_CUSTOM_MOVES(sParty_SuperNerdMiguel),
     },
     [TRAINER_SUPER_NERD_AIDAN] = {
@@ -7159,7 +7159,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DANCERS] = {
         .trainerClass = TRAINER_CLASS_KIMONO,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LICHEN,
+        .trainerPic = TRAINER_PIC_KIMONO,
         .trainerName = _("GIRLS"),
         .items = {},
         .doubleBattle = TRUE,

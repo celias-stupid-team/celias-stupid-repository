@@ -275,7 +275,7 @@ script Route15_PokeRap_Trainer14_Defeat {
 
 script Route15_PokeRap_Trainer15 {
     trainerbattle_single(TRAINER_POKERAP_15, Rapper_15_Intro, "Nice!", Route15_PokeRap_Trainer15_Defeat)
-    msgbox("DITTO by Jogaklaa\nCloyster by Sky Ankou\nSandshrew by QBCubed", MSGBOX_DEFAULT)
+    msgbox("DITTO by Jogaklaa\nCloyster by Sky Ankou\lSandshrew by QBCubed", MSGBOX_DEFAULT)
     release
 }
 

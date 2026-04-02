@@ -35,7 +35,7 @@ script ViridianGym_HintManSwitch {
                 "powerful, it had to be Sealed away.\p"
 
                 "Perhaps once the Seal has been\n"
-                "broken, you'll find a way through!", MSGBOX_DEFAULT)
+                "destroyed, you'll find a way through!", MSGBOX_DEFAULT)
             case 3:
                 msgbox(
                 "Did you ever talk to the PHISHING\n"
