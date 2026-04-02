@@ -570,6 +570,7 @@
 #define B_ANIM_DYNAMAX_GROWTH           47
 #define B_ANIM_RAINBOW                  48
 #define B_ANIM_ALOMOMOLA_EVOLVE_REVERSE 49
+#define B_ANIM_RHYDON_TRANSFORM         50
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

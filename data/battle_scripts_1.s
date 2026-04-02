@@ -299,6 +299,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHackAttack             @ EFFECT_HACK_ATTACK
 	.4byte BattleScript_EffectAuroraVeil             @ EFFECT_AURORA_VEIL
 	.4byte BattleScript_EffectSnowGravy              @ EFFECT_SNOWGRAVY
+	.4byte BattleScript_EffectRhydon                 @ EFFECT_RHYDON
 
 BattleScript_End2::
 	end2
@@ -4288,6 +4289,15 @@ BattleScript_SlowpokeTransform::
 	redrawhealthbox BS_ATTACKER
 	end2
 
+BattleScript_RhydonTransform::
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_ATTACKER, B_ANIM_RHYDON_TRANSFORM
+	printstring STRINGID_RHYDONTRANSFORM
+	waitmessage B_WAIT_TIME_LONG
+    updatebattlerdata BS_ATTACKER
+	redrawhealthbox BS_ATTACKER
+	end2
+
 BattleScript_FlipTurnTransform::
 	pause B_WAIT_TIME_SHORT
 	playanimation BS_TARGET, B_ANIM_FLIP_TURN_TRANSFORM
@@ -6282,4 +6292,13 @@ BattleScript_CantCopyAbility::
 	orbyte gMoveResultFlags, MOVE_RESULT_FAILED
 	printstring STRINGID_CANTCOPYABILITY
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRhydon::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	call BattleScript_RhydonTransform
 	goto BattleScript_MoveEnd

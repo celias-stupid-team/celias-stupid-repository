@@ -4689,6 +4689,7 @@ static void Cmd_playanimation(void)
      || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM
+     || gBattlescriptCurrInstr[2] == B_ANIM_RHYDON_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
     {
         //create Alomomola right before form change
@@ -4729,6 +4730,14 @@ static void Cmd_playanimation(void)
         if (gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM)
         {
             u16 species = SPECIES_SLOWPOKE;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
+        }
+        // create Rhydon right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_RHYDON_TRANSFORM)
+        {
+            u16 species = SPECIES_RHYDON;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
             gBattleMoveDamage = 0;
