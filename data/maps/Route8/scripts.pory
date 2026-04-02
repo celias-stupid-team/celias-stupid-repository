@@ -411,7 +411,7 @@ script Route8_PickUpPsyduck {
 }
 
 script Route8_BerryLady {
-    if(var(VAR_LANCE_LASS_ATTACK) == 2 && !flag(FLAG_GOT_SHINY_PSYDUCK)) {
+    if(flag(FLAG_POST_GAME) && !flag(FLAG_GOT_SHINY_PSYDUCK)) {
 		setflag(FLAG_GOT_SHINY_PSYDUCK)
 		msgbox(
 		"Wow you beat the elite four\n"
