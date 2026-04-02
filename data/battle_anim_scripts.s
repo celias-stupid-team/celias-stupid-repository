@@ -16636,7 +16636,7 @@ Move_U_TURN:
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -4
+	createvisualtask AnimTask_WTurnSlideOffScreen, 5, ANIM_ATTACKER, -4
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff
@@ -20747,7 +20747,7 @@ Move_W_TURN:
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -4
+	createvisualtask AnimTask_WTurnSlideOffScreen, 5, ANIM_ATTACKER, -4
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff

@@ -3888,6 +3888,7 @@ static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
     gBattleCommunication[3] = 0;
     gBattleCommunication[4] = 0;
     gBattleScripting.multihitMoveEffect = 0;
+    gBattleScripting.savedData = 0; // resets W-Turn
     gBattleResources->battleScriptsStack->size = 0;
 }
 
