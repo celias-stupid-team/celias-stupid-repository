@@ -1047,7 +1047,7 @@ script EventScript_CutTreeElm {
 	if(!flag(FLAG_BADGE02_GET)) {
 		goto(EventScript_CantCutTree)
 	}
-	checkpartymove(MOVE_CUT)
+	checkfieldmove(MOVE_CUT)
 	goto_if_eq(VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree)
 	setfieldeffectargument(0, VAR_RESULT)
 	bufferpartymonnick(STR_VAR_1, VAR_RESULT)

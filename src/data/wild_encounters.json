@@ -24872,7 +24872,7 @@
               {
                 "min_level": 19,
                 "max_level": 19,
-                "species": "SPECIES_BULBASAUR"
+                "species": "SPECIES_CHARMANDER"
               },
               {
                 "min_level": 19,
@@ -24902,7 +24902,7 @@
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_CHARMANDER"
+                "species": "SPECIES_BULBASAUR"
               },
               {
                 "min_level": 15,

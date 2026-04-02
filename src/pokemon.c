@@ -126,6 +126,7 @@ const u32 gProtectedMoves[] = {
     MOVE_BESTOW,
     MOVE_DOUBLE_DAD,
     MOVE_CURSE,
+    MOVE_TRUMP_CARD,
     MOVE_FLY_CYNTHIA
 };
 

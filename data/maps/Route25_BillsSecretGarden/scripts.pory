@@ -421,6 +421,7 @@ script SecretGarden_LeavePC {
     special(SpawnCameraObject)
     waitmovement(0)
     while(var(VAR_TEMP_7) != 8) {
+        
         applymovement(LOCALID_CAMERA, moves(
             walk_faster_down
         ))
@@ -973,7 +974,7 @@ script SecretGarden_GetCurrentPCPokemon {
                 case 3:
                     setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
                 case 4:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SYLVEON)
                 case 5:
                     setvar(PC_CURRENT_POKEMON, SPECIES_EEVEE)
                 case 6:

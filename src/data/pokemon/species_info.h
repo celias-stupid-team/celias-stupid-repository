@@ -23208,7 +23208,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_GUZZLORD] =
     {
-        .baseHP = 223,
+        .baseHP = 123,
         .baseAttack = 101,
         .baseDefense = 53,
         .baseSpeed = 43,
