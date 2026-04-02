@@ -11362,6 +11362,8 @@ static void Cmd_displaydexinfo(void)
         if (!gPaletteFade.active)
         {
             FreeAllWindowBuffers();
+            ClearDma3Requests(); // clear up VRAM for the dex screen
+            CpuFill32(0, BG_CHAR_ADDR(2), BG_CHAR_SIZE);
             gBattleCommunication[TASK_ID] = DexScreen_RegisterMonToPokedex(species);
             gBattleCommunication[0]++;
         }
