@@ -6276,3 +6276,10 @@ BattleScript_ShowMoveAnimation::
 	attackanimation
 	waitanimation
 	goto BattleScript_MoveMissedPause
+
+BattleScript_CantCopyAbility::
+	pause B_WAIT_TIME_SHORT
+	orbyte gMoveResultFlags, MOVE_RESULT_FAILED
+	printstring STRINGID_CANTCOPYABILITY
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

@@ -10487,15 +10487,22 @@ static void Cmd_tryswapitems(void)
     }
 }
 
-// Role Play
+// Role Play, Wonder Seed
 static void Cmd_trycopyability(void)
 {
-    if(gCurrentMove == MOVE_WONDER_SEED) {
-            gBattleMons[gBattlerTarget].ability = ABILITY_WONDER_GUARD;
-            gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
-            gBattlescriptCurrInstr += 5;
-
-    } else {
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    {
+        // can't copy an ability during "Shadow Sky"
+        gBattlescriptCurrInstr = BattleScript_CantCopyAbility;
+    }
+    else if (gCurrentMove == MOVE_WONDER_SEED)
+    {
+        gBattleMons[gBattlerTarget].ability = ABILITY_WONDER_GUARD;
+        gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
+        gBattlescriptCurrInstr += 5;
+    }
+    else
+    {
         if (gBattleMons[gBattlerTarget].ability != ABILITY_NONE
             && gBattleMons[gBattlerTarget].ability != ABILITY_WONDER_GUARD)
         {
@@ -10507,7 +10514,6 @@ static void Cmd_trycopyability(void)
         {
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
         }
-
     }
 }
 
