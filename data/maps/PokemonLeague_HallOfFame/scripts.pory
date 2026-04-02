@@ -60,6 +60,7 @@ script PokemonLeague_HallOfFame_EventScript_EnterRoom {
 	setvar(VAR_LANCE_LASS_ATTACK, 0)
 	setvar(VAR_CSR_FINAL_BATTLE_TURN, 0)
 	setvar(VAR_CSR_FINAL_BATTLE_PHASE, 0)
+	clearflag(FLAG_KILLED_E4_OAK)
 	special(EnterHallOfFame)
 	waitstate
 	releaseall
