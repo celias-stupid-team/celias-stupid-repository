@@ -5901,6 +5901,7 @@ BattleScript_WTurnSwitchBack:
 	switchoutabilities BS_ATTACKER
 	waitstate
 	returntoball BS_ATTACKER
+	switchhandleorder BS_ATTACKER, 1
 	getswitchedmondata BS_ATTACKER
 	switchindataupdate BS_ATTACKER
 	hpthresholds BS_ATTACKER

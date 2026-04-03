@@ -3065,6 +3065,11 @@ static void Task_WithdrawMonInBackground(u8 taskId)
             else
                 SetPokeStorageTask(Task_HidePartyPokemon);
         }
+        else
+        {
+            PlaySE(SE_FAILURE);
+            gStorage->state = 1;
+        }
         break;
     }
 }

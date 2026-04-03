@@ -1922,7 +1922,7 @@ static bool8 SetMenuTextsForMon(void)
         }
         break;
     case OPTION_SWITCHIN:
-        if (species != SPECIES_NONE)
+        if (species != SPECIES_NONE && !gStorage->displayMonIsEgg)
             SetMenuText(MENU_TEXT_SWITCHIN);
         else
             return FALSE;
@@ -1942,7 +1942,6 @@ static bool8 SetMenuTextsForMon(void)
     }
 
     if (gStorage->boxOption != OPTION_SWITCHIN)
-    SetMenuText(MENU_TEXT_RELEASE);
     {
         SetMenuText(MENU_TEXT_MARK);
         SetMenuText(MENU_TEXT_RELEASE);
