@@ -392,6 +392,17 @@ const struct SpriteTemplate gYoshiEggThrowSpriteTemplate =
     .callback = AnimThrowProjectile,
 };
 
+const struct SpriteTemplate gFireredThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_FIRERED,
+    .paletteTag = ANIM_TAG_FIRERED,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
 static const union AnimCmd sProtagonistThrowAnimCmd_1[] =
 {
     ANIMCMD_FRAME(0, 3),
@@ -569,6 +580,18 @@ const struct SpriteTemplate gEarthLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+
+const struct SpriteTemplate gMoonLiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOON,
+    .paletteTag = ANIM_TAG_MOON,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sHumanLegOneAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -589,6 +612,91 @@ const struct SpriteTemplate gHumanLegOneSpriteTemplate =
     .paletteTag = ANIM_TAG_HUMAN_LEG_ONE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sHumanLegOneAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sMoltresAppearAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMoltresAppearAnimTable[] =
+{
+    sMoltresAppearAnimCmds,
+};
+
+const struct SpriteTemplate gMoltresAppearSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_APPEAR,
+    .paletteTag = ANIM_TAG_MOLTRES_APPEAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sMoltresAppearAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sMoltresRetractAnimCmds[] =
+{
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMoltresRetractAnimTable[] =
+{
+    sMoltresRetractAnimCmds,
+};
+
+const struct SpriteTemplate gMoltresRetractSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_APPEAR,
+    .paletteTag = ANIM_TAG_MOLTRES_APPEAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sMoltresRetractAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sMoltresFlareAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sMoltresFlareAnimTable[] =
+{
+    sMoltresFlareAnimCmds,
+};
+
+const struct SpriteTemplate gMoltresFlareSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_FLARE,
+    .paletteTag = ANIM_TAG_MOLTRES_FLARE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sMoltresFlareAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+
+const struct SpriteTemplate gMoltresFlySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_KICK,
+    .paletteTag = ANIM_TAG_MOLTRES_KICK,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -799,6 +907,35 @@ const struct SpriteTemplate gSlurfSpriteTemplate =
     .paletteTag = ANIM_TAG_SLURF,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sMissingnoRhydonAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(64, 30),
+    ANIMCMD_FRAME(128, 30),
+    ANIMCMD_FRAME(192, 39),
+    ANIMCMD_FRAME(192, 39),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMissingnoRhydonAnimTable[] =
+{
+    sMissingnoRhydonAnimCmds,
+};
+
+const struct SpriteTemplate gMissingnoRhydonSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MISSINGNO_RHYDON,
+    .paletteTag = ANIM_TAG_MISSINGNO_RHYDON,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sMissingnoRhydonAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -1745,6 +1882,17 @@ const struct SpriteTemplate gTCGSlashSwipeSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+const struct SpriteTemplate gTCGBlizzardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_BLIZZARD,
+    .paletteTag = ANIM_TAG_TCG_BLIZZARD,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
 static const union AnimCmd sTCGSlashImpactAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -2217,6 +2365,17 @@ const struct SpriteTemplate gWeedBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEED_SMALL,
     .paletteTag = ANIM_TAG_WEED_SMALL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gCandyBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RARE_CANDY,
+    .paletteTag = ANIM_TAG_RARE_CANDY,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
