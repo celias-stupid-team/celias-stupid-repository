@@ -8140,7 +8140,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FREEZE_DRY] =
     {
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = 170,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 20,

@@ -292,7 +292,7 @@ script PokemonLeague_ChampionsRoom_EventScript_EnterRoom {
 	goto_if_questlog (PokemonLeague_ChampionsRoom_EventScript_QuestLogEnd)
 	setflag (FLAG_TEMP_3)
 	setflag (FLAG_TEMP_5)
-	savebgm (MUS_VICTORY_GYM_LEADER)
+	//savebgm (MUS_VICTORY_GYM_LEADER)
 	setvar(VAR_TEMP_1, 2)
 	
 	warpsilent(MAP_FINAL_BOSS_CUTSCENE, 0)

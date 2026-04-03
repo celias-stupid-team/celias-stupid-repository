@@ -8,7 +8,7 @@ mapscripts IndigoPlateauUsed_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 1 {
             clearflag(FLAG_SYS_ROTOM_MENU)
-            getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+            getplayerxy(VAR_TEMP_1, VAR_TEMP_3)
             playmoncry(SPECIES_ROTOM, CRY_MODE_FAINT)
             waitmoncry
             msgbox(
@@ -17,8 +17,9 @@ mapscripts IndigoPlateauUsed_MapScripts {
             "The POKéMON LEAGUE's ANTI-ROTOM\n"
             "FORCE FIELD disabled the POKéDEX!", MSGBOX_DEFAULT)
             closemessage
-            setvar(VAR_TEMP_1, 0)
-            if(var(VAR_TEMP_3) <= 30) {
+            
+            if(var(VAR_TEMP_3) <= 32) {
+                playse(SE_LEDGE)
                 applymovement(LOCALID_PLAYER, moves(
                     jump_2_down
                     
