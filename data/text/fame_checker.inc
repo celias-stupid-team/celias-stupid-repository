@@ -659,7 +659,7 @@ gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
 	.string "and powerful, we humans had to\l"
 	.string "Seal it away for our own safety.\p"
 	.string "Some day, someone may come along\n"
-	.string "and destroy the Seal themselves…$"
+	.string "and Break the Seal themselves…$"
 
 gFameCheckerFlavorText_GreatBay4:: @ 0x81AFD49
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"

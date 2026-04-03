@@ -285,6 +285,7 @@
       "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
+      "local_id": "LOCALID_MIGUEL_ORIGINAL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
       "x": 0,

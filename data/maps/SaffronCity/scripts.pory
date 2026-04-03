@@ -338,7 +338,7 @@ script SaffronCity_TheLeekMan {
 	lock
 	faceplayer
 	famechecker(FAMECHECKER_SAFFRON, 3)
-	if(var(VAR_TRADING_QUEST_PHASE) >= 4) {
+	if(var(VAR_TRADING_QUEST_PHASE) >= 3) {
 		call(TheLeek_ProofOfAliens)
 		msgbox(
 		"Look kid, we're running a business\n"
@@ -363,6 +363,8 @@ script SaffronCity_TheLeekMan {
 
 		"If you can find me that, I'll pay\n"
 		"you back at full market rate!", MSGBOX_DEFAULT)
+		release
+		end
 	} else {
 		setflag(FLAG_TALKED_TO_THE_LEEK)
 		msgbox(
@@ -392,7 +394,7 @@ script SaffronCity_TheLeekMan {
 
 script TheLeek_ProofOfAliens {
 	
-	if(var(VAR_TRADING_QUEST_PHASE) == 3) {
+	if(var(VAR_TRADING_QUEST_PHASE) == 3 || checkitem(ITEM_ALIEN_PROOF)) {
 		if(checkitem(ITEM_ALIEN_PROOF)) {
 			removeitem(ITEM_ALIEN_PROOF)
 		}

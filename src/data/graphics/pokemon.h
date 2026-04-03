@@ -5395,6 +5395,14 @@ const u32 gMonShinyPalette_Hoopa[] = INCBIN_U32("graphics/pokemon/hoopa/shiny.gb
 const u8 gMonIcon_Hoopa[] = INCBIN_U8("graphics/pokemon/hoopa/icon.4bpp");
 const u8 gMonFootprint_Hoopa[] = INCBIN_U8("graphics/pokemon/hoopa/footprint.1bpp");
 
+// Hoopa Unbound
+const u32 gMonFrontPic_HoopaUnbound[] = INCBIN_U32("graphics/pokemon/hoopa_unbound/front.4bpp.lz");
+const u32 gMonPalette_HoopaUnbound[] = INCBIN_U32("graphics/pokemon/hoopa_unbound/normal.gbapal.lz");
+const u32 gMonBackPic_HoopaUnbound[] = INCBIN_U32("graphics/pokemon/hoopa_unbound/back.4bpp.lz");
+const u32 gMonShinyPalette_HoopaUnbound[] = INCBIN_U32("graphics/pokemon/hoopa_unbound/shiny.gbapal.lz");
+const u8 gMonIcon_HoopaUnbound[] = INCBIN_U8("graphics/pokemon/hoopa_unbound/icon.4bpp");
+const u8 gMonFootprint_HoopaUnbound[] = INCBIN_U8("graphics/pokemon/hoopa_unbound/footprint.1bpp");
+
 // Volcanion
 const u32 gMonFrontPic_Volcanion[] = INCBIN_U32("graphics/pokemon/volcanion/front.4bpp.lz");
 const u32 gMonPalette_Volcanion[] = INCBIN_U32("graphics/pokemon/volcanion/normal.gbapal.lz");

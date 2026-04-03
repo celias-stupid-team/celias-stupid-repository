@@ -454,6 +454,13 @@
 #define ANIM_TAG_EARTH                      (ANIM_SPRITES_START + 444)
 #define ANIM_TAG_HUMAN_LEG_ONE              (ANIM_SPRITES_START + 445)
 #define ANIM_TAG_HUMAN_LEG_TWO              (ANIM_SPRITES_START + 446)
+#define ANIM_TAG_MOLTRES_KICK               (ANIM_SPRITES_START + 447)
+#define ANIM_TAG_MOLTRES_FLARE              (ANIM_SPRITES_START + 448)
+#define ANIM_TAG_MOLTRES_APPEAR             (ANIM_SPRITES_START + 449)
+#define ANIM_TAG_RARE_CANDY                 (ANIM_SPRITES_START + 450)
+#define ANIM_TAG_MISSINGNO_RHYDON           (ANIM_SPRITES_START + 451)
+#define ANIM_TAG_TCG_BLIZZARD               (ANIM_SPRITES_START + 452)
+#define ANIM_TAG_TCG_COIN                   (ANIM_SPRITES_START + 453)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -569,6 +576,10 @@
 #define B_ANIM_MEGA_EVOLUTION           46
 #define B_ANIM_DYNAMAX_GROWTH           47
 #define B_ANIM_RAINBOW                  48
+#define B_ANIM_ALOMOMOLA_EVOLVE_REVERSE 49
+#define B_ANIM_RHYDON_TRANSFORM         50
+#define B_ANIM_TRUMP_CARD_USELESS       51
+#define B_ANIM_UNBOUND_SPRITE_UPDATE    52
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

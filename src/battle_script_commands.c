@@ -1244,12 +1244,6 @@ static void Cmd_accuracycheck(void)
         JumpIfMoveFailed(7, move);
         return;
     }
-    if (gCurrentMove == MOVE_TRUMP_CARD && gTrainerBattleOpponent_A != TRAINER_DMCA_MISTY)
-    {
-        gMoveResultFlags |= MOVE_RESULT_NO_EFFECT;
-        JumpIfMoveFailed(7, move);
-        return;
-    }
     if (gBattleMons[gBattlerTarget].species == SPECIES_KECLEON_SANS
         && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
         && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD
@@ -2020,6 +2014,13 @@ static void Cmd_adjustnormaldamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
+        DebugPrintf("Case 1");
+
+        if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+        }
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
@@ -2035,7 +2036,7 @@ static void Cmd_adjustnormaldamage(void)
     }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gCurrentMove == MOVE_MOLTRES_KICK || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -2104,6 +2105,7 @@ static void Cmd_adjustnormaldamage2(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
+        
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
@@ -2114,7 +2116,7 @@ static void Cmd_adjustnormaldamage2(void)
     }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gCurrentMove == MOVE_MOLTRES_KICK || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -2133,6 +2135,7 @@ static void Cmd_adjustnormaldamage2(void)
      && (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP || gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE)
      && (gBattleMons[gBattlerTarget].maxHP <= gBattleMoveDamage || gBattleMons[gBattlerTarget].ability == ABILITY_REVENGE))
      {
+        
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
         if (gSpecialStatuses[gBattlerTarget].focusSashed)
         {
@@ -2593,17 +2596,15 @@ static void Cmd_resultmessage(void)
             }
             else if (gMoveResultFlags & MOVE_RESULT_STURDIED)
             {
+                DebugPrintf("Case 1");
+                DebugPrintf("Case 2");
                 if (gLastUsedAbility != ABILITY_REVENGE)
                 {
                     gSpecialStatuses[gBattlerTarget].sturdied = FALSE;
                 }
                 gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                 BattleScriptPushCursor();
-                if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY) {
-                        BattleStopLowHpSound();
-                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
-                        FlagSet(FLAG_SYS_CSR_VICTORY);
-                }
+
                 gBattlescriptCurrInstr = BattleScript_SturdiedMsg;
                 return;
             }
@@ -3951,6 +3952,9 @@ static void Cmd_getexp(void)
                 || gBattleMons[gBattlerFainted].species == SPECIES_ARCEUSLAST) {
                 calculatedExp = 1000;
             }
+            if(gBattleMons[gBattlerFainted].species == SPECIES_METAGROSS) {
+                calculatedExp = 100;
+            }
 
             if (viaExpShare) // at least one mon is getting exp via exp share
             {
@@ -4678,9 +4682,11 @@ static void Cmd_playanimation(void)
      || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE
      || gBattlescriptCurrInstr[2] == B_ANIM_SILPH_SCOPED
      || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE
+     || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE_REVERSE
      || gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM
+     || gBattlescriptCurrInstr[2] == B_ANIM_RHYDON_TRANSFORM
      || gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
     {
         //create Alomomola right before form change
@@ -4689,6 +4695,15 @@ static void Cmd_playanimation(void)
             u16 species = SPECIES_ALOMOMOLA;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
+        }
+        //create Luvdisc right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE_REVERSE)
+        {
+            u16 species = SPECIES_LUVDISC;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         //create Hoopa right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
@@ -4696,6 +4711,7 @@ static void Cmd_playanimation(void)
             u16 species = SPECIES_HOOPA;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         //create Zapmolcuno birds right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ZAPMOLCUNO_TRANSFORM)
@@ -4705,6 +4721,7 @@ static void Cmd_playanimation(void)
             gBattleTurnMonFainted = TRUE;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         // create Slowpoke right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_SLOWPOKE_TRANSFORM)
@@ -4712,6 +4729,15 @@ static void Cmd_playanimation(void)
             u16 species = SPECIES_SLOWPOKE;
             gBattleMons[gActiveBattler].species = species;
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
+        }
+        // create Rhydon right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_RHYDON_TRANSFORM)
+        {
+            u16 species = SPECIES_RHYDON;
+            gBattleMons[gActiveBattler].species = species;
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         // create Inkay right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_FLIP_TURN_TRANSFORM)
@@ -4733,6 +4759,7 @@ static void Cmd_playanimation(void)
             PREPARE_SPECIES_BUFFER(gBattleTextBuff3, species); // INKAY
 
             CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            gBattleMoveDamage = 0;
         }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -6731,6 +6758,7 @@ static void Cmd_adjustsetdamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
+        
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
@@ -6741,7 +6769,7 @@ static void Cmd_adjustsetdamage(void)
     }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gCurrentMove == MOVE_MOLTRES_KICK || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -7770,7 +7798,7 @@ static void Cmd_trymirrormove(void)
 
 static void Cmd_setrain(void)
 {
-    if (gBattleWeather & B_WEATHER_RAIN || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY)
+    if (gBattleWeather & B_WEATHER_RAIN || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY || gBattleWeather & B_WEATHER_HAIL)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_FAILED;
@@ -8720,7 +8748,7 @@ static void Cmd_damagetohalftargethp(void)
 
 static void Cmd_setsandstorm(void)
 {
-    if (gBattleWeather & B_WEATHER_SANDSTORM || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY)
+    if (gBattleWeather & B_WEATHER_SANDSTORM || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY || gBattleWeather & B_WEATHER_HAIL)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_FAILED;
@@ -9940,7 +9968,7 @@ static void Cmd_jumpifnopursuitswitchdmg(void)
 
 static void Cmd_setsunny(void)
 {
-    if (gBattleWeather & B_WEATHER_SUN || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY)
+    if (gBattleWeather & B_WEATHER_SUN || gBattleWeather & B_WEATHER_SHADOW_SKY || gBattleWeather & B_WEATHER_GRAVITY || gBattleWeather & B_WEATHER_HAIL)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WEATHER_FAILED;
@@ -10465,15 +10493,22 @@ static void Cmd_tryswapitems(void)
     }
 }
 
-// Role Play
+// Role Play, Wonder Seed
 static void Cmd_trycopyability(void)
 {
-    if(gCurrentMove == MOVE_WONDER_SEED) {
-            gBattleMons[gBattlerTarget].ability = ABILITY_WONDER_GUARD;
-            gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
-            gBattlescriptCurrInstr += 5;
-
-    } else {
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    {
+        // can't copy an ability during "Shadow Sky"
+        gBattlescriptCurrInstr = BattleScript_CantCopyAbility;
+    }
+    else if (gCurrentMove == MOVE_WONDER_SEED)
+    {
+        gBattleMons[gBattlerTarget].ability = ABILITY_WONDER_GUARD;
+        gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
+        gBattlescriptCurrInstr += 5;
+    }
+    else
+    {
         if (gBattleMons[gBattlerTarget].ability != ABILITY_NONE
             && gBattleMons[gBattlerTarget].ability != ABILITY_WONDER_GUARD)
         {
@@ -10485,7 +10520,6 @@ static void Cmd_trycopyability(void)
         {
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
         }
-
     }
 }
 
@@ -11354,6 +11388,8 @@ static void Cmd_displaydexinfo(void)
         if (!gPaletteFade.active)
         {
             FreeAllWindowBuffers();
+            ClearDma3Requests(); // clear up VRAM for the dex screen
+            CpuFill32(0, BG_CHAR_ADDR(2), BG_CHAR_SIZE);
             gBattleCommunication[TASK_ID] = DexScreen_RegisterMonToPokedex(species);
             gBattleCommunication[0]++;
         }

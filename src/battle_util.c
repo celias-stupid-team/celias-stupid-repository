@@ -2018,7 +2018,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 break;
             }
             case ABILITY_DRIZZLE:
-                if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
+                if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY) && !(gBattleWeather & B_WEATHER_HAIL))
                 {
                     gBattleWeather = (B_WEATHER_RAIN_PERMANENT | B_WEATHER_RAIN_TEMPORARY);
                     BattleScriptPushCursorAndCallback(BattleScript_DrizzleActivates);
@@ -2027,7 +2027,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_SAND_STREAM:
-                if (!(gBattleWeather & B_WEATHER_SANDSTORM_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
+                if (!(gBattleWeather & B_WEATHER_SANDSTORM_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY) && !(gBattleWeather & B_WEATHER_HAIL))
                 {
                     gBattleWeather = B_WEATHER_SANDSTORM;
                     BattleScriptPushCursorAndCallback(BattleScript_SandstreamActivates);
@@ -2036,7 +2036,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_DROUGHT:
-                if (!(gBattleWeather & B_WEATHER_SUN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
+                if (!(gBattleWeather & B_WEATHER_SUN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY) && !(gBattleWeather & B_WEATHER_HAIL))
                 {
                     gBattleWeather = B_WEATHER_SUN;
                     BattleScriptPushCursorAndCallback(BattleScript_DroughtActivates);
@@ -3760,6 +3760,24 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     gBattlescriptCurrInstr = BattleScript_ItemHealHP_RemoveItemRet;
                     effect = ITEM_HP_CHANGE;
                     RecordItemEffectBattle(battlerId, battlerHoldEffect);
+                }
+                break;
+            case HOLD_EFFECT_ATTACK_UP: // ITEM_LIECHI_BERRY aka SANDWICH during final battle
+                if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA
+                  && gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam
+                  && gBattleMons[battlerId].hp > 0
+                  && gBattleMons[battlerId].statStages[STAT_ATK] < MAX_STAT_STAGE)
+                {
+                    PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_ATK);
+                    PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATROSE);
+                    gEffectBattler = battlerId;
+                    gBattlerAttacker = battlerId; // required to play the animation script correctly
+                    SET_STATCHANGER(STAT_ATK, 1, FALSE);
+                    gBattleScripting.animArg1 = 14 + STAT_ATK;
+                    gBattleScripting.animArg2 = 0;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryStatRaiseEnd2;
+                    effect = ITEM_STATS_CHANGE;
                 }
                 break;
             }

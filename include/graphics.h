@@ -5019,6 +5019,12 @@ extern const u32 gMonShinyPalette_Hoopa[];
 extern const u8 gMonIcon_Hoopa[];
 extern const u8 gMonFootprint_Hoopa[];
 
+// Hoopa Unbound
+extern const u32 gMonFrontPic_HoopaUnbound[];
+extern const u32 gMonPalette_HoopaUnbound[];
+extern const u32 gMonBackPic_HoopaUnbound[];
+extern const u32 gMonShinyPalette_HoopaUnbound[];
+
 // Volcanion
 extern const u32 gMonFrontPic_Volcanion[];
 extern const u32 gMonPalette_Volcanion[];
@@ -8842,6 +8848,13 @@ extern const u32 gBattleAnimSpriteGfx_CreamBubbles[];
 extern const u32 gBattleAnimSpriteGfx_Earth[];
 extern const u32 gBattleAnimSpriteGfx_HumanLegOne[];
 extern const u32 gBattleAnimSpriteGfx_HumanLegTwo[];
+extern const u32 gBattleAnimSpriteGfx_MoltresKick[];
+extern const u32 gBattleAnimSpriteGfx_MoltresFlare[];
+extern const u32 gBattleAnimSpriteGfx_MoltresAppear[];
+extern const u32 gBattleAnimSpriteGfx_RareCandy[];
+extern const u32 gBattleAnimSpriteGfx_MissingnoRhydon[];
+extern const u32 gBattleAnimSpriteGfx_TcgBlizzard[];
+extern const u32 gBattleAnimSpriteGfx_TcgCoin[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9243,6 +9256,13 @@ extern const u32 gBattleAnimSpritePal_CreamBubbles[];
 extern const u32 gBattleAnimSpritePal_Earth[];
 extern const u32 gBattleAnimSpritePal_HumanLegOne[];
 extern const u32 gBattleAnimSpritePal_HumanLegTwo[];
+extern const u32 gBattleAnimSpritePal_MoltresKick[];
+extern const u32 gBattleAnimSpritePal_MoltresFlare[];
+extern const u32 gBattleAnimSpritePal_MoltresAppear[];
+extern const u32 gBattleAnimSpritePal_RareCandy[];
+extern const u32 gBattleAnimSpritePal_MissingnoRhydon[];
+extern const u32 gBattleAnimSpritePal_TcgBlizzard[];
+extern const u32 gBattleAnimSpritePal_TcgCoin[];
 
 //CSR Moves
 

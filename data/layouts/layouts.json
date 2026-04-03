@@ -7560,6 +7560,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Credits_Frame7/border.bin",
       "blockdata_filepath": "data/layouts/Credits_Frame7/map.bin"
+    },
+    {
+      "id": "LAYOUT_FUSHCIA_GYM_HEAL_ROOM_2_LAYOUT_2",
+      "name": "FushciaGym_HealRoom_2_Layout_2",
+      "width": 27,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NewFuchsiaGym",
+      "border_filepath": "data/layouts/FushciaGym_HealRoom_2_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/FushciaGym_HealRoom_2_Layout_2/map.bin"
     }
   ]
 }

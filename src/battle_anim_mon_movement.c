@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_script_commands.h"
 #include "task.h"
 #include "trig.h"
 
@@ -746,6 +747,17 @@ void AnimTask_SlideOffScreen(u8 taskId)
     else
         gTasks[taskId].data[1] = -gBattleAnimArgs[1];
     gTasks[taskId].func = AnimTask_SlideOffScreen_Step;
+}
+
+// Variant of AnimTask_SlideOffScreen that does nothing when the attacker cannot switch.
+void AnimTask_WTurnSlideOffScreen(u8 taskId)
+{
+    if (CanBattlerSwitch(gBattleAnimAttacker) == PARTY_SIZE)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+    AnimTask_SlideOffScreen(taskId);
 }
 
 static void AnimTask_SlideOffScreen_Step(u8 taskId)

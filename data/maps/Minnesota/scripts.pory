@@ -446,9 +446,9 @@ script Minnesota_DollarTree {
 
 
 script Minnesota_DeadBiker {
-	textcolor(NPC_TEXT_COLOR_BLUE)
+	//textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"Glub…\n"
-	"", MSGBOX_SIGN)
+	"Oh?\n"
+	"What is he sinking about?", MSGBOX_SIGN)
 
 }

@@ -256,6 +256,8 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	applymovement(LOCALID_PLAYER, moves(
 		lock_facing_direction
 		jump_down
+		unlock_facing_direction
+		face_up
 	))
 	setflag(FLAG_SHINY_CREATION)
 	textcolor(NPC_TEXT_COLOR_MALE)

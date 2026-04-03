@@ -701,7 +701,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
     const u32 *lzPaletteData;
     void *buffer;
 
-    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution OR Seel->Hoopa transformation OR Zapmolcuno-Ohgia form change
+    if (transformType == 255) // Ghost unveiled with Silph Scope OR all the new CSR form changes
     {
         const void *src;
         void *dst;

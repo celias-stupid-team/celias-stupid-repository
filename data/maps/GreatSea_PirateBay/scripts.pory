@@ -72,7 +72,7 @@ script PirateBay_BreakTheSealHint {
 	"world, and no one knows where.\p"
 
 	"Some day, someone may come along\n"
-	"and destroy the Seal themselves…", MSGBOX_NPC)
+	"and Break the Seal themselves…", MSGBOX_NPC)
 }
 
 

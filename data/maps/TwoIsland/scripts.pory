@@ -861,7 +861,7 @@ script TwoIsland_BurnHeal {
 
 		"ahem\p"
 
-		"your{PAUSE 30} smells.\p"
+		"your shoes{PAUSE 30} are wrong.\p"
 
 		"{PAUSE 30}i sold out within an hour.\p"
 

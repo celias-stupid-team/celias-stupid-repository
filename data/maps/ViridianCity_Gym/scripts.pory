@@ -92,7 +92,6 @@ ViridianCity_Gym_EventScript_GymGuyPostVictory::
 
 ViridianCity_Gym_EventScript_GymStatue::
 	lockall
-	goto_if_set FLAG_BADGE08_GET, ViridianCity_Gym_EventScript_GymStatuePostVictory
 	msgbox ViridianCity_Gym_Text_GymStatue
 	releaseall
 	end

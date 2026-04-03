@@ -1792,3 +1792,44 @@ script CeliaSecret_AbsolFishing {
 	"Plasto hated the idea :(\n"
 	"", MSGBOX_NPC)
 }
+
+
+script CeliaSecret_TransBugs {
+	msgbox(
+	"This one's a classic trans Pokemon\n"
+	"fanart by thelilnan showing the\l"
+	"early bugs transing as they evolve\p"
+
+	"The guy's technically a combee\n"
+	"cuz in our universe, there's no\l"
+	"beedrill.", MSGBOX_NPC)
+}
+
+script CeliaSecret_RichKidTrans {
+	msgbox(
+	"In an earlier version, this guy\n"
+	"was in the Gender Fluid shack.\p"
+
+	"Moved him here after I put the\n"
+	"trans bugs there instead.", MSGBOX_NPC)
+}
+
+script CeliaSecret_SevenAte {
+	msgbox(
+	"There was gonna be a scene here\n"
+	"where if you bring an Arcanine,\l"
+	"Seven comes out to attack you.\p"
+
+	"It would've been so cool\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_Dividum {
+	msgbox(
+	"Dividum's sprite is made so its\n"
+	"tail is entirely behind its body.\p"
+
+	"I had no clue how to make a tail\n"
+	"with two floating dots, so I hid\l"
+	"it and left it to the imagination.", MSGBOX_NPC)
+}

@@ -41,6 +41,8 @@ static void AnimUnusedFlashingLight_Step(struct Sprite *sprite);
 static void AnimSkyAttackBird_Step(struct Sprite *sprite);
 static void AnimRotomAppear(struct Sprite *sprite);
 static void AnimRotomEnter(struct Sprite *sprite);
+static void AnimMoltresKick(struct Sprite *sprite);
+static void AnimMoltresKick_Step(struct Sprite *sprite);
 
 const struct SpriteTemplate gEllipticalGustSpriteTemplate =
 {
@@ -677,6 +679,17 @@ const struct SpriteTemplate gSkyAttackBirdSpriteTemplate =
     .callback = AnimSkyAttackBird,
 };
 
+const struct SpriteTemplate gSkyAttackMoltresSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_KICK,
+    .paletteTag = ANIM_TAG_MOLTRES_KICK,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
+
 const struct SpriteTemplate gSkyrimSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SKYRIM,
@@ -709,6 +722,41 @@ const struct SpriteTemplate gTaxesSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSkyAttackBird,
 };
+
+const struct SpriteTemplate gMoltresKickSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOLTRES_KICK,
+    .paletteTag = ANIM_TAG_MOLTRES_KICK,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoltresKick,
+};
+
+/*static const union AnimCmd sAnim_MoltresFire[] =
+{
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gAnims_MoltresFire[] =
+{
+    sAnim_MoltresFire,
+};
+
+const struct SpriteTemplate gMoltresFlameSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_MoltresFire,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoltresFlame,
+};*/
 
 static void AnimEllipticalGust(struct Sprite *sprite)
 {
@@ -2077,4 +2125,66 @@ static void AnimTask_SetAttackerVisibility(u8 taskId)
         gSprites[spriteId].invisible = FALSE;
     }
     DestroyAnimVisualTask(taskId);
+}
+
+static void AnimMoltresKick(struct Sprite *sprite)
+{
+    s16 startX = gBattleAnimArgs[0];
+    s16 startY = gBattleAnimArgs[1];
+    s16 endX   = gBattleAnimArgs[2];
+    s16 endY   = gBattleAnimArgs[3];
+    s16 speed  = gBattleAnimArgs[4];
+    u16 rotation;
+    s32 dx = endX - startX;
+    s32 dy = endY - startY;
+
+    s32 dist = Sqrt(dx * dx + dy * dy);
+    if (dist == 0)
+        dist = 1;
+
+    // ✅ Compute lifetime (frames)
+    sprite->data[7] = dist / speed;
+    if (sprite->data[7] == 0)
+        sprite->data[7] = 1;
+
+    // Position
+    sprite->x = startX;
+    sprite->y = startY;
+
+    sprite->data[0] = startX << 4;
+    sprite->data[1] = startY << 4;
+
+    // Velocity (fixed-point, correct order)
+    sprite->data[2] = ((dx << 4) * speed) / dist;
+    sprite->data[3] = ((dy << 4) * speed) / dist;
+
+    // Flame interval
+    sprite->data[4] = gBattleAnimArgs[5]; // interval
+    sprite->data[5] = 0;                  // frame counter
+
+    // Lifetime counter
+    sprite->data[6] = 0;
+
+    // Rotation
+    rotation = ArcTan2Neg(dx, dy) + 49152;
+    TrySetSpriteRotScale(sprite, 1, 0x100, 0x100, rotation);
+
+    sprite->callback = AnimMoltresKick_Step;
+}
+
+
+static void AnimMoltresKick_Step(struct Sprite *sprite)
+{
+    // Move
+    sprite->data[0] += sprite->data[2];
+    sprite->data[1] += sprite->data[3];
+
+    sprite->x = sprite->data[0] >> 4;
+    sprite->y = sprite->data[1] >> 4;
+
+    // ✅ Lifetime tracking
+    if (++sprite->data[6] >= sprite->data[7])
+    {
+        DestroySpriteAndMatrix(sprite);
+    }
 }

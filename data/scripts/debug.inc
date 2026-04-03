@@ -91,12 +91,12 @@ Debug_BoxFilledMessage_Text:
 
 Debug_EventScript_Script_1::
 	setflag FLAG_SHINY_CREATION
-	setwildbattle SPECIES_MALAMAR, 10
+	setwildbattle SPECIES_LUVDISC, 10
 	dowildbattle
 	end
 
 Debug_EventScript_Script_2::
-	trainerbattle_single TRAINER_CSR_DUMMY_169, CeladonCity_Gym_Text_KayIntro, CeladonCity_Gym_Text_KayDefeat
+	trainerbattle_single TRAINER_DMCA_MISTY, CeladonCity_Gym_Text_KayIntro, CeladonCity_Gym_Text_KayDefeat
 	end
 
 Debug_EventScript_Script_3::
@@ -117,6 +117,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5:: @ directly used in C code
+	trainerbattle_no_intro TRAINER_FUSHCIA_GYM_JANINE, PokemonLeague_AgathasRoom_Text_Defeat
 	end
 
 Debug_EventScript_Script_6::

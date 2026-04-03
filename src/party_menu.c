@@ -4071,13 +4071,14 @@ static void CursorCB_FieldMove(u8 taskId)
     else
     {
         // All field moves before WATERFALL are HMs.
-        /*
-        if (fieldMove == FIELD_MOVE_SURF) { // remove this if full release
-            DisplayPartyMenuMessage(gText_CantUseUntilNewDemo, TRUE);
+        
+        if (fieldMove == FIELD_MOVE_SURF
+            && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12)) { // remove this if full release
+            DisplayPartyMenuStdMessage(PARTY_MSG_NO_SURF);
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
 
         }
-        */
+        
         if (fieldMove <= FIELD_MOVE_WATERFALL && FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE)
         {
             DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
@@ -4132,8 +4133,6 @@ static void CursorCB_FieldMove(u8 taskId)
                 else
                 {
                     
-                    DebugPrintf("Num %d Group %d", gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-                    DebugPrintf("Route 12 is %d and %d", MAP_NUM(MAP_ROUTE12));
                     if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12)) { //Route12
                         
                         DisplayNoRetreatMessage();
@@ -4275,6 +4274,9 @@ static bool8 SetUpFieldMove_Surf(void)
     if(FlagGet(FLAG_FUSHCIA_GO_TO_SHORE_SCENE) && !FlagGet(FLAG_LOOKER_SCENE)) {
         return FALSE;
     }
+    if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12)) {
+        return FALSE;
+    }
     if (MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y)) != TRUE
      && PartyHasMonWithSurf() == TRUE
      && IsPlayerFacingSurfableFishableWater() == TRUE)
@@ -4296,6 +4298,10 @@ static void DisplayCantUseSurfMessage(void)
     }
     else
     {
+        DebugPrintf("Mapgroup %d", gSaveBlock1Ptr->location.mapGroup);
+        DebugPrintf("Route12  %d", MAP_GROUP(MAP_ROUTE12));
+
+        
         GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
         if (MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y)) == TRUE)
             DisplayPartyMenuStdMessage(PARTY_MSG_CURRENT_TOO_FAST);
@@ -4305,7 +4311,10 @@ static void DisplayCantUseSurfMessage(void)
             DisplayPartyMenuStdMessage(PARTY_MSG_ENJOY_CYCLING);
         else if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12))
               && ((gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12))))
+            {
+                
             DisplayPartyMenuStdMessage(PARTY_MSG_NO_SURF);
+            }
         else if (FlagGet(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)) {
             DisplayPartyMenuStdMessage(PARTY_MSG_CANT_SURF_HERE);
         }
@@ -6755,7 +6764,7 @@ bool8 TrySwitchInPokemonFromPSS(void)
         StringExpandPlaceholders(gStringVar4, gText_EggCantBattle);
         switchSuccessful = FALSE;
     }
-    if (GetPartyIdFromBattleSlot(slot) == gBattleStruct->playerPartyIdx)
+    if (gBattleStruct != NULL && GetPartyIdFromBattleSlot(slot) == gBattleStruct->playerPartyIdx)
     {
         GetMonNickname(&gPlayerParty[slot], gStringVar1);
         StringExpandPlaceholders(gStringVar4, gText_PkmnAlreadySelected);

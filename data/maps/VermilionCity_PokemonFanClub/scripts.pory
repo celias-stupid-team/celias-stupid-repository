@@ -114,6 +114,7 @@ script VermilionCity_FanClub_SealGirl {
 		msgbox(
 		"Hey, where'd my Seal go?\n"
 		"", MSGBOX_DEFAULT)
+		release
 	} else {
 		msgbox(VermilionCity_PokemonFanClub_Text_SeelFarMoreAttractive, MSGBOX_NPC)
 

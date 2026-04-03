@@ -75,7 +75,7 @@ mart PokemonTower_Market {
 }
 
 script PokemonTower_ShortcutSign {
-	msgbox("POKéMON TOWER\nTop Floor {RIGHT_ARROW} \lExit {LEFT_ARROW}", MSGBOX_SIGN)
+	msgbox("POKéMON TOWER\nShortcut {LEFT_ARROW}", MSGBOX_SIGN)
 	end
 }
 

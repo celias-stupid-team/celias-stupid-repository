@@ -133,7 +133,6 @@ script MtMoon_B2F_EventScript_Dad {
 	end
 }
 
-const ACTUAL_MIGUEL = 20
 script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 	lock
 	faceplayer
@@ -147,7 +146,7 @@ script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 	special(QuestLog_CutRecording)
 	delay(10)
 	if(flag(FLAG_GOT_DOME_FOSSIL)) {
-		applymovement(ACTUAL_MIGUEL, Common_Movement_FaceRight)
+		applymovement(LOCALID_MIGUEL_ORIGINAL, Common_Movement_FaceRight)
 		applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
 		waitmovement(0)
 		textcolor(NPC_TEXT_COLOR_MALE)
@@ -157,12 +156,12 @@ script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 		delay(15)
 		playse(SE_PIN)
 		//applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
-		applymovement(ACTUAL_MIGUEL, MiguelOhShit)
+		applymovement(LOCALID_MIGUEL_ORIGINAL, MiguelOhShit)
 		delay(60)
 		applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
-		waitmovement(ACTUAL_MIGUEL)
-		setobjectxy(ACTUAL_MIGUEL, 0, 18)
-		setobjectmovementtype(ACTUAL_MIGUEL, MOVEMENT_TYPE_INVISIBLE)		// Doesn't actually seem to do anything
+		waitmovement(LOCALID_MIGUEL_ORIGINAL)
+		setobjectxy(LOCALID_MIGUEL_ORIGINAL, 0, 18)
+		setobjectmovementtype(LOCALID_MIGUEL_ORIGINAL, MOVEMENT_TYPE_INVISIBLE)		// Doesn't actually seem to do anything
 
 	} else {
 		applymovement(LOCALID_MIGUEL, MtMoon_B2F_Movement_MiguelToDomeFossil)
@@ -239,22 +238,22 @@ script MtMoon_B2F_EventScript_DomeFossil { //Sail fossil that you can't have
 	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox("Wait!!\n", MSGBOX_DEFAULT)
 	closemessage
-	addobject(ACTUAL_MIGUEL)
+	addobject(LOCALID_MIGUEL_ORIGINAL)
 	//applymovement(LOCALID_PLAYER, Common_Movement_FaceDown) Doesn't look good 
 	waitmovement(0)
 	playse(SE_PIN)
 	applymovement(LOCALID_PLAYER, Common_Movement_ExclamationMark)
 	delay(15)
-	setobjectxy(ACTUAL_MIGUEL, 14, 13)
-	applymovement(ACTUAL_MIGUEL, MiguelRunsUp)
-	waitmovement(ACTUAL_MIGUEL)
+	setobjectxy(LOCALID_MIGUEL_ORIGINAL, 14, 13)
+	applymovement(LOCALID_MIGUEL_ORIGINAL, MiguelRunsUp)
+	waitmovement(LOCALID_MIGUEL_ORIGINAL)
 	delay(10)
 	playse(SE_WALL_HIT)
-	applymovement(ACTUAL_MIGUEL, MiguelShovesYou)
+	applymovement(LOCALID_MIGUEL_ORIGINAL, MiguelShovesYou)
 	applymovement(LOCALID_PLAYER, PlayerGetsShoved)
 	waitmovement(LOCALID_PLAYER)
 	delay(30)
-	applymovement(ACTUAL_MIGUEL, Common_Movement_FaceUp)
+	applymovement(LOCALID_MIGUEL_ORIGINAL, Common_Movement_FaceUp)
 	waitmovement(0)
 	msgbox("You can't have that one!\nIt's my favorite!", MSGBOX_DEFAULT)
 	closemessage

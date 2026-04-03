@@ -14,6 +14,12 @@ mapscripts FushciaGym_HealRoom_2_MapScripts {
         }
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_HEAL_ROOM_2)
     }
+    MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_FUSHCIA_IMPOSTER_OAK)) {
+			setmaplayoutindex(LAYOUT_FUSHCIA_GYM_HEAL_ROOM_2_LAYOUT_2)
+
+		}
+    }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 0 {
             setvar(VAR_TEMP_1, 1)

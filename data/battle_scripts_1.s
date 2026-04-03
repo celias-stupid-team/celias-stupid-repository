@@ -299,6 +299,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHackAttack             @ EFFECT_HACK_ATTACK
 	.4byte BattleScript_EffectAuroraVeil             @ EFFECT_AURORA_VEIL
 	.4byte BattleScript_EffectSnowGravy              @ EFFECT_SNOWGRAVY
+	.4byte BattleScript_EffectRhydon                 @ EFFECT_RHYDON
+	.4byte BattleScript_EffectTrumpCard              @ EFFECT_TRUMP_CARD
 
 BattleScript_End2::
 	end2
@@ -414,9 +416,13 @@ BattleScript_EffectHeartSwap::
 	printstring STRINGID_PKMNSWITCHEDSTATCHANGES
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_EvolveAlomomola::
-	@ only trigger form change effect, when opponent is SPECIES_LUVDISC
-	jumpifnotspecies BS_TARGET, SPECIES_LUVDISC, BattleScript_MoveEnd
+	@ only trigger form change effect, when opponent is SPECIES_LUVDISC or SPECIES_ALOMOMOLA
+	jumpifnotspecies BS_TARGET, SPECIES_LUVDISC, BattleScript_CheckAlomomola
 	call BattleScript_AlomomolaMidBattleEvo
+	goto BattleScript_MoveEnd
+BattleScript_CheckAlomomola::
+	jumpifnotspecies BS_TARGET, SPECIES_ALOMOMOLA, BattleScript_MoveEnd
+	call BattleScript_AlomomolaMidBattleEvoReverse
 	goto BattleScript_MoveEnd
 
 BattleScript_MakeMoveMissed::
@@ -2394,7 +2400,6 @@ BattleScript_EffectWillOWisp::
 	ppreduce
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_BURN, BattleScript_AlreadyBurned
-	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_NotAffected
 	jumpifability BS_TARGET, ABILITY_WATER_VEIL, BattleScript_WaterVeilPrevents
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
@@ -4249,6 +4254,20 @@ BattleScript_AlomomolaMidBattleEvo::
 	datahpupdate BS_TARGET
 	end2
 
+BattleScript_AlomomolaMidBattleEvoReverse::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_ALOMOMOLAEVO_REVERSE
+	waitstate
+	playanimation BS_TARGET, B_ANIM_ALOMOMOLA_EVOLVE_REVERSE
+	pause B_WAIT_TIME_LONG
+	printstring STRINGID_ALOMOMOLAEVOLVED_REVERSE
+	waitmessage B_WAIT_TIME_LONG
+    updatebattlerdata BS_TARGET
+	redrawhealthbox BS_TARGET
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	end2
+
 BattleScript_SeelHoopaTransform::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_SEELHOOPATRANSFORMSTART
@@ -4267,6 +4286,15 @@ BattleScript_SlowpokeTransform::
 	waitmessage B_WAIT_TIME_LONG
 	playanimation BS_ATTACKER, B_ANIM_SLOWPOKE_TRANSFORM
 	pause B_WAIT_TIME_LONG
+    updatebattlerdata BS_ATTACKER
+	redrawhealthbox BS_ATTACKER
+	end2
+
+BattleScript_RhydonTransform::
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_ATTACKER, B_ANIM_RHYDON_TRANSFORM
+	printstring STRINGID_RHYDONTRANSFORM
+	waitmessage B_WAIT_TIME_LONG
     updatebattlerdata BS_ATTACKER
 	redrawhealthbox BS_ATTACKER
 	end2
@@ -4314,6 +4342,7 @@ BattleScript_ZapdosCutScene::
 	stopbattlebgm
 	@ playanimation BS_FAINTED, B_ANIM_ZAPDOS_LIGHTNING
 	@ waitanimation
+	clearflag FLAG_ROTOM_BATTLE_UI
 	fadedarken FADE_ALL_EXC_UI, FADE_DIR_DARKEN
 	waitforfade
 	printstring STRINGID_OHSHOOT
@@ -5873,6 +5902,7 @@ BattleScript_WTurnSwitchBack:
 	switchoutabilities BS_ATTACKER
 	waitstate
 	returntoball BS_ATTACKER
+	switchhandleorder BS_ATTACKER, 1
 	getswitchedmondata BS_ATTACKER
 	switchindataupdate BS_ATTACKER
 	hpthresholds BS_ATTACKER
@@ -6258,3 +6288,58 @@ BattleScript_ShowMoveAnimation::
 	attackanimation
 	waitanimation
 	goto BattleScript_MoveMissedPause
+
+BattleScript_CantCopyAbility::
+	pause B_WAIT_TIME_SHORT
+	orbyte gMoveResultFlags, MOVE_RESULT_FAILED
+	printstring STRINGID_CANTCOPYABILITY
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRhydon::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	call BattleScript_RhydonTransform
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTrumpCard::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	jumpifopponent TRAINER_DMCA_MISTY, BattleScript_EffectTrumpCardConnects
+BattleScript_EffectTrumpCardFails:
+	playanimation BS_ATTACKER, B_ANIM_TRUMP_CARD_USELESS
+	waitanimation
+	printstring STRINGID_CARDISUSELESS
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTrumpCardConnects:
+	jumpifnotspecies BS_ATTACKER, SPECIES_HOOPA, BattleScript_EffectTrumpCardFails
+	attackanimation
+	waitanimation
+	@ temporary transformation to HOOPA_UNBOUND
+	playanimation BS_ATTACKER, B_ANIM_UNBOUND_SPRITE_UPDATE
+	waitanimation
+	printstring STRINGID_PKMNTRANSFORMED
+	waitmessage B_WAIT_TIME_LONG
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectTrumpCardEnd:
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd

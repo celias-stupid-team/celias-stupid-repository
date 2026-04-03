@@ -1,4 +1,5 @@
 #include "global.h"
+#include "config/debug.h"
 
 static void *sHeapStart;
 static u32 sHeapSize;
