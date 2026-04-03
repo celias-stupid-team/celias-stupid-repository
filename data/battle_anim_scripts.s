@@ -17080,9 +17080,7 @@ Move_TRUMP_CARD:
 	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 20, 10
 	createvisualtask AnimTask_BlendEveryBattleAnimPal, 5, 5, 2, 0, 16, RGB_WHITEALPHA
 	waitforvisualfinish
-	restorebg
-	delay 15
-	createvisualtask AnimTask_BlendEveryBattleAnimPal, 5, 5, 2, 16, 0, RGB_WHITEALPHA
+	createvisualtask AnimTask_UnboundSpriteUpdate, 5
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
 	end
