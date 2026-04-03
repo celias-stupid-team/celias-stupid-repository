@@ -1831,7 +1831,18 @@ static void Task_DMCAMistyBackingSprites(u8 taskId)
 
     switch (tState)
     {
-        case 0: // create Deino sprite
+        case 0: // wait for main sprite to become visible
+        {
+            if (!battlerSprite->inUse)
+            {
+                DestroyTask(taskId);
+                return;
+            }
+            if (!battlerSprite->invisible)
+                tState = 1;
+            break;
+        }
+        case 1: // create Zweilous sprite
         {
             // save main sprite data as a base
             u8 x = GetBattlerSpriteCoord(battlerId, BATTLER_COORD_X_2);
@@ -1853,12 +1864,12 @@ static void Task_DMCAMistyBackingSprites(u8 taskId)
             gSprites[task->data[1]].invisible = TRUE;
 
             // continue
-            tState = 1;
+            tState = 2;
             break;
         }
-        case 1: // create Zweilous sprite
+        case 2: // create Deino sprite
         {
-            // reuse task data from case 0
+            // reuse task data from case 1
             u8 x = (u8)task->data[4];
             u8 y = (u8)task->data[5];
             u8 subpriority = (u8)task->data[6];
@@ -1874,10 +1885,10 @@ static void Task_DMCAMistyBackingSprites(u8 taskId)
             gSprites[task->data[2]].invisible = TRUE;
 
             // continue
-            tState = 2;
+            tState = 3;
             break;
         }
-        case 2: // track battler position and visibility each frame, so it matches the main sprite
+        case 3: // track battler position and visibility each frame, so it matches the main sprite
         {
             s16 realX = battlerSprite->x + battlerSprite->x2;
             s16 realY = battlerSprite->y + battlerSprite->y2;
