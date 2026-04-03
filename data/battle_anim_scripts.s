@@ -1144,6 +1144,8 @@ gBattleAnims_General::
 	.4byte General_Rainbow					@ B_ANIM_RAINBOW
 	.4byte General_AlomomolaEvolveReverse   @ B_ANIM_ALOMOMOLA_EVOLVE_REVERSE
 	.4byte General_RhydonTransform          @ B_ANIM_RHYDON_TRANSFORM
+	.4byte General_TrumpCardUseless	        @ B_ANIM_TRUMP_CARD_USELESS
+	.4byte General_UnboundSpriteUpdate      @ B_ANIM_UNBOUND_SPRITE_UPDATE
 
 	.align 2
 gBattleAnims_Special::
@@ -28148,7 +28150,6 @@ CreateClubbles:
 	delay 3
 	return
 
-
 ClubblesEffectShort:
 	createsprite gClubbleSpriteTemplate, ANIM_ATTACKER, 2, 10, 10, 0
 	playsewithpan SE_M_BELLY_DRUM, SOUND_PAN_TARGET
@@ -28169,3 +28170,14 @@ ClubblesEffectShort:
 	playsewithpan SE_M_BELLY_DRUM, SOUND_PAN_TARGET
 	return
 
+General_TrumpCardUseless::
+	loadspritegfx ANIM_TAG_USELESS_CARD
+	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER
+	createsprite gUselessCardSpriteTemplate, ANIM_ATTACKER, 2, 32, 48, 0, -4, 16, 60, 0, 0
+	waitforvisualfinish
+	end
+
+General_UnboundSpriteUpdate::
+	createvisualtask AnimTask_UnboundSpriteUpdate, 5
+	waitforvisualfinish
+	end

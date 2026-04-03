@@ -300,6 +300,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectAuroraVeil             @ EFFECT_AURORA_VEIL
 	.4byte BattleScript_EffectSnowGravy              @ EFFECT_SNOWGRAVY
 	.4byte BattleScript_EffectRhydon                 @ EFFECT_RHYDON
+	.4byte BattleScript_EffectTrumpCard              @ EFFECT_TRUMP_CARD
 
 BattleScript_End2::
 	end2
@@ -6302,4 +6303,43 @@ BattleScript_EffectRhydon::
 	attackanimation
 	waitanimation
 	call BattleScript_RhydonTransform
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTrumpCard::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	jumpifopponent TRAINER_DMCA_MISTY, BattleScript_EffectTrumpCardConnects
+BattleScript_EffectTrumpCardFails:
+	playanimation BS_ATTACKER, B_ANIM_TRUMP_CARD_USELESS
+	waitanimation
+	printstring STRINGID_CARDISUSELESS
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTrumpCardConnects:
+	jumpifnotspecies BS_ATTACKER, SPECIES_HOOPA, BattleScript_EffectTrumpCardFails
+	attackanimation
+	waitanimation
+	@ temporary transformation to HOOPA_UNBOUND
+	playanimation BS_ATTACKER, B_ANIM_UNBOUND_SPRITE_UPDATE
+	waitanimation
+	printstring STRINGID_PKMNTRANSFORMED
+	waitmessage B_WAIT_TIME_LONG
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectTrumpCardEnd:
+	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd

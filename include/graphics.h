@@ -5019,6 +5019,12 @@ extern const u32 gMonShinyPalette_Hoopa[];
 extern const u8 gMonIcon_Hoopa[];
 extern const u8 gMonFootprint_Hoopa[];
 
+// Hoopa Unbound
+extern const u32 gMonFrontPic_HoopaUnbound[];
+extern const u32 gMonPalette_HoopaUnbound[];
+extern const u32 gMonBackPic_HoopaUnbound[];
+extern const u32 gMonShinyPalette_HoopaUnbound[];
+
 // Volcanion
 extern const u32 gMonFrontPic_Volcanion[];
 extern const u32 gMonPalette_Volcanion[];
