@@ -1882,6 +1882,17 @@ const struct SpriteTemplate gTCGSlashSwipeSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+const struct SpriteTemplate gTCGBlizzardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_BLIZZARD,
+    .paletteTag = ANIM_TAG_TCG_BLIZZARD,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
 static const union AnimCmd sTCGSlashImpactAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),

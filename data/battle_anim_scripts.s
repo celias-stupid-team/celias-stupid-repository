@@ -1217,6 +1217,35 @@ Move_POISON_POWDER:
 	end
 
 Move_ITCHY_POLLEN:
+	loadspritegfx ANIM_TAG_TCG_POWDER
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 0, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 0, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 0, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 0, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 0, 12
+	delay 14
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 1, 12
+	delay 14
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 0, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 0, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 0, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 0, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 0, 12
+	delay 14
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 1, 12
+	waitforvisualfinish
+	end
+
+
+
 Move_STUN_SPORE:
 	loadspritegfx ANIM_TAG_STUN_SPORE
 	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_TARGET, 10, 6
@@ -6580,6 +6609,21 @@ Move_DRAGON_RAGE:
 	createsprite gDragonRageFirePlumeSpriteTemplate, ANIM_TARGET, 66, 1, 0, 8
 	waitforvisualfinish
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_TARGET, 66, 0, 0, 4
+	waitforvisualfinish
+	end
+
+ChocolateRain:
+	loadspritegfx ANIM_TAG_RAIN_DROPS
+	loadspritegfx ANIM_TAG_ROCKS
+	playsewithpan SE_M_RAIN_DANCE, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 2, 0, 4, RGB_BLACK
+	waitforvisualfinish
+	createvisualtask AnimTask_CreateChocolateRaindrops, 2, 0, 3, 120
+	createvisualtask AnimTask_CreateChocolateRaindrops, 2, 0, 3, 120
+	delay 120
+	delay 30
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 2, 4, 0, RGB_BLACK
 	waitforvisualfinish
 	end
 
@@ -17492,7 +17536,20 @@ Move_STEAMROLLER:
 	blendoff
 	end
 
-
+FuryCutterTCG:
+	loadspritegfx ANIM_TAG_TCG_SLASH
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gTCGSlashSwipeSpriteTemplate, ANIM_TARGET, 2, 32, -32, -16, 16, 4, 0, 4, 1
+	delay 8
+	createsprite gTCGSlashImpactSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 24, 0, 1
+	waitforvisualfinish
+	call TCGImpact
+	end
 
 Move_SLASH_TCG:
 	loadspritegfx ANIM_TAG_TCG_SLASH
@@ -17505,13 +17562,19 @@ Move_SLASH_TCG:
 	@playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
 	@delay 4
 	@createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, 8, 0
-	@createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 18, 1
 	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
 	createsprite gTCGSlashSwipeSpriteTemplate, ANIM_TARGET, 2, 32, -32, -16, 16, 4, 0, 4, 1
 	delay 8
-	createsprite gTCGSlashImpactSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 24, 0, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 18, 1
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, -16, -8, 0, 0, 0, 10, 0, 1
+	delay 5
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 0, 10, 0, 1
+	delay 5
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, -8, 8, 0, 0, 0, 10, 0, 1
 	waitforvisualfinish
-	call TCGImpact
 	end
 
 TCGImpact:
@@ -18856,39 +18919,40 @@ WingbeatHitEffect:
 
 
 Move_FREEZE_DRY:
-	monbg ANIM_DEF_PARTNER
-	setalpha 12, 8
-	loadspritegfx ANIM_TAG_ICE_CRYSTALS
-	loadspritegfx ANIM_TAG_IMPACT
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 0, 7, RGB_BLACK
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 2, 0, 9, RGB(12, 26, 31)
-	delay 20
-	playsewithpan SE_M_STRING_SHOT, SOUND_PAN_TARGET
-	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 0
-	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 64
-	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 128
-	createsprite gIceCrystalSpiralInwardSmall, ANIM_ATTACKER, 2, 192
-	delay 5
-	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 32
-	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 96
-	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 160
-	createsprite gIceCrystalSpiralInwardLarge, ANIM_ATTACKER, 2, 224
-	delay 17
-	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 3, 1
+	loadspritegfx ANIM_TAG_TCG_COIN
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	loadspritegfx ANIM_TAG_TCG_BLIZZARD
+	createsprite gTcgCoinSpriteTemplate, 2, 0, 120, 80, 32, 45
+	delay 32
+	playse SE_M_PAY_DAY
+	delay 62
+	playse SE_M_PAY_DAY
 	waitforvisualfinish
-	delay 15
-	call IceCrystalEffectShort
-	delay 5
-	loadspritegfx ANIM_TAG_ICE_CUBE
-	createvisualtask AnimTask_FrozenIceCube, 2
-	waitplaysewithpan SE_M_HAIL, SOUND_PAN_TARGET, 17
+	
+	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 2, 9, 0, RGB(12, 26, 31)
+	playse SE_M_BLIZZARD
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 256, 32, -16, 0, 20, 2, 3, 2
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 264, 88, -16, 0, 20, 2, 3, 2
+	delay 10
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 264, 32, -16, 0, 20, 2, 3, 2
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 272, 88, -16, 0, 20, 2, 3, 2
+	delay 10
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 272, 32, -16, 0, 20, 2, 3, 2
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 280, 88, -16, 0, 20, 2, 3, 2
+	delay 10
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 280, 32, -16, 0, 20, 2, 3, 2
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 288, 88, -16, 0, 20, 2, 3, 2
+	delay 10
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 288, 32, -16, 0, 20, 2, 3, 2
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 296, 88, -16, 0, 20, 2, 3, 2
+	delay 10
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 296, 32, -16, 0, 20, 2, 3, 2
+	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 304, 88, -16, 0, 20, 2, 3, 2
 	waitforvisualfinish
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7, 0, RGB_BLACK
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
-	blendoff
+	call TCGImpact
 	end
 
 
@@ -26918,14 +26982,16 @@ Move_HEADBUS:
 	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
 	waitforvisualfinish
 	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
-	@createsprite gBulldozerSpriteTemplate, ANIM_TARGET, 2, 1, 4, 160
-	@createsprite gBulldozerSpriteTemplate, ANIM_TARGET, 2, 2
 	createsprite gBusLeftDriveSpriteTemplate, 3, 2, 0, 0  @ half 0 (left)
 	createsprite gBusRightDriveSpriteTemplate, 3, 2, 0, 1 @ half 1 (right)
 	loopsewithpan SE_M_EARTHQUAKE, SOUND_PAN_TARGET, 7, 10
+	
+	createvisualtask AnimTask_GetAttackerSide, 2
+	jumprettrue HeadbusOnPlayer
 	delay 90
 	delay 90
 	delay 20
+HeadbusContinue:
 	@createvisualtask AnimTask_PushTargetOffscreen, 2, ANIM_TARGET, 0, 2, 80, 150, 1
 
 	@createvisualtask AnimTask_Flattened, 2, 6, 300
@@ -26995,6 +27061,10 @@ Move_HEADBUS:
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end
+	
+HeadbusOnPlayer:
+	delay 94
+	goto HeadbusContinue
 
 Move_LANDS_MATH:
 	loadspritegfx ANIM_TAG_ONE

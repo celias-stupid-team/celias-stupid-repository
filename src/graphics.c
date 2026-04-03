@@ -472,6 +472,12 @@ const u32 gBattleAnimSpritePal_RareCandy[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpriteGfx_MissingnoRhydon[] = INCBIN_U32("graphics/battle_anims/sprites/rhydon_missingno.4bpp.lz");
 const u32 gBattleAnimSpritePal_MissingnoRhydon[] = INCBIN_U32("graphics/battle_anims/sprites/rhydon_missingno.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_TcgBlizzard[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_blizzard.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgBlizzard[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_blizzard.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgCoin[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_coin.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgCoin[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_coin.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

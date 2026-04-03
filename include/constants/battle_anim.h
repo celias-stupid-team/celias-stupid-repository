@@ -459,6 +459,8 @@
 #define ANIM_TAG_MOLTRES_APPEAR             (ANIM_SPRITES_START + 449)
 #define ANIM_TAG_RARE_CANDY                 (ANIM_SPRITES_START + 450)
 #define ANIM_TAG_MISSINGNO_RHYDON           (ANIM_SPRITES_START + 451)
+#define ANIM_TAG_TCG_BLIZZARD               (ANIM_SPRITES_START + 452)
+#define ANIM_TAG_TCG_COIN                   (ANIM_SPRITES_START + 453)
 
 // battlers
 #define ANIM_ATTACKER       0
