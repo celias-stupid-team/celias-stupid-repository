@@ -41,7 +41,22 @@ script SafariZone_North_GrandDad {
 	lock
 	faceplayer
 	textcolor(0)
-	msgbox("GRAND DAD: {PLAYER}!\nWhat are you doing out here?\pSee that portal?\nI actually came out of there!\lThat's why I'm your GRAND DAD!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	
+	if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE) && !flag(FLAG_BATTLED_IRON_CLEFTS)) {
+		msgbox(
+		"GRAND DAD: {PLAYER}!\n"
+		"What are you doing out here?\p"
+
+		"Do you hear that song?\n"
+		"You have everything you need.\l"
+		"It's time to take them down!\p"
+
+		"Well, never mind that.\n"
+		"Why don't you take a rest?", MSGBOX_DEFAULT)
+	} else {
+		msgbox("GRAND DAD: {PLAYER}!\nWhat are you doing out here?\pSee that portal?\nI actually came out of there!\lThat's why I'm your GRAND DAD!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+
+	}
 	call(EventScript_DadHeal)
 	release
 	end
