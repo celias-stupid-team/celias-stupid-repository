@@ -20125,53 +20125,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 15,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 5,
+                "min_level": 15,
                 "max_level": 15,
                 "species": "SPECIES_HORSEA"
               },
               {
                 "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_HORSEA"
-              },
-              {
-                "min_level": 20,
-                "max_level": 30,
+                "max_level": 15,
                 "species": "SPECIES_HORSEA"
               },
               {
                 "min_level": 15,
-                "max_level": 25,
+                "max_level": 15,
                 "species": "SPECIES_HORSEA"
               },
               {
                 "min_level": 15,
-                "max_level": 35,
+                "max_level": 15,
                 "species": "SPECIES_HORSEA"
               },
               {
-                "min_level": 25,
-                "max_level": 35,
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_HORSEA"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_HORSEA"
               }
             ]
@@ -24534,17 +24534,17 @@
               },
               {
                 "min_level": 25,
-                "max_level": 52,
-                "species": "SPECIES_PINSIR"
-              },
-              {
-                "min_level": 25,
-                "max_level": 52,
+                "max_level": 25,
                 "species": "SPECIES_PINSIR"
               },
               {
                 "min_level": 25,
                 "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 51,
+                "max_level": 51,
                 "species": "SPECIES_PINSIR"
               },
               {
