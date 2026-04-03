@@ -3958,6 +3958,9 @@ static void Cmd_getexp(void)
                 || gBattleMons[gBattlerFainted].species == SPECIES_ARCEUSLAST) {
                 calculatedExp = 1000;
             }
+            if(gBattleMons[gBattlerFainted].species == SPECIES_METAGROSS) {
+                calculatedExp = 100;
+            }
 
             if (viaExpShare) // at least one mon is getting exp via exp share
             {

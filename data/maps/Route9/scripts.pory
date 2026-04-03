@@ -62,12 +62,15 @@ script CeliaSecrets_Route9_TPP {
 }
 
 script CeliaSecrets_Route9_Helix {
+	lock
+	faceplayer
 	msgbox(
 	"Have you tried using the Helix\n"
 	"Fossil in the overworld yet?\p"
 
 	"If not, give it a go on your\n"
 	"next playthrough!", MSGBOX_DEFAULT)
+	release
 	end
 }
 
