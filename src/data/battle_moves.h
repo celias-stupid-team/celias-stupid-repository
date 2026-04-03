@@ -6954,7 +6954,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_TRUMP_CARD] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_TRUMP_CARD,
         .power = 90,
         .type = TYPE_SHADOW,
         .accuracy = 100,

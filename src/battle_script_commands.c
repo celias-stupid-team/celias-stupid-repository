@@ -1244,12 +1244,6 @@ static void Cmd_accuracycheck(void)
         JumpIfMoveFailed(7, move);
         return;
     }
-    if (gCurrentMove == MOVE_TRUMP_CARD && gTrainerBattleOpponent_A != TRAINER_DMCA_MISTY)
-    {
-        gMoveResultFlags |= MOVE_RESULT_NO_EFFECT;
-        JumpIfMoveFailed(7, move);
-        return;
-    }
     if (gBattleMons[gBattlerTarget].species == SPECIES_KECLEON_SANS
         && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
         && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD

@@ -6564,3 +6564,91 @@ static void AnimTask_TranslateMonAndReturn_Step(u8 taskId)
         break;
     }
 }
+
+void AnimTask_UnboundSpriteUpdate(u8 taskId)
+{
+    u8 battler = gBattleAnimAttacker;
+    u16 stretch;
+
+    gBattleScripting.battler = battler;
+
+    switch (gTasks[taskId].data[0])
+    {
+    case 0: // setup mosaic
+        gSprites[gBattlerSpriteIds[battler]].oam.mosaic = TRUE;
+        SetGpuReg(REG_OFFSET_MOSAIC, 0);
+        gTasks[taskId].data[0]++;
+        break;
+    case 1: // execute mosaic
+        if (gTasks[taskId].data[2]++ > 1)
+        {
+            gTasks[taskId].data[2] = 0;
+            gTasks[taskId].data[1]++;
+            stretch = gTasks[taskId].data[1];
+            SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+            if (stretch == 15)
+                gTasks[taskId].data[0]++;
+        }
+        break;
+    case 2: // create Unbound sprite during peak mosaic distortion
+        {
+            const u32 *spriteData;
+            const u32 *paletteData;
+            struct Pokemon *mon;
+            u32 personalityValue;
+            u8 position;
+            u16 paletteOffset;
+            void *buffer;
+            void *dst;
+            struct CompressedSpriteSheet sheet;
+
+            if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+            {
+                spriteData  = gMonBackPic_HoopaUnbound;
+                paletteData = gMonPalette_HoopaUnbound;
+                mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
+            }
+            else
+            {
+                spriteData  = gMonFrontPic_Hoopa;
+                paletteData = gMonPalette_Hoopa;
+                mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
+            }
+
+            position = GetBattlerPosition(battler);
+            personalityValue = GetMonData(mon, MON_DATA_PERSONALITY);
+
+            sheet.data = spriteData;
+            sheet.size = MON_PIC_SIZE;
+            sheet.tag  = 0;
+            HandleLoadSpecialPokePic_DontHandleDeoxys(&sheet, gMonSpritesGfxPtr->sprites[position], SPECIES_HOOPA, personalityValue);
+            dst = (void *)(VRAM + 0x10000 + gSprites[gBattlerSpriteIds[battler]].oam.tileNum * 32);
+            DmaCopy32(3, gMonSpritesGfxPtr->sprites[position], dst, MON_PIC_SIZE);
+            gSprites[gBattlerSpriteIds[battler]].y = GetBattlerSpriteDefault_Y(battler) - 15;
+
+            paletteOffset = OBJ_PLTT_ID(battler);
+            buffer = AllocZeroed(0x400);
+            LZDecompressWram(paletteData, buffer);
+            LoadPalette(buffer, paletteOffset, PLTT_SIZE_4BPP);
+            Free(buffer);
+        }
+        gTasks[taskId].data[0]++;
+        break;
+    case 3: // reverse mosaic
+        if (gTasks[taskId].data[2]++ > 1)
+        {
+            gTasks[taskId].data[2] = 0;
+            gTasks[taskId].data[1]--;
+            stretch = gTasks[taskId].data[1];
+            SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+            if (stretch == 0)
+                gTasks[taskId].data[0]++;
+        }
+        break;
+    case 4: // remove mosaic
+        gSprites[gBattlerSpriteIds[battler]].oam.mosaic = FALSE;
+        SetGpuReg(REG_OFFSET_MOSAIC, 0);
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
