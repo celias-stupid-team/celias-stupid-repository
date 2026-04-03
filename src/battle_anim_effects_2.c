@@ -912,6 +912,31 @@ const struct SpriteTemplate gSlurfSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sMissingnoRhydonAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(64, 30),
+    ANIMCMD_FRAME(128, 30),
+    ANIMCMD_FRAME(192, 30),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMissingnoRhydonAnimTable[] =
+{
+    sMissingnoRhydonAnimCmds,
+};
+
+const struct SpriteTemplate gMissingnoRhydonSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MISSINGNO_RHYDON,
+    .paletteTag = ANIM_TAG_MISSINGNO_RHYDON,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sMissingnoRhydonAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gFemaleLiftSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FEMALE,

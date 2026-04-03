@@ -19527,7 +19527,21 @@ Move_BADGEBOOST:
 	end
 	
 Move_RHYDON:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_MISSINGNO_RHYDON
+	createvisualtask AnimTask_CurseStretchingBlackBg, 5
+	waitforvisualfinish
+	loopsewithpan SE_M_SCREECH, SOUND_PAN_ATTACKER, 10, 10
+	createsprite gMissingnoRhydonSpriteTemplate, ANIM_ATTACKER, 1, 0, -8, 0, 0, 0, 150, 2, 0
+	createvisualtask AnimTask_AttackerFadeToInvisible, 0, 0, ANIM_ATTACKER
+	delay 100
+	stopsound
+	playsewithpan SE_M_NIGHTMARE, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createvisualtask AnimTask_AttackerFadeFromInvisible, 0, 1, ANIM_ATTACKER
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 16, 0, RGB_BLACK
+	waitforvisualfinish
+	end
 	
 Move_COOLTRAINERM:
 	goto Move_TACKLE

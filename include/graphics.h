@@ -8846,6 +8846,7 @@ extern const u32 gBattleAnimSpriteGfx_MoltresKick[];
 extern const u32 gBattleAnimSpriteGfx_MoltresFlare[];
 extern const u32 gBattleAnimSpriteGfx_MoltresAppear[];
 extern const u32 gBattleAnimSpriteGfx_RareCandy[];
+extern const u32 gBattleAnimSpriteGfx_MissingnoRhydon[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9251,6 +9252,7 @@ extern const u32 gBattleAnimSpritePal_MoltresKick[];
 extern const u32 gBattleAnimSpritePal_MoltresFlare[];
 extern const u32 gBattleAnimSpritePal_MoltresAppear[];
 extern const u32 gBattleAnimSpritePal_RareCandy[];
+extern const u32 gBattleAnimSpritePal_MissingnoRhydon[];
 
 //CSR Moves
 

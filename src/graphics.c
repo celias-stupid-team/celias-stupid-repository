@@ -469,6 +469,9 @@ const u32 gBattleAnimSpritePal_MoltresAppear[] = INCBIN_U32("graphics/battle_ani
 const u32 gBattleAnimSpriteGfx_RareCandy[] = INCBIN_U32("graphics/battle_anims/sprites/rare_candy.4bpp.lz");
 const u32 gBattleAnimSpritePal_RareCandy[] = INCBIN_U32("graphics/battle_anims/sprites/rare_candy.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_MissingnoRhydon[] = INCBIN_U32("graphics/battle_anims/sprites/rhydon_missingno.4bpp.lz");
+const u32 gBattleAnimSpritePal_MissingnoRhydon[] = INCBIN_U32("graphics/battle_anims/sprites/rhydon_missingno.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

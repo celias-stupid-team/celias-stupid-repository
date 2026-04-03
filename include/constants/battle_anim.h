@@ -458,6 +458,7 @@
 #define ANIM_TAG_MOLTRES_FLARE              (ANIM_SPRITES_START + 448)
 #define ANIM_TAG_MOLTRES_APPEAR             (ANIM_SPRITES_START + 449)
 #define ANIM_TAG_RARE_CANDY                 (ANIM_SPRITES_START + 450)
+#define ANIM_TAG_MISSINGNO_RHYDON           (ANIM_SPRITES_START + 451)
 
 // battlers
 #define ANIM_ATTACKER       0
