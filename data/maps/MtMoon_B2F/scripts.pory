@@ -133,7 +133,6 @@ script MtMoon_B2F_EventScript_Dad {
 	end
 }
 
-const ACTUAL_MIGUEL = 20
 script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 	lock
 	faceplayer

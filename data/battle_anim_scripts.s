@@ -1142,6 +1142,8 @@ gBattleAnims_General::
 	.4byte General_MegaEvolution            @ B_ANIM_MEGA_EVOLUTION
 	.4byte General_DynamaxGrowth            @ B_ANIM_DYNAMAX_GROWTH
 	.4byte General_Rainbow					@ B_ANIM_RAINBOW
+	.4byte General_AlomomolaEvolveReverse   @ B_ANIM_ALOMOMOLA_EVOLVE_REVERSE
+	.4byte General_RhydonTransform          @ B_ANIM_RHYDON_TRANSFORM
 
 	.align 2
 gBattleAnims_Special::
@@ -12341,6 +12343,16 @@ General_AlomomolaEvolve:
 	clearmonbg ANIM_ATTACKER
 	end
 
+General_AlomomolaEvolveReverse:
+	monbg ANIM_ATTACKER
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
+	createvisualtask AnimTask_TransformMon, 2, 255
+	waitsound
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+
 General_SeelHoopaTransform:
 	monbg ANIM_ATTACKER
 	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
@@ -12355,6 +12367,16 @@ General_ZapmolcunoTransform: @ doesn't need an actual transformation since it wo
 	end
 
 General_SlowpokeTransform:
+	monbg ANIM_ATTACKER
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
+	createvisualtask AnimTask_TransformMon, 2, 255
+	waitsound
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+
+General_RhydonTransform:
 	monbg ANIM_ATTACKER
 	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
 	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
@@ -16615,7 +16637,7 @@ Move_U_TURN:
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -4
+	createvisualtask AnimTask_WTurnSlideOffScreen, 5, ANIM_ATTACKER, -4
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff
@@ -20777,7 +20799,7 @@ Move_W_TURN:
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -4
+	createvisualtask AnimTask_WTurnSlideOffScreen, 5, ANIM_ATTACKER, -4
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff

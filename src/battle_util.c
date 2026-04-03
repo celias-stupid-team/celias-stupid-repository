@@ -2018,7 +2018,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 break;
             }
             case ABILITY_DRIZZLE:
-                if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
+                if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY) && !(gBattleWeather & B_WEATHER_HAIL))
                 {
                     gBattleWeather = (B_WEATHER_RAIN_PERMANENT | B_WEATHER_RAIN_TEMPORARY);
                     BattleScriptPushCursorAndCallback(BattleScript_DrizzleActivates);
@@ -2027,7 +2027,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_SAND_STREAM:
-                if (!(gBattleWeather & B_WEATHER_SANDSTORM_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
+                if (!(gBattleWeather & B_WEATHER_SANDSTORM_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY) && !(gBattleWeather & B_WEATHER_HAIL))
                 {
                     gBattleWeather = B_WEATHER_SANDSTORM;
                     BattleScriptPushCursorAndCallback(BattleScript_SandstreamActivates);
@@ -2036,7 +2036,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_DROUGHT:
-                if (!(gBattleWeather & B_WEATHER_SUN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
+                if (!(gBattleWeather & B_WEATHER_SUN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY) && !(gBattleWeather & B_WEATHER_HAIL))
                 {
                     gBattleWeather = B_WEATHER_SUN;
                     BattleScriptPushCursorAndCallback(BattleScript_DroughtActivates);

@@ -6764,7 +6764,7 @@ bool8 TrySwitchInPokemonFromPSS(void)
         StringExpandPlaceholders(gStringVar4, gText_EggCantBattle);
         switchSuccessful = FALSE;
     }
-    if (GetPartyIdFromBattleSlot(slot) == gBattleStruct->playerPartyIdx)
+    if (gBattleStruct != NULL && GetPartyIdFromBattleSlot(slot) == gBattleStruct->playerPartyIdx)
     {
         GetMonNickname(&gPlayerParty[slot], gStringVar1);
         StringExpandPlaceholders(gStringVar4, gText_PkmnAlreadySelected);

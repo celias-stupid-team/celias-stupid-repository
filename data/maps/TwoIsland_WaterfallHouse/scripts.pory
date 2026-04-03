@@ -12,6 +12,10 @@ script TwoIsland_WaterfallHouse_Message {
 		setvar(VAR_TWO_ISLAND_STARMAN, 1)
 		
 	}
+	if(!checkitem(ITEM_MOON_STONE) && !checkmoncaught(SPECIES_MUK)) {
+		setvar(VAR_TWO_ISLAND_STARMAN, 1)
+
+	}
 	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 2)
 	msgbox(
 	"If you'd like to learn my secret\n"
