@@ -3762,6 +3762,24 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     RecordItemEffectBattle(battlerId, battlerHoldEffect);
                 }
                 break;
+            case HOLD_EFFECT_ATTACK_UP: // ITEM_LIECHI_BERRY aka SANDWICH during final battle
+                if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA
+                  && gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam
+                  && gBattleMons[battlerId].hp > 0
+                  && gBattleMons[battlerId].statStages[STAT_ATK] < MAX_STAT_STAGE)
+                {
+                    PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_ATK);
+                    PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATROSE);
+                    gEffectBattler = battlerId;
+                    gBattlerAttacker = battlerId; // required to play the animation script correctly
+                    SET_STATCHANGER(STAT_ATK, 1, FALSE);
+                    gBattleScripting.animArg1 = 14 + STAT_ATK;
+                    gBattleScripting.animArg2 = 0;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryStatRaiseEnd2;
+                    effect = ITEM_STATS_CHANGE;
+                }
+                break;
             }
             if (effect != 0)
             {
