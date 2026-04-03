@@ -2,15 +2,11 @@ mapscripts Starlight_House2_MapScripts {
 
 }
 
-script Starlight_House2_Test {
+script Starlight_House2_Post_Battle {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-    if(!flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
 	msgbox(
-	"Oh hi!\p"
-	"How did you find this place?\p"
-
 	"My name is KaizenStarlight!\l"
     "But everybody calls me Starlight\n"
     "for short.\p"
@@ -22,65 +18,42 @@ script Starlight_House2_Test {
 	"you will find in the Great Sea!\p"
 
 	"Well...\l"
-	"The visual world itself that is...\p"
-	"I did all of the tiles you stand on!\p"
-    "Anyways, I am busy working on\n"
-    "some map work.\p"
-    "Feel free to explore around here\n"
-    "if you'd like.\p"
-    "I am not sure how you found\n"
-    "this place...\p"
-    "But once you leave, I will remove\n"
-    "my house from the map.\p"
+	"The visual world itself that is...\l"
+	"I placed most of the tiles you walk\n"
+	"Around on.\p"
     "You might see me around working\n"
     "out of bounds from time to time.\p"
-    "It was nice to meet you!", MSGBOX_DEFAULT)
+    "But hey, it was nice to meet you!\l"
+	"Feel free to explore around the\n"
+    "house before you go.\p"
+	"There's nothing special here, but I\n"
+    "had some fun making it!", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
 	))
-    clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
+	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	waitmovement(0)
 	release
-        
-		} else {
-                    			msgbox(
-			"I'll be seeing you around!", MSGBOX_DEFAULT)
-            closemessage
-        }
 }
 
-script Starlight_House2_Test2 {
+script Starlight_House2_Battle { //test
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox(
+	trainerbattle_single(TRAINER_STARLIGHT,
 	"Oh hi!\p"
-	"How did you find this place?\p"
-	"My name is KaizenStarlight!\l"
-    "But everybody calls me Starlight\n"
-    "for short.\p"
+	"I thought I hid this map.",
+	//
+	"I... am not the best at coding...", Starlight_House2_Post_Battle)
 
-	"I am the map designer for\n"
-    "Celia's Stupid Romhack.\p"
 
-	"I created just about everything\n"
-	"you will find in the Great Sea!\p"
-
-	"Well...\l"
-	"The visual world itself that is...\p"
-	"I did all of the tiles you stand on!\p"
-    "Anyways, I am busy working on\n"
-    "some map work.\p"
-    "Feel free to explore around here\n"
-    "if you'd like.\p"
-    "I am not sure how you found\p"
-    "this place...\p"
-    "But once you leave, I will remove\n"
-    "my house from the map.\p"
-    "You might see me around working\n"
-    "out of bounds from time to time.\p"
-    "It was nice to meet you!", MSGBOX_DEFAULT)
+	msgbox(
+    "It was nice to meet you!\l"
+	"Feel free to explore around the\n"
+    "house before you go.\p"
+	"There's nothing special here, but I\n"
+    "had some fun making it!", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
