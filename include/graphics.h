@@ -13321,3 +13321,6 @@ extern const u32 gMonShinyPalette_ARCEUSLAST[];
 extern const u8 gMonFootprint_ARCEUSLAST[];
 extern const u8 gMonIcon_ARCEUSLAST[];
 
+
+extern const u32 gTrainerFrontPic_Starlightsprite[];
+extern const u32 gTrainerPalette_Starlightsprite[];

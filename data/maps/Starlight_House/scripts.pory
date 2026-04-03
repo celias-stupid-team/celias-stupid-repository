@@ -1,10 +1,4 @@
 mapscripts Starlight_House_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION {
-		if(!flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
-			setflag(FLAG_TEMP_3)
-
-		}
-		clearflag(FLAG_TEMP_3)
-	}
+	
 }
 

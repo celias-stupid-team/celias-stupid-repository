@@ -664,3 +664,6 @@ const u32 gTrainerPalette_Starlight[] = INCBIN_U32("graphics/trainers/palettes/s
 
 const u32 gTrainerFrontPic_Kimono[] = INCBIN_U32("graphics/trainers/front_pics/kimono_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Kimono[] = INCBIN_U32("graphics/trainers/palettes/kimono.gbapal.lz");
+
+const u32 gTrainerFrontPic_Starlightsprite[] = INCBIN_U32("graphics/trainers/front_pics/starlightsprite_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Starlightsprite[] = INCBIN_U32("graphics/trainers/palettes/starlightsprite.gbapal.lz");
