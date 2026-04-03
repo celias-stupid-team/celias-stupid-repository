@@ -917,7 +917,11 @@ static const union AnimCmd sMissingnoRhydonAnimCmds[] =
     ANIMCMD_FRAME(0, 30),
     ANIMCMD_FRAME(64, 30),
     ANIMCMD_FRAME(128, 30),
-    ANIMCMD_FRAME(192, 30),
+    ANIMCMD_FRAME(192, 39),
+    ANIMCMD_FRAME(192, 39),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(0, 4),
     ANIMCMD_END,
 };
 
