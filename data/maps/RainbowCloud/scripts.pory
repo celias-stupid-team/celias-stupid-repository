@@ -13,7 +13,7 @@ mapscripts RainbowCloud_MapScripts {
 
 script RainbowCloud_Thesis {
 	msgbox(
-	"Curiosity is the spark of the\n"
+	"Creativity is the spark of the\n"
 	"human soul!\p"
 
 	"Break past the flimsy walls of your\n"
