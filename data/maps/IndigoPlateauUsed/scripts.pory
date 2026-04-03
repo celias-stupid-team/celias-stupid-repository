@@ -4,6 +4,18 @@ mapscripts IndigoPlateauUsed_MapScripts {
         if(flag(FLAG_SYS_ROTOM_MENU)) {
             setvar(VAR_TEMP_1, 1)
         }
+        
+        
+        setvar(VAR_CSR_CYNTHIA_BATTLE, 0)
+        setvar(VAR_LANCE_LASS_ATTACK, 0)
+        setvar(VAR_CSR_FINAL_BATTLE_TURN, 0)
+        setvar(VAR_CSR_FINAL_BATTLE_PHASE, 0)
+        clearflag(FLAG_KILLED_E4_OAK)
+        clearflag (FLAG_DEFEATED_LORELEI)
+        clearflag (FLAG_DEFEATED_BRUNO)
+        clearflag (FLAG_DEFEATED_AGATHA)
+        clearflag (FLAG_DEFEATED_LANCE)
+        clearflag (FLAG_DEFEATED_CHAMP)
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 1 {

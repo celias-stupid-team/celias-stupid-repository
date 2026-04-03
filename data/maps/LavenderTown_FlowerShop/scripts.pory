@@ -1,8 +1,67 @@
 mapscripts LavenderTown_FlowerShop_MapScripts {
-
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_CSR_GOT_DUCK_PAIL)) {
+			setflag(FLAG_TEMP_1)
+		}
+		if(flag(FLAG_POST_GAME) && !flag(FLAG_GOT_SHINY_PSYDUCK)) {
+			clearflag(FLAG_TEMP_1)
+		}
+		
+	}
 }
 
 script Flowershop_Window {
 	msgbox("The window looks directly into the\nside of a mountain.\pPerhaps this building wasn't very\nwell thought-out.", MSGBOX_SIGN)
 	end
 }
+
+
+script Route8_PickUpPsyduck {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	faceplayer
+	if(flag(FLAG_POST_GAME)) {
+		setflag(FLAG_GOT_SHINY_PSYDUCK)
+		removeobject(VAR_LAST_TALKED)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} found a PSYDUCK!\n"
+		"", MSGBOX_DEFAULT)
+		waitfanfare
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GOLDUCK)
+		setflag(FLAG_SHINY_CREATION)
+		call(Common_Script_GiftPokemon30)
+		release
+		end
+
+	}
+	setflag(FLAG_CSR_GOT_DUCK_PAIL)
+	finditem(ITEM_WAILMER_PAIL)
+}
+
+script Route8_BerryLady {
+    if(flag(FLAG_POST_GAME) && !flag(FLAG_GOT_SHINY_PSYDUCK)) {
+		msgbox(
+		"Ah, you've defeated the ELITE FOUR?\n"
+		"How lovely!\l"
+		"But…\p"
+
+		"Well, SPRAYBOTTLES are actually\n"
+		"much more dangerous than I thought.\p"
+
+		"Simply defeating the ELITE FOUR\n"
+		"isn't enough for me to trust you.\p"
+
+		"I know! Come back after HOENN's\n"
+		"ELITE FOUR! And also SINNOH's!\p"
+
+		"Maybe four or five ELITE FOURS\n"
+		"later, I'll finally trust you.", MSGBOX_NPC)
+
+	} else {
+		msgbox("BERRIES need water to grow.\nWithout it, they'll shrivel and die.\pI have a SPRAYBOTTLE that you could\nuse to water plants that need it.\lBut…\pSPRAYBOTTLES are actually extremely\ndangerous.\lI can't trust a stranger with one!\pI know! Come back after you've\ndefeated the ELITE FOUR.\pThat should prove that you can\nsafely handle a water bottle!", MSGBOX_NPC)
+	
+
+	}
+	end
+}
+
