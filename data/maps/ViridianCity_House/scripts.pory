@@ -1813,3 +1813,23 @@ script CeliaSecret_RichKidTrans {
 	"Moved him here after I put the\n"
 	"trans bugs there instead.", MSGBOX_NPC)
 }
+
+script CeliaSecret_SevenAte {
+	msgbox(
+	"There was gonna be a scene here\n"
+	"where if you bring an Arcanine,\l"
+	"Seven comes out to attack you.\p"
+
+	"It would've been so cool\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_Dividum {
+	msgbox(
+	"Dividum's sprite is made so its\n"
+	"tail is entirely behind its body.\p"
+
+	"I had no clue how to make a tail\n"
+	"with two floating dots, so I hid\l"
+	"it and left it to the imagination.", MSGBOX_NPC)
+}

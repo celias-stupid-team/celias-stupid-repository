@@ -6924,7 +6924,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+        .flags = FLAG_PROTECT_AFFECTED
     },
     
 
@@ -8140,7 +8140,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FREEZE_DRY] =
     {
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = 170,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 20,
@@ -10669,7 +10669,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 120,
-        .type = TYPE_ELECTRIC,
+        .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
