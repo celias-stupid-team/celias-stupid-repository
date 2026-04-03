@@ -1086,8 +1086,11 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
 {
     struct Pokemon *mon;
     u16 species = SPECIES_KORAIDON;
+    u16 item = ITEM_LIECHI_BERRY;
     u8 i;
+
     FlagClear(FLAG_ROTOM_BATTLE_UI);
+    gBattleSwitchFromPSS = FALSE;
 
     // send all mons to the PC
     for (i = 0; i < PARTY_SIZE; i++)
@@ -1108,6 +1111,7 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
     if (gSpecialVar_ItemId == ITEM_SHINY_BIKE)
         FlagSet(FLAG_SHINY_CREATION);
     CreateMonWithGenderNatureLetter(mon, species, 50, USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
+    SetMonData(mon, MON_DATA_HELD_ITEM, &item);
     CopyPlayerPartyMonToBattleData(0, 0);
 
     gPlayerPartyCount = 1;
