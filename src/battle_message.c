@@ -2112,10 +2112,10 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
-                case EVENT_BATTLE_BARRY: 
-                        if(sBattleMsgDataPtr->currentMove == MOVE_MAGICAL_LEAF )  { //Snowgravy
+                case EVENT_BATTLE_YUGIOH: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_TRUMP_CARD )  { //Snowgravy
                         BattleStopLowHpSound();
-                        //RunScriptImmediately(FadeSongAndPlayVictory); //Play silence
+                        RunScriptImmediately(FadeSongAndPlayHoopa); //Play silence
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;

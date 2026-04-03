@@ -7,6 +7,12 @@ script FadeSongAndPlayVictory {
 	return
 }
 
+
+script FadeSongAndPlayHoopa {
+	fadenewbgm(MUS_MUS_YUGIOH_2)
+	return
+}
+
 script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_ZAPDOS) && checkmoncaught(SPECIES_MOLTRES) && checkmoncaught(SPECIES_ARTICUNO) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) {
     setobtainable(SPECIES_VICTINI)
