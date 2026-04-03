@@ -17178,10 +17178,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP = 140,
         .baseAttack = 85,
-        .baseDefense = 110,
+        .baseDefense = 155,
         .baseSpeed = 30,
         .baseSpAttack = 85,
-        .baseSpDefense = 110,
+        .baseSpDefense = 140,
         .types = {TYPE_GRASS, TYPE_FAIRY_TRANS},
         .catchRate = 255,
         .expYield = 150,
