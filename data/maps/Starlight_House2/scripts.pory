@@ -91,7 +91,7 @@ script Starlight_House2_Garbage1 {
 	msgbox(
 	"There's nothing in the trash\n"
 	"Except a crumpled up paper showing\l"
-	"plans for recreating the entire map\n"
+	"plans for recreating the entire map\l"
 	"of Zelda BotW for a bit.", MSGBOX_SIGN)
 
 }
@@ -99,7 +99,7 @@ script Starlight_House2_Garbage1 {
 script Starlight_House2_Garbage2 {
 	msgbox(
 	"There's scrapped paper containing a\n"
-	"schedule for the PMD Team Hack Event.\p"
+	"schedule for PMD Team Hack Event.\p"
 	"There's also something scratched out\n"
 	"at the bottom.\p"
 	"Pr-j--t -vr-n\p", MSGBOX_SIGN)
@@ -119,7 +119,7 @@ script Starlight_House2_Crane_Operator {
 	"A control panel for operating the\n"
 	"machine.\p"
 	"Doesn't acutally work, seems like\n"
-	"the map maker was too lazy to code\l."
+	"the map maker was too lazy to code\l"
 	"this function in.", MSGBOX_SIGN)
 
 }
