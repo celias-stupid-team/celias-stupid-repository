@@ -13661,54 +13661,6 @@ Move_ROOST:
 	end
 	
 Move_CSR_DUMMY:
-	loadspritegfx ANIM_TAG_EXODIA_BLAST
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_WHITE
-	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
-	waitforvisualfinish
-	delay 30
-	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 15, 0, 5
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 50, 1
-	@createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB(31, 0, 0), 16, 0, 0
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 50, 1
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 11, RGB(25, 25, 25)
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	call ExodiaBeams
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 11, 0, RGB(25, 25, 25)
-	waitforvisualfinish
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_WHITE
-	end
-
-ExodiaBeams:
-	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
-	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
-	delay 1
-	return
-
 	@Tackle
 	goto Move_TACKLE
 	
@@ -18771,31 +18723,31 @@ Move_SHOOT:
 	setarg 7, 0xFFFF  @ Signal target to flash/disappear
 	waitforvisualfinish
 	waitsound
-	createvisualtask SoundTask_PlayCry, 2, ANIM_ATTACKER
+	createvisualtask SoundTask_PlaySpecificCry, 2, 78
 	delay 1
 	createsprite gShootBulletSpriteTemplate, ANIM_ATTACKER, 2, -90, 30, 7
 	delay 4
-	createvisualtask SoundTask_PlayCry, 2, ANIM_ATTACKER
-	delay 1
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	createsprite gShootBulletSpriteTemplate, ANIM_ATTACKER, 2, -90, 30, 7
-	delay 4
-	createvisualtask SoundTask_PlayCry, 2, ANIM_ATTACKER
+	createvisualtask SoundTask_PlaySpecificCry, 2, 78
 	delay 1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	createsprite gShootBulletSpriteTemplate, ANIM_ATTACKER, 2, -90, 30, 7
 	delay 4
-	createvisualtask SoundTask_PlayCry, 2, ANIM_ATTACKER
+	createvisualtask SoundTask_PlaySpecificCry, 2, 78
 	delay 1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	createsprite gShootBulletSpriteTemplate, ANIM_ATTACKER, 2, -90, 30, 7
 	delay 4
-	createvisualtask SoundTask_PlayCry, 2, ANIM_ATTACKER
+	createvisualtask SoundTask_PlaySpecificCry, 2, 78
 	delay 1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	createsprite gShootBulletSpriteTemplate, ANIM_ATTACKER, 2, -90, 30, 7
 	delay 4
-	createvisualtask SoundTask_PlayCry, 2, ANIM_ATTACKER
+	createvisualtask SoundTask_PlaySpecificCry, 2, 78
+	delay 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	createsprite gShootBulletSpriteTemplate, ANIM_ATTACKER, 2, -90, 30, 7
+	delay 4
+	createvisualtask SoundTask_PlaySpecificCry, 2, 78
 	delay 1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	createsprite gShootBulletSpriteTemplate, ANIM_ATTACKER, 2, -90, 30, 7
@@ -28516,3 +28468,53 @@ General_UnboundSpriteUpdate::
 	createvisualtask AnimTask_UnboundSpriteUpdate, 5
 	waitforvisualfinish
 	end
+
+General_ExodiaObliterate::
+	loadspritegfx ANIM_TAG_EXODIA_BLAST
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
+	waitforvisualfinish
+	delay 30
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_WHITE
+	@createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 15, 0, 5
+	playse SE_M_SOLAR_BEAM
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 50, 1
+	@createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB(31, 0, 0), 16, 0, 0
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 50, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 11, RGB(25, 25, 25)
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 11, 0, RGB(25, 25, 25)
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_WHITE
+	end
+
+ExodiaBeams:
+	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
+	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
+	delay 1
+	return
