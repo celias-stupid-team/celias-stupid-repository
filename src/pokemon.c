@@ -113,7 +113,7 @@ const u32 gProtectedMoves[] = {
     MOVE_WATERFALL,
     MOVE_RETREAT,
     MOVE_SURF,
-    MOVE_GULP,
+    //MOVE_GULP,
     MOVE_WHIRLPOOL,
     MOVE_MAGICAL_LEAF,
     MOVE_BRICK_BREAK,
@@ -127,6 +127,7 @@ const u32 gProtectedMoves[] = {
     MOVE_DOUBLE_DAD,
     MOVE_CURSE,
     MOVE_TRUMP_CARD,
+    MOVE_REST_HBOX,
     MOVE_FLY_CYNTHIA
 };
 
@@ -1681,17 +1682,17 @@ static const u8 sStatsToRaise[] =
 // 0-99, 100-199, 200+
 static const s8 sFriendshipEventDeltas[][3] = 
 {
-    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 2,  2,  1 },
+    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 2,  1,  1 },
     [FRIENDSHIP_EVENT_VITAMIN]              = { 0,  0,  0 },
     [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 4,  3,  1 },
+    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 4,  3,  2 },
     [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 0,  0,  0 },
-    [FRIENDSHIP_EVENT_WALKING]              = { 1,  2,  2 },
+    [FRIENDSHIP_EVENT_WALKING]              = { 1,  2,  3 },
     [FRIENDSHIP_EVENT_MASSAGE]              = { 3,  3,  3 },
     [FRIENDSHIP_EVENT_FAINT_SMALL]          = {0, 0, 0 },
     [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {0, 0, 0 },
     [FRIENDSHIP_EVENT_FAINT_LARGE]          = {0, 0, 0 },
-    [FRIENDSHIP_EVENT_WORLD_TRAVEL]          = {2, 3, 3 },
+    [FRIENDSHIP_EVENT_WORLD_TRAVEL]          = {2, 1, 1 },
 };
 
 #define HM_MOVES_END 0xFFFF
