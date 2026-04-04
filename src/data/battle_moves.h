@@ -1366,7 +1366,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = 0,
+        .flags = FLAG_PROTECT_AFFECTED,
     },
 
     [MOVE_NIGHT_SHADE] =
