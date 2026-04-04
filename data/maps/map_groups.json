@@ -74,7 +74,8 @@
     "Route23Extended",
     "Starlight_House2",
     "Starlight_House3",
-    "One_Island_Cave"
+    "One_Island_Cave",
+    "Starlight_House5"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -732,13 +733,22 @@
     "PokemonIsland_LabBackRoom",
     "PokemonIsland_South",
     "AetherParadise_Island",
-    "Hi"
+    "Hi",
+    "Starlight_House4"
   ],
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",
     "AetherParadise_NebbyRoom",
     "AetherParadise_SkullRoom",
-    "Starlight_House"
+    "Starlight_House",
+    "Starlight_House6",
+    "Starlight_House7",
+    "Starlight_House8",
+    "Starlight_House9",
+    "Starlight_House_10",
+    "Starlight_House6pt2",
+    "Starlight_House6edge1",
+    "Starlight_House6edge2"
   ],
   "gMapGroup_Ocean": [
     "Ocean1",

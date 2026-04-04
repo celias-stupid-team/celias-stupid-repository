@@ -224,7 +224,7 @@ script FestivalPlaza_Sophacles {
 
 script StarlightIslandSign {
 	msgbox(
-	"STARLIGHT ISLAND\n"
+	"Starlight's Map Workshop\n"
 	"", MSGBOX_SIGN)
 
 }

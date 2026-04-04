@@ -16,6 +16,7 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_STARLIGHT_NPC",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
       "x": 5,
@@ -30,19 +31,19 @@
       "flag": "FLAG_TEMP_3"
     },
     {
-      "local_id": "LOCALID_STARLIGHT_TEST",
+      "local_id": "LOCALID_DAK_NPC",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
-      "x": 29,
-      "y": 4,
+      "x": 21,
+      "y": 14,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Starlight_House2_Battle",
-      "flag": "FLAG_TEMP_3"
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -50,10 +51,155 @@
       "x": 26,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_STARLIGHT_HOUSE",
+      "dest_map": "MAP_STARLIGHT_HOUSE4",
       "dest_warp_id": "1"
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Phone"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Garbage2"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Garbage1"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Breaker"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Phone"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Crane_Operator"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Crane_Operator"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Table_Plans"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Table_Plans"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Table_Plans"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Table_Plans"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Machine"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Machine"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Machine"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Machine"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Machine"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Machine"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Machine"
+    }
+  ]
 }

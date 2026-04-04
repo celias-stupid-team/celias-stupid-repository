@@ -1332,7 +1332,7 @@
 #define FLAG_DAD_CELADON_GATE               0x4CF
 #define FLAG_DAD_SOOTOPOLIS               0x4D0
 #define FLAG_DAD_SISTERS               0x4D1
-#define FLAG_0x4D2               0x4D2
+#define FLAG_DAK_HERE             0x4D2
 #define FLAG_0x4D3               0x4D3
 #define FLAG_0x4D4               0x4D4
 #define FLAG_0x4D5               0x4D5
