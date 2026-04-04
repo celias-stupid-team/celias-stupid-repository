@@ -194,7 +194,7 @@
     textVar[4] = B_BUFF_EOS;                                    \
 }
 
-#define TEXT_BUFF_ARRAY_COUNT (LONG_MOVE_NAME_LENGTH + 2) // for long move names (17) + potential "!" + EOS
+#define TEXT_BUFF_ARRAY_COUNT (LONG_MOVE_NAME_LENGTH + 2) // for long move names (20) + potential "!" + EOS
 
 struct BattleMsgData
 {

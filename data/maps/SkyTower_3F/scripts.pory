@@ -24,22 +24,29 @@ script SkyTower_KecleonShop2 {
         end
     }
 	msgbox(
-	"Kecleon Shop 2\n"
-	"", MSGBOX_DEFAULT)
+	"Welcome to the other KECLEON SHOP!\n"
+	"I hope I can be of service!", MSGBOX_DEFAULT)
 	release
 }
 
 script SkyTower_3FShop_Orb {
 	lock
-	msgbox(
-	"HURL ORB\p"
-    "Buy the HURL ORB?"
-	"", MSGBOX_YESNO)
-    if(var(VAR_RESULT)) {
+    
+	message(
+	"That's a HURL ORB.\n"
+	"It costs 50,000 POKé.\l"
+	"Is that acceptable to you?")
+	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "YES", "NO", "HURL")
+
+    if(var(VAR_RESULT) == 0) {
         msgbox(
         "You can't afford it and you\n"
         "fucking die", MSGBOX_DEFAULT)
     } else {
+        if(var(VAR_RESULT) == 1) {
+            release
+            end
+        }
         msgbox(
         "HURL the HURL ORB?\n"
         "", MSGBOX_YESNO)
