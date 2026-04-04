@@ -5265,8 +5265,8 @@ static const struct LevelUpMove sAggronLevelUpLearnset[] = {
 
 static const struct LevelUpMove sCastformLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_RAINBOW_BEAM),
-    LEVEL_UP_MOVE(1, MOVE_WEATHER_BALL),
-    LEVEL_UP_MOVE(1, MOVE_FAKE_OUT),
+    //LEVEL_UP_MOVE(1, MOVE_WEATHER_BALL),
+    //LEVEL_UP_MOVE(1, MOVE_FAKE_OUT),
     LEVEL_UP_MOVE(51, MOVE_GENESIS_SUPERNOVA),
     LEVEL_UP_END
 };
