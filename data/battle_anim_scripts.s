@@ -7383,39 +7383,18 @@ Move_GARBOTOXIN:
 	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
 	
 	playsewithpan SE_M_BUBBLE3, SOUND_PAN_TARGET
 	createsprite gTCGGarbotoxinSpriteTemplate, ANIM_TARGET, 2, -8, -24, 1
-	@createsprite gTCGGarbotoxinSpriteTemplate, ANIM_TARGET, 2, -16, -48, 0, 0, 0, 2, 0, 1
-	@delay 1
-	@createsprite gTCGGooSmallSpriteTemplate, ANIM_TARGET, 2, -10, -38, 0, 0, 0, 2, 0, 1
-	@delay 1
-	@createsprite gTCGGooSmallSpriteTemplate, ANIM_TARGET, 2, -8, -26, 0, 0, 0, 2, 0, 1
-	@delay 1
-	@createsprite gTCGGooSmallSpriteTemplate, ANIM_TARGET, 2, -4, -14, 0, 0, 0, 2, 0, 1
-	@delay 1
-	@createsprite gTCGGooSmallSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 2, 0, 1
-	@delay 1
-	@createsprite gTCGGooMediumSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 3, 0, 1
-	@delay 2
-	@createsprite gTCGGooLargeSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 5, 0, 1
-	@delay 4
-	@createsprite gTCGGooHugeSpriteTemplate, ANIM_TARGET, 2, -4, 4, 0, 0, 0, 4, 0, 1
-	@delay 3
-	@createsprite gTCGGooHugeSpriteTemplate, ANIM_TARGET, 2, -4, 6, 0, 0, 0, 4, 0, 1
-	@delay 3
-	@createsprite gTCGGooLargeSpriteTemplate, ANIM_TARGET, 2, 0, 8, 0, 0, 0, 5, 0, 1
-	@delay 4
-	@createsprite gTCGGooMediumSpriteTemplate, ANIM_TARGET, 2, -2, 10, 0, 0, 0, 3, 0, 1
-	@delay 2
-	@createsprite gTCGGooSmallSpriteTemplate, ANIM_TARGET, 2, -4, 14, 0, 0, 0, 2, 0, 1
-	@delay 1
-	@createsprite gTCGGooSmallSpriteTemplate, ANIM_TARGET, 2, -4, 20, 0, 0, 0, 2, 0, 1
-	@delay 1
+	delay 20
+	createvisualtask AnimTask_GarbotoxinWaver, 5
 	waitforvisualfinish
-	createvisualtask AnimTask_SwayMon, 5, 0, 6, 2048, 4, ANIM_TARGET
+	@createvisualtask AnimTask_SwayMon, 5, 0, 6, 2048, 4, ANIM_TARGET
 	waitforvisualfinish
 	call TCGImpact
+	clearmonbg ANIM_TARGET
 	end
 
 
@@ -13680,19 +13659,56 @@ Move_ROOST:
 	end
 	
 Move_CSR_DUMMY:
-	@Tackle
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_EXODIA_BLAST
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_WHITE
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	delay 30
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 15, 0, 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 50, 1
+	@createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB(31, 0, 0), 16, 0, 0
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 50, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 11, RGB(25, 25, 25)
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 11, 0, RGB(25, 25, 25)
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_WHITE
 	end
+
+ExodiaBeams:
+	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
+	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
+	delay 1
+	return
+
+	@Tackle
+	goto Move_TACKLE
 	
 Move_PRIMAL_RAGE:
 	loadspritegfx ANIM_TAG_IMPACT

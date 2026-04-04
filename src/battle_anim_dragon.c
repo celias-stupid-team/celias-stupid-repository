@@ -392,6 +392,60 @@ void AnimTask_DragonDanceWaver(u8 taskId)
     task->func = AnimTask_DragonDanceWaver_Step;
 }
 
+void AnimTask_GarbotoxinWaver(u8 taskId)
+{
+    struct ScanlineEffectParams scanlineParams;
+    struct Task *task = &gTasks[taskId];
+    u16 i;
+    u8 y;
+
+    // -----------------------------------
+    // Select BG layer based on TARGET
+    // -----------------------------------
+    if (GetBattlerSpriteBGPriorityRank(gBattleAnimTarget) == 1)
+    {
+        scanlineParams.dmaDest = &REG_BG1HOFS;
+        task->data[2] = gBattle_BG1_X;
+    }
+    else
+    {
+        scanlineParams.dmaDest = &REG_BG2HOFS;
+        task->data[2] = gBattle_BG2_X;
+    }
+
+    scanlineParams.dmaControl = SCANLINE_EFFECT_DMACNT_16BIT;
+    scanlineParams.initState = 1;
+    scanlineParams.unused9 = 0;
+
+    // -----------------------------------
+    // Get TARGET vertical bounds
+    // -----------------------------------
+    y = GetBattlerYCoordWithElevation(gBattleAnimTarget);
+
+    task->data[3] = y - 32;
+    task->data[4] = y + 32;
+
+    if (task->data[3] < 0)
+        task->data[3] = 0;
+
+    // -----------------------------------
+    // Initialise scanline buffers
+    // -----------------------------------
+    for (i = task->data[3]; i <= task->data[4]; ++i)
+    {
+        gScanlineEffectRegBuffers[0][i] = task->data[2];
+        gScanlineEffectRegBuffers[1][i] = task->data[2];
+    }
+
+    ScanlineEffect_SetParams(scanlineParams);
+
+    // -----------------------------------
+    // Proceed to step function
+    // -----------------------------------
+    task->func = AnimTask_DragonDanceWaver_Step;
+}
+
+
 static void AnimTask_DragonDanceWaver_Step(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
@@ -430,6 +484,8 @@ static void AnimTask_DragonDanceWaver_Step(u8 taskId)
         break;
     }
 }
+
+
 
 static void UpdateDragonDanceScanlineEffect(struct Task *task)
 {
