@@ -1396,7 +1396,7 @@ script CeliaSecrets_SSAnneBoat {
 	"", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(LOCALID_RIPBOAT, moves(
-		walk_left * 2
+		walk_right * 2
 	))
 	waitmovement(0)
 	release
