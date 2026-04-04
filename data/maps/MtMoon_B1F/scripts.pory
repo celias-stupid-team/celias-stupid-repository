@@ -103,11 +103,22 @@ script MtMoon_EventScript_HyperDrill {
 
 
 script MtMoon_Lichen {
-	textcolor(NPC_TEXT_COLOR_RED)
 	lock
+	if(checkpartymove(MOVE_PLUCK) == PARTY_SIZE) {
+		msgbox(
+		"A tiny sprout is growing from the\n"
+		"ground.\l"
+		"It seems ready to be plucked.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	textcolor(NPC_TEXT_COLOR_RED)
 	waitse
 	playse(SE_LEDGE)
-	applymovement(VAR_LAST_TALKED, moves(
+	applymovement(LOCALID_MTMOON_SPROUT, moves(
+		set_invisible
+	))
+	applymovement(LOCALID_MTMOON_LICHEN, moves(
 		set_visible
 		jump_in_place_down
 	))
@@ -155,6 +166,19 @@ script MtMoon_Lichen {
 	"I'm sure there's something you\n"
 	"can use this for…", MSGBOX_DEFAULT)
 
+	playse(SE_LEDGE)
+	applymovement(LOCALID_MTMOON_LICHEN, moves(
+		set_visible
+		jump_in_place_down
+	))
+	waitmovement(0)
+	applymovement(LOCALID_MTMOON_SPROUT, moves(
+		set_visible
+	))
+	applymovement(LOCALID_MTMOON_LICHEN, moves(
+		set_invisible
+	))
+	waitmovement(0)
 
 	release
 	end
