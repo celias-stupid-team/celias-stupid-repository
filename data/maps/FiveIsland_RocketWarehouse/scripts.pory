@@ -423,3 +423,18 @@ script Warehouse_Earrat {
 	release
 	end
 }
+
+script Warehouse_PlatoClosetSign {
+	msgbox(
+	"PLATO's CLOSET\n"
+	"", MSGBOX_SIGN)
+}
+
+script Warehouse_PlatoCameo {
+	lock
+	faceplayer
+	msgbox(
+	"PLATO: Dan.\n"
+	"", MSGBOX_DEFAULT)
+	release
+}

@@ -1091,6 +1091,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_FREEDOMREIGNED - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("And FREEDOM reigned!"),
     [STRINGID_CANTCOPYABILITY - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("You can't copy abilities during\nSHADOW SKY!"),
     [STRINGID_RHYDONTRANSFORM - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} transformed into RHYDON!"),
+    [STRINGID_CARDISUSELESS - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("This card is useless!"),
+    [STRINGID_HOOPAUNBOUND - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("HOOPA-UNBOUND!?"),
+    [STRINGID_NOONESUMMONSHIM - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("No one's ever been able to\nsummon him!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -2111,10 +2114,10 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
-                case EVENT_BATTLE_BARRY: 
-                        if(sBattleMsgDataPtr->currentMove == MOVE_MAGICAL_LEAF )  { //Snowgravy
+                case EVENT_BATTLE_YUGIOH: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_TRUMP_CARD )  { //Snowgravy
                         BattleStopLowHpSound();
-                        //RunScriptImmediately(FadeSongAndPlayVictory); //Play silence
+                        RunScriptImmediately(FadeSongAndPlayHoopa); //Play silence
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;

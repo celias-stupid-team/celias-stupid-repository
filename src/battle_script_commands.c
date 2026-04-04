@@ -1244,12 +1244,6 @@ static void Cmd_accuracycheck(void)
         JumpIfMoveFailed(7, move);
         return;
     }
-    if (gCurrentMove == MOVE_TRUMP_CARD && gTrainerBattleOpponent_A != TRAINER_DMCA_MISTY)
-    {
-        gMoveResultFlags |= MOVE_RESULT_NO_EFFECT;
-        JumpIfMoveFailed(7, move);
-        return;
-    }
     if (gBattleMons[gBattlerTarget].species == SPECIES_KECLEON_SANS
         && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
         && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD
@@ -2042,7 +2036,7 @@ static void Cmd_adjustnormaldamage(void)
     }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gCurrentMove == MOVE_MOLTRES_KICK || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -2122,7 +2116,7 @@ static void Cmd_adjustnormaldamage2(void)
     }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gCurrentMove == MOVE_MOLTRES_KICK || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -6775,7 +6769,7 @@ static void Cmd_adjustsetdamage(void)
     }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gCurrentMove == MOVE_MOLTRES_KICK || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -9361,6 +9355,8 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_LION_LADDER
         && gLastPrintedMoves[gBattlerTarget] != MOVE_CRUSH_CLAW
         && gLastPrintedMoves[gBattlerTarget] != MOVE_ELECTRIFY
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_10000_VOLTS
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_VOLCANIC_HEALING
         && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
     {

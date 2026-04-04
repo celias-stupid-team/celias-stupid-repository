@@ -17,13 +17,13 @@ mapscripts CaveOfOrigin_2F_MapScripts {
 			setflag(FLAG_TEMP_5)
 		}
 		setflag(FLAG_TEMP_A)
-		if(flag(FLAG_FOUND_ROTOM_MOW) && flag(FLAG_FOUND_ROTOM_WASH) && flag(FLAG_FOUND_ROTOM_FAN) && flag(FLAG_FOUND_ROTOM_FROST) && flag(FLAG_FOUND_ROTOM_HEAT) && !flag(FLAG_SHINY_KENYA)) {
+		if(flag(FLAG_FOUND_ROTOM_MOW) && flag(FLAG_FOUND_ROTOM_WASH) && flag(FLAG_FOUND_ROTOM_FAN) && flag(FLAG_FOUND_ROTOM_FROST) && flag(FLAG_FOUND_ROTOM_HEAT)) {
 			setmetatile(11, 6, 0x2D9, FALSE)
 		}
 
     }
     MAP_SCRIPT_ON_LOAD {
-        if(flag(FLAG_FOUND_ROTOM_MOW) && flag(FLAG_FOUND_ROTOM_WASH) && flag(FLAG_FOUND_ROTOM_FAN) && flag(FLAG_FOUND_ROTOM_FROST) && flag(FLAG_FOUND_ROTOM_HEAT) && !flag(FLAG_SHINY_KENYA)) {
+        if(flag(FLAG_FOUND_ROTOM_MOW) && flag(FLAG_FOUND_ROTOM_WASH) && flag(FLAG_FOUND_ROTOM_FAN) && flag(FLAG_FOUND_ROTOM_FROST) && flag(FLAG_FOUND_ROTOM_HEAT)) {
 			setmetatile(11, 6, 0x2D9, FALSE)
 		}
     }

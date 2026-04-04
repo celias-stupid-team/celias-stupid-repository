@@ -3088,6 +3088,11 @@ u8 IsRunningFromBattleImpossible(void)
     else
         holdEffect = ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item);
     gPotentialItemEffectBattler = gActiveBattler;
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CANT_ESCAPE_FINAL;
+        return BATTLE_RUN_FORBIDDEN;
+    }
     if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN
      || (gBattleTypeFlags & BATTLE_TYPE_LINK)
      || gBattleMons[gActiveBattler].ability == ABILITY_RUN_AWAY || gBattleMons[gActiveBattler].ability == ABILITY_LEAF_RIDE || gBattleMons[gActiveBattler].ability == ABILITY_FREE_SHINY)
@@ -3131,11 +3136,6 @@ u8 IsRunningFromBattleImpossible(void)
     if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
     {
         gBattleCommunication[MULTISTRING_CHOOSER] = 1;
-        return BATTLE_RUN_FORBIDDEN;
-    }
-    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CANT_ESCAPE_FINAL;
         return BATTLE_RUN_FORBIDDEN;
     }
     return BATTLE_RUN_SUCCESS;
@@ -3938,12 +3938,14 @@ static void HandleEndTurn_BattleWon(void)
         {
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_MASTER:
-        case TRAINER_CLASS_CHAMPION:
+        //case TRAINER_CLASS_CHAMPION:
         case TRAINER_CLASS_DMCA_ADMIN:
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
         
         case TRAINER_CLASS_RAPPER:
+            break;
+        case TRAINER_CLASS_CHAMPION:
             break;
         case TRAINER_CLASS_BOSS:
         case TRAINER_CLASS_DMCA:

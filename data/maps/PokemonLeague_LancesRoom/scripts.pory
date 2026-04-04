@@ -107,7 +107,7 @@ PokemonLeague_LancesRoom_EventScript_Intro::
 	return
 
 PokemonLeague_LancesRoom_EventScript_RematchIntro::
-	msgbox PokemonLeague_LancesRoom_Text_RematchIntro
+	msgbox PokemonLeague_LancesRoom_Text_Intro
 	return
 
 PokemonLeague_LancesRoom_EventScript_Battle::
@@ -154,7 +154,7 @@ script PokemonLeague_LancesRoom_EventScript_Lance {
 	goto_if_set(FLAG_DEFEATED_LANCE, PokemonLeague_LancesRoom_EventScript_PostBattle)
 	playbgm(MUS_ENCOUNTER_MAY, TRUE)
 	call_if_unset(FLAG_SYS_GAME_CLEAR, PokemonLeague_LancesRoom_EventScript_Intro)
-	call_if_set(FLAG_SYS_GAME_CLEAR, PokemonLeague_LancesRoom_EventScript_RematchIntro)
+	call_if_set(FLAG_SYS_GAME_CLEAR, PokemonLeague_LancesRoom_EventScript_Intro)
 	setflag(FLAG_TEMP_3)
 	setflag(FLAG_TEMP_5)
 	call_if_unset(FLAG_SYS_CAN_LINK_WITH_RS, PokemonLeague_LancesRoom_EventScript_Battle)

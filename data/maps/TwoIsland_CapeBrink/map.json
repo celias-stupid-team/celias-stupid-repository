@@ -298,16 +298,6 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 21,
-      "y": 22,
-      "elevation": 3,
-      "item": "ITEM_PP_MAX",
-      "flag": "FLAG_HIDDEN_ITEM_TWO_ISLAND_CAPE_BRINK_PP_MAX",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
       "x": -7,
       "y": 3,
       "elevation": 3,

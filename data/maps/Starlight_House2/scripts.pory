@@ -1,3 +1,70 @@
 mapscripts Starlight_House2_MapScripts {
 
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_3)
+
+		}
+		
+	}
+}
+
+script Starlight_House2_Post_Battle {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"My name is KaizenStarlight!\n"
+    "But everybody calls me Starlight\l"
+    "for short.\p"
+
+	"I am the map designer for\n"
+    "Celia's Stupid Romhack.\p"
+
+	"I created just about everything\n"
+	"you will find in the Great Sea!\p"
+
+	"Well...\n"
+	"The visual world itself that is...\l"
+	"I placed most of the tiles you walk\l"
+	"Around on.\p"
+    "You might see me around working\n"
+    "out of bounds from time to time.\p"
+    "But hey, it was nice to meet you!\n"
+	"Feel free to explore around the\l"
+    "house before you go.\p"
+	"There's nothing special here, but I\n"
+    "had some fun making it!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
+	waitmovement(0)
+	release
+}
+
+script Starlight_House2_Battle { //test
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	trainerbattle_single(TRAINER_STARLIGHT,
+	"Oh hi!\p"
+	"I thought I hid this map.",
+	//
+	"I... am not the best at coding...", Starlight_House2_Post_Battle)
+
+
+	msgbox(
+    "It was nice to meet you!\l"
+	"Feel free to explore around the\n"
+    "house before you go.\p"
+	"There's nothing special here, but I\n"
+    "had some fun making it!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
 }

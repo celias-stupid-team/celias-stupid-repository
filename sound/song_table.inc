@@ -435,6 +435,7 @@ gSongTable::
 	song mus_kenya, 0, 0
 	song mus_alola_route2, 0, 0
 	song mus_salsa, 0, 0
+	song mus_mus_yugioh_2, 0, 0
 
 
 

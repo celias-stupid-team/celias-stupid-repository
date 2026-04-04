@@ -4,11 +4,23 @@ mapscripts IndigoPlateauUsed_MapScripts {
         if(flag(FLAG_SYS_ROTOM_MENU)) {
             setvar(VAR_TEMP_1, 1)
         }
+        
+        
+        setvar(VAR_CSR_CYNTHIA_BATTLE, 0)
+        setvar(VAR_LANCE_LASS_ATTACK, 0)
+        setvar(VAR_CSR_FINAL_BATTLE_TURN, 0)
+        setvar(VAR_CSR_FINAL_BATTLE_PHASE, 0)
+        clearflag(FLAG_KILLED_E4_OAK)
+        clearflag (FLAG_DEFEATED_LORELEI)
+        clearflag (FLAG_DEFEATED_BRUNO)
+        clearflag (FLAG_DEFEATED_AGATHA)
+        clearflag (FLAG_DEFEATED_LANCE)
+        clearflag (FLAG_DEFEATED_CHAMP)
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 1 {
             clearflag(FLAG_SYS_ROTOM_MENU)
-            getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+            getplayerxy(VAR_TEMP_1, VAR_TEMP_3)
             playmoncry(SPECIES_ROTOM, CRY_MODE_FAINT)
             waitmoncry
             msgbox(
@@ -17,8 +29,9 @@ mapscripts IndigoPlateauUsed_MapScripts {
             "The POKéMON LEAGUE's ANTI-ROTOM\n"
             "FORCE FIELD disabled the POKéDEX!", MSGBOX_DEFAULT)
             closemessage
-            setvar(VAR_TEMP_1, 0)
-            if(var(VAR_TEMP_3) <= 30) {
+            
+            if(var(VAR_TEMP_3) <= 32) {
+                playse(SE_LEDGE)
                 applymovement(LOCALID_PLAYER, moves(
                     jump_2_down
                     

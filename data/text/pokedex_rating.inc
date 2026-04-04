@@ -830,12 +830,12 @@ PokedexRating_Text_HintScyther::
 	.string "can take it!$"
 
 PokedexRating_Text_HintPikablu::
-	.string "That PC system in BILL'S GARDEN\n"
+	.string "The PC system in BILL'S GARDEN\n"
 	.string "looked very complicated.\p"
-	.string "You'll have to figure it out by\n"
-	.string "trial and error.\p"
-	.string "You're a clever one.\n"
-	.string "I know you can do it!$"
+	.string "Have you figured out how to turn\n"
+	.string "it on? Maybe a KICK will do it.\p"
+	.string "After that, you'll need to figure\n"
+	.string "out how it works.$"
 
 PokedexRating_Text_HintLuvdisc::
 	.string "Northeast of CINNABAR, a fisherman\n"
