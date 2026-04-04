@@ -456,6 +456,9 @@ script Route22_MapScripts_SetDexMons {
 	setbench(BENCH_ROUTE1)
 	setflag(FLAG_TEMP_1)
 	setflag(FLAG_TEMP_2)
+	if(flag(FLAG_CANDY_MAN_FELL) && flag(FLAG_RETRIEVED_CANDIES)) {
+		clearflag(FLAG_TEMP_2)
+	}
 	if(checkmoncaught(SPECIES_MELMETAL)) {
 		clearflag(FLAG_TEMP_1)
 	}
@@ -609,7 +612,7 @@ script Route22_CountCandies {
 	setflag(FLAG_PIRATE_BAY_CANDY)
 	setflag(FLAG_YES_CANDY)
 	setflag(FLAG_ROUTE_17_CANDY)
-
+	removeobject(LOCALID_ROUTE22_ODD_CANDY)
 
 	clearflag(FLAG_TEMP_1)
 	return
