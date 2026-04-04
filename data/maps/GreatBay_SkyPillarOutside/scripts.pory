@@ -62,6 +62,7 @@ script GreatBay_SkyPillarOutside_LookingOut {
     special(DrawWholeMapView)
     addobject(LOCALID_GRANDPA_RED)
     clearflag(FLAG_TEMP_A)
+    addobject(LOCALID_GRANDPA_RED)
     fadescreenswapbuffers(FADE_FROM_BLACK)
     if(var(VAR_RESULT) == DIR_SOUTH) {
         applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
@@ -247,10 +248,10 @@ script GreatSea_Buoy_SkyTowerLookGirl {
 
 script GreatSea_GrandpasRed {
 	msgbox(
-	"Oh no!\n"
-	"Grandpa's red!\p"
+	"You can't walk here anymore\n"
+	"If you did, the game would crash.\p"
 
-	"I don't know how to fix this.\n"
+	"Idk why\n"
 	"-CELIA", MSGBOX_SIGN)
 
 }

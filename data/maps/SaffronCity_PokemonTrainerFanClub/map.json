@@ -179,7 +179,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CLIPBOARD",
+      "graphics_id": "OBJ_EVENT_GFX_NES",
       "x": 6,
       "y": 10,
       "elevation": 0,
@@ -193,7 +193,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CLIPBOARD",
+      "graphics_id": "OBJ_EVENT_GFX_NES",
       "x": 8,
       "y": 10,
       "elevation": 0,
@@ -207,7 +207,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CLIPBOARD",
+      "graphics_id": "OBJ_EVENT_GFX_NES",
       "x": 10,
       "y": 10,
       "elevation": 0,
@@ -217,6 +217,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TheLeek_Report3",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "x": 7,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Saffron_TheLeekFancyNewspaper",
       "flag": "0"
     }
   ],

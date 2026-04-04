@@ -259,6 +259,8 @@ const u8 gText_ThanksIllSendItHome[] = _("どうも ありがとう!\nじたく�
 const u8 gText_YouDontHaveMoney[] = _("You don't have enough money.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ThrowInPremierBall[] = _("Oh, were you trying to get a free\nPREMIER BALL?\pThat's not actually a feature in\nFIRE RED version. Sorry!{PAUSE_UNTIL_PRESS}");
 const u8 gText_ThrowInPremierCigar[] = _("You also get a PREMIER CIGARETTE\nas an added bonus.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ThrowInPremierCandy[] = _("You also get a PREMIER CANDY\nas an added bonus.{PAUSE_UNTIL_PRESS}");
+
 
 const u8 gText_NoMoreRoomForThis[] = _("You have no more room for this\nitem.{PAUSE_UNTIL_PRESS}");
 const u8 gText_SpaceForVar1Full[] = _("{STR_VAR_1}を\nいれる ばしょが いっぱいです{PAUSE_UNTIL_PRESS}");

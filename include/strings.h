@@ -1030,6 +1030,8 @@ extern const u8 gText_PlayerObtainedClefairy[];
 extern const u8 gText_NoMoreRoomForThis[];
 extern const u8 gText_ThrowInPremierBall[];
 extern const u8 gText_ThrowInPremierCigar[];
+extern const u8 gText_ThrowInPremierCandy[];
+
 
 // pokedex_screen
 extern const u8 gText_PokedexTableOfContents[];

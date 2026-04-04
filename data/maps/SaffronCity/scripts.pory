@@ -643,3 +643,13 @@ script Saffron_BenchFriend {
 	"It's a lonely city.\n"
 	"Thanks for reaching out.", MSGBOX_NPC)
 }
+
+
+script Saffron_TheLeekFancyNewspaper {
+	msgbox(
+	"Hey, hey! Get happening!\n"
+	"This is home to THE LEEK!\p"
+
+	"We're the fanciest newspaper\n"
+	"around!", MSGBOX_NPC)
+}
