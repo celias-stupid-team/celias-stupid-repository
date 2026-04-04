@@ -482,7 +482,7 @@ void FieldUseFunc_PokeFlute(u8 taskId)
         if (!ExecuteTableBasedItemEffect(&gPlayerParty[i], ITEM_AWAKENING, i, 0))
             wokeSomeoneUp = TRUE;
     }
-
+    VarSet(VAR_USED_POKE_FLUTE, 1);
     if (wokeSomeoneUp)
     {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);

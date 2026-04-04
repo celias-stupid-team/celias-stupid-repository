@@ -74,6 +74,7 @@ void ClearTempData_CSR(void)
     FlagClear(FLAG_USED_GENDER_FLUID);
     FlagClear(FLAG_SYS_CARRYING_BOX);
     FlagClear(FLAG_CSR_V_CREATE_IN_BATTLE);
+    VarSet(VAR_USED_POKE_FLUTE, 0);
     //FlagClear(FLAG_USED_SNOWGRAVY);
     
     
