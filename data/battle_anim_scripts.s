@@ -13661,8 +13661,51 @@ Move_ROOST:
 	end
 	
 Move_CSR_DUMMY:
-	@Tackle
 	goto Move_TACKLE
+	end
+	
+	loadspritegfx ANIM_TAG_EXODIA_BLAST
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
+	waitforvisualfinish
+	delay 30
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_WHITE
+	@createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 15, 0, 5
+	playse SE_M_SOLAR_BEAM
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 50, 1
+	@createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB(31, 0, 0), 16, 0, 0
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 50, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 11, RGB(25, 25, 25)
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 11, 0, RGB(25, 25, 25)
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_WHITE
+	end
 	
 Move_PRIMAL_RAGE:
 	loadspritegfx ANIM_TAG_IMPACT
