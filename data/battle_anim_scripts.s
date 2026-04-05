@@ -1076,6 +1076,44 @@ gBattleAnims_Moves::
 	.4byte Move_OBLI_ION_WING
 	.4byte Move_MOLTRES_KICK
 	.4byte Move_PhantomForce
+	.4byte Move_MEAT_WAVE
+	.4byte Move_ORTHQUAKE
+	.4byte Move_CRAB_GRIP
+	.4byte Move_VICEHAMMER
+	.4byte Move_CRUSECEAN_WRENCH
+	.4byte Move_GAY_BALL_PROBLEMS
+	.4byte Move_SUBSTITUTE_DAD
+	.4byte Move_POPULATION_BOMB_DAD
+	.4byte Move_POPULATION_BOMB_KANGA
+	.4byte Move_FURY_SWIPE_7
+	.4byte Move_DOUBLE_FURY_SWIPE_2
+	.4byte Move_SOFT_LOCK
+	.4byte Move_GAME_GENIE
+	.4byte Move_CALMP
+	.4byte Move_FURBY_ATTACK
+	.4byte Move_CLUBBLE_BEAM
+	.4byte Move_REVELATION_DANCE_2
+	.4byte Move_DOSWINGBEAT
+	.4byte Move_CHOCOLATE_RAIN
+	.4byte Move_EVIL_EXPLOSION
+	.4byte Move_IMPLOSION
+	.4byte Move_LICK_EXPLOSION
+	.4byte Move_EGGSPLPOSION
+	.4byte Move_GREGORY_BLAST
+	.4byte Move_CHOCOLATE_RAIN2
+	.4byte Move_BOTTOM_SURGERY
+	.4byte Move_SAND_WOMB
+	.4byte Move_FURY_CUTTER_TCG
+	.4byte Move_ANCIENT_POWER_TCG
+	.4byte Move_RIP_ROARING
+	.4byte Move_GIGATON_CRUSHER
+	.4byte Move_ARE_WE_NOT_MON
+	.4byte Move_GRASS_MONKEY
+	.4byte Move_ONE_LEER
+	.4byte Move_GRIN_MISSILE
+	.4byte Move_PLEDGE_OF_ALLEGEONCE
+	.4byte Move_EARF
+	.4byte Move_AQUA_JET
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -28561,3 +28599,93 @@ ExodiaBeams:
 	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
 	delay 1
 	return
+
+General_ExodiaObliterate::
+	loadspritegfx ANIM_TAG_EXODIA_BLAST
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
+	waitforvisualfinish
+	delay 30
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_WHITE
+	@createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 15, 0, 5
+	playse SE_M_SOLAR_BEAM
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 50, 1
+	@createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB(31, 0, 0), 16, 0, 0
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 50, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 11, RGB(25, 25, 25)
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	call ExodiaBeams
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 11, 0, RGB(25, 25, 25)
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_WHITE
+	end
+
+ExodiaBeams:
+	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
+	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
+	delay 1
+	return
+
+
+Move_MEAT_WAVE:
+Move_ORTHQUAKE:
+Move_CRAB_GRIP:
+Move_VICEHAMMER:
+Move_CRUSECEAN_WRENCH:
+Move_GAY_BALL_PROBLEMS:
+Move_SUBSTITUTE_DAD:
+Move_POPULATION_BOMB_DAD:
+Move_POPULATION_BOMB_KANGA:
+Move_FURY_SWIPE_7:
+Move_DOUBLE_FURY_SWIPE_2:
+Move_SOFT_LOCK:
+Move_GAME_GENIE:
+Move_CALMP:
+Move_FURBY_ATTACK:
+Move_CLUBBLE_BEAM:
+Move_DOSWINGBEAT:
+Move_CHOCOLATE_RAIN:
+Move_EVIL_EXPLOSION:
+Move_IMPLOSION:
+Move_LICK_EXPLOSION:
+Move_EGGSPLPOSION:
+Move_GREGORY_BLAST:
+Move_CHOCOLATE_RAIN2:
+Move_BOTTOM_SURGERY:
+Move_SAND_WOMB:
+Move_FURY_CUTTER_TCG:
+Move_ANCIENT_POWER_TCG:
+Move_RIP_ROARING:
+Move_GIGATON_CRUSHER:
+Move_ARE_WE_NOT_MON:
+Move_GRASS_MONKEY:
+Move_ONE_LEER:
+Move_GRIN_MISSILE:
+Move_PLEDGE_OF_ALLEGEONCE:
+Move_EARF:
+Move_AQUA_JET:
+	goto MOVE_TACKLE

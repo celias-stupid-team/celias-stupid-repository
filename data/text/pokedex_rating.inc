@@ -994,7 +994,7 @@ PokedexRating_Text_HintPokemonGun::
 	.string "Your RUMOR LOG is very helpful, but\n"
 	.string "even it has its limits.\p"
 	.string "Re-visit everywhere in the GREAT\n"
-	.string "SEA. FLY to every island again.\p"
+	.string "SEA. Check every island again.\p"
 	.string "There was a common thread across\n"
 	.string "every location that will lead\l"
 	.string "you to what you need.$"

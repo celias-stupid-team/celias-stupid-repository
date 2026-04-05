@@ -122,7 +122,7 @@ script CeliaSecrets_Bonus_MimeTrade {
 	msgbox(
 	"Listen, I REALLY didn't want\n"
 	"people to forget that you can\l"
-	"trade with this guy.", MSGBOX_DEFAULT)
+	"trade with this guy.", MSGBOX_NPC)
 	end
 }
 
@@ -1832,4 +1832,14 @@ script CeliaSecret_Dividum {
 	"I had no clue how to make a tail\n"
 	"with two floating dots, so I hid\l"
 	"it and left it to the imagination.", MSGBOX_NPC)
+}
+
+script CeliaSecret_NuggetHeal {
+	msgbox(
+	"The game secretly heals you\n"
+	"between each battle on the bridge.\p"
+
+	"There wasn't space to include a\n"
+	"dad here, so I elected to make\l"
+	"the healing silent.", MSGBOX_NPC)
 }

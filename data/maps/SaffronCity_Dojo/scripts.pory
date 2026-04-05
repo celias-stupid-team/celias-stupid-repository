@@ -197,6 +197,7 @@ mapscripts SaffronCity_Dojo_MapScripts {
 			msgbox(
 			"it brings you to a place and\n"
 			"you find", MSGBOX_DEFAULT)
+			playse(SE_M_BLIZZARD2)
 			setflag(FLAG_SHINY_CREATION)
 			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ONIX)
 			playfanfare(MUS_LEVEL_UP)
@@ -503,10 +504,26 @@ script SaffronDojo_Toaster {
 		delay(45)
 		playse(SE_LEDGE)
 		setobjectsubpriority(LOCALID_PLAYER, MAP_BRUNO_BACK_ROOM, 0)
-		applymovement(LOCALID_PLAYER, moves(
-			jump_up
-			set_invisible
-		))
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
+		switch(var(VAR_RESULT)) {
+			case DIR_NORTH:
+				applymovement(LOCALID_PLAYER, moves(
+					jump_up
+					set_invisible
+				))
+			case DIR_WEST:
+				applymovement(LOCALID_PLAYER, moves(
+					jump_left
+					set_invisible
+				))
+
+			case DIR_EAST:
+				applymovement(LOCALID_PLAYER, moves(
+					jump_right
+					set_invisible
+				))
+
+		}
 		waitmovement(0)
 		if(flag(FLAG_JASON_IS_IN_ROOM)) {
 			warp(MAP_BRUNO_BACK_ROOM, 0)

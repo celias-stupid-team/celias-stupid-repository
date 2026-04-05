@@ -1338,6 +1338,9 @@ extern const u8 TradeCenter_ConfirmLeaveRoom[];
 extern const u8 TradeCenter_TerminateLink[];
 extern const u8 SetPlayerPokedexValues[];
 extern const u8 FadeSongAndPlayVictory[];
+extern const u8 FadeSongAndPlayYoshi[];
+
+
 extern const u8 FadeSongAndPlayHoopa[];
 extern const u8 GetOakPCPokedexMessage[];
 extern const u8 EventScript_DrainPsyduckPail[];
