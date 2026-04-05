@@ -6200,7 +6200,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_G_MAX_CUDDLE] =    {
         .effect = EFFECT_G_MAX_CUDDLE,
-        .power = 120,
+        .power = 210,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -7191,7 +7191,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 [MOVE_MAX_AIRSTREAM] =    {
         .effect = EFFECT_G_MAX_CUDDLE, // Placeholder Effect
         .power = 100,
-        .type = TYPE_FLYING,
+        .type = TYPE_LARGE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,

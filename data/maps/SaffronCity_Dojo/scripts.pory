@@ -197,6 +197,7 @@ mapscripts SaffronCity_Dojo_MapScripts {
 			msgbox(
 			"it brings you to a place and\n"
 			"you find", MSGBOX_DEFAULT)
+			playse(SE_M_BLIZZARD2)
 			setflag(FLAG_SHINY_CREATION)
 			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ONIX)
 			playfanfare(MUS_LEVEL_UP)
