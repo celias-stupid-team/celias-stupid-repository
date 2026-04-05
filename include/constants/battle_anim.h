@@ -461,6 +461,7 @@
 #define ANIM_TAG_MISSINGNO_RHYDON           (ANIM_SPRITES_START + 451)
 #define ANIM_TAG_TCG_BLIZZARD               (ANIM_SPRITES_START + 452)
 #define ANIM_TAG_TCG_COIN                   (ANIM_SPRITES_START + 453)
+#define ANIM_TAG_EXODIA_BLAST               (ANIM_SPRITES_START + 454)
 
 // battlers
 #define ANIM_ATTACKER       0

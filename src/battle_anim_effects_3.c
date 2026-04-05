@@ -119,6 +119,7 @@ static u8 CreateGlitchQuadrantSprite(u8 battlerSpriteId, s16 x, s16 y, u8 subpri
 static void AnimTask_MingVaseThrow_Step(u8 taskId);
 static void AnimSpellingSalts(struct Sprite *sprite);
 static void AnimTask_TranslateMonAndReturn_Step(u8 taskId);
+static void AnimCrabGrip(struct Sprite *sprite);
 
 static const union AnimCmd sScratchAnimCmds[] =
 {
@@ -1012,6 +1013,17 @@ const struct SpriteTemplate gAssistPawprintSpriteTemplate =
     .callback = AnimAssistPawprint,
 };
 
+const struct SpriteTemplate gFurbySpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_FURBY,
+    .paletteTag = ANIM_TAG_FURBY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimAssistPawprint,
+};
+
 static const union AffineAnimCmd sBarrageBallAffineAnimCmds1[] =
 {
     AFFINEANIMCMD_FRAME(0, 0, -4, 24),
@@ -1163,6 +1175,17 @@ const struct SpriteTemplate gSmellingSaltsHandSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSmellingSaltsHand,
+};
+
+const struct SpriteTemplate gKrabbyGripSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CSR_CRAB,
+    .paletteTag = ANIM_TAG_CSR_CRAB,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCrabGrip,
 };
 
 static const union AnimCmd sSpellingSaltsAnimCmds1[] =
@@ -4870,6 +4893,35 @@ static void AnimSmellingSaltsHand(struct Sprite *sprite)
     }
     else
     {
+        sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_RIGHT) + 8;
+    }
+
+    sprite->callback = AnimSmellingSaltsHand_Step;
+}
+
+// Moves a hand back and forth in a squishing motion.
+// arg 0: which battler
+// arg 1: horizontal flip
+// arg 2: num squishes
+static void AnimCrabGrip(struct Sprite *sprite)
+{
+    u8 battler;
+
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
+
+    sprite->data[6] = gBattleAnimArgs[2];
+    sprite->data[7] = gBattleAnimArgs[1] == 0 ? -1 : 1;
+    sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+    if (gBattleAnimArgs[1] == 0)
+    {
+        sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_LEFT) - 8;
+    }
+    else
+    {
+        sprite->oam.matrixNum |= ST_OAM_HFLIP;
         sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_RIGHT) + 8;
     }
 

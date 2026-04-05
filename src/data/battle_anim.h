@@ -1493,6 +1493,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_MissingnoRhydon, 0x2000, ANIM_TAG_MISSINGNO_RHYDON},
     {gBattleAnimSpriteGfx_TcgBlizzard, 0x0800, ANIM_TAG_TCG_BLIZZARD},
     {gBattleAnimSpriteGfx_TcgCoin, 0x0E00, ANIM_TAG_TCG_COIN},
+    {gBattleAnimSpriteGfx_ExodiaBlast, 0x2000, ANIM_TAG_EXODIA_BLAST},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1951,6 +1952,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_MissingnoRhydon, ANIM_TAG_MISSINGNO_RHYDON},
     {gBattleAnimSpritePal_TcgBlizzard, ANIM_TAG_TCG_BLIZZARD},
     {gBattleAnimSpritePal_TcgCoin, ANIM_TAG_TCG_COIN},
+    {gBattleAnimSpritePal_ExodiaBlast, ANIM_TAG_EXODIA_BLAST},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

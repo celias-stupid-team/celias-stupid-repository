@@ -168,6 +168,8 @@ static void AnimGasterBlaster(struct Sprite *);
 static void AnimGasterBlaster_Step(struct Sprite *);
 static void AnimGasterBeam_Step(struct Sprite *);
 static void AnimAllySwitch(struct Sprite* sprite);
+static void AnimExodiaBlastOrb(struct Sprite* sprite);
+static void AnimExodiaBlastOrb_Step(struct Sprite* sprite);
 
 static const u8 sUnused[] = {2, 4, 1, 3};
 
@@ -468,6 +470,31 @@ const struct SpriteTemplate gMeatballSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimMeateorBeamOrb,
+};
+
+static const union AnimCmd sExodiaBlastAffineAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(64, 8),
+    ANIMCMD_FRAME(128, 8),
+    ANIMCMD_FRAME(192, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_ExodiaBlast[] =
+{
+    sExodiaBlastAffineAnimCmds,
+};
+
+const struct SpriteTemplate gExodiaBlastSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EXODIA_BLAST,
+    .paletteTag = ANIM_TAG_EXODIA_BLAST,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sAnims_ExodiaBlast,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimExodiaBlastOrb,
 };
 
 static const union AnimCmd sCreamBeamAffineAnimCmds[] =
@@ -3357,6 +3384,90 @@ static void AnimMeateorBeamOrb_Step(struct Sprite* sprite)
         sprite->data[5] &= 0xFF;
     }
 }
+
+static void AnimExodiaBlastOrb(struct Sprite* sprite)
+{
+    s16 startX, startY;
+    s16 targetX, targetY;
+    s32 dx, dy;
+    s16 endX;
+    s16 endY;
+    StartSpriteAnim(sprite, 0);
+
+    // -----------------------------------
+    // Start position
+    // -----------------------------------
+    startX = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    startY = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+
+    //if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+    //    startX -= 20;
+    //else
+    //    startX += 20;
+
+    sprite->x = startX;
+    sprite->y = startY;
+
+    // -----------------------------------
+    // Target position
+    // -----------------------------------
+    targetX = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    targetY = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+
+    dx = targetX - startX;
+    dy = targetY - startY;
+
+    // -----------------------------------
+    // Extended endpoint (2× past target)
+    // -----------------------------------
+    endX = startX + dx * 2;
+    endY = startY + dy * 2;
+
+    // -----------------------------------
+    // REQUIRED engine layout
+    // -----------------------------------
+    sprite->data[0] = (Random() & 31) + 64; // duration
+    sprite->data[1] = startX;
+    sprite->data[2] = endX;
+    sprite->data[3] = startY;
+    sprite->data[4] = endY;
+
+    InitAnimFastLinearTranslationWithSpeed(sprite);
+
+    // -----------------------------------
+    // Safe slots (DO NOT TOUCH 0–4 anymore)
+    // -----------------------------------
+    sprite->data[5] = Random() & 0xFF;  // wave phase
+    sprite->data[6] = sprite->subpriority;
+
+    sprite->callback = AnimExodiaBlastOrb_Step;
+    sprite->callback(sprite);
+}
+
+
+
+
+static void AnimExodiaBlastOrb_Step(struct Sprite* sprite)
+{
+    if (AnimFastTranslateLinear(sprite))
+    {
+        DestroyAnimSprite(sprite);
+    }
+    else
+    {
+        sprite->y2 += Cos(sprite->data[5], 12);
+
+        if (sprite->data[5] < 0x7F)
+            sprite->subpriority = sprite->data[6];
+        else
+            sprite->subpriority = sprite->data[6] + 1;
+
+        sprite->data[5] += 24;
+        sprite->data[5] &= 0xFF;
+    }
+}
+
+
 
 // seed (sprouts a sapling from a seed.)
 // Used by Leech Seed.
