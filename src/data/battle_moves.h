@@ -10041,7 +10041,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_MEMENTO,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_ICE,
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 100,

@@ -1509,7 +1509,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = {EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_KEEN_EYE, ABILITY_KEEN_EYE},
+        .abilities = {ABILITY_SWARM, ABILITY_SWARM},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = TRUE,
@@ -2416,7 +2416,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_FARFETCHD] =
     {
         .baseHP = 52,
-        .baseAttack = 110,
+        .baseAttack = 90,
         .baseDefense = 55,
         .baseSpeed = 90,
         .baseSpAttack = 200,
