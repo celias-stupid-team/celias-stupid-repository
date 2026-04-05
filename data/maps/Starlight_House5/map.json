@@ -2,7 +2,7 @@
   "id": "MAP_STARLIGHT_HOUSE5",
   "name": "Starlight_House5",
   "layout": "LAYOUT_STARLIGHT_HOUSE5",
-  "music": "MUS_SEVII_45",
+  "music": "MUS_DOWNSTREAM",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
