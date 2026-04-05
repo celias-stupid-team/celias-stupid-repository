@@ -437,6 +437,7 @@ gSongTable::
 	song mus_salsa, 0, 0
 	song mus_mus_yugioh_2, 0, 0
 	song mus_downstream, 0, 0
+	song mus_yoshi_victory, 0, 0
 
 
 

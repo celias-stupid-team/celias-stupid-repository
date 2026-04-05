@@ -2074,7 +2074,7 @@ void BufferStringBattle(u16 stringId)
                 case EVENT_BATTLE_ARCHER:
                     if(sBattleMsgDataPtr->currentMove == MOVE_GULP) {
                         BattleStopLowHpSound();
-                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        RunScriptImmediately(FadeSongAndPlayYoshi); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;

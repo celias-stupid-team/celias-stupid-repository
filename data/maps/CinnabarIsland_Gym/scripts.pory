@@ -907,8 +907,8 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 5:
-			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_JIGGLYPUFF_ABOVE) {
-				if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF_ABOVE) {
+			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_YOSHI) {
+				if(var(VAR_RESULT) == SPECIES_YOSHI) {
 					setflag(FLAG_TEMP_3)
 				}
 				msgbox(
