@@ -1290,7 +1290,7 @@ static const struct LevelUpMove sGastlyLevelUpLearnset[] = {
 static const struct LevelUpMove sHaunterLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_FURY_SWIPE_1),
     LEVEL_UP_MOVE(1, MOVE_FURY_SWIPE_2),
-    LEVEL_UP_MOVE(1, MOVE_NIGHT_SHADE),
+    //LEVEL_UP_MOVE(1, MOVE_NIGHT_SHADE),
     LEVEL_UP_MOVE(1, MOVE_PAY_DAY),
     LEVEL_UP_MOVE(1, MOVE_SHADOW_FORCE_CANCEL),
     LEVEL_UP_MOVE(1, MOVE_RAZOR_WIND_CANCEL),
@@ -1887,7 +1887,7 @@ static const struct LevelUpMove sGyaradosLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_OUTRAGE),
     LEVEL_UP_MOVE(1, MOVE_PETAL_DANCE),
     LEVEL_UP_MOVE(20, MOVE_BITE),
-    LEVEL_UP_MOVE(40, MOVE_DUAL_WINGBEAT),
+    LEVEL_UP_MOVE(25, MOVE_DUAL_WINGBEAT),
     LEVEL_UP_END
 };
 
