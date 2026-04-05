@@ -7456,8 +7456,8 @@
     {
       "id": "LAYOUT_STARLIGHT_HOUSE",
       "name": "Starlight_House_Layout",
-      "width": 20,
-      "height": 13,
+      "width": 17,
+      "height": 12,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -7480,7 +7480,7 @@
     {
       "id": "LAYOUT_STARLIGHT_HOUSE3",
       "name": "Starlight_House3_Layout",
-      "width": 20,
+      "width": 17,
       "height": 12,
       "border_width": 2,
       "border_height": 2,
@@ -7572,6 +7572,126 @@
       "secondary_tileset": "gTileset_NewFuchsiaGym",
       "border_filepath": "data/layouts/FushciaGym_HealRoom_2_Layout_2/border.bin",
       "blockdata_filepath": "data/layouts/FushciaGym_HealRoom_2_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE4",
+      "name": "Starlight_House4_Layout",
+      "width": 19,
+      "height": 7,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Starlight_Interior",
+      "border_filepath": "data/layouts/Starlight_House4/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House4/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE5",
+      "name": "Starlight_House5_Layout",
+      "width": 90,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Starlight_Interior",
+      "border_filepath": "data/layouts/Starlight_House5/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House5/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE9",
+      "name": "Starlight_House9_Layout",
+      "width": 18,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Starlight_Interior",
+      "border_filepath": "data/layouts/Starlight_House9/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House9/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE7",
+      "name": "Starlight_House7_Layout",
+      "width": 18,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Starlight_Interior2",
+      "border_filepath": "data/layouts/Starlight_House7/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House7/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE8",
+      "name": "Starlight_House8_Layout",
+      "width": 18,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Starlight_Interior",
+      "border_filepath": "data/layouts/Starlight_House8/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House8/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE6",
+      "name": "Starlight_House6_Layout",
+      "width": 18,
+      "height": 14,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Starlight_Interior2",
+      "border_filepath": "data/layouts/Starlight_House6/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House6/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE_10",
+      "name": "Starlight_House_10_Layout",
+      "width": 17,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Starlight_Interior",
+      "border_filepath": "data/layouts/Starlight_House_10/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House_10/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE6PT2",
+      "name": "Starlight_House6pt2_Layout",
+      "width": 18,
+      "height": 14,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Starlight_Interior2",
+      "border_filepath": "data/layouts/Starlight_House6pt2/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House6pt2/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE6EDGE2",
+      "name": "Starlight_House6edge2_Layout",
+      "width": 18,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Starlight_Interior2",
+      "border_filepath": "data/layouts/Starlight_House6edge2/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House6edge2/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE6EDGE1",
+      "name": "Starlight_House6edge1_Layout",
+      "width": 18,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Starlight_Interior2",
+      "border_filepath": "data/layouts/Starlight_House6edge1/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House6edge1/map.bin"
     }
   ]
 }

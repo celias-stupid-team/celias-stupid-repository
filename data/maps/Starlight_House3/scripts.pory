@@ -1,3 +1,192 @@
 mapscripts Starlight_House3_MapScripts {
+MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_2)
+        }
+            if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_2)
+		}
+		
+	}
+}
+
+script Starlight_House3_Map_Table {
+	msgbox(
+	"A table containing the map of the\n"
+	"entire region.\p"
+	"Seems to be used for planning out\n"
+    "the region layout.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Dak {
+    lock
+	faceplayer
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Oh! Um... Hey!\p"
+	"Listen, I am working on a video,\l"
+	"don't tell Starlight I am in here\n"
+    "Okay?", MSGBOX_SIGN)
+    
+    //playbgm(MUS_NONE, TRUE)
+    applymovement(LOCALID_DAK, moves(
+        emote_exclamation_mark
+        face_left
+    ))
+    textcolor(NPC_TEXT_COLOR_RED)
+    msgbox(
+    "Hey Dak!", MSGBOX_DEFAULT)
+    closemessage
+    
+    delay(10)
+    addobject(LOCALID_STARLIGHT2)
+    applymovement(LOCALID_STARLIGHT2, moves(
+        set_visible
+        walk_fast_down * 2
+        walk_right * 8
+    ))
+    waitmovement(LOCALID_STARLIGHT2)
+    applymovement(LOCALID_PLAYER, moves(
+        face_left
+    ))
+
+//textcolor(NPC_TEXT_COLOR_RED)
+msgbox(
+	"Why are you using my work computer?", MSGBOX_DEFAULT)
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    closemessage
+    delay(30)
+    msgbox(
+	"Oh...\p"
+	"Um...\p"
+    "Cause Memes lol?", MSGBOX_DEFAULT)
+    closemessage
+    delay(60)
+    //setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    //setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    //special(ShakeScreen)
+	//delay(60)
+    playse(SE_CLICK)
+    setmetatile(15, 2, 0x2A6, FALSE)
+    special(DrawWholeMapView)
+
+    applymovement(LOCALID_DAK, moves(
+        walk_in_place_faster_left * 10
+        delay_16 * 4
+        delay_16 * 4
+        
+    ))
+    delay(30)
+    playse(SE_FALL)
+    //applymovement(LOCALID_DAK, slide_down)
+    removeobject(LOCALID_DAK)
+    delay(90)
+    playse(SE_WALL_HIT)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+	special(ShakeScreen)
+    delay(90)
+    playse(SE_CLICK)
+    setmetatile(15, 2, 0x2EB, FALSE)
+    special(DrawWholeMapView)
+    delay(30)
+    textcolor(NPC_TEXT_COLOR_RED)
+    msgbox(
+	"Sorry about that, Dak is my friend.\p"
+    "He likes to mess with my stuff\n"
+    "from time to time.\p"
+    "Don't worry he will be fine!\p"
+    "I made sure he would go to\n" 
+    "a nice fun map!", MSGBOX_SIGN)
+    closemessage
+    applymovement(LOCALID_STARLIGHT2, moves(
+    walk_left * 8
+    ))
+    waitmovement(LOCALID_STARLIGHT2)
+    removeobject(LOCALID_STARLIGHT2)
+    setflag(FLAG_DAK_HERE)
+    setflag(FLAG_TEMP_1)
+    //playse(SE_LEDGE)
+    release
+}
+
+script Starlight_House3_Computer {
+    if(flag(FLAG_TEMP_1)) {
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(
+	"It shows a few tabs open.\p"
+	"One tab is an AVGN video.\n"
+	"Another is Dak's YouTube Page,\l"
+	"Third tab is... Um...\p"
+	"A Google search of: What do\n"
+	"I do if I burn my cereal?", MSGBOX_SIGN)
+    } else {
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"There appears to be some files.\n"
+	"It seems to have a tab called Por-\l"
+	"ymaps and Poryscript.\p"
+	"It also has SkyTemple and HMA.\l"
+	"also\n"
+    "(Insert another rom software here).", MSGBOX_SIGN)
+
+	}
+}
+
+script Starlight_House3_Map_Table2 {
+	msgbox(
+	"Hey look, you can see\n"
+    "Starlight's House from here.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Computer2 {
+	msgbox(
+	"This computer only looks like it\n"
+    "was made in the early 2000's but\l"
+    "It has RGB so it must be modern\l"
+    "Right?", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Wall_Map {
+	msgbox(
+	"Aww! The giant map had a baby!", MSGBOX_SIGN)
+    //closemessage
+    //delay(30)
+    //msgbox(
+    //"Yeah idk why there's 2 maps\n"
+    //"either...", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Poster1 {
+	msgbox(
+	"Hey look, it's TipRaven!", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Poster2 {
+	msgbox(
+	"Hey look, it's TinyTermite!", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Poster3 {
+	msgbox(
+	"Hey look, it's OmegaDope!", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Professor_Tree {
+	msgbox(
+	"Professor Tree?\p"
+    "Nah it's just a regular tree\n"
+    "with sunglasses on it...", MSGBOX_SIGN)
 
 }
