@@ -769,12 +769,12 @@ script ViridianCity_EventScript_TryUnlockGym {
 script ViridianCity_TradeKid {
 	lock
 	faceplayer
-	setvar(VAR_0x8008, INGAME_TRADE_MEWTWO)
-	copyvar(VAR_0x8004, VAR_0x8008)
-	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
-	copyvar(VAR_0x8009, VAR_RESULT)
 	goto_if_set(FLAG_DID_TANGENY_TRADE, CinnabarIsland_PokemonLab_Lounge_EventScript_NormaAlreadyTraded)
 	if(flag(FLAG_RAT_GUY_EVOLVED)) {
+		setvar(VAR_0x8008, INGAME_TRADE_MEWTWO)
+		copyvar(VAR_0x8004, VAR_0x8008)
+		specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+		copyvar(VAR_0x8009, VAR_RESULT)
 		msgbox(
 		"Hey!\n"
 		"It's you!\l"
@@ -787,6 +787,10 @@ script ViridianCity_TradeKid {
 		"MEWTWO, though.\l"
 		"How about it?", MSGBOX_YESNO)
 	} else {
+		setvar(VAR_0x8008, INGAME_TRADE_RATTATA)
+		copyvar(VAR_0x8004, VAR_0x8008)
+		specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+		copyvar(VAR_0x8009, VAR_RESULT)
 		msgbox(Trade_Text_RattataTrade, MSGBOX_YESNO)
 	}
 	goto_if_eq(VAR_RESULT, NO, CinnabarIsland_PokemonLab_Lounge_EventScript_NormaDeclineTrade)
