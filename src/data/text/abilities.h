@@ -231,6 +231,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_COLOR_CHANGE_WIZ] = sColorChangeDescription,
     [ABILITY_RIGHTNINGROD] = COMPOUND_STRING("The user was RIGHT."),
     [ABILITY_TWISTED_REALITY] = COMPOUND_STRING("Replaces the opponent's moves."),
+    [ABILITY_SCHOOLING] = COMPOUND_STRING("Comes in when the TEACHER is sick."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -378,4 +379,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_COLOR_CHANGE_WIZ] = _("COLOR CHANGE"),
     [ABILITY_RIGHTNINGROD] = _("RIGHTNINGROD"),
     [ABILITY_TWISTED_REALITY] = _("{FONT_SMALL}TWISTED REALITY"),
+    [ABILITY_SCHOOLING] = _("SCHOOLING"),
+
+    
 };
