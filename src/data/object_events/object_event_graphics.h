@@ -904,3 +904,5 @@ const u16 gObjectEventPal_WEREWOLF[] = INCBIN_U16("graphics/object_events/palett
 const u32 gObjectEventPic_GAY_1[] = INCBIN_U32("graphics/object_events/pics/stupid/GAY_1.4bpp");
 const u16 gObjectEventPal_GAY_1[] = INCBIN_U16("graphics/object_events/palettes/GAY_1.gbapal");
 const u32 gObjectEventPic_GAY_2[] = INCBIN_U32("graphics/object_events/pics/stupid/GAY_2.4bpp");
+const u32 gObjectEventPic_LICHEN_SPROUT[] = INCBIN_U32("graphics/object_events/pics/stupid/LICHEN_SPROUT.4bpp");
+const u32 gObjectEventPic_SPROUT_2[] = INCBIN_U32("graphics/object_events/pics/stupid/SPROUT_2.4bpp");

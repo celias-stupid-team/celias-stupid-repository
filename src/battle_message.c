@@ -410,6 +410,7 @@ static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nw
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
 static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME}!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutLions[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout 1 BILLION LIONS!{PAUSE 60}");
+static const u8 sText_Trainer1SentOutBlueEyes[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout 3 BLUE-EYES WHITE DRAGONS!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutStupidHack[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent out…\n{PAUSE 30}CELIA's STUPID ROMHACK!{PAUSE 30}");
 static const u8 sText_Trainer1SentOutTwoPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutPkmn2[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_BUFF1}!");
@@ -1916,7 +1917,9 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                         stringPtr = sText_Trainer1SentOutPkmn;
                     }
-
+                    else if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_YUGIOH)
+                        stringPtr = sText_Trainer1SentOutBlueEyes;
+                    
                     else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
                         stringPtr = sText_SentOutZapmolcuno;
                     else
