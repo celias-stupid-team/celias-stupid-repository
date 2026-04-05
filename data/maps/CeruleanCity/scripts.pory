@@ -498,7 +498,16 @@ script CeruleanCity_NuggetSeller {
 }
 
 script CeruleanCity_LittleKid {
-	msgbox("All travel from CERULEAN CITY is\nbottlenecked by one single tile.\pUnfortunately, someone decided to\nplant a tree there for Arbor Day.", MSGBOX_NPC)
+	if(flag(FLAG_HIDE_CERULEAN_ROCKET)) {
+		msgbox(
+		"There used to be a lovely tree\n"
+		"here in the road.\p"
+
+		"Unfortunately, someone cut it\n"
+		"down for I Hate Plants day.", MSGBOX_NPC)
+	} else {
+		msgbox("All travel from CERULEAN CITY is\nbottlenecked by one single tile.\pUnfortunately, someone decided to\nplant a tree there for Arbor Day.", MSGBOX_NPC)
+	}
 	end
 }
 

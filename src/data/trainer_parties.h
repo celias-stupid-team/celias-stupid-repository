@@ -998,11 +998,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerDiana[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerNancy[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_PicnickerNancy[] = {
     {
         .iv = 0,
         .lvl = 16,
         .species = SPECIES_ALOMOMOLA,
+        .moves = {MOVE_HEART_BEAT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
