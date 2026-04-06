@@ -481,6 +481,19 @@ const u32 gBattleAnimSpritePal_TcgCoin[] = INCBIN_U32("graphics/battle_anims/spr
 const u32 gBattleAnimSpriteGfx_ExodiaBlast[] = INCBIN_U32("graphics/battle_anims/sprites/exodia_blast.4bpp.lz");
 const u32 gBattleAnimSpritePal_ExodiaBlast[] = INCBIN_U32("graphics/battle_anims/sprites/exodia_blast.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Chocolate[] = INCBIN_U32("graphics/battle_anims/sprites/chocolate.4bpp.lz");
+const u32 gBattleAnimSpritePal_Chocolate[] = INCBIN_U32("graphics/battle_anims/sprites/chocolate.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_CStinger[] = INCBIN_U32("graphics/battle_anims/sprites/c_stinger.4bpp.lz");
+const u32 gBattleAnimSpritePal_CStinger[] = INCBIN_U32("graphics/battle_anims/sprites/c_stinger.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Hotdog[] = INCBIN_U32("graphics/battle_anims/sprites/hotdog.4bpp.lz");
+const u32 gBattleAnimSpritePal_Hotdog[] = INCBIN_U32("graphics/battle_anims/sprites/hotdog.gbapal.lz");
+
+
+const u32 gBattleAnimSpriteGfx_AcidRainDrops[] = INCBIN_U32("graphics/battle_anims/sprites/acid_rain_drops.4bpp.lz");
+const u32 gBattleAnimSpritePal_AcidRainDrops[] = INCBIN_U32("graphics/battle_anims/sprites/acid_rain_drops.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

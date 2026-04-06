@@ -5227,8 +5227,39 @@ Move_TAIL_GLOW:
 	delay 1
 	end
 
-Move_LUSTER_PUBE:
 Move_GLITZY_GLOSSED:
+	loadspritegfx ANIM_TAG_HOTDOG
+	loadspritegfx ANIM_TAG_GHOSTLY_SPIRIT
+	monbg ANIM_ATK_PARTNER
+	createvisualtask AnimTask_CurseStretchingBlackBg, 5
+	waitforvisualfinish
+	delay 20
+	createsprite gHotdogSpriteTemplate, ANIM_ATTACKER, 2
+	delay 60
+	call GlizzyGulpEat
+	delay 41
+	call GlizzyGulpEat
+	delay 41
+	call GlizzyGulpEat
+	waitforvisualfinish
+	@clearmonbg ANIM_ATK_PARTNER
+	@delay 1
+	@monbg ANIM_DEF_PARTNER
+	@playsewithpan SE_M_NIGHTMARE, SOUND_PAN_TARGET
+	@createsprite gCurseGhostSpriteTemplate, ANIM_TARGET, 2
+	@createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 14, 1
+	@waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 16, 0, RGB_BLACK
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
+
+GlizzyGulpEat:
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 4, 0, 10, 0
+	playsewithpan SE_M_BITE, SOUND_PAN_ATTACKER
+	return
+
+Move_LUSTER_PUBE:
 Move_LUSTER_PURGE:
 	loadspritegfx ANIM_TAG_WHITE_CIRCLE_OF_LIGHT
 	loadspritegfx ANIM_TAG_IMPACT
@@ -24593,7 +24624,21 @@ Move_G_M_B_FUDDLE:
 	end
 	
 Move_C_STINGER:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_C_STINGER
+	monbg ANIM_DEF_PARTNER
+	@createvisualtask AnimTask_MusicNotesRainbowBlend, 2
+	waitforvisualfinish
+	panse SE_M_SING, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createsprite gWavyCStingerSpriteTemplate, ANIM_TARGET, 2, 2, 0, 12
+	delay 40
+	createsprite gWavyCStingerSpriteTemplate, ANIM_TARGET, 2, 2, 0, 12
+	delay 40
+	createsprite gWavyCStingerSpriteTemplate, ANIM_TARGET, 2, 2, 0, 12
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	createvisualtask AnimTask_MusicNotesClearRainbowBlend, 2
+	waitforvisualfinish
+	end
 	
 Move_H_ORDER:
 	loadspritegfx ANIM_TAG_H
@@ -28378,7 +28423,6 @@ General_DynamaxGrowth:: @ PORTED FROM CFRU
 Move_HACK_ATTACK:
 Move_MEAT_WAVE:
 Move_ORTHQUAKE:
-Move_VICEHAMMER:
 Move_CRUSECEAN_WRENCH:
 Move_GAY_BALL_PROBLEMS:
 Move_SUBSTITUTE_DAD:
@@ -28797,3 +28841,17 @@ ExodiaBeams:
 	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
 	delay 1
 	return
+
+Move_VICEHAMMER:
+	loadspritegfx ANIM_TAG_ACID_RAIN_DROPS
+	playsewithpan SE_M_RAIN_DANCE, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 2, 0, 4, RGB_BLACK
+	waitforvisualfinish
+	createvisualtask AnimTask_CreateAcidRaindrops, 2, 0, 3, 120
+	createvisualtask AnimTask_CreateAcidRaindrops, 2, 0, 3, 120
+	delay 120
+	delay 30
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 2, 4, 0, RGB_BLACK
+	waitforvisualfinish
+	end

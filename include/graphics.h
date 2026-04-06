@@ -8856,6 +8856,10 @@ extern const u32 gBattleAnimSpriteGfx_MissingnoRhydon[];
 extern const u32 gBattleAnimSpriteGfx_TcgBlizzard[];
 extern const u32 gBattleAnimSpriteGfx_TcgCoin[];
 extern const u32 gBattleAnimSpriteGfx_ExodiaBlast[];
+extern const u32 gBattleAnimSpriteGfx_Chocolate[];
+extern const u32 gBattleAnimSpriteGfx_CStinger[];
+extern const u32 gBattleAnimSpriteGfx_Hotdog[];
+extern const u32 gBattleAnimSpriteGfx_AcidRainDrops[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9265,6 +9269,10 @@ extern const u32 gBattleAnimSpritePal_MissingnoRhydon[];
 extern const u32 gBattleAnimSpritePal_TcgBlizzard[];
 extern const u32 gBattleAnimSpritePal_TcgCoin[];
 extern const u32 gBattleAnimSpritePal_ExodiaBlast[];
+extern const u32 gBattleAnimSpritePal_Chocolate[];
+extern const u32 gBattleAnimSpritePal_CStinger[];
+extern const u32 gBattleAnimSpritePal_Hotdog[];
+extern const u32 gBattleAnimSpritePal_AcidRainDrops[];
 
 //CSR Moves
 

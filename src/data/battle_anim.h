@@ -1494,6 +1494,10 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_TcgBlizzard, 0x0800, ANIM_TAG_TCG_BLIZZARD},
     {gBattleAnimSpriteGfx_TcgCoin, 0x0E00, ANIM_TAG_TCG_COIN},
     {gBattleAnimSpriteGfx_ExodiaBlast, 0x2000, ANIM_TAG_EXODIA_BLAST},
+    {gBattleAnimSpriteGfx_Chocolate, 0x0C00, ANIM_TAG_CHOCOLATE},
+    {gBattleAnimSpriteGfx_CStinger, 0x0800, ANIM_TAG_C_STINGER},
+    {gBattleAnimSpriteGfx_Hotdog, 0x0400, ANIM_TAG_HOTDOG},
+    {gBattleAnimSpriteGfx_AcidRainDrops, 0x0700, ANIM_TAG_ACID_RAIN_DROPS},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1953,6 +1957,10 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_TcgBlizzard, ANIM_TAG_TCG_BLIZZARD},
     {gBattleAnimSpritePal_TcgCoin, ANIM_TAG_TCG_COIN},
     {gBattleAnimSpritePal_ExodiaBlast, ANIM_TAG_EXODIA_BLAST},
+    {gBattleAnimSpritePal_Chocolate, ANIM_TAG_CHOCOLATE},
+    {gBattleAnimSpritePal_CStinger, ANIM_TAG_C_STINGER},
+    {gBattleAnimSpritePal_Hotdog, ANIM_TAG_HOTDOG},
+    {gBattleAnimSpritePal_AcidRainDrops, ANIM_TAG_ACID_RAIN_DROPS},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
