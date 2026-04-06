@@ -466,6 +466,8 @@
 #define ANIM_TAG_C_STINGER                  (ANIM_SPRITES_START + 456)
 #define ANIM_TAG_HOTDOG                     (ANIM_SPRITES_START + 457)
 #define ANIM_TAG_ACID_RAIN_DROPS            (ANIM_SPRITES_START + 458)
+#define ANIM_TAG_PSI_ROCKIN_ONE             (ANIM_SPRITES_START + 459)
+#define ANIM_TAG_PSI_ROCKIN_TWO             (ANIM_SPRITES_START + 460)
 
 // battlers
 #define ANIM_ATTACKER       0

@@ -490,9 +490,14 @@ const u32 gBattleAnimSpritePal_CStinger[] = INCBIN_U32("graphics/battle_anims/sp
 const u32 gBattleAnimSpriteGfx_Hotdog[] = INCBIN_U32("graphics/battle_anims/sprites/hotdog.4bpp.lz");
 const u32 gBattleAnimSpritePal_Hotdog[] = INCBIN_U32("graphics/battle_anims/sprites/hotdog.gbapal.lz");
 
-
 const u32 gBattleAnimSpriteGfx_AcidRainDrops[] = INCBIN_U32("graphics/battle_anims/sprites/acid_rain_drops.4bpp.lz");
 const u32 gBattleAnimSpritePal_AcidRainDrops[] = INCBIN_U32("graphics/battle_anims/sprites/acid_rain_drops.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_PSIRockinOne[] = INCBIN_U32("graphics/battle_anims/sprites/psi_rockin_one.4bpp.lz");
+const u32 gBattleAnimSpritePal_PSIRockinOne[] = INCBIN_U32("graphics/battle_anims/sprites/psi_rockin_one.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_PSIRockinTwo[] = INCBIN_U32("graphics/battle_anims/sprites/psi_rockin_two.4bpp.lz");
+const u32 gBattleAnimSpritePal_PSIRockinTwo[] = INCBIN_U32("graphics/battle_anims/sprites/psi_rockin_two.gbapal.lz");
 
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 

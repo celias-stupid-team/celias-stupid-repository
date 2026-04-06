@@ -28871,8 +28871,32 @@ Move_VICEHAMMER:
 Move_HBO_MAX_FINALE:
 Move_MAX_STONESURGE:
 Move_ASS:
-Move_DRUG:
 Move_BAG:
 Move_FUCK:
 Move_RAGING_BULLWORM:
 	goto Move_TACKLE
+
+Move_DRUG:
+	loadspritegfx ANIM_TAG_PSI_ROCKIN_ONE
+	loadspritegfx ANIM_TAG_PSI_ROCKIN_TWO
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 16, RGB_BLACK
+	waitforvisualfinish
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_TARGET
+	createsprite gPSIRockinOneSpriteTemplate, ANIM_TARGET, 2, 0, 4, 1, 84, 42
+	delay 24
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 8, 1
+	delay 18
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_TARGET
+	delay 24
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 8, 1
+	delay 18
+	createsprite gPSIRockinTwoSpriteTemplate, ANIM_TARGET, 2, 0, 8, 1, 42, 42
+	
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_TARGET
+	delay 24
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 10, 0, 18, 1
+	waitforvisualfinish
+	
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 16, 0, RGB_BLACK
+	waitforvisualfinish
+	end
