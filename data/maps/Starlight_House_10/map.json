@@ -15,15 +15,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [
-    {
-      "x": 3,
-      "y": 10,
-      "elevation": 0,
-      "dest_map": "MAP_STARLIGHT_HOUSE4",
-      "dest_warp_id": "4"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": []
 }

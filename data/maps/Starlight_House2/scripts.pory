@@ -102,7 +102,7 @@ script Starlight_House2_Garbage2 {
 	"schedule for PMD Team Hack Event.\p"
 	"There's also something scratched out\n"
 	"at the bottom.\p"
-	"Pr-j--t -vr-n\p", MSGBOX_SIGN)
+	"Pr-j--t -vr-n", MSGBOX_SIGN)
 
 }
 

@@ -165,24 +165,6 @@ script Starlight_House3_Wall_Map {
 
 }
 
-script Starlight_House3_Poster1 {
-	msgbox(
-	"Hey look, it's TipRaven!", MSGBOX_SIGN)
-
-}
-
-script Starlight_House3_Poster2 {
-	msgbox(
-	"Hey look, it's TinyTermite!", MSGBOX_SIGN)
-
-}
-
-script Starlight_House3_Poster3 {
-	msgbox(
-	"Hey look, it's OmegaDope!", MSGBOX_SIGN)
-
-}
-
 script Starlight_House3_Professor_Tree {
 	msgbox(
 	"Professor Tree?\p"
