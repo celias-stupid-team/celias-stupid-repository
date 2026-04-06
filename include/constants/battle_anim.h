@@ -462,6 +462,12 @@
 #define ANIM_TAG_TCG_BLIZZARD               (ANIM_SPRITES_START + 452)
 #define ANIM_TAG_TCG_COIN                   (ANIM_SPRITES_START + 453)
 #define ANIM_TAG_EXODIA_BLAST               (ANIM_SPRITES_START + 454)
+#define ANIM_TAG_CHOCOLATE                  (ANIM_SPRITES_START + 455)
+#define ANIM_TAG_C_STINGER                  (ANIM_SPRITES_START + 456)
+#define ANIM_TAG_HOTDOG                     (ANIM_SPRITES_START + 457)
+#define ANIM_TAG_ACID_RAIN_DROPS            (ANIM_SPRITES_START + 458)
+#define ANIM_TAG_PSI_ROCKIN_ONE             (ANIM_SPRITES_START + 459)
+#define ANIM_TAG_PSI_ROCKIN_TWO             (ANIM_SPRITES_START + 460)
 
 // battlers
 #define ANIM_ATTACKER       0

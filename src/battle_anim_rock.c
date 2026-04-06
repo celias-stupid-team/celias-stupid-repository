@@ -1115,3 +1115,4 @@ void AnimTask_SeismicTossBgAccelerateDownAtEnd(u8 taskId)
         DestroyAnimVisualTask(taskId);
     }
 }
+

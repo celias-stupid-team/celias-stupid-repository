@@ -122,6 +122,9 @@ static void AnimTask_DynamaxGrowthStep(u8 taskId);
 static void AnimSprite_FadeInOut(struct Sprite *sprite);
 void AnimThrowProtagonist(struct Sprite *sprite);
 static void AnimThrowProtagonist_Step(struct Sprite *sprite);
+static void PSIRockin_ShiftPalette(u8 paletteNum);
+static void AnimPSIRockin(struct Sprite *sprite);
+static void AnimPSIRockin_Step(struct Sprite *sprite);
 
 
 // Unused
@@ -2904,6 +2907,69 @@ const struct SpriteTemplate gFurySwipesSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFurySwipes,
+};
+
+static const union AnimCmd sAnim_PSIRockinOne[] =
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 6),
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_FRAME(64, 6),
+    ANIMCMD_FRAME(80, 6),
+    ANIMCMD_FRAME(96, 6),
+    ANIMCMD_FRAME(0, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(16, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(32, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(48, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(64, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(80, 6, .hFlip = TRUE),
+    ANIMCMD_FRAME(96, 6, .hFlip = TRUE),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_PSIRockinOne[] =
+{
+    sAnim_PSIRockinOne,
+};
+
+static const union AnimCmd sAnim_PSIRockinTwo[] =
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 6),
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_FRAME(64, 6),
+    ANIMCMD_FRAME(80, 6),
+    ANIMCMD_FRAME(96, 6),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_PSIRockinTwo[] =
+{
+    sAnim_PSIRockinTwo,
+};
+
+
+const struct SpriteTemplate gPSIRockinOneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PSI_ROCKIN_ONE,
+    .paletteTag = ANIM_TAG_PSI_ROCKIN_ONE,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = sAnims_PSIRockinOne,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPSIRockin,
+};
+const struct SpriteTemplate gPSIRockinTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PSI_ROCKIN_TWO,
+    .paletteTag = ANIM_TAG_PSI_ROCKIN_TWO,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = sAnims_PSIRockinTwo,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPSIRockin,
 };
 
 static const union AnimCmd sMovementWavesAnimCmds1[] =
@@ -7060,4 +7126,104 @@ static void AnimThrowProtagonist_Step(struct Sprite *sprite)
 {
     if (TranslateAnimHorizontalArc(sprite))
         DestroyAnimSprite(sprite);
+}
+
+static void PSIRockin_ShiftPalette(u8 paletteNum)
+{
+    u16 base = OBJ_PLTT_ID(paletteNum);
+
+    u16 temp = gPlttBufferFaded[base + 1];
+
+    gPlttBufferFaded[base + 1] = gPlttBufferFaded[base + 2];
+    gPlttBufferFaded[base + 2] = gPlttBufferFaded[base + 3];
+    gPlttBufferFaded[base + 3] = temp;
+}
+
+
+static void AnimPSIRockin(struct Sprite *sprite)
+{
+    if (sprite->data[0] == 0)
+    {
+        // -------------------------------
+        // Position
+        // -------------------------------
+        if (gBattleAnimArgs[2] == 0)
+            InitSpritePosToAnimAttacker(sprite, FALSE);
+        else
+            InitSpritePosToAnimTarget(sprite, FALSE);
+
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+
+        // -------------------------------
+        // Start animation
+        // -------------------------------
+        StartSpriteAnim(sprite, 0);
+
+        // -------------------------------
+        // Apply 2× scale
+        // -------------------------------
+        sprite->oam.affineMode = ST_OAM_AFFINE_DOUBLE;
+        SetSpriteRotScale(sprite - gSprites, 128, 128, 0);
+
+        // -------------------------------
+        // Palette index
+        // -------------------------------
+        sprite->data[1] = IndexOfSpritePaletteTag(sprite->template->paletteTag);
+
+        // -------------------------------
+        // Lifetime
+        // -------------------------------
+        sprite->data[3] = gBattleAnimArgs[3];
+
+        // -------------------------------
+        // Flip delay
+        // -------------------------------
+        sprite->data[4] = gBattleAnimArgs[4];
+
+        // Frame counter
+        sprite->data[5] = 0;
+
+        // Flip state (0 = normal, 1 = flipped)
+        sprite->data[6] = 0;
+
+        sprite->data[0] = 1;
+    }
+
+    sprite->callback = AnimPSIRockin_Step;
+}
+
+
+static void AnimPSIRockin_Step(struct Sprite *sprite)
+{
+    sprite->data[5]++; // frame counter
+
+    // -----------------------------------
+    // Palette shift every 4 frames
+    // -----------------------------------
+    if ((sprite->data[5] & 3) == 0)
+    {
+        if (sprite->data[1] != 0xFF)
+            PSIRockin_ShiftPalette(sprite->data[1]);
+    }
+
+    // -----------------------------------
+    // Apply affine flip after delay
+    // -----------------------------------
+    if (!sprite->data[6] && sprite->data[5] >= sprite->data[4])
+    {
+        sprite->data[6] = 1;
+
+        // Flip horizontally via negative X scale
+        SetSpriteRotScale(sprite - gSprites, -128, 128, 0);
+    }
+
+    // -----------------------------------
+    // Lifetime
+    // -----------------------------------
+    if (--sprite->data[3] <= 0)
+    {
+        //FreeOamMatrix(sprite->oam.matrixNum);
+        DestroySpriteAndMatrix(sprite);
+    }
 }
