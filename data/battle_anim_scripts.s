@@ -1116,6 +1116,16 @@ gBattleAnims_Moves::
 	.4byte Move_PLEDGE_OF_ALLEGEONCE
 	.4byte Move_EARF
 	.4byte Move_AQUA_JET
+	.4byte Move_COMET_PUNCH_2
+	.4byte Move_HBO_MAX_FINALE
+	.4byte Move_MAX_STONESURGE
+	.4byte Move_ACID_RAIN
+	.4byte Move_ASS
+	.4byte Move_DRUG
+	.4byte Move_BAG
+	.4byte Move_FUCK
+	.4byte Move_TACKLE_MAGIKARP
+	.4byte Move_RAGING_BULLWORM
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -28797,3 +28807,15 @@ ExodiaBeams:
 	createsprite gExodiaBlastSpriteTemplate, ANIM_TARGET, 2
 	delay 1
 	return
+
+Move_COMET_PUNCH_2:
+Move_HBO_MAX_FINALE:
+Move_MAX_STONESURGE:
+Move_ACID_RAIN:
+Move_ASS:
+Move_DRUG:
+Move_BAG:
+Move_FUCK:
+Move_TACKLE_MAGIKARP:
+Move_RAGING_BULLWORM:
+	goto Move_TACKLE

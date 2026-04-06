@@ -3,7 +3,7 @@ mapscripts Wormhole_OrthwormRoom_MapScripts {
         if(checkmoncaught(SPECIES_ORTHWORM)) {
             setvar(VAR_TEMP_0, 2)
         }
-        additem(ITEM_POKE_BALL)
+        
         if(!flag(FLAG_ORTHWORM_POTION) && checkmoncaught(SPECIES_ORTHWORM)) {
             setobjectxyperm(LOCALID_ORTHWORM_POTION, 9, 12)
         }
@@ -142,7 +142,19 @@ script Wormhole_OrthwormRises {
     special(RemoveCameraObject)
     waitmovement(LOCALID_ORTHWORM_ATTACKING)
     seteventmon(SPECIES_ORTHWORM, 50)
-    special(StartLegendaryBattle) //Celia comes in if you don't have a ball
+    special(StartLegendaryBattle)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    while(var(VAR_RESULT) != B_OUTCOME_CAUGHT) {
+        msgbox("(wait let's try again)\n", MSGBOX_DEFAULT)
+        closemessage
+        //giveitem(ITEM_POKE_BALL)
+            seteventmon(SPECIES_ORTHWORM, 50)
+
+        special(StartLegendaryBattle)
+        delay(40)
+        removeobject(ETERNATUS)
+        specialvar(VAR_RESULT, GetBattleOutcome)
+	}
     delay(30)
     fadescreenswapbuffers(FADE_TO_BLACK)
     removeobject(LOCALID_ORTHWORM_ATTACKING)

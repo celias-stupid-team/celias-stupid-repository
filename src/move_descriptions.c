@@ -1087,6 +1087,18 @@ const u8 gMoveDescription_PledgeofAllegeonce[] = _("The user says\na PLEDGE to a
 const u8 gMoveDescription_Earf[] = _("(earth power\nplus surf)");
 const u8 gMoveDescription_AquaJet[] = _("Dummy");
 
+const u8 gMoveDescription_CometPunch2[] = _("Dummy");
+const u8 gMoveDescription_HboMaxFinale[] = _("Dummy");
+const u8 gMoveDescription_MaxStonesurge[] = _("Dummy");
+const u8 gMoveDescription_AcidRain[] = _("Dummy");
+const u8 gMoveDescription_Ass[] = _("Dummy");
+const u8 gMoveDescription_Drug[] = _("Dummy");
+const u8 gMoveDescription_Bag[] = _("Dummy");
+const u8 gMoveDescription_Fuck[] = _("Dummy");
+const u8 gMoveDescription_TackleMagikarp[] = _("Dummy");
+const u8 gMoveDescription_RagingBullworm[] = _("Dummy");
+
+
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
     [MOVE_KARATE_CHOP   - 1] = gMoveDescription_KarateChop,
@@ -2178,4 +2190,14 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_PLEDGE_OF_ALLEGEONCE     -1 ] = gMoveDescription_PledgeofAllegeonce,
     [MOVE_EARF     -1 ] = gMoveDescription_Earf,
     [MOVE_AQUA_JET     -1 ] = gMoveDescription_AquaJet,
+    [MOVE_COMET_PUNCH_2     -1 ] = gMoveDescription_CometPunch2,
+    [MOVE_HBO_MAX_FINALE     -1 ] = gMoveDescription_HboMaxFinale,
+    [MOVE_MAX_STONESURGE     -1 ] = gMoveDescription_MaxStonesurge,
+    [MOVE_ACID_RAIN     -1 ] = gMoveDescription_AcidRain,
+    [MOVE_ASS     -1 ] = gMoveDescription_Ass,
+    [MOVE_DRUG     -1 ] = gMoveDescription_Drug,
+    [MOVE_BAG     -1 ] = gMoveDescription_Bag,
+    [MOVE_FUCK     -1 ] = gMoveDescription_Fuck,
+    [MOVE_TACKLE_MAGIKARP     -1 ] = gMoveDescription_TackleMagikarp,
+    [MOVE_RAGING_BULLWORM     -1 ] = gMoveDescription_RagingBullworm,
 };

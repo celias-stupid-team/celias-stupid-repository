@@ -14231,4 +14231,134 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
 
+    [MOVE_COMET_PUNCH_2] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_HBO_MAX_FINALE] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_MAX_STONESURGE] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_ACID_RAIN] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_ASS] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_DRUG] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_BAG] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_FUCK] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_TACKLE_MAGIKARP] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+    
+    [MOVE_RAGING_BULLWORM] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
 };

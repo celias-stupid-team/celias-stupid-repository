@@ -1092,6 +1092,16 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_PLEDGE_OF_ALLEGEONCE]     = _("EON PLEDGE"),
     [MOVE_EARF]     = _("EARF"),
     [MOVE_AQUA_JET]     = _("AQUA JET"),
+    [MOVE_COMET_PUNCH_2]     = _("COMET PUNCH"),
+    [MOVE_HBO_MAX_FINALE]     = _("MAX FINALE"),
+    [MOVE_MAX_STONESURGE]     = _("MAX STONSRGE"),
+    [MOVE_ACID_RAIN]     = _("ACID RAIN"),
+    [MOVE_ASS]     = _("ASS"),
+    [MOVE_DRUG]     = _("DRUG"),
+    [MOVE_BAG]     = _("BAG"),
+    [MOVE_FUCK]     = _("FUCK"),
+    [MOVE_TACKLE_MAGIKARP]     = _("TACKLE"),
+    [MOVE_RAGING_BULLWORM]     = _("RAGING BULL"),
 };
 
 
@@ -2189,4 +2199,14 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_PLEDGE_OF_ALLEGEONCE]     = _("PLEDGE OF ALLEGEONCE"),
     [MOVE_EARF]     = _("EARF"),
     [MOVE_AQUA_JET]     = _("AQUA JET"),
+    [MOVE_COMET_PUNCH_2]     = _("COMET PUNCH "),
+    [MOVE_HBO_MAX_FINALE]     = _("HBO-MAX FINALE"),
+    [MOVE_MAX_STONESURGE]     = _("MAX-STONESURGE"),
+    [MOVE_ACID_RAIN]     = _("ACID RAIN"),
+    [MOVE_ASS]     = _("ASS"),
+    [MOVE_DRUG]     = _("DRUG"),
+    [MOVE_BAG]     = _("BAG"),
+    [MOVE_FUCK]     = _("FUCK"),
+    [MOVE_TACKLE_MAGIKARP]     = _("TACKLE"),
+    [MOVE_RAGING_BULLWORM]     = _("RAGING BULLWORM"),
 }; //For any move which needs its name lengthened, these will display in battle.

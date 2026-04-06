@@ -44,8 +44,8 @@ RocketHideout_B4F_Text_Grunt2PostBattle::
 	.string "You won't be able to take him down!\p"
 	.string "His POKéMON is fully invincible!\n"
 	.string "It has no weakness you can exploit!\p"
-	.string "Well, it has no weaknesses in THIS\n"
-	.string "GENERATION, at least.$"
+	.string "Well, it has no weaknesses here in\n"
+	.string "GENERATION 3, at least.$"
 RocketHideout_B4F_Text_Grunt3Intro::
     .string "How can you not see the beauty of\n"
     .string "our evil?$"
@@ -94,5 +94,5 @@ DMCA_LawOffices_PetrelAfter::
 	.string "You won't be able to take him down!\p"
 	.string "His POKéMON is fully invincible!\n"
 	.string "It has no weakness you can exploit!\p"
-	.string "Well, it has no weaknesses in THIS\n"
-	.string "GENERATION, at least.$"
+	.string "Well, it has no weaknesses here in\n"
+	.string "GENERATION 3, at least.$"

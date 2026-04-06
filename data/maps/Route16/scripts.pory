@@ -93,7 +93,7 @@ script Route16_OakLover {
 }
 
 script Route16_EventScript_Jed {
-	trainerbattle_single(TRAINER_YOUNG_COUPLE_LEA_JED, Route16_Text_JedIntro, Route16_Text_JedDefeat, Route16_Text_JedNotEnoughMons)
+	trainerbattle_single(TRAINER_YOUNG_COUPLE_LEA_JED, Route16_Text_JedIntro, Route16_Text_JedDefeat)
 	if(flag(FLAG_TEMP_12)) {
 	msgbox("Woah, there!\nNot cool!\pI didn't ask for that!\n", MSGBOX_AUTOCLOSE)
 	} else {
