@@ -2949,16 +2949,6 @@ static const union AnimCmd *const sAnims_PSIRockinTwo[] =
 {
     sAnim_PSIRockinTwo,
 };
-static const union AffineAnimCmd sPSIRockinAffineAnimCmds[] =
-{
-    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0), // instantly scale to 2×
-    AFFINEANIMCMD_END,
-};
-
-static const union AffineAnimCmd *const sPSIRockinAffineAnimTable[] =
-{
-    sPSIRockinAffineAnimCmds,
-};
 
 
 const struct SpriteTemplate gPSIRockinOneSpriteTemplate =
