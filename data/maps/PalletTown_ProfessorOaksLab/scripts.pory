@@ -1397,7 +1397,7 @@ const RightAide = 3
 const Psyduck = 2
 
 script PalletTown_DidYouCutOak {
-	if(flag(FLAG_HIDE_OAK_IN_HIS_LAB) && flag(FLAG_DID_FARFETCHD_TRADE) && !flag(FLAG_CSR_CUT_OAK)){
+	if(flag(FLAG_HIDE_OAK_IN_HIS_LAB) && checkmoncaught(SPECIES_FARFETCHD) && !flag(FLAG_CSR_CUT_OAK)){
 		setflag(FLAG_CSR_CUT_OAK)
 		setvar(VAR_TEMP_6, 1)
 	}

@@ -75,13 +75,13 @@ CeruleanCity_Gym_Text_WeMakePrettyGoodTeam::
 
 CeruleanCity_Gym_Text_GymStatue::
     .string "CERULEAN POKéMON CLUB\n"
-    .string "LEADER: MISTY\p"
+    .string "MASTER: MISTY\p"
     .string "WINNING TRAINERS:\n"
     .string "GARY, LARRY, JERRY$"
 
 CeruleanCity_Gym_Text_GymStatuePlayerWon::
     .string "CERULEAN POKéMON CLUB\n"
-    .string "LEADER: MISTY\p"
+    .string "MASTER: MISTY\p"
     .string "WINNING TRAINERS:\n"
     .string "GARY, LARRY, JERRY, {PLAYER}$"
 

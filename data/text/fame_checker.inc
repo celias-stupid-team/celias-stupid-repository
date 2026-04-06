@@ -371,8 +371,8 @@ gFameCheckerFlavorText_Celadon4:: @ 0x81AEAEE
 	.string "business.\p"
 	.string "His POKéMON is fully invincible!\n"
 	.string "It has no weakness you can exploit!\p"
-	.string "Well, it has no weaknesses in THIS\n"
-	.string "GENERATION, at least.$"
+	.string "Well, it has no weaknesses here in\n"
+	.string "GENERATION 3, at least.$"
 
 gFameCheckerFlavorText_Celadon5:: @ 0x81AEB69
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"

@@ -21,6 +21,7 @@
 #define INGAME_TRADE_GOLDEEN      8
 #define INGAME_TRADE_JIRACHI      9
 #define INGAME_TRADE_SHINY_LICKITUNG      10
+#define INGAME_TRADE_RATTATA      11
 
 // Return values for CanTradeSelectedMon and CanSpinTradeMon
 #define CAN_TRADE_MON              0

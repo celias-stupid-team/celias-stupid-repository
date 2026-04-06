@@ -1680,7 +1680,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_GYARADOS] =
     {
-        .categoryName = _("ATROCIOUS"),
+        .categoryName = _("LEGENDARY"),
         .height = 65,
         .weight = 2350,
         .description = gGyaradosPokedexText,

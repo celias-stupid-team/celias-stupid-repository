@@ -1116,6 +1116,16 @@ gBattleAnims_Moves::
 	.4byte Move_PLEDGE_OF_ALLEGEONCE
 	.4byte Move_EARF
 	.4byte Move_AQUA_JET
+	.4byte Move_COMET_PUNCH_2
+	.4byte Move_HBO_MAX_FINALE
+	.4byte Move_MAX_STONESURGE
+	.4byte Move_ACID_RAIN
+	.4byte Move_ASS
+	.4byte Move_DRUG
+	.4byte Move_BAG
+	.4byte Move_FUCK
+	.4byte Move_TACKLE_MAGIKARP
+	.4byte Move_RAGING_BULLWORM
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -1395,6 +1405,7 @@ Move_STRENGTH:
 	blendoff
 	end
 
+Move_TACKLE_MAGIKARP:
 Move_TACKLE:
 	@Tackle
 	loadspritegfx ANIM_TAG_IMPACT
@@ -10270,6 +10281,7 @@ MudShotOrbs:
 	delay 2
 	return
 
+Move_COMET_PUNCH_2:
 Move_MONSTER_MASH:
 Move_METEOR_MASH:
 	loadspritegfx ANIM_TAG_GOLD_STARS
@@ -28779,7 +28791,20 @@ Move_FURBY_ATTACK:
 	playsewithpan SE_M_SCRATCH, 0
 	end
 
-
+Move_ACID_RAIN:
+	loadspritegfx ANIM_TAG_ACID_RAIN_DROPS
+	playsewithpan SE_M_RAIN_DANCE, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 2, 0, 4, RGB_BLACK
+	waitforvisualfinish
+	createvisualtask AnimTask_CreateAcidRaindrops, 2, 0, 3, 120
+	createvisualtask AnimTask_CreateAcidRaindrops, 2, 0, 3, 120
+	delay 120
+	delay 30
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 2, 4, 0, RGB_BLACK
+	waitforvisualfinish
+	end
+	
 General_TrumpCardUseless::
 	loadspritegfx ANIM_TAG_USELESS_CARD
 	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER
@@ -28843,15 +28868,11 @@ ExodiaBeams:
 	return
 
 Move_VICEHAMMER:
-	loadspritegfx ANIM_TAG_ACID_RAIN_DROPS
-	playsewithpan SE_M_RAIN_DANCE, SOUND_PAN_ATTACKER
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 2, 0, 4, RGB_BLACK
-	waitforvisualfinish
-	createvisualtask AnimTask_CreateAcidRaindrops, 2, 0, 3, 120
-	createvisualtask AnimTask_CreateAcidRaindrops, 2, 0, 3, 120
-	delay 120
-	delay 30
-	waitforvisualfinish
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 2, 4, 0, RGB_BLACK
-	waitforvisualfinish
-	end
+Move_HBO_MAX_FINALE:
+Move_MAX_STONESURGE:
+Move_ASS:
+Move_DRUG:
+Move_BAG:
+Move_FUCK:
+Move_RAGING_BULLWORM:
+	goto Move_TACKLE

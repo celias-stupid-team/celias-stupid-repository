@@ -2041,6 +2041,8 @@ static u16 GetTutorMove(u8 tutor)
         return MOVE_FIRE_PLEDGE;
     case TUTOR_MOVE_WATER_PLEDGE:
         return MOVE_WATER_PLEDGE;
+    case TUTOR_MOVE_PLEDGE_OF_ALLEGIANCE:
+        return MOVE_PLEDGE_OF_ALLEGEONCE;
     default:
         return sTutorMoves[tutor];
     }

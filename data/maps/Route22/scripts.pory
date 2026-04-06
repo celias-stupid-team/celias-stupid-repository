@@ -532,6 +532,7 @@ script Route22_CandyStack {
 	}
 	waitse
 	call(EventScript_PlayFanfareObtainedKorok)
+	buffernumberstring(STR_VAR_2, VAR_STACK_OF_CANDY)
 	msgbox(
 	"{PLAYER} found\n"
 	"{STR_VAR_2} ODD CANDY(s)!", MSGBOX_DEFAULT)

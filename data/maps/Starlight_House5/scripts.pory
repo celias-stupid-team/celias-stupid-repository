@@ -1,0 +1,35 @@
+mapscripts Starlight_House5_MapScripts {
+MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			if(flag(FLAG_DAK_HERE)) {
+            clearflag(FLAG_TEMP_4)
+        }
+		} else {
+		setflag(FLAG_TEMP_4)
+
+	}
+	}
+}
+
+script Starlight_House5_Dak_Pit { //test
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox(
+	"I haven't tried to get out yet\n"
+	"but I kinda like this place.\p"
+	"It's nice and fun!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script Starlight_House5_Todo_List {
+	msgbox(
+	"Starlight's Todo List:\l"
+    "-Fix the collision on this map.", MSGBOX_SIGN)
+
+}
