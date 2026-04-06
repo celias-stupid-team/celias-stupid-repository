@@ -104,6 +104,8 @@ mapscripts PokemonLeague_BrunosRoom_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		if(var(VAR_LANCE_LASS_ATTACK) == 2) {
 			setvar(VAR_TEMP_1, 1)
+			setmetatile (6, 1, METATILE_PokemonLeague_Door_Top_Open, 1)
+			setmetatile (6, 2, METATILE_PokemonLeague_Door_Mid_Open, 0)
 		}
 		if(flag(FLAG_DEFEATED_BRUNO)) {
 			call(PokemonLeague_BrunosRoom_EventScript_SetDoorOpen)

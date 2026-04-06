@@ -23,8 +23,13 @@ SaffronCity_Gym_Text_SabrinaPostBattle::
 	.string "Maybe I am a nerd.$"
 
 SaffronCity_Gym_Text_ExplainMarshBadgeTakeThis::
-	.string "Hmph. Fine.\p"
-	.string "Take this TM, then.\n$"
+	.string "I can't believe I lost.\n"
+	.string "I'm a proud ELITE FOUR MEMBER!\p"
+	.string "But a win is a win.\n"
+	.string "Here, you've earned this:\l"
+	.string "The POKéMON LEAGUE BOULDER BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}\p"
+    .string "Hmph.\n"
+	.string "Take this as well.$"
 
 SaffronCity_Gym_Text_ReceivedTM04FromSabrina::
     .string "{PLAYER} received TM34 from\n"

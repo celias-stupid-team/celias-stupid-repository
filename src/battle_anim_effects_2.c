@@ -1882,6 +1882,53 @@ const struct SpriteTemplate gTCGSlashSwipeSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+static const union AnimCmd sTCGBigRockAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 7),
+    ANIMCMD_FRAME(16, 7),
+    ANIMCMD_FRAME(32, 7),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTCGBigRockAnimTable[] =
+{
+    sTCGBigRockAnimCmds,
+};
+const struct SpriteTemplate gTCGBigRockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_ROCKS,
+    .paletteTag = ANIM_TAG_TCG_ROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sTCGBigRockAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
+static const union AnimCmd sTCGSmallRockAnimCmds[] =
+{
+    ANIMCMD_FRAME(48, 7),
+    ANIMCMD_FRAME(64, 7),
+    ANIMCMD_FRAME(80, 7),
+    ANIMCMD_FRAME(96, 7),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTCGSmallRockAnimTable[] =
+{
+    sTCGSmallRockAnimCmds,
+};
+const struct SpriteTemplate gTCGSmallRockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_ROCKS,
+    .paletteTag = ANIM_TAG_TCG_ROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sTCGSmallRockAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
 const struct SpriteTemplate gTCGBlizzardSpriteTemplate =
 {
     .tileTag = ANIM_TAG_TCG_BLIZZARD,
@@ -2400,6 +2447,48 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .paletteTag = ANIM_TAG_RED_HEART,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+static const union AnimCmd sLeftFeatherBurstAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sLeftFeatherBurstAnimTable[] =
+{
+    sLeftFeatherBurstAnimCmds,
+};
+const struct SpriteTemplate gLeftFeatherBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_FEATHER,
+    .paletteTag = ANIM_TAG_WHITE_FEATHER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sLeftFeatherBurstAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+static const union AnimCmd sRightFeatherBurstAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sRightFeatherBurstAnimTable[] =
+{
+    sRightFeatherBurstAnimCmds,
+};
+const struct SpriteTemplate gRightFeatherBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_FEATHER,
+    .paletteTag = ANIM_TAG_WHITE_FEATHER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sRightFeatherBurstAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimParticleBurst,

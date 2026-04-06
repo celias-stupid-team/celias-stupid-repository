@@ -7,6 +7,11 @@ script FadeSongAndPlayVictory {
 	return
 }
 
+script FadeSongAndPlayYoshi {
+	fadenewbgm(MUS_YOSHI_VICTORY)
+	return
+}
+
 
 script FadeSongAndPlayHoopa {
 	fadenewbgm(MUS_MUS_YUGIOH_2)

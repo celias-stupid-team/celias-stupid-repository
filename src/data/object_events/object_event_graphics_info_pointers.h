@@ -616,6 +616,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DRACULA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WEREWOLF;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GAY_1;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GAY_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LICHEN_SPROUT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPROUT_2;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1233,4 +1235,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_WEREWOLF] = &gObjectEventGraphicsInfo_WEREWOLF,
     [OBJ_EVENT_GFX_GAY_1] = &gObjectEventGraphicsInfo_GAY_1,
     [OBJ_EVENT_GFX_GAY_2] = &gObjectEventGraphicsInfo_GAY_2,
+    [OBJ_EVENT_GFX_LICHEN_SPROUT] = &gObjectEventGraphicsInfo_LICHEN_SPROUT,
+    [OBJ_EVENT_GFX_SPROUT_2] = &gObjectEventGraphicsInfo_SPROUT_2,
 };

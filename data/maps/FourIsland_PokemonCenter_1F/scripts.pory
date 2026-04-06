@@ -36,6 +36,18 @@ mapscripts FourIsland_PokemonCenter_1F_MapScripts {
 			setmetatile(12, 1, 0x16B, FALSE)
 		}
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_USED_POKE_FLUTE, 1 {
+			playfanfare(MUS_POKE_FLUTE)
+			waitfanfare
+			delay(30)
+			playse(SE_CLICK)
+			setmetatile(12, 1, 0x16B, FALSE)
+			special(DrawWholeMapView)
+			removeobject(LOCALID_FOURISLAND_DOOR)
+			setvar(VAR_USED_POKE_FLUTE, 0)
+		}
+	]
 	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
 }
 

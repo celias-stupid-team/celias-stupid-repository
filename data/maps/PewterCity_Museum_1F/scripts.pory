@@ -225,7 +225,13 @@ script PewterCity_Museum_1F_EventScript_WeirdSigns {
 }
 
 script PewterCity_Museum_1F_EventScript_Bones {
-	msgbox("Do you know whose bones are on\ndisplay here?\pThe answer is…\nYour bones.\pMy bones.\pBone's bones.\pBone bone bone.\n", MSGBOX_NPC)
+	if(flag(FLAG_CUT_MUSEUM_ASSOCIATE)) {
+		msgbox("Do you know whose bones are on\ndisplay here?\pThe answer is…\nHis bones.\pTheir bones.\pOur bones.\pBones.{PAUSE 30} Bones.{PAUSE 30} Bones.\n", MSGBOX_NPC)
+
+	} else {
+		msgbox("Do you know whose bones are on\ndisplay here?\pThe answer is…\nYour bones.\pMy bones.\pBone's bones.\pBone bone bone.\n", MSGBOX_NPC)
+
+	}
 	end
 }
 
@@ -337,6 +343,7 @@ script PewterCity_Museum_1F_EventScript_EntranceTrigger {
 		msgbox(
 		"…But nobody came.\n"
 		"", MSGBOX_DEFAULT)
+		setvar(VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F, 1)
 		releaseall
 		end
 	}

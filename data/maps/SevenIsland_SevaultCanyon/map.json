@@ -326,16 +326,6 @@
   "coord_events": [],
   "bg_events": [
     {
-      "type": "hidden_item",
-      "x": 15,
-      "y": 66,
-      "elevation": 3,
-      "item": "ITEM_CHERI_BERRY",
-      "flag": "FLAG_HIDDEN_ITEM_NOTHING",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 16,
       "y": 71,

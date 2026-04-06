@@ -3644,8 +3644,8 @@
       "height": 11,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SilphCo",
       "border_filepath": "data/layouts/FiveIsland_LostCave_Room2/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room2/map.bin"
     },

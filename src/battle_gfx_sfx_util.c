@@ -928,7 +928,7 @@ void HandleLowHpMusicChange(struct Pokemon *mon, u8 battlerId)
     u16 maxHP = GetMonData(mon, MON_DATA_MAX_HP);
 
     if (GetHPBarLevel(hp, maxHP) == HP_BAR_RED && !FlagGet(FLAG_SYS_CSR_VICTORY)
-        && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) != B_FINAL_BATTLE_SCRIPTED_END)
+        && !(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
         if (!gBattleSpritesDataPtr->battlerData[battlerId].lowHpSong)
         {

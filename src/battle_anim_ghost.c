@@ -179,6 +179,17 @@ const struct SpriteTemplate gCurseGhostSpriteTemplate =
     .callback = AnimGhostStatusSprite,
 };
 
+const struct SpriteTemplate gFemaleGhostSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FEMALE,
+    .paletteTag = ANIM_TAG_FEMALE,
+    .oam = &gOamData_AffineOff_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGhostStatusSprite,
+};
+
 const struct SpriteTemplate gNightmareDevilSpriteTemplate =
 {
     .tileTag = ANIM_TAG_DEVIL,

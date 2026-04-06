@@ -1053,6 +1053,11 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
         } else if (tItemId == ITEM_CIGARETTES && tItemCount == 500) {
             AddBagItem(ITEM_PREMIERCIGAR, 1);
             BuyMenuDisplayMessage(taskId, gText_ThrowInPremierCigar, BuyMenuReturnToItemList);
+            
+        } else if (tItemId == ITEM_PREMIER_CANDY && tItemCount >= 10) {
+            AddBagItem(ITEM_PREMIER_CANDY, 1);
+            BuyMenuDisplayMessage(taskId, gText_ThrowInPremierCandy, BuyMenuReturnToItemList);
+            
         } else 
         {
             

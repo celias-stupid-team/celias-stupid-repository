@@ -75,8 +75,10 @@ static const u8 sCastformBackSpriteYCoords[NUM_CASTFORM_FORMS] =
 };
 
 // Placeholders for pokemon sprites to be created for a move animation effect (e.g. Role Play / Snatch)
-#define TAG_MOVE_EFFECT_MON_1 55125
-#define TAG_MOVE_EFFECT_MON_2 55126
+#define TAG_MOVE_EFFECT_MON_1    55125
+#define TAG_MOVE_EFFECT_MON_2    55126
+#define TAG_DMCA_MISTY_BACKING_1 55127 // DMCA Misty - Zweilous
+#define TAG_DMCA_MISTY_BACKING_2 55128 // DMCA Misty - Deino
 
 static const struct SpriteTemplate sSpriteTemplates_MoveEffectMons[] =
 {
@@ -97,13 +99,33 @@ static const struct SpriteTemplate sSpriteTemplates_MoveEffectMons[] =
         .images = NULL,
         .affineAnims = gDummySpriteAffineAnimTable,
         .callback = SpriteCallbackDummy,
-    }
+    },
+    {
+        .tileTag = TAG_DMCA_MISTY_BACKING_1,
+        .paletteTag = TAG_DMCA_MISTY_BACKING_1,
+        .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+        .anims = gDummySpriteAnimTable,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = TAG_DMCA_MISTY_BACKING_2,
+        .paletteTag = TAG_DMCA_MISTY_BACKING_2,
+        .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+        .anims = gDummySpriteAnimTable,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
 };
 
 static const struct SpriteSheet sSpriteSheets_MoveEffectMons[] =
 {
     { gMiscBlank_Gfx, MON_PIC_SIZE, TAG_MOVE_EFFECT_MON_1 },
     { gMiscBlank_Gfx, MON_PIC_SIZE, TAG_MOVE_EFFECT_MON_2 },
+    { gMiscBlank_Gfx, MON_PIC_SIZE, TAG_DMCA_MISTY_BACKING_1 },
+    { gMiscBlank_Gfx, MON_PIC_SIZE, TAG_DMCA_MISTY_BACKING_2 },
 };
 
 u8 GetBattlerSpriteCoord(u8 battlerId, u8 coordType)

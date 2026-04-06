@@ -410,6 +410,7 @@ static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nw
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
 static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME}!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutLions[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout 1 BILLION LIONS!{PAUSE 60}");
+static const u8 sText_Trainer1SentOutBlueEyes[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout 3 BLUE-EYES WHITE DRAGONS!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutStupidHack[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent out…\n{PAUSE 30}CELIA's STUPID ROMHACK!{PAUSE 30}");
 static const u8 sText_Trainer1SentOutTwoPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutPkmn2[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_BUFF1}!");
@@ -448,12 +449,12 @@ static const u8 sText_ExclamationMark4[] = _("!");
 static const u8 sText_ExclamationMark5[] = _("!");
 static const u8 sText_Celebrate[] = _("Yay!");
 static const u8 sText_1derRoom[] = _("The 1DER ROOM multiplies the stats\nof all POKéMON by 1!");
-static const u8 sText_MySecretLife_Battle[] = _("My Secret Life, chapter three\n\nI was neither a murder suspect, nor\na target for an international spy\norganization.\n\nBut I drove a car down the Jersey\nTurnpike at 80 mph.\n\n…A police officer pulled me over\nand asked for my driver's license.\n\nHe said I was going 20 mph over the\nspeed limit. I instantly pointed to\nmy wife and said, “I'm in a hurry,\nmy wife is in labor.”\n\nFortunately, my wife actually had a\nbig stomach.\n\nI hoped he'd let me go with this\nexcuse.\n\n“Oh, since it's an emergency, I'll\nlead you to the hospital with my\npolice car,” he said.\n\n“No, it's not necessary.”\n\n“WHy not?” asked the officer.\n“Uh… well…”\n\n“Let's get going,” said the officer.\n\n“No, no! We can't! This baby is a\ndemon child!”");
+static const u8 sText_MySecretLife_Battle[] = _("My Secret Life, chapter three\pI was neither a murder suspect, nor\na target for an international spy\porganization.\pBut I drove a car down the Jersey\nTurnpike at 80 mph.\p…A police officer pulled me over\nand asked for my driver's license.\p(cutting out the middle cuz otherwise\nthe game crashes)\p“Let's get going,” said the officer.\p“No, no! We can't! This baby is a\ndemon child!”");
 static const u8 sText_UpDog[] = _("{B_OPPONENT_MON1_NAME} asked\n“What's UP DOG?”");
 static const u8 sText_TryAttack[] = _("{B_PLAYER_MON1_NAME} tried to attack!\p{PAUSE 45}But it failed!\n");
 static const u8 sText_GmaxMove[] = _("But it failed!\pThere's no GMAX energy in the area!");
 static const u8 sText_ExtremeEvoboost[] = _("But it failed!\p{B_PLAYER_MON1_NAME} isn't holding a\nZ CRYSTAL!");
-static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\lIt doesn't love {B_PLAYER_NAME} enough!");
+static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\pIt doesn't love {B_PLAYER_NAME} enough!");
 static const u8 sText_FickleBeam[] = _("But it failed!\p{B_PLAYER_MON1_NAME} doesn't have any heads!");
 static const u8 sText_SentOutZapmolcuno[] = _("{PAUSE 20}LARRY, JERRY, HARRY, LARRY, and\nGARY sent out ZAPMOLCUNO-OHGIA!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_AllArrysWannaBattle[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY want to battle!\p");
@@ -1916,7 +1917,9 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                         stringPtr = sText_Trainer1SentOutPkmn;
                     }
-
+                    else if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_YUGIOH)
+                        stringPtr = sText_Trainer1SentOutBlueEyes;
+                    
                     else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
                         stringPtr = sText_SentOutZapmolcuno;
                     else
@@ -2071,7 +2074,7 @@ void BufferStringBattle(u16 stringId)
                 case EVENT_BATTLE_ARCHER:
                     if(sBattleMsgDataPtr->currentMove == MOVE_GULP) {
                         BattleStopLowHpSound();
-                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        RunScriptImmediately(FadeSongAndPlayYoshi); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;

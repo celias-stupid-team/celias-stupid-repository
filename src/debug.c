@@ -3807,7 +3807,9 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_KENYA) \
     X(MUS_ALOLA_ROUTE2) \
     X(MUS_SALSA) \
-    X(MUS_MUS_YUGIOH_2)
+    X(MUS_MUS_YUGIOH_2) \
+    X(MUS_DOWNSTREAM) \
+    X(MUS_YOSHI_VICTORY)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

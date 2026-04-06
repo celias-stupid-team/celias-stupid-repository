@@ -286,7 +286,7 @@ script TwoIsland_KenyaEgg {
 	fadedefaultbgm
 	delay(30)
 	setflag(FLAG_SHINY_KENYA)
-	call(Common_Script_GiftPokemon30)
+	call(Common_Script_GiftPokemonKenya)
 	release
 
 }

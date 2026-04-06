@@ -196,7 +196,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_AS_ONE_BULBASAUR] = COMPOUND_STRING("ONEY GATHER and ONEDER SKIN."),
     [ABILITY_DISGUISE] = COMPOUND_STRING("As opposed to datguise."),
     [ABILITY_ETAADIMITNI] = COMPOUND_STRING(".KCATTA s'eof eht srewoL"), //unused
-    [ABILITY_IMPOSTER] = COMPOUND_STRING("An ability that pretends to be the better one."),
+    [ABILITY_IMPOSTER] = COMPOUND_STRING("Ability that only pretends to be good."),
     [ABILITY_IRON_FIST] = COMPOUND_STRING("Punching moves up."),
     [ABILITY_AIDAPTABILITY] = COMPOUND_STRING("Studying STAB moves."),
     [ABILITY_ALVANIZE] = COMPOUND_STRING("Boosts WEIRD moves."),
@@ -231,6 +231,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_COLOR_CHANGE_WIZ] = sColorChangeDescription,
     [ABILITY_RIGHTNINGROD] = COMPOUND_STRING("The user was RIGHT."),
     [ABILITY_TWISTED_REALITY] = COMPOUND_STRING("Replaces the opponent's moves."),
+    [ABILITY_SCHOOLING] = COMPOUND_STRING("Comes in when the TEACHER is sick."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -378,4 +379,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_COLOR_CHANGE_WIZ] = _("COLOR CHANGE"),
     [ABILITY_RIGHTNINGROD] = _("RIGHTNINGROD"),
     [ABILITY_TWISTED_REALITY] = _("{FONT_SMALL}TWISTED REALITY"),
+    [ABILITY_SCHOOLING] = _("SCHOOLING"),
+
+    
 };

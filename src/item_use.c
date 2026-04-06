@@ -482,7 +482,7 @@ void FieldUseFunc_PokeFlute(u8 taskId)
         if (!ExecuteTableBasedItemEffect(&gPlayerParty[i], ITEM_AWAKENING, i, 0))
             wokeSomeoneUp = TRUE;
     }
-
+    VarSet(VAR_USED_POKE_FLUTE, 1);
     if (wokeSomeoneUp)
     {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
@@ -849,7 +849,7 @@ bool8 CanUseEscapeRopeOnCurrMap(void)
         }
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_3F) &&
             (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_3F))) {
-                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 2, 22, 27);
+                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 2, 29, 11);
                 return TRUE;
 
         }

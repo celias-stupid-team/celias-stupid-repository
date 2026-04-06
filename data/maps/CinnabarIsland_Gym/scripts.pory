@@ -907,8 +907,8 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 5:
-			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_JIGGLYPUFF_ABOVE) {
-				if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF_ABOVE) {
+			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_YOSHI) {
+				if(var(VAR_RESULT) == SPECIES_YOSHI) {
 					setflag(FLAG_TEMP_3)
 				}
 				msgbox(
@@ -924,8 +924,8 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 6:
-			if(var(VAR_RESULT) == SPECIES_AMOONGUSS || var(VAR_RESULT) == SPECIES_PIDGEY) {
-				if(var(VAR_RESULT) == SPECIES_PIDGEY) {
+			if(var(VAR_RESULT) == SPECIES_AMOONGUSS || var(VAR_RESULT) == SPECIES_PIDGEOTTO) {
+				if(var(VAR_RESULT) == SPECIES_PIDGEOTTO) {
 					setflag(FLAG_TEMP_3)
 				}
 				msgbox(

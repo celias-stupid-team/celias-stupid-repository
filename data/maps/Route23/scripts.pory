@@ -75,6 +75,13 @@ mapscripts Route23_MapScripts {
 			setvar(VAR_MAP_SCENE_ROUTE23, 3)
 		}
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_A, 0 {
+			special(DrawWholeMapView)
+			setvar(VAR_TEMP_A, 1)
+			release
+		}
+	]
 }
 
 script Route23_EventScript_CeliaZapdos {

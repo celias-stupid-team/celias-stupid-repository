@@ -1557,6 +1557,7 @@ static void DrawStarsAndBadgesOnCard(void)
     s16 i, x;
     u16 tileNum = 192;
     u8 palNum = 3;
+    
 
     FillBgTilemapBufferRect(3, 143, 15, sStarYOffsets[sTrainerCardDataPtr->cardType], sTrainerCardDataPtr->trainerCard.rse.stars, 1, 4);
     if (!sTrainerCardDataPtr->isLink)
@@ -1564,14 +1565,38 @@ static void DrawStarsAndBadgesOnCard(void)
         x = 4;
         for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
         {
+
+
             if (sTrainerCardDataPtr->hasBadge[i])
             {
+                if(i == 0 && sTrainerCardDataPtr->hasBadge[5]) {
+                    continue;
+                }
+                if(i == 5) {
+                    FillBgTilemapBufferRect(3, tileNum, 4, 16, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 1, 4 + 1, 16, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 16, 4, 17, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 17, 4 + 1, 17, 1, 1, palNum);
+                    continue;
+
+                }
                 FillBgTilemapBufferRect(3, tileNum, x, 16, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 16, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 16, x, 17, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 17, 1, 1, palNum);
+
+                
             }
         }
+        // tileNum = 192; // Nope, it seems the other badges in the spritesheet aren't loaded at all. No clue how to make them.
+        // x = 19;
+        // if(FlagGet(FLAG_GOT_GYM_MEMBERSHIP_BADGE)) {
+        //     FillBgTilemapBufferRect(3, tileNum, x, 16, 1, 1, palNum);
+        //     FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 16, 1, 1, palNum);
+        //     FillBgTilemapBufferRect(3, tileNum + 16, x, 17, 1, 1, palNum);
+        //     FillBgTilemapBufferRect(3, tileNum + 17, x + 1, 17, 1, 1, palNum);
+        // }
+                
     }
 
     CopyBgTilemapBufferToVram(3);

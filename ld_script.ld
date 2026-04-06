@@ -1060,6 +1060,8 @@ SECTIONS {
         sound/songs/midi/mus_alola_route2.o(.rodata);
         sound/songs/midi/mus_salsa.o(.rodata);
         sound/songs/midi/mus_mus_yugioh_2.o(.rodata);
+        sound/songs/midi/mus_downstream.o(.rodata);
+        sound/songs/midi/mus_yoshi_victory.o(.rodata);
 
     } > ROM =0
 

@@ -237,6 +237,22 @@ script OneIsland_Whirlpool {
 script OneIsland_Kaylee {
 	lock
 	if(checkmoncaught(SPECIES_ARTICUNO)) {
+		if(!checkitem(ITEM_SOOTHE_BELL) && !checkmoncaught(SPECIES_ESPEON)) {
+			msgbox(
+			"KAYLEE: Here\n"
+			"", MSGBOX_DEFAULT)
+			giveitem_msg("{PLAYER} received the\nTIDAL BELL!", ITEM_SOOTHE_BELL)
+			waitfanfare
+			msgbox(
+			"Treat that BELL as a gift from\n"
+			"one dancer to another.\p"
+
+			"Who knows?\n"
+			"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+			release
+			end
+
+		}
 		faceplayer
 		msgbox(
 		"Treat that BELL as a gift from\n"

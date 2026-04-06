@@ -181,7 +181,7 @@
       "local_id": "LOCALID_GRANDPA_RED",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 24,
+      "x": 17,
       "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
