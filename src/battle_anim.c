@@ -111,6 +111,7 @@ static void Cmd_setflag(void);
 static void Cmd_clearflag(void);
 static void Cmd_debugprintf(void);
 static void Cmd_addletterv(void);
+static void Cmd_jumpifspecies(void);
 
 #include "data/battle_anim.h"
 
@@ -171,6 +172,7 @@ static void (*const sScriptCmdTable[])(void) =
 	Cmd_clearflag,            // 0x34
     Cmd_debugprintf,          // 0x35
     Cmd_addletterv,           // 0x36
+    Cmd_jumpifspecies,        // 0x37
 };
 
 static const u8 sScriptConditionTable[6][3] =
@@ -1879,4 +1881,39 @@ static void Cmd_addletterv(void)
     SetMonData(mon, MON_DATA_NICKNAME, nickname);
     UpdateNickInHealthbox(gHealthboxSpriteIds[battlerId], mon);
     sBattleAnimScriptPtr++;
+}
+
+static void Cmd_jumpifspecies(void)
+{
+    u8 animBattler;
+    u8 battlerId;
+    u16 species;
+
+    sBattleAnimScriptPtr++;
+    animBattler = sBattleAnimScriptPtr[0];
+    sBattleAnimScriptPtr++;
+    species = T1_READ_16(sBattleAnimScriptPtr);
+    sBattleAnimScriptPtr += 2;
+
+    switch (animBattler)
+    {
+    default:
+    case ANIM_ATTACKER:
+        battlerId = gBattleAnimAttacker;
+        break;
+    case ANIM_TARGET:
+        battlerId = gBattleAnimTarget;
+        break;
+    case ANIM_ATK_PARTNER:
+        battlerId = BATTLE_PARTNER(gBattleAnimAttacker);
+        break;
+    case ANIM_DEF_PARTNER:
+        battlerId = BATTLE_PARTNER(gBattleAnimTarget);
+        break;
+    }
+
+    if (gAnimBattlerSpecies[battlerId] == species)
+        sBattleAnimScriptPtr = T2_READ_PTR(sBattleAnimScriptPtr);
+    else
+        sBattleAnimScriptPtr += 4;
 }
