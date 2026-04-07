@@ -911,6 +911,7 @@ static void AnimCapture(struct Sprite *sprite)
         {
         // anim 1, move 1 up
         case 0:
+            PlaySE12WithPanning(SE_CAPTURE_JUMP, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
             StartSpriteAnim(sprite, 1);
             sprite->y -= 1;
             break;
@@ -1111,7 +1112,6 @@ static void AnimTask_CaptureTargetBounce_Step(u8 taskId)
         {
         // landing frame
         case 10:
-            PlaySE12WithPanning(SE_M_COMET_PUNCH, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
             task->data[4] += 1;
             break;
 
@@ -1139,7 +1139,7 @@ static void AnimTask_CaptureTargetBounce_Step(u8 taskId)
         switch (task->data[1]++)
         {
         case 0: 
-            PlaySE12WithPanning(SE_M_STRENGTH, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+            PlaySE12WithPanning(SE_CAPTURE_COLLAPSE, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
             task->data[4] += 1; 
             break;
         case 1: task->data[4] += 1; break;
@@ -1183,7 +1183,7 @@ static void AnimTask_CaptureTargetBounce_Step(u8 taskId)
         switch (task->data[1]++)
         {
         case 0: 
-            PlaySE12WithPanning(SE_M_ATTRACT, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+            PlaySE12WithPanning(SE_CAPTURE_RISE, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
             task->data[4] -= 2; 
             break;
         case 1: task->data[4] -= 2; break;
