@@ -11356,7 +11356,7 @@ static void Cmd_givecaughtmon(void)
             if (itemsPocket->itemSlots[i].itemId != ITEM_NONE)
                 filledSlots++;
         }
-        if (filledSlots >= 6)
+        if (filledSlots >= 6 && ItemId_GetImportance(itemsPocket->itemSlots[5].itemId) == 0)
             SetBagItemQuantity(&itemsPocket->itemSlots[5].quantity, 255);
     }
 
