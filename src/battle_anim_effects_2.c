@@ -3841,7 +3841,7 @@ static void AnimDodgeball_Step1(struct Sprite *sprite)
     u16 rand;
     s16 *ptr;
     
-    PlaySE12WithPanning(SE_BALL_BOUNCE_1, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+    PlaySE12WithPanning(SE_DODGEBALL, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
     sprite->x += sprite->x2;
     sprite->y += sprite->y2;
     sprite->y2 = 0;

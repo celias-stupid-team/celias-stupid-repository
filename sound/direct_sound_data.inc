@@ -331,6 +331,125 @@ DirectSoundWaveData_Guilty::
 DirectSoundWaveData_MakeItRain::
 	.incbin "sound/direct_sound_samples/make_it_rain.bin"
 
+	.align 2
+DirectSoundWaveData_GasterBlaster::
+	.incbin "sound/direct_sound_samples/gaster_blaster.bin"
+
+	.align 2
+DirectSoundWaveData_GasterWindup::
+	.incbin "sound/direct_sound_samples/gaster_windup.bin"
+
+	.align 2
+DirectSoundWaveData_AnnetteAttack::
+	.incbin "sound/direct_sound_samples/annette_attack.bin"
+
+	.align 2
+DirectSoundWaveData_Aurora::
+	.incbin "sound/direct_sound_samples/aurora.bin"
+
+	.align 2
+DirectSoundWaveData_BabaWin::
+	.incbin "sound/direct_sound_samples/baba_win.bin"
+
+	.align 2
+DirectSoundWaveData_MissileBark::
+	.incbin "sound/direct_sound_samples/missile_bark.bin"
+
+	.align 2
+DirectSoundWaveData_TCGBlizzard::
+	.incbin "sound/direct_sound_samples/tcg_blizzard.bin"
+
+	.align 2
+DirectSoundWaveData_Buzzer::
+	.incbin "sound/direct_sound_samples/buzzer.bin"
+
+	.align 2
+DirectSoundWaveData_CaptureCollapse::
+	.incbin "sound/direct_sound_samples/capture_collapse.bin"
+
+	.align 2
+DirectSoundWaveData_CaptureJump::
+	.incbin "sound/direct_sound_samples/capture_jump.bin"
+
+	.align 2
+DirectSoundWaveData_CaptureRise::
+	.incbin "sound/direct_sound_samples/capture_rise.bin"
+
+	.align 2
+DirectSoundWaveData_TCGCharge::
+	.incbin "sound/direct_sound_samples/tcg_charge.bin"
+
+	.align 2
+DirectSoundWaveData_TCGCoinFlip::
+	.incbin "sound/direct_sound_samples/tcg_coin_flip.bin"
+
+	.align 2
+DirectSoundWaveData_Crit::
+	.incbin "sound/direct_sound_samples/crit.bin"
+
+	.align 2
+DirectSoundWaveData_Dodgeball::
+	.incbin "sound/direct_sound_samples/dodgeball.bin"
+
+	.align 2
+DirectSoundWaveData_Fart::
+	.incbin "sound/direct_sound_samples/fart.bin"
+
+	.align 2
+DirectSoundWaveData_TCGGoo::
+	.incbin "sound/direct_sound_samples/tcg_goo.bin"
+
+	.align 2
+DirectSoundWaveData_HomeRun::
+	.incbin "sound/direct_sound_samples/home_run.bin"
+
+	.align 2
+DirectSoundWaveData_TCGImpact::
+	.incbin "sound/direct_sound_samples/tcg_impact.bin"
+
+	.align 2
+DirectSoundWaveData_TCGJab::
+	.incbin "sound/direct_sound_samples/tcg_jab.bin"
+
+	.align 2
+DirectSoundWaveData_Gen2Leer::
+	.incbin "sound/direct_sound_samples/leer.bin"
+
+	.align 2
+DirectSoundWaveData_MyEyes::
+	.incbin "sound/direct_sound_samples/my_eyes.bin"
+
+	.align 2
+DirectSoundWaveData_Nice::
+	.incbin "sound/direct_sound_samples/nice.bin"
+
+	.align 2
+DirectSoundWaveData_TCGPowder::
+	.incbin "sound/direct_sound_samples/tcg_powder.bin"
+
+	.align 2
+DirectSoundWaveData_TCGQuickAttack::
+	.incbin "sound/direct_sound_samples/tcg_quick_attack.bin"
+
+	.align 2
+DirectSoundWaveData_TCGRockThrow::
+	.incbin "sound/direct_sound_samples/tcg_rock_throw.bin"
+
+	.align 2
+DirectSoundWaveData_Shine::
+	.incbin "sound/direct_sound_samples/shine.bin"
+
+	.align 2
+DirectSoundWaveData_TCGSlash::
+	.incbin "sound/direct_sound_samples/tcg_slash.bin"
+
+	.align 2
+DirectSoundWaveData_Waa::
+	.incbin "sound/direct_sound_samples/waa.bin"
+
+	.align 2
+DirectSoundWaveData_TCGWaterfall::
+	.incbin "sound/direct_sound_samples/tcg_waterfall.bin"
 
 	.align 2
 Cry_Bulbasaur::

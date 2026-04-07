@@ -1272,32 +1272,33 @@ Move_ITCHY_POLLEN:
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
 	loadspritegfx ANIM_TAG_TCG_POWDER
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
-	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 0, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 0, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 0, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 0, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 0, 12
+	playsewithpan SE_TCG_POWDER, SOUND_PAN_TARGET
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 0, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 0, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 0, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 0, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 0, 10
 	delay 14
-	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 1, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 1, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 1, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 1, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 1, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 1, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 1, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 1, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 1, 10
 	delay 14
-	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 0, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 0, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 0, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 0, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 0, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 0, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 0, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 0, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 0, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 0, 10
 	delay 14
-	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 1, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 1, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 1, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 1, 12
-	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 1, 12
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -28, -40, 1, 1, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, -14, -40, 1, 1, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 0, -40, 1, 1, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 14, -40, 1, 1, 10
+	createsprite gTCGPowderSpriteTemplate, 2, 0, 28, -40, 1, 1, 10
 	waitforvisualfinish
 	call TCGImpact
 	end
@@ -7455,13 +7456,13 @@ Move_GARBOTOXIN:
 	loadspritegfx ANIM_TAG_TCG_GOO
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
 	monbg ANIM_TARGET
 	splitbgprio ANIM_TARGET
 	
-	playsewithpan SE_M_BUBBLE3, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_GOO, SOUND_PAN_TARGET
 	createsprite gTCGGarbotoxinSpriteTemplate, ANIM_TARGET, 2, -8, -24, 1
 	delay 20
 	createvisualtask AnimTask_GarbotoxinWaver, 5
@@ -13165,18 +13166,9 @@ Move_O_CREATE:
 	end
 	
 Move_WALUIGI:
-	@Tackle
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createvisualtask AnimTask_DeepInhale, 2, ANIM_ATTACKER
+	playsewithpan SE_WAA, SOUND_PAN_ATTACKER
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
 	end
 	
 Move_ONE_CLAWS:
@@ -13735,8 +13727,71 @@ Move_ROOST:
 	end
 	
 Move_CSR_DUMMY:
+
 	goto Move_TACKLE
 	end
+	playse SE_GASTER_BLASTER
+	delay 100
+	playse SE_GASTER_WINDUP
+	delay 100
+	playse SE_ANNETTE_ATTACK
+	delay 100
+	playse SE_AURORA
+	delay 100
+	playse SE_BABA_WIN
+	delay 100
+	playse SE_MISSILE_BARK
+	delay 100
+	playse SE_TCG_BLIZZARD
+	delay 100
+	playse SE_GASTER_WINDUP
+	delay 100
+	playse SE_BUZZER
+	delay 100
+	playse SE_CAPTURE_COLLAPSE
+	delay 100
+	playse SE_CAPTURE_JUMP
+	delay 100
+	playse SE_CAPTURE_RISE
+	delay 100
+	playse SE_TCG_CHARGE
+	delay 100
+	playse SE_TCG_COIN_FLIP
+	delay 100
+	playse SE_CRIT
+	delay 100
+	playse SE_DODGEBALL
+	delay 100
+	playse SE_FART
+	delay 100
+	playse SE_TCG_GOO
+	delay 100
+	playse SE_HOME_RUN
+	delay 100
+	playse SE_TCG_IMPACT
+	delay 100
+	playse SE_TCG_JAB
+	delay 100
+	playse SE_GEN2_LEER
+	delay 100
+	playse SE_MY_EYES
+	delay 100
+	playse SE_NICE
+	delay 100
+	playse SE_TCG_POWDER
+	delay 100
+	playse SE_TCG_QUICK_ATTACK
+	delay 100
+	playse SE_TCG_ROCK_THROW
+	delay 100
+	playse SE_SHINE
+	delay 100
+	playse SE_TCG_SLASH
+	delay 100
+	playse SE_WAA
+	delay 100
+	playse SE_TCG_WATERFALL
+	delay 100
 	
 	loadspritegfx ANIM_TAG_EXODIA_BLAST
 	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
@@ -14278,13 +14333,11 @@ Move_BACK_AIR:
 	end
 	
 Move_REST_HBOX:
-	playsewithpan SE_M_SNORE, SOUND_PAN_ATTACKER
-	loadspritegfx ANIM_TAG_LETTER_Z
-	createsprite gSleepLetterZSpriteTemplate, ANIM_ATTACKER, 2, 4, -10, 16, 0, 0
-	delay 20
-	createsprite gSleepLetterZSpriteTemplate, ANIM_ATTACKER, 2, 4, -10, 16, 0, 0
-	delay 20
-	createsprite gSleepLetterZSpriteTemplate, ANIM_ATTACKER, 2, 4, -10, 16, 0, 0
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 12, 0, 28, 1
+	createvisualtask AnimTask_BlendMonInAndOut, 3, ANIM_TARGET, RGB_RED, 12, 1, 1
+	playsewithpan SE_HOME_RUN, SOUND_PAN_TARGET
+	call FireSpreadEffect
 	waitforvisualfinish
 	end
 	
@@ -15035,11 +15088,11 @@ Move_JAB:
 	loadspritegfx ANIM_TAG_TCG_PUNCH
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
 	
-	playsewithpan SE_M_DIZZY_PUNCH, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_JAB, SOUND_PAN_TARGET
 	createsprite gTCGLeftPunchSpriteTemplate, ANIM_TARGET, 2, -32, 36, 8, -8, 8, 2, 3, 1
 	waitforvisualfinish
 	call TCGImpact
@@ -15049,14 +15102,14 @@ Move_SPECIALPUNCH:
 	loadspritegfx ANIM_TAG_TCG_PUNCH
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
 	
-	playsewithpan SE_M_DIZZY_PUNCH, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_JAB, SOUND_PAN_TARGET
 	createsprite gTCGLeftPunchSpriteTemplate, ANIM_TARGET, 2, -32, 36, 8, -8, 8, 2, 3, 1
 	waitforvisualfinish
-	playsewithpan SE_M_DIZZY_PUNCH, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_JAB, SOUND_PAN_TARGET
 	createsprite gTCGRightPunchSpriteTemplate, ANIM_TARGET, 2, 32, 36, -8, -8, 8, 2, 3, 1
 	waitforvisualfinish
 	call TCGImpact
@@ -17594,40 +17647,36 @@ Move_SLASH_TCG:
 	loadspritegfx ANIM_TAG_TCG_SLASH
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
 	@createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, -8, 0
 	@playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
 	@delay 4
 	@createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, 8, 0
-	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_SLASH, SOUND_PAN_TARGET
 	createsprite gTCGSlashSwipeSpriteTemplate, ANIM_TARGET, 2, 32, -32, -16, 16, 4, 0, 4, 1
 	delay 8
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 18, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_IMPACT, SOUND_PAN_TARGET
 	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, -16, -8, 0, 0, 0, 10, 0, 1
 	delay 5
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 0, 10, 0, 1
 	delay 5
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, -8, 8, 0, 0, 0, 10, 0, 1
 	waitforvisualfinish
 	end
 
 TCGImpact:
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_IMPACT, SOUND_PAN_TARGET
 	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, -16, -8, 0, 0, 0, 10, 0, 1
 	delay 5
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 0, 10, 0, 1
 	delay 5
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, -8, 8, 0, 0, 0, 10, 0, 1
-	delay 30
-	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 2, 4
-	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 2, 4
+	@delay 30
+	@createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 2, 4
+	@createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 2, 4
 	waitforvisualfinish
 	return
 
@@ -17636,11 +17685,11 @@ Move_DO_THE_WAVE:
 	loadspritegfx ANIM_TAG_TCG_WATER
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
 	
-	playsewithpan SE_M_WATERFALL, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_WATERFALL, SOUND_PAN_TARGET
 	createsprite gTCGWaterfallSpriteTemplate, ANIM_ATTACKER, 2, 40, 110, 0, -16, 9, 5, 6, 2
 	createsprite gTCGWaterfallSpriteTemplate, ANIM_ATTACKER, 2, 96, 124, 0, -16, 9, 5, 6, 2
 	createsprite gTCGWaterfallSpriteTemplate, ANIM_ATTACKER, 2, 180, 118, 0, -16, 9, 5, 6, 2
@@ -17656,8 +17705,8 @@ Move_DO_THE_WAVE:
 	createsprite gTCGWaterfallSpriteTemplate, ANIM_ATTACKER, 2, 32, 120, 0, -16, 9, 5, 6, 2
 	createsprite gTCGWaterfallSpriteTemplate, ANIM_ATTACKER, 2, 166, 112, 0, -16, 9, 5, 6, 2
 	createsprite gTCGWaterfallSpriteTemplate, ANIM_ATTACKER, 2, 220, 116, 0, -16, 9, 5, 6, 2
-	delay 42
-	playsewithpan SE_M_WATERFALL, SOUND_PAN_TARGET
+	delay 32
+	playsewithpan SE_TCG_WATERFALL, SOUND_PAN_TARGET
 	createsprite gTCGWaterfallSpriteTemplate, ANIM_ATTACKER, 2, 40, 110, 0, -16, 9, 3, 4, 2
 	createsprite gTCGWaterfallSpriteTemplate, ANIM_ATTACKER, 2, 96, 124, 0, -16, 9, 3, 4, 2
 	createsprite gTCGWaterfallSpriteTemplate, ANIM_ATTACKER, 2, 180, 118, 0, -16, 9, 3, 4, 2
@@ -17680,16 +17729,16 @@ Move_DO_THE_WAVE:
 Move_SWORDSDANCE_TCG:
 	loadspritegfx ANIM_TAG_TCG_SWORD
 	loadspritegfx ANIM_TAG_TCG_CHARGE
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
-	playsewithpan SE_M_VICEGRIP, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_QUICK_ATTACK, SOUND_PAN_ATTACKER
 	createsprite gTCGSwordSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, 0, -16, 5, 3, 4, 0
 	waitforvisualfinish
-	playsewithpan SE_M_VICEGRIP, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_QUICK_ATTACK, SOUND_PAN_ATTACKER
 	createsprite gTCGSwordSpriteTemplate, ANIM_ATTACKER, 2, -24, 32, 0, -16, 5, 3, 4, 0
 	waitforvisualfinish
-	playsewithpan SE_M_VICEGRIP, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_QUICK_ATTACK, SOUND_PAN_ATTACKER
 	createsprite gTCGSwordSpriteTemplate, ANIM_ATTACKER, 2, 24, 32, 0, -16, 5, 3, 4, 0
 	waitforvisualfinish
 	end
@@ -17698,15 +17747,15 @@ Move_SHADOW_IMAGES:
 	loadspritegfx ANIM_TAG_TCG_DASH
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
 	
-	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_QUICK_ATTACK, SOUND_PAN_TARGET
 	createsprite gTCGLeftDashSpriteTemplate, ANIM_TARGET, 2, -32, 16, 19, 8, 14, 2, 2, 2
 	waitforvisualfinish
 	delay 10
-	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_QUICK_ATTACK, SOUND_PAN_TARGET
 	createsprite gTCGRightDashSpriteTemplate, ANIM_TARGET, 2, 272, 100, -19, -8, 14, 2, 2, 2
 	waitforvisualfinish
 	end
@@ -18969,28 +19018,28 @@ Move_FREEZE_DRY:
 	loadspritegfx ANIM_TAG_TCG_IMPACT
 	loadspritegfx ANIM_TAG_TCG_BLIZZARD
 	createsprite gTcgCoinSpriteTemplate, 2, 0, 120, 80, 32, 45
-	delay 32
-	playse SE_M_PAY_DAY
-	delay 62
-	playse SE_M_PAY_DAY
+	delay 26
+	playse SE_TCG_COIN_FLIP
 	waitforvisualfinish
 	
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
-	playse SE_M_BLIZZARD
+	playse SE_TCG_BLIZZARD
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 256, 32, -16, 0, 20, 2, 3, 2
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 264, 88, -16, 0, 20, 2, 3, 2
 	delay 10
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 264, 32, -16, 0, 20, 2, 3, 2
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 272, 88, -16, 0, 20, 2, 3, 2
 	delay 10
+	playse SE_TCG_BLIZZARD
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 272, 32, -16, 0, 20, 2, 3, 2
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 280, 88, -16, 0, 20, 2, 3, 2
 	delay 10
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 280, 32, -16, 0, 20, 2, 3, 2
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 288, 88, -16, 0, 20, 2, 3, 2
 	delay 10
+	playse SE_TCG_BLIZZARD
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 288, 32, -16, 0, 20, 2, 3, 2
 	createsprite gTCGBlizzardSpriteTemplate, ANIM_TARGET, 2, 296, 88, -16, 0, 20, 2, 3, 2
 	delay 10
@@ -19092,7 +19141,7 @@ Move_RAPID_WIN:
 	waitforvisualfinish
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 2
 	createvisualtask AnimTask_ShakeTargetBasedOnMovePowerOrDmg, 2, FALSE, 1, 10, 1, 0
-	playsewithpan SE_M_ENCORE2, SOUND_PAN_TARGET
+	playsewithpan SE_BABA_WIN, SOUND_PAN_TARGET
 	createsprite gWinFlagSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 120, 0, 1
 		
 	createsprite gSparkleBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
@@ -27545,9 +27594,9 @@ Move_GASTER_BLASTER:
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 16, RGB_BLACK
 	waitforvisualfinish
 	createsprite gGasterBlasterSpriteTemplate, ANIM_ATTACKER, 2, 30, 0, 6, 3
-	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	playsewithpan SE_GASTER_WINDUP, SOUND_PAN_ATTACKER
 	delay 40
-	panse SE_M_EXPLOSION, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	panse SE_GASTER_BLASTER, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
 	createvisualtask AnimTask_SpawnGasterBeams, 2, 120, 82
 	delay 6
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 10, 0, 42, 1
@@ -27690,7 +27739,7 @@ Move_MULTISHINE:
 	loadspritegfx ANIM_TAG_SHINE
 	monbg ANIM_ATTACKER
 	setalpha 12, 8
-	loopsewithpan SE_M_SWIFT, SOUND_PAN_ATTACKER, 16, 3
+	loopsewithpan SE_SHINE, SOUND_PAN_ATTACKER, 16, 3
 	createsprite gShineSpriteTemplate, ANIM_ATTACKER, 2, 0, 6, 60
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
@@ -27794,7 +27843,7 @@ Move_AURORA_VEIL:
 	setalpha 0, 16
 	fadetobg BG_AURORA
 	waitbgfadein
-	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER, 15
+	waitplaysewithpan SE_AURORA, SOUND_PAN_ATTACKER, 15
 	createsprite gLightScreenWallSpriteTemplate, ANIM_ATTACKER, 1, 40, 0, ANIM_TAG_GREEN_LIGHT_WALL
 	delay 10
 	call SpecialScreenSparkle
@@ -28510,10 +28559,10 @@ Move_FURY_CUTTER_TCG:
 	loadspritegfx ANIM_TAG_TCG_SLASH
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
-	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	playsewithpan SE_TCG_SLASH, SOUND_PAN_TARGET
 	createsprite gTCGSlashSwipeSpriteTemplate, ANIM_TARGET, 2, 32, -32, -16, 16, 4, 0, 4, 1
 	delay 8
 	createsprite gTCGSlashImpactSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 24, 0, 1
@@ -28758,10 +28807,10 @@ Move_ANCIENT_POWER_TCG:
 	loadspritegfx ANIM_TAG_TCG_ROCKS
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
-	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
 	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
-	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	loopsewithpan SE_TCG_ROCK_THROW, SOUND_PAN_TARGET, 30, 4
 	createsprite gTCGBigRockSpriteTemplate, ANIM_TARGET, 2, 40, -40, -8, 8, 7, 6, 7, 1
 	delay 43
 	createsprite gTCGSmallRockSpriteTemplate, ANIM_TARGET, 2, 8, -40, -8, 8, 4, 6, 7, 1
