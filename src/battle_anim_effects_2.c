@@ -2124,6 +2124,76 @@ const struct SpriteTemplate gTCGGarbotoxinSpriteTemplate =
     .callback = AnimGarbotoxin,
 };
 
+static const union AnimCmd sHongKongRunAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sHongKongRunAnimTable[] =
+{
+    sHongKongRunAnimCmds,
+};
+
+const struct SpriteTemplate gHongKongRunSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_RUN,
+    .paletteTag = ANIM_TAG_HONG_KONG_RUN,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sHongKongRunAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gHongKongExplosionSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_EXPLOSION,
+    .paletteTag = ANIM_TAG_HONG_KONG_EXPLOSION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sHongKongRunAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gHongKongBulletSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_BULLET,
+    .paletteTag = ANIM_TAG_HONG_KONG_BULLET,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gHongKongBodySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_BODY,
+    .paletteTag = ANIM_TAG_HONG_KONG_BODY,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gLatinasSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LATINAS,
+    .paletteTag = ANIM_TAG_LATINAS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 
 static const union AnimCmd sAnim_Card0[] = { ANIMCMD_FRAME(0, 0), ANIMCMD_END };
 static const union AnimCmd sAnim_Card1[] = { ANIMCMD_FRAME(16, 0), ANIMCMD_END };

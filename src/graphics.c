@@ -499,6 +499,21 @@ const u32 gBattleAnimSpritePal_PSIRockinOne[] = INCBIN_U32("graphics/battle_anim
 const u32 gBattleAnimSpriteGfx_PSIRockinTwo[] = INCBIN_U32("graphics/battle_anims/sprites/psi_rockin_two.4bpp.lz");
 const u32 gBattleAnimSpritePal_PSIRockinTwo[] = INCBIN_U32("graphics/battle_anims/sprites/psi_rockin_two.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_HongKongRun[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_run.4bpp.lz");
+const u32 gBattleAnimSpritePal_HongKongRun[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_run.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_HongKongExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_explosion.4bpp.lz");
+const u32 gBattleAnimSpritePal_HongKongExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_explosion.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_HongKongBody[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_body.4bpp.lz");
+const u32 gBattleAnimSpritePal_HongKongBody[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_body.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_HongKongBullet[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_bullet.4bpp.lz");
+const u32 gBattleAnimSpritePal_HongKongBullet[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_bullet.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_HongKongDrug[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_drug.4bpp.lz");
+const u32 gBattleAnimSpritePal_HongKongDrug[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_drug.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");
@@ -1241,6 +1256,10 @@ const u32 gBattleAnimBgImage_Skyrim[] = INCBIN_U32("graphics/battle_anims/backgr
 const u32 gBattleAnimBgPalette_Skyrim[] = INCBIN_U32("graphics/battle_anims/backgrounds/skyrim_opening.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Skyrim[] = INCBIN_U32("graphics/battle_anims/backgrounds/skyrim_opening.bin.lz");
 
+const u32 gBattleAnimBgImage_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.4bpp.lz");
+const u32 gBattleAnimBgPalette_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.gbapal.lz");
+const u32 gBattleAnimBgTilemap_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.bin.lz");
+
 const u32 gBattleAnimBgImage_Pewter[] = INCBIN_U32("graphics/battle_anims/backgrounds/pewter_gym.4bpp.lz");
 const u32 gBattleAnimBgPalette_Pewter[] = INCBIN_U32("graphics/battle_anims/backgrounds/pewter_gym.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Pewter[] = INCBIN_U32("graphics/battle_anims/backgrounds/pewter_gym.bin.lz");
@@ -1453,6 +1472,7 @@ const u32 gBattleAnimBgPalette_MuddyWater[] = INCBIN_U32("graphics/battle_anims/
 const u32 gBattleAnimBgPalette_RedWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_red.gbapal.lz");
 const u32 gBattleAnimBgPalette_RainbowWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_rainbow.gbapal.lz");
 const u32 gBattleAnimBgPalette_ChocolateWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_chocolate.gbapal.lz");
+const u32 gBattleAnimBgPalette_MeatWater[] = INCBIN_U32("graphics/battle_anims/backgrounds/water_meat.gbapal.lz");
 
 const u32 gEnemyMonShadow_Gfx[] = INCBIN_U32("graphics/battle_interface/enemy_mon_shadow.4bpp.lz");
 

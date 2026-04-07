@@ -1102,6 +1102,8 @@ void AnimTask_CreateSurfWave(u8 taskId)
         LoadCompressedPalette(gBattleAnimBgPalette_RainbowWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
     else if(gBattleAnimArgs[0] == 4)
         LoadCompressedPalette(gBattleAnimBgPalette_ChocolateWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+    else if(gBattleAnimArgs[0] == 5)
+        LoadCompressedPalette(gBattleAnimBgPalette_MeatWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
     taskId2 = CreateTask(AnimTask_SurfWaveScanlineEffect, gTasks[taskId].priority + 1);
     gTasks[taskId].data[15] = taskId2;
     gTasks[taskId2].data[0] = 0;
