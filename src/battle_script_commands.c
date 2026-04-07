@@ -4735,8 +4735,12 @@ static void Cmd_playanimation(void)
         if (gBattlescriptCurrInstr[2] == B_ANIM_RHYDON_TRANSFORM)
         {
             u16 species = SPECIES_RHYDON;
+            u8 monGender = GetMonGender(mon);
+            
+            if (monGender == MON_GENDERLESS && GetRandomGenderBySpecies(species) != MON_GENDERLESS)
+                monGender = GetRandomGenderBySpecies(species);
             gBattleMons[gActiveBattler].species = species;
-            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, monGender, GetNature(mon));
             gBattleMoveDamage = 0;
         }
         // create Inkay right before form change
