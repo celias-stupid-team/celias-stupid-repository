@@ -538,7 +538,7 @@ BattleScript_EffectExplosion::
 	waitstate
 	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionDoAnimStartLoop
 	call BattleScript_PreserveMissedBitDoMoveAnim
-	goto BattleScript_ExplosionLoop
+	goto BattleScript_ExplosionMissed
 BattleScript_ExplosionDoAnimStartLoop:
 	attackanimation
 	waitanimation
