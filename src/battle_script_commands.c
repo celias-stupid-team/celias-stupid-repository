@@ -11344,6 +11344,22 @@ static void Cmd_givecaughtmon(void)
     gBattleResults.caughtMonSpecies = gBattleMons[gBattlerAttacker ^ BIT_SIDE].species;
     GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gBattleResults.caughtMonNick);
 
+    // item slot 6 being set to 255 EA when catching SPECIES_MISSINGNO
+    if (gBattleResults.caughtMonSpecies == SPECIES_MISSINGNO)
+    {
+        struct BagPocket *itemsPocket = &gBagPockets[POCKET_ITEMS - 1];
+        u8 filledSlots = 0;
+        u8 i;
+
+        for (i = 0; i < itemsPocket->capacity; i++)
+        {
+            if (itemsPocket->itemSlots[i].itemId != ITEM_NONE)
+                filledSlots++;
+        }
+        if (filledSlots >= 6)
+            SetBagItemQuantity(&itemsPocket->itemSlots[5].quantity, 255);
+    }
+
     gBattlescriptCurrInstr++;
 }
 

@@ -82,6 +82,8 @@ u16 BagGetQuantityByPocketPosition(u8 pocketId, u16 itemId);
 u16 BagGetQuantityByItemId(u16 item);
 u8 ItemId_GetImportance(u16 itemId);
 void BagPocketCompaction(struct ItemSlot * slots, u8 capacity);
+u16 GetBagItemQuantity(u16 *ptr);
+void SetBagItemQuantity(u16 *ptr, u16 value);
 u16 GetPcItemQuantity(u16 *);
 void SetBagPocketsPointers(void);
 
