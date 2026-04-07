@@ -82,6 +82,11 @@ void ClearTempData_CSR(void)
     FlagClear(FLAG_NOT_OAK_TEMP);
     FlagClear(FLAG_HACK_ATTACK_USED);
     VarSet(VAR_USED_CUT, 0);
+    VarSet(VAR_LUVDISC_TILE, 0);
+    FlagClear(FLAG_SYS_ZAPDOS_STATUE);
+    FlagClear(FLAG_SYS_GIRL_HOLE);
+
+    
     RunScriptImmediately(SetPlayerPokedexValues);
 }
 

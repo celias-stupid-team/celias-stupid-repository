@@ -264,8 +264,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WHIRLWIND] =
     {
-        .effect = EFFECT_ROAR,
-        .power = 0,
+        .effect = EFFECT_HIT,
+        .power = 40,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 20,
@@ -7925,7 +7925,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 25,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 2,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
@@ -14298,11 +14298,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DRUG] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_WATER,
-        .accuracy = 100,
-        .pp = 35,
+        .effect = EFFECT_RESTORE_HP,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 95,
+        .pp = 1,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,

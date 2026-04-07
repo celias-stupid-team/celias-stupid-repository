@@ -90,7 +90,7 @@ script Route13_Snorlax {
 	setrespawn(HEAL_LOCATION_ROUTE12)
 	setflag(FLAG_SYS_SNORLAX_FIGHT)
 	msgbox("A POKéMON is asleep on the road.\nThere's no way around it.\pLooks like it's time to get through\nby force!", MSGBOX_DEFAULT)
-	setwildbattle(SPECIES_SNORLAX, 30)
+	setwildbattle(SPECIES_SNORLAX, 30, ITEM_RUNNING_SHOES)
 	waitse
 	playmoncry(SPECIES_SNORLAX, CRY_MODE_ENCOUNTER)
 	delay(40)

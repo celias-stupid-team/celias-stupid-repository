@@ -70,7 +70,7 @@ script FushciaGym_ElectrifyRoom_Lance {
         end
 
     }
-    msgbox("I am LANCE of the ELITE FOUR!\n{PAUSE 30}…Or well, I was.\pI got kicked out for using an\n“illegal” POKéMON.\lPah!\pI've moved on to a format more\nsuited to my strenghs:\lBalanced Hackmons!")
+    msgbox("I am LANCE of the ELITE FOUR!\n{PAUSE 30}…Or well, I was.\pI got kicked out for using an\n“illegal” POKéMON.\lPah!\pI've moved on to a format more\nsuited to my strengths:\lBalanced Hackmons!")
     trainerbattle_no_intro(TRAINER_FUSHCIA_GYM_LANCE, "But how!\n")
     addobject(LOCALID_REGIDRAGO)
     call(FushciaGym_ElectrifyRoom_OpenDoor)

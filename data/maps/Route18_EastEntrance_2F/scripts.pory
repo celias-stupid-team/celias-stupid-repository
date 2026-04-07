@@ -117,7 +117,7 @@ script Route18_LassBinoculars {
 		msgbox("...\p...\nYou.", MSGBOX_DEFAULT)
 		closemessage
 		delay(20)
-		playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+		playbgm(MUS_ENCOUNTER_GIRL, FALSE)
 		delay(30)
 		applymovement(LASS, Route18_LassFinalApproach)
 		waitmovement(0)
@@ -127,7 +127,7 @@ script Route18_LassBinoculars {
 		setflag(FLAG_ROUTE18_LASSATTACK)
 		special(RemoveCameraObject)
 		msgbox("You just HAD to look at me,\ndidn't you?\p...\nWhatever.\pYou know what happens next.\n", MSGBOX_DEFAULT)
-		playbgm(MUS_NONE, TRUE)
+		playbgm(MUS_NONE, FALSE)
 		//battle
 		
 		trainerbattle_no_intro(TRAINER_LASS_BINOCULARS, "Yeah.\nFigured.")

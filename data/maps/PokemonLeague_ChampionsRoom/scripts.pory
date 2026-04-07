@@ -236,9 +236,17 @@ script PokemonLeague_ChampionsRoom_EventScript_EnterRoom {
 	))
 	waitmovement(LOCALID_CHAMPIONS_ROOM_HARRY)
 	delay(20)
-	msgbox(
-	"HARRY: When my rat got killed,{PAUSE 20}\n"
-	"you just stood there and watched.", MSGBOX_DEFAULT)
+	if(!flag(FLAG_HIDE_HARRY_RAT)) {
+		msgbox(
+			"HARRY: You refused to kill my\n"
+			"rat,{PAUSE 20} thus rendering this cutscene\l"
+			"somewhat awkward.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"HARRY: When my rat got killed,{PAUSE 20}\n"
+		"you just stood there and watched.", MSGBOX_DEFAULT)
+
+	}
 	closemessage
 
 	

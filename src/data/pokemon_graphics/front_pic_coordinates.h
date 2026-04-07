@@ -1628,7 +1628,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_LUVDISC] =
     {
         .size = MON_COORDS_SIZE(32, 48),
-        .y_offset = 24,
+        .y_offset = 11,
     },
     [SPECIES_CORPHISH] =
     {
