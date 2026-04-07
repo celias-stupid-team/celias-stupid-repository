@@ -719,56 +719,56 @@
     },
     {
       "type": "sign",
-      "x": 11,
-      "y": 61,
+      "x": 32,
+      "y": 57,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route23_Badges"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 59,
+      "x": 31,
+      "y": 58,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route23_EventScript_MarshBadgeGuardTrigger"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 58,
+      "x": 31,
+      "y": 57,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route23_EventScript_VolcanoBadgeGuardTrigger"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 57,
+      "x": 31,
+      "y": 56,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route23_EventScript_MinnesotaBadgeGuardTrigger"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 56,
+      "x": 31,
+      "y": 55,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route23_EventScript_FeatherBadgeGuardTrigger"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 55,
+      "x": 31,
+      "y": 54,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route23_EventScript_EarthBadgeGuardTrigger"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 60,
+      "x": 31,
+      "y": 59,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route23_EventScript_SoulBadgeGuardTrigger"

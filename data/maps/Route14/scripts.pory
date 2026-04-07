@@ -581,7 +581,7 @@ script Route15_PokeRap_Trainer33_Defeat {
 
 script Route15_PokeRap_Trainer34 {
     trainerbattle_single(TRAINER_POKERAP_34, Rapper_34_Intro, "Nice!", Route15_PokeRap_Trainer34_Defeat)
-    msgbox("EXEGGUTOR by Lichen\nKABUTOPS by Gayren\nZAPDOS by HoodlumCal!", MSGBOX_DEFAULT)
+    msgbox("EXEGGUTOR by Lichen\nKABUTOPS by Gayren\lZAPDOS by HoodlumCal!", MSGBOX_DEFAULT)
     release
 }
 

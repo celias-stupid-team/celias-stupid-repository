@@ -56,10 +56,17 @@ script SafariZone_North_GrandDad {
 	} else {
 		msgbox("GRAND DAD: {PLAYER}!\nWhat are you doing out here?\pSee that portal?\nI actually came out of there!\lThat's why I'm your GRAND DAD!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 
+
 	}
-	call(EventScript_DadHeal)
-	release
-	end
+		fadescreenswapbuffers(FADE_TO_BLACK)
+		closemessage
+		playfanfare(MUS_HEAL)
+		waitfanfare
+		special(HealPlayerParty)
+		fadescreenswapbuffers(FADE_FROM_BLACK)
+		msgbox(("GRAND DAD: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
+		release
+		end
 }
 
 script SafariZone_North_ShowdownSign {

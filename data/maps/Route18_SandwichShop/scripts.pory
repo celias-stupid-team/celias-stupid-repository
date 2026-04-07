@@ -111,3 +111,10 @@ script SandwhichShop_Rotom {
     fadescreen(FADE_FROM_BLACK)
 	release
 }
+
+script SandwichShop_Football {
+	msgbox(
+	"A poster depicting traditional\n"
+	"AMERICAN customs, such as\l"
+	"football.", MSGBOX_SIGN)
+}
