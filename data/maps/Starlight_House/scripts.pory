@@ -2,3 +2,23 @@ mapscripts Starlight_House_MapScripts {
 	
 }
 
+script Starlight_House_Window {
+	msgbox(
+	"This window has a lovely view\n"
+    "of the other room.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House_Painting {
+	msgbox(
+	"It looks to be a painting\n"
+    "of a window.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House_TV {
+	msgbox(
+	"Why are there always TV's in\n"
+    "houses, but no couches?", MSGBOX_SIGN)
+
+}

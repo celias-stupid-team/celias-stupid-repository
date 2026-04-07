@@ -34,7 +34,10 @@ script Starlight_House2_Post_Battle {
 	"Feel free to explore around the\l"
     "place before you go.\p"
 	"There's nothing special here, but I\n"
-    "had some fun making it!", MSGBOX_DEFAULT)
+    "had some fun making it!\p"
+	"Also if you see my friend hanging\n"
+	"around here could you let me know?\l"
+	"Thanks!", MSGBOX_DEFAULT)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
@@ -60,7 +63,10 @@ script Starlight_House2_Battle { //test
 	"Feel free to explore around the\n"
     "place before you go.\p"
 	"There's nothing special here, but I\n"
-    "had some fun making it!", MSGBOX_DEFAULT)
+    "had some fun making it!\p"
+	"Also if you see my friend hanging\n"
+	"around here could you let me know?\l"
+	"Thanks!", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
@@ -102,7 +108,7 @@ script Starlight_House2_Garbage2 {
 	"schedule for PMD Team Hack Event.\p"
 	"There's also something scratched out\n"
 	"at the bottom.\p"
-	"Pr-j--t -vr-n", MSGBOX_SIGN)
+	"-r---c- -vr-n", MSGBOX_SIGN)
 
 }
 

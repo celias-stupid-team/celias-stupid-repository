@@ -18,8 +18,8 @@
     {
       "local_id": "LOCALID_DAK",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 15,
+      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
+      "x": 1,
       "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -34,7 +34,7 @@
       "local_id": "LOCALID_STARLIGHT2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
-      "x": 4,
+      "x": 12,
       "y": 0,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -48,7 +48,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
-      "x": 15,
+      "x": 1,
       "y": 1,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -62,8 +62,8 @@
   ],
   "warp_events": [
     {
-      "x": 2,
-      "y": 1,
+      "x": 15,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_STARLIGHT_HOUSE",
       "dest_warp_id": "0"
@@ -73,6 +73,46 @@
   "bg_events": [
     {
       "type": "sign",
+      "x": 3,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
       "x": 8,
       "y": 4,
       "elevation": 0,
@@ -89,47 +129,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
-      "y": 4,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 11,
-      "y": 4,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 12,
-      "y": 4,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 13,
-      "y": 4,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 14,
-      "y": 4,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 8,
+      "x": 3,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -137,7 +137,7 @@
     },
     {
       "type": "sign",
-      "x": 8,
+      "x": 3,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -145,7 +145,7 @@
     },
     {
       "type": "sign",
-      "x": 8,
+      "x": 3,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -153,8 +153,48 @@
     },
     {
       "type": "sign",
-      "x": 8,
+      "x": 3,
       "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_House3_Map_Table"
@@ -177,47 +217,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 11,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 12,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 13,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 14,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
-      "x": 14,
+      "x": 9,
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -225,7 +225,7 @@
     },
     {
       "type": "sign",
-      "x": 14,
+      "x": 9,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -233,7 +233,7 @@
     },
     {
       "type": "sign",
-      "x": 14,
+      "x": 9,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -241,14 +241,6 @@
     },
     {
       "type": "sign",
-      "x": 14,
-      "y": 5,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
-    },
-    {
-      "type": "sign",
       "x": 9,
       "y": 5,
       "elevation": 0,
@@ -257,7 +249,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 4,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -265,7 +257,7 @@
     },
     {
       "type": "sign",
-      "x": 11,
+      "x": 5,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -273,7 +265,7 @@
     },
     {
       "type": "sign",
-      "x": 12,
+      "x": 6,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -281,7 +273,15 @@
     },
     {
       "type": "sign",
-      "x": 9,
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Map_Table"
+    },
+    {
+      "type": "sign",
+      "x": 4,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -289,7 +289,7 @@
     },
     {
       "type": "sign",
-      "x": 13,
+      "x": 8,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -297,7 +297,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 5,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -305,7 +305,7 @@
     },
     {
       "type": "sign",
-      "x": 11,
+      "x": 6,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -313,7 +313,7 @@
     },
     {
       "type": "sign",
-      "x": 12,
+      "x": 7,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -321,7 +321,7 @@
     },
     {
       "type": "sign",
-      "x": 13,
+      "x": 8,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -329,7 +329,7 @@
     },
     {
       "type": "sign",
-      "x": 9,
+      "x": 4,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -337,7 +337,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 5,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -345,7 +345,7 @@
     },
     {
       "type": "sign",
-      "x": 11,
+      "x": 6,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -353,7 +353,7 @@
     },
     {
       "type": "sign",
-      "x": 12,
+      "x": 7,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -361,7 +361,7 @@
     },
     {
       "type": "sign",
-      "x": 13,
+      "x": 8,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -369,7 +369,7 @@
     },
     {
       "type": "sign",
-      "x": 9,
+      "x": 4,
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -377,7 +377,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 5,
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -385,7 +385,7 @@
     },
     {
       "type": "sign",
-      "x": 11,
+      "x": 6,
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -393,7 +393,7 @@
     },
     {
       "type": "sign",
-      "x": 12,
+      "x": 7,
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -401,7 +401,7 @@
     },
     {
       "type": "sign",
-      "x": 13,
+      "x": 8,
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -409,7 +409,7 @@
     },
     {
       "type": "sign",
-      "x": 16,
+      "x": 2,
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -417,7 +417,7 @@
     },
     {
       "type": "sign",
-      "x": 13,
+      "x": 5,
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -425,7 +425,7 @@
     },
     {
       "type": "sign",
-      "x": 12,
+      "x": 4,
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -438,6 +438,38 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_House3_Professor_Tree"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Painting"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_Painting"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_TV"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House3_DMCA_Notice"
     }
   ]
 }
