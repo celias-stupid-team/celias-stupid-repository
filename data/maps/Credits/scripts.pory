@@ -373,6 +373,11 @@ mapscripts Credits_MapScripts {
 
         }
     ]
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_CREDITS_FAKEOUT)) {
+            playbgm(MUS_TITLE, TRUE)
+        }
+    }
 }
 
 script CreditsDummy {
