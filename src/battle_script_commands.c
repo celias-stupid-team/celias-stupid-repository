@@ -18,6 +18,7 @@
 #include "text.h"
 #include "sound.h"
 #include "pokedex.h"
+#include "pokedex_screen.h"
 #include "window.h"
 #include "reshow_battle_screen.h"
 #include "main.h"
@@ -13441,5 +13442,14 @@ void BS_TryHealXHp(void)
     }
 
     gBattleMoveDamage = healAmount * -1;
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetPokedexFlag(void)
+{
+    NATIVE_ARGS(u16 species, u8 caseId);
+
+    DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

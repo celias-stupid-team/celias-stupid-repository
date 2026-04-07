@@ -5182,6 +5182,18 @@ BattleScript_EffectDoNothing::
 	setbattlestringid
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
+	jumpifmove MOVE_PLEDGE_OF_ALLEGEONCE, BattleScript_SetLatiasPokedexFlags
+	goto BattleScript_MoveEnd
+
+@ enum values like in include/pokedex.h
+.set FLAG_SET_SEEN, 2
+.set FLAG_SET_CAUGHT, 3
+.set FLAG_SET_OBTAINABLE, 5
+
+BattleScript_SetLatiasPokedexFlags::
+	setpokedexflag SPECIES_LATIAS, FLAG_SET_SEEN
+	setpokedexflag SPECIES_LATIAS, FLAG_SET_CAUGHT
+	setpokedexflag SPECIES_LATIAS, FLAG_SET_OBTAINABLE
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectFickleBeam::
