@@ -2864,8 +2864,8 @@ AI_CV_RevivalBlessing::
 	end
 
 AI_CV_SpikyShield::
-	get_protect_count AI_USER
 	if_last_used_move AI_USER, MOVE_SPIKY_SHIELD, Score_Minus10
+	get_protect_count AI_USER
 	if_more_than 0, AI_CV_Protect_ScoreDown2
 	if_status AI_USER, STATUS1_TOXIC_POISON, AI_CV_Protect3
 	if_status2 AI_USER, STATUS2_CURSED, AI_CV_Protect3
