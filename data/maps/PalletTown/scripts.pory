@@ -465,8 +465,10 @@ script PalletTown_PostgameCelia {
 	"find as many secrets as you can!\p"
 
 	"By the way: Check the right side\n"
-	"of the TV in your house.\l"
-	"A present has been waiting there.\p"
+	"of the TV in your house.\p"
+
+	"A friend has been waiting for you\n"
+	"there since the beginning.\p"
 	
 	"And when you're ready, go visit\n"
 	"RAINBOW CLOUD again to uncover\l"
