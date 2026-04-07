@@ -943,6 +943,16 @@ script SecretGarden_BoxCrimperControl {
 	"BOX CLOSER\n"
 	"Control Panel", MSGBOX_DEFAULT)
     if(flag(CRIMP_BOX_THERE)) {
+        if(flag(CRIMP_BOX_OPEN)) {
+            clearflag(FLAG_WITHDREW_SLOT_0)
+            clearflag(FLAG_WITHDREW_SLOT_1)
+            clearflag(FLAG_WITHDREW_SLOT_2)
+            clearflag(FLAG_WITHDREW_SLOT_3)
+            clearflag(FLAG_WITHDREW_SLOT_4)
+            clearflag(FLAG_WITHDREW_SLOT_5)
+            clearflag(FLAG_WITHDREW_SLOT_6)
+            clearflag(FLAG_WITHDREW_SLOT_7)
+        }
         closemessage
         delay(20)
         playse(SE_CLICK)
@@ -1004,41 +1014,49 @@ script SecretGarden_GetCurrentPCPokemon {
     switch(var(PC_BOX_SLOT_NUMBER)) {
         case 0:
             if(flag(FLAG_WITHDREW_SLOT_0)) {
-                setvar(PC_CURRENT_POKEMON, SPECIES_NONE)
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
             }
         case 1:
             if(flag(FLAG_WITHDREW_SLOT_1)) {
-                goto(SecretGarden_AlreadyWithdrew)
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
 
             }
         case 2:
             if(flag(FLAG_WITHDREW_SLOT_2)) {
-                goto(SecretGarden_AlreadyWithdrew)
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
 
             }
         case 3:
             if(flag(FLAG_WITHDREW_SLOT_3)) {
-                goto(SecretGarden_AlreadyWithdrew)
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
 
             }
         case 4:
             if(flag(FLAG_WITHDREW_SLOT_4)) {
-                goto(SecretGarden_AlreadyWithdrew)
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
 
             }
         case 5:
             if(flag(FLAG_WITHDREW_SLOT_5)) {
-                goto(SecretGarden_AlreadyWithdrew)
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
 
             }
         case 6:
             if(flag(FLAG_WITHDREW_SLOT_6)) {
-                goto(SecretGarden_AlreadyWithdrew)
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
 
             }
         case 7:
             if(flag(FLAG_WITHDREW_SLOT_7)) {
-                goto(SecretGarden_AlreadyWithdrew)
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
 
             }
     }
