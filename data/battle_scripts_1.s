@@ -301,6 +301,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSnowGravy              @ EFFECT_SNOWGRAVY
 	.4byte BattleScript_EffectRhydon                 @ EFFECT_RHYDON
 	.4byte BattleScript_EffectTrumpCard              @ EFFECT_TRUMP_CARD
+	.4byte BattleScript_EffectRestoreXHp             @ EFFECT_RESTORE_X_HP
 
 BattleScript_End2::
 	end2
@@ -1027,9 +1028,19 @@ BattleScript_EffectDragonRage::
 	ppreduce
 	typecalc
 	bicbyte gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
-	setword gBattleMoveDamage, 4
+	jumpifmove MOVE_DRAGON_RAGE, BattleScript_DragonRageDamage
+	jumpifmove MOVE_LIGHT_OF_RUINS, BattleScript_LightOfRuinsDamage
+BattleScript_DragonRageContinue:
 	adjustsetdamage
 	goto BattleScript_HitFromAtkAnimation
+
+BattleScript_DragonRageDamage:
+	setword gBattleMoveDamage, 4
+	goto BattleScript_DragonRageContinue
+
+BattleScript_LightOfRuinsDamage:
+	setword gBattleMoveDamage, 49
+	goto BattleScript_DragonRageContinue
 
 BattleScript_EffectTrap::
 	jumpifnotmove MOVE_WHIRLPOOL, BattleScript_DoWrapEffect
@@ -6340,4 +6351,19 @@ BattleScript_EffectTrumpCardConnects:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_EffectTrumpCardEnd:
 	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRestoreXHp::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifability BS_NOT_ATTACKER_SIDE, ABILITY_RESTLESS, BattleScript_PreventTakingARest
+	tryhealxhp BattleScript_AlreadyAtFullHp
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

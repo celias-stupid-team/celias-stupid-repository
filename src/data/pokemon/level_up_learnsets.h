@@ -8911,7 +8911,7 @@ static const struct LevelUpMove sGreat_TuskLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sScream_TailLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_POUND),
 	LEVEL_UP_END
 };
 

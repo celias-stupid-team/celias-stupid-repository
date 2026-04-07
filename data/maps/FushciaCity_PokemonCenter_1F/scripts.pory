@@ -57,7 +57,7 @@ script FushciaCity_GetThroughGym {
 
 	"Keep an eye on it if you're ever\n"
 	"stuck.\l"
-	"You might notice something useful.", MSGBOX_NPC)
+	"You might notice something new.", MSGBOX_NPC)
 }
 
 script FushciaCity_PlaceholderNPC {

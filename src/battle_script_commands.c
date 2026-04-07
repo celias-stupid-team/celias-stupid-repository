@@ -4735,8 +4735,12 @@ static void Cmd_playanimation(void)
         if (gBattlescriptCurrInstr[2] == B_ANIM_RHYDON_TRANSFORM)
         {
             u16 species = SPECIES_RHYDON;
+            u8 monGender = GetMonGender(mon);
+            
+            if (monGender == MON_GENDERLESS && GetRandomGenderBySpecies(species) != MON_GENDERLESS)
+                monGender = GetRandomGenderBySpecies(species);
             gBattleMons[gActiveBattler].species = species;
-            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon));
+            CreateMonWithGenderNatureLetter(mon, species, GetMonData(mon, MON_DATA_LEVEL), USE_RANDOM_IVS, monGender, GetNature(mon));
             gBattleMoveDamage = 0;
         }
         // create Inkay right before form change
@@ -11344,6 +11348,22 @@ static void Cmd_givecaughtmon(void)
     gBattleResults.caughtMonSpecies = gBattleMons[gBattlerAttacker ^ BIT_SIDE].species;
     GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gBattleResults.caughtMonNick);
 
+    // item slot 6 being set to 255 EA when catching SPECIES_MISSINGNO
+    if (gBattleResults.caughtMonSpecies == SPECIES_MISSINGNO)
+    {
+        struct BagPocket *itemsPocket = &gBagPockets[POCKET_ITEMS - 1];
+        u8 filledSlots = 0;
+        u8 i;
+
+        for (i = 0; i < itemsPocket->capacity; i++)
+        {
+            if (itemsPocket->itemSlots[i].itemId != ITEM_NONE)
+                filledSlots++;
+        }
+        if (filledSlots >= 6 && ItemId_GetImportance(itemsPocket->itemSlots[5].itemId) == 0)
+            SetBagItemQuantity(&itemsPocket->itemSlots[5].quantity, 255);
+    }
+
     gBattlescriptCurrInstr++;
 }
 
@@ -13405,5 +13425,21 @@ void BS_RestoreGlitchPalettes(void)
     for (i = 0; i < PLTT_BUFFER_SIZE; i++)
         gPlttBufferFaded[i] = sGlitchBattleScreenSavedPalette[i];
     
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_TryHealXHp(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    u8 healAmount = gBattleMoves[gCurrentMove].secondaryEffectChance;
+
+    if (gBattleMons[gBattlerAttacker].hp == gBattleMons[gBattlerAttacker].maxHP)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+        return;
+    }
+
+    gBattleMoveDamage = healAmount * -1;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
