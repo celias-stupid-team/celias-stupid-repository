@@ -1072,7 +1072,7 @@ static void Cmd_attackcanceler(void)
     }
 
     // EFFECT_SHINE
-    if (gProtectStructs[gBattlerTarget].bounceShineMove && gCurrentMove != MOVE_UP_THROW)
+    if (gProtectStructs[gBattlerTarget].bounceShineMove && gCurrentMove != MOVE_UP_THROW && gCurrentMove != MOVE_GULP)
     {
         PressurePPLose(gBattlerAttacker, gBattlerTarget, MOVE_REFLECT);
         gProtectStructs[gBattlerTarget].bounceShineMove = FALSE;
