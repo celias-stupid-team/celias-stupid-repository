@@ -1500,6 +1500,11 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_AcidRainDrops, 0x0700, ANIM_TAG_ACID_RAIN_DROPS},
     {gBattleAnimSpriteGfx_PSIRockinOne, 0x0E00, ANIM_TAG_PSI_ROCKIN_ONE},
     {gBattleAnimSpriteGfx_PSIRockinTwo, 0x0E00, ANIM_TAG_PSI_ROCKIN_TWO},
+    {gBattleAnimSpriteGfx_HongKongRun, 0x0A00, ANIM_TAG_HONG_KONG_RUN},
+    {gBattleAnimSpriteGfx_HongKongExplosion, 0x0A00, ANIM_TAG_HONG_KONG_EXPLOSION},
+    {gBattleAnimSpriteGfx_HongKongBody, 0x0800, ANIM_TAG_HONG_KONG_BODY},
+    {gBattleAnimSpriteGfx_HongKongBullet, 0x0020, ANIM_TAG_HONG_KONG_BULLET},
+    {gBattleAnimSpriteGfx_HongKongDrug, 0x0200, ANIM_TAG_HONG_KONG_DRUG},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1965,6 +1970,11 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_AcidRainDrops, ANIM_TAG_ACID_RAIN_DROPS},
     {gBattleAnimSpritePal_PSIRockinOne, ANIM_TAG_PSI_ROCKIN_ONE},
     {gBattleAnimSpritePal_PSIRockinTwo, ANIM_TAG_PSI_ROCKIN_TWO},
+    {gBattleAnimSpritePal_HongKongRun, ANIM_TAG_HONG_KONG_RUN},
+    {gBattleAnimSpritePal_HongKongExplosion, ANIM_TAG_HONG_KONG_EXPLOSION},
+    {gBattleAnimSpritePal_HongKongBody, ANIM_TAG_HONG_KONG_BODY},
+    {gBattleAnimSpritePal_HongKongBullet, ANIM_TAG_HONG_KONG_BULLET},
+    {gBattleAnimSpritePal_HongKongDrug, ANIM_TAG_HONG_KONG_DRUG},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -2006,4 +2016,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_ACE_FLAG]            = {gBattleAnimBgImage_AceFlag,    gBattleAnimBgPalette_AceFlag,    gBattleAnimBgTilemap_AceFlag},
     [BG_SOLACEON_TOWN]       = {gBattleAnimBgImage_SolaceonTown,     gBattleAnimBgPalette_SolaceonTown,     gBattleAnimBgTilemap_SolaceonTown},
     [BG_PEWTER]              = {gBattleAnimBgImage_Pewter,     gBattleAnimBgPalette_Pewter,     gBattleAnimBgTilemap_Pewter},
+    [BG_COKE]                = {gBattleAnimBgImage_Coke,       gBattleAnimBgPalette_Coke,       gBattleAnimBgTilemap_Coke},
 };

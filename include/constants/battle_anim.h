@@ -468,6 +468,11 @@
 #define ANIM_TAG_ACID_RAIN_DROPS            (ANIM_SPRITES_START + 458)
 #define ANIM_TAG_PSI_ROCKIN_ONE             (ANIM_SPRITES_START + 459)
 #define ANIM_TAG_PSI_ROCKIN_TWO             (ANIM_SPRITES_START + 460)
+#define ANIM_TAG_HONG_KONG_RUN              (ANIM_SPRITES_START + 461)
+#define ANIM_TAG_HONG_KONG_EXPLOSION        (ANIM_SPRITES_START + 462)
+#define ANIM_TAG_HONG_KONG_BODY             (ANIM_SPRITES_START + 463)
+#define ANIM_TAG_HONG_KONG_BULLET           (ANIM_SPRITES_START + 464)
+#define ANIM_TAG_HONG_KONG_DRUG             (ANIM_SPRITES_START + 465)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -532,6 +537,7 @@
 #define BG_ACE_FLAG 35
 #define BG_SOLACEON_TOWN 36
 #define BG_PEWTER 37
+#define BG_COKE 38
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
