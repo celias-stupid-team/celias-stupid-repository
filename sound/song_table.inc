@@ -438,7 +438,37 @@ gSongTable::
 	song mus_mus_yugioh_2, 0, 0
 	song mus_downstream, 0, 0
 	song mus_yoshi_victory, 0, 0
-
+	song se_gaster_blaster, 1, 1
+	song se_gaster_windup, 1, 1
+	song se_annette_attack, 1, 1
+	song se_aurora, 1, 1
+	song se_baba_win, 1, 1
+    song se_missile_bark, 1, 1
+    song se_tcg_blizzard, 1, 1
+	song se_buzzer, 1, 1
+    song se_capture_collapse, 1, 1
+    song se_capture_jump, 1, 1
+    song se_capture_rise, 1, 1
+    song se_tcg_charge, 1, 1
+    song se_tcg_coin_flip, 1, 1
+    song se_crit, 1, 1
+    song se_dodgeball, 1, 1
+    song se_fart, 1, 1
+    song se_tcg_goo, 1, 1
+    song se_home_run, 1, 1
+    song se_tcg_impact, 1, 1
+    song se_tcg_jab, 1, 1
+    song se_gen2_leer, 1, 1
+    song se_my_eyes, 1, 1
+    song se_nice, 1, 1
+    song se_tcg_powder, 1, 1
+    song se_tcg_quick_attack, 1, 1
+    song se_tcg_rock_throw, 1, 1
+    song se_shine, 1, 1
+    song se_tcg_slash, 1, 1
+    song se_waa, 1, 1
+    song se_tcg_waterfall, 1, 1
+	song mus_safari_evolution, 0, 0
 
 
 dummy_song_header:

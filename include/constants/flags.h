@@ -702,9 +702,9 @@
 #define FLAG_SILPH_7F_DOOR_2                             0x285
 #define FLAG_SILPH_7F_DOOR_3                             0x286
 #define FLAG_SILPH_8F_DOOR                               0x287
-#define FLAG_SILPH_9F_DOOR_1                             0x288
-#define FLAG_SILPH_9F_DOOR_2                             0x289
-#define FLAG_SILPH_9F_DOOR_3                             0x28A
+#define FLAG_TALKED_TO_HAKARI                             0x288
+#define FLAG_TALKED_TO_BLIZ                             0x289
+#define FLAG_REUNITED_HAKARI_AND_BLIZ                             0x28A
 #define FLAG_SILPH_9F_DOOR_4                             0x28B
 #define FLAG_SILPH_10F_DOOR                              0x28C
 #define FLAG_SILPH_11F_DOOR                              0x28D

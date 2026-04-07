@@ -906,3 +906,5 @@ const u16 gObjectEventPal_GAY_1[] = INCBIN_U16("graphics/object_events/palettes/
 const u32 gObjectEventPic_GAY_2[] = INCBIN_U32("graphics/object_events/pics/stupid/GAY_2.4bpp");
 const u32 gObjectEventPic_LICHEN_SPROUT[] = INCBIN_U32("graphics/object_events/pics/stupid/LICHEN_SPROUT.4bpp");
 const u32 gObjectEventPic_SPROUT_2[] = INCBIN_U32("graphics/object_events/pics/stupid/SPROUT_2.4bpp");
+const u32 gObjectEventPic_HAKARI_ENTERS[] = INCBIN_U32("graphics/object_events/pics/stupid/HAKARI_ENTERS.4bpp");
+const u32 gObjectEventPic_FRIEND_TREE[] = INCBIN_U32("graphics/object_events/pics/stupid/FRIEND_TREE.4bpp");

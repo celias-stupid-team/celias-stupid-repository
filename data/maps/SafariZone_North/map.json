@@ -2,7 +2,7 @@
   "id": "MAP_SAFARI_ZONE_NORTH",
   "name": "SafariZone_North",
   "layout": "LAYOUT_SAFARI_ZONE_NORTH",
-  "music": "MUS_EVOLUTION",
+  "music": "MUS_SAFARI_EVOLUTION",
   "region_map_section": "MAPSEC_KANTO_SAFARI_ZONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -230,27 +230,6 @@
   ],
   "warp_events": [
     {
-      "x": 10,
-      "y": 34,
-      "elevation": 3,
-      "dest_map": "MAP_SAFARI_ZONE_WEST",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 11,
-      "y": 34,
-      "elevation": 3,
-      "dest_map": "MAP_SAFARI_ZONE_WEST",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 12,
-      "y": 34,
-      "elevation": 0,
-      "dest_map": "MAP_SAFARI_ZONE_WEST",
-      "dest_warp_id": "2"
-    },
-    {
       "x": 19,
       "y": 34,
       "elevation": 3,
@@ -263,13 +242,6 @@
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_CENTER",
       "dest_warp_id": "4"
-    },
-    {
-      "x": 12,
-      "y": 34,
-      "elevation": 0,
-      "dest_map": "MAP_SAFARI_ZONE_WEST",
-      "dest_warp_id": "5"
     },
     {
       "x": 48,
@@ -302,16 +274,9 @@
     {
       "x": 21,
       "y": 34,
-      "elevation": 3,
-      "dest_map": "MAP_SAFARI_ZONE_CENTER",
-      "dest_warp_id": "4"
-    },
-    {
-      "x": 21,
-      "y": 34,
       "elevation": 0,
       "dest_map": "MAP_SAFARI_ZONE_CENTER",
-      "dest_warp_id": "5"
+      "dest_warp_id": "4"
     },
     {
       "x": 39,
@@ -319,6 +284,20 @@
       "elevation": 0,
       "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 35,
+      "elevation": 3,
+      "dest_map": "MAP_SAFARI_ZONE_CENTER",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 21,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_CENTER",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [],

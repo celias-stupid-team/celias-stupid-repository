@@ -3809,7 +3809,38 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_SALSA) \
     X(MUS_MUS_YUGIOH_2) \
     X(MUS_DOWNSTREAM) \
-    X(MUS_YOSHI_VICTORY)
+    X(MUS_YOSHI_VICTORY) \
+    X(SE_GASTER_BLASTER) \
+    X(SE_GASTER_WINDUP) \
+    X(SE_ANNETTE_ATTACK) \
+    X(SE_AURORA) \
+    X(SE_BABA_WIN) \
+    X(SE_MISSILE_BARK) \
+    X(SE_TCG_BLIZZARD) \
+    X(SE_BUZZER) \
+    X(SE_CAPTURE_COLLAPSE) \
+    X(SE_CAPTURE_JUMP) \
+    X(SE_CAPTURE_RISE) \
+    X(SE_TCG_CHARGE) \
+    X(SE_TCG_COIN_FLIP) \
+    X(SE_CRIT) \
+    X(SE_DODGEBALL) \
+    X(SE_FART) \
+    X(SE_TCG_GOO) \
+    X(SE_HOME_RUN) \
+    X(SE_TCG_IMPACT) \
+    X(SE_TCG_JAB) \
+    X(SE_GEN2_LEER) \
+    X(SE_MY_EYES) \
+    X(SE_NICE) \
+    X(SE_TCG_POWDER) \
+    X(SE_TCG_QUICK_ATTACK) \
+    X(SE_TCG_ROCK_THROW) \
+    X(SE_SHINE) \
+    X(SE_TCG_SLASH) \
+    X(SE_WAA) \
+    X(SE_TCG_WATERFALL) \
+    X(MUS_SAFARI_EVOLUTION) \
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

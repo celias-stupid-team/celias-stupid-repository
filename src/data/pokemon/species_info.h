@@ -3662,13 +3662,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_MAGMAR] =
     {
-        .baseHP = 150,
+        .baseHP = 200,
         .baseAttack = 95,
         .baseDefense = 1,
         .baseSpeed = 93,
         .baseSpAttack = 100,
         .baseSpDefense = 1,
-        .types = {TYPE_GRASS, TYPE_BUG},
+        .types = {TYPE_GRASS, TYPE_GHOST},
         .catchRate = 255,
         .expYield = 167,
         .evYield_HP = 0,

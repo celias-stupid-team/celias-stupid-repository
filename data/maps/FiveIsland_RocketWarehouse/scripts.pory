@@ -431,10 +431,10 @@ script Warehouse_PlatoClosetSign {
 }
 
 script Warehouse_PlatoCameo {
-	lock
-	faceplayer
+	trainerbattle_single(TRAINER_PLASTO, "PLATO: Dan", "Dan.")
 	msgbox(
 	"PLATO: Dan.\n"
-	"", MSGBOX_DEFAULT)
+	"", MSGBOX_NPC)
 	release
 }
+

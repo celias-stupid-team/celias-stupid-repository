@@ -9362,6 +9362,7 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_ELECTRIFY
         && gLastPrintedMoves[gBattlerTarget] != MOVE_10000_VOLTS
         && gLastPrintedMoves[gBattlerTarget] != MOVE_VOLCANIC_HEALING
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_SHEER_COLD
         && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
     {

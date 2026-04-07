@@ -149,6 +149,17 @@ const struct SpriteTemplate gRockFragmentSpriteTemplate =
     .callback = AnimRockFragment,
 };
 
+const struct SpriteTemplate gMeatFragmentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MEATBALL,
+    .paletteTag = ANIM_TAG_MEATBALL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FlyingRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockFragment,
+};
+
 const struct SpriteTemplate gRockFragmentSelfSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROCKS,
@@ -1115,3 +1126,4 @@ void AnimTask_SeismicTossBgAccelerateDownAtEnd(u8 taskId)
         DestroyAnimVisualTask(taskId);
     }
 }
+

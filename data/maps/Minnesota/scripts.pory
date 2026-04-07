@@ -13,7 +13,14 @@ mapscripts Minnesota_MapScripts {
 		if(!flag(FLAG_SENT_BIKER_FLYING)) {
 			setflag(FLAG_TEMP_6)
 		}
-		
+		if(!flag(FLAG_TALKED_TO_HAKARI)) {
+			setflag(FLAG_TEMP_7)
+		}
+		if(!flag(FLAG_REUNITED_HAKARI_AND_BLIZ)) {
+			setflag(FLAG_TEMP_8)
+
+		}
+		setflag(FLAG_TEMP_9)
 	}
 }
 
@@ -451,4 +458,57 @@ script Minnesota_DeadBiker {
 	"Oh?\n"
 	"What is he sinking about?", MSGBOX_SIGN)
 
+}
+
+script Minnesota_Bliz {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Where is hakari\n"
+	"", MSGBOX_DEFAULT)
+	msgbox(
+	"Oh you found hakari\n"
+	"let's", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	setflag(FLAG_REUNITED_HAKARI_AND_BLIZ)
+	playse(SE_M_DIG)
+	addobject(LOCALID_DIGGING_HAKARI)
+	applymovement(LOCALID_DIGGING_HAKARI, moves(
+		walk_in_place_left * 3
+	))
+	waitmovement(0)
+	playse(SE_M_DIG)
+	applymovement(LOCALID_DIGGING_HAKARI, moves(
+		walk_in_place_up * 3
+	))
+	waitmovement(0)
+	playse(SE_M_DIG)
+	applymovement(LOCALID_DIGGING_HAKARI, moves(
+		walk_in_place_down * 3
+	))
+	waitmovement(0)
+	removeobject(LOCALID_DIGGING_HAKARI)
+	addobject(LOCALID_MINNESOTA_HAKARI)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_MINNESOTA_HAKARI, moves(
+		jump_in_place_down
+	))
+	waitmovement(0)
+	delay(30)
+	msgbox(
+	"i'm in gay with him\p"
+
+	"there's like a battle or smth\n"
+	"idk", MSGBOX_DEFAULT)
+	waitmovement(0)
+	release
+}
+
+script Minnesota_Hakari {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"hi\n"
+	"", MSGBOX_NPC)
 }
