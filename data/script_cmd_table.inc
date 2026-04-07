@@ -231,10 +231,11 @@ gScriptCmdTable::
 	.4byte ScrCmd_checkpartymon					 @ 0xe3
 	.4byte ScrCmd_checkfieldmove				 @ 0xe4
 	.4byte ScrCmd_checkpartymonslot				 @ 0xe5
-	.4byte ScrCmd_checkpartymonslotegg				 @ 0xe6
-	.4byte ScrCmd_gotorandom                           @ 0xe7
-	.4byte ScrCmd_setplayermetatile                    @ 0xe8
-	.4byte ScrCmd_are_vars_equal                    @ 0xe9
+	.4byte ScrCmd_checkpartymonslotegg			 @ 0xe6
+	.4byte ScrCmd_gotorandom                     @ 0xe7
+	.4byte ScrCmd_setplayermetatile              @ 0xe8
+	.4byte ScrCmd_are_vars_equal                 @ 0xe9
+	.4byte ScrCmd_getobjectxy                    @ 0xea
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
