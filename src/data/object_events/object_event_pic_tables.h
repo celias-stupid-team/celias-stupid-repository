@@ -6679,3 +6679,14 @@ const struct SpriteFrameImage gObjectEventPicTable_HAKARI_ENTERS[] = {
     overworld_frame(gObjectEventPic_HAKARI_ENTERS, 2, 4, 7),
     overworld_frame(gObjectEventPic_HAKARI_ENTERS, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_FRIEND_TREE[] = {
+    overworld_frame(gObjectEventPic_FRIEND_TREE, 2, 2, 0),
+    overworld_frame(gObjectEventPic_FRIEND_TREE, 2, 2, 1),
+    overworld_frame(gObjectEventPic_FRIEND_TREE, 2, 2, 2),
+    overworld_frame(gObjectEventPic_FRIEND_TREE, 2, 2, 0),
+    overworld_frame(gObjectEventPic_FRIEND_TREE, 2, 2, 0),
+    overworld_frame(gObjectEventPic_FRIEND_TREE, 2, 2, 1),
+    overworld_frame(gObjectEventPic_FRIEND_TREE, 2, 2, 1),
+    overworld_frame(gObjectEventPic_FRIEND_TREE, 2, 2, 2),
+    overworld_frame(gObjectEventPic_FRIEND_TREE, 2, 2, 2),
+};

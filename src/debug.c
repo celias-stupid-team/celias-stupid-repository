@@ -3810,6 +3810,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_MUS_YUGIOH_2) \
     X(MUS_DOWNSTREAM) \
     X(MUS_YOSHI_VICTORY) \
+    X(MUS_SAFARI_EVOLUTION)
     X(SE_GASTER_BLASTER) \
     X(SE_GASTER_WINDUP) \
     X(SE_ANNETTE_ATTACK) \

@@ -2,7 +2,7 @@
   "id": "MAP_SAFARI_ZONE_EAST",
   "name": "SafariZone_East",
   "layout": "LAYOUT_SAFARI_ZONE_EAST",
-  "music": "MUS_EVOLUTION",
+  "music": "MUS_SAFARI_EVOLUTION",
   "region_map_section": "MAPSEC_KANTO_SAFARI_ZONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
