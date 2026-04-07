@@ -1027,9 +1027,19 @@ BattleScript_EffectDragonRage::
 	ppreduce
 	typecalc
 	bicbyte gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
-	setword gBattleMoveDamage, 4
+	jumpifmove MOVE_DRAGON_RAGE, BattleScript_DragonRageDamage
+	jumpifmove MOVE_LIGHT_OF_RUINS, BattleScript_LightOfRuinsDamage
+BattleScript_DragonRageContinue:
 	adjustsetdamage
 	goto BattleScript_HitFromAtkAnimation
+
+BattleScript_DragonRageDamage:
+	setword gBattleMoveDamage, 4
+	goto BattleScript_DragonRageContinue
+
+BattleScript_LightOfRuinsDamage:
+	setword gBattleMoveDamage, 49
+	goto BattleScript_DragonRageContinue
 
 BattleScript_EffectTrap::
 	jumpifnotmove MOVE_WHIRLPOOL, BattleScript_DoWrapEffect
