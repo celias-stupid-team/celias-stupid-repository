@@ -367,3 +367,10 @@
 	.byte 0x36
 	.byte \battler
 	.endm
+
+	.macro jumpifspecies battler:req, species:req, ptr:req
+	.byte 0x37
+	.byte \battler
+	.2byte \species
+	.4byte \ptr
+	.endm

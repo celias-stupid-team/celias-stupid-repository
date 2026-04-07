@@ -18,6 +18,7 @@
 #include "text.h"
 #include "sound.h"
 #include "pokedex.h"
+#include "pokedex_screen.h"
 #include "window.h"
 #include "reshow_battle_screen.h"
 #include "main.h"
@@ -1071,7 +1072,7 @@ static void Cmd_attackcanceler(void)
     }
 
     // EFFECT_SHINE
-    if (gProtectStructs[gBattlerTarget].bounceShineMove && gCurrentMove != MOVE_UP_THROW)
+    if (gProtectStructs[gBattlerTarget].bounceShineMove && gCurrentMove != MOVE_UP_THROW && gCurrentMove != MOVE_GULP)
     {
         PressurePPLose(gBattlerAttacker, gBattlerTarget, MOVE_REFLECT);
         gProtectStructs[gBattlerTarget].bounceShineMove = FALSE;
@@ -13442,5 +13443,14 @@ void BS_TryHealXHp(void)
     }
 
     gBattleMoveDamage = healAmount * -1;
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetPokedexFlag(void)
+{
+    NATIVE_ARGS(u16 species, u8 caseId);
+
+    DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

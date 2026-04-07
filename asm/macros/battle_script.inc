@@ -1932,3 +1932,8 @@
 	callnative BS_TryHealXHp
 	.4byte \failInstr
 	.endm
+	.macro setpokedexflag species:req, flagId:req
+	callnative BS_SetPokedexFlag
+	.2byte \species
+	.byte \flagId
+	.endm
