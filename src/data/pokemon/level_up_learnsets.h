@@ -272,6 +272,7 @@ static const struct LevelUpMove sRattataLevelUpLearnset[] = {
 static const struct LevelUpMove sRaticateLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_ENDEAVOR),
     LEVEL_UP_MOVE(1, MOVE_EXTREME_SPEED),
+    LEVEL_UP_MOVE(1, MOVE_BIDE),
     //LEVEL_UP_MOVE(1, MOVE_PAIN_SPLIT),
     //LEVEL_UP_MOVE(1, MOVE_RECYCLE),
     LEVEL_UP_END

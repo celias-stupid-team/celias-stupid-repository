@@ -280,11 +280,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_SEMI_INVULNERABLE,
         .power = 70,
         .type = TYPE_FLYING,
-        .accuracy = 95,
+        .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
@@ -14200,6 +14200,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = 0,
+        .stringId = B_MSG_TAUNT,
     },
 
     
@@ -14233,8 +14234,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_COMET_PUNCH_2] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
+        .effect = EFFECT_MULTI_HIT,
+        .power = 35,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,
@@ -14247,8 +14248,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_HBO_MAX_FINALE] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_WATER,
+        .power = 15,
+        .type = TYPE_BUG,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
@@ -14260,8 +14261,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_MAX_STONESURGE] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_WATER,
+        .power = 155,
+        .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
@@ -14273,8 +14274,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ACID_RAIN] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_WATER,
+        .power = 95,
+        .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
@@ -14286,8 +14287,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ASS] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_WATER,
+        .power = 95,
+        .type = TYPE_CHOCOLATE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
@@ -14312,9 +14313,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BAG] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_WATER,
-        .accuracy = 100,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -14325,7 +14326,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FUCK] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 90,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,
@@ -14337,10 +14338,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TACKLE_MAGIKARP] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_WATER,
-        .accuracy = 100,
+        .effect = EFFECT_RAMPAGE,
+        .power = 35,
+        .type = TYPE_NORMAL,
+        .accuracy = 95,
         .pp = 35,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -14351,8 +14352,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_RAGING_BULLWORM] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_WATER,
+        .power = 90,
+        .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
