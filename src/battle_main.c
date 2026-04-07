@@ -4114,7 +4114,7 @@ static void TryEvolvePokemon(void)
                 if (species != SPECIES_NONE)
                 {
                     gBattleMainFunc = WaitForEvoSceneToFinish;
-                    EvolutionScene(&gPlayerParty[i], species, 0x81, i);
+                    EvolutionScene(&gPlayerParty[i], species, TRUE, i);
                     return;
                 }
             }
