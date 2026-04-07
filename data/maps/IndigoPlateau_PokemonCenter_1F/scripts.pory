@@ -69,7 +69,7 @@ IndigoPlateau_PokemonCenter_1F_EventScript_Nurse::
 
 script IndigoPlateau_PokemonCenter_1F_OnTransition {
 	setrespawn(HEAL_LOCATION_INDIGO_PLATEAU)
-	if(!checkpartymon(SPECIES_SMEARGLE)) {
+	if(!(checkpartymon(SPECIES_SMEARGLE) || checkpartymon(SPECIES_KRABBY))) {
 		setflag(FLAG_TEMP_A)
 	}
 	specialvar (VAR_RESULT, IsNationalPokedexEnabled)
