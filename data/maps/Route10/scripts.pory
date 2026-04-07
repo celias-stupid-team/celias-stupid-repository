@@ -53,7 +53,7 @@ script Route10_Imprint {
 }
 
 script Route10_NothingToLookAt {
-	msgbox("There is nothing to look at.\pYou feel scammed.\n", MSGBOX_SIGN)
+	msgbox("There isn't anything to look at.\pYou feel scammed.\n", MSGBOX_SIGN)
 	end
 }
 

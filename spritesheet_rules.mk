@@ -1409,3 +1409,5 @@ $(OBJEVENTGFXDIR)/stupid/LICHEN_SPROUT.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 $(OBJEVENTGFXDIR)/stupid/SPROUT_2.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
+$(OBJEVENTGFXDIR)/stupid/HAKARI_ENTERS.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4

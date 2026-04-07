@@ -7179,10 +7179,10 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_PLASTO] = {
-        .trainerClass = TRAINER_CLASS_RS_BEAUTY,
+        .trainerClass = TRAINER_CLASS_PLASTO,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_RS_BEAUTY,
-        .trainerName = _("PLASTO"),
+        .trainerPic = TRAINER_PIC_PLASTO,
+        .trainerName = _("PLATO"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,

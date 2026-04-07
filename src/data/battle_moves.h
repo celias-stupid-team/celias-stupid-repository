@@ -13967,9 +13967,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_EVIL_EXPLOSION] =
     {
-        .effect = EFFECT_HIT,
-        .power = 60,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_EXPLOSION,
+        .power = 250,
+        .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
@@ -13981,7 +13981,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_IMPLOSION] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_EXPLOSION,
         .power = 60,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -13995,7 +13995,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_LICK_EXPLOSION] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_EXPLOSION,
         .power = 60,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -14009,7 +14009,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_EGGSPLPOSION] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_EXPLOSION,
         .power = 60,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -14023,7 +14023,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_GREGORY_BLAST] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_EXPLOSION,
         .power = 60,
         .type = TYPE_NORMAL,
         .accuracy = 100,
