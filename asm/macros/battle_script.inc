@@ -1927,3 +1927,8 @@
 	.macro instantwin
 	callnative BattleDebug_WonBattle
 	.endm
+
+	.macro tryhealxhp failInstr:req
+	callnative BS_TryHealXHp
+	.4byte \failInstr
+	.endm

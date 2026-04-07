@@ -13423,3 +13423,19 @@ void BS_RestoreGlitchPalettes(void)
     
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_TryHealXHp(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    u8 healAmount = gBattleMoves[gCurrentMove].secondaryEffectChance;
+
+    if (gBattleMons[gBattlerAttacker].hp == gBattleMons[gBattlerAttacker].maxHP)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+        return;
+    }
+
+    gBattleMoveDamage = healAmount * -1;
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
