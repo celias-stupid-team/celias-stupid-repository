@@ -13366,11 +13366,3 @@ extern const u32 gItemIconPalette_HDutyRoot[];
 
 extern const u32 gItemIcon_RawNugget[];
 extern const u32 gItemIconPalette_RawNugget[];
-// THATSALL
-extern const u32 gMonFrontPic_THATSALL[];
-extern const u32 gMonPalette_THATSALL[];
-extern const u32 gMonBackPic_THATSALL[];
-extern const u32 gMonShinyPalette_THATSALL[];
-extern const u8 gMonFootprint_THATSALL[];
-extern const u8 gMonIcon_THATSALL[];
-

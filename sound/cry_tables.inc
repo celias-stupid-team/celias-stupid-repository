@@ -1263,7 +1263,6 @@ gCryTable::
 	cry Cry_GREGORY
 	cry Cry_ARCEUSLAST
 	cry Cry_NOTHING
-	cry Cry_THATSALL
 
 
 	.align 2
@@ -2531,4 +2530,3 @@ gCryTable_Reverse::
 	cry_reverse Cry_GREGORY
 	cry_reverse Cry_ARCEUSLAST
 	cry_reverse Cry_NOTHING
-	cry_reverse Cry_THATSALL
