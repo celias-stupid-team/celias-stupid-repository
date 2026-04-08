@@ -64,20 +64,7 @@ script ViridianGym_MistyBattle {
 	"for size?", MSGBOX_DEFAULT)
     special(RemoveCameraObject)
     trainerbattle_no_intro(TRAINER_DMCA_MISTY, ViridianGym_MistyBattle_End)
-    if(checkpartymove(MOVE_TRUMP_CARD) == PARTY_SIZE) {
-        textcolor(NPC_TEXT_COLOR_NEUTRAL)
-        msgbox(
-        "She sends out three BLUE EYES\n"
-        "WHITE DRAGONS.\p"
 
-        "Her WHITE LIGHTNING ATTACK will\n"
-        "destroy all POKéMON you use.\p"
-
-        "You did not have the solution to\n"
-        "the fight.\l"
-        "You will die now.", MSGBOX_DEFAULT)
-        goto(EventScript_FieldWhiteOutNoMoney)
-    } else {
         msgbox(
         "Gah-!\n"
         "", MSGBOX_DEFAULT)
@@ -112,7 +99,7 @@ script ViridianGym_MistyBattle {
         release
         end
 
-    }
+
 }
 
 text ViridianGym_MistyBattle_Start {
