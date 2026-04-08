@@ -7708,7 +7708,7 @@
     },
     {
       "english": "H.DutyRoot",
-      "itemId": "ITEM_H.DUTYROOT",
+      "itemId": "ITEM_HDUTYROOT",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,

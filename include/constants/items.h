@@ -557,7 +557,7 @@
 #define ITEM_MESPRIT 475
 #define ITEM_FLAME_ORB 476
 #define ITEM_STUN_SEED 477
-#define ITEM_H.DUTYROOT 478
+#define ITEM_HDUTYROOT 478
 #define ITEMS_COUNT 479
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))

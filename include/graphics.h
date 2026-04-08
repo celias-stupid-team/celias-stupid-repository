@@ -13361,5 +13361,5 @@ extern const u8 gMonFootprint_NOTHING[];
 extern const u8 gMonIcon_NOTHING[];
 
 
-extern const u32 gItemIcon_H.DutyRoot[];
-extern const u32 gItemIconPalette_H.DutyRoot[];
+extern const u32 gItemIcon_HDutyRoot[];
+extern const u32 gItemIconPalette_HDutyRoot[];

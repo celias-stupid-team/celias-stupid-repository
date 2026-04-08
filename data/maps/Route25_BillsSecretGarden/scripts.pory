@@ -529,7 +529,7 @@ script SecretGarden_LeavePC {
                 applymovement(LOCALID_CAMERA, moves(
                     walk_faster_left
                 ))
-                waitmovement(LOCALID_CAMERA0)
+                waitmovement(LOCALID_CAMERA)
                 addvar(VAR_TEMP_6, 1)
             } elif(var(VAR_TEMP_6) > 19) {
                 applymovement(LOCALID_CAMERA, moves(
