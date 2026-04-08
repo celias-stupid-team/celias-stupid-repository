@@ -11794,6 +11794,18 @@ ConfusionEffect:
 	createsprite gConfusionDuckSpriteTemplate, ANIM_TARGET, 2, 0, -15, 204, 3, 90
 	return
 
+ConfusionBonk:
+	loadspritegfx ANIM_TAG_DUCK
+	loadspritegfx ANIM_TAG_IMPACT
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createsprite gBonkingDuckSpriteTemplate, ANIM_ATTACKER, 2, 0, -120, 0, 8, 15, 0, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_M_DIZZY_PUNCH, SOUND_PAN_ATTACKER
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_ATTACKER, 2
+	createsprite gFallingDuckSpriteTemplate, ANIM_ATTACKER, 2
+	waitforvisualfinish
+	end
+
 SetPsychicBackground:
 	fadetobg BG_PSYCHIC
 	waitbgfadeout
@@ -13728,7 +13740,6 @@ Move_ROOST:
 	end
 	
 Move_CSR_DUMMY:
-
 	goto Move_TACKLE
 	end
 	playse SE_GASTER_BLASTER
@@ -27753,6 +27764,8 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER
 	createsprite gAllegianceSpriteTemplate, ANIM_ATTACKER, 2,   0, 16, 24, 0, 0, 0, 0, 1
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 12, 0, 20, 1
+	delay 10
+	createvisualtask SoundTask_PlaySpecificCry, 2, 652
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
 	restorebg
@@ -29054,6 +29067,7 @@ Move_ASS:
 
 Move_BAG:
 Move_FUCK:
+	goto ConfusionBonk
 Move_RAGING_BULLWORM:
 	goto Move_TACKLE
 
