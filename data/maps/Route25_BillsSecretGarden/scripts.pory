@@ -293,11 +293,11 @@ script SecretGarden_PCMonitor {
                 
             }
             
-            call(EventScript_AskSaveGame)
-            if(!var(VAR_RESULT)) {
-                release
-                end
-            }
+            // call(EventScript_AskSaveGame)
+            // if(!var(VAR_RESULT)) {
+            //     release
+            //     end
+            // }
             playse(SE_PC_ON)
             applymovement(LOCALID_PLAYER, moves(
                 walk_in_place_up * 2
@@ -500,22 +500,28 @@ script SecretGarden_RetrievalChute {
 
 script SecretGarden_LeavePC {
     lock
+    //debugprintf("Broken here")
     special(RemoveCameraObject)
+    //debugprintf("Broken here 2")
     closemessage
     setvar(VAR_VIEWING_PC, 0)
+    //debugprintf("Broken here 3")
     hidemonpic
+    //debugprintf("Broken here 4")
     special(SpawnCameraObject)
-    waitmovement(0)
+    //debugprintf("Broken here 5")
+    waitmovement(LOCALID_CAMERA)
+    //debugprintf("Broken here 6")
     while(var(VAR_TEMP_7) != 8) {
         
         applymovement(LOCALID_CAMERA, moves(
             walk_faster_down
         ))
-        waitmovement(0)
+        waitmovement(LOCALID_CAMERA)
         subvar(VAR_TEMP_7, 1)
 
     }
-    waitmovement(0)
+    waitmovement(LOCALID_CAMERA)
 
     while(var(VAR_TEMP_6) != 19) {
         
@@ -523,13 +529,13 @@ script SecretGarden_LeavePC {
                 applymovement(LOCALID_CAMERA, moves(
                     walk_faster_left
                 ))
-                waitmovement(0)
+                waitmovement(LOCALID_CAMERA0)
                 addvar(VAR_TEMP_6, 1)
             } elif(var(VAR_TEMP_6) > 19) {
                 applymovement(LOCALID_CAMERA, moves(
                     walk_faster_right
                 ))
-                waitmovement(0)
+                waitmovement(LOCALID_CAMERA)
                 subvar(VAR_TEMP_6, 1)
             } else {
 
