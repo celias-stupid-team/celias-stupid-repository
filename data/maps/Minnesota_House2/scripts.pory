@@ -4,6 +4,11 @@ mapscripts Minnesota_House2_MapScripts {
 		if(flag(FLAG_FOUND_ROTOM_WASH) || !flag(FLAG_SYS_ROTOM_MENU)) {
 			setflag(FLAG_TEMP_1)
 		}
+		setflag(FLAG_TEMP_2)
+		if(var(VAR_TRADING_QUEST_PHASE) >= 5) {
+			clearflag(FLAG_TEMP_2)
+			setflag(FLAG_TEMP_3)
+		}
     }
 }
 
@@ -89,4 +94,10 @@ script Laundromat_Quarters {
 	))
 	waitmovement(0)
 	release
+}
+
+script Laundromat_OneSawk {
+	msgbox(
+	"Oh no! One of the SAWKS got lost\n"
+	"in the laundry!", MSGBOX_NPC)
 }

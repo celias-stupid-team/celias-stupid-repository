@@ -30,6 +30,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BOULDER_TOP_RIGHT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 12,
@@ -44,6 +45,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BOULDER_TOP_LEFT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 10,
@@ -60,8 +62,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROTOM_HEAT",
-      "x": 7,
-      "y": 9,
+      "x": 6,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -74,7 +76,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROTOM_FROST",
-      "x": 13,
+      "x": 14,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -88,8 +90,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROTOM_FAN",
-      "x": 14,
-      "y": 9,
+      "x": 16,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -117,7 +119,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROTOM_MOW",
       "x": 12,
-      "y": 9,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 2,
@@ -142,6 +144,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BOULDER_BOTTOM_RIGHT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 12,
@@ -156,6 +159,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BOULDER_BOTTOM_LEFT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 10,
@@ -212,20 +216,7 @@
       "flag": "0"
     },
     {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 11,
-      "y": 19,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_StrengthBoulder",
-      "flag": "0"
-    },
-    {
+      "local_id": "LOCALID_BOULDER_MIDDLE_LEFT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 10,
@@ -240,6 +231,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BOULDER_TOP_MID",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 11,
@@ -254,10 +246,41 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BOULDER_MIDDLE_RIGHT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 12,
       "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_GOLDEEN",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GOLDEEN",
+      "x": 11,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_6"
+    },
+    {
+      "local_id": "LOCALID_BOULDER_BOTTOM_MID",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 11,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -271,14 +294,14 @@
   "warp_events": [
     {
       "x": 11,
-      "y": 23,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_ROUTE17",
       "dest_warp_id": "0"
     },
     {
       "x": 11,
-      "y": 5,
+      "y": 12,
       "elevation": 0,
       "dest_map": "MAP_ROUTE23_UNUSED_HOUSE",
       "dest_warp_id": "0"

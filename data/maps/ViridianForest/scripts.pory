@@ -332,3 +332,13 @@ script ViridianForest_SetGrassFlag {
 	setflag(FLAG_WALKED_THROUGH_GRASS)
 	release
 }
+
+script ViridianForest_10UGuyFuckYou {
+	if(flag(FLAG_CSR_CELIA_BONUS)) {
+		applymovement(LOCALID_10U_GUY, moves(
+			face_up
+		))
+		waitmovement(0)
+	}
+	release
+}
