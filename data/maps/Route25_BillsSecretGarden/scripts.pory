@@ -292,6 +292,12 @@ script SecretGarden_PCMonitor {
                 end
                 
             }
+            
+            call(EventScript_AskSaveGame)
+            if(!var(VAR_RESULT)) {
+                release
+                end
+            }
             playse(SE_PC_ON)
             applymovement(LOCALID_PLAYER, moves(
                 walk_in_place_up * 2
