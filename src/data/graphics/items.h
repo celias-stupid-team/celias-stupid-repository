@@ -1002,3 +1002,6 @@ const u32 gItemIconPalette_FlameOrb[] = INCBIN_U32("graphics/items/icon_palettes
 
 const u32 gItemIcon_StunSeed[] = INCBIN_U32("graphics/items/icons/stun_seed.4bpp.lz");
 const u32 gItemIconPalette_StunSeed[] = INCBIN_U32("graphics/items/icon_palettes/stun_seed.gbapal.lz");
+
+const u32 gItemIcon_H.DutyRoot[] = INCBIN_U32("graphics/items/icons/h.dutyroot.4bpp.lz");
+const u32 gItemIconPalette_H.DutyRoot[] = INCBIN_U32("graphics/items/icon_palettes/h.dutyroot.gbapal.lz");

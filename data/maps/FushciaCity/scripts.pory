@@ -381,7 +381,7 @@ script FushciaCity_Fishing {
 		"FISHING GURU'S BROTHER'S ARCH\n"
 		"NEMESIS: I hate fish.\p"
 
-		"Fiwhing is a farce.\n"
+		"Fishing is a farce.\n"
 		"", MSGBOX_DEFAULT)
 	} else {
 		msgbox("I hate fish.\pFishing is a farce.", MSGBOX_DEFAULT)
