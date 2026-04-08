@@ -621,6 +621,7 @@
 #define B_MSG_BRACED_ITSELF    1
 #define B_MSG_PROTECT_FAILED   2
 #define B_MSG_PROTECTED_TEAM   3
+#define B_MSG_FREEDOM   4
 
 // gRestUsedStringIds
 #define B_MSG_REST           0
