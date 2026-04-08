@@ -1329,7 +1329,9 @@ These used to be dex mons; now they're random mons that I've dexited
 
 #define SPECIES_NOTHING 1290
 
-#define SPECIES_EGG 1291
+#define SPECIES_THATSALL 1291
+
+#define SPECIES_EGG 1292
 
 #define NUM_SPECIES SPECIES_EGG
 

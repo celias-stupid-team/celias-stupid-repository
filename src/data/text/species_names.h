@@ -1292,4 +1292,5 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_GREGORY] = _("GREGORY"),
     [SPECIES_ARCEUSLAST] = _("ARCEUS"),
     [SPECIES_NOTHING] = _("NOTHING"),
+    [SPECIES_THATSALL] = _("THAT'S ALL"),
 };

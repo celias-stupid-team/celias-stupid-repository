@@ -9862,3 +9862,11 @@ const u32 gMonShinyPalette_NOTHING[] = INCBIN_U32("graphics/pokemon/nothing/shin
 const u8 gMonIcon_NOTHING[] = INCBIN_U8("graphics/pokemon/nothing/icon.4bpp");
 const u8 gMonFootprint_NOTHING[] = INCBIN_U8("graphics/pokemon/nothing/footprint.1bpp");
 
+// THATSALL
+const u32 gMonFrontPic_THATSALL[] = INCBIN_U32("graphics/pokemon/thatsall/front.4bpp.lz");
+const u32 gMonPalette_THATSALL[] = INCBIN_U32("graphics/pokemon/thatsall/normal.gbapal.lz");
+const u32 gMonBackPic_THATSALL[] = INCBIN_U32("graphics/pokemon/thatsall/back.4bpp.lz");
+const u32 gMonShinyPalette_THATSALL[] = INCBIN_U32("graphics/pokemon/thatsall/shiny.gbapal.lz");
+const u8 gMonIcon_THATSALL[] = INCBIN_U8("graphics/pokemon/thatsall/icon.4bpp");
+const u8 gMonFootprint_THATSALL[] = INCBIN_U8("graphics/pokemon/thatsall/footprint.1bpp");
+
