@@ -30,7 +30,7 @@ FushciaCity_PokemonCenter_1F_EventScript_Youngster::
 
 script FushciaCity_GetOakPC {
 	msgbox(
-	"C'ya ever find yourself completely\n"
+	"D'ya ever find yourself completely\n"
 	"stuck with no clue what to do?\l"
 	"I do sometimes.\p"
 
