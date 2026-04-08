@@ -473,6 +473,10 @@
 #define ANIM_TAG_HONG_KONG_BODY             (ANIM_SPRITES_START + 463)
 #define ANIM_TAG_HONG_KONG_BULLET           (ANIM_SPRITES_START + 464)
 #define ANIM_TAG_HONG_KONG_DRUG             (ANIM_SPRITES_START + 465)
+#define ANIM_TAG_VACUUM                     (ANIM_SPRITES_START + 466)
+#define ANIM_TAG_SCISSORS                   (ANIM_SPRITES_START + 467)
+#define ANIM_TAG_COOLTRAINER                (ANIM_SPRITES_START + 468)
+#define ANIM_TAG_KANGAS                     (ANIM_SPRITES_START + 469)
 
 // battlers
 #define ANIM_ATTACKER       0

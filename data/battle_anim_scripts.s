@@ -14595,11 +14595,20 @@ Move_TAKE_HEART:
 	loopsewithpan SE_M_DIZZY_PUNCH, SOUND_PAN_TARGET, 4, 3
 	end
 	
+Move_POPULATION_BOMB_KANGA:
+Move_POPULATION_BOMB_DAD:
 Move_POPULATION_BOMB:
 	loadspritegfx ANIM_TAG_EXPLOSION
-	loadspritegfx ANIM_TAG_PROTAGONISTS
+	loadspritegfx ANIM_TAG_CSR_CRAB
 	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
-	createsprite gProtagonistThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+
+	@jumpifspecies ANIM_ATTACKER, SPECIES_MR_MIME, PopBombDad
+	@jumpifspecies ANIM_ATTACKER, SPECIES_KANGASKHAN, PopBombKanga
+	@jumpifspecies ANIM_ATTACKER, SPECIES_DUGTRIO, PopBombDigletts
+	@jumpifspecies ANIM_ATTACKER, SPECIES_FARFETCHD, PopBombFarfetchd
+
+	createsprite gKrabbyThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+PopBombContinue:
 	waitforvisualfinish
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 16, 1
 	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
@@ -14619,6 +14628,26 @@ Move_POPULATION_BOMB:
 	delay 3
 	waitforvisualfinish
 	end
+
+PopBombDad:
+	loadspritegfx ANIM_TAG_PROTAGONISTS
+	createsprite gProtagonistThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	goto PopBombContinue
+
+PopBombKanga:
+	loadspritegfx ANIM_TAG_KANGAS
+	createsprite gKangaThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	goto PopBombContinue
+
+PopBombDigletts:
+	loadspritegfx ANIM_TAG_MINI_DIGLETT
+	createsprite gDiglettThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	goto PopBombContinue
+
+PopBombFarfetchd:
+	loadspritegfx ANIM_TAG_SCISSORS
+	createsprite gScissorsThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	goto PopBombContinue
 	
 Move_DADDLING_GLEAM:
 	loadspritegfx ANIM_TAG_DAD_OF_LIGHT
@@ -28494,7 +28523,6 @@ Move_ORTHQUAKE:
 Move_CRUSECEAN_WRENCH:
 Move_GAY_BALL_PROBLEMS:
 Move_SUBSTITUTE_DAD:
-Move_POPULATION_BOMB_KANGA:
 Move_SOFT_LOCK:
 Move_GAME_GENIE:
 Move_CALMP:
@@ -28866,30 +28894,6 @@ RickAgainstPlayer:
 	end
 
 
-Move_POPULATION_BOMB_DAD:
-	loadspritegfx ANIM_TAG_EXPLOSION
-	loadspritegfx ANIM_TAG_PROTAGONISTS
-	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
-	createsprite gProtagonistThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
-	waitforvisualfinish
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 16, 1
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	waitforvisualfinish
-	end
 
 
 Move_CRAB_GRIP:

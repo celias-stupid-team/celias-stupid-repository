@@ -514,6 +514,18 @@ const u32 gBattleAnimSpritePal_HongKongBullet[] = INCBIN_U32("graphics/battle_an
 const u32 gBattleAnimSpriteGfx_HongKongDrug[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_drug.4bpp.lz");
 const u32 gBattleAnimSpritePal_HongKongDrug[] = INCBIN_U32("graphics/battle_anims/sprites/hongkong_drug.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Vacuum[] = INCBIN_U32("graphics/battle_anims/sprites/vacuum.4bpp.lz");
+const u32 gBattleAnimSpritePal_Vacuum[] = INCBIN_U32("graphics/battle_anims/sprites/vacuum.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Scissors[] = INCBIN_U32("graphics/battle_anims/sprites/scissors.4bpp.lz");
+const u32 gBattleAnimSpritePal_Scissors[] = INCBIN_U32("graphics/battle_anims/sprites/scissors.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Cooltrainer[] = INCBIN_U32("graphics/battle_anims/sprites/cooltrainer.4bpp.lz");
+const u32 gBattleAnimSpritePal_Cooltrainer[] = INCBIN_U32("graphics/battle_anims/sprites/cooltrainer.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Kangas[] = INCBIN_U32("graphics/battle_anims/sprites/kangas.4bpp.lz");
+const u32 gBattleAnimSpritePal_Kangas[] = INCBIN_U32("graphics/battle_anims/sprites/kangas.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

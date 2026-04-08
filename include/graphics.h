@@ -8867,6 +8867,10 @@ extern const u32 gBattleAnimSpriteGfx_HongKongExplosion[];
 extern const u32 gBattleAnimSpriteGfx_HongKongBody[];
 extern const u32 gBattleAnimSpriteGfx_HongKongBullet[];
 extern const u32 gBattleAnimSpriteGfx_HongKongDrug[];
+extern const u32 gBattleAnimSpriteGfx_Vacuum[];
+extern const u32 gBattleAnimSpriteGfx_Scissors[];
+extern const u32 gBattleAnimSpriteGfx_Cooltrainer[];
+extern const u32 gBattleAnimSpriteGfx_Kangas[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9287,6 +9291,10 @@ extern const u32 gBattleAnimSpritePal_HongKongExplosion[];
 extern const u32 gBattleAnimSpritePal_HongKongBody[];
 extern const u32 gBattleAnimSpritePal_HongKongBullet[];
 extern const u32 gBattleAnimSpritePal_HongKongDrug[];
+extern const u32 gBattleAnimSpritePal_Vacuum[];
+extern const u32 gBattleAnimSpritePal_Scissors[];
+extern const u32 gBattleAnimSpritePal_Cooltrainer[];
+extern const u32 gBattleAnimSpritePal_Kangas[];
 
 //CSR Moves
 
