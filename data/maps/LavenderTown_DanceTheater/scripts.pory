@@ -5,6 +5,12 @@ mapscripts LavenderTown_DanceTheater_MapScripts {
         setvar(VAR_TEMP_5, 8) // Sign Lady's X
         setflag(FLAG_TEMP_5)
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_CURRENT_CHAPTER, 2 {
+            setflag(FLAG_DANCE_THEATER_CHAPTER_3)
+            warpsilent(MAP_SILPH_CO_1F, 0)
+        }
+    ]
 }
 
 // ############### regular scripts ###############

@@ -59,8 +59,6 @@ TwoIsland_EventScript_Clerk::
 	end
 
 TwoIsland_EventScript_ClerkShopExpanded3::
-	goto_if_set FLAG_TWO_ISLAND_SHOP_EXPANDED_3, TwoIsland_EventScript_ClerkShopSkipIntro
-	setflag FLAG_TWO_ISLAND_SHOP_EXPANDED_3
 	message TwoIsland_Text_BringingItemsFromDistantLands
 	waitmessage
 	goto TwoIsland_EventScript_ShopExpanded3

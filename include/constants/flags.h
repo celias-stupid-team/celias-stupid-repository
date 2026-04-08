@@ -726,7 +726,7 @@
 #define FLAG_TWO_ISLAND_SHOP_INTRODUCED                  0x29D
 #define FLAG_TWO_ISLAND_SHOP_EXPANDED_1                  0x29E
 #define FLAG_TWO_ISLAND_SHOP_EXPANDED_2                  0x29F
-#define FLAG_TWO_ISLAND_SHOP_EXPANDED_3                  0x2A0
+#define FLAG_DANCE_THEATER_CHAPTER_3                  0x2A0
 #define FLAG_SEVII_DETOUR_FINISHED                       0x2A1
 #define FLAG_VISITED_TWO_ISLAND                          0x2A2
 #define FLAG_RESCUED_LOSTELLE                            0x2A3

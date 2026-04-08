@@ -5649,7 +5649,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CHATTER] =    {
         .effect = EFFECT_HIT,
         .power = 65,
-        .type = TYPE_FLYING,
+        .type = TYPE_SOUND,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
@@ -8968,7 +8968,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 35,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 2,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 

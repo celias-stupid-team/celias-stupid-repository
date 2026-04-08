@@ -312,7 +312,7 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
 
     } else if (FlagGet(FLAG_SYS_GIRL_HOLE)) {
         //DebugPrintf("Girl Hole");
-        FlagSet(FLAG_SHINY_CREATION);
+        // FlagSet(FLAG_SHINY_CREATION);
         FlagClear(FLAG_SYS_GIRL_HOLE);
         GenerateWildMon(SPECIES_CLOYSTER, level, slot);
 
