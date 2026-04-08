@@ -47,7 +47,7 @@ script BrendanMay_TV {
 		} else {
 			msgbox("It's POKéMON CHANNEL!\n", MSGBOX_DEFAULT)
 			msgbox("(cutscene here)\n", MSGBOX_DEFAULT)
-			msgbox("Wow!\nAs a reward, you get a free\lJIRACHI!\pQuick!\nConnect your GBA!", MSGBOX_DEFAULT)
+			msgbox("Wow!\nAs a reward, you get a free JIRACHI!\pQuick!\nConnect your GBA!", MSGBOX_DEFAULT)
 			setflag(FLAG_TEMP_1)
 		}
 

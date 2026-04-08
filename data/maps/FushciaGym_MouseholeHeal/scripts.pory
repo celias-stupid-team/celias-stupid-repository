@@ -191,8 +191,8 @@ script FushciaGym_MouseholesHeal_CloseLeftDoor {
     setmetatile(10, 13, 0x28C, FALSE)
     setmetatile(11, 13, 0x28C, FALSE)
     setmetatile(12, 13, 0x28C, FALSE)
-    setmetatile(10, 14, 0x008, TRUE)
-    setmetatile(11, 14, 0x008, TRUE)
-    setmetatile(12, 14, 0x008, TRUE)
+    setmetatile(10, 14, 0x280, TRUE)
+    setmetatile(11, 14, 0x280, TRUE)
+    setmetatile(12, 14, 0x280, TRUE)
     return
 }
