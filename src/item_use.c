@@ -1250,6 +1250,9 @@ void FieldUseFunc_PayDayTM(u8 taskId)
 
     species = SPECIES_GIMMIGHOUL;
     FlagClear(FLAG_SHINY_CREATION);
+    if(gSpecialVar_ItemId == ITEM_RAW_NUGGET) {
+        FlagSet(FLAG_SHINY_CREATION);
+    }
     if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
     {
         gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
@@ -1321,6 +1324,33 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
         break;
     }
 }
+
+
+void FieldUseFunc_BigNugget(u8 taskId)
+{
+    u16 species;
+
+    species = SPECIES_GEODUDE;
+
+    gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
+    FlagSet(FLAG_SHINY_CREATION);
+
+    switch (gSpecialVar_Result)
+    {
+    case MON_CANT_GIVE: // no space in PC
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_AllBoxesFull);
+        break;
+    case MON_GIVEN_TO_PARTY:
+    case MON_GIVEN_TO_PC:
+        PlayCry_Normal(species, CRY_MODE_DEFAULT);
+        GetSpeciesName(gStringVar1, species);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_GiveMon;
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_GimmieghoulTMUsed, SetUpItemUseOnFieldCallback);
+        break;
+    }
+}
+
+
 
 static void OpenHelpSystemFromBag(void)
 {

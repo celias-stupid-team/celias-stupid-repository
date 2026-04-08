@@ -48,15 +48,9 @@ script Minnesota_Softlock {
 
 	"Here, take this!\n"
 	"", MSGBOX_DEFAULT)
-	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GIMMIGHOUL)
-	setflag(FLAG_SHINY_CREATION)
-	playfanfare(MUS_LEVEL_UP)
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
-	msgbox(
-	"{PLAYER} was given a\n"
-	"free GIMMIGHOUL!", MSGBOX_DEFAULT)
+	giveitem_msg("{PLAYER} was given some\nfree McDONALD's!", ITEM_RAW_NUGGET)
 	waitfanfare
-	call(Common_Script_GiftPokemon19)
 	closemessage
 	delay(20)
 	textcolor(NPC_TEXT_COLOR_RED)
