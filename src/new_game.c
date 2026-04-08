@@ -27,6 +27,7 @@
 #include "trainer_tower.h"
 #include "script.h"
 #include "berry_powder.h"
+#include "save.h"
 #include "pokemon_jump.h"
 #include "event_scripts.h"
 #include "constants/items.h"
@@ -111,6 +112,12 @@ void ResetMenuAndMonGlobals(void)
 void NewGameInitData(void)
 {
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
+    bool8 celiaBonusFlagSet;
+    
+    if (FlagGet(FLAG_CSR_CELIA_BONUS))
+        celiaBonusFlagSet = TRUE;
+    else
+        celiaBonusFlagSet = FALSE;
 
     StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
     gDifferentSaveFile = TRUE;
@@ -139,6 +146,8 @@ void NewGameInitData(void)
     ClearRoamerData();
     gSaveBlock1Ptr->registeredItem = 0;
     InitCSRData();
+    if (!celiaBonusFlagSet)
+        FlagClear(FLAG_CSR_CELIA_BONUS);
     ClearBag();
     NewGameInitPCItems();
     ClearEnigmaBerries();

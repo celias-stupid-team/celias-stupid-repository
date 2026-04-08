@@ -468,6 +468,7 @@ gSongTable::
     song se_tcg_slash, 1, 1
     song se_waa, 1, 1
     song se_tcg_waterfall, 1, 1
+	song mus_safari_evolution, 0, 0
 
 
 dummy_song_header:

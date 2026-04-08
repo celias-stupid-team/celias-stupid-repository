@@ -32,7 +32,7 @@ script Starlight_House3_Dak {
     //playbgm(MUS_NONE, TRUE)
     applymovement(LOCALID_DAK, moves(
         emote_exclamation_mark
-        face_left
+        face_right
     ))
     textcolor(NPC_TEXT_COLOR_RED)
     msgbox(
@@ -44,11 +44,11 @@ script Starlight_House3_Dak {
     applymovement(LOCALID_STARLIGHT2, moves(
         set_visible
         walk_fast_down * 2
-        walk_right * 8
+        walk_left * 8
     ))
     waitmovement(LOCALID_STARLIGHT2)
     applymovement(LOCALID_PLAYER, moves(
-        face_left
+        face_right
     ))
 
 //textcolor(NPC_TEXT_COLOR_RED)
@@ -70,11 +70,15 @@ msgbox(
     //special(ShakeScreen)
 	//delay(60)
     playse(SE_CLICK)
-    setmetatile(15, 2, 0x2A6, FALSE)
+    setmetatile(1, 2, 0x2A6, FALSE)
     special(DrawWholeMapView)
 
+    applymovement(LOCALID_PLAYER, moves(
+        face_left
+    ))
+
     applymovement(LOCALID_DAK, moves(
-        walk_in_place_faster_left * 10
+        walk_in_place_faster_right * 10
         delay_16 * 4
         delay_16 * 4
         
@@ -92,9 +96,12 @@ msgbox(
 	special(ShakeScreen)
     delay(90)
     playse(SE_CLICK)
-    setmetatile(15, 2, 0x2EB, FALSE)
+    setmetatile(1, 2, 0x2EB, FALSE)
     special(DrawWholeMapView)
     delay(30)
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+    ))
     textcolor(NPC_TEXT_COLOR_RED)
     msgbox(
 	"Sorry about that, Dak is my friend.\p"
@@ -105,7 +112,7 @@ msgbox(
     "a nice fun map!", MSGBOX_SIGN)
     closemessage
     applymovement(LOCALID_STARLIGHT2, moves(
-    walk_left * 8
+    walk_right * 8
     ))
     waitmovement(LOCALID_STARLIGHT2)
     removeobject(LOCALID_STARLIGHT2)
@@ -165,28 +172,34 @@ script Starlight_House3_Wall_Map {
 
 }
 
-script Starlight_House3_Poster1 {
-	msgbox(
-	"Hey look, it's TipRaven!", MSGBOX_SIGN)
-
-}
-
-script Starlight_House3_Poster2 {
-	msgbox(
-	"Hey look, it's TinyTermite!", MSGBOX_SIGN)
-
-}
-
-script Starlight_House3_Poster3 {
-	msgbox(
-	"Hey look, it's OmegaDope!", MSGBOX_SIGN)
-
-}
-
 script Starlight_House3_Professor_Tree {
 	msgbox(
 	"Professor Tree?\p"
     "Nah it's just a regular tree\n"
     "with sunglasses on it...", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Painting {
+	msgbox(
+	"It looks to be a painting\n"
+    "of a window.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_TV {
+	msgbox(
+	"It looks to be an episode of\n"
+    "The Office.\p"
+    "Oh wait...\l"
+    "That's just Silph Co. security\n"
+    "footage.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_DMCA_Notice {
+	msgbox(
+	"It's a framed DMCA notice\n"
+    "to shut down the Map Workshop.", MSGBOX_SIGN)
 
 }

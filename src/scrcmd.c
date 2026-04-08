@@ -2759,3 +2759,20 @@ bool8 ScrCmd_gotorandom(struct ScriptContext *ctx)
     ScriptJump(ctx, (const u8 *)addr);
     return FALSE;
 }
+
+bool8 ScrCmd_getobjectxy(struct ScriptContext *ctx)
+{
+    u16 localId = VarGet(ScriptReadHalfword(ctx));
+    u16 *pX = GetVarPointer(ScriptReadHalfword(ctx));
+    u16 *pY = GetVarPointer(ScriptReadHalfword(ctx));
+    u8 objectEventId;
+
+    if (!TryGetObjectEventIdByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, &objectEventId))
+    {
+        *pX = gObjectEvents[objectEventId].currentCoords.x;
+        *pY = gObjectEvents[objectEventId].currentCoords.y;
+    }
+
+    DebugPrintf("Local ID %d, X %d, Y %d", localId, *pX, *pY);
+    return FALSE;
+}

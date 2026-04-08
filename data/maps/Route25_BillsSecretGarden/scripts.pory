@@ -34,6 +34,16 @@ raw `
 .equ VAR_VIEWING_PC, VAR_TEMP_9
 
 
+.equ FLAG_WITHDREW_SLOT_0, FLAG_TEMP_18    
+.equ FLAG_WITHDREW_SLOT_1, FLAG_TEMP_11     
+.equ FLAG_WITHDREW_SLOT_2, FLAG_TEMP_12    
+.equ FLAG_WITHDREW_SLOT_3, FLAG_TEMP_13     
+.equ FLAG_WITHDREW_SLOT_4, FLAG_TEMP_14    
+.equ FLAG_WITHDREW_SLOT_5, FLAG_TEMP_15     
+.equ FLAG_WITHDREW_SLOT_6, FLAG_TEMP_16     
+.equ FLAG_WITHDREW_SLOT_7, FLAG_TEMP_17     
+
+
 
 
 `
@@ -99,8 +109,47 @@ script SecretGarden_PCTerminal {
                 }
                 closemessage
                 hidemonpic
-                setvar(PC_BOX_SLOT_NUMBER, 0)
-                
+                switch(var(PC_BOX_SLOT_NUMBER)) {
+                    case 0:
+                        if(flag(FLAG_WITHDREW_SLOT_0)) {
+                            goto(SecretGarden_AlreadyWithdrew)
+                        }
+                    case 1:
+                        if(flag(FLAG_WITHDREW_SLOT_1)) {
+                            goto(SecretGarden_AlreadyWithdrew)
+
+                        }
+                    case 2:
+                        if(flag(FLAG_WITHDREW_SLOT_2)) {
+                            goto(SecretGarden_AlreadyWithdrew)
+
+                        }
+                    case 3:
+                        if(flag(FLAG_WITHDREW_SLOT_3)) {
+                            goto(SecretGarden_AlreadyWithdrew)
+
+                        }
+                    case 4:
+                        if(flag(FLAG_WITHDREW_SLOT_4)) {
+                            goto(SecretGarden_AlreadyWithdrew)
+
+                        }
+                    case 5:
+                        if(flag(FLAG_WITHDREW_SLOT_5)) {
+                            goto(SecretGarden_AlreadyWithdrew)
+
+                        }
+                    case 6:
+                        if(flag(FLAG_WITHDREW_SLOT_6)) {
+                            goto(SecretGarden_AlreadyWithdrew)
+
+                        }
+                    case 7:
+                        if(flag(FLAG_WITHDREW_SLOT_7)) {
+                            goto(SecretGarden_AlreadyWithdrew)
+
+                        }
+                }
                 delay(30)
                 playse(SE_BALL_TRADE)
                 delay(30)
@@ -110,6 +159,25 @@ script SecretGarden_PCTerminal {
                 "{PLAYER} withdrew the\n"
                 "{STR_VAR_1}!", MSGBOX_DEFAULT)
                 waitfanfare
+                switch(var(PC_BOX_SLOT_NUMBER)) {
+                    case 0:
+                        setflag(FLAG_WITHDREW_SLOT_0)
+                    case 1:
+                        setflag(FLAG_WITHDREW_SLOT_1)
+                    case 2:
+                        setflag(FLAG_WITHDREW_SLOT_2)
+                    case 3:
+                        setflag(FLAG_WITHDREW_SLOT_3)
+                    case 4:
+                        setflag(FLAG_WITHDREW_SLOT_4)
+                    case 5:
+                        setflag(FLAG_WITHDREW_SLOT_5)
+                    case 6:
+                        setflag(FLAG_WITHDREW_SLOT_6)
+                    case 7:
+                        setflag(FLAG_WITHDREW_SLOT_7)
+                }
+                setvar(PC_BOX_SLOT_NUMBER, 0)
                 copyvar(VAR_CSR_GIFT_POKEMON, PC_CURRENT_POKEMON)
                 if(var(PC_CURRENT_POKEMON) == SPECIES_PIKABLU) {
                     setflag(FLAG_BILL_PC_BROKE)
@@ -172,6 +240,18 @@ script SecretGarden_PCTerminal {
         release
         end
     }
+}
+
+script SecretGarden_AlreadyWithdrew {
+    waitse
+    playse(SE_BOO)
+    waitse
+    msgbox(
+    "ERROR\p"
+    "No POKéMON to withdraw.", MSGBOX_DEFAULT)
+    release
+    end
+
 }
 
 script SecretGarden_PCMonitor {
@@ -863,6 +943,16 @@ script SecretGarden_BoxCrimperControl {
 	"BOX CLOSER\n"
 	"Control Panel", MSGBOX_DEFAULT)
     if(flag(CRIMP_BOX_THERE)) {
+        if(flag(CRIMP_BOX_OPEN)) {
+            clearflag(FLAG_WITHDREW_SLOT_0)
+            clearflag(FLAG_WITHDREW_SLOT_1)
+            clearflag(FLAG_WITHDREW_SLOT_2)
+            clearflag(FLAG_WITHDREW_SLOT_3)
+            clearflag(FLAG_WITHDREW_SLOT_4)
+            clearflag(FLAG_WITHDREW_SLOT_5)
+            clearflag(FLAG_WITHDREW_SLOT_6)
+            clearflag(FLAG_WITHDREW_SLOT_7)
+        }
         closemessage
         delay(20)
         playse(SE_CLICK)
@@ -920,6 +1010,57 @@ script SecretGarden_PCSystem {
 
 
 script SecretGarden_GetCurrentPCPokemon {
+    
+    switch(var(PC_BOX_SLOT_NUMBER)) {
+        case 0:
+            if(flag(FLAG_WITHDREW_SLOT_0)) {
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
+            }
+        case 1:
+            if(flag(FLAG_WITHDREW_SLOT_1)) {
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
+
+            }
+        case 2:
+            if(flag(FLAG_WITHDREW_SLOT_2)) {
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
+
+            }
+        case 3:
+            if(flag(FLAG_WITHDREW_SLOT_3)) {
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
+
+            }
+        case 4:
+            if(flag(FLAG_WITHDREW_SLOT_4)) {
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
+
+            }
+        case 5:
+            if(flag(FLAG_WITHDREW_SLOT_5)) {
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
+
+            }
+        case 6:
+            if(flag(FLAG_WITHDREW_SLOT_6)) {
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
+
+            }
+        case 7:
+            if(flag(FLAG_WITHDREW_SLOT_7)) {
+                setvar(PC_CURRENT_POKEMON, SPECIES_NOTHING)
+                return
+
+            }
+    }
+
     switch(var(PC_CURRENT_BOX)) {
         case 0:
             switch(var(PC_BOX_SLOT_NUMBER)) {
@@ -957,7 +1098,7 @@ script SecretGarden_GetCurrentPCPokemon {
                 case 5:
                     setvar(PC_CURRENT_POKEMON, SPECIES_MACHOKE)
                 case 6:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_SHINYABRA)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_ABRA)
                 case 7:
                     setvar(PC_CURRENT_POKEMON, SPECIES_BELLSPROUT)
                 case 8:
@@ -993,7 +1134,7 @@ script SecretGarden_GetCurrentPCPokemon {
                 case 2:
                     setvar(PC_CURRENT_POKEMON, SPECIES_JIGGLYPUFF)
                 case 3:
-                    setvar(PC_CURRENT_POKEMON, SPECIES_PIDGEOTTO)
+                    setvar(PC_CURRENT_POKEMON, SPECIES_SHINYABRA)
                 case 4:
                     setvar(PC_CURRENT_POKEMON, SPECIES_CHARMANDER)
                 case 5:

@@ -195,6 +195,21 @@ mapscripts FushciaCity_MapScripts {
 			setvar(VAR_TEMP_6, 2)
 			release
 		}
+		VAR_USED_CUT, 1 {
+			
+			if(checkitem(ITEM_SANDWICH_CASE)) {
+				delay(30)
+				setvar(VAR_USED_CUT, 0)
+				playfanfare(MUS_LEVEL_UP)
+				msgbox("{PLAYER} obtained some LETTUCE!\n", MSGBOX_DEFAULT)
+				waitfanfare
+				msgbox("{PLAYER} put the LETTUCE in the\nSANDWICH CASE.", MSGBOX_DEFAULT)
+				setflag(FLAG_SANDWICH_GOT_LETTUCE)
+				setflag(FLAG_FUSCHIA_CUT_TREE)
+				call(FushciaCity_MakeASandwich)
+
+			}
+		}
 	]
 }
 
@@ -622,17 +637,6 @@ script FushciaCity_OakTree {
 	applymovement(VAR_LAST_TALKED, Movement_CutTreeDown)
 	waitmovement(0)
 	removeobject(VAR_LAST_TALKED)
-	if(checkitem(ITEM_SANDWICH_CASE)) {
-		delay(30)
-		playfanfare(MUS_LEVEL_UP)
-		msgbox("{PLAYER} obtained some LETTUCE!\n", MSGBOX_DEFAULT)
-		waitfanfare
-		msgbox("{PLAYER} put the LETTUCE in the\nSANDWICH CASE.", MSGBOX_DEFAULT)
-		setflag(FLAG_SANDWICH_GOT_LETTUCE)
-		setflag(FLAG_FUSCHIA_CUT_TREE)
-		call(FushciaCity_MakeASandwich)
-
-	}
 	releaseall
 	end
 }

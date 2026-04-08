@@ -839,7 +839,7 @@ const u8 gMoveDescription_strapon[] = _("Strap on,\nStrap off");
 const u8 gMoveDescription_flareclitz[] = _("The little top\npart");
 const u8 gMoveDescription_lusterpube[] = _("UNUSED");
 const u8 gMoveDescription_risingvulvage[] = _("UNUSED");
-const u8 gMoveDescription_pantyshot[] = _("A cheap anime\ntactic to intice\nthe horny viewers");
+const u8 gMoveDescription_pantyshot[] = _("A cheap anime\ntactic to entice\nthe horny viewers");
 const u8 gMoveDescription_moonlightyear[] = _("The user walks\nreeeeeeeeeally\nfar.");
 const u8 gMoveDescription_cherrybomb[] = _("The user hits once\nfor each CHERRY\nattached to\nits body.");
 const u8 gMoveDescription_trailblaze[] = _("Trail blaze it");
@@ -1087,16 +1087,16 @@ const u8 gMoveDescription_PledgeofAllegeonce[] = _("The user says\na PLEDGE to a
 const u8 gMoveDescription_Earf[] = _("(earth power\nplus surf)");
 const u8 gMoveDescription_AquaJet[] = _("Dummy");
 
-const u8 gMoveDescription_CometPunch2[] = _("Dummy");
-const u8 gMoveDescription_HboMaxFinale[] = _("Dummy");
+const u8 gMoveDescription_CometPunch2[] = _("Damn, looks like\nhe only learned\nit twice.");
+const u8 gMoveDescription_HboMaxFinale[] = _("The user cannot\nbelieve how bad\nthe GAME OF\nTHRONES ending is");
 const u8 gMoveDescription_MaxStonesurge[] = _("Dummy");
-const u8 gMoveDescription_AcidRain[] = _("Dummy");
-const u8 gMoveDescription_Ass[] = _("Dummy");
-const u8 gMoveDescription_Drug[] = _("Dummy");
-const u8 gMoveDescription_Bag[] = _("Dummy");
-const u8 gMoveDescription_Fuck[] = _("Dummy");
-const u8 gMoveDescription_TackleMagikarp[] = _("Dummy");
-const u8 gMoveDescription_RagingBullworm[] = _("Dummy");
+const u8 gMoveDescription_AcidRain[] = _("The user performs\nthe move PURSUIT\nduring Gen 4 while\nweather is up.");
+const u8 gMoveDescription_Ass[] = _("AAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAASS!");
+const u8 gMoveDescription_Drug[] = _("The last DRUG in\nexistence.\nRestores 20 HP,\nonce.");
+const u8 gMoveDescription_Bag[] = _("Open's the\nuser's bag.");
+const u8 gMoveDescription_Fuck[] = _("I didn't say\nFIRE I said\nFUCK.");
+const u8 gMoveDescription_TackleMagikarp[] = _("The user tackles\nabout for two to\nthree turns, then\nbecomes confused.");
+const u8 gMoveDescription_RagingBullworm[] = _("Why don't we take\nall of KANTO, and\npush it somewhere\nelse?");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {

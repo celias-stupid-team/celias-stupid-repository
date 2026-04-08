@@ -1095,6 +1095,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_CARDISUSELESS - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("This card is useless!"),
     [STRINGID_HOOPAUNBOUND - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("HOOPA-UNBOUND!?"),
     [STRINGID_NOONESUMMONSHIM - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("No one's ever been able to\nsummon him!"),
+    [STRINGID_LATIAS - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("Oh, wow!{PAUSE 30}\nIt's LATINAS!"),
+
+    
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1532,6 +1535,9 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_SHED] = STRINGID_SHED,
     [B_MSG_HACK_ATTACK] = STRINGID_HACK_ATTACK,
     [B_MSG_SNOWGRAVY] = STRINGID_SNOWGRAVY,
+    [B_MSG_LATIAS] = STRINGID_LATIAS,
+
+    
 };
 
 const u16 gSwitchInAbilityStringIds[] =

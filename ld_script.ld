@@ -1092,6 +1092,7 @@ SECTIONS {
         sound/songs/midi/se_tcg_slash.o(.rodata);
         sound/songs/midi/se_waa.o(.rodata);
         sound/songs/midi/se_tcg_waterfall.o(.rodata);
+        sound/songs/midi/mus_safari_evolution.o(.rodata);
 
     } > ROM =0
 

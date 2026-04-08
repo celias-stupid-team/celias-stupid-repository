@@ -522,3 +522,16 @@ script Yes_Oak {
 	release
 	end
 }
+
+
+script Yes_Hakari {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	setflag(FLAG_TALKED_TO_HAKARI)
+	msgbox(
+	"Where is bliz\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+

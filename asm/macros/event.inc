@@ -2042,6 +2042,13 @@
 	.2byte \var2
 	.endm
 
+	.macro getobjectxy localId:req, varx:req, vary:req
+	.byte 0xea
+	.2byte \localId
+	.2byte \varx
+	.2byte \vary
+	.endm
+
 	.macro dogenderfluideffect
 	callnative StandaloneGenderFluidEffect
 	.endm

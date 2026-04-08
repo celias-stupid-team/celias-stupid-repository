@@ -35,7 +35,14 @@ mapscripts Chapter3_MapScripts {
 
             setvar(VAR_CURRENT_CHAPTER, 3)
             delay(250)
-            warp(MAP_POKEMON_TOWER_3F, 0)
+            if(flag(FLAG_DANCE_THEATER_CHAPTER_3)) {
+                clearflag(FLAG_DANCE_THEATER_CHAPTER_3)
+                warp(MAP_LAVENDER_TOWN_DANCE_THEATER, 0)
+
+            } else {
+                warp(MAP_POKEMON_TOWER_3F, 0)
+
+            }
         }
     ]
 }

@@ -335,18 +335,36 @@ script DMCAWarehouse_Qbert {
 script DMCAWarehouse_Polio {
 	lock
 	faceplayer
-	playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
-	msgbox(
-	"POLIO: Pla-plaaah!\n"
-	"", MSGBOX_DEFAULT)
-	waitmoncry
-	closemessage
-	delay(10)
-	msgbox(
-	"POLIO's PP dropped!\n"
-	"", MSGBOX_DEFAULT)
-	release
-	end
+	if(checkitem(ITEM_PP_UP)) {
+		removeitem(ITEM_PP_UP)
+		playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
+		msgbox(
+		"POPP PLIO: Pla-plaaah!\n"
+		"", MSGBOX_DEFAULT)
+		waitmoncry
+		closemessage
+		delay(10)
+		msgbox(
+		"Hey!\n"
+		"POLIO took your PP P!", MSGBOX_DEFAULT)
+		release
+		end
+
+	} else {
+		playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
+		msgbox(
+		"POLIO: Pla-plaaah!\n"
+		"", MSGBOX_DEFAULT)
+		waitmoncry
+		closemessage
+		delay(10)
+		msgbox(
+		"POLIO's PP dropped!\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+
+	}
 }
 
 script DMCAWarehouse_Reactor {
@@ -431,10 +449,10 @@ script Warehouse_PlatoClosetSign {
 }
 
 script Warehouse_PlatoCameo {
-	lock
-	faceplayer
+	trainerbattle_single(TRAINER_PLASTO, "PLATO: Dan", "Dan.")
 	msgbox(
 	"PLATO: Dan.\n"
-	"", MSGBOX_DEFAULT)
+	"", MSGBOX_NPC)
 	release
 }
+

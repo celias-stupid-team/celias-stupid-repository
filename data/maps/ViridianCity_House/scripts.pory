@@ -1843,3 +1843,18 @@ script CeliaSecret_NuggetHeal {
 	"dad here, so I elected to make\l"
 	"the healing silent.", MSGBOX_NPC)
 }
+
+script CeliaSecret_StopNSwop {
+	msgbox(
+	"This was going to be the source of\n"
+	"a STOP N SWOP event using Pokemon\l"
+	"Pisces version.\p"
+
+	"Sadly the update that would've\n"
+	"done it hasn't released yet, so\l"
+	"you can't do it as intended.\p"
+
+	"If you want to try anyway, feel\n"
+	"free!\l"
+	"The third word is “GOTTEN.”", MSGBOX_NPC)
+}

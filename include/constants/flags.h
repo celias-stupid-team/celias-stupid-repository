@@ -702,9 +702,9 @@
 #define FLAG_SILPH_7F_DOOR_2                             0x285
 #define FLAG_SILPH_7F_DOOR_3                             0x286
 #define FLAG_SILPH_8F_DOOR                               0x287
-#define FLAG_SILPH_9F_DOOR_1                             0x288
-#define FLAG_SILPH_9F_DOOR_2                             0x289
-#define FLAG_SILPH_9F_DOOR_3                             0x28A
+#define FLAG_TALKED_TO_HAKARI                             0x288
+#define FLAG_TALKED_TO_BLIZ                             0x289
+#define FLAG_REUNITED_HAKARI_AND_BLIZ                             0x28A
 #define FLAG_SILPH_9F_DOOR_4                             0x28B
 #define FLAG_SILPH_10F_DOOR                              0x28C
 #define FLAG_SILPH_11F_DOOR                              0x28D
@@ -726,7 +726,7 @@
 #define FLAG_TWO_ISLAND_SHOP_INTRODUCED                  0x29D
 #define FLAG_TWO_ISLAND_SHOP_EXPANDED_1                  0x29E
 #define FLAG_TWO_ISLAND_SHOP_EXPANDED_2                  0x29F
-#define FLAG_TWO_ISLAND_SHOP_EXPANDED_3                  0x2A0
+#define FLAG_DANCE_THEATER_CHAPTER_3                  0x2A0
 #define FLAG_SEVII_DETOUR_FINISHED                       0x2A1
 #define FLAG_VISITED_TWO_ISLAND                          0x2A2
 #define FLAG_RESCUED_LOSTELLE                            0x2A3

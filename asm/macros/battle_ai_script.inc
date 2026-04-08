@@ -479,9 +479,9 @@
 	.byte \battler
 	.endm
 
-	@ nullsub
-	.macro ai_52
+	.macro if_wild_battle ptr:req
 	.byte 0x52
+	.4byte \ptr
 	.endm
 
 	@ nullsub

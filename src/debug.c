@@ -3840,6 +3840,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(SE_TCG_SLASH) \
     X(SE_WAA) \
     X(SE_TCG_WATERFALL) \
+    X(MUS_SAFARI_EVOLUTION) \
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \
