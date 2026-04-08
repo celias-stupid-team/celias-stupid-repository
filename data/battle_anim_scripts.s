@@ -7,6 +7,7 @@
 #include "constants/moves.h"
 #include "constants/flags.h"
 #include "constants/vars.h"
+#include "constants/species.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/battle_anim_script.inc"
 	.include "constants/constants.inc"
@@ -1210,11 +1211,11 @@ gBattleAnims_Special::
 Move_NONE:
 Move_MIRROR_MOVE:
 Move_POUND:
-	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_POUND
 	monbg ANIM_TARGET
 	setalpha 12, 8
 	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	createsprite gPoundSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
@@ -11793,6 +11794,18 @@ ConfusionEffect:
 	createsprite gConfusionDuckSpriteTemplate, ANIM_TARGET, 2, 0, -15, 204, 3, 90
 	return
 
+ConfusionBonk:
+	loadspritegfx ANIM_TAG_DUCK
+	loadspritegfx ANIM_TAG_IMPACT
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createsprite gBonkingDuckSpriteTemplate, ANIM_ATTACKER, 2, 0, -120, 0, 8, 15, 0, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_M_DIZZY_PUNCH, SOUND_PAN_ATTACKER
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_ATTACKER, 2
+	createsprite gFallingDuckSpriteTemplate, ANIM_ATTACKER, 2
+	waitforvisualfinish
+	end
+
 SetPsychicBackground:
 	fadetobg BG_PSYCHIC
 	waitbgfadeout
@@ -13727,7 +13740,6 @@ Move_ROOST:
 	end
 	
 Move_CSR_DUMMY:
-
 	goto Move_TACKLE
 	end
 	playse SE_GASTER_BLASTER
@@ -14595,11 +14607,20 @@ Move_TAKE_HEART:
 	loopsewithpan SE_M_DIZZY_PUNCH, SOUND_PAN_TARGET, 4, 3
 	end
 	
+Move_POPULATION_BOMB_KANGA:
+Move_POPULATION_BOMB_DAD:
 Move_POPULATION_BOMB:
 	loadspritegfx ANIM_TAG_EXPLOSION
-	loadspritegfx ANIM_TAG_PROTAGONISTS
+	loadspritegfx ANIM_TAG_CSR_CRAB
 	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
-	createsprite gProtagonistThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+
+	jumpifspecies ANIM_ATTACKER, SPECIES_MR_MIME, PopBombDad
+	jumpifspecies ANIM_ATTACKER, SPECIES_KANGASKHAN, PopBombKanga
+	jumpifspecies ANIM_ATTACKER, SPECIES_DUGTRIO, PopBombDigletts
+	jumpifspecies ANIM_ATTACKER, SPECIES_FARFETCHD, PopBombFarfetchd
+
+	createsprite gKrabbyThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+PopBombContinue:
 	waitforvisualfinish
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 16, 1
 	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
@@ -14619,6 +14640,26 @@ Move_POPULATION_BOMB:
 	delay 3
 	waitforvisualfinish
 	end
+
+PopBombDad:
+	loadspritegfx ANIM_TAG_PROTAGONISTS
+	createsprite gProtagonistThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	goto PopBombContinue
+
+PopBombKanga:
+	loadspritegfx ANIM_TAG_KANGAS
+	createsprite gKangaThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	goto PopBombContinue
+
+PopBombDigletts:
+	loadspritegfx ANIM_TAG_MINI_DIGLETT
+	createsprite gDiglettThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	goto PopBombContinue
+
+PopBombFarfetchd:
+	loadspritegfx ANIM_TAG_SCISSORS
+	createsprite gScissorsThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	goto PopBombContinue
 	
 Move_DADDLING_GLEAM:
 	loadspritegfx ANIM_TAG_DAD_OF_LIGHT
@@ -27707,6 +27748,7 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	@ loadspritegfx ANIM_TAG_EAGLE
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
+	createvisualtask SoundTask_PlaySpecificCry, 2, 652
 	fadetobg BG_AMERICAN_FLAG
 	waitbgfadein
 	@createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_SKY_UPPERCUT, SOUND_PAN_ATTACKER
@@ -27723,6 +27765,7 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER
 	createsprite gAllegianceSpriteTemplate, ANIM_ATTACKER, 2,   0, 16, 24, 0, 0, 0, 0, 1
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 12, 0, 20, 1
+	delay 10
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
 	restorebg
@@ -28494,7 +28537,6 @@ Move_ORTHQUAKE:
 Move_CRUSECEAN_WRENCH:
 Move_GAY_BALL_PROBLEMS:
 Move_SUBSTITUTE_DAD:
-Move_POPULATION_BOMB_KANGA:
 Move_SOFT_LOCK:
 Move_GAME_GENIE:
 Move_CALMP:
@@ -28866,30 +28908,6 @@ RickAgainstPlayer:
 	end
 
 
-Move_POPULATION_BOMB_DAD:
-	loadspritegfx ANIM_TAG_EXPLOSION
-	loadspritegfx ANIM_TAG_PROTAGONISTS
-	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
-	createsprite gProtagonistThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
-	waitforvisualfinish
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 16, 1
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	delay 3
-	waitforvisualfinish
-	end
 
 
 Move_CRAB_GRIP:

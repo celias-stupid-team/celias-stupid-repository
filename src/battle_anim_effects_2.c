@@ -121,6 +121,7 @@ static void AnimGarbotoxin(struct Sprite *sprite);
 static void AnimTask_DynamaxGrowthStep(u8 taskId);
 static void AnimSprite_FadeInOut(struct Sprite *sprite);
 void AnimThrowProtagonist(struct Sprite *sprite);
+void AnimThrowKanga(struct Sprite *sprite);
 static void AnimThrowProtagonist_Step(struct Sprite *sprite);
 static void PSIRockin_ShiftPalette(u8 paletteNum);
 static void AnimPSIRockin(struct Sprite *sprite);
@@ -446,11 +447,67 @@ const struct SpriteTemplate gProtagonistThrowSpriteTemplate =
     .callback = AnimThrowProtagonist,
 };
 
+static const union AnimCmd sKangaThrowAnimCmd_1[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_END,
+};
+static const union AnimCmd sKangaThrowAnimCmd_2[] =
+{
+    ANIMCMD_FRAME(64, 3),
+    ANIMCMD_END,
+};
+static const union AnimCmd sKangaThrowAnimCmd_3[] =
+{
+    ANIMCMD_FRAME(128, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sKangaThrowAnimTable[] =
+{
+    sKangaThrowAnimCmd_1,
+    sKangaThrowAnimCmd_2,
+    sKangaThrowAnimCmd_3,
+};
+
+const struct SpriteTemplate gKangaThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_KANGAS,
+    .paletteTag = ANIM_TAG_KANGAS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sKangaThrowAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowKanga,
+};
+
 const struct SpriteTemplate gCheriBombThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_CHERI_BOMB,
     .paletteTag = ANIM_TAG_CHERI_BOMB,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
+const struct SpriteTemplate gScissorsThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_SCISSORS,
+    .paletteTag = ANIM_TAG_SCISSORS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
+const struct SpriteTemplate gKrabbyThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_CSR_CRAB,
+    .paletteTag = ANIM_TAG_CSR_CRAB,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -566,6 +623,31 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .paletteTag = ANIM_TAG_MING_VASE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sAnim_BonkDuck[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(4, 8),
+    ANIMCMD_FRAME(0, 8, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_BonkDuck[] =
+{
+    sAnim_BonkDuck,
+};
+
+const struct SpriteTemplate gBonkingDuckSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DUCK,
+    .paletteTag = ANIM_TAG_DUCK,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_BonkDuck,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -1153,6 +1235,17 @@ const struct SpriteTemplate gMiniDiglettSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gDiglettThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_MINI_DIGLETT,
+    .paletteTag = ANIM_TAG_MINI_DIGLETT,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sMiniDiglettAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
 const struct SpriteTemplate gTowerTopSpriteTemplate =
 {
     .tileTag = ANIM_TAG_TOWER_TOP,
@@ -1231,6 +1324,16 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
     .paletteTag = ANIM_TAG_COIN,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+const struct SpriteTemplate gFallingDuckSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DUCK,
+    .paletteTag = ANIM_TAG_DUCK,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_BonkDuck,
     .images = NULL,
     .affineAnims = sFallingCoinAffineAnimTable,
     .callback = AnimFallingCoin,
@@ -7182,6 +7285,19 @@ void AnimTask_DynamaxGrowth(u8 taskId) // from CFRU
 void AnimThrowProtagonist(struct Sprite *sprite)
 {
     StartSpriteAnim(sprite, Random() % 4);
+    InitSpritePosToAnimAttacker(sprite, 1);
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+    sprite->data[0] = gBattleAnimArgs[4];
+    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2) + gBattleAnimArgs[2];
+    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[3];
+    sprite->data[5] = gBattleAnimArgs[5];
+    InitAnimArcTranslation(sprite);
+    sprite->callback = AnimThrowProtagonist_Step;
+}
+void AnimThrowKanga(struct Sprite *sprite)
+{
+    StartSpriteAnim(sprite, Random() % 3);
     InitSpritePosToAnimAttacker(sprite, 1);
     if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
         gBattleAnimArgs[2] = -gBattleAnimArgs[2];
