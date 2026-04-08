@@ -35459,13 +35459,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_THATSALL] =
     {
-        .baseHP = 40,
-        .baseAttack = 40,
-        .baseDefense = 40,
-        .baseSpeed = 40,
-        .baseSpAttack = 40,
-        .baseSpDefense = 40,
-        .types = {TYPE_POISON, TYPE_POISON},
+        .baseHP = 1,
+        .baseAttack = 1,
+        .baseDefense = 1,
+        .baseSpeed = 255,
+        .baseSpAttack = 1,
+        .baseSpDefense = 1,
+        .types = {TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 255,
         .expYield = 150,
         .evYield_HP = 1,

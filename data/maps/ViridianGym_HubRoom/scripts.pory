@@ -103,7 +103,7 @@ script ViridianGym_HintManSwitch {
                 "Check everything with fresh eyes.\p"
 
                 "There's clues around every corner,\n"
-                "once you know what you're looking for.\p"
+                "now you know what you're looking for.\p"
 
                 "Incidentally, have you visited\n"
                 "CERULEAN CAVE yet?", MSGBOX_DEFAULT)

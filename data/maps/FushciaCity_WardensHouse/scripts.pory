@@ -61,6 +61,12 @@ FushciaCity_WardensHouse_EventScript_DisplaySign2::
 
 const WARDEN = 1
 mapscripts FushciaCity_WardensHouse_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_A)
+		if(checkmoncaught(SPECIES_ARCANINE)) {
+			clearflag(FLAG_TEMP_A)
+		}
+	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_1, 0 {
 			if(!flag(FLAG_WAS_THREATENED_BY_WARDEN)) {
@@ -227,3 +233,14 @@ script WardensHouse_Warden {
 	release
 }
 
+script WardensHouse_GunDog {
+	lock
+	faceplayer
+	playmoncry(SPECIES_ARCANINE, CRY_MODE_DEFAULT)
+	waitmoncry
+	msgbox(
+	"He's getting ready to grow up!\n"
+	"", MSGBOX_DEFAULT)
+	release
+	end
+}

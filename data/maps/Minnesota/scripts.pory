@@ -421,12 +421,6 @@ script MinnesotaShorts {
 	"I'm here to get squeaky-clean!", MSGBOX_NPC)
 }
 
-script MinnesotaWashingMachine {
-	lock
-	playmoncry(SPECIES_WISHIWASHI, CRY_MODE_DEFAULT)
-	waitmoncry
-	release
-}
 
 script Minnesota_CleanOak {
 	msgbox(

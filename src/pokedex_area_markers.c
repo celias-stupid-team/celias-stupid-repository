@@ -190,6 +190,9 @@ static const s8 sAreaMarkers[][4] = {
     [DEX_AREA_AETHER_PARADISE]   = { MARKER_CIRCULAR,     60,  37 },
     [DEX_AREA_POKEMON_ISLAND]   = { MARKER_CIRCULAR,     60,  63 },
     [DEX_AREA_FOUR_ISLAND]      = { MARKER_CIRCULAR,  90,  60 },
+    [DEX_AREA_SECRET_GARDEN]      = { MARKER_CIRCULAR,  113,  0 },
+
+    
 };
 
 static void Task_ShowAreaMarkers(u8 taskId)

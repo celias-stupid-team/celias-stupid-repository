@@ -101,3 +101,24 @@ script Laundromat_OneSawk {
 	"Oh no! One of the SAWKS got lost\n"
 	"in the laundry!", MSGBOX_NPC)
 }
+
+
+script Laundromat_OneSawkWasher {
+	lock
+	if(flag(FLAG_TEMP_3)) {
+		playmoncry(SPECIES_SAWK, CRY_MODE_FAINT)
+
+	} else {
+		playmoncry(SPECIES_WISHIWASHI, CRY_MODE_DEFAULT)
+
+	}
+	waitmoncry
+	release
+}
+
+script MinnesotaWashingMachine {
+	lock
+	playmoncry(SPECIES_WISHIWASHI, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+}

@@ -183,7 +183,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "MinnesotaWashingMachine"
+      "script": "Laundromat_OneSawkWasher"
     },
     {
       "type": "sign",
@@ -191,7 +191,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "MinnesotaWashingMachine"
+      "script": "Laundromat_OneSawkWasher"
     },
     {
       "type": "sign",

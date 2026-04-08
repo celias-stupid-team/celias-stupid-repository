@@ -22794,7 +22794,7 @@
           "map": "MAP_SIX_ISLAND_ALTERING_CAVE",
           "base_label": "sSixIslandAlteringCave_2_FireRed",
           "land_mons": {
-            "encounter_rate": 2,
+            "encounter_rate": 1,
             "mons": [
               {
                 "min_level": 7,
