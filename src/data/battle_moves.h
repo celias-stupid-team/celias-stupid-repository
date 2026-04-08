@@ -11876,8 +11876,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DO_THE_WAVE] =
     {
-        .effect = EFFECT_MULTI_HIT_FIVE,
-        .power = 40,
+        .effect = EFFECT_HIT,
+        .power = 120,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
