@@ -7,6 +7,7 @@
 #include "constants/moves.h"
 #include "constants/flags.h"
 #include "constants/vars.h"
+#include "constants/species.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/battle_anim_script.inc"
 	.include "constants/constants.inc"
@@ -14602,10 +14603,10 @@ Move_POPULATION_BOMB:
 	loadspritegfx ANIM_TAG_CSR_CRAB
 	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
 
-	@jumpifspecies ANIM_ATTACKER, SPECIES_MR_MIME, PopBombDad
-	@jumpifspecies ANIM_ATTACKER, SPECIES_KANGASKHAN, PopBombKanga
-	@jumpifspecies ANIM_ATTACKER, SPECIES_DUGTRIO, PopBombDigletts
-	@jumpifspecies ANIM_ATTACKER, SPECIES_FARFETCHD, PopBombFarfetchd
+	jumpifspecies ANIM_ATTACKER, SPECIES_MR_MIME, PopBombDad
+	jumpifspecies ANIM_ATTACKER, SPECIES_KANGASKHAN, PopBombKanga
+	jumpifspecies ANIM_ATTACKER, SPECIES_DUGTRIO, PopBombDigletts
+	jumpifspecies ANIM_ATTACKER, SPECIES_FARFETCHD, PopBombFarfetchd
 
 	createsprite gKrabbyThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
 PopBombContinue:
