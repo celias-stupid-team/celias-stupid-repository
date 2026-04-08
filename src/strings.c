@@ -970,6 +970,7 @@ const u8 gText_AliveLower[] = _("Alive");
 const u8 gText_YesLower[] = _("Yes");
 const u8 gText_YUP[] = _("YUP");
 const u8 gText_YupLower[] = _("Yup");
+const u8 gText_Oui[] = _("OUI");
 
 // Start menu option descriptions
 const u8 gStartMenuDesc_Pokedex[] = _("A device that records POKéMON secrets\nupon meeting or catching them.");

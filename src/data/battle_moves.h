@@ -11227,7 +11227,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FLYING_ASCENT] =
     {
         .effect = EFFECT_SUPERPOWER,
-        .power = 70,
+        .power = 120,
         .type = TYPE_DRAGON,
         .accuracy = 100,
         .pp = 35,

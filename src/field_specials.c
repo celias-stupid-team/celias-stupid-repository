@@ -1790,9 +1790,12 @@ static void SayYes_CB(void) {
         !StringCompare(gText_YupLower, gStringVar1)) {
         VarSet(VAR_RESULT, 1);
 
-    } else 
-        
+    } else if (!StringCompare(gText_Oui, gStringVar1)) {
+        VarSet(VAR_RESULT, 2);
+    }  else {
         VarSet(VAR_RESULT, 0);
+
+    }
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
 
