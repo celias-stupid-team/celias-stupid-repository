@@ -477,6 +477,7 @@
 #define ANIM_TAG_SCISSORS                   (ANIM_SPRITES_START + 467)
 #define ANIM_TAG_COOLTRAINER                (ANIM_SPRITES_START + 468)
 #define ANIM_TAG_KANGAS                     (ANIM_SPRITES_START + 469)
+#define ANIM_TAG_POUND                      (ANIM_SPRITES_START + 470)
 
 // battlers
 #define ANIM_ATTACKER       0

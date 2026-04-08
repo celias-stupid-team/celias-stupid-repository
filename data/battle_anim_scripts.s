@@ -1211,11 +1211,11 @@ gBattleAnims_Special::
 Move_NONE:
 Move_MIRROR_MOVE:
 Move_POUND:
-	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_POUND
 	monbg ANIM_TARGET
 	setalpha 12, 8
 	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	createsprite gPoundSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
@@ -27748,6 +27748,7 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	@ loadspritegfx ANIM_TAG_EAGLE
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
+	createvisualtask SoundTask_PlaySpecificCry, 2, 652
 	fadetobg BG_AMERICAN_FLAG
 	waitbgfadein
 	@createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_SKY_UPPERCUT, SOUND_PAN_ATTACKER
@@ -27765,7 +27766,6 @@ Move_PLEDGE_OF_ALLEGIANCE:
 	createsprite gAllegianceSpriteTemplate, ANIM_ATTACKER, 2,   0, 16, 24, 0, 0, 0, 0, 1
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 12, 0, 20, 1
 	delay 10
-	createvisualtask SoundTask_PlaySpecificCry, 2, 652
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
 	restorebg
@@ -29067,7 +29067,6 @@ Move_ASS:
 
 Move_BAG:
 Move_FUCK:
-	goto ConfusionBonk
 Move_RAGING_BULLWORM:
 	goto Move_TACKLE
 
