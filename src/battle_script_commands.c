@@ -13491,3 +13491,20 @@ void BS_SetTypeSmall(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_TryFling(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    u16 itemId = gBattleMons[gBattlerAttacker].item;
+
+    if (itemId == ITEM_NONE || !CanBattlerGetOrLoseItem(gBattlerAttacker, itemId))
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+        return;
+    }
+    
+    gLastUsedItem = itemId;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

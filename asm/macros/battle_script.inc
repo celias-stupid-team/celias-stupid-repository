@@ -1951,3 +1951,8 @@
 	callnative BS_SetTypeSmall
 	.byte \battler
 	.endm
+
+	.macro tryfling failInstr:req
+	callnative BS_TryFling
+	.4byte \failInstr
+	.endm

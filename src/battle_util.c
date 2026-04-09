@@ -4186,13 +4186,15 @@ void TryRestoreHeldItems(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         u16 lostItem = gBattleStruct->itemLost[i];
+        u16 currentItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
         // Check if the lost item is a berry and the mon is not holding it
-        if (ItemId_GetPocket(lostItem) == POCKET_BERRY_POUCH && GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) != lostItem)
+        if (ItemId_GetPocket(lostItem) == POCKET_BERRY_POUCH && currentItem != lostItem)
             lostItem = ITEM_NONE; // berries can't restore
 
         // Check if the lost item should be restored
-        if (lostItem == ITEM_FOCUS_SASH)//(lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH)
+        if (lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH
+            && (currentItem == ITEM_NONE || currentItem == lostItem)) // don't overwrite a stolen item
             SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &lostItem);
     }
 }

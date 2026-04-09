@@ -303,6 +303,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTrumpCard              @ EFFECT_TRUMP_CARD
 	.4byte BattleScript_EffectRestoreXHp             @ EFFECT_RESTORE_X_HP
 	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
+	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 
 BattleScript_End2::
 	end2
@@ -6407,3 +6408,17 @@ BattleScript_EffectTypeSmall::
 	printstring STRINGID_PKMNBECAMETYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+@ this is not a full fling port
+BattleScript_EffectFling::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	tryfling BattleScript_ButItFailed
+	removeitem BS_ATTACKER
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNFLUNG
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectHit
