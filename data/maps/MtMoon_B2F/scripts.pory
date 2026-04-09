@@ -240,7 +240,7 @@ script MtMoon_B2F_EventScript_DomeFossil { //Sail fossil that you can't have
 	closemessage
 	addobject(LOCALID_MIGUEL_ORIGINAL)
 	//applymovement(LOCALID_PLAYER, Common_Movement_FaceDown) Doesn't look good 
-	waitmovement(0)
+	//waitmovement(0)
 	playse(SE_PIN)
 	applymovement(LOCALID_PLAYER, Common_Movement_ExclamationMark)
 	delay(15)
