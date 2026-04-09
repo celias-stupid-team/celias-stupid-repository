@@ -32,3 +32,22 @@ script Starlight_House_10_MapReset {
     release
     end
 }
+
+script Starlight_House_10_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Y'know, I was supposed to have a\n"
+	"DANCE scene in CELADON GYM.\l"
+	"Now I'm gettin' my groove on here!\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a breather?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

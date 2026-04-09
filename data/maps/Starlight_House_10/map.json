@@ -138,7 +138,7 @@
     {
       "local_id": "DANCER_OPPOSITE1",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "graphics_id": "OBJ_EVENT_GFX_DISCODAD",
       "x": 4,
       "y": 2,
       "elevation": 0,
@@ -147,7 +147,7 @@
       "movement_range_y": 40,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Starlight_House_10_MapReset",
+      "script": "Starlight_House_10_Dad",
       "flag": "0"
     },
     {
