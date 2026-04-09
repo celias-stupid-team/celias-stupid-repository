@@ -478,6 +478,12 @@
 #define ANIM_TAG_COOLTRAINER                (ANIM_SPRITES_START + 468)
 #define ANIM_TAG_KANGAS                     (ANIM_SPRITES_START + 469)
 #define ANIM_TAG_POUND                      (ANIM_SPRITES_START + 470)
+#define ANIM_TAG_GRASS                      (ANIM_SPRITES_START + 471)
+#define ANIM_TAG_POINTING_FINGER            (ANIM_SPRITES_START + 472)
+#define ANIM_TAG_MOUSE_CURSOR               (ANIM_SPRITES_START + 473)
+#define ANIM_TAG_STEREO                     (ANIM_SPRITES_START + 474)
+#define ANIM_TAG_STONESURGE                 (ANIM_SPRITES_START + 475)
+#define ANIM_TAG_CODE_WINDOW                (ANIM_SPRITES_START + 476)
 
 // battlers
 #define ANIM_ATTACKER       0

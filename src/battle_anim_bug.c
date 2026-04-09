@@ -148,7 +148,7 @@ const struct SpriteTemplate gWebThreadSpriteTemplate =
 const struct SpriteTemplate gGrassKnotThreadSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEB_THREAD,
-    .paletteTag = ANIM_TAG_WEED_SMALL,
+    .paletteTag = ANIM_TAG_GRASS,
     .oam = &gOamData_AffineOff_ObjNormal_8x8,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -169,8 +169,8 @@ const struct SpriteTemplate gStringWrapSpriteTemplate =
 
 const struct SpriteTemplate gGrassWrapSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_STRING,
-    .paletteTag = ANIM_TAG_GREEN_SPIKE,
+    .tileTag = ANIM_TAG_GRASS,
+    .paletteTag = ANIM_TAG_GRASS,
     .oam = &gOamData_AffineOff_ObjNormal_64x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

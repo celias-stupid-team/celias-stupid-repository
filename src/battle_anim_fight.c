@@ -13,6 +13,7 @@ static void AnimBasicFistOrFoot(struct Sprite *sprite);
 static void AnimFistOrFootRandomPos(struct Sprite *sprite);
 static void AnimCrossChopHand(struct Sprite *sprite);
 static void AnimSlidingKick(struct Sprite *sprite);
+static void AnimSlidingHand(struct Sprite *sprite);
 static void AnimSpinningKickOrPunch(struct Sprite *sprite);
 static void AnimStompFoot(struct Sprite *sprite);
 static void AnimDizzyPunchDuck(struct Sprite *sprite);
@@ -235,7 +236,7 @@ const struct SpriteTemplate gSlidingHandSpriteTemplate =
     .anims = &sAnims_HandsAndFeet[3],
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimSlidingKick,
+    .callback = AnimSlidingHand,
 };
 
 static const union AffineAnimCmd sAffineAnim_SpinningHandOrFoot[] =
@@ -922,6 +923,36 @@ static void AnimSlidingKick_Step(struct Sprite *sprite)
     {
         DestroyAnimSprite(sprite);
     }
+}
+
+static void AnimSlidingHand(struct Sprite *sprite)
+{
+    if (BATTLE_PARTNER(gBattleAnimAttacker) == gBattleAnimTarget && GetBattlerPosition(gBattleAnimTarget) < B_POSITION_PLAYER_RIGHT)
+        gBattleAnimArgs[0] *= -1;
+
+    InitSpritePosToAnimTarget(sprite, TRUE);
+
+    // ✅ Apply vertical offset HERE (critical)
+    sprite->y -= 16;
+
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+
+    sprite->data[0] = gBattleAnimArgs[3];
+    sprite->data[1] = sprite->x;
+    sprite->data[2] = sprite->x + gBattleAnimArgs[2];
+
+    // ✅ Now match translation baseline to new Y
+    sprite->data[3] = sprite->y;
+    sprite->data[4] = sprite->y;
+
+    InitAnimLinearTranslation(sprite);
+
+    sprite->data[5] = gBattleAnimArgs[5];
+    sprite->data[6] = gBattleAnimArgs[4];
+    sprite->data[7] = 0;
+
+    sprite->callback = AnimSlidingKick_Step;
 }
 
 // Animates the spinning, shrinking kick or punch, which then

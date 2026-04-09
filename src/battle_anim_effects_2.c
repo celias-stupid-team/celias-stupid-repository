@@ -606,6 +606,17 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+const struct SpriteTemplate gFurbyThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_FURBY,
+    .paletteTag = ANIM_TAG_FURBY,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
 const struct SpriteTemplate gWeedThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_WEED_SMALL,
@@ -1146,6 +1157,17 @@ const struct SpriteTemplate gAppleLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gSurgeLiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STONESURGE,
+    .paletteTag = ANIM_TAG_STONESURGE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gCensoredBarSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CENSORED,
@@ -1328,6 +1350,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
     .affineAnims = sFallingCoinAffineAnimTable,
     .callback = AnimFallingCoin,
 };
+
+const struct SpriteTemplate gFallingFurbySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FURBY,
+    .paletteTag = ANIM_TAG_FURBY,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
 const struct SpriteTemplate gFallingDuckSpriteTemplate =
 {
     .tileTag = ANIM_TAG_DUCK,
@@ -1344,6 +1377,17 @@ const struct SpriteTemplate gFallingAppleSpriteTemplate =
     .tileTag = ANIM_TAG_GRAVEL_APPLE,
     .paletteTag = ANIM_TAG_GRAVEL_APPLE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallingSurgeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STONESURGE,
+    .paletteTag = ANIM_TAG_STONESURGE,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
     .anims = sCoinAnimTable,
     .images = NULL,
     .affineAnims = sFallingCoinAffineAnimTable,
@@ -1686,6 +1730,31 @@ const struct SpriteTemplate gExplosionSpriteTemplate =
     .paletteTag = ANIM_TAG_EXPLOSION,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sExplosionAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpriteOnMonPos,
+};
+
+static const union AnimCmd sImplosionAnimCmds[] =
+{
+    ANIMCMD_FRAME(48, 5),
+    ANIMCMD_FRAME(32, 5),
+    ANIMCMD_FRAME(16, 5),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sImplosionAnimTable[] =
+{
+    sImplosionAnimCmds,
+};
+
+const struct SpriteTemplate gImplosionSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_EXPLOSION,
+    .paletteTag = ANIM_TAG_EXPLOSION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sImplosionAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSpriteOnMonPos,
@@ -2984,6 +3053,16 @@ const struct SpriteTemplate gEyeSparkleAbsoluteSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
 };
+const struct SpriteTemplate gVacuumSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_VACUUM,
+    .paletteTag = ANIM_TAG_VACUUM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
 
 static const union AnimCmd sAngelSpriteAnimCmds[] =
 {
@@ -4000,7 +4079,7 @@ static void AnimBulletPiss_Step1(struct Sprite *sprite)
 static void AnimDodgeball(struct Sprite *sprite)
 {
     InitSpritePosToAnimAttacker(sprite, TRUE);
-    sprite->data[0] = 20;
+    sprite->data[0] = 10;
     sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
     sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
     sprite->callback = StartAnimLinearTranslation;
@@ -4014,7 +4093,7 @@ static void AnimDodgeball_Step1(struct Sprite *sprite)
     u16 rand;
     s16 *ptr;
     
-    PlaySE12WithPanning(SE_DODGEBALL, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+    //PlaySE12WithPanning(SE_DODGEBALL, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
     sprite->x += sprite->x2;
     sprite->y += sprite->y2;
     sprite->y2 = 0;
