@@ -82,7 +82,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House4_Under_Construction"
+      "script": "StarlightHouse_YouForgotSomething"
     },
     {
       "type": "sign",
