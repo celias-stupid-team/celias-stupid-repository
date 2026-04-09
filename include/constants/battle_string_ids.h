@@ -525,8 +525,11 @@
 #define STRINGID_HOOPAUNBOUND 523
 #define STRINGID_NOONESUMMONSHIM 524
 #define STRINGID_LATIAS 525
+#define STRINGID_TM07 526
 
-#define STRINGID_NONE 526
+
+
+#define STRINGID_NONE 527
 // #define STRINGID_NONE 
 // ^ for easier copypaste
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
@@ -781,6 +784,8 @@
 #define B_MSG_HACK_ATTACK      15
 #define B_MSG_SNOWGRAVY        16
 #define B_MSG_LATIAS        17
+#define B_MSG_TM07        18
+
 
 // gSwitchInAbilityStringIds
 enum SwitchInAbilityStringID

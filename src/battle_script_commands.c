@@ -13442,7 +13442,7 @@ void BS_TryHealXHp(void)
 
     u8 healAmount = gBattleMoves[gCurrentMove].secondaryEffectChance;
 
-    if (gBattleMons[gBattlerAttacker].hp == gBattleMons[gBattlerAttacker].maxHP)
+    if (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
     {
         gBattlescriptCurrInstr = cmd->failInstr;
         return;
