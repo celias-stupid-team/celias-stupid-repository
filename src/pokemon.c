@@ -6178,6 +6178,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_ELITE_FOUR_CYNTHIA:
             return MUS_CYNTHIA_BATTLE;
         case TRAINER_CLASS_MYSTERIOUS:
+        case TRAINER_CLASS_PLASTO:
             return MUS_MEGALOVANIA;
         case TRAINER_CLASS_RIVAL_MAY:
             return MUS_MUS_VS_RIVAL;

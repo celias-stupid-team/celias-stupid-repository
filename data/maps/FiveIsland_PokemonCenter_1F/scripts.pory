@@ -94,7 +94,11 @@ script Yes_Fisher {
 	if(var(VAR_RESULT)) {
 		msgbox(
 		"No, it wasn't here.\n"
-		"It was on CINNABAR.", MSGBOX_DEFAULT)
+		"It was on CINNABAR.\p"
+		
+		"I wish I'd kept it. Someone there\n"
+		"wanted it, so we traded.\l"
+		"I guess they're long gone now.", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
 		"That's exactly it!\n"
