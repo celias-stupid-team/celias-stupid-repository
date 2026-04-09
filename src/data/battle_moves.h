@@ -6334,15 +6334,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_TM07] =    {
-        .effect = EFFECT_FREEZE_HIT,
-        .power = 131,
+        .effect = EFFECT_DO_NOTHING,
+        .power = 0,
         .type = TYPE_GHOST,
-        .accuracy = 20,
-        .pp = 13,
-        .secondaryEffectChance = 10,
+        .accuracy = 0,
+        .pp = 7,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = 0
     },
 
     [MOVE_ZAP_TAP] =    {
