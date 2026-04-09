@@ -606,6 +606,17 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+const struct SpriteTemplate gFurbyThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_FURBY,
+    .paletteTag = ANIM_TAG_FURBY,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
 const struct SpriteTemplate gWeedThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_WEED_SMALL,
@@ -1335,6 +1346,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
     .paletteTag = ANIM_TAG_COIN,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallingFurbySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FURBY,
+    .paletteTag = ANIM_TAG_FURBY,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sFallingCoinAffineAnimTable,
     .callback = AnimFallingCoin,
