@@ -3145,6 +3145,7 @@ BattleScript_FaintedMonTryChoose::
 	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_FaintedMonSendOutNew
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonSendOutNew
 	jumpifbyte CMP_EQUAL, sBATTLE_STYLE, OPTIONS_BATTLE_STYLE_SET, BattleScript_FaintedMonSendOutNew
+	jumpifopponenttrainerclass TRAINER_CLASS_RAPPER, BattleScript_FaintedMonSendOutNew
 	jumpifcantswitch BS_PLAYER1, BattleScript_FaintedMonSendOutNew
 @ Yes/No for sending out a new Pokémon when the opponent is switching
 	printstring STRINGID_ENEMYABOUTTOSWITCHPKMN
@@ -3175,13 +3176,21 @@ BattleScript_FaintedMonTryChoose::
 	waitstate
 	switchineffects BS_ATTACKER
 	resetsentmonsvalue
-BattleScript_FaintedMonSendOutNew::
+BattleScript_FaintedMonSendOutNew:: @ added a short cut for the Pokerap battles
+	jumpifbattlerside BS_FAINTED, B_SIDE_PLAYER, BattleScript_FaintedMonSendOutNew_DrawSummary
+	jumpifopponenttrainerclass TRAINER_CLASS_RAPPER, BattleScript_FaintedMonSendOutNew_SkipDrawSummary
+BattleScript_FaintedMonSendOutNew_DrawSummary::
 	drawpartystatussummary BS_FAINTED
+BattleScript_FaintedMonSendOutNew_SkipDrawSummary::
 	getswitchedmondata BS_FAINTED
 	switchindataupdate BS_FAINTED
 	hpthresholds BS_FAINTED
 	printstring STRINGID_SWITCHINMON
+	jumpifbattlerside BS_FAINTED, B_SIDE_PLAYER, BattleScript_FaintedMonSendOutNew_HideSummary
+	jumpifopponenttrainerclass TRAINER_CLASS_RAPPER, BattleScript_FaintedMonSendOutNew_SkipHideSummary
+BattleScript_FaintedMonSendOutNew_HideSummary::
 	hidepartystatussummary BS_FAINTED
+BattleScript_FaintedMonSendOutNew_SkipHideSummary::
 	switchinanim BS_FAINTED, FALSE
 	waitstate
 	resetplayerfainted

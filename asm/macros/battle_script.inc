@@ -1584,6 +1584,12 @@
 	.4byte \failInstr
 	.endm
 
+	.macro jumpifopponenttrainerclass trainerClass:req, jumpptr:req
+	callnative BS_JumpIfOpponentTrainerClass
+	.byte \trainerClass
+	.4byte \jumpptr
+	.endm
+
 	.macro setbattlestringid
 	callnative BS_SetBattleStringId
 	.endm

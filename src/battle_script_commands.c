@@ -13460,3 +13460,13 @@ void BS_SetPokedexFlag(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_JumpIfOpponentTrainerClass(void)
+{
+    NATIVE_ARGS(u8 trainerClass, const u8 *jumpInstr);
+
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainers[gTrainerBattleOpponent_A].trainerClass == cmd->trainerClass)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
