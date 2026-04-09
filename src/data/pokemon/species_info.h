@@ -3285,7 +3285,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_CHANSEY] =
     {
-        .baseHP = 1,
+        .baseHP = 150,
         .baseAttack = 5,
         .baseDefense = 255,
         .baseSpeed = 50,
@@ -4218,7 +4218,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseDefense = 85,
         .baseSpeed = 100,
         .baseSpAttack = 125,
-        .baseSpDefense = 30,
+        .baseSpDefense = 10,
         .types = {TYPE_ELECTRIC, TYPE_FLYING},
         .catchRate = 255,
         .expYield = 255,
@@ -19409,12 +19409,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_PYROAR] =
     {
-        .baseHP = 255,
+        .baseHP = 20,
         .baseAttack = 255,
-        .baseDefense = 255,
+        .baseDefense = 20,
         .baseSpeed = 255,
         .baseSpAttack = 255,
-        .baseSpDefense = 255,
+        .baseSpDefense = 20,
         .types = {TYPE_GHOST, TYPE_DARK},
         .catchRate = 255,
         .expYield = 150,

@@ -1580,10 +1580,8 @@ void AnimTask_SetHealthboxesInvisible(u8 taskId)
 
 static void AnimBusDrive(struct Sprite *sprite)
 {
-    s16 targetY;
     s16 speed;
-
-    targetY = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+    s16 spawnY;
 
     speed = (s16)gBattleAnimArgs[0];
     if (speed <= 0)
@@ -1591,24 +1589,41 @@ static void AnimBusDrive(struct Sprite *sprite)
 
     switch (sprite->data[0])
     {
+    // -----------------------------------
+    // INIT
+    // -----------------------------------
     case 0:
-        sprite->y = targetY + 4;
+        // Determine Y position based on new argument
+        switch (gBattleAnimArgs[2])
+        {
+        case 0: // attacker
+            spawnY = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y) + 4;
+            break;
+        case 1: // target
+            spawnY = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) + 4;
+            break;
+        case 2: // fixed
+        default:
+            spawnY = 70;
+            break;
+        }
+
+        sprite->y = spawnY;
         sprite->y2 = 0;
 
         sprite->data[1] = speed;
         sprite->data[2] = 0;
 
         // Determine which half this is
-        // Pass 0 for left half, 1 for right half
         if (gBattleAnimArgs[1] == 0)
         {
             // LEFT HALF
-            sprite->x = -128;   // further left
+            sprite->x = -128;
         }
         else
         {
             // RIGHT HALF
-            sprite->x = -64;    // 64px to the right of left half
+            sprite->x = -64;
         }
 
         sprite->x2 = 0;
@@ -1618,6 +1633,9 @@ static void AnimBusDrive(struct Sprite *sprite)
         sprite->data[0] = 1;
         break;
 
+    // -----------------------------------
+    // MOVE
+    // -----------------------------------
     case 1:
         sprite->data[2] += sprite->data[1];
         sprite->x2 = sprite->data[2];

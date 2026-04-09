@@ -10705,7 +10705,7 @@ static const struct TrainerMonItemCustomMoves sParty_KimonoGirls[] = {
 static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
     {
         .iv = 0,
-        .lvl = 50,
+        .lvl = 35,
         .heldItem = ITEM_NONE,
         .species = SPECIES_GARDEVOIR,
         .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}

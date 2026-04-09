@@ -8867,6 +8867,17 @@ extern const u32 gBattleAnimSpriteGfx_HongKongExplosion[];
 extern const u32 gBattleAnimSpriteGfx_HongKongBody[];
 extern const u32 gBattleAnimSpriteGfx_HongKongBullet[];
 extern const u32 gBattleAnimSpriteGfx_HongKongDrug[];
+extern const u32 gBattleAnimSpriteGfx_Vacuum[];
+extern const u32 gBattleAnimSpriteGfx_Scissors[];
+extern const u32 gBattleAnimSpriteGfx_Cooltrainer[];
+extern const u32 gBattleAnimSpriteGfx_Kangas[];
+extern const u32 gBattleAnimSpriteGfx_Pound[];
+extern const u32 gBattleAnimSpriteGfx_Grass[];
+extern const u32 gBattleAnimSpriteGfx_PointingFinger[];
+extern const u32 gBattleAnimSpriteGfx_MouseCursor[];
+extern const u32 gBattleAnimSpriteGfx_Stereo[];
+extern const u32 gBattleAnimSpriteGfx_Stonesurge[];
+extern const u32 gBattleAnimSpriteGfx_CodeWindow[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9287,6 +9298,17 @@ extern const u32 gBattleAnimSpritePal_HongKongExplosion[];
 extern const u32 gBattleAnimSpritePal_HongKongBody[];
 extern const u32 gBattleAnimSpritePal_HongKongBullet[];
 extern const u32 gBattleAnimSpritePal_HongKongDrug[];
+extern const u32 gBattleAnimSpritePal_Vacuum[];
+extern const u32 gBattleAnimSpritePal_Scissors[];
+extern const u32 gBattleAnimSpritePal_Cooltrainer[];
+extern const u32 gBattleAnimSpritePal_Kangas[];
+extern const u32 gBattleAnimSpritePal_Pound[];
+extern const u32 gBattleAnimSpritePal_Grass[];
+extern const u32 gBattleAnimSpritePal_PointingFinger[];
+extern const u32 gBattleAnimSpritePal_MouseCursor[];
+extern const u32 gBattleAnimSpritePal_Stereo[];
+extern const u32 gBattleAnimSpritePal_Stonesurge[];
+extern const u32 gBattleAnimSpritePal_CodeWindow[];
 
 //CSR Moves
 
@@ -9376,6 +9398,7 @@ extern const u32 gBattleAnimBgPalette_SolaceonTown[];
 extern const u32 gBattleAnimBgPalette_Pewter[];
 extern const u32 gBattleAnimBgPalette_Coke[];
 extern const u32 gBattleAnimBgPalette_MeatWater[];
+extern const u32 gBattleAnimBgPalette_EarfWater[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];

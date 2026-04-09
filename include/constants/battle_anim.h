@@ -473,6 +473,17 @@
 #define ANIM_TAG_HONG_KONG_BODY             (ANIM_SPRITES_START + 463)
 #define ANIM_TAG_HONG_KONG_BULLET           (ANIM_SPRITES_START + 464)
 #define ANIM_TAG_HONG_KONG_DRUG             (ANIM_SPRITES_START + 465)
+#define ANIM_TAG_VACUUM                     (ANIM_SPRITES_START + 466)
+#define ANIM_TAG_SCISSORS                   (ANIM_SPRITES_START + 467)
+#define ANIM_TAG_COOLTRAINER                (ANIM_SPRITES_START + 468)
+#define ANIM_TAG_KANGAS                     (ANIM_SPRITES_START + 469)
+#define ANIM_TAG_POUND                      (ANIM_SPRITES_START + 470)
+#define ANIM_TAG_GRASS                      (ANIM_SPRITES_START + 471)
+#define ANIM_TAG_POINTING_FINGER            (ANIM_SPRITES_START + 472)
+#define ANIM_TAG_MOUSE_CURSOR               (ANIM_SPRITES_START + 473)
+#define ANIM_TAG_STEREO                     (ANIM_SPRITES_START + 474)
+#define ANIM_TAG_STONESURGE                 (ANIM_SPRITES_START + 475)
+#define ANIM_TAG_CODE_WINDOW                (ANIM_SPRITES_START + 476)
 
 // battlers
 #define ANIM_ATTACKER       0

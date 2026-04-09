@@ -34,6 +34,25 @@ script RainbowCloud_Thesis {
 
 }
 
+script RainbowCloud_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing up here?\p"
+
+	"Wowie!\n"
+	"Look at me!\l"
+	"I've finally become a star!\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
 
 script RainbowCloud_FindTheShinies {
 	

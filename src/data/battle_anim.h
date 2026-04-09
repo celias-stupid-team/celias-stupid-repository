@@ -1505,6 +1505,17 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_HongKongBody, 0x0800, ANIM_TAG_HONG_KONG_BODY},
     {gBattleAnimSpriteGfx_HongKongBullet, 0x0020, ANIM_TAG_HONG_KONG_BULLET},
     {gBattleAnimSpriteGfx_HongKongDrug, 0x0200, ANIM_TAG_HONG_KONG_DRUG},
+    {gBattleAnimSpriteGfx_Vacuum, 0x0200, ANIM_TAG_VACUUM},
+    {gBattleAnimSpriteGfx_Scissors, 0x0200, ANIM_TAG_SCISSORS},
+    {gBattleAnimSpriteGfx_Cooltrainer, 0x0800, ANIM_TAG_COOLTRAINER},
+    {gBattleAnimSpriteGfx_Kangas, 0x1800, ANIM_TAG_KANGAS},
+    {gBattleAnimSpriteGfx_Pound, 0x0200, ANIM_TAG_POUND},
+    {gBattleAnimSpriteGfx_Grass, 0x0400, ANIM_TAG_GRASS},
+    {gBattleAnimSpriteGfx_PointingFinger, 0x0200, ANIM_TAG_POINTING_FINGER},
+    {gBattleAnimSpriteGfx_MouseCursor, 0x0200, ANIM_TAG_MOUSE_CURSOR},
+    {gBattleAnimSpriteGfx_Stereo, 0x0800, ANIM_TAG_STEREO},
+    {gBattleAnimSpriteGfx_Stonesurge, 0x0800, ANIM_TAG_STONESURGE},
+    {gBattleAnimSpriteGfx_CodeWindow, 0x2000, ANIM_TAG_CODE_WINDOW},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1975,6 +1986,17 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_HongKongBody, ANIM_TAG_HONG_KONG_BODY},
     {gBattleAnimSpritePal_HongKongBullet, ANIM_TAG_HONG_KONG_BULLET},
     {gBattleAnimSpritePal_HongKongDrug, ANIM_TAG_HONG_KONG_DRUG},
+    {gBattleAnimSpritePal_Vacuum, ANIM_TAG_VACUUM},
+    {gBattleAnimSpritePal_Scissors, ANIM_TAG_SCISSORS},
+    {gBattleAnimSpritePal_Cooltrainer, ANIM_TAG_COOLTRAINER},
+    {gBattleAnimSpritePal_Kangas, ANIM_TAG_KANGAS},
+    {gBattleAnimSpritePal_Pound, ANIM_TAG_POUND},
+    {gBattleAnimSpritePal_Grass, ANIM_TAG_GRASS},
+    {gBattleAnimSpritePal_PointingFinger, ANIM_TAG_POINTING_FINGER},
+    {gBattleAnimSpritePal_MouseCursor, ANIM_TAG_MOUSE_CURSOR},
+    {gBattleAnimSpritePal_Stereo, ANIM_TAG_STEREO},
+    {gBattleAnimSpritePal_Stonesurge, ANIM_TAG_STONESURGE},
+    {gBattleAnimSpritePal_CodeWindow, ANIM_TAG_CODE_WINDOW},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
