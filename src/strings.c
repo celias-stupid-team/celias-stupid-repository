@@ -653,6 +653,7 @@ const u8 gFameCheckerText_FameCheckerWillBeClosed[] = _("The RUMOR LOG will be c
 const u8 gFameCheckerText_ClearTextbox[] = _("\n                              ");
 const u8 gText_ExitUnused[] = _("やめる");
 const u8 gText_ExitFromBox[] = _("Exit from the BOX.");
+const u8 gText_OopsTryAgain[] = _("Oops... try again!");
 const u8 gText_WhatDoYouWantToDo[] = _("What do you want to do?");
 const u8 gText_PleasePickATheme[] = _("Please pick a theme.");
 const u8 gText_PickTheWallpaper[] = _("Pick the wallpaper.");

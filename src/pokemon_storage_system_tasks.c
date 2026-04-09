@@ -114,6 +114,7 @@ static void SetUpDoShowPartyMenu(void);
 static bool8 DoShowPartyMenu(void);
 static void InitPokeStorageBg0(void);
 static void PrintStorageMessage(u8 textId);
+static void PrintStorageMessageRaw(const u8 *text);
 static void ShowYesNoWindow(s8 cursorPos);
 static void ClearBottomWindow(void);
 static void AddWallpaperSetsMenu(void);
@@ -2726,6 +2727,16 @@ static void InitPokeStorageBg0(void)
     CopyBgTilemapBufferToVram(0);
 }
 
+static void PrintStorageMessageRaw(const u8 *text)
+{
+    FillWindowPixelBuffer(1, PIXEL_FILL(1));
+    AddTextPrinterParameterized(1, FONT_NORMAL_COPY_1, text, 0, 2, TEXT_SKIP_DRAW, NULL);
+    DrawTextBorderOuter(1, 2, 13);
+    PutWindowTilemap(1);
+    CopyWindowToVram(1, COPYWIN_GFX);
+    ScheduleBgCopyTilemapToVram(0);
+}
+
 static void PrintStorageMessage(u8 id)
 {
     u8 *txtPtr;
@@ -3024,13 +3035,7 @@ static void Task_WithdrawMonInBackground(u8 taskId)
         InitMonPlaceChange(CHANGE_SWITCHIN_TAKE); //set up correct function for DoMonPlaceChange()
         gStorage->state = 2;
         break;
-    case 1: //cancel
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
-        {
-            ClearBottomWindow();
-            SetPokeStorageTask(Task_PokeStorageMain);
-        }
-        break;
+    // case 1 was removed
     case 2:
         if (!DoMonPlaceChange())
         {
@@ -3068,7 +3073,26 @@ static void Task_WithdrawMonInBackground(u8 taskId)
         else
         {
             PlaySE(SE_FAILURE);
-            gStorage->state = 1;
+            StringCopy(gStorage->actionText, gStringVar4); // save reason before anything overwrites it
+            PrintStorageMessageRaw(gText_OopsTryAgain);
+            gStorage->state = 6;
+        }
+        break;
+    case 6: // error flow
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            PrintStorageMessageRaw(gStorage->actionText);
+            gStorage->state = 7;
+        }
+        break;
+    case 7:
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            ClearBottomWindow();
+            if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS)
+                SetPokeStorageTask(Task_ShutDownImmediately);
+            else
+                SetPokeStorageTask(Task_HidePartyPokemon);
         }
         break;
     }
