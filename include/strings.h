@@ -1487,6 +1487,7 @@ extern const u8 gText_PartyFull[];
 extern const u8 gText_JustOnePkmn[];
 extern const u8 gText_Box[];
 extern const u8 gText_ExitFromBox[];
+extern const u8 gText_OopsTryAgain[];
 extern const u8 gText_WhatDoYouWantToDo[];
 extern const u8 gText_PleasePickATheme[];
 extern const u8 gText_PickTheWallpaper[];

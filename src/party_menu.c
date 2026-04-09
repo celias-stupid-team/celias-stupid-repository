@@ -6752,24 +6752,9 @@ bool8 TrySwitchInPokemonFromPSS(void)
         StringExpandPlaceholders(gStringVar4, gText_PkmnHasNoEnergy);
         switchSuccessful = FALSE;
     }
-    for (i = 0; i < gBattlersCount; ++i)
-    {
-        if (GetBattlerSide(i) == B_SIDE_PLAYER && GetPartyIdFromBattleSlot(slot) == gBattlerPartyIndexes[i])
-        {
-            GetMonNickname(&gPlayerParty[slot], gStringVar1);
-            StringExpandPlaceholders(gStringVar4, gText_PkmnAlreadyInBattle);
-            switchSuccessful = FALSE;
-        }
-    }
     if (GetMonData(&gPlayerParty[slot], MON_DATA_IS_EGG))
     {
         StringExpandPlaceholders(gStringVar4, gText_EggCantBattle);
-        switchSuccessful = FALSE;
-    }
-    if (gBattleStruct != NULL && GetPartyIdFromBattleSlot(slot) == gBattleStruct->playerPartyIdx)
-    {
-        GetMonNickname(&gPlayerParty[slot], gStringVar1);
-        StringExpandPlaceholders(gStringVar4, gText_PkmnAlreadySelected);
         switchSuccessful = FALSE;
     }
     if (gPartyMenu.action == PARTY_ACTION_ABILITY_PREVENTS)
