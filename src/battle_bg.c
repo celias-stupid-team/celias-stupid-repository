@@ -1149,7 +1149,7 @@ static u8 GetBattleTerrainOverride(void)
         gBattleTerrain = BATTLE_TERRAIN_RAINBOW;
         return BATTLE_TERRAIN_RAINBOW;
     }
-    else if (gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
+    else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
     {
         gBattleTerrain = BATTLE_TERRAIN_SPACE;
         return BATTLE_TERRAIN_SPACE;

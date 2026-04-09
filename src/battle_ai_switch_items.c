@@ -685,7 +685,7 @@ static bool8 ShouldUseItem(void)
             break;
         case AI_ITEM_HEAL_PP: // only implemented for a hard coded case
             // special rule for battle TRAINER_SODASHOP_RICHKID
-            if (gTrainerBattleOpponent_A == TRAINER_SODASHOP_RICHKID && !gDisableStructs[gActiveBattler].isFirstTurn && item == ITEM_MAX_ELIXIR)
+            if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_SODASHOP_RICHKID && !gDisableStructs[gActiveBattler].isFirstTurn && item == ITEM_MAX_ELIXIR)
                 shouldUse = TRUE;
             break;
         case AI_ITEM_NOT_RECOGNIZABLE:

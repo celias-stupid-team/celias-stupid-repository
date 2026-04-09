@@ -2968,7 +2968,7 @@ static void TryDoEventsBeforeFirstTurn(void)
     if (ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_BEFORE_FIRST_TURN))
         BattleScriptExecute(BattleScript_TrainerASlideMsgEnd2);
 
-    if (gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS)
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS)
     {
         u8 oppBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
         gBattleMons[oppBattler].status2 |= STATUS2_CONFUSION_TURN(5);
@@ -4062,9 +4062,9 @@ static void HandleEndTurn_FinishBattle(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
             ClearRematchStateByTrainerId();
         BeginFastPaletteFade(3);
-        if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
-            FadeOutMapMusic(5);
-        }
+        // if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
+        //     FadeOutMapMusic(5);
+        // }
         TryRestoreHeldItems();
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
         gCB2_AfterEvolution = BattleMainCB2;

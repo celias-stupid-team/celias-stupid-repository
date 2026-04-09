@@ -2237,7 +2237,7 @@ void BufferStringBattle(u16 stringId)
             gDisplayedStringBattle[0] = EOS;
             return;
         }
-        else if (stringId == STRINGID_PLAYERDEFEATEDTRAINER1 && gTrainerBattleOpponent_A == TRAINER_Y_ELTAL && FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE)) // special case for YVELTAL battle
+        else if (stringId == STRINGID_PLAYERDEFEATEDTRAINER1 && gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_Y_ELTAL && FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE)) // special case for YVELTAL battle
         {
             stringPtr = sText_PlayerDefeatedTrainerY_eltal;
         }

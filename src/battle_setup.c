@@ -527,7 +527,7 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_CHAPTER_3;
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD))
         return BATTLE_TERRAIN_RAINBOW;
-    if (gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
         return BATTLE_TERRAIN_SPACE;    
 
     switch (gMapHeader.mapType)
@@ -1143,7 +1143,7 @@ void PlayTrainerEncounterMusic(void)
     if (!QL_IS_PLAYBACK_STATE
      && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
      && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC
-     && gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER)
+     && gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER)
     {
         switch (GetTrainerEncounterMusicId(gTrainerBattleOpponent_A))
         {
