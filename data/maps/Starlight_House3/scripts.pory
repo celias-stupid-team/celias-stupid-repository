@@ -60,7 +60,7 @@ msgbox(
     msgbox(
 	"Oh...\p"
 	"Um...\p"
-    "Cause Memes lol?", MSGBOX_DEFAULT)
+    "Because memes lol?", MSGBOX_DEFAULT)
     closemessage
     delay(60)
     //setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
@@ -99,6 +99,8 @@ msgbox(
     setmetatile(1, 2, 0x2EB, FALSE)
     special(DrawWholeMapView)
     delay(30)
+    
+    waitmovement(LOCALID_DAK)
     applymovement(LOCALID_PLAYER, moves(
         face_right
     ))
