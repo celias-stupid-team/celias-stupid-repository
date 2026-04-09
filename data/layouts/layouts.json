@@ -7648,12 +7648,12 @@
     {
       "id": "LAYOUT_STARLIGHT_HOUSE_10",
       "name": "Starlight_House_10_Layout",
-      "width": 17,
-      "height": 12,
+      "width": 19,
+      "height": 14,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Starlight_Interior",
+      "secondary_tileset": "gTileset_Starlight_Interior3",
       "border_filepath": "data/layouts/Starlight_House_10/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House_10/map.bin"
     },
