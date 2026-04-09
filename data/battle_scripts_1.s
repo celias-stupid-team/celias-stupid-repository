@@ -302,6 +302,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRhydon                 @ EFFECT_RHYDON
 	.4byte BattleScript_EffectTrumpCard              @ EFFECT_TRUMP_CARD
 	.4byte BattleScript_EffectRestoreXHp             @ EFFECT_RESTORE_X_HP
+	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
 
 BattleScript_End2::
 	end2
@@ -6386,5 +6387,16 @@ BattleScript_EffectRestoreXHp::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTypeSmall::
+	attackcanceler
+	attackstring
+	ppreduce
+	settypesmall BS_TARGET
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNBECAMETYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
