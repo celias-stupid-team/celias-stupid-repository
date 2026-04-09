@@ -288,6 +288,17 @@ script GTS_LeftScammerMeat {
         msgbox("Hey!\nEverything else you have is dead!\pThis is a really obscure text box.\nGood job finding it!", MSGBOX_DEFAULT)
         goto(GTS_Scammers_ReleaseEnd)
     }
+    if(var(VAR_0x8005) == SPECIES_TAUROS) {
+        msgbox(
+        "A TAUROS? Nah, man.\n"
+        "Everyone's got dozens of those.\p"
+
+        "Some SAFARI ZONE kid's been giving\n"
+        "them out like candy.\l"
+        "Pick something else!", MSGBOX_DEFAULT)
+        goto(GTS_Scammers_ReleaseEnd)
+
+    }
 	specialvar(VAR_0x8005, GetSelectedMonNicknameAndSpecies)
 	waitse
 	playmoncry(VAR_0x8005, CRY_MODE_NORMAL)
@@ -484,6 +495,18 @@ script GTS_RightScammerMeat {
         goto(GTS_Scammers_ReleaseEnd)
     }
 	specialvar(VAR_0x8005, GetSelectedMonNicknameAndSpecies)
+    
+    if(var(VAR_0x8005) == SPECIES_TAUROS) {
+        msgbox(
+        "A TAUROS? Nah, man.\n"
+        "Everyone's got dozens of those.\p"
+
+        "Some SAFARI ZONE kid's been giving\n"
+        "them out like candy.\l"
+        "Pick something else!", MSGBOX_DEFAULT)
+        goto(GTS_Scammers_ReleaseEnd)
+
+    }
 	waitse
 	playmoncry(VAR_0x8005, CRY_MODE_NORMAL)
 	waitmoncry

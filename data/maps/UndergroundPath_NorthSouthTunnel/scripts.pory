@@ -259,3 +259,17 @@ script UndergroundPath_SecretSwitch {
 
 	
 }
+
+script UndergroundPath_CuckChair1 {
+	msgbox(
+	"Magnum cuck chair.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script UndergroundPath_CuckChair2 {
+	msgbox(
+	"Extra long-distance cuck chair.\n"
+	"", MSGBOX_SIGN)
+
+}

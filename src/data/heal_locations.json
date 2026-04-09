@@ -428,7 +428,7 @@
       "id": "HEAL_LOCATION_POKEMON_LEAGUE_AGATHAS_ROOM",
       "map": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
       "x": 6,
-      "y": 9,
+      "y": 10,
       "respawn_map": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
       "respawn_npc": "1"
     },

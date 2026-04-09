@@ -8849,12 +8849,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_MILOTIC] =
     {
-        .baseHP = 10,
+        .baseHP = 2,
         .baseAttack = 60,
-        .baseDefense = 10,
+        .baseDefense = 2,
         .baseSpeed = 81,
-        .baseSpAttack = 140,
-        .baseSpDefense = 10,
+        .baseSpAttack = 250,
+        .baseSpDefense = 2,
         .types = {TYPE_WATER, TYPE_WATER},
         .catchRate = 255,
         .expYield = 213,

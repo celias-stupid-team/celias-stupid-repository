@@ -243,6 +243,7 @@ script Route23_GetNationalDexRotomLeaves {
 	))
 	//rotom runs away
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	delay(20)
 	msgbox(
 	"Ah, looks like there's a few apps\n"
 	"that don't work anymore.\l"

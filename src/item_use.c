@@ -758,7 +758,7 @@ void FieldUseFunc_Ruby(u8 taskId)
         RemoveUsedItem();
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToFieldFromBagMenu);
     } else {
-        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToBagFromContextMenu);
     }
 }
 
