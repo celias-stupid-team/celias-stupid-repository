@@ -2015,7 +2015,6 @@ static void Cmd_adjustnormaldamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
-        DebugPrintf("Case 1");
 
         if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
                         BattleStopLowHpSound();
@@ -2597,8 +2596,6 @@ static void Cmd_resultmessage(void)
             }
             else if (gMoveResultFlags & MOVE_RESULT_STURDIED)
             {
-                DebugPrintf("Case 1");
-                DebugPrintf("Case 2");
                 if (gLastUsedAbility != ABILITY_REVENGE)
                 {
                     gSpecialStatuses[gBattlerTarget].sturdied = FALSE;
