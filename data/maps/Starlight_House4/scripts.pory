@@ -7,3 +7,11 @@ script Starlight_House4_Under_Construction {
 	"This Room is under construction.", MSGBOX_SIGN)
 
 }
+
+script StarlightHouse_YouForgotSomething {
+	msgbox(
+	"This used to be under construction\n"
+	"but Starlight forgot to remove the\l"
+	"sign here.", MSGBOX_SIGN)
+
+}
