@@ -173,6 +173,38 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route20_ButtTouch"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route20_ButtTouch"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route20_ButtTouch"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route20_ButtTouch"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route20_ButtTouch"
     }
   ]
 }

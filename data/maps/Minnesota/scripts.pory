@@ -452,6 +452,11 @@ script Minnesota_Bliz {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_REUNITED_HAKARI_AND_BLIZ)) {
+		msgbox(
+		"We will finish this script later.\n"
+		"", MSGBOX_DEFAULT)
+	}
 	msgbox(
 	"Where is hakari\n"
 	"", MSGBOX_DEFAULT)
@@ -490,7 +495,7 @@ script Minnesota_Bliz {
 
 	"there's like a battle or smth\n"
 	"idk", MSGBOX_DEFAULT)
-	waitmovement(0)
+	giveitem_msg("{PLAYER} was given TM25!\nIt contains DIG.", ITEM_TM25)
 	release
 }
 
