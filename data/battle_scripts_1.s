@@ -4165,6 +4165,8 @@ BattleScript_DoSelfConfusionDmg::
 	adjustnormaldamage2
 	printstring STRINGID_ITHURTCONFUSION
 	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_CONFUSION_BONK
+	waitanimation
 	effectivenesssound
 	hitanimation BS_ATTACKER
 	waitstate

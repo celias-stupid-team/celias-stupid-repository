@@ -1197,6 +1197,7 @@ gBattleAnims_General::
 	.4byte General_RhydonTransform          @ B_ANIM_RHYDON_TRANSFORM
 	.4byte General_TrumpCardUseless	        @ B_ANIM_TRUMP_CARD_USELESS
 	.4byte General_UnboundSpriteUpdate      @ B_ANIM_UNBOUND_SPRITE_UPDATE
+	.4byte General_ConfusionBonk            @ B_ANIM_CONFUSION_BONK
 
 	.align 2
 gBattleAnims_Special::
@@ -11797,7 +11798,7 @@ ConfusionEffect:
 	createsprite gConfusionDuckSpriteTemplate, ANIM_TARGET, 2, 0, -15, 204, 3, 90
 	return
 
-ConfusionBonk:
+General_ConfusionBonk:
 	loadspritegfx ANIM_TAG_DUCK
 	loadspritegfx ANIM_TAG_IMPACT
 	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
