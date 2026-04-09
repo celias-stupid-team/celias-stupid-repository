@@ -18,13 +18,54 @@ mapscripts CaveOfOrigin_2F_MapScripts {
 		}
 		setflag(FLAG_TEMP_A)
 		if(flag(FLAG_FOUND_ROTOM_MOW) && flag(FLAG_FOUND_ROTOM_WASH) && flag(FLAG_FOUND_ROTOM_FAN) && flag(FLAG_FOUND_ROTOM_FROST) && flag(FLAG_FOUND_ROTOM_HEAT)) {
-			setmetatile(11, 6, 0x2D9, FALSE)
+			setmetatile(11, 13, 0x2D9, FALSE)
 		}
+		setflag(FLAG_TEMP_6)
 
     }
     MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_FOUND_ROTOM_MOW) && flag(FLAG_FOUND_ROTOM_WASH) && flag(FLAG_FOUND_ROTOM_FAN) && flag(FLAG_FOUND_ROTOM_FROST) && flag(FLAG_FOUND_ROTOM_HEAT)) {
-			setmetatile(11, 6, 0x2D9, FALSE)
+			setmetatile(11, 13, 0x2D9, FALSE)
 		}
     }
+}
+
+script CaveOfOrigin_ShinyGoldeen {
+	lock
+	faceplayer
+	playmoncry(SPECIES_GOLDEEN, CRY_MODE_DEFAULT)
+	waitmoncry
+	msgbox(
+	"The POKéMON has seen this\n"
+	"problem before.\l"
+	"However, it does not seem to mind.", MSGBOX_DEFAULT)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GOLDEEN)
+	setflag(FLAG_SHINY_CREATION)
+	waitfanfare
+	removeobject(VAR_LAST_TALKED)
+	setflag(FLAG_SHINY_GOLDEEN_FOUND)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox(
+	"{PLAYER} scooped up the pet\n"
+	"GOLDEEN!", MSGBOX_DEFAULT)
+	waitfanfare
+	call(Common_Script_GiftPokemon19)
+}
+
+script CaveOfOrigin_CheckLeftRock {
+	release
+	end
+}
+
+
+script CaveOfOrigin_CheckRightRock {
+	release
+	end
+}
+
+script CaveOfOrigin_SpawnGoldeen {
+	clearflag(FLAG_TEMP_6)
+	addobject(LOCALID_GOLDEEN)
+	release
+	end
 }

@@ -6132,7 +6132,7 @@ BattleScript_NewTripleKickHeal::
 	attackanimation
 	waitanimation
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
-	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
+	tryhealxhp BattleScript_AlreadyAtFullHp
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
 	goto BattleScript_EffectHit

@@ -210,8 +210,8 @@ script DMCAWarehouse_AdminLeaves {
 	"Grr…\n"
 	"Fine!\p"
 
-	"You wanna know about that LETTER we\n"
-	"confiscated?\l"
+	"You wanna know about that LETTER\n"
+	"we confiscated?\l"
 	"Ha!\p"
 
 	"We took it cuz it was infringing on\n"
@@ -335,8 +335,8 @@ script DMCAWarehouse_Qbert {
 script DMCAWarehouse_Polio {
 	lock
 	faceplayer
-	if(checkitem(ITEM_PP_UP)) {
-		removeitem(ITEM_PP_UP)
+	if(checkitem(ITEM_PP_MAX)) {
+		removeitem(ITEM_PP_MAX)
 		playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
 		msgbox(
 		"POPP PLIO: Pla-plaaah!\n"

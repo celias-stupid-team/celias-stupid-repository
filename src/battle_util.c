@@ -4140,8 +4140,16 @@ uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
     //  DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
     //  DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
 
-    if (gCurrentMove == MOVE_FREEZE_DRY && defType == TYPE_WATER)
-        return UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_FREEZE_DRY &&
+        (defType == TYPE_WATER
+        || defType == TYPE_FLYING
+        || defType == TYPE_BIRD))
+        return UQ_4_12(5.0);
+
+    
+    if (gCurrentMove == MOVE_FREEZE_DRY &&
+        (defType == TYPE_GRASS_TCG))
+            return UQ_4_12(0.05);
 
     return sTypeEffectivenessTable[atkType][defType];
 }

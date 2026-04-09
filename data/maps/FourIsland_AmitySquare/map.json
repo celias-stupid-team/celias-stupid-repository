@@ -3,7 +3,7 @@
   "name": "FourIsland_AmitySquare",
   "layout": "LAYOUT_FOUR_ISLAND_AMITY_SQUARE",
   "music": "MUS_FOUR_ISLAND",
-  "region_map_section": "MAPSEC_FOUR_ISLAND",
+  "region_map_section": "MAPSEC_AMITY_SQUARE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

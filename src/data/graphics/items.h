@@ -1005,3 +1005,6 @@ const u32 gItemIconPalette_StunSeed[] = INCBIN_U32("graphics/items/icon_palettes
 
 const u32 gItemIcon_HDutyRoot[] = INCBIN_U32("graphics/items/icons/hdutyroot.4bpp.lz");
 const u32 gItemIconPalette_HDutyRoot[] = INCBIN_U32("graphics/items/icon_palettes/hdutyroot.gbapal.lz");
+
+const u32 gItemIcon_RawNugget[] = INCBIN_U32("graphics/items/icons/raw_nugget.4bpp.lz");
+const u32 gItemIconPalette_RawNugget[] = INCBIN_U32("graphics/items/icon_palettes/raw_nugget.gbapal.lz");

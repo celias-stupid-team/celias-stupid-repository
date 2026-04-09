@@ -128,6 +128,7 @@
       "flag": "FLAG_HIDE_VIRIDIAN_FOREST_POTION"
     },
     {
+      "local_id": "LOCALID_10U_GUY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 43,
@@ -640,6 +641,15 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "ViridianForest_SetGrassFlag"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "0",
+      "script": "ViridianForest_10UGuyFuckYou"
     }
   ],
   "bg_events": [
