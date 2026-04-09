@@ -4165,6 +4165,8 @@ BattleScript_DoSelfConfusionDmg::
 	adjustnormaldamage2
 	printstring STRINGID_ITHURTCONFUSION
 	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_CONFUSION_BONK
+	waitanimation
 	effectivenesssound
 	hitanimation BS_ATTACKER
 	waitstate
@@ -5193,6 +5195,7 @@ BattleScript_EffectDoNothing::
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
 	jumpifmove MOVE_PLEDGE_OF_ALLEGEONCE, BattleScript_SetLatiasPokedexFlags
+	jumpifmove MOVE_TM07, BattleScript_CreateTM07
 	goto BattleScript_MoveEnd
 
 @ enum values like in include/pokedex.h
@@ -5204,6 +5207,10 @@ BattleScript_SetLatiasPokedexFlags::
 	setpokedexflag SPECIES_LATIAS, FLAG_SET_SEEN
 	setpokedexflag SPECIES_LATIAS, FLAG_SET_CAUGHT
 	setpokedexflag SPECIES_LATIAS, FLAG_SET_OBTAINABLE
+	goto BattleScript_MoveEnd
+
+BattleScript_CreateTM07::
+	givetm07
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectFickleBeam::
@@ -6155,7 +6162,7 @@ BattleScript_EffectNothing::
 	ppreduce
 	attackanimation
 	waitanimation
-	trygivenothing BattleScript_EffectNothing
+	givenothing
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

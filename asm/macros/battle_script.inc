@@ -1870,9 +1870,12 @@
 	.4byte \failInstr
 	.endm
 
-	.macro trygivenothing failInstr:req
-	callnative BS_TryGiveNothing
-	.4byte \failInstr
+	.macro givenothing
+	callnative BS_GiveNothing
+	.endm
+
+	.macro givetm07
+	callnative BS_GiveTM07
 	.endm
 
 	.macro trytrickortreat failInstr:req

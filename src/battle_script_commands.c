@@ -13227,17 +13227,26 @@ void BS_TryReflectType(void)
     }
 }
 
-void BS_TryGiveNothing(void) {
-    NATIVE_ARGS(const u8 *failInstr);
-    //DebugPrintf("Nothing");
-    if(!FlagGet(FLAG_GOT_MOVE_NOTHING)) {
+void BS_GiveNothing(void)
+{
+    NATIVE_ARGS();
+
+    if(!FlagGet(FLAG_GOT_MOVE_NOTHING))
+    {
         AddBagItem(ITEM_NOTHING, 1);
-        //DebugPrintf("Nothing 2");
         FlagSet(FLAG_GOT_MOVE_NOTHING);
     }
-    //DebugPrintf("Nothing 3");
+
     gBattlescriptCurrInstr = cmd->nextInstr;
-    //DebugPrintf("Nothing 4");
+}
+
+void BS_GiveTM07(void)
+{
+    NATIVE_ARGS();
+
+    AddBagItem(ITEM_TM07, 1);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 
