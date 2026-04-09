@@ -2744,6 +2744,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
     bool32 statusChanged = FALSE;
     u8 affectsUser = 0; // 0x40 otherwise
     // bool32 noSunCanFreeze = TRUE;
+    DebugPrintf("Ding 0");
 
     if (gBattleCommunication[MOVE_EFFECT_BYTE] & MOVE_EFFECT_AFFECTS_USER)
     {
@@ -3282,13 +3283,15 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 break;
             case MOVE_EFFECT_STEAL_ITEM:
                 {
+                    DebugPrintf("Ding 1");
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
                     {
                         gBattlescriptCurrInstr++;
                         break;
                     }
-
+                    DebugPrintf("Ding 2");
                     side = GetBattlerSide(gBattlerAttacker);
+                    DebugPrintf("Ding 3");
                     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT
                         && !(gBattleTypeFlags &
                             (BATTLE_TYPE_EREADER_TRAINER
@@ -3296,6 +3299,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                             | BATTLE_TYPE_LINK))
                         && gTrainerBattleOpponent_A != TRAINER_SECRET_BASE)
                     {
+                        DebugPrintf("Ding A");
                         gBattlescriptCurrInstr++;
                     }
                     else if (!(gBattleTypeFlags &
@@ -3305,11 +3309,13 @@ void SetMoveEffect(bool8 primary, u8 certain)
                         && gTrainerBattleOpponent_A != TRAINER_SECRET_BASE
                         && (gWishFutureKnock.knockedOffMons[side] & gBitTable[gBattlerPartyIndexes[gBattlerAttacker]]))
                     {
+                        DebugPrintf("Ding B");
                         gBattlescriptCurrInstr++;
                     }
                     else if (gBattleMons[gBattlerTarget].item
                         && gBattleMons[gBattlerTarget].ability == ABILITY_STICKY_HOLD)
                     {
+                        DebugPrintf("Ding C");
                         gBattlescriptCurrInstr = BattleScript_StickyHoldActivates;
                         gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
                         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
@@ -3319,23 +3325,39 @@ void SetMoveEffect(bool8 primary, u8 certain)
                         || IS_ITEM_MAIL(gBattleMons[gBattlerTarget].item)
                         || gBattleMons[gBattlerTarget].item == ITEM_NONE)
                     {
+                        DebugPrintf("Ding D");
                         gBattlescriptCurrInstr++;
                     }
                     else
                     {
+                        
                         u16 *changedItem = &gBattleStruct->changedItems[gBattlerAttacker];
+                        DebugPrintf("Foe Item %d", gBattleMons[gBattlerTarget].item);
+                        DebugPrintf("My Item %d", gBattleMons[gBattlerAttacker].item);
+                        
                         gLastUsedItem = *changedItem = gBattleMons[gBattlerTarget].item;
                         gBattleMons[gBattlerTarget].item = ITEM_NONE;
+                        DebugPrintf("Foe Item %d", gBattleMons[gBattlerTarget].item);
+                        DebugPrintf("My Item %d", gBattleMons[gBattlerAttacker].item);
+                        
 
                         gActiveBattler = gBattlerAttacker;
                         BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gLastUsedItem), &gLastUsedItem);
                         MarkBattlerForControllerExec(gBattlerAttacker);
+                        DebugPrintf("Foe Item %d", gBattleMons[gBattlerTarget].item);
+                        DebugPrintf("My Item %d", gBattleMons[gBattlerAttacker].item);
+                        
 
                         gActiveBattler = gBattlerTarget;
                         BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].item), &gBattleMons[gBattlerTarget].item);
                         MarkBattlerForControllerExec(gBattlerTarget);
+                        DebugPrintf("Foe Item %d", gBattleMons[gBattlerTarget].item);
+                        DebugPrintf("My Item %d", gBattleMons[gBattlerAttacker].item);
+                        
 
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        DebugPrintf("Foe Item %d", gBattleMons[gBattlerTarget].item);
+                        DebugPrintf("My Item %d", gBattleMons[gBattlerAttacker].item);
                         gBattlescriptCurrInstr = BattleScript_ItemSteal;
 
                         *(u8 *)((u8 *)(&gBattleStruct->choicedMove[gBattlerTarget]) + 0) = 0;
