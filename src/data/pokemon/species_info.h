@@ -3285,7 +3285,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_CHANSEY] =
     {
-        .baseHP = 1,
+        .baseHP = 150,
         .baseAttack = 5,
         .baseDefense = 255,
         .baseSpeed = 50,
@@ -4218,7 +4218,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseDefense = 85,
         .baseSpeed = 100,
         .baseSpAttack = 125,
-        .baseSpDefense = 30,
+        .baseSpDefense = 10,
         .types = {TYPE_ELECTRIC, TYPE_FLYING},
         .catchRate = 255,
         .expYield = 255,

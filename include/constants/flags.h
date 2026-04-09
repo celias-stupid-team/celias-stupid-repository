@@ -1333,7 +1333,7 @@
 #define FLAG_DAD_SOOTOPOLIS               0x4D0
 #define FLAG_DAD_SISTERS               0x4D1
 #define FLAG_DAK_HERE             0x4D2
-#define FLAG_0x4D3               0x4D3
+#define FLAG_TRIED_DITTO_IN_WALL               0x4D3
 #define FLAG_0x4D4               0x4D4
 #define FLAG_0x4D5               0x4D5
 #define FLAG_0x4D6               0x4D6

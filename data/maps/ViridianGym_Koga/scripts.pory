@@ -222,6 +222,7 @@ script DMCAKoga_BrickWall4 {
                 "Hmm…\n"
                 "Your BRICK PIECE won't fit.", MSGBOX_DEFAULT)
                 if(checkpartymon(SPECIES_DITTO_MEW)) {
+                    setflag(FLAG_TRIED_DITTO_IN_WALL)
                     playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
                     waitmoncry
                     msgbox(

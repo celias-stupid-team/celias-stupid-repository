@@ -5649,7 +5649,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CHATTER] =    {
         .effect = EFFECT_HIT,
         .power = 65,
-        .type = TYPE_SOUND,
+        .type = TYPE_PSYCHIC,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
@@ -8140,7 +8140,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FREEZE_DRY] =
     {
         .effect = EFFECT_HIT,
-        .power = 300,
+        .power = 200,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 20,
