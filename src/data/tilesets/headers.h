@@ -1325,3 +1325,14 @@ const struct Tileset gTileset_SkullRoom =
     .metatileAttributes = gMetatileAttributes_SkullRoom,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Starlight_Interior3 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Starlight_Interior3,
+    .palettes = gTilesetPalettes_Starlight_Interior3,
+    .metatiles = gMetatiles_Starlight_Interior3,
+    .metatileAttributes = gMetatileAttributes_Starlight_Interior3,
+    .callback = NULL,
+};
