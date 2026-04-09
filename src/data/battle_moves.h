@@ -13812,11 +13812,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     
-    [MOVE_POPULATION_BOMB_KANGA] =
+    [MOVE_PSI_ROCKIN] =
     {
         .effect = EFFECT_HIT,
-        .power = 60,
-        .type = TYPE_NORMAL,
+        .power = 110,
+        .type = TYPE_PSYCHIC,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,

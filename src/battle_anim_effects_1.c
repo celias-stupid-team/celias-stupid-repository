@@ -1187,6 +1187,17 @@ const struct SpriteTemplate gTrickBagSpriteTemplate =
     .callback = AnimTrickBag,
 };
 
+const struct SpriteTemplate gTrickCandySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RARE_CANDY,
+    .paletteTag = ANIM_TAG_RARE_CANDY,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sTrickBagAffineAnimTable,
+    .callback = AnimTrickBag,
+};
+
 static const union AnimCmd sAnim_GasterBlaster_Idle[] =
 {
     ANIMCMD_FRAME(0, 1),
