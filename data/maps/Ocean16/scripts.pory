@@ -3,6 +3,9 @@ mapscripts Ocean16_MapScripts {
 		if(var(VAR_TRADING_QUEST_PHASE) > 2) {
 			setflag(FLAG_TEMP_1)
 		}
+		if(!flag(FLAG_POST_GAME) || flag(FLAG_REUNITED_HAKARI_AND_BLIZ)) {
+			setflag(FLAG_TEMP_6)
+		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_4, 1 {

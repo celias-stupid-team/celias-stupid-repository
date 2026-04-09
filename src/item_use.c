@@ -1331,9 +1331,9 @@ void FieldUseFunc_BigNugget(u8 taskId)
     u16 species;
 
     species = SPECIES_GEODUDE;
+    FlagSet(FLAG_SHINY_CREATION);
 
     gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
-    FlagSet(FLAG_SHINY_CREATION);
 
     switch (gSpecialVar_Result)
     {
