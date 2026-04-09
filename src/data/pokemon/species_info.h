@@ -19409,12 +19409,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_PYROAR] =
     {
-        .baseHP = 255,
+        .baseHP = 20,
         .baseAttack = 255,
-        .baseDefense = 255,
+        .baseDefense = 20,
         .baseSpeed = 255,
         .baseSpAttack = 255,
-        .baseSpDefense = 255,
+        .baseSpDefense = 20,
         .types = {TYPE_GHOST, TYPE_DARK},
         .catchRate = 255,
         .expYield = 150,

@@ -7925,7 +7925,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 25,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 2,
+        .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
