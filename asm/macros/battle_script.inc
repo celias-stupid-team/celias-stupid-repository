@@ -1943,3 +1943,8 @@
 	.2byte \species
 	.byte \flagId
 	.endm
+
+	.macro settypesmall battler:req
+	callnative BS_SetTypeSmall
+	.byte \battler
+	.endm

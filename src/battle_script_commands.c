@@ -13470,3 +13470,15 @@ void BS_JumpIfOpponentTrainerClass(void)
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_SetTypeSmall(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u32 gActiveBattler = GetBattlerForBattleScript(cmd->battler);
+
+    SET_BATTLER_TYPE(gActiveBattler, TYPE_SMALL);
+    PREPARE_TYPE_BUFFER(gBattleTextBuff1, TYPE_SMALL);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
