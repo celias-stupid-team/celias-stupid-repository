@@ -1093,7 +1093,7 @@ static void StartSendOutAnim(u8 battlerId, bool8 dontClearSubstituteBit)
     gSprites[gBattlerSpriteIds[battlerId]].callback = SpriteCallbackDummy;
     gSprites[gBattleControllerData[battlerId]].data[0] = DoPokeballSendOutAnimation(0, POKEBALL_OPPONENT_SENDOUT);
 
-    if (gTrainerBattleOpponent_A == TRAINER_DMCA_MISTY) // additional Blue Eyes sprites
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_DMCA_MISTY) // additional Blue Eyes sprites
     {
         u8 backingTaskId = CreateTask(Task_DMCAMistyBackingSprites, 0);
         gTasks[backingTaskId].data[0] = battlerId;

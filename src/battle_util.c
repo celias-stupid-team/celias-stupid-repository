@@ -1632,7 +1632,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                 gBattleMons[gBattlerAttacker].status2 -= STATUS2_CONFUSION_TURN(1);
                 if (gBattleMons[gBattlerAttacker].status2 & STATUS2_CONFUSION)
                 {
-                    if (!(gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT) && (Random() & 1))
+                    if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT) && (Random() & 1))
                     {
                         // The MULTISTRING_CHOOSER is used here as a bool to signal
                         // to BattleScript_MoveUsedIsConfused whether or not damage was taken
@@ -1644,7 +1644,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                         gBattleCommunication[MULTISTRING_CHOOSER] = TRUE;
                         gBattlerTarget = gBattlerAttacker;
                         gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerAttacker], MOVE_POUND, 0, 40, 0, gBattlerAttacker, gBattlerAttacker);
-                        if (gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+                        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
                             gBattleMoveDamage = gBattleMons[gBattlerAttacker].hp;
                         gProtectStructs[gBattlerAttacker].confusionSelfDmg = 1;
                         gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
@@ -2003,7 +2003,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     break;
                 }
                 // special handling for DMCA_BROCK
-                if (noRelevantWeather && gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
+                if (noRelevantWeather && gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
                 {
                     gBattleWeather = B_WEATHER_GRAVITY;
                     gBattleScripting.battler = battler;
