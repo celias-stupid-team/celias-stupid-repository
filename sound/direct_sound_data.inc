@@ -5567,3 +5567,7 @@ Cry_ARCEUSLAST::
 	.incbin "sound/direct_sound_samples/cries/arceuslast.bin"
 
 	.align 2
+Cry_NOTHING::
+	.incbin "sound/direct_sound_samples/cries/nothing.bin"
+
+	.align 2

@@ -7623,7 +7623,13 @@ static void Cmd_setprotectlike(void)
         {
             gSideStatuses[side] |= SIDE_STATUS_SPIKY_SHIELD;
             PREPARE_MOVE_BUFFER(gBattleTextBuff3, gCurrentMove);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_TEAM;
+            if(gCurrentMove == MOVE_PLEDGE_OF_ALLEGIANCE) {
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEDOM;
+
+            } else {
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_TEAM;
+
+            }
         }
         if (gBattleMoves[gCurrentMove].effect == EFFECT_BANEFUL_BUNKER)
         {

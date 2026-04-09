@@ -9679,6 +9679,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer40[] = {
         .species = SPECIES_ARBOK_POKERAP,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
+    {
+        .iv = 0,
+        .lvl = 70,
+        .species = SPECIES_THATSALL,
+        .moves = {MOVE_CELEBRATE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+    
 
 };
 
@@ -9722,9 +9730,9 @@ static const struct TrainerMonItemCustomMoves sParty_SodaShopRichKid[] = {
     {
         .iv = 0,
         .lvl = 15,
-        .heldItem = ITEM_NUGGET,
+        .heldItem = ITEM_BIG_NUGGET,
         .species = SPECIES_ZIGZAGOON,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_FLING, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 
@@ -10175,9 +10183,9 @@ static const struct TrainerMonItemCustomMoves sParty_Starman[] = {
     {
         .iv = 0,
         .lvl = 30,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_SWORD_OF_KINGS,
         .species = SPECIES_STARMIEMEGA,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_FLING, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };
@@ -10708,42 +10716,42 @@ static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_WEEDLE,
         .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_GENGAR,
         .moves = {MOVE_EVIL_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_LICKITUNG,
         .moves = {MOVE_LICK_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_MIMIKYU,
         .moves = {MOVE_IMPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_EXEGGCUTE,
         .moves = {MOVE_EGGSPLPOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_GREGORY,
         .moves = {MOVE_GREGORY_BLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },

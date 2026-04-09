@@ -126,31 +126,44 @@ script Yes_ChanseyNPC {
 	fadescreenswapbuffers(FADE_TO_BLACK)
 	callnative(SayYesForChansey)
 	waitstate
-	if(var(VAR_RESULT)) {
-		msgbox(
-		"Glad to hear it!\p"
+	switch(var(VAR_RESULT)) {
+		case 0:
+			lock
+			faceplayer
+			msgbox(
+			"…What was that?\n"
+			"I couldn't quite understand you.\p"
 
-		"Here you go!\n"
-		"", MSGBOX_DEFAULT)
-		playfanfare(MUS_LEVEL_UP)
-		msgbox(
-		"{PLAYER} was gifted a CHANSEY!\n"
-		"Yes!", MSGBOX_DEFAULT)
-		setflag(FLAG_LEARNED_YES_NAH_CHANSEY)
-		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CHANSEY)
-		call(Common_Script_GiftPokemon)
-		release
-		end
-	} else {
-		lock
-		faceplayer
-		msgbox(
-		"…What was that?\n"
-		"I couldn't quite understand you.\p"
+			"I'll wait here until you're ready\n"
+			"to give a proper answer.", MSGBOX_DEFAULT)
+			release
+		case 1:
+			lock
+			faceplayer
+			msgbox(
+			"Glad to hear it!\p"
 
-		"I'll wait here until you're ready\n"
-		"to give a proper answer.", MSGBOX_DEFAULT)
-		release
+			"Here you go!\n"
+			"", MSGBOX_DEFAULT)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER} was gifted a CHANSEY!\n"
+			"Yes!", MSGBOX_DEFAULT)
+			setflag(FLAG_LEARNED_YES_NAH_CHANSEY)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CHANSEY)
+			call(Common_Script_GiftPokemon)
+			release
+			end
+		case 2:
+			lock
+			faceplayer
+			msgbox(
+			"Oh, I'm sorry.\n"
+			"I don't speak Italian.\p"
+
+			"I'll wait here until you're ready\n"
+			"to give a proper answer.", MSGBOX_DEFAULT)
+			release
 	}
 }
 

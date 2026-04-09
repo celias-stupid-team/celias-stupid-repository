@@ -9854,3 +9854,11 @@ const u32 gMonShinyPalette_ARCEUSLAST[] = INCBIN_U32("graphics/pokemon/arceuslas
 const u8 gMonIcon_ARCEUSLAST[] = INCBIN_U8("graphics/pokemon/arceuslast/icon.4bpp");
 const u8 gMonFootprint_ARCEUSLAST[] = INCBIN_U8("graphics/pokemon/arceuslast/footprint.1bpp");
 
+// NOTHING
+const u32 gMonFrontPic_NOTHING[] = INCBIN_U32("graphics/pokemon/nothing/front.4bpp.lz");
+const u32 gMonPalette_NOTHING[] = INCBIN_U32("graphics/pokemon/nothing/normal.gbapal.lz");
+const u32 gMonBackPic_NOTHING[] = INCBIN_U32("graphics/pokemon/nothing/back.4bpp.lz");
+const u32 gMonShinyPalette_NOTHING[] = INCBIN_U32("graphics/pokemon/nothing/shiny.gbapal.lz");
+const u8 gMonIcon_NOTHING[] = INCBIN_U8("graphics/pokemon/nothing/icon.4bpp");
+const u8 gMonFootprint_NOTHING[] = INCBIN_U8("graphics/pokemon/nothing/footprint.1bpp");
+

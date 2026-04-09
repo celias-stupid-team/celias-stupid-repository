@@ -289,6 +289,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_WEST",
       "script": "GTS_PowerOff"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 0,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
     }
   ]
 }

@@ -7,14 +7,14 @@ FiveIsland_RocketWarehouse_Text_PenUnlockedMonsFled::
     .string "The POKéMON appear to have fled.$"
 
 FiveIsland_RocketWarehouse_Text_Grunt2Intro::
-	.string "Just because I'm small doesn't\n"
+	.string "{COLOR BLUE}Just because I'm small doesn't\n"
 	.string "mean you can pick on me!$"
 
 FiveIsland_RocketWarehouse_Text_Grunt2Defeat::
     .string "What do you think you're doing?!$"
 
 FiveIsland_RocketWarehouse_Text_Grunt2PostBattle::
-	.string "I was recruited to the DMCA after\n"
+	.string "{COLOR BLUE}I was recruited to the DMCA after\n"
 	.string "I told on my TEACHER in LAVENDER.\p"
 	.string "She was doing storytime in class\n"
 	.string "with copyright stories!\l"

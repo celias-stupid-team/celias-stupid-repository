@@ -149,9 +149,7 @@ static const s8 sAreaMarkers[][4] = {
     [DEX_AREA_POKEMON_MANSION]  = { MARKER_CIRCULAR,  52,  62 },
     [DEX_AREA_VICTORY_ROAD]     = { MARKER_CIRCULAR,  45,   7 },
     [DEX_AREA_ONE_ISLAND]       = { MARKER_CIRCULAR,  10,  10 },
-    [DEX_AREA_TWO_ISLAND]       = { MARKER_CIRCULAR,  12,  35 },
     [DEX_AREA_THREE_ISLAND]     = { MARKER_CIRCULAR,  14,  52 },
-    [DEX_AREA_FOUR_ISLAND]      = { MARKER_CIRCULAR,  12,  84 },
     [DEX_AREA_FIVE_ISLAND]      = { MARKER_CIRCULAR,  45,  81 },
     [DEX_AREA_SIX_ISLAND]       = { MARKER_CIRCULAR,  76,  84 },
     [DEX_AREA_SEVEN_ISLAND]     = { MARKER_CIRCULAR, 104,  82 },
@@ -180,6 +178,21 @@ static const s8 sAreaMarkers[][4] = {
     [DEX_AREA_PATTERN_BUSH]     = { MARKER_CIRCULAR,  76,  77 },
     [DEX_AREA_DOTTED_HOLE]      = { MARKER_CIRCULAR,  73,  95 },
     [DEX_AREA_TANOBY_CHAMBER]   = { MARKER_MED_H,     96,  90 },
+    [DEX_AREA_TWO_ISLAND]       = { MARKER_CIRCULAR,  64,  44 },
+
+
+    [DEX_AREA_ZERO_ISLAND]   = { MARKER_CIRCULAR,     65,  57 },
+    [DEX_AREA_GREAT_BAY]   = { MARKER_CIRCULAR,     68,  42 },
+    [DEX_AREA_EGG_DELIVERY]   = { MARKER_CIRCULAR,     58,  57 },
+    [DEX_AREA_THIRTY_EIGHT]   = { MARKER_CIRCULAR,     45,  54 },
+    [DEX_AREA_MINNESOTA]   = { MARKER_CIRCULAR,     100,  60 },
+    [DEX_AREA_YES]   = { MARKER_CIRCULAR,     76,  34 },
+    [DEX_AREA_AETHER_PARADISE]   = { MARKER_CIRCULAR,     60,  37 },
+    [DEX_AREA_POKEMON_ISLAND]   = { MARKER_CIRCULAR,     60,  63 },
+    [DEX_AREA_FOUR_ISLAND]      = { MARKER_CIRCULAR,  90,  60 },
+    [DEX_AREA_SECRET_GARDEN]      = { MARKER_CIRCULAR,  113,  0 },
+
+    
 };
 
 static void Task_ShowAreaMarkers(u8 taskId)

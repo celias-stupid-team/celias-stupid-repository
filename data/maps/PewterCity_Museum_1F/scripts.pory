@@ -173,6 +173,7 @@ PewterCity_Museum_1F_EventScript_AerodactylFossil::
 
 mapscripts PewterCity_Museum_1F_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
+		setflag(FLAG_TEMP_7)
 		if(flag(FLAG_GOT_DOME_FOSSIL) && !flag(FLAG_NERD_TOOK_KABUTOPS)) {
 			//I keep doing the logic backwards
 			//and not knowing how to invert it

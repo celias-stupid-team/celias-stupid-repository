@@ -36,7 +36,8 @@ mapscripts ViridianGym_Misty_MapScripts {
 script ViridianGym_MistyDead {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"Her mind has been crushed.\n"
+	"She's been sent to the SHADOW\n"
+    "REALM."
 	"", MSGBOX_SIGN)
 
 }
@@ -64,20 +65,7 @@ script ViridianGym_MistyBattle {
 	"for size?", MSGBOX_DEFAULT)
     special(RemoveCameraObject)
     trainerbattle_no_intro(TRAINER_DMCA_MISTY, ViridianGym_MistyBattle_End)
-    if(checkpartymove(MOVE_TRUMP_CARD) == PARTY_SIZE) {
-        textcolor(NPC_TEXT_COLOR_NEUTRAL)
-        msgbox(
-        "She sends out three BLUE EYES\n"
-        "WHITE DRAGONS.\p"
 
-        "Her WHITE LIGHTNING ATTACK will\n"
-        "destroy all POKéMON you use.\p"
-
-        "You did not have the solution to\n"
-        "the fight.\l"
-        "You will die now.", MSGBOX_DEFAULT)
-        goto(EventScript_FieldWhiteOutNoMoney)
-    } else {
         msgbox(
         "Gah-!\n"
         "", MSGBOX_DEFAULT)
@@ -102,7 +90,7 @@ script ViridianGym_MistyBattle {
             walk_slow_down * 5
         ))
         waitmovement(0)
-        setobjectxy(LOCALID_DMCA_YUGIOH, 5, 2)
+        setobjectxy(LOCALID_DMCA_YUGIOH, 5, 3)
         copyobjectxytoperm(LOCALID_DMCA_YUGIOH)
         delay(30)
         playse(SE_CLICK)
@@ -112,7 +100,7 @@ script ViridianGym_MistyBattle {
         release
         end
 
-    }
+
 }
 
 text ViridianGym_MistyBattle_Start {

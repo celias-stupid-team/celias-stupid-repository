@@ -620,6 +620,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LICHEN_SPROUT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPROUT_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HAKARI_ENTERS;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FRIEND_TREE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GOLDEEN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SINGLE_SAWK;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1241,4 +1243,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SPROUT_2] = &gObjectEventGraphicsInfo_SPROUT_2,
     [OBJ_EVENT_GFX_HAKARI_ENTERS] = &gObjectEventGraphicsInfo_HAKARI_ENTERS,
     [OBJ_EVENT_GFX_FRIEND_TREE] = &gObjectEventGraphicsInfo_FRIEND_TREE,
+    [OBJ_EVENT_GFX_GOLDEEN] = &gObjectEventGraphicsInfo_GOLDEEN,
+    [OBJ_EVENT_GFX_SINGLE_SAWK] = &gObjectEventGraphicsInfo_SINGLE_SAWK,
 };

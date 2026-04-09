@@ -1262,6 +1262,7 @@ gCryTable::
 	cry Cry_CELIASSTUPIDROMHACK
 	cry Cry_GREGORY
 	cry Cry_ARCEUSLAST
+	cry Cry_NOTHING
 
 
 	.align 2
@@ -2528,3 +2529,4 @@ gCryTable_Reverse::
 	cry_reverse Cry_CELIASSTUPIDROMHACK
 	cry_reverse Cry_GREGORY
 	cry_reverse Cry_ARCEUSLAST
+	cry_reverse Cry_NOTHING

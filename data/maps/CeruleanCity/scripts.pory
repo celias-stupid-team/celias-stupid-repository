@@ -454,37 +454,6 @@ script CeruleanCity_NuggetSeller {
 		release
 		end
 	}
-	if(var(VAR_NUMBER_NUGGETS_BOUGHT) == 3) {
-		playse(SE_SHOP)
-		removemoney(4999, 0)
-		updatemoneybox
-		waitse
-		addvar(VAR_NUMBER_NUGGETS_BOUGHT, 1)
-		msgbox(
-		"Haha!\n"
-		"Thanks for the sale!\p"
-
-		"Whoa, looks like this NUGGET's\n"
-		"pretty big.\l"
-		"Hope you're hungry!", MSGBOX_DEFAULT)
-		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GEODUDE)
-		setflag(FLAG_SHINY_CREATION)
-		textcolor(NPC_TEXT_COLOR_NEUTRAL)
-		msgbox(
-		"{PLAYER} bought a\n"
-		"BIG NUGGET!", MSGBOX_DEFAULT)
-		playfanfare(MUS_LEVEL_UP)
-		msgbox(
-		"Wow!\n"
-		"It's a GEODUDE!", MSGBOX_DEFAULT)
-		call(Common_Script_GiftPokemon19)
-		hidemoneybox
-		release
-		end
-
-
-	}
-	addvar(VAR_NUMBER_NUGGETS_BOUGHT, 1)
 	playse(SE_SHOP)
 	removemoney(4999, 0)
 	updatemoneybox
