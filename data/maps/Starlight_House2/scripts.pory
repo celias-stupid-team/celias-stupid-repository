@@ -33,8 +33,11 @@ script Starlight_House2_Post_Battle {
     "But hey, it was nice to meet you!\n"
 	"Feel free to explore around the\l"
     "place before you go.\p"
-	"There's nothing special here, but I\n"
-    "had some fun making it!\p"
+	"Just as a disclaimer:\l"
+	"Nothing here is related to any\l"
+	"puzzles or secrets, there are also\l"
+	"no rewards, this was just a bonus\l"
+	"place I had a lot of fun making!\p"
 	"Also if you see my friend hanging\n"
 	"around here could you let me know?\l"
 	"Thanks!", MSGBOX_DEFAULT)
@@ -60,10 +63,13 @@ script Starlight_House2_Battle { //test
 
 	msgbox(
     "It was nice to meet you!\l"
-	"Feel free to explore around the\n"
+	"Feel free to explore around the\l"
     "place before you go.\p"
-	"There's nothing special here, but I\n"
-    "had some fun making it!\p"
+	"Just as a disclaimer:\l"
+	"Nothing here is related to any\l"
+	"puzzles or secrets, there are also\l"
+	"no rewards. This was just a bonus\l"
+	"place I had a lot of fun making!\p"
 	"Also if you see my friend hanging\n"
 	"around here could you let me know?\l"
 	"Thanks!", MSGBOX_DEFAULT)
@@ -153,5 +159,11 @@ script Starlight_House2_Machine { //update table plans visual
 	"It's a machine.\p"
 	"...\p"
 	"(IDFK what else to say...)", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_PC { //update table plans visual
+	msgbox(
+	"No, this PC is not functional.\p", MSGBOX_SIGN)
 
 }

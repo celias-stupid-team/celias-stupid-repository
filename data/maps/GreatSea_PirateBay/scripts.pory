@@ -10,9 +10,13 @@ mapscripts GreatSea_PirateBay_MapScripts {
 		}
 	]
 	MAP_SCRIPT_ON_TRANSITION {
-		setworldmapflag(FLAG_WORLD_MAP_PIRATE_BAY)
+		if(!flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setmetatile(60, 6, 0x2F0, FALSE)
+			setmetatile(60, 7, 0x300, FALSE)
+			setmetatile(60, 8, 0x2E2, FALSE)
+        }
 	}
-	
+
 }
 
 script PirateBay_BuyItOrDie {
