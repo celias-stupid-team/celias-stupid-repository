@@ -6069,7 +6069,8 @@ static void Cmd_switchineffects(void)
         && (((gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES) || (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SHADOW_SPIKES)))
         && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
         && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
-        && gBattleMons[gActiveBattler].item != ITEM_AIR_BALLOON)
+        && gBattleMons[gActiveBattler].item != ITEM_AIR_BALLOON
+        && ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) != HOLD_EFFECT_HEAVY_DUTY_BOOTS)
     {
         u8 spikesDmg;
 
@@ -6105,7 +6106,8 @@ static void Cmd_switchineffects(void)
             gBattlescriptCurrInstr = BattleScript_DmgHazardsOnFaintedBattler;
     }
     else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK_DAMAGED)
-        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK))
+        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK)
+        && ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) != HOLD_EFFECT_HEAVY_DUTY_BOOTS)
     {
         gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_STEALTH_ROCK_DAMAGED;
         gBattleMoveDamage = GetStealthHazardDamage(gBattleMoves[MOVE_TOMBSTONER].type, gActiveBattler);
@@ -6130,6 +6132,18 @@ static void Cmd_switchineffects(void)
             else
                 gBattlescriptCurrInstr = BattleScript_DmgHazardsOnFaintedBattler;
         }
+    } // case to trigger the HD Roots script
+    else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
+        && ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) == HOLD_EFFECT_HEAVY_DUTY_BOOTS
+        && ((gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
+         || (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SHADOW_SPIKES)
+         || (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK)))
+    {
+        gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_SPIKES_DAMAGED;
+        gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_STEALTH_ROCK_DAMAGED;
+        gBattleScripting.battler = gActiveBattler;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_HeavyDutyBootsProtect;
     }
     else
     {

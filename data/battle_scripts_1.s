@@ -5364,6 +5364,11 @@ BattleScript_SlowStartBeforeNeutralizingGas::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_HeavyDutyBootsProtect::
+	printstring STRINGID_HEAVYDUTYBOOTSPROTECT
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_AirBalloonMsgIn::
 	printstring STRINGID_AIRBALLOONFLOAT
 	waitmessage B_WAIT_TIME_LONG
