@@ -612,6 +612,7 @@ script GTS_Scammers_CheckIfComplimentaryMon {
             case SPECIES_RAICHU:
             case SPECIES_MEOWTH:
             case SPECIES_ABRA:
+            case SPECIES_MISSINGNO:
                 setflag(FLAG_TEMP_4)
                 //if Abra is holding spoon
             default:
@@ -622,6 +623,7 @@ script GTS_Scammers_CheckIfComplimentaryMon {
             case SPECIES_RAICHU:
             case SPECIES_MEOWTH:
             case SPECIES_ABRA:
+            case SPECIES_MISSINGNO:
                 setflag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)
                 //if Abra is holding spoon
             default:
