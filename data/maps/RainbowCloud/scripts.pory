@@ -85,6 +85,7 @@ script RainbowCloud_FindTheShinies {
 			fadescreenspeed(FADE_TO_WHITE, 10)
 			waitse
 			setlayouttiles(LAYOUT_RAINBOW_CLOUD_FINAL_SHINY,0,0,0,0,28,50)
+					setmaplayoutindex(LAYOUT_RAINBOW_CLOUD_FINAL_SHINY)
 			delay(60)
 			setflag(FLAG_FINAL_SHINY)
 			fadescreeninstant(FADE_FROM_WHITE)

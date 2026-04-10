@@ -293,6 +293,7 @@ script SkyTower_3F_ThePit {
     addobject(LOCALID_SKY_TOWER_3F_FRIEND_OAK)
     removeobject(LOCALID_SKY_TOWER_3F_UNFRIEND)
     setlayouttiles(LAYOUT_SKY_TOWER_3F_PIT, 0,0,0,0,67, 62)
+					setmaplayoutindex(LAYOUT_SKY_TOWER_3F_PIT)
 
     release
 }
@@ -300,6 +301,7 @@ script SkyTower_3F_ThePit {
 
 script SkyTower_3F_KillThePit {
     setlayouttiles(LAYOUT_SKY_TOWER_3F, 0,0,0,0,67, 62)
+					setmaplayoutindex(LAYOUT_SKY_TOWER_3F)
     setmetatile(22, 49, METATILE_NavelRock_PitTrap, FALSE)
     removeobject(LOCALID_SKY_TOWER_3F_FRIEND_OAK)
     addobject(LOCALID_SKY_TOWER_3F_UNFRIEND)
