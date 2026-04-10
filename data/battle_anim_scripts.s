@@ -13086,7 +13086,7 @@ Move_V_CREATE:
 	delay 2
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0x0, 0x5
 	waitforvisualfinish
-	addletterv ANIM_TARGET
+	addletter ANIM_TARGET, LETTER_V
 	clearmonbg ANIM_DEF_PARTNER
 	call UnsetPsychicBg
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 0, RGB_WHITEALPHA

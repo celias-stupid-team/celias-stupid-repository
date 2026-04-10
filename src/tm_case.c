@@ -739,8 +739,9 @@ static void PrintDescription(s32 itemIndex)
         str = ItemId_GetDescription(BagGetItemIdByPocketPosition(POCKET_TM_CASE, itemIndex));
     else
         str = gText_TMCaseWillBePutAway;
+    StringExpandPlaceholders(gStringVar4, str);
     FillWindowPixelBuffer(WIN_DESCRIPTION, 0);
-    TMCase_Print(WIN_DESCRIPTION, FONT_NORMAL, str, 2, 3, 1, 0, 0, COLOR_LIGHT);
+    TMCase_Print(WIN_DESCRIPTION, FONT_NORMAL, gStringVar4, 2, 3, 1, 0, 0, COLOR_LIGHT);
 }
 
 // Darkens (or subsequently lightens) the blue bg tiles around the description window when a TM/HM is selected.

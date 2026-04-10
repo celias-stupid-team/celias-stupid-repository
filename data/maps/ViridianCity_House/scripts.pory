@@ -1901,9 +1901,7 @@ script CeliaSecret_NewGamePlus {
 			"Gotcha!\n"
 			"Have fun!", MSGBOX_DEFAULT)
 			removeobject(VAR_LAST_TALKED)
-
 		}
 		release
 		end
-
 }

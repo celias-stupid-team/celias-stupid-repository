@@ -7707,12 +7707,12 @@
       "secondaryId": 0
     },
     {
-      "english": "H.DutyRoot",
+      "english": "H.Duty Roots",
       "itemId": "ITEM_HDUTYROOT",
       "price": 200,
-      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffect": "HOLD_EFFECT_HEAVY_DUTY_BOOTS",
       "holdEffectParam": 0,
-      "description_english": "DUMMY DESCRIPTION",
+      "description_english": "Roots that prevent effects of\\ntraps set in the field.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
