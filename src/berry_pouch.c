@@ -760,8 +760,9 @@ static void PrintSelectedBerryDescription(s32 itemIdx)
         str = ItemId_GetDescription(BagGetItemIdByPocketPosition(POCKET_BERRY_POUCH, itemIdx));
     else
         str = gText_TheBerryPouchWillBePutAway;
+    StringExpandPlaceholders(gStringVar4, str);
     FillWindowPixelBuffer(1, PIXEL_FILL(0));
-    BerryPouchPrint(1, FONT_NORMAL, str, 0, 2, 2, 0, 0, 0);
+    BerryPouchPrint(1, FONT_NORMAL, gStringVar4, 0, 2, 2, 0, 0, 0);
 }
 
 static void SetDescriptionWindowBorderPalette(s32 pal)

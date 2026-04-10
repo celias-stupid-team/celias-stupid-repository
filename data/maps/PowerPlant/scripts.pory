@@ -16,6 +16,8 @@ PowerPlant_EventScript_TryRemoveStaticMon::
 
 PowerPlant_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_POWER_PLANT
+	setflag FLAG_TEMP_A
+	setflag FLAG_TEMP_B
 	call_if_unset FLAG_FOUGHT_ZAPDOS, PowerPlant_EventScript_ShowZapdos
 	call_if_unset FLAG_FOUGHT_ROUTE25_HBOX, PowerPlant_EventScript_ShowElectrode1
 	call_if_unset FLAG_FOUGHT_POWER_PLANT_ELECTRODE_2, PowerPlant_EventScript_ShowElectrode2
@@ -140,6 +142,7 @@ script PowerPlant_MagnemiteMan {
 			))
 			//A magnemite appears
 			waitmovement(LOCALID_POWER_PLANT_MAGNEMITE)
+			delay(10)
 			msgbox(
 			"Oh, hey!\n"
 			"A wild MAGNEMITE!\p"
@@ -477,6 +480,7 @@ script PowerPlant_MinigameStart {
 				delay(120)
 				msgbox("It seems the B BUTTON isn't\nworking.\pThe POWER couldn't be turned on!\n", MSGBOX_DEFAULT)
 				setvar(VAR_CSR_TURNED_ON_POWER, 0)
+
 			}
 			else {
 				msgbox("{PLAYER} gave up on the assignment.\n", MSGBOX_DEFAULT)
@@ -492,6 +496,24 @@ script PowerPlant_MinigameStart {
 	removeobject(ELECTRODE_2)
 	removeobject(ELECTRODE_3)
 	removeobject(ELECTRODE_4)
+	if(!checkmoncaught(SPECIES_DRAGONITE)) {
+		delay(20)
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 5)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 5)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+		special(ShakeScreen)
+		delay(30)
+		addobject(LOCALID_RIPPED_MEMO)
+		clearflag(FLAG_TEMP_A)
+		playse(SE_M_SPIT_UP)
+		applymovement(LOCALID_RIPPED_MEMO, moves(
+			jump_2_down
+		))
+		waitmovement(0)
+
+
+	}
 	release
 	end
 }

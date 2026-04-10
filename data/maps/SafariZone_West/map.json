@@ -261,14 +261,14 @@
       "y": 26,
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_CENTER",
-      "dest_warp_id": "6"
+      "dest_warp_id": "5"
     },
     {
       "x": 40,
       "y": 27,
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_CENTER",
-      "dest_warp_id": "7"
+      "dest_warp_id": "6"
     },
     {
       "x": 40,

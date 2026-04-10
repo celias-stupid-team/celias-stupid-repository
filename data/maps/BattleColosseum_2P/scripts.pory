@@ -245,7 +245,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) { 
 		setobtainable(SPECIES_DRAGONITE) // 75
 	}
-	if(checkmoncaught(SPECIES_DRAGONITE) && flag(FLAG_CSR_HINT_DRAGONITE)) { 
+	if(checkmoncaught(SPECIES_DRAGONITE) && (flag(FLAG_CSR_HINT_DRAGONITE) || flag(FLAG_BADGE05_GET))) { 
 		setobtainable(SPECIES_YOSHI) // 76
 	}
 	if((flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH) && checkmoncaught(SPECIES_GOLURK)) || checkmoncaught(SPECIES_REMORAID)) {

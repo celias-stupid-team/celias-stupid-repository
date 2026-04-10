@@ -559,7 +559,8 @@
 #define ITEM_STUN_SEED 477
 #define ITEM_HDUTYROOT 478
 #define ITEM_RAW_NUGGET 479
-#define ITEMS_COUNT 480
+#define ITEM_RIPPED_MEMO 480
+#define ITEMS_COUNT 481
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

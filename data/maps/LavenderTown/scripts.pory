@@ -62,6 +62,16 @@ mapscripts LavenderTown_MapScripts {
 			clearflag(FLAG_TEMP_6)
 		}
 		setflag (FLAG_HIDE_SS_ANNE_RIVAL)
+		if(var(VAR_CURRENT_CHAPTER) == 2) {
+			setflag(FLAG_DANCE_THEATER_CHAPTER_3)
+			setdynamicwarp(MAP_CHAPTER3, 0)
+
+		} else {
+			clearflag(FLAG_DANCE_THEATER_CHAPTER_3)
+			setdynamicwarp(MAP_LAVENDER_TOWN_DANCE_THEATER, 0)
+		}
+
+
 		end
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [

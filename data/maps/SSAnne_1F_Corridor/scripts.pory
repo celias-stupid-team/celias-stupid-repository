@@ -29,11 +29,13 @@ mapscripts SSAnne_1F_Corridor_MapScripts {
 
 script SSAnne_1F_Corridor_JumpRight {
 	setlayouttiles(LAYOUT_SSANNE_1F_CORRIDOR_LAYOUT_JUMPY,0,0,0,0,30,20)
+					setmaplayoutindex(LAYOUT_SSANNE_1F_CORRIDOR_LAYOUT_JUMPY)
 	setvar(VAR_TEMP_1, 2)
 	release
 }
 script SSAnne_1F_Corridor_JumpLeft {
 	setlayouttiles(LAYOUT_SSANNE_1F_CORRIDOR,0,0,0,0,30,20)
+					setmaplayoutindex(LAYOUT_SSANNE_1F_CORRIDOR)
 	setvar(VAR_TEMP_1, 1)
 	release
 }

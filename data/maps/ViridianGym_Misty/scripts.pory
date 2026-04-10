@@ -96,6 +96,7 @@ script ViridianGym_MistyBattle {
         playse(SE_CLICK)
         setvar(VAR_TEMP_0, 1)
         setlayouttiles(LAYOUT_VIRIDIAN_GYM_MISTY_BRIDGE, 0,0,0,0,19, 20)
+					setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_MISTY_BRIDGE)
         special(RemoveCameraObject)
         release
         end

@@ -30,6 +30,7 @@ script MtMoon_Basement_DrillWall {
 					setflag(FLAG_DRILLED_MT_MOON_HOLE)
 					removeobject(VAR_LAST_TALKED)
 					setlayouttiles(LAYOUT_MT_MOON_B1F_LAYOUT_DRILLED, 0, 0, 0, 0, 62, 39)
+					setmaplayoutindex(LAYOUT_MT_MOON_B1F_LAYOUT_DRILLED)
 					special(DrawWholeMapView)
 					playse(SE_M_HORN_ATTACK)
 					delay(10)

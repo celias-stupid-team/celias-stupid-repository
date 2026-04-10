@@ -138,11 +138,13 @@ script TwoIsland_SoftSandGirl {
 script TwoIsland_DrawUnderWaterfall {
 	setflag(FLAG_SYS_UNDER_WATERFALL)
 	setlayouttiles(LAYOUT_TWO_ISLAND_CAPE_BRINK_UNDER_WATERFALL, 0, 0, 0, 0, 44, 29)
+					setmaplayoutindex(LAYOUT_TWO_ISLAND_CAPE_BRINK_UNDER_WATERFALL)
 	release
 }
 script TwoIsland_DrawOverWaterfall {
 	clearflag(FLAG_SYS_UNDER_WATERFALL)
 	setlayouttiles(LAYOUT_TWO_ISLAND_CAPE_BRINK, 0, 0, 0, 0, 44, 29)
+					setmaplayoutindex(LAYOUT_TWO_ISLAND_CAPE_BRINK)
 	release
 	
 }

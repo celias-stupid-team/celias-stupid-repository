@@ -5364,6 +5364,11 @@ BattleScript_SlowStartBeforeNeutralizingGas::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_HeavyDutyBootsProtect::
+	printstring STRINGID_HEAVYDUTYBOOTSPROTECT
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_AirBalloonMsgIn::
 	printstring STRINGID_AIRBALLOONFLOAT
 	waitmessage B_WAIT_TIME_LONG
@@ -6422,3 +6427,10 @@ BattleScript_EffectFling::
 	printstring STRINGID_PKMNFLUNG
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_EffectHit
+
+BattleScript_HarvestActivates::
+	tryrecycleitem BattleScript_HarvestActivatesEnd
+	printstring STRINGID_XFOUNDONEY
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HarvestActivatesEnd:
+	end3

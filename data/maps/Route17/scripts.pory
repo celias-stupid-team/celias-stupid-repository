@@ -37,11 +37,13 @@ mapscripts Route17_MapScripts {
 
 script Route17_GoUnderBridge {
 	setlayouttiles(LAYOUT_ROUTE17_UNDERNEATH,0,0,0,0,32, 88)
+					setmaplayoutindex(LAYOUT_ROUTE17_UNDERNEATH)
 	setvar(VAR_TEMP_0, 1)
 	release
 }
 script Route17_GoAboveBridge {
 	setlayouttiles(LAYOUT_ROUTE17,0,0,0,0,32, 88)
+					setmaplayoutindex(LAYOUT_ROUTE17)
 	setvar(VAR_TEMP_0, 0)
 	release
 }
