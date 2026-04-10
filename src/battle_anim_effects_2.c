@@ -639,6 +639,17 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gGameGenieSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GAME_GENIE,
+    .paletteTag = ANIM_TAG_GAME_GENIE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sAnim_BonkDuck[] =
 {
     ANIMCMD_FRAME(0, 8),
@@ -2359,6 +2370,17 @@ const struct SpriteTemplate gLatinasSpriteTemplate =
 {
     .tileTag = ANIM_TAG_LATINAS,
     .paletteTag = ANIM_TAG_LATINAS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gVaultBoySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_VAULT_BOY,
+    .paletteTag = ANIM_TAG_VAULT_BOY,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
