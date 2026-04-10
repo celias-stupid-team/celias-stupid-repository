@@ -74,6 +74,9 @@ mapscripts Route23_MapScripts {
 		if(var(VAR_MAP_SCENE_ROUTE23) >= 4 && !flag(FLAG_BADGE08_GET)) {
 			setvar(VAR_MAP_SCENE_ROUTE23, 3)
 		}
+		if(!flag(FLAG_BADGE08_GET)) {
+			setflag(FLAG_TEMP_5)
+		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_A, 0 {
@@ -398,7 +401,13 @@ script Route23_EventScript_ThunderBadgeGuardTrigger {
 
 		"Okay, then.\n"
 		"Please, go right ahead.", MSGBOX_DEFAULT)
-		setvar(VAR_MAP_SCENE_ROUTE23, 3)
+		if(flag(FLAG_BADGE08_GET)) {
+			setvar(VAR_MAP_SCENE_ROUTE23, 3)
+
+		} else {
+			setvar(VAR_MAP_SCENE_ROUTE23, 9)
+
+		}
 	} else {
 		msgbox(
 		"You don't have the\n"
@@ -423,6 +432,43 @@ script Route23_EventScript_ThunderBadgeGuardTrigger {
 script Route23_EventScript_RainbowBadgeGuardTrigger { 
 	lockall
 	textcolor(NPC_TEXT_COLOR_BLUE)
+
+	if(!flag(FLAG_BADGE08_GET)) {
+		setvar (VAR_TEMP_1, 4)
+		msgbox(
+		"You can pass here only if you have\n"
+		"the FEATHER BADGE.", MSGBOX_DEFAULT)
+
+		if(flag(FLAG_OBTAINED_ZEPHYRBADGE)) {
+			setvar(VAR_MAP_SCENE_ROUTE23, 10)
+			msgbox(
+			"Oh!\n"
+			"That is the FEATHER BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+
+			"Okay, then.\n"
+			"Please, go right ahead.", MSGBOX_DEFAULT)
+		} else {
+			msgbox(
+			"You don't have the\n"
+			"FEATHER BADGE yet.\p"
+
+			"You have to have it to get to\n"
+			"the POKéMON LEAGUE.", MSGBOX_DEFAULT)
+			waitmessage
+			playse(SE_BOO)
+			waitbuttonpress
+			closemessage
+			waitse
+			closemessage
+			applymovement(LOCALID_PLAYER, moves(
+				walk_down
+			))
+			waitmovement(0)
+		}
+		release
+		end
+
+	}
 	setvar (VAR_TEMP_1, 4)
 	msgbox(
 	"You can pass here only if you have\n"
@@ -979,6 +1025,7 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 	removeobject(LOCALID_FEATHER_BADGE_GUARD)
 	removeobject(LOCALID_EARTH_BADGE_GUARD)
 	delay(10)
+	clearflag(FLAG_TEMP_5)
 	addobject(LOCALID_THUNDER_BADGE_GUARD)
 	addobject(LOCALID_RAINBOW_BADGE_GUARD)
 	addobject(LOCALID_SOUL_BADGE_GUARD)
@@ -1247,7 +1294,7 @@ script Route23_VolcanoBadgeGuard {
 	"DAD: {PLAYER}!\n"
 	"What are you doing out here?\p"
 
-	"Phew, working as a GUARD is\n"
+	"Phew, being a GUARD sure is\n"
 	"hard work.\l"
 	"Can't let anyone sneak through!\p"
 
@@ -1269,6 +1316,43 @@ script Route23_MinnesotaBadgeGuard {
 
 
 script Route23_FeatherBadgeGuard {
+
+		if(!flag(FLAG_BADGE08_GET)) {
+		setvar (VAR_TEMP_1, 4)
+		msgbox(
+		"You can pass here only if you have\n"
+		"the FEATHER BADGE.", MSGBOX_DEFAULT)
+
+		if(flag(FLAG_OBTAINED_ZEPHYRBADGE)) {
+			setvar(VAR_MAP_SCENE_ROUTE23, 10)
+			msgbox(
+			"Oh!\n"
+			"That is the FEATHER BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+
+			"Okay, then.\n"
+			"Please, go right ahead.", MSGBOX_DEFAULT)
+		} else {
+			msgbox(
+			"You don't have the\n"
+			"FEATHER BADGE yet.\p"
+
+			"You have to have it to get to\n"
+			"the POKéMON LEAGUE.", MSGBOX_DEFAULT)
+			waitmessage
+			playse(SE_BOO)
+			waitbuttonpress
+			closemessage
+			waitse
+			closemessage
+			applymovement(LOCALID_PLAYER, moves(
+				walk_down
+			))
+			waitmovement(0)
+		}
+		release
+		end
+	}
+
 	msgbox(
 	"I hear that in the HOENN LEAGUE,\n"
 	"they only check the FEATHER BADGE.\p"
