@@ -1859,7 +1859,7 @@ script CeliaSecret_StopNSwop {
 	"The third word is “GOTTEN.”", MSGBOX_NPC)
 }
 
-script CeliaSecret_NewGame+ {
+script CeliaSecret_NewGamePlus {
 	lock
 	faceplayer
 	msgbox(
@@ -1901,9 +1901,7 @@ script CeliaSecret_NewGame+ {
 			"Gotcha!\n"
 			"Have fun!", MSGBOX_DEFAULT)
 			removeobject(VAR_LAST_TALKED)
-
 		}
 		release
 		end
-
 }
