@@ -20,6 +20,10 @@ mapscripts Minnesota_MapScripts {
 			setflag(FLAG_TEMP_8)
 
 		}
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS || FLAG_STAR_EASTER_EGG1)) {
+			setflag(FLAG_TEMP_4)
+
+		}
 		setflag(FLAG_TEMP_9)
 	}
 }
@@ -504,4 +508,11 @@ script Minnesota_Hakari {
 	msgbox(
 	"hi\n"
 	"", MSGBOX_NPC)
+}
+
+script Minnesota_StarEasterEgg {
+	msgbox(
+	"I might've lost"
+	"{PAUSE 30}WEST", MSGBOX_SIGN)
+
 }
