@@ -1744,6 +1744,8 @@ static void TransTheNidotrans(u8 taskId)
         }
 
         SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SEEN);
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_CAUGHT);
 
         if (GetMonData(mon, MON_DATA_CSR_SHINY))
         {
