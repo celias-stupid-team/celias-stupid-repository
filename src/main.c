@@ -14,6 +14,7 @@
 #include "battle_controllers.h"
 #include "scanline_effect.h"
 #include "save_failed_screen.h"
+#include "emulator_check.h"
 #include "quest_log.h"
 #include "event_data.h"
 #include "item_menu.h"
@@ -134,6 +135,8 @@ void AgbMain()
     InitRFU();
     CheckForFlashMemory();
     InitMainCallbacks();
+    if (IsInaccurateEmulator())
+        SetMainCallback2(CB2_EmulatorCheckScreen);
     InitMapMusic();
     ClearDma3Requests();
     ResetBgs();
