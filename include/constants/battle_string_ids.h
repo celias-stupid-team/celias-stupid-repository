@@ -529,7 +529,11 @@
 #define STRINGID_TM07 527
 #define STRINGID_HEAVYDUTYBOOTSPROTECT 528
 
-#define STRINGID_NONE 529
+#define STRINGID_SMEARGLE 529
+
+
+
+#define STRINGID_NONE 530
 // #define STRINGID_NONE 
 // ^ for easier copypaste
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
@@ -785,6 +789,7 @@
 #define B_MSG_SNOWGRAVY        16
 #define B_MSG_LATIAS        17
 #define B_MSG_TM07        18
+#define B_MSG_SMEARGLE        19
 
 
 // gSwitchInAbilityStringIds

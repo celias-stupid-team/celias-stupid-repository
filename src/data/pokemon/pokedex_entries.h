@@ -1069,7 +1069,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_FARFETCHD] =
     {
-        .categoryName = _("CUT"),
+        .categoryName = _("EDIBLE"),
         .height = 8,
         .weight = 150,
         .description = gFarfetchdPokedexText,

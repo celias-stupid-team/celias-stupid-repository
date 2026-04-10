@@ -11252,15 +11252,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DARK_VOID_SMEARGLE] =
     {
-        .effect = EFFECT_SLEEP,
+        .effect = EFFECT_DO_NOTHING,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 80,
+        .accuracy = 5,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .stringId = B_MSG_SMEARGLE,
     },
 
     [MOVE_FURY_ATTACK1] =
@@ -14200,7 +14201,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = 0,
-        .stringId = B_MSG_TAUNT,
+        .stringId = B_MSG_LATIAS,
     },
 
     

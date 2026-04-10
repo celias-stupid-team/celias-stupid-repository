@@ -1099,6 +1099,11 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNFLUNG - BATTLESTRINGS_TABLE_START]                     = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} flung its {B_LAST_ITEM}!"),
     [STRINGID_TM07 - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("It contained TM07!\p{PLAYER} got the TM07!"),
     [STRINGID_HEAVYDUTYBOOTSPROTECT - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} prevented damage\nusing its HEAVY-DUTY ROOTS!"),
+    [STRINGID_SMEARGLE - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("But it failed!\pGAME FREAK has decided to nerf the\nmove so only DARKRAI can use it!"),
+
+    
+
+    
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1539,6 +1544,9 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_SNOWGRAVY] = STRINGID_SNOWGRAVY,
     [B_MSG_LATIAS] = STRINGID_LATIAS,
     [B_MSG_TM07] = STRINGID_TM07,
+    [B_MSG_SMEARGLE] = STRINGID_SMEARGLE,
+
+    
 
     
 };

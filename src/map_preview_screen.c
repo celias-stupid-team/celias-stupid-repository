@@ -270,6 +270,9 @@ bool8 MapHasPreviewScreen(u8 mapsec, u8 type)
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SAFARI_ZONE_NORTH) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SAFARI_ZONE_NORTH)) {
         return FALSE;
     }
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CHAPTER3) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CHAPTER3)) {
+        return FALSE;
+    }
     if (idx != MPS_COUNT)
     {
         if (type == MPS_TYPE_ANY)

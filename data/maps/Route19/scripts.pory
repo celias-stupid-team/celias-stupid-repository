@@ -28,6 +28,10 @@ script EventScript_RemoveUselessItems {
 		removeitem(ITEM_ANTIDOTE)
 		addvar(VAR_TEMP_5, 1)
 	}
+	while(checkitem(ITEM_RIPPED_MEMO)) {
+		removeitem(ITEM_RIPPED_MEMO)
+		addvar(VAR_TEMP_5, 1)
+	}
 	while(checkitem(ITEM_PARALYZE_HEAL)) {
 		removeitem(ITEM_PARALYZE_HEAL)
 		addvar(VAR_TEMP_5, 1)
