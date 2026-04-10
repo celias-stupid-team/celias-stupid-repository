@@ -1858,3 +1858,52 @@ script CeliaSecret_StopNSwop {
 	"free!\l"
 	"The third word is “GOTTEN.”", MSGBOX_NPC)
 }
+
+script CeliaSecret_NewGame+ {
+	lock
+	faceplayer
+	msgbox(
+		"Hi!\n"
+		"Welcome to New Game Plus!\p"
+
+		"I didn't design this hack with it\n"
+		"in mind, but apparently the flag\l"
+		"that hides the bonus Celias\l"
+		"doesn't have to reset on new files.\p"
+
+		"I'm going to pretend that this\n"
+		"was intended all along.\p"
+
+		"Alternatively, I can disable\n"
+		"this for you if you just want to\l"
+		"have a raw Celia experience.\p"
+
+		"Would you like to begin on\n"
+		"New Game+?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			setflag(FLAG_CELIA_SECRET_PIT)
+			setflag(FLAG_CELIA_SECRET_PALLET)
+			setflag(FLAG_CELIA_SECRET_VIRIDIAN)
+			setflag(FLAG_CELIA_SECRET_PEWTER)
+			setflag(FLAG_CELIA_SECRET_CERULEAN)
+			setflag(FLAG_CELIA_SECRET_VERMILION)
+			setflag(FLAG_CELIA_SECRET_LAVENDER)
+			setflag(FLAG_CELIA_SECRET_CELADON)
+			setflag(FLAG_CELIA_SECRET_FUCHSIA)
+			setflag(FLAG_CELIA_SECRET_CINNABAR)
+			setflag(FLAG_CELIA_SECRETS_FINISHED)
+			clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
+			msgbox(
+			"Awesome!\n"
+			"Have fun!", MSGBOX_DEFAULT)
+		} else {
+			msgbox(
+			"Gotcha!\n"
+			"Have fun!", MSGBOX_DEFAULT)
+			removeobject(VAR_LAST_TALKED)
+
+		}
+		release
+		end
+
+}
