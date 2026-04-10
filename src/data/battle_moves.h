@@ -5418,7 +5418,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_POP_OFF] =    {
-        .effect = EFFECT_EXPLOSION,
+        .effect = EFFECT_MEMENTO,
         .power = 0,
         .type = TYPE_SOUND,
         .accuracy = 0,
@@ -10418,7 +10418,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_TOO_SLOWER_HAND] =
     {
-        .effect = EFFECT_SKULL_BASH,
+        .effect = EFFECT_SKY_ATTACK,
         .power = 120,
         .type = TYPE_FIGHTING,
         .accuracy = 100,

@@ -246,9 +246,9 @@ script SkyTower_Drampa {
         "DRAMPA's dead!", MSGBOX_SIGN)
 
     } else {
+        
         msgbox(
-        "Oh, no!\n"
-        "DRAMPA's in the way!", MSGBOX_SIGN)
+        "I am Level 30.\n", MSGBOX_NPC)
     }
     
 }

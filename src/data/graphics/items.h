@@ -1008,3 +1008,6 @@ const u32 gItemIconPalette_HDutyRoot[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_RawNugget[] = INCBIN_U32("graphics/items/icons/raw_nugget.4bpp.lz");
 const u32 gItemIconPalette_RawNugget[] = INCBIN_U32("graphics/items/icon_palettes/raw_nugget.gbapal.lz");
+
+const u32 gItemIcon_RippedMemo[] = INCBIN_U32("graphics/items/icons/ripped_memo.4bpp.lz");
+const u32 gItemIconPalette_RippedMemo[] = INCBIN_U32("graphics/items/icon_palettes/ripped_memo.gbapal.lz");
