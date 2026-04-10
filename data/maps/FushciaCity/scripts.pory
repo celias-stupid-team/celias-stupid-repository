@@ -139,6 +139,7 @@ FushciaCity_EventScript_StakatakaSign::
 mapscripts FushciaCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: FushciaCity_OnTransition
 	MAP_SCRIPT_ON_LOAD {
+		setvar(VAR_USED_CUT, 0)
 		setvar(VAR_0x8004, SPECIES_HORSEA)
 		special(SetSeenMon)
 
@@ -197,9 +198,8 @@ mapscripts FushciaCity_MapScripts {
 		}
 		VAR_USED_CUT, 1 {
 			
-			if(checkitem(ITEM_SANDWICH_CASE)) {
+			if(checkitem(ITEM_SANDWICH_CASE) && !flag(FLAG_SANDWICH_GOT_LETTUCE)) {
 				delay(30)
-				setvar(VAR_USED_CUT, 0)
 				playfanfare(MUS_LEVEL_UP)
 				msgbox("{PLAYER} obtained some LETTUCE!\n", MSGBOX_DEFAULT)
 				waitfanfare
@@ -207,8 +207,10 @@ mapscripts FushciaCity_MapScripts {
 				setflag(FLAG_SANDWICH_GOT_LETTUCE)
 				setflag(FLAG_FUSCHIA_CUT_TREE)
 				call(FushciaCity_MakeASandwich)
+				release
 
 			}
+				setvar(VAR_USED_CUT, 0)
 		}
 	]
 }
@@ -639,6 +641,7 @@ script FushciaCity_OakTree {
 	applymovement(VAR_LAST_TALKED, Movement_CutTreeDown)
 	waitmovement(0)
 	removeobject(VAR_LAST_TALKED)
+	setvar(VAR_USED_CUT, 1)
 	releaseall
 	end
 }
