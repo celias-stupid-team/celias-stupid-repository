@@ -110,7 +110,7 @@ static void Cmd_compare_var_to_var(void);
 static void Cmd_setflag(void);
 static void Cmd_clearflag(void);
 static void Cmd_debugprintf(void);
-static void Cmd_addletterv(void);
+static void Cmd_addletter(void);
 static void Cmd_jumpifspecies(void);
 
 #include "data/battle_anim.h"
@@ -171,7 +171,7 @@ static void (*const sScriptCmdTable[])(void) =
     Cmd_setflag,              // 0x33
 	Cmd_clearflag,            // 0x34
     Cmd_debugprintf,          // 0x35
-    Cmd_addletterv,           // 0x36
+    Cmd_addletter,            // 0x36
     Cmd_jumpifspecies,        // 0x37
 };
 
@@ -1834,18 +1834,19 @@ static void Cmd_debugprintf(void)
 }
 
 static const u8 sYveltal[] = _("YVELTAL");
-static const u8 sLetterV[] = _("V");
 
-// adds the letter V to Yveltal
-static void Cmd_addletterv(void)
+static void Cmd_addletter(void)
 {
     u8 animBattler;
     u8 battlerId;
+    u8 letter;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     struct Pokemon *mon;
 
     sBattleAnimScriptPtr++;
     animBattler = sBattleAnimScriptPtr[0];
+    sBattleAnimScriptPtr++;
+    letter = sBattleAnimScriptPtr[0];
 
     switch (animBattler)
     {
@@ -1869,12 +1870,12 @@ static void Cmd_addletterv(void)
     else
         mon = &gEnemyParty[gBattlerPartyIndexes[battlerId]];
 
-    if (gBattleMons[battlerId].species == SPECIES_YVELTAL)
+    if (gBattleMons[battlerId].species == SPECIES_YVELTAL && letter == LETTER_V)
         StringCopy(nickname, sYveltal);
     else
     {
         GetMonData(mon, MON_DATA_NICKNAME, nickname);
-        nickname[StringLength(nickname) - 1] = sLetterV[0];
+        nickname[StringLength(nickname) - 1] = letter;
         SetMonData(mon, MON_DATA_NICKNAME, nickname);
     }
 
