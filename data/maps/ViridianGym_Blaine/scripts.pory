@@ -37,6 +37,9 @@ mapscripts ViridianGym_Blaine_MapScripts {
     }
     MAP_SCRIPT_ON_LOAD {
         getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+        if(flag(FLAG_BEAT_DMCA_BLAINE)) {
+            setvar(VAR_TEMP_1, 0)
+        }
         if(var(VAR_TEMP_1) == 6) {
             
             playbgm(MUS_NONE, TRUE)

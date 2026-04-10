@@ -756,9 +756,9 @@ void FieldUseFunc_Ruby(u8 taskId)
     if(VarGet(VAR_READY_FOR_TORNADO) == 1) {
         VarSet(VAR_READY_FOR_TORNADO, 2);
         RemoveUsedItem();
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToFieldFromBagMenu);
+        DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_HeldRuby);
     } else {
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToBagFromContextMenu);
+        DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_HeldRuby);
     }
 }
 

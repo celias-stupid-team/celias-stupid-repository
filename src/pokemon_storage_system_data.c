@@ -915,6 +915,13 @@ s8 RunCanReleaseMon(void)
         return RELEASE_MON_NOT_ALLOWED;
     }
 
+    if(GetMonData(&gStorage->tempMon, MON_DATA_HELD_ITEM) == ITEM_NEBBY) {
+        
+        gStorage->releaseMonStatusResolved = TRUE;
+        gStorage->releaseMonStatus = RELEASE_MON_NOT_ALLOWED;
+        return RELEASE_MON_NOT_ALLOWED;
+    }
+
     // only allow release if it is a duplicate species
     switch (gStorage->releaseCheckState)
     {
