@@ -1143,7 +1143,7 @@ void PlayTrainerEncounterMusic(void)
     if (!QL_IS_PLAYBACK_STATE
      && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
      && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC
-     && gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER)
+     && gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER)
     {
         switch (GetTrainerEncounterMusicId(gTrainerBattleOpponent_A))
         {

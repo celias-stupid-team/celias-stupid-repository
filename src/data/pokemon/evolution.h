@@ -131,7 +131,9 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_ARTICUNO]    = {{EVO_FRIENDSHIP, 0, SPECIES_ESPEON}},
 
 
-    [SPECIES_MISSINGNO]  = {{EVO_LEVEL_ON_LOCATION, MAP_LAVENDER_TOWN, SPECIES_KANGASKHAN}},              //TODO
+    [SPECIES_MISSINGNO]  = {{EVO_TRADE, 0, SPECIES_ALAKAZAM},
+                            {EVO_LEVEL_ON_LOCATION, MAP_LAVENDER_TOWN, SPECIES_KANGASKHAN}},  
+                                        //TODO
     [SPECIES_GIMMIGHOUL]  = {{EVO_LEVEL, 1, SPECIES_GHOLDENGO}}, 
     
     [SPECIES_TANGELA]  = {{EVO_HAIRCUT, 1, SPECIES_TRUBBISH_HAIRCUT}},              //TODO - Add Haircut evolution method
