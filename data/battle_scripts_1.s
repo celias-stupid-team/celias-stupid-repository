@@ -6427,3 +6427,10 @@ BattleScript_EffectFling::
 	printstring STRINGID_PKMNFLUNG
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_EffectHit
+
+BattleScript_HarvestActivates::
+	tryrecycleitem BattleScript_HarvestActivatesEnd
+	printstring STRINGID_XFOUNDONEY
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HarvestActivatesEnd:
+	end3

@@ -10501,6 +10501,9 @@ static void Cmd_tryswapitems(void)
         gBattleMons[gBattlerAttacker].item = ITEM_NONE;
         gBattleMons[gBattlerTarget].item = oldItemAtk;
 
+        if (IsBerry(oldItemAtk)) // used for ABILITY_HARVEST
+            gBattleStruct->usedHeldItems[gBattlerAttacker] = oldItemAtk;
+
         gActiveBattler = gBattlerAttacker;
         BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(*newItemAtk), newItemAtk);
         MarkBattlerForControllerExec(gBattlerAttacker);
