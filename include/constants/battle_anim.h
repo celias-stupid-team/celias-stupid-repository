@@ -484,6 +484,8 @@
 #define ANIM_TAG_STEREO                     (ANIM_SPRITES_START + 474)
 #define ANIM_TAG_STONESURGE                 (ANIM_SPRITES_START + 475)
 #define ANIM_TAG_CODE_WINDOW                (ANIM_SPRITES_START + 476)
+#define ANIM_TAG_VAULT_BOY                  (ANIM_SPRITES_START + 477)
+#define ANIM_TAG_O_SIGN                     (ANIM_SPRITES_START + 478)
 
 // battlers
 #define ANIM_ATTACKER       0

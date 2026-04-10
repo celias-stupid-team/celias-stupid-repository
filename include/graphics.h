@@ -8878,6 +8878,8 @@ extern const u32 gBattleAnimSpriteGfx_MouseCursor[];
 extern const u32 gBattleAnimSpriteGfx_Stereo[];
 extern const u32 gBattleAnimSpriteGfx_Stonesurge[];
 extern const u32 gBattleAnimSpriteGfx_CodeWindow[];
+extern const u32 gBattleAnimSpriteGfx_VaultBoy[];
+extern const u32 gBattleAnimSpriteGfx_OSign[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9309,6 +9311,8 @@ extern const u32 gBattleAnimSpritePal_MouseCursor[];
 extern const u32 gBattleAnimSpritePal_Stereo[];
 extern const u32 gBattleAnimSpritePal_Stonesurge[];
 extern const u32 gBattleAnimSpritePal_CodeWindow[];
+extern const u32 gBattleAnimSpritePal_VaultBoy[];
+extern const u32 gBattleAnimSpritePal_OSign[];
 
 //CSR Moves
 

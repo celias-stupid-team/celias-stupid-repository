@@ -544,6 +544,12 @@ const u32 gBattleAnimSpritePal_Stonesurge[] = INCBIN_U32("graphics/battle_anims/
 const u32 gBattleAnimSpriteGfx_CodeWindow[] = INCBIN_U32("graphics/battle_anims/sprites/code_window.4bpp.lz");
 const u32 gBattleAnimSpritePal_CodeWindow[] = INCBIN_U32("graphics/battle_anims/sprites/code_window.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_VaultBoy[] = INCBIN_U32("graphics/battle_anims/sprites/vault_boy.4bpp.lz");
+const u32 gBattleAnimSpritePal_VaultBoy[] = INCBIN_U32("graphics/battle_anims/sprites/vault_boy.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_OSign[] = INCBIN_U32("graphics/battle_anims/sprites/o_sign.4bpp.lz");
+const u32 gBattleAnimSpritePal_OSign[] = INCBIN_U32("graphics/battle_anims/sprites/o_sign.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Stereo[] = INCBIN_U32("graphics/battle_anims/sprites/stereo.4bpp.lz");
 const u32 gBattleAnimSpritePal_Stereo[] = INCBIN_U32("graphics/battle_anims/sprites/stereo.gbapal.lz");
 

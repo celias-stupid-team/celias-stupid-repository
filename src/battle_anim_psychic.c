@@ -316,6 +316,17 @@ const struct SpriteTemplate gRedXSpriteTemplate =
     .callback = AnimRedX,
 };
 
+const struct SpriteTemplate gRedOSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_O_SIGN,
+    .paletteTag = ANIM_TAG_O_SIGN,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRedX,
+};
+
 const struct SpriteTemplate gSpiralXSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SPIRAL,
