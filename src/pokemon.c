@@ -28,6 +28,7 @@
 #include "constants/items.h"
 #include "constants/item_effects.h"
 #include "constants/hoenn_cries.h"
+#include "oak_speech.h"
 #include "constants/pokemon.h"
 #include "constants/abilities.h"
 #include "constants/moves.h"
@@ -1815,6 +1816,15 @@ void ZeroEnemyPartyMons(void)
 void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     u32 arg;
+
+    // handle hard/easy mode
+    if (level == 6 && (species == SPECIES_WARTORTLE || species == SPECIES_FINALWARTORTLE || species == SPECIES_WARTORTLE_POKERAP))
+    {
+        if (gModeNewGame == 1)
+            level = 7;
+        else if (gModeNewGame == 2)
+            level = 5;
+    }
     ZeroMonData(mon);
     CreateBoxMon(&mon->box, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
     SetMonData(mon, MON_DATA_LEVEL, &level);
