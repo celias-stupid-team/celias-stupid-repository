@@ -10748,4 +10748,11 @@ static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {
         .species = SPECIES_EXEGGCUTE,
         .moves = {MOVE_EGGSPLPOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_FOCUS_BAND,
+        .species = SPECIES_GREGORY,
+        .moves = {MOVE_GREGORY_BLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
 };
