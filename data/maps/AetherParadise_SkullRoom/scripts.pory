@@ -79,3 +79,24 @@ script Aether_Dresser {
 script Aether_Bookshelf {
 	msgbox(Text_AetherBookshelf, MSGBOX_SIGN)
 }
+
+script Aether_Book {
+	msgbox(
+	"My\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Aether_Book2 {
+	msgbox(
+	"Secret\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Aether_Book3 {
+	msgbox(
+	"Life\n"
+	"", MSGBOX_SIGN)
+
+}

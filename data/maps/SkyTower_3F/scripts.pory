@@ -286,6 +286,11 @@ script SkyTower_3F_WarpTrap {
 
 }
 
+script SkyTower_3F_HiddenKek {
+	msgbox(
+	"Shh, I'm hiding.\n"
+	"", MSGBOX_NPC)
+}
 
 
 script SkyTower_3F_ThePit {

@@ -10590,7 +10590,7 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN4[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_CELIASSTUPIDROMHACK,
-        .moves = {MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SOFT_LOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
