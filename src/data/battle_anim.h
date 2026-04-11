@@ -55,6 +55,20 @@ const struct OamData gOamData_AffineOff_ObjNormal_64x64 =
     .paletteNum = 0,
 };
 
+const struct OamData gOamData_AffineOff_ObjNormal_64x64_LowPriority =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 3,
+    .paletteNum = 0,
+};
+
 const struct OamData gOamData_AffineOff_ObjNormal_16x8 =
 {
     .y = 0,
@@ -1518,6 +1532,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_CodeWindow, 0x2000, ANIM_TAG_CODE_WINDOW},
     {gBattleAnimSpriteGfx_VaultBoy, 0x0800, ANIM_TAG_VAULT_BOY},
     {gBattleAnimSpriteGfx_OSign, 0x0800, ANIM_TAG_O_SIGN},
+    {gBattleAnimSpriteGfx_ThePit, 0x2000, ANIM_TAG_THE_PIT},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2001,6 +2016,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_CodeWindow, ANIM_TAG_CODE_WINDOW},
     {gBattleAnimSpritePal_VaultBoy, ANIM_TAG_VAULT_BOY},
     {gBattleAnimSpritePal_OSign, ANIM_TAG_O_SIGN},
+    {gBattleAnimSpritePal_ThePit, ANIM_TAG_THE_PIT},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

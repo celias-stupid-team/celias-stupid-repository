@@ -550,6 +550,9 @@ const u32 gBattleAnimSpritePal_VaultBoy[] = INCBIN_U32("graphics/battle_anims/sp
 const u32 gBattleAnimSpriteGfx_OSign[] = INCBIN_U32("graphics/battle_anims/sprites/o_sign.4bpp.lz");
 const u32 gBattleAnimSpritePal_OSign[] = INCBIN_U32("graphics/battle_anims/sprites/o_sign.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_ThePit[] = INCBIN_U32("graphics/battle_anims/sprites/the_pit.4bpp.lz");
+const u32 gBattleAnimSpritePal_ThePit[] = INCBIN_U32("graphics/battle_anims/sprites/the_pit.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Stereo[] = INCBIN_U32("graphics/battle_anims/sprites/stereo.4bpp.lz");
 const u32 gBattleAnimSpritePal_Stereo[] = INCBIN_U32("graphics/battle_anims/sprites/stereo.gbapal.lz");
 

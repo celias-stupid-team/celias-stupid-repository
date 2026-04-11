@@ -486,6 +486,7 @@
 #define ANIM_TAG_CODE_WINDOW                (ANIM_SPRITES_START + 476)
 #define ANIM_TAG_VAULT_BOY                  (ANIM_SPRITES_START + 477)
 #define ANIM_TAG_O_SIGN                     (ANIM_SPRITES_START + 478)
+#define ANIM_TAG_THE_PIT                    (ANIM_SPRITES_START + 479)
 
 // battlers
 #define ANIM_ATTACKER       0

@@ -650,6 +650,82 @@ const struct SpriteTemplate gGameGenieSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sAnim_ThePitOne[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ThePitTwo[] =
+{
+    ANIMCMD_FRAME(64, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ThePitThree[] =
+{
+    ANIMCMD_FRAME(128, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ThePitFour[] =
+{
+    ANIMCMD_FRAME(192, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_ThePit[] =
+{
+    sAnim_ThePitOne,
+    sAnim_ThePitTwo,
+    sAnim_ThePitThree,
+    sAnim_ThePitFour,
+};
+
+const struct SpriteTemplate gThePitTopLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THE_PIT,
+    .paletteTag = ANIM_TAG_THE_PIT,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
+    .anims = &sAnims_ThePit[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gThePitTopRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THE_PIT,
+    .paletteTag = ANIM_TAG_THE_PIT,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
+    .anims = &sAnims_ThePit[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gThePitBottomLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THE_PIT,
+    .paletteTag = ANIM_TAG_THE_PIT,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
+    .anims = &sAnims_ThePit[2],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gThePitBottomRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THE_PIT,
+    .paletteTag = ANIM_TAG_THE_PIT,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
+    .anims = &sAnims_ThePit[3],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sAnim_BonkDuck[] =
 {
     ANIMCMD_FRAME(0, 8),
@@ -3081,6 +3157,17 @@ const struct SpriteTemplate gVacuumSpriteTemplate =
     .paletteTag = ANIM_TAG_VACUUM,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gLandingDustSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPEED_DUST,
+    .paletteTag = ANIM_TAG_SPEED_DUST,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sSpeedDustAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -6773,7 +6860,6 @@ static void AnimSprite_MoveThenWait(struct Sprite *sprite)
         break;
     }
 }
-
 
 static void AnimSprite_MoveStaggeredThenWait(struct Sprite *sprite)
 {

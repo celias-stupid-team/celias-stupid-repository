@@ -13136,6 +13136,7 @@ Move_L_CREATE:
 	waitforvisualfinish
 	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 20, 1
+	addletter ANIM_TARGET, LETTER_L
 	call LShape
 	delay 3
 	call LShape
@@ -13180,6 +13181,7 @@ Move_O_CREATE:
 	delay 28
 	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_TARGET
 	createsprite gRedOSpriteTemplate, ANIM_TARGET, 5, ANIM_TARGET, 50
+	addletter ANIM_TARGET, LETTER_O
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 20, 1
 	createvisualtask AnimTask_ShakeBattleTerrain, 2, 2, 0, 10, 1
 	waitforvisualfinish
@@ -21421,7 +21423,55 @@ Move_EXTREMESPEENUT:
 	end
 	
 Move_DOUBLE_CHOCK:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_CHOCOLATE
+	monbg ANIM_DEF_PARTNER
+	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 7, 1, 11, 1
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, -5, 0, -5, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, 5, 1, 6, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, 19, 0, 10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, -23, 2, -10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 50, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 0, 5, 50, 1
+	delay 2
+	call ChocRocks
+	call ChocRocks
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
+
+ChocRocks:
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, -20, 0, -10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, 28, 1, 10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, -10, 1, -5, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, 10, 0, 6, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, 24, 1, 10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, -32, 2, -10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, -20, 0, -10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	createsprite gFallingChocSpriteTemplate, ANIM_TARGET, 2, 30, 2, 10, 1
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	delay 2
+	return
 	
 Move_HYPER_CREAM:
 	loadspritegfx ANIM_TAG_CREAM
@@ -28701,11 +28751,25 @@ General_DynamaxGrowth:: @ PORTED FROM CFRU
 	waitforvisualfinish
 	end
 
+Move_SOFT_LOCK:
+	loadspritegfx ANIM_TAG_THE_PIT
+	loadspritegfx ANIM_TAG_SPEED_DUST
+
+	createsprite gThePitTopLeftSpriteTemplate, ANIM_TARGET, 2, -32, 64, 0, -4, 28, 60, 0, 1
+	createsprite gThePitTopRightSpriteTemplate, ANIM_TARGET, 2, 32, 64, 0, -4, 28, 60, 0, 1
+	createsprite gThePitBottomLeftSpriteTemplate, ANIM_TARGET, 2, -32, 128, 0, -4, 28, 60, 0, 1
+	createsprite gThePitBottomRightSpriteTemplate, ANIM_TARGET, 2, 32, 128, 0, -4, 28, 60, 0, 1
+	createvisualtask AnimTask_PitJump, 2, 1
+	playsewithpan SE_LEDGE, SOUND_PAN_TARGET
+	delay 28
+	createsprite gLandingDustSpriteTemplate, ANIM_TARGET, 2, -8, 16, -1, 0, 8, 7, 0, 1 
+	createsprite gLandingDustSpriteTemplate, ANIM_TARGET, 2, 8, 16, 1, 0, 8, 7, 0, 1 
+	waitforvisualfinish
+	end
 
 Move_HACK_ATTACK:
 Move_GAY_BALL_PROBLEMS:
 Move_SUBSTITUTE_DAD:
-Move_SOFT_LOCK:
 Move_DOSWINGBEAT:
 Move_GREGORY_BLAST:
 Move_GIGATON_CRUSHER:

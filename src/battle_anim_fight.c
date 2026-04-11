@@ -1436,3 +1436,74 @@ static void AnimUselessCard(struct Sprite *sprite)
         break;
     }
 }
+
+void AnimTask_PitJump(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *battlerSprite;
+    u8 battler;
+
+    // Select battler
+    battler = (gBattleAnimArgs[0] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+    battlerSprite = &gSprites[gBattlerSpriteIds[battler]];
+
+    /*// data[1] = frame toggle (0 = move, 1 = wait)
+    if (task->data[1] == 1)
+    {
+        task->data[1] = 0;
+        return; // skip this frame → creates the "rest"
+    }
+
+    task->data[1] = 1;*/
+
+    switch (task->data[0])
+    {
+    case 0: battlerSprite->y2 -= 3; break;
+    case 1: battlerSprite->y2 -= 3; break;
+
+    case 2: battlerSprite->y2 -= 2; break;
+    case 3: battlerSprite->y2 -= 2; break;
+
+    case 4: battlerSprite->y2 -= 2; break;
+    case 5: battlerSprite->y2 -= 2; break;
+
+    case 6: battlerSprite->y2 -= 2; break;
+    case 7: battlerSprite->y2 -= 2; break;
+
+    case 8: battlerSprite->y2 -= 1; break;
+    case 9: battlerSprite->y2 -= 1; break;
+
+    case 10: battlerSprite->y2 -= 1; break;
+    case 11: battlerSprite->y2 -= 1; break;
+
+    case 12: break; // no move
+    case 13: break; // no move
+    case 14: break; // no move
+    case 15: break; // no move
+
+    case 16: battlerSprite->y2 += 1; break;
+    case 17: battlerSprite->y2 += 1; break;
+
+    case 18: battlerSprite->y2 += 1; break;
+    case 19: battlerSprite->y2 += 1; break;
+
+    case 20: battlerSprite->y2 += 1; break;
+    case 21: battlerSprite->y2 += 1; break;
+
+    case 22: battlerSprite->y2 += 2; break;
+    case 23: battlerSprite->y2 += 2; break;
+
+    case 24: battlerSprite->y2 += 2; break;
+    case 25: battlerSprite->y2 += 2; break;
+
+    case 26: battlerSprite->y2 += 4; break;
+    case 27: battlerSprite->y2 += 4; break;
+
+    default:
+        battlerSprite->y2 = 0;
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    task->data[0]++;
+}
