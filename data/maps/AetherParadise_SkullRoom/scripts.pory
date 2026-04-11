@@ -25,3 +25,57 @@ script AetherParadise_Dad {
 	release
 	end
 }
+
+script Aether_Painting {
+	msgbox(
+	"It looks like paint, but it's\n"
+	"actually a picture of paint.", MSGBOX_SIGN)
+
+}
+
+
+script Aether_Paint {
+	msgbox(
+	"The wall has been intricately\n"
+	"painted to resemble paint.", MSGBOX_SIGN)
+
+}
+
+script Aether_PaintO {
+	msgbox(
+	"They say graffiti is the voice of\n"
+	"the unheard.\p"
+
+	"In this case, the unheard are\n"
+	"saying,{PAUSE 20} “O”.", MSGBOX_SIGN)
+}
+
+script Aether_BrokeOak {
+	msgbox(
+	"It's broke.\n"
+	"", MSGBOX_SIGN)
+}
+
+script Aether_NotBrokeOak {
+	msgbox(
+	"That's not broke, silly!\n"
+	"", MSGBOX_SIGN)
+}
+
+script Aether_Chair {
+	msgbox(
+	"The chair is set up to provide\n"
+	"an excellent view of the wall.", MSGBOX_SIGN)
+
+}
+
+script Aether_Dresser {
+	msgbox(
+	"There's no drawers in the drawers.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Aether_Bookshelf {
+	msgbox(Text_AetherBookshelf, MSGBOX_SIGN)
+}
