@@ -7704,6 +7704,18 @@
       "secondary_tileset": "gTileset_SilphCo",
       "border_filepath": "data/layouts/FiveIsland_LostCave_Room2_Closet/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room2_Closet/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE_JUKEBOX",
+      "name": "Starlight_House_jukebox_Layout",
+      "width": 77,
+      "height": 28,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Starlight_Interior3",
+      "border_filepath": "data/layouts/Starlight_House_jukebox/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House_jukebox/map.bin"
     }
   ]
 }

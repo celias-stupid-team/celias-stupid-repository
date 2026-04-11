@@ -1,0 +1,1943 @@
+{
+  "id": "MAP_STARLIGHT_HOUSE_JUKEBOX",
+  "name": "Starlight_House_jukebox",
+  "layout": "LAYOUT_STARLIGHT_HOUSE_JUKEBOX",
+  "music": "MUS_NONE",
+  "region_map_section": "MAPSEC_GREAT_SEA",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "local_id": "LOCALID_BATTLE_ENCOUNTERS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 23,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign3",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_BATTLE_MUSIC",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 23,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign5",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_BATTLE_VICTORY",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 13,
+      "y": 1,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_EVENTS_CHAPTERS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 23,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign9",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_EVENTS_CHARACTERS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 11,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_EVENTS_OTHER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 23,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign1",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_EVENTS_VANILLA",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 15,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_EVENTS_SINGLE_PLAY",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 27,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LOCATIONS_GYMS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 29,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign10",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LOCATIONS_HOENN",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 37,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LOCATIONS_KANTO",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 29,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign2",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LOCATIONS_OTHER_REGIONS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 33,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LOCATIONS_THEMES",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 29,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign4",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LOCATIONS_OTHER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 29,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign6",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_SPECIAL",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 18,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_UNKNOWN",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 27,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER_OPPOSITE2",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 66,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER_OPPOSITE3",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 68,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER_OPPOSITE4",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 70,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER_OPPOSITE5",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 72,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER_OPPOSITE6",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 74,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER1",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 63,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER2",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 65,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER3",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 67,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER4",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 71,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER5",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 73,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER6",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 75,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_BATTLE_MUSIC",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 17,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign7",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_BATTLE_MUSIC",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 28,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_Jukebox_Sign8",
+      "flag": "0"
+    },
+    {
+      "local_id": "DANCER_OPPOSITE1",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 64,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
+      "movement_range_x": 15,
+      "movement_range_y": 15,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_jukebox_MapReset",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 26,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_STARLIGHT_HOUSE2",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 25,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_STARLIGHT_HOUSE_JUKEBOX",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 69,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_STARLIGHT_HOUSE_JUKEBOX",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_0"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_1"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_2"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_3"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_4"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_5"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_6"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_7"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_8"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_9"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_10"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_11"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_12"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_13"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_14"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_15"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_16"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_17"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_18"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_19"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_20"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_21"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_22"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_23"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_24"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_25"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_26"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_27"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_28"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_29"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_30"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_31"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_32"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_33"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_34"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_35"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_36"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_37"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_38"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_39"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_40"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_41"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_42"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_43"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_44"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_45"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_46"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_47"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_48"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_49"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_50"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_51"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_52"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_53"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_54"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_55"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_56"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_57"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_58"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_59"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_60"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_61"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_62"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_63"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_64"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_65"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_66"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_67"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_68"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_69"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_70"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_71"
+    },
+    {
+      "type": "sign",
+      "x": 43,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_72"
+    },
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_73"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_74"
+    },
+    {
+      "type": "sign",
+      "x": 46,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_75"
+    },
+    {
+      "type": "sign",
+      "x": 47,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_76"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_77"
+    },
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_78"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_79"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_80"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_81"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_82"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_83"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_84"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_85"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_86"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_87"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_88"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_89"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_90"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_91"
+    },
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_92"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_93"
+    },
+    {
+      "type": "sign",
+      "x": 46,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_94"
+    },
+    {
+      "type": "sign",
+      "x": 47,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_95"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_96"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_97"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_98"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_99"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_100"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_101"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_102"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_103"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_104"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_105"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_106"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_107"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_108"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_109"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_110"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_111"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_112"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_113"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_114"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_115"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_116"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_117"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_118"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_119"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_120"
+    },
+    {
+      "type": "sign",
+      "x": 43,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_121"
+    },
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_122"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_123"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_124"
+    },
+    {
+      "type": "sign",
+      "x": 46,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_125"
+    },
+    {
+      "type": "sign",
+      "x": 47,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_126"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_127"
+    },
+    {
+      "type": "sign",
+      "x": 49,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_128"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_129"
+    },
+    {
+      "type": "sign",
+      "x": 51,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_130"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_131"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_132"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_134"
+    },
+    {
+      "type": "sign",
+      "x": 52,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_135"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_136"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_137"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_138"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_139"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_140"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_141"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_142"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_143"
+    },
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_144"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_145"
+    },
+    {
+      "type": "sign",
+      "x": 47,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_146"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_147"
+    },
+    {
+      "type": "sign",
+      "x": 49,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_148"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_149"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_150"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_151"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_152"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_153"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_154"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_155"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_156"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_157"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_158"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_159"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_160"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_161"
+    },
+    {
+      "type": "sign",
+      "x": 43,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_162"
+    },
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_163"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_164"
+    },
+    {
+      "type": "sign",
+      "x": 46,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_165"
+    },
+    {
+      "type": "sign",
+      "x": 47,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_166"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_167"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_168"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_169"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_170"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_171"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_172"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_173"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_174"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_175"
+    },
+    {
+      "type": "sign",
+      "x": 49,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_176"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_177"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_178"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_179"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_180"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_Jukebox_133"
+    }
+  ]
+}

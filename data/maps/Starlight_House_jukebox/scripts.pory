@@ -1,0 +1,1741 @@
+mapscripts Starlight_House_jukebox_MapScripts {
+MAP_SCRIPT_ON_TRANSITION {
+ if(checkplayergender == FEMALE) {
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYFIRE)
+        } else {
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYGREEN)
+
+        }
+//if (var(VAR_RESULT) == FEMALE) {
+        //setobjectsprite (DANCER1, SPRITE_GFX_PLAYGREEN)
+    //} else {
+        //setobjectsprite (DANCER1, SPRITE_GFX_PLAYFIRE)
+    //}
+}
+}
+
+script Starlight_Jukebox_Sign1 {
+	msgbox(
+	"Event Music" MSGBOX_SIGN)
+
+}
+
+script Starlight_Jukebox_Sign2 {
+	msgbox(
+	"Kanto Music", MSGBOX_SIGN)
+
+}
+
+script Starlight_Jukebox_Sign3 {
+	msgbox(
+	"Battle Encounters and Victories", MSGBOX_SIGN)
+
+}
+
+script Starlight_Jukebox_Sign4 {
+	msgbox(
+	"Other Regions or Games", MSGBOX_SIGN)
+
+}
+
+script Starlight_Jukebox_Sign5 {
+	msgbox(
+	"Battle Music", MSGBOX_SIGN)
+
+}
+
+script Starlight_Jukebox_Sign6 {
+	msgbox(
+	"Locational Music", MSGBOX_SIGN)
+
+}
+
+script Starlight_Jukebox_Sign7 {
+	msgbox(
+	"Non-looped Tracks", MSGBOX_SIGN)
+
+}
+
+script Starlight_Jukebox_Sign8 {
+	msgbox(
+	"Music Room.\p"
+	"Orange signs are custom made,\n"
+	"Gray signs are vanilla\l"
+	"and Green signs are modified\l"
+	"versions of vanilla.", MSGBOX_SIGN)
+
+}
+
+script Starlight_Jukebox_Sign9 {
+	msgbox(
+	"Special Music", MSGBOX_SIGN)
+
+}
+
+script Starlight_Jukebox_Sign10 {
+	msgbox(
+	"Kanto Music (continued)", MSGBOX_SIGN)
+
+}
+
+script Starlight_House_jukebox_MapReset {
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Would you like to reset\nthe room?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//fadescreen(FADE_TO_WHITE)
+            warp(MAP_STARLIGHT_HOUSE_10, 0, 8, 10) // Map, Warp ID, X, Y
+            waitstate
+            //delay(120)
+            //fadescreen(FADE_FROM_WHITE)
+		}
+    release
+    end
+}
+
+script Starlight_Jukebox_0 {
+    playbgm(MUS_NONE, TRUE)
+    
+	msgbox(
+    "Music OFF", MSGBOX_SIGN)
+    end
+}
+
+//BATTLE ENCOUNTERS
+script Starlight_Jukebox_1 {
+    playbgm(MUS_ENCOUNTER_BOY, TRUE)
+    
+	msgbox(
+    "Music: MUS_ENCOUNTER_BOY\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_2 {
+    playbgm(MUS_ENCOUNTER_DEOXYS, TRUE)
+    
+	msgbox(
+    "Music: MUS_ENCOUNTER_DEOXYS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_3 {
+    playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+    
+	msgbox(
+    "Music: MUS_ENCOUNTER_GIRL\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_4 {
+    playbgm(MUS_ENCOUNTER_GYM_LEADER, TRUE)
+    
+	msgbox(
+    "Music: MUS_ENCOUNTER_GYM_LEADER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_5 {
+    playbgm(MUS_ENCOUNTER_MAY, TRUE)
+    
+	msgbox(
+    "Music: MUS_ENCOUNTER_MAY\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_6 {
+    playbgm(MUS_ENCOUNTER_RIVAL, TRUE)
+    
+	msgbox(
+    "Music: MUS_ENCOUNTER_RIVAL\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_7 {
+    playbgm(MUS_ENCOUNTER_ROCKET, TRUE)
+    
+	msgbox(
+    "Music: MUS_ENCOUNTER_ROCKET\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_8 {
+    playbgm(MUS_GEN4_LASS, TRUE)
+    
+	msgbox(
+    "Music: MUS_GEN4_LASS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//BATTLE MUSIC
+script Starlight_Jukebox_9 {
+    playbgm(MUS_CSR_DMCA_ADMIN, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_DMCA_ADMIN\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_10 {
+    playbgm(MUS_CSR_DMCA_BATTLE, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_DMCA_BATTLE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_11 {
+    playbgm(MUS_DMCA_SHOWDOWN, TRUE)
+    
+	msgbox(
+    "Music: MUS_DMCA_SHOWDOWN\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_12 {
+    playbgm(MUS_BATTLE_MAY, TRUE)
+    
+	msgbox(
+    "Music: MUS_BATTLE_MAY\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_13 {//Clone of the one above ^
+    playbgm(MUS_MUS_VS_RIVAL, TRUE)
+    
+	msgbox(
+    "Music: MUS_MUS_VS_RIVAL\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_14 {
+    playbgm(MUS_RS_VS_GYM_LEADER, TRUE)
+    
+	msgbox(
+    "Music: MUS_RS_VS_GYM_LEADER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_15 {
+    playbgm(MUS_RS_VS_TRAINER, TRUE)
+    
+	msgbox(
+    "Music: MUS_RS_VS_TRAINER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_16 {
+    playbgm(MUS_PISCES_GYM, TRUE)
+    
+	msgbox(
+    "Music: MUS_PISCES_GYM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_17 {
+    playbgm(MUS_VS_GYM_LEADER, TRUE)
+    
+	msgbox(
+    "Music: MUS_VS_GYM_LEADER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_18 {
+    playbgm(MUS_VS_TRAINER, TRUE)
+    
+	msgbox(
+    "Music: MUS_VS_TRAINER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_19 {
+    playbgm(MUS_CYNTHIA_BATTLE, TRUE)
+    
+	msgbox(
+    "Music: MUS_CYNTHIA_BATTLE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_20 {
+    playbgm(MUS_GRAND_FINALE, TRUE)
+    
+	msgbox(
+    "Music: MUS_GRAND_FINALE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_21 {
+    playbgm(MUS_MEGALOVANIA, TRUE)
+    
+	msgbox(
+    "Music: MUS_MEGALOVANIA\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_22 {
+    playbgm(MUS_THE_GAME_IS_AFOOT, TRUE)
+    
+	msgbox(
+    "Music: MUS_THE_GAME_IS_AFOOT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_23 {
+    playbgm(MUS_VS_CHAMPION, TRUE)
+    
+	msgbox(
+    "Music: MUS_VS_CHAMPION\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_24 {
+    playbgm(MUS_MUS_VS_REGI, TRUE)
+    
+	msgbox(
+    "Music: MUS_MUS_VS_REGI\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_25 {
+    playbgm(MUS_VS_DEOXYS, TRUE)
+    
+	msgbox(
+    "Music: MUS_VS_DEOXYS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_26 {
+    playbgm(MUS_VS_MEWTWO, TRUE)
+    
+	msgbox(
+    "Music: MUS_VS_MEWTWO\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_27 {
+    playbgm(MUS_VS_WILD, TRUE)
+    
+	msgbox(
+    "Music: MUS_VS_WILD\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//BATTLE VICTORY
+script Starlight_Jukebox_28 {
+    playbgm(MUS_CAUGHT, TRUE)
+    
+	msgbox(
+    "Music: MUS_CAUGHT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_29 {
+    playbgm(MUS_VICTORY_GYM_LEADER, TRUE)
+    
+	msgbox(
+    "Music: MUS_VICTORY_GYM_LEADER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_30 {
+    playbgm(MUS_VICTORY_TRAINER, TRUE)
+    
+	msgbox(
+    "Music: MUS_VICTORY_TRAINER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_31 {
+    playbgm(MUS_VICTORY_WILD, TRUE)
+    
+	msgbox(
+    "Music: MUS_VICTORY_WILD\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_32 {
+    playbgm(MUS_CSR_DRILL_DOZER, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_DRILL_DOZER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_33 {
+    playbgm(MUS_MUS_YUGIOH_2, TRUE)
+    
+	msgbox(
+    "Music: MUS_MUS_YUGIOH_2\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_34 {
+    playbgm(MUS_YOSHI_VICTORY, TRUE)
+    
+	msgbox(
+    "Music: MUS_YOSHI_VICTORY\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//EVENTS - CHAPTERS
+script Starlight_Jukebox_35 {
+    playbgm(MUS_CSR_CHAPTER_1, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_CHAPTER_1\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_36 {
+    playbgm(MUS_CSR_CHAPTER_2, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_CHAPTER_2\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_37 {
+    playbgm(MUS_CSR_CHAPTER_3, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_CHAPTER_3\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_38 {
+    playbgm(MUS_CHAPTER_8, TRUE)
+    
+	msgbox(
+    "Music: MUS_CHAPTER_8\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//EVENTS - CHARACTERS
+script Starlight_Jukebox_39 {
+    playbgm(MUS_CSR_CYNTHIA, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_CYNTHIA\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_40 {
+    playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+    
+	msgbox(
+    "Music: MUS_IMPOSTER_OAK\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_41 {
+    playbgm(MUS_LOOKER_THEME, TRUE)
+    
+	msgbox(
+    "Music: MUS_LOOKER_THEME\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_42 {
+    playbgm(MUS_OAK, TRUE)
+    
+	msgbox(
+    "Music: MUS_OAK\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_43 {
+    playbgm(MUS_RIVAL_EXIT, TRUE)
+    
+	msgbox(
+    "Music: MUS_RIVAL_EXIT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//EVENTS - OTHER
+script Starlight_Jukebox_44 {
+    playbgm(MUS_SAFARI_MARCH, TRUE)
+    
+	msgbox(
+    "Music: MUS_SAFARI_MARCH\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_45 {
+    playbgm(MUS_SURF, TRUE)
+    
+	msgbox(
+    "Music: MUS_SURF\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_46 {
+    playbgm(MUS_CYCLING, TRUE)
+    
+	msgbox(
+    "Music: MUS_CYCLING\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_47 {
+    playbgm(MUS_LEDER_SONG, TRUE)
+    
+	msgbox(
+    "Music: MUS_LEDER_SONG\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_48 {
+    playbgm(MUS_EVOLUTION, TRUE)
+    
+	msgbox(
+    "Music: MUS_EVOLUTION\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_49 {
+    playbgm(MUS_SALSA, TRUE)
+    
+	msgbox(
+    "Music: MUS_SALSA\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_50 {
+    playbgm(MUS_FOLLOW_ME, TRUE)
+    
+	msgbox(
+    "Music: MUS_FOLLOW_ME\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_51 {
+    playbgm(MUS_HALL_OF_FAME, TRUE)
+    
+	msgbox(
+    "Music: MUS_HALL_OF_FAME\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_52 {
+    playbgm(MUS_PRELUDE_TO_FINALE, TRUE)
+    
+	msgbox(
+    "Music: MUS_PRELUDE_TO_FINALE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_53 {
+    playbgm(MUS_SLOW_PALLET, TRUE)
+    
+	msgbox(
+    "Music: MUS_SLOW_PALLET\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//EVENTS - VANILLA
+script Starlight_Jukebox_54 {
+    playbgm(MUS_BERRY_PICK, TRUE)
+    
+	msgbox(
+    "Music: MUS_BERRY_PICK\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_55 {
+    playbgm(MUS_MYSTERY_GIFT, TRUE)
+    
+	msgbox(
+    "Music: MUS_MYSTERY_GIFT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_56 {
+    playbgm(MUS_POKE_JUMP, TRUE)
+    
+	msgbox(
+    "Music: MUS_POKE_JUMP\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_57 {
+    playbgm(MUS_TEACHY_TV_SHOW, TRUE)
+    
+	msgbox(
+    "Music: MUS_TEACHY_TV_SHOW\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//EVENTS - SINGLE PLAY
+script Starlight_Jukebox_58 {
+    playbgm(MUS_CAUGHT_INTRO, TRUE)
+    
+	msgbox(
+    "Music: MUS_CAUGHT_INTRO\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_59 {
+    playbgm(MUS_DEX_RATING, TRUE)
+    
+	msgbox(
+    "Music: MUS_DEX_RATING\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_60 {
+    playbgm(MUS_EVOLUTION_INTRO, TRUE)
+    
+	msgbox(
+    "Music: MUS_EVOLUTION_INTRO\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_61 {
+    playbgm(MUS_EVOLVED, TRUE)
+    
+	msgbox(
+    "Music: MUS_EVOLVED\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_62 {
+    playbgm(MUS_GAME_FREAK, TRUE)
+    
+	msgbox(
+    "Music: MUS_GAME_FREAK\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_63 {
+    playbgm(MUS_HEAL, TRUE)
+    
+	msgbox(
+    "Music: MUS_HEAL\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_64 {
+    playbgm(MUS_HEAL_UNUSED, TRUE)
+    
+	msgbox(
+    "Music: MUS_HEAL_UNUSED\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_65 {
+    playbgm(MUS_LEVEL_UP, TRUE)
+    
+	msgbox(
+    "Music: MUS_LEVEL_UP\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_66 {
+    playbgm(MUS_MOVE_DELETED, TRUE)
+    
+	msgbox(
+    "Music: MUS_MOVE_DELETED\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_67 {
+    playbgm(MUS_NEW_GAME_EXIT, TRUE)
+    
+	msgbox(
+    "Music: MUS_NEW_GAME_EXIT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_68 {
+    playbgm(MUS_OBTAIN_BADGE, TRUE)
+    
+	msgbox(
+    "Music: MUS_OBTAIN_BADGE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_69 {
+    playbgm(MUS_OBTAIN_BERRY, TRUE)
+    
+	msgbox(
+    "Music: MUS_OBTAIN_BERRY\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_70 {
+    playbgm(MUS_OBTAIN_ITEM, TRUE)
+    
+	msgbox(
+    "Music: MUS_OBTAIN_ITEM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_71 {
+    playbgm(MUS_OBTAIN_KEY_ITEM, TRUE)
+    
+	msgbox(
+    "Music: MUS_OBTAIN_KEY_ITEM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_72 {
+    playbgm(MUS_OBTAIN_TMHM, TRUE)
+    
+	msgbox(
+    "Music: MUS_OBTAIN_TMHM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_73 {
+    playbgm(MUS_PHOTO, TRUE)
+    
+	msgbox(
+    "Music: MUS_PHOTO\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_74 {
+    playbgm(MUS_SLOTS_JACKPOT, TRUE)
+    
+	msgbox(
+    "Music: MUS_SLOTS_JACKPOT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_75 {
+    playbgm(MUS_SLOTS_WIN, TRUE)
+    
+	msgbox(
+    "Music: MUS_SLOTS_WIN\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_76 {
+    playbgm(MUS_TEACHY_TV_MENU, TRUE)
+    
+	msgbox(
+    "Music: MUS_TEACHY_TV_MENU\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_77 {
+    playbgm(MUS_TOO_BAD, TRUE)
+    
+	msgbox(
+    "Music: MUS_TOO_BAD\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_78 {
+    playbgm(MUS_POKE_FLUTE, TRUE)
+    
+	msgbox(
+    "Music: MUS_POKE_FLUTE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_79 {
+    playbgm(MUS_TRUMPETS, TRUE)
+    
+	msgbox(
+    "Music: MUS_TRUMPETS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_80 {
+    playbgm(MUS_KOROK_SEED, TRUE)
+    
+	msgbox(
+    "Music: MUS_KOROK_SEED\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_81 {
+    playbgm(MUS_HALF_SIGN, TRUE)
+    
+	msgbox(
+    "Music: MUS_HALF_SIGN\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_82 {
+    playbgm(MUS_LASS_INTRO, TRUE)
+    
+	msgbox(
+    "Music: MUS_LASS_INTRO\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_83 {
+    playbgm(MUS_SE_DESKSLAM, TRUE)
+    
+	msgbox(
+    "Music: MUS_SE_DESKSLAM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_84 {
+    playbgm(MUS_SE_GUILTY, TRUE)
+    
+	msgbox(
+    "Music: MUS_SE_GUILTY\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_85 {
+    playbgm(MUS_CELADON_GYM_2, TRUE)
+    
+	msgbox(
+    "Music: MUS_CELADON_GYM_2\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_86 {
+    playbgm(MUS_CSR_CLEFAIRY_DANCE, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_CLEFAIRY_DANCE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_87 {
+    playbgm(MUS_CSR_DANCE_PRELUDE, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_DANCE_PRELUDE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_88 {
+    playbgm(MUS_DRAGON_BALL, TRUE)
+    
+	msgbox(
+    "Music: MUS_DRAGON_BALL\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_89 {
+    playbgm(MUS_JIGGLYPUFF, TRUE)
+    
+	msgbox(
+    "Music: MUS_JIGGLYPUFF\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_90 {
+    playbgm(MUS_KENYA, TRUE)
+    
+	msgbox(
+    "Music: MUS_KENYA\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_91 {
+    playbgm(MUS_THUNDERING_DYNAMO, TRUE)
+    
+	msgbox(
+    "Music: MUS_THUNDERING_DYNAMO\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//LOCATIONS - GYMS
+script Starlight_Jukebox_92 {
+    playbgm(MUS_CSR_AVGN_GYM, TRUE)
+    
+	msgbox(
+    "Music: MUS_AVGN_GYM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_93 {
+    playbgm(MUS_BLAINE_GYM, TRUE)
+    
+	msgbox(
+    "Music: MUS_BLAINE_GYM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_94 {
+    playbgm(MUS_CSR_CELADON_GYM, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_CELADON_GYM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_95 {
+    playbgm(MUS_GYM, TRUE)
+    
+	msgbox(
+    "Music: MUS_GYM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_96 {
+    playbgm(MUS_MUS_RINGSIDE, TRUE)
+    
+	msgbox(
+    "Music: MUS_MUS_RINGSIDE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_97 {//Clone of 95 ^
+    playbgm(MUS_TRAINER_TOWER, TRUE)
+    
+	msgbox(
+    "Music: MUS_TRAINER_TOWER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//LOCATIONS - HOENN STUFF
+script Starlight_Jukebox_98 {
+    playbgm(MUS_ABANDONED_SHIP, TRUE)
+    
+	msgbox(
+    "Music: MUS_ABANDONED_SHIP\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_99 {
+    playbgm(MUS_BATTLE_FRONTIER, TRUE)
+    
+	msgbox(
+    "Music: MUS_BATTLE_FRONTIER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_100 {
+    playbgm(MUS_LITTLEROOT, TRUE)
+    
+	msgbox(
+    "Music: MUS_LITTLEROOT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_101 {
+    playbgm(MUS_CSR_SOOTOPOLIS, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_SOOTOPOLIS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_102 {
+    playbgm(MUS_TRICK_HOUSE, TRUE)
+    
+	msgbox(
+    "Music: MUS_TRICK_HOUSE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//LOCATIONS - KANTO STUFF
+script Starlight_Jukebox_103 {
+    playbgm(MUS_CELADON, TRUE)
+    
+	msgbox(
+    "Music: MUS_CELADON\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_104 {
+    playbgm(MUS_CINNABAR, TRUE)
+    
+	msgbox(
+    "Music: MUS_CINNABAR\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_105 {
+    playbgm(MUS_FUSHCIA, TRUE)
+    
+	msgbox(
+    "Music: MUS_FUSHCIA\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_106 {
+    playbgm(MUS_GAME_CORNER, TRUE)
+    
+	msgbox(
+    "Music: MUS_GAME_CORNER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_107 {
+    playbgm(MUS_LAVENDER, TRUE)
+    
+	msgbox(
+    "Music: MUS_LAVENDER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_108 {
+    playbgm(MUS_CSR_MART, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_MART\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_109 {
+    playbgm(MUS_MT_MOON, TRUE)
+    
+	msgbox(
+    "Music: MUS_MT_MOON\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_110 {
+    playbgm(MUS_CSR_MT_MOON_SQUARE, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_MT_MOON_SQUARE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_111 {
+    playbgm(MUS_NET_CENTER, TRUE)
+    
+	msgbox(
+    "Music: MUS_NET_CENTER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_112 {
+    playbgm(MUS_OAK_LAB, TRUE)
+    
+	msgbox(
+    "Music: MUS_OAK_LAB\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_113 {
+    playbgm(MUS_PALLET, TRUE)
+    
+	msgbox(
+    "Music: MUS_PALLET\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_114 {
+    playbgm(MUS_PEWTER, TRUE)
+    
+	msgbox(
+    "Music: MUS_PEWTER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_115 {
+    playbgm(MUS_POKE_CENTER, TRUE)
+    
+	msgbox(
+    "Music: MUS_POKE_CENTER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_116 {
+    playbgm(MUS_POKE_MANSION, TRUE)
+    
+	msgbox(
+    "Music: MUS_POKE_MANSION\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_117 {
+    playbgm(MUS_POKE_TOWER, TRUE)
+    
+	msgbox(
+    "Music: MUS_POKE_TOWER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_118 {
+    playbgm(MUS_ROCKET_HIDEOUT, TRUE)
+    
+	msgbox(
+    "Music: MUS_ROCKET_HIDEOUT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_119 {
+    playbgm(MUS_ROUTE1, TRUE)
+    
+	msgbox(
+    "Music: MUS_ROUTE1\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_120 {
+    playbgm(MUS_ROUTE3, TRUE)
+    
+	msgbox(
+    "Music: MUS_ROUTE3\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_121 {
+    playbgm(MUS_ROUTE11, TRUE)
+    
+	msgbox(
+    "Music: MUS_ROUTE11\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_122 {
+    playbgm(MUS_ROUTE24, TRUE)
+    
+	msgbox(
+    "Music: MUS_ROUTE24\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_123 {
+    playbgm(MUS_SAFARI_EVOLUTION, TRUE)
+    
+	msgbox(
+    "Music: MUS_SAFARI_EVOLUTION\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_124 {
+    playbgm(MUS_SCHOOL, TRUE)
+    
+	msgbox(
+    "Music: MUS_SCHOOL\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_125 {
+    playbgm(MUS_SEVII_45, TRUE)
+    
+	msgbox(
+    "Music: MUS_SEVII_45\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_126 {
+    playbgm(MUS_SEVII_67, TRUE)
+    
+	msgbox(
+    "Music: MUS_SEVII_67\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_127 {
+    playbgm(MUS_SEVII_123, TRUE)
+    
+	msgbox(
+    "Music: MUS_SEVII_123\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_128 {
+    playbgm(MUS_SEVII_CAVE, TRUE)
+    
+	msgbox(
+    "Music: MUS_SEVII_CAVE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_129 {
+    playbgm(MUS_SEVII_DUNGEON, TRUE)
+    
+	msgbox(
+    "Music: MUS_SEVII_DUNGEON\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_130 {
+    playbgm(MUS_SEVII_ROUTE, TRUE)
+    
+	msgbox(
+    "Music: MUS_SEVII_ROUTE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_131 {
+    playbgm(MUS_SILPH, TRUE)
+    
+	msgbox(
+    "Music: MUS_SILPH\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_132 {
+    playbgm(MUS_SS_ANNE, TRUE)
+    
+	msgbox(
+    "Music: MUS_SS_ANNE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_133 {
+    playbgm(MUS_UNION_ROOM, TRUE)
+    
+	msgbox(
+    "Music: MUS_UNION_ROOM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_134 {
+    playbgm(MUS_VERMILLION, TRUE)
+    
+	msgbox(
+    "Music: MUS_VERMILLION\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_135 {
+    playbgm(MUS_VICTORY_ROAD, TRUE)
+    
+	msgbox(
+    "Music: MUS_VICTORY_ROAD\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_136 {
+    playbgm(MUS_VIRIDIAN_FOREST, TRUE)
+    
+	msgbox(
+    "Music: MUS_VIRIDIAN_FOREST\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//LOCATIONS - OTHER REGION STUFF
+script Starlight_Jukebox_137 {
+    playbgm(MUS_ALOLA_ROUTE2, TRUE)
+    
+	msgbox(
+    "Music: MUS_ALOLA_ROUTE2\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_138 {
+    playbgm(MUS_CSR_DRIFTVEIL, TRUE)
+    
+	msgbox(
+    "Music: MUS_DRIFTVEIL\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_139 {
+    playbgm(MUS_CSR_FURRET, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_FURRET\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_140 {
+    playbgm(MUS_NATIONAL_PARK, TRUE)
+    
+	msgbox(
+    "Music: MUS_NATIONAL_PARK\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//LOCATIONS - THEMES
+script Starlight_Jukebox_141 {
+    playbgm(MUS_FOUR_ISLAND, TRUE)
+    
+	msgbox(
+    "Music: MUS_FOUR_ISLAND\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_142 {
+    playbgm(MUS_FOUR_ISLAND_CENTER, TRUE)
+    
+	msgbox(
+    "Music: MUS_FOUR_ISLAND_CENTER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_143 {
+    playbgm(MUS_FOUR_ISLAND_MART, TRUE)
+    
+	msgbox(
+    "Music: MUS_FOUR_ISLAND_MART\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_144 {
+    playbgm(MUS_TWO_ISLAND_CENTER, TRUE)
+    
+	msgbox(
+    "Music: MUS_TWO_ISLAND_CENTER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_145 {
+    playbgm(MUS_TWO_ISLAND_MART, TRUE)
+    
+	msgbox(
+    "Music: MUS_TWO_ISLAND_MART\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_146 {
+    playbgm(MUS_CERULEAN_CENTER, TRUE)
+    
+	msgbox(
+    "Music: MUS_CERULEAN_CENTER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_147 {
+    playbgm(MUS_CSR_CERULEAN_CLUB, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_CERULEAN_CLUB\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_148 {
+    playbgm(MUS_TCG_ISLAND, TRUE)
+    
+	msgbox(
+    "Music: MUS_TCG_ISLAND\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//LOCATIONS - OTHER STUFF
+script Starlight_Jukebox_149 {
+    playbgm(MUS_BINKS_SAKE, TRUE)
+    
+	msgbox(
+    "Music: MUS_BINKS_SAKE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_150 {
+    playbgm(MUS_CSR_CASTLE, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_CASTLE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_151 {
+    playbgm(MUS_CYBER_WORLD, TRUE)
+    
+	msgbox(
+    "Music: MUS_CYBER_WORLD\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_152 {
+    playbgm(MUS_CSR_DANCE_THEATER, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_DANCE_THEATER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_153 {
+    playbgm(MUS_DOWNSTREAM, TRUE)
+    
+	msgbox(
+    "Music: MUS_DOWNSTREAM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_154 {
+    playbgm(MUS_IKI_TOWN_TEST, TRUE)
+    
+	msgbox(
+    "Music: MUS_IKI_TOWN_TEST\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_155 {
+    playbgm(MUS_CSR_LOSS_WOODS, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_LOSS_WOODS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_156 {
+    playbgm(MUS_MUS_STRAIGHT_PEOPLE, TRUE)
+    
+	msgbox(
+    "Music: MUS_MUS_STRAIGHT_PEOPLE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_157 {
+    playbgm(MUS_POKEMON_ISLAND, TRUE)
+    
+	msgbox(
+    "Music: MUS_POKEMON_ISLAND\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_158 {
+    playbgm(MUS_POKEMON_ISLAND_LAB, TRUE)
+    
+	msgbox(
+    "Music: MUS_POKEMON_ISLAND_LAB\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_159 {
+    playbgm(MUS_CSR_POKERAP, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_POKERAP\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_160 {
+    playbgm(MUS_PYRITE_TOWN, TRUE)
+    
+	msgbox(
+    "Music: MUS_PYRITE_TOWN\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_161 {
+    playbgm(MUS_CSR_SECRET_TUNNEL, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_SECRET_TUNNEL\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_162 {
+    playbgm(MUS_CSR_SECRET_HOUSE, TRUE)
+    
+	msgbox(
+    "Music: MUS_SECRET_HOUSE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_163 {
+    playbgm(MUS_CSR_SKY_TOWER, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_SKY_TOWER\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_164 {
+    playbgm(MUS_CSR_STAIRS, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_STAIRS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_165 {
+    playbgm(MUS_TUNNEL, TRUE)
+    
+	msgbox(
+    "Music: MUS_TUNNEL\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_166 {
+    playbgm(MUS_YES, TRUE)
+    
+	msgbox(
+    "Music: MUS_YES\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_167 {
+    playbgm(MUS_YUGIOH, TRUE)
+    
+	msgbox(
+    "Music: MUS_YUGIOH\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//SPECIAL
+script Starlight_Jukebox_168 {
+    playbgm(MUS_CREDITS, TRUE)
+    
+	msgbox(
+    "Music: MUS_CREDITS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_169 {
+    playbgm(MUS_INTRO_FIGHT, TRUE)
+    
+	msgbox(
+    "Music: MUS_INTRO_FIGHT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_170 {
+    playbgm(MUS_NEW_GAME_INSTRUCT, TRUE)
+    
+	msgbox(
+    "Music: MUS_NEW_GAME_INSTRUCT\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_171 {
+    playbgm(MUS_NEW_GAME_INTRO, TRUE)
+    
+	msgbox(
+    "Music: MUS_NEW_GAME_INTRO\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_172 {
+    playbgm(MUS_STUPID_CREDITS, TRUE)
+    
+	msgbox(
+    "Music: MUS_STUPID_CREDITS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_173 {
+    playbgm(MUS_STUPID_ENDING, TRUE)
+    
+	msgbox(
+    "Music: MUS_STUPID_ENDING\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_174 {
+    playbgm(MUS_TITLE, TRUE)
+    
+	msgbox(
+    "Music: MUS_TITLE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+//UNKNOWN???
+script Starlight_Jukebox_175 {
+    playbgm(MUS_DELIVERY, TRUE)
+    
+	msgbox(
+    "Music: MUS_DELIVERY\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_176 {
+    playbgm(MUS_RAINBOW_CASTLE, TRUE)
+    
+	msgbox(
+    "Music: MUS_RAINBOW_CASTLE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_177 {
+    playbgm(MUS_CLOTHES_SHOP, TRUE)
+    
+	msgbox(
+    "Music: MUS_CLOTHES_SHOP\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_178 {
+    playbgm(MUS_KOOPA_BROS, TRUE)
+    
+	msgbox(
+    "Music: MUS_KOOPA_BROS\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_179 {
+    playbgm(MUS_SV_ELITE_FOUR, TRUE)
+    
+	msgbox(
+    "Music: MUS_SV_ELITE_FOUR\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_180 {
+    playbgm(MUS_CSR_TWOSON, TRUE)
+    
+	msgbox(
+    "Music: MUS_TWOSON\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+

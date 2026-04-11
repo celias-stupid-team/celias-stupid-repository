@@ -169,3 +169,9 @@ script Starlight_House2_PC { //update table plans visual
 	"No, this PC is not functional.\p", MSGBOX_SIGN)
 
 }
+
+script Starlight_House2_Jukebox_Block { //update table plans visual
+	msgbox(
+	"Coming Soon...", MSGBOX_SIGN)
+
+}
