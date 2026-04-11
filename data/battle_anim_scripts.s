@@ -2949,6 +2949,7 @@ OutrageFlames:
 	createsprite gOutrageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, -1280, -768, 3
 	return
 
+Move_ZAP_TAP:
 Move_BUZZY_BUZZ:
 Move_SPARK:
 	loadspritegfx ANIM_TAG_IMPACT
@@ -4303,6 +4304,7 @@ Move_SLASH:
 	waitforvisualfinish
 	end
 
+Move_SKILL_ISSUE:
 Move_DARK_VOID_SMEARGLE:
 Move_STRUGGLE:
 	loadspritegfx ANIM_TAG_IMPACT
@@ -16061,21 +16063,6 @@ Move_TM07:
 	waitforvisualfinish
 	end
 	
-Move_ZAP_TAP:
-	@Tackle
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
-	end
-	
 Move_THUNDERJOLT:
 	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
@@ -17547,22 +17534,6 @@ Move_BROCK_TOMB:
 	end
 
 
-Move_BROCK_BLAST:
-	@Tackle
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
-	end
-
-
 Move_BROCK_WRECKER:
 	monbg ANIM_DEF_PARTNER
 	call SetPsychicBackground
@@ -18166,28 +18137,9 @@ ShadowForceSetUp:
 	waitbgfadein
 	end
 
-
+Move_CLANGAROUS_SOUL_CANCEL:
 Move_RAZOR_WIND_CANCEL:
 	choosetwoturnanim RazorWindSetUp, RazorWindUnleash
-
-
-Move_CLANGAROUS_SOUL_CANCEL:
-	@Tackle
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
-	end
-
-
-
 
 Move_LIQUIDATEON:
 	loadspritegfx ANIM_TAG_WATER_IMPACT
@@ -19721,9 +19673,6 @@ Move_LIGHT_BALL:
 	call BallAttack
 	end
 	
-Move_SKILL_ISSUE:
-	goto Move_TACKLE
-	
 Move_FALCON_PUNCH:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_BIRD
@@ -20707,6 +20656,7 @@ Move_BRAVE_BIRTH:
 	@resetbattlebgm
 	end
 	
+Move_BROCK_BLAST:
 Move_ACCELEBROCK:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_BROCKS
@@ -20792,7 +20742,39 @@ Move_CHERRY_FACE:
 	end
 	
 Move_NICICLE_CRASH:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_ICICLE_SPEAR
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS
+	loadspritegfx ANIM_TAG_WEED_SMALL
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
+	createsprite gIcicleSpearSpriteTemplate, ANIM_ATTACKER, 2, 20, -8, -8, -8, 20, -32
+	delay 19
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeTargetBasedOnMovePowerOrDmg, 2, FALSE, 1, 14, 1, 0
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+	call IceBallImpactShard
+	call IceBallImpactShard
+	call IceBallImpactShard
+	call IceBallImpactShard
+	call IceBallImpactShard
+	call IceBallImpactShard
+	call IceBallImpactShard
+	call IceBallImpactShard
+	call IceBallImpactShard
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, -8, -8, ANIM_TARGET, 2
+
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
 	
 Move_TWIN_BEAM:
 	loadspritegfx ANIM_TAG_GLOWY_RED_ORB
