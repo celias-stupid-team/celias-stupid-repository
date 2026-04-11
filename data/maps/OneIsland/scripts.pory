@@ -236,6 +236,7 @@ script OneIsland_Whirlpool {
 
 script OneIsland_Kaylee {
 	lock
+	textcolor(NPC_TEXT_COLOR_RED)
 	if(checkmoncaught(SPECIES_ARTICUNO)) {
 		if(!checkitem(ITEM_SOOTHE_BELL) && !checkmoncaught(SPECIES_ESPEON)) {
 			msgbox(

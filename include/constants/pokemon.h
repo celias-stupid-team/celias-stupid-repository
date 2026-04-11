@@ -129,7 +129,7 @@
 #define TYPE_SHADOW         27
 #define TYPE_LARGE          28
 #define TYPE_BIRD           29
-#define TYPE_SHIT           30
+#define TYPE_SMALL           30
 #define TYPE_FAIRY_TRANS    31
 #define TYPE_SOUND          32
 #define TYPE_FIGHTING_SPECIAL          33

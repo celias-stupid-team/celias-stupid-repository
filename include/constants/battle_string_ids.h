@@ -525,8 +525,15 @@
 #define STRINGID_HOOPAUNBOUND 523
 #define STRINGID_NOONESUMMONSHIM 524
 #define STRINGID_LATIAS 525
+#define STRINGID_PKMNFLUNG 526
+#define STRINGID_TM07 527
+#define STRINGID_HEAVYDUTYBOOTSPROTECT 528
 
-#define STRINGID_NONE 526
+#define STRINGID_SMEARGLE 529
+
+
+
+#define STRINGID_NONE 530
 // #define STRINGID_NONE 
 // ^ for easier copypaste
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
@@ -621,6 +628,7 @@
 #define B_MSG_BRACED_ITSELF    1
 #define B_MSG_PROTECT_FAILED   2
 #define B_MSG_PROTECTED_TEAM   3
+#define B_MSG_FREEDOM   4
 
 // gRestUsedStringIds
 #define B_MSG_REST           0
@@ -780,6 +788,9 @@
 #define B_MSG_HACK_ATTACK      15
 #define B_MSG_SNOWGRAVY        16
 #define B_MSG_LATIAS        17
+#define B_MSG_TM07        18
+#define B_MSG_SMEARGLE        19
+
 
 // gSwitchInAbilityStringIds
 enum SwitchInAbilityStringID

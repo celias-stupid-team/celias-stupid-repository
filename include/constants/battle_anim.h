@@ -606,6 +606,7 @@
 #define B_ANIM_RHYDON_TRANSFORM         50
 #define B_ANIM_TRUMP_CARD_USELESS       51
 #define B_ANIM_UNBOUND_SPRITE_UPDATE    52
+#define B_ANIM_CONFUSION_BONK           53
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
@@ -698,6 +699,34 @@
 #define FADE_TO_BLACK    1
 #define FADE_FROM_WHITE  2
 #define FADE_TO_WHITE    3
+
+// letter constants for addletter macro (from the charmap)
+#define LETTER_A  0xBB
+#define LETTER_B  0xBC
+#define LETTER_C  0xBD
+#define LETTER_D  0xBE
+#define LETTER_E  0xBF
+#define LETTER_F  0xC0
+#define LETTER_G  0xC1
+#define LETTER_H  0xC2
+#define LETTER_I  0xC3
+#define LETTER_J  0xC4
+#define LETTER_K  0xC5
+#define LETTER_L  0xC6
+#define LETTER_M  0xC7
+#define LETTER_N  0xC8
+#define LETTER_O  0xC9
+#define LETTER_P  0xCA
+#define LETTER_Q  0xCB
+#define LETTER_R  0xCC
+#define LETTER_S  0xCD
+#define LETTER_T  0xCE
+#define LETTER_U  0xCF
+#define LETTER_V  0xD0
+#define LETTER_W  0xD1
+#define LETTER_X  0xD2
+#define LETTER_Y  0xD3
+#define LETTER_Z  0xD4
 
 
 #endif // GUARD_CONSTANTS_BATTLE_ANIM_H

@@ -13390,3 +13390,9 @@ extern const u8 gMonIcon_NOTHING[];
 
 extern const u32 gItemIcon_HDutyRoot[];
 extern const u32 gItemIconPalette_HDutyRoot[];
+
+extern const u32 gItemIcon_RawNugget[];
+extern const u32 gItemIconPalette_RawNugget[];
+
+extern const u32 gItemIcon_RippedMemo[];
+extern const u32 gItemIconPalette_RippedMemo[];

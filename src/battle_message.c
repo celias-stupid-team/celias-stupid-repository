@@ -1093,9 +1093,15 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_CANTCOPYABILITY - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("You can't copy abilities during\nSHADOW SKY!"),
     [STRINGID_RHYDONTRANSFORM - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} transformed into RHYDON!"),
     [STRINGID_CARDISUSELESS - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("This card is useless!"),
-    [STRINGID_HOOPAUNBOUND - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("HOOPA-UNBOUND!?"),
-    [STRINGID_NOONESUMMONSHIM - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("No one's ever been able to\nsummon him!"),
-    [STRINGID_LATIAS - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("Oh, wow!{PAUSE 30}\nIt's LATINAS!"),
+    [STRINGID_HOOPAUNBOUND - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("HOOPA-UNBOUND!?"),
+    [STRINGID_NOONESUMMONSHIM - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("No one's ever been able to\nsummon him!"),
+    [STRINGID_LATIAS - BATTLESTRINGS_TABLE_START]                        = COMPOUND_STRING("Oh, wow!{PAUSE 30}\nIt's LATINAS!"),
+    [STRINGID_PKMNFLUNG - BATTLESTRINGS_TABLE_START]                     = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} flung its {B_LAST_ITEM}!"),
+    [STRINGID_TM07 - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("It contained TM07!\p{PLAYER} got the TM07!"),
+    [STRINGID_HEAVYDUTYBOOTSPROTECT - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} prevented damage\nusing its HEAVY-DUTY ROOTS!"),
+    [STRINGID_SMEARGLE - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("But it failed!\pGAME FREAK has decided to nerf the\nmove so only DARKRAI can use it!"),
+
+    
 
     
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
@@ -1165,7 +1171,8 @@ const u16 gProtectLikeUsedStringIds[] =
     [B_MSG_PROTECTED_ITSELF] = STRINGID_PKMNPROTECTEDITSELF2,
     [B_MSG_BRACED_ITSELF]    = STRINGID_PKMNBRACEDITSELF,
     [B_MSG_PROTECT_FAILED]   = STRINGID_BUTITFAILED,
-    [B_MSG_PROTECTED_TEAM]   = STRINGID_PROTECTEDTEAM
+    [B_MSG_PROTECTED_TEAM]   = STRINGID_PROTECTEDTEAM,
+    [B_MSG_FREEDOM]   = STRINGID_FREEDOMREIGNED
 };
 
 const u16 gReflectLightScreenSafeguardStringIds[] =
@@ -1536,6 +1543,10 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_HACK_ATTACK] = STRINGID_HACK_ATTACK,
     [B_MSG_SNOWGRAVY] = STRINGID_SNOWGRAVY,
     [B_MSG_LATIAS] = STRINGID_LATIAS,
+    [B_MSG_TM07] = STRINGID_TM07,
+    [B_MSG_SMEARGLE] = STRINGID_SMEARGLE,
+
+    
 
     
 };
@@ -2236,7 +2247,7 @@ void BufferStringBattle(u16 stringId)
             gDisplayedStringBattle[0] = EOS;
             return;
         }
-        else if (stringId == STRINGID_PLAYERDEFEATEDTRAINER1 && gTrainerBattleOpponent_A == TRAINER_Y_ELTAL && FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE)) // special case for YVELTAL battle
+        else if (stringId == STRINGID_PLAYERDEFEATEDTRAINER1 && gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_Y_ELTAL && FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE)) // special case for YVELTAL battle
         {
             stringPtr = sText_PlayerDefeatedTrainerY_eltal;
         }

@@ -244,6 +244,7 @@ script MayRoom_LassAttack {
 	addobject(LANCE_LASS)
 	setobjectxy(LANCE_LASS, 6, 19)
 	setlayouttiles(LAYOUT_POKEMON_LEAGUE_LANCES_ROOM, 0, 0, 0, 0, 26, 29)
+					setmaplayoutindex(LAYOUT_POKEMON_LEAGUE_LANCES_ROOM)
 	special(DrawWholeMapView)
 	applymovement(LANCE_LASS, moves(
 		face_up

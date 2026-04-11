@@ -2018,7 +2018,7 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
     }
 
     // handle shininess for species transformations
-    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA || species == SPECIES_SLOWPOKE || species == SPECIES_INKAY || species == SPECIES_RHYDON) && GetMonData(mon, MON_DATA_CSR_SHINY))
+    if((species == SPECIES_ALOMOMOLA || species == SPECIES_LUVDISC || species == SPECIES_HOOPA || species == SPECIES_SLOWPOKE || species == SPECIES_INKAY || species == SPECIES_RHYDON) && GetMonData(mon, MON_DATA_CSR_SHINY))
         FlagSet(FLAG_SHINY_CREATION);
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
@@ -6178,6 +6178,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_ELITE_FOUR_CYNTHIA:
             return MUS_CYNTHIA_BATTLE;
         case TRAINER_CLASS_MYSTERIOUS:
+        case TRAINER_CLASS_PLASTO:
             return MUS_MEGALOVANIA;
         case TRAINER_CLASS_RIVAL_MAY:
             return MUS_MUS_VS_RIVAL;

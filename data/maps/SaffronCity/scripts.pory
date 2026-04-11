@@ -144,6 +144,7 @@ mapscripts SaffronCity_MapScripts {
 		VAR_TEMP_9, 1 {
 			delay(30)
 			setlayouttiles(LAYOUT_SAFFRON_CITY_TRAINS, 0, 0, 0, 0, 65, 54)
+					setmaplayoutindex(LAYOUT_SAFFRON_CITY_TRAINS)
 			playse(SE_CLICK)
 			setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
 			setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)

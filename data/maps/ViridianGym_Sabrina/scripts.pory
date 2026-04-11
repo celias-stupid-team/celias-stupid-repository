@@ -1,7 +1,7 @@
 mapscripts ViridianGym_Sabrina_MapScripts {
         MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_SAFFRON_GYM_SHORTCUT)
-        if(var(VAR_CURRENT_DMCA_PHASE) < 6 && var(VAR_CURRENT_DMCA_PHASE) > 4) {
+        if(var(VAR_CURRENT_DMCA_PHASE) < 6 && flag(FLAG_DEFEATED_DMCA_KOGA)) {
             setvar(VAR_CURRENT_DMCA_PHASE, 6)
         }
         if(var(VAR_CURRENT_DMCA_PHASE) > 5) {

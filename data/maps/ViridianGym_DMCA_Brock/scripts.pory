@@ -104,6 +104,7 @@ script DMCABrock_OrthwormEats {
     waitmovement(LOCALID_HUNGRY_ORTHWORM)
     removeobject(LOCALID_DMCA_BROCK)
     setlayouttiles(LAYOUT_VIRIDIAN_GYM_DMCA_BROCK_LAYOUT_2, 0,0, 0,0, 19, 23)
+					setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_DMCA_BROCK_LAYOUT_2)
     applymovement(LOCALID_HUNGRY_ORTHWORM, moves(
         unlock_facing_direction
         face_down

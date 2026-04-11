@@ -57,6 +57,13 @@
       "elevation": 0,
       "dest_map": "MAP_STARLIGHT_HOUSE5",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 9,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_STARLIGHT_HOUSE_10",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -75,7 +82,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House4_Under_Construction"
+      "script": "StarlightHouse_YouForgotSomething"
     },
     {
       "type": "sign",

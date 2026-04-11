@@ -261,6 +261,7 @@ extern const u8 BattleScript_BadDreamsActivates[];
 extern const u8 BattleScript_SwitchInAbilityMsg[];
 extern const u8 BattleScript_SwitchInAbilityMsgRet[];
 extern const u8 BattleScript_SlowStartEnds[];
+extern const u8 BattleScript_HeavyDutyBootsProtect[];
 extern const u8 BattleScript_AirBalloonMsgIn[];
 extern const u8 BattleScript_AirBalloonMsgPop[];
 extern const u8 BattleScript_EffectElectrify[];
@@ -296,6 +297,7 @@ extern const u8 BattleScript_TwistedRealityRecoil[];
 extern const u8 BattleScript_FlipTurnTransform[];
 extern const u8 BattleScript_LeaveBattleImmediately[];
 extern const u8 BattleScript_ShowMoveAnimation[];
+extern const u8 BattleScript_HarvestActivates[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];

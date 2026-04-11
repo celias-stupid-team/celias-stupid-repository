@@ -1,3 +1,19 @@
 mapscripts OnixRoom_MapScripts {
 
 }
+
+
+script OnixRoom_Onix {
+    lock
+    if(checkitem(ITEM_RUBY)) {
+        removeitem(ITEM_RUBY)
+    }
+    setflag(FLAG_SHINY_CREATION)
+    setwildbattle(SPECIES_ONIX, 30)
+    playmoncry(SPECIES_ONIX, CRY_MODE_ENCOUNTER)
+    dowildbattle
+    delay(10)
+    removeobject(VAR_LAST_TALKED)
+    release
+    end
+}

@@ -1790,9 +1790,12 @@ static void SayYes_CB(void) {
         !StringCompare(gText_YupLower, gStringVar1)) {
         VarSet(VAR_RESULT, 1);
 
-    } else 
-        
+    } else if (!StringCompare(gText_Oui, gStringVar1)) {
+        VarSet(VAR_RESULT, 2);
+    }  else {
         VarSet(VAR_RESULT, 0);
+
+    }
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
 
@@ -3064,6 +3067,25 @@ const u8 *const gKayleeNameTable[] = {
     COMPOUND_STRING("CAE LAY"),
     COMPOUND_STRING("CA LAY"),
     COMPOUND_STRING("CAL EIGH"),
+    COMPOUND_STRING("KEILEIGH"),
+    COMPOUND_STRING("CEILEIGH"),
+    COMPOUND_STRING("K LEE"),
+    COMPOUND_STRING("K LAY"),
+    COMPOUND_STRING("KLEE"),
+    COMPOUND_STRING("KLAY"),
+    COMPOUND_STRING("K LEIGH"),
+    COMPOUND_STRING("KLEIGH"),
+    COMPOUND_STRING("K LI"),
+    COMPOUND_STRING("K LII"),
+    COMPOUND_STRING("KLI"),
+    COMPOUND_STRING("KLII"),
+    COMPOUND_STRING("K-LEE"),
+    COMPOUND_STRING("K-LAY"),
+    COMPOUND_STRING("K-LEIGH"),
+    COMPOUND_STRING("K-LI"),
+    COMPOUND_STRING("K-LII"),
+
+     
 };
 
 void IsPlayerNameKaylee(void)

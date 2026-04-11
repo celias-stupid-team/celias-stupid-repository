@@ -136,7 +136,7 @@ script DMCAErika_CeladonSign {
 script DMCAErika_Savestate {
 	msgbox(
 	"TRAINER TIPS!\n"
-	"Rememeber to savestate frequently!", MSGBOX_SIGN)
+	"Remember to savestate frequently!", MSGBOX_SIGN)
 
 }
 

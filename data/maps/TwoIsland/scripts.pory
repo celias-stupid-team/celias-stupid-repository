@@ -1391,6 +1391,7 @@ script TwoIsland_ThePit {
 	hideobjectat(LOCALID_TWO_ISLAND_PENCIL, MAP_TWO_ISLAND)
 	hideobjectat(LOCALID_TWO_ISLAND_MUSHROOM_KID, MAP_TWO_ISLAND)
 	setlayouttiles(LAYOUT_TWO_ISLAND_PIT, 0, 0, 0, 0, 67, 28)
+					setmaplayoutindex(LAYOUT_TWO_ISLAND_PIT)
 	
 }
 
@@ -1402,6 +1403,7 @@ script TwoIsland_NoThePit {
 	showobjectat(LOCALID_TWO_ISLAND_MUSHROOM_KID, MAP_TWO_ISLAND)
 
 	setlayouttiles(LAYOUT_TWO_ISLAND, 0, 0, 0, 0, 67, 28)
+					setmaplayoutindex(LAYOUT_TWO_ISLAND_PIT)
 	release
 }
 

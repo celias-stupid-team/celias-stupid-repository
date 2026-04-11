@@ -1069,7 +1069,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_FARFETCHD] =
     {
-        .categoryName = _("CUT"),
+        .categoryName = _("EDIBLE"),
         .height = 8,
         .weight = 150,
         .description = gFarfetchdPokedexText,
@@ -5325,7 +5325,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_DACHSBUN] =
     {
-        .categoryName = _("JELLYFILLED"),
+        .categoryName = _("PUREBREAD"),
         .height = 5,
         .weight = 14.9,
         .description = gDachsbunPokedexText,

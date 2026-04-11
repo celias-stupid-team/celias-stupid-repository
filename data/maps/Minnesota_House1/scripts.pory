@@ -27,5 +27,6 @@ script Minnesota_SurgeTV {
 		callnative(CurePorygonVirus)
 	}
 	warpsilent(MAP_MINNESOTA_HOSPITAL, 1)
+	delay(30)
 	release
 }

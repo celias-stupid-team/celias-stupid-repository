@@ -10,7 +10,7 @@ FiveIsland_LostCave_Entrance_OnTransition::
 
 script FiveIsland_LostCave_Entrance_wiz1989
 {
-	trainerbattle_single(TRAINER_WIZ1989, "I compiled this ROM just to\nfight you!", "That was crazy!\pI almost wiped the EWRAM instead\nof you!")
+	trainerbattle_single(TRAINER_WIZ1989, "I compiled this ROM just to\nfight you!\l(photosensitivity warning)", "That was crazy!\pI almost wiped the EWRAM instead\nof you!")
 	msgbox("Celia put me here, cause she's\nafraid of me!\pBut she's more afraid of the\ngit terminal! kek", MSGBOX_DEFAULT)
 	release
 	end

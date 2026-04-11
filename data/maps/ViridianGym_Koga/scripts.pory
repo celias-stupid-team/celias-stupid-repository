@@ -71,6 +71,7 @@ script ViridianGym_KogaBattle {
     removeobject(VAR_LAST_TALKED)
     setflag(FLAG_DEFEATED_DMCA_KOGA)
     setlayouttiles(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN, 0,0,0,0,30,23)
+					setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
     release
 }
 
@@ -222,6 +223,7 @@ script DMCAKoga_BrickWall4 {
                 "Hmm…\n"
                 "Your BRICK PIECE won't fit.", MSGBOX_DEFAULT)
                 if(checkpartymon(SPECIES_DITTO_MEW)) {
+                    setflag(FLAG_TRIED_DITTO_IN_WALL)
                     playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
                     waitmoncry
                     msgbox(
@@ -331,6 +333,7 @@ script DMCAKoga_StopSnowingString {
         "The snow has stopped.\n"
         "", MSGBOX_DEFAULT)
         setlayouttiles(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN, 0,0,0,0,31,25)
+					setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
         
 
     }

@@ -212,7 +212,7 @@
       "x": 32,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_LAVENDER_TOWN_DANCE_THEATER",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     }
   ],

@@ -1584,6 +1584,12 @@
 	.4byte \failInstr
 	.endm
 
+	.macro jumpifopponenttrainerclass trainerClass:req, jumpptr:req
+	callnative BS_JumpIfOpponentTrainerClass
+	.byte \trainerClass
+	.4byte \jumpptr
+	.endm
+
 	.macro setbattlestringid
 	callnative BS_SetBattleStringId
 	.endm
@@ -1864,9 +1870,12 @@
 	.4byte \failInstr
 	.endm
 
-	.macro trygivenothing failInstr:req
-	callnative BS_TryGiveNothing
-	.4byte \failInstr
+	.macro givenothing
+	callnative BS_GiveNothing
+	.endm
+
+	.macro givetm07
+	callnative BS_GiveTM07
 	.endm
 
 	.macro trytrickortreat failInstr:req
@@ -1936,4 +1945,14 @@
 	callnative BS_SetPokedexFlag
 	.2byte \species
 	.byte \flagId
+	.endm
+
+	.macro settypesmall battler:req
+	callnative BS_SetTypeSmall
+	.byte \battler
+	.endm
+
+	.macro tryfling failInstr:req
+	callnative BS_TryFling
+	.4byte \failInstr
 	.endm

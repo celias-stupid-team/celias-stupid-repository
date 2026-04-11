@@ -302,6 +302,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRhydon                 @ EFFECT_RHYDON
 	.4byte BattleScript_EffectTrumpCard              @ EFFECT_TRUMP_CARD
 	.4byte BattleScript_EffectRestoreXHp             @ EFFECT_RESTORE_X_HP
+	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
+	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 
 BattleScript_End2::
 	end2
@@ -3145,6 +3147,7 @@ BattleScript_FaintedMonTryChoose::
 	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_FaintedMonSendOutNew
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonSendOutNew
 	jumpifbyte CMP_EQUAL, sBATTLE_STYLE, OPTIONS_BATTLE_STYLE_SET, BattleScript_FaintedMonSendOutNew
+	jumpifopponenttrainerclass TRAINER_CLASS_RAPPER, BattleScript_FaintedMonSendOutNew
 	jumpifcantswitch BS_PLAYER1, BattleScript_FaintedMonSendOutNew
 @ Yes/No for sending out a new Pokémon when the opponent is switching
 	printstring STRINGID_ENEMYABOUTTOSWITCHPKMN
@@ -3175,13 +3178,21 @@ BattleScript_FaintedMonTryChoose::
 	waitstate
 	switchineffects BS_ATTACKER
 	resetsentmonsvalue
-BattleScript_FaintedMonSendOutNew::
+BattleScript_FaintedMonSendOutNew:: @ added a short cut for the Pokerap battles
+	jumpifbattlerside BS_FAINTED, B_SIDE_PLAYER, BattleScript_FaintedMonSendOutNew_DrawSummary
+	jumpifopponenttrainerclass TRAINER_CLASS_RAPPER, BattleScript_FaintedMonSendOutNew_SkipDrawSummary
+BattleScript_FaintedMonSendOutNew_DrawSummary::
 	drawpartystatussummary BS_FAINTED
+BattleScript_FaintedMonSendOutNew_SkipDrawSummary::
 	getswitchedmondata BS_FAINTED
 	switchindataupdate BS_FAINTED
 	hpthresholds BS_FAINTED
 	printstring STRINGID_SWITCHINMON
+	jumpifbattlerside BS_FAINTED, B_SIDE_PLAYER, BattleScript_FaintedMonSendOutNew_HideSummary
+	jumpifopponenttrainerclass TRAINER_CLASS_RAPPER, BattleScript_FaintedMonSendOutNew_SkipHideSummary
+BattleScript_FaintedMonSendOutNew_HideSummary::
 	hidepartystatussummary BS_FAINTED
+BattleScript_FaintedMonSendOutNew_SkipHideSummary::
 	switchinanim BS_FAINTED, FALSE
 	waitstate
 	resetplayerfainted
@@ -4155,6 +4166,8 @@ BattleScript_DoSelfConfusionDmg::
 	adjustnormaldamage2
 	printstring STRINGID_ITHURTCONFUSION
 	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_CONFUSION_BONK
+	waitanimation
 	effectivenesssound
 	hitanimation BS_ATTACKER
 	waitstate
@@ -5183,6 +5196,7 @@ BattleScript_EffectDoNothing::
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
 	jumpifmove MOVE_PLEDGE_OF_ALLEGEONCE, BattleScript_SetLatiasPokedexFlags
+	jumpifmove MOVE_TM07, BattleScript_CreateTM07
 	goto BattleScript_MoveEnd
 
 @ enum values like in include/pokedex.h
@@ -5194,6 +5208,10 @@ BattleScript_SetLatiasPokedexFlags::
 	setpokedexflag SPECIES_LATIAS, FLAG_SET_SEEN
 	setpokedexflag SPECIES_LATIAS, FLAG_SET_CAUGHT
 	setpokedexflag SPECIES_LATIAS, FLAG_SET_OBTAINABLE
+	goto BattleScript_MoveEnd
+
+BattleScript_CreateTM07::
+	givetm07
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectFickleBeam::
@@ -5345,6 +5363,11 @@ BattleScript_SlowStartBeforeNeutralizingGas::
 	printstring STRINGID_SLOWSTARTEARLY
 	waitmessage B_WAIT_TIME_LONG
 	end3
+
+BattleScript_HeavyDutyBootsProtect::
+	printstring STRINGID_HEAVYDUTYBOOTSPROTECT
+	waitmessage B_WAIT_TIME_LONG
+	return
 
 BattleScript_AirBalloonMsgIn::
 	printstring STRINGID_AIRBALLOONFLOAT
@@ -6132,7 +6155,7 @@ BattleScript_NewTripleKickHeal::
 	attackanimation
 	waitanimation
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
-	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
+	tryhealxhp BattleScript_AlreadyAtFullHp
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
 	goto BattleScript_EffectHit
@@ -6145,7 +6168,7 @@ BattleScript_EffectNothing::
 	ppreduce
 	attackanimation
 	waitanimation
-	trygivenothing BattleScript_EffectNothing
+	givenothing
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -6379,3 +6402,35 @@ BattleScript_EffectRestoreXHp::
 	printstring STRINGID_PKMNREGAINEDHEALTH
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectTypeSmall::
+	attackcanceler
+	attackstring
+	ppreduce
+	settypesmall BS_TARGET
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNBECAMETYPE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+@ this is not a full fling port
+BattleScript_EffectFling::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	tryfling BattleScript_ButItFailed
+	removeitem BS_ATTACKER
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNFLUNG
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectHit
+
+BattleScript_HarvestActivates::
+	tryrecycleitem BattleScript_HarvestActivatesEnd
+	printstring STRINGID_XFOUNDONEY
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HarvestActivatesEnd:
+	end3

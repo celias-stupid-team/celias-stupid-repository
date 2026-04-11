@@ -48,15 +48,9 @@ script Minnesota_Softlock {
 
 	"Here, take this!\n"
 	"", MSGBOX_DEFAULT)
-	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GIMMIGHOUL)
-	setflag(FLAG_SHINY_CREATION)
-	playfanfare(MUS_LEVEL_UP)
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
-	msgbox(
-	"{PLAYER} was given a\n"
-	"free GIMMIGHOUL!", MSGBOX_DEFAULT)
+	giveitem_msg("{PLAYER} was given some\nfree McDONALD's!", ITEM_RAW_NUGGET)
 	waitfanfare
-	call(Common_Script_GiftPokemon19)
 	closemessage
 	delay(20)
 	textcolor(NPC_TEXT_COLOR_RED)
@@ -322,6 +316,7 @@ script Minnesota_LookedThroughTrubbish {
 	playse(SE_CLICK)
 	setflag(FLAG_TEMP_1)
 	setlayouttiles(LAYOUT_MINNESOTA_HOUSE1_BEAM_OFF, 0, 0, 0, 0, 23, 19)
+		setmaplayoutindex(LAYOUT_MINNESOTA_HOUSE1_BEAM_OFF)
 	waitse
 	closemessage
 	release
@@ -427,12 +422,6 @@ script MinnesotaShorts {
 	"I'm here to get squeaky-clean!", MSGBOX_NPC)
 }
 
-script MinnesotaWashingMachine {
-	lock
-	playmoncry(SPECIES_WISHIWASHI, CRY_MODE_DEFAULT)
-	waitmoncry
-	release
-}
 
 script Minnesota_CleanOak {
 	msgbox(
@@ -464,6 +453,11 @@ script Minnesota_Bliz {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_REUNITED_HAKARI_AND_BLIZ)) {
+		msgbox(
+		"We will finish this script later.\n"
+		"", MSGBOX_DEFAULT)
+	}
 	msgbox(
 	"Where is hakari\n"
 	"", MSGBOX_DEFAULT)
@@ -502,7 +496,7 @@ script Minnesota_Bliz {
 
 	"there's like a battle or smth\n"
 	"idk", MSGBOX_DEFAULT)
-	waitmovement(0)
+	giveitem_msg("{PLAYER} was given TM25!\nIt contains DIG.", ITEM_TM25)
 	release
 }
 

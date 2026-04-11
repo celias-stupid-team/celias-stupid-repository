@@ -230,6 +230,9 @@ extern const u8 gText_DiedLower[];
 extern const u8 gText_YesLower[];
 extern const u8 gText_YupLower[];
 extern const u8 gText_YUP[];
+extern const u8 gText_Oui[];
+
+
 
 // pokemon
 extern const u8 gBattleText_Rose[];
@@ -1484,6 +1487,7 @@ extern const u8 gText_PartyFull[];
 extern const u8 gText_JustOnePkmn[];
 extern const u8 gText_Box[];
 extern const u8 gText_ExitFromBox[];
+extern const u8 gText_OopsTryAgain[];
 extern const u8 gText_WhatDoYouWantToDo[];
 extern const u8 gText_PleasePickATheme[];
 extern const u8 gText_PickTheWallpaper[];

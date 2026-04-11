@@ -92,9 +92,22 @@ script Yes_Fisher {
 	"something?\l"
 	"Do you know what I'm talking about?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
-		msgbox(
-		"No, it wasn't here.\n"
-		"It was on CINNABAR.", MSGBOX_DEFAULT)
+		if(flag(FLAG_TEMP_8)) {
+			msgbox(
+			"No, it wasn't here.\n"
+			"It was on CINNABAR.\p"
+			
+			"I wish I'd kept it. Someone there\n"
+			"wanted it, so we traded.\l"
+			"I guess they're long gone now.", MSGBOX_DEFAULT)
+
+		} else {
+			setflag(FLAG_TEMP_8)
+			msgbox(
+			"No, it wasn't here.\n"
+			"It was on CINNABAR.", MSGBOX_DEFAULT)
+
+		}
 	} else {
 		msgbox(
 		"That's exactly it!\n"

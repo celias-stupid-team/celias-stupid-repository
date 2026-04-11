@@ -299,7 +299,7 @@ script TwoIsland_GoToStonehenge {
 
 script Common_Script_GiftPokemonKenya {
 	copyvar(VAR_TEMP_1, VAR_CSR_GIFT_POKEMON)
-	givemon(VAR_CSR_GIFT_POKEMON, 30, ITEM_SPARE_DOOR)
+	givemon(VAR_CSR_GIFT_POKEMON, 30)
 	clearflag(FLAG_SHINY_CREATION)
 	switch(var(VAR_RESULT)) {
 		case 0: //Mon goes to party

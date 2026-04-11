@@ -145,8 +145,8 @@
       "local_id": "LOCALID_CHUCKSTER",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 24,
-      "y": 12,
+      "x": 20,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -261,14 +261,14 @@
       "y": 26,
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_CENTER",
-      "dest_warp_id": "6"
+      "dest_warp_id": "5"
     },
     {
       "x": 40,
       "y": 27,
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_CENTER",
-      "dest_warp_id": "7"
+      "dest_warp_id": "6"
     },
     {
       "x": 40,

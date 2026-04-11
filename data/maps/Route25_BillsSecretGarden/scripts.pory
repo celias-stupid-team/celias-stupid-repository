@@ -510,7 +510,7 @@ script SecretGarden_LeavePC {
     //debugprintf("Broken here 4")
     special(SpawnCameraObject)
     //debugprintf("Broken here 5")
-    waitmovement(LOCALID_CAMERA)
+    //waitmovement(LOCALID_CAMERA)
     //debugprintf("Broken here 6")
     while(var(VAR_TEMP_7) != 8) {
         

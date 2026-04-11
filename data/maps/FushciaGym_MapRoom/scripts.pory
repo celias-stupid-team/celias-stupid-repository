@@ -22,23 +22,6 @@ script FushciaGym_IrateGamer {
 
 	"She said she was “taking care of\n"
 	"the trash”…", MSGBOX_DEFAULT)
-    if(!flag(FLAG_GOT_SHINY_PINSIR)) {
-        setflag(FLAG_GOT_SHINY_PINSIR)
-        msgbox(
-        "Here, you can have this.\p"
-
-        "He's been looking at my head\n"
-        "a little funny…", MSGBOX_DEFAULT)
-        playfanfare(MUS_LEVEL_UP)
-        setflag(FLAG_SHINY_CREATION)
-        msgbox(
-        "{PLAYER} got the bloodthirty\n"
-        "PINSIR!", MSGBOX_DEFAULT)
-        waitfanfare
-        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PINSIR)
-        call(Common_Script_GiftPokemon30)
-
-    }
     release
 }
 

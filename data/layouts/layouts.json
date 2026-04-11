@@ -3641,7 +3641,7 @@
       "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM2",
       "name": "FiveIsland_LostCave_Room2_Layout",
       "width": 11,
-      "height": 11,
+      "height": 19,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -6137,7 +6137,7 @@
       "id": "LAYOUT_CAVE_OF_ORIGIN_2F",
       "name": "CaveOfOrigin_2F_Layout",
       "width": 33,
-      "height": 20,
+      "height": 27,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -7425,7 +7425,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_Cave_Of_Origin",
       "border_filepath": "data/layouts/OnixRoom/border.bin",
       "blockdata_filepath": "data/layouts/OnixRoom/map.bin"
     },
@@ -7648,12 +7648,12 @@
     {
       "id": "LAYOUT_STARLIGHT_HOUSE_10",
       "name": "Starlight_House_10_Layout",
-      "width": 17,
-      "height": 12,
+      "width": 19,
+      "height": 14,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Starlight_Interior",
+      "secondary_tileset": "gTileset_Starlight_Interior3",
       "border_filepath": "data/layouts/Starlight_House_10/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House_10/map.bin"
     },
@@ -7692,6 +7692,18 @@
       "secondary_tileset": "gTileset_Starlight_Interior2",
       "border_filepath": "data/layouts/Starlight_House6edge1/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House6edge1/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM2_CLOSET",
+      "name": "FiveIsland_LostCave_Room2_Closet",
+      "width": 11,
+      "height": 19,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/FiveIsland_LostCave_Room2_Closet/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room2_Closet/map.bin"
     }
   ]
 }

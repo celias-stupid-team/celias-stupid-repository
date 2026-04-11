@@ -202,7 +202,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_ALVANIZE] = COMPOUND_STRING("Boosts WEIRD moves."),
     [ABILITY_LOSSPITALITY] = COMPOUND_STRING("User of L'osspital's rule."),
     [ABILITY_DOWNLOAD] = COMPOUND_STRING("Downloads whatever it clicks on."),
-    [ABILITY_MISTY_SURGE] = COMPOUND_STRING("Ability that's the names of two GYM LEADERS."),
+    [ABILITY_MISTY_SURGE] = COMPOUND_STRING("The names of two GYM LEADERS."),
     [ABILITY_NICE_FACE] = COMPOUND_STRING("Damn, nice face."),
     [ABILITY_NICE_FACES] = COMPOUND_STRING("Damn, nice faces."),
     [ABILITY_WELL_BAKED_BOD] =COMPOUND_STRING("DUMMY."), //unused
@@ -232,6 +232,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_RIGHTNINGROD] = COMPOUND_STRING("The user was RIGHT."),
     [ABILITY_TWISTED_REALITY] = COMPOUND_STRING("Replaces the opponent's moves."),
     [ABILITY_SCHOOLING] = COMPOUND_STRING("Comes in when the TEACHER is sick."),
+    [ABILITY_HARVEST] = COMPOUND_STRING("May recycle a used Berry."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -380,6 +381,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_RIGHTNINGROD] = _("RIGHTNINGROD"),
     [ABILITY_TWISTED_REALITY] = _("{FONT_SMALL}TWISTED REALITY"),
     [ABILITY_SCHOOLING] = _("SCHOOLING"),
-
-    
+    [ABILITY_HARVEST] = _("HARVEST"),
 };

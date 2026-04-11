@@ -194,24 +194,8 @@ mapscripts SaffronCity_Dojo_MapScripts {
 			))
 			waitmovement(LOCALID_SIMON_TORNADO)
 			setvar(VAR_READY_FOR_TORNADO, 3)
-			msgbox(
-			"it brings you to a place and\n"
-			"you find", MSGBOX_DEFAULT)
 			playse(SE_M_BLIZZARD2)
-			setflag(FLAG_SHINY_CREATION)
-			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ONIX)
-			playfanfare(MUS_LEVEL_UP)
-			msgbox(
-			"{PLAYER} got an ONIX!\n"
-			"", MSGBOX_DEFAULT)
-			givemon(SPECIES_ONIX, 30)
-			waitfanfare
-			applymovement(LOCALID_PLAYER, moves(
-				set_visible
-			))
-			waitmovement(0)
-			fadedefaultbgm
-			release
+			warpsilent(MAP_ONIX_ROOM, 0)
 			end
 		}
 	]

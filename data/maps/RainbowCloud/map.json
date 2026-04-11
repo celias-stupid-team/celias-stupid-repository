@@ -91,6 +91,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RainbowCloud_Thesis"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RainbowCloud_Dad"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RainbowCloud_Dad"
     }
   ]
 }

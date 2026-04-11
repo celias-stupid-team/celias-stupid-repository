@@ -305,7 +305,7 @@ script Route15_ShinyGolurk {
 						waitfanfare
 						call(Common_Script_GiftPokemon)
 						setflag(FLAG_GOLURK_SANDWICH)
-						msgbox("{PLAYER} quickly made a\nnew SANDIWCH, such that\lyou don't have to do it again!", MSGBOX_DEFAULT)
+						msgbox("{PLAYER} quickly made a\nnew SANDWICH, such that you don't\lhave to do it again!", MSGBOX_DEFAULT)
 					
 				}
 				return

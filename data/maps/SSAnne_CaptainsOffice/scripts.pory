@@ -206,11 +206,13 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 
 script SSAnne_CaptainsOffice_UnHole {
 	setlayouttiles(LAYOUT_SSANNE_CAPTAINS_OFFICE, 0,0,0,0,8,9)
+					setmaplayoutindex(LAYOUT_SSANNE_CAPTAINS_OFFICE)
 	setvar(VAR_TEMP_4, 1)
 	release
 }
 script SSAnne_CaptainsOffice_ReHole {
 	setlayouttiles(LAYOUT_SSANNE_CAPTAINS_OFFICE_HOLE, 0,0,0,0,8,9)
+					setmaplayoutindex(LAYOUT_SSANNE_CAPTAINS_OFFICE)
 	setvar(VAR_TEMP_4, 0)
 	release
 }

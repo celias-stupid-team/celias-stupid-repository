@@ -122,7 +122,7 @@ const u8 gSaveStatName_Pokedex[] = _("POKéDEX");
 const u8 gSaveStatName_Time[] = _("TIME");
 const u8 gSaveStatName_Version[] = _("VERSION");
 // CSR version number - update before each release!
-const u8 gSaveStatName_VersionNumber[] = _("0.9.10");
+const u8 gSaveStatName_VersionNumber[] = _("0.10/11");
 const u8 gText_FlyToWhere[] = _("どこへ とびますか?");
 const u8 gOtherText_Use[] = _("USE");
 const u8 gOtherText_Toss[] = _("TOSS");
@@ -653,6 +653,7 @@ const u8 gFameCheckerText_FameCheckerWillBeClosed[] = _("The RUMOR LOG will be c
 const u8 gFameCheckerText_ClearTextbox[] = _("\n                              ");
 const u8 gText_ExitUnused[] = _("やめる");
 const u8 gText_ExitFromBox[] = _("Exit from the BOX.");
+const u8 gText_OopsTryAgain[] = _("Oops... try again!");
 const u8 gText_WhatDoYouWantToDo[] = _("What do you want to do?");
 const u8 gText_PleasePickATheme[] = _("Please pick a theme.");
 const u8 gText_PickTheWallpaper[] = _("Pick the wallpaper.");
@@ -970,6 +971,7 @@ const u8 gText_AliveLower[] = _("Alive");
 const u8 gText_YesLower[] = _("Yes");
 const u8 gText_YUP[] = _("YUP");
 const u8 gText_YupLower[] = _("Yup");
+const u8 gText_Oui[] = _("OUI");
 
 // Start menu option descriptions
 const u8 gStartMenuDesc_Pokedex[] = _("A device that records POKéMON secrets\nupon meeting or catching them.");

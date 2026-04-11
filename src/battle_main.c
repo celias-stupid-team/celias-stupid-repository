@@ -347,7 +347,7 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_CHOCOLATE] = _("CHOCO"),
     [TYPE_LARGE] = _("LARGE"),
     [TYPE_BIRD] = _("BIRD"),
-    [TYPE_SHIT] = _("SHIT"),
+    [TYPE_SMALL] = _("SMALL"),
     [TYPE_WATER_PHYSICAL] = _("WATER"),
     [TYPE_ELECTRIC_PHYSICAL] = _("ELECTR"),
     [TYPE_PSYCHIC_PHYSICAL]  = _("PSYCHC"),
@@ -2968,7 +2968,7 @@ static void TryDoEventsBeforeFirstTurn(void)
     if (ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_BEFORE_FIRST_TURN))
         BattleScriptExecute(BattleScript_TrainerASlideMsgEnd2);
 
-    if (gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS)
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS)
     {
         u8 oppBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
         gBattleMons[oppBattler].status2 |= STATUS2_CONFUSION_TURN(5);
@@ -3292,10 +3292,14 @@ static void HandleTurnActionSelectionState(void)
                     {
                         BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CANT_SWITCH, 6, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
                     }
-                    else if ((i = ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_SHADOW_TAG))
+                    else if (((i = ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_SHADOW_TAG))
+                              && gBattleMons[gActiveBattler].ability != ABILITY_SHADOW_TAG
+                              && gBattleMons[gActiveBattler].ability != ABILITY_ARENA_TRAP)
                           || ((i = ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_ARENA_TRAP))
                               && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
-                              && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE)
+                              && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
+                              && gBattleMons[gActiveBattler].ability != ABILITY_SHADOW_TAG
+                              && gBattleMons[gActiveBattler].ability != ABILITY_ARENA_TRAP)
                           || ((i = AbilityBattleEffects(ABILITYEFFECT_CHECK_FIELD_EXCEPT_BATTLER, gActiveBattler, ABILITY_MAGNET_PULL, 0, 0))
                               && IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL)))
                     {
@@ -3532,6 +3536,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     u8 holdEffect = 0;
     u8 holdEffectParam = 0;
     u16 moveBattler1 = 0, moveBattler2 = 0;
+    s8 effectivePriorityBattler1, effectivePriorityBattler2; // for the Trick Room Speed exception
 
     if (WEATHER_HAS_EFFECT)
     {
@@ -3649,11 +3654,22 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
             moveBattler2 = MOVE_NONE;
     }
 
+    // treat prio moves as 0 prio during WEATHER_TRICK_ROOM
+    effectivePriorityBattler1 = gBattleMoves[moveBattler1].priority;
+    effectivePriorityBattler2 = gBattleMoves[moveBattler2].priority;
+    if (GetCurrentWeather() == WEATHER_TRICK_ROOM)
+    {
+        if (effectivePriorityBattler1 > 0)
+            effectivePriorityBattler1 = 0;
+        if (effectivePriorityBattler2 > 0)
+            effectivePriorityBattler2 = 0;
+    }
+
     // both move priorities are different than 0
-    if (gBattleMoves[moveBattler1].priority != 0 || gBattleMoves[moveBattler2].priority != 0)
+    if (effectivePriorityBattler1 != 0 || effectivePriorityBattler2 != 0)
     {
         // both priorities are the same
-        if (gBattleMoves[moveBattler1].priority == gBattleMoves[moveBattler2].priority)
+        if (effectivePriorityBattler1 == effectivePriorityBattler2)
         {
             if (speedBattler1 == speedBattler2 && Random() & 1)
                 strikesFirst = 2; // same speeds, same priorities
@@ -3672,7 +3688,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
                     strikesFirst = 1; // else battler2 has more speed
             }
         }
-        else if (gBattleMoves[moveBattler1].priority < gBattleMoves[moveBattler2].priority)
+        else if (effectivePriorityBattler1 < effectivePriorityBattler2)
             strikesFirst = 1; // battler2's move has greater priority
         // else battler1's move has greater priority
     }
@@ -4062,9 +4078,9 @@ static void HandleEndTurn_FinishBattle(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
             ClearRematchStateByTrainerId();
         BeginFastPaletteFade(3);
-        if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
-            FadeOutMapMusic(5);
-        }
+        // if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
+        //     FadeOutMapMusic(5);
+        // }
         TryRestoreHeldItems();
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
         gCB2_AfterEvolution = BattleMainCB2;

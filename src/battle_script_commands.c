@@ -2015,7 +2015,6 @@ static void Cmd_adjustnormaldamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
-        DebugPrintf("Case 1");
 
         if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_MARY && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
                         BattleStopLowHpSound();
@@ -2597,8 +2596,6 @@ static void Cmd_resultmessage(void)
             }
             else if (gMoveResultFlags & MOVE_RESULT_STURDIED)
             {
-                DebugPrintf("Case 1");
-                DebugPrintf("Case 2");
                 if (gLastUsedAbility != ABILITY_REVENGE)
                 {
                     gSpecialStatuses[gBattlerTarget].sturdied = FALSE;
@@ -3282,13 +3279,15 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 break;
             case MOVE_EFFECT_STEAL_ITEM:
                 {
+                    //DebugPrintf("Ding 1");
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
                     {
                         gBattlescriptCurrInstr++;
                         break;
                     }
-
+                    //DebugPrintf("Ding 2");
                     side = GetBattlerSide(gBattlerAttacker);
+                    //DebugPrintf("Ding 3");
                     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT
                         && !(gBattleTypeFlags &
                             (BATTLE_TYPE_EREADER_TRAINER
@@ -3296,6 +3295,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                             | BATTLE_TYPE_LINK))
                         && gTrainerBattleOpponent_A != TRAINER_SECRET_BASE)
                     {
+                        //DebugPrintf("Ding A");
                         gBattlescriptCurrInstr++;
                     }
                     else if (!(gBattleTypeFlags &
@@ -3305,11 +3305,13 @@ void SetMoveEffect(bool8 primary, u8 certain)
                         && gTrainerBattleOpponent_A != TRAINER_SECRET_BASE
                         && (gWishFutureKnock.knockedOffMons[side] & gBitTable[gBattlerPartyIndexes[gBattlerAttacker]]))
                     {
+                        //DebugPrintf("Ding B");
                         gBattlescriptCurrInstr++;
                     }
                     else if (gBattleMons[gBattlerTarget].item
                         && gBattleMons[gBattlerTarget].ability == ABILITY_STICKY_HOLD)
                     {
+                        //DebugPrintf("Ding C");
                         gBattlescriptCurrInstr = BattleScript_StickyHoldActivates;
                         gLastUsedAbility = gBattleMons[gBattlerTarget].ability;
                         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
@@ -3319,21 +3321,27 @@ void SetMoveEffect(bool8 primary, u8 certain)
                         || IS_ITEM_MAIL(gBattleMons[gBattlerTarget].item)
                         || gBattleMons[gBattlerTarget].item == ITEM_NONE)
                     {
+                        //DebugPrintf("Ding D");
                         gBattlescriptCurrInstr++;
                     }
                     else
                     {
+                        
                         u16 *changedItem = &gBattleStruct->changedItems[gBattlerAttacker];
+                        
                         gLastUsedItem = *changedItem = gBattleMons[gBattlerTarget].item;
                         gBattleMons[gBattlerTarget].item = ITEM_NONE;
+                        
 
                         gActiveBattler = gBattlerAttacker;
                         BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gLastUsedItem), &gLastUsedItem);
                         MarkBattlerForControllerExec(gBattlerAttacker);
+                        
 
                         gActiveBattler = gBattlerTarget;
                         BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].item), &gBattleMons[gBattlerTarget].item);
                         MarkBattlerForControllerExec(gBattlerTarget);
+                        
 
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_ItemSteal;
@@ -6061,7 +6069,8 @@ static void Cmd_switchineffects(void)
         && (((gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES) || (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SHADOW_SPIKES)))
         && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
         && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
-        && gBattleMons[gActiveBattler].item != ITEM_AIR_BALLOON)
+        && gBattleMons[gActiveBattler].item != ITEM_AIR_BALLOON
+        && ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) != HOLD_EFFECT_HEAVY_DUTY_BOOTS)
     {
         u8 spikesDmg;
 
@@ -6097,7 +6106,8 @@ static void Cmd_switchineffects(void)
             gBattlescriptCurrInstr = BattleScript_DmgHazardsOnFaintedBattler;
     }
     else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK_DAMAGED)
-        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK))
+        && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK)
+        && ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) != HOLD_EFFECT_HEAVY_DUTY_BOOTS)
     {
         gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_STEALTH_ROCK_DAMAGED;
         gBattleMoveDamage = GetStealthHazardDamage(gBattleMoves[MOVE_TOMBSTONER].type, gActiveBattler);
@@ -6122,6 +6132,18 @@ static void Cmd_switchineffects(void)
             else
                 gBattlescriptCurrInstr = BattleScript_DmgHazardsOnFaintedBattler;
         }
+    } // case to trigger the HD Roots script
+    else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
+        && ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) == HOLD_EFFECT_HEAVY_DUTY_BOOTS
+        && ((gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
+         || (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SHADOW_SPIKES)
+         || (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK)))
+    {
+        gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_SPIKES_DAMAGED;
+        gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_STEALTH_ROCK_DAMAGED;
+        gBattleScripting.battler = gActiveBattler;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_HeavyDutyBootsProtect;
     }
     else
     {
@@ -7623,7 +7645,13 @@ static void Cmd_setprotectlike(void)
         {
             gSideStatuses[side] |= SIDE_STATUS_SPIKY_SHIELD;
             PREPARE_MOVE_BUFFER(gBattleTextBuff3, gCurrentMove);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_TEAM;
+            if(gCurrentMove == MOVE_PLEDGE_OF_ALLEGIANCE) {
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEDOM;
+
+            } else {
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_TEAM;
+
+            }
         }
         if (gBattleMoves[gCurrentMove].effect == EFFECT_BANEFUL_BUNKER)
         {
@@ -10473,6 +10501,9 @@ static void Cmd_tryswapitems(void)
         gBattleMons[gBattlerAttacker].item = ITEM_NONE;
         gBattleMons[gBattlerTarget].item = oldItemAtk;
 
+        if (IsBerry(oldItemAtk)) // used for ABILITY_HARVEST
+            gBattleStruct->usedHeldItems[gBattlerAttacker] = oldItemAtk;
+
         gActiveBattler = gBattlerAttacker;
         BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(*newItemAtk), newItemAtk);
         MarkBattlerForControllerExec(gBattlerAttacker);
@@ -13221,17 +13252,26 @@ void BS_TryReflectType(void)
     }
 }
 
-void BS_TryGiveNothing(void) {
-    NATIVE_ARGS(const u8 *failInstr);
-    //DebugPrintf("Nothing");
-    if(!FlagGet(FLAG_GOT_MOVE_NOTHING)) {
+void BS_GiveNothing(void)
+{
+    NATIVE_ARGS();
+
+    if(!FlagGet(FLAG_GOT_MOVE_NOTHING))
+    {
         AddBagItem(ITEM_NOTHING, 1);
-        //DebugPrintf("Nothing 2");
         FlagSet(FLAG_GOT_MOVE_NOTHING);
     }
-    //DebugPrintf("Nothing 3");
+
     gBattlescriptCurrInstr = cmd->nextInstr;
-    //DebugPrintf("Nothing 4");
+}
+
+void BS_GiveTM07(void)
+{
+    NATIVE_ARGS();
+
+    AddBagItem(ITEM_TM07, 1);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 
@@ -13436,7 +13476,7 @@ void BS_TryHealXHp(void)
 
     u8 healAmount = gBattleMoves[gCurrentMove].secondaryEffectChance;
 
-    if (gBattleMons[gBattlerAttacker].hp == gBattleMons[gBattlerAttacker].maxHP)
+    if (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
     {
         gBattlescriptCurrInstr = cmd->failInstr;
         return;
@@ -13451,6 +13491,45 @@ void BS_SetPokedexFlag(void)
     NATIVE_ARGS(u16 species, u8 caseId);
 
     DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfOpponentTrainerClass(void)
+{
+    NATIVE_ARGS(u8 trainerClass, const u8 *jumpInstr);
+
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainers[gTrainerBattleOpponent_A].trainerClass == cmd->trainerClass)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetTypeSmall(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u32 gActiveBattler = GetBattlerForBattleScript(cmd->battler);
+
+    SET_BATTLER_TYPE(gActiveBattler, TYPE_SMALL);
+    PREPARE_TYPE_BUFFER(gBattleTextBuff1, TYPE_SMALL);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_TryFling(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    u16 itemId = gBattleMons[gBattlerAttacker].item;
+
+    if (itemId == ITEM_NONE || !CanBattlerGetOrLoseItem(gBattlerAttacker, itemId))
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+        return;
+    }
+    
+    gLastUsedItem = itemId;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

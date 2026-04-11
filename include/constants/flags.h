@@ -532,7 +532,7 @@
 #define FLAG_0x1E1         0x1E1
 #define FLAG_0x1E2            0x1E2
 #define FLAG_0x1E3      0x1E3
-#define FLAG_0x1E4     0x1E4
+#define FLAG_SHINY_GOLDEEN_FOUND     0x1E4
 #define FLAG_DEFEATED_DMCA_KOGA            0x1E5
 #define FLAG_RECEIVED_MESPRIT 0x1E6
 #define FLAG_HACK_ATTACK_USED 0x1E7
@@ -1333,7 +1333,7 @@
 #define FLAG_DAD_SOOTOPOLIS               0x4D0
 #define FLAG_DAD_SISTERS               0x4D1
 #define FLAG_DAK_HERE             0x4D2
-#define FLAG_0x4D3               0x4D3
+#define FLAG_TRIED_DITTO_IN_WALL               0x4D3
 #define FLAG_0x4D4               0x4D4
 #define FLAG_0x4D5               0x4D5
 #define FLAG_0x4D6               0x4D6
