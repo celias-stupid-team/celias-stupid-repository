@@ -10607,10 +10607,10 @@ static const struct TrainerMonItemCustomMoves sParty_Y_ELTAL[] = {
 static const struct TrainerMonItemCustomMoves sParty_YesNurse[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 40,
         .heldItem = ITEM_NONE,
         .species = SPECIES_INDEEDEE,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_YEST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 

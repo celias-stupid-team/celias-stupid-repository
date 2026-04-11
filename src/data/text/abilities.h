@@ -233,6 +233,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_TWISTED_REALITY] = COMPOUND_STRING("Replaces the opponent's moves."),
     [ABILITY_SCHOOLING] = COMPOUND_STRING("Comes in when the TEACHER is sick."),
     [ABILITY_HARVEST] = COMPOUND_STRING("May recycle a used Berry."),
+    [ABILITY_POOEY] = COMPOUND_STRING("Yahaha!"),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -382,4 +383,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TWISTED_REALITY] = _("{FONT_SMALL}TWISTED REALITY"),
     [ABILITY_SCHOOLING] = _("SCHOOLING"),
     [ABILITY_HARVEST] = _("HARVEST"),
+    [ABILITY_POOEY] = _("POOEY"),
+
+    
 };
