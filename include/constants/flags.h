@@ -1334,16 +1334,16 @@
 #define FLAG_DAD_SISTERS               0x4D1
 #define FLAG_DAK_HERE             0x4D2
 #define FLAG_TRIED_DITTO_IN_WALL               0x4D3
-#define FLAG_STAR_EASTER_EGG1                 0x4D4//Sorry, figured we had enough flags near the end of release
-#define FLAG_STAR_EASTER_EGG2                 0x4D5//to add a bonus feature in my house if they find all of me everywhere. ^^;
-#define FLAG_STAR_EASTER_EGG3                 0x4D6//the bonus is just basically a trophy in the house, there is no item or anything special.
-#define FLAG_STAR_EASTER_EGG4                 0x4D7
-#define FLAG_STAR_EASTER_EGG5                 0x4D8
-#define FLAG_STAR_EASTER_EGG6                 0x4D9
-#define FLAG_STAR_EASTER_EGG7                 0x4DA
-#define FLAG_STAR_EASTER_EGG8                 0x4DB
-#define FLAG_STAR_EASTER_EGG9                 0x4DC
-#define FLAG_STAR_EASTER_EGG10                0x4DD
+#define FLAG_0x4D4               0x4D4
+#define FLAG_0x4D5               0x4D5
+#define FLAG_0x4D6               0x4D6
+#define FLAG_0x4D7               0x4D7
+#define FLAG_0x4D8               0x4D8
+#define FLAG_0x4D9               0x4D9
+#define FLAG_0x4DA               0x4DA
+#define FLAG_0x4DB               0x4DB
+#define FLAG_0x4DC               0x4DC
+#define FLAG_0x4DD               0x4DD
 #define FLAG_0x4DE               0x4DE
 #define FLAG_0x4DF               0x4DF
 #define FLAG_0x4E0               0x4E0

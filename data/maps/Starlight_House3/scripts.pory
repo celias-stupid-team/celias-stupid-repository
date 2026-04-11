@@ -205,3 +205,29 @@ script Starlight_House3_DMCA_Notice {
     "to shut down the Map Workshop.", MSGBOX_SIGN)
 
 }
+
+script Starlight_House3_Rematch {
+    lock
+    cleartrainerflag(TRAINER_STARLIGHT);
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    trainerbattle_single(TRAINER_STARLIGHT,
+	"Oh hi!",
+	//
+	"I... am not the best at coding...", Starlight_House2_Post_Battle)
+
+
+	msgbox(
+    "Test...", MSGBOX_DEFAULT)
+	closemessage
+
+    ///*msgbox("Hi! Would you like to fight\nme again?", MSGBOX_YESNO)
+	//	closemessage
+	//	if(var(VAR_RESULT)) {
+	//		trainerbattle_single(TRAINER_STARLIGHT,
+	//"Yay!",
+	//
+	//"Feel free to watch me fail anytime!")
+	//	}
+    release
+    end
+}

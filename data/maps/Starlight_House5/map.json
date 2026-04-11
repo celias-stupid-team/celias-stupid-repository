@@ -28,6 +28,35 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Starlight_House5_Dak_Pit",
       "flag": "FLAG_TEMP_4"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
+      "x": 41,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_HOUSE5_SECRET",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 26,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House5_Secret",
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [
@@ -69,6 +98,46 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_House5_Todo_List"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House5_Blue_Tiles"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House5_Red_Tiles"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House5_Green_Tiles"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House5_Mystery_Tiles"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House5_Sign"
     }
   ]
 }

@@ -7481,7 +7481,7 @@
       "id": "LAYOUT_STARLIGHT_HOUSE3",
       "name": "Starlight_House3_Layout",
       "width": 17,
-      "height": 12,
+      "height": 24,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
