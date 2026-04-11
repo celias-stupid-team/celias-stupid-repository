@@ -304,6 +304,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRestoreXHp             @ EFFECT_RESTORE_X_HP
 	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
 	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
+	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
 
 BattleScript_End2::
 	end2
@@ -6434,3 +6435,27 @@ BattleScript_HarvestActivates::
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HarvestActivatesEnd:
 	end3
+
+BattleScript_EffectGregoryBlast::
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_GregoryBlastSecondTurn
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_GregoryBlastSecondTurn
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_GREGORY_BLAST
+	call BattleScriptFirstChargingTurn
+	goto BattleScript_MoveEnd
+BattleScript_GregoryBlastSecondTurn::
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_CHARGING
+	setbyte sB_ANIM_TURN, 1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	attackstring
+	typecalc
+	jumpifmovehadnoeffect BattleScript_HitFromAtkAnimation
+	tryKO_Flash BattleScript_GregoryBlastKOFail
+	setmoveeffect MOVE_EFFECT_RECOIL_100 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_HitFromAtkAnimation
+BattleScript_GregoryBlastKOFail::
+	pause B_WAIT_TIME_LONG
+	printfromtable gKOFailedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

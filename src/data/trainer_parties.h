@@ -10669,7 +10669,7 @@ static const struct TrainerMonItemCustomMoves sParty_wiz1989[] = {
     {
         .iv = 0,
         .lvl = 25,
-        .heldItem = ITEM_FOCUS_SASH,
+        .heldItem = ITEM_FOCUS_BAND,
         .species = SPECIES_MISSINGNO,
         .moves = {MOVE_HACK_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
@@ -10716,43 +10716,36 @@ static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_FOCUS_SASH,
+        .heldItem = ITEM_FOCUS_BAND,
         .species = SPECIES_WEEDLE,
         .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_FOCUS_SASH,
+        .heldItem = ITEM_FOCUS_BAND,
         .species = SPECIES_GENGAR,
         .moves = {MOVE_EVIL_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_FOCUS_SASH,
+        .heldItem = ITEM_FOCUS_BAND,
         .species = SPECIES_LICKITUNG,
         .moves = {MOVE_LICK_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_FOCUS_SASH,
+        .heldItem = ITEM_FOCUS_BAND,
         .species = SPECIES_MIMIKYU,
         .moves = {MOVE_IMPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_FOCUS_SASH,
+        .heldItem = ITEM_FOCUS_BAND,
         .species = SPECIES_EXEGGCUTE,
         .moves = {MOVE_EGGSPLPOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 50,
-        .heldItem = ITEM_FOCUS_SASH,
-        .species = SPECIES_GREGORY,
-        .moves = {MOVE_GREGORY_BLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
