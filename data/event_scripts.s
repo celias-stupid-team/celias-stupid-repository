@@ -1968,3 +1968,6 @@ Text_TestMsg::
 
 	.include "data/maps/Starlight_House_jukebox/scripts.inc"
 	.include "data/maps/Starlight_House_jukebox/text.inc"
+
+	.include "data/maps/Starlight_House11/scripts.inc"
+	.include "data/maps/Starlight_House11/text.inc"

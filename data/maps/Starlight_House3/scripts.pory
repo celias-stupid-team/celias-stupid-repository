@@ -228,7 +228,7 @@ script Starlight_House3_Rematch {
     trainerbattle_single(TRAINER_STARLIGHT,
 	"Yay!",
 	//
-	"Feel free to watch me fail\nanytime!")
+	"Feel free to watch me fail anytime!")
 		}
     release
     end

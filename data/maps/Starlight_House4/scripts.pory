@@ -4,7 +4,7 @@ mapscripts Starlight_House4_MapScripts {
 
 script Starlight_House4_Under_Construction {
 	msgbox(
-	"This Room is under construction.", MSGBOX_SIGN)
+	"This room is under construction.", MSGBOX_SIGN)
 
 }
 

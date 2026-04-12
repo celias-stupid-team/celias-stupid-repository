@@ -172,6 +172,6 @@ script Starlight_House2_PC { //update table plans visual
 
 script Starlight_House2_Jukebox_Block { //update table plans visual
 	msgbox(
-	"Coming Soon...", MSGBOX_SIGN)
+	"Come back here post game.", MSGBOX_SIGN)
 
 }
