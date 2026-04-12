@@ -149,7 +149,7 @@ script FushciaGym_CheckBlueCurtain {
         release
         end
     }
-    msgbox("A curtain depicting a WATER\ninsignita.", MSGBOX_DEFAULT)
+    msgbox("A curtain depicting a WATER\ninsignia.", MSGBOX_DEFAULT)
     release
 }
 

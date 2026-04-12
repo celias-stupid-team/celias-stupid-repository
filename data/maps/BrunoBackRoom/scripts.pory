@@ -23,4 +23,7 @@ mapscripts BrunoBackRoom_MapScripts {
             release
         }
     ]
+    MAP_SCRIPT_ON_TRANSITION {
+        setvar(VAR_USED_CUT, 0)
+    }
 }
