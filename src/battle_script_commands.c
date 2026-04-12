@@ -4785,7 +4785,11 @@ static void Cmd_playanimation(void)
         // set Pokédex flags
         HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
         if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+        {
             HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_CAUGHT, gBattleMons[gActiveBattler].personality);
+            if (IsMonShiny(mon)) // only if the mon is shiny
+                HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SHINY_FOUND, gBattleMons[gActiveBattler].personality);
+        }
     }
     else if (gHitMarker & HITMARKER_NO_ANIMATIONS)
     {
