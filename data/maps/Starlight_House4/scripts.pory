@@ -16,3 +16,12 @@ script StarlightHouse_YouForgotSomething {
 
 }
 //*.* whoops lol - Starlight
+
+script Starlight_House4_Post_Game {
+	msgbox(
+	"Come back when you are ready.\p"
+	"When that will be is determined by\n"
+	"your experience.\p"
+	"See you at the finish line!", MSGBOX_SIGN)
+
+}

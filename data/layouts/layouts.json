@@ -6544,7 +6544,7 @@
     {
       "id": "LAYOUT_OCEAN12",
       "name": "Ocean12_Layout",
-      "width": 18,
+      "width": 19,
       "height": 50,
       "border_width": 2,
       "border_height": 2,
@@ -7576,7 +7576,7 @@
     {
       "id": "LAYOUT_STARLIGHT_HOUSE4",
       "name": "Starlight_House4_Layout",
-      "width": 19,
+      "width": 27,
       "height": 7,
       "border_width": 2,
       "border_height": 2,
@@ -7728,6 +7728,18 @@
       "secondary_tileset": "gTileset_Alphabet",
       "border_filepath": "data/layouts/Starlight_House11/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House11/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE12",
+      "name": "Starlight_House12_Layout",
+      "width": 19,
+      "height": 14,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SeaCottage",
+      "border_filepath": "data/layouts/Starlight_House12/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House12/map.bin"
     }
   ]
 }

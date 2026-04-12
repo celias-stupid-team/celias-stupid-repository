@@ -26,7 +26,7 @@
     },
     {
       "map": "MAP_OCEAN12",
-      "offset": 0,
+      "offset": -1,
       "direction": "up"
     }
   ],

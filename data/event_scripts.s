@@ -1971,3 +1971,6 @@ Text_TestMsg::
 
 	.include "data/maps/Starlight_House11/scripts.inc"
 	.include "data/maps/Starlight_House11/text.inc"
+
+	.include "data/maps/Starlight_House12/scripts.inc"
+	.include "data/maps/Starlight_House12/text.inc"
