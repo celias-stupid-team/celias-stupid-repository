@@ -1721,6 +1721,20 @@ const u32 gBerryPouchBgPal0FemaleOverride[] = INCBIN_U32("graphics/berry_pouch/b
 const u32 gBerryPouchSpritePalette[] = INCBIN_U32("graphics/berry_pouch/berry_pouch.gbapal.lz");
 const u8 gBerryPouchBg1Tilemap[] = INCBIN_U8("graphics/berry_pouch/background.bin.lz");
 
+// sandwich_case
+const u32 gSCSpriteSheet_Bread[]   = INCBIN_U32("graphics/sandwich_case/bread.4bpp.lz");
+const u32 gSCSpritePal_Bread[]     = INCBIN_U32("graphics/sandwich_case/bread.gbapal.lz");
+const u32 gSCSpriteSheet_Sesame[]  = INCBIN_U32("graphics/sandwich_case/sesame.4bpp.lz");
+const u32 gSCSpritePal_Sesame[]    = INCBIN_U32("graphics/sandwich_case/sesame.gbapal.lz");
+const u32 gSCSpriteSheet_Meat[]    = INCBIN_U32("graphics/sandwich_case/meat.4bpp.lz");
+const u32 gSCSpritePal_Meat[]      = INCBIN_U32("graphics/sandwich_case/meat.gbapal.lz");
+const u32 gSCSpriteSheet_Cheese[]  = INCBIN_U32("graphics/sandwich_case/cheese.4bpp.lz");
+const u32 gSCSpritePal_Cheese[]    = INCBIN_U32("graphics/sandwich_case/cheese.gbapal.lz");
+const u32 gSCSpriteSheet_Lettuce[] = INCBIN_U32("graphics/sandwich_case/lettuce.4bpp.lz");
+const u32 gSCSpritePal_Lettuce[]   = INCBIN_U32("graphics/sandwich_case/lettuce.gbapal.lz");
+const u32 gSCSpriteSheet_Pickles[] = INCBIN_U32("graphics/sandwich_case/pickles.4bpp.lz");
+const u32 gSCSpritePal_Pickles[]   = INCBIN_U32("graphics/sandwich_case/pickles.gbapal.lz");
+
 const u32 gBuyMenuFrame_Gfx[] = INCBIN_U32("graphics/shop_menu/shop_menu.4bpp.lz");
 const u32 gBuyMenuFrame_Tilemap[] = INCBIN_U32("graphics/shop_menu/shop_tilemap.bin.lz");
 const u32 gBuyMenuFrame_TmHmTilemap[] = INCBIN_U32("graphics/shop_menu/shop_tm_hm_tilemap.bin.lz");

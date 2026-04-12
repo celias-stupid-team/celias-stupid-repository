@@ -553,6 +553,22 @@ extern const u8 gText_ThrowAwayStrVar2OfThisItemQM[];
 extern const u8 gText_BerryPouch[];
 extern const u8 gText_TheBerryPouchWillBePutAway[];
 
+// sandwich_case
+extern const u8 gText_SandwichCase[];
+extern const u8 gText_TheSandwichCaseWillBePutAway[];
+extern const u8 gText_IngredientBread[];
+extern const u8 gText_IngredientSesameSeed[];
+extern const u8 gText_IngredientMeat[];
+extern const u8 gText_IngredientCheese[];
+extern const u8 gText_IngredientLettuce[];
+extern const u8 gText_IngredientPickles[];
+extern const u8 gText_IngredientBreadObtained[];
+extern const u8 gText_IngredientSesameSeedObtained[];
+extern const u8 gText_IngredientMeatObtained[];
+extern const u8 gText_IngredientCheeseObtained[];
+extern const u8 gText_IngredientLettuceObtained[];
+extern const u8 gText_IngredientPicklesObtained[];
+
 // itemfinder
 extern const u8 gText_ItemfinderResponding[];
 extern const u8 gText_ItemfinderShakingWildly[];

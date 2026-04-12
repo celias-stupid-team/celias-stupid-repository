@@ -167,16 +167,19 @@ void NewGameInitData(void)
     ResetTrainerTowerResults();
     // memory wipe / data reset completed
 
-    // restore these flags after the reset
-    if (!celiaBonusFlagSet)
-        FlagClear(FLAG_CSR_CELIA_BONUS);
-    else
-        FlagSet(FLAG_CSR_CELIA_BONUS);
+    // restore these flags after the reset; only if an existing save exists.
+    if (gSaveFileStatus == SAVE_STATUS_OK)
+    {
+        if (!celiaBonusFlagSet)
+            FlagClear(FLAG_CSR_CELIA_BONUS);
+        else
+            FlagSet(FLAG_CSR_CELIA_BONUS);
 
-    if (!letterYFlag)
-        FlagClear(FLAG_FOUND_Y);
-    else
-        FlagSet(FLAG_FOUND_Y);
+        if (!letterYFlag)
+            FlagClear(FLAG_FOUND_Y);
+        else
+            FlagSet(FLAG_FOUND_Y);
+    }    
         
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
 }

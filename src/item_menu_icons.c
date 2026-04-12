@@ -5,13 +5,6 @@
 #include "item_menu_icons.h"
 #include "constants/items.h"
 
-enum {
-    TAG_BAG = 100,
-    TAG_SWAP_LINE,
-    TAG_ITEM_ICON,
-    TAG_ITEM_ICON_ALT,
-};
-
 #define NUM_SWAP_LINE_SPRITES 9
 
 // Indexes for sItemMenuIconSpriteIds
