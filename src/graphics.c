@@ -556,6 +556,9 @@ const u32 gBattleAnimSpritePal_ThePit[] = INCBIN_U32("graphics/battle_anims/spri
 const u32 gBattleAnimSpriteGfx_Stereo[] = INCBIN_U32("graphics/battle_anims/sprites/stereo.4bpp.lz");
 const u32 gBattleAnimSpritePal_Stereo[] = INCBIN_U32("graphics/battle_anims/sprites/stereo.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Handgun[] = INCBIN_U32("graphics/battle_anims/sprites/handgun.4bpp.lz");
+const u32 gBattleAnimSpritePal_Handgun[] = INCBIN_U32("graphics/battle_anims/sprites/handgun.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

@@ -28771,7 +28771,6 @@ Move_HACK_ATTACK:
 Move_GAY_BALL_PROBLEMS:
 Move_SUBSTITUTE_DAD:
 Move_DOSWINGBEAT:
-Move_GREGORY_BLAST:
 Move_GIGATON_CRUSHER:
 Move_ARE_WE_NOT_MON:
 Move_GRASS_MONKEY:
@@ -29570,3 +29569,102 @@ Move_ORTHQUAKE:
 	delay 16
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
 	end
+
+
+Move_GREGORY_BLAST:
+	choosetwoturnanim GregorySetUp, GregoryAttack
+GregoryEnd:
+	end
+
+GregorySetUp:
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_FLAT_ROCK
+	loadspritegfx ANIM_TAG_FOCUS_ENERGY
+	monbg ANIM_ATK_PARTNER
+	setalpha 12, 8
+	fadetobg BG_THUNDER
+	waitbgfadeout
+	createvisualtask AnimTask_StartSlidingBg, 5, -256, 0, 1, -1
+	waitbgfadein
+
+	@doom desire
+	createvisualtask AnimTask_SetGrayscaleOrOriginalPal, 5, ANIM_TARGET, FALSE
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 4, RGB_BLACK
+	waitforvisualfinish
+	setalpha 8, 8
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -4, -4, 15, ANIM_ATTACKER, 1
+	waitforvisualfinish
+	delay 20
+	createvisualtask AnimTask_SetGrayscaleOrOriginalPal, 5, ANIM_TARGET, TRUE
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 4, 0, RGB_BLACK
+	waitforvisualfinish
+
+	@solarbeam
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 1, 4, 0, 11, RGB(31, 31, 11)
+	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	call SolarBeamAbsorbEffect
+	@waitforvisualfinish
+
+	loopsewithpan SE_M_EARTHQUAKE, SOUND_PAN_ATTACKER, 30, 5
+
+	@Sky attack
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 8, 0, RGB_BLACK
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_ATTACKER, 2, 16
+	loopsewithpan SE_M_STAT_INCREASE, SOUND_PAN_ATTACKER, 4, 8
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 0, 15, RGB_WHITE
+	
+	createsprite gFloatingRockSpriteTemplate, ANIM_ATTACKER, 41, 200, 96, 1, 160
+	delay 8
+	createsprite gFloatingRockSpriteTemplate, ANIM_ATTACKER, 41, 20, 172, 4, 152 @248
+	delay 8
+	createsprite gFloatingRockSpriteTemplate, ANIM_ATTACKER, 41, 130, 160, 2, 144
+	delay 8
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 15, 0, RGB_WHITE
+	createsprite gFloatingRockSpriteTemplate, ANIM_ATTACKER, 41, 160, 192, 0, 136
+	delay 8
+	createsprite gFloatingRockSpriteTemplate, ANIM_ATTACKER, 41, 60, 188, 3, 128 @288
+	@endure
+	@playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	call EndureEffect
+	delay 8
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 11, RGB_RED
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 32, 1
+	call EndureEffect
+	delay 8
+	call EndureEffect
+	waitforvisualfinish
+
+	stopsound
+	
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFFF
+	waitbgfadein
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	waitforvisualfinish
+	goto GregoryEnd
+
+GregoryAttack:
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_BULLET
+	loadspritegfx ANIM_TAG_HANDGUN
+	splitbgprio_foes ANIM_TARGET
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	delay 45
+	playsewithpan SE_CLICK, SOUND_PAN_ATTACKER
+	createsprite gHandgunSpriteTemplate, ANIM_ATTACKER, 2, -24, 16, 0, 0, 0, 90, 0, 0
+	delay 60
+	createvisualtask SoundTask_PlaySpecificCry, 2, 78
+	delay 1
+	createsprite gShootBulletSpriteTemplate, ANIM_ATTACKER, 2, -90, 46, 7
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 3, -2
+	delay 4
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 6, 0, 10, 1
+	waitforvisualfinish
+	delay 20
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	goto GregoryEnd

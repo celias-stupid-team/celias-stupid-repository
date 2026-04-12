@@ -1533,6 +1533,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_VaultBoy, 0x0800, ANIM_TAG_VAULT_BOY},
     {gBattleAnimSpriteGfx_OSign, 0x0800, ANIM_TAG_O_SIGN},
     {gBattleAnimSpriteGfx_ThePit, 0x2000, ANIM_TAG_THE_PIT},
+    {gBattleAnimSpriteGfx_Handgun, 0x0200, ANIM_TAG_HANDGUN},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2017,6 +2018,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_VaultBoy, ANIM_TAG_VAULT_BOY},
     {gBattleAnimSpritePal_OSign, ANIM_TAG_O_SIGN},
     {gBattleAnimSpritePal_ThePit, ANIM_TAG_THE_PIT},
+    {gBattleAnimSpritePal_Handgun, ANIM_TAG_HANDGUN},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

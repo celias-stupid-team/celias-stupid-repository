@@ -1277,6 +1277,17 @@ const struct SpriteTemplate gCashRegisterSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gHandgunSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HANDGUN,
+    .paletteTag = ANIM_TAG_HANDGUN,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gLetterESpriteTemplate =
 {
     .tileTag = ANIM_TAG_LETTER_E,
