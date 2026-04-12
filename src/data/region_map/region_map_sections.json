@@ -1145,7 +1145,12 @@
       "height": 0
     },
     {
-      "id": "MAPSEC_"
+      "id": "MAPSEC_",
+      "name": "DUMMY",
+      "x": 5,
+      "y": 12,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_STONEHENGE",
@@ -1164,7 +1169,12 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_ROUTE12"
+      "id": "MAPSEC_ROUTE12",
+      "name": "BROKEN LOCATION",
+      "x": 5,
+      "y": 12,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_JUBILIFE_CITY",

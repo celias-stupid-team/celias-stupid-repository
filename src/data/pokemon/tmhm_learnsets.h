@@ -8,175 +8,373 @@ static const u32 sTMHMLearnsets[][2] =
 {
     [SPECIES_NONE]        = TMHM_LEARNSET(0),
 
-    [SPECIES_BULBASAUR]   = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND) |
-                                        TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM40_RIP_ROARING) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_BULBASAUR]   = TMHM_LEARNSET(
+TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
 
-    [SPECIES_IVYSAUR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM40_RIP_ROARING) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_IVYSAUR]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_VENUSAUR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_VENUSAUR]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     
 
-    [SPECIES_CHARMANDER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM40_RIP_ROARING) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_CHARMANDER]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
 
-    [SPECIES_CHARMELEON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM40_RIP_ROARING) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_CHARMELEON]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_CHARIZARD]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM40_RIP_ROARING) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_CHARIZARD]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_SQUIRTLE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM40_RIP_ROARING) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_SQUIRTLE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_WARTORTLE]   = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -231,39 +429,265 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_CATERPIE]    = TMHM_LEARNSET(0),
+    [SPECIES_CATERPIE]    = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+// TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+// TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+// TMHM(TM39_FAINT_ATTACK) |
+TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+// TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_METAPOD]     = TMHM_LEARNSET(0),
+    [SPECIES_METAPOD]     = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_BUTTERFREE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM40_RIP_ROARING) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_BUTTERFREE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_WEEDLE]      = TMHM_LEARNSET(0),
+    [SPECIES_WEEDLE]      = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_KAKUNA]      = TMHM_LEARNSET(0),
+    [SPECIES_KAKUNA]      = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_BEEDRILL]    = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -286,131 +710,317 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_PIDGEY]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM31_MUD_SLAP) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_PIDGEY]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_PIDGEOTTO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM31_MUD_SLAP) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_PIDGEOTTO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_PIDGEOT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM31_MUD_SLAP) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_PIDGEOT]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_RATTATA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_RATTATA]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+// TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+// TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+// TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_RATICATE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_RATICATE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_SPEAROW]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_SPEAROW]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_FEAROW]      = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -430,45 +1040,109 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)),
 
-    [SPECIES_EKANS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_EKANS]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_ARBOK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_ARBOK]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_PIKACHU]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM06_SHOOT)
@@ -493,357 +1167,733 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM05_FLASH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_RAICHU]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_RAICHU]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_SANDSHREW]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_SANDSHREW]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_SANDSLASH]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_SANDSLASH]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_NIDORAN_F]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_NIDORAN_F]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_NIDORINA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_NIDORINA]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_NIDOQUEEN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_NIDOQUEEN]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_NIDORAN_M]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_NIDORAN_M]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_NIDORINO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_NIDORINO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_NIDOKING]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_NIDOKING]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_CLEFAIRY]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER)),
+    [SPECIES_CLEFAIRY]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+// TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+// TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+// TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+// TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+// TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_CLEFABLE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM42_CRABHAMMER)),
+    [SPECIES_CLEFABLE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_VULPIX]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_VULPIX]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_NINETALES]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_NINETALES]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_JIGGLYPUFF]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_JIGGLYPUFF]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_WIGGLYTUFF]  = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -879,22 +1929,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_ZUBAT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK)),
+    [SPECIES_ZUBAT]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_GOLBAT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEGA_KICK) |
@@ -916,24 +2001,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_MIMIC)),
 
-    [SPECIES_ODDISH]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM30_MAGICAL_LEAF) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_ODDISH]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_GLOOM]       = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM09_BULLDOZE)
@@ -972,72 +2090,161 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_PARAS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_PARAS]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_PARASECT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_PARASECT]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_VENONAT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_VENONAT]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_VENOMOTH]    = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -1060,195 +2267,421 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM48_TRY_ATTACK)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_DIGLETT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_DIGLETT]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_DUGTRIO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_DUGTRIO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MEOWTH]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_MEOWTH]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_PERSIAN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_PERSIAN]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_PSYDUCK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_PSYDUCK]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_GOLDUCK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_GOLDUCK]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MANKEY]   = TMHM_LEARNSET(TMHM(TM02_ROCKIN) |
-                                        TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM07_TM07) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_MANKEY]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_PRIMEAPE]   = TMHM_LEARNSET(TMHM(TM02_ROCKIN) |
-                                        TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM07_TM07) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM31_MUD_SLAP) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_PRIMEAPE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+// TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+// TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+// TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+// TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_GROWLITHE]   = TMHM_LEARNSET(TMHM(TM05_MEGA_KICK)
                                         | TMHM(TM06_SHOOT)
@@ -1272,48 +2705,109 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_ARCANINE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_ARCANINE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_POLIWAG]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_POLIWAG]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_POLIWHIRL]   = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -1372,27 +2866,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_ABRA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_ABRA]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_KADABRA]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM04_FOURSIGHT)
@@ -1422,30 +2946,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_ALAKAZAM]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_ALAKAZAM]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_MACHOP]      = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM06_SHOOT)
@@ -1471,47 +3022,161 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_MACHOKE]   = TMHM_LEARNSET(0),
+    [SPECIES_MACHOKE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MACHAMP]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_MACHAMP]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_BELLSPROUT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_BELLSPROUT]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_WEEPINBELL]  = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM09_BULLDOZE)
@@ -1552,28 +3217,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_TENTACOOL]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_TENTACOOL]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+// TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_TENTACRUEL]  = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_SHOOT)
@@ -1599,59 +3293,161 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_GEODUDE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_GEODUDE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_GRAVELER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_GRAVELER]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_GOLEM]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_GOLEM]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_PONYTA]      = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -1690,77 +3486,161 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM50_COUNTER)
                                         | TMHM(HM04_STRENGTH)),
 
-    [SPECIES_SLOWPOKE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_SLOWPOKE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_SLOWBRO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_SLOWBRO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MAGNEMITE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_MAGNEMITE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_MAGNETON]    = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -1780,44 +3660,109 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_FARFETCHD]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM36_BOO_BURST) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(HM01_CUT)),
+    [SPECIES_FARFETCHD]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_DODUO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_DODUO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_DODRIO]      = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -1838,11 +3783,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)),
 
-    [SPECIES_SEEL]   = TMHM_LEARNSET(TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_SEEL]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+// TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+// TMHM(TM27_VACUUM_CUT) |
+// TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+// TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+// TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+// TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_DEWGONG]     = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_SHOOT)
@@ -1866,88 +3857,213 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_GRIMER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_GRIMER]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MUK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_MUK]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_SHELLDER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_SHELLDER]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_CLOYSTER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_CLOYSTER]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_GASTLY]      = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -1972,73 +4088,161 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM48_TRY_ATTACK)
                                         | TMHM(TM49_MIMIC)),
 
-    [SPECIES_HAUNTER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_HAUNTER]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_GENGAR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_GENGAR]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_ONIX]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_ONIX]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_DROWZEE]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM04_FOURSIGHT)
@@ -2095,26 +4299,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_KRABBY]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_KRABBY]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_KINGLER]     = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_SHOOT)
@@ -2141,22 +4376,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM06_ROCK_SMASH)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_VOLTORB]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_VOLTORB]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_ELECTRODE]   = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -2178,67 +4448,213 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_EXEGGCUTE]   = TMHM_LEARNSET(0),
+    [SPECIES_EXEGGCUTE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_EXEGGUTOR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_EXEGGUTOR]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_CUBONE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_CUBONE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MAROWAK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_MAROWAK]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_HITMONLEE]   = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM06_SHOOT)
@@ -2282,8 +4698,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_LICKITUNG]   = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
-                                        | TMHM(TM46_TAKE_DOWN)),
+    [SPECIES_LICKITUNG]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_KOFFING]     = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -2363,116 +4828,266 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_RHYDON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_RHYDON]   = TMHM_LEARNSET(
+TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
 
-    [SPECIES_CHANSEY]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_CHANSEY]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_TANGELA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_TANGELA]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_KANGASKHAN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM32_BRICK_BREAK) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_KANGASKHAN]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_HORSEA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_HORSEA]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_SEADRA]      = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_SHOOT)
@@ -2494,42 +5109,109 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_GOLDEEN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_GOLDEEN]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+// TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+// TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+// TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+// TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_SEAKING]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_SEAKING]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_STARYU]      = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_SHOOT)
@@ -2555,95 +5237,213 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_STARMIE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_STARMIE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MR_MIME]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_MR_MIME]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_SCYTHER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_SCYTHER]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_JYNX]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_JYNX]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_ELECTABUZZ]  = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM06_SHOOT)
@@ -2692,75 +5492,213 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_PINSIR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_PINSIR]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_TAUROS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_TAUROS]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+// TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+// TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+// TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+// TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MAGIKARP]   = TMHM_LEARNSET(TMHM(TM15_BARRAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK)),
+    [SPECIES_MAGIKARP]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+// TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+// TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+// TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+// TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_GYARADOS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_GYARADOS]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_LAPRAS]      = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM05_MEGA_KICK)
@@ -2793,21 +5731,57 @@ static const u32 sTMHMLearnsets[][2] =
 
     [SPECIES_DITTO]       = TMHM_LEARNSET(0),
 
-    [SPECIES_EEVEE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_EEVEE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_VAPOREON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEGA_KICK) |
@@ -2832,92 +5806,214 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_MIMIC)),
 
-    [SPECIES_JOLTEON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_JOLTEON]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
 
-    [SPECIES_FLAREON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_FLAREON]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-   [SPECIES_PORYGON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+   [SPECIES_PORYGON]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_OMANYTE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_OMANYTE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_OMASTAR]     = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_SHOOT)
@@ -3049,66 +6145,161 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM03_SURF)
                                         | TMHM(HM04_STRENGTH)),
 
-    [SPECIES_ARTICUNO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_ARTICUNO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_ZAPDOS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_ZAPDOS]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MOLTRES]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_MOLTRES]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_DRATINI]     = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_SHOOT)
@@ -3164,51 +6355,109 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM03_SURF)
                                         | TMHM(HM07_WATERFALL)),
 
-    [SPECIES_DRAGONITE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_DRAGONITE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_MEWTWO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_MEWTWO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_MEW]         = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM02_ROCKIN)
@@ -3964,28 +7213,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM05_FLASH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_AMPHAROS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_AMPHAROS]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_BELLOSSOM]   = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM09_BULLDOZE)
@@ -4058,24 +7336,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_SUDOWOODO]   = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
-                                        | TMHM(TM04_FOURSIGHT)
-                                        | TMHM(TM06_SHOOT)
-                                        | TMHM(TM10_STEAMROLLER)
-                                        | TMHM(TM11_WATER_GUN)
-                                        | TMHM(TM17_SUBMISSION)
-                                        | TMHM(TM21_THUNDERJOLT)
-                                        | TMHM(TM26_WIDE_CUT)
-                                        | TMHM(TM27_VACUUM_CUT)
-                                        | TMHM(TM28_TOMBSTONER)
-                                        | TMHM(TM31_MUD_SLAP)
-                                        | TMHM(TM37_GAME_GENIE)
-                                        | TMHM(TM39_FAINT_ATTACK)
-                                        | TMHM(TM42_CRABHAMMER)
-                                        | TMHM(TM43_FOCUS_MISS)
-                                        | TMHM(TM44_REST)
-                                        | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM46_TAKE_DOWN)),
+    [SPECIES_SUDOWOODO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_POLITOED]    = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -4305,8 +7616,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_ESPEON]      = TMHM_LEARNSET(TMHM(TM04_FOURSIGHT)
-                                        | TMHM(HM05_FLASH)),
+    [SPECIES_ESPEON]      = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_UMBREON]     = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM10_STEAMROLLER)
@@ -4414,7 +7774,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_UNOWN]       = TMHM_LEARNSET(0),
+    [SPECIES_UNOWN]       = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+// TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+// TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+// TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_WOBBUFFET]   = TMHM_LEARNSET(0),
 
@@ -4933,31 +8343,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_REMORAID]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_REMORAID]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+// TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+// TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+// TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+// TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_OCTILLERY]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_SHOOT)
@@ -5212,7 +8648,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM48_TRY_ATTACK)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_SMEARGLE]    = TMHM_LEARNSET(0),
+    [SPECIES_SMEARGLE]    = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_TYROGUE]     = TMHM_LEARNSET(TMHM(TM06_SHOOT)
                                         | TMHM(TM08_DYNAMIC_CRUNCH)
@@ -6809,22 +10295,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_LUVDISC]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_LUVDISC]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_CORPHISH]    = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_SHOOT)
@@ -8098,28 +11619,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_SEVIPER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_SEVIPER]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_ZANGOOSE]    = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -8269,28 +11819,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
-    [SPECIES_CASTFORM]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_CASTFORM]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_VOLBEAT]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -8812,31 +12391,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_LATIAS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_LATIAS]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_LATIOS]      = TMHM_LEARNSET(TMHM(TM02_ROCKIN)
                                         | TMHM(TM03_SECRET_POWER)
@@ -8876,30 +12481,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
 
-    [SPECIES_JIRACHI]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_JIRACHI]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
     [SPECIES_DEOXYS]      = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -8975,32 +12607,57 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_STARLY]    = TMHM_LEARNSET(0),
 	[SPECIES_STARAVIA]    = TMHM_LEARNSET(0),
 	[SPECIES_STARAPTOR]    = TMHM_LEARNSET(0),
-    [SPECIES_BIDOOF]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM12_TAUNT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)
-                                        | TMHM(HM01_CUT)
-                                        | TMHM(HM02_FLY)
-                                        | TMHM(HM03_SURF)
-                                        | TMHM(HM04_STRENGTH)
-                                        | TMHM(HM05_FLASH)
-                                        | TMHM(HM06_ROCK_SMASH)
-                                        | TMHM(HM07_WATERFALL)
-                                        | TMHM(HM08_DIVE)),
+    [SPECIES_BIDOOF]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+// TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+// TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+// TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_BIBAREL]    = TMHM_LEARNSET(0),
 	[SPECIES_KRICKETOT]    = TMHM_LEARNSET(0),
 	[SPECIES_KRICKETUNE]    = TMHM_LEARNSET(0),
@@ -9016,29 +12673,112 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_BURMY]    = TMHM_LEARNSET(0),
 	[SPECIES_WORMADAM]    = TMHM_LEARNSET(0),
 	[SPECIES_MOTHIM]    = TMHM_LEARNSET(0),
-	[SPECIES_COMBEE]    = TMHM_LEARNSET(0),
+	[SPECIES_COMBEE]    = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_VESPIQUEN]    = TMHM_LEARNSET(0),
 	[SPECIES_PACHIRISU]    = TMHM_LEARNSET(0),
 	[SPECIES_BUIZEL]    = TMHM_LEARNSET(0),
 	[SPECIES_FLOATZEL]    = TMHM_LEARNSET(0),
-    [SPECIES_CHERUBI]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_CHERUBI]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_CHERRIM]    = TMHM_LEARNSET(0),
 	[SPECIES_SHELLOS]    = TMHM_LEARNSET(0),
 	[SPECIES_GASTRODON]    = TMHM_LEARNSET(0),
@@ -9130,33 +12870,57 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_GLACEON]    = TMHM_LEARNSET(0),
 	[SPECIES_GLISCOR]    = TMHM_LEARNSET(0),
 	[SPECIES_MAMOSWINE]    = TMHM_LEARNSET(0),
-    [SPECIES_PORYGON_Z]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_PORYGON_Z]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_GALLADE]    = TMHM_LEARNSET(0),
 	[SPECIES_PROBOPASS]    = TMHM_LEARNSET(0),
 	[SPECIES_DUSKNOIR]    = TMHM_LEARNSET(0),
@@ -9171,30 +12935,59 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_REGIGIGAS]    = TMHM_LEARNSET(0),
 	[SPECIES_GIRATINA]    = TMHM_LEARNSET(0),
 	[SPECIES_CRESSELIA]    = TMHM_LEARNSET(0),
-    [SPECIES_PHIONE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_PHIONE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
 	[SPECIES_MANAPHY]    = TMHM_LEARNSET(0),
 	[SPECIES_DARKRAI]    = TMHM_LEARNSET(0),
 	[SPECIES_SHAYMIN]    = TMHM_LEARNSET(0),
@@ -9282,7 +13075,57 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_ROGGENROLA]    = TMHM_LEARNSET(0),
 	[SPECIES_BOLDORE]    = TMHM_LEARNSET(0),
 	[SPECIES_GIGALITH]    = TMHM_LEARNSET(0),
-	[SPECIES_WOOBAT]    = TMHM_LEARNSET(TMHM(TM42_CRABHAMMER)),
+	[SPECIES_WOOBAT]    = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_SWOOBAT]    = TMHM_LEARNSET(0),
 	[SPECIES_DRILBUR]    = TMHM_LEARNSET(0),
 	[SPECIES_EXCADRILL]    = TMHM_LEARNSET(0),
@@ -9346,48 +13189,112 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_KARRABLAST]    = TMHM_LEARNSET(0),
 	[SPECIES_ESCAVALIER]    = TMHM_LEARNSET(0),
 	[SPECIES_FOONGUS]    = TMHM_LEARNSET(0),
-    [SPECIES_AMOONGUSS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_AMOONGUSS]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_FRILLISH]    = TMHM_LEARNSET(0),
 	[SPECIES_JELLICENT]    = TMHM_LEARNSET(0),
-    [SPECIES_ALOMOMOLA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_ALOMOMOLA]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
 	[SPECIES_JOLTIK]    = TMHM_LEARNSET(0),
 	[SPECIES_GALVANTULA]    = TMHM_LEARNSET(0),
 	[SPECIES_FERROSEED]    = TMHM_LEARNSET(0),
@@ -9416,29 +13323,59 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_MIENSHAO]    = TMHM_LEARNSET(0),
 	[SPECIES_DRUDDIGON]    = TMHM_LEARNSET(0),
 	[SPECIES_GOLETT]    = TMHM_LEARNSET(0),
-    [SPECIES_GOLURK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER) |
-                                        TMHM(HM02_FLY)),
+    [SPECIES_GOLURK]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
 	[SPECIES_PAWNIARD]    = TMHM_LEARNSET(0),
 	[SPECIES_BISHARP]    = TMHM_LEARNSET(0),
 	[SPECIES_BOUFFALANT]    = TMHM_LEARNSET(0),
@@ -9537,29 +13474,57 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_TYRANTRUM]    = TMHM_LEARNSET(0),
 	[SPECIES_AMAURA]    = TMHM_LEARNSET(0),
 	[SPECIES_AURORUS]    = TMHM_LEARNSET(0),
-    [SPECIES_SYLVEON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_SYLVEON]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_HAWLUCHA]    = TMHM_LEARNSET(0),
 	[SPECIES_DEDENNE]    = TMHM_LEARNSET(0),
 	[SPECIES_CARBINK]    = TMHM_LEARNSET(0),
@@ -9577,26 +13542,111 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_NOIVERN]    = TMHM_LEARNSET(0),
 	[SPECIES_XERNEAS]    = TMHM_LEARNSET(0),
 	[SPECIES_YVELTAL]    = TMHM_LEARNSET(0),
-    [SPECIES_ZYGARDE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_ZYGARDE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
 	[SPECIES_DIANCIE]    = TMHM_LEARNSET(0),
-	[SPECIES_HOOPA]    = TMHM_LEARNSET(0),
+	[SPECIES_HOOPA]    = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_VOLCANION]    = TMHM_LEARNSET(0),
 	[SPECIES_ROWLET]    = TMHM_LEARNSET(0),
 	[SPECIES_DARTRIX]    = TMHM_LEARNSET(0),
@@ -9654,7 +13704,57 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_KOMALA]    = TMHM_LEARNSET(0),
 	[SPECIES_TURTONATOR]    = TMHM_LEARNSET(0),
 	[SPECIES_TOGEDEMARU]    = TMHM_LEARNSET(0),
-	[SPECIES_MIMIKYU]    = TMHM_LEARNSET(0),
+	[SPECIES_MIMIKYU]    = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_BRUXISH]    = TMHM_LEARNSET(0),
 	[SPECIES_DRAMPA]    = TMHM_LEARNSET(0),
 	[SPECIES_DHELMISE]    = TMHM_LEARNSET(0),
@@ -9684,25 +13784,110 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_STAKATAKA]    = TMHM_LEARNSET(0),
 	[SPECIES_BLACEPHALON]    = TMHM_LEARNSET(0),
 	[SPECIES_ZERAORA]    = TMHM_LEARNSET(0),
-	[SPECIES_MELTAN]    = TMHM_LEARNSET(0),
-    [SPECIES_MELMETAL]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+	[SPECIES_MELTAN]    = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+// TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+// TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+// TMHM(TM33_WAKE_UP_SLAP) |
+// TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+// TMHM(TM37_GAME_GENIE) |
+// TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+// TMHM(TM44_REST) |
+// TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+    [SPECIES_MELMETAL]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+// TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
 	[SPECIES_GROOKEY]    = TMHM_LEARNSET(0),
 	[SPECIES_THWACKEY]    = TMHM_LEARNSET(0),
 	[SPECIES_RILLABOOM]    = TMHM_LEARNSET(0),
@@ -9762,26 +13947,59 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_MR_RIME]    = TMHM_LEARNSET(0),
 	[SPECIES_RUNERIGUS]    = TMHM_LEARNSET(0),
 	[SPECIES_MILCERY]    = TMHM_LEARNSET(0),
-    [SPECIES_ALCREMIE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_ALCREMIE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
 	[SPECIES_FALINKS]    = TMHM_LEARNSET(0),
 	[SPECIES_PINCURCHIN]    = TMHM_LEARNSET(0),
 	[SPECIES_SNOM]    = TMHM_LEARNSET(0),
@@ -9802,30 +14020,57 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_DRAGAPULT]    = TMHM_LEARNSET(0),
 	[SPECIES_ZACIAN]    = TMHM_LEARNSET(0),
 	[SPECIES_ZAMAZENTA]    = TMHM_LEARNSET(0),
-    [SPECIES_ETERNATUS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_ETERNATUS]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_KUBFU]    = TMHM_LEARNSET(0),
 	[SPECIES_URSHIFU]    = TMHM_LEARNSET(0),
 	[SPECIES_ZARUDE]    = TMHM_LEARNSET(0),
@@ -9862,26 +14107,59 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_TANDEMAUS]    = TMHM_LEARNSET(0),
 	[SPECIES_MAUSHOLD]    = TMHM_LEARNSET(0),
 	[SPECIES_FIDOUGH]    = TMHM_LEARNSET(0),
-    [SPECIES_DACHSBUN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_DACHSBUN]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
 	[SPECIES_SMOLIV]    = TMHM_LEARNSET(0),
 	[SPECIES_DOLLIV]    = TMHM_LEARNSET(0),
 	[SPECIES_ARBOLIVA]    = TMHM_LEARNSET(0),
@@ -9902,31 +14180,57 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_GRAFAIAI]    = TMHM_LEARNSET(0),
 	[SPECIES_BRAMBLIN]    = TMHM_LEARNSET(0),
 	[SPECIES_BRAMBLEGHAST]    = TMHM_LEARNSET(0),
-    [SPECIES_TOEDSCOOL]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_TOEDSCOOL]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_TOEDSCRUEL]    = TMHM_LEARNSET(0),
 	[SPECIES_KLAWF]    = TMHM_LEARNSET(0),
 	[SPECIES_CAPSAKID]    = TMHM_LEARNSET(0),
@@ -9946,23 +14250,57 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_VAROOM]    = TMHM_LEARNSET(0),
 	[SPECIES_REVAVROOM]    = TMHM_LEARNSET(0),
 	[SPECIES_CYCLIZAR]    = TMHM_LEARNSET(0),    
-    [SPECIES_ORTHWORM]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_ORTHWORM]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_GLIMMET]    = TMHM_LEARNSET(0),
 	[SPECIES_GLIMMORA]    = TMHM_LEARNSET(0),
 	[SPECIES_GREAVARD]    = TMHM_LEARNSET(0),
@@ -9993,61 +14331,109 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_FRIGIBAX]    = TMHM_LEARNSET(0),
 	[SPECIES_ARCTIBAX]    = TMHM_LEARNSET(0),
 	[SPECIES_BAXCALIBUR]    = TMHM_LEARNSET(0),
-    [SPECIES_GIMMIGHOUL]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_GIMMIGHOUL]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_GHOLDENGO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_GHOLDENGO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
 	[SPECIES_WO_CHIEN]    = TMHM_LEARNSET(0),
 	[SPECIES_CHIEN_PAO]    = TMHM_LEARNSET(0),
@@ -10057,213 +14443,518 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_IRON_VALIANT]    = TMHM_LEARNSET(0),
 	[SPECIES_KORAIDON]    = TMHM_LEARNSET(0),
 	[SPECIES_MIRAIDON]    = TMHM_LEARNSET(0),
-    [SPECIES_JIGGLYPUFF_ABOVE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_JIGGLYPUFF_ABOVE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+// TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_TENTAQUIL]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
-    [SPECIES_MISSINGNO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM07_TM07) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
-    [SPECIES_KENYA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
-    [SPECIES_HITMONCHAN_SHIT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_MUD_SPOUT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
-    [SPECIES_HITMONCHIN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_TENTAQUIL]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+    [SPECIES_MISSINGNO]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+    [SPECIES_KENYA]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+    [SPECIES_HITMONCHAN_SHIT]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+    [SPECIES_HITMONCHIN]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+// TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 
-    [SPECIES_TRUBBISH_HAIRCUT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM22_SOLAR_BEAM) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
-    [SPECIES_AMPHAROS_MEGA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
-    [SPECIES_YOSHI]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
-	[SPECIES_DITTO_MEW]    = TMHM_LEARNSET(TMHM(TM42_CRABHAMMER)),
+    [SPECIES_TRUBBISH_HAIRCUT]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+    [SPECIES_AMPHAROS_MEGA]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+// TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+    [SPECIES_YOSHI]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+	[SPECIES_DITTO_MEW]    = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
     [SPECIES_UNOWN_LOSS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEGA_KICK) |
                                         TMHM(TM06_SHOOT) |
@@ -10280,79 +14971,165 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_MIMIC)),
-    [SPECIES_MAGNALONE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM08_DYNAMIC_CRUNCH) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
-    [SPECIES_TYRANASTAR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM11_WATER_GUN) |
-                                        TMHM(TM15_BARRAGE) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM37_GAME_GENIE) |
-                                        TMHM(TM38_MILK_DRINK) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM41_COPYCAT) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
-    [SPECIES_POKEMON_GUN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM04_FOURSIGHT) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM13_STEEL_WING) |
-                                        TMHM(TM14_SODAMIZE) |
-                                        TMHM(TM20_RAGE) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM29_AURORA_BEAM) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM43_FOCUS_MISS) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC) |
-                                        TMHM(TM50_COUNTER)),
+    [SPECIES_MAGNALONE]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+// TMHM(TM09_BULLDOZE) |
+// TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+// TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
+    [SPECIES_TYRANASTAR]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
+    [SPECIES_POKEMON_GUN]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+// TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
+
+
     [SPECIES_PLUG_OINK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEGA_KICK) |
                                         TMHM(TM06_SHOOT) |
@@ -10374,26 +15151,57 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_MIMIC)),
 
-    [SPECIES_PIKABLU]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
-                                        TMHM(TM05_MEGA_KICK) |
-                                        TMHM(TM06_SHOOT) |
-                                        TMHM(TM17_SUBMISSION) |
-                                        TMHM(TM18_RAIN_DANCE) |
-                                        TMHM(TM19_WRAP) |
-                                        TMHM(TM23_WONDER_SEED) |
-                                        TMHM(TM24_THUNDERBOLT) |
-                                        TMHM(TM25_DIG) |
-                                        TMHM(TM26_WIDE_CUT) |
-                                        TMHM(TM27_VACUUM_CUT) |
-                                        TMHM(TM28_TOMBSTONER) |
-                                        TMHM(TM33_WAKE_UP_SLAP) |
-                                        TMHM(TM34_BIDE) |
-                                        TMHM(TM39_FAINT_ATTACK) |
-                                        TMHM(TM42_CRABHAMMER) |
-                                        TMHM(TM44_REST) |
-                                        TMHM(TM45_ATTRACT) |
-                                        TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_MIMIC)),
+    [SPECIES_PIKABLU]   = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+// TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+TMHM(TM24_THUNDERBOLT) |
+TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+// TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+// TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_RATTATA_SHINY]    = TMHM_LEARNSET(0),
 
     	[SPECIES_PIKACHU_BIRTHDAY]    = TMHM_LEARNSET(0),
@@ -10608,7 +15416,57 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_ALAKAZAMTCG]    = TMHM_LEARNSET(0),
 	[SPECIES_REGIEYES]    = TMHM_LEARNSET(0),
 	[SPECIES_REGIFILSAMIE]    = TMHM_LEARNSET(0),
-	[SPECIES_SOLACEON]    = TMHM_LEARNSET(0),
+	[SPECIES_SOLACEON]    = TMHM_LEARNSET(
+// TMHM(TM01_WHIRLWIND) |
+// TMHM(TM02_ROCKIN) |
+// TMHM(TM03_SECRET_POWER) |
+// TMHM(TM04_FOURSIGHT) |
+TMHM(TM05_MEGA_KICK) |
+// TMHM(TM06_SHOOT) |
+// TMHM(TM07_TM07) |
+// TMHM(TM08_DYNAMIC_CRUNCH) |
+TMHM(TM09_BULLDOZE) |
+TMHM(TM10_STEAMROLLER) |
+// TMHM(TM11_WATER_GUN) |
+// TMHM(TM12_TAUNT) |
+// TMHM(TM13_STEEL_WING) |
+TMHM(TM14_SODAMIZE) |
+TMHM(TM15_BARRAGE) |
+// TMHM(TM16_PAY_DAY) |
+// TMHM(TM17_SUBMISSION) |
+TMHM(TM18_RAIN_DANCE) |
+TMHM(TM19_WRAP) |
+// TMHM(TM20_RAGE) |
+// TMHM(TM21_THUNDERJOLT) |
+// TMHM(TM22_SOLAR_BEAM) |
+TMHM(TM23_WONDER_SEED) |
+// TMHM(TM24_THUNDERBOLT) |
+// TMHM(TM25_DIG) |
+TMHM(TM26_WIDE_CUT) |
+TMHM(TM27_VACUUM_CUT) |
+TMHM(TM28_TOMBSTONER) |
+TMHM(TM29_AURORA_BEAM) |
+// TMHM(TM30_MAGICAL_LEAF) |
+// TMHM(TM31_MUD_SLAP) |
+// TMHM(TM32_BRICK_BREAK) |
+TMHM(TM33_WAKE_UP_SLAP) |
+TMHM(TM34_BIDE) |
+// TMHM(TM35_HYDRO_PUMP) |
+// TMHM(TM36_BOO_BURST) |
+TMHM(TM37_GAME_GENIE) |
+TMHM(TM38_MILK_DRINK) |
+TMHM(TM39_FAINT_ATTACK) |
+// TMHM(TM40_RIP_ROARING) |
+// TMHM(TM41_COPYCAT) |
+TMHM(TM42_CRABHAMMER) |
+TMHM(TM43_FOCUS_MISS) |
+TMHM(TM44_REST) |
+TMHM(TM45_ATTRACT) |
+TMHM(TM46_TAKE_DOWN) |
+TMHM(TM47_MUD_SPOUT) |
+TMHM(TM48_TRY_ATTACK) |
+// TMHM(TM49_MIMIC) |
+TMHM(TM50_COUNTER)),
 	[SPECIES_PORYGON64]    = TMHM_LEARNSET(0),
 	[SPECIES_PORYGON32]    = TMHM_LEARNSET(0),
 	[SPECIES_STARMIEMEGA]    = TMHM_LEARNSET(0),
