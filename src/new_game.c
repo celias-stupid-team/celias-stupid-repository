@@ -113,11 +113,18 @@ void NewGameInitData(void)
 {
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
     bool8 celiaBonusFlagSet;
+    bool8 letterYFlag;
     
+    // keep these flags in between new runs
     if (FlagGet(FLAG_CSR_CELIA_BONUS))
         celiaBonusFlagSet = TRUE;
     else
         celiaBonusFlagSet = FALSE;
+
+    if (FlagGet(FLAG_FOUND_Y))
+        letterYFlag = TRUE;
+    else
+        letterYFlag = FALSE;
 
     StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
     gDifferentSaveFile = TRUE;
@@ -146,8 +153,6 @@ void NewGameInitData(void)
     ClearRoamerData();
     gSaveBlock1Ptr->registeredItem = 0;
     InitCSRData();
-    if (!celiaBonusFlagSet)
-        FlagClear(FLAG_CSR_CELIA_BONUS);
     ClearBag();
     NewGameInitPCItems();
     ClearEnigmaBerries();
@@ -159,8 +164,21 @@ void NewGameInitData(void)
     SetAllRenewableItemFlags();
     WarpToPlayersRoom();
     RunScriptImmediately(EventScript_ResetAllMapFlags);
-    StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
+    // memory wipe / data reset completed
+
+    // restore these flags after the reset
+    if (!celiaBonusFlagSet)
+        FlagClear(FLAG_CSR_CELIA_BONUS);
+    else
+        FlagSet(FLAG_CSR_CELIA_BONUS);
+
+    if (!letterYFlag)
+        FlagClear(FLAG_FOUND_Y);
+    else
+        FlagSet(FLAG_FOUND_Y);
+        
+    StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
 }
 
 

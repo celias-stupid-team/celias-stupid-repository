@@ -2008,7 +2008,9 @@ static void Cmd_adjustnormaldamage(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
+    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && ((Random() % 100) < param
+        || ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_OPPONENT
+            && (gTrainerBattleOpponent_A == TRAINER_WIZ1989 || gTrainerBattleOpponent_A == TRAINER_PLASTO)))) // 100% Focus Band for these cameo battles
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
@@ -2093,7 +2095,9 @@ static void Cmd_adjustnormaldamage2(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
+    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && ((Random() % 100) < param
+        || ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_OPPONENT
+            && (gTrainerBattleOpponent_A == TRAINER_WIZ1989 || gTrainerBattleOpponent_A == TRAINER_PLASTO))))
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
@@ -6773,7 +6777,9 @@ static void Cmd_adjustsetdamage(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
+    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && ((Random() % 100) < param
+        || ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_OPPONENT
+            && (gTrainerBattleOpponent_A == TRAINER_WIZ1989 || gTrainerBattleOpponent_A == TRAINER_PLASTO))))
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
@@ -8569,7 +8575,9 @@ static void Cmd_tryKO(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
+    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && ((Random() % 100) < param
+        || ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_OPPONENT
+            && (gTrainerBattleOpponent_A == TRAINER_WIZ1989 || gTrainerBattleOpponent_A == TRAINER_PLASTO))))
     {
         RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_FOCUS_BAND);
         gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
