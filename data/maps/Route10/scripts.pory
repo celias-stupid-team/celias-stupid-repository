@@ -29,6 +29,10 @@ script Route10_OnTransition {
 	if(var(VAR_CSR_TURNED_ON_POWER) == 0) {
 		setflag(FLAG_TEMP_2)
 	}
+	setflag(FLAG_TEMP_6)
+	if(checkitem(ITEM_RIPPED_MEMO) && !checkmoncaught(SPECIES_DRAGONITE)) {
+		clearflag(FLAG_TEMP_6)
+	}
 }
 
 script Route10_Warp_Script {
@@ -63,6 +67,27 @@ script Route10_Youngster {
 	msgbox("Wait, wasn't there a POKéMON\nCENTER here a minute ago?\pDarn, that's inconvenient.\pI guess I'm gonna have to run back\nto town after every fight.\lROCK TUNNEL's gonna be a pain...", MSGBOX_NPC)
 	end
 }
+
+script Route10_HiddenCelia {
+	msgbox(
+	"Hmm, it looks like this is a dead\n"
+	"end for now.\l"
+	"Don't worry, though!\p"
+
+	"The way forward is hidden, but it\n"
+	"can be found.\p"
+
+	"Take advantage of every resource\n"
+	"of knowledge at your disposal.\p"
+
+	"Pay very careful attention, and\n"
+	"cross reference what you know.\l"
+	"You'll find where to go.\p"
+
+	"You got this.\n"
+	"I believe in you!", MSGBOX_NPC)
+}
+
 
 script Route10_RouteSign {
 	lock

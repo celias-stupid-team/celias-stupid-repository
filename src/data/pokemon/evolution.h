@@ -119,7 +119,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
                             {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_SYLVEON},
                             {EVO_ITEM, ITEM_SOUL_DEW, SPECIES_LATIAS},
                             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EEVEE},
-                            {EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_EEVEE},
+                            {EVO_ITEM, ITEM_RAT_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_SUN_STONE, SPECIES_EEVEE}},
 

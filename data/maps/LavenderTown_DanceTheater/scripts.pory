@@ -203,6 +203,7 @@ script DanceTheater_Pikachu {
 script DanceTheater_FluteMan {
     lock
     faceplayer
+	famechecker(FAMECHECKER_LAVENDER, 5)
     if(checkitem(ITEM_SACRED_ASH)) {
         msgbox(
         "Hello, again!\n"

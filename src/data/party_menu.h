@@ -634,6 +634,8 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_NO_SURF]                 = gText_NoSurf,
     [PARTY_MSG_BUT_IT_FAILED]       = gText_ButItFailed,
     [PARTY_MSG_NO_RELEARNS]             = gText_NoRelearns,
+    [PARTY_MSG_GO_TO_SHORE]          = gText_GoCheckOutTheShore,
+    
 };
 
 static const u8 *const sDescriptionStringTable[] =

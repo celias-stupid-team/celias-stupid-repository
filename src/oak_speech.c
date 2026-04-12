@@ -15,6 +15,7 @@
 #include "overworld.h"
 #include "random.h"
 #include "data.h"
+#include "event_data.h"
 #include "constants/songs.h"
 #include "constants/event_object_movement.h"
 
@@ -46,6 +47,7 @@ struct OakSpeechResources
 };
 
 static EWRAM_DATA struct OakSpeechResources *sOakSpeechResources = NULL;
+EWRAM_DATA u8 gModeNewGame = 0; // 1 = hard mode, 2 = easy mode
 
 static void Task_NewGameScene(u8);
 
@@ -79,6 +81,7 @@ static void Task_OakSpeech_DoNamingScreen(u8);
 static void Task_OakSpeech_ConfirmName(u8);
 static void Task_OakSpeech_HandleConfirmNameInput(u8);
 static void Task_OakSpeech_FadeOutPlayerPic(u8);
+static void Task_OakSpeech_ShowModeActivatedMessage(u8);
 static void Task_OakSpeech_FadeOutRivalPic(u8);
 static void Task_OakSpeech_FadeInRivalPic(u8);
 static void Task_OakSpeech_AskRivalsName(u8);
@@ -1417,7 +1420,7 @@ static void Task_OakSpeech_HandleRivalNameInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
     s8 input;
-    Menu_SetCheckForGary();
+
     input = Menu_ProcessInput();
     switch (input)
     {
@@ -1506,9 +1509,14 @@ static void Task_OakSpeech_HandleConfirmNameInput(u8 taskId)
         }
         else
         {
-            StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_RememberRivalsName);
-            OakSpeechPrintMessage(gStringVar4, sOakSpeechResources->textSpeed);
-            gTasks[taskId].func = Task_OakSpeech_FadeOutRivalPic;
+            if (gModeNewGame != 0)
+                gTasks[taskId].func = Task_OakSpeech_ShowModeActivatedMessage;
+            else
+            {
+                StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_RememberRivalsName);
+                OakSpeechPrintMessage(gStringVar4, sOakSpeechResources->textSpeed);
+                gTasks[taskId].func = Task_OakSpeech_FadeOutRivalPic;
+            }
         }
         break;
     case 1: // NO
@@ -1533,6 +1541,19 @@ static void Task_OakSpeech_FadeOutPlayerPic(u8 taskId)
             tTimer--;
         else
             gTasks[taskId].func = Task_OakSpeech_FadeInRivalPic;
+    }
+}
+
+static void Task_OakSpeech_ShowModeActivatedMessage(u8 taskId)
+{
+    static const u8 sTextHardModeActivated[] = _("HARD MODE activated!\n\p");
+    static const u8 sTextEasyModeActivated[] = _("EASY MODE activated!\n\p");
+
+    if (!IsTextPrinterActive(WIN_INTRO_TEXTBOX))
+    {
+        const u8 *modeText = (gModeNewGame == 1) ? sTextHardModeActivated : sTextEasyModeActivated;
+        OakSpeechPrintMessage(modeText, sOakSpeechResources->textSpeed);
+        gTasks[taskId].func = Task_OakSpeech_FadeOutRivalPic;
     }
 }
 
@@ -1861,6 +1882,16 @@ static void CB2_ReturnFromNamingScreen(void)
         }
         else
         {
+            // check rival name for hard mode / easy mode easter egg
+            static const u8 sRivalNameGaryUpper[] = _("GARY");
+            static const u8 sRivalNameGaryLower[] = _("gary");
+
+            gModeNewGame = 0;
+            if (StringCompare(gSaveBlock1Ptr->rivalName, sRivalNameGaryUpper) == 0)
+                gModeNewGame = 1; // hard mode
+            else if (StringCompare(gSaveBlock1Ptr->rivalName, sRivalNameGaryLower) == 0)
+                gModeNewGame = 2; // easy mode
+            
             LoadTrainerPic(RIVAL_PIC, 0);
         }
         gTasks[taskId].tTrainerPicPosX = -60;

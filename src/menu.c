@@ -21,8 +21,7 @@ struct Menu
     u8 optionHeight;
     u8 columns;
     u8 rows;
-    bool8 APressMuted:7;
-    bool8 checkforGary:1; // play the boo sound if you select the name gary at the beginning
+    bool8 APressMuted;
 };
 
 static EWRAM_DATA struct Menu sMenu = {0};
@@ -342,27 +341,12 @@ u8 Menu_GetCursorPos(void)
     return sMenu.cursorPos;
 }
 
-void Menu_SetCheckForGary(void)
-{
-    sMenu.checkforGary = TRUE;
-}
-
 s8 Menu_ProcessInput(void)
 {
     if (JOY_NEW(A_BUTTON))
     {
         if (!sMenu.APressMuted)
-        {
-            if (sMenu.checkforGary)
-            {
-                PlaySE(SE_BOO);
-                sMenu.checkforGary = FALSE;
-            }
-            else
-            {
-                PlaySE(SE_SELECT);
-            }
-        }
+            PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
     if (JOY_NEW(B_BUTTON))

@@ -849,7 +849,7 @@ bool8 CanUseEscapeRopeOnCurrMap(void)
         }
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_3F) &&
             (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_3F))) {
-                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 2, 29, 11);
+                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 3, 50, 37);
                 return TRUE;
 
         }
@@ -1744,6 +1744,8 @@ static void TransTheNidotrans(u8 taskId)
         }
 
         SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SEEN);
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_CAUGHT);
 
         if (GetMonData(mon, MON_DATA_CSR_SHINY))
         {
