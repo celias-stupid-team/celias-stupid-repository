@@ -2533,7 +2533,7 @@ script CeliaSecret_Palestine {
 	"standing against genocide.\p"
 
 	"From the River to the Sea.\n"
-	"Power to the Palestinian People.", MSGBOX_NPC)
+	"Palestine will be free.", MSGBOX_NPC)
 }
 
 
