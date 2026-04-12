@@ -30,7 +30,7 @@ script SilphCo_BallShop_Kurt {
 	pokemart(SilphCo_BallShop_Mart)
 	msgbox(Text_PleaseComeAgain)
 	if(checkitem(ITEM_BIG_MUSHROOM)) {
-		if(checkitem(ITEM_BIG_MUSHROOM) > 9) {
+		if(checkitem(ITEM_BIG_MUSHROOM, 9)) {
 			setflag(FLAG_TEMP_6)
 		}
 		while(checkitem(ITEM_BIG_MUSHROOM)) {

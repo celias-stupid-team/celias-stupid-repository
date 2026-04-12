@@ -43,16 +43,23 @@ script FourIsland_Mart_EventScript_Clerk {
 	} else {
 		pokemart(FourIsland_Mart_Items)
 	}
-
+	//debugprintf("Case 1")
 	if(checkitem(ITEM_ODD_MULCH)) {
+	//debugprintf("Case 2")
 		while(checkitem(ITEM_ODD_MULCH)) {
+	//debugprintf("Case 3")
 			removeitem(ITEM_ODD_MULCH)
 		}
 		closemessage
+	//debugprintf("Case 4")
 		if(!flag(FLAG_FOUR_ISLAND_CANDY)) {
+		debugprintf("Case 5")
 			setflag(FLAG_FOUR_ISLAND_CANDY)
+		debugprintf("Case 6")
 			additem(ITEM_ODD_CANDY)
+		debugprintf("Case 7")
 		}
+	//debugprintf("Case 8")
 		fadeinbgm(0)
 	}
 	msgbox(Text_PleaseComeAgain)
