@@ -23,6 +23,10 @@ script FiveIsland_OnTransition {
 		setflag(FLAG_TEMP_1)
 
 	}
+	
+		if(!flag(FLAG_FOUND_Y) || flag(FLAG_REUNITED_HAKARI_AND_BLIZ)) {
+			setflag(FLAG_TEMP_6)
+		}
 	end
 }
 
