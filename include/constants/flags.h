@@ -1376,7 +1376,7 @@
 #define FLAG_0x4FB               0x4FB
 #define FLAG_0x4FC               0x4FC
 #define FLAG_0x4FD               0x4FD
-#define FLAG_0x4FE               0x4FE
+#define FLAG_KILLED_BRUNO               0x4FE
 #define FLAG_0x4FF               0x4FF
 
 #define TRAINER_FLAGS_START      (FLAG_0x4FF + 1) //wiz1989 Trainer Flags

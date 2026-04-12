@@ -51,7 +51,7 @@ script FourIsland_Mart_EventScript_Clerk {
 		closemessage
 		if(!flag(FLAG_FOUR_ISLAND_CANDY)) {
 			setflag(FLAG_FOUR_ISLAND_CANDY)
-			giveitem(ITEM_ODD_CANDY)
+			additem(ITEM_ODD_CANDY)
 		}
 		fadeinbgm(0)
 	}

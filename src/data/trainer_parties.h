@@ -10111,7 +10111,7 @@ static const struct TrainerMonItemCustomMoves sParty_ShortsGang2[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_SCRAFTY,
-        .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_GRUDGE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };

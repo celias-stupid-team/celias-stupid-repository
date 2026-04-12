@@ -127,8 +127,8 @@ script CeruleanCave_BerserkGene {
 	"I'm gonna go BERSERK on you!",
 
 	///defeat
-	"No!\n"
-	"I hit myself in my confusion!")
+	"Grrraaah!\n"
+	"These fucking ducks won't leave me alone!")
 
 	//After battle
 	msgbox(

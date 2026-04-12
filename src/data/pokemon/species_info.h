@@ -8240,12 +8240,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_SPINDA] =
     {
-        .baseHP = 60,
-        .baseAttack = 120,
-        .baseDefense = 20,
+        .baseHP = 10,
+        .baseAttack = 150,
+        .baseDefense = 10,
         .baseSpeed = 60,
-        .baseSpAttack = 60,
-        .baseSpDefense = 60,
+        .baseSpAttack = 10,
+        .baseSpDefense = 10,
         .types = {TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 255,
         .expYield = 85,
@@ -13928,12 +13928,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_ROTOM] =
     {
-        .baseHP = 50,
+        .baseHP = 20,
         .baseAttack = 50,
-        .baseDefense = 77,
+        .baseDefense = 20,
         .baseSpeed = 91,
         .baseSpAttack = 95,
-        .baseSpDefense = 77,
+        .baseSpDefense = 20,
         .types = {TYPE_ELECTRIC, TYPE_GHOST},
         .catchRate = 255,
         .expYield = 150,
