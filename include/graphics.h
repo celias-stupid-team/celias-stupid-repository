@@ -9522,6 +9522,20 @@ extern const u32 gBerryPouchBgPal0FemaleOverride[];
 extern const u32 gBerryPouchSpritePalette[];
 extern const u8 gBerryPouchBg1Tilemap[];
 
+// sandwich_case ingredient sprites
+extern const u32 gSCSpriteSheet_Bread[];
+extern const u32 gSCSpritePal_Bread[];
+extern const u32 gSCSpriteSheet_Sesame[];
+extern const u32 gSCSpritePal_Sesame[];
+extern const u32 gSCSpriteSheet_Meat[];
+extern const u32 gSCSpritePal_Meat[];
+extern const u32 gSCSpriteSheet_Cheese[];
+extern const u32 gSCSpritePal_Cheese[];
+extern const u32 gSCSpriteSheet_Lettuce[];
+extern const u32 gSCSpritePal_Lettuce[];
+extern const u32 gSCSpriteSheet_Pickles[];
+extern const u32 gSCSpritePal_Pickles[];
+
 extern const u8 gTrainerBackPic_Red[];
 extern const u8 gTrainerBackPic_Leaf[];
 extern const u8 gTrainerBackPic_Pokedude[];

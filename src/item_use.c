@@ -6,6 +6,7 @@
 #include "battle_interface.h"
 #include "berry_pouch.h"
 #include "berry_powder.h"
+#include "sandwich_case.h"
 #include "bike.h"
 #include "coins.h"
 #include "event_data.h"
@@ -71,6 +72,8 @@ static void InitTMCaseFromBag(void);
 static void Task_InitTMCaseFromField(u8 taskId);
 static void InitBerryPouchFromBag(void);
 static void Task_InitBerryPouchFromField(u8 taskId);
+static void InitSandwichCaseFromBag(void);
+static void Task_InitSandwichCaseFromField(u8 taskId);
 static void InitBerryPouchFromBattle(void);
 static void InitTeachyTvFromBag(void);
 static void Task_InitTeachyTvFromField(u8 taskId);
@@ -616,6 +619,37 @@ static void Task_InitBerryPouchFromField(u8 taskId)
         CleanupOverworldWindowsAndTilemaps();
         SetFieldCallback2ForItemUse();
         InitBerryPouch(BERRYPOUCH_FROMFIELD, CB2_ReturnToField, 1);
+        DestroyTask(taskId);
+    }
+}
+
+void FieldUseFunc_SandwichCase(u8 taskId)
+{
+    if (gTasks[taskId].data[3] == 0)
+    {
+        ItemMenu_SetExitCallback(InitSandwichCaseFromBag);
+        ItemMenu_StartFadeToExitCallback(taskId);
+    }
+    else
+    {
+        StopPokemonLeagueLightingEffectTask();
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_InitSandwichCaseFromField;
+    }
+}
+
+static void InitSandwichCaseFromBag(void)
+{
+    InitSandwichCase(CB2_BagMenuFromStartMenu);
+}
+
+static void Task_InitSandwichCaseFromField(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        SetFieldCallback2ForItemUse();
+        InitSandwichCase(CB2_ReturnToField);
         DestroyTask(taskId);
     }
 }
