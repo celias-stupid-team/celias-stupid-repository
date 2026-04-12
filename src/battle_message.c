@@ -567,7 +567,7 @@ const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI 
 const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 static const u8 sText_ClassWiz1989[] = _("CSR DEVELOPER");
-static const u8 sText_ClassIdiotPlasto[] = _("IDIOT PLASTO");
+static const u8 sText_ClassIdiotPlasto[] = _("IDIOT");
 static const u8 sText_ClassStarlight[] = _("CSR MAP DESIGNER");
 
 // New battle strings.
@@ -1099,11 +1099,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNFLUNG - BATTLESTRINGS_TABLE_START]                     = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} flung its {B_LAST_ITEM}!"),
     [STRINGID_TM07 - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("It contained TM07!\p{PLAYER} got the TM07!"),
     [STRINGID_HEAVYDUTYBOOTSPROTECT - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} prevented damage\nusing its HEAVY-DUTY ROOTS!"),
-    [STRINGID_SMEARGLE - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("But it failed!\pGAME FREAK has decided to nerf the\nmove so only DARKRAI can use it!"),
+    [STRINGID_SMEARGLE - BATTLESTRINGS_TABLE_START]                      = COMPOUND_STRING("But it failed!\pGAME FREAK has decided to nerf the\nmove so only DARKRAI can use it!"),
+    [STRINGID_GREGORYBLASTCHARGE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} prepares\nhis ultimate attack!"),
 
-    
-
-    
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1265,6 +1263,7 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_BOUNCE]     = STRINGID_PKMNSPRANGUP, 
     [B_MSG_TURN1_SHADOW_FORCE] = STRINGID_SHADOW_FORCE,
     [B_MSG_TURN1_PHANTOM_FORCE] = STRINGID_VANISHEDINSTANTLY,
+    [B_MSG_TURN1_GREGORY_BLAST] = STRINGID_GREGORYBLASTCHARGE,
 };
 
 // Index copied from move's index in gTrappingMoves

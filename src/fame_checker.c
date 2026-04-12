@@ -347,7 +347,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_BLUE,
     OBJ_EVENT_GFX_WOMAN_2,
     OBJ_EVENT_GFX_WOMAN_3,
-    OBJ_EVENT_GFX_CHANNELER,
+    OBJ_EVENT_GFX_BALDING_MAN,
     // Celadon
     OBJ_EVENT_GFX_YOUNGSTER,
     OBJ_EVENT_GFX_GBA_KID,
@@ -1434,7 +1434,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FlagGet(FLAG_CSR_POKEMON_TOWER_MUSIC))
+                    if(FlagGet(FLAG_CRAFTED_BLUE_FLUTE))
                         isQuestCompleted = TRUE;
                     break;
             }

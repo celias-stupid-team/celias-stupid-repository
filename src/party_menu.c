@@ -4164,6 +4164,15 @@ static void CursorCB_FieldMove(u8 taskId)
             case FIELD_MOVE_FLASH:
                 DisplayCantUseFlashMessage();
                 break;
+            case FIELD_MOVE_FLY:
+                if(FlagGet(FLAG_SYS_FUSHCIA_DISABLE_FLY)) {
+
+                    DisplayPartyMenuStdMessage(PARTY_MSG_CANT_USE_HERE);
+                } else {
+                    DisplayPartyMenuStdMessage(sFieldMoveCursorCallbacks[fieldMove].msgId);
+
+                }
+                break;
             default:
                 DisplayPartyMenuStdMessage(sFieldMoveCursorCallbacks[fieldMove].msgId);
                 break;

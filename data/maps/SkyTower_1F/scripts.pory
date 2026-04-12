@@ -8,7 +8,7 @@ mapscripts SkyTower_1F_MapScripts {
 			setflag(FLAG_TEMP_5)
 		}
 		if(!flag(FLAG_WIDE_CUT)) {
-			setflag(FLAG_TEMP_B)
+			setflag(FLAG_TEMP_C)
 		}
 		setflag(FLAG_TEMP_A)
 	}

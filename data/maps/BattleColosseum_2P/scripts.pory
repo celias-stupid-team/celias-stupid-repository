@@ -239,10 +239,10 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_WOOBAT) // 73
 		setobtainable(SPECIES_PLUG_OINK) // 73
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) {
+	if((flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) || flag(FLAG_BADGE05_GET)) {
 		setobtainable(SPECIES_HORSEA) // 74
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) { 
+	if((flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK))|| flag(FLAG_BADGE05_GET)) { 
 		setobtainable(SPECIES_DRAGONITE) // 75
 	}
 	if(checkmoncaught(SPECIES_DRAGONITE) && (flag(FLAG_CSR_HINT_DRAGONITE) || flag(FLAG_BADGE05_GET))) { 

@@ -6,6 +6,7 @@
 #include "battle_interface.h"
 #include "berry_pouch.h"
 #include "berry_powder.h"
+#include "sandwich_case.h"
 #include "bike.h"
 #include "coins.h"
 #include "event_data.h"
@@ -71,6 +72,8 @@ static void InitTMCaseFromBag(void);
 static void Task_InitTMCaseFromField(u8 taskId);
 static void InitBerryPouchFromBag(void);
 static void Task_InitBerryPouchFromField(u8 taskId);
+static void InitSandwichCaseFromBag(void);
+static void Task_InitSandwichCaseFromField(u8 taskId);
 static void InitBerryPouchFromBattle(void);
 static void InitTeachyTvFromBag(void);
 static void Task_InitTeachyTvFromField(u8 taskId);
@@ -620,6 +623,37 @@ static void Task_InitBerryPouchFromField(u8 taskId)
     }
 }
 
+void FieldUseFunc_SandwichCase(u8 taskId)
+{
+    if (gTasks[taskId].data[3] == 0)
+    {
+        ItemMenu_SetExitCallback(InitSandwichCaseFromBag);
+        ItemMenu_StartFadeToExitCallback(taskId);
+    }
+    else
+    {
+        StopPokemonLeagueLightingEffectTask();
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_InitSandwichCaseFromField;
+    }
+}
+
+static void InitSandwichCaseFromBag(void)
+{
+    InitSandwichCase(CB2_BagMenuFromStartMenu);
+}
+
+static void Task_InitSandwichCaseFromField(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        SetFieldCallback2ForItemUse();
+        InitSandwichCase(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
 void BattleUseFunc_BerryPouch(u8 taskId)
 {
     ItemMenu_SetExitCallback(InitBerryPouchFromBattle);
@@ -756,9 +790,9 @@ void FieldUseFunc_Ruby(u8 taskId)
     if(VarGet(VAR_READY_FOR_TORNADO) == 1) {
         VarSet(VAR_READY_FOR_TORNADO, 2);
         RemoveUsedItem();
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToFieldFromBagMenu);
+        DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_HeldRuby);
     } else {
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToBagFromContextMenu);
+        DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_HeldRuby);
     }
 }
 
@@ -849,7 +883,7 @@ bool8 CanUseEscapeRopeOnCurrMap(void)
         }
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_3F) &&
             (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_3F))) {
-                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 2, 29, 11);
+                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 3, 50, 37);
                 return TRUE;
 
         }
@@ -1253,7 +1287,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
     if(gSpecialVar_ItemId == ITEM_RAW_NUGGET) {
         FlagSet(FLAG_SHINY_CREATION);
     }
-    if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
+    if (!FlagGet(FLAG_IN_FUSHCIA_GYM))
     {
         gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
     }
@@ -1342,6 +1376,7 @@ void FieldUseFunc_BigNugget(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         GetSpeciesName(gStringVar1, species);
         sItemUseOnFieldCB = ItemUseOnFieldCB_GiveMon;
@@ -1744,6 +1779,8 @@ static void TransTheNidotrans(u8 taskId)
         }
 
         SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SEEN);
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_CAUGHT);
 
         if (GetMonData(mon, MON_DATA_CSR_SHINY))
         {

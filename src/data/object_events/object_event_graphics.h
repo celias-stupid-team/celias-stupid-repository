@@ -912,3 +912,5 @@ const u32 gObjectEventPic_GOLDEEN[] = INCBIN_U32("graphics/object_events/pics/st
 const u16 gObjectEventPal_GOLDEEN[] = INCBIN_U16("graphics/object_events/palettes/GOLDEEN.gbapal");
 const u32 gObjectEventPic_SINGLE_SAWK[] = INCBIN_U32("graphics/object_events/pics/stupid/SINGLE_SAWK.4bpp");
 const u16 gObjectEventPal_SINGLE_SAWK[] = INCBIN_U16("graphics/object_events/palettes/SINGLE_SAWK.gbapal");
+const u32 gObjectEventPic_EVIL_CELIA[] = INCBIN_U32("graphics/object_events/pics/stupid/EVIL_CELIA.4bpp");
+const u16 gObjectEventPal_EVIL_CELIA[] = INCBIN_U16("graphics/object_events/palettes/EVIL_CELIA.gbapal");

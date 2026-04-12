@@ -1,3 +1,29 @@
 mapscripts BrunoBackRoom_MapScripts {
-
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_USED_CUT, 1 {
+            if(flag(FLAG_BADGE06_GET)) {
+                setvar(VAR_USED_CUT, 0)
+                release
+                end
+            }
+            playbgm(MUS_NONE, TRUE)
+            delay(45)
+            playfanfare(MUS_OBTAIN_BADGE)
+            msgbox(
+            "{PLAYER} got the BOULDER BADGE!\n"
+            "", MSGBOX_DEFAULT)
+            waitfanfare
+            setflag(FLAG_BADGE06_GET)
+            settrainerflag (TRAINER_LEADER_SABRINA)
+            setflag(FLAG_GOT_TM04_FROM_SABRINA)
+            setvar(VAR_USED_CUT, 0)
+            setflag(FLAG_DEFEATED_SABRINA)
+            delay(20)
+            fadedefaultbgm
+            release
+        }
+    ]
+    MAP_SCRIPT_ON_TRANSITION {
+        setvar(VAR_USED_CUT, 0)
+    }
 }

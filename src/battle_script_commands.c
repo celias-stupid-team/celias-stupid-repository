@@ -2008,7 +2008,9 @@ static void Cmd_adjustnormaldamage(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
+    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && ((Random() % 100) < param
+        || ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_OPPONENT
+            && (gTrainerBattleOpponent_A == TRAINER_WIZ1989 || gTrainerBattleOpponent_A == TRAINER_PLASTO)))) // 100% Focus Band for these cameo battles
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
@@ -2093,7 +2095,9 @@ static void Cmd_adjustnormaldamage2(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
+    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && ((Random() % 100) < param
+        || ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_OPPONENT
+            && (gTrainerBattleOpponent_A == TRAINER_WIZ1989 || gTrainerBattleOpponent_A == TRAINER_PLASTO))))
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
@@ -4781,7 +4785,11 @@ static void Cmd_playanimation(void)
         // set Pokédex flags
         HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
         if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+        {
             HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_CAUGHT, gBattleMons[gActiveBattler].personality);
+            if (IsMonShiny(mon)) // only if the mon is shiny
+                HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SHINY_FOUND, gBattleMons[gActiveBattler].personality);
+        }
     }
     else if (gHitMarker & HITMARKER_NO_ANIMATIONS)
     {
@@ -6773,7 +6781,9 @@ static void Cmd_adjustsetdamage(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
+    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && ((Random() % 100) < param
+        || ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_OPPONENT
+            && (gTrainerBattleOpponent_A == TRAINER_WIZ1989 || gTrainerBattleOpponent_A == TRAINER_PLASTO))))
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
@@ -8569,7 +8579,9 @@ static void Cmd_tryKO(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
+    if (holdEffect == HOLD_EFFECT_FOCUS_BAND && ((Random() % 100) < param
+        || ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && GET_BATTLER_SIDE(gBattlerTarget) == B_SIDE_OPPONENT
+            && (gTrainerBattleOpponent_A == TRAINER_WIZ1989 || gTrainerBattleOpponent_A == TRAINER_PLASTO))))
     {
         RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_FOCUS_BAND);
         gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;

@@ -1164,13 +1164,13 @@ script CinnabarGym_Flint {
 
 script CinnabarGym_Skiier {
 	msgbox(
-	"Placeholder gym trainer\n"
+	"Sneaky!\n"
 	"", MSGBOX_NPC)
 }
 
 script CinnabarGym_ThirdTrainer {
 	msgbox(
-	"Placeholder gym trainer\n"
+	"Sneaky!\n"
 	"", MSGBOX_NPC)
 }
 
@@ -1179,7 +1179,7 @@ script CinnabarGym_Dad {
 	faceplayer
 	textcolor(0)
 	msgbox(
-	"Placeholder gym dad\n"
+	"Sneaky dad!\n"
 	"", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
 	release
@@ -1188,12 +1188,12 @@ script CinnabarGym_Dad {
 
 script CinnabarGym_FifthTrainer {
 	msgbox(
-	"Placeholder gym dad\n"
+	"Sneaky!\n"
 	"", MSGBOX_NPC)
 }
 script CinnabarGym_SixthTrainer {
 	msgbox(
-	"Placeholder gym dad\n"
+	"Sneaky!\n"
 	"", MSGBOX_NPC)
 }
 

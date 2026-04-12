@@ -70,6 +70,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Cinnabar_Gunther",
       "flag": "FLAG_TEMP_5"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 0,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_LongRangeCut",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [
@@ -180,7 +194,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_BusyResearcher"
+      "script": "PokemonLab_OccupiedTree"
     },
     {
       "type": "sign",
@@ -188,7 +202,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_BusyResearcher"
+      "script": "PokemonLab_FocusedTree"
     },
     {
       "type": "sign",
@@ -196,7 +210,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_BusyResearcher"
+      "script": "PokemonLab_LockedIn"
     },
     {
       "type": "sign",
@@ -204,7 +218,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_BusyResearcher"
+      "script": "PokemonLab_GoofingOff"
     },
     {
       "type": "sign",
@@ -212,7 +226,7 @@
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonLab_BusyResearcher"
+      "script": "PokemonLab_ATree"
     }
   ]
 }

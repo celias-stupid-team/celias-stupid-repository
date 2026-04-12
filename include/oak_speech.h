@@ -3,4 +3,6 @@
 
 void StartNewGameScene(void);
 
+extern u8 gModeNewGame;
+
 #endif //GUARD_OAK_SPEECH_H
