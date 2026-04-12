@@ -6423,8 +6423,9 @@ BattleScript_EffectFling::
 	ppreduce
 	tryfling BattleScript_ButItFailed
 	removeitem BS_ATTACKER
-	attackanimation
-	waitanimation
+	@ attackanimation
+	@ waitanimation
+	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PKMNFLUNG
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_EffectHit

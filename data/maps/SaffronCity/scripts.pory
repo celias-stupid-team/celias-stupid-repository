@@ -339,7 +339,7 @@ script SaffronCity_TheLeekMan {
 	lock
 	faceplayer
 	famechecker(FAMECHECKER_SAFFRON, 3)
-	if(var(VAR_TRADING_QUEST_PHASE) >= 3) {
+	if(var(VAR_TRADING_QUEST_PHASE) >= 3 && flag(FLAG_TALKED_TO_THE_LEEK)) {
 		call(TheLeek_ProofOfAliens)
 		msgbox(
 		"Look kid, we're running a business\n"

@@ -3101,3 +3101,51 @@ void IsPlayerNameKaylee(void)
     }
     gSpecialVar_Result = FALSE;
 }
+
+void CSRBadgeDebug(void)
+{
+    u16 badgeState = VarGet(VAR_TEMP_F);
+    DebugPrintf("setting badge state: %u", badgeState);
+
+    switch (badgeState)
+    {
+    case 0:  // no badges
+        FlagClear(FLAG_BADGE01_GET);
+        FlagClear(FLAG_BADGE02_GET);
+        FlagClear(FLAG_BADGE03_GET);
+        FlagClear(FLAG_BADGE04_GET);
+        FlagClear(FLAG_BADGE05_GET);
+        FlagClear(FLAG_BADGE06_GET);
+        FlagClear(FLAG_GOT_GYM_MEMBERSHIP_BADGE);
+        FlagClear(FLAG_BADGE07_GET);
+        FlagClear(FLAG_OBTAINED_ZEPHYRBADGE);
+        FlagClear(FLAG_BADGE08_GET);
+        break;
+    case 1:  // everything pre double boulderbadge
+        FlagSet(FLAG_BADGE01_GET);
+        FlagSet(FLAG_BADGE02_GET);
+        FlagSet(FLAG_BADGE03_GET);
+        FlagSet(FLAG_BADGE04_GET);
+        FlagSet(FLAG_BADGE05_GET);
+        break;
+    case 2: // double boulderbadge
+        FlagSet(FLAG_BADGE06_GET);
+        break;
+    case 3: // gym membership badge
+        FlagSet(FLAG_GOT_GYM_MEMBERSHIP_BADGE);
+        break;
+    case 4: // last badge before new tilemap
+        FlagSet(FLAG_BADGE07_GET);
+        break;
+    case 5: // first badge of new tilemap
+        FlagSet(FLAG_OBTAINED_ZEPHYRBADGE);
+        break;
+    case 6: // all badges obtained
+        FlagSet(FLAG_BADGE08_GET);
+        break;
+    }
+
+    badgeState++;
+    if (badgeState > 6) badgeState = 0;
+    VarSet(VAR_TEMP_F, badgeState);
+}

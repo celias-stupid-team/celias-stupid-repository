@@ -39,7 +39,9 @@ Debug_CheatStart::
 	setflag FLAG_BADGE04_GET
 	setflag FLAG_BADGE05_GET
 	setflag FLAG_BADGE06_GET
+	setflag FLAG_OBTAINED_ZEPHYRBADGE
 	setflag FLAG_BADGE07_GET
+	setflag FLAG_GOT_GYM_MEMBERSHIP_BADGE
 	setflag FLAG_BADGE08_GET
 	setflag FLAG_WORLD_MAP_PALLET_TOWN
 	setflag FLAG_WORLD_MAP_VIRIDIAN_CITY
@@ -130,6 +132,10 @@ Debug_EventScript_Script_7::
 	end
 
 Debug_EventScript_Script_8:: @ directly used in C code
+	end
+
+Debug_EventScript_Script_9::
+	callnative CSRBadgeDebug
 	end
 
 Debug_CheckSaveBlock::

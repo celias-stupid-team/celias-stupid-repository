@@ -1253,7 +1253,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
     if(gSpecialVar_ItemId == ITEM_RAW_NUGGET) {
         FlagSet(FLAG_SHINY_CREATION);
     }
-    if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
+    if (!FlagGet(FLAG_IN_FUSHCIA_GYM))
     {
         gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
     }
@@ -1342,6 +1342,7 @@ void FieldUseFunc_BigNugget(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+        RemoveUsedItem();
         PlayCry_Normal(species, CRY_MODE_DEFAULT);
         GetSpeciesName(gStringVar1, species);
         sItemUseOnFieldCB = ItemUseOnFieldCB_GiveMon;

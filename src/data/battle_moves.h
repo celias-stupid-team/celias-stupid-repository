@@ -3817,14 +3817,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GRUDGE] =
     {
-        .effect = EFFECT_GRUDGE,
-        .power = 0,
-        .type = TYPE_GHOST,
+        .effect = EFFECT_RECHARGE,
+        .power = 150,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
@@ -7191,7 +7191,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 [MOVE_MAX_AIRSTREAM] =    {
         .effect = EFFECT_G_MAX_CUDDLE, // Placeholder Effect
         .power = 100,
-        .type = TYPE_FLYING,
+        .type = TYPE_LARGE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
