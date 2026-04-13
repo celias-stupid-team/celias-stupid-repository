@@ -184,6 +184,7 @@ enum
     MSG_PORYGON_VIRUS,
     MSG_BRICK_PIECE_OBTAINED,
     MSG_EVOLVED,
+    MSG_DISAPPEARED,
 };
 
 enum
@@ -339,6 +340,7 @@ static const struct StorageMessage sMessages[] = {
     [MSG_PORYGON_VIRUS]        = {gText_PkmnGotVirus,            MSG_FMT_MON_NAME_1},
     [MSG_BRICK_PIECE_OBTAINED] = {gText_ObtainedBrickPiece,      MSG_FMT_NONE},
     [MSG_EVOLVED]              = {gText_WowPkmnEvolved,          MSG_FMT_MON_NAME_1},
+    [MSG_DISAPPEARED]          = {gText_PkmnDisappeared,         MSG_FMT_MON_NAME_1},
 };
 
 static const struct WindowTemplate sYesNoWindowTemplate = {
@@ -1498,14 +1500,22 @@ static void Task_TriggerPSSEvolution_Simple(u8 taskId)
         gStorage->state++;
         break;
     case 1:
-        // message
+        // message "Mon disappeared!"
         if (!TryHideReleaseMonSprite())
+        {
+            PrintStorageMessage(MSG_DISAPPEARED);
+            gStorage->state++;
+        }
+        break;
+    case 2:
+        // message "..."
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
             PrintStorageMessage(MSG_SURPRISE);
             gStorage->state++;
         }
         break;
-    case 2:
+    case 3:
         // swap species icon and start return animation
         if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
@@ -1519,17 +1529,21 @@ static void Task_TriggerPSSEvolution_Simple(u8 taskId)
             gStorage->state++;
         }
         break;
-    case 3:
-        // evolved message
+    case 4:
+        // evolved message and update species sprite
         if (!ResetReleaseMonSpritePtr())
         {
+            u32 otId = GetCurrentBoxMonData(gPSSEvoSilentBoxPos, MON_DATA_OT_ID);
             TrySetCursorFistAnim();
             StringCopy(gStorage->displayMonNickname, gSpeciesNames[SPECIES_PORYGON_Z]);
+            gStorage->displayMonSpecies = SPECIES_PORYGON_Z;
+            gStorage->displayMonPalette = GetMonSpritePalFromSpeciesAndPersonality(SPECIES_PORYGON_Z, otId, gStorage->displayMonPersonality);
+            RefreshDisplayMonData();
             PrintStorageMessage(MSG_EVOLVED);
             gStorage->state++;
         }
         break;
-    case 4: // return to Main
+    case 5: // return to Main
         if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
             ClearBottomWindow();

@@ -1525,6 +1525,7 @@ extern const u8 gText_ContinueBoxOperations[];
 extern const u8 gText_PkmnCameBack[];
 extern const u8 gText_WasItWorriedAboutYou[];
 extern const u8 gText_WowPkmnEvolved[];
+extern const u8 gText_PkmnDisappeared[];
 extern const u8 gText_PkmnGotVirus[];
 extern const u8 gText_FourEllipsesExclamation[];
 extern const u8 gText_PleaseRemoveTheMail[];
