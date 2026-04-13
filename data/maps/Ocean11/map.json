@@ -176,6 +176,46 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_LuvdiscSwimmer",
       "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_MOLTRES_STATUE",
+      "x": -8,
+      "y": 15,
+      "target_local_id": "LOCALID_MOLTRES_STATUE",
+      "target_map": "MAP_CINNABAR_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 36,
+      "y": 25,
+      "target_local_id": "1",
+      "target_map": "MAP_POKEMON_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 7,
+      "y": -1,
+      "target_local_id": "29",
+      "target_map": "MAP_TWO_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_MOLTRES_PILLAR",
+      "x": 5,
+      "y": 10,
+      "target_local_id": "1",
+      "target_map": "MAP_ZERO_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 43,
+      "y": 15,
+      "target_local_id": "6",
+      "target_map": "MAP_ZERO_ISLAND"
     }
   ],
   "warp_events": [],

@@ -716,6 +716,70 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_FourDayCare",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": -6,
+      "y": 9,
+      "target_local_id": "2",
+      "target_map": "MAP_OCEAN2"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 55,
+      "y": -3,
+      "target_local_id": "3",
+      "target_map": "MAP_OCEAN9"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_LASER_SHARK",
+      "x": 78,
+      "y": -4,
+      "target_local_id": "7",
+      "target_map": "MAP_OCEAN9"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 64,
+      "y": -5,
+      "target_local_id": "6",
+      "target_map": "MAP_OCEAN9"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_POKEBALL_STORAGE",
+      "x": -5,
+      "y": 36,
+      "target_local_id": "7",
+      "target_map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+      "x": -3,
+      "y": 39,
+      "target_local_id": "6",
+      "target_map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BILL_BOARD",
+      "x": 78,
+      "y": 14,
+      "target_local_id": "18",
+      "target_map": "MAP_MINNESOTA"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 79,
+      "y": 30,
+      "target_local_id": "16",
+      "target_map": "MAP_MINNESOTA"
     }
   ],
   "warp_events": [

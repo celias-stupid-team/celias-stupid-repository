@@ -302,6 +302,22 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_DavidHasslehoff",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "x": 19,
+      "y": 42,
+      "target_local_id": "18",
+      "target_map": "MAP_GREAT_SEA_PIRATE_BAY"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_PIRATE_JOY",
+      "x": 34,
+      "y": 45,
+      "target_local_id": "26",
+      "target_map": "MAP_GREAT_SEA_PIRATE_BAY"
     }
   ],
   "warp_events": [],

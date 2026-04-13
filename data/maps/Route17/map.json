@@ -269,6 +269,22 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_WetFloor",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 37,
+      "y": 99,
+      "target_local_id": "9",
+      "target_map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": -6,
+      "y": 20,
+      "target_local_id": "6",
+      "target_map": "MAP_AETHER_PARADISE_ISLAND"
     }
   ],
   "warp_events": [
