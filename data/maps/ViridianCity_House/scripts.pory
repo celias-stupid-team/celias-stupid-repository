@@ -1926,6 +1926,7 @@ script CeliaSecret_NewGamePlus {
 			msgbox(
 			"Gotcha!\n"
 			"Have fun!", MSGBOX_DEFAULT)
+			additem(ITEM_CANDY_DISPENSER)
 			removeobject(VAR_LAST_TALKED)
 		}
 		release
@@ -3377,4 +3378,162 @@ script CeliaSecret_History {
 	"This guy has like 6 variations on\n"
 	"his bad history, and they're\l"
 	"all bangers.", MSGBOX_NPC)
+}
+
+
+script CeliaTrailerPokedex {
+	setobtainable(SPECIES_PIDGEOTTO)
+	givemon(SPECIES_PIDGEOTTO, 1)
+	setvar (VAR_0x8004, SPECIES_PIDGEOTTO)
+	special (SetSeenMon)
+
+	setobtainable(SPECIES_RATTATA)
+	givemon(SPECIES_PIDGEOTTO, 1)
+	
+	setobtainable(SPECIES_MANKEY)
+	setvar (VAR_0x8004, SPECIES_MANKEY)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_PRIMEAPE)
+	
+	setobtainable(SPECIES_SANDSHREW)
+	givemon(SPECIES_SANDSHREW, 1)
+	
+	setobtainable(SPECIES_SANDSLASH)
+	setvar (VAR_0x8004, SPECIES_SANDSLASH)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_EKANS)
+	givemon(SPECIES_EKANS, 1)
+	
+	setobtainable(SPECIES_ARBOK)
+	givemon(SPECIES_ARBOK, 1)
+	
+	setobtainable(SPECIES_SEVIPER)
+	setvar (VAR_0x8004, SPECIES_SEVIPER)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_VOLTORB)
+	givemon(SPECIES_VOLTORB, 1)
+	
+	setobtainable(SPECIES_JIGGLYPUFF_ABOVE)
+	setvar (VAR_0x8004, SPECIES_JIGGLYPUFF_ABOVE)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_JIGGLYPUFF)
+	givemon(SPECIES_JIGGLYPUFF, 1)
+	
+	setobtainable(SPECIES_NIDORAN_M)
+	givemon(SPECIES_NIDORAN_M, 1)
+	
+	setobtainable(SPECIES_NIDORINA)
+	givemon(SPECIES_NIDORINA, 1)
+	
+	setobtainable(SPECIES_NIDOQUEEN)
+	setvar (VAR_0x8004, SPECIES_NIDOQUEEN)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_NIDORAN_F)
+	givemon(SPECIES_NIDORAN_F, 1)
+	
+	setobtainable(SPECIES_NIDORINO)
+	givemon(SPECIES_NIDORINO, 1)
+	
+	setobtainable(SPECIES_NIDOKING)
+	setvar (VAR_0x8004, SPECIES_NIDOKING)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_CLEFAIRY)
+	givemon(SPECIES_CLEFAIRY, 1)
+	
+	setobtainable(SPECIES_CLEFABLE)
+	setvar (VAR_0x8004, SPECIES_CLEFABLE)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_GENGAR)
+	setvar (VAR_0x8004, SPECIES_GENGAR)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_VULPIX)
+	givemon(SPECIES_VULPIX, 1)
+
+	setobtainable(SPECIES_NINETALES)
+	setvar (VAR_0x8004, SPECIES_NINETALES)
+	special (SetSeenMon)
+	
+	
+	setobtainable(SPECIES_TENTACOOL)
+	givemon(SPECIES_TENTACOOL, 1)
+	
+	setobtainable(SPECIES_TOEDSCOOL)
+	setvar (VAR_0x8004, SPECIES_TOEDSCOOL)
+	special (SetSeenMon)
+	
+	
+	givemon(SPECIES_KRABBY, 1)
+	
+	setobtainable(SPECIES_DIGLETT)
+	setvar (VAR_0x8004, SPECIES_DIGLETT)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_DUGTRIO)
+	givemon(SPECIES_DUGTRIO, 1)
+	
+	setobtainable(SPECIES_PARAS)
+	givemon(SPECIES_PARAS, 1)
+	
+	setobtainable(SPECIES_PARASECT)
+	setvar (VAR_0x8004, SPECIES_PARASECT)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_GYARADOS)
+	setvar (VAR_0x8004, SPECIES_GYARADOS)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_MAGIKARP)
+	givemon(SPECIES_MAGIKARP, 1)
+	
+	setobtainable(SPECIES_CUBONE)
+	setvar (VAR_0x8004, SPECIES_CUBONE)
+	special (SetSeenMon)
+		
+	setobtainable(SPECIES_MAROWAK)
+	setvar (VAR_0x8004, SPECIES_MAROWAK)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_POLIWAG)
+	givemon(SPECIES_POLIWAG, 1)
+	
+	setobtainable(SPECIES_TENTAQUIL)
+	setvar (VAR_0x8004, SPECIES_TENTAQUIL)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_GOLDUCK)
+	givemon(SPECIES_GOLDUCK, 1)
+	
+	setobtainable(SPECIES_PSYDUCK)
+	setvar (VAR_0x8004, SPECIES_PSYDUCK)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_ABRA)
+	givemon(SPECIES_ABRA, 1)
+	
+	setobtainable(SPECIES_MISSINGNO)
+	setvar (VAR_0x8004, SPECIES_MISSINGNO)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_ALAKAZAM)
+	setvar (VAR_0x8004, SPECIES_ALAKAZAM)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_KANGASKHAN)
+	setvar (VAR_0x8004, SPECIES_KANGASKHAN)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_UNOWN_LOSS)
+	givemon(SPECIES_UNOWN_LOSS, 1)
+	
+	release
+
+	
 }

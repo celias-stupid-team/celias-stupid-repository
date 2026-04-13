@@ -275,3 +275,10 @@ script Walmart_Counter {
 	waitmovement(0)
 	release
 }
+
+script Walmart_CoolSecret {
+	msgbox(
+	"Wow!\n"
+	"It's a really cool secret!", MSGBOX_SIGN)
+
+}
