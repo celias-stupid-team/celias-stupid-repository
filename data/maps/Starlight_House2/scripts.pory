@@ -3,7 +3,15 @@ mapscripts Starlight_House2_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		if(!flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
 			setflag(FLAG_TEMP_3)
-
+		}
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_8)
+        }
+            if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+		if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_8)
 		}
 		
 	}
@@ -172,6 +180,7 @@ script Starlight_House2_PC { //update table plans visual
 
 script Starlight_House2_Jukebox_Block { //update table plans visual
 	msgbox(
-	"Come back here post game.", MSGBOX_SIGN)
+	"Come back here {COLOR DYNAMIC_COLOR5}post game.", MSGBOX_SIGN)
 
 }
+

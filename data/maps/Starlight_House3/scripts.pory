@@ -2,14 +2,21 @@ mapscripts Starlight_House3_MapScripts {
 MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
 			setflag(FLAG_TEMP_2)
+            setflag(FLAG_TEMP_8)
         }
             if(flag(FLAG_DAK_HERE)) {
 			setflag(FLAG_TEMP_2)
 		}
+        if(!flag(FLAG_DAK_HERE)) {
+            setflag(FLAG_TEMP_8)
+		}
+        if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+        setflag(FLAG_TEMP_8)//temporary until commentary is finished
 		
 	}
 }
-
 script Starlight_House3_Map_Table {
 	msgbox(
 	"A table containing the map of the\n"
@@ -27,7 +34,7 @@ script Starlight_House3_Dak {
 	"Oh! Um... Hey!\p"
 	"Listen, I am working on a video,\l"
 	"don't tell Starlight I am in here\n"
-    "Okay?", MSGBOX_SIGN)
+    "Okay?", MSGBOX_NPC)
     
     //playbgm(MUS_NONE, TRUE)
     applymovement(LOCALID_DAK, moves(
@@ -73,7 +80,7 @@ msgbox(
     setmetatile(1, 2, 0x2A6, FALSE)
     special(DrawWholeMapView)
 
-    applymovement(LOCALID_PLAYER, moves(
+    applymovement(LOCALID_PLAYER, moves(//moves(
         face_left
     ))
 
@@ -100,10 +107,16 @@ msgbox(
     special(DrawWholeMapView)
     delay(30)
     
-    waitmovement(LOCALID_DAK)
+    //waitmovement(LOCALID_DAK)
+
+    //applymovement(LOCALID_PLAYER, face_right)
     applymovement(LOCALID_PLAYER, moves(
         face_right
     ))
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+    ))
+
     textcolor(NPC_TEXT_COLOR_RED)
     msgbox(
 	"Sorry about that, Dak is my friend.\p"
@@ -111,7 +124,7 @@ msgbox(
     "from time to time.\p"
     "Don't worry he will be fine!\p"
     "I made sure he would go to\n" 
-    "a nice fun map!", MSGBOX_SIGN)
+    "a nice fun map!", MSGBOX_NPC)
     closemessage
     applymovement(LOCALID_STARLIGHT2, moves(
     walk_right * 8
@@ -233,3 +246,10 @@ script Starlight_House3_Rematch {
     release
     end
 }
+
+script Starlight_House3_Dak_Commentary_Reaction {
+	msgbox(
+	"Oh god, why are there so many\n"
+	"of them now?!", MSGBOX_NPC)
+}
+

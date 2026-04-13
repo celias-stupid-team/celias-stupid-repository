@@ -34,7 +34,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN",
       "x": 7,
-      "y": 3,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -55,7 +55,7 @@
     },
     {
       "x": 7,
-      "y": 3,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_STARLIGHT_HOUSE_JUKEBOX",
       "dest_warp_id": "0"

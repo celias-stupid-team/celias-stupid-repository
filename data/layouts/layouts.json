@@ -7732,8 +7732,8 @@
     {
       "id": "LAYOUT_STARLIGHT_HOUSE12",
       "name": "Starlight_House12_Layout",
-      "width": 19,
-      "height": 14,
+      "width": 11,
+      "height": 12,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",

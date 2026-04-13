@@ -2468,7 +2468,7 @@ script CeliaSecret_Starlight {
 	msgbox(
 	"You would not believe how many\n"
 	"times Starlight set this map\l"
-	"to load the Volcano vesion as the\l"
+	"to load the Volcano version as the\l"
 	"default.", MSGBOX_NPC)
 }
 
@@ -2477,7 +2477,7 @@ script CeliaSecret_StarlightCinnabar {
 	msgbox(
 	"You would not believe how many\n"
 	"times Starlight set this map\l"
-	"to load the Volcano vesion as the\l"
+	"to load the Volcano version as the\l"
 	"default.\p"
 
 	"It was\n"

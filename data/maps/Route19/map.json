@@ -256,6 +256,22 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 36,
+      "y": 27,
+      "target_local_id": "1",
+      "target_map": "MAP_OCEAN2"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 41,
+      "y": 14,
+      "target_local_id": "2",
+      "target_map": "MAP_OCEAN2"
     }
   ],
   "warp_events": [

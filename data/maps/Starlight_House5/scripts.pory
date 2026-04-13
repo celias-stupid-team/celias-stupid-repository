@@ -1,8 +1,19 @@
 mapscripts Starlight_House5_MapScripts {
 MAP_SCRIPT_ON_TRANSITION {
-		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE)) {
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE) || !flag(FLAG_CSR_CELIA_BONUS)) {
     setflag(FLAG_TEMP_4)
 }
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_8)
+        }
+            if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+		if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_8)
+		}
+		
+	
 setflag(FLAG_TEMP_5)
 	}
 }
@@ -14,7 +25,7 @@ script Starlight_House5_Dak_Pit { //test
     msgbox(
 	"I haven't tried to get out yet\n"
 	"but I kinda like this place.\p"
-	"It's nice and fun!", MSGBOX_DEFAULT)
+	"It's a nice fun map!", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
@@ -25,7 +36,7 @@ script Starlight_House5_Dak_Pit { //test
 
 script Starlight_House5_Todo_List {
 	msgbox(
-	"Starlight's Todo List:\l"
+	"Starlight's Todo List:\n"
     "-Fix the collision on this map.", MSGBOX_SIGN)
 
 }
@@ -659,7 +670,7 @@ script Starlight_House5_Secret {
 	lock
 	if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
 		msgbox(
-	"Come back when you've talked to\n"
+	"Come back after you've talked to\n"
 	"Starlight.", MSGBOX_SIGN)
 	} else {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
@@ -675,4 +686,14 @@ script Starlight_House5_Secret {
 	}
     release
     end
+}
+
+script Starlight_House5_Pit_Sign {
+	msgbox(
+	"TRAINER TIPS!\p"
+	"Press START to save the game!", MSGBOX_SIGN)
+	delay(90)
+	msgbox(
+	"…Dumbass.", MSGBOX_SIGN)
+
 }

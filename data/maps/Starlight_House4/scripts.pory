@@ -1,5 +1,18 @@
 mapscripts Starlight_House4_MapScripts {
 
+MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_8)
+        }
+            if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+		if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_8)
+		}
+		
+	}
+
 }
 
 script Starlight_House4_Under_Construction {
@@ -17,11 +30,17 @@ script StarlightHouse_YouForgotSomething {
 }
 //*.* whoops lol - Starlight
 
-script Starlight_House4_Post_Game {
+script Starlight_House4_Post_Game_Scrapped {
 	msgbox(
 	"Come back when you are ready.\p"
 	"When that will be is determined by\n"
 	"your experience.\p"
 	"See you at the finish line!", MSGBOX_SIGN)
+
+}
+
+script Starlight_House4_Post_Game {
+	msgbox(
+	"Come back post game.\p", MSGBOX_SIGN)
 
 }
