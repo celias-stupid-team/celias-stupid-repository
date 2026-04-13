@@ -185,6 +185,14 @@
       "y": 66,
       "target_local_id": "4",
       "target_map": "MAP_TWO_ISLAND_CAPE_BRINK"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 75,
+      "y": 42,
+      "target_local_id": "8",
+      "target_map": "MAP_ROUTE17"
     }
   ],
   "warp_events": [
