@@ -407,6 +407,7 @@ script SaffronDojo_James {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	if(var(VAR_MAP_SCENE_SAFFRON_CITY_DOJO) > 0) {
+		setflag(FLAG_TEMP_A)
 		msgbox(
 		"JAMES: I've never seen such horse\n"
 		"shit before in my life.\p"
@@ -420,13 +421,17 @@ script SaffronDojo_James {
 		"If you want the GYM BADGE, you'll\n"
 		"need to go into the back room and\l"
 		"defeat the biggest nerd of all!", MSGBOX_DEFAULT)
-		closemessage
-		delay(10)
-		applymovement(VAR_LAST_TALKED, moves(
-			walk_right
-			face_left
-		))
-		waitmovement(0)
+		if(!flag(FLAG_TEMP_A)) {
+			closemessage
+			delay(10)
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_right
+				face_left
+			))
+			waitmovement(0)
+			
+		}
+		setflag(FLAG_TEMP_A)
 		release
 		end
 	}
