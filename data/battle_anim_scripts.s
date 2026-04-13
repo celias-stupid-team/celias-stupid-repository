@@ -1867,6 +1867,8 @@ Move_MEGA_KICK:
 	loadspritegfx ANIM_TAG_HUMAN_LEG_ONE
 	loadspritegfx ANIM_TAG_HUMAN_LEG_TWO
 	loadspritegfx ANIM_TAG_IMPACT
+	createvisualtask AnimTask_GetAttackerSide, 2
+	jumprettrue MegaKickAgainstPlayer
 	monbg ANIM_TARGET
 	delay 2
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 16, RGB_BLACK
@@ -1879,39 +1881,40 @@ Move_MEGA_KICK:
 	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 0
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 22, 1
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 8, RGB_BLACK, 0
 	delay 6
 	playsewithpan SE_PC_ON, SOUND_PAN_TARGET
 	delay 2
 	createsprite gHumanLegThreeSpriteTemplate, ANIM_TARGET, 2, 160, 52, 0, 8, 2, 3, 4, 2
 	waitforvisualfinish
-	@createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 8, RGB_BLACK, 0
-	@waitforvisualfinish
-	blendoff
+	@blendoff
 	clearmonbg ANIM_TARGET
 	delay 2
 	restorebg
 	waitbgfadein
 	end
 
-	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_HANDS_AND_FEET
+MegaKickAgainstPlayer:
 	monbg ANIM_TARGET
 	delay 2
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 16, RGB_BLACK
-	setalpha 12, 8
 	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_TARGET
-	createsprite gMegaPunchKickSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 1, 50
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 7, RGB_WHITE
-	delay 50
-	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	delay 30
+	createsprite gHumanLegOneSpriteTemplate, ANIM_TARGET, 2, 84, 100, 0, 0, 0, 16, 0, 2
+	delay 14
+	createsprite gHumanLegTwoSpriteTemplate, ANIM_TARGET, 2, 60, 84, 0, 0, 0, 16, 0, 2
 	call SetImpactBackground
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 0
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 22, 1
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 0, RGB_WHITE
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 8, RGB_BLACK, 0
+	delay 6
+	playsewithpan SE_PC_ON, SOUND_PAN_TARGET
+	delay 2
+	createsprite gHumanLegThreeSpriteTemplate, ANIM_TARGET, 2, 60, 96, 0, 8, 2, 3, 4, 2
 	waitforvisualfinish
+	@blendoff
 	clearmonbg ANIM_TARGET
-	blendoff
 	delay 2
 	restorebg
 	waitbgfadein
@@ -9639,6 +9642,7 @@ Move_WILL_O_WISP:
 	clearmonbg ANIM_DEF_PARTNER
 	end
 
+Move_ARE_WE_NOT_MON:
 Move_ENCORE:
 	loadspritegfx ANIM_TAG_SPOTLIGHT
 	loadspritegfx ANIM_TAG_TAG_HAND
@@ -9693,6 +9697,7 @@ Move_COLONIZE:
 	waitforvisualfinish
 	end
 
+Move_GRASS_MONKEY:
 Move_BARGAINING:
 Move_TRICK:
 	loadspritegfx ANIM_TAG_ITEM_BAG
@@ -15519,6 +15524,7 @@ Move_THROAT_CHOP:
 	waitbgfadein
 	end
 	
+Move_GIGATON_CRUSHER:
 Move_DRAGON_HAMMER:
 	loadspritegfx ANIM_TAG_SMALL_EMBER
 	loadspritegfx ANIM_TAG_CLAW_SLASH
@@ -28793,9 +28799,6 @@ Move_HACK_ATTACK:
 Move_GAY_BALL_PROBLEMS:
 Move_SUBSTITUTE_DAD:
 Move_DOSWINGBEAT:
-Move_GIGATON_CRUSHER:
-Move_ARE_WE_NOT_MON:
-Move_GRASS_MONKEY:
 	goto Move_TACKLE
 
 Move_GRIN_MISSILE:
