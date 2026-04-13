@@ -627,6 +627,7 @@ void PSSEvolutionScene(struct Pokemon* mon, u16 postEvoSpecies)
     gBattle_BG3_Y = 0;
 
     // fade everything black
+    BlendPalettes(PALETTES_ALL, 16, RGB_BLACK);
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, RGB_BLACK);
 
     gTextFlags.useAlternateDownArrow = TRUE;
@@ -1716,6 +1717,7 @@ static void Task_PSSEvolutionScene(u8 taskId)
     case T_EVOSTATE_END: // resolve the trade scene by freeing all allocs
         if (!gPaletteFade.active)
         {
+            StopBgAnimation();
             StopMapMusic();
             Overworld_PlaySpecialMapMusic();
             DestroyTask(taskId);
