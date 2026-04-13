@@ -4656,7 +4656,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "AuroraBeam"
+      "moveId": "PSIRockin"
     },
     {
       "english": "TM03",
@@ -4724,7 +4724,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Toxic"
+      "moveId": "Shoot"
     },
     {
       "english": "TM07",
@@ -4860,7 +4860,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Psystorm"
+      "moveId": "SteelWing"
     },
     {
       "english": "TM15",
@@ -4877,7 +4877,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Splash"
+      "moveId": "Barrage"
     },
     {
       "english": "TM16",
@@ -5115,7 +5115,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "IceBeam"
+      "moveId": "AuroraBeam"
     },
     {
       "english": "TM30",
@@ -5234,7 +5234,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "RazorWind"
+      "moveId": "GameGenie"
     },
     {
       "english": "TM37",
@@ -5251,7 +5251,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Sandstorm"
+      "moveId": "MilkDrink"
     },
     {
       "english": "TM39",
@@ -5302,7 +5302,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "DragonRage"
+      "moveId": "RipRoaring"
     },
     {
       "english": "TM41",

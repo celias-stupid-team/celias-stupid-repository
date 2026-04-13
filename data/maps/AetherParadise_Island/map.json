@@ -327,7 +327,7 @@
       "item": "ITEM_NOTHING",
       "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_BOND_BRIDGE_MAX_REPEL",
       "quantity": 1,
-      "underfoot": true
+      "underfoot": false
     }
   ]
 }

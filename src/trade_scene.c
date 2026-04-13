@@ -2803,6 +2803,16 @@ void LoadTradeAnimGfx(void)
     TradeAnimInit_LoadGfx();
 }
 
+void AllocTradeAnimForEvolution(void)
+{
+    sTradeAnim = AllocZeroed(sizeof(*sTradeAnim));
+}
+
+void FreeTradeAnimForEvolution(void)
+{
+    FREE_AND_SET_NULL(sTradeAnim);
+}
+
 void DrawTextOnTradeWindow(u8 windowId, const u8 *str, s8 speed)
 {
     FillWindowPixelBuffer(windowId, PIXEL_FILL(15));

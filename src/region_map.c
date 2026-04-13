@@ -387,6 +387,8 @@ static void SetFlyWarpDestination(u16);
 
 #include "data/region_map/region_map_entry_strings.h"
 
+static const u8 sMapsecName_LocationUnknown[] = _("LOCATION UNKNOWN");
+
 static const u16 sTopBar_Pal[] = INCBIN_U16("graphics/region_map/top_bar.gbapal"); // Palette for the top bar and dynamic text color
 static const u16 sMapCursor_Pal[] = INCBIN_U16("graphics/region_map/cursor.gbapal");
 static const u16 sPlayerIcon_RedPal[] = INCBIN_U16("graphics/region_map/player_icon_red.gbapal");
@@ -3992,8 +3994,10 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
     {
         if (IsCeladonDeptStoreMapsec(mapsec) == TRUE)
             dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);
-        else
+        else if (sMapNames[idx] != NULL)
             dst = StringCopy(dst0, sMapNames[idx]);
+        else
+            dst = StringCopy(dst0, sMapsecName_LocationUnknown);
     }
     else
     {

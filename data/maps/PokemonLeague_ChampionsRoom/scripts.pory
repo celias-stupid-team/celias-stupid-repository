@@ -183,6 +183,7 @@ mapscripts PokemonLeague_ChampionsRoom_MapScripts {
 
 script PokemonLeague_ChampionsRoom_EventScript_EnterRoom {
 	lockall
+	special(BackgroundSave)
 	textcolor (NPC_TEXT_COLOR_MALE)
 	if(flag(FLAG_DEFEATED_FINAL_BOSS)) {
 		clearflag(FLAG_DEFEATED_FINAL_BOSS)
@@ -306,7 +307,6 @@ script PokemonLeague_ChampionsRoom_EventScript_EnterRoom {
 	warpsilent(MAP_FINAL_BOSS_CUTSCENE, 0)
 	//trainerbattle_no_intro(TRAINER_CHAMPION_FIRST_CHARMANDER, "i lose") Here's the actual fight, dummied out right now
 	release
-
 }
 
 
