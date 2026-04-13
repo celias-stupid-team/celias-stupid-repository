@@ -95,6 +95,7 @@ extern u8 gAnimCustomPanning;
 extern const struct OamData gOamData_AffineOff_ObjNormal_8x8;
 extern const struct OamData gOamData_AffineOff_ObjNormal_16x16;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x32;
+extern const struct OamData gOamData_AffineOff_ObjNormal_Gen2Leer;
 extern const struct OamData gOamData_AffineOff_ObjNormal_64x64;
 extern const struct OamData gOamData_AffineOff_ObjNormal_64x64_LowPriority;
 extern const struct OamData gOamData_AffineOff_ObjNormal_16x8;

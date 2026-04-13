@@ -71,6 +71,7 @@ static void AnimRedHeartRising_Step(struct Sprite *);
 static void AnimTask_HeartsBackground_Step(u8);
 static void AnimTask_ScaryFace_Step(u8);
 static void AnimTask_CherryFace_Step(u8);
+static void AnimTask_MissileFace_Step(u8);
 static void AnimOrbitFast(struct Sprite *);
 static void AnimOrbitFast_Step(struct Sprite *);
 static void AnimOrbitShort(struct Sprite *sprite);
@@ -634,6 +635,51 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .paletteTag = ANIM_TAG_MING_VASE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sGen2LeerAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sGen2LeerAnimTable[] =
+{
+    sGen2LeerAnimCmds,
+};
+
+const struct SpriteTemplate gLeerLaserSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LEER_LASER,
+    .paletteTag = ANIM_TAG_LEER_LASER,
+    .oam = &gOamData_AffineOff_ObjNormal_Gen2Leer,
+    .anims = sGen2LeerAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gLeerBlastRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LEER_BLAST_RIGHT,
+    .paletteTag = ANIM_TAG_LEER_BLAST_RIGHT,
+    .oam = &gOamData_AffineOff_ObjNormal_Gen2Leer,
+    .anims = sGen2LeerAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gLeerBlastLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LEER_BLAST_LEFT,
+    .paletteTag = ANIM_TAG_LEER_BLAST_LEFT,
+    .oam = &gOamData_AffineOff_ObjNormal_Gen2Leer,
+    .anims = sGen2LeerAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -6095,6 +6141,96 @@ void AnimTask_CherryFace(u8 taskId)
 }
 
 static void AnimTask_CherryFace_Step(u8 taskId)
+{
+    struct BattleAnimBgData animBg;
+
+    switch (gTasks[taskId].data[12])
+    {
+    case 0:
+        if (++gTasks[taskId].data[10] == 2)
+        {
+            gTasks[taskId].data[10] = 0;
+            gTasks[taskId].data[11]++;
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[11], 16 - gTasks[taskId].data[11]));
+            if (gTasks[taskId].data[11] == 14)
+            {
+                gTasks[taskId].data[12]++;
+                gTasks[taskId].data[11] = 0;
+            }
+        }
+        break;
+    case 1:
+        if (++gTasks[taskId].data[11] == 21)
+        {
+            gTasks[taskId].data[11] = 14;
+            gTasks[taskId].data[12]++;
+        }
+        break;
+    case 2:
+        if (++gTasks[taskId].data[10] == 2)
+        {
+            gTasks[taskId].data[10] = 0;
+            gTasks[taskId].data[11]--;
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[11], 16 - gTasks[taskId].data[11]));
+            if (gTasks[taskId].data[11] == 0)
+            {
+                gTasks[taskId].data[12]++;
+                gTasks[taskId].data[11] = 0;
+            }
+        }
+        break;
+    case 3:
+        GetBattleAnimBg1Data(&animBg);
+        InitBattleAnimBg(1);
+        InitBattleAnimBg(2);
+        gTasks[taskId].data[12]++;
+        // fall through
+    case 4:
+        if (!IsContest())
+            SetAnimBgAttribute(1, BG_ANIM_CHAR_BASE_BLOCK, 0);
+
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+        SetAnimBgAttribute(1, BG_ANIM_PRIORITY, 1);
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+
+void AnimTask_MissileFace(u8 taskId)
+{
+    struct BattleAnimBgData animBg;
+
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_TGT1_BG1 | BLDCNT_EFFECT_BLEND);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 16));
+    SetAnimBgAttribute(1, BG_ANIM_PRIORITY, 1);
+    SetAnimBgAttribute(1, BG_ANIM_SCREEN_SIZE, 0);
+    if (!IsContest())
+        SetAnimBgAttribute(1, BG_ANIM_CHAR_BASE_BLOCK, 1);
+
+    gBattle_BG1_X = 0;
+    gBattle_BG1_Y = 0;
+    SetGpuReg(REG_OFFSET_BG1HOFS, gBattle_BG1_X);
+    SetGpuReg(REG_OFFSET_BG1VOFS, gBattle_BG1_Y);
+    GetBattleAnimBg1Data(&animBg);
+    
+    if (IsContest())
+        LZDecompressVram(gBattleAnimBgTilemap_ScaryFaceContest, animBg.bgTilemap);
+    else if (GetBattlerSide(gBattleAnimTarget) == B_SIDE_OPPONENT)
+        AnimLoadCompressedBgTilemap(animBg.bgId, gBattleAnimBgTilemap_ScaryFacePlayer);
+    else
+        AnimLoadCompressedBgTilemap(animBg.bgId, gBattleAnimBgTilemap_ScaryFaceOpponent);
+
+    AnimLoadCompressedBgGfx(animBg.bgId, gBattleAnim_MissileFaceGfx, animBg.tilesOffset);
+    LoadCompressedPalette(gBattleAnim_MissileFacePal, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+    if (IsContest())
+        RelocateBattleBgPal(animBg.paletteId, animBg.bgTilemap, 0, 0);
+    
+    gTasks[taskId].func = AnimTask_MissileFace_Step;
+}
+
+static void AnimTask_MissileFace_Step(u8 taskId)
 {
     struct BattleAnimBgData animBg;
 

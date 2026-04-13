@@ -8476,8 +8476,31 @@ FireSpreadEffect:
 	createsprite gFireSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 112, -128, 40
 	return
 
+Move_ONE_LEER:
 Move_LEER:
-	loadspritegfx ANIM_TAG_LEER
+	loadspritegfx ANIM_TAG_LEER_BLAST_LEFT
+	loadspritegfx ANIM_TAG_LEER_BLAST_RIGHT
+	loadspritegfx ANIM_TAG_LEER_LASER
+
+	createvisualtask AnimTask_GetAttackerSide, 2
+	jumprettrue LeerAgainstPlayer
+	playse SE_GEN2_LEER
+	createsprite gLeerLaserSpriteTemplate, ANIM_ATTACKER, 2, 144, 54, 0, 0, 0, 32, 0, 2
+	createsprite gLeerLaserSpriteTemplate, ANIM_ATTACKER, 2, 120, 66, 0, 0, 0, 32, 0, 2
+	createsprite gLeerLaserSpriteTemplate, ANIM_ATTACKER, 2, 96, 78, 0, 0, 0, 32, 0, 2
+	createsprite gLeerBlastRightSpriteTemplate, ANIM_ATTACKER, 2, 158, 48, 0, 0, 0, 32, 0, 2
+	waitforvisualfinish
+	end
+
+LeerAgainstPlayer:
+	playse SE_GEN2_LEER
+	createsprite gLeerLaserSpriteTemplate, ANIM_ATTACKER, 2, 144, 54, 0, 0, 0, 32, 0, 2
+	createsprite gLeerLaserSpriteTemplate, ANIM_ATTACKER, 2, 120, 66, 0, 0, 0, 32, 0, 2
+	createsprite gLeerLaserSpriteTemplate, ANIM_ATTACKER, 2, 96, 78, 0, 0, 0, 32, 0, 2
+	createsprite gLeerBlastLeftSpriteTemplate, ANIM_ATTACKER, 2, 82, 84, 0, 0, 0, 32, 0, 2
+	waitforvisualfinish
+	end
+
 	monbg ANIM_ATTACKER
 	splitbgprio ANIM_ATTACKER
 	setalpha 8, 8
@@ -25181,7 +25204,6 @@ Move_CONSTRACKLE:
 	end
 Move_GIGA_BRINE:
 	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_HANDS_AND_FEET
 	loadspritegfx ANIM_TAG_GLOWY_BLUE_ORB
 	loadspritegfx ANIM_TAG_WATER_IMPACT
 	monbg ANIM_TARGET
@@ -28774,9 +28796,33 @@ Move_DOSWINGBEAT:
 Move_GIGATON_CRUSHER:
 Move_ARE_WE_NOT_MON:
 Move_GRASS_MONKEY:
-Move_ONE_LEER:
-Move_GRIN_MISSILE:
 	goto Move_TACKLE
+
+Move_GRIN_MISSILE:
+	loadspritegfx ANIM_TAG_EYE_SPARKLE
+	fadetobg BG_GHOST_TRICK
+	waitbgfadein
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	delay 10
+	playsewithpan SE_M_LEER, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_MissileFace, 5
+	delay 13
+	createsprite gEyeSparkleSpriteTemplate, ANIM_ATTACKER, 0, -16, -8
+	createsprite gEyeSparkleSpriteTemplate, ANIM_ATTACKER, 0, 16, -8
+	delay 30
+	playsewithpan SE_MISSILE_BARK, SOUND_PAN_TARGET
+	delay 10
+	playsewithpan SE_MISSILE_BARK, SOUND_PAN_TARGET
+	delay 10
+	playsewithpan SE_MISSILE_BARK, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeTargetInPattern, 3, 20, 1, FALSE
+	playsewithpan SE_M_STRING_SHOT2, SOUND_PAN_TARGET
+	@createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_ATK_SIDE | F_PAL_DEF_PARTNER, 3, 16, 0, RGB_BLACK
+	waitforvisualfinish
+	restorebg
+	waitbgfadein
+	end
 
 Move_GAME_GENIE:
 	loadspritegfx ANIM_TAG_GAME_GENIE
