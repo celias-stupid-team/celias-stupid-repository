@@ -7,6 +7,8 @@ void DoInGameTradeScene(void);
 void DrawTextOnTradeWindow(u8 windowId, const u8 *str, s8 speed);
 u16 GetInGameTradeSpeciesInfo(void);
 u16 GetTradeSpecies(void);
+void AllocTradeAnimForEvolution(void);
+void FreeTradeAnimForEvolution(void);
 void InitTradeSequenceBgGpuRegs(void);
 void LinkTradeDrawWindow(void);
 void LoadTradeAnimGfx(void);

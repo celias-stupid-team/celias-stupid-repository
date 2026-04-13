@@ -16,6 +16,8 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "event_data.h"
+#include "evolution_scene.h"
+#include "pokemon_storage_system.h"
 
 static EWRAM_DATA struct Pokemon sMonBeingCarried = {};
 static EWRAM_DATA s8 sCursorArea = 0;
@@ -26,6 +28,14 @@ static EWRAM_DATA u8 sMovingMonOrigBoxPos = 0;
 static EWRAM_DATA bool8 sInMultiMoveMode = FALSE;
 static EWRAM_DATA u8 sSavedCursorPosition = 0;
 static EWRAM_DATA bool8 sBrickPieceObtained = FALSE;
+
+// global data for PSS evos
+EWRAM_DATA struct Pokemon gPSSEvoMon = {};
+EWRAM_DATA u8 gPSSEvoBoxId = 0;
+EWRAM_DATA u8 gPSSEvoBoxPos = 0;
+EWRAM_DATA bool8 gPSSEvoTriggered = FALSE;
+EWRAM_DATA bool8 gPSSEvoSilentTriggered = FALSE;
+EWRAM_DATA u8 gPSSEvoSilentBoxPos = 0;
 
 static void DoCursorNewPosUpdate(void);
 static bool8 MonPlaceChange_Grab(void);
@@ -701,27 +711,47 @@ static void SetMovedMonData(u8 boxId, u8 position)
     sMovingMonOrigBoxPos = position;
 }
 
-static void CheckPorygonEvolve(u8 boxId){
+static void CheckPorygonEvolve(u8 boxId, u8 position)
+{
     u8 current_wallpaper_id = GetBoxWallpaper(boxId);
-    u16 target_species = SPECIES_PORYGON_Z;
-    u8 wallpaperCheck;
+    u16 newSpecies = SPECIES_PORYGON_Z;
 
-    
-
-    if ((GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_PORYGON) && (current_wallpaper_id == WALLPAPER_STARS || current_wallpaper_id == WALLPAPER_POKECENTER || current_wallpaper_id ==WALLPAPER_TILES)){
-        PlaySE(SE_BANG);
-        //ClearBottomWindow();
-        // PrintStorageMessage(MSG_PORYGON_VIRUS); worry about this later?
-        SetMonData(&gStorage->movingMon, MON_DATA_SPECIES, &target_species);
-        HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_SEEN, 0);
-        HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_CAUGHT,0);
-        if (IsMonCSRShiny(&gStorage->movingMon))
+    if (GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_PORYGON
+     && (current_wallpaper_id == WALLPAPER_STARS
+      || current_wallpaper_id == WALLPAPER_POKECENTER
+      || current_wallpaper_id == WALLPAPER_TILES))
+    {
+        if (CONFIG_PSS_EVO_SHOW_SCENE)
         {
-            GetSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_SHINY_FOUND);
+            // save PSS data and trigger evo scene in SetPlacedMonData()
+            gPSSEvoMon = gStorage->movingMon;
+            gPSSEvoBoxId = boxId;
+            gPSSEvoBoxPos = position;
+            gPSSEvoTriggered = TRUE;
+            FadeOutMapMusic(4);
         }
-        
-        Task_EvolvePorygon();
-     }
+        else
+        {
+            // simpler release/return variation
+            PlaySE(SE_BANG);
+            SetMonData(&gStorage->movingMon, MON_DATA_SPECIES, &newSpecies);
+            CalculateMonStats(&gStorage->movingMon);
+            GetMonData(&gStorage->movingMon, MON_DATA_NICKNAME, gStorage->releaseMonName);
+            EvolutionRenameMon(&gStorage->movingMon, SPECIES_PORYGON, SPECIES_PORYGON_Z);
+            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SEEN, 0);
+            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_CAUGHT, 0);
+            if (IsMonCSRShiny(&gStorage->movingMon))
+                GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+            gPSSEvoSilentBoxPos = position;
+            gPSSEvoSilentTriggered = TRUE;
+        }
+    }
+}
+
+void WritePSSEvoMonToBox(void)
+{
+    BoxMonRestorePP(&gPSSEvoMon.box);
+    SetBoxMonAt(gPSSEvoBoxId, gPSSEvoBoxPos, &gPSSEvoMon.box);
 }
 
 #define MEW_BRICK_PIECE_BOX_POSITION 22
@@ -759,10 +789,15 @@ static void SetPlacedMonData(u8 boxId, u8 position)
         gPlayerParty[position] = gStorage->movingMon;
     else
     {
-        CheckPorygonEvolve(boxId);
+        CheckPorygonEvolve(boxId, position);
         CheckBrickPieceGet(boxId, position);
-        BoxMonRestorePP(&gStorage->movingMon.box);
-        SetBoxMonAt(boxId, position, &gStorage->movingMon.box);        
+        if (!gPSSEvoTriggered)
+        {
+            BoxMonRestorePP(&gStorage->movingMon.box);
+            SetBoxMonAt(boxId, position, &gStorage->movingMon.box);
+        }
+        // If gPSSEvoTriggered, the evolved mon is written to the box
+        // after PSSEvolutionScene completes via CB2_ReturnToPokeStorage.
     }
 }
 

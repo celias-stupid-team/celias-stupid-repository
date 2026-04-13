@@ -453,6 +453,7 @@ static bool8 LoadBagMenuGraphics(void)
         gMain.state++;
         break;
     case 10:
+        SortPokeBallsPocket_PokeBallFirst(&gBagPockets[POCKET_POKE_BALLS - 1]);
         All_CalculateNItemsAndMaxShowed();
         CalculateInitialCursorPosAndItemsAbove();
         UpdatePocketScrollPositions();
