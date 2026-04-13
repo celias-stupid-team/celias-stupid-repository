@@ -467,4 +467,5 @@ gSpecials::
 	def_special GetShinyCount
 	def_special ShakeScreenSilent
 	def_special IsPlayerNameKaylee
+	def_special BackgroundSave
 gSpecialsEnd::
