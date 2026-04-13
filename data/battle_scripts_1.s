@@ -3266,6 +3266,11 @@ BattleScript_LocalBattleLostEnd::
 BattleScript_EReaderOrSecretBaseTrainerEnd::
 	end2
 
+BattleScript_SingleMonDoubleBattleLost::
+	printstring STRINGID_DOUBLEBATTLECHEATER
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_LocalBattleLostPrintTrainersWinText::
 	printstring STRINGID_PLAYERWHITEDOUT
 	waitmessage B_WAIT_TIME_LONG

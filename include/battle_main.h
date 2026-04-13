@@ -91,5 +91,6 @@ bool8 TryRunFromBattle(u8 battler);
 void DebugPrintBattlePartyData(void);
 void BattleDebug_WonBattle(void);
 void BattleDebug_LeftBattle(void);
+void BattleDebug_LostBattle(void);
 
 #endif // GUARD_BATTLE_MAIN_H
