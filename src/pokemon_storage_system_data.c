@@ -716,6 +716,10 @@ static void CheckPorygonEvolve(u8 boxId, u8 position)
     u8 current_wallpaper_id = GetBoxWallpaper(boxId);
     u16 newSpecies = SPECIES_PORYGON_Z;
 
+    // only allow the PSS evo to trigger for the MOVE option
+    if (gStorage->boxOption != OPTION_MOVE_MONS)
+        return;
+
     if (GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_PORYGON
      && (current_wallpaper_id == WALLPAPER_STARS
       || current_wallpaper_id == WALLPAPER_POKECENTER
