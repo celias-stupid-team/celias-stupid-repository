@@ -1,6 +1,6 @@
 mapscripts Starlight_House5_MapScripts {
 MAP_SCRIPT_ON_TRANSITION {
-		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE) || !flag(FLAG_CSR_CELIA_BONUS)) {
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE)) {
     setflag(FLAG_TEMP_4)
 }
 		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {

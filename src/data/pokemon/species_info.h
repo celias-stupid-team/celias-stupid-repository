@@ -36782,7 +36782,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_DITTOBLIZ] =
     {
-        .baseHP = 1,
+        .baseHP = 255,
         .baseAttack = 110,
         .baseDefense = 80,
         .baseSpeed = 50,
