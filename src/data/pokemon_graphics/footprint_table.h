@@ -1295,4 +1295,9 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_GREGORY]    = gMonFootprint_GREGORY,
 	[SPECIES_ARCEUSLAST]    = gMonFootprint_ARCEUSLAST,
 	[SPECIES_NOTHING]    = gMonFootprint_NOTHING,
+	[SPECIES_DITTOBLIZ]    = gMonFootprint_DITTOBLIZ,
+	[SPECIES_IRONMASK]    = gMonFootprint_IRONMASK,
+	[SPECIES_ZOMBON]    = gMonFootprint_ZOMBON,
+	[SPECIES_TINKANETTE]    = gMonFootprint_TINKANETTE,
+	[SPECIES_RICKETOT]    = gMonFootprint_RICKETOT,
 };

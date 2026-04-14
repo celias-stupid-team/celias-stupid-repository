@@ -1291,6 +1291,11 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_GREGORY] = sGREGORYLevelUpLearnset,
 	[SPECIES_ARCEUSLAST] = sARCEUSLASTLevelUpLearnset,
 	[SPECIES_NOTHING] = sNOTHINGLevelUpLearnset,
+	[SPECIES_DITTOBLIZ] = sDITTOBLIZLevelUpLearnset,
+	[SPECIES_IRONMASK] = sIRONMASKLevelUpLearnset,
+	[SPECIES_ZOMBON] = sZOMBONLevelUpLearnset,
+	[SPECIES_TINKANETTE] = sTINKANETTELevelUpLearnset,
+	[SPECIES_RICKETOT] = sRICKETOTLevelUpLearnset,
 
 
 };

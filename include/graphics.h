@@ -13409,3 +13409,43 @@ extern const u32 gItemIconPalette_RippedMemo[];
 
 extern const u32 gTrainerFrontPic_Hakari_Bliz[];
 extern const u32 gTrainerPalette_Hakari_Bliz[];
+// DITTO_BLIZ
+extern const u32 gMonFrontPic_DITTOBLIZ[];
+extern const u32 gMonPalette_DITTOBLIZ[];
+extern const u32 gMonBackPic_DITTOBLIZ[];
+extern const u32 gMonShinyPalette_DITTOBLIZ[];
+extern const u8 gMonFootprint_DITTOBLIZ[];
+extern const u8 gMonIcon_DITTOBLIZ[];
+
+// IRON_MASK
+extern const u32 gMonFrontPic_IRONMASK[];
+extern const u32 gMonPalette_IRONMASK[];
+extern const u32 gMonBackPic_IRONMASK[];
+extern const u32 gMonShinyPalette_IRONMASK[];
+extern const u8 gMonFootprint_IRONMASK[];
+extern const u8 gMonIcon_IRONMASK[];
+
+// ZOMBON
+extern const u32 gMonFrontPic_ZOMBON[];
+extern const u32 gMonPalette_ZOMBON[];
+extern const u32 gMonBackPic_ZOMBON[];
+extern const u32 gMonShinyPalette_ZOMBON[];
+extern const u8 gMonFootprint_ZOMBON[];
+extern const u8 gMonIcon_ZOMBON[];
+
+// TINKANETTE
+extern const u32 gMonFrontPic_TINKANETTE[];
+extern const u32 gMonPalette_TINKANETTE[];
+extern const u32 gMonBackPic_TINKANETTE[];
+extern const u32 gMonShinyPalette_TINKANETTE[];
+extern const u8 gMonFootprint_TINKANETTE[];
+extern const u8 gMonIcon_TINKANETTE[];
+
+// RICKETOT
+extern const u32 gMonFrontPic_RICKETOT[];
+extern const u32 gMonPalette_RICKETOT[];
+extern const u32 gMonBackPic_RICKETOT[];
+extern const u32 gMonShinyPalette_RICKETOT[];
+extern const u8 gMonFootprint_RICKETOT[];
+extern const u8 gMonIcon_RICKETOT[];
+

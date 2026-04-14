@@ -9862,3 +9862,43 @@ const u32 gMonShinyPalette_NOTHING[] = INCBIN_U32("graphics/pokemon/nothing/shin
 const u8 gMonIcon_NOTHING[] = INCBIN_U8("graphics/pokemon/nothing/icon.4bpp");
 const u8 gMonFootprint_NOTHING[] = INCBIN_U8("graphics/pokemon/nothing/footprint.1bpp");
 
+// DITTO_BLIZ
+const u32 gMonFrontPic_DITTOBLIZ[] = INCBIN_U32("graphics/pokemon/dittobliz/front.4bpp.lz");
+const u32 gMonPalette_DITTOBLIZ[] = INCBIN_U32("graphics/pokemon/dittobliz/normal.gbapal.lz");
+const u32 gMonBackPic_DITTOBLIZ[] = INCBIN_U32("graphics/pokemon/dittobliz/back.4bpp.lz");
+const u32 gMonShinyPalette_DITTOBLIZ[] = INCBIN_U32("graphics/pokemon/dittobliz/shiny.gbapal.lz");
+const u8 gMonIcon_DITTOBLIZ[] = INCBIN_U8("graphics/pokemon/dittobliz/icon.4bpp");
+const u8 gMonFootprint_DITTOBLIZ[] = INCBIN_U8("graphics/pokemon/dittobliz/footprint.1bpp");
+
+// IRON_MASK
+const u32 gMonFrontPic_IRONMASK[] = INCBIN_U32("graphics/pokemon/ironmask/front.4bpp.lz");
+const u32 gMonPalette_IRONMASK[] = INCBIN_U32("graphics/pokemon/ironmask/normal.gbapal.lz");
+const u32 gMonBackPic_IRONMASK[] = INCBIN_U32("graphics/pokemon/ironmask/back.4bpp.lz");
+const u32 gMonShinyPalette_IRONMASK[] = INCBIN_U32("graphics/pokemon/ironmask/shiny.gbapal.lz");
+const u8 gMonIcon_IRONMASK[] = INCBIN_U8("graphics/pokemon/ironmask/icon.4bpp");
+const u8 gMonFootprint_IRONMASK[] = INCBIN_U8("graphics/pokemon/ironmask/footprint.1bpp");
+
+// ZOMBON
+const u32 gMonFrontPic_ZOMBON[] = INCBIN_U32("graphics/pokemon/zombon/front.4bpp.lz");
+const u32 gMonPalette_ZOMBON[] = INCBIN_U32("graphics/pokemon/zombon/normal.gbapal.lz");
+const u32 gMonBackPic_ZOMBON[] = INCBIN_U32("graphics/pokemon/zombon/back.4bpp.lz");
+const u32 gMonShinyPalette_ZOMBON[] = INCBIN_U32("graphics/pokemon/zombon/shiny.gbapal.lz");
+const u8 gMonIcon_ZOMBON[] = INCBIN_U8("graphics/pokemon/zombon/icon.4bpp");
+const u8 gMonFootprint_ZOMBON[] = INCBIN_U8("graphics/pokemon/zombon/footprint.1bpp");
+
+// TINKANETTE
+const u32 gMonFrontPic_TINKANETTE[] = INCBIN_U32("graphics/pokemon/tinkanette/front.4bpp.lz");
+const u32 gMonPalette_TINKANETTE[] = INCBIN_U32("graphics/pokemon/tinkanette/normal.gbapal.lz");
+const u32 gMonBackPic_TINKANETTE[] = INCBIN_U32("graphics/pokemon/tinkanette/back.4bpp.lz");
+const u32 gMonShinyPalette_TINKANETTE[] = INCBIN_U32("graphics/pokemon/tinkanette/shiny.gbapal.lz");
+const u8 gMonIcon_TINKANETTE[] = INCBIN_U8("graphics/pokemon/tinkanette/icon.4bpp");
+const u8 gMonFootprint_TINKANETTE[] = INCBIN_U8("graphics/pokemon/tinkanette/footprint.1bpp");
+
+// RICKETOT
+const u32 gMonFrontPic_RICKETOT[] = INCBIN_U32("graphics/pokemon/ricketot/front.4bpp.lz");
+const u32 gMonPalette_RICKETOT[] = INCBIN_U32("graphics/pokemon/ricketot/normal.gbapal.lz");
+const u32 gMonBackPic_RICKETOT[] = INCBIN_U32("graphics/pokemon/ricketot/back.4bpp.lz");
+const u32 gMonShinyPalette_RICKETOT[] = INCBIN_U32("graphics/pokemon/ricketot/shiny.gbapal.lz");
+const u8 gMonIcon_RICKETOT[] = INCBIN_U8("graphics/pokemon/ricketot/icon.4bpp");
+const u8 gMonFootprint_RICKETOT[] = INCBIN_U8("graphics/pokemon/ricketot/footprint.1bpp");
+

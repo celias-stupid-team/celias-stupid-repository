@@ -3626,3 +3626,13 @@ script CeliaSecret_Hobbes {
 	"so doing research into Hobbes to\l"
 	"make this joke work was fun.", MSGBOX_NPC)
 }
+
+script CeliaSecret_YoshiRide {
+	msgbox(
+	"There's custom victory music when\n"
+	"you win this fight!\p"
+
+	"I added a bongo part to it, since\n"
+	"that's what happens when you ride\l"
+	"on Yoshi.", MSGBOX_NPC)
+}

@@ -10762,42 +10762,42 @@ static const struct TrainerMonItemCustomMoves sParty_HakariBliz[] = {
         .iv = 0,
         .lvl = 50,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_KRICKETOT,
-        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_DITTOBLIZ,
+        .moves = {MOVE_ARE_WE_NOT_MON, MOVE_ENDEAVOR, MOVE_VACUUM_FEAR, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_ZOMBON,
+        .moves = {MOVE_GRIN_MISSILE, MOVE_GASTER_BLASTER, MOVE_RAINBOW_BEAM, MOVE_PSI_ROCKIN}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_IRONMASK,
+        .moves = {MOVE_ONE_LEER, MOVE_TACHYONIONCTTR, MOVE_CHIP_AWAY, MOVE_EXTREMESLOTH}
     },
     {
         .iv = 0,
         .lvl = 50,
         .heldItem = ITEM_NONE,
         .species = SPECIES_GROOKEY,
-        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_GRASS_MONKEY, MOVE_DARK_LLOYD, MOVE_HEADBUS, MOVE_FUCK}
     },
     {
         .iv = 0,
         .lvl = 50,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_KRICKETOT,
-        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_TINKANETTE,
+        .moves = {MOVE_GIGATON_CRUSHER, MOVE_MAX_STONESURGE, MOVE_SWORDSDANCE_TCG, MOVE_GAMING_TOOLBARS}
     },
     {
         .iv = 0,
         .lvl = 50,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_TINKATON,
-        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 50,
-        .heldItem = ITEM_NONE,
-        .species = SPECIES_KRICKETOT,
-        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 50,
-        .heldItem = ITEM_NONE,
-        .species = SPECIES_GROOKEY,
-        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_RICKETOT,
+        .moves = {MOVE_RIP_ROARING, MOVE_BULLDOZE, MOVE_MEGA_KICK, MOVE_MOONLIGHT_YEAR}
     },
 };

@@ -5571,3 +5571,23 @@ Cry_NOTHING::
 	.incbin "sound/direct_sound_samples/cries/nothing.bin"
 
 	.align 2
+Cry_DITTOBLIZ::
+	.incbin "sound/direct_sound_samples/cries/dittobliz.bin"
+
+	.align 2
+Cry_IRONMASK::
+	.incbin "sound/direct_sound_samples/cries/ironmask.bin"
+
+	.align 2
+Cry_ZOMBON::
+	.incbin "sound/direct_sound_samples/cries/zombon.bin"
+
+	.align 2
+Cry_TINKANETTE::
+	.incbin "sound/direct_sound_samples/cries/tinkanette.bin"
+
+	.align 2
+Cry_RICKETOT::
+	.incbin "sound/direct_sound_samples/cries/ricketot.bin"
+
+	.align 2

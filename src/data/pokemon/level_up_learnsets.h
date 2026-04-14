@@ -10512,3 +10512,28 @@ static const struct LevelUpMove sNOTHINGLevelUpLearnset[] = {
 	LEVEL_UP_END
 };
 
+static const struct LevelUpMove sDITTOBLIZLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sIRONMASKLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sZOMBONLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sTINKANETTELevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sRICKETOTLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
