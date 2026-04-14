@@ -29,7 +29,8 @@ static void VBlankCB_EmulatorCheck(void)
 
 bool32 IsInaccurateEmulator(void)
 {
-    return REG_IMC != REG_IMC_RESET_VALUE;
+    return FALSE;
+    //return REG_IMC != REG_IMC_RESET_VALUE;
 }
 
 void CB2_EmulatorCheckScreen(void)
