@@ -204,8 +204,8 @@
     {
       "type": "clone",
       "graphics_id": "OBJ_EVENT_GFX_MOLTRES_PILLAR",
-      "x": 5,
-      "y": 10,
+      "x": 52,
+      "y": 20,
       "target_local_id": "1",
       "target_map": "MAP_ZERO_ISLAND"
     },
@@ -216,6 +216,34 @@
       "y": 15,
       "target_local_id": "6",
       "target_map": "MAP_ZERO_ISLAND"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 18,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_Ocean11",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 13,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_HeartSwap",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [],
