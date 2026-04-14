@@ -7188,4 +7188,18 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_Plasto),
     },
+
+    [TRAINER_HAKARI_BLIZ] = {
+        .trainerClass = TRAINER_CLASS_HAKARI_BLIZ,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_HAKARI_BLIZ,
+        .trainerName = _("& BLIZ"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_HakariBliz),
+    },
+
+
+    
 };

@@ -10756,3 +10756,48 @@ static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {
         .moves = {MOVE_GREGORY_BLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+
+static const struct TrainerMonItemCustomMoves sParty_HakariBliz[] = {
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_KRICKETOT,
+        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_GROOKEY,
+        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_KRICKETOT,
+        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_TINKATON,
+        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_KRICKETOT,
+        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_GROOKEY,
+        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
