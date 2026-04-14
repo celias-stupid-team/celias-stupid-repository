@@ -1664,11 +1664,14 @@ void CurePorygonVirus()
         SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
     }
     SetMonData(mon, MON_DATA_SPECIES, &newSpecies);
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SEEN);
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_CAUGHT);
     if(shinyness) {
         SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
 
     }
-    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    
     UpdateMonPersonality(&mon->box, newPersonality);
     CalculateMonStats(mon);
     

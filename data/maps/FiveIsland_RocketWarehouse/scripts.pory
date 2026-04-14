@@ -516,7 +516,7 @@ script Warehouse_PlatoCameo {
 	msgbox(
 	"{PLAYER} got a fancy PINSIR!\n"
 	"", MSGBOX_DEFAULT)
-	call(Common_Script_GiftPokemon19)
+	call(Common_Script_GiftPinsir)
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"PLASTO: We didn't like the original\n"
@@ -526,6 +526,8 @@ script Warehouse_PlatoCameo {
 	release
 	end
 }
+
+
 
 script Warehouse_PlastoSign {
 	lock
@@ -542,4 +544,38 @@ script Warehouse_PlastoSign {
 	release
 	end
 
+}
+
+
+script Common_Script_GiftPinsir {
+	copyvar(VAR_TEMP_1, VAR_CSR_GIFT_POKEMON)
+	givemon(VAR_CSR_GIFT_POKEMON, 30, ITEM_TM15)
+	clearflag(FLAG_SHINY_CREATION)
+	switch(var(VAR_RESULT)) {
+		case 0: //Mon goes to party
+			bufferspeciesname(STR_VAR_1, VAR_CSR_GIFT_POKEMON)
+			msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+			if(!var(VAR_RESULT)) {
+				return
+			}
+			call(EventScript_GetGiftMonPartySlot)
+			call(EventScript_ChangePokemonNickname)
+			return
+		case 1: //Mon goes to PC
+				bufferspeciesname(STR_VAR_1, VAR_CSR_GIFT_POKEMON)
+				msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+				if(var(VAR_RESULT) == 0) {
+					call(EventScript_TransferredToPC)
+					return
+				} else {
+					call(EventScript_NameReceivedBoxMon)
+					call(EventScript_TransferredToPC)
+					return //This can be simplified; I'll deal with it later
+				}
+				
+				return
+		case 2:
+			goto(EventScript_NoMoreRoomForPokemon)
+			break
+	}
 }
