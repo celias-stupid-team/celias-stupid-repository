@@ -1965,3 +1965,12 @@ Text_TestMsg::
 
 	.include "data/maps/Starlight_House6edge2/scripts.inc"
 	.include "data/maps/Starlight_House6edge2/text.inc"
+
+	.include "data/maps/Starlight_House_jukebox/scripts.inc"
+	.include "data/maps/Starlight_House_jukebox/text.inc"
+
+	.include "data/maps/Starlight_House11/scripts.inc"
+	.include "data/maps/Starlight_House11/text.inc"
+
+	.include "data/maps/Starlight_House12/scripts.inc"
+	.include "data/maps/Starlight_House12/text.inc"

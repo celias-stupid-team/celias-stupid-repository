@@ -658,3 +658,10 @@ script Minnesota_Hakari {
 	"hi\n"
 	"", MSGBOX_NPC)
 }
+
+script Minnesota_StarEasterEgg {
+	msgbox(
+	"I might've lost"
+	"{PAUSE 30}WEST", MSGBOX_SIGN)
+
+}

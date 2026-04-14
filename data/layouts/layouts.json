@@ -6544,7 +6544,7 @@
     {
       "id": "LAYOUT_OCEAN12",
       "name": "Ocean12_Layout",
-      "width": 18,
+      "width": 19,
       "height": 50,
       "border_width": 2,
       "border_height": 2,
@@ -7481,7 +7481,7 @@
       "id": "LAYOUT_STARLIGHT_HOUSE3",
       "name": "Starlight_House3_Layout",
       "width": 17,
-      "height": 12,
+      "height": 24,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -7576,7 +7576,7 @@
     {
       "id": "LAYOUT_STARLIGHT_HOUSE4",
       "name": "Starlight_House4_Layout",
-      "width": 19,
+      "width": 27,
       "height": 7,
       "border_width": 2,
       "border_height": 2,
@@ -7704,6 +7704,42 @@
       "secondary_tileset": "gTileset_SilphCo",
       "border_filepath": "data/layouts/FiveIsland_LostCave_Room2_Closet/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland_LostCave_Room2_Closet/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE_JUKEBOX",
+      "name": "Starlight_House_jukebox_Layout",
+      "width": 77,
+      "height": 28,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Starlight_Interior3",
+      "border_filepath": "data/layouts/Starlight_House_jukebox/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House_jukebox/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE11",
+      "name": "Starlight_House11_Layout",
+      "width": 31,
+      "height": 45,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Alphabet",
+      "border_filepath": "data/layouts/Starlight_House11/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House11/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE12",
+      "name": "Starlight_House12_Layout",
+      "width": 11,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SeaCottage",
+      "border_filepath": "data/layouts/Starlight_House12/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House12/map.bin"
     }
   ]
 }

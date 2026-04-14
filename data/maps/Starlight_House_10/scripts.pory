@@ -7,6 +7,17 @@ MAP_SCRIPT_ON_TRANSITION {
             setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYGREEN)
 
         }
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_8)
+        }
+            if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+		if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_8)
+		}
+		
+	
 //if (var(VAR_RESULT) == FEMALE) {
         //setobjectsprite (DANCER1, SPRITE_GFX_PLAYGREEN)
     //} else {

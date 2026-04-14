@@ -470,6 +470,38 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_DiveSpots",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_CHEF",
+      "x": 25,
+      "y": -5,
+      "target_local_id": "12",
+      "target_map": "MAP_OCEAN16"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_VANILLISH",
+      "x": 24,
+      "y": -5,
+      "target_local_id": "15",
+      "target_map": "MAP_OCEAN16"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_PINEAPPLE",
+      "x": 51,
+      "y": -4,
+      "target_local_id": "14",
+      "target_map": "MAP_OCEAN16"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": -6,
+      "y": 49,
+      "target_local_id": "8",
+      "target_map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE"
     }
   ],
   "warp_events": [

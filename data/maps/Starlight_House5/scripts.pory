@@ -1,8 +1,20 @@
 mapscripts Starlight_House5_MapScripts {
 MAP_SCRIPT_ON_TRANSITION {
-		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE)) {
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE) || !flag(FLAG_CSR_CELIA_BONUS)) {
     setflag(FLAG_TEMP_4)
 }
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_8)
+        }
+            if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+		if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_8)
+		}
+		
+	
+setflag(FLAG_TEMP_5)
 	}
 }
 
@@ -13,7 +25,7 @@ script Starlight_House5_Dak_Pit { //test
     msgbox(
 	"I haven't tried to get out yet\n"
 	"but I kinda like this place.\p"
-	"It's nice and fun!", MSGBOX_DEFAULT)
+	"It's a nice fun map!", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
@@ -24,7 +36,664 @@ script Starlight_House5_Dak_Pit { //test
 
 script Starlight_House5_Todo_List {
 	msgbox(
-	"Starlight's Todo List:\l"
+	"Starlight's Todo List:\n"
     "-Fix the collision on this map.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House5_Blue_Tiles {
+	lock
+	if(flag(FLAG_TEMP_A)) {
+			 msgbox("Room is already set to\n"
+	"the BLUE palette theme.", MSGBOX_SIGN)
+		closemessage
+				}
+	if(!flag(FLAG_TEMP_A)) {
+    //textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Would you like to set the room\n"
+	"to a BLUE palette theme?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//wall
+			setmetatile(27, 1, 0x345, TRUE)
+			setmetatile(28, 1, 0x346, TRUE)
+			setmetatile(27, 2, 0x34D, TRUE)
+			setmetatile(28, 2, 0x34E, TRUE)
+
+			//row1
+			setmetatile(19, 3, 0x2E8, FALSE)
+			setmetatile(20, 3, 0x2D9, FALSE)
+			setmetatile(21, 3, 0x2DA, FALSE)
+			setmetatile(22, 3, 0x2F0, FALSE)
+			setmetatile(23, 3, 0x341, FALSE)//grass2
+			setmetatile(24, 3, 0x340, FALSE)//grass1
+			setmetatile(25, 3, 0x341, FALSE)//grass2
+			setmetatile(26, 3, 0x340, FALSE)//grass1
+			setmetatile(27, 3, 0x352, FALSE)//top of small tree
+			setmetatile(28, 3, 0x352, FALSE)//top of small tree
+
+			//row2
+			setmetatile(19, 4, 0x342, TRUE)
+			setmetatile(20, 4, 0x348, FALSE)//grass3
+			setmetatile(21, 4, 0x375, FALSE)
+			setmetatile(22, 4, 0x376, FALSE)
+			setmetatile(23, 4, 0x377, FALSE)
+			setmetatile(24, 4, 0x343, TRUE)
+			setmetatile(25, 4, 0x353, TRUE)
+			setmetatile(26, 4, 0x354, TRUE)
+			setmetatile(27, 4, 0x35A, FALSE)//middle of small tree
+			setmetatile(28, 4, 0x35A, FALSE)//middle of small tree
+			
+			//row3
+			setmetatile(19, 5, 0x341, FALSE)//grass2
+			setmetatile(20, 5, 0x340, FALSE)//grass1
+			setmetatile(21, 5, 0x37D, FALSE)
+			setmetatile(22, 5, 0x37E, FALSE)
+			setmetatile(23, 5, 0x37F, FALSE)
+			setmetatile(24, 5, 0x340, FALSE)//grass1
+			setmetatile(25, 5, 0x341, FALSE)//grass2
+			setmetatile(26, 5, 0x340, FALSE)//grass1
+			setmetatile(27, 5, 0x362, TRUE)//bottom of small tree
+			setmetatile(28, 5, 0x362, TRUE)//bottom of small tree
+			
+			//row4
+			setmetatile(19, 6, 0x350, FALSE)
+			setmetatile(20, 6, 0x351, FALSE)
+			setmetatile(21, 6, 0x349, FALSE)//grass4
+			setmetatile(22, 6, 0x348, FALSE)//grass3
+			setmetatile(23, 6, 0x349, FALSE)//grass4
+			setmetatile(24, 6, 0x344, FALSE)//Daisy
+			setmetatile(25, 6, 0x355, TRUE)//top left cliff
+			setmetatile(26, 6, 0x356, TRUE)
+			setmetatile(27, 6, 0x357, TRUE)//top right cliff
+			setmetatile(28, 6, 0x348, FALSE)//grass3
+			
+			//row5
+			setmetatile(19, 7, 0x358, TRUE)
+			setmetatile(20, 7, 0x359, TRUE)
+			setmetatile(21, 7, 0x341, FALSE)//grass2
+			setmetatile(22, 7, 0x340, FALSE)//grass1
+			setmetatile(23, 7, 0x344, FALSE)//Daisy
+			setmetatile(24, 7, 0x355, TRUE)//top left cliff
+			setmetatile(25, 7, 0x35D, TRUE)
+			setmetatile(26, 7, 0x36E, TRUE)
+			setmetatile(27, 7, 0x35E, TRUE)
+			setmetatile(28, 7, 0x357, TRUE)//top right cliff
+			
+			//row6
+			setmetatile(19, 8, 0x360, TRUE)
+			setmetatile(20, 8, 0x361, TRUE)
+			setmetatile(21, 8, 0x349, FALSE)//grass4
+			setmetatile(22, 8, 0x348, FALSE)//grass3
+			setmetatile(23, 8, 0x349, FALSE)//grass4
+			setmetatile(24, 8, 0x35C, TRUE)
+			setmetatile(25, 8, 0x365, TRUE)
+			setmetatile(26, 8, 0x36D, TRUE)
+			setmetatile(27, 8, 0x366, TRUE)
+			setmetatile(28, 8, 0x35F, TRUE)//right side cliff (grass)
+			
+			//row7
+			setmetatile(19, 9, 0x368, TRUE)
+			setmetatile(20, 9, 0x359, TRUE)
+			setmetatile(21, 9, 0x341, FALSE)//grass2
+			setmetatile(22, 9, 0x340, FALSE)//grass1
+			setmetatile(23, 9, 0x35B, TRUE)
+			setmetatile(24, 9, 0x364, TRUE)//bottom left cliff (grass)
+			setmetatile(25, 9, 0x36B, TRUE)
+			setmetatile(26, 9, 0x34A, TRUE)
+			setmetatile(27, 9, 0x36E, FALSE)
+			setmetatile(28, 9, 0x35F, TRUE)//right side cliff (grass)
+			
+			//row8
+			setmetatile(19, 10, 0x369, TRUE)
+			setmetatile(20, 10, 0x36A, TRUE)
+			setmetatile(21, 10, 0x349, FALSE)//grass4
+			setmetatile(22, 10, 0x348, FALSE)//grass3
+			setmetatile(23, 10, 0x363, TRUE)
+			setmetatile(24, 10, 0x34B, TRUE)
+			setmetatile(25, 10, 0x364, TRUE)//bottom left cliff (grass)
+			setmetatile(26, 10, 0x36C, TRUE)
+			setmetatile(27, 10, 0x36F, FALSE)
+			setmetatile(28, 10, 0x367, TRUE)
+			
+			//row9
+			setmetatile(19, 11, 0x370, TRUE)
+			setmetatile(20, 11, 0x371, TRUE)
+			setmetatile(21, 11, 0x372, FALSE)//top right sand edge
+			setmetatile(22, 11, 0x340, FALSE)//grass1
+			setmetatile(23, 11, 0x341, FALSE)//grass2
+			setmetatile(24, 11, 0x340, FALSE)//grass1
+			setmetatile(25, 11, 0x341, FALSE)//grass2
+			setmetatile(26, 11, 0x373, FALSE)
+			setmetatile(27, 11, 0x374, FALSE)
+			setmetatile(28, 11, 0x340, FALSE)//grass1
+			
+			//row10
+			setmetatile(19, 12, 0x378, TRUE)
+			setmetatile(20, 12, 0x379, TRUE)
+			setmetatile(21, 12, 0x37A, FALSE)
+			setmetatile(22, 12, 0x372, FALSE)//top right sand edge
+			setmetatile(23, 12, 0x349, FALSE)//grass4
+			setmetatile(24, 12, 0x348, FALSE)//grass3
+			setmetatile(25, 12, 0x349, FALSE)//grass4
+			setmetatile(26, 12, 0x37B, FALSE)
+			setmetatile(27, 12, 0x37C, FALSE)
+			setmetatile(28, 12, 0x348, FALSE)//grass3
+
+    		special(DrawWholeMapView)
+			setflag(FLAG_TEMP_A)
+			clearflag(FLAG_TEMP_B)
+			clearflag(FLAG_TEMP_C)
+			clearflag(FLAG_TEMP_D)
+			setflag(FLAG_TEMP_5)
+			removeobject(LOCALID_HOUSE5_SECRET)
+		}
+		}
+    release
+    end
+
+}
+
+script Starlight_House5_Red_Tiles {
+	lock
+	if(flag(FLAG_TEMP_B)) {
+			 msgbox("Room is already set to\n"
+	"the RED palette theme.", MSGBOX_SIGN)
+		closemessage
+				}
+	if(!flag(FLAG_TEMP_B)) {
+    //textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Would you like to set the room\n"
+	"to a RED palette theme?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//wall
+			setmetatile(27, 1, 0x385, TRUE)
+			setmetatile(28, 1, 0x386, TRUE)
+			setmetatile(27, 2, 0x38D, TRUE)
+			setmetatile(28, 2, 0x38E, TRUE)
+
+			//row1
+			setmetatile(19, 3, 0x2EF, FALSE)
+			setmetatile(20, 3, 0x2DB, FALSE)
+			setmetatile(21, 3, 0x2DC, FALSE)
+			setmetatile(22, 3, 0x2F7, FALSE)
+			setmetatile(23, 3, 0x381, FALSE)//grass2
+			setmetatile(24, 3, 0x380, FALSE)//grass1
+			setmetatile(25, 3, 0x381, FALSE)//grass2
+			setmetatile(26, 3, 0x380, FALSE)//grass1
+			setmetatile(27, 3, 0x392, FALSE)//top of small tree
+			setmetatile(28, 3, 0x392, FALSE)//top of small tree
+
+			//row2
+			setmetatile(19, 4, 0x382, TRUE)
+			setmetatile(20, 4, 0x388, FALSE)//grass3
+			setmetatile(21, 4, 0x3B5, FALSE)
+			setmetatile(22, 4, 0x3B6, FALSE)
+			setmetatile(23, 4, 0x3B7, FALSE)
+			setmetatile(24, 4, 0x383, TRUE)
+			setmetatile(25, 4, 0x393, TRUE)
+			setmetatile(26, 4, 0x394, TRUE)
+			setmetatile(27, 4, 0x39A, FALSE)//middle of small tree
+			setmetatile(28, 4, 0x39A, FALSE)//middle of small tree
+			
+			//row3
+			setmetatile(19, 5, 0x381, FALSE)//grass2
+			setmetatile(20, 5, 0x380, FALSE)//grass1
+			setmetatile(21, 5, 0x3BD, FALSE)
+			setmetatile(22, 5, 0x3BE, FALSE)
+			setmetatile(23, 5, 0x3BF, FALSE)
+			setmetatile(24, 5, 0x380, FALSE)//grass1
+			setmetatile(25, 5, 0x381, FALSE)//grass2
+			setmetatile(26, 5, 0x380, FALSE)//grass1
+			setmetatile(27, 5, 0x3A2, TRUE)//bottom of small tree
+			setmetatile(28, 5, 0x3A2, TRUE)//bottom of small tree
+			
+			//row4
+			setmetatile(19, 6, 0x390, FALSE)
+			setmetatile(20, 6, 0x391, FALSE)
+			setmetatile(21, 6, 0x389, FALSE)//grass4
+			setmetatile(22, 6, 0x388, FALSE)//grass3
+			setmetatile(23, 6, 0x389, FALSE)//grass4
+			setmetatile(24, 6, 0x384, FALSE)//Daisy
+			setmetatile(25, 6, 0x395, TRUE)//top left cliff
+			setmetatile(26, 6, 0x396, TRUE)
+			setmetatile(27, 6, 0x397, TRUE)//top right cliff
+			setmetatile(28, 6, 0x388, FALSE)//grass3
+			
+			//row5
+			setmetatile(19, 7, 0x398, TRUE)
+			setmetatile(20, 7, 0x399, TRUE)
+			setmetatile(21, 7, 0x381, FALSE)//grass2
+			setmetatile(22, 7, 0x380, FALSE)//grass1
+			setmetatile(23, 7, 0x384, FALSE)//Daisy
+			setmetatile(24, 7, 0x395, TRUE)//top left cliff
+			setmetatile(25, 7, 0x39D, TRUE)
+			setmetatile(26, 7, 0x3AE, TRUE)
+			setmetatile(27, 7, 0x39E, TRUE)
+			setmetatile(28, 7, 0x397, TRUE)//top right cliff
+			
+			//row6
+			setmetatile(19, 8, 0x3A0, TRUE)
+			setmetatile(20, 8, 0x3A1, TRUE)
+			setmetatile(21, 8, 0x389, FALSE)//grass4
+			setmetatile(22, 8, 0x388, FALSE)//grass3
+			setmetatile(23, 8, 0x389, FALSE)//grass4
+			setmetatile(24, 8, 0x39C, TRUE)
+			setmetatile(25, 8, 0x3A5, TRUE)
+			setmetatile(26, 8, 0x3AD, TRUE)
+			setmetatile(27, 8, 0x3A6, TRUE)
+			setmetatile(28, 8, 0x39F, TRUE)//right side cliff (grass)
+			
+			//row7
+			setmetatile(19, 9, 0x3A8, TRUE)
+			setmetatile(20, 9, 0x399, TRUE)
+			setmetatile(21, 9, 0x381, FALSE)//grass2
+			setmetatile(22, 9, 0x380, FALSE)//grass1
+			setmetatile(23, 9, 0x39B, TRUE)
+			setmetatile(24, 9, 0x3A4, TRUE)//bottom left cliff (grass)
+			setmetatile(25, 9, 0x3AB, TRUE)
+			setmetatile(26, 9, 0x38A, TRUE)
+			setmetatile(27, 9, 0x3AE, FALSE)
+			setmetatile(28, 9, 0x39F, TRUE)//right side cliff (grass)
+			
+			//row8
+			setmetatile(19, 10, 0x3A9, TRUE)
+			setmetatile(20, 10, 0x3AA, TRUE)
+			setmetatile(21, 10, 0x389, FALSE)//grass4
+			setmetatile(22, 10, 0x388, FALSE)//grass3
+			setmetatile(23, 10, 0x3A3, TRUE)
+			setmetatile(24, 10, 0x38B, TRUE)
+			setmetatile(25, 10, 0x3A4, TRUE)//bottom left cliff (grass)
+			setmetatile(26, 10, 0x3AC, TRUE)
+			setmetatile(27, 10, 0x3AF, FALSE)
+			setmetatile(28, 10, 0x3A7, TRUE)
+			
+			//row9
+			setmetatile(19, 11, 0x3B0, TRUE)
+			setmetatile(20, 11, 0x3B1, TRUE)
+			setmetatile(21, 11, 0x3B2, FALSE)//top right sand edge
+			setmetatile(22, 11, 0x380, FALSE)//grass1
+			setmetatile(23, 11, 0x381, FALSE)//grass2
+			setmetatile(24, 11, 0x380, FALSE)//grass1
+			setmetatile(25, 11, 0x381, FALSE)//grass2
+			setmetatile(26, 11, 0x3B3, FALSE)
+			setmetatile(27, 11, 0x3B4, FALSE)
+			setmetatile(28, 11, 0x380, FALSE)//grass1
+			
+			//row10
+			setmetatile(19, 12, 0x3B8, TRUE)
+			setmetatile(20, 12, 0x3B9, TRUE)
+			setmetatile(21, 12, 0x3BA, FALSE)
+			setmetatile(22, 12, 0x3B2, FALSE)//top right sand edge
+			setmetatile(23, 12, 0x389, FALSE)//grass4
+			setmetatile(24, 12, 0x388, FALSE)//grass3
+			setmetatile(25, 12, 0x389, FALSE)//grass4
+			setmetatile(26, 12, 0x3BB, FALSE)
+			setmetatile(27, 12, 0x3BC, FALSE)
+			setmetatile(28, 12, 0x388, FALSE)//grass3
+
+    		special(DrawWholeMapView)
+			setflag(FLAG_TEMP_B)
+			clearflag(FLAG_TEMP_A)
+			clearflag(FLAG_TEMP_C)
+			clearflag(FLAG_TEMP_D)
+			setflag(FLAG_TEMP_5)
+			removeobject(LOCALID_HOUSE5_SECRET)
+			
+			}
+	}
+			
+		
+    release
+    end
+}
+
+script Starlight_House5_Green_Tiles {
+	lock
+	if(flag(FLAG_TEMP_C)) {
+			 msgbox("Room is already set to\n"
+	"the GREEN palette theme.", MSGBOX_SIGN)
+		closemessage
+				}
+	if(!flag(FLAG_TEMP_C)) {
+    //textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	
+    msgbox("Would you like to set the room\n"
+	"to a GREEN palette theme?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//wall
+			setmetatile(27, 1, 0x3C5, TRUE)
+			setmetatile(28, 1, 0x3C6, TRUE)
+			setmetatile(27, 2, 0x3CD, TRUE)
+			setmetatile(28, 2, 0x3CE, TRUE)
+
+			//row1
+			setmetatile(19, 3, 0x2FF, FALSE)
+			setmetatile(20, 3, 0x322, FALSE)
+			setmetatile(21, 3, 0x323, FALSE)
+			setmetatile(22, 3, 0x307, FALSE)
+			setmetatile(23, 3, 0x3C1, FALSE)//grass2
+			setmetatile(24, 3, 0x3C0, FALSE)//grass1
+			setmetatile(25, 3, 0x3C1, FALSE)//grass2
+			setmetatile(26, 3, 0x3C0, FALSE)//grass1
+			setmetatile(27, 3, 0x3D2, FALSE)//top of small tree
+			setmetatile(28, 3, 0x3D2, FALSE)//top of small tree
+
+			//row2
+			setmetatile(19, 4, 0x3C2, TRUE)
+			setmetatile(20, 4, 0x3C8, FALSE)//grass3
+			setmetatile(21, 4, 0x3F5, FALSE)
+			setmetatile(22, 4, 0x3F6, FALSE)
+			setmetatile(23, 4, 0x3F7, FALSE)
+			setmetatile(24, 4, 0x3C3, TRUE)
+			setmetatile(25, 4, 0x3D3, TRUE)
+			setmetatile(26, 4, 0x3D4, TRUE)
+			setmetatile(27, 4, 0x3DA, FALSE)//middle of small tree
+			setmetatile(28, 4, 0x3DA, FALSE)//middle of small tree
+			
+			//row3
+			setmetatile(19, 5, 0x3C1, FALSE)//grass2
+			setmetatile(20, 5, 0x3C0, FALSE)//grass1
+			setmetatile(21, 5, 0x3FD, FALSE)
+			setmetatile(22, 5, 0x3FE, FALSE)
+			setmetatile(23, 5, 0x3FF, FALSE)
+			setmetatile(24, 5, 0x3C0, FALSE)//grass1
+			setmetatile(25, 5, 0x3C1, FALSE)//grass2
+			setmetatile(26, 5, 0x3C0, FALSE)//grass1
+			setmetatile(27, 5, 0x3E2, TRUE)//bottom of small tree
+			setmetatile(28, 5, 0x3E2, TRUE)//bottom of small tree
+			
+			//row4
+			setmetatile(19, 6, 0x3D0, FALSE)
+			setmetatile(20, 6, 0x3D1, FALSE)
+			setmetatile(21, 6, 0x3C9, FALSE)//grass4
+			setmetatile(22, 6, 0x3C8, FALSE)//grass3
+			setmetatile(23, 6, 0x3C9, FALSE)//grass4
+			setmetatile(24, 6, 0x3C4, FALSE)//Daisy
+			setmetatile(25, 6, 0x3D5, TRUE)//top left cliff
+			setmetatile(26, 6, 0x3D6, TRUE)
+			setmetatile(27, 6, 0x3D7, TRUE)//top right cliff
+			setmetatile(28, 6, 0x3C8, FALSE)//grass3
+			
+			//row5
+			setmetatile(19, 7, 0x3D8, TRUE)
+			setmetatile(20, 7, 0x3D9, TRUE)
+			setmetatile(21, 7, 0x3C1, FALSE)//grass2
+			setmetatile(22, 7, 0x3C0, FALSE)//grass1
+			setmetatile(23, 7, 0x3C4, FALSE)//Daisy
+			setmetatile(24, 7, 0x3D5, TRUE)//top left cliff
+			setmetatile(25, 7, 0x3DD, TRUE)
+			setmetatile(26, 7, 0x3EE, TRUE)
+			setmetatile(27, 7, 0x3DE, TRUE)
+			setmetatile(28, 7, 0x3D7, TRUE)//top right cliff
+			
+			//row6
+			setmetatile(19, 8, 0x3E0, TRUE)
+			setmetatile(20, 8, 0x3E1, TRUE)
+			setmetatile(21, 8, 0x3C9, FALSE)//grass4
+			setmetatile(22, 8, 0x3C8, FALSE)//grass3
+			setmetatile(23, 8, 0x3C9, FALSE)//grass4
+			setmetatile(24, 8, 0x3DC, TRUE)
+			setmetatile(25, 8, 0x3E5, TRUE)
+			setmetatile(26, 8, 0x3ED, TRUE)
+			setmetatile(27, 8, 0x3E6, TRUE)
+			setmetatile(28, 8, 0x3DF, TRUE)//right side cliff (grass)
+			
+			//row7
+			setmetatile(19, 9, 0x3E8, TRUE)
+			setmetatile(20, 9, 0x3D9, TRUE)
+			setmetatile(21, 9, 0x3C1, FALSE)//grass2
+			setmetatile(22, 9, 0x3C0, FALSE)//grass1
+			setmetatile(23, 9, 0x3DB, TRUE)
+			setmetatile(24, 9, 0x3E4, TRUE)//bottom left cliff (grass)
+			setmetatile(25, 9, 0x3EB, TRUE)
+			setmetatile(26, 9, 0x3CA, TRUE)
+			setmetatile(27, 9, 0x3EE, FALSE)
+			setmetatile(28, 9, 0x3DF, TRUE)//right side cliff (grass)
+			
+			//row8
+			setmetatile(19, 10, 0x3E9, TRUE)
+			setmetatile(20, 10, 0x3EA, TRUE)
+			setmetatile(21, 10, 0x3C9, FALSE)//grass4
+			setmetatile(22, 10, 0x3C8, FALSE)//grass3
+			setmetatile(23, 10, 0x3E3, TRUE)
+			setmetatile(24, 10, 0x3CB, TRUE)
+			setmetatile(25, 10, 0x3E4, TRUE)//bottom left cliff (grass)
+			setmetatile(26, 10, 0x3EC, TRUE)
+			setmetatile(27, 10, 0x3EF, FALSE)
+			setmetatile(28, 10, 0x3E7, TRUE)
+			
+			//row9
+			setmetatile(19, 11, 0x3F0, TRUE)
+			setmetatile(20, 11, 0x3F1, TRUE)
+			setmetatile(21, 11, 0x3F2, FALSE)//top right sand edge
+			setmetatile(22, 11, 0x3C0, FALSE)//grass1
+			setmetatile(23, 11, 0x3C1, FALSE)//grass2
+			setmetatile(24, 11, 0x3C0, FALSE)//grass1
+			setmetatile(25, 11, 0x3C1, FALSE)//grass2
+			setmetatile(26, 11, 0x3F3, FALSE)
+			setmetatile(27, 11, 0x3F4, FALSE)
+			setmetatile(28, 11, 0x3C0, FALSE)//grass1
+			
+			//row10
+			setmetatile(19, 12, 0x3F8, TRUE)
+			setmetatile(20, 12, 0x3F9, TRUE)
+			setmetatile(21, 12, 0x3FA, FALSE)
+			setmetatile(22, 12, 0x3F2, FALSE)//top right sand edge
+			setmetatile(23, 12, 0x3C9, FALSE)//grass4
+			setmetatile(24, 12, 0x3C8, FALSE)//grass3
+			setmetatile(25, 12, 0x3C9, FALSE)//grass4
+			setmetatile(26, 12, 0x3FB, FALSE)
+			setmetatile(27, 12, 0x3FC, FALSE)
+			setmetatile(28, 12, 0x3C8, FALSE)//grass3
+
+    		special(DrawWholeMapView)
+			setflag(FLAG_TEMP_C)
+			clearflag(FLAG_TEMP_A)
+			clearflag(FLAG_TEMP_B)
+			clearflag(FLAG_TEMP_D)
+			setflag(FLAG_TEMP_5)
+			removeobject(LOCALID_HOUSE5_SECRET)
+			
+			}
+	}
+			
+		
+    release
+    end
+}
+
+script Starlight_House5_Mystery_Tiles {
+	lock
+	if(flag(FLAG_TEMP_D)) {
+			 msgbox("Room is already set to\n"
+	"the ??? palette theme.", MSGBOX_SIGN)
+		closemessage
+				}
+	if(!flag(FLAG_TEMP_D)) {
+    //textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	
+    msgbox("Would you like to set the room\n"
+	"to a ??? palette theme?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//wall
+			setmetatile(27, 1, 0x2C3, TRUE)
+			setmetatile(28, 1, 0x2C3, TRUE)
+			setmetatile(27, 2, 0x2C3, TRUE)
+			setmetatile(28, 2, 0x2C3, TRUE)
+
+			//row1
+			setmetatile(19, 3, 0x2C2, FALSE)
+			setmetatile(20, 3, 0x2C3, FALSE)
+			setmetatile(21, 3, 0x2C3, FALSE)
+			setmetatile(22, 3, 0x2C2, FALSE)
+			setmetatile(23, 3, 0x2C3, FALSE)//grass2
+			setmetatile(24, 3, 0x2C3, FALSE)//grass1
+			setmetatile(25, 3, 0x2C3, FALSE)//grass2
+			setmetatile(26, 3, 0x2C3, FALSE)//grass1
+			setmetatile(27, 3, 0x2C3, FALSE)//top of small tree
+			setmetatile(28, 3, 0x2C3, FALSE)//top of small tree
+
+			//row2
+			setmetatile(19, 4, 0x2C3, TRUE)
+			setmetatile(20, 4, 0x2C3, FALSE)//grass3
+			setmetatile(21, 4, 0x2C3, FALSE)
+			setmetatile(22, 4, 0x2C3, FALSE)
+			setmetatile(23, 4, 0x2C3, FALSE)
+			setmetatile(24, 4, 0x2C3, TRUE)
+			setmetatile(25, 4, 0x2AD, TRUE)
+			setmetatile(26, 4, 0x2AD, TRUE)
+			setmetatile(27, 4, 0x2C3, FALSE)//middle of small tree
+			setmetatile(28, 4, 0x2C3, FALSE)//middle of small tree
+			
+			//row3
+			setmetatile(19, 5, 0x2C3, FALSE)//grass2
+			setmetatile(20, 5, 0x2C3, FALSE)//grass1
+			setmetatile(21, 5, 0x2C3, FALSE)
+			setmetatile(22, 5, 0x2C3, FALSE)
+			setmetatile(23, 5, 0x2C3, FALSE)
+			setmetatile(24, 5, 0x2C3, FALSE)//grass1
+			setmetatile(25, 5, 0x2C3, FALSE)//grass2
+			setmetatile(26, 5, 0x2C3, FALSE)//grass1
+			setmetatile(27, 5, 0x2C3, TRUE)//bottom of small tree
+			setmetatile(28, 5, 0x2C3, TRUE)//bottom of small tree
+			
+			//row4
+			setmetatile(19, 6, 0x2C3, FALSE)
+			setmetatile(20, 6, 0x2C3, FALSE)
+			setmetatile(21, 6, 0x2C3, FALSE)//grass4
+			setmetatile(22, 6, 0x2C3, FALSE)//grass3
+			setmetatile(23, 6, 0x2C3, FALSE)//grass4
+			setmetatile(24, 6, 0x2C3, FALSE)//Daisy
+			setmetatile(25, 6, 0x2C3, TRUE)//top left cliff
+			setmetatile(26, 6, 0x2C3, TRUE)
+			setmetatile(27, 6, 0x2C3, TRUE)//top right cliff
+			setmetatile(28, 6, 0x2C3, FALSE)//grass3
+			
+			//row5
+			setmetatile(19, 7, 0x2C3, TRUE)
+			setmetatile(20, 7, 0x2C3, TRUE)
+			setmetatile(21, 7, 0x2C3, FALSE)//grass2
+			setmetatile(22, 7, 0x2C3, FALSE)//grass1
+			setmetatile(23, 7, 0x2C3, FALSE)//Daisy
+			setmetatile(24, 7, 0x2C3, TRUE)//top left cliff
+			setmetatile(25, 7, 0x2C3, TRUE)
+			setmetatile(26, 7, 0x2C3, TRUE)
+			setmetatile(27, 7, 0x2C3, TRUE)
+			setmetatile(28, 7, 0x2C3, TRUE)//top right cliff
+			
+			//row6
+			setmetatile(19, 8, 0x2C3, TRUE)
+			setmetatile(20, 8, 0x2C3, TRUE)
+			setmetatile(21, 8, 0x2C3, FALSE)//grass4
+			setmetatile(22, 8, 0x2C3, FALSE)//grass3
+			setmetatile(23, 8, 0x2C3, FALSE)//grass4
+			setmetatile(24, 8, 0x2C3, TRUE)
+			setmetatile(25, 8, 0x2C3, TRUE)
+			setmetatile(26, 8, 0x2C3, TRUE)
+			setmetatile(27, 8, 0x2C3, TRUE)
+			setmetatile(28, 8, 0x2C3, TRUE)//right side cliff (grass)
+			
+			//row7
+			setmetatile(19, 9, 0x2C3, TRUE)
+			setmetatile(20, 9, 0x2C3, TRUE)
+			setmetatile(21, 9, 0x2C3, FALSE)//grass2
+			setmetatile(22, 9, 0x2C3, FALSE)//grass1
+			setmetatile(23, 9, 0x2C3, TRUE)
+			setmetatile(24, 9, 0x2C3, TRUE)//bottom left cliff (grass)
+			setmetatile(25, 9, 0x2C3, TRUE)
+			setmetatile(26, 9, 0x2C3, TRUE)
+			setmetatile(27, 9, 0x2C3, FALSE)
+			setmetatile(28, 9, 0x2C3, TRUE)//right side cliff (grass)
+			
+			//row8
+			setmetatile(19, 10, 0x2C3, TRUE)
+			setmetatile(20, 10, 0x2C3, TRUE)
+			setmetatile(21, 10, 0x2C3, FALSE)//grass4
+			setmetatile(22, 10, 0x2C3, FALSE)//grass3
+			setmetatile(23, 10, 0x2C3, TRUE)
+			setmetatile(24, 10, 0x2C3, TRUE)
+			setmetatile(25, 10, 0x2C3, TRUE)//bottom left cliff (grass)
+			setmetatile(26, 10, 0x2C3, TRUE)
+			setmetatile(27, 10, 0x2C3, FALSE)
+			setmetatile(28, 10, 0x2C3, TRUE)
+			
+			//row9
+			setmetatile(19, 11, 0x2C3, TRUE)
+			setmetatile(20, 11, 0x2C3, TRUE)
+			setmetatile(21, 11, 0x2C3, FALSE)//top right sand edge
+			setmetatile(22, 11, 0x2C3, FALSE)//grass1
+			setmetatile(23, 11, 0x2C3, FALSE)//grass2
+			setmetatile(24, 11, 0x2C3, FALSE)//grass1
+			setmetatile(25, 11, 0x2C3, FALSE)//grass2
+			setmetatile(26, 11, 0x2C3, FALSE)
+			setmetatile(27, 11, 0x2C3, FALSE)
+			setmetatile(28, 11, 0x2C3, FALSE)//grass1
+			
+			//row10
+			setmetatile(19, 12, 0x2C3, TRUE)
+			setmetatile(20, 12, 0x2C3, TRUE)
+			setmetatile(21, 12, 0x2C3, FALSE)
+			setmetatile(22, 12, 0x2C3, FALSE)//top right sand edge
+			setmetatile(23, 12, 0x2C3, FALSE)//grass4
+			setmetatile(24, 12, 0x2C3, FALSE)//grass3
+			setmetatile(25, 12, 0x2C3, FALSE)//grass4
+			setmetatile(26, 12, 0x2C3, FALSE)
+			setmetatile(27, 12, 0x2C3, FALSE)
+			setmetatile(28, 12, 0x2C3, FALSE)//grass3
+
+    		special(DrawWholeMapView)
+			setflag(FLAG_TEMP_D)
+			clearflag(FLAG_TEMP_A)
+			clearflag(FLAG_TEMP_B)
+			clearflag(FLAG_TEMP_C)
+			clearflag(FLAG_TEMP_5)
+			}
+	}
+			
+		
+    release
+    end
+}
+
+script Starlight_House5_Sign {
+	msgbox(
+	"You can reset the room by leaving\n"
+	"and re-entering.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House5_Secret {
+	lock
+	if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+		msgbox(
+	"Come back after you've talked to\n"
+	"Starlight.", MSGBOX_SIGN)
+	} else {
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Enter?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//fadescreen(FADE_TO_WHITE)
+            warp(MAP_STARLIGHT_HOUSE3, 1, 9, 22) // Map, Warp ID, X, Y
+            waitstate
+            //delay(120)
+            //fadescreen(FADE_FROM_WHITE)
+		}
+	}
+    release
+    end
+}
+
+script Starlight_House5_Pit_Sign {
+	msgbox(
+	"TRAINER TIPS!\p"
+	"Press START to save the game!", MSGBOX_SIGN)
+	delay(90)
+	msgbox(
+	"…Dumbass.", MSGBOX_SIGN)
 
 }
