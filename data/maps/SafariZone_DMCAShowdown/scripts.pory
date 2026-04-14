@@ -182,7 +182,7 @@ script DMCA_Showdown_NotGun {
     
         msgbox("DAUMAN: That?\nThat's your answer to us?\lHa!\pGet out of my sight.\nI have nothing more to say.", MSGBOX_DEFAULT)
         closemessage
-        warp(MAP_SAFARI_ZONE_NORTH, 12)
+        warp(MAP_SAFARI_ZONE_NORTH, 7)
         release
         end
 }

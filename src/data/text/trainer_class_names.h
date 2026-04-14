@@ -133,5 +133,6 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_SKIIER]             = _("ICE"),
     [TRAINER_CLASS_ARTIST]             = _("ARTIST"),
     [TRAINER_CLASS_KIMONO]             = _("KIMONO"),
-    [TRAINER_CLASS_PLASTO]             = _("IDIOT"),
+    [TRAINER_CLASS_PLASTO]             = _("IDIOT PLASTO"),
+    [TRAINER_CLASS_HAKARI_BLIZ]             = _("HAKARI"),
 };

@@ -9,10 +9,7 @@ mapscripts GreatSea_PirateBay_MapScripts {
 
 		}
 	]
-	MAP_SCRIPT_ON_TRANSITION {
-		setworldmapflag(FLAG_WORLD_MAP_PIRATE_BAY)
-	}
-	
+
 }
 
 script PirateBay_BuyItOrDie {

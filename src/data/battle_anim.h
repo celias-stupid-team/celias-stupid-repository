@@ -41,6 +41,20 @@ const struct OamData gOamData_AffineOff_ObjNormal_32x32 =
     .paletteNum = 0,
 };
 
+const struct OamData gOamData_AffineOff_ObjNormal_Gen2Leer =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+};
+
 const struct OamData gOamData_AffineOff_ObjNormal_64x64 =
 {
     .y = 0,
@@ -52,6 +66,20 @@ const struct OamData gOamData_AffineOff_ObjNormal_64x64 =
     .size = SPRITE_SIZE(64x64),
     .tileNum = 0,
     .priority = 2,
+    .paletteNum = 0,
+};
+
+const struct OamData gOamData_AffineOff_ObjNormal_64x64_LowPriority =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 3,
     .paletteNum = 0,
 };
 
@@ -1516,6 +1544,13 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Stereo, 0x0800, ANIM_TAG_STEREO},
     {gBattleAnimSpriteGfx_Stonesurge, 0x0800, ANIM_TAG_STONESURGE},
     {gBattleAnimSpriteGfx_CodeWindow, 0x2000, ANIM_TAG_CODE_WINDOW},
+    {gBattleAnimSpriteGfx_VaultBoy, 0x0800, ANIM_TAG_VAULT_BOY},
+    {gBattleAnimSpriteGfx_OSign, 0x0800, ANIM_TAG_O_SIGN},
+    {gBattleAnimSpriteGfx_ThePit, 0x2000, ANIM_TAG_THE_PIT},
+    {gBattleAnimSpriteGfx_Handgun, 0x0200, ANIM_TAG_HANDGUN},
+    {gBattleAnimSpriteGfx_LeerBlastRight, 0x0400, ANIM_TAG_LEER_BLAST_RIGHT},
+    {gBattleAnimSpriteGfx_LeerBlastLeft, 0x0400, ANIM_TAG_LEER_BLAST_LEFT},
+    {gBattleAnimSpriteGfx_LeerLaser, 0x0400, ANIM_TAG_LEER_LASER},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1997,6 +2032,13 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Stereo, ANIM_TAG_STEREO},
     {gBattleAnimSpritePal_Stonesurge, ANIM_TAG_STONESURGE},
     {gBattleAnimSpritePal_CodeWindow, ANIM_TAG_CODE_WINDOW},
+    {gBattleAnimSpritePal_VaultBoy, ANIM_TAG_VAULT_BOY},
+    {gBattleAnimSpritePal_OSign, ANIM_TAG_O_SIGN},
+    {gBattleAnimSpritePal_ThePit, ANIM_TAG_THE_PIT},
+    {gBattleAnimSpritePal_Handgun, ANIM_TAG_HANDGUN},
+    {gBattleAnimSpritePal_LeerBlastRight, ANIM_TAG_LEER_BLAST_RIGHT},
+    {gBattleAnimSpritePal_LeerBlastLeft, ANIM_TAG_LEER_BLAST_LEFT},
+    {gBattleAnimSpritePal_LeerLaser, ANIM_TAG_LEER_LASER},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -2039,4 +2081,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_SOLACEON_TOWN]       = {gBattleAnimBgImage_SolaceonTown,     gBattleAnimBgPalette_SolaceonTown,     gBattleAnimBgTilemap_SolaceonTown},
     [BG_PEWTER]              = {gBattleAnimBgImage_Pewter,     gBattleAnimBgPalette_Pewter,     gBattleAnimBgTilemap_Pewter},
     [BG_COKE]                = {gBattleAnimBgImage_Coke,       gBattleAnimBgPalette_Coke,       gBattleAnimBgTilemap_Coke},
+    [BG_GHOST_TRICK]         = {gBattleAnimBgImage_GhostTrick, gBattleAnimBgPalette_GhostTrick, gBattleAnimBgTilemap_GhostTrick},
 };

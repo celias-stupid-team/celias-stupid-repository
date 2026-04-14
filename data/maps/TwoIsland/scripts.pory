@@ -1197,6 +1197,7 @@ script TwoIsland_TerritorialOak {
 	closemessage
 	delay(30)
 	playse(SE_M_EXPLOSION)
+	setflag(FLAG_TWO_ISLAND_TERRITORIAL_OAK)
 	removeobject(LOCALID_TWOISLAND_TERRITORIALOAK)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_1)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_2)

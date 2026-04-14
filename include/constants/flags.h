@@ -1373,8 +1373,8 @@
 #define FLAG_0x4F8               0x4F8
 #define FLAG_0x4F9               0x4F9
 #define FLAG_0x4FA               0x4FA
-#define FLAG_0x4FB               0x4FB
-#define FLAG_0x4FC               0x4FC
+#define FLAG_DID_ARTICUNO_FIGHT               0x4FB
+#define FLAG_TM25_GOT               0x4FC
 #define FLAG_TM02_GOT               0x4FD
 #define FLAG_KILLED_BRUNO               0x4FE
 #define FLAG_0x4FF               0x4FF

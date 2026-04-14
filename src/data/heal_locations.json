@@ -615,6 +615,14 @@
       "y": 17,
       "respawn_map": "MAP_THIRTY_EIGHT_ISLAND",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE15",
+      "map": "MAP_ROUTE15",
+      "x": 0,
+      "y": 13,
+      "respawn_map": "MAP_ROUTE15",
+      "respawn_npc": "1"
     }
   ]
 }

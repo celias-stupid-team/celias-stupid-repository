@@ -1,5 +1,21 @@
 mapscripts Starlight_House_MapScripts {
 	
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_8)
+        }
+            if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+		if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_8)
+		}
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || flag(FLAG_DAK_HERE) || flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_9)
+		}
+		setflag(FLAG_TEMP_8)//temporary until commentary is finished
+		setflag(FLAG_TEMP_9)//temporary until commentary is finished
+	}
 }
 
 script Starlight_House_Window {
@@ -22,3 +38,14 @@ script Starlight_House_TV {
     "houses, but no couches?", MSGBOX_SIGN)
 
 }
+
+script Starlight_House_Commentary_But_No_Dak {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Hey! did you know I have a dev\n"
+	"commentary too?\p"
+
+	"But for it to appear, first you\n"
+	"need to go find my friend!", MSGBOX_NPC)
+}
+

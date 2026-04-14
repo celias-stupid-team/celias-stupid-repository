@@ -2469,7 +2469,7 @@ script CeliaSecret_Starlight {
 	msgbox(
 	"You would not believe how many\n"
 	"times Starlight set this map\l"
-	"to load the Volcano vesion as the\l"
+	"to load the Volcano version as the\l"
 	"default.", MSGBOX_NPC)
 }
 
@@ -2478,7 +2478,7 @@ script CeliaSecret_StarlightCinnabar {
 	msgbox(
 	"You would not believe how many\n"
 	"times Starlight set this map\l"
-	"to load the Volcano vesion as the\l"
+	"to load the Volcano version as the\l"
 	"default.\p"
 
 	"It was\n"
@@ -3536,4 +3536,103 @@ script CeliaTrailerPokedex {
 	release
 
 	
+}
+
+script CeliaSecret_Ocean11 {
+	msgbox(
+	"All of the Great Sea maps are named\n"
+	"some variant of Ocean1, Ocean2, etc\p"
+
+	"This one happened to land on\n"
+	"Ocean11.", MSGBOX_NPC)
+}
+
+script CeliaSecret_HeartSwap {
+	msgbox(
+	"The original concept with this\n"
+	"puzzle was that you'd need to\l"
+	"Take Heart on the Luvdisc to steal\l"
+	"a Heart Scale, and then use that\l"
+	"to relearn Heart Swap.\p"
+
+	"Phione would have learned Heart\n"
+	"Swap at level 1, but it would have\l"
+	"forgotten it because it was an\l"
+	"Odd Egg, meaning that Dizzy Punch\l"
+	"would overwrite it.\p"
+
+	"I got a little lost in the sauce\n"
+	"with that one LOL", MSGBOX_NPC)
+}
+
+script CeliaSecret_FestivalPlaza {
+	msgbox(
+	"I don't like gen 7\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_StarlightIsland {
+	msgbox(
+	"Heads up, I gave literally zero\n"
+	"oversight into Starlight Island.\p"
+
+	"I let Star do whatever the hell\n"
+	"she wanted.\p"
+
+	"There isn't anything inside relevant\n"
+	"to any of the secrets.\l"
+	"Don't worry.", MSGBOX_NPC)
+}
+
+script CeliaSecret_GuillotinePuzzle {
+	msgbox(
+	"One of the craftier puzzles in the\n"
+	"game is adding Guillotine to your\l"
+	"Rotom move list, without actually\l"
+	"telling you what it's for.\p"
+
+	"Leading you to have to deduce its\n"
+	"use case for yourself.\p"
+
+	"This puzzle is actually the reason\n"
+	"the field moves are labeled with\l"
+	"their name instead of an icon, cuz\l"
+	"I couldn't sneakily add Guillotine\l"
+	"with a single icon.", MSGBOX_NPC)
+}
+
+script CeliaSecret_YesNo {
+	msgbox(
+	"No clue how I managed to squeeze\n"
+	"this much sauce out of “Town\l"
+	"where people ask Yes/No questions\l"
+	"and then get confused.”", MSGBOX_NPC)
+}
+
+script CeliaSecret_Warehouse {
+	msgbox(
+	"This area went through like seven\n"
+	"different revisions as I tried to\l"
+	"figure out what The Bit would be.\p"
+
+	"“Stupid Hack Bits but with one\n"
+	"letter missing” was def the best\l"
+	"of the concepts at hand.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Hobbes {
+	msgbox(
+	"I'm not much of a philosophy head,\n"
+	"so doing research into Hobbes to\l"
+	"make this joke work was fun.", MSGBOX_NPC)
+}
+
+script CeliaSecret_YoshiRide {
+	msgbox(
+	"There's custom victory music when\n"
+	"you win this fight!\p"
+
+	"I added a bongo part to it, since\n"
+	"that's what happens when you ride\l"
+	"on Yoshi.", MSGBOX_NPC)
 }

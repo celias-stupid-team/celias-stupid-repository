@@ -148,6 +148,46 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_LaserShark",
       "flag": "0"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 63,
+      "y": 15,
+      "target_local_id": "17",
+      "target_map": "MAP_MINNESOTA"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_GIRAFFE_CAGE",
+      "x": 37,
+      "y": 18,
+      "target_local_id": "14",
+      "target_map": "MAP_MINNESOTA"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_FARIG",
+      "x": 55,
+      "y": 18,
+      "target_local_id": "15",
+      "target_map": "MAP_MINNESOTA"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 46,
+      "y": -4,
+      "target_local_id": "8",
+      "target_map": "MAP_THIRTY_EIGHT_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
+      "x": 55,
+      "y": -4,
+      "target_local_id": "5",
+      "target_map": "MAP_THIRTY_EIGHT_ISLAND"
     }
   ],
   "warp_events": [],

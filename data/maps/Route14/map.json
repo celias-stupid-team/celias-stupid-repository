@@ -731,6 +731,22 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecrets_Bonus_Thesis",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BILL_BOARD",
+      "x": 15,
+      "y": 61,
+      "target_local_id": "5",
+      "target_map": "MAP_OCEAN9"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 31,
+      "y": 44,
+      "target_local_id": "22",
+      "target_map": "MAP_THIRTY_EIGHT_ISLAND"
     }
   ],
   "warp_events": [],

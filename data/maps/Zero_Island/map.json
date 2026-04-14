@@ -161,6 +161,38 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_Buoy_ZeroIslandUpRight",
       "flag": "0"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_TIRTOUGA",
+      "x": -6,
+      "y": 10,
+      "target_local_id": "8",
+      "target_map": "MAP_OCEAN11"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": -5,
+      "y": 25,
+      "target_local_id": "1",
+      "target_map": "MAP_POKEMON_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 35,
+      "y": -1,
+      "target_local_id": "15",
+      "target_map": "MAP_ROUTE18"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 3,
+      "y": -1,
+      "target_local_id": "28",
+      "target_map": "MAP_TWO_ISLAND"
     }
   ],
   "warp_events": [

@@ -66,6 +66,44 @@ const struct SpriteTemplate gFallingRockSpriteTemplate =
     .callback = AnimFallingRock,
 };
 
+static const union AnimCmd sAnim_FlyingChoc_0[] =
+{
+    ANIMCMD_FRAME(0, 18),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingChoc_1[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingChoc_2[] =
+{
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_FlyingChoc[] =
+{
+    sAnim_FlyingChoc_0,
+    sAnim_FlyingChoc_1,
+    sAnim_FlyingChoc_2,
+};
+
+
+const struct SpriteTemplate gFallingChocSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CHOCOLATE,
+    .paletteTag = ANIM_TAG_CHOCOLATE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FlyingChoc,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingRock,
+};
+
 static const union AnimCmd sAnim_FlyingCereal_0[] =
 {
     ANIMCMD_FRAME(0, 1),

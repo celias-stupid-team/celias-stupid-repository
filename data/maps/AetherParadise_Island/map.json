@@ -80,20 +80,6 @@
       "flag": "FLAG_GROUDON_NOTHING"
     },
     {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
-      "x": 9,
-      "y": 61,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "FLAG_HIDE_BONUS_STARLIGHTS"
-    },
-    {
       "local_id": "LOCALID_SOPHACLES",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SOPHACLES",
@@ -176,6 +162,78 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_GreatBayEarly",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
+      "x": 9,
+      "y": 61,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_BONUS_STARLIGHTS"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 34,
+      "y": 66,
+      "target_local_id": "4",
+      "target_map": "MAP_TWO_ISLAND_CAPE_BRINK"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 75,
+      "y": 42,
+      "target_local_id": "8",
+      "target_map": "MAP_ROUTE17"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 57,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_StarlightIsland",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 50,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_GuillotinePuzzle",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 56,
+      "y": 53,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_FestivalPlaza",
       "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],

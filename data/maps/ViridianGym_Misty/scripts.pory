@@ -54,7 +54,7 @@ script ViridianGym_MistyBattle {
     delay(30)
     textcolor(NPC_TEXT_COLOR_FEMALE)
     msgbox(
-	"ARIANA: Hello, child.\n"
+	"SUSAN: Hello, child.\n"
 	"You think you can defeat us?\p"
 
 	"I hear you've proven yourself in\n"

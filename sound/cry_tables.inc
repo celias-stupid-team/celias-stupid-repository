@@ -1263,6 +1263,11 @@ gCryTable::
 	cry Cry_GREGORY
 	cry Cry_ARCEUSLAST
 	cry Cry_NOTHING
+	cry Cry_DITTOBLIZ
+	cry Cry_IRONMASK
+	cry Cry_ZOMBON
+	cry Cry_TINKANETTE
+	cry Cry_RICKETOT
 
 
 	.align 2
@@ -2530,3 +2535,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_GREGORY
 	cry_reverse Cry_ARCEUSLAST
 	cry_reverse Cry_NOTHING
+	cry_reverse Cry_DITTOBLIZ
+	cry_reverse Cry_IRONMASK
+	cry_reverse Cry_ZOMBON
+	cry_reverse Cry_TINKANETTE
+	cry_reverse Cry_RICKETOT

@@ -545,10 +545,34 @@ script Yes_Hakari {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_TALKED_TO_HAKARI)) {
+		msgbox(
+		"HAKARI: Have you found BLIZ yet?\p"
+
+		"If you show him that technique I\n"
+		"gave you, it should help jog his\l"
+		"memory.", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	setflag(FLAG_TALKED_TO_HAKARI)
 	msgbox(
-	"Where is bliz\n"
+	"HAKARI: Damn it, I swear I was\n"
+	"supposed to meet BLIZ here.\p"
+
+	"He asked me “Do you remember where\n"
+	"we're meeting” and I VERY clearly\l"
+	"responded YES.\p"
+
+	"Hey, if you see him, could you\n"
+	"show him this?\l"
+	"It's my secret technique.\p"
+
+	"It should help jog his memory.\n"
 	"", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	giveitem_msg("{PLAYER} was given the\nTM40!", ITEM_TM40)
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	release
 }
 

@@ -8690,6 +8690,8 @@ extern const u32 gBattleAnim_ScaryFaceGfx[];
 extern const u32 gBattleAnim_ScaryFacePal[];
 extern const u32 gBattleAnim_CherryFaceGfx[];
 extern const u32 gBattleAnim_CherryFacePal[];
+extern const u32 gBattleAnim_MissileFaceGfx[];
+extern const u32 gBattleAnim_MissileFacePal[];
 extern const u32 gBattleAnimBgTilemap_ScaryFacePlayer[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceOpponent[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceContest[];
@@ -8878,6 +8880,13 @@ extern const u32 gBattleAnimSpriteGfx_MouseCursor[];
 extern const u32 gBattleAnimSpriteGfx_Stereo[];
 extern const u32 gBattleAnimSpriteGfx_Stonesurge[];
 extern const u32 gBattleAnimSpriteGfx_CodeWindow[];
+extern const u32 gBattleAnimSpriteGfx_VaultBoy[];
+extern const u32 gBattleAnimSpriteGfx_OSign[];
+extern const u32 gBattleAnimSpriteGfx_ThePit[];
+extern const u32 gBattleAnimSpriteGfx_Handgun[];
+extern const u32 gBattleAnimSpriteGfx_LeerBlastRight[];
+extern const u32 gBattleAnimSpriteGfx_LeerBlastLeft[];
+extern const u32 gBattleAnimSpriteGfx_LeerLaser[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9309,6 +9318,13 @@ extern const u32 gBattleAnimSpritePal_MouseCursor[];
 extern const u32 gBattleAnimSpritePal_Stereo[];
 extern const u32 gBattleAnimSpritePal_Stonesurge[];
 extern const u32 gBattleAnimSpritePal_CodeWindow[];
+extern const u32 gBattleAnimSpritePal_VaultBoy[];
+extern const u32 gBattleAnimSpritePal_OSign[];
+extern const u32 gBattleAnimSpritePal_ThePit[];
+extern const u32 gBattleAnimSpritePal_Handgun[];
+extern const u32 gBattleAnimSpritePal_LeerBlastRight[];
+extern const u32 gBattleAnimSpritePal_LeerBlastLeft[];
+extern const u32 gBattleAnimSpritePal_LeerLaser[];
 
 //CSR Moves
 
@@ -9363,6 +9379,7 @@ extern const u32 gBattleAnimBgImage_AceFlag[];
 extern const u32 gBattleAnimBgImage_SolaceonTown[];
 extern const u32 gBattleAnimBgImage_Pewter[];
 extern const u32 gBattleAnimBgImage_Coke[];
+extern const u32 gBattleAnimBgImage_GhostTrick[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9399,6 +9416,7 @@ extern const u32 gBattleAnimBgPalette_Pewter[];
 extern const u32 gBattleAnimBgPalette_Coke[];
 extern const u32 gBattleAnimBgPalette_MeatWater[];
 extern const u32 gBattleAnimBgPalette_EarfWater[];
+extern const u32 gBattleAnimBgPalette_GhostTrick[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9434,6 +9452,7 @@ extern const u32 gBattleAnimBgTilemap_AceFlag[];
 extern const u32 gBattleAnimBgTilemap_SolaceonTown[];
 extern const u32 gBattleAnimBgTilemap_Pewter[];
 extern const u32 gBattleAnimBgTilemap_Coke[];
+extern const u32 gBattleAnimBgTilemap_GhostTrick[];
 
 // dark
 extern const u32 gMetalShineGfx[];
@@ -13406,3 +13425,46 @@ extern const u32 gItemIconPalette_RawNugget[];
 
 extern const u32 gItemIcon_RippedMemo[];
 extern const u32 gItemIconPalette_RippedMemo[];
+
+extern const u32 gTrainerFrontPic_Hakari_Bliz[];
+extern const u32 gTrainerPalette_Hakari_Bliz[];
+// DITTO_BLIZ
+extern const u32 gMonFrontPic_DITTOBLIZ[];
+extern const u32 gMonPalette_DITTOBLIZ[];
+extern const u32 gMonBackPic_DITTOBLIZ[];
+extern const u32 gMonShinyPalette_DITTOBLIZ[];
+extern const u8 gMonFootprint_DITTOBLIZ[];
+extern const u8 gMonIcon_DITTOBLIZ[];
+
+// IRON_MASK
+extern const u32 gMonFrontPic_IRONMASK[];
+extern const u32 gMonPalette_IRONMASK[];
+extern const u32 gMonBackPic_IRONMASK[];
+extern const u32 gMonShinyPalette_IRONMASK[];
+extern const u8 gMonFootprint_IRONMASK[];
+extern const u8 gMonIcon_IRONMASK[];
+
+// ZOMBON
+extern const u32 gMonFrontPic_ZOMBON[];
+extern const u32 gMonPalette_ZOMBON[];
+extern const u32 gMonBackPic_ZOMBON[];
+extern const u32 gMonShinyPalette_ZOMBON[];
+extern const u8 gMonFootprint_ZOMBON[];
+extern const u8 gMonIcon_ZOMBON[];
+
+// TINKANETTE
+extern const u32 gMonFrontPic_TINKANETTE[];
+extern const u32 gMonPalette_TINKANETTE[];
+extern const u32 gMonBackPic_TINKANETTE[];
+extern const u32 gMonShinyPalette_TINKANETTE[];
+extern const u8 gMonFootprint_TINKANETTE[];
+extern const u8 gMonIcon_TINKANETTE[];
+
+// RICKETOT
+extern const u32 gMonFrontPic_RICKETOT[];
+extern const u32 gMonPalette_RICKETOT[];
+extern const u32 gMonBackPic_RICKETOT[];
+extern const u32 gMonShinyPalette_RICKETOT[];
+extern const u8 gMonFootprint_RICKETOT[];
+extern const u8 gMonIcon_RICKETOT[];
+

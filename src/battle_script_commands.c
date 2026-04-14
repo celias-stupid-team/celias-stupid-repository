@@ -839,6 +839,8 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_10000_VOLTS,
     MOVE_SUBSTITUTE_TEACHER,
     MOVE_COLONIZE,
+    MOVE_THIEF,
+    MOVE_MIEF,
     METRONOME_FORBIDDEN_END
 };
 

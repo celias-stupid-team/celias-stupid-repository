@@ -484,6 +484,13 @@
 #define ANIM_TAG_STEREO                     (ANIM_SPRITES_START + 474)
 #define ANIM_TAG_STONESURGE                 (ANIM_SPRITES_START + 475)
 #define ANIM_TAG_CODE_WINDOW                (ANIM_SPRITES_START + 476)
+#define ANIM_TAG_VAULT_BOY                  (ANIM_SPRITES_START + 477)
+#define ANIM_TAG_O_SIGN                     (ANIM_SPRITES_START + 478)
+#define ANIM_TAG_THE_PIT                    (ANIM_SPRITES_START + 479)
+#define ANIM_TAG_HANDGUN                    (ANIM_SPRITES_START + 480)
+#define ANIM_TAG_LEER_BLAST_RIGHT           (ANIM_SPRITES_START + 481)
+#define ANIM_TAG_LEER_BLAST_LEFT            (ANIM_SPRITES_START + 482)
+#define ANIM_TAG_LEER_LASER                 (ANIM_SPRITES_START + 483)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -549,6 +556,7 @@
 #define BG_SOLACEON_TOWN 36
 #define BG_PEWTER 37
 #define BG_COKE 38
+#define BG_GHOST_TRICK 39
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

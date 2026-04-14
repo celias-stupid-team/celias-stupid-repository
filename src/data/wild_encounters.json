@@ -28782,6 +28782,65 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_HI",
+          "base_label": "gHi",
+          "fishing_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 55,
+                "max_level": 55,
+                "species": "SPECIES_KRABBY"
+              }
+            ]
+          }
         }
       ]
     }

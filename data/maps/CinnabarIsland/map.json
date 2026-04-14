@@ -56,7 +56,7 @@
     },
     {
       "map": "MAP_OCEAN12",
-      "offset": 5,
+      "offset": 4,
       "direction": "down"
     }
   ],
@@ -611,6 +611,22 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_CinnabarFire",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_FISHER",
+      "x": 60,
+      "y": 13,
+      "target_local_id": "1",
+      "target_map": "MAP_OCEAN11"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 61,
+      "y": 41,
+      "target_local_id": "4",
+      "target_map": "MAP_POKEMON_ISLAND_SOUTH"
     }
   ],
   "warp_events": [
