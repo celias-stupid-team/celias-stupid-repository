@@ -145,12 +145,6 @@ static const struct TrainerMonItemDefaultMoves sParty_YoungsterJosh[] = {
     {
         .iv = 0,
         .lvl = 10,
-        .species = SPECIES_RATTATA,
-        .heldItem = ITEM_FOCUS_SASH,
-    },
-    {
-        .iv = 0,
-        .lvl = 10,
         .species = SPECIES_TENTACOOL,
         .heldItem = ITEM_NONE,
     },
@@ -609,11 +603,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_LassCrissy[] = {
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_LassMiriam[] = {
-    {
-        .iv = 0,
-        .lvl = 11,
-        .species = SPECIES_BELLSPROUT,
-    },
     {
         .iv = 0,
         .lvl = 11,

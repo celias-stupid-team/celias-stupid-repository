@@ -105,10 +105,11 @@ script AetherParadise_DMCA_StopsYou {
 	msgbox(
 	"ZUBAT: Ahaha!\n"
 	"We're the original TEAM SKULL!", MSGBOX_DEFAULT)
-	closemessage
+	
 	msgbox(
 	"KOFFING: Here, how about you\n"
 	"have a little…{PAUSE 30} gift!", MSGBOX_DEFAULT)
+	closemessage
 	trainerbattle_no_intro(TRAINER_TEAM_SKULL, "Oh, this was a bad plan.")
 	
 	delay(30)
