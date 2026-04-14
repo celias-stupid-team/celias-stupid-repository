@@ -1168,7 +1168,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_PORYGON2] =
     {
         .size = MON_COORDS_SIZE(40, 40),
-        .y_offset = 15,
+        .y_offset = 5,
     },
     [SPECIES_STANTLER] =
     {
@@ -1628,7 +1628,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_LUVDISC] =
     {
         .size = MON_COORDS_SIZE(32, 48),
-        .y_offset = 24,
+        .y_offset = 11,
     },
     [SPECIES_CORPHISH] =
     {

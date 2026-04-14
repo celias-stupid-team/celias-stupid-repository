@@ -387,6 +387,8 @@ static void SetFlyWarpDestination(u16);
 
 #include "data/region_map/region_map_entry_strings.h"
 
+static const u8 sMapsecName_LocationUnknown[] = _("LOCATION UNKNOWN");
+
 static const u16 sTopBar_Pal[] = INCBIN_U16("graphics/region_map/top_bar.gbapal"); // Palette for the top bar and dynamic text color
 static const u16 sMapCursor_Pal[] = INCBIN_U16("graphics/region_map/cursor.gbapal");
 static const u16 sPlayerIcon_RedPal[] = INCBIN_U16("graphics/region_map/player_icon_red.gbapal");
@@ -863,7 +865,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_MEMORIAL_PILLAR     - KANTO_MAPSEC_START] = {MAP(MAP_FIVE_ISLAND_MEMORIAL_PILLAR),           HEAL_LOCATION_NONE},
     [MAPSEC_SAFFRON_GYM      - KANTO_MAPSEC_START] = {MAP(MAP_SIX_ISLAND_OUTCAST_ISLAND),             HEAL_LOCATION_NONE},
     [MAPSEC_CINNABAR_GYM          - KANTO_MAPSEC_START] = {MAP(MAP_SIX_ISLAND_GREEN_PATH),                 HEAL_LOCATION_NONE},
-    [MAPSEC_ONE_ISLAND_NAMED          - KANTO_MAPSEC_START] = {MAP(MAP_SIX_ISLAND_WATER_PATH),                 HEAL_LOCATION_NONE},
+    [MAPSEC_ONE_ISLAND_NAMED          - KANTO_MAPSEC_START] = {MAP(MAP_ONE_ISLAND),                 HEAL_LOCATION_ONE_ISLAND},
     [MAPSEC_RUIN_VALLEY         - KANTO_MAPSEC_START] = {MAP(MAP_SIX_ISLAND_RUIN_VALLEY),                HEAL_LOCATION_NONE},
     [MAPSEC_VIRIDIAN_GYM       - KANTO_MAPSEC_START] = {MAP(MAP_SEVEN_ISLAND_TRAINER_TOWER),            HEAL_LOCATION_NONE},
     [MAPSEC_CANYON_ENTRANCE     - KANTO_MAPSEC_START] = {MAP(MAP_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE),  HEAL_LOCATION_NONE},
@@ -3014,6 +3016,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_CSR_MAP_EGG_DELIVERY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_THIRTY_EIGHT_ISLAND:
         return FlagGet(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_ONE_ISLAND_NAMED:
+        return FlagGet(FLAG_WORLD_MAP_CELADON_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
     default:
@@ -3990,8 +3994,10 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
     {
         if (IsCeladonDeptStoreMapsec(mapsec) == TRUE)
             dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);
-        else
+        else if (sMapNames[idx] != NULL)
             dst = StringCopy(dst0, sMapNames[idx]);
+        else
+            dst = StringCopy(dst0, sMapsecName_LocationUnknown);
     }
     else
     {

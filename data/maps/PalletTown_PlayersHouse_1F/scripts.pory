@@ -130,7 +130,7 @@ script PalletTown_PlayersHouse_1F_EventScript_Plant {
 }
 
 script PalletTown_PlayersHouse_1F_EventScript_CeliaBakemeat {
-	msgbox("Volcano Bakemeat is a line from\nPokemon Vietnamese Crystal, a\lbootleg English translation.\pDon't worry, VC fans!\nI'm not gonna forget “I AM A MONSTER\lCOACH.”", MSGBOX_NPC)
+	msgbox("Volcano Bakemeat is a line from\nPokemon Vietnamese Crystal, a\lbootleg English translation.", MSGBOX_NPC)
 	end
 }
 
@@ -143,6 +143,75 @@ script PalletTown_PlayersHouse_1F_EventScript_CeliaDad {
 	msgbox("Dad is by far my favorite character\nto write for this hack.\pEveryone expects it to be some gross\nsexual joke or whatever, but no.\lIt's just Dad.\pAll he needs to do is show up and\nsay something kinda silly.\pHe's already conceptually so funny,\nthat almost anything I write works.", MSGBOX_NPC)
 	end
 }
+
+
+script CeliaSecret_OutSide {
+	msgbox(
+	"And right here you can find the\n"
+	"TV's out-side!", MSGBOX_NPC)
+}
+
+script CeliaSecret_SouthCandy {
+	msgbox(
+	"The candy behind the fence is here\n"
+	"to draw your curiosity.\p"
+
+	"People will likely see it before\n"
+	"picking up the one in Daisy's\l"
+	"house, so they'll want to know\l"
+	"what it is.", MSGBOX_NPC)
+}
+
+script CeliaSecret_MarioWall {
+	msgbox(
+	"On one hand, I wanted the Mario 64\n"
+	"warp as a big shock moment.\p"
+
+	"On the other hand, it was WAY too\n"
+	"crazy for the relatively mild\l"
+	"game opening without buildup.\p"
+
+	"Thus, I added the three-stage\n"
+	"wall break to finding it.", MSGBOX_NPC)
+}
+
+script CeliaSecret_OakWall {
+	msgbox(
+	"One of the early ideas for the\n"
+	"PALLET TOWN secret was a hole\l"
+	"appearing here and drilling it.\p"
+
+	"Sadly I found it too noticable, so\n"
+	"I moved it to the house instead.", MSGBOX_NPC)
+}
+
+script CeliaSecret_ScratchPresent {
+	msgbox(
+	"I messed with the Scratch Present\n"
+	"odds so that they never heal if the\l"
+	"foe is at full health.\p"
+
+	"This is cuz during the intro rival\n"
+	"battle, if you got two Heal turns\l"
+	"in a row, people would think that\l"
+	"scratch was completely useless.\p"
+
+	"Thus I had to make it always work\n"
+	"on turn 1 so you'd know it can\l"
+	"SOMETIMES work.", MSGBOX_NPC)
+}
+
+script CeliaSecret_GSBall {
+	msgbox(
+	"In the first releases of the game,\n"
+	"cutting Oak triggered a Dev\l"
+	"commentary quest.\p"
+
+	"However I thought this was way too\n"
+	"easy, so I made it a required quest\l"
+	"event for GS Ball instead.", MSGBOX_NPC)
+}
+
 
 
 

@@ -2689,7 +2689,7 @@
       "secondaryId": 0
     },
     {
-      "english": "LIECHI BERRY",
+      "english": "SANDWICH",
       "itemId": "ITEM_LIECHI_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_ATTACK_UP",
@@ -2838,7 +2838,7 @@
       "price": 20,
       "holdEffect": "HOLD_EFFECT_TOXIC_BERRY",
       "holdEffectParam": 0,
-      "description_english": "If eaten, the POKéMON holding the berry\\nwill faint.",
+      "description_english": "By brittany spears.\\nIt's question marks because idfk",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -4656,7 +4656,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "AuroraBeam"
+      "moveId": "PSIRockin"
     },
     {
       "english": "TM03",
@@ -4724,7 +4724,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Toxic"
+      "moveId": "Shoot"
     },
     {
       "english": "TM07",
@@ -4860,7 +4860,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Psystorm"
+      "moveId": "SteelWing"
     },
     {
       "english": "TM15",
@@ -4877,7 +4877,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Splash"
+      "moveId": "Barrage"
     },
     {
       "english": "TM16",
@@ -5047,7 +5047,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Lightning"
+      "moveId": "Dig"
     },
     {
       "english": "TM26",
@@ -5115,7 +5115,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "SteelWing"
+      "moveId": "AuroraBeam"
     },
     {
       "english": "TM30",
@@ -5234,7 +5234,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "RazorWind"
+      "moveId": "GameGenie"
     },
     {
       "english": "TM37",
@@ -5251,7 +5251,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Sandstorm"
+      "moveId": "MilkDrink"
     },
     {
       "english": "TM39",
@@ -5302,7 +5302,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "DragonRage"
+      "moveId": "RipRoaring"
     },
     {
       "english": "TM41",
@@ -5712,7 +5712,7 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A set of TEETH made of pure chicken.\\nThe SAFARI WARDEN is looking for\\nsthem.",
+      "description_english": "A set of TEETH made of pure chicken.\\nThe SAFARI WARDEN is looking for\\nthem.",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
@@ -6240,7 +6240,7 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "An exquisitely beautiful gem that\\nhas a blue glow.\\nIt symbolizes honesty.",
+      "description_english": "An exquisitely beautiful y that\\nhas a yt glow.\\nIt symbolizes y.",
       "importance": 1,
       "registrability": 1,
       "pocket": "POCKET_KEY_ITEMS",
@@ -6501,7 +6501,7 @@
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "fieldUseFunc": "FieldUseFunc_SandwichCase",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
@@ -6768,12 +6768,12 @@
       "price": 9999,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "DUMMY DESCRIPTION",
+      "description_english": "An extra-large nugget made of\\nchicken. Trying to bite into it\\nwill break your teeth.",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "fieldUseFunc": "FieldUseFunc_BigNugget",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
@@ -7088,7 +7088,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "The secret third thing found\\nat WAL-MART.",
+      "description_english": "Something which GOLDEEN had once\\nneed. It is no longer serves a\\npurpose, but the memories remain.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -7252,8 +7252,8 @@
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_RareCandy",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
@@ -7296,7 +7296,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "DUMMY DESCRIPTION",
+      "description_english": "The rarest and most bullshit item\\nin the game. Doubles the ATTACK\\nof MELTAN.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -7669,7 +7669,7 @@
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "fieldUseFunc": "FieldUseFunc_Mesprit",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
@@ -7702,6 +7702,54 @@
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_Ligma",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "H.Duty Roots",
+      "itemId": "ITEM_HDUTYROOT",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_HEAVY_DUTY_BOOTS",
+      "holdEffectParam": 0,
+      "description_english": "Roots that prevent effects of\\ntraps set in the field.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "RAW NUGGET",
+      "itemId": "ITEM_RAW_NUGGET",
+      "price": 2000,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A suspiciously undercooked NUGGET\\npotentially giving you grounds\\nfor a major lawsuit.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_PayDayTM",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "RIPPED MEMO",
+      "itemId": "ITEM_RIPPED_MEMO",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A message from above has come\\nfrom the machine. It reads:\\nIT WILL NOT HELP WITH DRAGONITE.",
+      "importance": 1,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

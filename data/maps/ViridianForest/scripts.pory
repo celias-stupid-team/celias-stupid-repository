@@ -224,7 +224,7 @@ script ViridianForest_EventScript_CeliaChecksDex {
 
 		applymovement(CELIA_FOREST, CeliaAbsconds)
 		waitmovement(0)
-		setobjectxyperm(CELIA_FOREST, 23, 14)
+		copyobjectxytoperm(CELIA_FOREST)
 		release
 	}
 }
@@ -232,7 +232,7 @@ script ViridianForest_EventScript_CeliaChecksDex {
 script ViridianForest_EventScript_CeliaGotCaught {
 	lock
 	faceplayer
-	if(var(VAR_TEMP_5) > 30) {
+	if(var(VAR_TEMP_5) > 15) {
 		msgbox("All right, that should be more\nthan enough CANDY.\pYou're on your own from here.\nGood luck!", MSGBOX_DEFAULT)
 		release
 		end
@@ -330,5 +330,15 @@ script ViridianForest_ClearGrassFlag {
 
 script ViridianForest_SetGrassFlag {
 	setflag(FLAG_WALKED_THROUGH_GRASS)
+	release
+}
+
+script ViridianForest_10UGuyFuckYou {
+	if(flag(FLAG_CSR_CELIA_BONUS)) {
+		applymovement(LOCALID_10U_GUY, moves(
+			face_up
+		))
+		waitmovement(0)
+	}
 	release
 }

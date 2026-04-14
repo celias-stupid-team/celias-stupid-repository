@@ -20,12 +20,23 @@ mapscripts DiglettsCave_B1F_MapScripts {
 
 script DiglettsCave_Digletts {
 	lock
-	setvar(VAR_DIGLETTS_CAVE_DIGLETTS, 1)
-	setwildbattle(SPECIES_DUGTRIO, 29, ITEM_NONE)
-	dowildbattle
+	setvar(VAR_DIGLETTS_CAVE_DIGLETTS, 2)
+	if(!checkmoncaught(SPECIES_DUGTRIO)) {
+		setwildbattle(SPECIES_DUGTRIO, 29, ITEM_NONE)
+		dowildbattle
+
+	}
 	release
 }
 
+
+script DiglettsCave_Diglett {
+	lock
+	setvar(VAR_DIGLETTS_CAVE_DIGLETTS, 1)
+	setwildbattle(SPECIES_DIGLETT, 18, ITEM_NONE)
+	dowildbattle
+	release
+}
 
 
 script DiglettsCave_WallHole {

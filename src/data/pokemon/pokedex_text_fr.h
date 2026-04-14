@@ -220,7 +220,7 @@ const u8 gVulpixPokedexText[] = _(
 const u8 gVulpixPokedexTextUnused[] = _("");
 
 const u8 gNinetalesPokedexText[] = _(
-	"I miss my wife, TALES.");
+	"I miss my nine, TALES.");
     
 const u8 gNinetalesPokedexTextUnused[] = _("");
 
@@ -2666,8 +2666,8 @@ const u8 gGenesectPokedexText[] = _(
 
 const u8 gTyranastarPokedexText[] = _(
 	"The power of science is incredible!\n"
-	"We can finally see ancient POKéMON\n"
-	"exactly how they were a million years ago!");
+	"We can now see ancient POKéMON exactly\n"
+	"how they were a million years ago!");
 
 const u8 gMelmetalPokedexText[] = _(
 	"Yahaha!");

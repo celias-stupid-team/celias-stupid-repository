@@ -13,7 +13,14 @@ mapscripts Minnesota_MapScripts {
 		if(!flag(FLAG_SENT_BIKER_FLYING)) {
 			setflag(FLAG_TEMP_6)
 		}
-		
+		if(!flag(FLAG_FOUND_Y)) {
+			setflag(FLAG_TEMP_7)
+		}
+		if(!flag(FLAG_REUNITED_HAKARI_AND_BLIZ)) {
+			setflag(FLAG_TEMP_8)
+
+		}
+		setflag(FLAG_TEMP_9)
 	}
 }
 
@@ -41,15 +48,9 @@ script Minnesota_Softlock {
 
 	"Here, take this!\n"
 	"", MSGBOX_DEFAULT)
-	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GIMMIGHOUL)
-	setflag(FLAG_SHINY_CREATION)
-	playfanfare(MUS_LEVEL_UP)
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
-	msgbox(
-	"{PLAYER} was given a\n"
-	"free GIMMIGHOUL!", MSGBOX_DEFAULT)
+	giveitem_msg("{PLAYER} was given some\nfree McDONALD's!", ITEM_RAW_NUGGET)
 	waitfanfare
-	call(Common_Script_GiftPokemon19)
 	closemessage
 	delay(20)
 	textcolor(NPC_TEXT_COLOR_RED)
@@ -185,7 +186,7 @@ script MinnesotaZoo_FirstCage {
 script MinnesotaZoo_Mongoose {
 	lock
 	playmoncry(SPECIES_ZANGOOSE, CRY_MODE_DEFAULT)
-	if(checkpartymon(SPECIES_SEVIPER) != PARTY_SIZE) {
+	if(checkpartymonslot(SPECIES_SEVIPER) != PARTY_SIZE) {
 		msgbox(
 		"Your SEVIPER…\n"
 		"My sworn enemy.", MSGBOX_DEFAULT)
@@ -315,6 +316,7 @@ script Minnesota_LookedThroughTrubbish {
 	playse(SE_CLICK)
 	setflag(FLAG_TEMP_1)
 	setlayouttiles(LAYOUT_MINNESOTA_HOUSE1_BEAM_OFF, 0, 0, 0, 0, 23, 19)
+		setmaplayoutindex(LAYOUT_MINNESOTA_HOUSE1_BEAM_OFF)
 	waitse
 	closemessage
 	release
@@ -420,12 +422,6 @@ script MinnesotaShorts {
 	"I'm here to get squeaky-clean!", MSGBOX_NPC)
 }
 
-script MinnesotaWashingMachine {
-	lock
-	playmoncry(SPECIES_WISHIWASHI, CRY_MODE_DEFAULT)
-	waitmoncry
-	release
-}
 
 script Minnesota_CleanOak {
 	msgbox(
@@ -446,9 +442,226 @@ script Minnesota_DollarTree {
 
 
 script Minnesota_DeadBiker {
+	//textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Oh?\n"
+	"What is he sinking about?", MSGBOX_SIGN)
+
+}
+
+script Minnesota_Bliz {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_TM25_GOT)) {
+		
+		msgbox(
+		"HAKARI: So, uh…\n"
+		"", MSGBOX_DEFAULT)
+		applymovement(LOCALID_MINNESOTA_HAKARI, moves(
+			face_left
+		))
+		msgbox(
+		"Where are we, anyway?\n"
+		"", MSGBOX_DEFAULT)
+		applymovement(LOCALID_MINNESOTA_BLIZ, moves(
+			face_right
+		))
+		msgbox(
+		"BLIZ: Minnesota.\n"
+		"", MSGBOX_DEFAULT)
+		applymovement(LOCALID_MINNESOTA_HAKARI, moves(
+			walk_in_place_left * 2
+		))
+		msgbox(
+		"HAKARI: … … …\p"
+
+		"I'm divorcing you again.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	if(flag(FLAG_REUNITED_HAKARI_AND_BLIZ)) {
+		msgbox(
+		"HAKARI: Are you ready to fight us?\n"
+		"We're not gonna hold back!", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			goto(Minnesota_Battle)
+		} else {
+			msgbox(
+			"BLIZ: No worries, I'll just fast\n"
+			"forward until you're ready.", MSGBOX_DEFAULT)
+			release
+			end
+
+		}
+		
+	}
+	msgbox(
+	"BLIZ: I was supposed to meet my\n"
+	"husband here, but he hasn't shown\l"
+	"up.\p"
+
+	"I wonder where he could be?\n"
+	"", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_RIP_ROARING) != PARTY_SIZE) {
+		msgbox(
+		"BLIZ: Oh!\n"
+		"That's Stephen's favorite move!\l"
+		"Did you meet him?\p"
+
+		"Well, if he's not busy, I guess\n"
+		"I'll just call him.", MSGBOX_DEFAULT)
+		closemessage
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
+		if(var(VAR_RESULT) == DIR_WEST) {
+			applymovement(LOCALID_PLAYER, moves(
+				face_up
+				lock_facing_direction
+				walk_down
+				unlock_facing_direction
+
+			))
+		}
+		delay(30)
+		setflag(FLAG_REUNITED_HAKARI_AND_BLIZ)
+		playse(SE_M_DIG)
+		addobject(LOCALID_DIGGING_HAKARI)
+		applymovement(LOCALID_DIGGING_HAKARI, moves(
+			walk_in_place_left * 3
+		))
+		waitmovement(0)
+		playse(SE_M_DIG)
+		applymovement(LOCALID_DIGGING_HAKARI, moves(
+			walk_in_place_up * 3
+		))
+		waitmovement(0)
+		playse(SE_M_DIG)
+		applymovement(LOCALID_DIGGING_HAKARI, moves(
+			walk_in_place_down * 3
+		))
+		waitmovement(0)
+		removeobject(LOCALID_DIGGING_HAKARI)
+		addobject(LOCALID_MINNESOTA_HAKARI)
+		playse(SE_LEDGE)
+		applymovement(LOCALID_MINNESOTA_HAKARI, moves(
+			jump_in_place_down
+		))
+		waitmovement(0)
+		delay(30)
+		applymovement(LOCALID_MINNESOTA_HAKARI, moves(
+			face_left
+		))
+		msgbox(
+		"HAKARI: It's my BOY!\p"
+
+		"Sorry, I completely forgot that we\n"
+		"lived on different continents.", MSGBOX_DEFAULT)
+		applymovement(LOCALID_MINNESOTA_BLIZ, moves(
+			face_right
+		))
+		msgbox(
+		"BLIZ: I love you, you dumbass.\n"
+		"", MSGBOX_DEFAULT)
+		applymovement(LOCALID_MINNESOTA_HAKARI, moves(
+			walk_in_place_left * 2
+		))
+		msgbox(
+		"HAKARI: divorce\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		applymovement(LOCALID_MINNESOTA_BLIZ, moves(
+			face_down
+		))
+		applymovement(LOCALID_MINNESOTA_HAKARI, moves(
+			face_down
+		))
+		msgbox(
+		"HAKARI: Thanks for that!\n"
+		"Nowe we can finally put together\l"
+		"our all-star doubles team.\p"
+
+		"Are you ready to fight us?\n"
+		"We're not gonna hold back!", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			goto(Minnesota_Battle)
+
+		} else {
+			msgbox(
+			"BLIZ: No worries, I'll just fast\n"
+			"forward until you're ready.", MSGBOX_DEFAULT)
+			release
+			end
+		}
+
+
+	}
+	release
+}
+
+script Minnesota_Battle {
+		msgbox(
+		"BLIZ: Alright then, let's get into\n"
+		"it!\p"
+
+		"HAKARI: Get ready to face the\n"
+		"onslaught of our…\p"
+
+		"BOTH: FUNNY!{PAUSE 30} LITTLE!{PAUSE 30} GUYS!!!\n"
+		"", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_HAKARI_BLIZ, 
+		
+		"HAKARI: Damn… I guess YOU were\nthe fnuniest little guy all along!\pBLIZ: We have been shown who is\nthe boss…")
+		msgbox(
+		"HAKARI: Well, I already gave you\n"
+		"my secret technique, so here.\l"
+		"Take this.\p"
+
+		"I won't be needing it anymore now\n"
+		"that you've reunited us.", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		giveitem_msg("{PLAYER} was given TM25!\nIt contains DIG.", ITEM_TM25)
+		setflag(FLAG_TM25_GOT)
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		msgbox(
+		"HAKARI: So, uh…\n"
+		"", MSGBOX_DEFAULT)
+		applymovement(LOCALID_MINNESOTA_HAKARI, moves(
+			face_left
+		))
+		msgbox(
+		"Where are we, anyway?\n"
+		"", MSGBOX_DEFAULT)
+		applymovement(LOCALID_MINNESOTA_BLIZ, moves(
+			face_right
+		))
+		msgbox(
+		"BLIZ: Minnesota.\n"
+		"", MSGBOX_DEFAULT)
+		applymovement(LOCALID_MINNESOTA_HAKARI, moves(
+			walk_in_place_left * 2
+		))
+		msgbox(
+		"HAKARI: … … …\p"
+
+		"I'm divorcing you again.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+
+}
+
+script Minnesota_Hakari {
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"Glub…\n"
-	"", MSGBOX_SIGN)
+	"hi\n"
+	"", MSGBOX_NPC)
+}
+
+script Minnesota_StarEasterEgg {
+	msgbox(
+	"I might've lost"
+	"{PAUSE 30}WEST", MSGBOX_SIGN)
 
 }

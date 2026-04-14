@@ -122,12 +122,12 @@ mapscripts SeafoamIslands_B3F_MapScripts {
 	}
 	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
 		VAR_TEMP_0, 0 {
-			debugprintf("Test")
+			
 			getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
 			if(var(VAR_TEMP_0) > 15 && var(VAR_TEMP_1) < 4 ){
 				debugprintf("Test 2")
 				special(ForcePlayerToStartSurfing)
-				setvar(VAR_TEMP_5, 1)
+				setvar(VAR_TEMP_6, 1)
 
 			}
 
@@ -135,14 +135,14 @@ mapscripts SeafoamIslands_B3F_MapScripts {
 		}
 	]
 	MAP_SCRIPT_ON_FRAME_TABLE [
-		VAR_TEMP_5, 1 {
+		VAR_TEMP_6, 1 {
 			applymovement(LOCALID_PLAYER, moves(
 				walk_fast_down * 12
 				walk_fast_right * 5
 				walk_fast_up * 1
 			))
 			waitmovement(0)
-			setvar(VAR_TEMP_5, 2)
+			setvar(VAR_TEMP_6, 2)
 			release
 		}
 	]
@@ -637,10 +637,9 @@ script SeafoamIslands_ZubatWall {
 		checkfieldmove(MOVE_BRICK_BREAK)
 		setfieldeffectargument(0, VAR_RESULT)
 
-		bufferpartymonnick(STR_VAR_1, VAR_RESULT)
-		buffermovename(STR_VAR_2, MOVE_BRICK_BREAK)
-
-		msgbox(Text_MonUsedMove)
+		msgbox(
+		"{PLAYER} used BRICK BREAK…\n"
+		"", MSGBOX_DEFAULT)
 		closemessage
 		setfieldeffectargument(0, VAR_RESULT)
 		dofieldeffect(FLDEFF_USE_ROCK_SMASH)
@@ -865,7 +864,7 @@ script SeafoamIslands_SphealBounce_2 {
 		delay(20)
 
 	}
-	call(Seafoam3F_DrawThingy)
+	//call(Seafoam3F_DrawThingy)
 	
 	release
 }

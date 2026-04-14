@@ -3,7 +3,7 @@ mapscripts Wormhole_OrthwormRoom_MapScripts {
         if(checkmoncaught(SPECIES_ORTHWORM)) {
             setvar(VAR_TEMP_0, 2)
         }
-        additem(ITEM_POKE_BALL)
+        
         if(!flag(FLAG_ORTHWORM_POTION) && checkmoncaught(SPECIES_ORTHWORM)) {
             setobjectxyperm(LOCALID_ORTHWORM_POTION, 9, 12)
         }
@@ -146,6 +146,8 @@ script Wormhole_OrthwormRises {
     delay(30)
     fadescreenswapbuffers(FADE_TO_BLACK)
     removeobject(LOCALID_ORTHWORM_ATTACKING)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    removeobject(LOCALID_ORTHWORM_ATTACKING)
     fadescreenswapbuffers(FADE_FROM_BLACK)
         removeobject(LOCALID_ORTHWORM_ATTACKING)
         delay(60)
@@ -155,19 +157,21 @@ script Wormhole_OrthwormRises {
         ))
         waitmovement(LOCALID_CAMERA)
         delay(30)
-        applymovement(LOCALID_ORTHWORM_POTION, moves(
-            set_visible
-            walk_fast_down * 5
-        ))
-        delay(20)
-        
-        playse(SE_FALL)
-        waitmovement(LOCALID_ORTHWORM_POTION)
-        special(RemoveCameraObject)
-        delay(20)
-        waitmovement(0)
+        if(checkmoncaught(SPECIES_ORTHWORM)) {
+            applymovement(LOCALID_ORTHWORM_POTION, moves(
+                set_visible
+                walk_fast_down * 5
+            ))
+            delay(20)
+            
+            playse(SE_FALL)
+            waitmovement(LOCALID_ORTHWORM_POTION)
+            waitmovement(0)
+
+        }
+            special(RemoveCameraObject)
+            delay(20)
         setvar(VAR_TEMP_0, 2)
-        release
     release
 
 }

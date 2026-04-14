@@ -5,7 +5,7 @@ static const u8 sSpeedBoostDescription[] = _("Gradually boosts SPEED.");
 static const u8 sBattleArmorDescription[] = _("ARMED for combat.");
 static const u8 sSturdyDescription[] = _("Negates 1-hit KO attacks.");
 static const u8 sDampDescription[] = _("Prevents self-destruction.");
-static const u8 sLimberDescription[] = _("Prevents paralysis.");
+static const u8 sLimberDescription[] = _("Immune to the yellow color.");
 static const u8 sSandVeilDescription[] = _("Ups evasion in a sandstorm.");
 static const u8 sStaticDescription[] = _("The user is unchanging.");
 static const u8 sVoltAbsorbDescription[] = _("Turns electricity into HP.");
@@ -196,13 +196,13 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_AS_ONE_BULBASAUR] = COMPOUND_STRING("ONEY GATHER and ONEDER SKIN."),
     [ABILITY_DISGUISE] = COMPOUND_STRING("As opposed to datguise."),
     [ABILITY_ETAADIMITNI] = COMPOUND_STRING(".KCATTA s'eof eht srewoL"), //unused
-    [ABILITY_IMPOSTER] = COMPOUND_STRING("Seems like a good ability, but it's an IMPOSTER."),
+    [ABILITY_IMPOSTER] = COMPOUND_STRING("Ability that only pretends to be good."),
     [ABILITY_IRON_FIST] = COMPOUND_STRING("Punching moves up."),
     [ABILITY_AIDAPTABILITY] = COMPOUND_STRING("Studying STAB moves."),
     [ABILITY_ALVANIZE] = COMPOUND_STRING("Boosts WEIRD moves."),
     [ABILITY_LOSSPITALITY] = COMPOUND_STRING("User of L'osspital's rule."),
     [ABILITY_DOWNLOAD] = COMPOUND_STRING("Downloads whatever it clicks on."),
-    [ABILITY_MISTY_SURGE] = COMPOUND_STRING("Ability that's the names of two GYM LEADERS."),
+    [ABILITY_MISTY_SURGE] = COMPOUND_STRING("The names of two GYM LEADERS."),
     [ABILITY_NICE_FACE] = COMPOUND_STRING("Damn, nice face."),
     [ABILITY_NICE_FACES] = COMPOUND_STRING("Damn, nice faces."),
     [ABILITY_WELL_BAKED_BOD] =COMPOUND_STRING("DUMMY."), //unused
@@ -231,6 +231,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_COLOR_CHANGE_WIZ] = sColorChangeDescription,
     [ABILITY_RIGHTNINGROD] = COMPOUND_STRING("The user was RIGHT."),
     [ABILITY_TWISTED_REALITY] = COMPOUND_STRING("Replaces the opponent's moves."),
+    [ABILITY_SCHOOLING] = COMPOUND_STRING("Comes in when the TEACHER is sick."),
+    [ABILITY_HARVEST] = COMPOUND_STRING("May recycle a used Berry."),
+    [ABILITY_POOEY] = COMPOUND_STRING("Yahaha!"),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -378,4 +381,9 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_COLOR_CHANGE_WIZ] = _("COLOR CHANGE"),
     [ABILITY_RIGHTNINGROD] = _("RIGHTNINGROD"),
     [ABILITY_TWISTED_REALITY] = _("{FONT_SMALL}TWISTED REALITY"),
+    [ABILITY_SCHOOLING] = _("SCHOOLING"),
+    [ABILITY_HARVEST] = _("HARVEST"),
+    [ABILITY_POOEY] = _("POOEY"),
+
+    
 };

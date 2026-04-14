@@ -168,10 +168,32 @@ const struct SpriteTemplate gCurseNailSpriteTemplate =
     .callback = AnimCurseNail,
 };
 
+const struct SpriteTemplate gHotdogSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HOTDOG,
+    .paletteTag = ANIM_TAG_HOTDOG,
+    .oam = &gOamData_AffineOff_ObjBlend_32x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCurseNail,
+};
+
 const struct SpriteTemplate gCurseGhostSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GHOSTLY_SPIRIT,
     .paletteTag = ANIM_TAG_GHOSTLY_SPIRIT,
+    .oam = &gOamData_AffineOff_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGhostStatusSprite,
+};
+
+const struct SpriteTemplate gFemaleGhostSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FEMALE,
+    .paletteTag = ANIM_TAG_FEMALE,
     .oam = &gOamData_AffineOff_ObjBlend_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

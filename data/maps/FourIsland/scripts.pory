@@ -642,7 +642,7 @@ script FourIsland_LostTower {
 	"LOST TOWER\p"
 
 	"Notice!\n{PAUSE 20}"
-	"LOST TOWER {PAUSE 10}is currently lost.", MSGBOX_SIGN)
+	"LOST TOWER is currently lost.", MSGBOX_SIGN)
 
 }
 
@@ -969,7 +969,7 @@ script FourIsland_CoronetSign {
 	"MT CORONET\p"
 
 	"A vital part of the FOUR ISLAND\n"
-	"experience", MSGBOX_SIGN)
+	"experience.", MSGBOX_SIGN)
 
 }
 

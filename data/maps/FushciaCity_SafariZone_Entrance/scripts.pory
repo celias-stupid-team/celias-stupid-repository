@@ -240,6 +240,7 @@ script FushciaCity_SafariZone_Entrance_EventScript_ExitEarly {
 	applymovement(LOCALID_PLAYER, FushciaCity_SafariZone_Entrance_Movement_Exit)
 	waitmovement(0)
 	special(ExitSafariMode)
+	setrespawn(HEAL_LOCATION_ROUTE15)
 	setvar(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0)
 	releaseall
 }

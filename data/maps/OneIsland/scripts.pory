@@ -110,7 +110,7 @@ OneIsland_EventScript_PokemonNetCenterSign::
 script OneIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_ONE_ISLAND)
 	setflag(FLAG_TEMP_5)
-	if(checkmoncaught(SPECIES_ARTICUNO)) {
+	if(flag(FLAG_DID_ARTICUNO_FIGHT)) {
 		clearflag(FLAG_TEMP_5)
 	}
 }
@@ -236,7 +236,24 @@ script OneIsland_Whirlpool {
 
 script OneIsland_Kaylee {
 	lock
-	if(checkmoncaught(SPECIES_ARTICUNO)) {
+	textcolor(NPC_TEXT_COLOR_RED)
+	if(flag(FLAG_DID_ARTICUNO_FIGHT)) {
+		if(!checkitem(ITEM_SOOTHE_BELL) && !checkmoncaught(SPECIES_ESPEON)) {
+			msgbox(
+			"KAYLEE: Here\n"
+			"", MSGBOX_DEFAULT)
+			giveitem_msg("{PLAYER} received the\nTIDAL BELL!", ITEM_SOOTHE_BELL)
+			waitfanfare
+			msgbox(
+			"Treat that BELL as a gift from\n"
+			"one dancer to another.\p"
+
+			"Who knows?\n"
+			"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+			release
+			end
+
+		}
 		faceplayer
 		msgbox(
 		"Treat that BELL as a gift from\n"
@@ -244,10 +261,15 @@ script OneIsland_Kaylee {
 
 		"Who knows?\n"
 		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
 		release
 		end
 	}
-	if(flag(FLAG_TEMP_5)) {
+	if(!flag(FLAG_TEMP_3)) {
 		applymovement(LOCALID_KAILEE, moves(
 			face_down
 		))
@@ -256,7 +278,7 @@ script OneIsland_Kaylee {
 		"", MSGBOX_DEFAULT)
 		closemessage
 		applymovement(LOCALID_KAILIE, moves(
-			face_player
+			face_down
 		))
 		delay(10)
 		msgbox(
@@ -289,7 +311,7 @@ script OneIsland_Kaylee {
 		"", MSGBOX_DEFAULT)
 		closemessage
 		applymovement(LOCALID_KAILIE, moves(
-			face_player
+			face_down
 		))
 		delay(10)
 		msgbox(
@@ -315,7 +337,7 @@ script OneIsland_Kaylee {
 		closemessage
 	}
 
-	setflag(FLAG_TEMP_5)
+	setflag(FLAG_TEMP_3)
 	special(IsPlayerNameKaylee)
 	if(var(VAR_RESULT) && checkplayergender == FEMALE) {
 		msgbox(
@@ -391,6 +413,7 @@ script OneIsland_Kaylee {
 
 		"Who knows?\n"
 		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+		setflag(FLAG_DID_ARTICUNO_FIGHT)
 
 
 		release
@@ -453,12 +476,26 @@ script OneIsland_Kaylee {
 		}
 		removeobject(LOCALID_ONE_ISLAND_ARTICUNO)
 		setvar(VAR_TEMP_0, 1)
+		
+		applymovement(LOCALID_KAILEE, moves(
+			face_down
+		))
+		applymovement(LOCALID_KAILIE, moves(
+			face_down
+		))
+		applymovement(LOCALID_KAYLEE, moves(
+			face_down
+		))
+		applymovement(LOCALID_KAYLEIGH, moves(
+			face_down
+		))
 		msgbox(
 		"What an incredible sight!\n"
 		"Thank you for the show.\p"
 
 		"Take this as well.\n"
 		"", MSGBOX_DEFAULT)
+		removeobject(LOCALID_ONE_ISLAND_ARTICUNO_EGG)
 		giveitem_msg("{PLAYER} received the\nTIDAL BELL!", ITEM_SOOTHE_BELL)
 		waitfanfare
 		msgbox(
@@ -467,6 +504,7 @@ script OneIsland_Kaylee {
 
 		"Who knows?\n"
 		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+		setflag(FLAG_DID_ARTICUNO_FIGHT)
 	} else {
 		msgbox(
 		"KAYLEE: We need one more friend\n"
@@ -704,4 +742,19 @@ script OneIsland_GiveJynx {
 			goto(EventScript_NoMoreRoomForPokemon)
 			break
 	}
+}
+
+script OneIsland_PreReleaseWarning {
+	msgbox(
+	"WARNING!\p"
+
+	"Here in the pre-release, this\n"
+	"event is liable to softlock.\p"
+
+	"If you do it right, nothing bad\n"
+	"will happen.\p"
+
+	"Please savestate before you\n"
+	"proceed!", MSGBOX_SIGN)
+
 }

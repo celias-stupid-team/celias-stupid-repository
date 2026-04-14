@@ -124,63 +124,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PRESENT",
-      "x": 8,
-      "y": 31,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FOR_SALE",
-      "x": -2,
-      "y": 33,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FOR_SALE",
-      "x": 1,
-      "y": 33,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CLERK",
-      "x": 0,
-      "y": 32,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_BONUS_STARLIGHTS"
     },
     {
       "type": "object",
@@ -197,18 +141,84 @@
       "flag": "FLAG_TWO_ISLAND_TERRITORIAL_OAK"
     },
     {
-      "type": "object",
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": -5,
+      "y": 18,
+      "target_local_id": "6",
+      "target_map": "MAP_TWO_ISLAND_NORTH"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_EEL",
+      "x": -8,
+      "y": 9,
+      "target_local_id": "5",
+      "target_map": "MAP_TWO_ISLAND_NORTH"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_FOR_SALE",
+      "x": -2,
+      "y": 33,
+      "target_local_id": "LOCALID_FOR_SALE_LEFT",
+      "target_map": "MAP_TWO_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_CLERK",
+      "x": 0,
+      "y": 32,
+      "target_local_id": "1",
+      "target_map": "MAP_TWO_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_FOR_SALE",
+      "x": 1,
+      "y": 33,
+      "target_local_id": "LOCALID_FOR_SALE_RIGHT",
+      "target_map": "MAP_TWO_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_PRESENT",
+      "x": 8,
+      "y": 31,
+      "target_local_id": "LOCALID_BOMB_PRESENT",
+      "target_map": "MAP_TWO_ISLAND"
+    },
+    {
+      "type": "clone",
       "graphics_id": "OBJ_EVENT_GFX_TERRITORIAL_OAK",
       "x": 11,
       "y": 31,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "FLAG_TWO_ISLAND_TERRITORIAL_OAK"
+      "target_local_id": "LOCALID_TWOISLAND_TERRITORIALOAK",
+      "target_map": "MAP_TWO_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_PRESENT",
+      "x": 21,
+      "y": 33,
+      "target_local_id": "LOCALID_DRAGONITE_PRESENT",
+      "target_map": "MAP_TWO_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 19,
+      "y": 33,
+      "target_local_id": "40",
+      "target_map": "MAP_TWO_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_HIPPIE",
+      "x": 18,
+      "y": 33,
+      "target_local_id": "26",
+      "target_map": "MAP_TWO_ISLAND"
     },
     {
       "type": "object",
@@ -296,16 +306,6 @@
     }
   ],
   "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 21,
-      "y": 22,
-      "elevation": 3,
-      "item": "ITEM_PP_MAX",
-      "flag": "FLAG_HIDDEN_ITEM_TWO_ISLAND_CAPE_BRINK_PP_MAX",
-      "quantity": 1,
-      "underfoot": false
-    },
     {
       "type": "hidden_item",
       "x": -7,

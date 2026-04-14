@@ -13,7 +13,23 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_FARAWAY_ISLAND",
+      "offset": 18,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_HI",
+      "offset": 16,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN12",
+      "offset": -1,
+      "direction": "up"
+    }
+  ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

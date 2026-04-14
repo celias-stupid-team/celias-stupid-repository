@@ -1,3 +1,186 @@
 mapscripts Starlight_House2_MapScripts {
 
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_3)
+		}
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_8)
+        }
+            if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+		if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_8)
+		}
+		
+	}
 }
+
+script Starlight_House2_Post_Battle {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"My name is KaizenStarlight!\n"
+    "But everybody calls me Starlight\l"
+    "for short.\p"
+
+	"I am the map designer for\n"
+    "Celia's Stupid Romhack.\p"
+
+	"I created just about everything\n"
+	"you will find in the Great Sea!\p"
+
+	"Well...\n"
+	"The visual world itself that is...\l"
+	"I placed most of the tiles you walk\l"
+	"Around on.\p"
+    "You might see me around working\n"
+    "out of bounds from time to time.\p"
+    "But hey, it was nice to meet you!\n"
+	"Feel free to explore around the\l"
+    "place before you go.\p"
+	"Just as a disclaimer:\p"
+	"Nothing in here is connected to\n"
+	"anything outside of this house.\l"
+	"Including puzzles, secrets, rewards\l"
+	"and so on. This was just a bonus\l"
+	"place I had a lot of fun making!\p"
+	"Also if you see my friend hanging\n"
+	"around here could you let me know?\l"
+	"Thanks!", MSGBOX_DEFAULT)
+	closemessage
+	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script Starlight_House2_Battle { //test
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	trainerbattle_single(TRAINER_STARLIGHT,
+	"Oh hi!\p"
+	"I thought I hid this map.",
+	//
+	"I... am not the best at coding...", Starlight_House2_Post_Battle)
+
+
+	msgbox(
+    "It was nice to meet you!\l"
+	"Feel free to explore around the\n"
+    "place before you go.\p"
+	"Just as a disclaimer:\p"
+	"Nothing in here is connected to\n"
+	"anything outside of this house.\l"
+	"Including puzzles, secrets, rewards\l"
+	"and so on. This was just a bonus\l"
+	"place I had a lot of fun making!\p"
+	"Also if you see my friend hanging\n"
+	"around here could you let me know?\l"
+	"Thanks!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script Starlight_House2_Phone { //figure out yesno setup for reading messages.
+	msgbox(
+	"You have 3 missed calls.\p"
+	"Celia - 2 voicemails\n"
+	"Dak - 1 voicemail\p"
+	"First Message:\l"
+	"Celia: Hey Star can you fix the\n"
+	"collision in Aether? Thanks!\p"
+	"Second Message:\l"
+	"Celia: Great work with Seafoam and\n"
+	"Silph Co Layout!\p"
+	"Third Message:\l"
+	"Dak: WHAAAAAADDUUUUUUUUUUUUUUUUUUU\n"
+	"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUPP\p"
+	"End of messages.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Garbage1 {
+	msgbox(
+	"There's nothing in the trash\n"
+	"Except a crumpled up paper showing\l"
+	"plans for recreating the entire map\l"
+	"of Zelda BotW for a bit.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Garbage2 {
+	msgbox(
+	"There's scrapped paper containing a\n"
+	"schedule for PMD Team Hack Event.\p"
+	"There's also something scratched out\n"
+	"at the bottom.\p"
+	"-r---c- -vr-n", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Breaker {
+	msgbox(
+	"Might be a power breaker.\p"
+	"Or just something the map maker\n"
+	"placed to make it not look plain.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Crane_Operator {
+	msgbox(
+	"A control panel for operating the\n"
+	"machine.\p"
+	"Doesn't acutally work, seems like\n"
+	"the map maker was too lazy to code\l"
+	"this function in.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Table_Plans { //update table plans visual
+	msgbox(
+	"It appears to be map plans\n"
+	"laid out for world building.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Laptop {
+	msgbox(
+	"There appears to be some tabs.\n"
+	"It seems to have a tab called Por-\l"
+	"ymaps and Poryscript.\p"
+	"It also has SkyTemple and HMA.\l"
+	"also\n"
+    "(Insert another rom software here).", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Machine { //update table plans visual
+	msgbox(
+	"It's a machine.\p"
+	"...\p"
+	"(IDFK what else to say...)", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_PC { //update table plans visual
+	msgbox(
+	"No, this PC is not functional.\p", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Jukebox_Block { //update table plans visual
+	msgbox(
+	"Come back here {COLOR DYNAMIC_COLOR5}post game.", MSGBOX_SIGN)
+
+}
+

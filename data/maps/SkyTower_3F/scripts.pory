@@ -24,22 +24,30 @@ script SkyTower_KecleonShop2 {
         end
     }
 	msgbox(
-	"Kecleon Shop 2\n"
-	"", MSGBOX_DEFAULT)
+	"Welcome to the other KECLEON SHOP!\n"
+	"I hope I can be of service!", MSGBOX_DEFAULT)
 	release
 }
 
 script SkyTower_3FShop_Orb {
 	lock
-	msgbox(
-	"HURL ORB\p"
-    "Buy the HURL ORB?"
-	"", MSGBOX_YESNO)
-    if(var(VAR_RESULT)) {
+    
+	message(
+	"That's a HURL ORB.\n"
+	"It costs 50,000 POKé.\l"
+	"Is that acceptable to you?")
+    waitmessage
+	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "YES", "NO", "HURL")
+
+    if(var(VAR_RESULT) == 0) {
         msgbox(
         "You can't afford it and you\n"
         "fucking die", MSGBOX_DEFAULT)
     } else {
+        if(var(VAR_RESULT) == 1) {
+            release
+            end
+        }
         msgbox(
         "HURL the HURL ORB?\n"
         "", MSGBOX_YESNO)
@@ -239,9 +247,9 @@ script SkyTower_Drampa {
         "DRAMPA's dead!", MSGBOX_SIGN)
 
     } else {
+        
         msgbox(
-        "Oh, no!\n"
-        "DRAMPA's in the way!", MSGBOX_SIGN)
+        "I am Level 30.\n", MSGBOX_NPC)
     }
     
 }
@@ -279,6 +287,11 @@ script SkyTower_3F_WarpTrap {
 
 }
 
+script SkyTower_3F_HiddenKek {
+	msgbox(
+	"Shh, I'm hiding.\n"
+	"", MSGBOX_NPC)
+}
 
 
 script SkyTower_3F_ThePit {
@@ -286,6 +299,7 @@ script SkyTower_3F_ThePit {
     addobject(LOCALID_SKY_TOWER_3F_FRIEND_OAK)
     removeobject(LOCALID_SKY_TOWER_3F_UNFRIEND)
     setlayouttiles(LAYOUT_SKY_TOWER_3F_PIT, 0,0,0,0,67, 62)
+					setmaplayoutindex(LAYOUT_SKY_TOWER_3F_PIT)
 
     release
 }
@@ -293,6 +307,7 @@ script SkyTower_3F_ThePit {
 
 script SkyTower_3F_KillThePit {
     setlayouttiles(LAYOUT_SKY_TOWER_3F, 0,0,0,0,67, 62)
+					setmaplayoutindex(LAYOUT_SKY_TOWER_3F)
     setmetatile(22, 49, METATILE_NavelRock_PitTrap, FALSE)
     removeobject(LOCALID_SKY_TOWER_3F_FRIEND_OAK)
     addobject(LOCALID_SKY_TOWER_3F_UNFRIEND)

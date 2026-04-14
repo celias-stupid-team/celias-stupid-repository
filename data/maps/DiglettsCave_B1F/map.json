@@ -63,11 +63,38 @@
   "coord_events": [
     {
       "type": "trigger",
+      "x": 72,
+      "y": 68,
+      "elevation": 0,
+      "var": "VAR_DIGLETTS_CAVE_DIGLETTS",
+      "var_value": "0",
+      "script": "DiglettsCave_Diglett"
+    },
+    {
+      "type": "trigger",
+      "x": 73,
+      "y": 67,
+      "elevation": 0,
+      "var": "VAR_DIGLETTS_CAVE_DIGLETTS",
+      "var_value": "0",
+      "script": "DiglettsCave_Diglett"
+    },
+    {
+      "type": "trigger",
+      "x": 74,
+      "y": 66,
+      "elevation": 0,
+      "var": "VAR_DIGLETTS_CAVE_DIGLETTS",
+      "var_value": "0",
+      "script": "DiglettsCave_Diglett"
+    },
+    {
+      "type": "trigger",
       "x": 67,
       "y": 55,
       "elevation": 0,
       "var": "VAR_DIGLETTS_CAVE_DIGLETTS",
-      "var_value": "0",
+      "var_value": "1",
       "script": "DiglettsCave_Digletts"
     },
     {
@@ -76,17 +103,17 @@
       "y": 54,
       "elevation": 0,
       "var": "VAR_DIGLETTS_CAVE_DIGLETTS",
-      "var_value": "0",
+      "var_value": "1",
       "script": "DiglettsCave_Digletts"
     },
     {
       "type": "trigger",
-      "x": 69,
-      "y": 53,
+      "x": 74,
+      "y": 52,
       "elevation": 0,
       "var": "VAR_DIGLETTS_CAVE_DIGLETTS",
       "var_value": "0",
-      "script": "DiglettsCave_Digletts"
+      "script": "DiglettsCave_Diglett"
     }
   ],
   "bg_events": [

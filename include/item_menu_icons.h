@@ -9,6 +9,19 @@ enum {
     ITEMICON_PAL,
 };
 
+// Sprite/palette tags for item menu OBJ slots
+#define TAG_BAG                   100
+#define TAG_SWAP_LINE             101
+#define TAG_ITEM_ICON             102
+#define TAG_ITEM_ICON_ALT         103
+#define TAG_SANDWICH_CASE         104
+#define TAG_SC_INGREDIENT_BREAD   105
+#define TAG_SC_INGREDIENT_SESAME  106
+#define TAG_SC_INGREDIENT_MEAT    107
+#define TAG_SC_INGREDIENT_CHEESE  108
+#define TAG_SC_INGREDIENT_LETTUCE 109
+#define TAG_SC_INGREDIENT_PICKLES 110
+
 extern const struct CompressedSpriteSheet gSpriteSheet_BagMale;
 extern const struct CompressedSpriteSheet gSpriteSheet_BagFemale;
 extern const struct CompressedSpritePalette gSpritePalette_Bag;

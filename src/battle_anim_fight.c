@@ -13,6 +13,7 @@ static void AnimBasicFistOrFoot(struct Sprite *sprite);
 static void AnimFistOrFootRandomPos(struct Sprite *sprite);
 static void AnimCrossChopHand(struct Sprite *sprite);
 static void AnimSlidingKick(struct Sprite *sprite);
+static void AnimSlidingHand(struct Sprite *sprite);
 static void AnimSpinningKickOrPunch(struct Sprite *sprite);
 static void AnimStompFoot(struct Sprite *sprite);
 static void AnimDizzyPunchDuck(struct Sprite *sprite);
@@ -20,6 +21,7 @@ static void AnimBrickBreakWall(struct Sprite *sprite);
 static void AnimBrickBreakWallShard(struct Sprite *sprite);
 static void AnimSuperpowerOrb(struct Sprite *sprite);
 static void AnimSuperpowerRock(struct Sprite *sprite);
+static void AnimFloatingRock(struct Sprite *sprite);
 static void AnimSuperpowerFireball(struct Sprite *sprite);
 static void AnimArmThrustHit(struct Sprite *sprite);
 static void AnimRevengeScratch(struct Sprite *sprite);
@@ -35,7 +37,10 @@ static void AnimBrickBreakWallShard_Step(struct Sprite *sprite);
 static void AnimSuperpowerOrb_Step(struct Sprite *sprite);
 static void AnimSuperpowerRock_Step1(struct Sprite *sprite);
 static void AnimSuperpowerRock_Step2(struct Sprite *sprite);
+static void AnimFloatingRock_Step1(struct Sprite *sprite);
+static void AnimFloatingRock_Step2(struct Sprite *sprite);
 static void AnimTask_CentennialKick_Step(u8 taskId);
+static void AnimUselessCard(struct Sprite *sprite);
 
 static const struct SpriteTemplate sUnusedHumanoidFootSpriteTemplate =
 {
@@ -96,6 +101,57 @@ const struct SpriteTemplate gKarateChopSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSlideHandOrFootToTarget,
+};
+
+
+static const union AnimCmd sAnim_UselessCard1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_UselessCard2[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_UselessCard3[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_UselessCard4[] =
+{
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_UselessCard5[] =
+{
+    ANIMCMD_FRAME(64, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_UselessCards[] =
+{
+    sAnim_UselessCard1,
+    sAnim_UselessCard2,
+    sAnim_UselessCard3,
+    sAnim_UselessCard4,
+    sAnim_UselessCard5,
+};
+
+const struct SpriteTemplate gUselessCardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_USELESS_CARD,
+    .paletteTag = ANIM_TAG_USELESS_CARD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_UselessCards,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimUselessCard,
 };
 
 const struct SpriteTemplate gJumpKickSpriteTemplate =
@@ -183,7 +239,7 @@ const struct SpriteTemplate gSlidingHandSpriteTemplate =
     .anims = &sAnims_HandsAndFeet[3],
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimSlidingKick,
+    .callback = AnimSlidingHand,
 };
 
 static const union AffineAnimCmd sAffineAnim_SpinningHandOrFoot[] =
@@ -367,6 +423,18 @@ const struct SpriteTemplate gSuperpowerRockSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSuperpowerRock,
 };
+
+const struct SpriteTemplate gFloatingRockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FLAT_ROCK,
+    .paletteTag = ANIM_TAG_FLAT_ROCK,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFloatingRock,
+};
+
 static const union AnimCmd sAnim_SoupProjectile[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -872,6 +940,36 @@ static void AnimSlidingKick_Step(struct Sprite *sprite)
     }
 }
 
+static void AnimSlidingHand(struct Sprite *sprite)
+{
+    if (BATTLE_PARTNER(gBattleAnimAttacker) == gBattleAnimTarget && GetBattlerPosition(gBattleAnimTarget) < B_POSITION_PLAYER_RIGHT)
+        gBattleAnimArgs[0] *= -1;
+
+    InitSpritePosToAnimTarget(sprite, TRUE);
+
+    // ✅ Apply vertical offset HERE (critical)
+    sprite->y -= 16;
+
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+
+    sprite->data[0] = gBattleAnimArgs[3];
+    sprite->data[1] = sprite->x;
+    sprite->data[2] = sprite->x + gBattleAnimArgs[2];
+
+    // ✅ Now match translation baseline to new Y
+    sprite->data[3] = sprite->y;
+    sprite->data[4] = sprite->y;
+
+    InitAnimLinearTranslation(sprite);
+
+    sprite->data[5] = gBattleAnimArgs[5];
+    sprite->data[6] = gBattleAnimArgs[4];
+    sprite->data[7] = 0;
+
+    sprite->callback = AnimSlidingKick_Step;
+}
+
 // Animates the spinning, shrinking kick or punch, which then
 // reappears at full size. Used by moves such as MOVE_MEGA_PUNCH and MOVE_MEGA_KICK.
 // arg 0: initial x pixel offset
@@ -1170,6 +1268,72 @@ static void AnimSuperpowerFireball(struct Sprite *sprite)
     sprite->callback = AnimTranslateLinear_WithFollowup;
 }
 
+// Floating rock that rises, hovers, then falls downward offscreen
+static void AnimFloatingRock(struct Sprite *sprite)
+{
+    sprite->x = gBattleAnimArgs[0];   // initial X
+    sprite->y = 120;                  // start near bottom like original
+
+    sprite->data[0] = gBattleAnimArgs[3]; // hover duration
+    StorePointerInVars(&sprite->data[4], &sprite->data[5], (void *)(sprite->y << 8));
+
+    sprite->data[6] = gBattleAnimArgs[1]; // upward speed
+
+    sprite->oam.tileNum += gBattleAnimArgs[2] * 4;
+
+    sprite->callback = AnimFloatingRock_Step1;
+}
+
+static void AnimFloatingRock_Step1(struct Sprite *sprite)
+{
+    void *var0;
+
+    if (sprite->data[0] != 0)
+    {
+        var0 = LoadPointerFromVars(sprite->data[4], sprite->data[5]);
+        var0 -= sprite->data[6]; // move upward
+        StorePointerInVars(&sprite->data[4], &sprite->data[5], var0);
+
+        sprite->y = (s16)((intptr_t)var0 >> 8);
+
+        // If somehow goes too high, clean up
+        if (sprite->y < -8)
+        {
+            DestroyAnimSprite(sprite);
+            return;
+        }
+
+        sprite->data[0]--;
+    }
+    else
+    {
+        // Transition to falling phase
+        sprite->data[0] = 0;      // fall velocity (fixed-point)
+        sprite->data[1] = 0x20;   // gravity acceleration
+        sprite->data[2] = sprite->y << 4; // fixed-point Y
+
+        sprite->callback = AnimFloatingRock_Step2;
+    }
+}
+
+static void AnimFloatingRock_Step2(struct Sprite *sprite)
+{
+    // Apply gravity
+    sprite->data[0] += sprite->data[1];   // velocity += gravity
+    sprite->data[2] += sprite->data[0];   // position += velocity
+
+    sprite->y = sprite->data[2] >> 4;
+
+    // Optional: slight horizontal drift (can remove if undesired)
+    // sprite->x += 1;
+
+    // Destroy when off bottom of screen
+    if (sprite->y > DISPLAY_HEIGHT + 8)
+    {
+        DestroyAnimSprite(sprite);
+    }
+}
+
 static void AnimArmThrustHit_Step(struct Sprite *sprite)
 {
     if (sprite->data[0] == sprite->data[4])
@@ -1262,4 +1426,165 @@ void AnimTask_MoveSkyUppercutBg(u8 taskId)
         ToggleBg3Mode(1);
         DestroyAnimVisualTask(taskId);
     }
+}
+
+static void AnimUselessCard(struct Sprite *sprite)
+{
+    s16 battler;
+
+    switch (sprite->data[0])
+    {
+    // -----------------------------------
+    // INITIALIZE
+    // -----------------------------------
+    case 0:
+        battler = (gBattleAnimArgs[7] == 0)
+            ? gBattleAnimAttacker
+            : gBattleAnimTarget;
+
+        // Base battler position
+        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+        // Apply initial offset
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+
+        // -----------------------------------
+        // RANDOMLY PICK ONE OF 5 ANIM STATES
+        // -----------------------------------
+        StartSpriteAnim(sprite, Random() % 5);
+
+        // Movement settings
+        sprite->data[1] = gBattleAnimArgs[2]; // x speed
+        sprite->data[2] = gBattleAnimArgs[3]; // y speed
+        sprite->data[3] = gBattleAnimArgs[4]; // move duration
+        sprite->data[4] = gBattleAnimArgs[5]; // wait duration
+        sprite->data[5] = gBattleAnimArgs[6]; // shake mode
+
+        sprite->data[6] = 0; // phase timer
+        sprite->data[7] = 0; // shake timer
+        sprite->data[0] = 1;
+        break;
+
+    // -----------------------------------
+    // MOVEMENT PHASE
+    // -----------------------------------
+    case 1:
+        sprite->x += sprite->data[1];
+        sprite->y += sprite->data[2];
+
+        if (++sprite->data[6] >= sprite->data[3])
+        {
+            sprite->data[6] = 0;
+            sprite->data[7] = 0;
+            sprite->data[0] = 2;
+        }
+        break;
+
+    // -----------------------------------
+    // WAIT + SHAKE PHASE
+    // -----------------------------------
+    case 2:
+        sprite->data[7]++;
+
+        if (sprite->data[7] >= 6)
+        {
+            sprite->data[7] = 0;
+
+            if (sprite->data[5] == 1) // vertical shake
+            {
+                if (sprite->y2 == 0)
+                    sprite->y2 = 2;
+                else
+                    sprite->y2 = -sprite->y2;
+            }
+            else if (sprite->data[5] == 2) // horizontal shake
+            {
+                if (sprite->x2 == 0)
+                    sprite->x2 = 2;
+                else
+                    sprite->x2 = -sprite->x2;
+            }
+        }
+
+        if (++sprite->data[6] >= sprite->data[4])
+        {
+            sprite->x2 = 0;
+            sprite->y2 = 0;
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
+
+void AnimTask_PitJump(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *battlerSprite;
+    u8 battler;
+
+    // Select battler
+    battler = (gBattleAnimArgs[0] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+    battlerSprite = &gSprites[gBattlerSpriteIds[battler]];
+
+    /*// data[1] = frame toggle (0 = move, 1 = wait)
+    if (task->data[1] == 1)
+    {
+        task->data[1] = 0;
+        return; // skip this frame → creates the "rest"
+    }
+
+    task->data[1] = 1;*/
+
+    switch (task->data[0])
+    {
+    case 0: battlerSprite->y2 -= 3; break;
+    case 1: battlerSprite->y2 -= 3; break;
+
+    case 2: battlerSprite->y2 -= 2; break;
+    case 3: battlerSprite->y2 -= 2; break;
+
+    case 4: battlerSprite->y2 -= 2; break;
+    case 5: battlerSprite->y2 -= 2; break;
+
+    case 6: battlerSprite->y2 -= 2; break;
+    case 7: battlerSprite->y2 -= 2; break;
+
+    case 8: battlerSprite->y2 -= 1; break;
+    case 9: battlerSprite->y2 -= 1; break;
+
+    case 10: battlerSprite->y2 -= 1; break;
+    case 11: battlerSprite->y2 -= 1; break;
+
+    case 12: break; // no move
+    case 13: break; // no move
+    case 14: break; // no move
+    case 15: break; // no move
+
+    case 16: battlerSprite->y2 += 1; break;
+    case 17: battlerSprite->y2 += 1; break;
+
+    case 18: battlerSprite->y2 += 1; break;
+    case 19: battlerSprite->y2 += 1; break;
+
+    case 20: battlerSprite->y2 += 1; break;
+    case 21: battlerSprite->y2 += 1; break;
+
+    case 22: battlerSprite->y2 += 2; break;
+    case 23: battlerSprite->y2 += 2; break;
+
+    case 24: battlerSprite->y2 += 2; break;
+    case 25: battlerSprite->y2 += 2; break;
+
+    case 26: battlerSprite->y2 += 4; break;
+    case 27: battlerSprite->y2 += 4; break;
+
+    default:
+        battlerSprite->y2 = 0;
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    task->data[0]++;
 }

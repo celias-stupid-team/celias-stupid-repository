@@ -233,6 +233,7 @@ It is reset after every battle.
 #define EVENT_BATTLE_BARRY  19 //check
 #define EVENT_BATTLE_JAMES  20 //check
 #define EVENT_BATTLE_MARY  21 //check
+#define EVENT_BATTLE_YUGIOH  22 //check
 
 
 
@@ -358,7 +359,7 @@ It is reset after every battle.
 #define VAR_0x40F5                 0x40F5
 #define VAR_0x40F6                 0x40F6
 #define VAR_0x40F7                 0x40F7
-#define VAR_0x40F8                 0x40F8
+#define VAR_USED_POKE_FLUTE                 0x40F8
 #define VAR_SHINY_MAGNEMITE                 0x40F9
 #define VAR_STACK_OF_CANDY                 0x40FA
 #define VAR_SKY_TOWER_POKE                 0x40FB

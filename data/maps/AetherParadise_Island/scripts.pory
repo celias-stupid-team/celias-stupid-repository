@@ -1,7 +1,10 @@
 mapscripts AetherParadise_Island_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_TEMP_9)
-        setflag(FLAG_CSR_MAP_AETHER_PARADISE)
+        if(flag(FLAG_BADGE05_GET)) {
+            setflag(FLAG_CSR_MAP_AETHER_PARADISE)
+
+        }
     }
 }
 
@@ -44,6 +47,17 @@ script AetherParadise_FoundGroudon {
     msgbox(
 	"It's GROUDON!\n"
 	"", MSGBOX_DEFAULT)
+    
+    if(!(flag(FLAG_GROUDON_NOTHING) || flag(FLAG_HIDDEN_ITEM_THREE_ISLAND_BOND_BRIDGE_MAX_REPEL))) {
+        msgbox(
+        "While you're at it, let's grab\n"
+        "that NOTHING too.", MSGBOX_DEFAULT)
+        removeobject(LOCALID_NOTHING_GROUDON)
+        setflag(FLAG_HIDDEN_ITEM_THREE_ISLAND_BOND_BRIDGE_MAX_REPEL)
+        setflag(FLAG_GROUDON_NOTHING)
+        giveitem(ITEM_NOTHING)
+
+    }
     release
     end
 
@@ -55,11 +69,6 @@ script AetherParadise_Groudon {
 	"Hmm…\n"
 	"Nope!\l"
 	"Nothing here!", MSGBOX_DEFAULT)
-    if(!flag(FLAG_GROUDON_NOTHING)) {
-        setflag(FLAG_GROUDON_NOTHING)
-        giveitem(ITEM_NOTHING)
-
-    }
     release
 }
 
@@ -221,7 +230,7 @@ script FestivalPlaza_Sophacles {
 
 script StarlightIslandSign {
 	msgbox(
-	"STARLIGHT ISLAND\n"
+	"Starlight's Map Workshop\n"
 	"", MSGBOX_SIGN)
 
 }

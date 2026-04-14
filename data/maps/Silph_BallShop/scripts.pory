@@ -30,8 +30,8 @@ script SilphCo_BallShop_Kurt {
 	pokemart(SilphCo_BallShop_Mart)
 	msgbox(Text_PleaseComeAgain)
 	if(checkitem(ITEM_BIG_MUSHROOM)) {
-		if(checkitem(ITEM_BIG_MUSHROOM) > 9) {
-			setflag(FLAG_TEMP_1)
+		if(checkitem(ITEM_BIG_MUSHROOM, 9)) {
+			setflag(FLAG_TEMP_6)
 		}
 		while(checkitem(ITEM_BIG_MUSHROOM)) {
 			removeitem(ITEM_BIG_MUSHROOM)
@@ -45,8 +45,8 @@ script SilphCo_BallShop_Kurt {
 		waitfanfare
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_AMOONGUSS)
 		call(Common_Script_GiftPokemon)
-		if(flag(FLAG_TEMP_1)) {
-			clearflag(FLAG_TEMP_1)
+		if(flag(FLAG_TEMP_6)) {
+			clearflag(FLAG_TEMP_6)
 			textcolor(NPC_TEXT_COLOR_BLUE)
 			msgbox(
 			"Were you trying to purchase a\n"
@@ -119,7 +119,7 @@ script Silph_LookGirl_Balls {
 					waitmovement(0)
 					break
         }
-	if(var(VAR_TEMP_5) == 7 && var(VAR_SILPH_LOOK_GIRL) == 1) {
+	if(var(VAR_TEMP_5) == 5 && var(VAR_SILPH_LOOK_GIRL) == 1) {
 		playse(SE_BIKE_BELL)
 		waitse
 		

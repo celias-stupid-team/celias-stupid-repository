@@ -27,6 +27,7 @@
 #include "trainer_tower.h"
 #include "script.h"
 #include "berry_powder.h"
+#include "save.h"
 #include "pokemon_jump.h"
 #include "event_scripts.h"
 #include "constants/items.h"
@@ -111,6 +112,19 @@ void ResetMenuAndMonGlobals(void)
 void NewGameInitData(void)
 {
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
+    bool8 celiaBonusFlagSet;
+    bool8 letterYFlag;
+    
+    // keep these flags in between new runs
+    if (FlagGet(FLAG_CSR_CELIA_BONUS))
+        celiaBonusFlagSet = TRUE;
+    else
+        celiaBonusFlagSet = FALSE;
+
+    if (FlagGet(FLAG_FOUND_Y))
+        letterYFlag = TRUE;
+    else
+        letterYFlag = FALSE;
 
     StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
     gDifferentSaveFile = TRUE;
@@ -150,8 +164,24 @@ void NewGameInitData(void)
     SetAllRenewableItemFlags();
     WarpToPlayersRoom();
     RunScriptImmediately(EventScript_ResetAllMapFlags);
-    StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
+    // memory wipe / data reset completed
+
+    // restore these flags after the reset; only if an existing save exists.
+    if (gSaveFileStatus == SAVE_STATUS_OK)
+    {
+        if (!celiaBonusFlagSet)
+            FlagClear(FLAG_CSR_CELIA_BONUS);
+        else
+            FlagSet(FLAG_CSR_CELIA_BONUS);
+
+        if (!letterYFlag)
+            FlagClear(FLAG_FOUND_Y);
+        else
+            FlagSet(FLAG_FOUND_Y);
+    }    
+        
+    StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
 }
 
 

@@ -28,6 +28,10 @@ script EventScript_RemoveUselessItems {
 		removeitem(ITEM_ANTIDOTE)
 		addvar(VAR_TEMP_5, 1)
 	}
+	while(checkitem(ITEM_RIPPED_MEMO)) {
+		removeitem(ITEM_RIPPED_MEMO)
+		addvar(VAR_TEMP_5, 1)
+	}
 	while(checkitem(ITEM_PARALYZE_HEAL)) {
 		removeitem(ITEM_PARALYZE_HEAL)
 		addvar(VAR_TEMP_5, 1)
@@ -52,11 +56,11 @@ script EventScript_RemoveUselessItems {
 		removeitem(ITEM_NUGGET)
 		addvar(VAR_TEMP_5, 1)
 	}
-	while(checkitem(ITEM_DAWN_STONE)) {
+	while(checkitem(ITEM_DAWN_STONE) && checkmoncaught(SPECIES_NIDOQUEEN) && checkmoncaught(SPECIES_NIDOKING) && checkmoncaught(SPECIES_SYLVEON)) {
 		removeitem(ITEM_DAWN_STONE)
 		addvar(VAR_TEMP_5, 1)
 	}
-	while(checkitem(ITEM_LEAF_STONE)) {
+	while(checkitem(ITEM_LEAF_STONE) && checkmoncaught(SPECIES_EXEGGUTOR)) {
 		removeitem(ITEM_LEAF_STONE)
 		addvar(VAR_TEMP_5, 1)
 	}
@@ -72,7 +76,7 @@ script EventScript_RemoveUselessItems {
 		removeitem(ITEM_HP_UP)
 		addvar(VAR_TEMP_5, 1)
 	}
-	while(checkitem(ITEM_WATER_STONE)) {
+	while(checkitem(ITEM_WATER_STONE) && checkmoncaught(SPECIES_NINETALES)) {
 		removeitem(ITEM_WATER_STONE)
 		addvar(VAR_TEMP_5, 1)
 	}
@@ -426,7 +430,7 @@ script Route19_LookerScene {
 
 script Route19_CeliaAsksYouNotToGo {
 	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
-		giveitem(ITEM_RARE_CANDY, 1)
+		additem(ITEM_RARE_CANDY, 1)
 		msgbox(
 		"Don't worry!\n"
 		"You don't need to go back!\p"
@@ -435,7 +439,7 @@ script Route19_CeliaAsksYouNotToGo {
 		"", MSGBOX_NPC)
 	} else {
 		if(!checkmoncaught(SPECIES_GHOLDENGO)) {
-			giveitem(ITEM_RARE_CANDY, 1)
+			additem(ITEM_RARE_CANDY, 1)
 			msgbox(
 			"Pssst!\n"
 			"Check your POKéMON carefully!\p"
@@ -496,6 +500,7 @@ script Route19_CeliaTurnsYouAround {
 
 script Route19_DrawThePit {
 	setlayouttiles(LAYOUT_ROUTE19_PIT_LOW, 0, 0, 0, 0, 20, 20)
+					setmaplayoutindex(LAYOUT_ROUTE19_PIT_LOW)
 
 	setvar(VAR_TEMP_0, 1)
 }
@@ -503,12 +508,14 @@ script Route19_DrawThePit {
 
 script Route19_DrawThePitHigh {
 	setlayouttiles(LAYOUT_ROUTE19_PIT_HIGH, 0, 0, 0, 0, 20, 20)
+					setmaplayoutindex(LAYOUT_ROUTE19_PIT_HIGH)
 
 	setvar(VAR_TEMP_0, 1)
 }
 
 script Route19_DestroyThePit {
 	setlayouttiles(LAYOUT_ROUTE19, 0, 0, 0, 0, 20, 20)
+					setmaplayoutindex(LAYOUT_ROUTE19)
 	setvar(VAR_TEMP_0, 0)
 }
 

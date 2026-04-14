@@ -56,6 +56,17 @@ script PokemonLeague_HallOfFame_EventScript_EnterRoom {
 	call(EventScript_SetDefeatedEliteFourFlagsVars)
 	setrespawn(HEAL_LOCATION_PALLET_TOWN)
 	fadescreenspeed(FADE_TO_BLACK, 0)
+	setvar(VAR_CSR_CYNTHIA_BATTLE, 0)
+	setvar(VAR_LANCE_LASS_ATTACK, 0)
+	setvar(VAR_CSR_FINAL_BATTLE_TURN, 0)
+	setvar(VAR_CSR_FINAL_BATTLE_PHASE, 0)
+	clearflag(FLAG_KILLED_E4_OAK)
+	 clearflag (FLAG_DEFEATED_LORELEI)
+	clearflag (FLAG_DEFEATED_BRUNO)
+	clearflag (FLAG_DEFEATED_AGATHA)
+	clearflag (FLAG_DEFEATED_LANCE)
+	clearflag (FLAG_DEFEATED_CHAMP)
+
 	special(EnterHallOfFame)
 	waitstate
 	releaseall

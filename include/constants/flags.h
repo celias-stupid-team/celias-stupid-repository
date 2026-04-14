@@ -96,7 +96,7 @@
 #define FLAG_HIDE_PEWTER_MUSEUM_GUIDE                      0x050
 #define FLAG_HIDE_TOWER_RIVAL                              0x051
 #define FLAG_HIDE_MOLTRES                                  0x052
-#define FLAG_SILPH_DMCA_DEFEATED                            0x053
+#define FLAG_SILPH_DMCA_DEFEATED                           0x053
 #define FLAG_HIDE_ROUTE_12_SNORLAX                         0x054
 #define FLAG_HIDE_VIRIDIAN_GIOVANNI                        0x055
 #define FLAG_HIDE_OLD_AMBER                                0x056
@@ -120,7 +120,7 @@
 #define FLAG_HIDE_UNION_ROOM_PLAYER_6                      0x068
 #define FLAG_HIDE_UNION_ROOM_PLAYER_7                      0x069
 #define FLAG_HIDE_UNION_ROOM_PLAYER_8                      0x06A
-#define FLAG_HIDE_CINNABAR_ALOLAN_GROWLITHE                       0x06B
+#define FLAG_HIDE_CINNABAR_ALOLAN_GROWLITHE                0x06B
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_BLACKBELT               0x06C
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_ROCKER                  0x06D
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN                   0x06E
@@ -131,16 +131,16 @@
 #define FLAG_HIDE_ONE_ISLAND_POKECENTER_CELIO              0x073
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE          0x075
-#define FLAG_DEMO_3_CELIA_BONUS                     0x076
-#define FLAG_HIDE_P_EMBLEM                                         0x077
-#define FLAG_HIDE_W_EMBLEM                                         0x078
+#define FLAG_DEMO_3_CELIA_BONUS                            0x076
+#define FLAG_HIDE_P_EMBLEM                                 0x077
+#define FLAG_HIDE_W_EMBLEM                                 0x078
 #define FLAG_HIDE_THREE_ISLAND_BIKERS                      0x079
 #define FLAG_HIDE_LOSTELLE_IN_BERRY_FOREST                 0x07A
 #define FLAG_HIDE_TWO_ISLAND_WOMAN                         0x07B
 #define FLAG_HIDE_TWO_ISLAND_BEAUTY                        0x07C
 #define FLAG_HIDE_TWO_ISLAND_SUPER_NERD                    0x07D
 #define FLAG_HIDE_THREE_ISLAND_ANTIBIKERS                  0x07E
-#define FLAG_HIDE_DMCA_IN_LAVENDER                                         0x07F
+#define FLAG_HIDE_DMCA_IN_LAVENDER                         0x07F
 #define FLAG_HIDE_ROUTE_16_SNORLAX                         0x080
 #define FLAG_HIDE_MEWTWO                                   0x081
 #define FLAG_HIDE_ARTICUNO                                 0x082
@@ -153,7 +153,7 @@
 #define FLAG_HIDE_MT_EMBER_EXTERIOR_ROCKETS                0x089
 #define FLAG_HIDE_RUBY                                     0x08A
 #define FLAG_HIDE_ICEFALL_CAVE_LORELEI                     0x08B
-#define FLAG_RETURNING_DEMO_3_SAVE                     0x08C
+#define FLAG_RETURNING_DEMO_3_SAVE                         0x08C
 #define FLAG_HIDE_ICEFALL_CAVE_ROCKETS                     0x08D
 #define FLAG_HIDE_RUIN_VALLEY_SCIENTIST                    0x08E
 #define FLAG_HIDE_SAPPHIRE                                 0x08F
@@ -178,11 +178,11 @@
 #define FLAG_HIDE_CINNABAR_POKECENTER_BILL                 0x0A2
 #define FLAG_HIDE_CREDITS_RIVAL                            0x0A3
 #define FLAG_HIDE_CREDITS_OAK                              0x0A4
-#define FLAG_CSR_CELIA_BONUS                0x0A5
+#define FLAG_CSR_CELIA_BONUS                               0x0A5
 #define FLAG_HIDE_LORELEI_HOUSE_CHANSEY_DOLL               0x0A6
 #define FLAG_HIDE_LORELEIS_HOUSE_NIDORAN_F_DOLL            0x0A7
 #define FLAG_HIDE_LORELEI_HOUSE_JIGGLYPUFF_DOLL            0x0A8
-#define FLAG_HIDE_BONUS_STARLIGHTS            0x0A9
+#define FLAG_HIDE_BONUS_STARLIGHTS                         0x0A9
 #define FLAG_HIDE_LORELEIS_HOUSE_FEAROW_DOLL               0x0AA
 #define FLAG_HIDE_LORELEIS_HOUSE_PIDGEOT_DOLL              0x0AB
 #define FLAG_HIDE_LORELEIS_HOUSE_LAPRAS_DOLL               0x0AC
@@ -528,11 +528,11 @@
 #define FLAG_SKY_TOWER_HURL_ORB           0x1DD
 #define FLAG_SKY_TOWER_BILL           0x1DE
 #define FLAG_SKY_TOWER_MONEY_ORB                0x1DF
-#define FLAG_0x1E0  0x1E0
+#define FLAG_RAT_GUY_EVOLVED  0x1E0
 #define FLAG_0x1E1         0x1E1
 #define FLAG_0x1E2            0x1E2
 #define FLAG_0x1E3      0x1E3
-#define FLAG_0x1E4     0x1E4
+#define FLAG_SHINY_GOLDEEN_FOUND     0x1E4
 #define FLAG_DEFEATED_DMCA_KOGA            0x1E5
 #define FLAG_RECEIVED_MESPRIT 0x1E6
 #define FLAG_HACK_ATTACK_USED 0x1E7
@@ -702,9 +702,9 @@
 #define FLAG_SILPH_7F_DOOR_2                             0x285
 #define FLAG_SILPH_7F_DOOR_3                             0x286
 #define FLAG_SILPH_8F_DOOR                               0x287
-#define FLAG_SILPH_9F_DOOR_1                             0x288
-#define FLAG_SILPH_9F_DOOR_2                             0x289
-#define FLAG_SILPH_9F_DOOR_3                             0x28A
+#define FLAG_TALKED_TO_HAKARI                             0x288
+#define FLAG_TALKED_TO_BLIZ                             0x289
+#define FLAG_REUNITED_HAKARI_AND_BLIZ                             0x28A
 #define FLAG_SILPH_9F_DOOR_4                             0x28B
 #define FLAG_SILPH_10F_DOOR                              0x28C
 #define FLAG_SILPH_11F_DOOR                              0x28D
@@ -726,7 +726,7 @@
 #define FLAG_TWO_ISLAND_SHOP_INTRODUCED                  0x29D
 #define FLAG_TWO_ISLAND_SHOP_EXPANDED_1                  0x29E
 #define FLAG_TWO_ISLAND_SHOP_EXPANDED_2                  0x29F
-#define FLAG_TWO_ISLAND_SHOP_EXPANDED_3                  0x2A0
+#define FLAG_DANCE_THEATER_CHAPTER_3                  0x2A0
 #define FLAG_SEVII_DETOUR_FINISHED                       0x2A1
 #define FLAG_VISITED_TWO_ISLAND                          0x2A2
 #define FLAG_RESCUED_LOSTELLE                            0x2A3
@@ -1332,8 +1332,8 @@
 #define FLAG_DAD_CELADON_GATE               0x4CF
 #define FLAG_DAD_SOOTOPOLIS               0x4D0
 #define FLAG_DAD_SISTERS               0x4D1
-#define FLAG_0x4D2               0x4D2
-#define FLAG_0x4D3               0x4D3
+#define FLAG_DAK_HERE             0x4D2
+#define FLAG_TRIED_DITTO_IN_WALL               0x4D3
 #define FLAG_0x4D4               0x4D4
 #define FLAG_0x4D5               0x4D5
 #define FLAG_0x4D6               0x4D6
@@ -1373,10 +1373,10 @@
 #define FLAG_0x4F8               0x4F8
 #define FLAG_0x4F9               0x4F9
 #define FLAG_0x4FA               0x4FA
-#define FLAG_0x4FB               0x4FB
-#define FLAG_0x4FC               0x4FC
-#define FLAG_0x4FD               0x4FD
-#define FLAG_0x4FE               0x4FE
+#define FLAG_DID_ARTICUNO_FIGHT               0x4FB
+#define FLAG_TM25_GOT               0x4FC
+#define FLAG_TM02_GOT               0x4FD
+#define FLAG_KILLED_BRUNO               0x4FE
 #define FLAG_0x4FF               0x4FF
 
 #define TRAINER_FLAGS_START      (FLAG_0x4FF + 1) //wiz1989 Trainer Flags

@@ -699,6 +699,12 @@ void Field_AskSaveTheGame(void)
     CreateTask(task50_save_game, 80);
 }
 
+void BackgroundSave(void)
+{
+    SaveMapView();
+    TrySavingData(SAVE_NORMAL);
+}
+
 static void PrintSaveTextWithFollowupFunc(const u8 *str, bool8 (*saveDialogCB)(void))
 {
     StringExpandPlaceholders(gStringVar4, str);

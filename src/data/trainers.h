@@ -1170,7 +1170,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_LassJanice),
+        .party = ITEM_DEFAULT_MOVES(sParty_LassJanice),
     },
     [TRAINER_CSR_MT_MOON_END_LASS] = {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -1210,7 +1210,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_LassCrissy),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_LassCrissy),
     },
     [TRAINER_LASS_MIRIAM] = {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -1513,7 +1513,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_PicnickerNancy),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_PicnickerNancy),
     },
     [TRAINER_PICNICKER_ISABELLE] = {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -1702,7 +1702,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("WOLFF"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_RISKY | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_HP_AWARE,
+        .aiFlags = AI_SCRIPT_CHECK_VIABILITY,
         .party = ITEM_CUSTOM_MOVES(sParty_SuperNerdMiguel),
     },
     [TRAINER_SUPER_NERD_AIDAN] = {
@@ -2446,7 +2446,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_COP,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_COP,
-        .trainerName = _("RAUL"),
+        .trainerName = _("KIM"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -6548,8 +6548,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DMCA_SURGE] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_ARCHER,
-        .trainerName = _("DAUMAN"),
+        .trainerPic = TRAINER_PIC_PETREL,
+        .trainerName = _("LARS"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -7159,7 +7159,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DANCERS] = {
         .trainerClass = TRAINER_CLASS_KIMONO,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LICHEN,
+        .trainerPic = TRAINER_PIC_KIMONO,
         .trainerName = _("GIRLS"),
         .items = {},
         .doubleBattle = TRUE,
@@ -7170,7 +7170,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_STARLIGHT] = {
         .trainerClass = TRAINER_CLASS_RS_BEAUTY,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_RS_BEAUTY,
+        .trainerPic = TRAINER_PIC_STARLIGHTSPRITE,
         .trainerName = _("STARLIGHT"),
         .items = {},
         .doubleBattle = FALSE,
@@ -7179,13 +7179,27 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_PLASTO] = {
-        .trainerClass = TRAINER_CLASS_RS_BEAUTY,
+        .trainerClass = TRAINER_CLASS_PLASTO,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_RS_BEAUTY,
+        .trainerPic = TRAINER_PIC_PLASTO,
         .trainerName = _("PLASTO"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_Plasto),
     },
+
+    [TRAINER_HAKARI_BLIZ] = {
+        .trainerClass = TRAINER_CLASS_HAKARI_BLIZ,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_HAKARI_BLIZ,
+        .trainerName = _("& BLIZ"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_HakariBliz),
+    },
+
+
+    
 };

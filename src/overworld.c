@@ -1301,7 +1301,7 @@ bool8 IsMapTypeOutdoors(u8 mapType)
 
 bool8 Overworld_MapTypeAllowsTeleportAndFly(u8 mapType)
 {
-    if(FlagGet(FLAG_LOOKER_SCENE) && !(VarGet(VAR_CURRENT_CHAPTER) >= 6)) {
+    if(VarGet(VAR_CURRENT_CHAPTER) == 4) {
         return FALSE;
     }
     if(FlagGet(FLAG_SYS_FUSHCIA_DISABLE_FLY)) {

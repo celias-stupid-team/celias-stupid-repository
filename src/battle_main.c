@@ -64,6 +64,7 @@ static void HandleAction_ActionFinished(void);
 static void HandleEndTurn_ContinueBattle(void);
 static void HandleEndTurn_BattleWon(void);
 static void HandleEndTurn_BattleLost(void);
+static void HandleEndTurn_SingleMonDoubleBattleLost(void);
 static void HandleEndTurn_RanFromBattle(void);
 static void HandleEndTurn_LeftBattle(void);
 static void HandleEndTurn_MonFled(void);
@@ -347,7 +348,7 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_CHOCOLATE] = _("CHOCO"),
     [TYPE_LARGE] = _("LARGE"),
     [TYPE_BIRD] = _("BIRD"),
-    [TYPE_SHIT] = _("SHIT"),
+    [TYPE_SMALL] = _("SMALL"),
     [TYPE_WATER_PHYSICAL] = _("WATER"),
     [TYPE_ELECTRIC_PHYSICAL] = _("ELECTR"),
     [TYPE_PSYCHIC_PHYSICAL]  = _("PSYCHC"),
@@ -491,6 +492,8 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_SKIIER, 50},
     {TRAINER_CLASS_ARTIST, 50},
     {TRAINER_CLASS_KIMONO, 50},
+    {TRAINER_CLASS_PLASTO, 50},
+    {TRAINER_CLASS_HAKARI_BLIZ, 50},
     
     { 0xFF, 5},
 };
@@ -2867,6 +2870,15 @@ static void TryDoEventsBeforeFirstTurn(void)
     if (gBattleControllerExecFlags)
         return;
 
+    // If this is a double battle and the player only has one usable mon, lose immediately.
+    if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && !(gBattleTypeFlags & BATTLE_TYPE_LINK)
+     && GetMonsStateToDoubles() == PLAYER_HAS_ONE_MON)
+    {
+        gBattleOutcome = B_OUTCOME_LOST;
+        gBattleMainFunc = HandleEndTurn_SingleMonDoubleBattleLost;
+        return;
+    }
+
     if (gBattleStruct->switchInAbilitiesCounter == 0)
     {
         for (i = 0; i < gBattlersCount; i++)
@@ -2967,7 +2979,7 @@ static void TryDoEventsBeforeFirstTurn(void)
     if (ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_BEFORE_FIRST_TURN))
         BattleScriptExecute(BattleScript_TrainerASlideMsgEnd2);
 
-    if (gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS)
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS)
     {
         u8 oppBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
         gBattleMons[oppBattler].status2 |= STATUS2_CONFUSION_TURN(5);
@@ -3088,6 +3100,11 @@ u8 IsRunningFromBattleImpossible(void)
     else
         holdEffect = ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item);
     gPotentialItemEffectBattler = gActiveBattler;
+    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CANT_ESCAPE_FINAL;
+        return BATTLE_RUN_FORBIDDEN;
+    }
     if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN
      || (gBattleTypeFlags & BATTLE_TYPE_LINK)
      || gBattleMons[gActiveBattler].ability == ABILITY_RUN_AWAY || gBattleMons[gActiveBattler].ability == ABILITY_LEAF_RIDE || gBattleMons[gActiveBattler].ability == ABILITY_FREE_SHINY)
@@ -3131,11 +3148,6 @@ u8 IsRunningFromBattleImpossible(void)
     if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
     {
         gBattleCommunication[MULTISTRING_CHOOSER] = 1;
-        return BATTLE_RUN_FORBIDDEN;
-    }
-    if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CANT_ESCAPE_FINAL;
         return BATTLE_RUN_FORBIDDEN;
     }
     return BATTLE_RUN_SUCCESS;
@@ -3291,10 +3303,14 @@ static void HandleTurnActionSelectionState(void)
                     {
                         BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CANT_SWITCH, 6, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gActiveBattler]);
                     }
-                    else if ((i = ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_SHADOW_TAG))
+                    else if (((i = ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_SHADOW_TAG))
+                              && gBattleMons[gActiveBattler].ability != ABILITY_SHADOW_TAG
+                              && gBattleMons[gActiveBattler].ability != ABILITY_ARENA_TRAP)
                           || ((i = ABILITY_ON_OPPOSING_FIELD(gActiveBattler, ABILITY_ARENA_TRAP))
                               && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
-                              && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE)
+                              && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
+                              && gBattleMons[gActiveBattler].ability != ABILITY_SHADOW_TAG
+                              && gBattleMons[gActiveBattler].ability != ABILITY_ARENA_TRAP)
                           || ((i = AbilityBattleEffects(ABILITYEFFECT_CHECK_FIELD_EXCEPT_BATTLER, gActiveBattler, ABILITY_MAGNET_PULL, 0, 0))
                               && IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL)))
                     {
@@ -3531,6 +3547,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     u8 holdEffect = 0;
     u8 holdEffectParam = 0;
     u16 moveBattler1 = 0, moveBattler2 = 0;
+    s8 effectivePriorityBattler1, effectivePriorityBattler2; // for the Trick Room Speed exception
 
     if (WEATHER_HAS_EFFECT)
     {
@@ -3648,11 +3665,22 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
             moveBattler2 = MOVE_NONE;
     }
 
+    // treat prio moves as 0 prio during WEATHER_TRICK_ROOM
+    effectivePriorityBattler1 = gBattleMoves[moveBattler1].priority;
+    effectivePriorityBattler2 = gBattleMoves[moveBattler2].priority;
+    if (GetCurrentWeather() == WEATHER_TRICK_ROOM)
+    {
+        if (effectivePriorityBattler1 > 0)
+            effectivePriorityBattler1 = 0;
+        if (effectivePriorityBattler2 > 0)
+            effectivePriorityBattler2 = 0;
+    }
+
     // both move priorities are different than 0
-    if (gBattleMoves[moveBattler1].priority != 0 || gBattleMoves[moveBattler2].priority != 0)
+    if (effectivePriorityBattler1 != 0 || effectivePriorityBattler2 != 0)
     {
         // both priorities are the same
-        if (gBattleMoves[moveBattler1].priority == gBattleMoves[moveBattler2].priority)
+        if (effectivePriorityBattler1 == effectivePriorityBattler2)
         {
             if (speedBattler1 == speedBattler2 && Random() & 1)
                 strikesFirst = 2; // same speeds, same priorities
@@ -3671,7 +3699,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
                     strikesFirst = 1; // else battler2 has more speed
             }
         }
-        else if (gBattleMoves[moveBattler1].priority < gBattleMoves[moveBattler2].priority)
+        else if (effectivePriorityBattler1 < effectivePriorityBattler2)
             strikesFirst = 1; // battler2's move has greater priority
         // else battler1's move has greater priority
     }
@@ -3837,6 +3865,8 @@ static void TurnValuesCleanUp(bool8 var0)
     gSideStatuses[1] &= ~(SIDE_STATUS_SHADOW_SHIELD);
     gSideTimers[0].followmeTimer = 0;
     gSideTimers[1].followmeTimer = 0;
+    gBattleStruct->pledgeFlags[0] = 0;
+    gBattleStruct->pledgeFlags[1] = 0;
 }
 
 static void SpecialStatusesClear(void)
@@ -3886,6 +3916,7 @@ static void CheckFocusPunch_ClearVarsBeforeTurnStarts(void)
     gBattleCommunication[3] = 0;
     gBattleCommunication[4] = 0;
     gBattleScripting.multihitMoveEffect = 0;
+    gBattleScripting.savedData = 0; // resets W-Turn
     gBattleResources->battleScriptsStack->size = 0;
 }
 
@@ -3935,12 +3966,14 @@ static void HandleEndTurn_BattleWon(void)
         {
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_MASTER:
-        case TRAINER_CLASS_CHAMPION:
+        //case TRAINER_CLASS_CHAMPION:
         case TRAINER_CLASS_DMCA_ADMIN:
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
         
         case TRAINER_CLASS_RAPPER:
+            break;
+        case TRAINER_CLASS_CHAMPION:
             break;
         case TRAINER_CLASS_BOSS:
         case TRAINER_CLASS_DMCA:
@@ -3985,6 +4018,13 @@ static void HandleEndTurn_BattleLost(void)
         }
         gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
     }
+    gBattleMainFunc = HandleEndTurn_FinishBattle;
+}
+
+static void HandleEndTurn_SingleMonDoubleBattleLost(void)
+{
+    gCurrentActionFuncId = 0;
+    gBattlescriptCurrInstr = BattleScript_SingleMonDoubleBattleLost;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
@@ -4056,9 +4096,9 @@ static void HandleEndTurn_FinishBattle(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
             ClearRematchStateByTrainerId();
         BeginFastPaletteFade(3);
-        if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
-            FadeOutMapMusic(5);
-        }
+        // if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
+        //     FadeOutMapMusic(5);
+        // }
         TryRestoreHeldItems();
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
         gCB2_AfterEvolution = BattleMainCB2;
@@ -4109,7 +4149,7 @@ static void TryEvolvePokemon(void)
                 if (species != SPECIES_NONE)
                 {
                     gBattleMainFunc = WaitForEvoSceneToFinish;
-                    EvolutionScene(&gPlayerParty[i], species, 0x81, i);
+                    EvolutionScene(&gPlayerParty[i], species, TRUE, i);
                     return;
                 }
             }
@@ -4839,6 +4879,13 @@ void BattleDebug_WonBattle(void)
 void BattleDebug_LeftBattle(void)
 {
     gBattleOutcome = B_OUTCOME_LEFT_BATTLE;
+    gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
+}
+
+// Loses the battle instantly.
+void BattleDebug_LostBattle(void)
+{
+    gBattleOutcome = B_OUTCOME_LOST;
     gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
 }
 

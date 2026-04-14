@@ -3476,7 +3476,12 @@ static void (*const sFlyOutFieldEffectFuncs[])(struct Task *) =
 
 u8 FldEff_FlyOut(void)
 {
+    u8 i;
     u8 taskId = CreateTask(Task_FlyOut, 0xFE);
+
+    for (i = 0; i < PARTY_SIZE; i++)
+        AdjustFriendship(&gPlayerParty[i], FRIENDSHIP_EVENT_WORLD_TRAVEL);
+        
     gTasks[taskId].tMonPartyId = gFieldEffectArguments[0];
     return 0;
 }

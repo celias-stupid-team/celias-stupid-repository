@@ -35,7 +35,7 @@ script ViridianGym_HintManSwitch {
                 "powerful, it had to be Sealed away.\p"
 
                 "Perhaps once the Seal has been\n"
-                "broken, you'll find a way through!", MSGBOX_DEFAULT)
+                "destroyed, you'll find a way through!", MSGBOX_DEFAULT)
             case 3:
                 msgbox(
                 "Did you ever talk to the PHISHING\n"
@@ -53,19 +53,33 @@ script ViridianGym_HintManSwitch {
                 "I hear the owner can teach your\n"
                 "POKéMON some very special moves.", MSGBOX_DEFAULT)
             case 5:
-                msgbox(
-                "Hey!\n"
-                "That's my brother in there!\p"
+                if(flag(FLAG_TRIED_DITTO_IN_WALL)) {
+                    msgbox(
+                    "There's something peculiar about\n"
+                    "your DITTO.\l"
+                    "I'm sure you've noticed it.\p"
 
-                "Uh, I mean…\n"
-                "Yes, quite a formidable foe.\p"
+                    "Why does it look like that?\p"
 
-                "Say, is it just me or did one of\n"
-                "those BRICK WALLS look funny?\p"
+                    "Figure out why it's that way, then\n"
+                    "put the DITTO where it belongs.\l"
+                    "That'll get you the last brick.", MSGBOX_DEFAULT)
+                } else {
+                    msgbox(
+                    "Hey!\n"
+                    "That's my brother in there!\p"
 
-                "Those BRICKS are nowhere else in\n"
-                "the whole region, but nonetheless\l"
-                "they look strangely familiar…", MSGBOX_DEFAULT)
+                    "Uh, I mean…\n"
+                    "Yes, quite a formidable foe.\p"
+
+                    "Say, is it just me or did one of\n"
+                    "those BRICK WALLS look funny?\p"
+
+                    "Those BRICKS are nowhere else in\n"
+                    "the whole region, but nonetheless\l"
+                    "they look strangely familiar…", MSGBOX_DEFAULT)
+
+                }
             case 6:
                 msgbox(
                 "There's a milk farm on THIRTY EIGHT\n"
@@ -99,9 +113,11 @@ script ViridianGym_HintManSwitch {
                 "Your RUMOR LOG may be helpful, but\n"
                 "not everything gets recorded there.\p"
 
-                "Think back to everything you've\n"
-                "seen in the GREAT SEA.\l"
-                "Put all the pieces together.\p"
+                "Go back and explore the GREAT SEA.\n"
+                "Check everything with fresh eyes.\p"
+
+                "There's clues around every corner,\n"
+                "now you know what you're looking for.\p"
 
                 "Incidentally, have you visited\n"
                 "CERULEAN CAVE yet?", MSGBOX_DEFAULT)

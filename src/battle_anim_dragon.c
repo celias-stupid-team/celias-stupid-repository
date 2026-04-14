@@ -9,6 +9,7 @@ static void AnimDragonFireToTarget(struct Sprite *sprite);
 static void AnimDragonRageFirePlume(struct Sprite *sprite);
 static void AnimDragonDanceOrb(struct Sprite *sprite);
 static void AnimOverheatFlame(struct Sprite *sprite);
+static void AnimMoltresOutrageFlame(struct Sprite *sprite);
 static void AnimDragonDanceOrb_Step(struct Sprite *sprite);
 static void AnimTask_DragonDanceWaver_Step(u8 taskId);
 static void UpdateDragonDanceScanlineEffect(struct Task *task);
@@ -40,6 +41,17 @@ const struct SpriteTemplate gOutrageFlameSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimOutrageFlame,
+};
+
+const struct SpriteTemplate gMoltresOutrageFlameSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_OutrageOverheatFire,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoltresOutrageFlame,
 };
 
 static const union AnimCmd sAnim_DragonBreathFire_0[] =
@@ -210,6 +222,30 @@ static void AnimOutrageFlame(struct Sprite *sprite)
     sprite->callback = TranslateSpriteLinearAndFlicker;
 }
 
+static void AnimMoltresOutrageFlame(struct Sprite *sprite)
+{
+    sprite->x = 120;//GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    sprite->y = 55;//GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+    {
+        sprite->x -= gBattleAnimArgs[0];
+        gBattleAnimArgs[3] = -gBattleAnimArgs[3];
+        gBattleAnimArgs[4] = -gBattleAnimArgs[4];
+    }
+    else
+    {
+        sprite->x += gBattleAnimArgs[0];
+    }
+    sprite->y += gBattleAnimArgs[1];
+    sprite->data[0] = gBattleAnimArgs[2];
+    sprite->data[1] = gBattleAnimArgs[3];
+    sprite->data[3] = gBattleAnimArgs[4];
+    sprite->data[5] = gBattleAnimArgs[5];
+    sprite->invisible = TRUE;
+    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
+    sprite->callback = TranslateSpriteLinearAndFlicker;
+}
+
 static void StartDragonFireTranslation(struct Sprite *sprite)
 {
     SetSpriteCoordsToAnimAttackerCoords(sprite);
@@ -356,6 +392,60 @@ void AnimTask_DragonDanceWaver(u8 taskId)
     task->func = AnimTask_DragonDanceWaver_Step;
 }
 
+void AnimTask_GarbotoxinWaver(u8 taskId)
+{
+    struct ScanlineEffectParams scanlineParams;
+    struct Task *task = &gTasks[taskId];
+    u16 i;
+    u8 y;
+
+    // -----------------------------------
+    // Select BG layer based on TARGET
+    // -----------------------------------
+    if (GetBattlerSpriteBGPriorityRank(gBattleAnimTarget) == 1)
+    {
+        scanlineParams.dmaDest = &REG_BG1HOFS;
+        task->data[2] = gBattle_BG1_X;
+    }
+    else
+    {
+        scanlineParams.dmaDest = &REG_BG2HOFS;
+        task->data[2] = gBattle_BG2_X;
+    }
+
+    scanlineParams.dmaControl = SCANLINE_EFFECT_DMACNT_16BIT;
+    scanlineParams.initState = 1;
+    scanlineParams.unused9 = 0;
+
+    // -----------------------------------
+    // Get TARGET vertical bounds
+    // -----------------------------------
+    y = GetBattlerYCoordWithElevation(gBattleAnimTarget);
+
+    task->data[3] = y - 32;
+    task->data[4] = y + 32;
+
+    if (task->data[3] < 0)
+        task->data[3] = 0;
+
+    // -----------------------------------
+    // Initialise scanline buffers
+    // -----------------------------------
+    for (i = task->data[3]; i <= task->data[4]; ++i)
+    {
+        gScanlineEffectRegBuffers[0][i] = task->data[2];
+        gScanlineEffectRegBuffers[1][i] = task->data[2];
+    }
+
+    ScanlineEffect_SetParams(scanlineParams);
+
+    // -----------------------------------
+    // Proceed to step function
+    // -----------------------------------
+    task->func = AnimTask_DragonDanceWaver_Step;
+}
+
+
 static void AnimTask_DragonDanceWaver_Step(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
@@ -394,6 +484,8 @@ static void AnimTask_DragonDanceWaver_Step(u8 taskId)
         break;
     }
 }
+
+
 
 static void UpdateDragonDanceScanlineEffect(struct Task *task)
 {

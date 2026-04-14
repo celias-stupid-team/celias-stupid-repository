@@ -35,6 +35,7 @@ script ShinyBidoof_Cynthia {
 		msgbox(
 		"I hope to see you again.\n"
 		"", MSGBOX_DEFAULT)
+		setflag(FLAG_SHINY_BIDOOF)
 	}
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction

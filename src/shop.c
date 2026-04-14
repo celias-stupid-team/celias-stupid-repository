@@ -587,13 +587,15 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
             CreateItemMenuIcon(ITEMS_COUNT, sShopData.itemSlot);
 
         sShopData.itemSlot ^= 1;
-        BuyMenuPrint(5, FONT_NORMAL, description, 0, 3, 2, 1, 0, 0);
+        StringExpandPlaceholders(gStringVar4, description);
+        BuyMenuPrint(5, FONT_NORMAL, gStringVar4, 0, 3, 2, 1, 0, 0);
     }
     else //TM Mart
     {
         FillWindowPixelBuffer(6, PIXEL_FILL(0));
         LoadTmHmNameInMart(item);
-        BuyMenuPrint(5, FONT_NORMAL, description, 2, 3, 1, 0, 0, 0);
+        StringExpandPlaceholders(gStringVar4, description);
+        BuyMenuPrint(5, FONT_NORMAL, gStringVar4, 2, 3, 1, 0, 0, 0);
     }
 }
 
@@ -1015,7 +1017,7 @@ static void BuyMenuSubtractMoney(u8 taskId)
     switch(tItemId) {
         case ITEM_ODD_MULCH:
             PlayFanfare(MUS_KOROK_SEED);
-            FlagSet(FLAG_FOUR_ISLAND_CANDY);
+            //FlagSet(FLAG_FOUR_ISLAND_CANDY);
             break;
         case ITEM_BIG_MUSHROOM:
             PlayCry_Normal(SPECIES_AMOONGUSS, 0);
@@ -1053,6 +1055,11 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
         } else if (tItemId == ITEM_CIGARETTES && tItemCount == 500) {
             AddBagItem(ITEM_PREMIERCIGAR, 1);
             BuyMenuDisplayMessage(taskId, gText_ThrowInPremierCigar, BuyMenuReturnToItemList);
+            
+        } else if (tItemId == ITEM_PREMIER_CANDY && tItemCount >= 10) {
+            AddBagItem(ITEM_PREMIER_CANDY, 1);
+            BuyMenuDisplayMessage(taskId, gText_ThrowInPremierCandy, BuyMenuReturnToItemList);
+            
         } else 
         {
             

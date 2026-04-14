@@ -29,6 +29,10 @@ script Route10_OnTransition {
 	if(var(VAR_CSR_TURNED_ON_POWER) == 0) {
 		setflag(FLAG_TEMP_2)
 	}
+	setflag(FLAG_TEMP_6)
+	if(checkitem(ITEM_RIPPED_MEMO) && !checkmoncaught(SPECIES_DRAGONITE)) {
+		clearflag(FLAG_TEMP_6)
+	}
 }
 
 script Route10_Warp_Script {
@@ -53,7 +57,7 @@ script Route10_Imprint {
 }
 
 script Route10_NothingToLookAt {
-	msgbox("There is nothing to look at.\pYou feel scammed.\n", MSGBOX_SIGN)
+	msgbox("There isn't anything to look at.\pYou feel scammed.\n", MSGBOX_SIGN)
 	end
 }
 
@@ -63,6 +67,27 @@ script Route10_Youngster {
 	msgbox("Wait, wasn't there a POKéMON\nCENTER here a minute ago?\pDarn, that's inconvenient.\pI guess I'm gonna have to run back\nto town after every fight.\lROCK TUNNEL's gonna be a pain...", MSGBOX_NPC)
 	end
 }
+
+script Route10_HiddenCelia {
+	msgbox(
+	"Hmm, it looks like this is a dead\n"
+	"end for now.\l"
+	"Don't worry, though!\p"
+
+	"The way forward is hidden, but it\n"
+	"can be found.\p"
+
+	"Take advantage of every resource\n"
+	"of knowledge at your disposal.\p"
+
+	"Pay very careful attention, and\n"
+	"cross reference what you know.\l"
+	"You'll find where to go.\p"
+
+	"You got this.\n"
+	"I believe in you!", MSGBOX_NPC)
+}
+
 
 script Route10_RouteSign {
 	lock
@@ -93,26 +118,30 @@ script Route10_SecretDad {
 	lock
 	faceplayer
 	textcolor(0)
+	setflag(FLAG_GOT_HORSEA_FROM_DAD)
 	if(flag(FLAG_GOT_HORSEA_FROM_DAD)) {
 		msgbox("DAD: {PLAYER}!\nWhat are you doing back here?\pBe careful not to get stuck.\nOnce you jump down here, that's it!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
-			call(EventScript_DadHeal)
+			
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			closemessage
+			playfanfare(MUS_HEAL)
+			waitfanfare
+			special(HealPlayerParty)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
+			msgbox(("DAD: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
+			closemessage
+			delay(20)
+			playse(SE_LEDGE)
+			applymovement(LOCALID_PLAYER, moves(
+				jump_2_up
+				delay_8
+				face_down
+			))
+			waitmovement(0)
 			release
 			end
 
 	}
-	msgbox("DAD: {PLAYER}!\nWhat are you doing back here?\pBe careful not to get stuck.\nOnce you jump down here, that's it!\pSay, one of the kind young men in\nthat cave came by.\lHe had this POKéMON with him.\pHe seemed to really like it.\nI think you would too!\pHere, catch!", MSGBOX_DEFAULT)
-	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_HORSEA)
-	setflag(FLAG_SHINY_CREATION) //Horsea
-	closemessage
-	playfanfare(MUS_LEVEL_UP)
-	textcolor(NPC_TEXT_COLOR_NEUTRAL)
-	msgbox("{PLAYER} caught the gracefully-thrown\nHORSEA!", MSGBOX_DEFAULT)
-	waitfanfare
-	call(Common_Script_GiftPokemon)
-	closemessage
-	textcolor(NPC_TEXT_COLOR_MALE)
-	msgbox("DAD: Well, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
-	setflag(FLAG_GOT_HORSEA_FROM_DAD)
 	call(EventScript_DadHeal)
 	release
 	end
@@ -226,6 +255,12 @@ script Route10_CeliaLook {
 }
 
 script Route10_CeliaDadSecret {
-	msgbox("It took me quite a few tries to get\na line for this secret that wasn't\lcreepy or gross.\pI don't wanna punch down on folks.\nI'm very committed to that.", MSGBOX_NPC)
+	msgbox(
+	"This used to be the spot for a\n"
+	"shiny, but the method sucked so\l"
+	"I changed it.\p"
+
+	"Now it's just a fun easter egg.\n"
+	"", MSGBOX_NPC)
 	end
 }

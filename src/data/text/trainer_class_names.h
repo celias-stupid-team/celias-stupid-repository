@@ -74,7 +74,7 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_GAMER]               = _("GAMER"),
     [TRAINER_CLASS_BEAUTY]              = _("BEAUTY"),
     [TRAINER_CLASS_SWIMMER_F]           = _("SWIMMER♀"),
-    [TRAINER_CLASS_PSYCHIC]             = _("PSYCHIC"),
+    [TRAINER_CLASS_PSYCHIC]             = _("SMARTTRAINER"),
     [TRAINER_CLASS_ROCKER]              = _("ROCKER"),
     [TRAINER_CLASS_JUGGLER]             = _("JUGGLER"),
     [TRAINER_CLASS_TAMER]               = _("TAMER"),
@@ -133,4 +133,6 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_SKIIER]             = _("ICE"),
     [TRAINER_CLASS_ARTIST]             = _("ARTIST"),
     [TRAINER_CLASS_KIMONO]             = _("KIMONO"),
+    [TRAINER_CLASS_PLASTO]             = _("IDIOT PLASTO"),
+    [TRAINER_CLASS_HAKARI_BLIZ]             = _("HAKARI"),
 };

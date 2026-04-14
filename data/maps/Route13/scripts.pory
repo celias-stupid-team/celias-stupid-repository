@@ -90,7 +90,7 @@ script Route13_Snorlax {
 	setrespawn(HEAL_LOCATION_ROUTE12)
 	setflag(FLAG_SYS_SNORLAX_FIGHT)
 	msgbox("A POKéMON is asleep on the road.\nThere's no way around it.\pLooks like it's time to get through\nby force!", MSGBOX_DEFAULT)
-	setwildbattle(SPECIES_SNORLAX, 30)
+	setwildbattle(SPECIES_SNORLAX, 30, ITEM_RUNNING_SHOES)
 	waitse
 	playmoncry(SPECIES_SNORLAX, CRY_MODE_ENCOUNTER)
 	delay(40)
@@ -302,12 +302,22 @@ script CeliaSecrets_Bonus_SkipRoute {
 }
 
 script CeliaSecrets_Bonus_LeftOfSign {
-	msgbox("The “Look! To the left of\nthis sign!” thing in vanilla\lwas always so weird.\pThe hidden item is… to the\nfucking left of it.\pUnless it means from the player\ncharacter's POV, and you'd have to\luse spacial reasoning for it?\pIdk, it's fucky.\n", MSGBOX_NPC)
+	msgbox("The “Look! To the left of\nthis sign!” thing in vanilla\lwas always so weird.\pThe hidden item is… to the\nfucking right of it.\pUnless it means from the player\ncharacter's POV, and you'd have to\luse spacial reasoning for it?\pIdk, it's fucky.\n", MSGBOX_NPC)
 	end
 }
 
 script CeliaSecrets_Bonus_PhotorealisticWater {
-	msgbox("I'm very good at programming.\n", MSGBOX_NPC)
+	msgbox(
+	"At one point, I accidentally fixed\n"
+	"the water appearing behind the\l"
+	"trees.\p"
+
+	"However, this meant that I could\n"
+	"no longer make fun of the water\l"
+	"appearing behind the trees.\p"
+
+	"Thus, I unfixed it.\n"
+	"", MSGBOX_NPC)
 	end
 }
 
@@ -357,7 +367,7 @@ script CeliaSecrets_Bonus_FushciaSpelling {
 }
 
 script CeliaSecrets_Bonus_ModernExp {
-	msgbox("In this hack, I removed the ability\nto organize your pokedex by type\land by letter.\pThis is explicitly me taking\nagency away from the player.\pHowever, within the context of\nthis hack, it's obvious why.\pPlayers who use those features by\ndefault don't expect there to be\lanything new with the dex order,\lso they default to what they know.\pIt's my job as a game designer to\nguide players to the experience I\lwant them to have.\pAnyway, modern gen exp share.\n", MSGBOX_NPC)
+	msgbox("In this hack, I removed the ability\nto organize your pokedex by type\land by letter.\pThis is explicitly me taking\nagency away from the player.\pHowever, within the context of\nthis hack, it's obvious why.\pPlayers who use those features by\ndefault don't expect there to be\lanything new with the dex order,\lso they default to what they know.\pIt's my job as a game designer to\nguide players to the experience I\lwant them to have, even if it\lmeans removing options.\pThis is a message about modern gen\nexp share.", MSGBOX_NPC)
 	end
 }
 
@@ -377,7 +387,13 @@ script CeliaSecrets_Bonus_BikeSign {
 }
 
 script CeliaSecrets_Bonus_DickBridge {
-	msgbox("This bridge was drawn by my good\nfriend LIAM DICK!", MSGBOX_NPC)
+	msgbox(
+	"This bridge was drawn by my good\n"
+	"friend L. DICK!\p"
+
+	"Sadly, adding him to the official\n"
+	"credits made my account banned\l"
+	"from Pastebin.", MSGBOX_NPC)
 	end
 }
 
@@ -418,7 +434,16 @@ script CeliaSecrets_Bonus_Crabhammer {
 }
 
 script CeliaSecrets_Bonus_BirdCultistStatue {
-	msgbox("Ooh, I wonder what this is about!\n", MSGBOX_NPC)
+	msgbox(
+	"Each of the major demos contained\n"
+	"one piece of the Zero Island quest.\p"
+
+	"Demo 2.5 had Zapdos with the\n"
+	"Instinct Seal, and then Demo 3\l"
+	"had this statue giving it a purpose.\p"
+
+	"Now finally with the full release,\n"
+	"you can see how they tie together.", MSGBOX_NPC)
 
 }
 
@@ -428,7 +453,11 @@ script CeliaSecrets_Bonus_FloatStoneGuy {
 }
 
 script CeliaSecrets_Bonus_InaccessibleCelias {
-	msgbox("I'll often put CELIAS in areas\nyou can't actually reach.\pI think it's funny to fuck with\npeople", MSGBOX_NPC)
+	msgbox(
+	"This guy sometimes turns green.\p"
+
+	"I have literally no idea why.\n"
+	"", MSGBOX_NPC)
 
 }
 
@@ -448,7 +477,7 @@ script CeliaSecrets_Bonus_Fishinggurubrother {
 }
 
 script CeliaSecrets_Bonus_RockScientist {
-	msgbox("Full disclosure: I don't actually\nknow what this guy will do.\pIn the first draft of the game he\ngave you moon stones, and you'd\levolve Nidoking here to get Surf.\pThings have changed quite a bit\nsince then, progression-wise.\pBut I still think it's funny to\nkeep some dude trapped by a rock.\lSo for now, he's staying.", MSGBOX_NPC)
+	msgbox("Full disclosure: I never actually\nhad a plan for this guy.\pIn the first draft of the game he\ngave you moon stones, and you'd\levolve Nidoking here to get Surf.\pThings have changed quite a bit\nsince then, progression-wise.\pBut I still think it's funny to\nkeep some dude trapped by a rock.\lSo uhhh he just kinda dies.", MSGBOX_NPC)
 
 }
 
@@ -458,7 +487,17 @@ script CeliaSecrets_Bonus_CutsceneSilence {
 }
 
 script CeliaSecrets_Bonus_BrickWall {
-	msgbox("What will the Brick Pieces be used\nfor?\lStay tuned!", MSGBOX_NPC)
+	msgbox(
+	"This Celia was originally just\n"
+	"“What will brick pieces be used\l"
+	"for? I wonder!”\p"
+
+	"Now that you KNOW what they're\n"
+	"used for, I don't have anything\l"
+	"else to say.\p"
+
+	"I really shoulda future proofed\n"
+	"these dev commentary bits better.", MSGBOX_NPC)
 
 }
 

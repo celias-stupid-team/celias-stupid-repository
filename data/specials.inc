@@ -233,6 +233,7 @@ gSpecials::
 	def_special BufferMoveDeleterNicknameAndMove
 	def_special GetNumMovesSelectedMonHas
 	def_special TeachMoveRelearnerMove
+	def_special TeachMultiMoveTutorMove
 	def_special NullFieldSpecial  @ Hoenn Cycling Road specials
 	def_special NullFieldSpecial
 	def_special GetPlayerAvatarBike
@@ -406,6 +407,7 @@ gSpecials::
 	def_special OpenMuseumFossilPic
 	def_special CloseMuseumFossilPic
 	def_special ChooseMonForMoveTutor
+	def_special ChooseMonForPledgeTutor
 	def_special ChooseMonForWirelessMinigame
 	def_special SetBattledTrainerFlag
 	def_special SetHelpContextForMap
@@ -465,4 +467,5 @@ gSpecials::
 	def_special GetShinyCount
 	def_special ShakeScreenSilent
 	def_special IsPlayerNameKaylee
+	def_special BackgroundSave
 gSpecialsEnd::

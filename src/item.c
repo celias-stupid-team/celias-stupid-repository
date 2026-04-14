@@ -192,6 +192,19 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
         }
     }
 
+    // correct handling if key item pocket is full, unlikely to happen
+    if (pocket == POCKET_TM_CASE - 1 && !CheckBagHasItem(ITEM_TM_CASE, 1))
+    {
+        if (BagPocketGetFirstEmptySlot(POCKET_KEY_ITEMS - 1) == -1)
+            return FALSE;
+    }
+    // correct handling if key item pocket is full, unlikely to happen
+    if (pocket == POCKET_BERRY_POUCH - 1 && !CheckBagHasItem(ITEM_BERRY_POUCH, 1))
+    {
+        if (BagPocketGetFirstEmptySlot(POCKET_KEY_ITEMS - 1) == -1)
+            return FALSE;
+    }
+
     if (BagPocketGetFirstEmptySlot(pocket) != -1)
         return TRUE;
 
@@ -560,10 +573,44 @@ void SortAndCompactBagPocket(struct BagPocket * pocket)
     {
         for (j = i + 1; j < pocket->capacity; j++)
         {
-            if (GetBagItemQuantity(&pocket->itemSlots[i].quantity) == 0 || (GetBagItemQuantity(&pocket->itemSlots[j].quantity) != 0 && pocket->itemSlots[i].itemId > pocket->itemSlots[j].itemId))
+            if (pocket->itemSlots[i].itemId == ITEM_NONE || (pocket->itemSlots[j].itemId != ITEM_NONE && pocket->itemSlots[i].itemId > pocket->itemSlots[j].itemId))
                 SwapItemSlots(&pocket->itemSlots[i], &pocket->itemSlots[j]);
         }
     }
+}
+
+void SortPokeBallsPocket_PokeBallFirst(struct BagPocket *pocket)
+{
+    u16 i, k;
+    struct ItemSlot temp;
+
+    SortAndCompactBagPocket(pocket);
+
+    // find ITEM_POKE_BALL in the pocket
+    for (i = 0; i < pocket->capacity; i++)
+    {
+        if (pocket->itemSlots[i].itemId == ITEM_NONE)
+            return; // not found
+        if (pocket->itemSlots[i].itemId == ITEM_POKE_BALL)
+            break;
+    }
+
+    if (i == 0 || i >= pocket->capacity)
+        return; // already at front or not found
+
+    // get quantities
+    for (k = 0; k < pocket->capacity; k++)
+        pocket->itemSlots[k].quantity = GetBagItemQuantity(&pocket->itemSlots[k].quantity);
+
+    // rearrangement
+    temp = pocket->itemSlots[i];
+    for (k = i; k > 0; k--) // iterate upwards
+        pocket->itemSlots[k] = pocket->itemSlots[k - 1];
+    pocket->itemSlots[0] = temp;
+
+    // set quantities again
+    for (k = 0; k < pocket->capacity; k++)
+        SetBagItemQuantity(&pocket->itemSlots[k].quantity, pocket->itemSlots[k].quantity);
 }
 
 u16 BagGetItemIdByPocketPosition(u8 pocketId, u16 slotId)

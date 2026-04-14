@@ -6,7 +6,7 @@ CeruleanCity_Gym_MapScripts::
 CeruleanCity_Gym_EventScript_Misty::
 	lock
 	famechecker FAMECHECKER_CERULEAN, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
-	setvar VAR_TEMP_START_EVENT_BATTLE, 5
+	setvar VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_MISTY
 	trainerbattle_single TRAINER_LEADER_MISTY, CeruleanCity_Gym_Text_MistyIntro, CeruleanCity_Gym_Text_MistyDefeat, CeruleanCity_Gym_EventScript_MistyDefeated, NO_MUSIC
 	msgbox CeruleanCity_Gym_Text_ExplainTM03
 	release
@@ -78,6 +78,11 @@ script CeruleanClub_MapScripts {
 			setflag(FLAG_HIDE_MISTY_IN_CERULEAN)
 		}
 	}
+	call(CeliaSecrets_GetNextHint)
+	if(var(VAR_CSR_CELIA_SECRET_NEXT_HINT) == CELIA_SECRET_CERULEAN) {
+		setflag(FLAG_CELIA_SECRETS_FINISHED)
+		clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
+	}
 }
 
 script CeruleanClub_UpdateBench {
@@ -86,14 +91,80 @@ script CeruleanClub_UpdateBench {
 	release
 }
 
+
 script CeruleanClub_CeliaReward {
 	lock
 	faceplayer
+	call(CeliaSecrets_GetNextHint)
+	if(var(VAR_CSR_CELIA_SECRET_NEXT_HINT) == CELIA_SECRET_CERULEAN) {
+			if(flag(FLAG_CSR_CELIA_BONUS) && !flag(FLAG_DISABLED_DEV_COMMENTARY)) {
+
+			msgbox(CeruleanCity_Gym_Celia)
+			closemessage
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(CeruleanCity_Gym_UnlockedCommentary)
+			waitmessage
+			waitfanfare
+			clearflag(FLAG_CSR_CELIA_BONUS) //FLAG_CELIA_SECRETS_NEXT_UPDATE
+			delay(30)
+			closemessage
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox(CeruleanCity_Gym_CeliaUnlocksCommentary)
+			clearflag(FLAG_HIDE_MISTY_IN_CERULEAN)
+			release
+			end
+
+		} else {
+			if(flag(FLAG_DISABLED_DEV_COMMENTARY)) {
+				msgbox(
+				"Hiya!\n"
+				"Thanks so much for playing!\p"
+
+				"Would you like to re-enable the\n"
+				"Dev Commentary?", MSGBOX_YESNO)
+				if(var(VAR_RESULT)) {
+					clearflag(FLAG_CSR_CELIA_BONUS)
+					clearflag(FLAG_DISABLED_DEV_COMMENTARY)
+					msgbox(
+					"Aaaaand done!\n"
+					"I hope you have fun!", MSGBOX_DEFAULT)
+					release
+					end
+				} else {
+					msgbox(
+						"Gotcha!\n"
+						"Good luck!", MSGBOX_DEFAULT)
+					release
+					end
+				}
+			}
+			msgbox(
+			"Hiya!\n"
+			"Thank you so much for playing!\p"
+
+			"Would you like to disable the\n"
+			"Dev Commentary?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				setflag(FLAG_CSR_CELIA_BONUS)
+				setflag(FLAG_DISABLED_DEV_COMMENTARY)
+				msgbox(
+				"Aaaaand done!\p"
+
+				"Good luck hunting for secrets!\n"
+				"You got this!", MSGBOX_DEFAULT)
+			} else {
+				msgbox(
+				"All righty.\n"
+				"Have fun!", MSGBOX_DEFAULT)
+			}
+		}
+	}
 	if(!flag(FLAG_CSR_OLD_CELIA_BONUS) && flag(FLAG_CSR_CELIA_BONUS)) {
 		msgbox("Hi, there!\nWelcome back from Demo 2!\pIt looks like last update, you\nunlocked the Dev Commentary!\lNicely done!\pThis time, there's new quests to\nfind, so I've disabled it for now.\lYou need to find the new stuff too!\pHere's a hint to get you started:\n", MSGBOX_DEFAULT)
 		setflag(FLAG_CSR_OLD_CELIA_BONUS)
 		clearflag(FLAG_CELIA_SECRETS_FINISHED)
-		call(CeliaSecrets_GetNextHint)
+		call(CeliaSecrets_CeliaTellsYouNextHint)
 		fadescreenswapbuffers(FADE_TO_BLACK)
 		removeobject(VAR_LAST_TALKED)
 		special(DrawWholeMapView)
@@ -104,7 +175,7 @@ script CeruleanClub_CeliaReward {
 		msgbox("Hi, there!\nWelcome back from Demo 3!\pIt looks like last update, you\nunlocked the Dev Commentary!\lNicely done!\pThis time, there's new quests to\nfind, so I've disabled it for now.\lYou need to find the new stuff too!\pHere's a hint to get you started:\n", MSGBOX_DEFAULT)
 		setflag(FLAG_DEMO_3_CELIA_BONUS)
 		clearflag(FLAG_CELIA_SECRETS_FINISHED)
-		call(CeliaSecrets_GetNextHint)
+		call(CeliaSecrets_CeliaTellsYouNextHint)
 		fadescreenswapbuffers(FADE_TO_BLACK)
 		removeobject(VAR_LAST_TALKED)
 		special(DrawWholeMapView)
@@ -112,66 +183,7 @@ script CeruleanClub_CeliaReward {
 		release
 		end
 	} 
-	if(flag(FLAG_CSR_CELIA_BONUS) && !flag(FLAG_DISABLED_DEV_COMMENTARY)) {
 
-		msgbox(CeruleanCity_Gym_Celia)
-		closemessage
-		textcolor(NPC_TEXT_COLOR_NEUTRAL)
-		playfanfare(MUS_LEVEL_UP)
-		msgbox(CeruleanCity_Gym_UnlockedCommentary)
-		waitmessage
-		waitfanfare
-		clearflag(FLAG_CSR_CELIA_BONUS) //FLAG_CELIA_SECRETS_NEXT_UPDATE
-		delay(30)
-		closemessage
-		textcolor(NPC_TEXT_COLOR_FEMALE)
-		msgbox(CeruleanCity_Gym_CeliaUnlocksCommentary)
-		clearflag(FLAG_HIDE_MISTY_IN_CERULEAN)
-
-	} else {
-		if(flag(FLAG_DISABLED_DEV_COMMENTARY)) {
-			msgbox(
-			"Hiya!\n"
-			"Thanks so much for playing!\p"
-
-			"Would you like to re-enable the\n"
-			"Dev Commentary?", MSGBOX_YESNO)
-			if(var(VAR_RESULT)) {
-				clearflag(FLAG_CSR_CELIA_BONUS)
-				clearflag(FLAG_DISABLED_DEV_COMMENTARY)
-				msgbox(
-				"Aaaaand done!\n"
-				"I hope you have fun!", MSGBOX_DEFAULT)
-				release
-				end
-			} else {
-				msgbox(
-					"Gotcha!\n"
-					"Good luck!", MSGBOX_DEFAULT)
-				release
-				end
-			}
-		}
-		msgbox(
-		"Hiya!\n"
-		"Thank you so much for playing!\p"
-
-		"Would you like to disable the\n"
-		"Dev Commentary?", MSGBOX_YESNO)
-		if(var(VAR_RESULT)) {
-			setflag(FLAG_CSR_CELIA_BONUS)
-			setflag(FLAG_DISABLED_DEV_COMMENTARY)
-			msgbox(
-			"Aaaaand done!\p"
-
-			"Good luck hunting for secrets!\n"
-			"You got this!", MSGBOX_DEFAULT)
-		} else {
-			msgbox(
-			"All righty.\n"
-			"Have fun!", MSGBOX_DEFAULT)
-		}
-	}
 	release
 	end
 }

@@ -21,6 +21,7 @@
 #include "pokemon_storage_system.h"
 #include "pokemon_storage_system_internal.h"
 #include "pokemon_summary_screen.h"
+#include "evolution_scene.h"
 #include "quest_log.h"
 #include "strings.h"
 #include "task.h"
@@ -44,12 +45,21 @@ static EWRAM_DATA u8 sWhichToReshow = 0;
 static EWRAM_DATA u8 sLastUsedBox = 0;
 static EWRAM_DATA u16 sMovingItemId = ITEM_NONE;
 
+// external vars
 extern struct BattleCallbacksStack gSavedBattleCallbackStack;
 extern struct BattleScriptsStack gSavedBattleScriptsStack;
 extern u8 gSavedFaintedActionsState;
+extern struct Pokemon gPSSEvoMon;
+extern bool8 gPSSEvoTriggered;
+extern bool8 gPSSEvoSilentTriggered;
+extern u8 gPSSEvoSilentBoxPos;
 extern u8 gSavedFaintedActionsBattlerId;
 extern u8 gSavedTurnEffectsTracker;
 extern u8 gSavedTurnCountersTracker;
+extern u8 gPSSEvoPendingBoxId;
+extern u8 gPSSEvoPendingCount;
+extern u8 gPSSEvoPendingIndex;
+extern u8 gPSSEvoPendingPositions[];
 
 static void Task_InitPokeStorage(u8 taskId);
 static void Task_ShowPokeStorage(u8 taskId);
@@ -62,6 +72,9 @@ static void Task_MoveMon(u8 taskId);
 static void Task_PlaceMon(u8 taskId);
 static void Task_ShiftMon(u8 taskId);
 static void Task_ShowBrickPieceMessage(u8 taskId);
+static void Task_TriggerPSSEvolution(u8 taskId);
+static void Task_TriggerPSSEvolution_Simple(u8 taskId);
+static void TriggerNextQueuedPSSEvo(void);
 static void Task_WithdrawMon(u8 taskId);
 static void Task_DepositMenu(u8 taskId);
 static void Task_ReleaseMon(u8 taskId);
@@ -114,6 +127,7 @@ static void SetUpDoShowPartyMenu(void);
 static bool8 DoShowPartyMenu(void);
 static void InitPokeStorageBg0(void);
 static void PrintStorageMessage(u8 textId);
+static void PrintStorageMessageRaw(const u8 *text);
 static void ShowYesNoWindow(s8 cursorPos);
 static void ClearBottomWindow(void);
 static void AddWallpaperSetsMenu(void);
@@ -137,6 +151,7 @@ enum
     SCREEN_CHANGE_SUMMARY_SCREEN,
     SCREEN_CHANGE_NAME_BOX,
     SCREEN_CHANGE_ITEM_FROM_BAG,
+    SCREEN_CHANGE_PSS_EVO,
 };
 
 enum
@@ -174,6 +189,8 @@ enum
     MSG_CANT_STORE_MAIL,
     MSG_PORYGON_VIRUS,
     MSG_BRICK_PIECE_OBTAINED,
+    MSG_EVOLVED,
+    MSG_DISAPPEARED,
 };
 
 enum
@@ -328,6 +345,8 @@ static const struct StorageMessage sMessages[] = {
     [MSG_CANT_STORE_MAIL]      = {gText_MailCantBeStored,        MSG_FMT_NONE},
     [MSG_PORYGON_VIRUS]        = {gText_PkmnGotVirus,            MSG_FMT_MON_NAME_1},
     [MSG_BRICK_PIECE_OBTAINED] = {gText_ObtainedBrickPiece,      MSG_FMT_NONE},
+    [MSG_EVOLVED]              = {gText_WowPkmnEvolved,          MSG_FMT_MON_NAME_1},
+    [MSG_DISAPPEARED]          = {gText_PkmnDisappeared,         MSG_FMT_MON_NAME_1},
 };
 
 static const struct WindowTemplate sYesNoWindowTemplate = {
@@ -542,6 +561,9 @@ static void Task_InitPokeStorage(u8 taskId)
             case SCREEN_CHANGE_ITEM_FROM_BAG - 1:
                 GiveChosenBagItem();
                 break;
+            case SCREEN_CHANGE_PSS_EVO - 1:
+                WritePSSEvoMonToBox();
+                break;
             }
         }
         LoadPokeStorageMenuGfx();
@@ -664,6 +686,13 @@ static void Task_ReshowPokeStorage(u8 taskId)
 
 static void Task_PokeStorageMain(u8 taskId)
 {
+    // trigger next queued PSS evo, if there is any
+    if (gPSSEvoPendingIndex < gPSSEvoPendingCount)
+    {
+        TriggerNextQueuedPSSEvo();
+        return;
+    }
+
     switch (gStorage->state)
     {
     case 0:
@@ -1141,7 +1170,15 @@ static void Task_PlaceMon(u8 taskId)
     case 1:
         if (!DoMonPlaceChange())
         {
-            if (WasBrickPieceObtained()) // always check first, when placing a mon
+            if (gPSSEvoTriggered)
+            {
+                SetPokeStorageTask(Task_TriggerPSSEvolution);
+            }
+            else if (gPSSEvoSilentTriggered)
+            {
+                SetPokeStorageTask(Task_TriggerPSSEvolution_Simple);
+            }
+            else if (WasBrickPieceObtained())
             {
                 ClearBrickPieceObtained();
                 SetPokeStorageTask(Task_ShowBrickPieceMessage);
@@ -1427,7 +1464,7 @@ static void Task_ReleaseMon(u8 taskId)
     case 12:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
-            PrintStorageMessage(MSG_WORRIED);
+            PrintStorageMessage(MSG_EVOLVED);
             gStorage->state++;
         }
         break;
@@ -1441,51 +1478,112 @@ static void Task_ReleaseMon(u8 taskId)
     }
 }
 
+// handle next mon from the queue
+static void TriggerNextQueuedPSSEvo(void)
+{
+    u8 pos = gPSSEvoPendingPositions[gPSSEvoPendingIndex++];
 
-void Task_EvolvePorygon()
+    if (CONFIG_PSS_EVO_SHOW_SCENE)
+    {
+        SetupPSSEvoFromBox(gPSSEvoPendingBoxId, pos);
+        SetPokeStorageTask(Task_TriggerPSSEvolution);
+    }
+    else
+    {
+        PlaySE(SE_BANG);
+        EvolvePorygonInBoxSimple(gPSSEvoPendingBoxId, pos);
+        gPSSEvoSilentBoxPos     = pos;
+        gPSSEvoSilentTriggered  = TRUE;
+        SetPokeStorageTask(Task_TriggerPSSEvolution_Simple);
+    }
+}
+
+static void Task_TriggerPSSEvolution(u8 taskId)
 {
     switch (gStorage->state)
     {
     case 0:
-        // Start "can't release" sequence
-        PrintStorageMessage(MSG_WAS_RELEASED);
+        gPSSEvoTriggered = FALSE;
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gStorage->state++;
         break;
     case 1:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (!UpdatePaletteFade())
+        {
+            sWhichToReshow = SCREEN_CHANGE_PSS_EVO - 1;
+            gCB2_AfterEvolution = CB2_ReturnToPokeStorage;
+            gStorage->screenChangeType = SCREEN_CHANGE_PSS_EVO;
+            SetPokeStorageTask(Task_ChangeScreen);
+        }
+        break;
+    }
+}
+
+static void Task_TriggerPSSEvolution_Simple(u8 taskId)
+{
+    u8 boxPos;
+    
+    switch (gStorage->state)
+    {
+    case 0:
+        // release animation
+        gPSSEvoSilentTriggered = FALSE;
+        StringCopy(gStorage->displayMonNickname, gStorage->releaseMonName);
+        DoReleaseMonAnim(MODE_BOX, gPSSEvoSilentBoxPos);
+        gStorage->state++;
+        break;
+    case 1:
+        // message "Mon disappeared!"
+        if (!TryHideReleaseMonSprite())
+        {
+            PrintStorageMessage(MSG_DISAPPEARED);
+            gStorage->state++;
+        }
+        break;
+    case 2:
+        // message "..."
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
             PrintStorageMessage(MSG_SURPRISE);
             gStorage->state++;
         }
         break;
-    case 2:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
-        {
-            ClearBottomWindow();
-            DoReleaseMonComeBackAnim();
-            gStorage->state++;
-        }
-        break;
     case 3:
-        if (!ResetReleaseMonSpritePtr())
+        // swap species icon and start return animation
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
-            TrySetCursorFistAnim();
-            PrintStorageMessage(MSG_CAME_BACK);
+            boxPos = gPSSEvoSilentBoxPos;
+            ClearBottomWindow();
+            DestroyBoxMonIconAtPosition(boxPos);
+            CreateBoxMonIconAtPos(boxPos);  // reads Porygon-Z from the already-mutated box
+            gStorage->boxMonsSprites[boxPos]->invisible = TRUE;  // hide while setting up anim
+            DoReleaseMonAnim(MODE_BOX, boxPos);   // re-init affine anims on the new sprite
+            DoReleaseMonComeBackAnim();            // makes visible; COME_BACK cmd 0 sets scale to 16 absolutely
             gStorage->state++;
         }
         break;
     case 4:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        // evolved message and update species sprite
+        if (!ResetReleaseMonSpritePtr())
         {
-            PrintStorageMessage(MSG_WORRIED);
+            u32 otId = GetCurrentBoxMonData(gPSSEvoSilentBoxPos, MON_DATA_OT_ID);
+            TrySetCursorFistAnim();
+            StringCopy(gStorage->displayMonNickname, gSpeciesNames[SPECIES_PORYGON_Z]);
+            gStorage->displayMonSpecies = SPECIES_PORYGON_Z;
+            gStorage->displayMonPalette = GetMonSpritePalFromSpeciesAndPersonality(SPECIES_PORYGON_Z, otId, gStorage->displayMonPersonality);
+            RefreshDisplayMonData();
+            PrintStorageMessage(MSG_EVOLVED);
             gStorage->state++;
         }
         break;
-    case 5:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+    case 5: // return to Main, or trigger next queued evo if pending
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
             ClearBottomWindow();
-            SetPokeStorageTask(Task_PokeStorageMain);
+            if (gPSSEvoPendingIndex < gPSSEvoPendingCount)
+                TriggerNextQueuedPSSEvo();
+            else
+                SetPokeStorageTask(Task_PokeStorageMain);
         }
         break;
     }
@@ -1918,6 +2016,7 @@ static void Task_HandleWallpapers(u8 taskId)
             ClearBottomWindow();
             gStorage->wallpaperId -= MENU_TEXT_FOREST;
             SetWallpaperForCurrentBox(gStorage->wallpaperId);
+            CheckWallpaperPorygonEvolve(StorageGetCurrentBox(), gStorage->wallpaperId);
             gStorage->state++;
             break;
         }
@@ -1926,7 +2025,12 @@ static void Task_HandleWallpapers(u8 taskId)
         if (!DoWallpaperGfxChange())
         {
             AnimateBoxScrollArrows(TRUE);
-            SetPokeStorageTask(Task_PokeStorageMain);
+
+            // trigger the PSS Evo queue
+            if (gPSSEvoPendingCount > 0)
+                TriggerNextQueuedPSSEvo();
+            else
+                SetPokeStorageTask(Task_PokeStorageMain);
         }
         break;
     }
@@ -2248,6 +2352,10 @@ static void Task_ChangeScreen(u8 taskId)
     case SCREEN_CHANGE_ITEM_FROM_BAG:
         FreePokeStorageData();
         GoToBagMenu(ITEMMENULOCATION_PCBOX, OPEN_BAG_ITEMS, CB2_ReturnToPokeStorage);
+        break;
+    case SCREEN_CHANGE_PSS_EVO:
+        FreePokeStorageData();
+        PSSEvolutionScene(&gPSSEvoMon, SPECIES_PORYGON_Z);
         break;
     }
 
@@ -2726,6 +2834,16 @@ static void InitPokeStorageBg0(void)
     CopyBgTilemapBufferToVram(0);
 }
 
+static void PrintStorageMessageRaw(const u8 *text)
+{
+    FillWindowPixelBuffer(1, PIXEL_FILL(1));
+    AddTextPrinterParameterized(1, FONT_NORMAL_COPY_1, text, 0, 2, TEXT_SKIP_DRAW, NULL);
+    DrawTextBorderOuter(1, 2, 13);
+    PutWindowTilemap(1);
+    CopyWindowToVram(1, COPYWIN_GFX);
+    ScheduleBgCopyTilemapToVram(0);
+}
+
 static void PrintStorageMessage(u8 id)
 {
     u8 *txtPtr;
@@ -3024,13 +3142,7 @@ static void Task_WithdrawMonInBackground(u8 taskId)
         InitMonPlaceChange(CHANGE_SWITCHIN_TAKE); //set up correct function for DoMonPlaceChange()
         gStorage->state = 2;
         break;
-    case 1: //cancel
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
-        {
-            ClearBottomWindow();
-            SetPokeStorageTask(Task_PokeStorageMain);
-        }
-        break;
+    // case 1 was removed
     case 2:
         if (!DoMonPlaceChange())
         {
@@ -3060,6 +3172,30 @@ static void Task_WithdrawMonInBackground(u8 taskId)
             UpdatePartyToFieldOrder();
 
             gMadePSSSwitch = TRUE;
+            if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS)
+                SetPokeStorageTask(Task_ShutDownImmediately);
+            else
+                SetPokeStorageTask(Task_HidePartyPokemon);
+        }
+        else
+        {
+            PlaySE(SE_FAILURE);
+            StringCopy(gStorage->actionText, gStringVar4); // save reason before anything overwrites it
+            PrintStorageMessageRaw(gText_OopsTryAgain);
+            gStorage->state = 6;
+        }
+        break;
+    case 6: // error flow
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            PrintStorageMessageRaw(gStorage->actionText);
+            gStorage->state = 7;
+        }
+        break;
+    case 7:
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            ClearBottomWindow();
             if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS)
                 SetPokeStorageTask(Task_ShutDownImmediately);
             else

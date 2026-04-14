@@ -1935,3 +1935,42 @@ Text_TestMsg::
 
 	.include "data/maps/One_Island_Cave/scripts.inc"
 	.include "data/maps/One_Island_Cave/text.inc"
+
+	.include "data/maps/Starlight_House4/scripts.inc"
+	.include "data/maps/Starlight_House4/text.inc"
+
+	.include "data/maps/Starlight_House5/scripts.inc"
+	.include "data/maps/Starlight_House5/text.inc"
+
+	.include "data/maps/Starlight_House6/scripts.inc"
+	.include "data/maps/Starlight_House6/text.inc"
+
+	.include "data/maps/Starlight_House7/scripts.inc"
+	.include "data/maps/Starlight_House7/text.inc"
+
+	.include "data/maps/Starlight_House9/scripts.inc"
+	.include "data/maps/Starlight_House9/text.inc"
+
+	.include "data/maps/Starlight_House8/scripts.inc"
+	.include "data/maps/Starlight_House8/text.inc"
+
+	.include "data/maps/Starlight_House_10/scripts.inc"
+	.include "data/maps/Starlight_House_10/text.inc"
+
+	.include "data/maps/Starlight_House6pt2/scripts.inc"
+	.include "data/maps/Starlight_House6pt2/text.inc"
+
+	.include "data/maps/Starlight_House6edge1/scripts.inc"
+	.include "data/maps/Starlight_House6edge1/text.inc"
+
+	.include "data/maps/Starlight_House6edge2/scripts.inc"
+	.include "data/maps/Starlight_House6edge2/text.inc"
+
+	.include "data/maps/Starlight_House_jukebox/scripts.inc"
+	.include "data/maps/Starlight_House_jukebox/text.inc"
+
+	.include "data/maps/Starlight_House11/scripts.inc"
+	.include "data/maps/Starlight_House11/text.inc"
+
+	.include "data/maps/Starlight_House12/scripts.inc"
+	.include "data/maps/Starlight_House12/text.inc"

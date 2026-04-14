@@ -1614,7 +1614,7 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
         return;
     }
 
-    if(species == SPECIES_SEEL && !FlagGet(FLAG_CSR_MAP_MINNESOTA)) {
+    if(species == SPECIES_SEEL && (!FlagGet(FLAG_CSR_MAP_MINNESOTA) && !FlagGet(FLAG_CAUGHT_VERMILION_SEAL))) {
         seen = FALSE;
         caught = FALSE;
         obtainable = FALSE;
@@ -2429,7 +2429,7 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
     if (indexIsSpecies)
         nationalDexNo = SpeciesToNationalPokedexNum(nationalDexNo);
 
-    if(nationalDexNo == NATIONAL_DEX_SEEL && !FlagGet(FLAG_CSR_MAP_MINNESOTA)) {
+    if(nationalDexNo == NATIONAL_DEX_SEEL && (!FlagGet(FLAG_CSR_MAP_MINNESOTA) && !FlagGet(FLAG_CAUGHT_VERMILION_SEAL)) ) {
         return 0;
     }
 
@@ -2938,7 +2938,6 @@ void DexScreen_PrintMonHeight(u8 windowId, u16 species, u8 x, u8 y)
     if (DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, FALSE))
     {
         inches = 10000 * height / 254; // actually tenths of inches here
-        DebugPrintf("Species is %d",species);
         switch(species) {
             
             case SPECIES_UNOWN_LOSS: // ?????? I have literally no clue why 

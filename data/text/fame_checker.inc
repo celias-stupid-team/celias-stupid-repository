@@ -327,11 +327,10 @@ gFameCheckerFlavorText_Lavender4:: @ 0x81AE7CB
 
 gFameCheckerFlavorText_Lavender5:: @ 0x81AE841
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Beware, fair traveller, as you\n"
-	.string "ascend.\p"
-	.string "Climbing this tower will face you\n"
-	.string "against the greatest fear of any\l"
-	.string "fanfiction author.$"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+	.string "Fill that SOOT SACK with ash and\n"
+	.string "bring it to me.\l"
+	.string "I'll craft you a present, huff-puff!$"
 
 gFameCheckerFlavorText_Celadon0:: @ 0x81AE89E
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Where are we?\p"
@@ -371,8 +370,8 @@ gFameCheckerFlavorText_Celadon4:: @ 0x81AEAEE
 	.string "business.\p"
 	.string "His POKéMON is fully invincible!\n"
 	.string "It has no weakness you can exploit!\p"
-	.string "Well, it has no weaknesses in THIS\n"
-	.string "GENERATION, at least.$"
+	.string "Well, it has no weaknesses here in\n"
+	.string "GENERATION 3, at least.$"
 
 gFameCheckerFlavorText_Celadon5:: @ 0x81AEB69
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
@@ -659,7 +658,7 @@ gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
 	.string "and powerful, we humans had to\l"
 	.string "Seal it away for our own safety.\p"
 	.string "Some day, someone may come along\n"
-	.string "and destroy the Seal themselves…$"
+	.string "and Break the Seal themselves…$"
 
 gFameCheckerFlavorText_GreatBay4:: @ 0x81AFD49
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
@@ -1050,7 +1049,7 @@ gRumorLogFlavorTextIntoLine1_Lavender4:: @ idk man
 	.string "Math$"
 
 gRumorLogFlavorTextIntoLine1_Lavender5::
-	.string "Ghostly$"
+	.string "Soot$"
 
 gRumorLogFlavorTextIntoLine1_Celadon0::
 	.string "Chaos$"
@@ -1338,7 +1337,7 @@ gFameCheckerFlavorTextOriginObjectName_Lavender4:: @ Unfinished
 	.string "Mentor$"
 
 gFameCheckerFlavorTextOriginObjectName_Lavender5::
-	.string "Guide$"
+	.string "Specialist$"
 
 gFameCheckerFlavorTextOriginObjectName_Celadon0::
 	.string "Courier$"

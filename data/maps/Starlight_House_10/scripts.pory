@@ -1,0 +1,64 @@
+mapscripts Starlight_House_10_MapScripts {
+
+MAP_SCRIPT_ON_TRANSITION {
+ if(checkplayergender == FEMALE) {
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYFIRE)
+        } else {
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYGREEN)
+
+        }
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_8)
+        }
+            if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+		if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_8)
+		}
+		
+	
+//if (var(VAR_RESULT) == FEMALE) {
+        //setobjectsprite (DANCER1, SPRITE_GFX_PLAYGREEN)
+    //} else {
+        //setobjectsprite (DANCER1, SPRITE_GFX_PLAYFIRE)
+    //}
+}
+
+
+}
+
+script Starlight_House_10_MapReset {
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Would you like to reset\nthe room?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//fadescreen(FADE_TO_WHITE)
+            warp(MAP_STARLIGHT_HOUSE_10, 0, 8, 10) // Map, Warp ID, X, Y
+            waitstate
+            //delay(120)
+            //fadescreen(FADE_FROM_WHITE)
+		}
+    release
+    end
+}
+
+script Starlight_House_10_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Y'know, I was supposed to have a\n"
+	"DANCE scene in CELADON GYM.\l"
+	"Now I'm gettin' my groove on here!\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a breather?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

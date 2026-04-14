@@ -3,6 +3,7 @@
 #include "gpu_regs.h"
 #include "trig.h"
 #include "constants/songs.h"
+#include "random.h"
 
 #include "gflib.h"
 
@@ -23,6 +24,8 @@ static void AnimLookLook(struct Sprite *sprite);
 static void AnimCapture(struct Sprite *sprite);
 static void AnimTask_CaptureTargetBounce_Step(u8 taskId);
 static void AnimCaptureOverlay(struct Sprite *sprite);
+static void AnimCoinFlip(struct Sprite *sprite);
+static void AnimTCGPowder(struct Sprite *sprite);
 
 static const union AffineAnimCmd sAffineAnim_MegahornHorn_0[] =
 {
@@ -145,7 +148,7 @@ const struct SpriteTemplate gWebThreadSpriteTemplate =
 const struct SpriteTemplate gGrassKnotThreadSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEB_THREAD,
-    .paletteTag = ANIM_TAG_WEED_SMALL,
+    .paletteTag = ANIM_TAG_GRASS,
     .oam = &gOamData_AffineOff_ObjNormal_8x8,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -166,8 +169,8 @@ const struct SpriteTemplate gStringWrapSpriteTemplate =
 
 const struct SpriteTemplate gGrassWrapSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_STRING,
-    .paletteTag = ANIM_TAG_GREEN_SPIKE,
+    .tileTag = ANIM_TAG_GRASS,
+    .paletteTag = ANIM_TAG_GRASS,
     .oam = &gOamData_AffineOff_ObjNormal_64x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -422,6 +425,56 @@ const struct SpriteTemplate gSoldierSpriteTemplate =
     .callback = AnimCapture,
 };
 
+static const union AnimCmd sTcgCoinAnimCmd_0[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(80, 4),
+    ANIMCMD_FRAME(96, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sTcgCoinAnimCmd_1[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(80, 2),
+    ANIMCMD_FRAME(96, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sTcgCoinAnimCmd_2[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const gTcgCoinAnimTable[] =
+{
+    sTcgCoinAnimCmd_0,
+    sTcgCoinAnimCmd_1,
+    sTcgCoinAnimCmd_2,
+};
+
+const struct SpriteTemplate gTcgCoinSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_COIN,
+    .paletteTag = ANIM_TAG_TCG_COIN,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gTcgCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinFlip,
+};
+
 static const union AffineAnimCmd sCaptureAffineAnimCmd[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
@@ -443,6 +496,16 @@ const struct SpriteTemplate gCaptSpriteTemplate =
     .callback = AnimCaptureOverlay,
 };
 
+const struct SpriteTemplate gTCGPowderSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_POWDER,
+    .paletteTag = ANIM_TAG_TCG_POWDER,
+    .oam = &gOamData_AffineOff_ObjBlend_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTCGPowder,
+};
 
 
 static void AnimMegahornHorn(struct Sprite *sprite)
@@ -848,6 +911,7 @@ static void AnimCapture(struct Sprite *sprite)
         {
         // anim 1, move 1 up
         case 0:
+            PlaySE12WithPanning(SE_CAPTURE_JUMP, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
             StartSpriteAnim(sprite, 1);
             sprite->y -= 1;
             break;
@@ -1048,7 +1112,6 @@ static void AnimTask_CaptureTargetBounce_Step(u8 taskId)
         {
         // landing frame
         case 10:
-            PlaySE12WithPanning(SE_M_COMET_PUNCH, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
             task->data[4] += 1;
             break;
 
@@ -1076,7 +1139,7 @@ static void AnimTask_CaptureTargetBounce_Step(u8 taskId)
         switch (task->data[1]++)
         {
         case 0: 
-            PlaySE12WithPanning(SE_M_STRENGTH, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+            PlaySE12WithPanning(SE_CAPTURE_COLLAPSE, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
             task->data[4] += 1; 
             break;
         case 1: task->data[4] += 1; break;
@@ -1120,7 +1183,7 @@ static void AnimTask_CaptureTargetBounce_Step(u8 taskId)
         switch (task->data[1]++)
         {
         case 0: 
-            PlaySE12WithPanning(SE_M_ATTRACT, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
+            PlaySE12WithPanning(SE_CAPTURE_RISE, BattleAnimAdjustPanning(SOUND_PAN_TARGET));
             task->data[4] -= 2; 
             break;
         case 1: task->data[4] -= 2; break;
@@ -1183,5 +1246,166 @@ static void AnimCaptureOverlay(struct Sprite *sprite)
         if (--sprite->data[1] <= 0)
             DestroyAnimSprite(sprite);
         break;
+    }
+}
+
+#define ARRAY_COUNT(array) (sizeof(array) / sizeof((array)[0]))
+
+static void AnimCoinFlip(struct Sprite *sprite)
+{
+    // -----------------------------------
+    // INITIALISE (once)
+    // -----------------------------------
+    if (sprite->data[0] == 0 && sprite->data[1] == 0)
+    {
+        sprite->x = gBattleAnimArgs[0];
+        sprite->y = gBattleAnimArgs[1];
+
+        sprite->data[6] = gBattleAnimArgs[2]; // initial wait
+        sprite->data[7] = gBattleAnimArgs[3]; // final wait
+
+        StartSpriteAnim(sprite, 0);
+    }
+
+    switch (sprite->data[0])
+    {
+    // -----------------------------------
+    // 0. INITIAL WAIT
+    // -----------------------------------
+    case 0:
+        if (++sprite->data[1] >= sprite->data[6])
+        {
+            sprite->data[1] = 0;
+            sprite->data[2] = 0; // motion index
+            StartSpriteAnim(sprite, 1);
+            sprite->data[0] = 1;
+        }
+        break;
+
+    // -----------------------------------
+    // 1. MAIN MOTION (1 move / 1 wait)
+    // -----------------------------------
+    case 1:
+    {
+        // Move every 2 frames
+        if ((sprite->data[1] & 1) == 0)
+        {
+            static const s8 movement[] =
+            {
+                -8, -7, -6, -6, -5, -5, -4, -4, -3, -2, -1,  0,
+                 1,  2,  3,  4,  4,  5,  5,  6,  6,  7,  8,
+                -5, -3, -2, -1,  0,  0,
+                 1,  2,  3,  5
+            };
+
+            if (sprite->data[2] < (sizeof(movement) / sizeof(movement[0])))
+            {
+                sprite->y += movement[sprite->data[2]];
+                sprite->data[2]++;
+            }
+            else
+            {
+                // Transition to final phase
+                sprite->data[0] = 2;
+                sprite->data[1] = 0;
+                StartSpriteAnim(sprite, 2);
+                break;
+            }
+        }
+
+        sprite->data[1]++;
+        break;
+    }
+
+    // -----------------------------------
+    // 2. FINAL WAIT
+    // -----------------------------------
+    case 2:
+        if (++sprite->data[1] >= sprite->data[7])
+        {
+            DestroyAnimSprite(sprite);
+        }
+        break;
+    }
+}
+
+
+static void AnimTCGPowder(struct Sprite *sprite)
+{
+    u8 battler;
+
+    // -----------------------------------
+    // INITIALISE (once)
+    // -----------------------------------
+    if (sprite->data[0] == 0 && sprite->data[1] == 0)
+    {
+        battler = (gBattleAnimArgs[2] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+        // Position relative to chosen battler
+        SetAverageBattlerPositions(battler, TRUE, &sprite->x, &sprite->y);
+
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+
+        sprite->data[2] = gBattleAnimArgs[3]; // even direction (0=left,1=right)
+        sprite->data[3] = gBattleAnimArgs[4]; // total moves
+
+        sprite->data[4] = 0; // frame counter (8-frame timer)
+        sprite->data[5] = 0; // move index
+
+        sprite->data[0] = 1; // enter main loop
+    }
+
+    // -----------------------------------
+    // MAIN LOOP (every 8 frames)
+    // -----------------------------------
+    if (++sprite->data[4] >= 8)
+    {
+        s16 dx = 0;
+        s16 dy = 0;
+
+        sprite->data[4] = 0;
+
+        // -----------------------------------
+        // ODD MOVES (random drift)
+        // -----------------------------------
+        if ((sprite->data[5] & 1) == 0)
+        {
+            // horizontal: -8 to +8
+            dx = (Random() % 9) - 4;
+
+            // vertical: +4 to +12 (down)
+            dy = (Random() % 7) + 4;
+        }
+        // -----------------------------------
+        // EVEN MOVES (zig-zag)
+        // -----------------------------------
+        else
+        {
+            dy = 6;
+
+            if (sprite->data[2] == 0)
+                dx = -2;
+            else
+                dx = 2;
+
+            // alternate direction each even step
+            sprite->data[2] ^= 1;
+        }
+
+        // Apply movement
+        sprite->x += dx;
+        sprite->y += dy;
+
+        // Increment move count
+        sprite->data[5]++;
+
+        // -----------------------------------
+        // END CONDITION
+        // -----------------------------------
+        if (sprite->data[5] >= sprite->data[3])
+        {
+            DestroyAnimSprite(sprite);
+        }
     }
 }

@@ -9,10 +9,7 @@ mapscripts GreatSea_PirateBay_MapScripts {
 
 		}
 	]
-	MAP_SCRIPT_ON_TRANSITION {
-		setworldmapflag(FLAG_WORLD_MAP_PIRATE_BAY)
-	}
-	
+
 }
 
 script PirateBay_BuyItOrDie {
@@ -72,7 +69,7 @@ script PirateBay_BreakTheSealHint {
 	"world, and no one knows where.\p"
 
 	"Some day, someone may come along\n"
-	"and destroy the Seal themselves…", MSGBOX_NPC)
+	"and Break the Seal themselves…", MSGBOX_NPC)
 }
 
 

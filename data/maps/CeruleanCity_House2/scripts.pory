@@ -49,3 +49,10 @@ script CeruleanCity_House2_EventScript_VolcanoBakemeat {
 	release
 	end
 }
+
+script CeruleanCity_House2_EventScript_Sink {
+	msgbox(
+	"The sink has sunk.\n"
+	"", MSGBOX_SIGN)
+
+}

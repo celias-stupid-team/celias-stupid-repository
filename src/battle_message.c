@@ -155,7 +155,7 @@ static const u8 sText_PkmnProtectedByMist[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}
 const u8 gBattleText_GetPumped[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\npumped!");
 static const u8 sText_PkmnHitWithRecoil[] = _("{B_ATK_NAME_WITH_PREFIX} is hit\nwith recoil!");
 static const u8 sText_PkmnProtectedItself2[] = _("{B_ATK_NAME_WITH_PREFIX} protected\nitself!");
-static const u8 sText_ProtectedTeam[] =_("SPIKY SHIELD protected\nthe opposing team!");
+static const u8 sText_ProtectedTeam[] =_("{B_BUFF3} protected\nthe opposing team!");
 static const u8 sText_PkmnBuffetedBySandstorm[] = _("{B_ATK_NAME_WITH_PREFIX} is buffeted\nby the sandstorm!");
 static const u8 sText_PkmnPeltedByHail[] = _("{B_ATK_NAME_WITH_PREFIX} is pelted\nby HAIL!");
 static const u8 sText_PkmnsXWoreOff[] = _("{B_ATK_PREFIX1}'s {B_BUFF1}\nwore off!");
@@ -401,6 +401,8 @@ static const u8 sText_SilphScopeUnveil[] = _("{B_PLAYER_NAME} unveiled the GHOST
 static const u8 sText_TheGhostWas[] = _("…Wait, no.\pI guess this one is actually just\na GHOST.\p{PAUSE 60}Whelp.");
 static const u8 sText_AlomomolaEvo[] = _("Look! LUVDISC is evolving!");
 static const u8 sText_AlomomolaEvolved[] = _("LUVDISC evolved to ALOMOMOLA!");
+static const u8 sText_AlomomolaEvoReverse[] = _("Look! ALOMOMOLA is devolving!");
+static const u8 sText_AlomomolaEvolvedReverse[] = _("ALOMOMOLA devolved to LUVDISC!");
 static const u8 sText_PkmnSwitchedStatChanges[] = _("{B_ATK_NAME_WITH_PREFIX} switched stat changes\nwith the target!");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
 static const u8 sText_LightGaryAndDarkGary[] = _("LIGHT GARY & DARK GARY\nwould like to battle!\p");
@@ -408,6 +410,7 @@ static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nw
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
 static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME}!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutLions[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout 1 BILLION LIONS!{PAUSE 60}");
+static const u8 sText_Trainer1SentOutBlueEyes[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout 3 BLUE-EYES WHITE DRAGONS!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutStupidHack[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent out…\n{PAUSE 30}CELIA's STUPID ROMHACK!{PAUSE 30}");
 static const u8 sText_Trainer1SentOutTwoPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutPkmn2[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_BUFF1}!");
@@ -446,12 +449,12 @@ static const u8 sText_ExclamationMark4[] = _("!");
 static const u8 sText_ExclamationMark5[] = _("!");
 static const u8 sText_Celebrate[] = _("Yay!");
 static const u8 sText_1derRoom[] = _("The 1DER ROOM multiplies the stats\nof all POKéMON by 1!");
-static const u8 sText_MySecretLife_Battle[] = _("My Secret Life, chapter three\n\nI was neither a murder suspect, nor\na target for an international spy\norganization.\n\nBut I drove a car down the Jersey\nTurnpike at 80 mph.\n\n…A police officer pulled me over\nand asked for my driver's license.\n\nHe said I was going 20 mph over the\nspeed limit. I instantly pointed to\nmy wife and said, “I'm in a hurry,\nmy wife is in labor.”\n\nFortunately, my wife actually had a\nbig stomach.\n\nI hoped he'd let me go with this\nexcuse.\n\n“Oh, since it's an emergency, I'll\nlead you to the hospital with my\npolice car,” he said.\n\n“No, it's not necessary.”\n\n“WHy not?” asked the officer.\n“Uh… well…”\n\n“Let's get going,” said the officer.\n\n“No, no! We can't! This baby is a\ndemon child!”");
+static const u8 sText_MySecretLife_Battle[] = _("My Secret Life, chapter three\pI was neither a murder suspect, nor\na target for an international spy\porganization.\pBut I drove a car down the Jersey\nTurnpike at 80 mph.\p…A police officer pulled me over\nand asked for my driver's license.\p(cutting out the middle cuz otherwise\nthe game crashes)\p“Let's get going,” said the officer.\p“No, no! We can't! This baby is a\ndemon child!”");
 static const u8 sText_UpDog[] = _("{B_OPPONENT_MON1_NAME} asked\n“What's UP DOG?”");
 static const u8 sText_TryAttack[] = _("{B_PLAYER_MON1_NAME} tried to attack!\p{PAUSE 45}But it failed!\n");
 static const u8 sText_GmaxMove[] = _("But it failed!\pThere's no GMAX energy in the area!");
 static const u8 sText_ExtremeEvoboost[] = _("But it failed!\p{B_PLAYER_MON1_NAME} isn't holding a\nZ CRYSTAL!");
-static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\lIt doesn't love {B_PLAYER_NAME} enough!");
+static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\pIt doesn't love {B_PLAYER_NAME} enough!");
 static const u8 sText_FickleBeam[] = _("But it failed!\p{B_PLAYER_MON1_NAME} doesn't have any heads!");
 static const u8 sText_SentOutZapmolcuno[] = _("{PAUSE 20}LARRY, JERRY, HARRY, LARRY, and\nGARY sent out ZAPMOLCUNO-OHGIA!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_AllArrysWannaBattle[] = _("LARRY, JERRY, HARRY, LARRY, and\nGARY want to battle!\p");
@@ -564,7 +567,7 @@ const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI 
 const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 static const u8 sText_ClassWiz1989[] = _("CSR DEVELOPER");
-static const u8 sText_ClassIdiotPlasto[] = _("IDIOT PLASTO");
+static const u8 sText_ClassIdiotPlasto[] = _("IDIOT");
 static const u8 sText_ClassStarlight[] = _("CSR MAP DESIGNER");
 
 // New battle strings.
@@ -955,6 +958,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_TRAINER1MON1AND2COMEBACK - BATTLESTRINGS_TABLE_START]      = sText_Trainer1RecallBoth,
     [STRINGID_ALOMOMOLAEVO - BATTLESTRINGS_TABLE_START]                  = sText_AlomomolaEvo,
     [STRINGID_ALOMOMOLAEVOLVED - BATTLESTRINGS_TABLE_START]              = sText_AlomomolaEvolved,
+    [STRINGID_ALOMOMOLAEVO_REVERSE - BATTLESTRINGS_TABLE_START]          = sText_AlomomolaEvoReverse,
+    [STRINGID_ALOMOMOLAEVOLVED_REVERSE - BATTLESTRINGS_TABLE_START]      = sText_AlomomolaEvolvedReverse,
     [STRINGID_PKMNSWITCHEDSTATCHANGES - BATTLESTRINGS_TABLE_START]       = sText_PkmnSwitchedStatChanges,
     [STRINGID_ENDUREDSTURDY - BATTLESTRINGS_TABLE_START]                 = sText_EnduredViaSturdy,
     [STRINGID_FORFEITEDMATCH - BATTLESTRINGS_TABLE_START]                = sText_ForfeitedMatch,
@@ -1081,6 +1086,23 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_WAITWHAT - BATTLESTRINGS_TABLE_START]                      = COMPOUND_STRING("Wait\nWHAT?"),
     [STRINGID_FINISHHACKATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("THIS SHOULDN'T BE HAPPENING!{PAUSE 30}\nCRAP!!!"),
     [STRINGID_PKMNTURNEDINTO - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_BUFF2} turned into {B_BUFF3}!"),
+    [STRINGID_SNOWGRAVY - BATTLESTRINGS_TABLE_START]                     = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} doesn't know the move\nSNOWGRAVY!"),
+    [STRINGID_PROCEED - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Proceed."),
+    [STRINGID_CREATEDRAINBOW - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} created a RAINBOW!"),
+    [STRINGID_FREEDOMREIGNED - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("And FREEDOM reigned!"),
+    [STRINGID_CANTCOPYABILITY - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("You can't copy abilities during\nSHADOW SKY!"),
+    [STRINGID_RHYDONTRANSFORM - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} transformed into RHYDON!"),
+    [STRINGID_CARDISUSELESS - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("This card is useless!"),
+    [STRINGID_HOOPAUNBOUND - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("HOOPA-UNBOUND!?"),
+    [STRINGID_NOONESUMMONSHIM - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("No one's ever been able to\nsummon him!"),
+    [STRINGID_LATIAS - BATTLESTRINGS_TABLE_START]                        = COMPOUND_STRING("Oh, wow!{PAUSE 30}\nIt's LATINAS!"),
+    [STRINGID_PKMNFLUNG - BATTLESTRINGS_TABLE_START]                     = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} flung its {B_LAST_ITEM}!"),
+    [STRINGID_TM07 - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("It contained TM07!\p{PLAYER} got the TM07!"),
+    [STRINGID_HEAVYDUTYBOOTSPROTECT - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} prevented damage\nusing its HEAVY-DUTY ROOTS!"),
+    [STRINGID_SMEARGLE - BATTLESTRINGS_TABLE_START]                      = COMPOUND_STRING("But it failed!\pGAME FREAK has decided to nerf the\nmove so only DARKRAI can use it!"),
+    [STRINGID_GREGORYBLASTCHARGE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} prepares\nhis ultimate attack!"),
+    [STRINGID_DOUBLEBATTLECHEATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("You are not allowed to battle with\nonly one party member, cheater!\p"),
+
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1148,7 +1170,8 @@ const u16 gProtectLikeUsedStringIds[] =
     [B_MSG_PROTECTED_ITSELF] = STRINGID_PKMNPROTECTEDITSELF2,
     [B_MSG_BRACED_ITSELF]    = STRINGID_PKMNBRACEDITSELF,
     [B_MSG_PROTECT_FAILED]   = STRINGID_BUTITFAILED,
-    [B_MSG_PROTECTED_TEAM]   = STRINGID_PROTECTEDTEAM
+    [B_MSG_PROTECTED_TEAM]   = STRINGID_PROTECTEDTEAM,
+    [B_MSG_FREEDOM]   = STRINGID_FREEDOMREIGNED
 };
 
 const u16 gReflectLightScreenSafeguardStringIds[] =
@@ -1241,6 +1264,7 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_BOUNCE]     = STRINGID_PKMNSPRANGUP, 
     [B_MSG_TURN1_SHADOW_FORCE] = STRINGID_SHADOW_FORCE,
     [B_MSG_TURN1_PHANTOM_FORCE] = STRINGID_VANISHEDINSTANTLY,
+    [B_MSG_TURN1_GREGORY_BLAST] = STRINGID_GREGORYBLASTCHARGE,
 };
 
 // Index copied from move's index in gTrappingMoves
@@ -1517,6 +1541,14 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_SUPERSONIC] = STRINGID_SUPERSONIC,
     [B_MSG_SHED] = STRINGID_SHED,
     [B_MSG_HACK_ATTACK] = STRINGID_HACK_ATTACK,
+    [B_MSG_SNOWGRAVY] = STRINGID_SNOWGRAVY,
+    [B_MSG_LATIAS] = STRINGID_LATIAS,
+    [B_MSG_TM07] = STRINGID_TM07,
+    [B_MSG_SMEARGLE] = STRINGID_SMEARGLE,
+
+    
+
+    
 };
 
 const u16 gSwitchInAbilityStringIds[] =
@@ -1902,7 +1934,9 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                         stringPtr = sText_Trainer1SentOutPkmn;
                     }
-
+                    else if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BATTLE_YUGIOH)
+                        stringPtr = sText_Trainer1SentOutBlueEyes;
+                    
                     else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
                         stringPtr = sText_SentOutZapmolcuno;
                     else
@@ -2016,6 +2050,13 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
+                case EVENT_BATTLE_MISTY: //Koffing
+                        if(sBattleMsgDataPtr->currentMove == MOVE_SLASH_TCG)  {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
                 case 4: //Moltres
                     
                      if (gBattleMons[gBattlerTarget].ability == ABILITY_WATER_ABSORB) {
@@ -2050,7 +2091,7 @@ void BufferStringBattle(u16 stringId)
                 case EVENT_BATTLE_ARCHER:
                     if(sBattleMsgDataPtr->currentMove == MOVE_GULP) {
                         BattleStopLowHpSound();
-                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        RunScriptImmediately(FadeSongAndPlayYoshi); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
@@ -2093,10 +2134,10 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
-                case EVENT_BATTLE_BARRY: 
-                        if(sBattleMsgDataPtr->currentMove == MOVE_MAGICAL_LEAF )  { //Snowgravy
+                case EVENT_BATTLE_YUGIOH: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_TRUMP_CARD )  { //Snowgravy
                         BattleStopLowHpSound();
-                        //RunScriptImmediately(FadeSongAndPlayVictory); //Play silence
+                        RunScriptImmediately(FadeSongAndPlayHoopa); //Play silence
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
@@ -2206,7 +2247,7 @@ void BufferStringBattle(u16 stringId)
             gDisplayedStringBattle[0] = EOS;
             return;
         }
-        else if (stringId == STRINGID_PLAYERDEFEATEDTRAINER1 && gTrainerBattleOpponent_A == TRAINER_Y_ELTAL && FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE)) // special case for YVELTAL battle
+        else if (stringId == STRINGID_PLAYERDEFEATEDTRAINER1 && gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_Y_ELTAL && FlagGet(FLAG_CSR_V_CREATE_IN_BATTLE)) // special case for YVELTAL battle
         {
             stringPtr = sText_PlayerDefeatedTrainerY_eltal;
         }

@@ -70,7 +70,7 @@ struct TrainerCardData
     u16 frontTilemap[600];
     u16 backTilemap[600];
     u16 bgTilemap[600];
-    u8 badgeTiles[0x80 * 8]; //Num Badges needs un-fucked I guess
+    u8 badgeTiles[0x80 * (NUM_BADGES + 4)]; // have to account for 4 tiles of extra badge
     u16 stickerTiles[0x100];
     u16 cardTiles[0x1180];
     u16 cardTilemapBuffer[0x1000];
@@ -155,6 +155,7 @@ static void CreateTrainerCardTrainerPic(void);
 static const u32 sTrainerCardStickers_Gfx[]           = INCBIN_U32("graphics/trainer_card/stickers.4bpp.lz");
 static const u32 sHoennTrainerCardFront_Tilemap[]     = INCBIN_U32("graphics/trainer_card/rse/front.bin.lz");
 static const u32 sKantoTrainerCardFront_Tilemap[]     = INCBIN_U32("graphics/trainer_card/front.bin.lz");
+static const u32 sKantoTrainerCardFront10Badges_Tilemap[] = INCBIN_U32("graphics/trainer_card/front_10.bin.lz");
 static const u32 sHoennTrainerCardBack_Tilemap[]      = INCBIN_U32("graphics/trainer_card/rse/back.bin.lz");
 static const u32 sKantoTrainerCardBack_Tilemap[]      = INCBIN_U32("graphics/trainer_card/back.bin.lz");
 static const u32 sHoennTrainerCardFrontLink_Tilemap[] = INCBIN_U32("graphics/trainer_card/rse/front_link.bin.lz");
@@ -666,9 +667,20 @@ static bool8 LoadCardGfx(void)
         if (!sTrainerCardDataPtr->isLink)
         {
             if (sTrainerCardDataPtr->cardType == CARD_TYPE_RSE)
+            {
                 LZ77UnCompWram(sHoennTrainerCardFront_Tilemap, sTrainerCardDataPtr->frontTilemap);
+            }
             else
-                LZ77UnCompWram(sKantoTrainerCardFront_Tilemap, sTrainerCardDataPtr->frontTilemap);
+            {
+                if (FlagGet(FLAG_OBTAINED_ZEPHYRBADGE))
+                {
+                    LZ77UnCompWram(sKantoTrainerCardFront10Badges_Tilemap, sTrainerCardDataPtr->frontTilemap);
+                }
+                else
+                {
+                    LZ77UnCompWram(sKantoTrainerCardFront_Tilemap, sTrainerCardDataPtr->frontTilemap);
+                }
+            }
         }
         else
         {
@@ -937,6 +949,20 @@ static void SetDataFromTrainerCard(void)
 
     for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++, i++)
     {
+        // yeah this shit is ass but whatever
+        if (i == 6)
+        {
+            if (FlagGet(FLAG_GOT_GYM_MEMBERSHIP_BADGE))
+                sTrainerCardDataPtr->hasBadge[i]++;
+            i++;
+        } 
+        else if (i == 8)
+        {
+            if (FlagGet(FLAG_OBTAINED_ZEPHYRBADGE))
+                sTrainerCardDataPtr->hasBadge[i]++;
+            i++;
+        }
+
         if (FlagGet(badgeFlag))
             sTrainerCardDataPtr->hasBadge[i]++;
     }
@@ -1554,18 +1580,45 @@ static void DrawCardFrontOrBack(const u16 *ptr)
 
 static void DrawStarsAndBadgesOnCard(void)
 {
-    s16 i, x;
+    s16 i, x, boulderX, xMod;
     u16 tileNum = 192;
     u8 palNum = 3;
+    
 
     FillBgTilemapBufferRect(3, 143, 15, sStarYOffsets[sTrainerCardDataPtr->cardType], sTrainerCardDataPtr->trainerCard.rse.stars, 1, 4);
     if (!sTrainerCardDataPtr->isLink)
     {
-        x = 4;
+        x = FlagGet(FLAG_OBTAINED_ZEPHYRBADGE) ? 2 : 4;
         for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
         {
+            if (i == 8) tileNum += 16; // new row of badges after 7
+            // DebugPrintf("badge: %d, tile num: %u", i, tileNum);
+
             if (sTrainerCardDataPtr->hasBadge[i])
             {
+                if (i == 0 && sTrainerCardDataPtr->hasBadge[5]) {
+                    continue;
+                }
+
+                if (i == 5) {
+                    boulderX = FlagGet(FLAG_OBTAINED_ZEPHYRBADGE) ? 2 : 4; 
+                    FillBgTilemapBufferRect(3, tileNum, boulderX, 16, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 1, boulderX + 1, 16, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 16, boulderX, 17, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 17, boulderX + 1, 17, 1, 1, palNum);
+                    continue;
+                }
+                // offset to account for boulderbadge doubling up
+                else if (i > 5)
+                {
+                    xMod = 3; 
+                    FillBgTilemapBufferRect(3, tileNum, x - xMod, 16, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 1, x - xMod + 1, 16, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 16, x - xMod, 17, 1, 1, palNum);
+                    FillBgTilemapBufferRect(3, tileNum + 17, x - xMod + 1, 17, 1, 1, palNum);
+                    continue;
+                }
+
                 FillBgTilemapBufferRect(3, tileNum, x, 16, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 16, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 16, x, 17, 1, 1, palNum);

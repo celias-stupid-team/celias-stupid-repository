@@ -357,3 +357,9 @@ const u32 gMetatileAttributes_Starlight_Interior2[] = INCBIN_U32("data/tilesets/
 
 const u16 gMetatiles_SkullRoom[] = INCBIN_U16("data/tilesets/secondary/skull_room/metatiles.bin");
 const u32 gMetatileAttributes_SkullRoom[] = INCBIN_U32("data/tilesets/secondary/skull_room/metatile_attributes.bin");
+
+const u16 gMetatiles_Starlight_Interior3[] = INCBIN_U16("data/tilesets/secondary/starlight_interior_3/metatiles.bin");
+const u32 gMetatileAttributes_Starlight_Interior3[] = INCBIN_U32("data/tilesets/secondary/starlight_interior_3/metatile_attributes.bin");
+
+const u16 gMetatiles_Alphabet[] = INCBIN_U16("data/tilesets/secondary/alphabet/metatiles.bin");
+const u32 gMetatileAttributes_Alphabet[] = INCBIN_U32("data/tilesets/secondary/alphabet/metatile_attributes.bin");

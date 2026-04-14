@@ -62,7 +62,15 @@ script CeliaSecrets_Route9_TPP {
 }
 
 script CeliaSecrets_Route9_Helix {
-	msgbox("Hmm, I wonder why I give you a\nHelix Fossil right here, even\lthough wild OMANYTE are right there.\pVery curious!\n", MSGBOX_NPC)
+	lock
+	faceplayer
+	msgbox(
+	"Have you tried using the Helix\n"
+	"Fossil in the overworld yet?\p"
+
+	"If not, give it a go on your\n"
+	"next playthrough!", MSGBOX_DEFAULT)
+	release
 	end
 }
 
@@ -79,7 +87,7 @@ script Route9_SetBenchCerulean {
 script Route9_SetBenchRoute9 {
 	setbench(BENCH_ROUTE9)
 	jumpoffbike
-	setflag(FLAG_CSR_MAP_ROUTE_9_FAR)
+	//setflag(FLAG_CSR_MAP_ROUTE_9_FAR)
 	setvar(VAR_TEMP_0, 1)
 	release
 }

@@ -197,6 +197,7 @@ extern const u8 gText_MaxRepelDoesntWork[];
 extern const u8 gText_PayDayTM[];
 extern const u8 gText_MaxRepelTurnedOff[];
 extern const u8 gText_RunningScrews[];
+extern const u8 gText_MespritRan[];
 extern const u8 gText_Ligma[];
 extern const u8 gText_TMContainedCopycat[];
 extern const u8 gText_HeldRuby[];
@@ -229,6 +230,9 @@ extern const u8 gText_DiedLower[];
 extern const u8 gText_YesLower[];
 extern const u8 gText_YupLower[];
 extern const u8 gText_YUP[];
+extern const u8 gText_Oui[];
+
+
 
 // pokemon
 extern const u8 gBattleText_Rose[];
@@ -428,6 +432,7 @@ extern const u8 gText_PPWasRestored[];
 extern const u8 gText_PkmnHPRestoredByVar2[];
 extern const u8 gText_PkmnNeedsToReplaceMove[];
 extern const u8 gText_PkmnCantLearnMove[];
+extern const u8 gText_PkmnLearnedMove2[];
 extern const u8 gText_PkmnAlreadyKnows[];
 extern const u8 gText_PkmnLearnedMove3[];
 extern const u8 gText_WhichMoveToForget[];
@@ -547,6 +552,22 @@ extern const u8 gText_ThrewAwayStrVar2StrVar1s[];
 extern const u8 gText_ThrowAwayStrVar2OfThisItemQM[];
 extern const u8 gText_BerryPouch[];
 extern const u8 gText_TheBerryPouchWillBePutAway[];
+
+// sandwich_case
+extern const u8 gText_SandwichCase[];
+extern const u8 gText_TheSandwichCaseWillBePutAway[];
+extern const u8 gText_IngredientBread[];
+extern const u8 gText_IngredientSesameSeed[];
+extern const u8 gText_IngredientMeat[];
+extern const u8 gText_IngredientCheese[];
+extern const u8 gText_IngredientLettuce[];
+extern const u8 gText_IngredientPickles[];
+extern const u8 gText_IngredientBreadObtained[];
+extern const u8 gText_IngredientSesameSeedObtained[];
+extern const u8 gText_IngredientMeatObtained[];
+extern const u8 gText_IngredientCheeseObtained[];
+extern const u8 gText_IngredientLettuceObtained[];
+extern const u8 gText_IngredientPicklesObtained[];
 
 // itemfinder
 extern const u8 gText_ItemfinderResponding[];
@@ -964,6 +985,7 @@ extern const u8 gText_MainMenuTime[];
 
 // learn_move
 extern const u8 gText_TeachWhichMoveToMon[];
+extern const u8 gText_TeachWhichMove[];
 extern const u8 gText_MonLearnedMove[];
 extern const u8 gText_MonIsTryingToLearnMove[];
 extern const u8 gText_StopLearningMove[];
@@ -972,6 +994,7 @@ extern const u8 gText_MonForgotOldMoveAndMonLearnedNewMove[];
 extern const u8 gText_WhichMoveShouldBeForgotten[];
 extern const u8 gText_TeachMoveQues[];
 extern const u8 gText_GiveUpTryingToTeachNewMove[];
+extern const u8 gText_GiveUpTryingToTeachNewMove_NoMon[];
 
 // pokemon_size_record
 extern const u8 gText_DecimalPoint[];
@@ -1026,6 +1049,8 @@ extern const u8 gText_PlayerObtainedClefairy[];
 extern const u8 gText_NoMoreRoomForThis[];
 extern const u8 gText_ThrowInPremierBall[];
 extern const u8 gText_ThrowInPremierCigar[];
+extern const u8 gText_ThrowInPremierCandy[];
+
 
 // pokedex_screen
 extern const u8 gText_PokedexTableOfContents[];
@@ -1478,6 +1503,7 @@ extern const u8 gText_PartyFull[];
 extern const u8 gText_JustOnePkmn[];
 extern const u8 gText_Box[];
 extern const u8 gText_ExitFromBox[];
+extern const u8 gText_OopsTryAgain[];
 extern const u8 gText_WhatDoYouWantToDo[];
 extern const u8 gText_PleasePickATheme[];
 extern const u8 gText_PickTheWallpaper[];
@@ -1498,6 +1524,8 @@ extern const u8 gText_YouCantReleaseAnEgg[];
 extern const u8 gText_ContinueBoxOperations[];
 extern const u8 gText_PkmnCameBack[];
 extern const u8 gText_WasItWorriedAboutYou[];
+extern const u8 gText_WowPkmnEvolved[];
+extern const u8 gText_PkmnDisappeared[];
 extern const u8 gText_PkmnGotVirus[];
 extern const u8 gText_FourEllipsesExclamation[];
 extern const u8 gText_PleaseRemoveTheMail[];

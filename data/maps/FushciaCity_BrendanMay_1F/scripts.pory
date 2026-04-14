@@ -161,7 +161,7 @@ script BrendanMay_Arranging {
 }
 
 script BrendanMay_TVDownstairs {
-    if(flag(FLAG_BADGE08_GET) && !flag(FLAG_GOT_SHINY_LATIAS)) {
+    if(flag(FLAG_POST_GAME) && !flag(FLAG_GOT_SHINY_LATIAS)) {
         waitse
         playse(SE_PIN)
         applymovement(LOCALID_BRENDAN_MOM, moves(
@@ -172,15 +172,24 @@ script BrendanMay_TVDownstairs {
         waitmovement(0)
         textcolor(NPC_TEXT_COLOR_FEMALE)
         msgbox(
-        "Oh, what color was that?\n"
-        "", MSGBOX_DEFAULT)
+        "Oh, wow!\n"
+        "Was that a MEGA POKéMON on screen?\p"
+
+        "Quick, did you see what color\n"
+	    "it was?", MSGBOX_DEFAULT)
+        dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "PURPLE", "PURPLE")
+        msgbox(
+        "You're right!\n"
+        "It was!", MSGBOX_DEFAULT)
+        playmoncry(SPECIES_LATIAS, CRY_MODE_DEFAULT)
         setflag(FLAG_SHINY_CREATION)
         setvar(VAR_CSR_GIFT_POKEMON, SPECIES_LATIAS)
         playfanfare(MUS_LEVEL_UP)
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
         msgbox(
-        "latias happens\n"
-        "", MSGBOX_DEFAULT)
+        "{PLAYER} saw (and subsequently\n"
+        "obtained) the LATIAS!", MSGBOX_DEFAULT)
+        waitfanfare
         setflag(FLAG_GOT_SHINY_LATIAS)
         call(Common_Script_GiftPokemon30)
         release

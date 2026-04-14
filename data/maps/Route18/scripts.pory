@@ -252,6 +252,13 @@ script Route18_Treasure {
 	"This is it!\n"
 	"X marks the spot!\l"
 	"It's buried treasure!", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_DIG) == PARTY_SIZE && checkpartymove(MOVE_DIG_CANCEL) == PARTY_SIZE) {
+		msgbox(
+		"But… it's underground.\n"
+		"You need a way to DIG it up.", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	fadescreenswapbuffers(FADE_TO_BLACK)
 	removeobject(VAR_LAST_TALKED)
 	playse(SE_M_DIG)

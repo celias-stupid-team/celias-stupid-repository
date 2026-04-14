@@ -39,7 +39,7 @@
 
 static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
 {//                   Defender -->                                                                                                                                                                                                                                                                                                                                                                                          GrassTCG's resists are 0.2x
-	// Attacker              = { NORMAL, FIGHTING, FLYING, POISON, STEEL , ROCK  , BUG   , GHOST , WATER_PHYSICAL, ELECTRIC_PHYSICAL, PSYCHIC_PHYSICAL, GRASS_TCG, MYSTERY, GROUND, FIRE  , WATER , GRASS , ELECTRIC, PSYCHIC, ICE   , DRAGON, DARK  , FAIRY , BROCK , WEIRD , DAD   , CHOCOLATE, SHADOW, LARGE , BIRD  , SHIT  , FAIRY_TRANS, SOUND , FIGHTING_SPECIAL
+	// Attacker              = { NORMAL, FIGHTING, FLYING, POISON, STEEL , ROCK  , BUG   , GHOST , WATER_PHYSICAL, ELECTRIC_PHYSICAL, PSYCHIC_PHYSICAL, GRASS_TCG, MYSTERY, GROUND, FIRE  , WATER , GRASS , ELECTRIC, PSYCHIC, ICE   , DRAGON, DARK  , FAIRY , BROCK , WEIRD , DAD   , CHOCOLATE, SHADOW, LARGE , BIRD  , SMALL , FAIRY_TRANS, SOUND , FIGHTING_SPECIAL
 	[TYPE_NORMAL]            = { ______, ______  , ______, ______, X(0.5), X(0.5), ______, X(0.0), ______        , ______           , ______          , X(2.0)   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
 	[TYPE_FIGHTING]          = { X(2.0), ______  , X(0.5), X(0.5), X(2.0), X(2.0), X(0.5), X(0.0), ______        , ______           , X(0.5)          , X(0.2)   , ______ , ______, ______, ______, ______, ______  , X(0.5) , X(2.0), ______, X(2.0), X(0.5), X(0.0), ______, X(2.0), ______   , ______, X(2.0), X(0.5), ______, X(0.5)     , ______, ______ },
 	[TYPE_FLYING]            = { ______, X(2.0)  , ______, ______, X(0.5), X(0.5), X(2.0), ______, ______        , X(0.5)           , ______          , ______   , ______ , ______, ______, ______, X(2.0), X(0.5)  , ______ , ______, ______, ______, ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
@@ -51,7 +51,7 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
 	[TYPE_WATER_PHYSICAL]    = { ______, ______  , ______, ______, ______, X(2.0), ______, ______, X(0.5)        , ______           , ______          , ______   , ______ , X(2.0), X(2.0), X(0.5), X(0.5), ______  , ______ , ______, X(0.5), ______, ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
 	[TYPE_ELECTRIC_PHYSICAL] = { ______, ______  , X(2.0), ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , X(0.0), ______, X(2.0), X(0.5), X(0.5)  , ______ , ______, X(0.5), ______, ______, X(0.0), ______, ______, ______   , ______, ______, X(2.0), ______, ______     , ______, ______ },
 	[TYPE_PSYCHIC_PHYSICAL]  = { ______, X(2.0)  , ______, X(2.0), X(0.5), ______, ______, ______, ______        , ______           , X(0.5)          , ______   , ______ , ______, ______, ______, ______, ______  , X(0.5) , ______, ______, X(0.0), ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
-	[TYPE_GRASS_TCG]         = { ______, X(2.0)  , ______, X(0.5), X(0.5), ______, ______, X(0.5), ______        , ______           , ______          , ______   , ______ , ______, ______, X(2.0), ______, ______  , X(0.5) , ______, X(0.5), X(2.0), ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
+	[TYPE_GRASS_TCG]         = { ______, X(2.0)  , ______, X(0.5), X(0.5), X(2.0), ______, X(0.5), ______        , ______           , ______          , ______   , ______ , X(2.0), ______, X(2.0), ______, ______  , X(0.5) , ______, X(0.5), X(2.0), ______, X(0.0), ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
 	[TYPE_MYSTERY]           = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
 	[TYPE_GROUND]            = { ______, ______  , X(0.0), X(2.0), X(2.0), X(2.0), X(0.5), ______, ______        , X(2.0)           , ______          , X(0.2)   , ______ , ______, X(2.0), ______, X(0.5), X(2.0)  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, X(0.0), ______, ______     , ______, ______ },
 	[TYPE_FIRE]              = { ______, ______  , ______, ______, X(2.0), X(0.5), X(2.0), ______, X(0.5)        , ______           , ______          , X(2.0)   , ______ , ______, X(0.5), X(0.5), X(2.0), ______  , ______ , X(2.0), X(0.5), ______, ______, ______, ______, ______, X(2.0)   , ______, ______, ______, ______, ______     , ______, ______ },
@@ -68,9 +68,9 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
 	[TYPE_DAD]               = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
 	[TYPE_CHOCOLATE]         = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
 	[TYPE_SHADOW]            = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , X(0.5), X(2.0), X(2.0), ______, ______     , ______, X(2.0) },
-	[TYPE_LARGE]             = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_LARGE]             = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______,  X(2.0), ______     , ______, ______ },
 	[TYPE_BIRD]              = { ______, X(2.0)  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
-	[TYPE_SHIT]              = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
+	[TYPE_SMALL]              = { ______, ______  , ______, ______, ______, ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
 	[TYPE_FAIRY_TRANS]       = { ______, X(2.0)  , ______, X(0.5), X(0.5), ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, X(0.5), ______, ______, ______  , ______ , ______, X(2.0), X(2.0), ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, X(2.0) },
 	[TYPE_SOUND]             = { ______, ______  , ______, ______, X(0.5), ______, ______, ______, ______        , ______           , ______          , ______   , ______ , ______, ______, ______, ______, ______  , ______ , ______, ______, ______, ______, ______, ______, ______, ______   , ______, ______, ______, ______, ______     , ______, ______ },
 	[TYPE_FIGHTING_SPECIAL]  = { X(2.0), ______  , X(0.5), X(0.5), X(2.0), X(2.0), X(0.5), X(0.0), ______        , ______           , X(0.5)          , X(0.2)   , ______ , ______, ______, ______, ______, ______  , X(0.5) , X(2.0), ______, X(2.0), X(0.5), ______, ______, ______, ______   , ______, X(2.0), X(0.5), ______, X(0.5)     , ______, ______ },
@@ -1632,7 +1632,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                 gBattleMons[gBattlerAttacker].status2 -= STATUS2_CONFUSION_TURN(1);
                 if (gBattleMons[gBattlerAttacker].status2 & STATUS2_CONFUSION)
                 {
-                    if (!(gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT) && (Random() & 1))
+                    if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT) && (Random() & 1))
                     {
                         // The MULTISTRING_CHOOSER is used here as a bool to signal
                         // to BattleScript_MoveUsedIsConfused whether or not damage was taken
@@ -1644,7 +1644,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                         gBattleCommunication[MULTISTRING_CHOOSER] = TRUE;
                         gBattlerTarget = gBattlerAttacker;
                         gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerAttacker], MOVE_POUND, 0, 40, 0, gBattlerAttacker, gBattlerAttacker);
-                        if (gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+                        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_BERSERK_JEANS && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
                             gBattleMoveDamage = gBattleMons[gBattlerAttacker].hp;
                         gProtectStructs[gBattlerAttacker].confusionSelfDmg = 1;
                         gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
@@ -2003,7 +2003,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     break;
                 }
                 // special handling for DMCA_BROCK
-                if (noRelevantWeather && gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
+                if (noRelevantWeather && gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_DMCA_BROCK)
                 {
                     gBattleWeather = B_WEATHER_GRAVITY;
                     gBattleScripting.battler = battler;
@@ -2018,7 +2018,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 break;
             }
             case ABILITY_DRIZZLE:
-                if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
+                if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY) && !(gBattleWeather & B_WEATHER_HAIL))
                 {
                     gBattleWeather = (B_WEATHER_RAIN_PERMANENT | B_WEATHER_RAIN_TEMPORARY);
                     BattleScriptPushCursorAndCallback(BattleScript_DrizzleActivates);
@@ -2027,7 +2027,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_SAND_STREAM:
-                if (!(gBattleWeather & B_WEATHER_SANDSTORM_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
+                if (!(gBattleWeather & B_WEATHER_SANDSTORM_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY) && !(gBattleWeather & B_WEATHER_HAIL))
                 {
                     gBattleWeather = B_WEATHER_SANDSTORM;
                     BattleScriptPushCursorAndCallback(BattleScript_SandstreamActivates);
@@ -2036,7 +2036,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_DROUGHT:
-                if (!(gBattleWeather & B_WEATHER_SUN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY))
+                if (!(gBattleWeather & B_WEATHER_SUN_PERMANENT) && !(gBattleWeather & B_WEATHER_SHADOW_SKY) && !(gBattleWeather & B_WEATHER_GRAVITY) && !(gBattleWeather & B_WEATHER_HAIL))
                 {
                     gBattleWeather = B_WEATHER_SUN;
                     BattleScriptPushCursorAndCallback(BattleScript_DroughtActivates);
@@ -2182,6 +2182,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     if (gDisableStructs[battler].slowStartTimer == gBattleResults.battleTurnCounter)
                     {
                         BattleScriptExecute(BattleScript_SlowStartEnds);
+                        effect++;
+                    }
+                    break;
+                case ABILITY_HARVEST:
+                    if ((gBattleWeather & B_WEATHER_SUN_PERMANENT)
+                     && gBattleMons[battler].item == ITEM_NONE
+                     && IsBerry(gBattleStruct->usedHeldItems[battler]))
+                    {
+                        gLastUsedItem = gBattleStruct->usedHeldItems[battler];
+                        BattleScriptPushCursorAndCallback(BattleScript_HarvestActivates);
                         effect++;
                     }
                     break;
@@ -3762,6 +3772,24 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     RecordItemEffectBattle(battlerId, battlerHoldEffect);
                 }
                 break;
+            case HOLD_EFFECT_ATTACK_UP: // ITEM_LIECHI_BERRY aka SANDWICH during final battle
+                if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA
+                  && gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / battlerHoldEffectParam
+                  && gBattleMons[battlerId].hp > 0
+                  && gBattleMons[battlerId].statStages[STAT_ATK] < MAX_STAT_STAGE)
+                {
+                    PREPARE_STAT_BUFFER(gBattleTextBuff1, STAT_ATK);
+                    PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATROSE);
+                    gEffectBattler = battlerId;
+                    gBattlerAttacker = battlerId; // required to play the animation script correctly
+                    SET_STATCHANGER(STAT_ATK, 1, FALSE);
+                    gBattleScripting.animArg1 = 14 + STAT_ATK;
+                    gBattleScripting.animArg2 = 0;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryStatRaiseEnd2;
+                    effect = ITEM_STATS_CHANGE;
+                }
+                break;
             }
             if (effect != 0)
             {
@@ -4122,8 +4150,16 @@ uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
     //  DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
     //  DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
 
-    if (gCurrentMove == MOVE_FREEZE_DRY && defType == TYPE_WATER)
-        return UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_FREEZE_DRY &&
+        (defType == TYPE_WATER
+        || defType == TYPE_FLYING
+        || defType == TYPE_BIRD))
+        return UQ_4_12(5.0);
+
+    
+    if (gCurrentMove == MOVE_FREEZE_DRY &&
+        (defType == TYPE_GRASS_TCG))
+            return UQ_4_12(0.05);
 
     return sTypeEffectivenessTable[atkType][defType];
 }
@@ -4160,13 +4196,15 @@ void TryRestoreHeldItems(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         u16 lostItem = gBattleStruct->itemLost[i];
+        u16 currentItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
 
         // Check if the lost item is a berry and the mon is not holding it
-        if (ItemId_GetPocket(lostItem) == POCKET_BERRY_POUCH && GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) != lostItem)
+        if (ItemId_GetPocket(lostItem) == POCKET_BERRY_POUCH && currentItem != lostItem)
             lostItem = ITEM_NONE; // berries can't restore
 
         // Check if the lost item should be restored
-        if (lostItem == ITEM_FOCUS_SASH)//(lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH)
+        if (lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH
+            && (currentItem == ITEM_NONE || currentItem == lostItem)) // don't overwrite a stolen item
             SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &lostItem);
     }
 }

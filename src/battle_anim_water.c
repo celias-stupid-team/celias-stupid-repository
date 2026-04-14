@@ -89,6 +89,28 @@ const struct SpriteTemplate gRainDropSpriteTemplate  =
     .callback = AnimRainDrop,
 };
 
+const struct SpriteTemplate gChocolateRainDropSpriteTemplate  =
+{
+    .tileTag = ANIM_TAG_RAIN_DROPS,
+    .paletteTag = ANIM_TAG_ROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = sAnims_RainDrop,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRainDrop,
+};
+
+const struct SpriteTemplate gAcidRainDropSpriteTemplate  =
+{
+    .tileTag = ANIM_TAG_ACID_RAIN_DROPS,
+    .paletteTag = ANIM_TAG_ACID_RAIN_DROPS,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = sAnims_RainDrop,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRainDrop,
+};
+
 static const union AffineAnimCmd sAffineAnim_WaterBubbleProjectile[] =
 {
     AFFINEANIMCMD_FRAME(-0x5, -0x5, 0, 10),
@@ -121,6 +143,31 @@ const struct SpriteTemplate gWaterBubbleProjectileSpriteTemplate =
     .paletteTag = ANIM_TAG_BUBBLE,
     .oam = &gOamData_AffineNormal_ObjBlend_16x16,
     .anims = sAnims_WaterBubbleProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
+static const union AnimCmd sAnim_ClubbleProjectile[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+
+static const union AnimCmd *const sAnims_ClubbleProjectile[] =
+{
+    sAnim_ClubbleProjectile,
+};
+
+const struct SpriteTemplate gClubbleProjectileSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLACK_CLUB,
+    .paletteTag = ANIM_TAG_BLACK_CLUB,
+    .oam = &gOamData_AffineNormal_ObjBlend_16x16,
+    .anims = sAnims_ClubbleProjectile,
     .images = NULL,
     .affineAnims = sAffineAnims_WaterBubbleProjectile,
     .callback = AnimWaterBubbleProjectile,
@@ -607,6 +654,112 @@ void AnimTask_CreateRaindrops(u8 taskId)
         DestroyAnimVisualTask(taskId);
 }
 
+void AnimTask_CreateChocolateRaindrops(u8 taskId) 
+{
+     u8 x, y;
+
+    if (gTasks[taskId].data[0] == 0)
+    {
+        gTasks[taskId].data[1] = gBattleAnimArgs[0];
+        gTasks[taskId].data[2] = gBattleAnimArgs[1];
+        gTasks[taskId].data[3] = gBattleAnimArgs[2];
+    }
+    gTasks[taskId].data[0]++;
+    if (gTasks[taskId].data[0] % gTasks[taskId].data[2] == 1)
+    {
+        x = Random() % DISPLAY_WIDTH;
+        y = Random() % (DISPLAY_HEIGHT / 2);
+        CreateSprite(&gChocolateRainDropSpriteTemplate, x, y, 4);
+    }
+    if (gTasks[taskId].data[0] == gTasks[taskId].data[3])
+        DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_CreateAcidRaindrops(u8 taskId)
+{
+    u8 x, y;
+    u8 palIndex;
+    u16 base;
+    u16 temp;
+    u8 i;
+
+    // -----------------------------------
+    // INITIAL SETUP
+    // -----------------------------------
+    if (gTasks[taskId].data[0] == 0)
+    {
+        // args
+        gTasks[taskId].data[1] = gBattleAnimArgs[0]; // unused / density
+        gTasks[taskId].data[2] = gBattleAnimArgs[1]; // spawn interval
+        gTasks[taskId].data[3] = gBattleAnimArgs[2]; // duration
+
+        // Get palette index for this sprite tag
+        palIndex = IndexOfSpritePaletteTag(ANIM_TAG_ACID_RAIN_DROPS);
+
+        // Safety check
+        if (palIndex == 0xFF)
+        {
+            DestroyAnimVisualTask(taskId);
+            return;
+        }
+
+        // Load RainbowWater palette into this sprite's palette slot
+        LoadCompressedPalette(
+            gBattleAnimBgPalette_RainbowWater,
+            OBJ_PLTT_ID(palIndex),
+            PLTT_SIZE_4BPP
+        );
+
+        gTasks[taskId].data[4] = palIndex; // store palette index
+        gTasks[taskId].data[5] = 0;        // palette cycle timer
+    }
+
+    gTasks[taskId].data[0]++;
+
+    // -----------------------------------
+    // SPAWN RAINDROPS
+    // -----------------------------------
+    if (gTasks[taskId].data[0] % gTasks[taskId].data[2] == 1)
+    {
+        x = Random() % DISPLAY_WIDTH;
+        y = Random() % (DISPLAY_HEIGHT / 2);
+
+        CreateSprite(&gAcidRainDropSpriteTemplate, x, y, 4);
+        // IMPORTANT: do NOT touch paletteNum
+    }
+
+    // -----------------------------------
+    // PALETTE CYCLING (SURF EFFECT)
+    // -----------------------------------
+    if (++gTasks[taskId].data[5] >= 4)
+    {
+        palIndex = gTasks[taskId].data[4];
+        base = OBJ_PLTT_ID(palIndex);
+
+        // Rotate palette entries 1–7
+        temp = gPlttBufferFaded[base + 7];
+
+        for (i = 6; i > 0; i--)
+        {
+            gPlttBufferFaded[base + 1 + i] =
+                gPlttBufferFaded[base + i];
+        }
+
+        gPlttBufferFaded[base + 1] = temp;
+
+        gTasks[taskId].data[5] = 0;
+    }
+
+    // -----------------------------------
+    // END CONDITION
+    // -----------------------------------
+    if (gTasks[taskId].data[0] >= gTasks[taskId].data[3])
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+
 static void AnimRainDrop(struct Sprite *sprite) 
 {
     sprite->callback = AnimRainDrop_Step;
@@ -949,6 +1102,10 @@ void AnimTask_CreateSurfWave(u8 taskId)
         LoadCompressedPalette(gBattleAnimBgPalette_RainbowWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
     else if(gBattleAnimArgs[0] == 4)
         LoadCompressedPalette(gBattleAnimBgPalette_ChocolateWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+    else if(gBattleAnimArgs[0] == 5)
+        LoadCompressedPalette(gBattleAnimBgPalette_MeatWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+    else if(gBattleAnimArgs[0] == 6)
+        LoadCompressedPalette(gBattleAnimBgPalette_EarfWater, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
     taskId2 = CreateTask(AnimTask_SurfWaveScanlineEffect, gTasks[taskId].priority + 1);
     gTasks[taskId].data[15] = taskId2;
     gTasks[taskId2].data[0] = 0;

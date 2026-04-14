@@ -194,23 +194,8 @@ mapscripts SaffronCity_Dojo_MapScripts {
 			))
 			waitmovement(LOCALID_SIMON_TORNADO)
 			setvar(VAR_READY_FOR_TORNADO, 3)
-			msgbox(
-			"it brings you to a place and\n"
-			"you find", MSGBOX_DEFAULT)
-			setflag(FLAG_SHINY_CREATION)
-			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ONIX)
-			playfanfare(MUS_LEVEL_UP)
-			msgbox(
-			"{PLAYER} got an ONIX!\n"
-			"", MSGBOX_DEFAULT)
-			givemon(SPECIES_ONIX, 30)
-			waitfanfare
-			applymovement(LOCALID_PLAYER, moves(
-				set_visible
-			))
-			waitmovement(0)
-			fadedefaultbgm
-			release
+			playse(SE_M_BLIZZARD2)
+			warpsilent(MAP_ONIX_ROOM, 0)
 			end
 		}
 	]
@@ -422,6 +407,7 @@ script SaffronDojo_James {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	if(var(VAR_MAP_SCENE_SAFFRON_CITY_DOJO) > 0) {
+		setflag(FLAG_TEMP_A)
 		msgbox(
 		"JAMES: I've never seen such horse\n"
 		"shit before in my life.\p"
@@ -435,6 +421,17 @@ script SaffronDojo_James {
 		"If you want the GYM BADGE, you'll\n"
 		"need to go into the back room and\l"
 		"defeat the biggest nerd of all!", MSGBOX_DEFAULT)
+		if(!flag(FLAG_TEMP_A)) {
+			closemessage
+			delay(10)
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_right
+				face_left
+			))
+			waitmovement(0)
+			
+		}
+		setflag(FLAG_TEMP_A)
 		release
 		end
 	}
@@ -496,10 +493,26 @@ script SaffronDojo_Toaster {
 		delay(45)
 		playse(SE_LEDGE)
 		setobjectsubpriority(LOCALID_PLAYER, MAP_BRUNO_BACK_ROOM, 0)
-		applymovement(LOCALID_PLAYER, moves(
-			jump_up
-			set_invisible
-		))
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
+		switch(var(VAR_RESULT)) {
+			case DIR_NORTH:
+				applymovement(LOCALID_PLAYER, moves(
+					jump_up
+					set_invisible
+				))
+			case DIR_WEST:
+				applymovement(LOCALID_PLAYER, moves(
+					jump_left
+					set_invisible
+				))
+
+			case DIR_EAST:
+				applymovement(LOCALID_PLAYER, moves(
+					jump_right
+					set_invisible
+				))
+
+		}
 		waitmovement(0)
 		if(flag(FLAG_JASON_IS_IN_ROOM)) {
 			warp(MAP_BRUNO_BACK_ROOM, 0)

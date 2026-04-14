@@ -1515,6 +1515,10 @@
 	jumpifhalfword CMP_EQUAL, gCurrentMove, \move, \jumpptr
 	.endm
 
+	.macro jumpifopponent trainer:req, jumpptr:req
+	jumpifhalfword CMP_EQUAL, gTrainerBattleOpponent_A, \trainer, \jumpptr
+	.endm
+
 	.macro jumpifnotmove move:req, jumpptr:req
 	jumpifhalfword CMP_NOT_EQUAL, gCurrentMove, \move, \jumpptr
 	.endm
@@ -1578,6 +1582,12 @@
 	.macro setstealthrock failInstr:req
 	callnative BS_SetStealthRock
 	.4byte \failInstr
+	.endm
+
+	.macro jumpifopponenttrainerclass trainerClass:req, jumpptr:req
+	callnative BS_JumpIfOpponentTrainerClass
+	.byte \trainerClass
+	.4byte \jumpptr
 	.endm
 
 	.macro setbattlestringid
@@ -1860,8 +1870,12 @@
 	.4byte \failInstr
 	.endm
 
-	.macro trygivenothing
-	callnative BS_TryGiveNothing
+	.macro givenothing
+	callnative BS_GiveNothing
+	.endm
+
+	.macro givetm07
+	callnative BS_GiveTM07
 	.endm
 
 	.macro trytrickortreat failInstr:req
@@ -1921,4 +1935,24 @@
 
 	.macro instantwin
 	callnative BattleDebug_WonBattle
+	.endm
+
+	.macro tryhealxhp failInstr:req
+	callnative BS_TryHealXHp
+	.4byte \failInstr
+	.endm
+	.macro setpokedexflag species:req, flagId:req
+	callnative BS_SetPokedexFlag
+	.2byte \species
+	.byte \flagId
+	.endm
+
+	.macro settypesmall battler:req
+	callnative BS_SetTypeSmall
+	.byte \battler
+	.endm
+
+	.macro tryfling failInstr:req
+	callnative BS_TryFling
+	.4byte \failInstr
 	.endm

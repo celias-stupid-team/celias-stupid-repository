@@ -701,7 +701,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
     const u32 *lzPaletteData;
     void *buffer;
 
-    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution OR Seel->Hoopa transformation OR Zapmolcuno-Ohgia form change
+    if (transformType == 255) // Ghost unveiled with Silph Scope OR all the new CSR form changes
     {
         const void *src;
         void *dst;
@@ -928,7 +928,7 @@ void HandleLowHpMusicChange(struct Pokemon *mon, u8 battlerId)
     u16 maxHP = GetMonData(mon, MON_DATA_MAX_HP);
 
     if (GetHPBarLevel(hp, maxHP) == HP_BAR_RED && !FlagGet(FLAG_SYS_CSR_VICTORY)
-        && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) != B_FINAL_BATTLE_SCRIPTED_END)
+        && !(gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA))
     {
         if (!gBattleSpritesDataPtr->battlerData[battlerId].lowHpSong)
         {

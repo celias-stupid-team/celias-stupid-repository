@@ -157,16 +157,6 @@
       "script": "BobOmbBattlefield_EventScript_Sign"
     },
     {
-      "type": "hidden_item",
-      "x": 12,
-      "y": 17,
-      "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_4",
-      "quantity": 5,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 34,
       "y": 30,
@@ -181,16 +171,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BobOmbBattlefield_EventScript_Cannon"
-    },
-    {
-      "type": "hidden_item",
-      "x": 9,
-      "y": 17,
-      "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_4",
-      "quantity": 5,
-      "underfoot": false
     },
     {
       "type": "sign",

@@ -6,6 +6,7 @@
 #include "battle_interface.h"
 #include "berry_pouch.h"
 #include "berry_powder.h"
+#include "sandwich_case.h"
 #include "bike.h"
 #include "coins.h"
 #include "event_data.h"
@@ -71,6 +72,8 @@ static void InitTMCaseFromBag(void);
 static void Task_InitTMCaseFromField(u8 taskId);
 static void InitBerryPouchFromBag(void);
 static void Task_InitBerryPouchFromField(u8 taskId);
+static void InitSandwichCaseFromBag(void);
+static void Task_InitSandwichCaseFromField(u8 taskId);
 static void InitBerryPouchFromBattle(void);
 static void InitTeachyTvFromBag(void);
 static void Task_InitTeachyTvFromField(u8 taskId);
@@ -482,7 +485,7 @@ void FieldUseFunc_PokeFlute(u8 taskId)
         if (!ExecuteTableBasedItemEffect(&gPlayerParty[i], ITEM_AWAKENING, i, 0))
             wokeSomeoneUp = TRUE;
     }
-
+    VarSet(VAR_USED_POKE_FLUTE, 1);
     if (wokeSomeoneUp)
     {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
@@ -620,6 +623,37 @@ static void Task_InitBerryPouchFromField(u8 taskId)
     }
 }
 
+void FieldUseFunc_SandwichCase(u8 taskId)
+{
+    if (gTasks[taskId].data[3] == 0)
+    {
+        ItemMenu_SetExitCallback(InitSandwichCaseFromBag);
+        ItemMenu_StartFadeToExitCallback(taskId);
+    }
+    else
+    {
+        StopPokemonLeagueLightingEffectTask();
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_InitSandwichCaseFromField;
+    }
+}
+
+static void InitSandwichCaseFromBag(void)
+{
+    InitSandwichCase(CB2_BagMenuFromStartMenu);
+}
+
+static void Task_InitSandwichCaseFromField(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        SetFieldCallback2ForItemUse();
+        InitSandwichCase(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
 void BattleUseFunc_BerryPouch(u8 taskId)
 {
     ItemMenu_SetExitCallback(InitBerryPouchFromBattle);
@@ -700,6 +734,13 @@ void FieldUseFunc_RunningScrews(u8 taskId)
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RunningScrews, Task_ReturnToBagFromContextMenu);
 }
 
+void FieldUseFunc_Mesprit(u8 taskId)
+{
+    PlayCry_Normal(SPECIES_MESPRIT, CRY_MODE_DEFAULT);
+
+    RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MespritRan, Task_ReturnToBagFromContextMenu);
+}
 
 
 void FieldUseFunc_Ligma(u8 taskId)
@@ -749,9 +790,9 @@ void FieldUseFunc_Ruby(u8 taskId)
     if(VarGet(VAR_READY_FOR_TORNADO) == 1) {
         VarSet(VAR_READY_FOR_TORNADO, 2);
         RemoveUsedItem();
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_HeldRuby, Task_ReturnToFieldFromBagMenu);
+        DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_HeldRuby);
     } else {
-        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+        DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_HeldRuby);
     }
 }
 
@@ -842,7 +883,7 @@ bool8 CanUseEscapeRopeOnCurrMap(void)
         }
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SKY_TOWER_3F) &&
             (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SKY_TOWER_3F))) {
-                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 2, 22, 27);
+                SetEscapeWarp(MAP_GROUP(MAP_SKY_TOWER_3F), MAP_NUM(MAP_SKY_TOWER_3F), 3, 50, 37);
                 return TRUE;
 
         }
@@ -1079,7 +1120,11 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
 {
     struct Pokemon *mon;
     u16 species = SPECIES_KORAIDON;
+    u16 item = ITEM_LIECHI_BERRY;
     u8 i;
+
+    FlagClear(FLAG_ROTOM_BATTLE_UI);
+    gBattleSwitchFromPSS = FALSE;
 
     // send all mons to the PC
     for (i = 0; i < PARTY_SIZE; i++)
@@ -1100,6 +1145,7 @@ void BattleUseFunc_CreateKoraidon(u8 taskId)
     if (gSpecialVar_ItemId == ITEM_SHINY_BIKE)
         FlagSet(FLAG_SHINY_CREATION);
     CreateMonWithGenderNatureLetter(mon, species, 50, USE_RANDOM_IVS, MON_GENDERLESS, GetNature(mon));
+    SetMonData(mon, MON_DATA_HELD_ITEM, &item);
     CopyPlayerPartyMonToBattleData(0, 0);
 
     gPlayerPartyCount = 1;
@@ -1238,7 +1284,10 @@ void FieldUseFunc_PayDayTM(u8 taskId)
 
     species = SPECIES_GIMMIGHOUL;
     FlagClear(FLAG_SHINY_CREATION);
-    if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE) && !FlagGet(FLAG_IN_FUSHCIA_GYM))
+    if(gSpecialVar_ItemId == ITEM_RAW_NUGGET) {
+        FlagSet(FLAG_SHINY_CREATION);
+    }
+    if (!FlagGet(FLAG_IN_FUSHCIA_GYM))
     {
         gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
     }
@@ -1309,6 +1358,34 @@ void FieldUseFunc_DragoniteBag(u8 taskId)
         break;
     }
 }
+
+
+void FieldUseFunc_BigNugget(u8 taskId)
+{
+    u16 species;
+
+    species = SPECIES_GEODUDE;
+    FlagSet(FLAG_SHINY_CREATION);
+
+    gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
+
+    switch (gSpecialVar_Result)
+    {
+    case MON_CANT_GIVE: // no space in PC
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_AllBoxesFull);
+        break;
+    case MON_GIVEN_TO_PARTY:
+    case MON_GIVEN_TO_PC:
+        RemoveUsedItem();
+        PlayCry_Normal(species, CRY_MODE_DEFAULT);
+        GetSpeciesName(gStringVar1, species);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_GiveMon;
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_GimmieghoulTMUsed, SetUpItemUseOnFieldCallback);
+        break;
+    }
+}
+
+
 
 static void OpenHelpSystemFromBag(void)
 {
@@ -1587,11 +1664,14 @@ void CurePorygonVirus()
         SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
     }
     SetMonData(mon, MON_DATA_SPECIES, &newSpecies);
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SEEN);
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_CAUGHT);
     if(shinyness) {
         SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
 
     }
-    GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    
     UpdateMonPersonality(&mon->box, newPersonality);
     CalculateMonStats(mon);
     

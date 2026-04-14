@@ -479,9 +479,9 @@
 	.byte \battler
 	.endm
 
-	@ nullsub
-	.macro ai_52
+	.macro if_wild_battle ptr:req
 	.byte 0x52
+	.4byte \ptr
 	.endm
 
 	@ nullsub
@@ -587,6 +587,12 @@
 	.macro if_has108evasion battler:req, ptr:req
 	.byte 0x63
 	.byte \battler
+	.4byte \ptr
+	.endm
+
+	.macro if_trainer_equal trainer:req, ptr:req
+	.byte 0x64
+	.2byte \trainer
 	.4byte \ptr
 	.endm
 

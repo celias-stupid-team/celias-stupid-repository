@@ -1059,6 +1059,41 @@ SECTIONS {
         sound/songs/midi/mus_kenya.o(.rodata);
         sound/songs/midi/mus_alola_route2.o(.rodata);
         sound/songs/midi/mus_salsa.o(.rodata);
+        sound/songs/midi/mus_mus_yugioh_2.o(.rodata);
+        sound/songs/midi/mus_downstream.o(.rodata);
+        sound/songs/midi/mus_yoshi_victory.o(.rodata);
+        sound/songs/midi/se_gaster_blaster.o(.rodata);
+        sound/songs/midi/se_gaster_windup.o(.rodata);
+        sound/songs/midi/se_annette_attack.o(.rodata);
+        sound/songs/midi/se_aurora.o(.rodata);
+        sound/songs/midi/se_baba_win.o(.rodata);
+        sound/songs/midi/se_missile_bark.o(.rodata);
+        sound/songs/midi/se_tcg_blizzard.o(.rodata);
+        sound/songs/midi/se_buzzer.o(.rodata);
+        sound/songs/midi/se_capture_collapse.o(.rodata);
+        sound/songs/midi/se_capture_jump.o(.rodata);
+        sound/songs/midi/se_capture_rise.o(.rodata);
+        sound/songs/midi/se_tcg_charge.o(.rodata);
+        sound/songs/midi/se_tcg_coin_flip.o(.rodata);
+        sound/songs/midi/se_crit.o(.rodata);
+        sound/songs/midi/se_dodgeball.o(.rodata);
+        sound/songs/midi/se_fart.o(.rodata);
+        sound/songs/midi/se_tcg_goo.o(.rodata);
+        sound/songs/midi/se_home_run.o(.rodata);
+        sound/songs/midi/se_tcg_impact.o(.rodata);
+        sound/songs/midi/se_tcg_jab.o(.rodata);
+        sound/songs/midi/se_gen2_leer.o(.rodata);
+        sound/songs/midi/se_my_eyes.o(.rodata);
+        sound/songs/midi/se_nice.o(.rodata);
+        sound/songs/midi/se_tcg_powder.o(.rodata);
+        sound/songs/midi/se_tcg_quick_attack.o(.rodata);
+        sound/songs/midi/se_tcg_rock_throw.o(.rodata);
+        sound/songs/midi/se_shine.o(.rodata);
+        sound/songs/midi/se_tcg_slash.o(.rodata);
+        sound/songs/midi/se_waa.o(.rodata);
+        sound/songs/midi/se_tcg_waterfall.o(.rodata);
+        sound/songs/midi/mus_safari_evolution.o(.rodata);
+        sound/songs/midi/mus_incompatible_emulator.o(.rodata);
 
     } > ROM =0
 

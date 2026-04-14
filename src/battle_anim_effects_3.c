@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_bg.h"
 #include "data.h"
 #include "decompress.h"
 #include "graphics.h"
@@ -118,6 +119,7 @@ static u8 CreateGlitchQuadrantSprite(u8 battlerSpriteId, s16 x, s16 y, u8 subpri
 static void AnimTask_MingVaseThrow_Step(u8 taskId);
 static void AnimSpellingSalts(struct Sprite *sprite);
 static void AnimTask_TranslateMonAndReturn_Step(u8 taskId);
+static void AnimCrabGrip(struct Sprite *sprite);
 
 static const union AnimCmd sScratchAnimCmds[] =
 {
@@ -1011,6 +1013,17 @@ const struct SpriteTemplate gAssistPawprintSpriteTemplate =
     .callback = AnimAssistPawprint,
 };
 
+const struct SpriteTemplate gFurbySpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_FURBY,
+    .paletteTag = ANIM_TAG_FURBY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimAssistPawprint,
+};
+
 static const union AffineAnimCmd sBarrageBallAffineAnimCmds1[] =
 {
     AFFINEANIMCMD_FRAME(0, 0, -4, 24),
@@ -1035,6 +1048,28 @@ const struct SpriteTemplate gBarrageBallSpriteTemplate =
     .tileTag = ANIM_TAG_RED_BALL,
     .paletteTag = ANIM_TAG_RED_BALL,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBarrageBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+const struct SpriteTemplate gEarthThrowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EARTH,
+    .paletteTag = ANIM_TAG_EARTH,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBarrageBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+const struct SpriteTemplate gMoonThrowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MOON,
+    .paletteTag = ANIM_TAG_MOON,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sBarrageBallAffineAnimTable,
@@ -1109,6 +1144,17 @@ const struct SpriteTemplate gAppleThrowSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+const struct SpriteTemplate gSurgeThrowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STONESURGE,
+    .paletteTag = ANIM_TAG_STONESURGE,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBarrageBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 const struct SpriteTemplate gCheeseDrySpriteTemplate =
 {
     .tileTag = ANIM_TAG_CHEESE,
@@ -1140,6 +1186,17 @@ const struct SpriteTemplate gSmellingSaltsHandSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSmellingSaltsHand,
+};
+
+const struct SpriteTemplate gKrabbyGripSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CSR_CRAB,
+    .paletteTag = ANIM_TAG_CSR_CRAB,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCrabGrip,
 };
 
 static const union AnimCmd sSpellingSaltsAnimCmds1[] =
@@ -4691,6 +4748,63 @@ void AnimTask_NormallyNormal(u8 taskId)
     }
 }
 
+// Moves a ball in an arc twoards the target, and rotates the ball while arcing.
+// No args.
+void AnimTask_EarthThrow(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+    task->data[15] = CreateSprite(&gEarthThrowSpriteTemplate, task->data[11], task->data[12], GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+    if (task->data[15] != MAX_SPRITES)
+    {
+        gSprites[task->data[15]].data[0] = 16;
+        gSprites[task->data[15]].data[2] = task->data[13];
+        gSprites[task->data[15]].data[4] = task->data[14];
+        gSprites[task->data[15]].data[5] = -32;
+        InitAnimArcTranslation(&gSprites[task->data[15]]);
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(&gSprites[task->data[15]], 1);
+
+        task->func = AnimTask_BarrageBall_Step;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+// Moves a ball in an arc twoards the target, and rotates the ball while arcing.
+// No args.
+void AnimTask_MoonThrow(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+    task->data[15] = CreateSprite(&gMoonThrowSpriteTemplate, task->data[11], task->data[12], GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+    if (task->data[15] != MAX_SPRITES)
+    {
+        gSprites[task->data[15]].data[0] = 16;
+        gSprites[task->data[15]].data[2] = task->data[13];
+        gSprites[task->data[15]].data[4] = task->data[14];
+        gSprites[task->data[15]].data[5] = -32;
+        InitAnimArcTranslation(&gSprites[task->data[15]]);
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(&gSprites[task->data[15]], 1);
+
+        task->func = AnimTask_BarrageBall_Step;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
 
 // Moves a ball in an arc twoards the target, and rotates the ball while arcing.
 // No args.
@@ -4790,6 +4904,35 @@ static void AnimSmellingSaltsHand(struct Sprite *sprite)
     }
     else
     {
+        sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_RIGHT) + 8;
+    }
+
+    sprite->callback = AnimSmellingSaltsHand_Step;
+}
+
+// Moves a hand back and forth in a squishing motion.
+// arg 0: which battler
+// arg 1: horizontal flip
+// arg 2: num squishes
+static void AnimCrabGrip(struct Sprite *sprite)
+{
+    u8 battler;
+
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
+
+    sprite->data[6] = gBattleAnimArgs[2];
+    sprite->data[7] = gBattleAnimArgs[1] == 0 ? -1 : 1;
+    sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+    if (gBattleAnimArgs[1] == 0)
+    {
+        sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_LEFT) - 8;
+    }
+    else
+    {
+        sprite->oam.matrixNum |= ST_OAM_HFLIP;
         sprite->x = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_RIGHT) + 8;
     }
 
@@ -6400,6 +6543,43 @@ void AnimTask_AppleThrow(u8 taskId)
     }
 }
 
+void AnimTask_SurgeThrow(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET)
+                   + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+
+    task->data[15] = CreateSprite(&gSurgeThrowSpriteTemplate,
+                                  task->data[11],
+                                  task->data[12],
+                                  GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+
+    if (task->data[15] != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[task->data[15]];
+
+        sprite->data[0] = 16;            // arc duration
+        sprite->data[2] = task->data[13];
+        sprite->data[4] = task->data[14];
+        sprite->data[5] = -32;           // arc height
+
+        InitAnimArcTranslation(sprite);
+
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(sprite, 1);
+
+        task->func = AnimTask_MingVaseThrow_Step;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
 static void AnimTask_MingVaseThrow_Step(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
@@ -6482,6 +6662,178 @@ static void AnimTask_TranslateMonAndReturn_Step(u8 taskId)
 
         // Clean exit
         DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_UnboundSpriteUpdateWithMosaic(u8 taskId)
+{
+    u8 battler = gBattleAnimAttacker;
+    u16 stretch;
+
+    gBattleScripting.battler = battler;
+
+    switch (gTasks[taskId].data[0])
+    {
+    case 0: // setup mosaic
+        gSprites[gBattlerSpriteIds[battler]].oam.mosaic = TRUE;
+        SetGpuReg(REG_OFFSET_MOSAIC, 0);
+        gTasks[taskId].data[0]++;
+        break;
+    case 1: // execute mosaic
+        if (gTasks[taskId].data[2]++ > 1)
+        {
+            gTasks[taskId].data[2] = 0;
+            gTasks[taskId].data[1]++;
+            stretch = gTasks[taskId].data[1];
+            SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+            if (stretch == 15)
+                gTasks[taskId].data[0]++;
+        }
+        break;
+    case 2: // create Unbound sprite during peak mosaic distortion
+        {
+            const u32 *spriteData;
+            const u32 *paletteData;
+            struct Pokemon *mon;
+            u32 personalityValue;
+            u8 position;
+            u16 paletteOffset;
+            void *buffer;
+            void *dst;
+            struct CompressedSpriteSheet sheet;
+
+            if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+            {
+                spriteData  = gMonBackPic_HoopaUnbound;
+                paletteData = gMonPalette_HoopaUnbound;
+                mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
+            }
+            else
+            {
+                spriteData  = gMonFrontPic_HoopaUnbound;
+                paletteData = gMonPalette_HoopaUnbound;
+                mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
+            }
+
+            position = GetBattlerPosition(battler);
+            personalityValue = GetMonData(mon, MON_DATA_PERSONALITY);
+
+            sheet.data = spriteData;
+            sheet.size = MON_PIC_SIZE;
+            sheet.tag  = 0;
+            HandleLoadSpecialPokePic_DontHandleDeoxys(&sheet, gMonSpritesGfxPtr->sprites[position], SPECIES_HOOPA, personalityValue);
+            dst = (void *)(VRAM + 0x10000 + gSprites[gBattlerSpriteIds[battler]].oam.tileNum * 32);
+            DmaCopy32(3, gMonSpritesGfxPtr->sprites[position], dst, MON_PIC_SIZE);
+            gSprites[gBattlerSpriteIds[battler]].y = GetBattlerSpriteDefault_Y(battler) - 15;
+
+            paletteOffset = OBJ_PLTT_ID(battler);
+            buffer = AllocZeroed(0x400);
+            LZDecompressWram(paletteData, buffer);
+            LoadPalette(buffer, paletteOffset, PLTT_SIZE_4BPP);
+            Free(buffer);
+        }
+        gTasks[taskId].data[0]++;
+        break;
+    case 3: // reverse mosaic
+        if (gTasks[taskId].data[2]++ > 1)
+        {
+            gTasks[taskId].data[2] = 0;
+            gTasks[taskId].data[1]--;
+            stretch = gTasks[taskId].data[1];
+            SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+            if (stretch == 0)
+                gTasks[taskId].data[0]++;
+        }
+        break;
+    case 4: // remove mosaic
+        gSprites[gBattlerSpriteIds[battler]].oam.mosaic = FALSE;
+        SetGpuReg(REG_OFFSET_MOSAIC, 0);
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_UnboundSpriteUpdate(u8 taskId)
+{
+    const u32 *spriteData;
+    const u32 *paletteData;
+    struct Pokemon *mon;
+    u32 personalityValue;
+    u8 position;
+    u16 paletteOffset;
+    void *buffer;
+    void *dst;
+    struct CompressedSpriteSheet sheet;
+    struct BattleAnimBgData animBg;
+    u8 battler = gBattleAnimAttacker;
+    u8 bgId;
+    u8 coeff;
+
+    gBattleScripting.battler = battler;
+
+    switch (gTasks[taskId].data[0])
+    {
+    case 0: // swap sprite and palette to Hoopa-Unbound, restore BG, re-white gPlttBufferFaded, unhide OBJ sprite.
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        {
+            spriteData  = gMonBackPic_HoopaUnbound;
+            paletteData = gMonPalette_HoopaUnbound;
+            mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
+        }
+        else
+        {
+            spriteData  = gMonFrontPic_HoopaUnbound;
+            paletteData = gMonPalette_HoopaUnbound;
+            mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
+        }
+
+        // Load Hoopa-Unbound tiles for the battler
+        position = GetBattlerPosition(battler);
+        personalityValue = GetMonData(mon, MON_DATA_PERSONALITY);
+        sheet.data = spriteData;
+        sheet.size = MON_PIC_SIZE;
+        sheet.tag  = 0;
+        HandleLoadSpecialPokePic_DontHandleDeoxys(&sheet, gMonSpritesGfxPtr->sprites[position], SPECIES_HOOPA, personalityValue);
+        dst = (void *)(VRAM + 0x10000 + gSprites[gBattlerSpriteIds[battler]].oam.tileNum * 32);
+        DmaCopy32(3, gMonSpritesGfxPtr->sprites[position], dst, MON_PIC_SIZE);
+        gSprites[gBattlerSpriteIds[battler]].y = GetBattlerSpriteDefault_Y(battler) - 15;
+
+        // load pal to both buffers
+        paletteOffset = OBJ_PLTT_ID(battler);
+        buffer = AllocZeroed(0x400);
+        LZDecompressWram(paletteData, buffer);
+        LoadPalette(buffer, paletteOffset, PLTT_SIZE_4BPP); // whiten the faded buffer
+        Free(buffer);
+
+        // original battler sprite is copied to a BG layer and hides the object sprite
+        // clear the tilemap before the fade-back
+        if (position == B_POSITION_OPPONENT_LEFT || position == B_POSITION_PLAYER_RIGHT)
+            bgId = 1;
+        else
+            bgId = 2;
+        GetBattleAnimBgData(&animBg, bgId);
+        CpuFill16(0, animBg.bgTilemap, BG_SCREEN_SIZE);
+        LoadBgTilemap(animBg.bgId, animBg.bgTilemap, BG_SCREEN_SIZE, 0);
+
+        // restore normal battle background after clearing it
+        DrawMainBattleBackground();
+
+        // Re-white gPlttBufferFaded after the BG Update
+        BlendPalettes(PALETTES_ALL, 16, RGB_WHITEALPHA);
+
+        // Unhide the object sprite
+        gSprites[gBattlerSpriteIds[battler]].invisible = FALSE;
+
+        gTasks[taskId].data[1] = 16;
+        gTasks[taskId].data[0] = 1;
+        break;
+
+    case 1: // fade back from white, one step per frame/coeff
+        coeff = (u8)--gTasks[taskId].data[1];
+        BlendPalettes(PALETTES_ALL, coeff, RGB_WHITEALPHA);
+        if (coeff == 0)
+            DestroyAnimVisualTask(taskId);
         break;
     }
 }

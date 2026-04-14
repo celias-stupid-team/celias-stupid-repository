@@ -362,8 +362,16 @@
 	.4byte \text
 	.endm
 
-	@ adds the letter V to Yveltal
-	.macro addletterv battler:req
+	@ adds a letter to the end of a battler's nickname
+	.macro addletter battler:req, letter:req
 	.byte 0x36
 	.byte \battler
+	.byte \letter
+	.endm
+
+	.macro jumpifspecies battler:req, species:req, ptr:req
+	.byte 0x37
+	.byte \battler
+	.2byte \species
+	.4byte \ptr
 	.endm

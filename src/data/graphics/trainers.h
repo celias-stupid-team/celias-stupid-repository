@@ -661,3 +661,12 @@ const u32 gTrainerPalette_Plasto[] = INCBIN_U32("graphics/trainers/palettes/plas
 
 const u32 gTrainerFrontPic_Starlight[] = INCBIN_U32("graphics/trainers/front_pics/starlight_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Starlight[] = INCBIN_U32("graphics/trainers/palettes/starlight.gbapal.lz");
+
+const u32 gTrainerFrontPic_Kimono[] = INCBIN_U32("graphics/trainers/front_pics/kimono_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Kimono[] = INCBIN_U32("graphics/trainers/palettes/kimono.gbapal.lz");
+
+const u32 gTrainerFrontPic_Starlightsprite[] = INCBIN_U32("graphics/trainers/front_pics/starlightsprite_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Starlightsprite[] = INCBIN_U32("graphics/trainers/palettes/starlightsprite.gbapal.lz");
+
+const u32 gTrainerFrontPic_Hakari_Bliz[] = INCBIN_U32("graphics/trainers/front_pics/hakari_bliz_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Hakari_Bliz[] = INCBIN_U32("graphics/trainers/palettes/hakari_bliz.gbapal.lz");

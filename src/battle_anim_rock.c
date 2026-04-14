@@ -66,6 +66,44 @@ const struct SpriteTemplate gFallingRockSpriteTemplate =
     .callback = AnimFallingRock,
 };
 
+static const union AnimCmd sAnim_FlyingChoc_0[] =
+{
+    ANIMCMD_FRAME(0, 18),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingChoc_1[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FlyingChoc_2[] =
+{
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_FlyingChoc[] =
+{
+    sAnim_FlyingChoc_0,
+    sAnim_FlyingChoc_1,
+    sAnim_FlyingChoc_2,
+};
+
+
+const struct SpriteTemplate gFallingChocSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CHOCOLATE,
+    .paletteTag = ANIM_TAG_CHOCOLATE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FlyingChoc,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingRock,
+};
+
 static const union AnimCmd sAnim_FlyingCereal_0[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -149,6 +187,17 @@ const struct SpriteTemplate gRockFragmentSpriteTemplate =
     .callback = AnimRockFragment,
 };
 
+const struct SpriteTemplate gMeatFragmentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MEATBALL,
+    .paletteTag = ANIM_TAG_MEATBALL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FlyingRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockFragment,
+};
+
 const struct SpriteTemplate gRockFragmentSelfSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROCKS,
@@ -202,6 +251,17 @@ const struct SpriteTemplate gSwirlingDirtSpriteTemplate =
     .tileTag = ANIM_TAG_MUD_SAND,
     .paletteTag = ANIM_TAG_MUD_SAND,
     .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex,
+};
+
+const struct SpriteTemplate gSandWombSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FEMALE,
+    .paletteTag = ANIM_TAG_FEMALE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -1104,3 +1164,4 @@ void AnimTask_SeismicTossBgAccelerateDownAtEnd(u8 taskId)
         DestroyAnimVisualTask(taskId);
     }
 }
+

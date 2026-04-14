@@ -54,6 +54,7 @@ script MoonAltar_CameraPan {
 		special(ShakeScreen)
 		playse(SE_M_BLIZZARD)
 		delay(120)
+		additem(ITEM_POKE_BALL)
 		setobjectsubpriority(LOCALID_MOON_WORMHOLE, MAP_MT_MOON_OUTSIDE, 255)
 		setobjectsubpriority(LOCALID_PLAYER, MAP_MT_MOON_OUTSIDE, 0)
 		applymovement(LOCALID_PLAYER, moves(

@@ -125,7 +125,7 @@ static void Cmd_get_move_type_from_result(void);
 static void Cmd_get_move_power_from_result(void);
 static void Cmd_get_move_effect_from_result(void);
 static void Cmd_get_protect_count(void);
-static void Cmd_nullsub_52(void);
+static void Cmd_if_wild_battle(void);
 static void Cmd_nullsub_53(void);
 static void Cmd_nullsub_54(void);
 static void Cmd_nullsub_55(void);
@@ -143,6 +143,7 @@ static void Cmd_get_battler_id(void);
 static void Cmd_if_last_used_move(void);
 static void Cmd_if_held_item_equal(void);
 static void Cmd_if_has108evasion(void);
+static void Cmd_if_trainer_equal(void);
 
 static void RecordLastUsedMoveByTarget(void);
 static void BattleAI_DoAIProcessing(void);
@@ -235,7 +236,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_get_move_power_from_result,       // 0x4F
     Cmd_get_move_effect_from_result,      // 0x50
     Cmd_get_protect_count,                // 0x51
-    Cmd_nullsub_52,                       // 0x52
+    Cmd_if_wild_battle,                    // 0x52
     Cmd_nullsub_53,                       // 0x53
     Cmd_nullsub_54,                       // 0x54
     Cmd_nullsub_55,                       // 0x55
@@ -253,6 +254,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_last_used_move,                // 0x61
     Cmd_if_held_item_equal,               // 0x62
     Cmd_if_has108evasion,                 // 0x63
+    Cmd_if_trainer_equal,                 // 0x64
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -1884,8 +1886,12 @@ static void Cmd_get_protect_count(void)
     sAIScriptPtr += 2;
 }
 
-static void Cmd_nullsub_52(void)
+static void Cmd_if_wild_battle(void)
 {
+    if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 1);
+    else
+        sAIScriptPtr += 5;
 }
 
 static void Cmd_nullsub_53(void)
@@ -2084,4 +2090,14 @@ static void Cmd_if_has108evasion(void)
         sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 2);
     else
         sAIScriptPtr += 6;
+}
+
+static void Cmd_if_trainer_equal(void)
+{
+    u16 trainerId = T1_READ_16(sAIScriptPtr + 1);
+
+    if (gTrainerBattleOpponent_A == trainerId)
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 3);
+    else
+        sAIScriptPtr += 7;
 }

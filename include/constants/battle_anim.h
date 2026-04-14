@@ -432,6 +432,65 @@
 #define ANIM_TAG_SOLDIER                    (ANIM_SPRITES_START + 422)
 #define ANIM_TAG_BLUE_HAIR                  (ANIM_SPRITES_START + 423)
 #define ANIM_TAG_CAPT                       (ANIM_SPRITES_START + 424)
+#define ANIM_TAG_TCG_CHARGE                 (ANIM_SPRITES_START + 425)
+#define ANIM_TAG_TCG_DASH                   (ANIM_SPRITES_START + 426)
+#define ANIM_TAG_TCG_GOO                    (ANIM_SPRITES_START + 427)
+#define ANIM_TAG_TCG_SLASH                  (ANIM_SPRITES_START + 428)
+#define ANIM_TAG_TCG_IMPACT                 (ANIM_SPRITES_START + 429)
+#define ANIM_TAG_TCG_PUNCH                  (ANIM_SPRITES_START + 430)
+#define ANIM_TAG_TCG_POWDER                 (ANIM_SPRITES_START + 431)
+#define ANIM_TAG_TCG_WATER                  (ANIM_SPRITES_START + 432)
+#define ANIM_TAG_TCG_ROCKS                  (ANIM_SPRITES_START + 433)
+#define ANIM_TAG_TCG_SWORD                  (ANIM_SPRITES_START + 434)
+#define ANIM_TAG_LLOYD                      (ANIM_SPRITES_START + 435)
+#define ANIM_TAG_DARK_LLOYD                 (ANIM_SPRITES_START + 436)
+#define ANIM_TAG_PROTAGONISTS               (ANIM_SPRITES_START + 437)
+#define ANIM_TAG_LATINAS                    (ANIM_SPRITES_START + 438)
+#define ANIM_TAG_GAME_GENIE                 (ANIM_SPRITES_START + 439)
+#define ANIM_TAG_FURBY                      (ANIM_SPRITES_START + 440)
+#define ANIM_TAG_FIRERED                    (ANIM_SPRITES_START + 441)
+#define ANIM_TAG_PRIDE_FLAG                 (ANIM_SPRITES_START + 442)
+#define ANIM_TAG_CREAM_BUBBLES              (ANIM_SPRITES_START + 443)
+#define ANIM_TAG_EARTH                      (ANIM_SPRITES_START + 444)
+#define ANIM_TAG_HUMAN_LEG_ONE              (ANIM_SPRITES_START + 445)
+#define ANIM_TAG_HUMAN_LEG_TWO              (ANIM_SPRITES_START + 446)
+#define ANIM_TAG_MOLTRES_KICK               (ANIM_SPRITES_START + 447)
+#define ANIM_TAG_MOLTRES_FLARE              (ANIM_SPRITES_START + 448)
+#define ANIM_TAG_MOLTRES_APPEAR             (ANIM_SPRITES_START + 449)
+#define ANIM_TAG_RARE_CANDY                 (ANIM_SPRITES_START + 450)
+#define ANIM_TAG_MISSINGNO_RHYDON           (ANIM_SPRITES_START + 451)
+#define ANIM_TAG_TCG_BLIZZARD               (ANIM_SPRITES_START + 452)
+#define ANIM_TAG_TCG_COIN                   (ANIM_SPRITES_START + 453)
+#define ANIM_TAG_EXODIA_BLAST               (ANIM_SPRITES_START + 454)
+#define ANIM_TAG_CHOCOLATE                  (ANIM_SPRITES_START + 455)
+#define ANIM_TAG_C_STINGER                  (ANIM_SPRITES_START + 456)
+#define ANIM_TAG_HOTDOG                     (ANIM_SPRITES_START + 457)
+#define ANIM_TAG_ACID_RAIN_DROPS            (ANIM_SPRITES_START + 458)
+#define ANIM_TAG_PSI_ROCKIN_ONE             (ANIM_SPRITES_START + 459)
+#define ANIM_TAG_PSI_ROCKIN_TWO             (ANIM_SPRITES_START + 460)
+#define ANIM_TAG_HONG_KONG_RUN              (ANIM_SPRITES_START + 461)
+#define ANIM_TAG_HONG_KONG_EXPLOSION        (ANIM_SPRITES_START + 462)
+#define ANIM_TAG_HONG_KONG_BODY             (ANIM_SPRITES_START + 463)
+#define ANIM_TAG_HONG_KONG_BULLET           (ANIM_SPRITES_START + 464)
+#define ANIM_TAG_HONG_KONG_DRUG             (ANIM_SPRITES_START + 465)
+#define ANIM_TAG_VACUUM                     (ANIM_SPRITES_START + 466)
+#define ANIM_TAG_SCISSORS                   (ANIM_SPRITES_START + 467)
+#define ANIM_TAG_COOLTRAINER                (ANIM_SPRITES_START + 468)
+#define ANIM_TAG_KANGAS                     (ANIM_SPRITES_START + 469)
+#define ANIM_TAG_POUND                      (ANIM_SPRITES_START + 470)
+#define ANIM_TAG_GRASS                      (ANIM_SPRITES_START + 471)
+#define ANIM_TAG_POINTING_FINGER            (ANIM_SPRITES_START + 472)
+#define ANIM_TAG_MOUSE_CURSOR               (ANIM_SPRITES_START + 473)
+#define ANIM_TAG_STEREO                     (ANIM_SPRITES_START + 474)
+#define ANIM_TAG_STONESURGE                 (ANIM_SPRITES_START + 475)
+#define ANIM_TAG_CODE_WINDOW                (ANIM_SPRITES_START + 476)
+#define ANIM_TAG_VAULT_BOY                  (ANIM_SPRITES_START + 477)
+#define ANIM_TAG_O_SIGN                     (ANIM_SPRITES_START + 478)
+#define ANIM_TAG_THE_PIT                    (ANIM_SPRITES_START + 479)
+#define ANIM_TAG_HANDGUN                    (ANIM_SPRITES_START + 480)
+#define ANIM_TAG_LEER_BLAST_RIGHT           (ANIM_SPRITES_START + 481)
+#define ANIM_TAG_LEER_BLAST_LEFT            (ANIM_SPRITES_START + 482)
+#define ANIM_TAG_LEER_LASER                 (ANIM_SPRITES_START + 483)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -496,6 +555,8 @@
 #define BG_ACE_FLAG 35
 #define BG_SOLACEON_TOWN 36
 #define BG_PEWTER 37
+#define BG_COKE 38
+#define BG_GHOST_TRICK 39
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
@@ -546,6 +607,12 @@
 #define B_ANIM_FLIP_TURN_TRANSFORM      45
 #define B_ANIM_MEGA_EVOLUTION           46
 #define B_ANIM_DYNAMAX_GROWTH           47
+#define B_ANIM_RAINBOW                  48
+#define B_ANIM_ALOMOMOLA_EVOLVE_REVERSE 49
+#define B_ANIM_RHYDON_TRANSFORM         50
+#define B_ANIM_TRUMP_CARD_USELESS       51
+#define B_ANIM_UNBOUND_SPRITE_UPDATE    52
+#define B_ANIM_CONFUSION_BONK           53
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
@@ -638,6 +705,34 @@
 #define FADE_TO_BLACK    1
 #define FADE_FROM_WHITE  2
 #define FADE_TO_WHITE    3
+
+// letter constants for addletter macro (from the charmap)
+#define LETTER_A  0xBB
+#define LETTER_B  0xBC
+#define LETTER_C  0xBD
+#define LETTER_D  0xBE
+#define LETTER_E  0xBF
+#define LETTER_F  0xC0
+#define LETTER_G  0xC1
+#define LETTER_H  0xC2
+#define LETTER_I  0xC3
+#define LETTER_J  0xC4
+#define LETTER_K  0xC5
+#define LETTER_L  0xC6
+#define LETTER_M  0xC7
+#define LETTER_N  0xC8
+#define LETTER_O  0xC9
+#define LETTER_P  0xCA
+#define LETTER_Q  0xCB
+#define LETTER_R  0xCC
+#define LETTER_S  0xCD
+#define LETTER_T  0xCE
+#define LETTER_U  0xCF
+#define LETTER_V  0xD0
+#define LETTER_W  0xD1
+#define LETTER_X  0xD2
+#define LETTER_Y  0xD3
+#define LETTER_Z  0xD4
 
 
 #endif // GUARD_CONSTANTS_BATTLE_ANIM_H

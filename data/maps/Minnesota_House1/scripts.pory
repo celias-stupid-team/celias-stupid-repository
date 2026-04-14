@@ -19,10 +19,14 @@ script Minnesota_SurgeTV {
 	closemessage
 	delay(60)
 	removemoney(999999)
+	while(checkitem(ITEM_POKE_DOLL)) {
+		removeitem(ITEM_POKE_DOLL, 1)
+	}
 	if(checkpartymon(SPECIES_PORYGON_Z)) {
 		checkpartymonslot(SPECIES_PORYGON_Z)
 		callnative(CurePorygonVirus)
 	}
 	warpsilent(MAP_MINNESOTA_HOSPITAL, 1)
+	delay(30)
 	release
 }

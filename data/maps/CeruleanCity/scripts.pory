@@ -391,12 +391,29 @@ script CeruleanCity_StealCandy {
 }
 
 script CeruleanCity_Celia_BerryPowder {
-	msgbox("There's a flag that gets set when\nyou check this sign here.\pWhat is the flag for?\nI wonder!\pYou'll just have to stay tuned\nand see for yourself!", MSGBOX_NPC)
+	msgbox(
+	"If you haven't read this sign when\n"
+	"you need to report the BERRY\l"
+	"POWDER MAN's demise, it triggers\l"
+	"Chapter 7 Chapter 2 Chapter 2.\p"
+
+	"It's really funny.\n"
+	"", MSGBOX_NPC)
 	end
 }
 
 script CeruleanCity_Celia_Politics {
-	msgbox("Behold, the only bit of overt\npolitical messaging in the hack.\pWhy people have a problem with the\ngay shit but not him is beyond me.", MSGBOX_NPC)
+	msgbox(
+	"In the early versions, this guy\n"
+	"had the only bit of overt\l"
+	"political messaging in the hack.\p"
+
+	"Despite this, everyone complained\n"
+	"about the gay shit, and no one\l"
+	"complained about him.\p"
+
+	"Really makes you think.\n"
+	"", MSGBOX_NPC)
 	end
 }
 
@@ -437,37 +454,6 @@ script CeruleanCity_NuggetSeller {
 		release
 		end
 	}
-	if(var(VAR_NUMBER_NUGGETS_BOUGHT) == 3) {
-		playse(SE_SHOP)
-		removemoney(4999, 0)
-		updatemoneybox
-		waitse
-		addvar(VAR_NUMBER_NUGGETS_BOUGHT, 1)
-		msgbox(
-		"Haha!\n"
-		"Thanks for the sale!\p"
-
-		"Whoa, looks like this NUGGET's\n"
-		"pretty big.\l"
-		"Hope you're hungry!", MSGBOX_DEFAULT)
-		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GEODUDE)
-		setflag(FLAG_SHINY_CREATION)
-		textcolor(NPC_TEXT_COLOR_NEUTRAL)
-		msgbox(
-		"{PLAYER} bought a\n"
-		"BIG NUGGET!", MSGBOX_DEFAULT)
-		playfanfare(MUS_LEVEL_UP)
-		msgbox(
-		"Wow!\n"
-		"It's a GEODUDE!", MSGBOX_DEFAULT)
-		call(Common_Script_GiftPokemon19)
-		hidemoneybox
-		release
-		end
-
-
-	}
-	addvar(VAR_NUMBER_NUGGETS_BOUGHT, 1)
 	playse(SE_SHOP)
 	removemoney(4999, 0)
 	updatemoneybox
@@ -481,7 +467,16 @@ script CeruleanCity_NuggetSeller {
 }
 
 script CeruleanCity_LittleKid {
-	msgbox("All travel from CERULEAN CITY is\nbottlenecked by one single tile.\pUnfortunately, someone decided to\nplant a tree there for Arbor Day.", MSGBOX_NPC)
+	if(flag(FLAG_HIDE_CERULEAN_ROCKET)) {
+		msgbox(
+		"There used to be a lovely tree\n"
+		"here in the road.\p"
+
+		"Unfortunately, someone cut it\n"
+		"down for I Hate Plants day.", MSGBOX_NPC)
+	} else {
+		msgbox("All travel from CERULEAN CITY is\nbottlenecked by one single tile.\pUnfortunately, someone decided to\nplant a tree there for Arbor Day.", MSGBOX_NPC)
+	}
 	end
 }
 

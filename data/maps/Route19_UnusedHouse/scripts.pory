@@ -32,3 +32,10 @@ script Route19_Furret_F {
 	msgbox("FURRET is surfing!\n", MSGBOX_DEFAULT)
 	release
 }
+
+script Route19_PayDayCelia {
+	msgbox(
+	"This PC is here so if you deposit\n"
+	"your Pay Day TM, you won't be\l"
+	"softlocked.", MSGBOX_NPC)
+}

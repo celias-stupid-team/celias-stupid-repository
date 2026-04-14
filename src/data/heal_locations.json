@@ -109,8 +109,8 @@
       "map": "MAP_ONE_ISLAND",
       "x": 28,
       "y": 31,
-      "respawn_map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
-      "respawn_npc": "LOCALID_ONE_ISLAND_NURSE"
+      "respawn_map": "MAP_ONE_ISLAND",
+      "respawn_npc": "0"
     },
     {
       "id": "HEAL_LOCATION_TWO_ISLAND",
@@ -428,7 +428,7 @@
       "id": "HEAL_LOCATION_POKEMON_LEAGUE_AGATHAS_ROOM",
       "map": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
       "x": 6,
-      "y": 9,
+      "y": 10,
       "respawn_map": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
       "respawn_npc": "1"
     },
@@ -460,7 +460,7 @@
       "id": "HEAL_LOCATION_ONE_ISLAND_KINDLE_ROAD",
       "map": "MAP_ONE_ISLAND_KINDLE_ROAD",
       "x": 20,
-      "y": 24,
+      "y": 20,
       "respawn_map": "MAP_ONE_ISLAND_KINDLE_ROAD",
       "respawn_npc": "1"
     },
@@ -515,8 +515,8 @@
     {
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_KOGA",
       "map": "MAP_VIRIDIAN_GYM_KOGA",
-      "x": 5,
-      "y": 7,
+      "x": 13,
+      "y": 22,
       "respawn_map": "MAP_VIRIDIAN_GYM_KOGA",
       "respawn_npc": "1"
     },
@@ -614,6 +614,14 @@
       "x": 21,
       "y": 17,
       "respawn_map": "MAP_THIRTY_EIGHT_ISLAND",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE15",
+      "map": "MAP_ROUTE15",
+      "x": 0,
+      "y": 13,
+      "respawn_map": "MAP_ROUTE15",
       "respawn_npc": "1"
     }
   ]

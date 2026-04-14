@@ -248,6 +248,7 @@ script UndergroundPath_SecretSwitch {
 	delay(10)
 	setflag(FLAG_TEMP_A)
 	setlayouttiles(LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_EXPANDED, 0,0,0,0,38,62)
+	setmaplayoutindex(LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_EXPANDED)
     setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
     setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
     setvar(VAR_SHAKESCREEN_NUM_SHAKES, 4)
@@ -258,4 +259,18 @@ script UndergroundPath_SecretSwitch {
 
 
 	
+}
+
+script UndergroundPath_CuckChair1 {
+	msgbox(
+	"Magnum cuck chair.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script UndergroundPath_CuckChair2 {
+	msgbox(
+	"Extra long-distance cuck chair.\n"
+	"", MSGBOX_SIGN)
+
 }

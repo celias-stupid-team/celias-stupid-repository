@@ -1,7 +1,7 @@
 {
   "id": "MAP_FINAL_BOSS_CUTSCENE",
   "name": "FinalBossCutscene",
-  "layout": "LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_FULL",
+  "layout": "LAYOUT_FINAL_BOSS_CUTSCENE",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,

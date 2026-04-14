@@ -118,6 +118,7 @@ enum ScriptMenu
     DEBUG_UTIL_MENU_ITEM_SCRIPT_6,
     DEBUG_UTIL_MENU_ITEM_SCRIPT_7,
     DEBUG_UTIL_MENU_ITEM_SCRIPT_8,
+    DEBUG_UTIL_MENU_ITEM_SCRIPT_9,
 };
 
 enum FlagsVarsMenu
@@ -250,6 +251,7 @@ static void DebugAction_Util_Script_5(u8 taskId);
 static void DebugAction_Util_Script_6(u8 taskId);
 static void DebugAction_Util_Script_7(u8 taskId);
 static void DebugAction_Util_Script_8(u8 taskId);
+static void DebugAction_Util_Script_9(u8 taskId);
 
 static void DebugAction_OpenUtilitiesMenu(u8 taskId);
 static void DebugAction_OpenPartyBoxesMenu(u8 taskId);
@@ -349,6 +351,7 @@ extern const u8 Debug_EventScript_Script_5[];
 extern const u8 Debug_EventScript_Script_6[];
 extern const u8 Debug_EventScript_Script_7[];
 extern const u8 Debug_EventScript_Script_8[];
+extern const u8 Debug_EventScript_Script_9[];
 extern const u8 DebugScript_DaycareMonsNotCompatible[];
 extern const u8 DebugScript_OneDaycareMons[];
 extern const u8 DebugScript_ZeroDaycareMons[];
@@ -394,6 +397,7 @@ static const u8 sDebugText_Util_Script_5[] = _("Show HoF screen");
 static const u8 sDebugText_Util_Script_6[] = _("start final cutscene");
 static const u8 sDebugText_Util_Script_7[] = _("start final battle");
 static const u8 sDebugText_Util_Script_8[] = _("toggle battle PC switch");
+static const u8 sDebugText_Util_Script_9[] = _("Cycle badge state");
 // Util Menu
 static const u8 sDebugText_Util_FlyToMap[] = _("Fly to map…{CLEAR_TEXT_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_Util_WarpToMap[] = _("Warp to map warp…{CLEAR_TEXT_TO 110}{RIGHT_ARROW}");
@@ -563,6 +567,7 @@ static const struct ListMenuItem sDebugMenu_Items_Scripts[] =
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_6] = {sDebugText_Util_Script_6, DEBUG_UTIL_MENU_ITEM_SCRIPT_6},
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_7] = {sDebugText_Util_Script_7, DEBUG_UTIL_MENU_ITEM_SCRIPT_7},
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_8] = {sDebugText_Util_Script_8, DEBUG_UTIL_MENU_ITEM_SCRIPT_8},
+        [DEBUG_UTIL_MENU_ITEM_SCRIPT_9] = {sDebugText_Util_Script_9, DEBUG_UTIL_MENU_ITEM_SCRIPT_9},
 };
 
 static const struct ListMenuItem sDebugMenu_Items_FlagsVars[] =
@@ -658,6 +663,7 @@ static void (*const sDebugMenu_Actions_Scripts[])(u8) =
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_6] = DebugAction_Util_Script_6,
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_7] = DebugAction_Util_Script_7,
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_8] = DebugAction_Util_Script_8,
+        [DEBUG_UTIL_MENU_ITEM_SCRIPT_9] = DebugAction_Util_Script_9,
 };
 
 static void (*const sDebugMenu_Actions_Flags[])(u8) =
@@ -1812,6 +1818,11 @@ static void DebugAction_Util_Script_8(u8 taskId)
     Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_8);
 }
 
+static void DebugAction_Util_Script_9(u8 taskId)
+{
+    Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_9);
+}
+
 // *******************************
 // Actions Flags and Vars
 static void DebugAction_FlagsVars_Flags(u8 taskId)
@@ -2230,7 +2241,9 @@ static void DebugAction_FlagsVars_ToggleBadgeFlags(u8 taskId)
         FlagClear(FLAG_BADGE04_GET);
         FlagClear(FLAG_BADGE05_GET);
         FlagClear(FLAG_BADGE06_GET);
+        FlagClear(FLAG_OBTAINED_ZEPHYRBADGE);
         FlagClear(FLAG_BADGE07_GET);
+        FlagClear(FLAG_GOT_GYM_MEMBERSHIP_BADGE);
         FlagClear(FLAG_BADGE08_GET);
     }
     else
@@ -2242,7 +2255,9 @@ static void DebugAction_FlagsVars_ToggleBadgeFlags(u8 taskId)
         FlagSet(FLAG_BADGE04_GET);
         FlagSet(FLAG_BADGE05_GET);
         FlagSet(FLAG_BADGE06_GET);
+        FlagSet(FLAG_GOT_GYM_MEMBERSHIP_BADGE);
         FlagSet(FLAG_BADGE07_GET);
+        FlagSet(FLAG_OBTAINED_ZEPHYRBADGE);
         FlagSet(FLAG_BADGE08_GET);
     }
 }
@@ -3806,7 +3821,42 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_PISCES_GYM) \
     X(MUS_KENYA) \
     X(MUS_ALOLA_ROUTE2) \
-    X(MUS_SALSA)
+    X(MUS_SALSA) \
+    X(MUS_MUS_YUGIOH_2) \
+    X(MUS_DOWNSTREAM) \
+    X(MUS_YOSHI_VICTORY) \
+    X(SE_GASTER_BLASTER) \
+    X(SE_GASTER_WINDUP) \
+    X(SE_ANNETTE_ATTACK) \
+    X(SE_AURORA) \
+    X(SE_BABA_WIN) \
+    X(SE_MISSILE_BARK) \
+    X(SE_TCG_BLIZZARD) \
+    X(SE_BUZZER) \
+    X(SE_CAPTURE_COLLAPSE) \
+    X(SE_CAPTURE_JUMP) \
+    X(SE_CAPTURE_RISE) \
+    X(SE_TCG_CHARGE) \
+    X(SE_TCG_COIN_FLIP) \
+    X(SE_CRIT) \
+    X(SE_DODGEBALL) \
+    X(SE_FART) \
+    X(SE_TCG_GOO) \
+    X(SE_HOME_RUN) \
+    X(SE_TCG_IMPACT) \
+    X(SE_TCG_JAB) \
+    X(SE_GEN2_LEER) \
+    X(SE_MY_EYES) \
+    X(SE_NICE) \
+    X(SE_TCG_POWDER) \
+    X(SE_TCG_QUICK_ATTACK) \
+    X(SE_TCG_ROCK_THROW) \
+    X(SE_SHINE) \
+    X(SE_TCG_SLASH) \
+    X(SE_WAA) \
+    X(SE_TCG_WATERFALL) \
+    X(MUS_SAFARI_EVOLUTION) \
+    X(MUS_INCOMPATIBLE_EMULATOR)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

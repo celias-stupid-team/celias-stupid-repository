@@ -2410,3 +2410,41 @@ const u16 gTilesetPalettes_SkullRoom[][16] =
 };
 
 const u32 gTilesetTiles_SkullRoom[] = INCBIN_U32("data/tilesets/secondary/skull_room/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Starlight_Interior3[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/starlight_interior_3/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Starlight_Interior3[] = INCBIN_U32("data/tilesets/secondary/starlight_interior_3/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Alphabet[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/alphabet/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Alphabet[] = INCBIN_U32("data/tilesets/secondary/alphabet/tiles.4bpp.lz");

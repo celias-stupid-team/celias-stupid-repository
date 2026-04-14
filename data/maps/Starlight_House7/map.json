@@ -1,0 +1,42 @@
+{
+  "id": "MAP_STARLIGHT_HOUSE7",
+  "name": "Starlight_House7",
+  "layout": "LAYOUT_STARLIGHT_HOUSE7",
+  "music": "MUS_CSR_STAIRS",
+  "region_map_section": "MAPSEC_GREAT_SEA",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_STARLIGHT_HOUSE8",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_STARLIGHT_HOUSE9",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_STARLIGHT_HOUSE6",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_STARLIGHT_HOUSE6PT2",
+      "offset": 0,
+      "direction": "left"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}

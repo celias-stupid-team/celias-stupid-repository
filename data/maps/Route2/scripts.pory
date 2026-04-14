@@ -51,7 +51,7 @@ script Route2_EventScript_Dad {
 }
 
 script Route2_EventScript_CeliaDad {
-	msgbox("Mr. Mimes being found in the grass\nhere SIGNIFICANTLY predates\lDAD being a thing.\pI kinda had to retroactively justify\nthem being out here.\pBy the way: No, you can't catch\nthem yet.\pWell, never mind that.\nHow about you take a rest?", MSGBOX_NPC)
+	msgbox("Mr. Mimes being found in the grass\nhere SIGNIFICANTLY predates\lDAD being a thing.\pI kinda had to retroactively justify\nthem being out here.\pWell, never mind that.\nHow about you take a rest?", MSGBOX_NPC)
 	end
 }
 

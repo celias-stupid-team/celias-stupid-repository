@@ -7,6 +7,17 @@ script FadeSongAndPlayVictory {
 	return
 }
 
+script FadeSongAndPlayYoshi {
+	fadenewbgm(MUS_YOSHI_VICTORY)
+	return
+}
+
+
+script FadeSongAndPlayHoopa {
+	fadenewbgm(MUS_MUS_YUGIOH_2)
+	return
+}
+
 script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_ZAPDOS) && checkmoncaught(SPECIES_MOLTRES) && checkmoncaught(SPECIES_ARTICUNO) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) {
     setobtainable(SPECIES_VICTINI)
@@ -83,7 +94,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_ARBOK)) {
 		setobtainable(SPECIES_SEVIPER) // 24
 	}
-	if(flag(FLAG_CSR_MAP_SECRET_GARDEN)) {
+	if(flag(FLAG_CSR_MAP_SECRET_GARDEN) && flag(FLAG_CAPTAIN_DIRECTS_SPHEALS) || checkmoncaught(SPECIES_PIKABLU)) {
 		setobtainable(SPECIES_PIKABLU) // 25
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_10)) {
@@ -116,10 +127,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_MT_MOON_1F)) {
 		setobtainable(SPECIES_CLEFAIRY) // 35
 	}
-	if((flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) || (checkmoncaught(SPECIES_CLEFABLE) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)))) { 
+	if((checkmoncaught(SPECIES_PERSIAN) && flag(FLAG_BADGE08_GET)) && (flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) || checkmoncaught(SPECIES_CLEFABLE))) { 
 		setobtainable(SPECIES_CLEFABLE) // 36
 	}
-	if((flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) || (checkmoncaught(SPECIES_CLEFABLE) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)))) { 
+	if((checkmoncaught(SPECIES_PERSIAN) && flag(FLAG_BADGE08_GET)) && (flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) || checkmoncaught(SPECIES_GENGAR))) { 
 		setobtainable(SPECIES_GENGAR) // 37
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_8_FAR)) {
@@ -182,7 +193,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_MISSINGNO) || checkmoncaught(SPECIES_MISSINGNO)) {
 		setobtainable(SPECIES_MISSINGNO) // 57
 	}
-	if(flag(FLAG_CSR_HINT_ABRA_TRADE) && checkmoncaught(SPECIES_MR_MIME)) {
+	if(checkmoncaught(SPECIES_MR_MIME)) {
 		setobtainable(SPECIES_ALAKAZAM) // 58
 	}
 	if(flag(FLAG_HIDE_SAFARI_ZONE_CENTER_TM32)) { //if got Brick Break
@@ -228,13 +239,13 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_WOOBAT) // 73
 		setobtainable(SPECIES_PLUG_OINK) // 73
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) {
+	if((flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) || flag(FLAG_BADGE05_GET)) {
 		setobtainable(SPECIES_HORSEA) // 74
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) { 
+	if((flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK))|| flag(FLAG_BADGE05_GET)) { 
 		setobtainable(SPECIES_DRAGONITE) // 75
 	}
-	if(checkmoncaught(SPECIES_DRAGONITE) && flag(FLAG_CSR_HINT_DRAGONITE)) { 
+	if(checkmoncaught(SPECIES_DRAGONITE) && (flag(FLAG_CSR_HINT_DRAGONITE) || flag(FLAG_BADGE05_GET))) { 
 		setobtainable(SPECIES_YOSHI) // 76
 	}
 	if((flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH) && checkmoncaught(SPECIES_GOLURK)) || checkmoncaught(SPECIES_REMORAID)) {
@@ -427,7 +438,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_BADGE08_GET) && checkmoncaught(SPECIES_ZAPDOS)) { //TODO figure out logic
 		setobtainable(SPECIES_JOLTEON) // 139
 	}
-	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F) && checkmoncaught(SPECIES_RHYDON)) { //TODO figure out logic
+	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F)) { //TODO figure out logic
 		setobtainable(SPECIES_MOLTRES) // 140 
 	}
 	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || (checkmoncaught(SPECIES_FLAREON)) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)))) { //TODO figure out logic

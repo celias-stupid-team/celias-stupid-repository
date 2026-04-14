@@ -165,7 +165,7 @@ mapscripts Credits_MapScripts {
             delay(70)
             message(
             "               Plasto{PAUSE 30}\n"
-            "          Story Consultation")
+            "          Learnsets and Balance")
             delay(330)
             closemessage
             applymovement(LOCALID_CREDITS_SWI, moves(
@@ -239,8 +239,8 @@ mapscripts Credits_MapScripts {
                 face_down
             ))
             message(
-            "     Hakari and Blizihguh{PAUSE 30}\n"
-            "       Battle Animations")
+            "      Rammiloh and Blizihguh{PAUSE 30}\n"
+            "         Battle Animations")
 
             waitmovement(LOCALID_HAKARI)
             delay(30)
@@ -373,6 +373,11 @@ mapscripts Credits_MapScripts {
 
         }
     ]
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_CREDITS_FAKEOUT)) {
+            playbgm(MUS_TITLE, TRUE)
+        }
+    }
 }
 
 script CreditsDummy {

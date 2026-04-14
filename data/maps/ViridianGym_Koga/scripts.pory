@@ -55,13 +55,23 @@ mapscripts ViridianGym_Koga_MapScripts {
 script ViridianGym_KogaBattle {
     lock
     msgbox(
-	"I am your uncle from NINTENDO.\n"
-	"", MSGBOX_DEFAULT)
+	"Why hello, {PLAYER}!\n"
+	"It's me!\l"
+	"Your UNCLE from NINTENDO!\p"
+
+	"Say I've heard some… unfortunate\n"
+	"rumors about you and copyright.\p"
+
+	"I'm afraid if it's true, you're\n"
+	"no relative of mine!", MSGBOX_DEFAULT)
 
     trainerbattle_no_intro(TRAINER_DMCA_KOGA, ViridianGym_KogaBattle_End)
+    delay(30)
+    playse(SE_M_EXPLOSION)
     removeobject(VAR_LAST_TALKED)
     setflag(FLAG_DEFEATED_DMCA_KOGA)
     setlayouttiles(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN, 0,0,0,0,30,23)
+					setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
     release
 }
 
@@ -71,8 +81,8 @@ text ViridianGym_KogaBattle_Start {
 
 
 text ViridianGym_KogaBattle_End {
-   "oh no\n"
-	"walls"
+   "Oh, no!\n"
+	"You blocked my SNOVER in!"
 }
 
 
@@ -213,6 +223,7 @@ script DMCAKoga_BrickWall4 {
                 "Hmm…\n"
                 "Your BRICK PIECE won't fit.", MSGBOX_DEFAULT)
                 if(checkpartymon(SPECIES_DITTO_MEW)) {
+                    setflag(FLAG_TRIED_DITTO_IN_WALL)
                     playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
                     waitmoncry
                     msgbox(
@@ -322,6 +333,7 @@ script DMCAKoga_StopSnowingString {
         "The snow has stopped.\n"
         "", MSGBOX_DEFAULT)
         setlayouttiles(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN, 0,0,0,0,31,25)
+					setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
         
 
     }

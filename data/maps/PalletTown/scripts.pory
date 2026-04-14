@@ -435,12 +435,23 @@ script PalletTown_OnTransition {
 			setmetatile(1, 4, 0x009, FALSE)
 			setmetatile(1, 5, 0x00F, FALSE)
 	}
-	if(!flag(FLAG_DEFEATED_FINAL_BOSS)) {
+	if(!flag(FLAG_POST_GAME)) {
 		setflag(FLAG_TEMP_4)
 	}
 }
 
 script PalletTown_PostgameCelia {
+	
+	setvar(VAR_CSR_CYNTHIA_BATTLE, 0)
+	setvar(VAR_LANCE_LASS_ATTACK, 0)
+	setvar(VAR_CSR_FINAL_BATTLE_TURN, 0)
+	setvar(VAR_CSR_FINAL_BATTLE_PHASE, 0)
+	clearflag(FLAG_KILLED_E4_OAK)
+	 clearflag (FLAG_DEFEATED_LORELEI)
+	clearflag (FLAG_DEFEATED_BRUNO)
+	clearflag (FLAG_DEFEATED_AGATHA)
+	clearflag (FLAG_DEFEATED_LANCE)
+	clearflag (FLAG_DEFEATED_CHAMP)
 	msgbox(
 	"Hello!\p"
 
@@ -454,12 +465,14 @@ script PalletTown_PostgameCelia {
 	"find as many secrets as you can!\p"
 
 	"By the way: Check the right side\n"
-	"of the TV in your house.\l"
-	"A present has been waiting there.\p"
+	"of the TV in your house.\p"
+
+	"A friend has been waiting for you\n"
+	"there since the beginning.\p"
 	
 	"And when you're ready, go visit\n"
 	"RAINBOW CLOUD again to uncover\l"
-	"the final trial.", MSGBOX_NPC)
+	"my final challenge for you.", MSGBOX_NPC)
 }
 
 

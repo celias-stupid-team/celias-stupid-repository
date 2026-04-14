@@ -490,7 +490,7 @@ script VermillionGym_Celia_Can {
 
 
 script VermilionCity_Gym_EventScript_LtSurge {
-	if(flag(FLAG_BADGE08_GET) && !flag(FLAG_SHINY_PIKABLU)) {
+	if(flag(FLAG_BADGE08_GET) && !flag(FLAG_BADGE03_GET) && !flag(FLAG_SHINY_PIKABLU)) {
 		msgbox(
 		"Hey, kid!\n"
 		"What are you doing here?\p"
@@ -516,7 +516,7 @@ script VermilionCity_Gym_EventScript_LtSurge {
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
 		"{PLAYER} was given\n"
-		"the dangerous PIKA… … CHU?", MSGBOX_DEFAULT)
+		"the dangerous PIKA… … BLU?", MSGBOX_DEFAULT)
 		waitfanfare
 		call(Common_Script_GiftPokemon)
 		textcolor(NPC_TEXT_COLOR_BLUE)

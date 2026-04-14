@@ -36,7 +36,6 @@ VermilionCity_PokemonFanClub_EventScript_NoRoomForBikeVoucher::
 VermilionCity_PokemonFanClub_EventScript_WorkerF::
 	lock
 	faceplayer
-	goto_if_set FLAG_SYS_GAME_CLEAR, VermilionCity_PokemonFanClub_EventScript_WorkerFGameClear
 	msgbox VermilionCity_PokemonFanClub_Text_ChairmanVeryVocalAboutPokemon
 	release
 	end
@@ -114,6 +113,7 @@ script VermilionCity_FanClub_SealGirl {
 		msgbox(
 		"Hey, where'd my Seal go?\n"
 		"", MSGBOX_DEFAULT)
+		release
 	} else {
 		msgbox(VermilionCity_PokemonFanClub_Text_SeelFarMoreAttractive, MSGBOX_NPC)
 

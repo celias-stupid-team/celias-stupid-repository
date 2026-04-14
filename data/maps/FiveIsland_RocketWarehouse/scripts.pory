@@ -210,8 +210,8 @@ script DMCAWarehouse_AdminLeaves {
 	"Grr…\n"
 	"Fine!\p"
 
-	"You wanna know about that LETTER we\n"
-	"confiscated?\l"
+	"You wanna know about that LETTER\n"
+	"we confiscated?\l"
 	"Ha!\p"
 
 	"We took it cuz it was infringing on\n"
@@ -335,18 +335,36 @@ script DMCAWarehouse_Qbert {
 script DMCAWarehouse_Polio {
 	lock
 	faceplayer
-	playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
-	msgbox(
-	"POLIO: Pla-plaaah!\n"
-	"", MSGBOX_DEFAULT)
-	waitmoncry
-	closemessage
-	delay(10)
-	msgbox(
-	"POLIO's PP dropped!\n"
-	"", MSGBOX_DEFAULT)
-	release
-	end
+	if(checkitem(ITEM_PP_MAX)) {
+		removeitem(ITEM_PP_MAX)
+		playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
+		msgbox(
+		"POPP PLIO: Pla-plaaah!\n"
+		"", MSGBOX_DEFAULT)
+		waitmoncry
+		closemessage
+		delay(10)
+		msgbox(
+		"Hey!\n"
+		"POLIO took your PP P!", MSGBOX_DEFAULT)
+		release
+		end
+
+	} else {
+		playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
+		msgbox(
+		"POLIO: Pla-plaaah!\n"
+		"", MSGBOX_DEFAULT)
+		waitmoncry
+		closemessage
+		delay(10)
+		msgbox(
+		"POLIO's PP dropped!\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+
+	}
 }
 
 script DMCAWarehouse_Reactor {
@@ -422,4 +440,142 @@ script Warehouse_Earrat {
 	hidemonpic
 	release
 	end
+}
+
+script Warehouse_PlatoClosetSign {
+	msgbox(
+	"PLATO's CLOSET\n"
+	"", MSGBOX_SIGN)
+}
+
+script Warehouse_FavoriteShit {
+	msgbox(
+	"Twelve identical copies of your\n"
+	"favorite shit.", MSGBOX_SIGN)
+
+}
+
+
+script Warehouse_PlatoCameo {
+	if(checktrainerflag(TRAINER_PLASTO)) {
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		msgbox(
+		"PLATO: Dan is Celia's deadname.\n"
+		"", MSGBOX_NPC)
+		end
+		
+	}
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Every heart sing a song, incomplete\n"
+	"until another heart whispers back.\p"
+
+	"Those who wish to sing always find\n"
+	"a song.\p"
+
+	"At the touch of a lover, everyone\n"
+	"becomes a pot.\p"
+
+	"Only the dad have seen the end of\n"
+	"war.\p"
+
+	"Those who are able to see beyond the\n"
+	"shadows and lies of their culture\l"
+	"will never be understood, let alone\l"
+	"believed, by the asses.\p"
+
+	"According to Geek mythology, humans\n"
+	"were-\l"
+	"okay fuck this bit let's just fight\l"
+	"(this is going into the fight)", MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_PLASTO, "Dan.")
+	msgbox(
+	"PLATO: Honestly?\n"
+	"I'm really happy to be here.\p"
+
+	"This project is probably the most\n"
+	"fun I've had with any Pokemon\l"
+	"related media, and that's saying\l"
+	"something!\p"
+
+	"I may not have done any of the code\n"
+	"or contributed much artwise, but\l"
+	"I can't help but feel a bit of pride\l"
+	"knowing my name is attached to what\l"
+	"is OBJECTIVELY the best Pokemon\l"
+	"game ever created.\p"
+
+	"Anyway sorry for yapping\n"
+	"here's your prize", MSGBOX_DEFAULT)
+	setflag(FLAG_SHINY_CREATION)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PINSIR)
+	playfanfare(MUS_LEVEL_UP)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"{PLAYER} got a fancy PINSIR!\n"
+	"", MSGBOX_DEFAULT)
+	call(Common_Script_GiftPinsir)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"PLASTO: We didn't like the original\n"
+	"shiny pinsir bit, so we stuck it\l"
+	"here instead.", MSGBOX_DEFAULT)
+	
+	release
+	end
+}
+
+
+
+script Warehouse_PlastoSign {
+	lock
+	msgbox(
+	"Totals wave.\n"
+	"On Ruth, the old.", MSGBOX_DEFAULT)
+	if(checkpartymon(SPECIES_ESPEON) && checkpartymove(MOVE_IRON_TAILS) != PARTY_SIZE) {
+		closemessage
+		delay(20)
+		playse(SE_CLICK)
+		setlayouttiles(LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM2_CLOSET, 0,0,0,0,10, 18)
+		setmaplayoutindex(LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM2_CLOSET)
+	}
+	release
+	end
+
+}
+
+
+script Common_Script_GiftPinsir {
+	copyvar(VAR_TEMP_1, VAR_CSR_GIFT_POKEMON)
+	givemon(VAR_CSR_GIFT_POKEMON, 30, ITEM_TM15)
+	clearflag(FLAG_SHINY_CREATION)
+	switch(var(VAR_RESULT)) {
+		case 0: //Mon goes to party
+			bufferspeciesname(STR_VAR_1, VAR_CSR_GIFT_POKEMON)
+			msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+			if(!var(VAR_RESULT)) {
+				return
+			}
+			call(EventScript_GetGiftMonPartySlot)
+			call(EventScript_ChangePokemonNickname)
+			return
+		case 1: //Mon goes to PC
+				bufferspeciesname(STR_VAR_1, VAR_CSR_GIFT_POKEMON)
+				msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+				if(var(VAR_RESULT) == 0) {
+					call(EventScript_TransferredToPC)
+					return
+				} else {
+					call(EventScript_NameReceivedBoxMon)
+					call(EventScript_TransferredToPC)
+					return //This can be simplified; I'll deal with it later
+				}
+				
+				return
+		case 2:
+			goto(EventScript_NoMoreRoomForPokemon)
+			break
+	}
 }

@@ -173,6 +173,7 @@ PewterCity_Museum_1F_EventScript_AerodactylFossil::
 
 mapscripts PewterCity_Museum_1F_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
+		setflag(FLAG_TEMP_7)
 		if(flag(FLAG_GOT_DOME_FOSSIL) && !flag(FLAG_NERD_TOOK_KABUTOPS)) {
 			//I keep doing the logic backwards
 			//and not knowing how to invert it
@@ -225,7 +226,13 @@ script PewterCity_Museum_1F_EventScript_WeirdSigns {
 }
 
 script PewterCity_Museum_1F_EventScript_Bones {
-	msgbox("Do you know whose bones are on\ndisplay here?\pThe answer is…\nYour bones.\pMy bones.\pBone's bones.\pBone bone bone.\n", MSGBOX_NPC)
+	if(flag(FLAG_CUT_MUSEUM_ASSOCIATE)) {
+		msgbox("Do you know whose bones are on\ndisplay here?\pThe answer is…\nHis bones.\pTheir bones.\pOur bones.\pBones.{PAUSE 30} Bones.{PAUSE 30} Bones.\n", MSGBOX_NPC)
+
+	} else {
+		msgbox("Do you know whose bones are on\ndisplay here?\pThe answer is…\nYour bones.\pMy bones.\pBone's bones.\pBone bone bone.\n", MSGBOX_NPC)
+
+	}
 	end
 }
 
@@ -337,6 +344,7 @@ script PewterCity_Museum_1F_EventScript_EntranceTrigger {
 		msgbox(
 		"…But nobody came.\n"
 		"", MSGBOX_DEFAULT)
+		setvar(VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F, 1)
 		releaseall
 		end
 	}

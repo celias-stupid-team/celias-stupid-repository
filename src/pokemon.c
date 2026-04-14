@@ -28,6 +28,7 @@
 #include "constants/items.h"
 #include "constants/item_effects.h"
 #include "constants/hoenn_cries.h"
+#include "oak_speech.h"
 #include "constants/pokemon.h"
 #include "constants/abilities.h"
 #include "constants/moves.h"
@@ -113,7 +114,7 @@ const u32 gProtectedMoves[] = {
     MOVE_WATERFALL,
     MOVE_RETREAT,
     MOVE_SURF,
-    MOVE_GULP,
+    //MOVE_GULP,
     MOVE_WHIRLPOOL,
     MOVE_MAGICAL_LEAF,
     MOVE_BRICK_BREAK,
@@ -126,6 +127,8 @@ const u32 gProtectedMoves[] = {
     MOVE_BESTOW,
     MOVE_DOUBLE_DAD,
     MOVE_CURSE,
+    MOVE_TRUMP_CARD,
+    MOVE_REST_HBOX,
     MOVE_FLY_CYNTHIA
 };
 
@@ -1680,16 +1683,17 @@ static const u8 sStatsToRaise[] =
 // 0-99, 100-199, 200+
 static const s8 sFriendshipEventDeltas[][3] = 
 {
-    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 5,  1,  0 },
+    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 2,  1,  1 },
     [FRIENDSHIP_EVENT_VITAMIN]              = { 0,  0,  0 },
     [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 4,  2,  1 },
+    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 4,  3,  2 },
     [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 0,  0,  0 },
-    [FRIENDSHIP_EVENT_WALKING]              = { 1,  0,  0 },
+    [FRIENDSHIP_EVENT_WALKING]              = { 1,  2,  3 },
     [FRIENDSHIP_EVENT_MASSAGE]              = { 3,  3,  3 },
     [FRIENDSHIP_EVENT_FAINT_SMALL]          = {0, 0, 0 },
     [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {0, 0, 0 },
     [FRIENDSHIP_EVENT_FAINT_LARGE]          = {0, 0, 0 },
+    [FRIENDSHIP_EVENT_WORLD_TRAVEL]          = {2, 1, 1 },
 };
 
 #define HM_MOVES_END 0xFFFF
@@ -1812,6 +1816,15 @@ void ZeroEnemyPartyMons(void)
 void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     u32 arg;
+
+    // handle hard/easy mode
+    if (level == 6 && (species == SPECIES_WARTORTLE || species == SPECIES_FINALWARTORTLE || species == SPECIES_WARTORTLE_POKERAP))
+    {
+        if (gModeNewGame == 1)
+            level = 7;
+        else if (gModeNewGame == 2)
+            level = 5;
+    }
     ZeroMonData(mon);
     CreateBoxMon(&mon->box, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
     SetMonData(mon, MON_DATA_LEVEL, &level);
@@ -2015,7 +2028,7 @@ void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level,
     }
 
     // handle shininess for species transformations
-    if((species == SPECIES_ALOMOMOLA || species == SPECIES_HOOPA || species == SPECIES_SLOWPOKE || species == SPECIES_INKAY) && GetMonData(mon, MON_DATA_CSR_SHINY))
+    if((species == SPECIES_ALOMOMOLA || species == SPECIES_LUVDISC || species == SPECIES_HOOPA || species == SPECIES_SLOWPOKE || species == SPECIES_INKAY || species == SPECIES_RHYDON) && GetMonData(mon, MON_DATA_CSR_SHINY))
         FlagSet(FLAG_SHINY_CREATION);
 
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
@@ -2249,7 +2262,11 @@ void CalculateMonStats(struct Pokemon *mon)
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
 
-    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_SHEDINJA_ELECTRIC || species == SPECIES_ARCEUS)
+    if (species == SPECIES_SHEDINJA 
+        || species == SPECIES_RATICATE 
+        || species == SPECIES_SHEDINJA_ELECTRIC 
+        || species == SPECIES_ARCEUSLAST 
+        || species == SPECIES_ARCEUS)
     {
         newMaxHP = 1;
     }
@@ -2284,7 +2301,12 @@ void CalculateMonStats(struct Pokemon *mon)
     CALC_STAT(baseSpAttack, spAttackIV, spAttackEV, STAT_SPATK, MON_DATA_SPATK)
     CALC_STAT(baseSpDefense, spDefenseIV, spDefenseEV, STAT_SPDEF, MON_DATA_SPDEF)
 
-    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_RATICATE_DEAD || species == SPECIES_SHEDINJA_ELECTRIC || species == SPECIES_ARCEUS)
+    if (species == SPECIES_SHEDINJA 
+        || species == SPECIES_RATICATE 
+        || species == SPECIES_RATICATE_DEAD 
+        || species == SPECIES_SHEDINJA_ELECTRIC 
+        || species == SPECIES_ARCEUSLAST 
+        || species == SPECIES_ARCEUS)
     {
         if (currentHP != 0 || oldMaxHP == 0)
             currentHP = 1;
@@ -5774,9 +5796,8 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
         }
         if (event == FRIENDSHIP_EVENT_LEAGUE_BATTLE)
         {
+            //DebugPrintf("Friendship Test");
             // Only if it's a trainer battle with league progression significance
-            if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
-                return;
             if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE14) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE14))
                 return; //No battle friendship in the pokerap
 
@@ -6167,6 +6188,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_ELITE_FOUR_CYNTHIA:
             return MUS_CYNTHIA_BATTLE;
         case TRAINER_CLASS_MYSTERIOUS:
+        case TRAINER_CLASS_PLASTO:
             return MUS_MEGALOVANIA;
         case TRAINER_CLASS_RIVAL_MAY:
             return MUS_MUS_VS_RIVAL;

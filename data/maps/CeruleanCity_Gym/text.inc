@@ -75,13 +75,13 @@ CeruleanCity_Gym_Text_WeMakePrettyGoodTeam::
 
 CeruleanCity_Gym_Text_GymStatue::
     .string "CERULEAN POKéMON CLUB\n"
-    .string "LEADER: MISTY\p"
+    .string "MASTER: MISTY\p"
     .string "WINNING TRAINERS:\n"
     .string "GARY, LARRY, JERRY$"
 
 CeruleanCity_Gym_Text_GymStatuePlayerWon::
     .string "CERULEAN POKéMON CLUB\n"
-    .string "LEADER: MISTY\p"
+    .string "MASTER: MISTY\p"
     .string "WINNING TRAINERS:\n"
     .string "GARY, LARRY, JERRY, {PLAYER}$"
 
@@ -173,9 +173,9 @@ CeruleanCity_Gym_CeliaUnlocksCommentary::
 	.string "Look around to find be in various\n"
 	.string "places across KANTO!\l"
 	.string "I'll have fun tidbits about the hack!\p"
-	.string "Heads up, though:\n"
-	.string "Enjoy it while you can!\l"
-	.string "Next update, this will be disabled.\p"
+	.string "And while you're exploring, I\n"
+	.string "encourage you to keep an eye out!\l"
+	.string "There may be more secrets to find!\p"
 	.string "Also, if you're a streamer or\n"
 	.string "content creator, I have a request:\l"
 	.string "Please don't show everything off!\p"

@@ -144,7 +144,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CeruleanCity_House2_EventScript_VolcanoBakemeat"
+      "script": "CeruleanCity_House2_EventScript_Sink"
     },
     {
       "type": "sign",

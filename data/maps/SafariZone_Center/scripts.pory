@@ -305,7 +305,7 @@ script SafariZone_Center_BreakRightWall {
 
 
 script SafariZone_KangaJailDMCA {
-	msgbox("This POKéMON was holding an\nillegal copy of itself.\pI've put into custody until I can\nfigure out which came first.", MSGBOX_NPC)
+	msgbox("This POKéMON was holding an\nillegal copy of itself.\pI've put it into custody until I\nfigure out which came first.", MSGBOX_NPC)
 	end
 }
 

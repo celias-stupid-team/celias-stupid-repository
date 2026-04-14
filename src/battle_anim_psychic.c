@@ -316,6 +316,17 @@ const struct SpriteTemplate gRedXSpriteTemplate =
     .callback = AnimRedX,
 };
 
+const struct SpriteTemplate gRedOSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_O_SIGN,
+    .paletteTag = ANIM_TAG_O_SIGN,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRedX,
+};
+
 const struct SpriteTemplate gSpiralXSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SPIRAL,
@@ -543,6 +554,17 @@ const struct SpriteTemplate gPsychoBoostOrbSpriteTemplate =
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
     .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_PsychoBoostOrb,
+    .callback = AnimPsychoBoost,
+};
+
+const struct SpriteTemplate gPsychoScoopSpoonSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPOON,
+    .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sAffineAnims_PsychoBoostOrb,

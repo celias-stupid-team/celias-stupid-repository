@@ -86,7 +86,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 1,
+      "x": -3,
       "y": 43,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -292,7 +292,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeliaSecrets_Bonus_SurfBoat",
+      "script": "CeliaSecrets_OldManIsland",
       "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
@@ -337,6 +337,22 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route15_CeliaSandwich",
       "flag": "FLAG_TEMP_A"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 58,
+      "y": 37,
+      "target_local_id": "3",
+      "target_map": "MAP_OCEAN9"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 33,
+      "y": 45,
+      "target_local_id": "31",
+      "target_map": "MAP_FOUR_ISLAND"
     }
   ],
   "warp_events": [

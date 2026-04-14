@@ -1,3 +1,255 @@
 mapscripts Starlight_House3_MapScripts {
+MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			setflag(FLAG_TEMP_2)
+            setflag(FLAG_TEMP_8)
+        }
+            if(flag(FLAG_DAK_HERE)) {
+			setflag(FLAG_TEMP_2)
+		}
+        if(!flag(FLAG_DAK_HERE)) {
+            setflag(FLAG_TEMP_8)
+		}
+        if(flag(FLAG_CSR_CELIA_BONUS)) {
+			setflag(FLAG_TEMP_8)
+		}
+        setflag(FLAG_TEMP_8)//temporary until commentary is finished
+		
+	}
+}
+script Starlight_House3_Map_Table {
+	msgbox(
+	"A table containing the map of the\n"
+	"entire region.\p"
+	"Seems to be used for planning out\n"
+    "the region layout.", MSGBOX_SIGN)
 
 }
+
+script Starlight_House3_Dak {
+    lock
+	faceplayer
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Oh! Um... Hey!\p"
+	"Listen, I am working on a video,\l"
+	"don't tell Starlight I am in here\n"
+    "Okay?", MSGBOX_NPC)
+    
+    //playbgm(MUS_NONE, TRUE)
+    applymovement(LOCALID_DAK, moves(
+        emote_exclamation_mark
+        face_right
+    ))
+    textcolor(NPC_TEXT_COLOR_RED)
+    msgbox(
+    "Hey Dak!", MSGBOX_DEFAULT)
+    closemessage
+    
+    delay(10)
+    addobject(LOCALID_STARLIGHT2)
+    applymovement(LOCALID_STARLIGHT2, moves(
+        set_visible
+        walk_fast_down * 2
+        walk_left * 8
+    ))
+    waitmovement(LOCALID_STARLIGHT2)
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+    ))
+
+//textcolor(NPC_TEXT_COLOR_RED)
+msgbox(
+	"Why are you using my work computer?", MSGBOX_DEFAULT)
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    closemessage
+    delay(30)
+    msgbox(
+	"Oh...\p"
+	"Um...\p"
+    "Because memes lol?", MSGBOX_DEFAULT)
+    closemessage
+    delay(60)
+    //setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    //setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    //special(ShakeScreen)
+	//delay(60)
+    playse(SE_CLICK)
+    setmetatile(1, 2, 0x2A6, FALSE)
+    special(DrawWholeMapView)
+
+    applymovement(LOCALID_PLAYER, moves(//moves(
+        face_left
+    ))
+
+    applymovement(LOCALID_DAK, moves(
+        walk_in_place_faster_right * 10
+        delay_16 * 4
+        delay_16 * 4
+        
+    ))
+    delay(30)
+    playse(SE_FALL)
+    //applymovement(LOCALID_DAK, slide_down)
+    removeobject(LOCALID_DAK)
+    delay(90)
+    playse(SE_WALL_HIT)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+	special(ShakeScreen)
+    delay(90)
+    playse(SE_CLICK)
+    setmetatile(1, 2, 0x2EB, FALSE)
+    special(DrawWholeMapView)
+    delay(30)
+    
+    //waitmovement(LOCALID_DAK)
+
+    //applymovement(LOCALID_PLAYER, face_right)
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+    ))
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+    ))
+
+    textcolor(NPC_TEXT_COLOR_RED)
+    msgbox(
+	"Sorry about that, Dak is my friend.\p"
+    "He likes to mess with my stuff\n"
+    "from time to time.\p"
+    "Don't worry he will be fine!\p"
+    "I made sure he would go to\n" 
+    "a nice fun map!", MSGBOX_NPC)
+    closemessage
+    applymovement(LOCALID_STARLIGHT2, moves(
+    walk_right * 8
+    ))
+    waitmovement(LOCALID_STARLIGHT2)
+    removeobject(LOCALID_STARLIGHT2)
+    setflag(FLAG_DAK_HERE)
+    setflag(FLAG_TEMP_1)
+    //playse(SE_LEDGE)
+    release
+}
+
+script Starlight_House3_Computer {
+    if(flag(FLAG_TEMP_1)) {
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(
+	"It shows a few tabs open.\p"
+	"One tab is an AVGN video.\n"
+	"Another is Dak's YouTube Page,\l"
+	"Third tab is... Um...\p"
+	"A Google search of: What do\n"
+	"I do if I burn my cereal?", MSGBOX_SIGN)
+    } else {
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"There appears to be some files.\n"
+	"It seems to have a tab called Por-\l"
+	"ymaps and Poryscript.\p"
+	"It also has SkyTemple and HMA.\l"
+	"also\n"
+    "(Insert another rom software here).", MSGBOX_SIGN)
+
+	}
+}
+
+script Starlight_House3_Map_Table2 {
+	msgbox(
+	"Hey look, you can see\n"
+    "Starlight's House from here.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Computer2 {
+	msgbox(
+	"This computer only looks like it\n"
+    "was made in the early 2000's but\l"
+    "It has RGB so it must be modern\l"
+    "Right?", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Wall_Map {
+	msgbox(
+	"Aww! The giant map had a baby!", MSGBOX_SIGN)
+    //closemessage
+    //delay(30)
+    //msgbox(
+    //"Yeah idk why there's 2 maps\n"
+    //"either...", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Professor_Tree {
+	msgbox(
+	"Professor Tree?\p"
+    "Nah it's just a regular tree\n"
+    "with sunglasses on it...", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Painting {
+	msgbox(
+	"It looks to be a painting\n"
+    "of a window.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_TV {
+	msgbox(
+	"It looks to be an episode of\n"
+    "The Office.\p"
+    "Oh wait...\l"
+    "That's just Silph Co. security\n"
+    "footage.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_DMCA_Notice {
+	msgbox(
+	"It's a framed DMCA notice\n"
+    "to shut down the Map Workshop.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Rematch {
+    lock
+    //cleartrainerflag(TRAINER_STARLIGHT)
+    //textcolor(NPC_TEXT_COLOR_FEMALE)
+    //trainerbattle_single(TRAINER_STARLIGHT,
+	//"Oh hi!",
+	//
+	//"I... am not the best at coding...", Starlight_House2_Post_Battle)
+
+
+	//msgbox(
+    //"Test...", MSGBOX_DEFAULT)
+	//closemessage
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox("Hi! Would you like to fight\nme again?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			cleartrainerflag(TRAINER_STARLIGHT)
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    trainerbattle_single(TRAINER_STARLIGHT,
+	"Yay!",
+	//
+	"Feel free to watch me fail anytime!")
+		}
+    release
+    end
+}
+
+script Starlight_House3_Dak_Commentary_Reaction {
+	msgbox(
+	"Oh god, why are there so many\n"
+	"of them now?!", MSGBOX_NPC)
+}
+

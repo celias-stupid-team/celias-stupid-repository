@@ -5,7 +5,6 @@ raw `
 
 TwoIsland_EventScript_SetShopState::
 	goto_if_set FLAG_SYS_CAN_LINK_WITH_RS, TwoIsland_EventScript_SetShopStateAfterHoennLink
-	goto_if_set FLAG_SYS_GAME_CLEAR, TwoIsland_EventScript_SetShopStateAfterChampion
 	goto_if_set FLAG_RESCUED_LOSTELLE, TwoIsland_EventScript_SetShopStateAfterLostelleRescue
 	goto TwoIsland_EventScript_SetShopStateDefault
 	end
@@ -60,8 +59,6 @@ TwoIsland_EventScript_Clerk::
 	end
 
 TwoIsland_EventScript_ClerkShopExpanded3::
-	goto_if_set FLAG_TWO_ISLAND_SHOP_EXPANDED_3, TwoIsland_EventScript_ClerkShopSkipIntro
-	setflag FLAG_TWO_ISLAND_SHOP_EXPANDED_3
 	message TwoIsland_Text_BringingItemsFromDistantLands
 	waitmessage
 	goto TwoIsland_EventScript_ShopExpanded3
@@ -263,6 +260,11 @@ script TwoIsland_OnTransition {
 	if(flag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)) {
 		setobjectmovementtype(LOCALID_DRAGONITE_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
 	}
+	if(flag(FLAG_TM02_GOT)) {
+		setobjectmovementtype(LOCALID_ROCKIN_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
+	}
+
+	
 	if(flag(FLAG_TWO_ISLAND_FUCK_PRESENT)) {
 		setobjectmovementtype(LOCALID_HBOX_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
 	}
@@ -331,6 +333,27 @@ script TwoIsland_DragonitePresent {
 	"BAG OF DRAGONITE!",ITEM_BAG_OF_DRAGONITE, 1)
 	waitfanfare
 	setflag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)
+	release
+	end
+}
+
+
+script TwoIsland_RockinPresent {
+	lock
+	if(flag(FLAG_TM02_GOT)) {
+		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+	))
+	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	giveitem_msg("There was a TM02!\n"
+	"It contains PSI ROCKIN!",ITEM_TM02, 1)
+	waitfanfare
+	setflag(FLAG_TM02_GOT)
 	release
 	end
 }
@@ -861,7 +884,7 @@ script TwoIsland_BurnHeal {
 
 		"ahem\p"
 
-		"your{PAUSE 30} smells.\p"
+		"your shoes{PAUSE 30} are wrong.\p"
 
 		"{PAUSE 30}i sold out within an hour.\p"
 
@@ -1174,6 +1197,7 @@ script TwoIsland_TerritorialOak {
 	closemessage
 	delay(30)
 	playse(SE_M_EXPLOSION)
+	setflag(FLAG_TWO_ISLAND_TERRITORIAL_OAK)
 	removeobject(LOCALID_TWOISLAND_TERRITORIALOAK)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_1)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_2)
@@ -1394,6 +1418,7 @@ script TwoIsland_ThePit {
 	hideobjectat(LOCALID_TWO_ISLAND_PENCIL, MAP_TWO_ISLAND)
 	hideobjectat(LOCALID_TWO_ISLAND_MUSHROOM_KID, MAP_TWO_ISLAND)
 	setlayouttiles(LAYOUT_TWO_ISLAND_PIT, 0, 0, 0, 0, 67, 28)
+					setmaplayoutindex(LAYOUT_TWO_ISLAND_PIT)
 	
 }
 
@@ -1405,6 +1430,7 @@ script TwoIsland_NoThePit {
 	showobjectat(LOCALID_TWO_ISLAND_MUSHROOM_KID, MAP_TWO_ISLAND)
 
 	setlayouttiles(LAYOUT_TWO_ISLAND, 0, 0, 0, 0, 67, 28)
+					setmaplayoutindex(LAYOUT_TWO_ISLAND_PIT)
 	release
 }
 
@@ -1455,6 +1481,7 @@ script TwoIsland_LivingSans {
 
 			"maybe i should capitalize on the\n"
 			"market", MSGBOX_DEFAULT)
+			release
 	}
 }
 

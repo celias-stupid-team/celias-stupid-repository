@@ -2,7 +2,7 @@
   "id": "MAP_SAFARI_ZONE_CENTER",
   "name": "SafariZone_Center",
   "layout": "LAYOUT_SAFARI_ZONE_CENTER",
-  "music": "MUS_EVOLUTION",
+  "music": "MUS_SAFARI_EVOLUTION",
   "region_map_section": "MAPSEC_KANTO_SAFARI_ZONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -167,7 +167,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_GOT_LAPRAS_FROM_SILPH"
     },
     {
       "local_id": "LAPRAS",
@@ -310,21 +310,14 @@
       "y": 5,
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_NORTH",
-      "dest_warp_id": "9"
-    },
-    {
-      "x": 28,
-      "y": 5,
-      "elevation": 3,
-      "dest_map": "MAP_SAFARI_ZONE_NORTH",
-      "dest_warp_id": "10"
+      "dest_warp_id": "5"
     },
     {
       "x": 29,
       "y": 5,
-      "elevation": 0,
+      "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_NORTH",
-      "dest_warp_id": "11"
+      "dest_warp_id": "6"
     },
     {
       "x": 8,
