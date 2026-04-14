@@ -45,6 +45,7 @@ static EWRAM_DATA u8 sWhichToReshow = 0;
 static EWRAM_DATA u8 sLastUsedBox = 0;
 static EWRAM_DATA u16 sMovingItemId = ITEM_NONE;
 
+// external vars
 extern struct BattleCallbacksStack gSavedBattleCallbackStack;
 extern struct BattleScriptsStack gSavedBattleScriptsStack;
 extern u8 gSavedFaintedActionsState;
@@ -55,6 +56,10 @@ extern u8 gPSSEvoSilentBoxPos;
 extern u8 gSavedFaintedActionsBattlerId;
 extern u8 gSavedTurnEffectsTracker;
 extern u8 gSavedTurnCountersTracker;
+extern u8 gPSSEvoPendingBoxId;
+extern u8 gPSSEvoPendingCount;
+extern u8 gPSSEvoPendingIndex;
+extern u8 gPSSEvoPendingPositions[];
 
 static void Task_InitPokeStorage(u8 taskId);
 static void Task_ShowPokeStorage(u8 taskId);
@@ -69,6 +74,7 @@ static void Task_ShiftMon(u8 taskId);
 static void Task_ShowBrickPieceMessage(u8 taskId);
 static void Task_TriggerPSSEvolution(u8 taskId);
 static void Task_TriggerPSSEvolution_Simple(u8 taskId);
+static void TriggerNextQueuedPSSEvo(void);
 static void Task_WithdrawMon(u8 taskId);
 static void Task_DepositMenu(u8 taskId);
 static void Task_ReleaseMon(u8 taskId);
@@ -680,6 +686,13 @@ static void Task_ReshowPokeStorage(u8 taskId)
 
 static void Task_PokeStorageMain(u8 taskId)
 {
+    // trigger next queued PSS evo, if there is any
+    if (gPSSEvoPendingIndex < gPSSEvoPendingCount)
+    {
+        TriggerNextQueuedPSSEvo();
+        return;
+    }
+
     switch (gStorage->state)
     {
     case 0:
@@ -1465,6 +1478,25 @@ static void Task_ReleaseMon(u8 taskId)
     }
 }
 
+// handle next mon from the queue
+static void TriggerNextQueuedPSSEvo(void)
+{
+    u8 pos = gPSSEvoPendingPositions[gPSSEvoPendingIndex++];
+
+    if (CONFIG_PSS_EVO_SHOW_SCENE)
+    {
+        SetupPSSEvoFromBox(gPSSEvoPendingBoxId, pos);
+        SetPokeStorageTask(Task_TriggerPSSEvolution);
+    }
+    else
+    {
+        PlaySE(SE_BANG);
+        EvolvePorygonInBoxSimple(gPSSEvoPendingBoxId, pos);
+        gPSSEvoSilentBoxPos     = pos;
+        gPSSEvoSilentTriggered  = TRUE;
+        SetPokeStorageTask(Task_TriggerPSSEvolution_Simple);
+    }
+}
 
 static void Task_TriggerPSSEvolution(u8 taskId)
 {
@@ -1496,6 +1528,7 @@ static void Task_TriggerPSSEvolution_Simple(u8 taskId)
     case 0:
         // release animation
         gPSSEvoSilentTriggered = FALSE;
+        StringCopy(gStorage->displayMonNickname, gStorage->releaseMonName);
         DoReleaseMonAnim(MODE_BOX, gPSSEvoSilentBoxPos);
         gStorage->state++;
         break;
@@ -1543,11 +1576,14 @@ static void Task_TriggerPSSEvolution_Simple(u8 taskId)
             gStorage->state++;
         }
         break;
-    case 5: // return to Main
+    case 5: // return to Main, or trigger next queued evo if pending
         if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
             ClearBottomWindow();
-            SetPokeStorageTask(Task_PokeStorageMain);
+            if (gPSSEvoPendingIndex < gPSSEvoPendingCount)
+                TriggerNextQueuedPSSEvo();
+            else
+                SetPokeStorageTask(Task_PokeStorageMain);
         }
         break;
     }
@@ -1980,6 +2016,7 @@ static void Task_HandleWallpapers(u8 taskId)
             ClearBottomWindow();
             gStorage->wallpaperId -= MENU_TEXT_FOREST;
             SetWallpaperForCurrentBox(gStorage->wallpaperId);
+            CheckWallpaperPorygonEvolve(StorageGetCurrentBox(), gStorage->wallpaperId);
             gStorage->state++;
             break;
         }
@@ -1988,7 +2025,12 @@ static void Task_HandleWallpapers(u8 taskId)
         if (!DoWallpaperGfxChange())
         {
             AnimateBoxScrollArrows(TRUE);
-            SetPokeStorageTask(Task_PokeStorageMain);
+
+            // trigger the PSS Evo queue
+            if (gPSSEvoPendingCount > 0)
+                TriggerNextQueuedPSSEvo();
+            else
+                SetPokeStorageTask(Task_PokeStorageMain);
         }
         break;
     }

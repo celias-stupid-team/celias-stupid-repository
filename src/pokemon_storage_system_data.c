@@ -36,6 +36,11 @@ EWRAM_DATA u8 gPSSEvoBoxPos = 0;
 EWRAM_DATA bool8 gPSSEvoTriggered = FALSE;
 EWRAM_DATA bool8 gPSSEvoSilentTriggered = FALSE;
 EWRAM_DATA u8 gPSSEvoSilentBoxPos = 0;
+// queue data for wallpaper-triggered PSS evo
+EWRAM_DATA u8 gPSSEvoPendingBoxId = 0;
+EWRAM_DATA u8 gPSSEvoPendingCount = 0;
+EWRAM_DATA u8 gPSSEvoPendingIndex = 0;
+EWRAM_DATA u8 gPSSEvoPendingPositions[IN_BOX_COUNT] = {};
 
 static void DoCursorNewPosUpdate(void);
 static bool8 MonPlaceChange_Grab(void);
@@ -66,6 +71,7 @@ static bool8 SetMenuTextsForMon(void);
 static bool8 SetMenuTextsForItem(void);
 static void CreateCursorSprites(void);
 static void ToggleCursorMultiMoveMode(void);
+static bool8 IsEvoTriggerWallpaper(u8 wallpaperId);
 
 static const u16 sPokeStorageMisc1Pal[] = INCBIN_U16("graphics/pokemon_storage/misc1.gbapal");
 static const u16 sHandCursorTiles[] = INCBIN_U16("graphics/pokemon_storage/cursor.4bpp");
@@ -716,10 +722,12 @@ static void CheckPorygonEvolve(u8 boxId, u8 position)
     u8 current_wallpaper_id = GetBoxWallpaper(boxId);
     u16 newSpecies = SPECIES_PORYGON_Z;
 
+    // only allow the PSS evo to trigger for the MOVE option
+    if (gStorage->boxOption != OPTION_MOVE_MONS)
+        return;
+
     if (GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_PORYGON
-     && (current_wallpaper_id == WALLPAPER_STARS
-      || current_wallpaper_id == WALLPAPER_POKECENTER
-      || current_wallpaper_id == WALLPAPER_TILES))
+     && IsEvoTriggerWallpaper(current_wallpaper_id))
     {
         if (CONFIG_PSS_EVO_SHOW_SCENE)
         {
@@ -752,6 +760,62 @@ void WritePSSEvoMonToBox(void)
 {
     BoxMonRestorePP(&gPSSEvoMon.box);
     SetBoxMonAt(gPSSEvoBoxId, gPSSEvoBoxPos, &gPSSEvoMon.box);
+}
+
+static bool8 IsEvoTriggerWallpaper(u8 wallpaperId)
+{
+    if (wallpaperId == WALLPAPER_STARS || wallpaperId == WALLPAPER_POKECENTER
+      || wallpaperId == WALLPAPER_TILES)
+        return TRUE;
+    return FALSE;
+}
+
+// start the simple PSS evo
+void EvolvePorygonInBoxSimple(u8 boxId, u8 pos)
+{
+    struct Pokemon mon;
+    u16 newSpecies = SPECIES_PORYGON_Z;
+
+    BoxMonAtToMon(boxId, pos, &mon);
+    GetMonData(&mon, MON_DATA_NICKNAME, gStorage->releaseMonName);
+    SetMonData(&mon, MON_DATA_SPECIES, &newSpecies);
+    CalculateMonStats(&mon);
+    EvolutionRenameMon(&mon, SPECIES_PORYGON, SPECIES_PORYGON_Z);
+    HandleSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SEEN, 0);
+    HandleSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_CAUGHT, 0);
+    if (IsMonCSRShiny(&mon))
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+    BoxMonRestorePP(&mon.box);
+    SetBoxMonAt(boxId, pos, &mon.box);
+}
+
+// evo scene - init data for next iteration
+void SetupPSSEvoFromBox(u8 boxId, u8 pos)
+{
+    BoxMonAtToMon(boxId, pos, &gPSSEvoMon);
+    gPSSEvoBoxId   = boxId;
+    gPSSEvoBoxPos  = pos;
+    gPSSEvoTriggered = TRUE;
+    FadeOutMapMusic(4);
+}
+
+void CheckWallpaperPorygonEvolve(u8 boxId, u8 wallpaperId)
+{
+    u8 i;
+
+    gPSSEvoPendingBoxId = boxId;
+    gPSSEvoPendingCount = 0;
+    gPSSEvoPendingIndex = 0;
+
+    if (!IsEvoTriggerWallpaper(wallpaperId))
+        return;
+
+    // append all Porygon in the box to the queue
+    for (i = 0; i < IN_BOX_COUNT; i++)
+    {
+        if (GetBoxMonDataAt(boxId, i, MON_DATA_SPECIES) == SPECIES_PORYGON)
+            gPSSEvoPendingPositions[gPSSEvoPendingCount++] = i;
+    }
 }
 
 #define MEW_BRICK_PIECE_BOX_POSITION 22
@@ -796,8 +860,6 @@ static void SetPlacedMonData(u8 boxId, u8 position)
             BoxMonRestorePP(&gStorage->movingMon.box);
             SetBoxMonAt(boxId, position, &gStorage->movingMon.box);
         }
-        // If gPSSEvoTriggered, the evolved mon is written to the box
-        // after PSSEvolutionScene completes via CB2_ReturnToPokeStorage.
     }
 }
 
