@@ -735,7 +735,7 @@ gFameCheckerPersonQuote_ProfOak:: @ 0x81B0198
 	.string "Never forget that.$"
 
 gFameCheckerPersonName_Viridian:: @ 0x81B0251
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Hey, what's with that legde?$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Hey, what's with that ledge?$"
 
 gFameCheckerPersonQuote_Daisy:: @ 0x81B025D
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: DAISY\n"
