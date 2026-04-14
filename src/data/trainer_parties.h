@@ -492,7 +492,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherKeigo[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherElijah[] = {
     {
         .iv = 0,
-        .lvl = 27,
+        .lvl = 20,
         .species = SPECIES_BUTTERFREE_FEMALE,
         .moves = {MOVE_CONFUSION, MOVE_GUST, MOVE_POISON_POWDER, MOVE_NONE}
     },

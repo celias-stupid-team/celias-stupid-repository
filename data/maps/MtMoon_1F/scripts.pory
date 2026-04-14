@@ -230,3 +230,12 @@ script MtMoon_ExitSign {
 	msgbox("MT. MOON\nShortcut {RIGHT_ARROW}", MSGBOX_SIGN)
 	end
 }
+
+script MtMoon_SuspiciousLawyers {
+	msgbox(
+	"Suspicious lawyers have been\n"
+	"creeping around the cave…\p"
+
+	"Be careful if you have any\n"
+	"copyrighted material on you!", MSGBOX_NPC)
+}
