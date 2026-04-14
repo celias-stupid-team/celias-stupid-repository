@@ -4788,7 +4788,7 @@ static void Cmd_playanimation(void)
         {
             HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_CAUGHT, gBattleMons[gActiveBattler].personality);
             if (IsMonShiny(mon)) // only if the mon is shiny
-                HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SHINY_FOUND, gBattleMons[gActiveBattler].personality);
+                GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SHINY_FOUND);
         }
     }
     else if (gHitMarker & HITMARKER_NO_ANIMATIONS)
