@@ -7744,7 +7744,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A message from above has come\\nfrom the machine. It reads:\\nIT WILL NOT HELP WITH DRAGONITE.",
+      "description_english": "A message from above has come\\nfrom the machine. It reads:\\nTHIS WILL NOT HELP WITH DRAGONITE.",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
