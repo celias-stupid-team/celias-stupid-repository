@@ -1429,7 +1429,7 @@ static void PrintPokemonIconsOnCard(void)
             if (sTrainerCardDataPtr->trainerCard.monSpecies[i])
             {
                 u8 monSpecies = GetMonIconPaletteIndexFromSpecies(sTrainerCardDataPtr->trainerCard.monSpecies[i]);
-                WriteSequenceToBgTilemapBuffer(3, 16 * i + 224, xOffsets[i] + 3, 15, 4, 4, paletteSlots[monSpecies], 1);
+                WriteSequenceToBgTilemapBuffer(3, 16 * i + 246, xOffsets[i] + 3, 15, 4, 4, paletteSlots[monSpecies], 1);
             }
         }
     }
@@ -1458,7 +1458,7 @@ static void LoadMonIconGfx(void)
     LoadPalette(sTrainerCardDataPtr->monIconPals, BG_PLTT_ID(5), sizeof(sTrainerCardDataPtr->monIconPals));
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        LoadBgTiles(3, GetMonIconTiles(sTrainerCardDataPtr->trainerCard.monSpecies[i], 0), 512, 16 * i + 32);
+        LoadBgTiles(3, GetMonIconTiles(sTrainerCardDataPtr->trainerCard.monSpecies[i], 0), 512, 16 * i + 54);
     }
 }
 
@@ -1485,7 +1485,7 @@ static void LoadStickerGfx(void)
     LoadPalette(sTrainerCardStickerPal2, BG_PLTT_ID(12), sizeof(sTrainerCardStickerPal2));
     LoadPalette(sTrainerCardStickerPal3, BG_PLTT_ID(13), sizeof(sTrainerCardStickerPal3));
     LoadPalette(sTrainerCardStickerPal4, BG_PLTT_ID(14), sizeof(sTrainerCardStickerPal4));
-    LoadBgTiles(3, sTrainerCardDataPtr->stickerTiles, 1024, 128);
+    LoadBgTiles(3, sTrainerCardDataPtr->stickerTiles, 1024, 150);
 }
 
 static void DrawTrainerCardWindow(u8 windowId)
