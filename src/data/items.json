@@ -577,7 +577,7 @@
       "secondaryId": 0
     },
     {
-      "english": "ELIXIR",
+      "english": "ELIXER",
       "itemId": "ITEM_ELIXIR",
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -593,7 +593,7 @@
       "secondaryId": 0
     },
     {
-      "english": "MAX ELIXIR",
+      "english": "MAX ELIXER",
       "itemId": "ITEM_MAX_ELIXIR",
       "price": 4500,
       "holdEffect": "HOLD_EFFECT_NONE",

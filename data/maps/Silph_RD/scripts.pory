@@ -702,6 +702,7 @@ script SilphCo_SnackTrash {
 
 
 script SilphCo_ComputerButt {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
 	"Thankfully he only threw the\n"
 	"monitor.", MSGBOX_SIGN)

@@ -12335,7 +12335,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FUSION_FLARE] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 140,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,
@@ -13131,7 +13131,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_PAY_DAY,
         .power = 95,
-        .type = TYPE_FAIRY,
+        .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
