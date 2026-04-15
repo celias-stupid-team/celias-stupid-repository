@@ -9153,13 +9153,12 @@ static void Cmd_metronome(void)
     while (TRUE)
     {
         s32 i;
+        u16 roll = Random() % (361 + (MOVES_COUNT - 362) * 3); // moves > 361 are three times more likely to be rolled
 
-        gCurrentMove = (Random() % MOVES_COUNT) + 1;
-        
-        if (gCurrentMove >= MOVES_COUNT)
-            continue;
-
-        for (i = 0; i < MAX_MON_MOVES; i++); // ?
+        if (roll < 361)
+            gCurrentMove = roll + 1; // return the rolled move
+        else
+            gCurrentMove = 362 + (roll - 361) / 3; //return the rolled move / 3
 
         i = -1;
         while (TRUE)
@@ -9171,7 +9170,6 @@ static void Cmd_metronome(void)
                 break;
         }
         
-
         if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
         {
             gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
