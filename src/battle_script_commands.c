@@ -841,6 +841,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_COLONIZE,
     MOVE_THIEF,
     MOVE_MIEF,
+    MOVE_CSR_DUMMY,
     METRONOME_FORBIDDEN_END
 };
 

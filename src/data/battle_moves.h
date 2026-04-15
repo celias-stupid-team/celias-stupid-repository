@@ -212,9 +212,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CUT] =
     {
         .effect = EFFECT_HIT,
-        .power = 50,
+        .power = 95,
         .type = TYPE_NORMAL,
-        .accuracy = 95,
+        .accuracy = 50,
         .pp = 30,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -577,7 +577,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_PIN_MISSILE] =
     {
         .effect = EFFECT_TWINEEDLE,
-        .power = 14,
+        .power = 13,
         .type = TYPE_BUG,
         .accuracy = 85,
         .pp = 20,
@@ -851,7 +851,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_AURORA_BEAM] =
     {
         .effect = EFFECT_ATTACK_DOWN_HIT,
-        .power = 65,
+        .power = 195,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 20,
@@ -1113,7 +1113,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_DRAGON_RAGE,
         .power = 1,
-        .type = TYPE_DRAGON,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,
@@ -1192,7 +1192,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_HIT,
         .power = 50,
         .type = TYPE_ROCK,
-        .accuracy = 90,
+        .accuracy = 60,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -5251,7 +5251,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_NUZZLE] =    {
         .effect = EFFECT_PARALYZE_HIT,
-        .power = 20,
+        .power = 65,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 35,
@@ -5274,7 +5274,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_DOUBLE_JUMP] =    {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_DOUBLE_HIT,
         .power = 90,
         .type = TYPE_FAIRY_TRANS,
         .accuracy = 100,
@@ -5334,10 +5334,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_CIRCLE_THROW] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 60,
+        .effect = EFFECT_MULTI_HIT, // Placeholder Effect
+        .power = 15,
         .type = TYPE_FIGHTING,
-        .accuracy = 90,
+        .accuracy = 85,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
