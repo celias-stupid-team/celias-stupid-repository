@@ -13532,6 +13532,18 @@ void BS_SetTypeSmall(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_SetTypeLarge(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u32 gActiveBattler = GetBattlerForBattleScript(cmd->battler);
+
+    SET_BATTLER_TYPE(gActiveBattler, TYPE_LARGE);
+    PREPARE_TYPE_BUFFER(gBattleTextBuff1, TYPE_LARGE);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_TryFling(void)
 {
     NATIVE_ARGS(const u8 *failInstr);

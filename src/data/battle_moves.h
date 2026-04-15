@@ -5082,7 +5082,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_WUMBOIZE] =    {
-        .effect = EFFECT_EVASION_DOWN,
+        .effect = EFFECT_TYPE_LARGE,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -7191,7 +7191,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 [MOVE_MAX_AIRSTREAM] =    {
         .effect = EFFECT_G_MAX_CUDDLE, // Placeholder Effect
         .power = 100,
-        .type = TYPE_LARGE,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,

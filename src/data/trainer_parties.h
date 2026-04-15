@@ -145,7 +145,7 @@ static const struct TrainerMonItemDefaultMoves sParty_YoungsterJosh[] = {
     {
         .iv = 0,
         .lvl = 10,
-        .species = SPECIES_TENTACOOL,
+        .species = SPECIES_SCRAGGY,
         .heldItem = ITEM_NONE,
     },
 };
@@ -154,7 +154,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterTimmy[] = {
     {
         .iv = 0,
         .lvl = 11,
-        .species = SPECIES_SNORLAX,
+        .species = SPECIES_TAPU_KOKO,
     },
     {
         .iv = 0,
@@ -588,16 +588,18 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassIris[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_LassReli[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_LassReli[] = {
     {
         .iv = 0,
         .lvl = 12,
-        .species = SPECIES_GENGAR,
+        .species = SPECIES_TYRANITAR,
+        .moves = {MOVE_ROCK_SLIDE, MOVE_LOW_KICK, MOVE_FIRE_PUNCH, MOVE_PROTECT},
     },
     {
         .iv = 0,
         .lvl = 11,
         .species = SPECIES_KIRLIA,
+        .moves = {MOVE_ROCK_SLIDE, MOVE_LOW_KICK, MOVE_FIRE_PUNCH, MOVE_PROTECT},
     },
 };
 
@@ -605,8 +607,8 @@ static const struct TrainerMonNoItemCustomMoves sParty_LassAli[] = {
     {
         .iv = 0,
         .lvl = 12,
-        .species = SPECIES_TYRANITAR,
-        .moves = {MOVE_ROCK_SLIDE, MOVE_LOW_KICK, MOVE_FIRE_PUNCH, MOVE_PROTECT},
+        .species = SPECIES_CRESSELIA,
+        .moves = {MOVE_ICEBEAM, MOVE_PSY_BEAM, MOVE_ICY_WIND, MOVE_PROTECT},
     },
     {
         .iv = 0,

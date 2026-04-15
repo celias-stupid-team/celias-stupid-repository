@@ -136,7 +136,7 @@ script SafariZone_KangaskahnCage {
 	msgbox("KANGASKHAN: Kang! Kanga-!!\n", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
-	if(checkitem(ITEM_TM_CASE)) {
+	if(checkitem(ITEM_TM32) || (checkitem(ITEM_TM_CASE) && checkpartymove(MOVE_BRICK_BREAK) != PARTY_SIZE)) {
 		msgbox("She's staring intently at your\nTM CASE.\pWould you like to give her a\nTM?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			if(var(VAR_RESULT)) {

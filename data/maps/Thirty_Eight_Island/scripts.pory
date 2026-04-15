@@ -549,6 +549,7 @@ script ThirtyEightIsland_LassMazeJumpscare {
 	lock
 	playbgm(MUS_NONE, TRUE)
 	playse(SE_M_WATERFALL)
+	addobject(LOCALID_OCEAN_MAZE_JUMPSCARE)
 	applymovement(LOCALID_OCEAN_MAZE_JUMPSCARE, moves(
 		face_left
 		set_visible

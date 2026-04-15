@@ -850,7 +850,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_SHORTS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("LEE"),
+        .trainerName = _("CALVIN"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -1240,7 +1240,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_LassReli),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_LassReli),
     },
     [TRAINER_CHAMPION_RAY_RIZZO] = {
         .trainerClass = TRAINER_CLASS_CHAMPION_2,

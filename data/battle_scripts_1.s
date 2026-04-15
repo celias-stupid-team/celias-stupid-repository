@@ -305,6 +305,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
 	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
+	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
+
+
 
 BattleScript_End2::
 	end2
@@ -6414,6 +6417,18 @@ BattleScript_EffectTypeSmall::
 	attackstring
 	ppreduce
 	settypesmall BS_TARGET
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNBECAMETYPE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+
+BattleScript_EffectTypeLarge::
+	attackcanceler
+	attackstring
+	ppreduce
+	settypelarge BS_ATTACKER
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNBECAMETYPE

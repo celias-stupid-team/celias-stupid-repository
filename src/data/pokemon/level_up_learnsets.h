@@ -227,6 +227,7 @@ static const struct LevelUpMove sPidgeyLevelUpLearnset[] = {
 
 static const struct LevelUpMove sPidgeottoLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_MINIMIZE),
+    LEVEL_UP_MOVE(0, MOVE_MIRROR_MOVE),
     LEVEL_UP_MOVE(1, MOVE_PECK),
     LEVEL_UP_MOVE(1, MOVE_HURRICANE),
     LEVEL_UP_MOVE(8, MOVE_GUST),
@@ -7875,7 +7876,7 @@ static const struct LevelUpMove sKommo_oLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sTapu_KokoLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_THUNDERBOLT),
 	LEVEL_UP_END
 };
 

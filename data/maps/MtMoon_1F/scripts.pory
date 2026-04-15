@@ -233,7 +233,7 @@ script MtMoon_ExitSign {
 
 script MtMoon_SuspiciousLawyers {
 	msgbox(
-	"Suspicious lawyers have been\n"
+	"Some suspicious lawyers have been\n"
 	"creeping around the cave…\p"
 
 	"Be careful if you have any\n"
