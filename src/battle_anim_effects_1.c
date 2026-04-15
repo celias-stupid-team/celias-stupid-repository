@@ -114,6 +114,8 @@ static void AnimFalseSwipeSlice_Step3(struct Sprite *);
 static void AnimFalseSwipePositionedSlice(struct Sprite *);
 static void AnimEndureEnergy(struct Sprite *);
 static void AnimEndureEnergy_Step(struct Sprite *);
+static void AnimFocusEnergy(struct Sprite *);
+static void AnimFocusEnergy_Step(struct Sprite *);
 static void AnimSharpenSphere(struct Sprite *);
 static void AnimSharpenSphere_Step(struct Sprite *);
 static void AnimConversion(struct Sprite *);
@@ -2205,6 +2207,31 @@ const struct SpriteTemplate gEndureEnergySpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimEndureEnergy,
+};
+
+static const union AnimCmd sFocusEnergyAnimCmds[] =
+{
+    ANIMCMD_FRAME(24, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(8, 12),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sFocusEnergyAnimTable[] =
+{
+    sFocusEnergyAnimCmds,
+};
+
+const struct SpriteTemplate gFocusEnergySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FOCUS_ENERGY,
+    .paletteTag = ANIM_TAG_FOCUS_ENERGY,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = sFocusEnergyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFocusEnergy,
 };
 
 const struct SpriteTemplate gBlueEndureEnergySpriteTemplate =
@@ -6144,6 +6171,37 @@ static void AnimEndureEnergy_Step(struct Sprite* sprite)
     }
 
     sprite->y -= sprite->data[0];
+    if (sprite->animEnded)
+        DestroyAnimSprite(sprite);
+}
+
+static void AnimFocusEnergy(struct Sprite* sprite)
+{
+    if (gBattleAnimArgs[0] == 0)
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X) + gBattleAnimArgs[1];
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y) + gBattleAnimArgs[2];
+    }
+    else
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X) + gBattleAnimArgs[1];
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) + gBattleAnimArgs[2];
+    }
+
+    sprite->data[0] = 0;
+    sprite->data[1] = gBattleAnimArgs[3];
+    sprite->callback = AnimFocusEnergy_Step;
+}
+
+static void AnimFocusEnergy_Step(struct Sprite* sprite)
+{
+    if (++sprite->data[0] > sprite->data[1])
+    {
+        sprite->data[0] = 0;
+        sprite->y++;  // flipped
+    }
+
+    sprite->y += sprite->data[0];  // flipped
     if (sprite->animEnded)
         DestroyAnimSprite(sprite);
 }
