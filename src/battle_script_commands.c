@@ -12228,8 +12228,15 @@ void BS_UpdateBattlerData(void)
     gBattleMons[battler].speed = GetMonData(mon, MON_DATA_SPEED);
     gBattleMons[battler].spAttack = GetMonData(mon, MON_DATA_SPATK);
     gBattleMons[battler].spDefense = GetMonData(mon, MON_DATA_SPDEF);
-    gBattleMons[battler].hp = GetMonData(mon, MON_DATA_MAX_HP);
     gBattleMons[battler].maxHP = GetMonData(mon, MON_DATA_MAX_HP);
+    if (gBattleMons[battler].species == SPECIES_HOOPA) // start with 1 HP for the healing animation
+    {
+        u16 oneHp = 1;
+        gBattleMons[battler].hp = 1;
+        SetMonData(mon, MON_DATA_HP, &oneHp);
+    }
+    else
+        gBattleMons[battler].hp = gBattleMons[battler].maxHP;
     gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
     gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
     gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, FALSE);
@@ -12243,6 +12250,20 @@ void BS_UpdateBattlerData(void)
     //set party mon data
     SetMonData(mon, MON_DATA_STATUS, &gBattleMons[battler].status1);
     SetMonData(mon, MON_DATA_HELD_ITEM, &gBattleMons[battler].item);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_HoopaTransformSetFullHP(void)
+{
+    NATIVE_ARGS();
+
+    u8 battler = gBattlerFainted;
+    u16 maxHP = gBattleMons[battler].maxHP;
+
+    gBattleMoveDamage = -(s32)(maxHP - 1);
+    gBattleMons[battler].hp = maxHP;
+    gMoveResultFlags &= ~MOVE_RESULT_NO_EFFECT;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

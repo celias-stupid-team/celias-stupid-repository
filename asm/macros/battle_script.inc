@@ -1660,6 +1660,10 @@
 	.byte \battler
 	.endm
 
+	.macro hoopatransformsetfullhp
+	callnative BS_HoopaTransformSetFullHP
+	.endm
+
 	.macro trysetshadowspikes
 	callnative BS_TrySetShadowSpikes
 	.endm

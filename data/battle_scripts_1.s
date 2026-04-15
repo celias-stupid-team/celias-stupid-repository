@@ -4306,6 +4306,7 @@ BattleScript_SeelHoopaTransform::
 	pause B_WAIT_TIME_LONG
     updatebattlerdata BS_FAINTED
 	redrawhealthbox BS_FAINTED
+	hoopatransformsetfullhp @ for healing animation
 	healthbarupdate BS_FAINTED
 	datahpupdate BS_FAINTED
 	end2
@@ -4742,6 +4743,7 @@ BattleScript_ColorChangeWizDamage::
 	datahpupdate BS_TARGET
 	printstring STRINGID_PKMNCOLORCHANGEWIZDAMAGE
 	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
 	orbyte gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE
 	goto BattleScript_MoveEnd
 
@@ -6276,7 +6278,7 @@ BattleScript_EffectHackAttack_1::
 	printfromtable gDoNothingStringIds
 	flicker FADE_TO_BLACK, 4
 	flicker FADE_TO_BLACK, 2
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_LONGEST
 	restoreglitchpalettes
 	setflag FLAG_HACK_ATTACK_USED
 	goto BattleScript_MoveEnd
