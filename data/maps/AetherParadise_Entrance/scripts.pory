@@ -11,9 +11,20 @@ mapscripts AetherParadise_Entrance_MapScripts {
 			setbench(BENCH_AETHER_PARADISE)
 		}
 		setrespawn(HEAL_LOCATION_AETHER_PARADISE_ENTRANCE)
+		setflag(FLAG_TEMP_8)
+		if(!flag(FLAG_SYS_ROTOM_MENU) && checkpartymove(MOVE_SURF) == PARTY_SIZE && checkpartymove(MOVE_FLY) == PARTY_SIZE) {
+			clearflag(FLAG_TEMP_8)
+		}
 
     }
 }
+
+script Aetherparadise_Softlockprevention {
+	msgbox(
+	"I am softlock prevention.\n"
+	"Nice try!", MSGBOX_NPC)
+}
+
 
 script AetherParadise_SkuntankHint {
 	msgbox("

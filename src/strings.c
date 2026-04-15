@@ -688,7 +688,7 @@ const u8 gText_YouCantReleaseAnEgg[] = _("You can't release an EGG.");
 const u8 gText_ContinueBoxOperations[] = _("Continue BOX operations?");
 const u8 gText_PkmnCameBack[] = _("Wow, another {DYNAMIC 0x00}!");
 const u8 gText_WasItWorriedAboutYou[] = _("It's just like the old one!");
-const u8 gText_WowPkmnEvolved[] = _("It evolved to {DYNAMIC 0x00}!");
+const u8 gText_WowPkmnEvolved[] = _("It's just like the old one!");
 const u8 gText_PkmnDisappeared[] = _("{DYNAMIC 0x00} disappeared!");
 const u8 gText_PkmnGotVirus[] = _("{DYNAMIC 0x00} got a virus!");
 

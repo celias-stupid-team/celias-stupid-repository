@@ -212,12 +212,23 @@ mapscripts TwoIsland_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: TwoIsland_OnTransition
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_A, 1 {
-			message(
-			"Chapter 7 -{PAUSE 30} Chapter 2\n"
-			"{PAUSE 60}Intermission 1")
-			delay(200)
-			message("The Search for the\nBERRY POWDER MAN!")
-			delay(200)
+			if(flag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_2)) {
+
+				message(
+				"Chapter 7 -{PAUSE 30} Chapter 2\n"
+				"{PAUSE 60}Intermission 2")
+				delay(200)
+				message("The Search for the\nBERRY POWDER MAN!")
+				delay(200)
+			} else {
+				message(
+				"Chapter 7 -{PAUSE 30} Chapter 2\n"
+				"{PAUSE 60}Intermission 1")
+				delay(200)
+				message("The Search for the\nBERRY POWDER MAN!")
+				delay(200)
+
+			}
 			setvar(VAR_TEMP_A, 0)
 			release
 		}
