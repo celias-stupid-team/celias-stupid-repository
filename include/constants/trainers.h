@@ -229,6 +229,7 @@
 #define TRAINER_PIC_KIMONO   207
 #define TRAINER_PIC_STARLIGHTSPRITE   208
 #define TRAINER_PIC_HAKARI_BLIZ   209
+#define TRAINER_PIC_KOTONE   210
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)

@@ -1102,7 +1102,15 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_FUCK]     = _("FUCK"),
     [MOVE_TACKLE_MAGIKARP]     = _("TACKLE"),
     [MOVE_RAGING_BULLWORM]     = _("RAGING BULL"),
+    [MOVE_COMEUPPANTS]     = _("COMEUPPANTS"),
+    [MOVE_STRING_SHORT]     = _("STRING SHORT"),
+    [MOVE_GYRO_MITE]     = _("GYRO MITE"),
+    [MOVE_SHROOMBURST]     = _("SHROOMBURST"),
+    [MOVE_SHROOM_DESIRE]     = _("SHROOM DSIRE"),
+    [MOVE_LUCKY_PANT]     = _("LUCKY PANT"),
+    [MOVE_WURMPLE_BEAM]     = _("FALSE "),
 };
+
 
 
 const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
@@ -2209,4 +2217,12 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_FUCK]     = _("FUCK"),
     [MOVE_TACKLE_MAGIKARP]     = _("TACKLE"),
     [MOVE_RAGING_BULLWORM]     = _("RAGING BULLWORM"),
+        [MOVE_COMEUPPANTS]     = _("COMEUPPANTS"),
+    [MOVE_STRING_SHORT]     = _("STRING SHORT"),
+    [MOVE_GYRO_MITE]     = _("GYRO MITE"),
+    [MOVE_SHROOMBURST]     = _("SHROOMBURST"),
+    [MOVE_SHROOM_DESIRE]     = _("SHROOM DESIRE"),
+    [MOVE_LUCKY_PANT]     = _("LUCKY PANT"),
+    
+    [MOVE_WURMPLE_BEAM]     = _("WURMPLE BEAM"),
 }; //For any move which needs its name lengthened, these will display in battle.

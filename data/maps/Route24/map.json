@@ -356,61 +356,7 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 29,
-      "elevation": 0,
-      "var": "VAR_TEMP_4",
-      "var_value": "0",
-      "script": "Route24_SneakilyHealParty"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 29,
-      "elevation": 0,
-      "var": "VAR_TEMP_4",
-      "var_value": "0",
-      "script": "Route24_SneakilyHealParty"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 29,
-      "elevation": 0,
-      "var": "VAR_TEMP_4",
-      "var_value": "0",
-      "script": "Route24_SneakilyHealParty"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 26,
-      "elevation": 0,
-      "var": "VAR_TEMP_4",
-      "var_value": "0",
-      "script": "Route24_SneakilyHealParty"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 26,
-      "elevation": 0,
-      "var": "VAR_TEMP_4",
-      "var_value": "0",
-      "script": "Route24_SneakilyHealParty"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 26,
-      "elevation": 0,
-      "var": "VAR_TEMP_4",
-      "var_value": "0",
-      "script": "Route24_SneakilyHealParty"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
+      "x": 18,
       "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
@@ -419,7 +365,7 @@
     },
     {
       "type": "trigger",
-      "x": 11,
+      "x": 19,
       "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
@@ -428,7 +374,7 @@
     },
     {
       "type": "trigger",
-      "x": 10,
+      "x": 17,
       "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
@@ -437,8 +383,8 @@
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 21,
+      "x": 17,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",
@@ -446,8 +392,8 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 21,
+      "x": 18,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",
@@ -455,8 +401,8 @@
     },
     {
       "type": "trigger",
-      "x": 12,
-      "y": 21,
+      "x": 19,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",
@@ -464,8 +410,8 @@
     },
     {
       "type": "trigger",
-      "x": 12,
-      "y": 18,
+      "x": 19,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",
@@ -473,8 +419,8 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 18,
+      "x": 18,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",
@@ -482,8 +428,8 @@
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 18,
+      "x": 17,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",
@@ -491,8 +437,8 @@
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 15,
+      "x": 17,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",
@@ -500,8 +446,8 @@
     },
     {
       "type": "trigger",
-      "x": 12,
-      "y": 15,
+      "x": 18,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",
@@ -509,8 +455,62 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 15,
+      "x": 19,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "Route24_SneakilyHealParty"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "Route24_SneakilyHealParty"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "Route24_SneakilyHealParty"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "Route24_SneakilyHealParty"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "Route24_SneakilyHealParty"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "Route24_SneakilyHealParty"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",

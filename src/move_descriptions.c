@@ -1098,6 +1098,14 @@ const u8 gMoveDescription_Fuck[] = _("I didn't say\nFIRE I said\nFUCK.");
 const u8 gMoveDescription_TackleMagikarp[] = _("The user tackles\nabout for two to\nthree turns, then\nbecomes confused.");
 const u8 gMoveDescription_RagingBullworm[] = _("Why don't we take\nall of KANTO, and\npush it somewhere\nelse?");
 
+const u8 gMoveDescription_comeuppants[] = _("Dummy");
+const u8 gMoveDescription_StringShort[] = _("Dummy");
+const u8 gMoveDescription_GyroMite[] = _("Dummy");
+const u8 gMoveDescription_Shroomburst[] = _("Dummy");
+const u8 gMoveDescription_ShroomDesire[] = _("I stop you from\nrunning, but only\nbecause I want to\nrun too…");
+const u8 gMoveDescription_LuckyPant[] = _("Dummy");
+const u8 gMoveDescription_WurmpleBeam[] = _("Dummy");
+
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -2200,4 +2208,12 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_FUCK     -1 ] = gMoveDescription_Fuck,
     [MOVE_TACKLE_MAGIKARP     -1 ] = gMoveDescription_TackleMagikarp,
     [MOVE_RAGING_BULLWORM     -1 ] = gMoveDescription_RagingBullworm,
+
+    [MOVE_COMEUPPANTS     -1 ] = gMoveDescription_comeuppants,
+    [MOVE_STRING_SHORT     -1 ] = gMoveDescription_StringShort,
+    [MOVE_GYRO_MITE     -1 ] = gMoveDescription_GyroMite,
+    [MOVE_SHROOMBURST     -1 ] = gMoveDescription_Shroomburst,
+    [MOVE_SHROOM_DESIRE     -1 ] = gMoveDescription_ShroomDesire,
+    [MOVE_LUCKY_PANT     -1 ] = gMoveDescription_LuckyPant,
+    [MOVE_WURMPLE_BEAM     -1 ] = gMoveDescription_WurmpleBeam,
 };

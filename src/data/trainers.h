@@ -874,7 +874,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = ITEM_DEFAULT_MOVES(sParty_YoungsterJosh),
+        .party = ITEM_CUSTOM_MOVES(sParty_YoungsterJosh),
     },
     [TRAINER_YOUNGSTER_TIMMY] = {
         .trainerClass = TRAINER_CLASS_CHAMPION_2,
@@ -884,7 +884,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_YoungsterTimmy),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_YoungsterTimmy),
     },
     [TRAINER_YOUNGSTER_JOEY] = {
         .trainerClass = TRAINER_CLASS_SHORTS,
@@ -934,7 +934,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_YoungsterEddie),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_YoungsterEddie),
     },
     [TRAINER_DOCTOR_COOKIE] = {
         .trainerClass = TRAINER_CLASS_DOCTOR,
@@ -1107,9 +1107,9 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_BUG_CATCHER,
         .trainerName = _("ROBBY"),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_BugCatcherRobby),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_BugCatcherRobby),
     },
     [TRAINER_BUG_CATCHER_CALE] = {
         .trainerClass = TRAINER_CLASS_CHAMPION_2,
@@ -1190,7 +1190,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = ITEM_DEFAULT_MOVES(sParty_LassSally),
+        .party = ITEM_CUSTOM_MOVES(sParty_LassSally),
     },
     [TRAINER_GENTLEMAN_FALKNERSR] = {
         .trainerClass = TRAINER_CLASS_GENTLEMAN,
@@ -1235,7 +1235,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_CHAMPION_KOTONE] = {
         .trainerClass = TRAINER_CLASS_CHAMPION_2,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE | F_TRAINER_FEMALE,
-        .trainerPic = TRAINER_PIC_TWINS,
+        .trainerPic = TRAINER_PIC_KOTONE,
         .trainerName = _("KOTONE"),
         .items = {},
         .doubleBattle = TRUE,
@@ -1785,7 +1785,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_HikerMarcos),
+        .party = ITEM_CUSTOM_MOVES(sParty_HikerMarcos),
     },
     [TRAINER_HIKER_FRANKLIN] = {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -2540,7 +2540,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_GamerDarian),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_GamerDarian),
     },
     [TRAINER_GAMER_STAN] = {
         .trainerClass = TRAINER_CLASS_GAMER,

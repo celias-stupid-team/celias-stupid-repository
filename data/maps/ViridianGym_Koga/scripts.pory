@@ -310,7 +310,7 @@ script DMCAKoga_StopSnowing {
     && flag(FLAG_DMCA_KOGA_BRICK_2)
     && flag(FLAG_DMCA_KOGA_BRICK_3)
     && flag(FLAG_DMCA_KOGA_BRICK_4)) {
-        setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
+        //setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
         setweather(WEATHER_NONE)
         doweather
         

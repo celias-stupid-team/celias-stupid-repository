@@ -1007,10 +1007,10 @@ static const struct LevelUpMove sTentacoolLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_POISON_STING),
     LEVEL_UP_MOVE(1, MOVE_WRAP),
     LEVEL_UP_MOVE(1, MOVE_CONSTRICT),
-    LEVEL_UP_MOVE(1, MOVE_WATER_GUN),
-    LEVEL_UP_MOVE(10, MOVE_BUBBLE_BEAM),
+    LEVEL_UP_MOVE(1, MOVE_TENTAZOOKA),
+    LEVEL_UP_MOVE(13, MOVE_SHROOM_DESIRE),
     LEVEL_UP_MOVE(13, MOVE_ACID_SPRAY),
-    LEVEL_UP_MOVE(16, MOVE_TENTAZOOKA),
+    //LEVEL_UP_MOVE(16, MOVE_TENTAZOOKA),
     LEVEL_UP_END
 };
 
@@ -3869,9 +3869,7 @@ static const struct LevelUpMove sLinooneLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sWurmpleLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_TACKLE),
-    LEVEL_UP_MOVE(1, MOVE_STRING_SHOT),
-    LEVEL_UP_MOVE(5, MOVE_POISON_STING),
+    LEVEL_UP_MOVE(1, MOVE_WURMPLE_BEAM),
     LEVEL_UP_END
 };
 
@@ -6668,9 +6666,7 @@ static const struct LevelUpMove sCrustleLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sScraggyLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_LOW_KICK),
-	LEVEL_UP_MOVE(1, MOVE_LEER),
-	LEVEL_UP_MOVE(1, MOVE_HEADBUTT),
+	LEVEL_UP_MOVE(1, MOVE_COMEUPPANTS),
 	LEVEL_UP_END
 };
 
@@ -7758,9 +7754,8 @@ static const struct LevelUpMove sTsareenaLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sComfeyLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_VINE_WHIP),
-	LEVEL_UP_MOVE(1, MOVE_WRAP),
-	LEVEL_UP_MOVE(1, MOVE_GROWTH),
+	LEVEL_UP_MOVE(1, MOVE_COTTON_SPORE),
+	LEVEL_UP_MOVE(1, MOVE_LUCKY_PANT),
 	LEVEL_UP_END
 };
 
@@ -9680,11 +9675,11 @@ static const struct LevelUpMove sGolbat_POKERAPLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sOddish_POKERAPLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_ACID),
+    LEVEL_UP_MOVE(20, MOVE_ACID),
     //LEVEL_UP_MOVE(1, MOVE_SMOKESCREEN),
-    LEVEL_UP_MOVE(1, MOVE_ROLLOUT),
+    LEVEL_UP_MOVE(20, MOVE_ROLLOUT),
     LEVEL_UP_MOVE(1, MOVE_TRAILBLAZE),
-    LEVEL_UP_MOVE(1, MOVE_BLAZE_KICK),
+    LEVEL_UP_MOVE(20, MOVE_BLAZE_KICK),
     LEVEL_UP_MOVE(31, MOVE_SLEEP_POWDER),
     LEVEL_UP_MOVE(33, MOVE_POWER_TRIP),
     LEVEL_UP_MOVE(35, MOVE_DANKEST_LARIAT),

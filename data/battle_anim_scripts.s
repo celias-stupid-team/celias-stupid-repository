@@ -1127,6 +1127,13 @@ gBattleAnims_Moves::
 	.4byte Move_FUCK
 	.4byte Move_TACKLE_MAGIKARP
 	.4byte Move_RAGING_BULLWORM
+	.4byte Move_COMEUPPANTS
+	.4byte Move_STRING_SHORT
+	.4byte Move_GYRO_MITE
+	.4byte Move_SHROOMBURST
+	.4byte Move_SHROOM_DESIRE
+	.4byte Move_LUCKY_PANT
+	.4byte Move_WURMPLE_BEAM_
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -29759,3 +29766,12 @@ GregoryAttack:
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	goto GregoryEnd
+
+	Move_COMEUPPANTS:
+	Move_STRING_SHORT:
+	Move_GYRO_MITE:
+	Move_SHROOMBURST:
+	Move_SHROOM_DESIRE:
+	Move_LUCKY_PANT:
+	Move_WURMPLE_BEAM_:
+		goto Move_TACKLE
