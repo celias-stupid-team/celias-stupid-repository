@@ -33,9 +33,9 @@ script GamblerHouse_Cards {
         msgbox("{PLAYER} flipped a card...\n", MSGBOX_DEFAULT)
         closemessage
         delay(10)
-        if(var(VAR_TEMP_2) < 4) {
+        //if(var(VAR_TEMP_2) < 4) {
             playse(SE_BOO)
-            addvar(VAR_TEMP_2, 1)
+            //addvar(VAR_TEMP_2, 1)
             waitse
             delay(30)
             playse(SE_FALL)
@@ -52,29 +52,29 @@ script GamblerHouse_Cards {
             setobjectxy(VOLTORB, 2, 1)
             delay(20)
             fadescreenswapbuffers(FADE_FROM_BLACK)
-        } else {
+        //} else {
             
-            playse(SE_SUCCESS)
-            setvar(VAR_TEMP_2, 0)
-            waitse
-            delay(30)
-            playse(SE_FALL)
-            delay(20)
-            applymovement(VOLTORB, VoltorbFalls)
-            waitmovement(0)
-            playse(SE_BANG)
-            delay(45)
-            setflag(FLAG_SHINY_CREATION) //Voltorb
-            playmoncry(SPECIES_VOLTORB, CRY_MODE_DEFAULT)
-            waitmoncry
-            setwildbattle(SPECIES_VOLTORB, 25, ITEM_NONE)
-            dowildbattle
-            fadescreenswapbuffers(FADE_TO_BLACK)
-            setobjectxy(VOLTORB, 2, 1)
-            clearflag(FLAG_SHINY_CREATION)
-            delay(20)
-            fadescreenswapbuffers(FADE_FROM_BLACK)
-        }
+            // playse(SE_SUCCESS)
+            // setvar(VAR_TEMP_2, 0)
+            // waitse
+            // delay(30)
+            // playse(SE_FALL)
+            // delay(20)
+            // applymovement(VOLTORB, VoltorbFalls)
+            // waitmovement(0)
+            // playse(SE_BANG)
+            // delay(45)
+            // setflag(FLAG_SHINY_CREATION) //Voltorb
+            // playmoncry(SPECIES_VOLTORB, CRY_MODE_DEFAULT)
+            // waitmoncry
+            // setwildbattle(SPECIES_VOLTORB, 25, ITEM_NONE)
+            // dowildbattle
+            // fadescreenswapbuffers(FADE_TO_BLACK)
+            // setobjectxy(VOLTORB, 2, 1)
+            // clearflag(FLAG_SHINY_CREATION)
+            // delay(20)
+            // fadescreenswapbuffers(FADE_FROM_BLACK)
+        //}
         release
         end
 

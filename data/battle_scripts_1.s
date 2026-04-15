@@ -3605,22 +3605,14 @@ BattleScript_BideAttack::
 	clearstatusfromeffect BS_ATTACKER
 	printstring STRINGID_PKMNUNLEASHEDENERGY
 	waitmessage B_WAIT_TIME_LONG
-	accuracycheck BattleScript_MoveMissed, ACC_CURR_MOVE
-	typecalc
-	bicbyte gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
-	copyword gBattleMoveDamage, sBIDE_DMG
-	adjustsetdamage
 	setbyte sB_ANIM_TURN, 1
 	attackanimation
 	waitanimation
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	resultmessage
+	unleashenergy
+	waitmessage B_WAIT_TIME_SHORT
+	fanfare MUS_LEVEL_UP
+	printstring STRINGID_BIDEENERGY
 	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
 BattleScript_BideNoEnergyToAttack::
@@ -5975,6 +5967,7 @@ BattleScript_EffectStuporPower::
 BattleScript_EffectGMaxCuddle::
 	attackcanceler
 	jumpifflagset FLAG_CSR_POWER_IS_ON, BattleScript_EffectHit
+	jumpifflagset FLAG_UNLEASHED_ENERGY, BattleScript_EffectHit
 	attackstring
 	ppreduce
 	printstring STRINGID_GMAX_MOVE

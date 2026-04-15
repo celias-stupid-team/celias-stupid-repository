@@ -7023,7 +7023,7 @@ static const struct LevelUpMove sGolurkLevelUpLearnset[] = {
     LEVEL_UP_MOVE(34, MOVE_ARMOR_CANNON),
     LEVEL_UP_MOVE(36, MOVE_SHADOW_FORCE),
     LEVEL_UP_MOVE(38, MOVE_FLYING_ASCENT),
-    LEVEL_UP_MOVE(40, MOVE_FLY),
+    //LEVEL_UP_MOVE(40, MOVE_FLY),
 	LEVEL_UP_END
 };
 

@@ -1369,7 +1369,7 @@
 #define FLAG_0x4F4               0x4F4
 #define FLAG_0x4F5               0x4F5
 #define FLAG_0x4F6               0x4F6
-#define FLAG_0x4F7               0x4F7
+#define FLAG_UNLEASHED_ENERGY               0x4F7
 #define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_2               0x4F8
 #define ITEM_GAME_GENIE_TM               0x4F9
 #define FLAG_CAUGHT_MR_ICE_BEAM               0x4FA

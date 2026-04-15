@@ -13561,3 +13561,10 @@ void BS_TryFling(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_UnleashEnergy(void) {
+    NATIVE_ARGS();
+    //DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+    FlagSet(FLAG_UNLEASHED_ENERGY);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

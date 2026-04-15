@@ -1961,3 +1961,7 @@
 	callnative BS_SetTypeLarge
 	.byte \battler
 	.endm
+
+	.macro unleashenergy
+	callnative BS_UnleashEnergy
+	.endm
