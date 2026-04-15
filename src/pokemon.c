@@ -706,13 +706,12 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(CASTFORM), // 149
     SPECIES_TO_NATIONAL(MEWTWO), // 150
     SPECIES_TO_NATIONAL(VENUSAUR), // 151
+    [SPECIES_RATTATA_SHINY - 1] = NATIONAL_DEX_RATTATA,      // show Dex no. of regular Rattata
+    [SPECIES_FINALCHARMANDER - 1] = NATIONAL_DEX_CHARMANDER, // show Dex no. of regular Charmander
+
     // Post-National Dex
-    SPECIES_TO_NATIONAL(SCIZOR),
-    SPECIES_TO_NATIONAL(RATTATA_SHINY), //NOT IN YET
-
-
-
     //All this is just here so we don't crash
+    SPECIES_TO_NATIONAL(SCIZOR),
     SPECIES_TO_NATIONAL(CHIKORITA),
     SPECIES_TO_NATIONAL(BAYLEEF),
     SPECIES_TO_NATIONAL(MEGANIUM),
