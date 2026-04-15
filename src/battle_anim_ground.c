@@ -71,6 +71,17 @@ const struct SpriteTemplate gBonemerangSpriteTemplate =
     .callback = AnimBonemerangProjectile,
 };
 
+const struct SpriteTemplate gThrownBiteSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHARP_TEETH,
+    .paletteTag = ANIM_TAG_SHARP_TEETH,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
 const struct SpriteTemplate gClammerangSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CLAM,

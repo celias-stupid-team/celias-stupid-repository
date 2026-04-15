@@ -314,6 +314,17 @@ const struct SpriteTemplate gFireSpinSpriteTemplate =
     .callback = AnimParticleInVortex,
 };
 
+const struct SpriteTemplate gFeatherSpinSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_FEATHER,
+    .paletteTag = ANIM_TAG_WHITE_FEATHER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex,
+};
+
 const struct SpriteTemplate gFlyingSandCrescentSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FLYING_DIRT,

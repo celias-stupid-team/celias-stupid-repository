@@ -127,6 +127,8 @@ static void AnimThrowProtagonist_Step(struct Sprite *sprite);
 static void PSIRockin_ShiftPalette(u8 paletteNum);
 static void AnimPSIRockin(struct Sprite *sprite);
 static void AnimPSIRockin_Step(struct Sprite *sprite);
+void AnimMegaSymbolSprite(struct Sprite *sprite);
+static void AnimMegaSymbolSprite_End(struct Sprite *sprite);
 
 
 // Unused
@@ -1750,6 +1752,15 @@ static const union AffineAnimCmd sGrowAndShrinkAffineAnimCmds[] =
     AFFINEANIMCMD_FRAME(-4, -5, 0, 12),
     AFFINEANIMCMD_FRAME(0, 0, 0, 24),
     AFFINEANIMCMD_FRAME(4, 5, 0, 12),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sGrowWaitAndShrinkAffineAnimCmds[] =
+{
+    AFFINEANIMCMD_FRAME(-4, -5, 0, 12),
+    AFFINEANIMCMD_FRAME(0, 0, 0, 90),
+    AFFINEANIMCMD_FRAME(0, 0, 0, 90),
+    AFFINEANIMCMD_FRAME(4, 5, 0, 4),
     AFFINEANIMCMD_END,
 };
 
@@ -3606,7 +3617,7 @@ const struct SpriteTemplate gMegaSymbolSpriteTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimGhostStatusSprite,
+    .callback = AnimMegaSymbolSprite,
 };
 
 #define sAmplitudeX  data[1]
@@ -4666,6 +4677,16 @@ void AnimTask_GrowAndShrink(u8 taskId)
     u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
     
     PrepareAffineAnimInTaskData(task, spriteId, sGrowAndShrinkAffineAnimCmds);
+    task->func = AnimTask_GrowAndShrink_Step;
+}
+
+// Grows, pauses for a long time, then shrinks the attacking mon.
+void AnimTask_GrowWaitAndShrink(u8 taskId)
+{
+    struct Task* task = &gTasks[taskId];
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    
+    PrepareAffineAnimInTaskData(task, spriteId, sGrowWaitAndShrinkAffineAnimCmds);
     task->func = AnimTask_GrowAndShrink_Step;
 }
 
@@ -7746,4 +7767,61 @@ static void AnimPSIRockin_Step(struct Sprite *sprite)
         //FreeOamMatrix(sprite->oam.matrixNum);
         DestroySpriteAndMatrix(sprite);
     }
+}
+
+void AnimMegaSymbolSprite(struct Sprite *sprite)
+{
+    u16 coeffB, coeffA;
+
+    // Force spawn on attacker
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+
+    // --- original behaviour below ---
+    sprite->x2 = Sin(sprite->data[0], 12);
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        sprite->x2 = -sprite->x2;
+
+    sprite->data[0] = (sprite->data[0] + 6) & 0xFF;
+    sprite->data[1] += 0x100;
+    sprite->y2 = -(sprite->data[1] >> 8);
+
+    ++sprite->data[7];
+
+    if (sprite->data[7] == 1)
+    {
+        sprite->data[6] = 0x050B;
+        SetGpuReg(REG_OFFSET_BLDCNT, (BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_ALL));
+        SetGpuReg(REG_OFFSET_BLDALPHA, sprite->data[6]);
+    }
+    else if (sprite->data[7] > 30)
+    {
+        ++sprite->data[2];
+
+        coeffB = sprite->data[6] >> 8;
+        coeffA = sprite->data[6] & 0xFF;
+
+        if (++coeffB > 16)
+            coeffB = 16;
+
+        --coeffA;
+        if ((s16)coeffA < 0)
+            coeffA = 0;
+
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(coeffA, coeffB));
+        sprite->data[6] = BLDALPHA_BLEND(coeffA, coeffB);
+
+        if (coeffB == 16 && coeffA == 0)
+        {
+            sprite->invisible = TRUE;
+            sprite->callback = AnimMegaSymbolSprite_End;
+        }
+    }
+}
+
+static void AnimMegaSymbolSprite_End(struct Sprite *sprite)
+{
+    SetGpuReg(REG_OFFSET_BLDCNT, 0);
+    SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+    DestroyAnimSprite(sprite);
 }
