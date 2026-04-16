@@ -1960,3 +1960,8 @@
 	callnative BS_TryFling
 	.4byte \failInstr
 	.endm
+
+	.macro setbattleanimtarget battler:req
+	callnative BS_SetBattleAnimTarget
+	.byte \battler
+	.endm

@@ -13566,3 +13566,12 @@ void BS_TryFling(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_SetBattleAnimTarget(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    gBattleSpritesDataPtr->animationData->animTargetOverride = GetBattlerForBattleScript(cmd->battler);
+    gBattleSpritesDataPtr->animationData->animTargetOverrideActive = TRUE; // override is being read in TryHandleLaunchBattleTableAnimation()
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
