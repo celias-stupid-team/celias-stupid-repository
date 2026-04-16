@@ -17309,7 +17309,7 @@ Move_TRUMP_CARD:
 	waitplaysewithpan SE_M_SAND_ATTACK, 0, 2
 	createsprite gExodiaSpriteTemplate, 3, 0, 4, 374  @ top-middle
 	delay 60
-	createvisualtask AnimTask_SummonCircle, 5, 40, 17, 120, 40
+	createvisualtask AnimTask_SummonCircle, 5, 40, 14, 120, 40
 	playsewithpan SE_M_EARTHQUAKE, 0
 	@createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 5, 10
 	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 5, 10
