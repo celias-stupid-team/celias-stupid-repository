@@ -1581,7 +1581,7 @@
 #define FLAG_CSR_MAP_DUMMY_21                                       (SYS_FLAGS + 0xF9)
 #define FLAG_ONE_ISLAND_MAP_AGAIN                                       (SYS_FLAGS + 0xFA)
 #define FLAG_CSR_MAP_ROUTE_9                                        (SYS_FLAGS + 0xFB)
-#define FLAG_0x8FC                                                  (SYS_FLAGS + 0xFC)
+#define FLAG_NEW_GAME_PLUS                                                  (SYS_FLAGS + 0xFC)
 #define FLAG_0x8FD                                                  (SYS_FLAGS + 0xFD)
 #define FLAG_0x8FE                                                  (SYS_FLAGS + 0xFE)
 #define FLAG_CSR_DEX_DUMMY                                          (SYS_FLAGS + 0xFF)
