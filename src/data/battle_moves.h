@@ -6310,8 +6310,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_ALLY_SWITCH] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 10,
+        .effect = EFFECT_BATON_PASS, // Placeholder Effect
+        .power = 0,
         .type = TYPE_FAIRY,
         .accuracy = 0,
         .pp = 35,
@@ -6342,7 +6342,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = 0
+        .flags = 0,
+        .stringId = B_MSG_TM07,
     },
 
     [MOVE_ZAP_TAP] =    {
@@ -6878,7 +6879,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     
 [MOVE_COPYCAT] =    {
-        .effect = EFFECT_MIRROR_MOVE, // Placeholder Effect
+        .effect = EFFECT_ASSIST, // Placeholder Effect
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,

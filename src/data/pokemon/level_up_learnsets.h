@@ -1235,7 +1235,7 @@ static const struct LevelUpMove sGrimerLevelUpLearnset[] = {
 
 static const struct LevelUpMove sMukLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_BELCH),
-    LEVEL_UP_MOVE(1, MOVE_MOONBLAST),
+    LEVEL_UP_MOVE(0, MOVE_MOONBLAST),
     LEVEL_UP_MOVE(1, MOVE_SLUDGE),
     LEVEL_UP_MOVE(1, MOVE_SWEET_SCENT),
     LEVEL_UP_MOVE(1, MOVE_WUMBOIZE),
@@ -7518,6 +7518,7 @@ static const struct LevelUpMove sYveltalLevelUpLearnset[] = {
 
 static const struct LevelUpMove sZygardeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_SNORE),
+    LEVEL_UP_MOVE(0, MOVE_CONVERSION_Z),
     LEVEL_UP_MOVE(1, MOVE_NIHIL_LIGHT),
     LEVEL_UP_MOVE(1, MOVE_OBLIVION_ZING),
     LEVEL_UP_MOVE(1, MOVE_ZEOMANCY),
