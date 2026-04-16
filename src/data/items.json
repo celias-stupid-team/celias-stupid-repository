@@ -6061,7 +6061,7 @@
     {
       "english": "FOCUS SASH",
       "itemId": "ITEM_FOCUS_SASH",
-      "price": 50,
+      "price": 138,
       "holdEffect": "HOLD_EFFECT_FOCUS_SASH",
       "holdEffectParam": 10,
       "description_english": "If the holder has\\nfull HP, it endures\\nKO hits with 1 HP.",
@@ -6381,7 +6381,7 @@
     {
       "english": "GRASS ENERGY",
       "itemId": "ITEM_GRASS_ENERGY",
-      "price": 500,
+      "price": 4000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "Raises the ATTACK stat of POKéMON\\nin battle. Wears off if the POKéMON\\nis withdrawn.",
