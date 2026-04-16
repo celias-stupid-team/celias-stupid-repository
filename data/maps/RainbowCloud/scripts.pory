@@ -7,6 +7,7 @@ mapscripts RainbowCloud_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_FINAL_SHINY)) {
 			setmaplayoutindex(LAYOUT_RAINBOW_CLOUD_FINAL_SHINY)
+			playbgm(MUS_THE_MOON, TRUE)
 		}
 	}
 	MAP_SCRIPT_ON_RESUME {
@@ -81,7 +82,7 @@ script RainbowCloud_FindTheShinies {
 		msgbox(
 		"PROGRESS:{PAUSE 30}\n"
 		"{STR_VAR_3}/150", MSGBOX_DEFAULT)
-		if(var(VAR_0x8006) == 150) {
+		if(var(VAR_0x8006) >= 150) {
 			fadenewbgm(MUS_NONE)
 			delay(120)
 			playse(SE_M_MEGA_KICK)
@@ -93,6 +94,9 @@ script RainbowCloud_FindTheShinies {
 			setflag(FLAG_FINAL_SHINY)
 			fadescreeninstant(FADE_FROM_WHITE)
 			playse(SE_SHINY)
+			waitse
+			delay(45)
+			playbgm(MUS_THE_MOON, TRUE)
 			release
 			end
 
