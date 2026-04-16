@@ -1133,7 +1133,7 @@ gBattleAnims_Moves::
 	.4byte Move_SHROOMBURST
 	.4byte Move_SHROOM_DESIRE
 	.4byte Move_LUCKY_PANT
-	.4byte Move_WURMPLE_BEAM_
+	.4byte Move_WURMPLE_BEAM
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -30189,11 +30189,194 @@ GregoryAttack:
 	blendoff
 	goto GregoryEnd
 
-	Move_COMEUPPANTS:
-	Move_STRING_SHORT:
-	Move_GYRO_MITE:
-	Move_SHROOMBURST:
-	Move_SHROOM_DESIRE:
-	Move_LUCKY_PANT:
-	Move_WURMPLE_BEAM_:
-		goto Move_TACKLE
+Move_GYRO_MITE:
+	loadspritegfx ANIM_TAG_GYRO
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
+	createsprite gGyroSpinSpriteTemplate, ANIM_ATTACKER, 2, -24, 27, 0, -4, 8, 62, 0, 0
+	delay 67
+	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
+	createsprite gGyroThrowSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, 0, 22, 20, 1
+	delay 10
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 6, 0, 6, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 6, 0, 6, 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
+Move_COMEUPPANTS:
+Move_LUCKY_PANT:
+	goto Move_TACKLE
+
+
+Move_SHROOM_DESIRE:
+	loadspritegfx ANIM_TAG_MUSHROOM
+	waitplaysewithpan SE_M_ATTRACT2, 0, 15
+	createvisualtask AnimTask_HeartsBackground, 5
+	createsprite gSmallMushroomRisingSpriteTemplate, ANIM_ATTACKER, 40, 16, 256, 0
+	createsprite gBigMushroomRisingSpriteTemplate, ANIM_ATTACKER, 40, 224, 240, 15
+	createsprite gSmallMushroomRisingSpriteTemplate, ANIM_ATTACKER, 40, 126, 272, 30
+	createsprite gBigMushroomRisingSpriteTemplate, ANIM_ATTACKER, 40, 80, 224, 45
+	createsprite gSmallMushroomRisingSpriteTemplate, ANIM_ATTACKER, 40, 170, 272, 60
+	createsprite gBigMushroomRisingSpriteTemplate, ANIM_ATTACKER, 40, 40, 256, 75
+	createsprite gSmallMushroomRisingSpriteTemplate, ANIM_ATTACKER, 40, 112, 256, 90
+	createsprite gBigMushroomRisingSpriteTemplate, ANIM_ATTACKER, 40, 200, 272, 90
+	delay 75
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 4, 4, 0, 10, RGB(31, 25, 27)
+	end
+
+Move_SHROOMBURST:
+	loadspritegfx ANIM_TAG_EXPLOSION
+	loadspritegfx ANIM_TAG_MUSHROOM
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 8, 9, RGB(26, 8, 8), 8, RGB_BLACK, 8
+	createvisualtask AnimTask_ShakeMon2, 5, 4, 8, 0, 40, 1
+	createvisualtask AnimTask_ShakeMon2, 5, 5, 8, 0, 40, 1
+	createvisualtask AnimTask_ShakeMon2, 5, 6, 8, 0, 40, 1
+	createvisualtask AnimTask_ShakeMon2, 5, 7, 8, 0, 40, 1
+	createvisualtask AnimTask_ShakeMon2, 5, 8, 8, 0, 40, 1
+	call Explosion1
+	call Explosion1
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 16, 16, RGB_WHITE
+	delay 50
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 3, 16, 0, RGB_WHITE
+	waitforvisualfinish
+	
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 220, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 60, 100
+	waitplaysewithpan SE_M_BUBBLE2, 0, 25
+	delay 2
+	createsprite gThrownBigMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 140, 55
+	waitplaysewithpan SE_M_BUBBLE2, 0, 14
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 180, 50
+	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	delay 2
+	createsprite gThrownBigMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 20, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gThrownBigMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 90, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 160, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 30, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 120, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gThrownBigMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 200, 40
+	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 220, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 60, 100
+	waitplaysewithpan SE_M_BUBBLE2, 0, 25
+	delay 2
+	createsprite gThrownBigMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 140, 55
+	waitplaysewithpan SE_M_BUBBLE2, 0, 14
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 180, 50
+	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	delay 2
+	createsprite gThrownBigMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 20, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 90, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 160, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gThrownBigMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 30, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gThrownBigMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 120, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 200, 40
+	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	end
+
+Move_STRING_SHORT:
+	loadspritegfx ANIM_TAG_KNIT_SHORTS
+	loadspritegfx ANIM_TAG_WEB_THREAD
+	loadspritegfx ANIM_TAG_PANTS_STRING
+	monbg ANIM_DEF_PARTNER
+	delay 0
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 5, F_PAL_BG, 2, 0, 9, RGB_BLACK
+	waitforvisualfinish
+	loopsewithpan SE_M_STRING_SHOT, SOUND_PAN_ATTACKER, 9, 6
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	createsprite gKnitShortsSpriteTemplate, ANIM_ATTACKER, 2, 0, -8, 0, 0, 0, 140, 0, 1
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	call StringShortThread
+	delay 60
+	playsewithpan SE_M_STRING_SHOT2, SOUND_PAN_TARGET
+	createsprite gPantsStringSpriteTemplate, ANIM_TARGET, 2, 0, -26
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	delay 1
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 5, F_PAL_BG, 2, 9, 0, RGB_BLACK
+	end
+
+StringShortThread:
+	createsprite gShortsThreadSpriteTemplate, ANIM_TARGET, 2, 20, 0, 512, 20, 1
+	delay 1
+	return
+
+
+Move_WURMPLE_BEAM:
+	loadspritegfx ANIM_TAG_WURMPLE_HEAD
+	loadspritegfx ANIM_TAG_DUCK
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 25, 1
+	delay 6
+	panse SE_M_BUBBLE_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +1, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call WurmpleHeads
+	call WurmpleHeads
+	call WurmpleHeads
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 25, 1
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_TARGET, 8, 5, RGB_RED, 8, RGB(31, 0, 30), 8
+	call WurmpleHeads
+	call WurmpleHeads
+	call WurmpleHeads
+	call WurmpleHeads
+	call WurmpleHeads
+	call WurmpleHeads
+	call WurmpleHeads
+	call WurmpleHeads
+	call WurmpleHeads
+	waitforvisualfinish
+	end
+
+WurmpleHeads:
+	createsprite gWurmpleBeamRedHeadSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, 16
+	createsprite gWurmpleBeamPurpleHeadSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, -16
+	delay 2
+	return

@@ -829,6 +829,30 @@ const struct SpriteTemplate gSwiftStarSpriteTemplate =
     .callback = AnimTranslateLinearSingleSineWave,
 };
 
+
+static const union AnimCmd sGyroAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sGyroAnimTable[] =
+{
+    sGyroAnimCmds,
+};
+
+const struct SpriteTemplate gGyroThrowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GYRO,
+    .paletteTag = ANIM_TAG_GYRO,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sGyroAnimTable,
+    .images = NULL,
+    .affineAnims = sSwiftStarAffineAnimTable,
+    .callback = AnimTranslateLinearSingleSineWave,
+};
+
 const struct SpriteTemplate gMoviesFreeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MOVIE_FILE,

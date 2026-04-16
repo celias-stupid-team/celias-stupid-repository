@@ -225,6 +225,46 @@ const struct SpriteTemplate gThrownKrabbySpriteTemplate =
     .callback = AnimMakeItRain,
 };
 
+static const union AnimCmd sSmallMushroomAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sBigMushroomAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMushroomsAnimTable[] =
+{
+    sSmallMushroomAnimCmds,
+    sBigMushroomAnimCmds,
+};
+
+const struct SpriteTemplate gThrownSmallMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gThrownBigMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
 const struct SpriteTemplate gThrownMistySpriteTemplate =
 {
     .tileTag = ANIM_TAG_MISTY,
