@@ -637,10 +637,9 @@ script SeafoamIslands_ZubatWall {
 		checkfieldmove(MOVE_BRICK_BREAK)
 		setfieldeffectargument(0, VAR_RESULT)
 
-		bufferpartymonnick(STR_VAR_1, VAR_RESULT)
-		buffermovename(STR_VAR_2, MOVE_BRICK_BREAK)
-
-		msgbox(Text_MonUsedMove)
+		msgbox(
+		"{PLAYER} used BRICK BREAK…\n"
+		"", MSGBOX_DEFAULT)
 		closemessage
 		setfieldeffectargument(0, VAR_RESULT)
 		dofieldeffect(FLDEFF_USE_ROCK_SMASH)

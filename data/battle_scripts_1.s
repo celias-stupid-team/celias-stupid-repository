@@ -3266,6 +3266,11 @@ BattleScript_LocalBattleLostEnd::
 BattleScript_EReaderOrSecretBaseTrainerEnd::
 	end2
 
+BattleScript_SingleMonDoubleBattleLost::
+	printstring STRINGID_DOUBLEBATTLECHEATER
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_LocalBattleLostPrintTrainersWinText::
 	printstring STRINGID_PLAYERWHITEDOUT
 	waitmessage B_WAIT_TIME_LONG
@@ -6423,8 +6428,9 @@ BattleScript_EffectFling::
 	ppreduce
 	tryfling BattleScript_ButItFailed
 	removeitem BS_ATTACKER
-	attackanimation
-	waitanimation
+	@ attackanimation
+	@ waitanimation
+	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PKMNFLUNG
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_EffectHit

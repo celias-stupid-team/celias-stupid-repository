@@ -1295,11 +1295,11 @@ static const struct LevelUpMove sHaunterLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_FURY_SWIPE_1),
     LEVEL_UP_MOVE(1, MOVE_FURY_SWIPE_2),
     //LEVEL_UP_MOVE(1, MOVE_NIGHT_SHADE),
-    LEVEL_UP_MOVE(1, MOVE_PAY_DAY),
     LEVEL_UP_MOVE(1, MOVE_SHADOW_FORCE_CANCEL),
     LEVEL_UP_MOVE(1, MOVE_RAZOR_WIND_CANCEL),
-    LEVEL_UP_MOVE(1, MOVE_DIG_CANCEL),
+    //LEVEL_UP_MOVE(1, MOVE_DIG_CANCEL),
     LEVEL_UP_MOVE(1, MOVE_DIVE_CANCEL),
+    LEVEL_UP_MOVE(1, MOVE_PAY_DAY),
     LEVEL_UP_END
 };
 
@@ -1754,12 +1754,14 @@ static const struct LevelUpMove sMrMimeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(2, MOVE_BARRIER),
     LEVEL_UP_MOVE(2, MOVE_DOUBLE_DAD),
     LEVEL_UP_MOVE(20, MOVE_MISTER),
-    LEVEL_UP_MOVE(25, MOVE_SUBSTITUTE),
+    //LEVEL_UP_MOVE(25, MOVE_SUBSTITUTE),
     LEVEL_UP_MOVE(28, MOVE_DADDLING_GLEAM),
     LEVEL_UP_MOVE(30, MOVE_CHILLY_RECEPTION),
+    LEVEL_UP_MOVE(31, MOVE_DOUBLE_DAD),
     LEVEL_UP_MOVE(32, MOVE_LIQUIDADTION),
     LEVEL_UP_MOVE(34, MOVE_MISTER_TERRAIN),
     LEVEL_UP_MOVE(34, MOVE_MISTER_EXPLOSION),
+    LEVEL_UP_MOVE(35, MOVE_DOUBLE_DAD),
     LEVEL_UP_MOVE(37, MOVE_DADDY_DAD),
     LEVEL_UP_MOVE(40, MOVE_POPULATION_BOMB),
     LEVEL_UP_END
@@ -10506,6 +10508,31 @@ static const struct LevelUpMove sARCEUSLASTLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sNOTHINGLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sDITTOBLIZLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sIRONMASKLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sZOMBONLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sTINKANETTELevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sRICKETOTLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };

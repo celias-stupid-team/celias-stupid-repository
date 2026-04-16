@@ -228,6 +228,7 @@
 #define TRAINER_PIC_STARLIGHT   206
 #define TRAINER_PIC_KIMONO   207
 #define TRAINER_PIC_STARLIGHTSPRITE   208
+#define TRAINER_PIC_HAKARI_BLIZ   209
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
@@ -378,6 +379,7 @@
 #define TRAINER_CLASS_ARTIST 132
 #define TRAINER_CLASS_KIMONO 133
 #define TRAINER_CLASS_PLASTO 134
+#define TRAINER_CLASS_HAKARI_BLIZ 135
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

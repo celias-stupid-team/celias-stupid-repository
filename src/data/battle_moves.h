@@ -550,7 +550,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_POISON_STING] =
     {
-        .effect = EFFECT_POISON_HIT,
+        .effect = EFFECT_HIT,
         .power = 30,
         .type = TYPE_POISON,
         .accuracy = 100,
@@ -1657,7 +1657,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SMOG] =
     {
-        .effect = EFFECT_POISON_HIT,
+        .effect = EFFECT_HIT,
         .power = 20,
         .type = TYPE_POISON,
         .accuracy = 70,
@@ -1670,7 +1670,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SLUDGE] =
     {
-        .effect = EFFECT_POISON_HIT,
+        .effect = EFFECT_HIT,
         .power = 65,
         .type = TYPE_POISON,
         .accuracy = 100,
@@ -3817,14 +3817,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GRUDGE] =
     {
-        .effect = EFFECT_GRUDGE,
-        .power = 0,
-        .type = TYPE_GHOST,
+        .effect = EFFECT_RECHARGE,
+        .power = 150,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
@@ -7191,7 +7191,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 [MOVE_MAX_AIRSTREAM] =    {
         .effect = EFFECT_G_MAX_CUDDLE, // Placeholder Effect
         .power = 100,
-        .type = TYPE_FLYING,
+        .type = TYPE_LARGE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -7936,7 +7936,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 20,
-        .secondaryEffectChance = 40,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,

@@ -391,10 +391,10 @@ script Route23_EventScript_ThunderBadgeGuardTrigger {
 	lockall
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	setvar (VAR_TEMP_1, 3)
-	msgbox(
-	"You can pass here only if you have\n"
-	"the PHOTOSENSITIVE BADGE.", MSGBOX_DEFAULT)
 	if(flag(FLAG_BADGE03_GET)) {
+		msgbox(
+		"You can pass here only if you have\n"
+		"the PHOTOSENSITIVE BADGE.", MSGBOX_DEFAULT)
 		msgbox(
 		"Oh!\n"
 		"That is the PHOTOSENSITIVE BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
@@ -410,20 +410,38 @@ script Route23_EventScript_ThunderBadgeGuardTrigger {
 		}
 	} else {
 		msgbox(
-		"You don't have the\n"
-		"PHOTOSENSITIVE BADGE yet.\p"
+		"You can pass here only if you have\n"
+		"the RAINBOW BADGE.", MSGBOX_DEFAULT)
+		if(flag(FLAG_BADGE04_GET)) {
+				msgbox(
+				"Oh!\n"
+				"That is the RAINBOW BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
 
-		"You have to have it to get to\n"
-		"the POKéMON LEAGUE.", MSGBOX_DEFAULT)
-		waitmessage
-		playse(SE_BOO)
-		waitbuttonpress
-		closemessage
-		waitse
-		applymovement(LOCALID_PLAYER, moves(
-			walk_down
-		))
-		waitmovement(0)
+				"Okay, then.\n"
+				"Please, go right ahead.", MSGBOX_DEFAULT)
+				if(flag(FLAG_BADGE08_GET)) {
+					setvar(VAR_MAP_SCENE_ROUTE23, 3)
+
+				} else {
+					setvar(VAR_MAP_SCENE_ROUTE23, 9)
+
+				}
+			}
+			msgbox(
+			"You don't have the\n"
+			"RAINBOW BADGE yet.\p"
+
+			"You have to have it to get to\n"
+			"the POKéMON LEAGUE.", MSGBOX_DEFAULT)
+			waitmessage
+			playse(SE_BOO)
+			waitbuttonpress
+			closemessage
+			waitse
+			applymovement(LOCALID_PLAYER, moves(
+				walk_down
+			))
+			waitmovement(0)
 	}
 	release
 	end

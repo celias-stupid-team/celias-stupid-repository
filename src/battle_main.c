@@ -64,6 +64,7 @@ static void HandleAction_ActionFinished(void);
 static void HandleEndTurn_ContinueBattle(void);
 static void HandleEndTurn_BattleWon(void);
 static void HandleEndTurn_BattleLost(void);
+static void HandleEndTurn_SingleMonDoubleBattleLost(void);
 static void HandleEndTurn_RanFromBattle(void);
 static void HandleEndTurn_LeftBattle(void);
 static void HandleEndTurn_MonFled(void);
@@ -492,6 +493,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_ARTIST, 50},
     {TRAINER_CLASS_KIMONO, 50},
     {TRAINER_CLASS_PLASTO, 50},
+    {TRAINER_CLASS_HAKARI_BLIZ, 50},
     
     { 0xFF, 5},
 };
@@ -2868,6 +2870,15 @@ static void TryDoEventsBeforeFirstTurn(void)
     if (gBattleControllerExecFlags)
         return;
 
+    // If this is a double battle and the player only has one usable mon, lose immediately.
+    if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && !(gBattleTypeFlags & BATTLE_TYPE_LINK)
+     && GetMonsStateToDoubles() == PLAYER_HAS_ONE_MON)
+    {
+        gBattleOutcome = B_OUTCOME_LOST;
+        gBattleMainFunc = HandleEndTurn_SingleMonDoubleBattleLost;
+        return;
+    }
+
     if (gBattleStruct->switchInAbilitiesCounter == 0)
     {
         for (i = 0; i < gBattlersCount; i++)
@@ -4010,6 +4021,13 @@ static void HandleEndTurn_BattleLost(void)
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
+static void HandleEndTurn_SingleMonDoubleBattleLost(void)
+{
+    gCurrentActionFuncId = 0;
+    gBattlescriptCurrInstr = BattleScript_SingleMonDoubleBattleLost;
+    gBattleMainFunc = HandleEndTurn_FinishBattle;
+}
+
 static void HandleEndTurn_RanFromBattle(void)
 {
     gCurrentActionFuncId = 0;
@@ -4861,6 +4879,13 @@ void BattleDebug_WonBattle(void)
 void BattleDebug_LeftBattle(void)
 {
     gBattleOutcome = B_OUTCOME_LEFT_BATTLE;
+    gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
+}
+
+// Loses the battle instantly.
+void BattleDebug_LostBattle(void)
+{
+    gBattleOutcome = B_OUTCOME_LOST;
     gBattleMainFunc = sEndTurnFuncsTable[gBattleOutcome & 0x7F];
 }
 

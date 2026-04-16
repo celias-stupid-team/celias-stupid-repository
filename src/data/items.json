@@ -2838,7 +2838,7 @@
       "price": 20,
       "holdEffect": "HOLD_EFFECT_TOXIC_BERRY",
       "holdEffectParam": 0,
-      "description_english": "If eaten, the POKéMON holding the berry\\nwill faint.",
+      "description_english": "By brittany spears.\\nIt's question marks because idfk",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -4656,7 +4656,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "AuroraBeam"
+      "moveId": "PSIRockin"
     },
     {
       "english": "TM03",
@@ -4724,7 +4724,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Toxic"
+      "moveId": "Shoot"
     },
     {
       "english": "TM07",
@@ -4860,7 +4860,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Psystorm"
+      "moveId": "SteelWing"
     },
     {
       "english": "TM15",
@@ -4877,7 +4877,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Splash"
+      "moveId": "Barrage"
     },
     {
       "english": "TM16",
@@ -5115,7 +5115,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "IceBeam"
+      "moveId": "AuroraBeam"
     },
     {
       "english": "TM30",
@@ -5234,7 +5234,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "RazorWind"
+      "moveId": "GameGenie"
     },
     {
       "english": "TM37",
@@ -5251,7 +5251,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Sandstorm"
+      "moveId": "MilkDrink"
     },
     {
       "english": "TM39",
@@ -5302,7 +5302,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "DragonRage"
+      "moveId": "RipRoaring"
     },
     {
       "english": "TM41",
@@ -6501,7 +6501,7 @@
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "fieldUseFunc": "FieldUseFunc_SandwichCase",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
@@ -7296,7 +7296,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "DUMMY DESCRIPTION",
+      "description_english": "The rarest and most bullshit item\\nin the game. Doubles the ATTACK\\nof MELTAN.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

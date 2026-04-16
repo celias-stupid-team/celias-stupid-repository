@@ -50,6 +50,60 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "GreatSea_ShortFight",
       "flag": "FLAG_HALF_ISLAND_SHORT"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 9,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecret_999",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
+      "x": 24,
+      "y": 6,
+      "target_local_id": "12",
+      "target_map": "MAP_ONE_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
+      "x": 23,
+      "y": 21,
+      "target_local_id": "7",
+      "target_map": "MAP_ONE_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_WHIRLPOOL",
+      "x": 26,
+      "y": 12,
+      "target_local_id": "8",
+      "target_map": "MAP_ONE_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": -4,
+      "y": -1,
+      "target_local_id": "15",
+      "target_map": "MAP_ROUTE18"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": -3,
+      "y": 10,
+      "target_local_id": "7",
+      "target_map": "MAP_ZERO_ISLAND"
     }
   ],
   "warp_events": [],

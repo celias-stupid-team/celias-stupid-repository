@@ -1101,6 +1101,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_HEAVYDUTYBOOTSPROTECT - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} prevented damage\nusing its HEAVY-DUTY ROOTS!"),
     [STRINGID_SMEARGLE - BATTLESTRINGS_TABLE_START]                      = COMPOUND_STRING("But it failed!\pGAME FREAK has decided to nerf the\nmove so only DARKRAI can use it!"),
     [STRINGID_GREGORYBLASTCHARGE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} prepares\nhis ultimate attack!"),
+    [STRINGID_DOUBLEBATTLECHEATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("You are not allowed to battle with\nonly one party member, cheater!\p"),
 
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };

@@ -260,6 +260,11 @@ script TwoIsland_OnTransition {
 	if(flag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)) {
 		setobjectmovementtype(LOCALID_DRAGONITE_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
 	}
+	if(flag(FLAG_TM02_GOT)) {
+		setobjectmovementtype(LOCALID_ROCKIN_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
+	}
+
+	
 	if(flag(FLAG_TWO_ISLAND_FUCK_PRESENT)) {
 		setobjectmovementtype(LOCALID_HBOX_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
 	}
@@ -328,6 +333,27 @@ script TwoIsland_DragonitePresent {
 	"BAG OF DRAGONITE!",ITEM_BAG_OF_DRAGONITE, 1)
 	waitfanfare
 	setflag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)
+	release
+	end
+}
+
+
+script TwoIsland_RockinPresent {
+	lock
+	if(flag(FLAG_TM02_GOT)) {
+		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+	))
+	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	giveitem_msg("There was a TM02!\n"
+	"It contains PSI ROCKIN!",ITEM_TM02, 1)
+	waitfanfare
+	setflag(FLAG_TM02_GOT)
 	release
 	end
 }
@@ -1171,6 +1197,7 @@ script TwoIsland_TerritorialOak {
 	closemessage
 	delay(30)
 	playse(SE_M_EXPLOSION)
+	setflag(FLAG_TWO_ISLAND_TERRITORIAL_OAK)
 	removeobject(LOCALID_TWOISLAND_TERRITORIALOAK)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_1)
 	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_2)

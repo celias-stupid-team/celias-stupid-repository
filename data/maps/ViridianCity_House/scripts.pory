@@ -1509,6 +1509,32 @@ script CeliaSecret_HalfSign {
 
 }
 
+script CeliaSecret_Palworld {
+	msgbox(
+	"Look, I don't {ASTERISK}like{ASTERISK} PALWORLD.\p"
+
+	"But disliking a lazy, derivative\n"
+	"slop fest is not enough to make me\l"
+	"abandon my principles.\p"
+
+	"Corporate ownership and monopoly\n"
+	"over creative choices is bullshit.\l"
+	"I will not support Pokemon on this.", MSGBOX_NPC)
+}
+
+script CeliaSecret_FourDayCare {
+	msgbox(
+	"In vanilla Four Island, the Day\n"
+	"Care is on the left side of town.\p"
+
+	"But! I thought that'd be too soon\n"
+	"after the last Furret House bit,\l"
+	"so I moved it to this side of the\l"
+	"island to put some space between.", MSGBOX_NPC)
+}
+
+
+
 script CeliaSecret_FourIslandIntro {
 	msgbox(
 	"Took me like 20 iterations to\n"
@@ -1900,8 +1926,1713 @@ script CeliaSecret_NewGamePlus {
 			msgbox(
 			"Gotcha!\n"
 			"Have fun!", MSGBOX_DEFAULT)
+			additem(ITEM_CANDY_DISPENSER)
 			removeobject(VAR_LAST_TALKED)
 		}
 		release
 		end
+}
+
+
+script CeliaSecret_MinnesotaSize {
+	msgbox(
+	"When my mapmaker Starlight made\n"
+	"Minnesota, the first draft of the\l"
+	"map was about 4x the size of the\l"
+	"rest of Kanto combined.\p"
+
+	"Needless to say, we had a little\n"
+	"talk about that LOL", MSGBOX_NPC)
+}
+
+script CeliaSecret_WorldWrap {
+	msgbox(
+	"Making the game world loop back on\n"
+	"itsself was one of the big things\l"
+	"I wanted for the great sea.\p"
+
+	"Mostly because having a giant wall\n"
+	"of rocks at the border would've\l"
+	"been super boring.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Hakari {
+	msgbox(
+	"Hakari joined the dev team like\n"
+	"one month before the release.\p"
+
+	"Despite this, he IMMEDIATELY\n"
+	"picked up on the vibe, and his\l"
+	"move animations are incredible.\p"
+
+	"Excellent work!\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_Pittsburg {
+	msgbox(
+	"Go to wplace to see the Celia I\n"
+	"drew near Pittsburg!", MSGBOX_NPC)
+}
+
+script CeliaSecret_Golurk {
+	msgbox(
+	"There was gonna be a secret here\n"
+	"for bringing this guy a Golurk.\p"
+
+	"Golurk is, famously, green.\p"
+
+	"Unfortuantely FRLG doesn't show\n"
+	"Pokedex Color by default, so I\l"
+	"had to scrap the secret.", MSGBOX_NPC)
+}
+
+script CeliaSecret_MartDialogue {
+	msgbox(
+	"I really hate writing Mart NPCS.\p"
+
+	"What the fuck do you make them\n"
+	"say?", MSGBOX_NPC)
+}
+
+script CeliaSecret_NoZubats {
+	msgbox(
+	"In Mt Moon, the game very heavily\n"
+	"implies that Zubats will be all\l"
+	"over the ocean.\p"
+
+	"This is compounded with trainers\n"
+	"having them with Shadow Tag.\p"
+
+	"By the time you actually get to the\n"
+	"Great Sea, you've probably already\l"
+	"forgotten about them.\p"
+
+	"This lady reminds you Oh Yeah, I'm\n"
+	"Supposed To Be Annoyed Right Now.", MSGBOX_NPC)
+}
+
+script CeliaSecret_BidoofInSilph {
+	msgbox(
+	"This NPC has moved places like 20\n"
+	"times.\p"
+
+	"At first she was on Four Island,\n"
+	"but then I put her in Saffron to\l"
+	"get people to finish Silph.\p"
+
+	"But after moving her, people were\n"
+	"having trouble remembering that\l"
+	"Silph exists.\p"
+
+	"Thus, she's now here to push you\n"
+	"to go back there.", MSGBOX_NPC)
+}
+
+script CeliaSecret_LongRangeCut {
+	msgbox(
+	"I wanted you to be able to cut this\n"
+	"guy long range across the conuter.\p"
+
+	"Sadly it proved to be too hard with\n"
+	"how Cut works in the engine, so I\l"
+	"had to cut it.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Sheldon {
+	msgbox(
+	"He went to college!\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Genocide {
+	msgbox(
+	"Genocide route…\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_AroundTheWorld {
+	msgbox(
+	"This girl despawns from the little\n"
+	"island above sooner than I'd like.\p"
+
+	"Oh well.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Entei {
+	msgbox(
+	"Filling the world with clues to\n"
+	"the Arcanine Gun puzzle was tricky.\p"
+
+	"They needed to feel like one-off\n"
+	"jokes in isolation, and only with\l"
+	"context you'd know they were more.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Superbowl {
+	msgbox(
+	"I love the superb owl.\n"
+	"I look forward to it every year.\p"
+
+	"Anyway, look up Look How Calm\n"
+	"She Is for my favorite gif ever.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_MagnetTrain {
+	msgbox(
+	"The subway loopback here from\n"
+	"Saffron was to keep Waterfall\l"
+	"gated until after you did Silph.\p"
+
+	"I did everything in my power to\n"
+	"get people to do Seafoam before\l"
+	"doing Bill's Garden so they could\l"
+	"see the north/south loopback.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_MiltankPhilosophy {
+	msgbox(
+	"In the game's code, I dubbed this\n"
+	"exchange, “Miltank Philosophy”.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_MiltankScratch {
+	msgbox(
+	"A scrapped puzzle here was that the\n"
+	"Miltank was sick, so you needed to\l"
+	"heal it up.\p"
+
+	"Berries wouldn't work, so you'd\n"
+	"need to use a move that heals.\p"
+
+	"Rest would be an option, but you\n"
+	"could also use Scratch for the 1/8\l"
+	"heal chance.\p"
+
+	"If you did Scratch, the Miltank\n"
+	"would die and the girl would sell\l"
+	"you a hamburger.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_SurfSprite {
+	msgbox(
+	"For some reason, the player's\n"
+	"surf sprite gets copied every\l"
+	"32 tiles off screen.\p"
+
+	"When the camera moves, you could\n"
+	"see the surf sprite copies and\l"
+	"it looked glitchy.\p"
+
+	"You can still see one of them during\n"
+	"the cutscene, but I covered the\l"
+	"second up with clever tile\l"
+	"layering.\p"
+
+	"It would've been right here.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_EnvironmentalStorytelling {
+	msgbox(
+	"Love this.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_TwoIslandIntro {
+	msgbox(
+	"The hardest part of each area was\n"
+	"finding their Opening Line, to\l"
+	"introduce the vibe to the player.\p"
+
+	"Thankfully, I could lift this one\n"
+	"straight from Earthbound.", MSGBOX_NPC)
+}
+
+script CeliaSecret_TwoIslandBeds {
+	msgbox(
+	"I hate making properly-layered\n"
+	"beds more than anyone could\l"
+	"possibly imagine.", MSGBOX_NPC)
+}
+
+script CeliaSecret_TwoIslandDoors {
+	msgbox(
+	"I hate making door animations\n"
+	"more than anyone would possibly\l"
+	"imagine.", MSGBOX_NPC)
+}
+
+script CeliaSecret_TwoIslandProstitute {
+	msgbox(
+	"If you're confused about this,\n"
+	"look up Earthbound Prostitute Bug.\p"
+
+	"I think that should maybe get you\n"
+	"what you need.", MSGBOX_NPC)
+}
+
+script CeliaSecret_TwoIslandMrT {
+	msgbox(
+	"It was hard to include a Mr. T\n"
+	"joke without it being tooooooooo\l"
+	"on the nose.", MSGBOX_NPC)
+}
+
+script CeliaSecret_TwoIslandQuarter {
+	msgbox(
+	"There's an easter egg if you try\n"
+	"to spend the Quarter here!", MSGBOX_NPC)
+}
+
+script CeliaSecret_ForSale {
+	msgbox(
+	"This was one of the first bits\n"
+	"for the game I ever wrote!\p"
+
+	"It took me almost two years to get\n"
+	"to the part of the game where I\l"
+	"could show it off, but it sure\l"
+	"lived up to the hype.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Sans {
+	msgbox(
+	"I made the comic sans font myself.\p"
+
+	"Too Many Types 2 may have beaten me\n"
+	"to the Sans punch, but I got the\l"
+	"font right and they didn't :)", MSGBOX_NPC)
+}
+
+script CeliaSecret_GreenPaint {
+	msgbox(
+	"We wanted to include a Green Paint\n"
+	"that was exclusively in Japanese.\p"
+
+	"Sadly actually using the Japanese\n"
+	"font is kinda obnoxious, so we\l"
+	"canned the idea.", MSGBOX_NPC)
+}
+
+script CeliaSecret_WaterfallsExist {
+	msgbox(
+	"This guy exists because no one\n"
+	"remembered the fucking waterfall.", MSGBOX_NPC)
+}
+
+script CeliaSecret_SaturnHouse {
+	msgbox(
+	"I really wanted to give this guy\n"
+	"Mr Saturn font, but I couldn't get\l"
+	"it to look good in the size limit.\p"
+
+	"Alas, he's got regular text\n"
+	"instead.\lBoing!", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_LegendaryRedCelia {
+	msgbox(
+	"At some point I really just gave\n"
+	"up on NPC flavor text.", MSGBOX_NPC)
+}
+
+script CeliaSecret_CoveredSign {
+	msgbox(
+	"There is no avenue through which\n"
+	"I won't fuck with you.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Elevators {
+	msgbox(
+	"The first few elevators all had\n"
+	"to have “Generic” flavor text\l"
+	"cuz the player could see any of\l"
+	"them first.\p"
+
+	"After those ones, I was free to\n"
+	"start making them sillier.", MSGBOX_NPC)
+}
+
+script CeliaSecret_OutToLunch {
+	msgbox(
+	"These guys go out to lunch cuz I\n"
+	"couldn't be bothered to write\l"
+	"post-silph dialogue for them.", MSGBOX_NPC)
+}
+
+script CeliaSecret_DittoOrder {
+	msgbox(
+	"We tried like 9 different ways of\n"
+	"laying out the multi-truck Ditto.\p"
+
+	"Personally I'm still not fully\n"
+	"happy with this one, but hey.\l"
+	"It'll do.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_PirateDocks {
+	msgbox(
+	"The layering on these docks was\n"
+	"nightmarishly hard.\p"
+
+	"Between walking under them on\n"
+	"the beach, walking over them from\l"
+	"the mainland, and being able to\l"
+	"surf from them, none of it worked\l"
+	"out of the box.\p"
+
+	"These rocks are here to mask the\n"
+	"transition from one elevation\l"
+	"to another.", MSGBOX_NPC)
+}
+
+script CeliaSecret_PorygonConfusion {
+	msgbox(
+	"This slightly adds some Porygon\n"
+	"confusion, but hey.\p"
+
+	"People can figure it out.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_BreakTheSeal {
+	msgbox(
+	"This lady's hint has gone through\n"
+	"tons of iterations.\p"
+
+	"Sometimes it was Destroy the Seal,\n"
+	"sometimes it was Break or smth.\p"
+
+	"It's hard to make it clear what to\n"
+	"do without being so direct that\l"
+	"it's not fun.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_DiveSpots {
+	msgbox(
+	"The dark spots in the water are\n"
+	"supposed to be paths you can\l"
+	"follow while exploring.\p"
+
+	"Unfortunately, most people just\n"
+	"assume it's dive.", MSGBOX_NPC)
+}
+
+script CeliaSecret_PirateHuts {
+	msgbox(
+	"These huts are all blocked because\n"
+	"fuck making new individual maps\l"
+	"for the indoors of houses.", MSGBOX_NPC)
+}
+
+script CeliaSecret_GirlHole {
+	msgbox(
+	"“Girl Hole” was not supposed\n"
+	"to come off like that LOL\p"
+
+	"But it was funny, so I kept it.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_WetFloor {
+	msgbox(
+	"Starlight would mark the borders\n"
+	"of maps using signs.\p"
+
+	"Sometimes she forgot to erase them\n"
+	"before we pushed vital updates to\l"
+	"the game.\l"
+	"This was one of them.\p"
+
+	"I had to reverse engineer it into\n"
+	"a gag.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_WizRoom {
+	msgbox(
+	"I had literally zero input on\n"
+	"this map.\p"
+
+	"I hope it doesn't break.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_CodingCave {
+	msgbox(
+	"Did you find the Coding Cave?\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_HakariYes {
+	msgbox(
+	"Originally I was gonna put the\n"
+	"Hakari quest in postgame, cuz I\l"
+	"was scared it would be confused for\l"
+	"vital game progress.\p"
+
+	"Instead it spawns here after you've\n"
+	"found the letter Y.\p"
+
+	"This way every player will\n"
+	"eventually see it, but it won't\l"
+	"get in the way of progress.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_MashingA {
+	msgbox(
+	"This fight is sadly a bit lacking\n"
+	"in sauce, but I couldn't think of\l"
+	"anything fun.\p"
+
+	"The dialogue pauses for like 10\n"
+	"seconds if you say you're mashing\l"
+	"so that people on Turbo will\l"
+	"actually be able to read it.", MSGBOX_NPC)
+}
+
+script CeliaSecret_YesHouse {
+	msgbox(
+	"This has my current vote for most\n"
+	"useless house in the game.\p"
+
+	"If anyone can think of a better\n"
+	"bit to put here instead, I'm\l"
+	"all ears.", MSGBOX_NPC)
+}
+
+script CeliaSecret_GrandpaBread {
+	msgbox(
+	"The one bit of main-story writing\n"
+	"that wasn't done by me!\p"
+
+	"This was written by our animator\n"
+	"Hakari.\p"
+
+	"This gag was the sole reason I\n"
+	"recruited him for the team.\l"
+	"(cuz when drawing it, he remembered\l"
+	"to set the text colors right)", MSGBOX_NPC)
+}
+
+script CeliaSecret_SewerSign {
+	msgbox(
+	"When naming this sign's script, I\n"
+	"just happened to call it Sewer Sign.\p"
+
+	"I was then compelled to make fun of\n"
+	"how dumb of a name that was.", MSGBOX_NPC)
+}
+
+script CeliaSecret_RelicCastle {
+	msgbox(
+	"Rest in Peace, Relic Castle.\p"
+
+	"Fuck Nintendo.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_DavidHasslehoff {
+	msgbox(
+	"He is David Hasselhoff.\p"
+
+	"My placeholder NPCs are fun.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_999 {
+	msgbox(
+	"This is a joke for me, and me only.\p"
+
+	"It's okay if you don't get it.\n"
+	"I do.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Starlight {
+	msgbox(
+	"You would not believe how many\n"
+	"times Starlight set this map\l"
+	"to load the Volcano version as the\l"
+	"default.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_StarlightCinnabar {
+	msgbox(
+	"You would not believe how many\n"
+	"times Starlight set this map\l"
+	"to load the Volcano version as the\l"
+	"default.\p"
+
+	"It was\n"
+	"\l"
+
+	"\l"
+	"a lot.", MSGBOX_NPC)
+}
+
+script CeliaSecret_CinnabarFire {
+	msgbox(
+	"At first I wanted these to be\n"
+	"shittily animated Minecraft fire.\p"
+
+	"These are probably better.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_PlatoCloset {
+	msgbox(
+	"plasto is the coolest dev ever\n"
+	"and he is not a idiot at all :)", MSGBOX_NPC)
+}
+
+script CeliaSecret_President {
+	msgbox(
+	"I wasn't sure what direction to\n"
+	"take with the President for a while.\p"
+
+	"On one hand, your job is to save\n"
+	"him from the DMCA.\l"
+	"On the other, he's a billionaire.\p"
+
+	"I like the compromise I made.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_Palestine {
+	msgbox(
+	"As a rule of thumb, I do not talk\n"
+	"about or reference current\l"
+	"talking points or memes.\p"
+
+	"I will make an exception here,\n"
+	"because:\p"
+
+	"1. 1948 was a long time ago, not\n"
+	"modern.\p"
+
+	"2. If I am to be “cringe” and\n"
+	"“age poorly” in the future,\l"
+	"then I'm proud to do it by\l"
+	"standing against genocide.\p"
+
+	"From the River to the Sea.\n"
+	"Palestine will be free.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_SilphShortKid {
+	msgbox(
+	"There was gonna be a rehash of\n"
+	"the short kid bit here, but I\l"
+	"left it as placeholder up until\l"
+	"release oops.\p"
+
+	"I've now killed him.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_TheOffice {
+	msgbox(
+	"Starlight wanted to make this map\n"
+	"look like The Office.\p"
+
+	"I've never seen The Office, so I\n"
+	"cannot say whether she did well.", MSGBOX_NPC)
+}
+
+script CeliaSecret_LarryFight2 {
+	msgbox(
+	"The number of people who see this\n"
+	"fight and then go “Omg I can't\l"
+	"wait for the fight to be finished!”\p"
+
+	"holy shit\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_SaffronFurrets {
+	msgbox(
+	"I put these furrets in Saffron cuz\n"
+	"players kept forgetting to explore\l"
+	"the city.\p"
+
+	"Now, when they hear the Furret\n"
+	"music they'll know there's\l"
+	"SOMETHING to see here, so they'll\l"
+	"actually remember to check.", MSGBOX_NPC)
+}
+
+script CeliaSecret_SaffronGuy {
+	msgbox(
+	"This guy is right!\p"
+
+	"That's how Saffron is programmed\n"
+	"into the original games for\l"
+	"whatever reason.\p"
+
+	"Completely disconnected from the\n"
+	"rest of the map.", MSGBOX_NPC)
+}
+
+script CeliaSecret_AvgnMusic {
+	msgbox(
+	"This gym is basically only here cuz\n"
+	"really early on I made the kickass\l"
+	"music for it.\p"
+
+	"In the later stages of development\n"
+	"I prolly wouldn't make an area like\l"
+	"this, but hey.\p"
+
+	"I REALLY like the song.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_BrunoDead {
+	msgbox(
+	"Have you found the speedrun tactic\n"
+	"here?", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_CopycatDad {
+	msgbox(
+	"Copycat's palette sometimes got\n"
+	"fucked up during the cutscene.\p"
+
+	"I solved it by putting multiple\n"
+	"copies of her and her dad off\l"
+	"screen and invisible, so the\l"
+	"palettes would load correctly.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Cals {
+	msgbox(
+	"This guy's HoodlumCallum.\p"
+
+	"He's cool :)\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_SkillSwap {
+	msgbox(
+	"For this guy's bit to work, I had\n"
+	"to write a unique string for\l"
+	"Skill Swap so you could see the\l"
+	"ability you're getting.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_BerserkJeans {
+	msgbox(
+	"Possibly the greatest pun in the\n"
+	"whole game.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Oversight {
+	msgbox(
+	"Why yes, I DID put that Celia there\n"
+	"to block you in so you'd have to\l"
+	"take the shortscut back.\p"
+
+	"This was definitely intentional\n"
+	"and not a mistake that I'm just\l"
+	"gonna run with.", MSGBOX_NPC)
+}
+
+script CeliaSecret_BoulderWalls {
+	msgbox(
+	"These boulders are here so you'll\n"
+	"always have Strength active when\l"
+	"you interact with the captain.\p"
+
+	"That way, you don't have to\n"
+	"awkwardly use it from your menu\l"
+	"instead.", MSGBOX_NPC)
+}
+
+script CeliaSecret_MegaKick {
+	msgbox(
+	"I put Mega Kick here so players\n"
+	"would have to do the Captain part\l"
+	"of Seafoam before Bill's Garden.\p"
+
+	"This way, they'll see the cool\n"
+	"around the world loopback at the\l"
+	"right point in time.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Spheals {
+	msgbox(
+	"This cutscene took me almost a full\n"
+	"week straight.\p"
+
+	"If you held turbo through it, I\n"
+	"do not forgive you.", MSGBOX_NPC)
+}
+
+script CeliaSecret_BrickBreakZubats {
+	msgbox(
+	"Using Brick Break with your Kanga\n"
+	"in the PC does not buffer its\l"
+	"nickname properly.\p"
+
+	"Fixing this would be such a fucking\n"
+	"pain in the ass that I have chosen\l"
+	"not to.\p"
+
+	"I'm sorry if this ruins your\n"
+	"immersion.", MSGBOX_NPC)
+}
+
+script CeliaSecret_AlteringCave {
+	msgbox(
+	"This is Altering Cave!\p"
+
+	"In vanilla, it was supposed to\n"
+	"house various Pokemon from some\l"
+	"mystery gift event.\p"
+
+	"Unfortunately, it only ever\n"
+	"actually hosted Zubats.\p"
+
+	"I just locked them in.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_Intermission1 {
+	msgbox(
+	"If you don't read the Berry Powder\n"
+	"Man House Sign in Cerulean, you\l"
+	"can't tell him the fate.\p"
+
+	"Leaving the house will then start\n"
+	"Chapter 7, Chapter 2, Intermission 1.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Intermission1Intermission1 {
+	msgbox(
+	"Apparently I already said that in\n"
+	"the Cerulean City Celia next to\l"
+	"the sign.\p"
+
+	"I don't proofread this dev comm\n"
+	"shit at all LOL", MSGBOX_NPC)
+}
+
+script CeliaSecret_Intermission1Intermission1Intermission1 {
+	msgbox(
+	"Please appreciate that this Celia\n"
+	"was titled, “CeliaSecret_\l"
+	"Intermission1_Intermission1”\p"
+
+	"No prizes for guessing what this\n"
+	"Celia is named.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_ThreeMinutes {
+	msgbox(
+	"Yeah you don't actually have to\n"
+	"wait LOL", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_EonPledge {
+	msgbox(
+	"Have you found the secret fourth\n"
+	"move this guy can teach?", MSGBOX_NPC)
+}
+
+script CeliaSecret_Unidentical {
+	msgbox(
+	"This was the first line of text\n"
+	"I ever wrote for the game!\p"
+
+	"Back when the concept was to just\n"
+	"be Vanilla And Trolly Gyms, I\l"
+	"wrote this Blaine Question.\p"
+
+	"It made it all the way into the\n"
+	"final edition of the hack.\l"
+	"I'm very proud.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Eusine {
+	msgbox(
+	"This might be one of my favorite\n"
+	"puzzles in the game.\p"
+
+	"It's not hard, it's not even all\n"
+	"that clever, but to me it sings of\l"
+	"everything I wanted to do.\p"
+
+	"I made a puzzle out of literally\n"
+	"every established mechanic in this\l"
+	"whole wacky, weird world.\l"
+	"I think that's so much fun.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_BlaineFight {
+	msgbox(
+	"First pass of the design of this\n"
+	"fight was that you'd need to\l"
+	"have six specific Pokemon in your\l"
+	"team at the start.\p"
+
+	"Needless to say, that wouldn't\n"
+	"have been very fun.\p"
+
+	"Now it's an 8-stage game, and you\n"
+	"can switch your mons at any point.", MSGBOX_NPC)
+}
+
+script CeliaSecret_SecretAnswer {
+	msgbox(
+	"The first phase is intentionally\n"
+	"the easiest to find the bonus\l"
+	"answer for.\p"
+
+	"This is to give most players a\n"
+	"direct signal that the bonus\l"
+	"answers exist in the first place.\p"
+
+	"Good luck finding them!\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_TeamSky {
+	msgbox(
+	"Apparently there's a youtuber who\n"
+	"did the Team Sky bit first.\p"
+
+	"I want it known that I had the\n"
+	"idea completely independently of\l"
+	"him lmfao\p"
+
+	"Some people INSIST that I'm a fan\n"
+	"of his, when honestly it's just a\l"
+	"silly idea we both had.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_ThunderArmor {
+	msgbox(
+	"There's a scrapped puzzle here\n"
+	"where you'd fight against Swellow\l"
+	"and Pikachu using Thunder Armor.\p"
+
+	"The answer would be using the\n"
+	"ability Lightningrod to prevent\l"
+	"the Thunder from hitting them.\p"
+
+	"This was scrapped cuz I didn't\n"
+	"want to shine a light on that\l"
+	"ability before Cynthia.", MSGBOX_NPC)
+}
+
+script CeliaSecret_PiscesGymLeader {
+	msgbox(
+	"If there's one thing people know\n"
+	"about the Pisces soundtrack, it's\l"
+	"that the Gym Leader fight slaps.\p"
+
+	"I love how I could repurpose it\n"
+	"here instead as a full blown total\l"
+	"shitpost.", MSGBOX_NPC)
+}
+
+script CeliaSecret_OnixFluid {
+	msgbox(
+	"There was gonna be a puzzle where\n"
+	"you got Cloyster by using the\l"
+	"Gender Fluid with Onix.\p"
+
+	"Sadly, when I decided on Onix being\n"
+	"a final battle answer, I had to\l"
+	"scrap the bit so you couldn't\l"
+	"get softlocked.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Triangle {
+	lock
+	msgbox(
+	"What the fuck is this puzzle\n")
+	closemessage
+	//goto(BirthIsland_Exterior_EventScript_Triangle)
+	release
+}
+
+script CeliaSecret_CenteredTree {
+	msgbox(
+	"Behold, the legendary Tree That's\n"
+	"Centered With The Player.\p"
+
+	"Reblog for 200 years good luck.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_SkyTower {
+	msgbox(
+	"This was the final area I worked\n"
+	"on in the hack.\p"
+
+	"Originally the mystery dungeon bit\n"
+	"was gonna be inside Zero Island,\l"
+	"and Sky Tower was gonna be puzzles\l"
+	"with cracked floors like Hoenn.\p"
+
+	"However, we couldn't design any\n"
+	"good puzzles with that bit, so\l"
+	"we consolidated it here.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Kecleon {
+	msgbox(
+	"The Kecleon shops were planned to\n"
+	"be much more expansive, and the\l"
+	"Poke economy was gonna be more\l"
+	"in-depth.\p"
+
+	"I couldn't get the system to work\n"
+	"how I wanted, so I scaled the\l"
+	"whole affair back a bit.", MSGBOX_NPC)
+}
+
+script CeliaSecret_TrapTile {
+	msgbox(
+	"I made the traps do a little jump\n"
+	"before triggering so that you'd\l"
+	"be able to see the gags with the\l"
+	"tile art before the effect.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Torchic {
+	msgbox(
+	"Alas, this was all that remains of\n"
+	"the Torchic ass dot meat grinder\l"
+	"minigame for nuggets.\p"
+
+	"Farewell, Torchic ass dot meat\n"
+	"grinder minigame for nuggets!", MSGBOX_NPC)
+}
+
+script CeliaSecret_SkyTowerSurf {
+	msgbox(
+	"There's no in game justification\n"
+	"for why you can't surf here.\p"
+
+	"You just can't.\p"
+
+	"I don't want to design this\n"
+	"differently.", MSGBOX_NPC)
+}
+
+script CeliaSecret_SkyTowerCracks {
+	msgbox(
+	"I put these cracked floor tiles\n"
+	"here as a way to subtly singal\l"
+	"the use of the Bike here.\p"
+
+	"They're not natively in Fire Red\n"
+	"so I had to jankily mock em up.", MSGBOX_NPC)
+}
+
+script CeliaSecret_SkyTowerLugia {
+	msgbox(
+	"I had to pick SOME legendary\n"
+	"Pokemon to be the one to turn into\l"
+	"an item, and Lugia just happened to\l"
+	"be one already in vanilla which I\l"
+	"wasn't using elsewhere.\p"
+
+	"Poor guy.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_SkyTowerTeamHeros {
+	msgbox(
+	"Based on a true story.\n"
+	"", MSGBOX_NPC)
+}
+
+
+
+script CeliaSecret_SkyTowerSpiral {
+	msgbox(
+	"Mystery Dungeon map generation\n"
+	"sure is fun.\p"
+
+	"I designed the curve such that\n"
+	"from the left, you can see it\l"
+	"curve into the stair room, thus\l"
+	"making you think you're about to\l"
+	"finally make it in.\p"
+
+	"Only to pull the rug at the end\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_SkyTowerTrapMaze {
+	msgbox(
+	"I wanted a second Pit Trap scare\n"
+	"here at the end of this room, only\l"
+	"this time showing the Oak you\l"
+	"recruited earlier.\p"
+
+	"But! No one really processed the\n"
+	"tree on screen fast enough, so the\l"
+	"joke didn't really land.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_SkyTowerNavelRock {
+	msgbox(
+	"Navel Rock is a well-designed map.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_Loopbacks {
+	msgbox(
+	"My favorite part of designing this\n"
+	"game was figuring out how to make\l"
+	"the map wrap back around on itself.\p"
+
+	"Thinking of creative ways to place\n"
+	"you immediately back to where you\l"
+	"needed to go without you even\l"
+	"realizing it was such a delight.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_HubRoom {
+	msgbox(
+	"The dynamic warp system in here\n"
+	"was a pain in the butt, since\l"
+	"each room needs to update which\l"
+	"hub the warp needs to take you to.\p"
+
+	"Was it even worth it?\n"
+	"Who knows.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Clover {
+	msgbox(
+	"Pokemon Clover has exactly one\n"
+	"good joke, and it's the first gym.\p"
+
+	"It's a copy of Brock's gym, with\n"
+	"the Light Years trainer in it.\l"
+	"Except, there's a warp panel.\p"
+
+	"Then you step on the warp panel,\n"
+	"and you're taken literal light\l"
+	"years away for Brock.\p"
+
+	"Excellent joke - Great setup,\n"
+	"great payoff, no notes.\p"
+	
+	"Except!\p"
+
+	"The Pokemon Clover playerbase is\n"
+	"so unbelievably god damn mother\l"
+	"fucking stupid that they cannot\l"
+	"even recognize that a joke was\l"
+	"being told.\p"
+
+	"Instead, they laugh cuz Brock\n"
+	"calls you a faggot.\p"
+
+	"This apparently overshadows the\n"
+	"actual clever, interesting joke.\p"
+
+	"That's my opinion on that game.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_Clover2 {
+	msgbox(
+	"And yes, the joke here is that I'm\n"
+	"stealing Clover's joke, and the\l"
+	"DMCA are mad at me for it.\p"
+
+	"If Clover players actually knew\n"
+	"how to read to realize that joke\l"
+	"existed, maybe they'd get this one.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Yugioh {
+	msgbox(
+	"Between Demo 3 and the full game\n"
+	"release, only two Pokemon were\l"
+	"changed in the dex.\p"
+
+	"One of them was adding Hoopa,\n"
+	"purely so I could do this puzzle.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Neopets {
+	msgbox(
+	"Probably the least sauced DMCA\n"
+	"fight.\l"
+	"This was the first one put in.\p"
+
+	"The original plan was to beat him\n"
+	"with Zubat, since Zubat is blind\l"
+	"so he can't see the Light That\l"
+	"Burns The Sky.\p"
+
+	"Then we tried having him be other\n"
+	"nationalities like Italian or JP.\p"
+
+	"I'm not 100% happy with where I\n"
+	"landed, but it's acceptable.", MSGBOX_NPC)
+}
+
+script CeliaSecret_StraightPeople {
+	msgbox(
+	"Every single shelf has a unique\n"
+	"style of drink.\p"
+
+	"Additionally, the drinks are\n"
+	"segregated left/right by manly\l"
+	"drinks and girly drinks.\p"
+
+	"Cuz, y'know.\n"
+	"Straight people.", MSGBOX_NPC)
+}
+
+script CeliaSecret_MewBox {
+	msgbox(
+	"Shout outs to the youtube comment\n"
+	"that said to make Mew (or Ditto)'s\l"
+	"box icon the Brick Wall to match\l"
+	"the Box background.\p"
+
+	"Absolutely genius suggestion.\n"
+	"Wish I thought of it myself.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_PaulFavorite {
+	msgbox(
+	"Paul is the favorite of all!\p"
+
+	"If you haven't yet watched Book\n"
+	"of Mario 64, go do that.\l"
+	"It's such a fun experience.", MSGBOX_NPC)
+}
+
+script CeliaSecret_PokemonGun {
+	msgbox(
+	"This is, without a doubt, the\n"
+	"hardest puzzle in the game.\p"
+
+	"It's also the boldest and most\n"
+	"risky, because I need people to be\l"
+	"willing to go without new content\l"
+	"for a while and just take in what\l"
+	"they've already seen.\p"
+
+	"I hope this puzzle worked for you,\n"
+	"because it'll either make or break\l"
+	"the game.", MSGBOX_NPC)
+}
+
+script CeliaSecret_AMew {
+	msgbox(
+	"Oh wow a mew!\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_CreditsSecret {
+	msgbox(
+	"Of COURSE I would hide a secret in\n"
+	"the credits.\p"
+
+	"Who do you think I am?\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_Lucca {
+	msgbox(
+	"Shout outs to my friend Lucca,\n"
+	"with whom I brainstormed the very\l"
+	"first concept for this game!\p"
+
+	"Incidentally, it also finished\n"
+	"its PhD right in line with the\l"
+	"Stupid Hack's release.\p"
+
+	"I'm proud of both of us :)\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_LuccaPronouns {
+	msgbox(
+	"(yes. it/its. I will fight for its\n"
+	"right to self-identity on this.)", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Pokedex {
+	msgbox(
+	"This here was the lynchpin of this\n"
+	"whole experience:\p"
+
+	"To beat the game, you must complete\n"
+	"the entire Pokedex.\p"
+
+	"Every other design decision I made\n"
+	"comes back to this.\p"
+
+	"How do you make a game engaging\n"
+	"when the goal is to catch every\l"
+	"single Pokemon?\p"
+
+	"That was the challenge I took on.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_HMs {
+	msgbox(
+	"So hot take.\n"
+	"I actually really like HMs.\p"
+
+	"I think integrating the battle and\n"
+	"overworld systems through the\l"
+	"Pokemon you catch is clever af.\p"
+
+	"I just also think Game Freak sucked\n"
+	"absolute balls at using the system\l"
+	"well, so people grew to hate it.\p"
+
+	"Here is my answer to the kinds of\n"
+	"interesting gameplay you can\l"
+	"achieve by balancing around your\l"
+	"party's HM restriction, instead of\l"
+	"throwing the system out altogether.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_Growl {
+	msgbox(
+	"Growl being the field move for\n"
+	"this girl?\l"
+	"ENTIRELY a coincidence.\p"
+
+	"Originally it was just so you\n"
+	"couldn't release your starter and\l"
+	"get softlocked at Surge.\p"
+
+	"I knew I wanted the Starter as a\n"
+	"Cynthia mon for Ivysaur, but my\l"
+	"plan was for the move to be\l"
+	"Rock Smash.\p"
+
+	"But, I realized the Growl HM bit\n"
+	"would be way more satisfying as a\l"
+	"conclusion at the end of the game.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_TauntTM {
+	msgbox(
+	"Massive props to the few people\n"
+	"who've figured out how to teach\l"
+	"this TM.\p"
+
+	"I hope it was worth it.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_Primeape {
+	msgbox(
+	"I actually struggled for a while\n"
+	"over whether the Primeape here\l"
+	"should be a pig.\p"
+
+	"In earlier builds of the game, I\n"
+	"couldn't be confident that players\l"
+	"would actually remember the bit.\p"
+
+	"However, at this point I know that\n"
+	"Stupid Romhackeers are attentive\l"
+	"enough to understand the point.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Cynthia {
+	msgbox(
+	"This is the smartest, most utterly\n"
+	"cerebral fight I ever made.\p"
+
+	"It's not particularly hard besides\n"
+	"the Ivysaur phase, but for me as\l"
+	"a designer it was a challenge.\p"
+
+	"Each phase needed to feel good\n"
+	"while I was also completely locked\l"
+	"into the mons you had available.\p"
+
+	"Seaking and Scyther's phases went\n"
+	"through many iterations until I\l"
+	"landed on the ones I'm okay with.\p"
+
+	"It's not perfect, but what does\n"
+	"work is darn brilliant.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Credits {
+	msgbox(
+	"This final battle was insane.\p"
+
+	"None of this would have been\n"
+	"possible without the immense work\l"
+	"done by my extraordinarily skilled\l"
+	"team.\p"
+
+	"They deserve all the props for\n"
+	"making my absurd, nonsensical\l"
+	"vision come to life.\p"
+
+	"Lichen's beautiful art, Wiz's\n"
+	"batshit coding, Hakari's battle\l"
+	"animation work, All of you did\l"
+	"such an incredible job.\p"
+
+	"Thank you for making this project\n"
+	"a reality.\l"
+	"I couldn't have done it alone.", MSGBOX_NPC)
+}
+
+
+script CeliaSecret_JohtoLevelCurve {
+	msgbox(
+	"Okay so some nuance.\p"
+
+	"I actually don't hate Johto's\n"
+	"weird thing where some Pokemon are\l"
+	"Kanto-exclusive.\p"
+
+	"I like how it adds to the vibe that\n"
+	"this is all one giant, living\l"
+	"world that the player is only\l"
+	"seeing one small part of.\p"
+
+	"I just... wish they would've\n"
+	"integrated it a bit better.\p"
+
+	"The sloppy execution belies the\n"
+	"inspired idea.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Sequel {
+	msgbox(
+	"Somewhat frequently, people will\n"
+	"ask me if I'm making a sequel\l"
+	"based in Johto.\p"
+
+	"I don't really know what to say to\n"
+	"that.\p"
+
+	"Celia's Stupid Romhack is already\n"
+	"about everything.\l"
+	"This isn't just a Kanto game.\p"
+
+	"I used Kanto as my framework cuz\n"
+	"player familiarity with it was the\l"
+	"canvas upon which my brush worked.\p"
+
+	"A sequel wouldn't have any meaning\n"
+	"to it, so I'm not doing on.", MSGBOX_NPC)
+}
+
+script CeliaSecret_History {
+	msgbox(
+	"This guy has like 6 variations on\n"
+	"his bad history, and they're\l"
+	"all bangers.", MSGBOX_NPC)
+}
+
+
+script CeliaTrailerPokedex {
+	setobtainable(SPECIES_PIDGEOTTO)
+	givemon(SPECIES_PIDGEOTTO, 1)
+	setvar (VAR_0x8004, SPECIES_PIDGEOTTO)
+	special (SetSeenMon)
+
+	setobtainable(SPECIES_RATTATA)
+	givemon(SPECIES_PIDGEOTTO, 1)
+	
+	setobtainable(SPECIES_MANKEY)
+	setvar (VAR_0x8004, SPECIES_MANKEY)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_PRIMEAPE)
+	
+	setobtainable(SPECIES_SANDSHREW)
+	givemon(SPECIES_SANDSHREW, 1)
+	
+	setobtainable(SPECIES_SANDSLASH)
+	setvar (VAR_0x8004, SPECIES_SANDSLASH)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_EKANS)
+	givemon(SPECIES_EKANS, 1)
+	
+	setobtainable(SPECIES_ARBOK)
+	givemon(SPECIES_ARBOK, 1)
+	
+	setobtainable(SPECIES_SEVIPER)
+	setvar (VAR_0x8004, SPECIES_SEVIPER)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_VOLTORB)
+	givemon(SPECIES_VOLTORB, 1)
+	
+	setobtainable(SPECIES_JIGGLYPUFF_ABOVE)
+	setvar (VAR_0x8004, SPECIES_JIGGLYPUFF_ABOVE)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_JIGGLYPUFF)
+	givemon(SPECIES_JIGGLYPUFF, 1)
+	
+	setobtainable(SPECIES_NIDORAN_M)
+	givemon(SPECIES_NIDORAN_M, 1)
+	
+	setobtainable(SPECIES_NIDORINA)
+	givemon(SPECIES_NIDORINA, 1)
+	
+	setobtainable(SPECIES_NIDOQUEEN)
+	setvar (VAR_0x8004, SPECIES_NIDOQUEEN)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_NIDORAN_F)
+	givemon(SPECIES_NIDORAN_F, 1)
+	
+	setobtainable(SPECIES_NIDORINO)
+	givemon(SPECIES_NIDORINO, 1)
+	
+	setobtainable(SPECIES_NIDOKING)
+	setvar (VAR_0x8004, SPECIES_NIDOKING)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_CLEFAIRY)
+	givemon(SPECIES_CLEFAIRY, 1)
+	
+	setobtainable(SPECIES_CLEFABLE)
+	setvar (VAR_0x8004, SPECIES_CLEFABLE)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_GENGAR)
+	setvar (VAR_0x8004, SPECIES_GENGAR)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_VULPIX)
+	givemon(SPECIES_VULPIX, 1)
+
+	setobtainable(SPECIES_NINETALES)
+	setvar (VAR_0x8004, SPECIES_NINETALES)
+	special (SetSeenMon)
+	
+	
+	setobtainable(SPECIES_TENTACOOL)
+	givemon(SPECIES_TENTACOOL, 1)
+	
+	setobtainable(SPECIES_TOEDSCOOL)
+	setvar (VAR_0x8004, SPECIES_TOEDSCOOL)
+	special (SetSeenMon)
+	
+	
+	givemon(SPECIES_KRABBY, 1)
+	
+	setobtainable(SPECIES_DIGLETT)
+	setvar (VAR_0x8004, SPECIES_DIGLETT)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_DUGTRIO)
+	givemon(SPECIES_DUGTRIO, 1)
+	
+	setobtainable(SPECIES_PARAS)
+	givemon(SPECIES_PARAS, 1)
+	
+	setobtainable(SPECIES_PARASECT)
+	setvar (VAR_0x8004, SPECIES_PARASECT)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_GYARADOS)
+	setvar (VAR_0x8004, SPECIES_GYARADOS)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_MAGIKARP)
+	givemon(SPECIES_MAGIKARP, 1)
+	
+	setobtainable(SPECIES_CUBONE)
+	setvar (VAR_0x8004, SPECIES_CUBONE)
+	special (SetSeenMon)
+		
+	setobtainable(SPECIES_MAROWAK)
+	setvar (VAR_0x8004, SPECIES_MAROWAK)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_POLIWAG)
+	givemon(SPECIES_POLIWAG, 1)
+	
+	setobtainable(SPECIES_TENTAQUIL)
+	setvar (VAR_0x8004, SPECIES_TENTAQUIL)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_GOLDUCK)
+	givemon(SPECIES_GOLDUCK, 1)
+	
+	setobtainable(SPECIES_PSYDUCK)
+	setvar (VAR_0x8004, SPECIES_PSYDUCK)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_ABRA)
+	givemon(SPECIES_ABRA, 1)
+	
+	setobtainable(SPECIES_MISSINGNO)
+	setvar (VAR_0x8004, SPECIES_MISSINGNO)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_ALAKAZAM)
+	setvar (VAR_0x8004, SPECIES_ALAKAZAM)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_KANGASKHAN)
+	setvar (VAR_0x8004, SPECIES_KANGASKHAN)
+	special (SetSeenMon)
+	
+	setobtainable(SPECIES_UNOWN_LOSS)
+	givemon(SPECIES_UNOWN_LOSS, 1)
+	
+	release
+
+	
+}
+
+script CeliaSecret_Ocean11 {
+	msgbox(
+	"All of the Great Sea maps are named\n"
+	"some variant of Ocean1, Ocean2, etc\p"
+
+	"This one happened to land on\n"
+	"Ocean11.", MSGBOX_NPC)
+}
+
+script CeliaSecret_HeartSwap {
+	msgbox(
+	"The original concept with this\n"
+	"puzzle was that you'd need to\l"
+	"Take Heart on the Luvdisc to steal\l"
+	"a Heart Scale, and then use that\l"
+	"to relearn Heart Swap.\p"
+
+	"Phione would have learned Heart\n"
+	"Swap at level 1, but it would have\l"
+	"forgotten it because it was an\l"
+	"Odd Egg, meaning that Dizzy Punch\l"
+	"would overwrite it.\p"
+
+	"I got a little lost in the sauce\n"
+	"with that one LOL", MSGBOX_NPC)
+}
+
+script CeliaSecret_FestivalPlaza {
+	msgbox(
+	"I don't like gen 7\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_StarlightIsland {
+	msgbox(
+	"Heads up, I gave literally zero\n"
+	"oversight into Starlight Island.\p"
+
+	"I let Star do whatever the hell\n"
+	"she wanted.\p"
+
+	"There isn't anything inside relevant\n"
+	"to any of the secrets.\l"
+	"Don't worry.", MSGBOX_NPC)
+}
+
+script CeliaSecret_GuillotinePuzzle {
+	msgbox(
+	"One of the craftier puzzles in the\n"
+	"game is adding Guillotine to your\l"
+	"Rotom move list, without actually\l"
+	"telling you what it's for.\p"
+
+	"Leading you to have to deduce its\n"
+	"use case for yourself.\p"
+
+	"This puzzle is actually the reason\n"
+	"the field moves are labeled with\l"
+	"their name instead of an icon, cuz\l"
+	"I couldn't sneakily add Guillotine\l"
+	"with a single icon.", MSGBOX_NPC)
+}
+
+script CeliaSecret_YesNo {
+	msgbox(
+	"No clue how I managed to squeeze\n"
+	"this much sauce out of “Town\l"
+	"where people ask Yes/No questions\l"
+	"and then get confused.”", MSGBOX_NPC)
+}
+
+script CeliaSecret_Warehouse {
+	msgbox(
+	"This area went through like seven\n"
+	"different revisions as I tried to\l"
+	"figure out what The Bit would be.\p"
+
+	"“Stupid Hack Bits but with one\n"
+	"letter missing” was def the best\l"
+	"of the concepts at hand.", MSGBOX_NPC)
+}
+
+script CeliaSecret_Hobbes {
+	msgbox(
+	"I'm not much of a philosophy head,\n"
+	"so doing research into Hobbes to\l"
+	"make this joke work was fun.", MSGBOX_NPC)
+}
+
+script CeliaSecret_YoshiRide {
+	msgbox(
+	"There's custom victory music when\n"
+	"you win this fight!\p"
+
+	"I added a bongo part to it, since\n"
+	"that's what happens when you ride\l"
+	"on Yoshi.", MSGBOX_NPC)
 }

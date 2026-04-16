@@ -566,9 +566,15 @@ void InitMultiMonPlaceChange(bool8 moveCursorUp);
 void DestroyBoxMonIconAtPosition(u8 boxPosition);
 void SetBoxMonIconObjMode(u8 cursorPos, u8 objMode);
 void SetPartyMonIconObjMode(u8 cursorPos, u8 objMode);
-void Task_EvolvePorygon(void);
+void WritePSSEvoMonToBox(void);
+void EvolvePorygonInBoxSimple(u8 boxId, u8 pos);
+void SetupPSSEvoFromBox(u8 boxId, u8 pos);
+void CheckWallpaperPorygonEvolve(u8 boxId, u8 wallpaperId);
 bool8 WasBrickPieceObtained(void);
 void ClearBrickPieceObtained(void);
+
+// config
+#define CONFIG_PSS_EVO_SHOW_SCENE         TRUE
 
 
 #endif //GUARD_POKEMON_STORAGE_SYSTEM_INTERNAL_H

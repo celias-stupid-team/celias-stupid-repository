@@ -579,6 +579,40 @@ void SortAndCompactBagPocket(struct BagPocket * pocket)
     }
 }
 
+void SortPokeBallsPocket_PokeBallFirst(struct BagPocket *pocket)
+{
+    u16 i, k;
+    struct ItemSlot temp;
+
+    SortAndCompactBagPocket(pocket);
+
+    // find ITEM_POKE_BALL in the pocket
+    for (i = 0; i < pocket->capacity; i++)
+    {
+        if (pocket->itemSlots[i].itemId == ITEM_NONE)
+            return; // not found
+        if (pocket->itemSlots[i].itemId == ITEM_POKE_BALL)
+            break;
+    }
+
+    if (i == 0 || i >= pocket->capacity)
+        return; // already at front or not found
+
+    // get quantities
+    for (k = 0; k < pocket->capacity; k++)
+        pocket->itemSlots[k].quantity = GetBagItemQuantity(&pocket->itemSlots[k].quantity);
+
+    // rearrangement
+    temp = pocket->itemSlots[i];
+    for (k = i; k > 0; k--) // iterate upwards
+        pocket->itemSlots[k] = pocket->itemSlots[k - 1];
+    pocket->itemSlots[0] = temp;
+
+    // set quantities again
+    for (k = 0; k < pocket->capacity; k++)
+        SetBagItemQuantity(&pocket->itemSlots[k].quantity, pocket->itemSlots[k].quantity);
+}
+
 u16 BagGetItemIdByPocketPosition(u8 pocketId, u16 slotId)
 {
     return gBagPockets[pocketId - 1].itemSlots[slotId].itemId;

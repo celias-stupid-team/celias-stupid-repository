@@ -1017,7 +1017,7 @@ static void BuyMenuSubtractMoney(u8 taskId)
     switch(tItemId) {
         case ITEM_ODD_MULCH:
             PlayFanfare(MUS_KOROK_SEED);
-            FlagSet(FLAG_FOUR_ISLAND_CANDY);
+            //FlagSet(FLAG_FOUR_ISLAND_CANDY);
             break;
         case ITEM_BIG_MUSHROOM:
             PlayCry_Normal(SPECIES_AMOONGUSS, 0);

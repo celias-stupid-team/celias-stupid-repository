@@ -131,8 +131,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_REGICE_SWIM",
-      "x": 16,
-      "y": 29,
+      "x": 7,
+      "y": 33,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -285,6 +285,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonMansion_MoltresEgg",
       "flag": "FLAG_TEMP_7"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MEDIARM",
+      "x": 14,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -345,8 +359,8 @@
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 30,
+      "x": 9,
+      "y": 33,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonMansion_CoolLava"
@@ -361,8 +375,8 @@
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 28,
+      "x": 7,
+      "y": 32,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonMansion_CoolLava"
@@ -377,8 +391,8 @@
     },
     {
       "type": "sign",
-      "x": 16,
-      "y": 30,
+      "x": 7,
+      "y": 34,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonMansion_CoolLava"
@@ -393,8 +407,8 @@
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 29,
+      "x": 8,
+      "y": 32,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonMansion_CoolLava"
@@ -425,16 +439,16 @@
     },
     {
       "type": "sign",
-      "x": 15,
-      "y": 30,
+      "x": 6,
+      "y": 34,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonMansion_CoolLava"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 30,
+      "x": 8,
+      "y": 34,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonMansion_CoolLava"

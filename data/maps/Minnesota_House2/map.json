@@ -163,7 +163,15 @@
     },
     {
       "type": "sign",
-      "x": 4,
+      "x": 2,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MinnesotaWashingMachine"
+    },
+    {
+      "type": "sign",
+      "x": 1,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -175,19 +183,11 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "MinnesotaWashingMachine"
-    },
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 5,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Laundromat_OneSawkWasher"
     },
     {
       "type": "sign",
-      "x": 1,
+      "x": 4,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

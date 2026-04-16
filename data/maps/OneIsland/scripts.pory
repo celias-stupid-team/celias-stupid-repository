@@ -110,7 +110,7 @@ OneIsland_EventScript_PokemonNetCenterSign::
 script OneIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_ONE_ISLAND)
 	setflag(FLAG_TEMP_5)
-	if(checkmoncaught(SPECIES_ARTICUNO)) {
+	if(flag(FLAG_DID_ARTICUNO_FIGHT)) {
 		clearflag(FLAG_TEMP_5)
 	}
 }
@@ -237,7 +237,7 @@ script OneIsland_Whirlpool {
 script OneIsland_Kaylee {
 	lock
 	textcolor(NPC_TEXT_COLOR_RED)
-	if(checkmoncaught(SPECIES_ARTICUNO)) {
+	if(flag(FLAG_DID_ARTICUNO_FIGHT)) {
 		if(!checkitem(ITEM_SOOTHE_BELL) && !checkmoncaught(SPECIES_ESPEON)) {
 			msgbox(
 			"KAYLEE: Here\n"
@@ -413,6 +413,7 @@ script OneIsland_Kaylee {
 
 		"Who knows?\n"
 		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+		setflag(FLAG_DID_ARTICUNO_FIGHT)
 
 
 		release
@@ -503,6 +504,7 @@ script OneIsland_Kaylee {
 
 		"Who knows?\n"
 		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+		setflag(FLAG_DID_ARTICUNO_FIGHT)
 	} else {
 		msgbox(
 		"KAYLEE: We need one more friend\n"

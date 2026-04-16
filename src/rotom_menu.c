@@ -54,6 +54,7 @@
 #include "save_menu_util.h"
 #include "scanline_effect.h"
 #include "script.h"
+#include "script_pokemon_util.h"
 #include "sound.h"
 #include "sprite.h"
 #include "start_menu.h"
@@ -125,14 +126,14 @@ static bool32 SetupFunc_Fly(void);
 static void FieldMoveFunc_Fly(void);
 static bool32 SetupFunc_Whirlpool(void); // placeholder
 static void FieldMoveFunc_Whirlpool(void); // placeholder
-static bool32 SetupFunc_Guillotine(void); // placeholder
-static void FieldMoveFunc_Guillotine(void); // placeholder
+static bool32 SetupFunc_Guillotine(void);
+static void FieldMoveFunc_Guillotine(void);
 static bool32 SetupFunc_BrickBreak(void); // placeholder
 static void FieldMoveFunc_BrickBreak(void); // placeholder
 static bool32 SetupFunc_TailGlow(void);
 static void FieldMoveFunc_TailGlow(void);
-static bool32 SetupFunc_Rest(void); // placeholder
-static void FieldMoveFunc_Rest(void); // placeholder
+static bool32 SetupFunc_Rest(void);
+static void FieldMoveFunc_Rest(void);
 static bool32 SetupFunc_Retreat(void);
 static void FieldMoveFunc_Retreat(void);
 
@@ -1867,6 +1868,8 @@ static void Task_DoCleanUpAndExecuteFieldMove(u8 taskId)
             PlayRainStoppingSoundEffect();
             CleanupOverworldWindowsAndTilemaps();
         }
+        if (gTasks[taskId].tRotomMove == ROTOM_MOVE_REST) // no ow script unfreezes the player
+            sRotomStartMenu->unlockAndUnfreeze = TRUE;
         RotomStartMenu_ExitAndClearTilemap();
         sRotomMoves[gTasks[taskId].tRotomMove].fieldMoveFunc();
         DestroyTask(taskId);
@@ -3025,12 +3028,13 @@ static void FieldMoveFunc_TailGlow(void)
 
 static bool32 SetupFunc_Rest(void)
 {
-    return FALSE;
+    return TRUE; // can always be executed
 }
 
 static void FieldMoveFunc_Rest(void)
 {
-    return;
+    HealPlayerParty();
+    PlayFanfare(MUS_HEAL);
 }
 
 static bool32 SetupFunc_Retreat(void)

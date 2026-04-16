@@ -6548,8 +6548,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DMCA_SURGE] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_ARCHER,
-        .trainerName = _("DAUMAN"),
+        .trainerPic = TRAINER_PIC_PETREL,
+        .trainerName = _("LARS"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -7185,7 +7185,21 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("PLASTO"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_Plasto),
     },
+
+    [TRAINER_HAKARI_BLIZ] = {
+        .trainerClass = TRAINER_CLASS_HAKARI_BLIZ,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_HAKARI_BLIZ,
+        .trainerName = _("& BLIZ"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
+        .party = ITEM_CUSTOM_MOVES(sParty_HakariBliz),
+    },
+
+
+    
 };

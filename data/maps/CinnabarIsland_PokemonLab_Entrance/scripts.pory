@@ -67,3 +67,41 @@ script PokemonLab_OtherTree {
 	"I'm so lucky to be a part of it.\n"
 	"", MSGBOX_NPC)
 }
+
+script PokemonLab_OccupiedTree {
+	msgbox(
+	"This researcher seems occupied.\n"
+	"It'd be unwise to distract him.", MSGBOX_NPC)
+}
+
+script PokemonLab_FocusedTree {
+	msgbox(
+	"This researcher seems focused.\n"
+	"It's best not to interfere.", MSGBOX_NPC)
+}
+
+script PokemonLab_LockedIn {
+	msgbox(
+	"This researcher is locked in.\n"
+	"Now his attacks won't miss.", MSGBOX_NPC)
+}
+
+
+
+script PokemonLab_ATree {
+	msgbox(
+	"This is a tree.\p"
+
+	"It's very busy.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script PokemonLab_GoofingOff {
+	msgbox(
+	"This researcher is pretending to be\n"
+	"busy, but is actually goofing off.\p"
+
+	"You should play along so he doesn't\n"
+	"get caught.", MSGBOX_NPC)
+}

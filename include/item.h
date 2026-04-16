@@ -77,6 +77,7 @@ bool8 AddBagItem(u16 itemId, u16 amount);
 u32 FindItemSlot(u16 itemId);
 
 void SortPocketAndPlaceHMsFirst(struct BagPocket * pocket);
+void SortPokeBallsPocket_PokeBallFirst(struct BagPocket *pocket);
 u16 BagGetItemIdByPocketPosition(u8 pocketId, u16 itemId);
 u16 BagGetQuantityByPocketPosition(u8 pocketId, u16 itemId);
 u16 BagGetQuantityByItemId(u16 item);

@@ -453,6 +453,7 @@ static bool8 LoadBagMenuGraphics(void)
         gMain.state++;
         break;
     case 10:
+        SortPokeBallsPocket_PokeBallFirst(&gBagPockets[POCKET_POKE_BALLS - 1]);
         All_CalculateNItemsAndMaxShowed();
         CalculateInitialCursorPosAndItemsAbove();
         UpdatePocketScrollPositions();
@@ -681,6 +682,7 @@ static void BagListMenuGetItemNameColored(u8 *dest, u16 itemId)
 {
     if (itemId == ITEM_TM_CASE 
         || itemId == ITEM_BERRY_POUCH
+        || itemId == ITEM_SANDWICH_CASE
         || (itemId == ITEM_BICYCLE && IS_FINAL_BIKE_PHASE)
         || (itemId == ITEM_SHINY_BIKE && IS_FINAL_BIKE_PHASE))
         StringCopy(dest, sListItemTextColor_TmCase_BerryPouch);
@@ -1447,7 +1449,7 @@ static void OpenContextMenu(u8 taskId)
                     sContextMenuItemsBuffer[1] = ITEMMENUACTION_DESELECT;
                 else
                     sContextMenuItemsBuffer[1] = ITEMMENUACTION_REGISTER;
-                if (gSpecialVar_ItemId == ITEM_TM_CASE || gSpecialVar_ItemId == ITEM_BERRY_POUCH)
+                if (gSpecialVar_ItemId == ITEM_TM_CASE || gSpecialVar_ItemId == ITEM_BERRY_POUCH || gSpecialVar_ItemId == ITEM_SANDWICH_CASE)
                     sContextMenuItemsBuffer[0] = ITEMMENUACTION_OPEN;
                 else if (gSpecialVar_ItemId == ITEM_BICYCLE && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_MACH_BIKE))
                     sContextMenuItemsBuffer[0] = ITEMMENUACTION_WALK;

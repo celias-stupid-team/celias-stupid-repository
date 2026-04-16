@@ -889,7 +889,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CamperLiam[] = {
         .iv = 0,
         .lvl = 8,
         .species = SPECIES_DIGLETT,
-        .moves = {MOVE_DOUBLE_KICK, MOVE_JUMP_KICK, MOVE_LOW_KICK, MOVE_TRIPLE_KICK},
+        .moves = {MOVE_DOUBLE_KICK, MOVE_JUMP_KICK, MOVE_LOW_KICK, MOVE_NONE},
     },
     {
         .iv = 0,
@@ -10111,7 +10111,7 @@ static const struct TrainerMonItemCustomMoves sParty_ShortsGang2[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_SCRAFTY,
-        .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_GRUDGE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
@@ -10754,5 +10754,50 @@ static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {
         .heldItem = ITEM_FOCUS_BAND,
         .species = SPECIES_GREGORY,
         .moves = {MOVE_GREGORY_BLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_HakariBliz[] = {
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_FOCUS_SASH,
+        .species = SPECIES_DITTOBLIZ,
+        .moves = {MOVE_ARE_WE_NOT_MON, MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_ZOMBON,
+        .moves = {MOVE_GRIN_MISSILE, MOVE_GASTER_BLASTER, MOVE_RAINBOW_BEAM, MOVE_PSI_ROCKIN}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_IRONMASK,
+        .moves = {MOVE_ONE_LEER, MOVE_TACHYONIONCTTR, MOVE_CHIP_AWAY, MOVE_EXTREMESLOTH}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_GROOKEY,
+        .moves = {MOVE_GRASS_MONKEY, MOVE_DARK_LLOYD, MOVE_VACUUM_FEAR, MOVE_FUCK}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_TINKANETTE,
+        .moves = {MOVE_GIGATON_CRUSHER, MOVE_MAX_STONESURGE, MOVE_SWORDSDANCE_TCG, MOVE_GAMING_TOOLBARS}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_RICKETOT,
+        .moves = {MOVE_RIP_ROARING, MOVE_BULLDOZE, MOVE_MEGA_KICK, MOVE_MOONLIGHT_YEAR}
     },
 };
