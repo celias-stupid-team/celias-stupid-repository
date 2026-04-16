@@ -883,7 +883,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CamperEthan[] = {
         .iv = 0,
         .lvl = 15,
         .species = SPECIES_GENGAR,
-        .moves = {MOVE_PERISH_SONG, MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_NONE},
+        .moves = {MOVE_PERISH_SONG, MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_PROTECT},
     },
     {
         .iv = 0,
@@ -3977,25 +3977,22 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt4[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt5[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt5[] = {
     {
         .iv = 0,
-        .lvl = 17,
-        .species = SPECIES_DROWZEE,
-    },
-    {
-        .iv = 0,
-        .lvl = 17,
-        .species = SPECIES_SPEAROW,
+        .lvl = 14,
+        .species = SPECIES_SANDSHREW,
+        .moves = {MOVE_TAKE_DOWN, MOVE_BLOCK, MOVE_NONE, MOVE_NONE}
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt6[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt6[] = {
 
     {
         .iv = 0,
         .lvl = 15,
-        .species = SPECIES_ZUBAT,
+        .species = SPECIES_SPEAROW,
+        .moves = {MOVE_TAKE_DOWN, MOVE_BLOCK, MOVE_NONE, MOVE_NONE}
     },
 };
 

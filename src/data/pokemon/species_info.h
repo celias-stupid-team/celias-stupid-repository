@@ -7287,12 +7287,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_CELEBI] =
     {
-        .baseHP = 100,
+        .baseHP = 1,
         .baseAttack = 100,
-        .baseDefense = 100,
+        .baseDefense = 1,
         .baseSpeed = 100,
         .baseSpAttack = 100,
-        .baseSpDefense = 100,
+        .baseSpDefense = 1,
         .types = {TYPE_PSYCHIC, TYPE_GRASS},
         .catchRate = 255,
         .expYield = 64,
