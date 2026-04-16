@@ -306,6 +306,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
 	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
+	.4byte BattleScript_EffectPayWall           @ EFFECT_PAY_WALL
+
+	
 
 
 
@@ -6516,3 +6519,18 @@ BattleScript_EffectFocusMiss::
 @ BattleScript_MoveEnd::
 	moveendall
 	end
+
+
+	
+BattleScript_EffectPayWall::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	removemoney
+	waitmessage B_WAIT_TIME_SHORT
+	printstring STRINGID_PAY_WALL
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+

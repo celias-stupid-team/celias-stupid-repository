@@ -418,7 +418,7 @@ gBattleAnims_Moves::
 	.4byte Move_WUMBOIZE
 	.4byte Move_TAILWIND
 	.4byte Move_ROOST
-	.4byte Move_CSR_DUMMY
+	.4byte Move_PAY_WALL
 	.4byte Move_PRIMAL_RAGE
 	.4byte Move_CLOSE_COMBAT
 	.4byte Move_RAGE_SNOUT
@@ -14232,6 +14232,43 @@ Move_ROOST:
 	clearmonbg ANIM_DEF_PARTNER
 	end
 	
+Move_PAY_WALL:
+
+	loadspritegfx ANIM_TAG_PROTECT
+	loadspritegfx ANIM_TAG_MONEY
+
+	loadspritegfx ANIM_TAG_ORANGE_LIGHT_WALL
+	waitplaysewithpan SE_SHOP, SOUND_PAN_ATTACKER, 15
+
+
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -2, 10, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -1, -1, 15, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -4, -4, 7, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 3, -3, 11, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -1, -6, 8, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 2, -1, 12, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -4, 13, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 4, -5, 7, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 2, -6, 11, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -5, 8, 1
+	delay 30
+	waitplaysewithpan SE_M_BARRIER, SOUND_PAN_ATTACKER, 15
+
+	setalpha 0, 16
+	createsprite gMagicCoatWallSpriteTemplate, ANIM_ATTACKER, 3, 40, 0, ANIM_TAG_ORANGE_LIGHT_WALL
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	end
+
 Move_CSR_DUMMY:
 	@goto Move_TACKLE
 	@end

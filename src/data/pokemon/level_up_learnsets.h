@@ -8435,7 +8435,7 @@ static const struct LevelUpMove sKubfuLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sUrshifuLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_PAY_WALL),
 	LEVEL_UP_END
 };
 

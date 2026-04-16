@@ -1965,3 +1965,8 @@
 	.macro unleashenergy
 	callnative BS_UnleashEnergy
 	.endm
+
+
+	.macro removemoney
+	callnative BS_RemoveMoney
+	.endm

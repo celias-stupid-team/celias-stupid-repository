@@ -841,7 +841,6 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_COLONIZE,
     MOVE_THIEF,
     MOVE_MIEF,
-    MOVE_CSR_DUMMY,
     METRONOME_FORBIDDEN_END
 };
 
@@ -13575,3 +13574,16 @@ void BS_UnleashEnergy(void) {
     FlagSet(FLAG_UNLEASHED_ENERGY);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_RemoveMoney(void) {
+    NATIVE_ARGS();
+    //DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+    
+    u16 itemId = ITEM_NUGGET;
+
+    RemoveBagItem(itemId, 1);
+    RemoveBagItem(itemId, 1);
+    RemoveBagItem(itemId, 1);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+

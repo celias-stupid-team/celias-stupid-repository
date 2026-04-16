@@ -9324,6 +9324,21 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     
+    [MOVE_PAY_WALL] =
+    {
+        .effect = EFFECT_PAY_WALL,
+        .power = 50,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_USER,
+        .priority = 3,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    
+    
     [MOVE_AGOLBATICS] =
     {
         .effect = EFFECT_HIT,
