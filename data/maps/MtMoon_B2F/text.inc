@@ -64,10 +64,10 @@ MtMoon_B2F_Text_Grunt3PostBattle::
     .string "The DMCA will blacklist you!$"
 
 MtMoon_B2F_Text_Grunt4Intro::
-    .string "Hey, kid!\p"
-    .string "You better not be hosting any\n"
-    .string "copyrighted content!\p"
-    .string "It could be bad news!$"
+    .string "We, the DMCA, shall find the\n"
+    .string "fossils!\p"
+    .string "Copyright claiming them will\n"
+    .string "earn us huge riches!$"
 
 MtMoon_B2F_Text_Grunt4Defeat::
     .string "Blast it!\n"
