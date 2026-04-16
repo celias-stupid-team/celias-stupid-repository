@@ -10,7 +10,7 @@ mapscripts RainbowCloud_MapScripts {
 		}
 	}
 	MAP_SCRIPT_ON_RESUME {
-		playbgm(MUS_RAINBOW_CASTLE, TRUE)
+		//playbgm(MUS_RAINBOW_CASTLE, TRUE)
 	}
 }
 

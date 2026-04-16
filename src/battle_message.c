@@ -525,6 +525,7 @@ static const u8 sText_AarghAlmostHadIt[] = _("Aargh!\nAlmost had it!");
 static const u8 sText_ShootSoClose[] = _("Shoot!\nIt was so close, too!");
 static const u8 sText_ItDodgedBall2[] = _("よけられた!\nこいつは つかまりそうにないぞ!"); // Unused version of the Marowak ghost dodging text
 static const u8 sText_GotchaPkmnCaught[] = _("Gotcha!\n{B_OPPONENT_MON1_NAME} was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}\p");
+static const u8 sText_GotchaPkmnCaughtCastform[] = _("Gotcha!\n{B_OPPONENT_MON1_NAME} was caught!{WAIT_SE}\p");
 static const u8 sText_GotchaPkmnCaught2[] = _("Gotcha!\n{B_OPPONENT_MON1_NAME} was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}{PAUSE 127}");
 static const u8 sText_GiveNicknameCaptured[] = _("Give a nickname to the\ncaptured {B_OPPONENT_MON1_NAME}?");
 static const u8 sText_PkmnSentToPC[] = _("{B_OPPONENT_MON1_NAME} was sent to\n{B_PC_CREATOR_NAME} PC.");
@@ -1103,6 +1104,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_GREGORYBLASTCHARGE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} prepares\nhis ultimate attack!"),
     [STRINGID_DOUBLEBATTLECHEATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("Whoops, you only have one\nPOKéMON alive!\pLet's get you out of there\nso we can try again."),
     [STRINGID_BIDEENERGY - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("Wow!\nDYNAMAX ENERGY now fills the area!"),
+    [STRINGID_CASTFORMCAUGHT - BATTLESTRINGS_TABLE_START]         = sText_GotchaPkmnCaughtCastform,
 
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };

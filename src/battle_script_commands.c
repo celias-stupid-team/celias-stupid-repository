@@ -4023,7 +4023,8 @@ static void Cmd_getexp(void)
             else
             {
                 // music change in wild battle after fainting a poke
-                if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_POKEDUDE)) && gBattleMons[0].hp != 0 && !gBattleStruct->wildVictorySong)
+                if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_POKEDUDE)) && gBattleMons[0].hp != 0 && !gBattleStruct->wildVictorySong
+                    && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD)))
                 {
                     BattleStopLowHpSound();
                     PlayBGM(MUS_VICTORY_WILD);
@@ -11329,7 +11330,13 @@ static void Cmd_handleballthrow(void)
             //DebugPrintf("Odds are above 255 for some reason");
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
-            gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+            if(gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM) {
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrowCastform;
+
+            } else {
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+
+            }
             SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &thrownBall);
 
             if (CalculatePlayerPartyCount() == PARTY_SIZE)
