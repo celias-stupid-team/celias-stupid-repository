@@ -2787,6 +2787,7 @@ static const struct LevelUpMove sEspeonLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_ICE),
     LEVEL_UP_MOVE(1, MOVE_CHILL_HEADBUTT),
     LEVEL_UP_MOVE(1, MOVE_SINGLE_WINGBEAT),
+    LEVEL_UP_MOVE(72, MOVE_FRUSTRATION),
     LEVEL_UP_END
 };
 
