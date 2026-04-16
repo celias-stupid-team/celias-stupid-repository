@@ -397,3 +397,10 @@ script CeladonCity_GameCorner_PrizeRoom_EventScript_PrizeClerkMons {
 	msgbox(CeladonCity_GameCorner_PrizeRoom_Text_WeExchangeCoinsForPrizes)
 	goto(CeladonCity_GameCorner_PrizeRoom_EventScript_ChoosePrizeMon)
 }
+
+script PrizeRoom_DratiniSection {
+	msgbox(
+	"The DRATINI section is suspiciously\n"
+	"empty.", MSGBOX_SIGN)
+
+}
