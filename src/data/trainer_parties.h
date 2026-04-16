@@ -733,18 +733,21 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassKay[] = {
         .iv = 0,
         .lvl = 23,
         .species = SPECIES_NIDORINA,
+        .moves = {MOVE_NUZZLE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 23,
         .species = SPECIES_SYLVEON,
+        .moves = {MOVE_HYPER_VOICE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_LassLisa[] = {
+static const struct TrainerMonItemDefaultMoves sParty_LassLisa[] = {
     {
         .iv = 0,
         .lvl = 23,
+        .heldItem = ITEM_BRICK_PIECE, 
         .species = SPECIES_FERROTHORN,
     },
 };
@@ -1081,16 +1084,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerMartha[] = {
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerTina[] = {
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_LICKITUNG,
-    },
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_CHERUBI,
-    },
+
     {
         .iv = 0,
         .lvl = 24,
@@ -2569,22 +2563,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BeautyBridget[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_BeautyTamia[] = {
     {
         .iv = 0,
-        .lvl = 24,
+        .lvl = 22,
         .species = SPECIES_NIDORINA,
     },
     {
         .iv = 0,
-        .lvl = 24,
+        .lvl = 22,
         .species = SPECIES_NIDORINO,
     },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_BeautyLori[] = {
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_ODDISH,
-    },
     {
         .iv = 0,
         .lvl = 24,
@@ -4886,12 +4875,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerMary[] = {
         .lvl = 22,
         .species = SPECIES_LICKITUNG,
         .moves = {MOVE_WRAP, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-    },
-    {
-        .iv = 100,
-        .lvl = 22,
-        .species = SPECIES_ONIX,
-        .moves = {MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 

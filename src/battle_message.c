@@ -1105,7 +1105,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_DOUBLEBATTLECHEATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("Whoops, you only have one\nPOKéMON alive!\pLet's get you out of there\nso we can try again."),
     [STRINGID_BIDEENERGY - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("Wow!\nDYNAMAX ENERGY now fills the area!"),
     [STRINGID_CASTFORMCAUGHT - BATTLESTRINGS_TABLE_START]         = sText_GotchaPkmnCaughtCastform,
-    [STRINGID_PAY_WALL - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("The PAY WALL depleted all of\n{B_PLAYER_NAME}'s NUGGETS!"),
+    [STRINGID_PAY_WALL - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("The PAY WALL depleted all of\n{B_PLAYER_NAME}'s NUGGETS!{PAUSE 20}"),
 
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };

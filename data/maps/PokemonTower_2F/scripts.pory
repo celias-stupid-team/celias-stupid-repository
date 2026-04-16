@@ -466,3 +466,11 @@ script PokemonTower_2F_LitwickConversation {
 	return	
 }//script
 
+script PokemonTower_GhostPsychic {
+	msgbox(
+	"For ghosts, use PSYCHIC!\p"
+
+	"This message brought to you by\n"
+	"the RBY type chart!", MSGBOX_SIGN)
+
+}

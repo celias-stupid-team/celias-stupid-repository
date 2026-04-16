@@ -6445,8 +6445,7 @@ static const struct LevelUpMove sSimipourLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMunnaLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
-	LEVEL_UP_MOVE(1, MOVE_DEFENSE_CURL),
+	LEVEL_UP_MOVE(1, MOVE_ROUND),
 	LEVEL_UP_END
 };
 
@@ -9398,8 +9397,7 @@ static const struct LevelUpMove sGhostLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sVenomoth_ATVLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_LEECH_LIFE),
-	LEVEL_UP_MOVE(1, MOVE_GUST),
+	LEVEL_UP_MOVE(1, MOVE_COLLISION_COURSE),
 	LEVEL_UP_END
 };
 
