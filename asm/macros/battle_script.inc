@@ -1956,3 +1956,12 @@
 	callnative BS_TryFling
 	.4byte \failInstr
 	.endm
+
+	.macro settypelarge battler:req
+	callnative BS_SetTypeLarge
+	.byte \battler
+	.endm
+
+	.macro unleashenergy
+	callnative BS_UnleashEnergy
+	.endm

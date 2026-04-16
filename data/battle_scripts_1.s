@@ -305,6 +305,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
 	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
+	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
+
+
 
 BattleScript_End2::
 	end2
@@ -3602,22 +3605,14 @@ BattleScript_BideAttack::
 	clearstatusfromeffect BS_ATTACKER
 	printstring STRINGID_PKMNUNLEASHEDENERGY
 	waitmessage B_WAIT_TIME_LONG
-	accuracycheck BattleScript_MoveMissed, ACC_CURR_MOVE
-	typecalc
-	bicbyte gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
-	copyword gBattleMoveDamage, sBIDE_DMG
-	adjustsetdamage
 	setbyte sB_ANIM_TURN, 1
 	attackanimation
 	waitanimation
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	resultmessage
+	unleashenergy
+	waitmessage B_WAIT_TIME_SHORT
+	fanfare MUS_LEVEL_UP
+	printstring STRINGID_BIDEENERGY
 	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
 BattleScript_BideNoEnergyToAttack::
@@ -5972,6 +5967,7 @@ BattleScript_EffectStuporPower::
 BattleScript_EffectGMaxCuddle::
 	attackcanceler
 	jumpifflagset FLAG_CSR_POWER_IS_ON, BattleScript_EffectHit
+	jumpifflagset FLAG_UNLEASHED_ENERGY, BattleScript_EffectHit
 	attackstring
 	ppreduce
 	printstring STRINGID_GMAX_MOVE
@@ -6420,6 +6416,18 @@ BattleScript_EffectTypeSmall::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+
+BattleScript_EffectTypeLarge::
+	attackcanceler
+	attackstring
+	ppreduce
+	settypelarge BS_ATTACKER
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNBECAMETYPE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
 @ this is not a full fling port
 BattleScript_EffectFling::
 	attackcanceler
@@ -6465,3 +6473,46 @@ BattleScript_GregoryBlastKOFail::
 	printfromtable gKOFailedStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+
+
+BattleScript_EffectFocusMiss::
+	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
+	jumpifnostatus3 BS_TARGET, STATUS3_UNDERWATER, BattleScript_HitFromAtkCanceler
+	orword gHitMarker, HITMARKER_IGNORE_UNDERWATER
+	setbyte sDMG_MULTIPLIER, 2
+@ BattleScript_HitFromAtkCanceler::
+	attackcanceler
+@ BattleScript_HitFromAccCheck::
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+@ BattleScript_HitFromAtkString::
+	attackstring
+	ppreduce
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
+@ BattleScript_HitFromCritCalc::
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+@ BattleScript_HitFromAtkAnimation::
+	attackanimation
+	waitanimation
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 5, BattleScript_FinalBattle_StopBgm
+	effectivenesssound
+@ BattleScript_HitFromAtkAnimation_2::
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	jumpifmove MOVE_REVELATION_DANCE, BattleScript_RevelationDanceString
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
+@ BattleScript_MoveEnd::
+	moveendall
+	end

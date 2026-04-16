@@ -6758,7 +6758,7 @@ bool8 TrySwitchInPokemonFromPSS(void)
     if (GetMonData(&gPlayerParty[slot], MON_DATA_HP) == 0)
     {
         GetMonNickname(&gPlayerParty[slot], gStringVar1);
-        StringExpandPlaceholders(gStringVar4, gText_PkmnHasNoEnergy);
+        StringExpandPlaceholders(gStringVar4, gText_PCSwitchError);
         switchSuccessful = FALSE;
     }
     if (GetMonData(&gPlayerParty[slot], MON_DATA_IS_EGG))

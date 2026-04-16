@@ -23,7 +23,7 @@ const u8 gMoveDescription_Fly[] = _("A 2-turn move that\nhits on the 2nd\nturn. 
 const u8 gMoveDescription_Bind[] = _("yup");
 const u8 gMoveDescription_Slam[] = _("One of the moves\nof all time.");
 const u8 gMoveDescription_VineWhip[] = _("Why is this\nmove so god\ndamn mother\nfucking bad?");
-const u8 gMoveDescription_Stomp[] = _("Remember when\nMINIMIZE used to\nmake your sprite\nsuper small?");
+const u8 gMoveDescription_Stomp[] = _("Womp womp womp\nit's Stomp");
 const u8 gMoveDescription_DoubleKick[] = _("A two-part\nattack.\n\nTechnically.");
 const u8 gMoveDescription_MegaKick[] = _("A massive and\npowerful kick,\nstrong enough to\nstart any PC.");
 const u8 gMoveDescription_JumpKick[] = _("The user jumps up\nhigh, then kicks.\nIf it misses, the\nuser hurts itself.");
@@ -88,7 +88,7 @@ const u8 gMoveDescription_ThunderShock[] = _("An electric shock\nattack that may
 const u8 gMoveDescription_Thunderbolt[] = _("That's right!");
 const u8 gMoveDescription_ThunderWave[] = _("The yellow color");
 const u8 gMoveDescription_Thunder[] = _("The user produces\na large blast\nof lightning.");
-const u8 gMoveDescription_RockThrow[] = _("The foe is attacked\nwith a shower of\nsmall, easily\nthrown rocks.");
+const u8 gMoveDescription_RockThrow[] = _("The foe is attacked\nwith a move with\n60 god damn fucking\naccuracy.");
 const u8 gMoveDescription_Earthquake[] = _("It has 40 PP\nbecause of BROCK.");
 const u8 gMoveDescription_Fissure[] = _("The foe is dropped\ninto a fissure.\nThe foe faints if it\nhits.");
 const u8 gMoveDescription_Dig[] = _("An attack that hits\non the 2nd turn.\nCan also be used\nto find treasure.");
@@ -102,7 +102,7 @@ const u8 gMoveDescription_QuickAttack[] = _("The second half\nof the two-part\nF
 const u8 gMoveDescription_Rage[] = _("The user plays\nCelia's Stupid\nRomhack.");
 const u8 gMoveDescription_Teleport[] = _("The user and\nthe foe get\nTELEPORTED into\na wall somewhere.");
 const u8 gMoveDescription_NightShade[] = _("Using the move\nNIGHT SHADE as\nPROF. OAK's\nPOKéMON.");
-const u8 gMoveDescription_Mimic[] = _("The user copies the\nmove last used by\nthe foe for the\nrest of the battle.");
+const u8 gMoveDescription_Mimic[] = _("The user mimics\nthe move last\nused by the\nfoe.");
 const u8 gMoveDescription_Screech[] = _("An ear-splitting\nscreech is emitted\nto sharply reduce\nthe foe's DEFENSE.");
 const u8 gMoveDescription_DoubleTeam[] = _("Your younger\nbrother's favorite\nmove.");
 const u8 gMoveDescription_Recover[] = _("A self-healing move\nthat restores HP by\nup to half of the\nuser's maximum HP.");
@@ -1097,6 +1097,14 @@ const u8 gMoveDescription_Bag[] = _("Open's the\nuser's bag.");
 const u8 gMoveDescription_Fuck[] = _("I didn't say\nFIRE I said\nFUCK.");
 const u8 gMoveDescription_TackleMagikarp[] = _("The user tackles\nabout for two to\nthree turns, then\nbecomes confused.");
 const u8 gMoveDescription_RagingBullworm[] = _("Why don't we take\nall of KANTO, and\npush it somewhere\nelse?");
+
+const u8 gMoveDescription_comeuppants[] = _("Dummy");
+const u8 gMoveDescription_StringShort[] = _("Dummy");
+const u8 gMoveDescription_GyroMite[] = _("Dummy");
+const u8 gMoveDescription_Shroomburst[] = _("Dummy");
+const u8 gMoveDescription_ShroomDesire[] = _("I stop you from\nrunning, but only\nbecause I want to\nrun too…");
+const u8 gMoveDescription_LuckyPant[] = _("Dummy");
+const u8 gMoveDescription_WurmpleBeam[] = _("Dummy");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -2200,4 +2208,12 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_FUCK     -1 ] = gMoveDescription_Fuck,
     [MOVE_TACKLE_MAGIKARP     -1 ] = gMoveDescription_TackleMagikarp,
     [MOVE_RAGING_BULLWORM     -1 ] = gMoveDescription_RagingBullworm,
+
+    [MOVE_COMEUPPANTS     -1 ] = gMoveDescription_comeuppants,
+    [MOVE_STRING_SHORT     -1 ] = gMoveDescription_StringShort,
+    [MOVE_GYRO_MITE     -1 ] = gMoveDescription_GyroMite,
+    [MOVE_SHROOMBURST     -1 ] = gMoveDescription_Shroomburst,
+    [MOVE_SHROOM_DESIRE     -1 ] = gMoveDescription_ShroomDesire,
+    [MOVE_LUCKY_PANT     -1 ] = gMoveDescription_LuckyPant,
+    [MOVE_WURMPLE_BEAM     -1 ] = gMoveDescription_WurmpleBeam,
 };

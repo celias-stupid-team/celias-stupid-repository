@@ -358,7 +358,7 @@ It is reset after every battle.
 #define VAR_0x40F4                 0x40F4
 #define VAR_0x40F5                 0x40F5
 #define VAR_0x40F6                 0x40F6
-#define VAR_0x40F7                 0x40F7
+#define VAR_JUMPED_INTO_WALL                 0x40F7
 #define VAR_USED_POKE_FLUTE                 0x40F8
 #define VAR_SHINY_MAGNEMITE                 0x40F9
 #define VAR_STACK_OF_CANDY                 0x40FA

@@ -1,6 +1,6 @@
 mapscripts Ocean13_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        if(var(VAR_CSR_OCEAN_LASS_MAZE) > 1) {
+        if(var(VAR_CSR_OCEAN_LASS_MAZE) > 0) {
             setflag(FLAG_TEMP_2)
             setflag(FLAG_TEMP_1)
         }

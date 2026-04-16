@@ -13,6 +13,7 @@
 #include "battle_gfx_sfx_util.h"
 #include "constants/songs.h"
 #include "constants/sound.h"
+#include "constants/maps.h"
 
 static void Task_DoPokeballSendOutAnim(u8 taskId);
 static void SpriteCB_PlayerMonSendOut_1(struct Sprite *sprite);
@@ -911,8 +912,11 @@ static void SpriteCB_BallThrow_CaptureMon(struct Sprite *sprite)
     else if (sprite->data[4] == 95)
     {
         gDoingBattleAnim = FALSE;
-        m4aMPlayAllStop();
-        PlaySE(MUS_CAUGHT_INTRO);
+        if(!(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD))) {
+            m4aMPlayAllStop();
+            PlaySE(MUS_CAUGHT_INTRO);
+
+        }
     }
     else if (sprite->data[4] == 315)
     {

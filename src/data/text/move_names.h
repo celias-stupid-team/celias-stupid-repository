@@ -41,7 +41,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_TAIL_WHIP]     = _("TAIL WHIP"),
     [MOVE_POISON_STING]  = _("POISON STING"),
     [MOVE_TWINEEDLE]     = _("TWINEEDLE"),
-    [MOVE_PIN_MISSILE]   = _("PIN MISSILE"),
+    [MOVE_PIN_MISSILE]   = _("PINN MISSILE"),
     [MOVE_LEER]          = _("LEER"),
     [MOVE_BITE]          = _("BITE"),
     [MOVE_GROWL]         = _("GROWL"),
@@ -551,7 +551,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_DRAGON_PULSE]     = _("DRAGON_PULSE"),
     [MOVE_TRUMP_CARD]     = _("TRUMP CARD"),
     [MOVE_HEAL_PULSE]     = _("HEAL_PULSE"),
-    [MOVE_ORIGIN_PULSE]     = _("ORIGIN_PULSE"),
+    [MOVE_ORIGIN_PULSE]     = _("ORIGIN PULSE"),
     [MOVE_WICKED_TORQUE]     = _("WICKED T."),
     [MOVE_NOXIOUS_TORQUE]     = _("NOXIOUS T."),
     [MOVE_MAGICAL_TORQUE]     = _("MAGICAL T."),
@@ -1102,7 +1102,15 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_FUCK]     = _("FUCK"),
     [MOVE_TACKLE_MAGIKARP]     = _("TACKLE"),
     [MOVE_RAGING_BULLWORM]     = _("RAGING BULL"),
+    [MOVE_COMEUPPANTS]     = _("COMEUPPANTS"),
+    [MOVE_STRING_SHORT]     = _("STRING SHORT"),
+    [MOVE_GYRO_MITE]     = _("GYRO MITE"),
+    [MOVE_SHROOMBURST]     = _("SHROOMBURST"),
+    [MOVE_SHROOM_DESIRE]     = _("SHROOM DSIRE"),
+    [MOVE_LUCKY_PANT]     = _("LUCKY PANT"),
+    [MOVE_WURMPLE_BEAM]     = _("FALSE "),
 };
+
 
 
 const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
@@ -1148,7 +1156,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_TAIL_WHIP]     = _("TAIL WHIP"),
     [MOVE_POISON_STING]  = _("POISON STING"),
     [MOVE_TWINEEDLE]     = _("TWINEEDLE"),
-    [MOVE_PIN_MISSILE]   = _("PIN MISSILE"),
+    [MOVE_PIN_MISSILE]   = _("PINN MISSILE"),
     [MOVE_LEER]          = _("LEER"),
     [MOVE_BITE]          = _("BITE"),
     [MOVE_GROWL]         = _("GROWL"),
@@ -1659,7 +1667,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_TRUMP_CARD]     = _("TRUMP CARD"),
     [MOVE_DRAGON_PULSE]     = _("DRAGON PULSE"),
     [MOVE_HEAL_PULSE]     = _("HEAL PULSE"),
-    [MOVE_ORIGIN_PULSE]     = _("ORIGIN_PULSE"),
+    [MOVE_ORIGIN_PULSE]     = _("ORIGIN PULSE"),
     [MOVE_WICKED_TORQUE]     = _("WICKED TORQUE"),
     [MOVE_NOXIOUS_TORQUE]     = _("NOXIOUS TORQUE"),
     [MOVE_MAGICAL_TORQUE]     = _("MAGICAL TORQUE"),
@@ -2209,4 +2217,12 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_FUCK]     = _("FUCK"),
     [MOVE_TACKLE_MAGIKARP]     = _("TACKLE"),
     [MOVE_RAGING_BULLWORM]     = _("RAGING BULLWORM"),
+        [MOVE_COMEUPPANTS]     = _("COMEUPPANTS"),
+    [MOVE_STRING_SHORT]     = _("STRING SHORT"),
+    [MOVE_GYRO_MITE]     = _("GYRO MITE"),
+    [MOVE_SHROOMBURST]     = _("SHROOMBURST"),
+    [MOVE_SHROOM_DESIRE]     = _("SHROOM DESIRE"),
+    [MOVE_LUCKY_PANT]     = _("LUCKY PANT"),
+    
+    [MOVE_WURMPLE_BEAM]     = _("WURMPLE BEAM"),
 }; //For any move which needs its name lengthened, these will display in battle.

@@ -1369,10 +1369,10 @@
 #define FLAG_0x4F4               0x4F4
 #define FLAG_0x4F5               0x4F5
 #define FLAG_0x4F6               0x4F6
-#define FLAG_0x4F7               0x4F7
-#define FLAG_0x4F8               0x4F8
-#define FLAG_0x4F9               0x4F9
-#define FLAG_0x4FA               0x4FA
+#define FLAG_UNLEASHED_ENERGY               0x4F7
+#define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_2               0x4F8
+#define ITEM_GAME_GENIE_TM               0x4F9
+#define FLAG_CAUGHT_MR_ICE_BEAM               0x4FA
 #define FLAG_DID_ARTICUNO_FIGHT               0x4FB
 #define FLAG_TM25_GOT               0x4FC
 #define FLAG_TM02_GOT               0x4FD
@@ -1579,7 +1579,7 @@
 #define FLAG_CSR_MAP_SECRET_TUNNEL                                  (SYS_FLAGS + 0xF7)
 #define FLAG_CSR_MAP_ZERO_ISLAND                                    (SYS_FLAGS + 0xF8)
 #define FLAG_CSR_MAP_DUMMY_21                                       (SYS_FLAGS + 0xF9)
-#define FLAG_CSR_MAP_DUMMY_22                                       (SYS_FLAGS + 0xFA)
+#define FLAG_ONE_ISLAND_MAP_AGAIN                                       (SYS_FLAGS + 0xFA)
 #define FLAG_CSR_MAP_ROUTE_9                                        (SYS_FLAGS + 0xFB)
 #define FLAG_0x8FC                                                  (SYS_FLAGS + 0xFC)
 #define FLAG_0x8FD                                                  (SYS_FLAGS + 0xFD)

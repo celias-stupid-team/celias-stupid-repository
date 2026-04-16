@@ -71,10 +71,10 @@ Route23_EventScript_VictoryRoadGateSign::
 `
 mapscripts Route23_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		if(var(VAR_MAP_SCENE_ROUTE23) >= 4 && !flag(FLAG_BADGE08_GET)) {
+		if(var(VAR_MAP_SCENE_ROUTE23) >= 4 && !(var(VAR_CURRENT_CHAPTER) == 8)) {
 			setvar(VAR_MAP_SCENE_ROUTE23, 3)
 		}
-		if(!flag(FLAG_BADGE08_GET)) {
+		if(!(var(VAR_CURRENT_CHAPTER) == 8)) {
 			setflag(FLAG_TEMP_5)
 		}
 	}

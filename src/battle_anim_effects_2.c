@@ -4470,7 +4470,7 @@ static void AnimTask_GrowAndGrayscale_Step(u8 taskId)
 void AnimTask_Minimize(u8 taskId)
 {
     struct Task* task = &gTasks[taskId];
-    u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
     
     task->data[0] = spriteId;
     PrepareBattlerSpriteForRotScale(spriteId, ST_OAM_OBJ_NORMAL);
@@ -4480,7 +4480,7 @@ void AnimTask_Minimize(u8 taskId)
     task->data[4] = 0x100;
     task->data[5] = 0;
     task->data[6] = 0;
-    task->data[7] = GetBattlerSpriteSubpriority(gBattleAnimAttacker);
+    task->data[7] = GetBattlerSpriteSubpriority(gBattleAnimTarget);
     task->func = AnimTask_Minimize_Step1;
 }
 
@@ -4554,7 +4554,7 @@ static void AnimTask_Minimize_Step1(u8 taskId)
 static void CreateMinimizeSprite(struct Task* task, u8 taskId)
 {
     u16 matrixNum;
-    s16 spriteId = CloneBattlerSpriteWithBlend(ANIM_ATTACKER);
+    s16 spriteId = CloneBattlerSpriteWithBlend(ANIM_TARGET);
     
     if (spriteId >= 0)
     {

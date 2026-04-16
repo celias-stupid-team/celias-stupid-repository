@@ -13468,3 +13468,6 @@ extern const u32 gMonShinyPalette_RICKETOT[];
 extern const u8 gMonFootprint_RICKETOT[];
 extern const u8 gMonIcon_RICKETOT[];
 
+
+extern const u32 gTrainerFrontPic_Kotone[];
+extern const u32 gTrainerPalette_Kotone[];

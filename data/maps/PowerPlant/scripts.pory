@@ -471,9 +471,13 @@ script PowerPlant_MinigameStart {
 				delay(60)
 				setvar(VAR_CSR_TURNED_ON_POWER, 1)
 				msgbox("Wow!\nETERNATUS unleashed its energy!", MSGBOX_DEFAULT)
-				playfanfare(MUS_LEVEL_UP)
-				msgbox("DYNAMAX ENERGY now fills\nthe area!", MSGBOX_DEFAULT)
-				waitfanfare
+				if(!flag(FLAG_UNLEASHED_ENERGY)) {
+					playfanfare(MUS_LEVEL_UP)
+					msgbox("DYNAMAX ENERGY now fills\nthe area!", MSGBOX_DEFAULT)
+					waitfanfare
+
+				}
+				setflag(FLAG_UNLEASHED_ENERGY)
 
 			}
 			elif (var(VAR_CSR_TURNED_ON_POWER) == 2) { //NO_B_BUTTON
@@ -529,10 +533,8 @@ script PowerPlant_Console {
 			goto(PowerPlant_MinigameStart)
 		}
 	} else {
-		msgbox("The POWER has been turned on!\pWould you like to turn it on\nagain anyway?", MSGBOX_YESNO)
-		if(var(VAR_RESULT)) {
-			goto(PowerPlant_MinigameStart)
-		}
+		msgbox("The POWER has been turned on!")
+
 	}
 	release
 }

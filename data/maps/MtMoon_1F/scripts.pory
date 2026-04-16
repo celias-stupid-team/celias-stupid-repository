@@ -45,16 +45,21 @@ MtMoon_1F_EventScript_Kent::
 	msgbox MtMoon_1F_Text_KentPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MtMoon_1F_EventScript_Robby::
-	trainerbattle_single TRAINER_BUG_CATCHER_ROBBY, MtMoon_1F_Text_RobbyIntro, MtMoon_1F_Text_RobbyDefeat
-	msgbox MtMoon_1F_Text_RobbyPostBattle, MSGBOX_AUTOCLOSE
-	end
+
 
 MtMoon_B1F_EventScript_ExitLass::
 	trainerbattle_single TRAINER_CSR_MT_MOON_END_LASS, MtMoon_Text_ExitLassIntro, MtMoon_Text_ExitLassDefeat
 	msgbox MtMoon_Text_ExitLassPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+script MtMoon_1F_EventScript_Robby {
+	trainerbattle_double (TRAINER_BUG_CATCHER_ROBBY, MtMoon_1F_Text_RobbyIntro, MtMoon_1F_Text_RobbyDefeat,
+	"Go talk to Dad or catch something.\n"
+	"I want to fight.")
+	msgbox (MtMoon_1F_Text_RobbyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
 script MtMoon_1F_Item_SuperRepel {
 	finditem(ITEM_SUPER_REPEL)
 }
@@ -229,4 +234,13 @@ script MtMoon_Celia_EndLass {
 script MtMoon_ExitSign {
 	msgbox("MT. MOON\nShortcut {RIGHT_ARROW}", MSGBOX_SIGN)
 	end
+}
+
+script MtMoon_SuspiciousLawyers {
+	msgbox(
+	"Some suspicious lawyers have been\n"
+	"creeping around the cave…\p"
+
+	"Be careful if you have any\n"
+	"copyrighted material on you!", MSGBOX_NPC)
 }

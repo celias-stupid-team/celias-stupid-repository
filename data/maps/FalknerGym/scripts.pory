@@ -90,11 +90,13 @@ script FalknerGym_Falkner {
             "Take this.\n"
             "You've earned it.", MSGBOX_DEFAULT)
             playfanfare(MUS_OBTAIN_BADGE)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
             msgbox(
             "{PLAYER} obtained the\n"
             "FEATHERBADGE!", MSGBOX_DEFAULT)
             waitfanfare
             setflag(FLAG_OBTAINED_ZEPHYRBADGE)
+            textcolor(NPC_TEXT_COLOR_BLUE)
             msgbox(
             "Perhaps…{PAUSE 30} evolving my PIDGEY\n"
             "wasn't actually a very good idea.", MSGBOX_DEFAULT)

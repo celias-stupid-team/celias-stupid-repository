@@ -38,7 +38,7 @@ script SkyTower_3FShop_Orb {
 	"Is that acceptable to you?")
     waitmessage
 	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "YES", "NO", "HURL")
-
+    
     if(var(VAR_RESULT) == 0) {
         msgbox(
         "You can't afford it and you\n"
@@ -48,9 +48,7 @@ script SkyTower_3FShop_Orb {
             release
             end
         }
-        msgbox(
-        "HURL the HURL ORB?\n"
-        "", MSGBOX_YESNO)
+        setvar(VAR_RESULT, TRUE)
         if(var(VAR_RESULT)) {
             closemessage
             delay(30)

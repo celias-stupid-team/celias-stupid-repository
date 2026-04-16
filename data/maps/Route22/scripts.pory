@@ -548,6 +548,11 @@ script Route22_CandyStack {
 
 
 script Route22_CountCandies {
+	if(checkitem(ITEM_ODD_CANDY, 46)) {
+		while(checkitem(ITEM_ODD_CANDY, 46)) {
+			removeitem(ITEM_ODD_CANDY)
+		}
+	} // maybe this works
 	setvar(VAR_STACK_OF_CANDY, 45)
 	setvar(VAR_TEMP_A, 1)
 	while(checkitem(ITEM_ODD_CANDY, VAR_TEMP_A)) {

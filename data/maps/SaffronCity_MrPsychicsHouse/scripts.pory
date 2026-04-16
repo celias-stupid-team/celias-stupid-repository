@@ -21,7 +21,7 @@ script SaffronCity_MrPsychicsHouse_EventScript_MrPsychic
 	lock
 	faceplayer
 	if(checkitem(ITEM_MASTER_BALL)) {
-		setflag(FLAG_CAUGHT_MR_FUJI)
+		setflag(FLAG_CAUGHT_MR_ICE_BEAM)
 		removeobject(VAR_LAST_TALKED)
 		removeitem(ITEM_MASTER_BALL)
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)

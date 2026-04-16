@@ -841,6 +841,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_COLONIZE,
     MOVE_THIEF,
     MOVE_MIEF,
+    MOVE_CSR_DUMMY,
     METRONOME_FORBIDDEN_END
 };
 
@@ -4022,7 +4023,8 @@ static void Cmd_getexp(void)
             else
             {
                 // music change in wild battle after fainting a poke
-                if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_POKEDUDE)) && gBattleMons[0].hp != 0 && !gBattleStruct->wildVictorySong)
+                if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_POKEDUDE)) && gBattleMons[0].hp != 0 && !gBattleStruct->wildVictorySong
+                    && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD)))
                 {
                     BattleStopLowHpSound();
                     PlayBGM(MUS_VICTORY_WILD);
@@ -4790,7 +4792,7 @@ static void Cmd_playanimation(void)
         {
             HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_CAUGHT, gBattleMons[gActiveBattler].personality);
             if (IsMonShiny(mon)) // only if the mon is shiny
-                HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SHINY_FOUND, gBattleMons[gActiveBattler].personality);
+                GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SHINY_FOUND);
         }
     }
     else if (gHitMarker & HITMARKER_NO_ANIMATIONS)
@@ -9404,6 +9406,7 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_ELECTRIFY
         && gLastPrintedMoves[gBattlerTarget] != MOVE_10000_VOLTS
         && gLastPrintedMoves[gBattlerTarget] != MOVE_VOLCANIC_HEALING
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_RAINBOW_BEAM
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SHEER_COLD
         && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
@@ -11327,7 +11330,13 @@ static void Cmd_handleballthrow(void)
             //DebugPrintf("Odds are above 255 for some reason");
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
-            gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+            if(gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM) {
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrowCastform;
+
+            } else {
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+
+            }
             SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &thrownBall);
 
             if (CalculatePlayerPartyCount() == PARTY_SIZE)
@@ -13531,6 +13540,18 @@ void BS_SetTypeSmall(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_SetTypeLarge(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u32 gActiveBattler = GetBattlerForBattleScript(cmd->battler);
+
+    SET_BATTLER_TYPE(gActiveBattler, TYPE_LARGE);
+    PREPARE_TYPE_BUFFER(gBattleTextBuff1, TYPE_LARGE);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_TryFling(void)
 {
     NATIVE_ARGS(const u8 *failInstr);
@@ -13545,5 +13566,12 @@ void BS_TryFling(void)
     
     gLastUsedItem = itemId;
 
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_UnleashEnergy(void) {
+    NATIVE_ARGS();
+    //DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+    FlagSet(FLAG_UNLEASHED_ENERGY);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

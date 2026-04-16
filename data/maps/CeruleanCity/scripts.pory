@@ -527,8 +527,20 @@ script CeruleanCity_Celia_Helps {
 	lock
 	faceplayer
 	msgbox("Hi, there!\nI'm CELIA, the creator!\pI hope you've been enjoying\nyourself so far!\pBy the way, have you been\ncompleting your POKéDEX?\lI STRONGLY recommend it!\pMy recommendation is to have 38\nPOKéMON caught right now.\lThe highest you can have is 43!", MSGBOX_DEFAULT)
+	if(checkmoncaught(SPECIES_CHANSEY) || checkmoncaught(SPECIES_RHYDON)) {
+		msgbox(
+		"…Well okay, if you're extremely\n"
+		"crafty and/or lucky, TECHNICALLY\l"
+		"the highest you can have is 45.\p"
+
+		"But like, let's please not include\n"
+		"CHANSEY or RHYDON in this list.\l"
+		"I'm not really considering it.", MSGBOX_DEFAULT)
+	} 
 	closemessage
-	msgbox("Incidentally, I know it might seem\nlike you can't backtrack.\lMT. MOON had a one-way ledge!\pBut! I'm sure you'll find a way.\nYou have all the tools you need.\pAnyway, best of luck!\nI believe in you!", MSGBOX_DEFAULT)
+	msgbox("Incidentally, I know it might seem\n"
+			"like you can't backtrack past\l"
+			"MT. MOON's one-way ledge.\pBut! I'm sure you'll find a way.\nYou have all the tools you need.\pAnyway, best of luck!\nI believe in you!", MSGBOX_DEFAULT)
 	release
 }
 

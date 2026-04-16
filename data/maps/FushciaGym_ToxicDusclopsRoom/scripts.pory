@@ -61,7 +61,7 @@ script FushciaGym_ToxicDusclops {
 
 script FushciaGym_ToxicDusclopsMan {
     if(flag(FLAG_TEMP_2)) {
-        msgbox("This POISON is even more potent\nthan usual!\pYour HP will drain ten times as\nfast in the overworld\lMwahaha!", MSGBOX_NPC)
+        msgbox("This POISON is even more potent\nthan usual!\pYour HP will drain ten times as\nfast in the overworld.\lMwahaha!", MSGBOX_NPC)
     } else {
 	    msgbox("Mwahaha!\nIt's me!\pI'm the one POISONING everyone!", MSGBOX_NPC)
 

@@ -224,7 +224,7 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 		release
 		end
 	}
-	switch(var(VAR_TEMP_4)) {
+	switch(var(VAR_JUMPED_INTO_WALL)) {
 		case 0:
 			msgbox("A familiar painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
 		case 1:
@@ -240,13 +240,13 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 		playse(SE_LEDGE)
 		applymovement(LOCALID_PLAYER, JumpSplat)
 		waitmovement(0)
-		switch(var(VAR_TEMP_4)) {
+		switch(var(VAR_JUMPED_INTO_WALL)) {
 			case 0:
 				playse(SE_WALL_HIT)
 				applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
 				waitmovement(0)
 				delay(40)
-				setvar(VAR_TEMP_4, 1)
+				setvar(VAR_JUMPED_INTO_WALL, 1)
 			case 1:
 				playse(SE_WALL_HIT)
 				setmetatile(14, 9, 0x376, TRUE)
@@ -260,7 +260,7 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 				applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
 				waitmovement(0)
 				delay(40)
-				setvar(VAR_TEMP_4, 2)
+				setvar(VAR_JUMPED_INTO_WALL, 2)
 			case 2:
 				playse(SE_BANG)
 				setmetatile(14, 9, 0x009, FALSE)
