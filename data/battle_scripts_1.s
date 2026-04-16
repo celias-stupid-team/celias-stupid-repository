@@ -6382,7 +6382,9 @@ BattleScript_EffectTrumpCardConnects:
 	waitanimation
 	@ temporary transformation to HOOPA_UNBOUND
 	printstring STRINGID_PKMNTRANSFORMED
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_SHORT
+	playanimation BS_ATTACKER, B_ANIM_EXODIA_OBLITERATE
+	waitanimation
 	effectivenesssound
 	hitanimation BS_TARGET
 	waitstate
