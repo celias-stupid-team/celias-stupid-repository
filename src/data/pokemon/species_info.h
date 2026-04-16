@@ -36692,12 +36692,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_GREGORY] =
     {
-        .baseHP = 20,
+        .baseHP = 110,
         .baseAttack = 20,
-        .baseDefense = 20,
+        .baseDefense = 80,
         .baseSpeed = 255,
         .baseSpAttack = 20,
-        .baseSpDefense = 20,
+        .baseSpDefense = 80,
         .types = {TYPE_FIRE, TYPE_FIRE},
         .catchRate = 255,
         .expYield = 150,
