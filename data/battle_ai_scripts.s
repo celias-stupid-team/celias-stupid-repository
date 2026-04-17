@@ -808,6 +808,7 @@ AI_CheckViability::
 	if_effect EFFECT_TRICK_OR_TREAT, AI_CV_TrickOrTreat
 	if_move MOVE_WATER_SHURIKEN, AI_CV_WaterShuriken
 	if_move MOVE_COMET_PUNCH, AI_CV_CometPunch
+	if_effect EFFECT_PERISH_SONG, AI_CV_PerishSong
 	end
 
 AI_CV_Sleep::
@@ -2928,6 +2929,20 @@ AI_CV_TrickOrTreat_GhostType::
 	if_equal TYPE_GHOST, Score_Minus5
 	score +3
 	end
+
+AI_CV_PerishSong:: @ Perish Trap AI for Wolfey
+	is_double_battle
+	if_equal 0, AI_CV_PerishSong_End
+	get_ability AI_USER
+	if_equal ABILITY_SHADOW_TAG, AI_CV_PerishSong_Trap
+	if_equal ABILITY_ARENA_TRAP, AI_CV_PerishSong_Trap
+	get_ability AI_USER_PARTNER
+	if_equal ABILITY_SHADOW_TAG, AI_CV_PerishSong_Trap
+	if_equal ABILITY_ARENA_TRAP, AI_CV_PerishSong_Trap
+AI_CV_PerishSong_End::
+	end
+AI_CV_PerishSong_Trap::
+	goto Score_Plus5
 
 AI_TryToFaint::
 	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack

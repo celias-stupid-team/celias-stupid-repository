@@ -11,9 +11,20 @@ mapscripts AetherParadise_Entrance_MapScripts {
 			setbench(BENCH_AETHER_PARADISE)
 		}
 		setrespawn(HEAL_LOCATION_AETHER_PARADISE_ENTRANCE)
+		setflag(FLAG_TEMP_8)
+		if(!flag(FLAG_SYS_ROTOM_MENU) && checkpartymove(MOVE_SURF) == PARTY_SIZE && checkpartymove(MOVE_FLY) == PARTY_SIZE) {
+			clearflag(FLAG_TEMP_8)
+		}
 
     }
 }
+
+script Aetherparadise_Softlockprevention {
+	msgbox(
+	"I am softlock prevention.\n"
+	"Nice try!", MSGBOX_NPC)
+}
+
 
 script AetherParadise_SkuntankHint {
 	msgbox("
@@ -32,17 +43,17 @@ script AetherParadise_Guzma {
 	famechecker(FAMECHECKER_GREAT_BAY, 1)
 	msgbox(
 	"GUZMA: Those phoney TEAM SKULL\n"
-	"guys are tough!\p"
+	"guys are nasty, yo.\p"
 
-	"Ever since the Gen 1 TYPE CHART,\n"
+	"Because of this RBY TYPE CHART,\n"
 	"things have been real rough.\p"
 
-	"My BUG-TYPES haven't been able to\n"
-	"stand up to those POISON-TYPES.\l"
-	"We're weak to their attacks now!\p"
+	"My BUG-TYPES can't stand up to\n"
+	"those POISON-TYPES.\l"
+	"We're weak to their attacks!\p"
 
-	"I wish there was something we could\n"
-	"do to turn the tables on them…", MSGBOX_NPC)
+	"I gotta study it to see if there's\n"
+	"a way to turn the tables on 'em…", MSGBOX_NPC)
 }
 
 script AetherParadise_SkullGruntHint {
@@ -105,10 +116,11 @@ script AetherParadise_DMCA_StopsYou {
 	msgbox(
 	"ZUBAT: Ahaha!\n"
 	"We're the original TEAM SKULL!", MSGBOX_DEFAULT)
-	closemessage
+	
 	msgbox(
 	"KOFFING: Here, how about you\n"
 	"have a little…{PAUSE 30} gift!", MSGBOX_DEFAULT)
+	closemessage
 	trainerbattle_no_intro(TRAINER_TEAM_SKULL, "Oh, this was a bad plan.")
 	
 	delay(30)

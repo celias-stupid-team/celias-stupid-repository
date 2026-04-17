@@ -305,6 +305,15 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
 	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
+	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
+	.4byte BattleScript_EffectPayWall           @ EFFECT_PAY_WALL
+	.4byte BattleScript_EffectShroomburst           @ EFFECT_SHROOMBURST
+
+	
+
+	
+
+
 
 BattleScript_End2::
 	end2
@@ -3602,22 +3611,14 @@ BattleScript_BideAttack::
 	clearstatusfromeffect BS_ATTACKER
 	printstring STRINGID_PKMNUNLEASHEDENERGY
 	waitmessage B_WAIT_TIME_LONG
-	accuracycheck BattleScript_MoveMissed, ACC_CURR_MOVE
-	typecalc
-	bicbyte gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
-	copyword gBattleMoveDamage, sBIDE_DMG
-	adjustsetdamage
 	setbyte sB_ANIM_TURN, 1
 	attackanimation
 	waitanimation
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	resultmessage
+	unleashenergy
+	waitmessage B_WAIT_TIME_SHORT
+	fanfare MUS_LEVEL_UP
+	printstring STRINGID_BIDEENERGY
 	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
 BattleScript_BideNoEnergyToAttack::
@@ -4306,6 +4307,7 @@ BattleScript_SeelHoopaTransform::
 	pause B_WAIT_TIME_LONG
     updatebattlerdata BS_FAINTED
 	redrawhealthbox BS_FAINTED
+	hoopatransformsetfullhp @ for healing animation
 	healthbarupdate BS_FAINTED
 	datahpupdate BS_FAINTED
 	end2
@@ -4742,6 +4744,7 @@ BattleScript_ColorChangeWizDamage::
 	datahpupdate BS_TARGET
 	printstring STRINGID_PKMNCOLORCHANGEWIZDAMAGE
 	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
 	orbyte gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE
 	goto BattleScript_MoveEnd
 
@@ -5972,6 +5975,7 @@ BattleScript_EffectStuporPower::
 BattleScript_EffectGMaxCuddle::
 	attackcanceler
 	jumpifflagset FLAG_CSR_POWER_IS_ON, BattleScript_EffectHit
+	jumpifflagset FLAG_UNLEASHED_ENERGY, BattleScript_EffectHit
 	attackstring
 	ppreduce
 	printstring STRINGID_GMAX_MOVE
@@ -6276,7 +6280,7 @@ BattleScript_EffectHackAttack_1::
 	printfromtable gDoNothingStringIds
 	flicker FADE_TO_BLACK, 4
 	flicker FADE_TO_BLACK, 2
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_LONGEST
 	restoreglitchpalettes
 	setflag FLAG_HACK_ATTACK_USED
 	goto BattleScript_MoveEnd
@@ -6380,7 +6384,10 @@ BattleScript_EffectTrumpCardConnects:
 	waitanimation
 	@ temporary transformation to HOOPA_UNBOUND
 	printstring STRINGID_PKMNTRANSFORMED
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_SHORT
+	setbattleanimtarget BS_TARGET
+	playanimation BS_ATTACKER, B_ANIM_EXODIA_OBLITERATE
+	waitanimation
 	effectivenesssound
 	hitanimation BS_TARGET
 	waitstate
@@ -6414,6 +6421,18 @@ BattleScript_EffectTypeSmall::
 	attackstring
 	ppreduce
 	settypesmall BS_TARGET
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNBECAMETYPE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+
+BattleScript_EffectTypeLarge::
+	attackcanceler
+	attackstring
+	ppreduce
+	settypelarge BS_ATTACKER
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNBECAMETYPE
@@ -6465,3 +6484,95 @@ BattleScript_GregoryBlastKOFail::
 	printfromtable gKOFailedStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+
+
+BattleScript_EffectFocusMiss::
+	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
+	jumpifnostatus3 BS_TARGET, STATUS3_UNDERWATER, BattleScript_HitFromAtkCanceler
+	orword gHitMarker, HITMARKER_IGNORE_UNDERWATER
+	setbyte sDMG_MULTIPLIER, 2
+@ BattleScript_HitFromAtkCanceler::
+	attackcanceler
+@ BattleScript_HitFromAccCheck::
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+@ BattleScript_HitFromAtkString::
+	attackstring
+	ppreduce
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
+@ BattleScript_HitFromCritCalc::
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+@ BattleScript_HitFromAtkAnimation::
+	attackanimation
+	waitanimation
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 5, BattleScript_FinalBattle_StopBgm
+	effectivenesssound
+@ BattleScript_HitFromAtkAnimation_2::
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	jumpifmove MOVE_REVELATION_DANCE, BattleScript_RevelationDanceString
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
+@ BattleScript_MoveEnd::
+	moveendall
+	end
+
+
+	
+BattleScript_EffectPayWall::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	removemoney
+	waitmessage B_WAIT_TIME_SHORT
+	printstring STRINGID_PAY_WALL
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectShroomburst::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ShroomburstDoAnimStartLoop
+	call BattleScript_PreserveMissedBitDoMoveAnim
+	goto BattleScript_ExplosionMissed
+BattleScript_ShroomburstDoAnimStartLoop:
+	attackanimation
+	waitanimation
+	tryexplosion
+	waitstate
+BattleScript_ShroomburstLoop:
+	movevaluescleanup
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	accuracycheck BattleScript_ExplosionMissed, ACC_CURR_MOVE
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_ShroomburstLoop
+	setatkhptozero
+	tryfaintmon BS_ATTACKER
+	end

@@ -60,8 +60,9 @@ PewterCity_Gym_Text_LiamDefeat::
 	.string "than me!$"
 
 PewterCity_Gym_Text_LiamPostBattle::
-    .string "You're pretty hot.\n"
-    .string "…Wanna go out for dinner?$"
+	.string "At least I'm pretty sure that's\n"
+	.string "how far he is.\p"
+	.string "I haven't bothered to check.\n$"
 
 PewterCity_Gym_Text_LetMeTakeYouToTheTop::
     .string "Hiya!\n"

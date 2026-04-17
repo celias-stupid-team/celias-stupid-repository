@@ -1094,6 +1094,9 @@ SECTIONS {
         sound/songs/midi/se_tcg_waterfall.o(.rodata);
         sound/songs/midi/mus_safari_evolution.o(.rodata);
         sound/songs/midi/mus_incompatible_emulator.o(.rodata);
+        sound/songs/midi/mus_the_moon.o(.rodata);
+        sound/songs/midi/mus_battle_revolution.o(.rodata);
+        sound/songs/midi/mus_encounter_cool.o(.rodata);
 
     } > ROM =0
 

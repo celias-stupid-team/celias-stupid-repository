@@ -115,8 +115,9 @@ CeruleanCity_Gym_Text_FightingTrainerDefeat::
 	.string "That can't be!\n$"
 
 CeruleanCity_Gym_Text_PoisonTrainerIntro::
-	.string "Nyaha!\n"
-	.string "I'm a POISON-type trainer!$"
+	.string "Nyaha!\p"
+	.string "I use POISON-TYPES, just like\n"
+	.string "AGATHA!$"
 
 CeruleanCity_Gym_Text_PoisonTrainerDefeat::
 	.string "You overwhelmed me!\n$"

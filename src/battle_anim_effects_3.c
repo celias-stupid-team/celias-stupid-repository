@@ -46,6 +46,7 @@ static void TormentAttacker_Step(u8);
 static void WindowWarningAttacker_Step(u8);
 static void TormentAttacker_Callback(struct Sprite *);
 static void AnimWishStar(struct Sprite *);
+static void AnimWhishStar(struct Sprite *);
 static void AnimWishStar_Step(struct Sprite *);
 static void AnimMiniTwinklingStar(struct Sprite *);
 static void AnimMiniTwinklingStar_Step(struct Sprite *);
@@ -557,6 +558,31 @@ const struct SpriteTemplate gWishStarSpriteTemplate =
     .callback = AnimWishStar,
 };
 
+static const union AnimCmd sHAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 6),
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sHAnimTable[] =    
+{
+    sHAnimCmds,
+};
+
+const struct SpriteTemplate gWhishSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_H,
+    .paletteTag = ANIM_TAG_H,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sHAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWhishStar,
+};
+
 const struct SpriteTemplate gMiniTwinklingStarSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GOLD_STARS,
@@ -582,6 +608,15 @@ static const union AffineAnimCmd sSpitUpDeformMonAffineAnimCmds[] =
     AFFINEANIMCMD_FRAME(0, 6, 0, 20),
     AFFINEANIMCMD_FRAME(0, 0, 0, 20),
     AFFINEANIMCMD_FRAME(0, -18, 0, 6),
+    AFFINEANIMCMD_FRAME(-18, -18, 0, 3),
+    AFFINEANIMCMD_FRAME(0, 0, 0, 15),
+    AFFINEANIMCMD_FRAME(4, 4, 0, 13),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sSpitUpFastMonAffineAnimCmds[] =
+{
+    AFFINEANIMCMD_FRAME(0, -18, 0, 3),
     AFFINEANIMCMD_FRAME(-18, -18, 0, 3),
     AFFINEANIMCMD_FRAME(0, 0, 0, 15),
     AFFINEANIMCMD_FRAME(4, 4, 0, 13),
@@ -2574,6 +2609,16 @@ static void AnimWishStar(struct Sprite *sprite)
     sprite->y = 0;
     sprite->callback = AnimWishStar_Step;
 }
+static void AnimWhishStar(struct Sprite *sprite)
+{
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        sprite->x = -16;
+    else
+        sprite->x = DISPLAY_WIDTH + 16;
+
+    sprite->y = 16;
+    sprite->callback = AnimWishStar_Step;
+}
 
 static void AnimWishStar_Step(struct Sprite *sprite)
 {
@@ -2668,6 +2713,20 @@ void AnimTask_SpitUpDeformMon(u8 taskId)
     if (!gTasks[taskId].data[0])
     {
         PrepareAffineAnimInTaskData(&gTasks[taskId], GetAnimBattlerSpriteId(ANIM_ATTACKER), sSpitUpDeformMonAffineAnimCmds);
+        gTasks[taskId].data[0]++;
+    }
+    else
+    {
+        if (!RunAffineAnimFromTaskData(&gTasks[taskId]))
+            DestroyAnimVisualTask(taskId);
+    }
+}
+
+void AnimTask_SpitUpFastMon(u8 taskId)
+{
+    if (!gTasks[taskId].data[0])
+    {
+        PrepareAffineAnimInTaskData(&gTasks[taskId], GetAnimBattlerSpriteId(ANIM_ATTACKER), sSpitUpFastMonAffineAnimCmds);
         gTasks[taskId].data[0]++;
     }
     else

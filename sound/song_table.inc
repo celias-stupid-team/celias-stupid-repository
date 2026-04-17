@@ -470,6 +470,9 @@ gSongTable::
     song se_tcg_waterfall, 1, 1
 	song mus_safari_evolution, 0, 0
 	song mus_incompatible_emulator, 0, 0
+	song mus_the_moon, 0, 0
+	song mus_battle_revolution, 0, 0
+	song mus_encounter_cool, 0, 0
 
 
 dummy_song_header:

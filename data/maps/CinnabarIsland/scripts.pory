@@ -1,10 +1,5 @@
 raw `
-CinnabarIsland_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, CinnabarIsland_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, CinnabarIsland_OnFrame
-	map_script MAP_SCRIPT_ON_LOAD, CinnabarIsland_OnLoad
 
-	.byte 0
 
 
 
@@ -338,6 +333,37 @@ CinnabarIsland_EventScript_GymSign::
 	end
 `
 
+mapscripts CinnabarIsland_MapScripts
+{
+	MAP_SCRIPT_ON_TRANSITION: CinnabarIsland_OnTransition
+	MAP_SCRIPT_ON_LOAD: CinnabarIsland_OnLoad
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_8, 1 {
+			if(flag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1)) {
+
+				message(
+				"Chapter 7 -{PAUSE 30} Chapter 2\n"
+				"{PAUSE 60}Intermission 2")
+				delay(180)
+				message("Quest to go catch another fucking\nBULBASAUR!")
+				delay(200)
+
+			} else {
+				message(
+				"Chapter 7 -{PAUSE 30} Chapter 2\n"
+				"{PAUSE 60}Intermission 1")
+				delay(200)
+				message("Quest to go catch another fucking\nBULBASAUR!")
+				delay(200)
+
+			}
+			release
+			setflag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_2)
+			setvar(VAR_TEMP_8, 0)
+		}
+	]
+}
+
 script CinnabarIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_CINNABAR_ISLAND)
 	call(CinnabarIsland_EventScript_CheckUnlockGym)
@@ -359,6 +385,16 @@ script CinnabarIsland_OnTransition {
 	}
 	if(!checkmoncaught(SPECIES_LUVDISC)) {
 		setflag(FLAG_TEMP_1)
+	}
+	if(flag(FLAG_TALKED_TO_BLAINE) && var(VAR_CINNABAR_GYM_PHASE) == 1 && checkmoncaught(SPECIES_VENUSAUR) && !flag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_2)) {
+		//debugprintf("test1")
+
+		if(checkfieldmove(MOVE_ONE_EDGE) == PARTY_SIZE && checkfieldmove(MOVE_ONE_CLAWS) == PARTY_SIZE && checkfieldmove(MOVE_ONEMERANG) == PARTY_SIZE && checkfieldmove(MOVE_BANEFUL_1NKER) == PARTY_SIZE) {
+
+			
+		} else {
+			setvar(VAR_TEMP_8, 1)
+		}
 	}
 }
 
@@ -761,4 +797,23 @@ script CinnabarIsland_BlueBookshelf {
 	"Well, the text was blue.\n"
 	"", MSGBOX_DEFAULT)
 	release
+}
+
+script CinnabarIsland_Hbox {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+	setwildbattle(SPECIES_JIGGLYPUFF, 30)
+	waitse
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	removeobject(VAR_LAST_TALKED)
+	release
+	end
 }

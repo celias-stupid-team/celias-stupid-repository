@@ -78,6 +78,12 @@ script CeruleanClub_MapScripts {
 			setflag(FLAG_HIDE_MISTY_IN_CERULEAN)
 		}
 	}
+
+
+	if(!flag(FLAG_CSR_CELIA_BONUS)) {
+			clearflag(FLAG_HIDE_MISTY_IN_CERULEAN)
+		
+	}
 	call(CeliaSecrets_GetNextHint)
 	if(var(VAR_CSR_CELIA_SECRET_NEXT_HINT) == CELIA_SECRET_CERULEAN) {
 		setflag(FLAG_CELIA_SECRETS_FINISHED)
@@ -95,6 +101,7 @@ script CeruleanClub_UpdateBench {
 script CeruleanClub_CeliaReward {
 	lock
 	faceplayer
+	clearflag(FLAG_HIDE_MISTY_IN_CERULEAN)
 	call(CeliaSecrets_GetNextHint)
 	if(var(VAR_CSR_CELIA_SECRET_NEXT_HINT) == CELIA_SECRET_CERULEAN) {
 			if(flag(FLAG_CSR_CELIA_BONUS) && !flag(FLAG_DISABLED_DEV_COMMENTARY)) {

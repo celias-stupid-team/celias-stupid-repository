@@ -14,8 +14,9 @@ Route11_Text_JasperIntro::
     .string "I can't get enough!$"
 
 Route11_Text_JasperDefeat::
-    .string "I had a chance!$"
+	.string "… … …\n$"
 
+    
 Route11_Text_JasperPostBattle::
     .string "You can't be a coward in the world\n"
     .string "of POKéMON!$"
@@ -24,8 +25,7 @@ Route11_Text_EddieIntro::
     .string "Let's go, but don't cheat!$"
 
 Route11_Text_EddieDefeat::
-    .string "Huh?\n"
-    .string "That's not right!$"
+	.string "… … …\n$"
 
 Route11_Text_EddiePostBattle::
     .string "I did my best.\n"
@@ -46,8 +46,7 @@ Route11_Text_DillonIntro::
     .string "But, I think I can win.$"
 
 Route11_Text_DillonDefeat::
-    .string "My POKéMON couldn't win…\n"
-    .string "Haven't they grown enough?$"
+	.string "… … …\n$"
 
 Route11_Text_DillonPostBattle::
     .string "What now?\n"
@@ -58,7 +57,7 @@ Route11_Text_DirkIntro::
     .string "I have never lost!$"
 
 Route11_Text_DirkDefeat::
-    .string "My first loss!$"
+	.string "… … …\n$"
 
 Route11_Text_DirkPostBattle::
     .string "You were just lucky, that's all.$"
@@ -67,7 +66,8 @@ Route11_Text_DarianIntro::
     .string "I have never won before…$"
 
 Route11_Text_DarianDefeat::
-    .string "I saw this coming…$"
+	.string "… … …\n$"
+
 
 Route11_Text_DarianPostBattle::
     .string "I was unlucky, as always.$"
@@ -77,8 +77,7 @@ Route11_Text_YasuIntro::
     .string "I train every morning.$"
 
 Route11_Text_YasuDefeat::
-    .string "Darn!\n"
-    .string "My POKéMON need to be stronger!$"
+	.string "… … …\n$"
 
 Route11_Text_YasuPostBattle::
     .string "There's a fat POKéMON that comes\n"

@@ -608,8 +608,8 @@ struct BattleAnimationInfo
 {
     u16 animArg; // to fill up later
     u8 field_2;
-    u8 field_3;
-    u8 field_4;
+    u8 animTargetOverride; // for setbattleanimtarget
+    bool8 animTargetOverrideActive; // for setbattleanimtarget
     u8 field_5;
     u8 field_6;
     u8 field_7;

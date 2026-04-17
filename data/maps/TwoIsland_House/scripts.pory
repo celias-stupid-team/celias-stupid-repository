@@ -140,7 +140,7 @@ script TwoIsland_MushroomManiac {
 
 		"Say, have you heard of my good\n"
 		"friend the BERRY POWDER MAN?\l"
-		"I haven't seen him in a while.", MSGBOX_DEFAULT)
+		"He lives in CERULEAN CITY.", MSGBOX_DEFAULT)
 		if(flag(FLAG_CSR_BERRY_POWDER_MAN) || flag(FLAG_BERRIED_ALIVE)) {
 			msgbox(
 			"Oh, you know him?\n"

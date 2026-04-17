@@ -93,8 +93,8 @@ CeladonCity_Gym_Text_TamiaPostBattle::
     .string "Since becoming true to myself,\n"
     .string "living life has felt so free!\l"
     .string "I think I'm going to celebrate!\p"
-    .string "Ooh, maybe I'll buy my POKéMON\n"
-    .string "a present from the DEPT STORE!$"
+    .string "Ooh, maybe I'll buy my NIDOS\n"
+    .string "a present from the STORE!$"
 
 CeladonCity_Gym_Text_LisaIntro::
     .string "Grumble grumble…\p"

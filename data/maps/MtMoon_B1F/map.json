@@ -22,8 +22,8 @@
       "y": 35,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 2,
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "MtMoon_1F_EventScript_Robby",
@@ -315,8 +315,8 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 40,
-      "y": 36,
+      "x": 37,
+      "y": 38,
       "elevation": 0,
       "item": "ITEM_TINY_MUSHROOM",
       "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM_3",

@@ -391,6 +391,7 @@ script SaffronCity_TheLeekMan {
 		call(TheLeek_ProofOfAliens)
 
 	}
+	release
 }
 
 script TheLeek_ProofOfAliens {

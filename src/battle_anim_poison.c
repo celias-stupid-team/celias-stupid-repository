@@ -109,6 +109,17 @@ const struct SpriteTemplate gSludgeProjectileSpriteTemplate =
     .callback = AnimSludgeProjectile,
 };
 
+const struct SpriteTemplate gSmudgeProjectileSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POISON_BUBBLE,
+    .paletteTag = ANIM_TAG_BLACK_BALL,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = sAnims_PoisonProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_PoisonProjectile,
+    .callback = AnimSludgeProjectile,
+};
+
 const struct SpriteTemplate gAcidPoisonBubbleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_POISON_BUBBLE,
@@ -135,6 +146,17 @@ const struct SpriteTemplate gSludgeBombHitParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_POISON_BUBBLE,
     .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = sAnims_SludgeBombHit,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SludgeBombHit,
+    .callback = AnimSludgeBombHitParticle,
+};
+
+const struct SpriteTemplate gSmudgeBombHitParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POISON_BUBBLE,
+    .paletteTag = ANIM_TAG_BLACK_BALL,
     .oam = &gOamData_AffineNormal_ObjNormal_16x16,
     .anims = sAnims_SludgeBombHit,
     .images = NULL,
@@ -192,6 +214,17 @@ const struct SpriteTemplate gPoisonBubbleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_POISON_BUBBLE,
     .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = sAnims_PoisonProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bubble,
+    .callback = AnimBubbleEffect,
+};
+
+const struct SpriteTemplate gInkBubbleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POISON_BUBBLE,
+    .paletteTag = ANIM_TAG_BLACK_BALL,
     .oam = &gOamData_AffineNormal_ObjNormal_16x16,
     .anims = sAnims_PoisonProjectile,
     .images = NULL,

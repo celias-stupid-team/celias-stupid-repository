@@ -80,6 +80,7 @@ mart SilphCo_BallShop_Mart {
 
 
 script SilphCo_BallShop_Elevator {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
 	"Rats!\n"
 	"The ladies are being indecisive!", MSGBOX_SIGN)
@@ -121,7 +122,7 @@ script Silph_LookGirl_Balls {
         }
 	if(var(VAR_TEMP_5) == 5 && var(VAR_SILPH_LOOK_GIRL) == 1) {
 		playse(SE_BIKE_BELL)
-		waitse
+		delay(45)
 		
 		playse(SE_PIN)
 		applymovement(LOCALID_KURT, moves(

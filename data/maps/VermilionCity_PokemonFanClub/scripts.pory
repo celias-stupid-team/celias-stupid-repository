@@ -183,3 +183,11 @@ script VermilionFanClub_Rotom {
     fadescreen(FADE_FROM_BLACK)
 	release
 }
+
+
+script VermilionFanClub_Polish {
+	msgbox(
+	"Jesli mnie pytasz?\n"
+	"Nowe gry POKéMON nie maja\l"
+	"wystarczajaco duzo POLSKIEGO.", MSGBOX_NPC)
+}

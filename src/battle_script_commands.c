@@ -841,6 +841,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_COLONIZE,
     MOVE_THIEF,
     MOVE_MIEF,
+    MOVE_PANTY_SHOT,
     METRONOME_FORBIDDEN_END
 };
 
@@ -4022,7 +4023,8 @@ static void Cmd_getexp(void)
             else
             {
                 // music change in wild battle after fainting a poke
-                if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_POKEDUDE)) && gBattleMons[0].hp != 0 && !gBattleStruct->wildVictorySong)
+                if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_POKEDUDE)) && gBattleMons[0].hp != 0 && !gBattleStruct->wildVictorySong
+                    && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD)))
                 {
                     BattleStopLowHpSound();
                     PlayBGM(MUS_VICTORY_WILD);
@@ -9153,13 +9155,12 @@ static void Cmd_metronome(void)
     while (TRUE)
     {
         s32 i;
+        u16 roll = Random() % (361 + (MOVES_COUNT - 362) * 3); // moves > 361 are three times more likely to be rolled
 
-        gCurrentMove = (Random() % MOVES_COUNT) + 1;
-        
-        if (gCurrentMove >= MOVES_COUNT)
-            continue;
-
-        for (i = 0; i < MAX_MON_MOVES; i++); // ?
+        if (roll < 361)
+            gCurrentMove = roll + 1; // return the rolled move
+        else
+            gCurrentMove = 362 + (roll - 361) / 3; //return the rolled move / 3
 
         i = -1;
         while (TRUE)
@@ -9171,7 +9172,6 @@ static void Cmd_metronome(void)
                 break;
         }
         
-
         if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
         {
             gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
@@ -9404,6 +9404,7 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_ELECTRIFY
         && gLastPrintedMoves[gBattlerTarget] != MOVE_10000_VOLTS
         && gLastPrintedMoves[gBattlerTarget] != MOVE_VOLCANIC_HEALING
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_RAINBOW_BEAM
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SHEER_COLD
         && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
@@ -11327,7 +11328,13 @@ static void Cmd_handleballthrow(void)
             //DebugPrintf("Odds are above 255 for some reason");
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
-            gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+            if(gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM) {
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrowCastform;
+
+            } else {
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+
+            }
             SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &thrownBall);
 
             if (CalculatePlayerPartyCount() == PARTY_SIZE)
@@ -11407,7 +11414,7 @@ static void Cmd_givecaughtmon(void)
             if (itemsPocket->itemSlots[i].itemId != ITEM_NONE)
                 filledSlots++;
         }
-        if (filledSlots >= 6 && ItemId_GetImportance(itemsPocket->itemSlots[5].itemId) == 0)
+        if (filledSlots >= 6 && ItemId_GetImportance(itemsPocket->itemSlots[5].itemId) == 0 && itemsPocket->itemSlots[5].itemId != ITEM_POTION)
             SetBagItemQuantity(&itemsPocket->itemSlots[5].quantity, 255);
     }
 
@@ -12228,8 +12235,15 @@ void BS_UpdateBattlerData(void)
     gBattleMons[battler].speed = GetMonData(mon, MON_DATA_SPEED);
     gBattleMons[battler].spAttack = GetMonData(mon, MON_DATA_SPATK);
     gBattleMons[battler].spDefense = GetMonData(mon, MON_DATA_SPDEF);
-    gBattleMons[battler].hp = GetMonData(mon, MON_DATA_MAX_HP);
     gBattleMons[battler].maxHP = GetMonData(mon, MON_DATA_MAX_HP);
+    if (gBattleMons[battler].species == SPECIES_HOOPA) // start with 1 HP for the healing animation
+    {
+        u16 oneHp = 1;
+        gBattleMons[battler].hp = 1;
+        SetMonData(mon, MON_DATA_HP, &oneHp);
+    }
+    else
+        gBattleMons[battler].hp = gBattleMons[battler].maxHP;
     gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
     gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
     gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, FALSE);
@@ -12243,6 +12257,20 @@ void BS_UpdateBattlerData(void)
     //set party mon data
     SetMonData(mon, MON_DATA_STATUS, &gBattleMons[battler].status1);
     SetMonData(mon, MON_DATA_HELD_ITEM, &gBattleMons[battler].item);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_HoopaTransformSetFullHP(void)
+{
+    NATIVE_ARGS();
+
+    u8 battler = gBattlerFainted;
+    u16 maxHP = gBattleMons[battler].maxHP;
+
+    gBattleMoveDamage = -(s32)(maxHP - 1);
+    gBattleMons[battler].hp = maxHP;
+    gMoveResultFlags &= ~MOVE_RESULT_NO_EFFECT;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -13531,6 +13559,18 @@ void BS_SetTypeSmall(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_SetTypeLarge(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u32 gActiveBattler = GetBattlerForBattleScript(cmd->battler);
+
+    SET_BATTLER_TYPE(gActiveBattler, TYPE_LARGE);
+    PREPARE_TYPE_BUFFER(gBattleTextBuff1, TYPE_LARGE);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_TryFling(void)
 {
     NATIVE_ARGS(const u8 *failInstr);
@@ -13545,5 +13585,33 @@ void BS_TryFling(void)
     
     gLastUsedItem = itemId;
 
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_UnleashEnergy(void) {
+    NATIVE_ARGS();
+    //DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+    FlagSet(FLAG_UNLEASHED_ENERGY);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_RemoveMoney(void) {
+    NATIVE_ARGS();
+    //DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+    
+    u16 itemId = ITEM_NUGGET;
+
+    RemoveBagItem(itemId, 1);
+    RemoveBagItem(itemId, 1);
+    RemoveBagItem(itemId, 1);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetBattleAnimTarget(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    gBattleSpritesDataPtr->animationData->animTargetOverride = GetBattlerForBattleScript(cmd->battler);
+    gBattleSpritesDataPtr->animationData->animTargetOverrideActive = TRUE; // override is being read in TryHandleLaunchBattleTableAnimation()
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

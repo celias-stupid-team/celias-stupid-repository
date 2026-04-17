@@ -525,6 +525,7 @@ static const u8 sText_AarghAlmostHadIt[] = _("Aargh!\nAlmost had it!");
 static const u8 sText_ShootSoClose[] = _("Shoot!\nIt was so close, too!");
 static const u8 sText_ItDodgedBall2[] = _("よけられた!\nこいつは つかまりそうにないぞ!"); // Unused version of the Marowak ghost dodging text
 static const u8 sText_GotchaPkmnCaught[] = _("Gotcha!\n{B_OPPONENT_MON1_NAME} was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}\p");
+static const u8 sText_GotchaPkmnCaughtCastform[] = _("Gotcha!\n{B_OPPONENT_MON1_NAME} was caught!{WAIT_SE}\p");
 static const u8 sText_GotchaPkmnCaught2[] = _("Gotcha!\n{B_OPPONENT_MON1_NAME} was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}{PAUSE 127}");
 static const u8 sText_GiveNicknameCaptured[] = _("Give a nickname to the\ncaptured {B_OPPONENT_MON1_NAME}?");
 static const u8 sText_PkmnSentToPC[] = _("{B_OPPONENT_MON1_NAME} was sent to\n{B_PC_CREATOR_NAME} PC.");
@@ -1076,7 +1077,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_BESTOWITEMGIVING - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} received {B_LAST_ITEM}\nfrom {B_ATK_NAME_WITH_PREFIX}!"),
     [STRINGID_REVELATIONDANCEMATCHEDTYPE - BATTLESTRINGS_TABLE_START]    = COMPOUND_STRING("REVELATION DANCE matched\n{B_ATK_NAME_WITH_PREFIX}'s typing!"),
     [STRINGID_REFLECTTARGETSTYPE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} became {B_BUFF1} type\nand {B_BUFF2} type."),
-    [STRINGID_PKMNBECAMETYPE - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} became {B_BUFF1} type."),
+    [STRINGID_PKMNBECAMETYPE - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} became {B_BUFF1} type!"),
     [STRINGID_VANISHEDINSTANTLY - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} vanished instantly!"),
     [STRINGID_PKMNCOLORCHANGEWIZIMMUNE - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} changed to {B_BUFF3}\ntype making it immune to {B_BUFF2}!"),
     [STRINGID_PKMNCOLORCHANGEWIZDAMAGE - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("{B_OPPONENT_MON1_NAME}'s COLOR CHANGE made it\nhurt by the status move!"),
@@ -1097,11 +1098,15 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_NOONESUMMONSHIM - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("No one's ever been able to\nsummon him!"),
     [STRINGID_LATIAS - BATTLESTRINGS_TABLE_START]                        = COMPOUND_STRING("Oh, wow!{PAUSE 30}\nIt's LATINAS!"),
     [STRINGID_PKMNFLUNG - BATTLESTRINGS_TABLE_START]                     = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} flung its {B_LAST_ITEM}!"),
-    [STRINGID_TM07 - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("It contained TM07!\p{PLAYER} got the TM07!"),
+    [STRINGID_TM07 - BATTLESTRINGS_TABLE_START]                          = COMPOUND_STRING("It contained TM07!\p{B_PLAYER_NAME} got the TM07!"),
     [STRINGID_HEAVYDUTYBOOTSPROTECT - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} prevented damage\nusing its HEAVY-DUTY ROOTS!"),
     [STRINGID_SMEARGLE - BATTLESTRINGS_TABLE_START]                      = COMPOUND_STRING("But it failed!\pGAME FREAK has decided to nerf the\nmove so only DARKRAI can use it!"),
     [STRINGID_GREGORYBLASTCHARGE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} prepares\nhis ultimate attack!"),
-    [STRINGID_DOUBLEBATTLECHEATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("You are not allowed to battle with\nonly one party member, cheater!\p"),
+    [STRINGID_DOUBLEBATTLECHEATER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("Whoops, you only have one\nPOKéMON alive!\pLet's get you out of there\nso we can try again."),
+    [STRINGID_BIDEENERGY - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("Wow!\nDYNAMAX ENERGY now fills the area!"),
+    [STRINGID_CASTFORMCAUGHT - BATTLESTRINGS_TABLE_START]         = sText_GotchaPkmnCaughtCastform,
+    [STRINGID_PAY_WALL - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("The PAY WALL depleted all of\n{B_PLAYER_NAME}'s NUGGETS!{PAUSE 20}"),
+    [STRINGID_SHROOM_DESIRE - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} chose\nSHROOM DESIRE as its destiny!"),
 
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
@@ -1545,6 +1550,7 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_LATIAS] = STRINGID_LATIAS,
     [B_MSG_TM07] = STRINGID_TM07,
     [B_MSG_SMEARGLE] = STRINGID_SMEARGLE,
+    [B_MSG_SHROOM_DESIRE] = STRINGID_SHROOM_DESIRE,
 
     
 
