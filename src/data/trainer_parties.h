@@ -992,15 +992,15 @@ static const struct TrainerMonNoItemCustomMoves sParty_PicnickerIsabelle[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerBKC[] = {
     {
         .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_SKARMORY,
-        .moves = {MOVE_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .lvl = 12,
+        .species = SPECIES_TYRANITAR,
+        .moves = {MOVE_SANDSTORM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_BLISSEY,
-        .moves = {MOVE_TOXIC, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .lvl = 11,
+        .species = SPECIES_SKARMORY,
+        .moves = {MOVE_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 

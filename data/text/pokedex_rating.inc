@@ -221,8 +221,10 @@ PokedexRating_Text_HintPidgeotto::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintPidgeot::
+	.string "I hear near CERULEAN CITY there's\n"
+	.string "a way to earn plenty of money.\p"
 	.string "Your PIDGEOTTO can still evolve.\n"
-	.string "Try leveling it up!$"
+	.string "You should buy some RARE CANDY!$"
 
 PokedexRating_Text_HintRattata::
 	.string "ROUTE 1 has a wild POKéMON\n"
@@ -284,8 +286,10 @@ PokedexRating_Text_HintNidoranf::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintNidorina::
+	.string "I hear near CERULEAN CITY there's\n"
+	.string "a way to earn plenty of money.\p"
 	.string "Your NIDOTRAN♀ can still evolve.\n"
-	.string "Try leveling it up!$"
+	.string "You should buy some RARE CANDY!$"
 
 PokedexRating_Text_HintNidoqueen::
 	.string "The CELADON DEPT STORE sells\n"
@@ -299,8 +303,10 @@ PokedexRating_Text_HintNidoranm::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintNidorino::
+.string "I hear near CERULEAN CITY there's\n"
+	.string "a way to earn plenty of money.\p"
 	.string "Your NIDOTRAN♂ can still evolve.\n"
-	.string "Try leveling it up!$"
+	.string "You should buy some RARE CANDY!$"
 
 PokedexRating_Text_HintNidoking::
 	.string "The CELADON DEPT STORE sells\n"
@@ -421,8 +427,10 @@ PokedexRating_Text_HintMankey::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintPrimeape::
+	.string "I hear near CERULEAN CITY there's\n"
+	.string "a way to earn plenty of money.\p"
 	.string "Your MANKEY can still evolve.\n"
-	.string "Try leveling it up!$"
+	.string "You should buy some RARE CANDY!$"
 
 PokedexRating_Text_HintCubone::
 	.string "ROUTE 11 has a wild POKéMON\n"
@@ -506,8 +514,10 @@ PokedexRating_Text_HintBellsprout::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintCherubi::
+	.string "I hear near CERULEAN CITY there's\n"
+	.string "a way to earn plenty of money.\p"
 	.string "Your BELLSPROUT can still evolve.\n"
-	.string "Try leveling it up!$"
+	.string "You should buy some RARE CANDY!$"
 
 PokedexRating_Text_HintTentacool::
 	.string "MT MOON has a wild POKéMON\n"
