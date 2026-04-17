@@ -491,6 +491,14 @@
 #define ANIM_TAG_LEER_BLAST_RIGHT           (ANIM_SPRITES_START + 481)
 #define ANIM_TAG_LEER_BLAST_LEFT            (ANIM_SPRITES_START + 482)
 #define ANIM_TAG_LEER_LASER                 (ANIM_SPRITES_START + 483)
+#define ANIM_TAG_WURMPLE_HEAD               (ANIM_SPRITES_START + 484)
+#define ANIM_TAG_POKEDAD                    (ANIM_SPRITES_START + 485)
+#define ANIM_TAG_KRABBY_HEY                 (ANIM_SPRITES_START + 486)
+#define ANIM_TAG_KNIT_SHORTS                (ANIM_SPRITES_START + 487)
+#define ANIM_TAG_MUSHROOM                   (ANIM_SPRITES_START + 488)
+#define ANIM_TAG_GYRO                       (ANIM_SPRITES_START + 489)
+#define ANIM_TAG_PANTS_STRING               (ANIM_SPRITES_START + 490)
+#define ANIM_TAG_SECRET_SWORD               (ANIM_SPRITES_START + 491)
 
 // battlers
 #define ANIM_ATTACKER       0

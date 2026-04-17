@@ -129,6 +129,7 @@ static void AnimPSIRockin(struct Sprite *sprite);
 static void AnimPSIRockin_Step(struct Sprite *sprite);
 void AnimMegaSymbolSprite(struct Sprite *sprite);
 static void AnimMegaSymbolSprite_End(struct Sprite *sprite);
+void AnimParticleBurstOnAttacker(struct Sprite *sprite);
 
 
 // Unused
@@ -637,6 +638,61 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .paletteTag = ANIM_TAG_MING_VASE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sKnitShortsAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(64, 15),
+    ANIMCMD_FRAME(128, 15),
+    ANIMCMD_FRAME(192, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sKnitShortsAnimTable[] =
+{
+    sKnitShortsAnimCmds,
+};
+
+
+const struct SpriteTemplate gKnitShortsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KNIT_SHORTS,
+    .paletteTag = ANIM_TAG_KNIT_SHORTS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sKnitShortsAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sGyroSpinAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(16, 7),
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 5),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_JUMP(6),
+};
+
+static const union AnimCmd *const sGyroSpinAnimTable[] =
+{
+    sGyroSpinAnimCmds,
+};
+
+const struct SpriteTemplate gGyroSpinSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GYRO,
+    .paletteTag = ANIM_TAG_GYRO,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sGyroSpinAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -2863,6 +2919,46 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .callback = AnimParticleBurst,
 };
 
+static const union AnimCmd sSmallMushroomAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sBigMushroomAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMushroomsAnimTable[] =
+{
+    sSmallMushroomAnimCmds,
+    sBigMushroomAnimCmds,
+};
+
+const struct SpriteTemplate gSmallMushroomBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gBigMushroomBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
 static const union AnimCmd sLeftFeatherBurstAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -3116,6 +3212,28 @@ const struct SpriteTemplate gRedHeartRisingSpriteTemplate =
     .callback = AnimRedHeartRising,
 };
 
+const struct SpriteTemplate gSmallMushroomRisingSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRedHeartRising,
+};
+
+const struct SpriteTemplate gBigMushroomRisingSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRedHeartRising,
+};
+
 static const union AffineAnimCmd sHiddenPowerOrbAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(128, 128, 0, 0),
@@ -3179,6 +3297,28 @@ const struct SpriteTemplate gSpitUpOrbSpriteTemplate =
     .paletteTag = ANIM_TAG_RED_ORB_2,
     .oam = &gOamData_AffineDouble_ObjNormal_8x8,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sSpitUpOrbAffineAnimTable,
+    .callback = AnimSpitUpOrb,
+};
+
+const struct SpriteTemplate gSpitUpSmallMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = sSpitUpOrbAffineAnimTable,
+    .callback = AnimSpitUpOrb,
+};
+
+const struct SpriteTemplate gSpitUpBigMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
     .images = NULL,
     .affineAnims = sSpitUpOrbAffineAnimTable,
     .callback = AnimSpitUpOrb,
@@ -5887,6 +6027,28 @@ static void AnimRedHeartProjectile_Step(struct Sprite *sprite)
 }
 
 void AnimParticleBurst(struct Sprite *sprite)
+{
+    if (sprite->data[0] == 0)
+    {
+        sprite->data[1] = gBattleAnimArgs[0];
+        sprite->data[2] = gBattleAnimArgs[1];
+        sprite->data[0]++;
+    }
+    else
+    {
+        sprite->data[4] += sprite->data[1];
+        sprite->x2 = sprite->data[4] >> 8;
+        sprite->y2 = Sin(sprite->data[3], sprite->data[2]);
+        sprite->data[3] = (sprite->data[3] + 3) & 0xFF;
+        if (sprite->data[3] > 100)
+            sprite->invisible = sprite->data[3] % 2;
+
+        if (sprite->data[3] > 120)
+            DestroyAnimSprite(sprite);
+    }
+}
+
+void AnimParticleBurstOnAttacker(struct Sprite *sprite)
 {
     if (sprite->data[0] == 0)
     {
