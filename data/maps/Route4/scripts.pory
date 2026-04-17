@@ -168,3 +168,7 @@ script Route4_DejectedCamper {
 	msgbox("Oh, darn it!\pI just made it through MT. MOON,\nbut I left my bag at home!\pGuess it's time to walk all the way\nback around KANTO…", MSGBOX_NPC)
 	end
 }
+
+script Route4_RareCandies {
+	finditem(ITEM_RARE_CANDY, 5)
+}

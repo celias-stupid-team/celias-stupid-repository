@@ -6563,7 +6563,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherAnthony[] = {
         .iv = 0,
         .lvl = 8,
         .species = SPECIES_MAGIKARP,
-        .moves = {MOVE_SPLASH, MOVE_DRAGON_RAGE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_NONE, MOVE_DRAGON_RAGE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,

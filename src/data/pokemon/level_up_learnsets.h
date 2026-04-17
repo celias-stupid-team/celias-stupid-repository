@@ -7758,7 +7758,7 @@ static const struct LevelUpMove sTsareenaLevelUpLearnset[] = {
 
 static const struct LevelUpMove sComfeyLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_COTTON_SPORE),
-	LEVEL_UP_MOVE(1, MOVE_LUCKY_PANT),
+	//LEVEL_UP_MOVE(1, MOVE_LUCKY_PANT),
 	LEVEL_UP_END
 };
 

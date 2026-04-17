@@ -10878,7 +10878,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SKULL_ISSUE] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_COLLISION_COURSE,
         .power = 70,
         .type = TYPE_GHOST,
         .accuracy = 100,
@@ -11177,7 +11177,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_MAGNET_BOMB] =
     {
-        .effect = EFFECT_EXPLOSION,
+        .effect = EFFECT_COLLISION_COURSE,
         .power = 70,
         .type = TYPE_STEEL,
         .accuracy = 100,
@@ -14418,7 +14418,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SHROOMBURST] =
     {
-        .effect = EFFECT_EXPLOSION,
+        .effect = EFFECT_COLLISION_COURSE,
         .power = 70,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -14459,7 +14459,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 40,
-        .type = TYPE_BUG,
+        .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,

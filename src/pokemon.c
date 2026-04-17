@@ -6179,6 +6179,8 @@ u16 GetBattleBGM(void)
         {
         case TRAINER_CLASS_CHAMPION:
             return MUS_SV_ELITE_FOUR;
+        case TRAINER_CLASS_CHAMPION_2:
+            return MUS_BATTLE_REVOLUTION;
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_ELITE_FOUR:
         case TRAINER_CLASS_MASTER:
