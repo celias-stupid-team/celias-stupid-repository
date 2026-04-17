@@ -13,7 +13,7 @@
   "show_map_name": true,
   "floor_number": 127,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -53,9 +53,7 @@
       "dest_warp_id": "16"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
