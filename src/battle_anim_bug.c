@@ -256,6 +256,17 @@ const struct SpriteTemplate gIcicleSpearSpriteTemplate =
     .callback = AnimMissileArc,
 };
 
+const struct SpriteTemplate gPsycicleSpearSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ICICLE_SPEAR,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMissileArc,
+};
+
 const struct SpriteTemplate gNikeCannonSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SHOEPRINT,
