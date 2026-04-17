@@ -143,7 +143,7 @@ script DMCAErika_Savestate {
 
 script DMCAErika_Drink1 {
 	msgbox(
-	"RUSTY TAILOW\n"
+	"RUSTY TAILLOW\n"
 	"", MSGBOX_SIGN)
 
 }

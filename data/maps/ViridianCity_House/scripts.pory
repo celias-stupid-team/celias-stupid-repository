@@ -3636,3 +3636,12 @@ script CeliaSecret_YoshiRide {
 	"that's what happens when you ride\l"
 	"on Yoshi.", MSGBOX_NPC)
 }
+
+script CeliaSecret_ArcanineMusic {
+	msgbox(
+	"I have literally no clue whatsoever\n"
+	"why the battle music is Gen 3.\p"
+
+	"I didn't put it there.\n"
+	"It just kinda… does it.", MSGBOX_NPC)
+}

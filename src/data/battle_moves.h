@@ -6384,9 +6384,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WIDE_SLASH] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 20,
+        .power = 50,
         .type = TYPE_MYSTERY,
-        .accuracy = 88,
+        .accuracy = 100,
         .pp = 9,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_BOTH,
@@ -9649,10 +9649,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_SKETCHUP] =
     {
-        .effect = EFFECT_MIRROR_MOVE,
-        .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 0,
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_WATER,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -10423,7 +10423,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_FIGHTING,
-        .accuracy = 2,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -10684,7 +10684,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BOLT_STRIKE] =
     {
         .effect = EFFECT_HIT,
-        .power = 120,
+        .power = 80,
         .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 35,
@@ -12950,9 +12950,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_NONUPLE_WINGBEAT] =
     {
-        .effect = EFFECT_MULTI_HIT,
-        .power = 40,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_TAILSLAP,
+        .power = 20,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,

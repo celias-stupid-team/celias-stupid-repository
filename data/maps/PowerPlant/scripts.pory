@@ -443,7 +443,6 @@ script PowerPlant_MinigameStart {
 				playse(SE_M_EARTHQUAKE)
 				special(ShakeScreen)
 				waitse
-				setflag(FLAG_CSR_POWER_IS_ON)
 				addobject(ETERNATUS)
 				applymovement(ETERNATUS, Eternatus_WalkSlowDown)
 				waitmovement(0)
@@ -470,6 +469,7 @@ script PowerPlant_MinigameStart {
 
 				delay(60)
 				setvar(VAR_CSR_TURNED_ON_POWER, 1)
+				setflag(FLAG_CSR_POWER_IS_ON)
 				msgbox("Wow!\nETERNATUS unleashed its energy!", MSGBOX_DEFAULT)
 				if(!flag(FLAG_UNLEASHED_ENERGY)) {
 					playfanfare(MUS_LEVEL_UP)

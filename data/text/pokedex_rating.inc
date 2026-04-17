@@ -994,11 +994,15 @@ PokedexRating_Text_HintPokemonGun::
 	.string "Your RUMOR LOG is very helpful, but\n"
 	.string "even it has its limits.\p"
 	.string "Re-visit everywhere in the GREAT\n"
-	.string "SEA. Check every island again.\p"
+	.string "SEA. FLY to every island again.\p"
 	.string "There was a common thread across\n"
 	.string "every location that will lead\l"
-	.string "you to what you need.$"
-	
+	.string "you to what you need.\p"
+	.string "It might also be wise to review the\n"
+	.string "methods for POKéMON evolution in\l"
+	.string "the vanilla games.$"
+
+
 PokedexRating_Text_HintOrthworm::
 	.string "That stubborn NEBBY just won't\n"
 	.string "stay in your BAG, will he?\p"

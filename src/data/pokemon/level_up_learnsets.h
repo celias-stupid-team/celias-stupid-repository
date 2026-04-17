@@ -1096,6 +1096,7 @@ static const struct LevelUpMove sSlowpokeLevelUpLearnset[] = {
 
 static const struct LevelUpMove sSlowbroLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_PSYCICLE_SPEAR),
+    LEVEL_UP_MOVE(0, MOVE_EXTREMESLOTH),
     LEVEL_UP_MOVE(1, MOVE_CLAMP),
     LEVEL_UP_MOVE(1, MOVE_SHELL_SMASH),
     LEVEL_UP_MOVE(1, MOVE_WITHDRAW),
@@ -1328,6 +1329,7 @@ static const struct LevelUpMove sOnixLevelUpLearnset[] = {
     LEVEL_UP_MOVE(30, MOVE_BROCK_WRECKER),
     LEVEL_UP_MOVE(35, MOVE_BROCK_TOMB),
     LEVEL_UP_MOVE(40, MOVE_MOONLIGHT_YEAR),
+    LEVEL_UP_MOVE(41, MOVE_HYPER_CREAM),
     LEVEL_UP_END
 };
 
