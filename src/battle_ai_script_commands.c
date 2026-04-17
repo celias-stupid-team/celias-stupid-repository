@@ -1186,6 +1186,8 @@ static void Cmd_get_ability(void)
 
     if (sAIScriptPtr[1] == AI_USER)
         battlerId = gBattlerAttacker;
+    else if (sAIScriptPtr[1] == AI_USER_PARTNER)
+        battlerId = BATTLE_PARTNER(gBattlerAttacker);
     else
         battlerId = gBattlerTarget;
 

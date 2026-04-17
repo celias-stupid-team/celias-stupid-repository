@@ -1828,6 +1828,7 @@ static void Task_DMCAMistyBackingSprites(u8 taskId)
     u8 battlerId = task->data[0];
     u8 battlerSpriteId = gBattlerSpriteIds[battlerId];
     struct Sprite *battlerSprite = &gSprites[battlerSpriteId];
+    u8 offsetY = -10;
 
     switch (tState)
     {
@@ -1856,7 +1857,7 @@ static void Task_DMCAMistyBackingSprites(u8 taskId)
             // create sprite
             task->data[1] = CreateAdditionalMonSpriteForMoveAnim(
                 SPECIES_ZWEILOUS, FALSE, DMCA_MISTY_BACKING_TEMPLATE_1,
-                x - 26, y, subpriority + 1, 0, 0, battlerId, TRUE);
+                x - 26, y + offsetY, subpriority + 1, 0, 0, battlerId, TRUE);
             LoadCompressedPalette(gMonPaletteTable[SPECIES_ZWEILOUS].data,
                                   OBJ_PLTT_ID(gSprites[task->data[1]].oam.paletteNum),
                                   PLTT_SIZE_4BPP);
@@ -1877,7 +1878,7 @@ static void Task_DMCAMistyBackingSprites(u8 taskId)
             // create sprite
             task->data[2] = CreateAdditionalMonSpriteForMoveAnim(
                 SPECIES_DEINO, FALSE, DMCA_MISTY_BACKING_TEMPLATE_2,
-                x + 26, y, subpriority + 2, 0, 0, battlerId, TRUE);
+                x + 26, y + offsetY, subpriority + 2, 0, 0, battlerId, TRUE);
             LoadCompressedPalette(gMonPaletteTable[SPECIES_DEINO].data,
                                   OBJ_PLTT_ID(gSprites[task->data[2]].oam.paletteNum),
                                   PLTT_SIZE_4BPP);
@@ -1904,9 +1905,9 @@ static void Task_DMCAMistyBackingSprites(u8 taskId)
 
             // set correct sprite coords in relation to the main sprite
             gSprites[task->data[1]].x = realX - 26;
-            gSprites[task->data[1]].y = realY;
+            gSprites[task->data[1]].y = realY + offsetY;
             gSprites[task->data[2]].x = realX + 26;
-            gSprites[task->data[2]].y = realY;
+            gSprites[task->data[2]].y = realY + offsetY;
             gSprites[task->data[1]].invisible = battlerSprite->invisible;
             gSprites[task->data[2]].invisible = battlerSprite->invisible;
             break;

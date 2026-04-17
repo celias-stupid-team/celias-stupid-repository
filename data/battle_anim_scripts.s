@@ -1205,6 +1205,7 @@ gBattleAnims_General::
 	.4byte General_TrumpCardUseless	        @ B_ANIM_TRUMP_CARD_USELESS
 	.4byte General_UnboundSpriteUpdate      @ B_ANIM_UNBOUND_SPRITE_UPDATE
 	.4byte General_ConfusionBonk            @ B_ANIM_CONFUSION_BONK
+	.4byte General_ExodiaObliterate			@ B_ANIM_EXODIA_OBLITERATE
 
 	.align 2
 gBattleAnims_Special::
