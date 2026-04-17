@@ -3302,6 +3302,28 @@ const struct SpriteTemplate gSpitUpOrbSpriteTemplate =
     .callback = AnimSpitUpOrb,
 };
 
+const struct SpriteTemplate gSpitUpSmallMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = sSpitUpOrbAffineAnimTable,
+    .callback = AnimSpitUpOrb,
+};
+
+const struct SpriteTemplate gSpitUpBigMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = sSpitUpOrbAffineAnimTable,
+    .callback = AnimSpitUpOrb,
+};
+
 static const union AnimCmd sEyeSparkleAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),

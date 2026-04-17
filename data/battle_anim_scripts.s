@@ -30232,19 +30232,64 @@ Move_SHROOM_DESIRE:
 Move_SHROOMBURST:
 	loadspritegfx ANIM_TAG_EXPLOSION
 	loadspritegfx ANIM_TAG_MUSHROOM
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 8, 9, RGB(26, 8, 8), 8, RGB_BLACK, 8
-	createvisualtask AnimTask_ShakeMon2, 5, 4, 8, 0, 40, 1
-	createvisualtask AnimTask_ShakeMon2, 5, 5, 8, 0, 40, 1
-	createvisualtask AnimTask_ShakeMon2, 5, 6, 8, 0, 40, 1
-	createvisualtask AnimTask_ShakeMon2, 5, 7, 8, 0, 40, 1
-	createvisualtask AnimTask_ShakeMon2, 5, 8, 8, 0, 40, 1
-	call Explosion1
-	call Explosion1
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_SpitUpDeformMon, 5
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 8, 2
+	delay 45
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 1
+	delay 3
+	createsprite gMudsportSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 0, -4, -16
+	createsprite gMudsportSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 0, 4, -16
+	createsprite gMudsportSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 0, -12, -12
+	createsprite gMudsportBigMushroomSpriteTemplate, ANIM_TARGET, 2, 0, 20, -8
+	createsprite gMudsportBigMushroomSpriteTemplate, ANIM_TARGET, 2, 0, -20, -8
+	createsprite gMudsportBigMushroomSpriteTemplate, ANIM_TARGET, 2, 0, 12, -12
 	waitforvisualfinish
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 16, 16, RGB_WHITE
-	delay 50
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 3, 16, 0, RGB_WHITE
+
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_SpitUpDeformMon, 5
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 8, 2
+	delay 45
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 1
+	delay 3
+	createsprite gMudsportBigMushroomSpriteTemplate, ANIM_TARGET, 2, 0, -4, -16
+	createsprite gMudsportBigMushroomSpriteTemplate, ANIM_TARGET, 2, 0, 4, -16
+	createsprite gMudsportBigMushroomSpriteTemplate, ANIM_TARGET, 2, 0, -12, -12
+	createsprite gMudsportSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 0, 20, -8
+	createsprite gMudsportSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 0, -20, -8
+	createsprite gMudsportSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 0, 12, -12
 	waitforvisualfinish
+
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_SpitUpDeformMon, 5
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 8, 2
+	delay 45
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 1
+	delay 3
+	createsprite gMudsportSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 0, -4, -16
+	createsprite gMudsportSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 0, 4, -16
+	createsprite gMudsportBigMushroomSpriteTemplate, ANIM_TARGET, 2, 0, -12, -12
+	createsprite gMudsportSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 0, 20, -8
+	createsprite gMudsportBigMushroomSpriteTemplate, ANIM_TARGET, 2, 0, -20, -8
+	createsprite gMudsportBigMushroomSpriteTemplate, ANIM_TARGET, 2, 0, 12, -12
+	waitforvisualfinish
+
+	@createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 8, 9, RGB(26, 8, 8), 8, RGB_BLACK, 8
+	@createvisualtask AnimTask_ShakeMon2, 5, 4, 8, 0, 40, 1
+	@createvisualtask AnimTask_ShakeMon2, 5, 5, 8, 0, 40, 1
+	@createvisualtask AnimTask_ShakeMon2, 5, 6, 8, 0, 40, 1
+	@createvisualtask AnimTask_ShakeMon2, 5, 7, 8, 0, 40, 1
+	@createvisualtask AnimTask_ShakeMon2, 5, 8, 8, 0, 40, 1
+	@call Explosion1
+	@call Explosion1
+	@waitforvisualfinish
+	@createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 16, 16, RGB_WHITE
+	@delay 50
+	@createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 3, 16, 0, RGB_WHITE
+	@waitforvisualfinish
 	
 	createsprite gThrownSmallMushroomSpriteTemplate, ANIM_TARGET, 2, 1, 220, 60
 	waitplaysewithpan SE_M_BUBBLE2, 0, 15

@@ -14403,13 +14403,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SHROOMBURST] =
     {
-        .effect = EFFECT_EXPLOSION,
+        .effect = EFFECT_DOUBLE_EDGE,
         .power = 70,
         .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_ALL_BATTLERS,
         .priority = 2,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },

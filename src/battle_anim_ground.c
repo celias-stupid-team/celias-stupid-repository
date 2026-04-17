@@ -265,6 +265,28 @@ const struct SpriteTemplate gThrownBigMushroomSpriteTemplate =
     .callback = AnimMakeItRain,
 };
 
+const struct SpriteTemplate gMudsportSmallMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMudSportDirt,
+};
+
+const struct SpriteTemplate gMudsportBigMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMudSportDirt,
+};
+
 const struct SpriteTemplate gThrownMistySpriteTemplate =
 {
     .tileTag = ANIM_TAG_MISTY,
