@@ -1113,7 +1113,7 @@ const struct Trainer gTrainers[] = {
     },
     [TRAINER_BUG_CATCHER_CALE] = {
         .trainerClass = TRAINER_CLASS_CHAMPION_2,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_NINJA_BOY,
         .trainerName = _("SE JUN"),
         .items = {},
@@ -1244,7 +1244,7 @@ const struct Trainer gTrainers[] = {
     },
     [TRAINER_CHAMPION_RAY_RIZZO] = {
         .trainerClass = TRAINER_CLASS_CHAMPION_2,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("RAY RIZZO"),
         .items = {},

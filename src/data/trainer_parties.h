@@ -599,28 +599,28 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassIris[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_LassReli[] = {
     {
         .iv = 0,
-        .lvl = 14,
-        .species = SPECIES_TYRANITAR,
-        .moves = {MOVE_ROCK_SLIDE, MOVE_LOW_KICK, MOVE_FIRE_PUNCH, MOVE_NONE},
+        .lvl = 13,
+        .species = SPECIES_LANDORUS,
+        .moves = {MOVE_SUPERPOWER, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
-        .lvl = 14,
+        .lvl = 13,
         .species = SPECIES_KIRLIA,
-        .moves = {MOVE_PSY_BEAM, MOVE_ICEBEAM, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_HYPER_VOICE, MOVE_ICEBEAM, MOVE_NONE, MOVE_NONE},
     },
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_LassAli[] = {
     {
         .iv = 0,
-        .lvl = 14,
+        .lvl = 12,
         .species = SPECIES_CRESSELIA,
         .moves = {MOVE_ICEBEAM, MOVE_PSY_BEAM, MOVE_ICY_WIND, MOVE_NONE},
     },
     {
         .iv = 0,
-        .lvl = 14,
+        .lvl = 12,
         .species = SPECIES_METAGROSS,
         .moves = {MOVE_METEOR_MASH, MOVE_EARTHQUAKE, MOVE_PSY_BEAM, MOVE_NONE},
     },
