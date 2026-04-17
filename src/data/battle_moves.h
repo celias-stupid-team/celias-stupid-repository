@@ -14418,28 +14418,29 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SHROOMBURST] =
     {
-        .effect = EFFECT_COLLISION_COURSE,
+        .effect = EFFECT_SHROOMBURST,
         .power = 70,
         .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_ALL_BATTLERS,
+        .target = MOVE_TARGET_FOES_AND_ALLY,
         .priority = 2,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
     [MOVE_SHROOM_DESIRE] =
     {
-        .effect = EFFECT_HIT,
-        .power = 60,
+        .effect = EFFECT_DO_NOTHING,
+        .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .stringId = B_MSG_SHROOM_DESIRE,
     },
 
     [MOVE_LUCKY_PANT] =

@@ -10,8 +10,8 @@ Route3_Text_TunnelFromCeruleanTiring::
 	.string "from CERULEAN!$"
 
 Route3_Text_ColtonIntro::
-	.string "I'm evolving my WURMPLE to\n"
-	.string "fight ROXANNE!$"
+	.string "Hey!\n"
+	.string "I saw you in PETALBURG WOODS!$"
     
 Route3_Text_ColtonDefeat::
     .string "Wait, was that you?$"

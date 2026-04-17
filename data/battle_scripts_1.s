@@ -307,6 +307,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
 	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
 	.4byte BattleScript_EffectPayWall           @ EFFECT_PAY_WALL
+	.4byte BattleScript_EffectShroomburst           @ EFFECT_SHROOMBURST
+
+	
 
 	
 
@@ -6539,3 +6542,37 @@ BattleScript_EffectPayWall::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectShroomburst::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ShroomburstDoAnimStartLoop
+	call BattleScript_PreserveMissedBitDoMoveAnim
+	goto BattleScript_ExplosionMissed
+BattleScript_ShroomburstDoAnimStartLoop:
+	attackanimation
+	waitanimation
+	tryexplosion
+	waitstate
+BattleScript_ShroomburstLoop:
+	movevaluescleanup
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	accuracycheck BattleScript_ExplosionMissed, ACC_CURR_MOVE
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_ShroomburstLoop
+	setatkhptozero
+	tryfaintmon BS_ATTACKER
+	end

@@ -170,5 +170,8 @@ script Route4_DejectedCamper {
 }
 
 script Route4_RareCandies {
-	finditem(ITEM_RARE_CANDY, 5)
+	removeobject(VAR_LAST_TALKED)
+	giveitem_msg("{PLAYER} found\n5 RARE CANDY(s)!", ITEM_RARE_CANDY, 5)
+	release
+	end
 }

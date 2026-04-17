@@ -8182,7 +8182,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_SHROOMISH] =
     {
-        .baseHP = 60,
+        .baseHP = 5,
         .baseAttack = 40,
         .baseDefense = 60,
         .baseSpeed = 35,

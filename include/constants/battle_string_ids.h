@@ -534,8 +534,9 @@
 #define STRINGID_BIDEENERGY 532
 #define STRINGID_CASTFORMCAUGHT 533
 #define STRINGID_PAY_WALL 534
+#define STRINGID_SHROOM_DESIRE 535
 
-#define STRINGID_NONE 535
+#define STRINGID_NONE 536
 // #define STRINGID_NONE 
 // ^ for easier copypaste
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
@@ -793,6 +794,9 @@
 #define B_MSG_LATIAS        17
 #define B_MSG_TM07        18
 #define B_MSG_SMEARGLE        19
+#define B_MSG_SHROOM_DESIRE        20
+
+
 
 
 // gSwitchInAbilityStringIds
