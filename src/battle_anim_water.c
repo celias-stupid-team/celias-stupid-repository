@@ -404,6 +404,17 @@ const struct SpriteTemplate gFlamethrowerFlameSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+const struct SpriteTemplate gFlamethrowerWaterSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_WATER_ORB,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FlamethrowerFlame,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 const struct SpriteTemplate gPsywaveRingSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BLUE_RING,

@@ -336,6 +336,17 @@ const struct SpriteTemplate gFlyingSandCrescentSpriteTemplate =
     .callback = AnimFlyingSandCrescent,
 };
 
+const struct SpriteTemplate gFlyingKrabbyCrescentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KRABBY_HEY,
+    .paletteTag = ANIM_TAG_KRABBY_HEY,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFlyingSandCrescent,
+};
+
 static const struct Subsprite sFlyingSandSubsprites[] =
 {
     {

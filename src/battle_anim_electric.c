@@ -31,6 +31,7 @@ static void AnimElectricChargingParticles(struct Sprite *sprite);
 static void AnimVoltTackleOrbSlide_Step(struct Sprite *sprite);
 static bool8 CreateVoltTackleBolt(struct Task *task, u8 taskId);
 static bool8 CreateShockWaveBoltSprite(struct Task *task, u8 taskId);
+static bool8 CreateBlueShockWaveLightningSprite(struct Task *task, u8 taskId);
 static bool8 CreateShockWaveLightningSprite(struct Task *task, u8 taskId);
 static void AnimShockWaveLightning(struct Sprite *sprite);
 
@@ -53,6 +54,17 @@ const struct SpriteTemplate gLightningSpriteTemplate =
 {
     .tileTag = ANIM_TAG_LIGHTNING,
     .paletteTag = ANIM_TAG_LIGHTNING,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_Lightning,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimLightning,
+};
+
+const struct SpriteTemplate gBlueLightningSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LIGHTNING,
+    .paletteTag = ANIM_TAG_WATER_ORB,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_Lightning,
     .images = NULL,
@@ -339,6 +351,54 @@ const struct SpriteTemplate gGrowingChargeOrbSpriteTemplate =
     .callback = AnimGrowingChargeOrb,
 };
 
+static const union AffineAnimCmd sAffineAnim_ShrinkingElectricOrb_0[] =
+{
+    AFFINEANIMCMD_LOOP(0),
+    AFFINEANIMCMD_FRAME(-0x4, -0x4, 0, 5),
+    AFFINEANIMCMD_FRAME(0x4, 0x4, 0, 5),
+    AFFINEANIMCMD_LOOP(10),
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(-0x4, -0x4, 0, 60),
+    AFFINEANIMCMD_FRAME(-0x100, -0x100, 0, 0),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sAffineAnim_ShrinkingElectricOrb_1[] =
+{
+    AFFINEANIMCMD_FRAME(0x4, 0x4, 0, 5),
+    AFFINEANIMCMD_FRAME(-0x4, -0x4, 0, 5),
+    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 30),
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_JUMP(3),
+};
+
+static const union AffineAnimCmd sAffineAnim_ShrinkingElectricOrb_2[] =
+{
+    AFFINEANIMCMD_FRAME(-0x8, -0x8, 0, 30),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 30),
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sAffineAnims_ShrinkingElectricOrb[] =
+{
+    sAffineAnim_ShrinkingElectricOrb_0,
+    sAffineAnim_ShrinkingElectricOrb_1,
+    sAffineAnim_ShrinkingElectricOrb_2,
+};
+
+const struct SpriteTemplate gShrinkingChargeOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_ShrinkingElectricOrb,
+    .callback = AnimGrowingChargeOrb,
+};
+
 static const union AnimCmd sAnim_ElectricPuff[] =
 {
     ANIMCMD_FRAME(0, 3),
@@ -433,6 +493,17 @@ const struct SpriteTemplate gGrowingShockWaveOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
     .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_GrowingElectricOrb,
+    .callback = AnimGrowingShockWaveOrb,
+};
+
+const struct SpriteTemplate gGrowingBlueShockWaveOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .paletteTag = ANIM_TAG_WATER_ORB,
     .oam = &gOamData_AffineNormal_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -1256,6 +1327,54 @@ void AnimTask_ShockWaveLightning(u8 taskId)
 static bool8 CreateShockWaveLightningSprite(struct Task *task, u8 taskId)
 {
     u8 spriteId = CreateSprite(&gLightningSpriteTemplate, task->data[13], task->data[14], task->data[12]);
+    
+    if (spriteId != MAX_SPRITES)
+    {
+        gSprites[spriteId].callback = AnimShockWaveLightning;
+        gSprites[spriteId].data[6] = taskId;
+        gSprites[spriteId].data[7] = 10;
+        ++task->data[10];
+    }
+    if (task->data[14] >= task->data[15])
+        return TRUE;
+    task->data[14] += 32;
+    return FALSE;
+}
+
+
+void AnimTask_BlueShockWaveLightning(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    switch (task->data[0])
+    {
+    case 0:
+        task->data[15] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) + 32;
+        task->data[14] = task->data[15];
+        while (task->data[14] > 16)
+            task->data[14] -= 32;
+        task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+        task->data[12] = GetBattlerSpriteSubpriority(gBattleAnimTarget) - 2;
+        ++task->data[0];
+        break;
+    case 1:
+        if (++task->data[1] > 1)
+        {
+            task->data[1] = 0;
+            if (CreateBlueShockWaveLightningSprite(task, taskId))
+                ++task->data[0];
+        }
+        break;
+    case 2:
+        if (task->data[10] == 0)
+            DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+static bool8 CreateBlueShockWaveLightningSprite(struct Task *task, u8 taskId)
+{
+    u8 spriteId = CreateSprite(&gBlueLightningSpriteTemplate, task->data[13], task->data[14], task->data[12]);
     
     if (spriteId != MAX_SPRITES)
     {
