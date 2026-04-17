@@ -1919,6 +1919,7 @@ script CeliaSecret_NewGamePlus {
 			setflag(FLAG_CELIA_SECRET_CINNABAR)
 			setflag(FLAG_CELIA_SECRETS_FINISHED)
 			clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
+			additem(ITEM_CANDY_DISPENSER)
 			msgbox(
 			"Awesome!\n"
 			"Have fun!", MSGBOX_DEFAULT)
@@ -1926,7 +1927,6 @@ script CeliaSecret_NewGamePlus {
 			msgbox(
 			"Gotcha!\n"
 			"Have fun!", MSGBOX_DEFAULT)
-			additem(ITEM_CANDY_DISPENSER)
 			removeobject(VAR_LAST_TALKED)
 		}
 		release
