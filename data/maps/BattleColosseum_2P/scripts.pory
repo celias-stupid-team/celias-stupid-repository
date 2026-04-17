@@ -115,7 +115,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_NIDORINA)) {
 		setobtainable(SPECIES_NIDOQUEEN) //31
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET) || flag(FLAG_WORLD_MAP_PEWTER_CITY)) {
 		setobtainable(SPECIES_NIDORAN_F) // 32
 	}
 	if(checkmoncaught(SPECIES_NIDORINO) || (flag(FLAG_WORLD_MAP_CERULEAN_CITY) && checkmoncaught(SPECIES_NIDORAN_F))) {
