@@ -30,8 +30,8 @@ Route25_Text_FlintDefeat::
     .string "Aww, darn…$"
 
 Route25_Text_FlintPostBattle::
-	.string "If something's too strong, every\n"
-	.string "team needs to run the same counters.\p"
+	.string "If something's too strong, every team\n"
+	.string "needs to run the same counters.\p"
 	.string "Eventually, the meta becomes stale\n"
 	.string "and boring as teams become similar.\l"
 	.string "That's when we take tiering action.\p"

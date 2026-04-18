@@ -118,6 +118,7 @@ static const struct LevelUpMove sSquirtleLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sWartortleLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(0, MOVE_HYPER_BEAM),
     LEVEL_UP_MOVE(1, MOVE_HYPER_BEAM),
     LEVEL_UP_END
 };

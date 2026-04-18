@@ -7200,12 +7200,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_TYRANITAR] =
     {
-        .baseHP = 100,
+        .baseHP = 40,
         .baseAttack = 134,
-        .baseDefense = 110,
+        .baseDefense = 40,
         .baseSpeed = 61,
         .baseSpAttack = 95,
-        .baseSpDefense = 100,
+        .baseSpDefense = 40,
         .types = {TYPE_ROCK, TYPE_DARK},
         .catchRate = 255,
         .expYield = 218,

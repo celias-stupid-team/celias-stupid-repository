@@ -7245,7 +7245,7 @@
     {
       "english": "PREMIER CANDY",
       "itemId": "ITEM_PREMIER_CANDY",
-      "price": 200,
+      "price": 600,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "What, you can't give us PREMIER\\nBALLS but you can give us\\nCANDIES?",
