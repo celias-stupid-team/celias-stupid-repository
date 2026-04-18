@@ -15,7 +15,9 @@ static const bool8 sBehaviorSurfable[NUM_METATILE_BEHAVIORS] = {
     [MB_EASTWARD_CURRENT]   = TRUE,
     [MB_WESTWARD_CURRENT]   = TRUE,
     [MB_NORTHWARD_CURRENT]  = TRUE,
-    [MB_SOUTHWARD_CURRENT]  = TRUE
+    [MB_SOUTHWARD_CURRENT]  = TRUE,
+    [MB_LUVDISC_TILE]  = TRUE,
+    [MB_LUVDISC_TILE_NORMAL]  = TRUE,
 };
 
 // maybe needed but probably not?

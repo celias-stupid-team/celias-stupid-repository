@@ -8,10 +8,13 @@ ViridianForest_Text_RickIntro::
     .string "Let's battle 'em!$"
 
 ViridianForest_Text_RickDefeat::
-    .string "No!\n"
-    .string "CATERPIE is unable to modify the\l"
-    .string "existing ROM to create unintended\l"
-    .string "behavior!$"
+	.string "No!\n"
+	.string "CATERPIE is unable to access the\l"
+	.string "underlying software code in order\l"
+	.string "to modify the data or game engine\l"
+	.string "to perform unintended behavior\l"
+	.string "without permission from the\l"
+	.string "original developers!$"
 
 ViridianForest_Text_RickPostBattle::
     .string "You heard what I said.$"
@@ -37,8 +40,7 @@ ViridianForest_Text_SammyIntro::
 	.string "SANDSHREW I trained!$"
 
 ViridianForest_Text_SammyDefeat::
-    .string "I give!\n"
-    .string "You're good at this!$"
+	.string "All that training for nothing!\n$"
 
 ViridianForest_Text_SammyPostBattle::
 	.string "I trained my SANDSHREW by chucking\n"
@@ -51,8 +53,8 @@ ViridianForest_Text_AnthonyIntro::
     .string "POKéMON 10U champion!$"
 
 ViridianForest_Text_AnthonyDefeat::
-    .string "Oh, boo.\n"
-    .string "Nothing went right.$"
+	.string "Hey!\n"
+	.string "Those POKéMON are banned!$"
 
 ViridianForest_Text_AnthonyPostBattle::
     .string "Huh? DITTO isn't showing up in\n"

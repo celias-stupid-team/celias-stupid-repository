@@ -4041,7 +4041,7 @@ static void Cmd_getexp(void)
                     if (holdEffect == HOLD_EFFECT_EXP_SHARE)
                         gBattleMoveDamage += gExpShareExp;
                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG) {
-                        if(GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES) == SPECIES_CHARMANDER) {
+                        if(GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES) == SPECIES_CHARMANDER && !FlagGet(FLAG_BADGE01_GET)) {
                             gBattleMoveDamage = (gBattleMoveDamage * 105) / 100;
 
                         } else {
