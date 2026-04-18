@@ -8750,7 +8750,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_CANCEL] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_CANCEL,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -14311,7 +14311,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BAG] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_BAG,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,

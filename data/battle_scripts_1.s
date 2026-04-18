@@ -305,6 +305,11 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
 	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
+	.4byte BattleScript_End                     	 @ EFFECT_BAG
+	.4byte BattleScript_End                  		 @ EFFECT_CANCEL
+
+BattleScript_End::
+	end
 
 BattleScript_End2::
 	end2

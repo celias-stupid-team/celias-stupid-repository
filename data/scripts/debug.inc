@@ -92,8 +92,8 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_EventScript_Script_1::
-	setflag FLAG_SHINY_CREATION
-	setwildbattle SPECIES_LUVDISC, 10
+	@ setflag FLAG_SHINY_CREATION
+	setwildbattle SPECIES_WEEDLE, 10
 	dowildbattle
 	end
 
