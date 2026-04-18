@@ -335,8 +335,9 @@ script DMCAWarehouse_Qbert {
 script DMCAWarehouse_Polio {
 	lock
 	faceplayer
-	if(checkitem(ITEM_PP_MAX)) {
+	if(checkitem(ITEM_PP_MAX) || flag(FLAG_TEMP_8)) {
 		removeitem(ITEM_PP_MAX)
+		setflag(FLAG_TEMP_8)
 		playmoncry(SPECIES_POPPLIO, CRY_MODE_DEFAULT)
 		msgbox(
 		"POPP PLIO: Pla-plaaah!\n"

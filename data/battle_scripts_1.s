@@ -39,7 +39,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDefenseUp              @ EFFECT_DEFENSE_UP
 	.4byte BattleScript_EffectHit                    @ EFFECT_SPEED_UP
 	.4byte BattleScript_EffectSpecialAttackUp        @ EFFECT_SPECIAL_ATTACK_UP
-	.4byte BattleScript_EffectHit                    @ EFFECT_SPECIAL_DEFENSE_UP
+	.4byte BattleScript_EffectSpecialDefenseUp       @ EFFECT_SPECIAL_DEFENSE_UP
 	.4byte BattleScript_EffectHit                    @ EFFECT_ACCURACY_UP
 	.4byte BattleScript_EffectEvasionUp              @ EFFECT_EVASION_UP
 	.4byte BattleScript_EffectHit                    @ EFFECT_ALWAYS_HIT
@@ -675,6 +675,11 @@ BattleScript_EffectAttackAccuracyUpEnd::
 
 BattleScript_EffectDefenseUp::
 	setstatchanger STAT_DEF, 1, FALSE
+	goto BattleScript_EffectStatUp
+
+
+BattleScript_EffectSpecialDefenseUp::
+	setstatchanger STAT_SPDEF, 1, FALSE
 	goto BattleScript_EffectStatUp
 
 BattleScript_EffectSpecialAttackUp::
