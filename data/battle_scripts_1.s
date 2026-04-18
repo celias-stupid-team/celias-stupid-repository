@@ -395,6 +395,7 @@ BattleScript_HitFromAtkAnimation_2::
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	jumpifmove MOVE_REVELATION_DANCE, BattleScript_RevelationDanceString
+	jumpifmove MOVE_REVELATION_DANCE_2, BattleScript_RevelationDanceString
 	seteffectwithchance
 	tryfaintmon BS_TARGET
 	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp

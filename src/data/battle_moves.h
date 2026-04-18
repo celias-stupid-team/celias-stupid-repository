@@ -12782,7 +12782,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_DARK_LLOYD] =
     {
         .effect = EFFECT_HIT,
-        .power = 90,
+        .power = 110,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 35,
@@ -12821,7 +12821,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_PSYCHO_BOOTS] =
     {
         .effect = EFFECT_HIT,
-        .power = 120,
+        .power = 90,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
         .pp = 35,
@@ -13887,8 +13887,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_GAME_GENIE] =
     {
         .effect = EFFECT_HIT,
-        .power = 60,
-        .type = TYPE_NORMAL,
+        .power = 75,
+        .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
@@ -13933,7 +13933,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 35,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
@@ -13942,8 +13942,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_REVELATION_DANCE_2] =
     {
-        .effect = EFFECT_HIT,
-        .power = 60,
+        .effect = EFFECT_REVELATION_DANCE,
+        .power = 50,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -14249,11 +14249,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_COMET_PUNCH_2] =
     {
-        .effect = EFFECT_MULTI_HIT,
-        .power = 35,
-        .type = TYPE_WATER,
+        .effect = EFFECT_HIT,
+        .power = 18,
+        .type = TYPE_NORMAL,
         .accuracy = 100,
-        .pp = 35,
+        .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -14445,7 +14445,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_LUCKY_PANT] =
     {
-        .effect = EFFECT_MIST,
+        .effect = EFFECT_DO_NOTHING,
         .power = 0,
         .type = TYPE_STEEL,
         .accuracy = 100,
@@ -14454,6 +14454,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .stringId = B_MSG_PANT_SHROUD,
     },
 
     [MOVE_WURMPLE_BEAM] =

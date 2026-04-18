@@ -535,8 +535,9 @@
 #define STRINGID_CASTFORMCAUGHT 533
 #define STRINGID_PAY_WALL 534
 #define STRINGID_SHROOM_DESIRE 535
+#define STRINGID_PANTS_SHROUD 536
 
-#define STRINGID_NONE 536
+#define STRINGID_NONE 537
 // #define STRINGID_NONE 
 // ^ for easier copypaste
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
@@ -795,6 +796,7 @@
 #define B_MSG_TM07        18
 #define B_MSG_SMEARGLE        19
 #define B_MSG_SHROOM_DESIRE        20
+#define B_MSG_PANT_SHROUD        21
 
 
 
