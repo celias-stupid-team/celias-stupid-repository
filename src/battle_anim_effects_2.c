@@ -127,6 +127,8 @@ static void AnimThrowProtagonist_Step(struct Sprite *sprite);
 static void PSIRockin_ShiftPalette(u8 paletteNum);
 static void AnimPSIRockin(struct Sprite *sprite);
 static void AnimPSIRockin_Step(struct Sprite *sprite);
+static void AnimHBOMaxFinale(struct Sprite *sprite);
+static void AnimHBOMaxFinale_Step(struct Sprite *sprite);
 void AnimMegaSymbolSprite(struct Sprite *sprite);
 static void AnimMegaSymbolSprite_End(struct Sprite *sprite);
 void AnimParticleBurstOnAttacker(struct Sprite *sprite);
@@ -2963,6 +2965,17 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .callback = AnimParticleBurst,
 };
 
+const struct SpriteTemplate gShortsBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MINI_SHORTS,
+    .paletteTag = ANIM_TAG_MINI_SHORTS,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
 const struct SpriteTemplate gOnionBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ONION,
@@ -3605,6 +3618,35 @@ const struct SpriteTemplate gPSIRockinTwoSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimPSIRockin,
+};
+
+static const union AnimCmd sAnim_HBOMaxFinale[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(16, 10),
+    ANIMCMD_FRAME(32, 10),
+    ANIMCMD_FRAME(48, 10),
+    ANIMCMD_FRAME(64, 10),
+    ANIMCMD_FRAME(80, 10),
+    ANIMCMD_FRAME(96, 10),
+    ANIMCMD_FRAME(112, 20),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_HBOMaxFinale[] =
+{
+    sAnim_HBOMaxFinale,
+};
+
+const struct SpriteTemplate gHBOMaxFinaleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FINALE,
+    .paletteTag = ANIM_TAG_FINALE,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = sAnims_HBOMaxFinale,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHBOMaxFinale,
 };
 
 static const union AnimCmd sMovementWavesAnimCmds1[] =
@@ -7908,6 +7950,72 @@ static void PSIRockin_ShiftPalette(u8 paletteNum)
     gPlttBufferFaded[base + 3] = temp;
 }
 
+
+static void AnimHBOMaxFinale(struct Sprite *sprite)
+{
+    if (sprite->data[0] == 0)
+    {
+        // -------------------------------
+        // Position
+        // -------------------------------
+        if (gBattleAnimArgs[2] == 0)
+            InitSpritePosToAnimAttacker(sprite, FALSE);
+        else
+            InitSpritePosToAnimTarget(sprite, FALSE);
+
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+
+        // -------------------------------
+        // Start animation
+        // -------------------------------
+        StartSpriteAnim(sprite, 0);
+
+        // -------------------------------
+        // Apply 2× scale
+        // -------------------------------
+        sprite->oam.affineMode = ST_OAM_AFFINE_DOUBLE;
+        SetSpriteRotScale(sprite - gSprites, 128, 128, 0);
+
+        // -------------------------------
+        // Palette index
+        // -------------------------------
+        sprite->data[1] = IndexOfSpritePaletteTag(sprite->template->paletteTag);
+
+        // -------------------------------
+        // Lifetime
+        // -------------------------------
+        sprite->data[3] = gBattleAnimArgs[3];
+
+        // -------------------------------
+        // Flip delay
+        // -------------------------------
+        sprite->data[4] = gBattleAnimArgs[4];
+
+        // Frame counter
+        sprite->data[5] = 0;
+
+        // Flip state (0 = normal, 1 = flipped)
+        sprite->data[6] = 0;
+
+        sprite->data[0] = 1;
+    }
+
+    sprite->callback = AnimHBOMaxFinale_Step;
+}
+
+
+static void AnimHBOMaxFinale_Step(struct Sprite *sprite)
+{
+    // -----------------------------------
+    // Lifetime
+    // -----------------------------------
+    if (--sprite->data[3] <= 0)
+    {
+        //FreeOamMatrix(sprite->oam.matrixNum);
+        DestroySpriteAndMatrix(sprite);
+    }
+}
 
 static void AnimPSIRockin(struct Sprite *sprite)
 {

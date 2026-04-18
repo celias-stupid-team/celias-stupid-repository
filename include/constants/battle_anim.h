@@ -499,6 +499,8 @@
 #define ANIM_TAG_GYRO                       (ANIM_SPRITES_START + 489)
 #define ANIM_TAG_PANTS_STRING               (ANIM_SPRITES_START + 490)
 #define ANIM_TAG_SECRET_SWORD               (ANIM_SPRITES_START + 491)
+#define ANIM_TAG_MINI_SHORTS                (ANIM_SPRITES_START + 492)
+#define ANIM_TAG_FINALE                     (ANIM_SPRITES_START + 493)
 
 // battlers
 #define ANIM_ATTACKER       0

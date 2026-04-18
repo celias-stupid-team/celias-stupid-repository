@@ -10719,15 +10719,15 @@ static const struct TrainerMonItemCustomMoves sParty_HakariBliz[] = {
         .iv = 0,
         .lvl = 50,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_GROOKEY,
-        .moves = {MOVE_GRASS_MONKEY, MOVE_DARK_LLOYD, MOVE_VACUUM_FEAR, MOVE_FUCK}
+        .species = SPECIES_TINKANETTE,
+        .moves = {MOVE_GIGATON_CRUSHER, MOVE_MAX_STONESURGE, MOVE_SWORDSDANCE_TCG, MOVE_GAMING_TOOLBARS}
     },
     {
         .iv = 0,
         .lvl = 50,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_TINKANETTE,
-        .moves = {MOVE_GIGATON_CRUSHER, MOVE_MAX_STONESURGE, MOVE_SWORDSDANCE_TCG, MOVE_GAMING_TOOLBARS}
+        .species = SPECIES_GROOKEY,
+        .moves = {MOVE_GRASS_MONKEY, MOVE_DARK_LLOYD, MOVE_VACUUM_FEAR, MOVE_FUCK}
     },
     {
         .iv = 0,
