@@ -354,7 +354,7 @@
     },
     {
       "id": "MAPSEC_ROUTE_4_POKECENTER",
-      "name": "MT M0ON",
+      "name": "ROUTE 4",
       "x": 8,
       "y": 3,
       "width": 1,
@@ -762,7 +762,7 @@
     },
     {
       "id": "MAPSEC_KINDLE_ROAD",
-      "name": "MT MOON",
+      "name": "MT. MOON",
       "x": 2,
       "y": 3,
       "width": 1,
@@ -1219,6 +1219,22 @@
     {
       "id": "MAPSEC_CINNABAR_LAB",
       "name": "CINNABAR LAB",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ALTERING_CAVE",
+      "name": "ALTERING CAVE",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CLEFAIRY_COVE",
+      "name": "MT MOON",
       "x": 0,
       "y": 0,
       "width": 1,
