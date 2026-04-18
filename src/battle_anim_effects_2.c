@@ -2963,6 +2963,17 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .callback = AnimParticleBurst,
 };
 
+const struct SpriteTemplate gShortsBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MINI_SHORTS,
+    .paletteTag = ANIM_TAG_MINI_SHORTS,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
 const struct SpriteTemplate gOnionBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ONION,

@@ -8857,7 +8857,7 @@ Move_COTTON_SPORE:
 	loadspritegfx ANIM_TAG_MINI_SHORTS
 	monbg ANIM_DEF_PARTNER
 	splitbgprio ANIM_TARGET
-	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_TARGET, 18, 10
+	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_TARGET, 18, 7
 	call CreateCottonSpores
 	call CreateCottonSpores
 	call CreateCottonSpores
@@ -8866,12 +8866,12 @@ Move_COTTON_SPORE:
 	end
 
 CreateCottonSpores:
-	createsprite gShortsParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, 85, 80, 0
-	delay 12
-	createsprite gShortsParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -10, 170, 80, 0
-	delay 12
-	createsprite gShortsParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -15, 0, 80, 0
-	delay 12
+	createsprite gShortsParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, 85, 50, 0
+	delay 8
+	createsprite gShortsParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -10, 170, 50, 0
+	delay 8
+	createsprite gShortsParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -15, 0, 50, 0
+	delay 8
 	return
 
 Move_SPORE:
@@ -16046,6 +16046,7 @@ Move_ROCK_CLIMB:
 	blendoff
 	end
 
+Move_DOSWINGBEAT:
 Move_NONUPLE_WINGBEAT:
 Move_QUINTUPLE_WINGBEAT:
 Move_DUAL_WINGBEAT:
@@ -29692,7 +29693,6 @@ Move_SOFT_LOCK:
 Move_HACK_ATTACK:
 Move_GAY_BALL_PROBLEMS:
 Move_SUBSTITUTE_DAD:
-Move_DOSWINGBEAT:
 	goto Move_TACKLE
 
 Move_GRIN_MISSILE:
@@ -30633,13 +30633,67 @@ Move_GYRO_MITE:
 
 Move_COMEUPPANTS:
 	loadspritegfx ANIM_TAG_KNIT_SHORTS
+	loadspritegfx ANIM_TAG_IMPACT
 	playse SE_M_SAND_ATTACK
-	createsprite gPullUpShortsSpriteTemplate, ANIM_TARGET, 2, 0, 40, 0, -4, 10, 60, 0, 1
+	setalpha 12, 8
+	monbg ANIM_DEF_PARTNER
+	createsprite gPullUpShortsSpriteTemplate, ANIM_TARGET, 2, 0, 40, 0, -2, 10, 60, 0, 1
 	waitforvisualfinish
+	createsprite gPullUpShortsSpriteTemplate, ANIM_TARGET, 2, 0, 20, 0, -8, 1, 70, 0, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 8, 0, 54, 1
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	delay 4
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gRandomPosHitSplatSpriteTemplate, ANIM_TARGET, 3, 1, 3
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
 	end
 
 Move_LUCKY_PANT:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_RED_HEART
+	loadspritegfx ANIM_TAG_MINI_SHORTS
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_SpitUpDeformMon, 5
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 8, 2
+	delay 45
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createsprite gShortsBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
+	createsprite gShortsBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	createsprite gShortsBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+	waitforvisualfinish
+	end
 
 
 Move_SHROOM_DESIRE:
