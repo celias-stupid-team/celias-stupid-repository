@@ -9131,25 +9131,25 @@ Move_MISTER_TERRAIN:
 Move_HAZE:
 	loadspritegfx ANIM_TAG_KRABBY_HEY
 	createvisualtask AnimTask_LoadSandstormBackground, 5, TRUE
-	createvisualtask AnimTask_BlendBackground, 6, 6, RGB(0, 0, 0)
+	createvisualtask AnimTask_BlendBackground, 6, 6, RGB(15, 15, 0)
 	panse SE_M_HAZE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
 	delay 4
 	createvisualtask AnimTask_SetAnimTargetFromArg, 5, ANIM_PLAYER_LEFT
 	delay 0 // so it updates before the next task is called
 	delay 12
-	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 1
+	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 1304, 96, 1
 	delay 10
-	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 90, 2048, 96, 1
+	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 90, 1048, 96, 1
 	delay 10
-	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 50, 2560, 96, 1
+	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 50, 1560, 96, 1
 	delay 10
-	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 20, 2304, 96, 1
+	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 20, 1304, 96, 1
 	delay 10
-	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 70, 1984, 96, 1
+	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 70, 984, 96, 1
 	delay 10
-	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 0, 2816, 96, 1
+	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 0, 1816, 96, 1
 	delay 10
-	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 60, 2560, 96, 1
+	createsprite gFlyingKrabbyCrescentSpriteTemplate, ANIM_ATTACKER, 40, 60, 1560, 96, 1
 	end
 
 	waitforvisualfinish
