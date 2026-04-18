@@ -123,6 +123,13 @@
       "elevation": 3,
       "dest_map": "MAP_VIRIDIAN_CITY",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_CITY_SCHOOL",
+      "dest_warp_id": "6"
     }
   ],
   "coord_events": [],

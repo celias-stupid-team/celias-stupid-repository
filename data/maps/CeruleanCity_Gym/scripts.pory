@@ -308,3 +308,10 @@ script CeruleanCity_Gym_EventScript_CeliaSecretSign {
 	msgbox(format("Nope!\nThis isn't the right back room!\lGood guess, though!\pThe other one is right above us!\nIt's not too hard to get into.\lI'm waiting for you there!\pBest of luck!\n-CELIA"), MSGBOX_NPC)
 	end
 }
+
+script CeruleanClub_YouMist {
+	msgbox(
+	"Oops, you mist.\n"
+	"", MSGBOX_SIGN)
+
+}

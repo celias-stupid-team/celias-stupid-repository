@@ -841,6 +841,15 @@ bool8 MetatileBehavior_IsWalMartShelf(u8 metatileBehavior)
         return FALSE;
 }
 
+
+bool8 MetatileBehavior_IsBrockRock(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_BROCK_ROCKS)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsPlayerFacingPokemonCenterSign(u8 metatileBehavior, u8 playerDirection)
 {
     if (playerDirection != DIR_NORTH)

@@ -19281,8 +19281,8 @@
                 "species": "SPECIES_NIDORAN_F"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_MANKEY"
               },
               {
@@ -19301,8 +19301,8 @@
                 "species": "SPECIES_NIDORAN_F"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_MANKEY"
               },
               {
@@ -19321,8 +19321,8 @@
                 "species": "SPECIES_NIDORAN_M"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_MANKEY"
               },
               {

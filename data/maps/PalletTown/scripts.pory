@@ -564,7 +564,7 @@ script PalletTown_EventScript_SignLady_CSR {
 		call(PalletTown_EventScript_SignLadyShowSign)
 	} else {
 		setflag(FLAG_CSR_TALKED_TO_SIGN_GIRL)
-		msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+		msgbox(format("Hmm…\nIs that right…"), MSGBOX_DEFAULT)
 		applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
 		waitmovement(0)
 		playse(SE_PIN)

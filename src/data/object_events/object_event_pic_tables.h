@@ -6723,3 +6723,14 @@ const struct SpriteFrameImage gObjectEventPicTable_EVIL_CELIA[] = {
     overworld_frame(gObjectEventPic_EVIL_CELIA, 2, 4, 2),
     overworld_frame(gObjectEventPic_EVIL_CELIA, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_LOOK_OAK[] = {
+    overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 0),
+    overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 1),
+    overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 2),
+    overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 0),
+    overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 0),
+    overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 1),
+    overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 1),
+    overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 2),
+    overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 2),
+};

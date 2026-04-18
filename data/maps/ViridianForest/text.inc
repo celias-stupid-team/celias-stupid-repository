@@ -11,10 +11,10 @@ ViridianForest_Text_RickDefeat::
 	.string "No!\n"
 	.string "CATERPIE is unable to access the\l"
 	.string "underlying software code in order\l"
-	.string "to modify the data or game engine\l"
-	.string "to perform unintended behavior\l"
-	.string "without permission from the\l"
-	.string "original developers!$"
+	.string "to modify the existing data and\l"
+	.string "game engine to perform unintended\l"
+	.string "behavior without permission from\l"
+	.string "the original developers!$"
 
 ViridianForest_Text_RickPostBattle::
     .string "You heard what I said.$"

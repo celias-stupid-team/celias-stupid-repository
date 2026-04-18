@@ -386,6 +386,13 @@
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_CITY_GAMBLER_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_CITY_SCHOOL",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [
