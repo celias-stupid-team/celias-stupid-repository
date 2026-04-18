@@ -10,8 +10,288 @@ MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_DAK_HERE)) {
 			setflag(FLAG_TEMP_8)
 		}
+ if(checkplayergender == FEMALE) {
+
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYFIRE)
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_PLAYGREEN)
+        } else {
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYGREEN)
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_PLAYFIRE)
+
+        }
 		
 	}
 
 }
 
+script Starlight_Jukebox_Test {
+    playbgm(MUS_CSR_POKERAP, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_POKERAP\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_Test2 {
+    playbgm(MUS_CSR_AVGN_GYM, TRUE)
+    
+	msgbox(
+    "Music: MUS_AVGN_GYM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_Test3 {
+    playbgm(MUS_MUS_STRAIGHT_PEOPLE, TRUE)
+    
+	msgbox(
+    "Music: MUS_MUS_STRAIGHT_PEOPLE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_House_12_Go_Dance {
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Would you like to dance?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//fadescreen(FADE_TO_WHITE)
+            warp(MAP_STARLIGHT_HOUSE12, 1, 19, 12) // Map, Warp ID, X, Y
+            waitstate
+            //delay(120)
+            //fadescreen(FADE_FROM_WHITE)
+		}
+    release
+    end
+}
+
+script Starlight_House_12_MapReset {
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Would you like to reset\nthe room?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//fadescreen(FADE_TO_WHITE)
+			//setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setmetatile(25, 12, 0x2BB, FALSE)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	setmetatile(19, 11, 0x2B1, TRUE)
+	setmetatile(21, 11, 0x2B3, TRUE)
+	setmetatile(23, 11, 0x2B1, TRUE)
+	setmetatile(27, 11, 0x2B1, TRUE)
+	setmetatile(29, 11, 0x2B3, TRUE)
+	setmetatile(31, 11, 0x2B1, TRUE)
+	setmetatile(18, 12, 0x2B8, TRUE)
+	setmetatile(20, 12, 0x2BA, TRUE)
+	setmetatile(22, 12, 0x2B8, TRUE)
+	setmetatile(24, 12, 0x2BA, TRUE)
+	setmetatile(26, 12, 0x2B8, TRUE)
+	setmetatile(28, 12, 0x2BA, TRUE)
+	setmetatile(30, 12, 0x2B8, TRUE)
+	setmetatile(32, 12, 0x2BA, TRUE)
+			setflag(FLAG_TEMP_6)
+            warp(MAP_STARLIGHT_HOUSE12, 0, 19, 12) // Map, Warp ID, X, Y
+            waitstate
+            //delay(120)
+            //fadescreen(FADE_FROM_WHITE)
+		}
+    release
+    end
+}
+
+script Starlight_House_12_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Y'know, I was supposed to have a\n"
+	"DANCE scene in CELADON GYM.\l"
+	"Now I'm gettin' my groove on here!\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a breather?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script Starlight_House_12_Activate_Dancers {
+	setmetatile(19, 11, 0x2B1, FALSE)
+	setmetatile(21, 11, 0x2B3, FALSE)
+	setmetatile(23, 11, 0x2B1, FALSE)
+	setmetatile(27, 11, 0x2B1, FALSE)
+	setmetatile(29, 11, 0x2B3, FALSE)
+	setmetatile(31, 11, 0x2B1, FALSE)
+	setmetatile(18, 12, 0x2B8, FALSE)
+	setmetatile(20, 12, 0x2BA, FALSE)
+	setmetatile(22, 12, 0x2B8, FALSE)
+	setmetatile(24, 12, 0x2BA, FALSE)
+	setmetatile(26, 12, 0x2B8, FALSE)
+	setmetatile(28, 12, 0x2BA, FALSE)
+	setmetatile(30, 12, 0x2B8, FALSE)
+	setmetatile(32, 12, 0x2BA, FALSE)
+
+
+    //setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+    release
+}
+
+script Starlight_House_12_Deactivate_Dancers {
+
+	if(flag(FLAG_TEMP_6)) {
+	//setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	clearflag(FLAG_TEMP_6)
+	}
+	setmetatile(19, 11, 0x2B1, TRUE)
+	setmetatile(21, 11, 0x2B3, TRUE)
+	setmetatile(23, 11, 0x2B1, TRUE)
+	setmetatile(27, 11, 0x2B1, TRUE)
+	setmetatile(29, 11, 0x2B3, TRUE)
+	setmetatile(31, 11, 0x2B1, TRUE)
+	setmetatile(18, 12, 0x2B8, TRUE)
+	setmetatile(20, 12, 0x2BA, TRUE)
+	setmetatile(22, 12, 0x2B8, TRUE)
+	setmetatile(24, 12, 0x2BA, TRUE)
+	setmetatile(26, 12, 0x2B8, TRUE)
+	setmetatile(28, 12, 0x2BA, TRUE)
+	setmetatile(30, 12, 0x2B8, TRUE)
+	setmetatile(32, 12, 0x2BA, TRUE)
+    //setobjectmovementtype(D1, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_FACE_DOWN)
+    release
+}
+
+script Starlight_House_12_Activate_Dancers2 {
+	setmetatile(41, 11, 0x289, FALSE)
+	setmetatile(43, 11, 0x28B, FALSE)
+	setmetatile(45, 11, 0x289, FALSE)
+	setmetatile(49, 11, 0x289, FALSE)
+	setmetatile(51, 11, 0x28B, FALSE)
+	setmetatile(53, 11, 0x289, FALSE)
+	setmetatile(40, 12, 0x290, FALSE)
+	setmetatile(42, 12, 0x292, FALSE)
+	setmetatile(44, 12, 0x290, FALSE)
+	setmetatile(46, 12, 0x292, FALSE)
+	setmetatile(48, 12, 0x290, FALSE)
+	setmetatile(50, 12, 0x292, FALSE)
+	setmetatile(52, 12, 0x290, FALSE)
+	setmetatile(54, 12, 0x292, FALSE)
+
+
+    //setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+    release
+}
+
+script Starlight_House_12_Deactivate_Dancers2 {
+
+	if(flag(FLAG_TEMP_6)) {
+	//setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	clearflag(FLAG_TEMP_6)
+	}
+	setmetatile(41, 11, 0x289, TRUE)
+	setmetatile(43, 11, 0x28B, TRUE)
+	setmetatile(45, 11, 0x289, TRUE)
+	setmetatile(49, 11, 0x289, TRUE)
+	setmetatile(51, 11, 0x28B, TRUE)
+	setmetatile(53, 11, 0x289, TRUE)
+	setmetatile(40, 12, 0x290, TRUE)
+	setmetatile(42, 12, 0x292, TRUE)
+	setmetatile(44, 12, 0x290, TRUE)
+	setmetatile(46, 12, 0x292, TRUE)
+	setmetatile(48, 12, 0x290, TRUE)
+	setmetatile(50, 12, 0x292, TRUE)
+	setmetatile(52, 12, 0x290, TRUE)
+	setmetatile(54, 12, 0x292, TRUE)
+    //setobjectmovementtype(D1, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_FACE_DOWN)
+    release
+}
+
+script Starlight_House_12_Clefairy {
+	finditem(ITEM_POKE_DOLL, 1)
+	setflag(FLAG_CSR_GOT_BILL)
+	if(var(VAR_CSR_BILLS_TAKEN) < 999) {
+		addvar(VAR_CSR_BILLS_TAKEN, 1)
+	}
+	end
+}
