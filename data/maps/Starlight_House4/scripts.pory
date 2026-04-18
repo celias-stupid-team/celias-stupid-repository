@@ -12,6 +12,11 @@ MAP_SCRIPT_ON_TRANSITION {
 		}
 		
 	}
+MAP_SCRIPT_ON_LOAD {
+	if(flag(FLAG_POST_GAME)) {
+		setmetatile(22, 2, METATILE_Starlight_Interior_StarlightFloor, FALSE)
+	}
+}
 
 }
 
@@ -40,7 +45,14 @@ script Starlight_House4_Post_Game_Scrapped {
 }
 
 script Starlight_House4_Post_Game {
+	if(flag(FLAG_POST_GAME)) {
 	msgbox(
-	"Come back post game.\p", MSGBOX_SIGN)
+		"Come back now.\p", MSGBOX_SIGN)
+
+	} else {
+	msgbox(
+		"Come back post game.\p", MSGBOX_SIGN)
+
+	}
 
 }

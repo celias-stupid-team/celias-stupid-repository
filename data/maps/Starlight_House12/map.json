@@ -517,7 +517,7 @@
     {
       "type": "sign",
       "x": 30,
-      "y": 26,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "StarlightHouse_Jukebox"
