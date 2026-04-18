@@ -168,8 +168,6 @@ bool8 SetUpFieldMove_Cut(void)
 
 bool8 SetUpFieldMove_Guillotine(void)
 {
-    s16 x, y;
-    u8 i, j;
     if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK) || IsObjectInFrontOfPlayerCuttable())
     {
         VarSet(VAR_USED_CUT, 1);
@@ -177,28 +175,8 @@ bool8 SetUpFieldMove_Guillotine(void)
         gPostMenuFieldCallback = FieldCallback_CutTree;
         return TRUE;
     }
-    
     else
     {
-        PlayerGetDestCoords(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);
-    
-        for (i = 0; i < CUT_SIDE; i++)
-        {
-            y = gPlayerFacingPosition.y - 1 + i;
-            for (j = 0; j < CUT_SIDE; j++)
-            {
-                x = gPlayerFacingPosition.x - 1 + j;
-                if (MapGridGetElevationAt(x, y) == gPlayerFacingPosition.elevation)
-                {
-                    if (MetatileAtCoordsIsGrassTile(x, y) == TRUE)
-                    {
-                        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-                        gPostMenuFieldCallback = FieldCallback_CutGrass;
-                        return TRUE;
-                    }
-                }
-            }
-        }
         return FALSE;
     }
 }

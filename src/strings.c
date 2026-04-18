@@ -406,6 +406,7 @@ const u8 gText_Learned[] = _("LEARNED");
 const u8 gText_OakImportantToGetToKnowPokemonThroughly[] = _("OAK: Gah, the power's even off in \nmenus?\p");
 const u8 gText_OakThisIsListOfPokemon[] = _("Okay, they're turning on.\pThe rest will be on in a second.\p");
 const u8 gText_CutATreeOrGrass[] = _("Cut a tree or grass.");
+const u8 gText_CutATreeOrHead[] = _("Cut a tree or head.");
 const u8 gText_FlyToAKnownTown[] = _("Fly to a known town.");
 const u8 gText_TravelOnWater[] = _("Travel on water.");
 const u8 gText_MoveHeavyBoulders[] = _("Move heavy boulders.");
