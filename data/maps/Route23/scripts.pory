@@ -401,7 +401,7 @@ script Route23_EventScript_ThunderBadgeGuardTrigger {
 
 		"Okay, then.\n"
 		"Please, go right ahead.", MSGBOX_DEFAULT)
-		if(flag(FLAG_BADGE08_GET)) {
+		if(var(VAR_CURRENT_CHAPTER) >= 8) {
 			setvar(VAR_MAP_SCENE_ROUTE23, 3)
 
 		} else {
