@@ -7732,12 +7732,12 @@
     {
       "id": "LAYOUT_STARLIGHT_HOUSE12",
       "name": "Starlight_House12_Layout",
-      "width": 11,
-      "height": 12,
+      "width": 77,
+      "height": 59,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SeaCottage",
+      "secondary_tileset": "gTileset_Starlight_Interior3",
       "border_filepath": "data/layouts/Starlight_House12/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House12/map.bin"
     }
