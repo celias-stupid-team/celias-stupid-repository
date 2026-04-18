@@ -7740,6 +7740,18 @@
       "secondary_tileset": "gTileset_Starlight_Interior3",
       "border_filepath": "data/layouts/Starlight_House12/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House12/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE12_LAYOUT_DANCERS",
+      "name": "Starlight_House12_Layout_Dancers",
+      "width": 77,
+      "height": 59,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Starlight_Interior3",
+      "border_filepath": "data/layouts/Starlight_House12_Layout_Dancers/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House12_Layout_Dancers/map.bin"
     }
   ]
 }
