@@ -4040,8 +4040,16 @@ static void Cmd_getexp(void)
 
                     if (holdEffect == HOLD_EFFECT_EXP_SHARE)
                         gBattleMoveDamage += gExpShareExp;
-                    if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
-                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+                    if (holdEffect == HOLD_EFFECT_LUCKY_EGG) {
+                        if(GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES) == SPECIES_CHARMANDER) {
+                            gBattleMoveDamage = (gBattleMoveDamage * 105) / 100;
+
+                        } else {
+                            gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+
+                        }
+
+                    }
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
                     if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId])

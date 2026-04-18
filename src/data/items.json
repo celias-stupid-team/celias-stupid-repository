@@ -3158,7 +3158,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_LUCKY_EGG",
       "holdEffectParam": 0,
-      "description_english": "An item to be held by a POKéMON.\\nAn egg filled with happiness that\\nearns extra EXP. points in battle.",
+      "description_english": "An egg from an egg.\\nIncreases EXP gain in battle.\\nI believe in you!",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

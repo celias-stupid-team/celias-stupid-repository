@@ -8088,7 +8088,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_TRIPLE_WINGBEAT] =
     {
         .effect = EFFECT_MULTI_HIT_THREE,
-        .power = 60,
+        .power = 150,
         .type = TYPE_FLYING,
         .accuracy = 0,
         .pp = 10,
