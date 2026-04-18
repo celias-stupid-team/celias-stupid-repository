@@ -3,7 +3,7 @@
   "name": "OnixRoom",
   "layout": "LAYOUT_ONIX_ROOM",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_SAFFRON_CITY",
+  "region_map_section": "MAPSEC_DEBORAH_CLIFF",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

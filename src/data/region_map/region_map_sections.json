@@ -354,7 +354,7 @@
     },
     {
       "id": "MAPSEC_ROUTE_4_POKECENTER",
-      "name": "MT. MOON",
+      "name": "MT M0ON",
       "x": 8,
       "y": 3,
       "width": 1,
@@ -1187,6 +1187,38 @@
     {
       "id": "MAPSEC_NATIONAL_PARK",
       "name": "NATIONAL PARK",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_PALLET_GROVE",
+      "name": "LOOKLAND",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_DEBORAH_CLIFF",
+      "name": "DEBORA CLIFF",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_DEPT_STORE_2",
+      "name": "CELADON DEPT.",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CINNABAR_LAB",
+      "name": "CINNABAR LAB",
       "x": 0,
       "y": 0,
       "width": 1,
