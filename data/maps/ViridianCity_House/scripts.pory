@@ -3645,3 +3645,19 @@ script CeliaSecret_ArcanineMusic {
 	"I didn't put it there.\n"
 	"It just kinda… does it.", MSGBOX_NPC)
 }
+
+script CeliaSecret_BlockingYou {
+	msgbox(
+	"Yes, I'm blocking you on purpose.\p"
+
+	"Because I can.\p"
+
+	"ha ha ha.\n"
+	"", MSGBOX_NPC)
+}
+
+script CeliaSecret_ShortsPuff {
+	msgbox(
+	":)\n"
+	"", MSGBOX_NPC)
+}

@@ -150,6 +150,10 @@ script SecretGarden_PCTerminal {
 
                         }
                 }
+                
+                if(var(PC_CURRENT_POKEMON) == SPECIES_NOTHING) {
+                    goto(SecretGarden_AlreadyWithdrew)
+                }
                 delay(30)
                 playse(SE_BALL_TRADE)
                 delay(30)

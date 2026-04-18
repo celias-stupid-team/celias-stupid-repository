@@ -234,6 +234,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SCHOOLING] = COMPOUND_STRING("Comes in when the TEACHER is sick."),
     [ABILITY_HARVEST] = COMPOUND_STRING("May recycle a used Berry."),
     [ABILITY_POOEY] = COMPOUND_STRING("Yahaha!"),
+    [ABILITY_MATTRESS_TAG] = COMPOUND_STRING("Allows the foe to sleep if it wants.");
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -384,6 +385,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SCHOOLING] = _("SCHOOLING"),
     [ABILITY_HARVEST] = _("HARVEST"),
     [ABILITY_POOEY] = _("POOEY"),
+    [ABILITY_MATTRESS_TAG] = _("{FONT_SMALL}MATTRESS TAG"),
 
     
 };
