@@ -844,8 +844,7 @@ AI_CV_Explosion_WildCheck::
 	goto AI_CV_SelfKO
 
 AI_CV_Explosion_WildWeedle::
-	score +10
-	goto AI_CV_SelfKO
+	goto Score_Plus10
 
 AI_CV_SelfKO::
 	if_trainer_equal TRAINER_SUPER_NERD_MIGUEL, Score_Plus5

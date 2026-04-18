@@ -309,13 +309,11 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectPayWall           @ EFFECT_PAY_WALL
 	.4byte BattleScript_EffectShroomburst           @ EFFECT_SHROOMBURST
 	.4byte BattleScript_EffectFocusMiss           @ EFFECT_FOCUS_MISS
-	
+	.4byte BattleScript_End                     	 @ EFFECT_BAG
+	.4byte BattleScript_End                  		 @ EFFECT_CANCEL
 
-	
-
-	
-
-
+BattleScript_End::
+	end
 
 BattleScript_End2::
 	end2

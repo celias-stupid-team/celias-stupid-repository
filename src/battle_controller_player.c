@@ -23,6 +23,7 @@
 #include "battle_script_commands.h"
 #include "reshow_battle_screen.h"
 #include "constants/battle_anim.h"
+#include "constants/battle_move_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
@@ -497,6 +498,20 @@ void HandleInputChooseMove(void)
     if (JOY_NEW(A_BUTTON))
     {
         u8 moveTarget;
+        u16 effect = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[gActiveBattler]]].effect;
+
+        if (effect == EFFECT_CANCEL || effect == EFFECT_BAG)
+        {
+            if (effect == EFFECT_BAG)
+                gBattleStruct->openBag = TRUE;
+            // copied from HandleInputChooseMove() B_BUTTON handling
+            PlaySE(SE_SELECT);
+            BtlController_EmitTwoReturnValues(1, 10, 0xFFFF);
+            PlayerBufferExecCompleted();
+            ResetPaletteFadeControl();
+            BeginNormalPaletteFade(0xF0000, 0, 0, 0, RGB_WHITE);
+            return;
+        }
 
         PlaySE(SE_SELECT);
         if (moveInfo->moves[gMoveSelectionCursor[gActiveBattler]] == MOVE_CURSE)
@@ -2482,6 +2497,16 @@ static void PlayerHandlePrintSelectionString(void)
         PlayerBufferExecCompleted();
 }
 
+static void WaitFadeOpenBag(void)
+{
+    if (!gPaletteFade.active)
+    {
+        gBattleStruct->openBag = FALSE;
+        BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_USE_ITEM, 0);
+        PlayerBufferExecCompleted();
+    }
+}
+
 static void HandleChooseActionAfterDma3(void)
 {
     if (!IsDma3ManagerBusyWithBgCopy())
@@ -2495,6 +2520,12 @@ static void HandleChooseActionAfterDma3(void)
 static void PlayerHandleChooseAction(void)
 {
     s32 i;
+
+    if (gBattleStruct->openBag)
+    {
+        gBattlerControllerFuncs[gActiveBattler] = WaitFadeOpenBag;
+        return;
+    }
 
     gBattlerControllerFuncs[gActiveBattler] = HandleChooseActionAfterDma3;
     BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
