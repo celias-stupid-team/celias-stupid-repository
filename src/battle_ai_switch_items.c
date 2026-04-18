@@ -19,7 +19,9 @@ static bool8 ShouldUseItem(void);
 static bool8 ShouldSwitchIfPerishSong(void)
 {
     if (gStatuses3[gActiveBattler] & STATUS3_PERISH_SONG
-     && gDisableStructs[gActiveBattler].perishSongTimer == 0)
+     && gDisableStructs[gActiveBattler].perishSongTimer == 0
+     && gBattleMons[gActiveBattler].ability != ABILITY_SHADOW_TAG
+     && gBattleMons[gActiveBattler].ability != ABILITY_ARENA_TRAP)
     {
         *(gBattleStruct->AI_monToSwitchIntoId + (GetBattlerPosition(gActiveBattler) >> 1)) = PARTY_SIZE;
         BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);

@@ -3,7 +3,7 @@ Route2_EventScript_ItemEther::
 	end
 
 Route2_EventScript_ItemPokeBall:: 
-	finditem ITEM_POKE_BALL
+	finditem ITEM_POKE_BALL, 3
 	end
 
 ViridianForest_EventScript_ItemPokeBall::

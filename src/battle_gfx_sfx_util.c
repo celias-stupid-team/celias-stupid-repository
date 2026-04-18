@@ -236,7 +236,15 @@ bool8 TryHandleLaunchBattleTableAnimation(u8 activeBattler, u8 atkBattler, u8 de
         return TRUE;
     }
     gBattleAnimAttacker = atkBattler;
-    gBattleAnimTarget = defBattler;
+    if (gBattleSpritesDataPtr->animationData->animTargetOverrideActive)
+    {
+        gBattleAnimTarget = gBattleSpritesDataPtr->animationData->animTargetOverride;
+        gBattleSpritesDataPtr->animationData->animTargetOverrideActive = FALSE;
+    }
+    else
+    {
+        gBattleAnimTarget = defBattler;
+    }
     gBattleSpritesDataPtr->animationData->animArg = argument;
     LaunchBattleAnimation(gBattleAnims_General, tableId, FALSE);
     taskId = CreateTask(Task_ClearBitWhenBattleTableAnimDone, 10);

@@ -263,7 +263,7 @@ static const struct TrainerMonItemCustomMoves sParty_BugCatcherRick[] = {
     },
     {
         .iv = 0,
-        .lvl = 6,
+        .lvl = 4,
         .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_WEEDLE,
         .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
@@ -599,28 +599,28 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassIris[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_LassReli[] = {
     {
         .iv = 0,
-        .lvl = 14,
-        .species = SPECIES_TYRANITAR,
-        .moves = {MOVE_ROCK_SLIDE, MOVE_LOW_KICK, MOVE_FIRE_PUNCH, MOVE_NONE},
+        .lvl = 13,
+        .species = SPECIES_LANDORUS,
+        .moves = {MOVE_SUPERPOWER, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
-        .lvl = 14,
+        .lvl = 13,
         .species = SPECIES_KIRLIA,
-        .moves = {MOVE_PSY_BEAM, MOVE_ICEBEAM, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_HYPER_VOICE, MOVE_ICEBEAM, MOVE_NONE, MOVE_NONE},
     },
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_LassAli[] = {
     {
         .iv = 0,
-        .lvl = 14,
+        .lvl = 12,
         .species = SPECIES_CRESSELIA,
         .moves = {MOVE_ICEBEAM, MOVE_PSY_BEAM, MOVE_ICY_WIND, MOVE_NONE},
     },
     {
         .iv = 0,
-        .lvl = 14,
+        .lvl = 12,
         .species = SPECIES_METAGROSS,
         .moves = {MOVE_METEOR_MASH, MOVE_EARTHQUAKE, MOVE_PSY_BEAM, MOVE_NONE},
     },
@@ -728,23 +728,26 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassJulia[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_LassKay[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_LassKay[] = {
     {
         .iv = 0,
         .lvl = 23,
         .species = SPECIES_NIDORINA,
+        .moves = {MOVE_NUZZLE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 23,
         .species = SPECIES_SYLVEON,
+        .moves = {MOVE_HYPER_VOICE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_LassLisa[] = {
+static const struct TrainerMonItemDefaultMoves sParty_LassLisa[] = {
     {
         .iv = 0,
         .lvl = 23,
+        .heldItem = ITEM_BRICK_PIECE, 
         .species = SPECIES_FERROTHORN,
     },
 };
@@ -883,7 +886,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CamperEthan[] = {
         .iv = 0,
         .lvl = 15,
         .species = SPECIES_GENGAR,
-        .moves = {MOVE_PERISH_SONG, MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_NONE},
+        .moves = {MOVE_PERISH_SONG, MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_PROTECT},
     },
     {
         .iv = 0,
@@ -989,15 +992,15 @@ static const struct TrainerMonNoItemCustomMoves sParty_PicnickerIsabelle[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerBKC[] = {
     {
         .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_SKARMORY,
-        .moves = {MOVE_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .lvl = 12,
+        .species = SPECIES_TYRANITAR,
+        .moves = {MOVE_SANDSTORM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_BLISSEY,
-        .moves = {MOVE_TOXIC, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .lvl = 11,
+        .species = SPECIES_SKARMORY,
+        .moves = {MOVE_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -1081,16 +1084,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerMartha[] = {
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerTina[] = {
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_LICKITUNG,
-    },
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_CHERUBI,
-    },
+
     {
         .iv = 0,
         .lvl = 24,
@@ -2569,22 +2563,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BeautyBridget[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_BeautyTamia[] = {
     {
         .iv = 0,
-        .lvl = 24,
+        .lvl = 22,
         .species = SPECIES_NIDORINA,
     },
     {
         .iv = 0,
-        .lvl = 24,
+        .lvl = 22,
         .species = SPECIES_NIDORINO,
     },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_BeautyLori[] = {
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_ODDISH,
-    },
     {
         .iv = 0,
         .lvl = 24,
@@ -3977,25 +3966,23 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt4[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt5[] = {
-    {
-        .iv = 0,
-        .lvl = 17,
-        .species = SPECIES_DROWZEE,
-    },
-    {
-        .iv = 0,
-        .lvl = 17,
-        .species = SPECIES_SPEAROW,
-    },
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt6[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt5[] = {
 
     {
         .iv = 0,
         .lvl = 15,
-        .species = SPECIES_ZUBAT,
+        .species = SPECIES_SPEAROW,
+        .moves = {MOVE_TAKE_DOWN, MOVE_BLOCK, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt6[] = {
+
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_URSHIFU,
+        .moves = {MOVE_PAY_WALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -4888,12 +4875,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerMary[] = {
         .lvl = 22,
         .species = SPECIES_LICKITUNG,
         .moves = {MOVE_WRAP, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-    },
-    {
-        .iv = 100,
-        .lvl = 22,
-        .species = SPECIES_ONIX,
-        .moves = {MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -6582,7 +6563,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherAnthony[] = {
         .iv = 0,
         .lvl = 8,
         .species = SPECIES_MAGIKARP,
-        .moves = {MOVE_SPLASH, MOVE_DRAGON_RAGE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_NONE, MOVE_DRAGON_RAGE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,

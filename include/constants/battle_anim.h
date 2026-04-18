@@ -622,6 +622,7 @@
 #define B_ANIM_TRUMP_CARD_USELESS       51
 #define B_ANIM_UNBOUND_SPRITE_UPDATE    52
 #define B_ANIM_CONFUSION_BONK           53
+#define B_ANIM_EXODIA_OBLITERATE        54
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

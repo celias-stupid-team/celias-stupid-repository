@@ -184,6 +184,7 @@ bool8 DoesHealLocationSkipCutscene(void) {
         HEAL_LOCATION_FIVE_ISLAND_ROCKET_WAREHOUSE,
         HEAL_LOCATION_ROUTE15,
         HEAL_LOCATION_TWO_ISLAND,
+        HEAL_LOCATION_INDIGO_PLATEAU,
         // HEAL_LOCATION_NONE,
     };
     u32 i;

@@ -1660,6 +1660,10 @@
 	.byte \battler
 	.endm
 
+	.macro hoopatransformsetfullhp
+	callnative BS_HoopaTransformSetFullHP
+	.endm
+
 	.macro trysetshadowspikes
 	callnative BS_TrySetShadowSpikes
 	.endm
@@ -1964,4 +1968,15 @@
 
 	.macro unleashenergy
 	callnative BS_UnleashEnergy
+	.endm
+
+
+	.macro removemoney
+	callnative BS_RemoveMoney
+	.endm
+
+	
+	.macro setbattleanimtarget battler:req
+	callnative BS_SetBattleAnimTarget
+	.byte \battler
 	.endm

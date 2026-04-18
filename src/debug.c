@@ -3857,7 +3857,9 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(SE_TCG_WATERFALL) \
     X(MUS_SAFARI_EVOLUTION) \
     X(MUS_INCOMPATIBLE_EMULATOR) \
-    X(MUS_THE_MOON)
+    X(MUS_THE_MOON) \
+    X(MUS_BATTLE_REVOLUTION) \
+    X(MUS_ENCOUNTER_COOL)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

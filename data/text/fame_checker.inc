@@ -519,7 +519,7 @@ gFameCheckerFlavorText_GreatSeaWest4:: @ 0x81AF3BE
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hi!\n"
 	.string "Do you have RAICHU?\p"
-	.string "Wnat to trade it for my HAUNTER?\n$"
+	.string "Want to trade it for my HAUNTER?\n$"
 
 gFameCheckerFlavorText_GreatSeaWest5:: @ 0x81AF47C
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"

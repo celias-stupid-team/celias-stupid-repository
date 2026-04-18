@@ -798,3 +798,22 @@ script CinnabarIsland_BlueBookshelf {
 	"", MSGBOX_DEFAULT)
 	release
 }
+
+script CinnabarIsland_Hbox {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+	setwildbattle(SPECIES_JIGGLYPUFF, 30)
+	waitse
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	removeobject(VAR_LAST_TALKED)
+	release
+	end
+}

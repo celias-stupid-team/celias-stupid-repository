@@ -252,6 +252,7 @@ script DMCAKoga_BrickWall4 {
         } else {
                 if(checkpartymon(SPECIES_DITTO_MEW)) {
                     playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
+                    setflag(FLAG_TRIED_DITTO_IN_WALL)
                     waitmoncry
                     msgbox(
                     "Oh!\n"

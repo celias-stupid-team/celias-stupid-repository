@@ -58,6 +58,7 @@ CeruleanCity_EventScript_Rival::
 	giveitem ITEM_FAME_CHECKER
 	msgbox CeruleanCity_Text_ExplainFameCheckerSmellYa
 	closemessage
+	special HealPlayerParty
 	applymovement LOCALID_CERULEAN_RIVAL, CeruleanCity_Movement_RivalExit
 	waitmovement 0
 	fadedefaultbgm

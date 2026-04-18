@@ -306,6 +306,12 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
 	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
+	.4byte BattleScript_EffectPayWall           @ EFFECT_PAY_WALL
+	.4byte BattleScript_EffectShroomburst           @ EFFECT_SHROOMBURST
+
+	
+
+	
 
 
 
@@ -4301,6 +4307,7 @@ BattleScript_SeelHoopaTransform::
 	pause B_WAIT_TIME_LONG
     updatebattlerdata BS_FAINTED
 	redrawhealthbox BS_FAINTED
+	hoopatransformsetfullhp @ for healing animation
 	healthbarupdate BS_FAINTED
 	datahpupdate BS_FAINTED
 	end2
@@ -4737,6 +4744,7 @@ BattleScript_ColorChangeWizDamage::
 	datahpupdate BS_TARGET
 	printstring STRINGID_PKMNCOLORCHANGEWIZDAMAGE
 	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
 	orbyte gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE
 	goto BattleScript_MoveEnd
 
@@ -6272,7 +6280,7 @@ BattleScript_EffectHackAttack_1::
 	printfromtable gDoNothingStringIds
 	flicker FADE_TO_BLACK, 4
 	flicker FADE_TO_BLACK, 2
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_LONGEST
 	restoreglitchpalettes
 	setflag FLAG_HACK_ATTACK_USED
 	goto BattleScript_MoveEnd
@@ -6376,7 +6384,10 @@ BattleScript_EffectTrumpCardConnects:
 	waitanimation
 	@ temporary transformation to HOOPA_UNBOUND
 	printstring STRINGID_PKMNTRANSFORMED
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_SHORT
+	setbattleanimtarget BS_TARGET
+	playanimation BS_ATTACKER, B_ANIM_EXODIA_OBLITERATE
+	waitanimation
 	effectivenesssound
 	hitanimation BS_TARGET
 	waitstate
@@ -6515,4 +6526,53 @@ BattleScript_EffectFocusMiss::
 	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
 @ BattleScript_MoveEnd::
 	moveendall
+	end
+
+
+	
+BattleScript_EffectPayWall::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	removemoney
+	waitmessage B_WAIT_TIME_SHORT
+	printstring STRINGID_PAY_WALL
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectShroomburst::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ShroomburstDoAnimStartLoop
+	call BattleScript_PreserveMissedBitDoMoveAnim
+	goto BattleScript_ExplosionMissed
+BattleScript_ShroomburstDoAnimStartLoop:
+	attackanimation
+	waitanimation
+	tryexplosion
+	waitstate
+BattleScript_ShroomburstLoop:
+	movevaluescleanup
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	accuracycheck BattleScript_ExplosionMissed, ACC_CURR_MOVE
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_ShroomburstLoop
+	setatkhptozero
+	tryfaintmon BS_ATTACKER
 	end

@@ -256,7 +256,7 @@
     },
     {
       "x": 9,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_AETHER_PARADISE_NEBBY_ROOM",
       "dest_warp_id": "0"
@@ -270,7 +270,7 @@
     },
     {
       "x": 10,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_AETHER_PARADISE_NEBBY_ROOM",
       "dest_warp_id": "1"
@@ -293,8 +293,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 5,
-      "y": 2,
+      "x": 6,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -330,7 +330,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -339,7 +339,7 @@
     {
       "type": "trigger",
       "x": 10,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -356,8 +356,8 @@
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 2,
+      "x": 12,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -366,7 +366,7 @@
     {
       "type": "trigger",
       "x": 11,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -375,7 +375,7 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -384,7 +384,7 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",

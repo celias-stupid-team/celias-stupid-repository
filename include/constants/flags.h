@@ -1368,7 +1368,7 @@
 #define FLAG_0x4F3               0x4F3
 #define FLAG_0x4F4               0x4F4
 #define FLAG_0x4F5               0x4F5
-#define FLAG_0x4F6               0x4F6
+#define FLAG_ROUTE4_CANDIES               0x4F6
 #define FLAG_UNLEASHED_ENERGY               0x4F7
 #define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_2               0x4F8
 #define ITEM_GAME_GENIE_TM               0x4F9
@@ -1581,7 +1581,7 @@
 #define FLAG_CSR_MAP_DUMMY_21                                       (SYS_FLAGS + 0xF9)
 #define FLAG_ONE_ISLAND_MAP_AGAIN                                       (SYS_FLAGS + 0xFA)
 #define FLAG_CSR_MAP_ROUTE_9                                        (SYS_FLAGS + 0xFB)
-#define FLAG_0x8FC                                                  (SYS_FLAGS + 0xFC)
+#define FLAG_NEW_GAME_PLUS                                                  (SYS_FLAGS + 0xFC)
 #define FLAG_0x8FD                                                  (SYS_FLAGS + 0xFD)
 #define FLAG_0x8FE                                                  (SYS_FLAGS + 0xFE)
 #define FLAG_CSR_DEX_DUMMY                                          (SYS_FLAGS + 0xFF)
