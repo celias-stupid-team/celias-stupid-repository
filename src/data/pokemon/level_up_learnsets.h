@@ -584,8 +584,8 @@ static const struct LevelUpMove sGolbatLevelUpLearnset[] = {
 static const struct LevelUpMove sOddishLevelUpLearnset[] = {
     LEVEL_UP_MOVE(20, MOVE_ACID),
     //LEVEL_UP_MOVE(1, MOVE_SMOKESCREEN),
-    LEVEL_UP_MOVE(1, MOVE_ROLLOUT),
-    LEVEL_UP_MOVE(20, MOVE_TRAILBLAZE),
+    LEVEL_UP_MOVE(0, MOVE_ROLLOUT),
+    LEVEL_UP_MOVE(1, MOVE_TRAILBLAZE),
     LEVEL_UP_MOVE(31, MOVE_BLAZE_KICK),
     LEVEL_UP_MOVE(31, MOVE_SLEEP_POWDER),
     LEVEL_UP_MOVE(33, MOVE_POWER_TRIP),

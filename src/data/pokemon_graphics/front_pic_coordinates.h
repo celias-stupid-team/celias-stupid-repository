@@ -2568,7 +2568,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_CRESSELIA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_PHIONE] =
 	{
@@ -3353,7 +3353,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_LANDORUS] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_KYUREM] =
 	{
@@ -4053,7 +4053,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_TAPU_KOKO] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_TAPU_LELE] =
 	{
