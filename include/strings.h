@@ -353,6 +353,7 @@ extern const u8 gText_NotAble2[];
 extern const u8 gText_Learned[];
 extern const u8 gText_Able2[];
 extern const u8 gText_CutATreeOrGrass[];
+extern const u8 gText_CutATreeOrHead[];
 extern const u8 gText_FlyToAKnownTown[];
 extern const u8 gText_TravelOnWater[];
 extern const u8 gText_MoveHeavyBoulders[];
