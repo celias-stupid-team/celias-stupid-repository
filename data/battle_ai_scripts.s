@@ -408,7 +408,7 @@ AI_CBM_Reflect::
 AI_CBM_Paralyze::
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	get_ability AI_TARGET
-	if_equal ABILITY_LIMBER, Score_Minus10
+	if_equal ABILITY_LIMBER, Score_Plus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 @	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10  @ Improvement in Emerald
 	end
@@ -673,9 +673,9 @@ Score_Plus5::
 	end
 
 @ Improvement in Emerald
-@Score_Plus10::
-@	score +10
-@	end
+Score_Plus10::
+	score +10
+	end
 
 AI_CheckViability::
 	if_effect EFFECT_SLEEP, AI_CV_Sleep

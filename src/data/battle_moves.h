@@ -6407,8 +6407,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_FOCUS_MISS] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 10,
+        .effect = EFFECT_FOCUS_MISS, // Placeholder Effect
+        .power = 120,
         .type = TYPE_FIGHTING,
         .accuracy = 70,
         .pp = 35,
@@ -11984,9 +11984,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CALL_FOR_GOONS] =
     {
-        .effect = EFFECT_BATON_PASS,
+        .effect = EFFECT_MULTI_HIT,
         .power = 40,
-        .type = TYPE_DARK,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -12299,7 +12299,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_GIGA_BRINE] =
     {
         .effect = EFFECT_HIT,
-        .power = 60,
+        .power = 59,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,

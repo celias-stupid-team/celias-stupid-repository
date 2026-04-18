@@ -3842,7 +3842,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("JHON"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_SWITCH_IN_ORDER,
+        .aiFlags = AI_SCRIPT_SWITCH_IN_ORDER | AI_SCRIPT_NO_SWITCHING,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_CooltrainerSamuel),
     },
     [TRAINER_COOLTRAINER_GEORGE] = {
@@ -4352,7 +4352,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("HOPE"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_NO_SWITCHING,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_ChannelerHope),
     },
     [TRAINER_CHANNELER_PAULA] = {

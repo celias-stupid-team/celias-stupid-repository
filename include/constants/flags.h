@@ -1366,8 +1366,8 @@
 #define FLAG_0x4F1               0x4F1
 #define FLAG_0x4F2               0x4F2
 #define FLAG_0x4F3               0x4F3
-#define FLAG_0x4F4               0x4F4
-#define FLAG_0x4F5               0x4F5
+#define FLAG_ITEM_TM17               0x4F4
+#define FLAG_ITEM_TM37               0x4F5
 #define FLAG_ROUTE4_CANDIES               0x4F6
 #define FLAG_UNLEASHED_ENERGY               0x4F7
 #define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_2               0x4F8

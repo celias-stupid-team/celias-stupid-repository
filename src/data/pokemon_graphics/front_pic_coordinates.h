@@ -2353,7 +2353,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_GARCHOMP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 3,
 	},
 	[SPECIES_MUNCHLAX] =
 	{

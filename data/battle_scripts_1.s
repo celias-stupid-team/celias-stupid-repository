@@ -308,6 +308,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
 	.4byte BattleScript_EffectPayWall           @ EFFECT_PAY_WALL
 	.4byte BattleScript_EffectShroomburst           @ EFFECT_SHROOMBURST
+	.4byte BattleScript_EffectFocusMiss           @ EFFECT_FOCUS_MISS
+	
 
 	
 
@@ -6487,46 +6489,7 @@ BattleScript_GregoryBlastKOFail::
 
 
 
-BattleScript_EffectFocusMiss::
-	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
-	jumpifnostatus3 BS_TARGET, STATUS3_UNDERWATER, BattleScript_HitFromAtkCanceler
-	orword gHitMarker, HITMARKER_IGNORE_UNDERWATER
-	setbyte sDMG_MULTIPLIER, 2
-@ BattleScript_HitFromAtkCanceler::
-	attackcanceler
-@ BattleScript_HitFromAccCheck::
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
-@ BattleScript_HitFromAtkString::
-	attackstring
-	ppreduce
-	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
-@ BattleScript_HitFromCritCalc::
-	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
-	critcalc
-	damagecalc
-	typecalc
-	adjustnormaldamage
-@ BattleScript_HitFromAtkAnimation::
-	attackanimation
-	waitanimation
-	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 5, BattleScript_FinalBattle_StopBgm
-	effectivenesssound
-@ BattleScript_HitFromAtkAnimation_2::
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage B_WAIT_TIME_LONG
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	jumpifmove MOVE_REVELATION_DANCE, BattleScript_RevelationDanceString
-	seteffectwithchance
-	tryfaintmon BS_TARGET
-	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
-@ BattleScript_MoveEnd::
-	moveendall
-	end
+
 
 
 	
@@ -6576,3 +6539,30 @@ BattleScript_ShroomburstLoop:
 	setatkhptozero
 	tryfaintmon BS_ATTACKER
 	end
+
+BattleScript_FocusMissTesting::
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	effectivenesssound
+	moveendall
+	end
+
+BattleScript_EffectFocusMiss::
+	attackcanceler
+	accuracycheck BattleScript_PrintFocusMissed, ACC_CURR_MOVE @ jump to actually hitting
+	goto BattleScript_FocusMissTesting
+
+BattleScript_PrintFocusMissed::
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	pause B_WAIT_TIME_SHORT
+	@ resultmessage
+	@ setatkhptozero
+	goto BattleScript_HitFromAtkAnimation_2
+
