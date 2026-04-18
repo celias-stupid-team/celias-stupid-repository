@@ -22,6 +22,7 @@ gMovesWithQuietBGM::
 	.2byte MOVE_GRASS_WHISTLE
 	.2byte MOVE_SANDSTORM
 	.2byte MOVE_BRAVE_BIRTH
+	.2byte MOVE_HBO_MAX_FINALE
 	.2byte 0xFFFF
 
 	.align 2
@@ -30437,6 +30438,30 @@ Move_ASS:
 	end
 
 Move_HBO_MAX_FINALE:
+	loadspritegfx ANIM_TAG_ANGER
+	loadspritegfx ANIM_TAG_FINALE
+	monbg ANIM_ATTACKER
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
+	createvisualtask AnimTask_AttackerFadeToInvisible, 5, 0
+	waitforvisualfinish
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_ENCORE2, SOUND_PAN_TARGET
+	createsprite gHBOMaxFinaleSpriteTemplate, ANIM_ATTACKER, 2, 0, 4, 0, 90, 90
+	waitforvisualfinish
+	delay 40
+	createsprite gAngerMarkSpriteTemplate, ANIM_TARGET, 2, 1, -20, -28
+	playsewithpan SE_M_SWAGGER2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	delay 12
+	createsprite gAngerMarkSpriteTemplate, ANIM_TARGET, 2, 1, 20, -28
+	playsewithpan SE_M_SWAGGER2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 16, 0, RGB_BLACK
+	waitforvisualfinish
+	createvisualtask AnimTask_AttackerFadeFromInvisible, 5, 1, ANIM_ATTACKER
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+
 Move_BAG:
 Move_FUCK:
 Move_DRUG:

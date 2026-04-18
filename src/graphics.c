@@ -595,6 +595,9 @@ const u32 gBattleAnimSpritePal_SecretSword[] = INCBIN_U32("graphics/battle_anims
 const u32 gBattleAnimSpriteGfx_MiniShorts[] = INCBIN_U32("graphics/battle_anims/sprites/mini_shorts.4bpp.lz");
 const u32 gBattleAnimSpritePal_MiniShorts[] = INCBIN_U32("graphics/battle_anims/sprites/mini_shorts.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Finale[] = INCBIN_U32("graphics/battle_anims/sprites/finale.4bpp.lz");
+const u32 gBattleAnimSpritePal_Finale[] = INCBIN_U32("graphics/battle_anims/sprites/finale.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");
