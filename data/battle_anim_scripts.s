@@ -8853,7 +8853,7 @@ SunnyDayLightRay:
 	return
 
 Move_COTTON_SPORE:
-	loadspritegfx ANIM_TAG_SPORE
+	loadspritegfx ANIM_TAG_MINI_SHORTS
 	monbg ANIM_DEF_PARTNER
 	splitbgprio ANIM_TARGET
 	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_TARGET, 18, 10
@@ -8865,11 +8865,11 @@ Move_COTTON_SPORE:
 	end
 
 CreateCottonSpores:
-	createsprite gSporeParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, 85, 80, 0
+	createsprite gShortsParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, 85, 80, 0
 	delay 12
-	createsprite gSporeParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -10, 170, 80, 0
+	createsprite gShortsParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -10, 170, 80, 0
 	delay 12
-	createsprite gSporeParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -15, 0, 80, 0
+	createsprite gShortsParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -15, 0, 80, 0
 	delay 12
 	return
 
@@ -30596,7 +30596,7 @@ Move_GYRO_MITE:
 Move_COMEUPPANTS:
 	loadspritegfx ANIM_TAG_KNIT_SHORTS
 	playse SE_M_SAND_ATTACK
-	createsprite gPullUpShortsSpriteTemplate, ANIM_ATTACKER, 2, 0, 40, 0, -4, 10, 60, 0, 1
+	createsprite gPullUpShortsSpriteTemplate, ANIM_TARGET, 2, 0, 40, 0, -4, 10, 60, 0, 1
 	waitforvisualfinish
 	end
 
@@ -30792,6 +30792,7 @@ StringShortThread:
 Move_WURMPLE_BEAM:
 	loadspritegfx ANIM_TAG_WURMPLE_HEAD
 	loadspritegfx ANIM_TAG_DUCK
+	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 25, 1
 	delay 6
 	panse SE_M_BUBBLE_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +1, 0
@@ -30811,6 +30812,7 @@ Move_WURMPLE_BEAM:
 	call WurmpleHeads
 	call WurmpleHeads
 	waitforvisualfinish
+	call PoisonBubblesEffect
 	end
 
 WurmpleHeads:
