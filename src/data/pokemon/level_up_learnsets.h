@@ -6715,7 +6715,7 @@ static const struct LevelUpMove sArcheopsLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sTrubbishLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_RELIC_SONG),
 	LEVEL_UP_END
 };
 
@@ -6785,7 +6785,7 @@ static const struct LevelUpMove sSwannaLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sVanilliteLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_CREAM_EATER),
 	LEVEL_UP_END
 };
 

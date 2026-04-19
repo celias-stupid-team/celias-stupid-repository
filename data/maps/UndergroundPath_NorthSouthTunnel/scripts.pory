@@ -64,7 +64,7 @@ script UndergroundPath_BikeShop {
 	msgbox("Oh! Oh!\nHello!\lWelcome to my BIKE shop!\pYou're my first customer since\nsetting up shop down here!\pI have a special promotion going on\nright now.\lEvery 1 customers gets a prize!\pAll you need to do is answer one\nquestion correctly. Ready?\pTrue or False: BIKES come in\nmore than one color?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 		msgbox("Oh… {PAUSE 20}I'm sorry, but the answer\nwas actually No.\pToo bad!\n", MSGBOX_DEFAULT)
-		setflag(FLAG_SECRET_BIKE_SHOP)
+		//setflag(FLAG_SECRET_BIKE_SHOP)
 	} else {
 		msgbox("You're completely correct!\nNicely done!\pHere, take this!\n", MSGBOX_DEFAULT)
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)

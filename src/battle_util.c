@@ -2165,7 +2165,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         gBattleMons[battler].statStages[STAT_ATK]++;
                         gBattleScripting.animArg1 = 14 + STAT_ATK;
                         gBattleScripting.animArg2 = 0;
-                        BattleScriptPushCursorAndCallback(BattleScript_SpeedBoostActivates);
+                        BattleScriptPushCursorAndCallback(BattleScript_BeastBoostActivates);
                         gBattleScripting.battler = battler;
                         effect++;
                     }

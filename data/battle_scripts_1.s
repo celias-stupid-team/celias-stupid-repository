@@ -314,6 +314,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectEncoreBoth             @ EFFECT_ENCORE_BOTH
 	.4byte BattleScript_EffectGrinMissile            @ EFFECT_GRIN_MISSILE
 	.4byte BattleScript_EffectHit		             @ EFFECT_GIGATON_HAMMER
+	.4byte BattleScript_EffectSleepHit		             @ EFFECT_SLEEP_HIT
+
+	
 
 BattleScript_End::
 	end
@@ -628,11 +631,19 @@ BattleScript_DreamEaterWorked:
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	jumpifmovehadnoeffect BattleScript_DreamEaterTryFaintEnd
+	jumpifmove MOVE_CREAM_EATER BattleScript_CreamEaterWorked
 	printstring STRINGID_PKMNDREAMEATEN
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_DreamEaterTryFaintEnd:
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
+
+BattleScript_CreamEaterWorked::
+	printstring STRINGID_CREAMEATEN
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
 
 BattleScript_EffectMirrorMove::
 	attackcanceler
@@ -4515,6 +4526,14 @@ BattleScript_SpeedBoostActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+
+BattleScript_BeastBoostActivates::
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_PKMNRAISEDATTACK
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+
 BattleScript_TraceActivates::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNTRACED
@@ -6618,3 +6637,9 @@ BattleScript_GrinMissileEscapeCheck::
 BattleScript_MoveCantSelect::
 	printselectionstring STRINGID_CURRENTMOVECANTSELECT
 	endselectionscript
+
+
+
+BattleScript_EffectSleepHit::
+	setmoveeffect MOVE_EFFECT_SLEEP
+	goto BattleScript_EffectHit
