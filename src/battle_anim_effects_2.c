@@ -2759,6 +2759,75 @@ const struct SpriteTemplate gLatinasSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sToadZookaLeftAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sToadZookaRightAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd *const sToadZookaAnimTable[] =
+{
+    sToadZookaLeftAnimCmds,
+    sToadZookaRightAnimCmds,
+};
+
+const struct SpriteTemplate gToadLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOAD,
+    .paletteTag = ANIM_TAG_TOAD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sToadZookaAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+const struct SpriteTemplate gToadRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOAD,
+    .paletteTag = ANIM_TAG_TOAD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sToadZookaAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gBulletBillLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BULLET_BILL,
+    .paletteTag = ANIM_TAG_BULLET_BILL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sToadZookaAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+const struct SpriteTemplate gBulletBillRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BULLET_BILL,
+    .paletteTag = ANIM_TAG_BULLET_BILL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sToadZookaAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gBazookaSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BAZOOKA,
+    .paletteTag = ANIM_TAG_BAZOOKA,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gVaultBoySpriteTemplate =
 {
     .tileTag = ANIM_TAG_VAULT_BOY,

@@ -503,7 +503,11 @@
 #define ANIM_TAG_CRUSHER                    (ANIM_SPRITES_START + 493)
 #define ANIM_TAG_FINALE_ONE                 (ANIM_SPRITES_START + 494)
 #define ANIM_TAG_FINALE_TWO                 (ANIM_SPRITES_START + 495)
-#define ANIM_TAG_RAGE_SNOUT                  (ANIM_SPRITES_START + 496)
+#define ANIM_TAG_RAGE_SNOUT                 (ANIM_SPRITES_START + 496)
+#define ANIM_TAG_TOAD                       (ANIM_SPRITES_START + 497)
+#define ANIM_TAG_BULLET_BILL                (ANIM_SPRITES_START + 498)
+#define ANIM_TAG_BAZOOKA                    (ANIM_SPRITES_START + 499)
+#define ANIM_TAG_TRANS_EMBER                (ANIM_SPRITES_START + 500)
 
 // battlers
 #define ANIM_ATTACKER       0

@@ -300,6 +300,17 @@ const struct SpriteTemplate gShoeKickSpriteTemplate =
     .callback = AnimSpinningKickOrPunch,
 };
 
+const struct SpriteTemplate gRageSnoutSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RAGE_SNOUT,
+    .paletteTag = ANIM_TAG_RAGE_SNOUT,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_MegaPunchKick,
+    .callback = AnimSpinningKickOrPunch,
+};
+
 const struct SpriteTemplate gMartStrikeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MART,

@@ -1564,6 +1564,10 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_FinaleOne, 0x1000, ANIM_TAG_FINALE_ONE},
     {gBattleAnimSpriteGfx_FinaleTwo, 0x1000, ANIM_TAG_FINALE_TWO},
     {gBattleAnimSpriteGfx_RageSnout, 0x0200, ANIM_TAG_RAGE_SNOUT},
+    {gBattleAnimSpriteGfx_Toad, 0x0400, ANIM_TAG_TOAD},
+    {gBattleAnimSpriteGfx_BulletBill, 0x0400, ANIM_TAG_BULLET_BILL},
+    {gBattleAnimSpriteGfx_Bazooka, 0x0800, ANIM_TAG_BAZOOKA},
+    {gBattleAnimSpriteGfx_TransEmber, 0x0A00, ANIM_TAG_TRANS_EMBER},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2065,6 +2069,10 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_FinaleOne, ANIM_TAG_FINALE_ONE},
     {gBattleAnimSpritePal_FinaleTwo, ANIM_TAG_FINALE_TWO},
     {gBattleAnimSpritePal_RageSnout, ANIM_TAG_RAGE_SNOUT},
+    {gBattleAnimSpritePal_Toad, ANIM_TAG_TOAD},
+    {gBattleAnimSpritePal_BulletBill, ANIM_TAG_BULLET_BILL},
+    {gBattleAnimSpritePal_Bazooka, ANIM_TAG_BAZOOKA},
+    {gBattleAnimSpritePal_TransEmber, ANIM_TAG_TRANS_EMBER},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
