@@ -1595,6 +1595,17 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 u32 hp = 0;
                 SetMonData(&party[i], MON_DATA_HP, &hp);
             }
+
+            if (gTrainerBattleOpponent_A == TRAINER_HAKARI_BLIZ)
+            {
+                // requires to recalc EXP to set the level accordingly
+                u32 level = GetPlayerPartyHighestLevel();
+                u16 species = GetMonData(&party[i], MON_DATA_SPECIES, NULL);
+                u32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+
+                SetMonData(&party[i], MON_DATA_EXP, &exp);
+                CalculateMonStats(&party[i]);
+            }
         }
 
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;

@@ -7890,6 +7890,13 @@ static void Cmd_setreflect(void)
 
 static void Cmd_setseeded(void)
 {
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(gBattlescriptCurrInstr + 1);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
+
     if ((gMoveResultFlags & MOVE_RESULT_NO_EFFECT) || (gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED) || (gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE))
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
@@ -8897,7 +8904,7 @@ static void Cmd_tryinfatuating(void)
 
     if (gBattleWeather & B_WEATHER_SHADOW_SKY)
     {
-        BattleScriptPush(T1_READ_PTR(gBattlescriptCurrInstr + 1));
+        BattleScriptPush(BattleScript_MoveEnd);
         gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
         return;
     }
@@ -9735,6 +9742,13 @@ static void Cmd_healpartystatus(void)
 
 static void Cmd_cursetarget(void)
 {
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(BattleScript_MoveEnd);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
+
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
@@ -9777,6 +9791,13 @@ static void Cmd_trysetperishsong(void)
 {
     s32 i;
     s32 notAffectedCount = 0;
+
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(BattleScript_MoveEnd);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
 
     for (i = 0; i < gBattlersCount; i++)
     {
@@ -10428,6 +10449,13 @@ static void Cmd_cureifburnedparalysedorpoisoned(void)
 
 static void Cmd_settorment(void)
 {
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(BattleScript_MoveEnd);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
+
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
@@ -10649,6 +10677,13 @@ static void Cmd_doubledamagedealtifdamaged(void)
 
 static void Cmd_setyawn(void)
 {
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(BattleScript_MoveEnd);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
+
     if (gStatuses3[gBattlerTarget] & STATUS3_YAWN
         || gBattleMons[gBattlerTarget].status1 & STATUS1_ANY)
     {
@@ -11386,18 +11421,26 @@ static void Cmd_handleballthrow(void)
 
 static void Cmd_givecaughtmon(void)
 {
-    if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]) != MON_GIVEN_TO_PARTY)
+    struct Pokemon *caughtMon = &gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]];
+
+    if (GetMonData(caughtMon, MON_DATA_SPECIES, NULL) == SPECIES_RATTATA
+     && GetMonData(caughtMon, MON_DATA_HELD_ITEM, NULL) == ITEM_NONE)
+    {
+        u16 heldItem = ITEM_FOCUS_SASH;
+        SetMonData(caughtMon, MON_DATA_HELD_ITEM, &heldItem);
+    }
+    if (GiveMonToPlayer(caughtMon) != MON_GIVEN_TO_PARTY)
     {
         if (!ShouldShowBoxWasFullMessage())
         {
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SENT_SOMEONES_PC;
             StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON)));
-            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
+            GetMonData(caughtMon, MON_DATA_NICKNAME, gStringVar2);
         }
         else
         {
             StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON))); // box the mon was sent to
-            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
+            GetMonData(caughtMon, MON_DATA_NICKNAME, gStringVar2);
             StringCopy(gStringVar3, GetBoxNamePtr(GetPCBoxToSendMon())); //box the mon was going to be sent to
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOMEONES_BOX_FULL;
         }
@@ -11408,7 +11451,7 @@ static void Cmd_givecaughtmon(void)
     }
 
     gBattleResults.caughtMonSpecies = gBattleMons[gBattlerAttacker ^ BIT_SIDE].species;
-    GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gBattleResults.caughtMonNick);
+    GetMonData(caughtMon, MON_DATA_NICKNAME, gBattleResults.caughtMonNick);
 
     // item slot 6 being set to 255 EA when catching SPECIES_MISSINGNO
     if (gBattleResults.caughtMonSpecies == SPECIES_MISSINGNO)
@@ -13622,4 +13665,49 @@ void BS_SetBattleAnimTarget(void)
     gBattleSpritesDataPtr->animationData->animTargetOverride = GetBattlerForBattleScript(cmd->battler);
     gBattleSpritesDataPtr->animationData->animTargetOverrideActive = TRUE; // override is being read in TryHandleLaunchBattleTableAnimation()
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_TrySetEncoreBoth(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+    u8 battler;
+    s32 i;
+    u8 attackerSide = GET_BATTLER_SIDE(gBattlerAttacker);
+    bool32 anySuccess = FALSE;
+
+    for (battler = 0; battler < gBattlersCount; battler++)
+    {
+        if (GET_BATTLER_SIDE(battler) == attackerSide)
+            continue;
+        if (gAbsentBattlerFlags & gBitTable[battler])
+            continue;
+
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[battler].moves[i] == gLastMoves[battler])
+                break;
+        }
+
+        if (gLastMoves[battler] == MOVE_STRUGGLE
+            || gLastMoves[battler] == MOVE_ENCORE
+            || gLastMoves[battler] == MOVE_MIRROR_MOVE)
+        {
+            i = MAX_MON_MOVES;
+        }
+
+        if (gDisableStructs[battler].encoredMove == MOVE_NONE
+            && i != MAX_MON_MOVES && gBattleMons[battler].pp[i] != 0)
+        {
+            gDisableStructs[battler].encoredMove = gBattleMons[battler].moves[i];
+            gDisableStructs[battler].encoredMovePos = i;
+            gDisableStructs[battler].encoreTimer = (Random() & 3) + 3;
+            gDisableStructs[battler].encoreTimerStartValue = gDisableStructs[battler].encoreTimer;
+            anySuccess = TRUE;
+        }
+    }
+
+    if (anySuccess)
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    else
+        gBattlescriptCurrInstr = cmd->failInstr;
 }
