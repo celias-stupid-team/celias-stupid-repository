@@ -9562,6 +9562,8 @@ extern const u32 gBerryPouchSpritePalette[];
 extern const u8 gBerryPouchBg1Tilemap[];
 
 // sandwich_case ingredient sprites
+extern const u32 gSandwichCaseSpriteTiles[];
+extern const u32 gSandwichCaseSpritePalette[];
 extern const u32 gSCSpriteSheet_Bread[];
 extern const u32 gSCSpritePal_Bread[];
 extern const u32 gSCSpriteSheet_Sesame[];

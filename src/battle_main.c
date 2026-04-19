@@ -3408,7 +3408,10 @@ static void HandleTurnActionSelectionState(void)
                             gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT;
                             *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
                             gBattleBufferB[gActiveBattler][1] = 0;
-                            *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_WAIT_ACTION_CHOSEN;
+                            if (gSelectionBattleScripts[gActiveBattler] == BattleScript_MoveCantSelect)
+                                *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
+                            else
+                                *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_WAIT_ACTION_CHOSEN;
                             return;
                         }
                         else

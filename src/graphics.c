@@ -1780,6 +1780,8 @@ const u32 gBerryPouchSpritePalette[] = INCBIN_U32("graphics/berry_pouch/berry_po
 const u8 gBerryPouchBg1Tilemap[] = INCBIN_U8("graphics/berry_pouch/background.bin.lz");
 
 // sandwich_case
+const u32 gSandwichCaseSpriteTiles[] = INCBIN_U32("graphics/sandwich_case/sandwich_case_large.4bpp.lz");
+const u32 gSandwichCaseSpritePalette[] = INCBIN_U32("graphics/sandwich_case/sandwich_case_large.gbapal.lz");
 const u32 gSCSpriteSheet_Bread[]   = INCBIN_U32("graphics/sandwich_case/bread.4bpp.lz");
 const u32 gSCSpritePal_Bread[]     = INCBIN_U32("graphics/sandwich_case/bread.gbapal.lz");
 const u32 gSCSpriteSheet_Sesame[]  = INCBIN_U32("graphics/sandwich_case/sesame.4bpp.lz");

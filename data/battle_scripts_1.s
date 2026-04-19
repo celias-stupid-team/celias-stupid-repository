@@ -313,6 +313,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_End                  		 @ EFFECT_CANCEL
 	.4byte BattleScript_EffectEncoreBoth             @ EFFECT_ENCORE_BOTH
 	.4byte BattleScript_EffectGrinMissile            @ EFFECT_GRIN_MISSILE
+	.4byte BattleScript_EffectHit		             @ EFFECT_GIGATON_HAMMER
 
 BattleScript_End::
 	end
@@ -6612,3 +6613,7 @@ BattleScript_GrinMissileEscapeCheck::
 	printstring STRINGID_TARGETCANTESCAPENOW
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_MoveCantSelect::
+	printselectionstring STRINGID_CURRENTMOVECANTSELECT
+	endselectionscript

@@ -227,11 +227,11 @@ static const union AffineAnimCmd *const sAffineAnimTable[] = {
 };
 
 static const struct CompressedSpriteSheet sSpriteSheet = {
-    gBerryPouchSpriteTiles, 0x800, TAG_SANDWICH_CASE
+    gSandwichCaseSpriteTiles, 0x800, TAG_SANDWICH_CASE
 };
 
 static const struct CompressedSpritePalette sSpritePal = {
-    gBerryPouchSpritePalette, TAG_SANDWICH_CASE
+    gSandwichCaseSpritePalette, TAG_SANDWICH_CASE
 };
 
 static const struct SpriteTemplate sSpriteTemplate_SandwichCase = {
