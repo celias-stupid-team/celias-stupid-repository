@@ -243,11 +243,10 @@ const JUKEBOX_PAGES = 12
 const JUKEBOX_PAGES_MINUS_ONE = JUKEBOX_PAGES - 1
 script StarlightHouse_Jukebox {
 	lock
-	message(
+	msgbox(
 	"It's a JUKEBOX!\n"
-	"{PAUSE 45}")
+	"")
 	setvar(VAR_RESULT, 0)
-	waitmessage
 	closemessage
 	
 	while(var(VAR_RESULT) != 254) {
