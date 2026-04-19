@@ -1097,6 +1097,16 @@ SECTIONS {
         sound/songs/midi/mus_the_moon.o(.rodata);
         sound/songs/midi/mus_battle_revolution.o(.rodata);
         sound/songs/midi/mus_encounter_cool.o(.rodata);
+        sound/songs/midi/mus_se_alaskan_bull_worm.o(.rodata);
+        sound/songs/midi/mus_se_ass.o(.rodata);
+        sound/songs/midi/mus_se_chocolate_rain.o(.rodata);
+        sound/songs/midi/mus_se_dark_lloyd.o(.rodata);
+        sound/songs/midi/mus_se_for.o(.rodata);
+        sound/songs/midi/mus_se_game_of_thrones.o(.rodata);
+        sound/songs/midi/mus_se_kirby_phone.o(.rodata);
+        sound/songs/midi/mus_se_monster_mash.o(.rodata);
+        sound/songs/midi/mus_se_sonic_boom.o(.rodata);
+        sound/songs/midi/mus_se_space_jam.o(.rodata);
 
     } > ROM =0
 

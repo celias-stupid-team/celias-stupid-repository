@@ -2338,7 +2338,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_SPIRITOMB] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 3,
 	},
 	[SPECIES_GIBLE] =
 	{

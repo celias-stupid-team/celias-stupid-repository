@@ -433,12 +433,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FURY_ATTACK] =
     {
-        .effect = EFFECT_MULTI_HIT,
-        .power = 19,
+        .effect = EFFECT_HIT,
+        .power = 35,
         .type = TYPE_NORMAL,
-        .accuracy = 85,
-        .pp = 20,
-        .secondaryEffectChance = 0,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
@@ -452,7 +452,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 30,
         .pp = 5,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
@@ -8501,8 +8501,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_TOEDSZOOKA] =
     {
         .effect = EFFECT_HIT,
-        .power = 95,
-        .type = TYPE_GROUND,
+        .power = 135,
+        .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
