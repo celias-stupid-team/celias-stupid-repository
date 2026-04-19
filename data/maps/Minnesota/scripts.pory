@@ -513,6 +513,9 @@ script Minnesota_Bliz {
 		"Well, if he's not busy, I guess\n"
 		"I'll just call him.", MSGBOX_DEFAULT)
 		closemessage
+		delay(20)
+		playse(MUS_SE_KIRBY_PHONE)
+		waitse
 		specialvar(VAR_RESULT, GetPlayerFacingDirection)
 		if(var(VAR_RESULT) == DIR_WEST) {
 			applymovement(LOCALID_PLAYER, moves(
