@@ -32,7 +32,7 @@ RocketHideout_B1F_Text_Grunt3Intro::
 
 RocketHideout_B1F_Text_Grunt3Defeat::
 	.string "No!\n"
-	.string "They've entered Public Domain!$"
+	.string "They've entered PUBLIC DOMAIN!$"
 
 RocketHideout_B1F_Text_Grunt3PostBattle::
 	.string "My rats are in public domain…\n"

@@ -219,6 +219,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_SUBSTITUTE_2, AI_CBM_Substitute_2
 	if_Effect EFFECT_REVIVAL_BLESSING, AI_CBM_RevivalBlessing
 	if_Effect EFFECT_EVASION_MAX, AI_CBM_108TupleTeam
+	if_effect EFFECT_GIGATON_HAMMER, AI_CBM_GigatonHammer
 	end
 
 AI_CBM_Sleep::
@@ -408,7 +409,7 @@ AI_CBM_Reflect::
 AI_CBM_Paralyze::
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	get_ability AI_TARGET
-	if_equal ABILITY_LIMBER, Score_Minus10
+	if_equal ABILITY_LIMBER, Score_Plus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 @	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10  @ Improvement in Emerald
 	end
@@ -628,6 +629,11 @@ AI_CBM_108TupleTeam::
 	goto Score_Plus5
 	end
 
+AI_CBM_GigatonHammer::
+	if_last_used_move AI_USER, MOVE_GIGATON_CRUSHER, Score_Minus10
+	goto Score_Plus5
+	end
+
 Score_Minus1::
 	score -1
 	end
@@ -673,9 +679,9 @@ Score_Plus5::
 	end
 
 @ Improvement in Emerald
-@Score_Plus10::
-@	score +10
-@	end
+Score_Plus10::
+	score +10
+	end
 
 AI_CheckViability::
 	if_effect EFFECT_SLEEP, AI_CV_Sleep
@@ -844,8 +850,7 @@ AI_CV_Explosion_WildCheck::
 	goto AI_CV_SelfKO
 
 AI_CV_Explosion_WildWeedle::
-	score +10
-	goto AI_CV_SelfKO
+	goto Score_Plus10
 
 AI_CV_SelfKO::
 	if_trainer_equal TRAINER_SUPER_NERD_MIGUEL, Score_Plus5

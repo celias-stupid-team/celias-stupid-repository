@@ -408,6 +408,7 @@ const u8 *const gItemEffectTable[] =
     [ITEM_CARBOS - ITEM_POTION]        = sItemEffect_Carbos,
     [ITEM_CALCIUM - ITEM_POTION]       = sItemEffect_Calcium,
     [ITEM_RARE_CANDY - ITEM_POTION]    = sItemEffect_RareCandy,
+    [ITEM_PREMIER_CANDY - ITEM_POTION]    = sItemEffect_RareCandy,
     [ITEM_PP_UP - ITEM_POTION]         = sItemEffect_PPUp,
     [ITEM_ZINC - ITEM_POTION]          = sItemEffect_Zinc,
     [ITEM_PP_MAX - ITEM_POTION]        = sItemEffect_PPMax,

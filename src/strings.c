@@ -218,7 +218,7 @@ const u8 gText_RunningScrews[] = _("{PAUSE 45}Aaaaaaand they're gone!");
 const u8 gText_MespritRan[] = _("{PAUSE 45}MESPRIT flew away!");
 
 
-const u8 gText_Ligma[] = _("ligma balls");
+const u8 gText_Ligma[] = _("ligma balls{PAUSE 10}");
 const u8 gText_TMContainedCopycat[] = _("{PLAYER} booted up the TM!\pIt contained\nCOPYCAT!{PAUSE_UNTIL_PRESS}");
 const u8 gText_CeliaMessage[] = _("Hi, this is CELIA.\pDue to technical limitations, I\nwas forced to remove several\lexcess ITEMS from your BAG.\pDon't worry! Nothing that was\nremoved will ever be important.\pI'm sorry I had to do this, and it\nis my fault for not thinking ahead.\pThanks for understanding!\nThis page will now self-destruct.{PAUSE_UNTIL_PRESS}{PLAY_BGM}{SE_M_EXPLOSION}");
 const u8 gText_HeldRuby[] = _("{PLAYER} crouched and held the RUBY!{PAUSE_UNTIL_PRESS}");
@@ -988,6 +988,12 @@ const u8 gText_AliveLower[] = _("Alive");
 const u8 gText_YesLower[] = _("Yes");
 const u8 gText_YUP[] = _("YUP");
 const u8 gText_YupLower[] = _("Yup");
+const u8 gText_YEP[] = _("YEP");
+const u8 gText_YepLower[] = _("Yep");
+const u8 gText_YEA[] = _("YEA");
+const u8 gText_YeaLower[] = _("Yea");
+const u8 gText_AYE[] = _("AYE");
+const u8 gText_AyeLower[] = _("Aye");
 const u8 gText_Oui[] = _("OUI");
 
 // Start menu option descriptions

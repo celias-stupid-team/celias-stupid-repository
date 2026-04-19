@@ -8895,6 +8895,19 @@ extern const u32 gBattleAnimSpriteGfx_Mushroom[];
 extern const u32 gBattleAnimSpriteGfx_Gyro[];
 extern const u32 gBattleAnimSpriteGfx_PantsString[];
 extern const u32 gBattleAnimSpriteGfx_SecretSword[];
+extern const u32 gBattleAnimSpriteGfx_MiniShorts[];
+extern const u32 gBattleAnimSpriteGfx_Crusher[];
+extern const u32 gBattleAnimSpriteGfx_FinaleOne[];
+extern const u32 gBattleAnimSpriteGfx_FinaleTwo[];
+extern const u32 gBattleAnimSpriteGfx_RageSnout[];
+extern const u32 gBattleAnimSpriteGfx_Toad[];
+extern const u32 gBattleAnimSpriteGfx_BulletBill[];
+extern const u32 gBattleAnimSpriteGfx_Bazooka[];
+extern const u32 gBattleAnimSpriteGfx_TransEmber[];
+extern const u32 gBattleAnimSpriteGfx_Four[];
+extern const u32 gBattleAnimSpriteGfx_Missile[];
+extern const u32 gBattleAnimSpriteGfx_Gnome[];
+extern const u32 gBattleAnimSpriteGfx_Book[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9341,6 +9354,19 @@ extern const u32 gBattleAnimSpritePal_Mushroom[];
 extern const u32 gBattleAnimSpritePal_Gyro[];
 extern const u32 gBattleAnimSpritePal_PantsString[];
 extern const u32 gBattleAnimSpritePal_SecretSword[];
+extern const u32 gBattleAnimSpritePal_MiniShorts[];
+extern const u32 gBattleAnimSpritePal_Crusher[];
+extern const u32 gBattleAnimSpritePal_FinaleOne[];
+extern const u32 gBattleAnimSpritePal_FinaleTwo[];
+extern const u32 gBattleAnimSpritePal_RageSnout[];
+extern const u32 gBattleAnimSpritePal_Toad[];
+extern const u32 gBattleAnimSpritePal_BulletBill[];
+extern const u32 gBattleAnimSpritePal_Bazooka[];
+extern const u32 gBattleAnimSpritePal_TransEmber[];
+extern const u32 gBattleAnimSpritePal_Four[];
+extern const u32 gBattleAnimSpritePal_Missile[];
+extern const u32 gBattleAnimSpritePal_Gnome[];
+extern const u32 gBattleAnimSpritePal_Book[];
 
 //CSR Moves
 
@@ -9558,6 +9584,8 @@ extern const u32 gBerryPouchSpritePalette[];
 extern const u8 gBerryPouchBg1Tilemap[];
 
 // sandwich_case ingredient sprites
+extern const u32 gSandwichCaseSpriteTiles[];
+extern const u32 gSandwichCaseSpritePalette[];
 extern const u32 gSCSpriteSheet_Bread[];
 extern const u32 gSCSpritePal_Bread[];
 extern const u32 gSCSpriteSheet_Sesame[];
@@ -13487,3 +13515,9 @@ extern const u8 gMonIcon_RICKETOT[];
 
 extern const u32 gTrainerFrontPic_Kotone[];
 extern const u32 gTrainerPalette_Kotone[];
+
+extern const u32 gItemIcon_Ilexir[];
+extern const u32 gItemIconPalette_Ilexir[];
+
+extern const u32 gItemIcon_HyperRepel[];
+extern const u32 gItemIconPalette_HyperRepel[];

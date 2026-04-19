@@ -2,6 +2,10 @@ mapscripts Thirty_Eight_Island_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setbench(BENCH_NATIONAL_PARK)
 		setworldmapflag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)
+		setflag(FLAG_TEMP_11)
+		if(flag(FLAG_CSR_MAP_NATIONAL_PARK) && !flag(FLAG_ILEXIR)) {
+			clearflag(FLAG_TEMP_11)
+		}
     }
 }
 
@@ -755,4 +759,10 @@ script LassMazeWater_WaterSign {
 	"Don't fall into the water!\n"
 	"", MSGBOX_SIGN)
 
+}
+
+
+script ThrityEightIsland_Ilexer {
+	setflag(FLAG_ILEXIR)
+	finditem(ITEM_ILEXIR)
 }

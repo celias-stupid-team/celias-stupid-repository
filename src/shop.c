@@ -1056,7 +1056,7 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
             AddBagItem(ITEM_PREMIERCIGAR, 1);
             BuyMenuDisplayMessage(taskId, gText_ThrowInPremierCigar, BuyMenuReturnToItemList);
             
-        } else if (tItemId == ITEM_PREMIER_CANDY && tItemCount >= 10) {
+        } else if (tItemId == ITEM_RARE_CANDY && tItemCount >= 10) {
             AddBagItem(ITEM_PREMIER_CANDY, 1);
             BuyMenuDisplayMessage(taskId, gText_ThrowInPremierCandy, BuyMenuReturnToItemList);
             

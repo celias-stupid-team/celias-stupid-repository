@@ -557,3 +557,17 @@ script CeladonCity_FindTheGym {
 	"It might be a good idea to see\n"
 	"if you can find it.", MSGBOX_NPC)
 }
+
+
+script Celadon_NotImposterOak {
+	msgbox(
+	"That's not IMPOSTER OAK, silly!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Celadon_NotEeveeSilly {
+	msgbox(
+	"That's not EEVEE, silly!\n"
+	"", MSGBOX_NPC)
+}

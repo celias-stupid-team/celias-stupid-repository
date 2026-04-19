@@ -152,6 +152,7 @@ extern const u8 BattleScript_Recoil33End[];
 extern const u8 BattleScript_ItemSteal[];
 extern const u8 BattleScript_DrizzleActivates[];
 extern const u8 BattleScript_SpeedBoostActivates[];
+extern const u8 BattleScript_BeastBoostActivates[];
 extern const u8 BattleScript_TraceActivates[];
 extern const u8 BattleScript_RainDishActivates[];
 extern const u8 BattleScript_SandstreamActivates[];
@@ -302,6 +303,7 @@ extern const u8 BattleScript_FlipTurnTransform[];
 extern const u8 BattleScript_LeaveBattleImmediately[];
 extern const u8 BattleScript_ShowMoveAnimation[];
 extern const u8 BattleScript_HarvestActivates[];
+extern const u8 BattleScript_MoveCantSelect[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];

@@ -588,6 +588,20 @@ const struct OamData gOamData_AffineOff_ObjBlend_32x32 =
     .paletteNum = 0,
 };
 
+const struct OamData gOamData_MagnifyingGlass =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_BLEND,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+};
+
 const struct OamData gOamData_AffineOff_ObjBlend_64x64 =
 {
     .y = 0,
@@ -1559,6 +1573,19 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Gyro, 0x0400, ANIM_TAG_GYRO},
     {gBattleAnimSpriteGfx_PantsString, 0x0400, ANIM_TAG_PANTS_STRING},
     {gBattleAnimSpriteGfx_SecretSword, 0x1000, ANIM_TAG_SECRET_SWORD},
+    {gBattleAnimSpriteGfx_MiniShorts, 0x0080, ANIM_TAG_MINI_SHORTS},
+    {gBattleAnimSpriteGfx_Crusher, 0x0800, ANIM_TAG_CRUSHER},
+    {gBattleAnimSpriteGfx_FinaleOne, 0x1000, ANIM_TAG_FINALE_ONE},
+    {gBattleAnimSpriteGfx_FinaleTwo, 0x1000, ANIM_TAG_FINALE_TWO},
+    {gBattleAnimSpriteGfx_RageSnout, 0x0200, ANIM_TAG_RAGE_SNOUT},
+    {gBattleAnimSpriteGfx_Toad, 0x0400, ANIM_TAG_TOAD},
+    {gBattleAnimSpriteGfx_BulletBill, 0x0400, ANIM_TAG_BULLET_BILL},
+    {gBattleAnimSpriteGfx_Bazooka, 0x0800, ANIM_TAG_BAZOOKA},
+    {gBattleAnimSpriteGfx_TransEmber, 0x0A00, ANIM_TAG_TRANS_EMBER},
+    {gBattleAnimSpriteGfx_Four, 0x0200, ANIM_TAG_FOUR},
+    {gBattleAnimSpriteGfx_Missile, 0x1000, ANIM_TAG_MISSILE},
+    {gBattleAnimSpriteGfx_Gnome, 0x0800, ANIM_TAG_GNOME},
+    {gBattleAnimSpriteGfx_Book, 0x0200, ANIM_TAG_BOOK},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2055,6 +2082,19 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Gyro, ANIM_TAG_GYRO},
     {gBattleAnimSpritePal_PantsString, ANIM_TAG_PANTS_STRING},
     {gBattleAnimSpritePal_SecretSword, ANIM_TAG_SECRET_SWORD},
+    {gBattleAnimSpritePal_MiniShorts, ANIM_TAG_MINI_SHORTS},
+    {gBattleAnimSpritePal_Crusher, ANIM_TAG_CRUSHER},
+    {gBattleAnimSpritePal_FinaleOne, ANIM_TAG_FINALE_ONE},
+    {gBattleAnimSpritePal_FinaleTwo, ANIM_TAG_FINALE_TWO},
+    {gBattleAnimSpritePal_RageSnout, ANIM_TAG_RAGE_SNOUT},
+    {gBattleAnimSpritePal_Toad, ANIM_TAG_TOAD},
+    {gBattleAnimSpritePal_BulletBill, ANIM_TAG_BULLET_BILL},
+    {gBattleAnimSpritePal_Bazooka, ANIM_TAG_BAZOOKA},
+    {gBattleAnimSpritePal_TransEmber, ANIM_TAG_TRANS_EMBER},
+    {gBattleAnimSpritePal_Four, ANIM_TAG_FOUR},
+    {gBattleAnimSpritePal_Missile, ANIM_TAG_MISSILE},
+    {gBattleAnimSpritePal_Gnome, ANIM_TAG_GNOME},
+    {gBattleAnimSpritePal_Book, ANIM_TAG_BOOK},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

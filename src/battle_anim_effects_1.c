@@ -586,6 +586,17 @@ const struct SpriteTemplate gSporeParticleSpriteTemplate =
     .callback = AnimSporeParticle,
 };
 
+const struct SpriteTemplate gShortsParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MINI_SHORTS,
+    .paletteTag = ANIM_TAG_MINI_SHORTS,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeParticle,
+};
+
 const struct SpriteTemplate gSporeSelfParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SPORE,
@@ -1552,6 +1563,17 @@ const struct SpriteTemplate gVineWhipSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WHIP_HIT,
     .paletteTag = ANIM_TAG_WHIP_HIT,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_Whip,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWhipHit,
+};
+
+const struct SpriteTemplate gGlitchWhipSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHIP_HIT,
+    .paletteTag = ANIM_TAG_COOLTRAINER,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_Whip,
     .images = NULL,

@@ -1011,3 +1011,9 @@ const u32 gItemIconPalette_RawNugget[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_RippedMemo[] = INCBIN_U32("graphics/items/icons/ripped_memo.4bpp.lz");
 const u32 gItemIconPalette_RippedMemo[] = INCBIN_U32("graphics/items/icon_palettes/ripped_memo.gbapal.lz");
+
+const u32 gItemIcon_Ilexir[] = INCBIN_U32("graphics/items/icons/ilexir.4bpp.lz");
+const u32 gItemIconPalette_Ilexir[] = INCBIN_U32("graphics/items/icon_palettes/ilexir.gbapal.lz");
+
+const u32 gItemIcon_HyperRepel[] = INCBIN_U32("graphics/items/icons/hyper_repel.4bpp.lz");
+const u32 gItemIconPalette_HyperRepel[] = INCBIN_U32("graphics/items/icon_palettes/hyper_repel.gbapal.lz");

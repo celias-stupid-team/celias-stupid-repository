@@ -142,3 +142,33 @@ movement PhishingGuru_CeliaDown {
 	walk_slow_down
 	face_down
 }
+
+script PhishingGuru_Oak {
+	msgbox(
+	"It's OAK!\n"
+	"Trust me!\l"
+	"Click to download!!", MSGBOX_SIGN)
+
+}
+
+script TradeGirl_Oak {
+	msgbox(
+	"That's not SPEAROW, silly!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script PaperHouse_Oak {
+	msgbox(
+	"A solution to the paper shortage.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script FanClub_Oak {
+	msgbox(
+	"I like the old OAKs better.\n"
+	"", MSGBOX_SIGN)
+
+}

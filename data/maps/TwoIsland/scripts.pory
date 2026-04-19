@@ -322,6 +322,8 @@ script TwoIsland_PencilStatue {
 			release
 			end
 		} else {
+			playmoncry(SPECIES_ZAPDOS, CRY_MODE_DEFAULT)
+			waitmoncry
 			release
 			end
 		}

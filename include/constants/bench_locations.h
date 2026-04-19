@@ -36,5 +36,6 @@
 #define BENCH_HALF_ISLAND           33
 #define BENCH_SEAFOAM               34
 #define BENCH_SAFFRON               35
+#define BENCH_ONE_ISLAND               36
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

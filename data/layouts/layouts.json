@@ -2968,7 +2968,7 @@
     {
       "id": "LAYOUT_VIRIDIAN_CITY_SCHOOL",
       "name": "ViridianCity_School_Layout",
-      "width": 10,
+      "width": 12,
       "height": 9,
       "border_width": 2,
       "border_height": 2,
@@ -7732,14 +7732,50 @@
     {
       "id": "LAYOUT_STARLIGHT_HOUSE12",
       "name": "Starlight_House12_Layout",
-      "width": 11,
-      "height": 12,
+      "width": 77,
+      "height": 59,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SeaCottage",
+      "secondary_tileset": "gTileset_Starlight_Interior3",
       "border_filepath": "data/layouts/Starlight_House12/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House12/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE12_LAYOUT_DANCERS",
+      "name": "Starlight_House12_Layout_Dancers",
+      "width": 77,
+      "height": 59,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Starlight_Interior3",
+      "border_filepath": "data/layouts/Starlight_House12_Layout_Dancers/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House12_Layout_Dancers/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_CITY_SCHOOL_LAYOUT_2",
+      "name": "ViridianCity_School_Layout_2",
+      "width": 12,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_School",
+      "border_filepath": "data/layouts/ViridianCity_School_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianCity_School_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ENTRANCE_2F_LOSS",
+      "name": "Entrance_2F_Loss",
+      "width": 13,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/Entrance_2F_Loss/border.bin",
+      "blockdata_filepath": "data/layouts/Entrance_2F_Loss/map.bin"
     }
   ]
 }

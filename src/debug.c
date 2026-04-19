@@ -3859,7 +3859,17 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_INCOMPATIBLE_EMULATOR) \
     X(MUS_THE_MOON) \
     X(MUS_BATTLE_REVOLUTION) \
-    X(MUS_ENCOUNTER_COOL)
+    X(MUS_ENCOUNTER_COOL) \
+    X(MUS_SE_ALASKAN_BULL_WORM) \
+    X(MUS_SE_ASS) \
+    X(MUS_SE_CHOCOLATE_RAIN) \
+    X(MUS_SE_DARK_LLOYD) \
+    X(MUS_SE_FOR) \
+    X(MUS_SE_GAME_OF_THRONES) \
+    X(MUS_SE_KIRBY_PHONE) \
+    X(MUS_SE_MONSTER_MASH) \
+    X(MUS_SE_SONIC_BOOM) \
+    X(MUS_SE_SPACE_JAM)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

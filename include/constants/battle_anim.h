@@ -499,6 +499,19 @@
 #define ANIM_TAG_GYRO                       (ANIM_SPRITES_START + 489)
 #define ANIM_TAG_PANTS_STRING               (ANIM_SPRITES_START + 490)
 #define ANIM_TAG_SECRET_SWORD               (ANIM_SPRITES_START + 491)
+#define ANIM_TAG_MINI_SHORTS                (ANIM_SPRITES_START + 492)
+#define ANIM_TAG_CRUSHER                    (ANIM_SPRITES_START + 493)
+#define ANIM_TAG_FINALE_ONE                 (ANIM_SPRITES_START + 494)
+#define ANIM_TAG_FINALE_TWO                 (ANIM_SPRITES_START + 495)
+#define ANIM_TAG_RAGE_SNOUT                 (ANIM_SPRITES_START + 496)
+#define ANIM_TAG_TOAD                       (ANIM_SPRITES_START + 497)
+#define ANIM_TAG_BULLET_BILL                (ANIM_SPRITES_START + 498)
+#define ANIM_TAG_BAZOOKA                    (ANIM_SPRITES_START + 499)
+#define ANIM_TAG_TRANS_EMBER                (ANIM_SPRITES_START + 500)
+#define ANIM_TAG_FOUR                       (ANIM_SPRITES_START + 501)
+#define ANIM_TAG_MISSILE                    (ANIM_SPRITES_START + 502)
+#define ANIM_TAG_GNOME                      (ANIM_SPRITES_START + 503)
+#define ANIM_TAG_BOOK                       (ANIM_SPRITES_START + 504)
 
 // battlers
 #define ANIM_ATTACKER       0

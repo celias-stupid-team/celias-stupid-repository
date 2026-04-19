@@ -1,6 +1,5 @@
 raw `
-ViridianCity_School_MapScripts::
-	.byte 0
+
 
 ViridianCity_School_EventScript_Lass::
 	lock
@@ -128,3 +127,24 @@ script ViridianCity_School_EventScript_StudyGrades {
 }
 
 
+mapscripts ViridianCity_School_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+	}
+	MAP_SCRIPT_ON_TRANSITION {
+		getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+		if(var(VAR_TEMP_1) == 2) {
+			if(!flag(FLAG_BROKE_INTO_SCHOOL)) {
+				playse(SE_M_STRENGTH)
+			}
+			setflag(FLAG_BROKE_INTO_SCHOOL)
+		}
+		if(flag(FLAG_BROKE_INTO_SCHOOL)) {
+			setmaplayoutindex(LAYOUT_VIRIDIAN_CITY_SCHOOL_LAYOUT_2)
+		}
+	}
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+		VAR_TEMP_1, 2 {
+			turnobject(LOCALID_PLAYER, DIR_EAST)
+		}
+	]
+}

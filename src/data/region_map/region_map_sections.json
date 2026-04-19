@@ -354,7 +354,7 @@
     },
     {
       "id": "MAPSEC_ROUTE_4_POKECENTER",
-      "name": "MT. MOON",
+      "name": "ROUTE 4",
       "x": 8,
       "y": 3,
       "width": 1,
@@ -762,7 +762,7 @@
     },
     {
       "id": "MAPSEC_KINDLE_ROAD",
-      "name": "MT MOON",
+      "name": "MT. MOON",
       "x": 2,
       "y": 3,
       "width": 1,
@@ -970,7 +970,7 @@
     },
     {
       "id": "MAPSEC_BERRY_FOREST",
-      "name": "BERRY FOREST",
+      "name": "PATTERN BUSH",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1050,7 +1050,7 @@
     },
     {
       "id": "MAPSEC_ALTAR_OF_MOONE",
-      "name": "ALTAR OF THE MOON",
+      "name": "MT. MOON",
       "x": 9,
       "y": 1,
       "width": 1,
@@ -1187,6 +1187,54 @@
     {
       "id": "MAPSEC_NATIONAL_PARK",
       "name": "NATIONAL PARK",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_PALLET_GROVE",
+      "name": "LOOKLAND",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_DEBORAH_CLIFF",
+      "name": "DEBORA CLIFF",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_DEPT_STORE_2",
+      "name": "CELADON DEPT.",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CINNABAR_LAB",
+      "name": "CINNABAR LAB",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ALTERING_CAVE",
+      "name": "ALTERING CAVE",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CLEFAIRY_COVE",
+      "name": "MT MOON",
       "x": 0,
       "y": 0,
       "width": 1,

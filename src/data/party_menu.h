@@ -994,7 +994,7 @@ static const u16 sTMHMMoves_Duplicate[] =
     MOVE_STEEL_WING, //dummy for now
     MOVE_BARRAGE,
     MOVE_PAY_DAY,
-    MOVE_SUBMISSION,
+    MOVE_EXTREMESLOTH,
     MOVE_RAIN_DANCE,
     MOVE_WRAP,
     MOVE_RAGE,
@@ -1239,7 +1239,7 @@ static const u16 sTMHMMoves[] =
     MOVE_STEEL_WING, //dummy for now
     MOVE_BARRAGE,
     MOVE_PAY_DAY,
-    MOVE_SUBMISSION,
+    MOVE_EXTREMESLOTH,
     MOVE_RAIN_DANCE,
     MOVE_WRAP,
     MOVE_RAGE,

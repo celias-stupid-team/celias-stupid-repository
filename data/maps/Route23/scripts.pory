@@ -71,11 +71,14 @@ Route23_EventScript_VictoryRoadGateSign::
 `
 mapscripts Route23_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		if(var(VAR_MAP_SCENE_ROUTE23) >= 4 && !(var(VAR_CURRENT_CHAPTER) == 8)) {
+		if(var(VAR_MAP_SCENE_ROUTE23) >= 4 && !(var(VAR_CURRENT_CHAPTER) >= 8)) {
 			setvar(VAR_MAP_SCENE_ROUTE23, 3)
 		}
-		if(!(var(VAR_CURRENT_CHAPTER) == 8)) {
+		if(!(var(VAR_CURRENT_CHAPTER) >= 8)) {
 			setflag(FLAG_TEMP_5)
+		}
+		if(checkmoncaught(SPECIES_MEWTWO)) {
+			setflag(FLAG_TEMP_4)
 		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
@@ -391,17 +394,17 @@ script Route23_EventScript_ThunderBadgeGuardTrigger {
 	lockall
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	setvar (VAR_TEMP_1, 3)
-	if(flag(FLAG_BADGE03_GET)) {
-		msgbox(
-		"You can pass here only if you have\n"
-		"the PHOTOSENSITIVE BADGE.", MSGBOX_DEFAULT)
+	msgbox(
+	"You can pass here only if you have\n"
+	"the POWER BOUNCE BADGE.", MSGBOX_DEFAULT)
+	if(flag(FLAG_CSR_TRADED_WITH_DAZZLE)) {
 		msgbox(
 		"Oh!\n"
-		"That is the PHOTOSENSITIVE BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
+		"That is the POWER BOUNCE BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
 
 		"Okay, then.\n"
 		"Please, go right ahead.", MSGBOX_DEFAULT)
-		if(flag(FLAG_BADGE08_GET)) {
+		if(var(VAR_CURRENT_CHAPTER) >= 8) {
 			setvar(VAR_MAP_SCENE_ROUTE23, 3)
 
 		} else {
@@ -409,27 +412,10 @@ script Route23_EventScript_ThunderBadgeGuardTrigger {
 
 		}
 	} else {
-		msgbox(
-		"You can pass here only if you have\n"
-		"the RAINBOW BADGE.", MSGBOX_DEFAULT)
-		if(flag(FLAG_BADGE04_GET)) {
-				msgbox(
-				"Oh!\n"
-				"That is the RAINBOW BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"
-
-				"Okay, then.\n"
-				"Please, go right ahead.", MSGBOX_DEFAULT)
-				if(flag(FLAG_BADGE08_GET)) {
-					setvar(VAR_MAP_SCENE_ROUTE23, 3)
-
-				} else {
-					setvar(VAR_MAP_SCENE_ROUTE23, 9)
-
-				}
-			}
+		
 			msgbox(
 			"You don't have the\n"
-			"RAINBOW BADGE yet.\p"
+			"POWER BOUNCE BADGE yet.\p"
 
 			"You have to have it to get to\n"
 			"the POKéMON LEAGUE.", MSGBOX_DEFAULT)
@@ -1071,7 +1057,7 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 	))
 	waitmovement(LOCALID_PLAYER)
 	msgbox(
-	"PHOTOSENSITIVE BADGE.\n"
+	"RAINBOW BADGE.\n"
 	"", MSGBOX_DEFAULT)
 	playse(SE_SUCCESS)
 	waitse
@@ -1081,7 +1067,7 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 	))
 	waitmovement(LOCALID_PLAYER)
 	msgbox(
-	"RAINBOW BADGE.\n"
+	"DAD BADGE.\n"
 	"", MSGBOX_DEFAULT)
 	playse(SE_SUCCESS)
 	waitse
@@ -1131,7 +1117,7 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 
 	"Oh!\n"
 	"Right!\p"
-	"{PAUSE 10}DAD BADGE.\n"
+	"{PAUSE 10}GYM MEMBERSHIP.\n"
 	"", MSGBOX_DEFAULT)
 	playse(SE_SUCCESS)
 	waitse
@@ -1142,7 +1128,7 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 	))
 	waitmovement(LOCALID_PLAYER)
 	msgbox(
-	"GYM MEMBERSHIP BADGE.\n"
+	"POWER BOUNCE BADGE.\n"
 	"", MSGBOX_DEFAULT)
 	playse(SE_SUCCESS)
 	waitse
@@ -1387,4 +1373,15 @@ script Route23_EarthBadgeGuard {
 
 	"This stinks!\n"
 	"", MSGBOX_NPC)
+}
+
+
+script Route23_ShortsKid {
+	msgbox(
+	"Hey! I met you in VIRIDIAN CITY!\n"
+	"I've been on a journey since then.\p"
+
+	"Y'know, I'm still open to trading\n"
+	"my RATTATA for a MEWTWO.\l"
+	"Let me know if you want to!", MSGBOX_NPC)
 }

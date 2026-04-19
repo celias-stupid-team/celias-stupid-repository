@@ -388,6 +388,14 @@ u8 TrySetCantSelectMoveBattleScript(void)
         limitations++;
     }
 
+    if (gBattleMoves[move].effect == EFFECT_GIGATON_HAMMER && gLastResultingMoves[gActiveBattler] == move && !(limitations & MOVE_LIMITATION_GIGATON))
+    {
+        gCurrentMove = move;
+        PREPARE_MOVE_BUFFER(gBattleTextBuff1, move);
+        gSelectionBattleScripts[gActiveBattler] = BattleScript_MoveCantSelect;
+        limitations++;
+    }
+
     if (gBattleMons[gActiveBattler].item == ITEM_ENIGMA_BERRY)
         holdEffect = gEnigmaBerries[gActiveBattler].holdEffect;
     else
@@ -449,6 +457,9 @@ u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
             unusableMoves |= gBitTable[i];
         // Choice Band
         if (holdEffect == HOLD_EFFECT_CHOICE_BAND && *choicedMove != MOVE_NONE && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != gBattleMons[battlerId].moves[i])
+            unusableMoves |= gBitTable[i];
+        // Gigaton Hammer; can't be used in succession
+        if (gBattleMoves[gBattleMons[battlerId].moves[i]].effect == EFFECT_GIGATON_HAMMER && gLastResultingMoves[battlerId] == gBattleMons[battlerId].moves[i] && check & MOVE_LIMITATION_GIGATON)
             unusableMoves |= gBitTable[i];
     }
     return unusableMoves;
@@ -1689,7 +1700,7 @@ u8 AtkCanceller_UnableToUseMove(void)
             if (gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION)
             {
                 gBattleScripting.battler = CountTrailingZeroBits((gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION) >> 0x10);
-                if ((Random() % 5) == 0) //lowered infatuation chance sorry wiz
+                if ((Random() % 5) != 0) //lowered infatuation chance sorry wiz
                 {
                     BattleScriptPushCursor();
                 }
@@ -2154,7 +2165,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         gBattleMons[battler].statStages[STAT_ATK]++;
                         gBattleScripting.animArg1 = 14 + STAT_ATK;
                         gBattleScripting.animArg2 = 0;
-                        BattleScriptPushCursorAndCallback(BattleScript_SpeedBoostActivates);
+                        BattleScriptPushCursorAndCallback(BattleScript_BeastBoostActivates);
                         gBattleScripting.battler = battler;
                         effect++;
                     }
@@ -2242,7 +2253,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                     break;
                 case ABILITY_VOLT_ABSORB:
-                    if (moveType == TYPE_ELECTRIC && gBattleMoves[move].power != 0)
+                    if (moveType == TYPE_ELECTRIC)// && gBattleMoves[move].power != 0)
                     {
                         if (gProtectStructs[gBattlerAttacker].notFirstStrike)
                             gBattlescriptCurrInstr = BattleScript_MoveHPDrain;
@@ -4385,9 +4396,29 @@ u8 GetColorChangeDefType(u8 moveType)
 
 static const u16 sTwistedRealityMoves[] =
 {
-    MOVE_SPLASH,
+    //MOVE_SPLASH,
     MOVE_CELEBRATE,
-    MOVE_MEMENTO,
+    //MOVE_MEMENTO,
+    MOVE_SUPERSONIC,
+    MOVE_SECRET_POWER,
+    MOVE_SECRET_POWER,
+    MOVE_SECRET_POWER,
+    MOVE_MIST_BALL,
+    MOVE_UP_DOG,
+    MOVE_EXTREME_EVOBOOST,
+    MOVE_TRY_ATTACK,
+    MOVE_DARK_VOID_SMEARGLE,
+    MOVE_SHROOM_DESIRE,
+    MOVE_LUCKY_PANT,
+    MOVE_P_CREATE,
+    MOVE_FAIL_GLOW,
+    MOVE_LEER,
+    MOVE_HAZE,
+    MOVE_ROUNDEN,
+    MOVE_COTTON_SPORE,
+    MOVE_MEAN_LOOK,
+
+
 };
 
 u16 GetTwistedRealityMove(u8 index)

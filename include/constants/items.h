@@ -560,7 +560,9 @@
 #define ITEM_HDUTYROOT 478
 #define ITEM_RAW_NUGGET 479
 #define ITEM_RIPPED_MEMO 480
-#define ITEMS_COUNT 481
+#define ITEM_ILEXIR 481
+#define ITEM_HYPER_REPEL 482
+#define ITEMS_COUNT 483
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
@@ -580,7 +582,7 @@
 #define SUPER_ROD 2
 
 // Check if the item is one that can be used on a Pokemon.
-#define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX) || (item >= ITEM_CSR_START && item < ITEMS_COUNT) || (item == ITEM_SUPER_SCOPE) || (item == ITEM_SOUL_DEW) || (item == ITEM_RAT_STONE) || (item == ITEM_SCOPE_CREEP))
+#define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX) || (item >= ITEM_CSR_START && item < ITEMS_COUNT) || (item == ITEM_SUPER_SCOPE) || (item == ITEM_SOUL_DEW) || (item == ITEM_RAT_STONE) || (item == ITEM_SCOPE_CREEP)|| (item == ITEM_PREMIER_CANDY))
 // rave - yeah this shit's hacky but we can come up with a more robust solution later
 
 // SDH: Secondary IDs for Poké Balls

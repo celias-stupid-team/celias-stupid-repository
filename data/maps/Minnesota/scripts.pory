@@ -513,6 +513,9 @@ script Minnesota_Bliz {
 		"Well, if he's not busy, I guess\n"
 		"I'll just call him.", MSGBOX_DEFAULT)
 		closemessage
+		delay(20)
+		playse(MUS_SE_KIRBY_PHONE)
+		waitse
 		specialvar(VAR_RESULT, GetPlayerFacingDirection)
 		if(var(VAR_RESULT) == DIR_WEST) {
 			applymovement(LOCALID_PLAYER, moves(
@@ -612,7 +615,7 @@ script Minnesota_Battle {
 		"", MSGBOX_DEFAULT)
 		trainerbattle_no_intro(TRAINER_HAKARI_BLIZ, 
 		
-		"HAKARI: Damn… I guess YOU were\nthe fnuniest little guy all along!\pBLIZ: We have been shown who is\nthe boss…")
+		"HAKARI: Damn… I guess YOU were\nthe funniest little guy all along!\pBLIZ: We have been shown who is\nthe boss…")
 		msgbox(
 		"HAKARI: Well, I already gave you\n"
 		"my secret technique, so here.\l"

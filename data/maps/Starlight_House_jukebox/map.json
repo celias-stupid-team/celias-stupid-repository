@@ -429,8 +429,8 @@
     },
     {
       "type": "sign",
-      "x": 25,
-      "y": 26,
+      "x": 54,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_13"
@@ -781,168 +781,168 @@
     },
     {
       "type": "sign",
-      "x": 23,
-      "y": 26,
+      "x": 52,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_57"
     },
     {
       "type": "sign",
-      "x": 29,
-      "y": 26,
+      "x": 0,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_58"
     },
     {
       "type": "sign",
-      "x": 30,
-      "y": 26,
+      "x": 1,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_59"
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 26,
+      "x": 2,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_60"
     },
     {
       "type": "sign",
-      "x": 32,
-      "y": 26,
+      "x": 3,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_61"
     },
     {
       "type": "sign",
-      "x": 33,
-      "y": 26,
+      "x": 4,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_62"
     },
     {
       "type": "sign",
-      "x": 34,
-      "y": 26,
+      "x": 5,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_63"
     },
     {
       "type": "sign",
-      "x": 35,
-      "y": 26,
+      "x": 6,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_64"
     },
     {
       "type": "sign",
-      "x": 36,
-      "y": 26,
+      "x": 7,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_65"
     },
     {
       "type": "sign",
-      "x": 37,
-      "y": 26,
+      "x": 8,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_66"
     },
     {
       "type": "sign",
-      "x": 38,
-      "y": 26,
+      "x": 9,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_67"
     },
     {
       "type": "sign",
-      "x": 39,
-      "y": 26,
+      "x": 10,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_68"
     },
     {
       "type": "sign",
-      "x": 40,
-      "y": 26,
+      "x": 11,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_69"
     },
     {
       "type": "sign",
-      "x": 41,
-      "y": 26,
+      "x": 12,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_70"
     },
     {
       "type": "sign",
-      "x": 42,
-      "y": 26,
+      "x": 13,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_71"
     },
     {
       "type": "sign",
-      "x": 43,
-      "y": 26,
+      "x": 15,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_72"
     },
     {
       "type": "sign",
-      "x": 44,
-      "y": 26,
+      "x": 10,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_73"
     },
     {
       "type": "sign",
-      "x": 45,
-      "y": 26,
+      "x": 14,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_74"
     },
     {
       "type": "sign",
-      "x": 46,
-      "y": 26,
+      "x": 11,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_75"
     },
     {
       "type": "sign",
-      "x": 47,
-      "y": 26,
+      "x": 12,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_76"
     },
     {
       "type": "sign",
-      "x": 48,
-      "y": 26,
+      "x": 13,
+      "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_77"
@@ -1718,7 +1718,7 @@
     {
       "type": "sign",
       "x": 29,
-      "y": 27,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_175"
@@ -1733,40 +1733,40 @@
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 27,
+      "x": 30,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_177"
     },
     {
       "type": "sign",
-      "x": 32,
-      "y": 27,
+      "x": 31,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_178"
     },
     {
       "type": "sign",
-      "x": 33,
-      "y": 27,
+      "x": 32,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_179"
     },
     {
       "type": "sign",
-      "x": 34,
-      "y": 27,
+      "x": 33,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_180"
     },
     {
       "type": "sign",
-      "x": 24,
-      "y": 26,
+      "x": 53,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_133"

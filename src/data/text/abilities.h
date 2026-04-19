@@ -26,7 +26,7 @@ static const u8 sRoughSkinDescription[] = _("Hurts to touch.");
 static const u8 sWonderGuardDescription[] = _("“Super effective” hits.");
 static const u8 sLevitateDescription[] = _("Not hit by GROUND attacks.");
 static const u8 sEffectSporeDescription[] = _("Leaves spores on contact.");
-static const u8 sSynchronizeDescription[] = _("Passes on status problems.");
+static const u8 sSynchronizeDescription[] = _("Objectively the medium huggable POKéMON");
 static const u8 sClearBodyDescription[] = _("Prevents ability reduction.");
 static const u8 sNaturalCureDescription[] = _("Heals upon switching out.");
 static const u8 sLightningRodDescription[] = _("Draws electrical moves.");
@@ -234,6 +234,11 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_SCHOOLING] = COMPOUND_STRING("Comes in when the TEACHER is sick."),
     [ABILITY_HARVEST] = COMPOUND_STRING("May recycle a used Berry."),
     [ABILITY_POOEY] = COMPOUND_STRING("Yahaha!"),
+    [ABILITY_MATTRESS_TAG] = COMPOUND_STRING("Allows the foe to sleep if it wants."),
+    [ABILITY_FLUFFY] = COMPOUND_STRING("Objectively the most huggable POKéMON"),
+    [ABILITY_SPIKY] = COMPOUND_STRING("Objectively the least huggable POKéMON"),
+
+    
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -384,6 +389,9 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SCHOOLING] = _("SCHOOLING"),
     [ABILITY_HARVEST] = _("HARVEST"),
     [ABILITY_POOEY] = _("POOEY"),
+    [ABILITY_MATTRESS_TAG] = _("{FONT_SMALL}MATTRESS TAG"),
+    [ABILITY_FLUFFY] = _("FLUFFY"),
+    [ABILITY_SPIKY] = _("SPIKY"),
 
     
 };

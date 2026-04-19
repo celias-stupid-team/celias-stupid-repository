@@ -104,6 +104,7 @@ bool8 MetatileBehavior_IsDaisy(u8 metatileBehavior);
 bool8 MetatileBehavior_IsShitWall(u8 metatileBehavior);
 bool8 MetatileBehavior_IsPokeMartShelf(u8 metatileBehavior);
 bool8 MetatileBehavior_IsWalMartShelf(u8 metatileBehavior);
+bool8 MetatileBehavior_IsBrockRock(u8 metatileBehavior);
 bool8 MetatileBehavior_IsPlayerFacingPokemonCenterSign(u8 metatileBehavior, u8 playerDirection);
 bool8 MetatileBehavior_IsPlayerFacingPokeMartSign(u8 metatileBehavior, u8 playerDirection);
 bool8 TestMetatileAttributeBit(u8 attr, u8 bitmask);

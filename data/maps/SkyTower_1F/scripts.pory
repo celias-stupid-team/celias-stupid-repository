@@ -638,7 +638,7 @@ script SkyTower_OranBerryGuy {
 
 script SkyTower_FroslassScene {
 	lock
-	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
 	applymovement(LOCALID_SKY_TOWER_FROSLASS, moves(
 		emote_exclamation_mark
 		delay_16 * 4

@@ -729,7 +729,7 @@ static void BagListMenuItemPrintFunc(u8 windowId, u32 itemId, u8 y)
         if (((gBagMenuState.pocket != POCKET_KEY_ITEMS - 1 ) && ItemId_GetImportance(bagItemId) == 0)
         || bagItemId == ITEM_ODD_CANDY 
         || bagItemId == ITEM_BRICK_PIECE 
-        || bagItemId == ITEM_BIKE_VOUCHER 
+        || (bagItemId == ITEM_BIKE_VOUCHER && bagItemQuantity > 1)
         || (bagItemId == ITEM_NOTHING && bagItemQuantity > 1))
         {
             ConvertIntToDecimalStringN(gStringVar1, bagItemQuantity, STR_CONV_MODE_RIGHT_ALIGN, 3);

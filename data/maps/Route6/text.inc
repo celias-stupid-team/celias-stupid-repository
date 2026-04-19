@@ -1,8 +1,7 @@
 Route6_Text_RickyIntro::
     .string "Whisper…\p"
     .string "This POKéMON leaked early!\n"
-    .string "It's gonna be in the new game!\p"
-    .string "…Huh? Hey, stop eavesdropping!$"
+    .string "It's gonna be in the new game!$"
 
 Route6_Text_RickyDefeat::
     .string "I just can't win!$"
@@ -17,8 +16,8 @@ Route6_Text_NancyIntro::
     .string "be able to evolve!$"
 
 Route6_Text_NancyDefeat::
-    .string "Ugh!\n"
-    .string "I hate losing.$"
+	.string "Aww, I'm so excited for it…\n$"
+
 
 Route6_Text_NancyPostBattle::
     .string "Whisper…\p"
@@ -32,7 +31,8 @@ Route6_Text_KeigoIntro::
     .string "I think I'm doing something wrong.$"
 
 Route6_Text_KeigoDefeat::
-    .string "You're too good!$"
+	.string "Dangit!\n"
+	.string "Maybe I need just one more level…$"
 
 Route6_Text_KeigoPostBattle::
     .string "Are my POKéMON WEAK?\n"

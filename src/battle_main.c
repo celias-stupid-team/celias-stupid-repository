@@ -1595,6 +1595,17 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 u32 hp = 0;
                 SetMonData(&party[i], MON_DATA_HP, &hp);
             }
+
+            if (gTrainerBattleOpponent_A == TRAINER_HAKARI_BLIZ)
+            {
+                // requires to recalc EXP to set the level accordingly
+                u32 level = GetPlayerPartyHighestLevel();
+                u16 species = GetMonData(&party[i], MON_DATA_SPECIES, NULL);
+                u32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+
+                SetMonData(&party[i], MON_DATA_EXP, &exp);
+                CalculateMonStats(&party[i]);
+            }
         }
 
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
@@ -3397,7 +3408,10 @@ static void HandleTurnActionSelectionState(void)
                             gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT;
                             *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
                             gBattleBufferB[gActiveBattler][1] = 0;
-                            *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_WAIT_ACTION_CHOSEN;
+                            if (gSelectionBattleScripts[gActiveBattler] == BattleScript_MoveCantSelect)
+                                *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
+                            else
+                                *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_WAIT_ACTION_CHOSEN;
                             return;
                         }
                         else

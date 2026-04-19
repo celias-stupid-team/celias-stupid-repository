@@ -46,6 +46,9 @@ mapscripts PokemonMansion_B1F_MapScripts {
 			release
 		}
 	]
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_WORLD_MAP_POKEMON_MANSION_1F)
+	}
 }
 
 script PokemonMansion_Regice {
