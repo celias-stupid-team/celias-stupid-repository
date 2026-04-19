@@ -18,10 +18,12 @@ MAP_SCRIPT_ON_TRANSITION {
 script Starlight_House3_Commentary_Rusty {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"I am surprised Celia never made any\n"
-	"references to Pokemon Rusty.\p"
-	"either way I wanted to put this\n"
-	"reference in lol.", MSGBOX_NPC)
+	"I was surprised this game had no\n"
+	"references to the YouTube show\l"
+	"Pokemon Rusty.\p"
+
+	"So I added one in lol.\n"
+	"", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Cutscene {
@@ -29,23 +31,19 @@ script Starlight_House3_Commentary_Cutscene {
 	msgbox(
 	"This was my first ever attempt at\n"
 	"scripting a cutscene and I had some\l"
-	"fun doing it! I caught on to it\l"
-	"pretty quick because I had some\l"
-	"experience with scripting\l"
-	"cutscenes in SkyTemple, which is\l"
-	"romhacking for Pokemon Mystery\l"
-	"Dungeon Explorers of Sky.", MSGBOX_NPC)
+	"fun doing it! It reminds me of\l"
+	"SkyTemple Cutscene Scripting", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Frame {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"This framed DMCA joke was actually\n"
-	"inspired by something Celia said.\l"
+	"inspired by something Celia said.\p"
 	"I one time asked her what would she\l"
-	"do if she received a cease and\l"
+	"do if she ever received a cease and\l"
 	"desist letter from Nintendo asking\l"
-	"to take the Romhack down.\l"
+	"to take the Romhack down?\p"
 	"She answered with:\l"
 	"If I get a C&D from Nintendo I'm\l"
 	"framing it on my wall", MSGBOX_NPC)
@@ -54,18 +52,23 @@ script Starlight_House3_Commentary_Frame {
 script Starlight_House3_Commentary_Map_Table {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Idk why I added this table, I\n"
-	"thought it would be kinda cool.", MSGBOX_NPC)
+	"Idk why I added this table.\p"
+
+	"I thought it would be kind of cool\n"
+	"to put the town map onto a map\l"
+	"itself.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_For_Outside {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Celia didn't want me to put any map\n"
-	"commentary out there so I feel in\l"
-	"here is kind of a way to talk\l"
-	"about a few things from other maps\l"
-	"during my experience making them.", MSGBOX_NPC)
+	"I didn't want to put commentary of\n"
+	"my own out in the world because\l"
+	"that is Celia's thing.\p"
+
+	"So I am using this table as an\n"
+	"opportunity to talk about\l"
+	"stuff in different maps!", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Minnesota {
@@ -82,22 +85,14 @@ script Starlight_House3_Commentary_Minnesota {
 script Starlight_House3_Commentary_Porygons {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Did you know I hid two Porygons on\n"
-	"the Pokemon Island? It was the\l"
-	"original method for obtaining the\l"
-	"shiny, but that was changed.\p"
-	"If you've played Pokemon Snap you\n"
-	"might know where to look!", MSGBOX_NPC)
-}
+	"Did you know I hid 2 porygons\n"
+	"within the map tiles? It was going\l"
+	"to be the original method for the\l"
+	"shiny.\p"
 
-script Starlight_House3_Commentary_Four_Island {
-    textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox(
-	"Four Island was kind of fun to\n"
-	"make. There's also a fun little\l"
-	"flavored text I had the idea for\l"
-	"if you attempt to talk to a\l"
-	"certain npc.", MSGBOX_NPC)
+	"You can still find them! If you've\n"
+	"played the original Pokemon Snap\l"
+	"you might know where to look.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Cinnabar {
@@ -110,20 +105,13 @@ script Starlight_House3_Commentary_Cinnabar {
 	"boulders that flew across the map.", MSGBOX_NPC)
 }
 
-script Starlight_House3_Commentary_Fence_Maze {
+script Starlight_House3_Commentary_Thirty_Eight {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Thirty Eight Island was tough.\p"
-	"The Water maze above though I am\n"
-	"proud of that idea. It started\l"
-	"with Celia wanting me to decorate\l"
-	"the Great Sea and gave some ideas\l"
-	"for decoration.\p"
-	"One of the ideas was to place\n"
-	"random fence islands around,\l"
-	"then I had the idea to make an\l"
-	"exact replica of the fence maze\l"
-	"above but in the water.", MSGBOX_NPC)
+	"Thirty Eight Island used to be\n"
+	"to scale of the Johto route but I\l"
+	"had to shrink it down slightly\l"
+	"around 3 times for convenience.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Favorite_Maps {
@@ -137,43 +125,50 @@ script Starlight_House3_Commentary_Favorite_Maps {
 script Starlight_House3_Commentary_Sky_Tower {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Sky Tower extending beyond Yes\n"
-	"was my first ever idea when I\l"
-	"became Celia's map designer.\p"
-	"Literally within minutes of using\n"
-	"Porymaps for her hack for the first\l"
-	"time, I was screwing around and\l"
-	"made that tower like that and\l"
-	"thought it was funny so we kept it.", MSGBOX_NPC)
+	"Sky Tower Extending beyond Yes was\n"
+	"my idea and the first thing I ever\l"
+	"did when I joined the dev team. I\l"
+	"was screwing around and Celia\l"
+	"liked the idea.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Dak {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"This is Dak.\n"
-	"He is my Irl friend of 25 years\l"
-	"so I wanted to honor him\l"
-	"by putting him in this hack as\l"
-	"a small cameo.\p"
+	"This is Dak.\p"
 
-	"I also am hoping that putting him\n"
-	"in here will get him to try this\l"
-	"romhack lol.\l"
-	"He loves Yugioh, AVGN, Pokemon\l"
-	"FireRed, humerous Romhacks,\l"
-	"and so on.", MSGBOX_NPC)
+	"We've been irl friends for over\n"
+	"25 years.\p"
+
+	"I needed a second character for the\n"
+	"map house and was hoping putting\l"
+	"him in this hack will get him to\l"
+	"play it lol.", MSGBOX_NPC)
 }
 
 //main room
 
-script Script_Name {
-    textcolor(NPC_TEXT_COLOR_FEMALE)
+script Starlight_House_Commentary_Dev {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Hi!\p"
+	"Celia offered me a chance to share\n"
+	"any dev commentary here so I did!\p"
 
-	"Celia suggested I put in some\n"
-	"commentary here if I wanted to so\l"
-	"I did!", MSGBOX_NPC)
+	"Some of it is for this house, some\n"
+	"of it is for development overall.", MSGBOX_NPC)
+}
+
+script Starlight_House_Commentary_Good_As_Celia {
+	msgbox(
+	"When it comes to gameplay pacing\n"
+	"and design, Celia is way better\l"
+	"than me. I hope to be as good as her\l"
+	"someday!\p"
+
+	"I am proud of a few ideas, like the\n"
+	"Gender Fluid item, Water Maze, Lass\l"
+	"looping around the map bit, Pit\l"
+	"Island, and more.", MSGBOX_NPC)
 }
 
 

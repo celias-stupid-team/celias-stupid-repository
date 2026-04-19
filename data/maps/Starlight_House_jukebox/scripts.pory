@@ -17,24 +17,19 @@ MAP_SCRIPT_ON_TRANSITION {
 
 script Starlight_Jukebox_Notice {
 	msgbox(
-	"Hi!\p"
-	"Idk how you managed find this place\n"
-	"given I hid it behind a wall...\p"
-	"But congrats on finding it!\p"
-	"This was supposed to be the\n"
-	"original jukebox.\l"
-	"I spent a long time making it!\l"
-	"I was hopped up on my ADHD\l"
-	"hyperfixation one night and\l"
-	"spent 11 hours making this lol.\l"
-	"But we ended up scrapping this map.\l"
-	"To my mistake I didn't consider\l"
-	"the fact we can make a single\l"
-	"jukebox object with a list of all\l"
-	"of the songs for convenience.\p"
-	"Even though you have the Jukebox\n"
-	"upstairs, you can still use this\l"
-	"room if you'd like!", MSGBOX_NPC)
+	"Hello! Idk how you managed to\n"
+	"figure out this little secret room\l"
+	"given I hid it behind a wall but\l"
+	"congrats!\p"
+
+	"This was my attempt as a Jukebox\n"
+	"but we felt a room wasn't ideal for\l"
+	"this kind of thing so it was\l"
+	"scrapped.\p"
+
+	"It was never finished so excuse\n"
+	"anything that's buggy, but enjoy\l"
+	"it I guess lol.", MSGBOX_NPC)
 }
 
 
