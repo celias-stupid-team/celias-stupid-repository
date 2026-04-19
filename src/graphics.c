@@ -619,6 +619,9 @@ const u32 gBattleAnimSpritePal_Bazooka[] = INCBIN_U32("graphics/battle_anims/spr
 const u32 gBattleAnimSpriteGfx_TransEmber[] = INCBIN_U32("graphics/battle_anims/sprites/trans_ember.4bpp.lz");
 const u32 gBattleAnimSpritePal_TransEmber[] = INCBIN_U32("graphics/battle_anims/sprites/trans_ember.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Four[] = INCBIN_U32("graphics/battle_anims/sprites/four.4bpp.lz");
+const u32 gBattleAnimSpritePal_Four[] = INCBIN_U32("graphics/battle_anims/sprites/four.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

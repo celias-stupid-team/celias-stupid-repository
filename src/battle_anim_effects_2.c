@@ -656,6 +656,17 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gFourSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FOUR,
+    .paletteTag = ANIM_TAG_FOUR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sKnitShortsAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 15),

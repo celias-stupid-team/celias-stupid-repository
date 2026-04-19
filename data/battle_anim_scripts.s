@@ -2070,6 +2070,7 @@ Move_SONIC_BOOM:
 	monbg ANIM_DEF_PARTNER
 	splitbgprio ANIM_TARGET
 	setalpha 12, 8
+	playse MUS_SE_SONIC_BOOM
 	call SonicBoomProjectile
 	call SonicBoomProjectile
 	call SonicBoomProjectile
@@ -2555,7 +2556,8 @@ Move_SLAM:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_ATTACKER
+	playse MUS_SE_SPACE_JAM
+	delay 50
 	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, 3, 0, 4
 	delay 1
 	createsprite gSlamHitSpriteTemplate, ANIM_ATTACKER, 2, 0, 0
@@ -11325,10 +11327,10 @@ Move_MONSTER_MASH:
 	loadspritegfx ANIM_TAG_GOLD_STARS
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
-	panse SE_M_BARRIER, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +3, 0
 	fadetobg BG_GHOST
 	waitbgfadein
 	waitforvisualfinish
+	playse MUS_SE_MONSTER_MASH
 	createsprite gMeteorMashStarSpriteTemplate, ANIM_TARGET, 3, -48, -64, 72, 32, 30
 	delay 10
 	createsprite gMeteorMashStarSpriteTemplate, ANIM_TARGET, 3, -112, -64, 8, 32, 30
@@ -18229,20 +18231,89 @@ Move_MUD_SPOUT:
 
 
 Move_FOURSIGHT:
-	@Tackle
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_MAGNIFYING_GLASS
+	loadspritegfx ANIM_TAG_FOUR
+	loadspritegfx ANIM_TAG_CONFETTI
+	loadspritegfx ANIM_TAG_TAG_HAND
+	createsprite gForesightMagnifyingGlassSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET
+	delay 1
+	loopsewithpan SE_M_SKETCH, SOUND_PAN_TARGET, 16, 4
+	delay 48
+	delay 24
+	playsewithpan SE_M_SKETCH, SOUND_PAN_TARGET
+	createsprite gFourSpriteTemplate, ANIM_TARGET, 2, 0, 40, 0, -4, 10, 226, 0, 1
+	delay 10
+	playsewithpan MUS_SE_FOR, SOUND_PAN_TARGET
+	delay 20
+	createvisualtask AnimTask_RockMonBackAndForth, 3, ANIM_ATTACKER, 6, 2
+	createsprite gClappingHandSpriteTemplate, ANIM_ATTACKER, 2, -2, 0, 0, 0, 9
+	createsprite gClappingHandSpriteTemplate, ANIM_ATTACKER, 2, 2, 0, 1, 0, 9
+	delay 16
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_ENCORE2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_RockMonBackAndForth, 3, ANIM_TARGET, 6, 2
+	delay 50
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_FLATTER, SOUND_PAN_ATTACKER
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	delay 30
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	delay 30
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
 	end
-
 
 Move_STEEL_WANG:
 	loadspritegfx ANIM_TAG_IMPACT
@@ -27450,6 +27521,7 @@ Move_DARK_LLOYD:
 	createsprite gDarkLloydBottomSpriteTemplate, 2, 0, 210, 96, 10, 2, RGB_BLACK, 1, 100
 	delay 20
 	playse SE_M_FAINT_ATTACK
+	@MUS_SE_DARK_LLOYD
 	delay 50
 	
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_SMALL_BUBBLES, 0, 4, 4, RGB(12, 11, 31)
@@ -30305,6 +30377,7 @@ Move_CHOCOLATE_RAIN:
 	playsewithpan SE_M_RAIN_DANCE, SOUND_PAN_ATTACKER
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 2, 0, 4, RGB_BLACK
 	waitforvisualfinish
+	playse MUS_SE_CHOCOLATE_RAIN
 	createvisualtask AnimTask_CreateChocolateRaindrops, 2, 0, 3, 120
 	createvisualtask AnimTask_CreateChocolateRaindrops, 2, 0, 3, 120
 	delay 120
@@ -30660,7 +30733,7 @@ Move_ASS:
 	loadspritegfx ANIM_TAG_HONG_KONG_BULLET
 	fadetobg BG_COKE
 	waitbgfadein
-
+	playse MUS_SE_ASS
 	createsprite gHongKongRunSpriteTemplate, ANIM_ATTACKER, 2, -16, 80, 2, 0, 136, 0, 0, 2
 	delay 96
 	createvisualtask SoundTask_PlaySpecificCry, 2, 78
@@ -30685,9 +30758,10 @@ Move_HBO_MAX_FINALE:
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
 	createvisualtask AnimTask_AttackerFadeToInvisible, 5, 0
 	waitforvisualfinish
-	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_ENCORE2, SOUND_PAN_TARGET
 	createsprite gHBOMaxFinaleOneSpriteTemplate, ANIM_ATTACKER, 2, 0, 4, 0, 76, 76
-	delay 73
+	delay 20
+	playse MUS_SE_GAME_OF_THRONES
+	delay 53
 	createsprite gHBOMaxFinaleTwoSpriteTemplate, ANIM_ATTACKER, 2, 0, 4, 0, 76, 76
 	waitforvisualfinish
 	delay 40
@@ -30708,8 +30782,52 @@ Move_HBO_MAX_FINALE:
 Move_BAG:
 Move_FUCK:
 Move_DRUG:
-Move_RAGING_BULLWORM:
 	goto Move_TACKLE
+
+Move_RAGING_BULLWORM:
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_ANGER
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_ATTACKER, 1, 0, 15, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 3, 0, 9, RGB_RED
+	waitforvisualfinish
+	playse MUS_SE_ALASKAN_BULL_WORM
+	delay 20
+	playsewithpan SE_M_SWAGGER2, SOUND_PAN_ATTACKER
+	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, -28
+	waitforvisualfinish
+	playsewithpan SE_M_SWAGGER2, SOUND_PAN_ATTACKER
+	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, -28
+	waitforvisualfinish
+	delay 10
+	createvisualtask AnimTask_SwayMon, 5, 0, 16, 6144, 8, ANIM_ATTACKER
+	delay 5
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 4, 0, 30, 1
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 0
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	delay 5
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 24, 8, ANIM_TARGET, 0
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	delay 5
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, -24, -16, ANIM_TARGET, 0
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	delay 5
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 8, 4, ANIM_TARGET, 0
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	delay 5
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, -16, 19, ANIM_TARGET, 0
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	delay 5
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 18, -18, ANIM_TARGET, 0
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 3, 9, 0, RGB_RED
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
 
 Move_PSI_ROCKIN:
 	loadspritegfx ANIM_TAG_PSI_ROCKIN_ONE

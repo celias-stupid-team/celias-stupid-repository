@@ -1297,7 +1297,7 @@ const struct SpriteTemplate gForesightMagnifyingGlassSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MAGNIFYING_GLASS,
     .paletteTag = ANIM_TAG_MAGNIFYING_GLASS,
-    .oam = &gOamData_AffineOff_ObjBlend_32x32,
+    .oam = &gOamData_MagnifyingGlass,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,

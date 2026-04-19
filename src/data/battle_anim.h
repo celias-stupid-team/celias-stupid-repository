@@ -588,6 +588,20 @@ const struct OamData gOamData_AffineOff_ObjBlend_32x32 =
     .paletteNum = 0,
 };
 
+const struct OamData gOamData_MagnifyingGlass =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_BLEND,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+};
+
 const struct OamData gOamData_AffineOff_ObjBlend_64x64 =
 {
     .y = 0,
@@ -1568,6 +1582,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_BulletBill, 0x0400, ANIM_TAG_BULLET_BILL},
     {gBattleAnimSpriteGfx_Bazooka, 0x0800, ANIM_TAG_BAZOOKA},
     {gBattleAnimSpriteGfx_TransEmber, 0x0A00, ANIM_TAG_TRANS_EMBER},
+    {gBattleAnimSpriteGfx_Four, 0x0200, ANIM_TAG_FOUR},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2073,6 +2088,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_BulletBill, ANIM_TAG_BULLET_BILL},
     {gBattleAnimSpritePal_Bazooka, ANIM_TAG_BAZOOKA},
     {gBattleAnimSpritePal_TransEmber, ANIM_TAG_TRANS_EMBER},
+    {gBattleAnimSpritePal_Four, ANIM_TAG_FOUR},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

@@ -508,6 +508,7 @@
 #define ANIM_TAG_BULLET_BILL                (ANIM_SPRITES_START + 498)
 #define ANIM_TAG_BAZOOKA                    (ANIM_SPRITES_START + 499)
 #define ANIM_TAG_TRANS_EMBER                (ANIM_SPRITES_START + 500)
+#define ANIM_TAG_FOUR                       (ANIM_SPRITES_START + 501)
 
 // battlers
 #define ANIM_ATTACKER       0
