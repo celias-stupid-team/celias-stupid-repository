@@ -6200,7 +6200,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_G_MAX_CUDDLE] =    {
         .effect = EFFECT_G_MAX_CUDDLE,
-        .power = 210,
+        .power = 250,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,

@@ -19931,7 +19931,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_INKAY] =
     {
-        .baseHP = 86,
+        .baseHP = 200,
         .baseAttack = 1,
         .baseDefense = 1,
         .baseSpeed = 1,
@@ -19960,7 +19960,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_MALAMAR] =
     {
-        .baseHP = 86,
+        .baseHP = 200,
         .baseAttack = 50,
         .baseDefense = 255,
         .baseSpeed = 73,
