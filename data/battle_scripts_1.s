@@ -308,6 +308,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_End                     	 @ EFFECT_BAG
 	.4byte BattleScript_End                  		 @ EFFECT_CANCEL
 	.4byte BattleScript_EffectEncoreBoth             @ EFFECT_ENCORE_BOTH
+	.4byte BattleScript_EffectGrinMissile            @ EFFECT_GRIN_MISSILE
 
 BattleScript_End::
 	end
@@ -6486,5 +6487,34 @@ BattleScript_GregoryBlastSecondTurn::
 BattleScript_GregoryBlastKOFail::
 	pause B_WAIT_TIME_LONG
 	printfromtable gKOFailedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectGrinMissile::
+	setstatchanger STAT_ATK, 1, TRUE
+	@ copied from BattleScript_EffectStatDown
+	attackcanceler
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailedAtkStringPpReduce
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_GrinMissileEscapeCheck @ continue with Escape handling if stat reduction fails
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_GrinMissileStatAnim
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_GrinMissileEscapeCheck
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_GrinMissileStatPrint
+BattleScript_GrinMissileStatAnim::
+	attackanimation
+	waitanimation
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript_GrinMissileStatPrint::
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_GrinMissileEscapeCheck::
+	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_MoveEnd
+	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
+	seteffectprimary
+	printstring STRINGID_TARGETCANTESCAPENOW
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
