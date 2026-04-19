@@ -1263,6 +1263,123 @@ const struct SpriteTemplate gMissingnoRhydonSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sCooltrainerFullAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(7, 4),
+    ANIMCMD_FRAME(12, 2),
+    ANIMCMD_FRAME(19, 1),
+    ANIMCMD_FRAME(2, 3),
+    ANIMCMD_FRAME(31, 4),
+    ANIMCMD_FRAME(45, 8),
+    ANIMCMD_FRAME(23, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sCooltrainerFullAnimTable[] =
+{
+    sCooltrainerFullAnimCmds,
+};
+
+const struct SpriteTemplate gCooltrainerFullSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_COOLTRAINER,
+    .paletteTag = ANIM_TAG_COOLTRAINER,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sCooltrainerFullAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sCooltrainerSegmentedTL[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(1, 2),
+    ANIMCMD_FRAME(2, 2),
+    ANIMCMD_FRAME(3, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sCooltrainerSegmentedTR[] =
+{
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(17, 2),
+    ANIMCMD_FRAME(18, 2),
+    ANIMCMD_FRAME(19, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sCooltrainerSegmentedBL[] =
+{
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(33, 2),
+    ANIMCMD_FRAME(34, 2),
+    ANIMCMD_FRAME(35, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sCooltrainerSegmentedBR[] =
+{
+    ANIMCMD_FRAME(48, 2),
+    ANIMCMD_FRAME(49, 2),
+    ANIMCMD_FRAME(50, 2),
+    ANIMCMD_FRAME(51, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sCooltrainerSegmentedAnimTable[] =
+{
+    sCooltrainerSegmentedTL,
+    sCooltrainerSegmentedTR,
+    sCooltrainerSegmentedBL,
+    sCooltrainerSegmentedBR,
+};
+
+const struct SpriteTemplate gCooltrainerSegmentedTLSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_COOLTRAINER,
+    .paletteTag = ANIM_TAG_COOLTRAINER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sCooltrainerSegmentedAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gCooltrainerSegmentedTRSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_COOLTRAINER,
+    .paletteTag = ANIM_TAG_COOLTRAINER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sCooltrainerSegmentedAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gCooltrainerSegmentedBLSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_COOLTRAINER,
+    .paletteTag = ANIM_TAG_COOLTRAINER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sCooltrainerSegmentedAnimTable[2],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gCooltrainerSegmentedBRSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_COOLTRAINER,
+    .paletteTag = ANIM_TAG_COOLTRAINER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sCooltrainerSegmentedAnimTable[3],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gFemaleLiftSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FEMALE,
@@ -3639,30 +3756,54 @@ const struct SpriteTemplate gPSIRockinTwoSpriteTemplate =
     .callback = AnimPSIRockin,
 };
 
-static const union AnimCmd sAnim_HBOMaxFinale[] =
+static const union AnimCmd sAnim_HBOMaxFinaleOne[] =
 {
-    ANIMCMD_FRAME(0, 10),
-    ANIMCMD_FRAME(16, 10),
-    ANIMCMD_FRAME(32, 10),
-    ANIMCMD_FRAME(48, 10),
-    ANIMCMD_FRAME(64, 10),
-    ANIMCMD_FRAME(80, 10),
-    ANIMCMD_FRAME(96, 10),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_FRAME(48, 8),
+    ANIMCMD_FRAME(64, 8),
+    ANIMCMD_FRAME(80, 8),
+    ANIMCMD_FRAME(96, 8),
+    ANIMCMD_FRAME(112, 8),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_HBOMaxFinaleTwo[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_FRAME(48, 8),
+    ANIMCMD_FRAME(64, 8),
+    ANIMCMD_FRAME(80, 8),
+    ANIMCMD_FRAME(96, 8),
     ANIMCMD_FRAME(112, 20),
     ANIMCMD_END,
 };
 
 static const union AnimCmd *const sAnims_HBOMaxFinale[] =
 {
-    sAnim_HBOMaxFinale,
+    sAnim_HBOMaxFinaleOne,
+    sAnim_HBOMaxFinaleTwo,
 };
 
-const struct SpriteTemplate gHBOMaxFinaleSpriteTemplate =
+const struct SpriteTemplate gHBOMaxFinaleOneSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_FINALE,
-    .paletteTag = ANIM_TAG_FINALE,
+    .tileTag = ANIM_TAG_FINALE_ONE,
+    .paletteTag = ANIM_TAG_FINALE_ONE,
     .oam = &gOamData_AffineDouble_ObjNormal_32x32,
-    .anims = sAnims_HBOMaxFinale,
+    .anims = &sAnims_HBOMaxFinale[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHBOMaxFinale,
+};
+
+const struct SpriteTemplate gHBOMaxFinaleTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FINALE_TWO,
+    .paletteTag = ANIM_TAG_FINALE_TWO,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = &sAnims_HBOMaxFinale[1],
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimHBOMaxFinale,

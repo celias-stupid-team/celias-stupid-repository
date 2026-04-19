@@ -20738,8 +20738,38 @@ Move_RHYDON:
 	waitforvisualfinish
 	end
 	
+Move_COOLTRAINER_M:
 Move_COOLTRAINERM:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_WHIP_HIT
+	loadspritegfx ANIM_TAG_COOLTRAINER
+	playsewithpan SE_TRUCK_STOP, SOUND_PAN_TARGET
+	createsprite gCooltrainerFullSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, 0, 0, 0, 53, 0, 1
+	delay 30
+	playsewithpan SE_SELECT, SOUND_PAN_TARGET
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	delay 6
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	waitforvisualfinish
+	playsewithpan SE_SS_ANNE_HORN, SOUND_PAN_TARGET
+	createsprite gCooltrainerSegmentedTLSpriteTemplate, ANIM_ATTACKER, 1, -16, -16, -1, 0, 60, 0, 0, 1
+	createsprite gCooltrainerSegmentedTRSpriteTemplate, ANIM_ATTACKER, 1, 16, -16, 1, -1, 60, 0, 0, 1
+	createsprite gCooltrainerSegmentedBLSpriteTemplate, ANIM_ATTACKER, 1, -16, 16, 0, 1, 60, 0, 0, 1
+	createsprite gCooltrainerSegmentedBRSpriteTemplate, ANIM_ATTACKER, 1, 16, 16, 0, 0, 45, 0, 0, 1
+	delay 43
+	createsprite gCooltrainerSegmentedBRSpriteTemplate, ANIM_ATTACKER, 1, 16, 16, 8, 4, 15, 0, 0, 1
+	waitforvisualfinish
+	loadspritegfx ANIM_TAG_WHIP_HIT
+	playsewithpan SE_ROTATING_GATE, SOUND_PAN_ATTACKER
+	delay 6
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	playsewithpan SE_VEND, SOUND_PAN_TARGET
+	createsprite gGlitchWhipSpriteTemplate, ANIM_TARGET, 2, 0, 0
+	delay 6
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	playsewithpan SE_DEOXYS_MOVE, SOUND_PAN_TARGET
+	createvisualtask AnimTask_Glitch, 2, 20
+	waitforvisualfinish
+	end
 	
 Move_TMTRAINER:
 	goto Move_TACKLE
@@ -24273,8 +24303,6 @@ Move_CANCEL:
 Move_NOTHING:
 	delay 120
 	end
-Move_COOLTRAINER_M:
-	goto Move_TACKLE
 	
 Move_MAIL_SLAP:
 	loadspritegfx ANIM_TAG_ENVELOPE
@@ -30537,13 +30565,16 @@ Move_ASS:
 
 Move_HBO_MAX_FINALE:
 	loadspritegfx ANIM_TAG_ANGER
-	loadspritegfx ANIM_TAG_FINALE
+	loadspritegfx ANIM_TAG_FINALE_ONE
+	loadspritegfx ANIM_TAG_FINALE_TWO
 	monbg ANIM_ATTACKER
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
 	createvisualtask AnimTask_AttackerFadeToInvisible, 5, 0
 	waitforvisualfinish
 	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_ENCORE2, SOUND_PAN_TARGET
-	createsprite gHBOMaxFinaleSpriteTemplate, ANIM_ATTACKER, 2, 0, 4, 0, 90, 90
+	createsprite gHBOMaxFinaleOneSpriteTemplate, ANIM_ATTACKER, 2, 0, 4, 0, 76, 76
+	delay 73
+	createsprite gHBOMaxFinaleTwoSpriteTemplate, ANIM_ATTACKER, 2, 0, 4, 0, 76, 76
 	waitforvisualfinish
 	delay 40
 	createsprite gAngerMarkSpriteTemplate, ANIM_TARGET, 2, 1, -20, -28

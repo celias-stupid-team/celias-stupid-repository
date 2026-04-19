@@ -1088,7 +1088,7 @@ const u8 gMoveDescription_Earf[] = _("(earth power\nplus surf)");
 const u8 gMoveDescription_AquaJet[] = _("Dummy");
 
 const u8 gMoveDescription_CometPunch2[] = _("Damn, looks like\nhe only learned\nit twice.");
-const u8 gMoveDescription_HboMaxFinale[] = _("The user cannot\nbelieve how bad\nthe GAME OF\nTHRONES ending is");
+const u8 gMoveDescription_HboMaxFinale[] = _("The target cannot\nbelieve how bad\nthe GAME OF\nTHRONES ending is");
 const u8 gMoveDescription_MaxStonesurge[] = _("They say that\nSTONEHENGE was\ncreated 50\njillion years ago");
 const u8 gMoveDescription_AcidRain[] = _("The user performs\nthe move PURSUIT\nduring Gen 4 while\nweather is up.");
 const u8 gMoveDescription_Ass[] = _("AAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAASS!");
