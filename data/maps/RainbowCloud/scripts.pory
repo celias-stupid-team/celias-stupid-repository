@@ -80,7 +80,7 @@ script RainbowCloud_FindTheShinies {
 		
 		buffernumberstring(STR_VAR_3, VAR_0x8006)
 		msgbox(
-		"PROGRESS:{PAUSE 30}\n"
+		"DISCOVERED:{PAUSE 30}\n"
 		"{STR_VAR_3}/150", MSGBOX_DEFAULT)
 		if(var(VAR_0x8006) >= 150) {
 			fadenewbgm(MUS_NONE)
