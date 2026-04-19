@@ -1053,6 +1053,7 @@ script EventScript_CutTreeElm {
 	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
 	buffermovename(STR_VAR_2, MOVE_CUT)
 	msgbox("ELM: Hi there, {PLAYER}! My name\nis...\pELM: W-wait! No!\nStop, please!", MSGBOX_YESNO)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	goto_if_eq(VAR_RESULT, NO, EventScript_DontCutTree)
 	msgbox(Text_MonUsedMove)
 	closemessage

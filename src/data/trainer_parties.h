@@ -2538,12 +2538,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BeautyBridget[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_BeautyTamia[] = {
     {
         .iv = 0,
-        .lvl = 22,
+        .lvl = 18,
         .species = SPECIES_NIDORINA,
     },
     {
         .iv = 0,
-        .lvl = 22,
+        .lvl = 18,
         .species = SPECIES_NIDORINO,
     },
 };

@@ -30369,8 +30369,8 @@ Move_BOTTOM_SURGERY:
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 5, 1
 	delay 10
-	call BleedTarget
-	delay 30
+	@ call BleedTarget
+	@ delay 30
 	playsewithpan SE_M_NIGHTMARE, SOUND_PAN_TARGET
 	createsprite gFemaleGhostSpriteTemplate, ANIM_TARGET, 2
 	waitforvisualfinish
