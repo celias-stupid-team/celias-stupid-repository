@@ -60,7 +60,7 @@ Route20_EventScript_Camper::
 Route25_EventScript_Beauty::
 	lock
 	faceplayer
-	famechecker FAMECHECKER_CERULEAN, 5
+	famechecker FAMECHECKER_CERULEAN, 1
 	msgbox Route25_Text_MistyHighHopesAboutThisPlace
 	release
 	end

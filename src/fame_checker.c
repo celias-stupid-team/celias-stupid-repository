@@ -322,7 +322,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_PROTON,
     // Cerulean
     OBJ_EVENT_GFX_COOLTRAINER_F,
-    OBJ_EVENT_GFX_WOMAN_1,
+    OBJ_EVENT_GFX_BEAUTY,
     OBJ_EVENT_GFX_BLUE,
     OBJ_EVENT_GFX_PICNICKER,
     OBJ_EVENT_GFX_YOUNGSTER,
@@ -1331,7 +1331,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(TRUE) //Get all candies
+                    if(FlagGet(FLAG_BEAT_DMCA_ERIKA)) //Get all candies
                         isQuestCompleted = TRUE;
                     break;
                 case 2:

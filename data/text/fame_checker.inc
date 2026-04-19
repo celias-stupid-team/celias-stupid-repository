@@ -165,10 +165,12 @@ gFameCheckerFlavorText_Cerulean0:: @ 0x81ADD3C
 
 gFameCheckerFlavorText_Cerulean1:: @ 0x81ADDA7
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Have you found any pieces of\n"
-	.string "CANDY laying on the ground?\p"
-	.string "I think there's one in every\n"
-	.string "major area.$"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
+    .string "If you look behind that cottage,\n"
+    .string "you can see a path going north!\p"
+    .string "I bet that's where you can catch\n"
+    .string "the starters!$"
+
 
 gFameCheckerFlavorText_Cerulean2:: @ 0x81ADE0B
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
@@ -936,7 +938,7 @@ gRumorLogFlavorTextIntoLine1_Viridian2::
     .string "Pit$"
 
 gRumorLogFlavorTextIntoLine1_Viridian3::
-    .string "Candy$"
+    .string "Confection$"
 
 gRumorLogFlavorTextIntoLine1_Viridian4::
     .string "Ridiculous$"
@@ -984,7 +986,7 @@ gRumorLogFlavorTextIntoLine1_Cerulean0::
 	.string "Competitive$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean1::
-	.string "Confection$"
+	.string "Partner$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean2::
 	.string "Familiar$"
@@ -1224,7 +1226,7 @@ gFameCheckerFlavorTextOriginObjectName_Viridian2::
 	.string "Proclamation$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian3::
-	.string "Collector$"
+	.string "Collection$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian4::
 	.string "Request$"
@@ -1272,7 +1274,7 @@ gFameCheckerFlavorTextOriginObjectName_Cerulean0::
 	.string "Community$"
 
 gFameCheckerFlavorTextOriginObjectName_Cerulean1::
-	.string "Curator$"
+	.string "Pursuit$"
 
 gFameCheckerFlavorTextOriginObjectName_Cerulean2::
 	.string "Face$"

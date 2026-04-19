@@ -14472,9 +14472,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TILE_COLLISION] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
-        .type = TYPE_POISON,
+        .effect = EFFECT_MEAN_LOOK,
+        .power = 0,
+        .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
