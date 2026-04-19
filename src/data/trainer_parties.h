@@ -2492,12 +2492,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GamerJasper[] = {
     {
         .iv = 0,
         .lvl = 18,
-        .species = SPECIES_BELLSPROUT,
-    },
-    {
-        .iv = 0,
-        .lvl = 18,
-        .species = SPECIES_ODDISH,
+        .species = SPECIES_AZURILL,
     },
 };
 

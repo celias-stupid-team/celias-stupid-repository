@@ -199,7 +199,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_HIDE_SAFARI_ZONE_CENTER_TM32)) { //if got Brick Break
 		setobtainable(SPECIES_KANGASKHAN) // 59 
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_11) && flag(FLAG_DID_FARFETCHD_TRADE)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_11) && checkmoncaught(SPECIES_FARFETCHD)) {
 		setobtainable(SPECIES_UNOWN_LOSS) // 60 
 	}
 	if(flag(FLAG_DID_FARFETCHD_TRADE) && flag(FLAG_CSR_HINT_KENYA) || checkmoncaught(SPECIES_KENYA)) {

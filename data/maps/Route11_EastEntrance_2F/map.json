@@ -1,7 +1,7 @@
 {
   "id": "MAP_ROUTE11_EAST_ENTRANCE_2F",
   "name": "Route11_EastEntrance_2F",
-  "layout": "LAYOUT_ENTRANCE_2F",
+  "layout": "LAYOUT_ENTRANCE_2F_LOSS",
   "music": "MUS_VERMILLION",
   "region_map_section": "MAPSEC_ROUTE_11",
   "requires_flash": false,
@@ -46,7 +46,7 @@
   ],
   "warp_events": [
     {
-      "x": 10,
+      "x": 9,
       "y": 9,
       "elevation": 3,
       "dest_map": "MAP_ROUTE11_EAST_ENTRANCE_1F",
