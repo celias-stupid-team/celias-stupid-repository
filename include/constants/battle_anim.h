@@ -509,6 +509,9 @@
 #define ANIM_TAG_BAZOOKA                    (ANIM_SPRITES_START + 499)
 #define ANIM_TAG_TRANS_EMBER                (ANIM_SPRITES_START + 500)
 #define ANIM_TAG_FOUR                       (ANIM_SPRITES_START + 501)
+#define ANIM_TAG_MISSILE                    (ANIM_SPRITES_START + 502)
+#define ANIM_TAG_GNOME                      (ANIM_SPRITES_START + 503)
+#define ANIM_TAG_BOOK                       (ANIM_SPRITES_START + 504)
 
 // battlers
 #define ANIM_ATTACKER       0

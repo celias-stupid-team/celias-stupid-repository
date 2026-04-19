@@ -656,6 +656,59 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gGnomeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GNOME,
+    .paletteTag = ANIM_TAG_GNOME,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sMissileUpAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd sMissileDownAnimCmds[] =    
+{
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(96, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sMissileAnimTable[] =
+{
+    sMissileUpAnimCmds,
+    sMissileDownAnimCmds,
+};
+
+const struct SpriteTemplate gMissileUpSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MISSILE,
+    .paletteTag = ANIM_TAG_MISSILE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x64,
+    .anims = &sMissileAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+const struct SpriteTemplate gMissileDownSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MISSILE,
+    .paletteTag = ANIM_TAG_MISSILE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x64,
+    .anims = &sMissileAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gFourSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FOUR,
@@ -896,6 +949,33 @@ const struct SpriteTemplate gBonkingDuckSpriteTemplate =
     .paletteTag = ANIM_TAG_DUCK,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = sAnims_BonkDuck,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sAnim_BonkDrug[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_FRAME(12, 4),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_BonkDrug[] =
+{
+    sAnim_BonkDrug,
+};
+
+const struct SpriteTemplate gBonkingDrugSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_DRUG,
+    .paletteTag = ANIM_TAG_HONG_KONG_DRUG,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_BonkDrug,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -1533,6 +1613,17 @@ const struct SpriteTemplate gCensoredBarSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gBookSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BOOK,
+    .paletteTag = ANIM_TAG_BOOK,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gCashRegisterSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CASH_REGISTER,
@@ -1743,6 +1834,16 @@ const struct SpriteTemplate gFallingDuckSpriteTemplate =
     .paletteTag = ANIM_TAG_DUCK,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = sAnims_BonkDuck,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+const struct SpriteTemplate gFallingDrugSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_DRUG,
+    .paletteTag = ANIM_TAG_HONG_KONG_DRUG,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_BonkDrug,
     .images = NULL,
     .affineAnims = sFallingCoinAffineAnimTable,
     .callback = AnimFallingCoin,
@@ -2134,6 +2235,32 @@ const struct SpriteTemplate gExplosionSpriteTemplate =
     .paletteTag = ANIM_TAG_EXPLOSION,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sExplosionAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpriteOnMonPos,
+};
+
+static const union AnimCmd sHistoryExplosionAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(16, 5),
+    ANIMCMD_FRAME(32, 5),
+    ANIMCMD_FRAME(48, 5),
+    ANIMCMD_FRAME(64, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sHistoryExplosionAnimTable[] =
+{
+    sHistoryExplosionAnimCmds,
+};
+
+const struct SpriteTemplate gHistoryExplosionSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_HONG_KONG_EXPLOSION,
+    .paletteTag = ANIM_TAG_HONG_KONG_EXPLOSION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sHistoryExplosionAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSpriteOnMonPos,
@@ -3096,6 +3223,12 @@ static const union AffineAnimCmd sAffineAnims_StretchBattlerUp[] =
 {
     AFFINEANIMCMD_FRAME(10, -13, 0, 10),
     AFFINEANIMCMD_FRAME(-10, 13, 0, 10),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sAffineAnims_GlitchBattlerUp[] =
+{
+    AFFINEANIMCMD_FRAME(2, -4, 0, 90),
     AFFINEANIMCMD_END,
 };
 
@@ -6323,6 +6456,27 @@ void AnimTask_StretchTargetUp(u8 taskId)
     if (++gTasks[taskId].data[0] == 1)
     {
         PrepareAffineAnimInTaskData(&gTasks[taskId], GetAnimBattlerSpriteId(ANIM_TARGET), sAffineAnims_StretchBattlerUp);
+        gSprites[spriteId].x2 = 4;
+    }
+    else
+    {
+        gSprites[spriteId].x2 = -gSprites[spriteId].x2;
+        if (!RunAffineAnimFromTaskData(&gTasks[taskId]))
+        {
+            gSprites[spriteId].x2 = 0;
+            gSprites[spriteId].y2 = 0;
+            DestroyAnimVisualTask(taskId);
+        }
+    }
+}
+
+void AnimTask_GlitchTargetUp(u8 taskId)
+{
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
+    
+    if (++gTasks[taskId].data[0] == 1)
+    {
+        PrepareAffineAnimInTaskData(&gTasks[taskId], GetAnimBattlerSpriteId(ANIM_TARGET), sAffineAnims_GlitchBattlerUp);
         gSprites[spriteId].x2 = 4;
     }
     else

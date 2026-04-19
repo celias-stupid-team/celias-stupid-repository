@@ -36843,10 +36843,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_ZOMBON] =
     {
         .baseHP = 80,
-        .baseAttack = 110,
-        .baseDefense = 150,
-        .baseSpeed = 20,
-        .baseSpAttack = 90,
+        .baseAttack = 80,
+        .baseDefense = 70,
+        .baseSpeed = 135,
+        .baseSpAttack = 120,
         .baseSpDefense = 60,
         .types = {TYPE_GHOST, TYPE_NORMAL},
         .catchRate = 255,
