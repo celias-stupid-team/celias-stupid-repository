@@ -96,6 +96,17 @@ const struct SpriteTemplate gFireSpreadSpriteTemplate =
     .callback = AnimFireSpread,
 };
 
+const struct SpriteTemplate gTransFireSpreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TRANS_EMBER,
+    .paletteTag = ANIM_TAG_TRANS_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FireSpiralSpread,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpread,
+};
+
 
 static const union AnimCmd sAnim_HairSpiralSpread_0[] =
 {
@@ -292,6 +303,17 @@ const struct SpriteTemplate gSunlightRaySpriteTemplate =
     .tileTag = ANIM_TAG_SUNLIGHT,
     .paletteTag = ANIM_TAG_SUNLIGHT,
     .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SunlightRay,
+    .callback = AnimSunlight,
+};
+
+const struct SpriteTemplate gSunlightDadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DAD_OF_LIGHT,
+    .paletteTag = ANIM_TAG_DAD_OF_LIGHT,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sAffineAnims_SunlightRay,

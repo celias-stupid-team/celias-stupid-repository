@@ -1570,6 +1570,17 @@ const struct SpriteTemplate gVineWhipSpriteTemplate =
     .callback = AnimWhipHit,
 };
 
+const struct SpriteTemplate gGlitchWhipSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHIP_HIT,
+    .paletteTag = ANIM_TAG_COOLTRAINER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_Whip,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWhipHit,
+};
+
 static const union AnimCmd sAnim_SlidingHit[] =
 {
     ANIMCMD_FRAME(0, 4),

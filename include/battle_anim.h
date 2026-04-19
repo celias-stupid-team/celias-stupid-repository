@@ -135,6 +135,7 @@ extern const struct OamData gOamData_AffineOff_ObjBlend_8x8;
 extern const struct OamData gOamData_AffineOff_ObjBlend_16x16;
 extern const struct OamData gOamData_AffineOff_ObjBlend_32x32;
 extern const struct OamData gOamData_AffineOff_ObjBlend_64x64;
+extern const struct OamData gOamData_MagnifyingGlass;
 extern const struct OamData gOamData_GasterBlaster;
 extern const struct OamData gOamData_AffineOff_ObjBlend_16x8;
 extern const struct OamData gOamData_AffineOff_ObjBlend_32x8;

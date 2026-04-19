@@ -400,8 +400,8 @@ const struct SpriteTemplate gSmogCloudSpriteTemplate =
 
 const struct SpriteTemplate gClearSmogCloudSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_PURPLE_GAS_CLOUD,
-    .paletteTag = ANIM_TAG_WHITE_CIRCLE_OF_LIGHT,
+    .tileTag = ANIM_TAG_MIST_CLOUD,
+    .paletteTag = ANIM_TAG_MIST_CLOUD,
     .oam = &gOamData_AffineOff_ObjBlend_32x16,
     .anims = sAnims_Cloud,
     .images = NULL,
