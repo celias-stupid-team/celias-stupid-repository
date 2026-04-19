@@ -5995,7 +5995,7 @@ BattleScript_EffectStuporPower::
 
 BattleScript_EffectGMaxCuddle::
 	attackcanceler
-	adjustnormaldamage
+	@ adjustnormaldamage
 	jumpifflagset FLAG_CSR_POWER_IS_ON, BattleScript_EffectHit
 	jumpifflagset FLAG_UNLEASHED_ENERGY, BattleScript_EffectHit
 	attackstring

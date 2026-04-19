@@ -1971,7 +1971,7 @@ static void Cmd_adjustnormaldamage(void)
     }
     if (gCurrentMove == MOVE_G_MAX_CUDDLE)
     {
-        gBattleMoveDamage *= 5;
+        gBattleMoveDamage *= 10;
     }
     DebugPrintf("Battle damage: %d", gBattleMoveDamage);
     // special handling for FINALZAPDOS
