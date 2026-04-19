@@ -13515,3 +13515,9 @@ extern const u8 gMonIcon_RICKETOT[];
 
 extern const u32 gTrainerFrontPic_Kotone[];
 extern const u32 gTrainerPalette_Kotone[];
+
+extern const u32 gItemIcon_Ilexir[];
+extern const u32 gItemIconPalette_Ilexir[];
+
+extern const u32 gItemIcon_HyperRepel[];
+extern const u32 gItemIconPalette_HyperRepel[];

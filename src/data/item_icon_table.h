@@ -509,5 +509,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_HDUTYROOT]      =  {gItemIcon_HDutyRoot, gItemIconPalette_HDutyRoot},
     [ITEM_RAW_NUGGET]      =  {gItemIcon_RawNugget, gItemIconPalette_RawNugget},
     [ITEM_RIPPED_MEMO]      =  {gItemIcon_RippedMemo, gItemIconPalette_RippedMemo},
+    [ITEM_ILEXIR]      =  {gItemIcon_Ilexir, gItemIconPalette_Ilexir},
+    [ITEM_HYPER_REPEL]      =  {gItemIcon_HyperRepel, gItemIconPalette_HyperRepel},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

@@ -6643,3 +6643,4 @@ BattleScript_MoveCantSelect::
 BattleScript_EffectSleepHit::
 	setmoveeffect MOVE_EFFECT_SLEEP
 	goto BattleScript_EffectHit
+
