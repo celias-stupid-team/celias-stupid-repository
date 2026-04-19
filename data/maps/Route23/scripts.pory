@@ -77,6 +77,9 @@ mapscripts Route23_MapScripts {
 		if(!(var(VAR_CURRENT_CHAPTER) >= 8)) {
 			setflag(FLAG_TEMP_5)
 		}
+		if(checkmoncaught(SPECIES_MEWTWO)) {
+			setflag(FLAG_TEMP_4)
+		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_A, 0 {
@@ -1370,4 +1373,15 @@ script Route23_EarthBadgeGuard {
 
 	"This stinks!\n"
 	"", MSGBOX_NPC)
+}
+
+
+script Route23_ShortsKid {
+	msgbox(
+	"Hey! I met you in VIRIDIAN CITY!\n"
+	"I've been on a journey since then.\p"
+
+	"Y'know, I'm still open to trading\n"
+	"my RATTATA for a MEWTWO.\l"
+	"Let me know if you want to!", MSGBOX_NPC)
 }

@@ -700,6 +700,10 @@ script ViridianCity_OnTransition {
 		setflag(FLAG_RAT_GUY_EVOLVED)
 		setflag(FLAG_FOUND_RAT_STONE)
 	}
+
+	if(var(VAR_CURRENT_CHAPTER) < 8 && var(VAR_CURRENT_CHAPTER) >= 2) {
+		setflag(FLAG_TEMP_5)
+	}
 	
 }
 
