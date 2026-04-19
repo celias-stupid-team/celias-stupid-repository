@@ -10183,7 +10183,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine2[] = {
 static const struct TrainerMonItemCustomMoves sParty_Blaine3[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 60,
         .heldItem = ITEM_NONE,
         .species = SPECIES_MALAMAR,
         .moves = {MOVE_STUPORPOWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}

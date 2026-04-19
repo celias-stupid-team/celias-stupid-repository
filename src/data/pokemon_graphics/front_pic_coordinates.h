@@ -3563,7 +3563,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_MALAMAR] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_BINACLE] =
 	{

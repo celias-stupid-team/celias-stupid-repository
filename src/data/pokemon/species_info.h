@@ -19931,7 +19931,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_INKAY] =
     {
-        .baseHP = 200,
+        .baseHP = 1,
         .baseAttack = 1,
         .baseDefense = 1,
         .baseSpeed = 1,

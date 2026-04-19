@@ -1969,9 +1969,9 @@ static void Cmd_adjustnormaldamage(void)
         if (gBattleMoveDamage < 30) // random number so base damage doesn't get too low
             gBattleMoveDamage = 30;
     }
-    if (gCurrentMove == MOVE_G_MAX_CUDDLE)
+    if (gCurrentMove == MOVE_G_MAX_CUDDLE && VarGet(VAR_CSR_FINAL_BATTLE_PHASE) < 3)
     {
-        gBattleMoveDamage *= 10;
+        gBattleMoveDamage *= 20;
     }
     DebugPrintf("Battle damage: %d", gBattleMoveDamage);
     // special handling for FINALZAPDOS
