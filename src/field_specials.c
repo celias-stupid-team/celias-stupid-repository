@@ -1790,6 +1790,8 @@ static void SayYes_CB(void) {
         !StringCompare(gText_YupLower, gStringVar1) ||
         !StringCompare(gText_YEP, gStringVar1) ||
         !StringCompare(gText_YepLower, gStringVar1) ||
+        !StringCompare(gText_YEA, gStringVar1) ||
+        !StringCompare(gText_YeaLower, gStringVar1) ||
         !StringCompare(gText_AYE, gStringVar1) ||
         !StringCompare(gText_AyeLower, gStringVar1)) {
         VarSet(VAR_RESULT, 1);
