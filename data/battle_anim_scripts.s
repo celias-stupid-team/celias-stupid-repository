@@ -21502,7 +21502,7 @@ Move_GAMING_TOOLBARS:
 	loadspritegfx ANIM_TAG_TOOLBAR
 	loadspritegfx ANIM_TAG_SMALL_EMBER
 	playse SE_M_SAND_ATTACK
-	createsprite gToolbarSpriteTemplate, ANIM_ATTACKER, 2, 32, 40, 0, -4, 10, 320, 0, 1
+	createsprite gToolbarSpriteTemplate, ANIM_TARGET, 2, 32, 40, 0, -4, 10, 320, 0, 1
 	delay 50
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 20, 1
 	delay 40
