@@ -218,3 +218,72 @@ script LavenderTown_ProgressionCelia {
 	"Good luck!\n"
 	"", MSGBOX_NPC)
 }
+
+
+script LavenderTown_SchoolOak {
+	msgbox(
+	"That's not the science teacher,\n"
+	"silly!", MSGBOX_SIGN)
+
+}
+
+script LavenderTown_NameRaterOak {
+	msgbox(
+	"Its name isn't OAK, silly!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script LavenderTown_AllOaksEverywhere {
+	msgbox(
+	"What, did you think it was all\n"
+	"trees everywhere who are OAK?\l"
+	"Ha!", MSGBOX_SIGN)
+
+}
+
+script LavenderTown_NotDaisySilly {
+	msgbox(
+	"That's not DAISY, silly!\n"
+	"", MSGBOX_SIGN)
+
+}
+script LavenderTown_YoungOak {
+	msgbox(
+	"A young, potted OAK.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script LavenderTown_FlowerPainting {
+	lock
+	if(flag(FLAG_TEMP_3)) {
+		msgbox(
+		"That's what they call a faceplant.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"A familiar picture of a flower.\n"
+	"Wanna jump face-first into it?", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		closemessage
+		delay(20)
+		applymovement(LOCALID_PLAYER, BackUp)
+		waitmovement(0)
+		playse(SE_LEDGE)
+		applymovement(LOCALID_PLAYER, JumpSplat)
+		waitmovement(0)
+		
+				playse(SE_WALL_HIT)
+				applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
+				waitmovement(0)
+				delay(40)
+				setflag(FLAG_TEMP_3)
+		
+	}
+	release
+}
+

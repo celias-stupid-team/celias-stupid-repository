@@ -27,7 +27,8 @@ Route9_Text_DrewIntro::
 	.string "Check out this hole I dug!\n$"
 
 Route9_Text_DrewDefeat::
-    .string "Can't measure up…$"
+	.string "Oh, no!\n"
+	.string "Better go back and heal!$"
 
 Route9_Text_DrewPostBattle::
 	.string "My rat loves digging tunnels\n"

@@ -1116,7 +1116,7 @@ static const struct LevelUpMove sSlowbroLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMagnemiteLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_THUNDER_SHOCK),
+    LEVEL_UP_MOVE(1, MOVE_BOLT_STRIKE),
     LEVEL_UP_MOVE(25, MOVE_DISCHARGE),
     LEVEL_UP_MOVE(25, MOVE_ATTRACT),
     LEVEL_UP_MOVE(25, MOVE_MAGNET_BOMB),

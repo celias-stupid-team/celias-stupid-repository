@@ -1693,7 +1693,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_SuperNerdJovan),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_SuperNerdJovan),
     },
     [TRAINER_SUPER_NERD_MIGUEL] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
@@ -3513,7 +3513,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_DMCAGrunt9),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_DMCAGrunt9),
     },
     [TRAINER_DMCA_GRUNT_10] = {
         .trainerClass = TRAINER_CLASS_DMCA,
@@ -4153,7 +4153,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_GentlemanTucker),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_GentlemanTucker),
     },
     [TRAINER_GENTLEMAN_NORTON] = {
         .trainerClass = TRAINER_CLASS_GENTLEMAN,

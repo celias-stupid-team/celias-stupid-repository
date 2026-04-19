@@ -642,7 +642,7 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .desc = gText_RegionMap_AreaDesc_MtEmber
     }, {
         .id = MAPSEC_BERRY_FOREST,
-        .name = sMapsecName_BERRY_FOREST,
+        .name = sMapsecName_PATTERN_BUSH,
         .desc = gText_RegionMap_AreaDesc_BerryForest
     }, {
         .id = MAPSEC_SKY_TOWER,

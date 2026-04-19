@@ -44,8 +44,8 @@ Route10_Text_HermanPostBattle::
 Route10_Text_HeidiIntro::
 	.string "Oh boy, ROCK TUNNEL!\n"
 	.string "I can't wait!\p"
-	.string "That's everyone's favorite part\n"
-	.string "of any KANTO game!$"
+	.string "That's my favorite part of any\n"
+	.string "KANTO game!$"
 
 Route10_Text_HeidiDefeat::
     .string "Ohh!$"

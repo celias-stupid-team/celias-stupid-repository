@@ -616,3 +616,26 @@ script CeruleanCity_BerryPowderManHouse {
 	"MAN'S HOUSE, silly!", MSGBOX_SIGN)
 
 }
+
+script CeruleanCity_Oak1 {
+	msgbox(
+	"That's not OKE, silly!\n"
+	"", MSGBOX_NPC)
+}
+script CeruleanCity_Oak2 {
+	msgbox(
+	"That won't let you draw seven\n"
+	"cards, silly!", MSGBOX_NPC)
+}
+
+script CeruleanCity_Oak3 {
+	msgbox(
+	"That's not POLIWAG, silly!\n"
+	"", MSGBOX_NPC)
+}
+
+script CeruleanCity_Oak4 {
+	msgbox(
+	"This one's still (not) OAK!\n"
+	"", MSGBOX_NPC)
+}

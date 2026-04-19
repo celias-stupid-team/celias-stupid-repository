@@ -45,6 +45,7 @@ script Sootopolis_EventScript_Kiri {
 		msgbox("Hi, what's your name?\p... ... ...\n... ... ...\p... ... ...\nOkay. That's nice!\pMy name is KIRI.\pMy mommy and daddy named me that so\nI would grow healthy and happy.\lThat's what they wished.\pMy daddy really loves this POKéMON.\nYou can have it as a gift!", MSGBOX_DEFAULT)
 
 		playfanfare(MUS_LEVEL_UP)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox("{PLAYER} obtained the\nPSYDUCK!", MSGBOX_DEFAULT)
 		waitfanfare
 		setvar(VAR_TEMP_1, SPECIES_GOLDUCK)
@@ -80,6 +81,7 @@ script Sootopolis_EventScript_Kiri {
 
 	Sootopolis_KiriEnd:
 		setflag(FLAG_CSR_KIRI_PSYDUCK)
+		textcolor(NPC_TEXT_COLOR_RED)
 		msgbox("My daddy loves that POKéMON!\pHe says he makes sure to always\nlet people catch it in every game!\pBut…\pThis one seems a little…\ndifferent.", MSGBOX_DEFAULT)
 		release
 		end

@@ -5,6 +5,7 @@ raw `
 mapscripts Route10_Again_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_WORLD_MAP_ROCK_TUNNEL_1F)
+		special(HealPlayerParty)
 	}
 }
 
