@@ -988,6 +988,10 @@ const u8 gText_AliveLower[] = _("Alive");
 const u8 gText_YesLower[] = _("Yes");
 const u8 gText_YUP[] = _("YUP");
 const u8 gText_YupLower[] = _("Yup");
+const u8 gText_YEP[] = _("YEP");
+const u8 gText_YepLower[] = _("Yep");
+const u8 gText_AYE[] = _("AYE");
+const u8 gText_AyeLower[] = _("Aye");
 const u8 gText_Oui[] = _("OUI");
 
 // Start menu option descriptions

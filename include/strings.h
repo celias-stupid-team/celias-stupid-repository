@@ -230,6 +230,11 @@ extern const u8 gText_DiedLower[];
 extern const u8 gText_YesLower[];
 extern const u8 gText_YupLower[];
 extern const u8 gText_YUP[];
+extern const u8 gText_YEP[];
+extern const u8 gText_YepLower[];
+extern const u8 gText_AYE[];
+extern const u8 gText_AyeLower[];
+
 extern const u8 gText_Oui[];
 
 

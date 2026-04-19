@@ -11336,7 +11336,7 @@ static void Cmd_handleballthrow(void)
             //DebugPrintf("Odds are above 255 for some reason");
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
-            if(gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM) {
+            if(gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM || gBattleMons[gBattlerTarget].species == SPECIES_VICTINI) {
                 gBattlescriptCurrInstr = BattleScript_SuccessBallThrowCastform;
 
             } else {
