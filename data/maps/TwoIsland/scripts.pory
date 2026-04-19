@@ -212,12 +212,23 @@ mapscripts TwoIsland_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: TwoIsland_OnTransition
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_A, 1 {
-			message(
-			"Chapter 7 -{PAUSE 30} Chapter 2\n"
-			"{PAUSE 60}Intermission 1")
-			delay(200)
-			message("The Search for the\nBERRY POWDER MAN!")
-			delay(200)
+			if(flag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_2)) {
+
+				message(
+				"Chapter 7 -{PAUSE 30} Chapter 2\n"
+				"{PAUSE 60}Intermission 2")
+				delay(200)
+				message("The Search for the\nBERRY POWDER MAN!")
+				delay(200)
+			} else {
+				message(
+				"Chapter 7 -{PAUSE 30} Chapter 2\n"
+				"{PAUSE 60}Intermission 1")
+				delay(200)
+				message("The Search for the\nBERRY POWDER MAN!")
+				delay(200)
+
+			}
 			setvar(VAR_TEMP_A, 0)
 			release
 		}
@@ -311,6 +322,8 @@ script TwoIsland_PencilStatue {
 			release
 			end
 		} else {
+			playmoncry(SPECIES_ZAPDOS, CRY_MODE_DEFAULT)
+			waitmoncry
 			release
 			end
 		}
@@ -373,16 +386,41 @@ script TwoIsland_BombPresent {
 	msgbox(
 	"There was a BOMB inside!\n"
 	"", MSGBOX_DEFAULT)
-	playbgm(MUS_NONE, TRUE)
-	fadescreeninstant(FADE_TO_WHITE)
-	closemessage
-	playse(SE_M_EXPLOSION)
-	waitse
-	setflag(FLAG_TWO_ISLAND_BOMB_PRESENT)
-	msgbox(
-	"{PLAYER} fucking died!\n"
-	"", MSGBOX_DEFAULT)
-	warpsilent(MAP_TWO_ISLAND, 2)
+	if(checkpartymon(SPECIES_VOLTORB)) {
+		playmoncry(SPECIES_VOLTORB, CRY_MODE_DEFAULT)
+		waitmoncry
+		msgbox(
+		"…Oh?\p"
+
+		"Your VOLTORB's DAMP kept you safe\n"
+		"from the explosion!\p"
+
+		"{PLAYER} retrieved the used BOMB…\n"
+		"", MSGBOX_DEFAULT)
+		setflag(FLAG_SHINY_CREATION)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_VOLTORB)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"…and got the spent\n"
+		"VOLTORB!", MSGBOX_DEFAULT)
+		setflag(FLAG_TWO_ISLAND_BOMB_PRESENT)
+		waitfanfare
+		call(Common_Script_GiftPokemon19)
+		release
+		end
+	} else {
+		playbgm(MUS_NONE, TRUE)
+		fadescreeninstant(FADE_TO_WHITE)
+		closemessage
+		playse(SE_M_EXPLOSION)
+		waitse
+		setflag(FLAG_TWO_ISLAND_BOMB_PRESENT)
+		msgbox(
+		"{PLAYER} fucking died!\n"
+		"", MSGBOX_DEFAULT)
+		warpsilent(MAP_TWO_ISLAND, 2)
+
+	}
 
 	release
 	end

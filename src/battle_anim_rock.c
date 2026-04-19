@@ -10,6 +10,7 @@ static void AnimFallingRock(struct Sprite *sprite);
 static void AnimRockFragment(struct Sprite *sprite);
 static void AnimRockFragmentSelf(struct Sprite *sprite);
 static void AnimFlyingSandCrescent(struct Sprite *sprite);
+static void AnimFlyingSandCrescent_64(struct Sprite *sprite);
 static void AnimRaiseSprite(struct Sprite *sprite);
 static void AnimTask_Rollout_Step(u8 taskId);
 static void AnimRolloutParticle(struct Sprite *sprite);
@@ -314,6 +315,17 @@ const struct SpriteTemplate gFireSpinSpriteTemplate =
     .callback = AnimParticleInVortex,
 };
 
+const struct SpriteTemplate gFeatherSpinSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_FEATHER,
+    .paletteTag = ANIM_TAG_WHITE_FEATHER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex,
+};
+
 const struct SpriteTemplate gFlyingSandCrescentSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FLYING_DIRT,
@@ -323,6 +335,17 @@ const struct SpriteTemplate gFlyingSandCrescentSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFlyingSandCrescent,
+};
+
+const struct SpriteTemplate gFlyingKrabbyCrescentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KRABBY_HEY,
+    .paletteTag = ANIM_TAG_KRABBY_HEY,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFlyingSandCrescent_64,
 };
 
 static const struct Subsprite sFlyingSandSubsprites[] =
@@ -825,6 +848,63 @@ static void AnimFlyingSandCrescent(struct Sprite *sprite)
         else if (sprite->x + sprite->x2 < -32)
         {
             sprite->callback = DestroyAnimSprite;
+        }
+    }
+}
+
+static void AnimFlyingSandCrescent_64(struct Sprite *sprite)
+{
+    const s16 halfSize = 32; // 64x64 sprite → half = 32
+
+    if (sprite->data[0] == 0)
+    {
+        bool8 flip = (gBattleAnimArgs[3] != 0
+                   && GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER);
+
+        if (flip)
+        {
+            // Start fully off right side
+            sprite->x = DISPLAY_WIDTH + halfSize;
+            gBattleAnimArgs[1] = -gBattleAnimArgs[1];
+            sprite->data[5] = 1;
+            sprite->oam.matrixNum = ST_OAM_HFLIP;
+        }
+        else
+        {
+            // Start fully off left side
+            sprite->x = -halfSize;
+        }
+
+        sprite->y = gBattleAnimArgs[0];
+
+        // IMPORTANT: remove subsprite table unless you have a 64x64 version
+        // SetSubspriteTables(sprite, sFlyingSandSubspriteTable);
+
+        sprite->data[1] = gBattleAnimArgs[1];
+        sprite->data[2] = gBattleAnimArgs[2];
+
+        sprite->data[0]++;
+    }
+    else
+    {
+        sprite->data[3] += sprite->data[1];
+        sprite->data[4] += sprite->data[2];
+
+        sprite->x2 += (sprite->data[3] >> 8);
+        sprite->y2 += (sprite->data[4] >> 8);
+
+        sprite->data[3] &= 0xFF;
+        sprite->data[4] &= 0xFF;
+
+        if (sprite->data[5] == 0)
+        {
+            if (sprite->x + sprite->x2 > DISPLAY_WIDTH + halfSize)
+                sprite->callback = DestroyAnimSprite;
+        }
+        else
+        {
+            if (sprite->x + sprite->x2 < -halfSize)
+                sprite->callback = DestroyAnimSprite;
         }
     }
 }

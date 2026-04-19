@@ -679,6 +679,28 @@ const struct SpriteTemplate gSkyAttackBirdSpriteTemplate =
     .callback = AnimSkyAttackBird,
 };
 
+static const union AnimCmd sAnim_Shorts[] =
+{
+    ANIMCMD_FRAME(192, 16),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_Shorts[] =
+{
+    sAnim_Shorts,
+};
+
+const struct SpriteTemplate gSkyAttackShortsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KNIT_SHORTS,
+    .paletteTag = ANIM_TAG_KNIT_SHORTS,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = sAnims_Shorts,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
+
 const struct SpriteTemplate gSkyAttackMoltresSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MOLTRES_KICK,

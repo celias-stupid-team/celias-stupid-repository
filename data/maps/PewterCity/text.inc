@@ -166,5 +166,5 @@ PewterCity_Text_RunningShoesLetterFromMom::
     .string "your normal shoes.\p"
     .string "If you are, I'll have to\n"
     .string "report you to the police!\p"
-    .string "Love, Dad$"
+    .string "Love, DAD$"
 

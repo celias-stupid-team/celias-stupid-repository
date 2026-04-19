@@ -130,7 +130,7 @@ script Route4_EventScript_Hbox {
 }
 
 script Route3_Item_Pokeball {
-	finditem(ITEM_POKE_BALL)
+	finditem(ITEM_POKE_BALL, 4)
 }
 
 script Route3_Far_SetDex {

@@ -272,6 +272,46 @@ const struct SpriteTemplate gSignalBeamRedOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+static const union AnimCmd sAnim_WurmpleHeadRed[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_WurmpleHeadPurple[] =
+{
+    ANIMCMD_FRAME(4, 1),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gAnims_WurmpleHeads[] =
+{
+    sAnim_WurmpleHeadRed,
+    sAnim_WurmpleHeadPurple,
+};
+
+const struct SpriteTemplate gWurmpleBeamRedHeadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WURMPLE_HEAD,
+    .paletteTag = ANIM_TAG_WURMPLE_HEAD,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = &gAnims_WurmpleHeads[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+const struct SpriteTemplate gWurmpleBeamPurpleHeadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WURMPLE_HEAD,
+    .paletteTag = ANIM_TAG_WURMPLE_HEAD,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = &gAnims_WurmpleHeads[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 static const union AffineAnimCmd sAffineAnim_PickleBeam[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, 96, 1),
@@ -357,6 +397,17 @@ const struct SpriteTemplate gFlamethrowerFlameSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SMALL_EMBER,
     .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FlamethrowerFlame,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+const struct SpriteTemplate gFlamethrowerWaterSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_WATER_ORB,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_FlamethrowerFlame,
     .images = NULL,

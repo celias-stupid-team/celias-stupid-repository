@@ -83,7 +83,7 @@ mapscripts CinnabarIsland_PokemonLab_Lounge_MapScripts {
 			waitse
 			applymovement(LOCALID_CINNABAR_SECRET_CELIA, moves(
 				walk_up * 2
-				face_right
+				face_left
 			))
 			waitmovement(0)
 			msgbox(

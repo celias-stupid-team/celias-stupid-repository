@@ -1044,6 +1044,11 @@ static const union AnimCmd *const sAnims_Hakari_Bliz[] =
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Kotone[] =
+{
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_AQUA_LEADER_ARCHIE]    = sAnims_AquaLeaderArchie,
@@ -1257,5 +1262,6 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_STARLIGHT]             = sAnims_Starlight,
     [TRAINER_PIC_KIMONO]             = sAnims_Kimono,
     [TRAINER_PIC_STARLIGHTSPRITE]             = sAnims_Starlightsprite,
-    [TRAINER_PIC_HAKARI_BLIZ]             = sAnims_Hakari_Bliz
+    [TRAINER_PIC_HAKARI_BLIZ]             = sAnims_Hakari_Bliz,
+    [TRAINER_PIC_KOTONE]             = sAnims_Kotone
 };

@@ -216,6 +216,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Aether_Raichu",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 3,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Aetherparadise_Softlockprevention",
+      "flag": "FLAG_TEMP_8"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 16,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Aetherparadise_Softlockprevention",
+      "flag": "FLAG_TEMP_8"
     }
   ],
   "warp_events": [
@@ -228,7 +256,7 @@
     },
     {
       "x": 9,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_AETHER_PARADISE_NEBBY_ROOM",
       "dest_warp_id": "0"
@@ -242,7 +270,7 @@
     },
     {
       "x": 10,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_AETHER_PARADISE_NEBBY_ROOM",
       "dest_warp_id": "1"
@@ -265,8 +293,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 5,
-      "y": 2,
+      "x": 6,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -302,7 +330,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -311,7 +339,7 @@
     {
       "type": "trigger",
       "x": 10,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -328,8 +356,8 @@
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 2,
+      "x": 12,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -338,7 +366,7 @@
     {
       "type": "trigger",
       "x": 11,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -347,7 +375,7 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",
@@ -356,7 +384,7 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "1",

@@ -17,6 +17,7 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
+#include "constants/maps.h"
 
 #define TAG_PARTICLES_POKEBALL 55020
 #define TAG_PARTICLES_GREATBALL 55021
@@ -1208,8 +1209,12 @@ static void SpriteCB_ThrowBall_DoClick(struct Sprite *sprite)
     {
         gDoingBattleAnim = FALSE;
         UpdateOamPriorityInAllHealthboxes(1);
-        m4aMPlayAllStop();
-        PlaySE(MUS_CAUGHT_INTRO);
+        if(!(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD))
+            && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ZERO_ISLAND_LIBERTY_GARDEN) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ZERO_ISLAND_LIBERTY_GARDEN))) {
+            m4aMPlayAllStop();
+            PlaySE(MUS_CAUGHT_INTRO);
+
+        }
     }
     else if (sprite->data[4] == 315)
     {

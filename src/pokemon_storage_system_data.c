@@ -836,6 +836,32 @@ static void CheckBrickPieceGet(u8 boxId, u8 position)
     }
 }
 
+
+
+static void CheckItsPikachuFuck(u8 boxId, u8 position)
+{
+    u8 current_wallpaper_id = GetBoxWallpaper(boxId);
+
+    if (GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_CLEFAIRY
+     && current_wallpaper_id == WALLPAPER_CAVE
+     && (position == 6
+    || position == 7
+    || position == 8
+
+    || position == 12
+    || position == 13
+    || position == 14
+
+    || position == 18
+    || position == 19
+    || position == 20))
+    {
+        
+        PlayCry_Script(SPECIES_CORVISQUIRE, 0);
+        
+    }
+}
+
 bool8 WasBrickPieceObtained(void)
 {
     return sBrickPieceObtained;
@@ -855,6 +881,7 @@ static void SetPlacedMonData(u8 boxId, u8 position)
     {
         CheckPorygonEvolve(boxId, position);
         CheckBrickPieceGet(boxId, position);
+        CheckItsPikachuFuck(boxId, position);
         if (!gPSSEvoTriggered)
         {
             BoxMonRestorePP(&gStorage->movingMon.box);

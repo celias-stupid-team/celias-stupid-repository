@@ -699,7 +699,7 @@ script Route15_PokeRap_Trainer39_Defeat {
 
 script Route15_PokeRap_Trainer40 {
     trainerbattle_single(TRAINER_POKERAP_40, Rapper_40_Intro, "Nice!", Route15_PokeRap_Trainer40_Defeat)
-    msgbox("PIDGEOT by Lichen\nARBOK by Boba Tea\pThank you all!\n", MSGBOX_DEFAULT)
+    msgbox("PIDGEOT by Lichen\nARBOK by Boba Tea\lThat's All by Bennward\pThank you all!\n", MSGBOX_DEFAULT)
     release
 }
 

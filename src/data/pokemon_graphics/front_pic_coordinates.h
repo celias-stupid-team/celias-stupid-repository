@@ -2338,7 +2338,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_SPIRITOMB] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 3,
 	},
 	[SPECIES_GIBLE] =
 	{
@@ -2353,7 +2353,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_GARCHOMP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 3,
 	},
 	[SPECIES_MUNCHLAX] =
 	{
@@ -2568,7 +2568,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_CRESSELIA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_PHIONE] =
 	{
@@ -3353,7 +3353,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_LANDORUS] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_KYUREM] =
 	{
@@ -3713,7 +3713,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_YVELTAL] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ZYGARDE] =
 	{
@@ -4053,7 +4053,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_TAPU_KOKO] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_TAPU_LELE] =
 	{
@@ -4588,7 +4588,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_URSHIFU] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ZARUDE] =
 	{

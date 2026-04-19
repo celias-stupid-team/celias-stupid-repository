@@ -127,6 +127,11 @@ static void AnimThrowProtagonist_Step(struct Sprite *sprite);
 static void PSIRockin_ShiftPalette(u8 paletteNum);
 static void AnimPSIRockin(struct Sprite *sprite);
 static void AnimPSIRockin_Step(struct Sprite *sprite);
+static void AnimHBOMaxFinale(struct Sprite *sprite);
+static void AnimHBOMaxFinale_Step(struct Sprite *sprite);
+void AnimMegaSymbolSprite(struct Sprite *sprite);
+static void AnimMegaSymbolSprite_End(struct Sprite *sprite);
+void AnimParticleBurstOnAttacker(struct Sprite *sprite);
 
 
 // Unused
@@ -607,6 +612,17 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+const struct SpriteTemplate gPokedadThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_POKEDAD,
+    .paletteTag = ANIM_TAG_POKEDAD,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
 const struct SpriteTemplate gFurbyThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_FURBY,
@@ -635,6 +651,83 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .paletteTag = ANIM_TAG_MING_VASE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sKnitShortsAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(64, 15),
+    ANIMCMD_FRAME(128, 15),
+    ANIMCMD_FRAME(192, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sKnitShortsAnimTable[] =
+{
+    sKnitShortsAnimCmds,
+};
+
+
+static const union AnimCmd sShortsAnimCmds[] =
+{
+    ANIMCMD_FRAME(192, 15),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sShortsAnimTable[] =
+{
+    sShortsAnimCmds,
+};
+
+const struct SpriteTemplate gPullUpShortsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KNIT_SHORTS,
+    .paletteTag = ANIM_TAG_KNIT_SHORTS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sShortsAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gKnitShortsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KNIT_SHORTS,
+    .paletteTag = ANIM_TAG_KNIT_SHORTS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sKnitShortsAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sGyroSpinAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(16, 7),
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 5),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_JUMP(6),
+};
+
+static const union AnimCmd *const sGyroSpinAnimTable[] =
+{
+    sGyroSpinAnimCmds,
+};
+
+const struct SpriteTemplate gGyroSpinSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GYRO,
+    .paletteTag = ANIM_TAG_GYRO,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sGyroSpinAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -1495,6 +1588,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
     .callback = AnimFallingCoin,
 };
 
+const struct SpriteTemplate gFallingPokedadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POKEDAD,
+    .paletteTag = ANIM_TAG_POKEDAD,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
 const struct SpriteTemplate gFallingFurbySpriteTemplate =
 {
     .tileTag = ANIM_TAG_FURBY,
@@ -1750,6 +1854,15 @@ static const union AffineAnimCmd sGrowAndShrinkAffineAnimCmds[] =
     AFFINEANIMCMD_FRAME(-4, -5, 0, 12),
     AFFINEANIMCMD_FRAME(0, 0, 0, 24),
     AFFINEANIMCMD_FRAME(4, 5, 0, 12),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sGrowWaitAndShrinkAffineAnimCmds[] =
+{
+    AFFINEANIMCMD_FRAME(-4, -5, 0, 12),
+    AFFINEANIMCMD_FRAME(0, 0, 0, 90),
+    AFFINEANIMCMD_FRAME(0, 0, 0, 90),
+    AFFINEANIMCMD_FRAME(4, 5, 0, 4),
     AFFINEANIMCMD_END,
 };
 
@@ -2852,6 +2965,79 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .callback = AnimParticleBurst,
 };
 
+const struct SpriteTemplate gShortsBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MINI_SHORTS,
+    .paletteTag = ANIM_TAG_MINI_SHORTS,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gOnionBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ONION,
+    .paletteTag = ANIM_TAG_ONION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gChocolateBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CHOCOLATE,
+    .paletteTag = ANIM_TAG_CHOCOLATE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+static const union AnimCmd sSmallMushroomAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sBigMushroomAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMushroomsAnimTable[] =
+{
+    sSmallMushroomAnimCmds,
+    sBigMushroomAnimCmds,
+};
+
+const struct SpriteTemplate gSmallMushroomBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gBigMushroomBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
 static const union AnimCmd sLeftFeatherBurstAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -3105,6 +3291,28 @@ const struct SpriteTemplate gRedHeartRisingSpriteTemplate =
     .callback = AnimRedHeartRising,
 };
 
+const struct SpriteTemplate gSmallMushroomRisingSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRedHeartRising,
+};
+
+const struct SpriteTemplate gBigMushroomRisingSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRedHeartRising,
+};
+
 static const union AffineAnimCmd sHiddenPowerOrbAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(128, 128, 0, 0),
@@ -3168,6 +3376,28 @@ const struct SpriteTemplate gSpitUpOrbSpriteTemplate =
     .paletteTag = ANIM_TAG_RED_ORB_2,
     .oam = &gOamData_AffineDouble_ObjNormal_8x8,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sSpitUpOrbAffineAnimTable,
+    .callback = AnimSpitUpOrb,
+};
+
+const struct SpriteTemplate gSpitUpSmallMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = sSpitUpOrbAffineAnimTable,
+    .callback = AnimSpitUpOrb,
+};
+
+const struct SpriteTemplate gSpitUpBigMushroomSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSHROOM,
+    .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
     .images = NULL,
     .affineAnims = sSpitUpOrbAffineAnimTable,
     .callback = AnimSpitUpOrb,
@@ -3390,6 +3620,35 @@ const struct SpriteTemplate gPSIRockinTwoSpriteTemplate =
     .callback = AnimPSIRockin,
 };
 
+static const union AnimCmd sAnim_HBOMaxFinale[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(16, 10),
+    ANIMCMD_FRAME(32, 10),
+    ANIMCMD_FRAME(48, 10),
+    ANIMCMD_FRAME(64, 10),
+    ANIMCMD_FRAME(80, 10),
+    ANIMCMD_FRAME(96, 10),
+    ANIMCMD_FRAME(112, 20),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_HBOMaxFinale[] =
+{
+    sAnim_HBOMaxFinale,
+};
+
+const struct SpriteTemplate gHBOMaxFinaleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FINALE,
+    .paletteTag = ANIM_TAG_FINALE,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = sAnims_HBOMaxFinale,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHBOMaxFinale,
+};
+
 static const union AnimCmd sMovementWavesAnimCmds1[] =
 {
     ANIMCMD_FRAME(0, 8),
@@ -3606,7 +3865,7 @@ const struct SpriteTemplate gMegaSymbolSpriteTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimGhostStatusSprite,
+    .callback = AnimMegaSymbolSprite,
 };
 
 #define sAmplitudeX  data[1]
@@ -4459,7 +4718,7 @@ static void AnimTask_GrowAndGrayscale_Step(u8 taskId)
 void AnimTask_Minimize(u8 taskId)
 {
     struct Task* task = &gTasks[taskId];
-    u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
     
     task->data[0] = spriteId;
     PrepareBattlerSpriteForRotScale(spriteId, ST_OAM_OBJ_NORMAL);
@@ -4469,7 +4728,7 @@ void AnimTask_Minimize(u8 taskId)
     task->data[4] = 0x100;
     task->data[5] = 0;
     task->data[6] = 0;
-    task->data[7] = GetBattlerSpriteSubpriority(gBattleAnimAttacker);
+    task->data[7] = GetBattlerSpriteSubpriority(gBattleAnimTarget);
     task->func = AnimTask_Minimize_Step1;
 }
 
@@ -4543,7 +4802,7 @@ static void AnimTask_Minimize_Step1(u8 taskId)
 static void CreateMinimizeSprite(struct Task* task, u8 taskId)
 {
     u16 matrixNum;
-    s16 spriteId = CloneBattlerSpriteWithBlend(ANIM_ATTACKER);
+    s16 spriteId = CloneBattlerSpriteWithBlend(ANIM_TARGET);
     
     if (spriteId >= 0)
     {
@@ -4666,6 +4925,16 @@ void AnimTask_GrowAndShrink(u8 taskId)
     u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
     
     PrepareAffineAnimInTaskData(task, spriteId, sGrowAndShrinkAffineAnimCmds);
+    task->func = AnimTask_GrowAndShrink_Step;
+}
+
+// Grows, pauses for a long time, then shrinks the attacking mon.
+void AnimTask_GrowWaitAndShrink(u8 taskId)
+{
+    struct Task* task = &gTasks[taskId];
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    
+    PrepareAffineAnimInTaskData(task, spriteId, sGrowWaitAndShrinkAffineAnimCmds);
     task->func = AnimTask_GrowAndShrink_Step;
 }
 
@@ -5866,6 +6135,28 @@ static void AnimRedHeartProjectile_Step(struct Sprite *sprite)
 }
 
 void AnimParticleBurst(struct Sprite *sprite)
+{
+    if (sprite->data[0] == 0)
+    {
+        sprite->data[1] = gBattleAnimArgs[0];
+        sprite->data[2] = gBattleAnimArgs[1];
+        sprite->data[0]++;
+    }
+    else
+    {
+        sprite->data[4] += sprite->data[1];
+        sprite->x2 = sprite->data[4] >> 8;
+        sprite->y2 = Sin(sprite->data[3], sprite->data[2]);
+        sprite->data[3] = (sprite->data[3] + 3) & 0xFF;
+        if (sprite->data[3] > 100)
+            sprite->invisible = sprite->data[3] % 2;
+
+        if (sprite->data[3] > 120)
+            DestroyAnimSprite(sprite);
+    }
+}
+
+void AnimParticleBurstOnAttacker(struct Sprite *sprite)
 {
     if (sprite->data[0] == 0)
     {
@@ -7660,6 +7951,72 @@ static void PSIRockin_ShiftPalette(u8 paletteNum)
 }
 
 
+static void AnimHBOMaxFinale(struct Sprite *sprite)
+{
+    if (sprite->data[0] == 0)
+    {
+        // -------------------------------
+        // Position
+        // -------------------------------
+        if (gBattleAnimArgs[2] == 0)
+            InitSpritePosToAnimAttacker(sprite, FALSE);
+        else
+            InitSpritePosToAnimTarget(sprite, FALSE);
+
+        sprite->x += gBattleAnimArgs[0];
+        sprite->y += gBattleAnimArgs[1];
+
+        // -------------------------------
+        // Start animation
+        // -------------------------------
+        StartSpriteAnim(sprite, 0);
+
+        // -------------------------------
+        // Apply 2× scale
+        // -------------------------------
+        sprite->oam.affineMode = ST_OAM_AFFINE_DOUBLE;
+        SetSpriteRotScale(sprite - gSprites, 128, 128, 0);
+
+        // -------------------------------
+        // Palette index
+        // -------------------------------
+        sprite->data[1] = IndexOfSpritePaletteTag(sprite->template->paletteTag);
+
+        // -------------------------------
+        // Lifetime
+        // -------------------------------
+        sprite->data[3] = gBattleAnimArgs[3];
+
+        // -------------------------------
+        // Flip delay
+        // -------------------------------
+        sprite->data[4] = gBattleAnimArgs[4];
+
+        // Frame counter
+        sprite->data[5] = 0;
+
+        // Flip state (0 = normal, 1 = flipped)
+        sprite->data[6] = 0;
+
+        sprite->data[0] = 1;
+    }
+
+    sprite->callback = AnimHBOMaxFinale_Step;
+}
+
+
+static void AnimHBOMaxFinale_Step(struct Sprite *sprite)
+{
+    // -----------------------------------
+    // Lifetime
+    // -----------------------------------
+    if (--sprite->data[3] <= 0)
+    {
+        //FreeOamMatrix(sprite->oam.matrixNum);
+        DestroySpriteAndMatrix(sprite);
+    }
+}
+
 static void AnimPSIRockin(struct Sprite *sprite)
 {
     if (sprite->data[0] == 0)
@@ -7746,4 +8103,61 @@ static void AnimPSIRockin_Step(struct Sprite *sprite)
         //FreeOamMatrix(sprite->oam.matrixNum);
         DestroySpriteAndMatrix(sprite);
     }
+}
+
+void AnimMegaSymbolSprite(struct Sprite *sprite)
+{
+    u16 coeffB, coeffA;
+
+    // Force spawn on attacker
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+
+    // --- original behaviour below ---
+    sprite->x2 = Sin(sprite->data[0], 12);
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+        sprite->x2 = -sprite->x2;
+
+    sprite->data[0] = (sprite->data[0] + 6) & 0xFF;
+    sprite->data[1] += 0x100;
+    sprite->y2 = -(sprite->data[1] >> 8);
+
+    ++sprite->data[7];
+
+    if (sprite->data[7] == 1)
+    {
+        sprite->data[6] = 0x050B;
+        SetGpuReg(REG_OFFSET_BLDCNT, (BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_ALL));
+        SetGpuReg(REG_OFFSET_BLDALPHA, sprite->data[6]);
+    }
+    else if (sprite->data[7] > 30)
+    {
+        ++sprite->data[2];
+
+        coeffB = sprite->data[6] >> 8;
+        coeffA = sprite->data[6] & 0xFF;
+
+        if (++coeffB > 16)
+            coeffB = 16;
+
+        --coeffA;
+        if ((s16)coeffA < 0)
+            coeffA = 0;
+
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(coeffA, coeffB));
+        sprite->data[6] = BLDALPHA_BLEND(coeffA, coeffB);
+
+        if (coeffB == 16 && coeffA == 0)
+        {
+            sprite->invisible = TRUE;
+            sprite->callback = AnimMegaSymbolSprite_End;
+        }
+    }
+}
+
+static void AnimMegaSymbolSprite_End(struct Sprite *sprite)
+{
+    SetGpuReg(REG_OFFSET_BLDCNT, 0);
+    SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+    DestroyAnimSprite(sprite);
 }

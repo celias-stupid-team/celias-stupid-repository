@@ -13,6 +13,7 @@ OneIsland_KindleRoad_EventScript_EmberSpaSign::
 mapscripts OneIsland_KindleRoad_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setrespawn(HEAL_LOCATION_ONE_ISLAND_KINDLE_ROAD)
+		setbench(BENCH_ONE_ISLAND)
 
 	}
 }

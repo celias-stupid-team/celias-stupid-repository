@@ -378,6 +378,9 @@
 #define METATILE_SilphCo_Wall_LeftEdge                  0x347
 #define METATILE_SilphCo_Wall_RightEdge                 0x346
 
+// gTileset_Starlight_Interior
+#define METATILE_Starlight_Interior_StarlightFloor  0x281
+
 // gTileset_TrainerTower
 #define METATILE_TrainerTower_CounterBarrier         0x2B4
 #define METATILE_TrainerTower_Floor_ShadeBottomLeft  0x287

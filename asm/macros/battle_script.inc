@@ -1961,6 +1961,21 @@
 	.4byte \failInstr
 	.endm
 
+	.macro settypelarge battler:req
+	callnative BS_SetTypeLarge
+	.byte \battler
+	.endm
+
+	.macro unleashenergy
+	callnative BS_UnleashEnergy
+	.endm
+
+
+	.macro removemoney
+	callnative BS_RemoveMoney
+	.endm
+
+	
 	.macro setbattleanimtarget battler:req
 	callnative BS_SetBattleAnimTarget
 	.byte \battler

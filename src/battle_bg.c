@@ -1154,6 +1154,16 @@ static u8 GetBattleTerrainOverride(void)
         gBattleTerrain = BATTLE_TERRAIN_SPACE;
         return BATTLE_TERRAIN_SPACE;
     }
+    else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && gTrainerBattleOpponent_A == TRAINER_DMCA_BLAINE)
+    {
+        gBattleTerrain = BATTLE_TERRAIN_BLAINE;
+        return BATTLE_TERRAIN_BLAINE;
+    }
+    else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_WORMHOLE_ORTHWORM_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_WORMHOLE_ORTHWORM_ROOM))
+    {
+        gBattleTerrain = BATTLE_TERRAIN_SPACE;
+        return BATTLE_TERRAIN_SPACE;
+    }
     else if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER))
     {
         return BATTLE_TERRAIN_LINK;

@@ -568,6 +568,36 @@ const u32 gBattleAnimSpritePal_LeerBlastLeft[] = INCBIN_U32("graphics/battle_ani
 const u32 gBattleAnimSpriteGfx_LeerLaser[] = INCBIN_U32("graphics/battle_anims/sprites/leer_laser.4bpp.lz");
 const u32 gBattleAnimSpritePal_LeerLaser[] = INCBIN_U32("graphics/battle_anims/sprites/leer_laser.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_WurmpleHead[] = INCBIN_U32("graphics/battle_anims/sprites/wurmple_head.4bpp.lz");
+const u32 gBattleAnimSpritePal_WurmpleHead[] = INCBIN_U32("graphics/battle_anims/sprites/wurmple_head.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Pokedad[] = INCBIN_U32("graphics/battle_anims/sprites/pokedad.4bpp.lz");
+const u32 gBattleAnimSpritePal_Pokedad[] = INCBIN_U32("graphics/battle_anims/sprites/pokedad.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_KrabbyHey[] = INCBIN_U32("graphics/battle_anims/sprites/krabby_hey.4bpp.lz");
+const u32 gBattleAnimSpritePal_KrabbyHey[] = INCBIN_U32("graphics/battle_anims/sprites/krabby_hey.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_KnitShorts[] = INCBIN_U32("graphics/battle_anims/sprites/knit_shorts.4bpp.lz");
+const u32 gBattleAnimSpritePal_KnitShorts[] = INCBIN_U32("graphics/battle_anims/sprites/knit_shorts.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Mushroom[] = INCBIN_U32("graphics/battle_anims/sprites/mushroom.4bpp.lz");
+const u32 gBattleAnimSpritePal_Mushroom[] = INCBIN_U32("graphics/battle_anims/sprites/mushroom.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Gyro[] = INCBIN_U32("graphics/battle_anims/sprites/gyro.4bpp.lz");
+const u32 gBattleAnimSpritePal_Gyro[] = INCBIN_U32("graphics/battle_anims/sprites/gyro.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_PantsString[] = INCBIN_U32("graphics/battle_anims/sprites/pants_string.4bpp.lz");
+const u32 gBattleAnimSpritePal_PantsString[] = INCBIN_U32("graphics/battle_anims/sprites/pants_string.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_SecretSword[] = INCBIN_U32("graphics/battle_anims/sprites/secret_sword.4bpp.lz");
+const u32 gBattleAnimSpritePal_SecretSword[] = INCBIN_U32("graphics/battle_anims/sprites/secret_sword.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_MiniShorts[] = INCBIN_U32("graphics/battle_anims/sprites/mini_shorts.4bpp.lz");
+const u32 gBattleAnimSpritePal_MiniShorts[] = INCBIN_U32("graphics/battle_anims/sprites/mini_shorts.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Finale[] = INCBIN_U32("graphics/battle_anims/sprites/finale.4bpp.lz");
+const u32 gBattleAnimSpritePal_Finale[] = INCBIN_U32("graphics/battle_anims/sprites/finale.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

@@ -114,6 +114,8 @@ static void AnimFalseSwipeSlice_Step3(struct Sprite *);
 static void AnimFalseSwipePositionedSlice(struct Sprite *);
 static void AnimEndureEnergy(struct Sprite *);
 static void AnimEndureEnergy_Step(struct Sprite *);
+static void AnimFocusEnergy(struct Sprite *);
+static void AnimFocusEnergy_Step(struct Sprite *);
 static void AnimSharpenSphere(struct Sprite *);
 static void AnimSharpenSphere_Step(struct Sprite *);
 static void AnimConversion(struct Sprite *);
@@ -133,6 +135,7 @@ static void AnimWavyMusicNotes_Step(struct Sprite *);
 static void AnimFlyingMusicNotes(struct Sprite *);
 static void AnimFlyingMusicNotes_Step(struct Sprite *);
 static void AnimSlowFlyingMusicNotes(struct Sprite *);
+static void AnimSlowFlyingMusicNotesOnTarget(struct Sprite *);
 static void AnimSlowFlyingMusicNotes_Step(struct Sprite *);
 static void AnimThoughtBubble(struct Sprite *);
 static void AnimThoughtBubble_Step(struct Sprite *);
@@ -149,6 +152,7 @@ static void AnimTauntFinger(struct Sprite *);
 static void AnimTauntFinger_Step1(struct Sprite *);
 static void AnimTauntFinger_Step2(struct Sprite *);
 static void AnimBellyDrumHand(struct Sprite *);
+static void AnimDrumBeatingHand(struct Sprite *);
 static void AnimSuperFang(struct Sprite *);
 static void AnimGrantingStars(struct Sprite *);
 static void AnimSparklingStars(struct Sprite *);
@@ -582,6 +586,17 @@ const struct SpriteTemplate gSporeParticleSpriteTemplate =
     .callback = AnimSporeParticle,
 };
 
+const struct SpriteTemplate gShortsParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MINI_SHORTS,
+    .paletteTag = ANIM_TAG_MINI_SHORTS,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeParticle,
+};
+
 const struct SpriteTemplate gSporeSelfParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SPORE,
@@ -822,6 +837,30 @@ const struct SpriteTemplate gSwiftStarSpriteTemplate =
     .paletteTag = ANIM_TAG_YELLOW_STAR,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sSwiftStarAffineAnimTable,
+    .callback = AnimTranslateLinearSingleSineWave,
+};
+
+
+static const union AnimCmd sGyroAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sGyroAnimTable[] =
+{
+    sGyroAnimCmds,
+};
+
+const struct SpriteTemplate gGyroThrowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GYRO,
+    .paletteTag = ANIM_TAG_GYRO,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sGyroAnimTable,
     .images = NULL,
     .affineAnims = sSwiftStarAffineAnimTable,
     .callback = AnimTranslateLinearSingleSineWave,
@@ -2207,6 +2246,31 @@ const struct SpriteTemplate gEndureEnergySpriteTemplate =
     .callback = AnimEndureEnergy,
 };
 
+static const union AnimCmd sFocusEnergyAnimCmds[] =
+{
+    ANIMCMD_FRAME(24, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(8, 12),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sFocusEnergyAnimTable[] =
+{
+    sFocusEnergyAnimCmds,
+};
+
+const struct SpriteTemplate gFocusEnergySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FOCUS_ENERGY,
+    .paletteTag = ANIM_TAG_FOCUS_ENERGY,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = sFocusEnergyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFocusEnergy,
+};
+
 const struct SpriteTemplate gBlueEndureEnergySpriteTemplate =
 {
     .tileTag = ANIM_TAG_FOCUS_ENERGY,
@@ -2655,6 +2719,17 @@ const struct SpriteTemplate gBellyDrumHandSpriteTemplate =
     .callback = AnimBellyDrumHand,
 };
 
+const struct SpriteTemplate gDrumBeatingHandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PURPLE_HAND_OUTLINE,
+    .paletteTag = ANIM_TAG_PURPLE_HAND_OUTLINE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimDrumBeatingHand,
+};
+
 static const union AffineAnimCmd sSlowFlyingMusicNotesAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(0xA0, 0xA0, 0, 0),
@@ -2676,6 +2751,17 @@ const struct SpriteTemplate gSlowFlyingMusicNotesSpriteTemplate =
     .images = NULL,
     .affineAnims = sSlowFlyinsMusicNotesAffineAnimTable,
     .callback = AnimSlowFlyingMusicNotes,
+};
+
+const struct SpriteTemplate gSlowFlyingMusicNotesOnTargetSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSIC_NOTES,
+    .paletteTag = ANIM_TAG_MUSIC_NOTES,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = gMusicNotesAnimTable,
+    .images = NULL,
+    .affineAnims = sSlowFlyinsMusicNotesAffineAnimTable,
+    .callback = AnimSlowFlyingMusicNotesOnTarget,
 };
 
 static const union AnimCmd sMetronomeThroughtBubbleAnimCmds1[] =
@@ -6148,6 +6234,37 @@ static void AnimEndureEnergy_Step(struct Sprite* sprite)
         DestroyAnimSprite(sprite);
 }
 
+static void AnimFocusEnergy(struct Sprite* sprite)
+{
+    if (gBattleAnimArgs[0] == 0)
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X) + gBattleAnimArgs[1];
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y) + gBattleAnimArgs[2];
+    }
+    else
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X) + gBattleAnimArgs[1];
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) + gBattleAnimArgs[2];
+    }
+
+    sprite->data[0] = 0;
+    sprite->data[1] = gBattleAnimArgs[3];
+    sprite->callback = AnimFocusEnergy_Step;
+}
+
+static void AnimFocusEnergy_Step(struct Sprite* sprite)
+{
+    if (++sprite->data[0] > sprite->data[1])
+    {
+        sprite->data[0] = 0;
+        sprite->y++;  // flipped
+    }
+
+    sprite->y += sprite->data[0];  // flipped
+    if (sprite->animEnded)
+        DestroyAnimSprite(sprite);
+}
+
 static void AnimSharpenSphere(struct Sprite* sprite)
 {
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
@@ -6790,12 +6907,57 @@ static void AnimBellyDrumHand(struct Sprite* sprite)
     StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
 }
 
+static void AnimDrumBeatingHand(struct Sprite* sprite)
+{
+    s16 a;
+    
+    if (gBattleAnimArgs[0] == 1)
+    {
+        sprite->oam.matrixNum = ST_OAM_HFLIP;
+        a = 16;
+    }
+    else
+    {
+        a = -16;
+    }
+
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2) + a;
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + 8;
+    sprite->data[0] = 8;
+    sprite->callback = WaitAnimForDuration;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
 static void AnimSlowFlyingMusicNotes(struct Sprite* sprite)
 {
     s16 xDiff;
     u8 index;
     
     SetSpriteCoordsToAnimAttackerCoords(sprite);
+    sprite->y += 8;
+    StartSpriteAnim(sprite, gBattleAnimArgs[1]);
+    index = IndexOfSpritePaletteTag(sParticlesColorBlendTable[gBattleAnimArgs[2]][0]);
+    if (index != 0xFF)
+        sprite->oam.paletteNum = index;
+
+    xDiff = (gBattleAnimArgs[0] == 0) ? -32 : 32;
+    sprite->data[0] = 40;
+    sprite->data[1] = sprite->x;
+    sprite->data[2] = xDiff + sprite->data[1];
+    sprite->data[3] = sprite->y;
+    sprite->data[4] = sprite->data[3] - 40;
+    InitAnimLinearTranslation(sprite);
+    sprite->data[5] = gBattleAnimArgs[3];
+    sprite->callback = AnimSlowFlyingMusicNotes_Step;
+}
+static void AnimSlowFlyingMusicNotesOnTarget(struct Sprite* sprite)
+{
+    s16 xDiff;
+    u8 index;
+    
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+
     sprite->y += 8;
     StartSpriteAnim(sprite, gBattleAnimArgs[1]);
     index = IndexOfSpritePaletteTag(sParticlesColorBlendTable[gBattleAnimArgs[2]][0]);

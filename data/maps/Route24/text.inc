@@ -11,18 +11,16 @@ Route24_Text_YouDontHaveAnyRoom::
     .string "You don't have any room!$"
 
 Route24_Text_JoinTeamRocket::
-	.string "By the way, how did you get so good\n"
-	.string "at VGC?\p"
-	.string "You didn't use an illegal site like\n"
-	.string "POKéMON SHOWDOWN, did you?\p"
-	.string "Because that would be a violation of\n"
-	.string "copyright!\p"
-	.string "…What's that? You did?\p"
+	.string "By the way, how'd you get so\n"
+	.string "good at VGC?\p"
+	.string "You didn't use an illegal site\n"
+	.string "like POKéMON SHOWDOWN, did you?\l"
+	.string "That'd be a violation of copyright!\p"
+	.string "…What's that?\n"
+	.string "You did?\p"
 	.string "…\p"
 	.string "We at the DMCA can't let something\n"
-	.string "like that slide!\p"
-	.string "You'll regret ever playing this\n"
-	.string "game!$"
+	.string "like that slide!$"
 
 Route24_Text_RocketDefeat::
     .string "Arrgh!\n"

@@ -577,7 +577,7 @@
       "secondaryId": 0
     },
     {
-      "english": "ELIXIR",
+      "english": "ELIXER",
       "itemId": "ITEM_ELIXIR",
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -593,7 +593,7 @@
       "secondaryId": 0
     },
     {
-      "english": "MAX ELIXIR",
+      "english": "MAX ELIXER",
       "itemId": "ITEM_MAX_ELIXIR",
       "price": 4500,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -3158,7 +3158,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_LUCKY_EGG",
       "holdEffectParam": 0,
-      "description_english": "An item to be held by a POKéMON.\\nAn egg filled with happiness that\\nearns extra EXP. points in battle.",
+      "description_english": "An egg from an egg.\\nIncreases EXP gain in battle.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -4911,7 +4911,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Submission"
+      "moveId": "ExtremeSloth"
     },
     {
       "english": "TM18",
@@ -6061,7 +6061,7 @@
     {
       "english": "FOCUS SASH",
       "itemId": "ITEM_FOCUS_SASH",
-      "price": 50,
+      "price": 138,
       "holdEffect": "HOLD_EFFECT_FOCUS_SASH",
       "holdEffectParam": 10,
       "description_english": "If the holder has\\nfull HP, it endures\\nKO hits with 1 HP.",
@@ -6381,7 +6381,7 @@
     {
       "english": "GRASS ENERGY",
       "itemId": "ITEM_GRASS_ENERGY",
-      "price": 500,
+      "price": 4000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "Raises the ATTACK stat of POKéMON\\nin battle. Wears off if the POKéMON\\nis withdrawn.",
@@ -7245,7 +7245,7 @@
     {
       "english": "PREMIER CANDY",
       "itemId": "ITEM_PREMIER_CANDY",
-      "price": 200,
+      "price": 600,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "What, you can't give us PREMIER\\nBALLS but you can give us\\nCANDIES?",
@@ -7744,7 +7744,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A message from above has come\\nfrom the machine. It reads:\\nIT WILL NOT HELP WITH DRAGONITE.",
+      "description_english": "A message from above has come\\nfrom the machine. It reads:\\nTHIS WILL NOT HELP WITH DRAGONITE.",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

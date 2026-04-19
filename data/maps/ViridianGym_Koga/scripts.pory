@@ -252,6 +252,7 @@ script DMCAKoga_BrickWall4 {
         } else {
                 if(checkpartymon(SPECIES_DITTO_MEW)) {
                     playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
+                    setflag(FLAG_TRIED_DITTO_IN_WALL)
                     waitmoncry
                     msgbox(
                     "Oh!\n"
@@ -310,7 +311,7 @@ script DMCAKoga_StopSnowing {
     && flag(FLAG_DMCA_KOGA_BRICK_2)
     && flag(FLAG_DMCA_KOGA_BRICK_3)
     && flag(FLAG_DMCA_KOGA_BRICK_4)) {
-        setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
+        //setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
         setweather(WEATHER_NONE)
         doweather
         

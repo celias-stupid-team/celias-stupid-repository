@@ -470,6 +470,19 @@ gSongTable::
     song se_tcg_waterfall, 1, 1
 	song mus_safari_evolution, 0, 0
 	song mus_incompatible_emulator, 0, 0
+	song mus_the_moon, 0, 0
+	song mus_battle_revolution, 0, 0
+	song mus_encounter_cool, 0, 0
+	song mus_se_alaskan_bull_worm, 2, 2
+	song mus_se_ass, 2, 2
+	song mus_se_chocolate_rain, 2, 2
+	song mus_se_dark_lloyd, 2, 2
+	song mus_se_for, 2, 2
+	song mus_se_game_of_thrones, 2, 2
+	song mus_se_kirby_phone, 2, 2
+	song mus_se_monster_mash, 2, 2
+	song mus_se_sonic_boom, 2, 2
+	song mus_se_space_jam, 2, 2
 
 
 dummy_song_header:

@@ -1546,8 +1546,8 @@ static void Task_OakSpeech_FadeOutPlayerPic(u8 taskId)
 
 static void Task_OakSpeech_ShowModeActivatedMessage(u8 taskId)
 {
-    static const u8 sTextHardModeActivated[] = _("HARD MODE activated!\n\p");
-    static const u8 sTextEasyModeActivated[] = _("EASY MODE activated!\n\p");
+    static const u8 sTextHardModeActivated[] = _("That's right! His name is GARY!\nNow you've activated HARD MODE!\p");
+    static const u8 sTextEasyModeActivated[] = _("shh… his name is gary!\nthat's how you start on easy mode!\p");
 
     if (!IsTextPrinterActive(WIN_INTRO_TEXTBOX))
     {

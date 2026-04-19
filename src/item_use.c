@@ -700,7 +700,7 @@ static void Task_InitTeachyTvFromField(u8 taskId)
 void FieldUseFunc_Repel(u8 taskId)
 {
     if (gSpecialVar_ItemId == ITEM_MAX_REPEL) {
-        if(FlagGet(FLAG_CSR_POWER_IS_ON)) {
+        if(FlagGet(FLAG_CSR_POWER_IS_ON) || FlagGet(FLAG_UNLEASHED_ENERGY)) {
             if(FlagGet(FLAG_SYS_MAX_REPEL)) {
                 FlagClear(FLAG_SYS_MAX_REPEL);
                 DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelTurnedOff, Task_ReturnToBagFromContextMenu);

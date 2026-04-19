@@ -321,6 +321,150 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SeafoamCaptainToPerm"
     }
   ],
   "bg_events": [

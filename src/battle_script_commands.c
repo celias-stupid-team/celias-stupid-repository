@@ -841,6 +841,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_COLONIZE,
     MOVE_THIEF,
     MOVE_MIEF,
+    MOVE_PANTY_SHOT,
     METRONOME_FORBIDDEN_END
 };
 
@@ -4022,7 +4023,8 @@ static void Cmd_getexp(void)
             else
             {
                 // music change in wild battle after fainting a poke
-                if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_POKEDUDE)) && gBattleMons[0].hp != 0 && !gBattleStruct->wildVictorySong)
+                if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_POKEDUDE)) && gBattleMons[0].hp != 0 && !gBattleStruct->wildVictorySong
+                    && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD)))
                 {
                     BattleStopLowHpSound();
                     PlayBGM(MUS_VICTORY_WILD);
@@ -4038,8 +4040,16 @@ static void Cmd_getexp(void)
 
                     if (holdEffect == HOLD_EFFECT_EXP_SHARE)
                         gBattleMoveDamage += gExpShareExp;
-                    if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
-                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+                    if (holdEffect == HOLD_EFFECT_LUCKY_EGG) {
+                        if(GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES) == SPECIES_CHARMANDER && !FlagGet(FLAG_BADGE01_GET)) {
+                            gBattleMoveDamage = (gBattleMoveDamage * 105) / 100;
+
+                        } else {
+                            gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+
+                        }
+
+                    }
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
                     if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId])
@@ -9409,6 +9419,7 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_ELECTRIFY
         && gLastPrintedMoves[gBattlerTarget] != MOVE_10000_VOLTS
         && gLastPrintedMoves[gBattlerTarget] != MOVE_VOLCANIC_HEALING
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_RAINBOW_BEAM
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SHEER_COLD
         && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
@@ -11360,7 +11371,13 @@ static void Cmd_handleballthrow(void)
             //DebugPrintf("Odds are above 255 for some reason");
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
-            gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+            if(gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM || gBattleMons[gBattlerTarget].species == SPECIES_VICTINI) {
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrowCastform;
+
+            } else {
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+
+            }
             SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &thrownBall);
 
             if (CalculatePlayerPartyCount() == PARTY_SIZE)
@@ -11448,7 +11465,7 @@ static void Cmd_givecaughtmon(void)
             if (itemsPocket->itemSlots[i].itemId != ITEM_NONE)
                 filledSlots++;
         }
-        if (filledSlots >= 6 && ItemId_GetImportance(itemsPocket->itemSlots[5].itemId) == 0)
+        if (filledSlots >= 6 && ItemId_GetImportance(itemsPocket->itemSlots[5].itemId) == 0 && itemsPocket->itemSlots[5].itemId != ITEM_POTION)
             SetBagItemQuantity(&itemsPocket->itemSlots[5].quantity, 255);
     }
 
@@ -13593,6 +13610,18 @@ void BS_SetTypeSmall(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_SetTypeLarge(void)
+{
+    NATIVE_ARGS(u8 battler);
+
+    u32 gActiveBattler = GetBattlerForBattleScript(cmd->battler);
+
+    SET_BATTLER_TYPE(gActiveBattler, TYPE_LARGE);
+    PREPARE_TYPE_BUFFER(gBattleTextBuff1, TYPE_LARGE);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_TryFling(void)
 {
     NATIVE_ARGS(const u8 *failInstr);
@@ -13607,6 +13636,25 @@ void BS_TryFling(void)
     
     gLastUsedItem = itemId;
 
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_UnleashEnergy(void) {
+    NATIVE_ARGS();
+    //DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+    FlagSet(FLAG_UNLEASHED_ENERGY);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_RemoveMoney(void) {
+    NATIVE_ARGS();
+    //DexScreen_GetSetPokedexFlag(cmd->species, cmd->caseId, TRUE);
+    
+    u16 itemId = ITEM_NUGGET;
+
+    RemoveBagItem(itemId, 1);
+    RemoveBagItem(itemId, 1);
+    RemoveBagItem(itemId, 1);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

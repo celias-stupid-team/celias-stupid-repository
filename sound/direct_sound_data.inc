@@ -451,6 +451,49 @@ DirectSoundWaveData_Waa::
 DirectSoundWaveData_TCGWaterfall::
 	.incbin "sound/direct_sound_samples/tcg_waterfall.bin"
 
+
+
+	.align 2
+DirectSoundWaveData_AlaskanBullWorm::
+	.incbin "sound/direct_sound_samples/alaskan_bull_worm.bin"
+
+	.align 2
+DirectSoundWaveData_Ass::
+	.incbin "sound/direct_sound_samples/ass.bin"
+
+	.align 2
+DirectSoundWaveData_ChocolateRain::
+	.incbin "sound/direct_sound_samples/chocolate_rain.bin"
+
+	.align 2
+DirectSoundWaveData_DarkLloyd::
+	.incbin "sound/direct_sound_samples/dark_lloyd.bin"
+
+	.align 2
+DirectSoundWaveData_For::
+	.incbin "sound/direct_sound_samples/for.bin"
+
+	.align 2
+DirectSoundWaveData_GameOfThrones::
+	.incbin "sound/direct_sound_samples/game_of_thrones.bin"
+
+	.align 2
+DirectSoundWaveData_KirbyPhone::
+	.incbin "sound/direct_sound_samples/kirby_phone.bin"
+
+	.align 2
+DirectSoundWaveData_MonsterMash::
+	.incbin "sound/direct_sound_samples/monster_mash.bin"
+
+	.align 2
+DirectSoundWaveData_SonicBoom::
+	.incbin "sound/direct_sound_samples/sonic_boom.bin"
+
+	.align 2
+DirectSoundWaveData_SpaceJam::
+	.incbin "sound/direct_sound_samples/space_jam.bin"
+
+
 	.align 2
 Cry_Bulbasaur::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"

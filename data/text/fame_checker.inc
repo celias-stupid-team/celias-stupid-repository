@@ -519,7 +519,7 @@ gFameCheckerFlavorText_GreatSeaWest4:: @ 0x81AF3BE
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "Hi!\n"
 	.string "Do you have RAICHU?\p"
-	.string "Wnat to trade it for my HAUNTER?\n$"
+	.string "Want to trade it for my HAUNTER?\n$"
 
 gFameCheckerFlavorText_GreatSeaWest5:: @ 0x81AF47C
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
@@ -635,13 +635,14 @@ gFameCheckerFlavorText_GreatBay0:: @ 0x81AFB0C
 gFameCheckerFlavorText_GreatBay1:: @ 0x81AFB76
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-	.string "Ever since the Gen 1 TYPE CHART,\n"
+	.string "Because of this RBY TYPE CHART,\n"
 	.string "things have been real rough.\p"
-	.string "My BUG-TYPES haven't been able to\n"
-	.string "stand up to those POISON-TYPES.\l"
-	.string "We're weak to their attacks now!\p"
-	.string "I wish there was something we could\n"
-	.string "do to turn the tables on them…$"
+	.string "My BUG-TYPES can't stand up to\n"
+	.string "those POISON-TYPES.\l"
+	.string "We're weak to their attacks!\p"
+	.string "I gotta study it to see if there's\n"
+	.string "a way to turn the tables on 'em…$"
+
 
 gFameCheckerFlavorText_GreatBay2:: @ 0x81AFC38
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
@@ -735,7 +736,7 @@ gFameCheckerPersonQuote_ProfOak:: @ 0x81B0198
 	.string "Never forget that.$"
 
 gFameCheckerPersonName_Viridian:: @ 0x81B0251
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Hey, what's with that legde?$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Hey, what's with that ledge?$"
 
 gFameCheckerPersonQuote_Daisy:: @ 0x81B025D
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: DAISY\n"

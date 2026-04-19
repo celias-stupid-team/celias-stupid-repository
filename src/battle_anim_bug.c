@@ -145,6 +145,17 @@ const struct SpriteTemplate gWebThreadSpriteTemplate =
     .callback = AnimTranslateWebThread,
 };
 
+const struct SpriteTemplate gShortsThreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WEB_THREAD,
+    .paletteTag = ANIM_TAG_PANTS_STRING,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTranslateWebThread,
+};
+
 const struct SpriteTemplate gGrassKnotThreadSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEB_THREAD,
@@ -160,6 +171,17 @@ const struct SpriteTemplate gStringWrapSpriteTemplate =
 {
     .tileTag = ANIM_TAG_STRING,
     .paletteTag = ANIM_TAG_STRING,
+    .oam = &gOamData_AffineOff_ObjNormal_64x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimStringWrap,
+};
+
+const struct SpriteTemplate gPantsStringSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PANTS_STRING,
+    .paletteTag = ANIM_TAG_PANTS_STRING,
     .oam = &gOamData_AffineOff_ObjNormal_64x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -227,6 +249,17 @@ const struct SpriteTemplate gIcicleSpearSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ICICLE_SPEAR,
     .paletteTag = ANIM_TAG_ICICLE_SPEAR,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMissileArc,
+};
+
+const struct SpriteTemplate gPsycicleSpearSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ICICLE_SPEAR,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

@@ -44,32 +44,32 @@ Route4_EventScript_Crissy::
 	end
 
 Route24_EventScript_Timmy::
-	trainerbattle_single TRAINER_YOUNGSTER_TIMMY, Route24_Text_TimmyIntro, Route24_Text_TimmyDefeat
+	trainerbattle_single TRAINER_YOUNGSTER_TIMMY, Route24_Text_TimmyIntro, Route24_Text_TimmyDefeat, Route24_SneakilyHealParty
 	msgbox Route24_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route24_EventScript_Cale::
-	trainerbattle_single TRAINER_BUG_CATCHER_CALE, Route24_Text_CaleIntro, Route24_Text_CaleDefeat
+	trainerbattle_single TRAINER_BUG_CATCHER_CALE, Route24_Text_CaleIntro, Route24_Text_CaleDefeat, Route24_SneakilyHealParty
 	msgbox Route24_Text_CalePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route24_EventScript_Reli::
-	trainerbattle_single TRAINER_CHAMPION_KOTONE, Route24_Text_ReliIntro, Route24_Text_ReliDefeat
+	trainerbattle_single TRAINER_CHAMPION_KOTONE, Route24_Text_ReliIntro, Route24_Text_ReliDefeat, Route24_SneakilyHealParty
 	msgbox Route24_Text_ReliPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route24_EventScript_Ali::
-	trainerbattle_single TRAINER_CHAMPION_RAY_RIZZO, Route24_Text_AliIntro, Route24_Text_AliDefeat
+	trainerbattle_single TRAINER_CHAMPION_RAY_RIZZO, Route24_Text_AliIntro, Route24_Text_AliDefeat, Route24_SneakilyHealParty
 	msgbox Route24_Text_AliPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route24_EventScript_Shane::
-	trainerbattle_single TRAINER_OFFICER_VERLISIFY, Route24_Text_ShaneIntro, Route24_Text_ShaneDefeat
+	trainerbattle_single TRAINER_OFFICER_VERLISIFY, Route24_Text_ShaneIntro, Route24_Text_ShaneDefeat, Route24_SneakilyHealParty
 	msgbox Route24_Text_ShanePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route24_EventScript_Ethan::
-	trainerbattle_single TRAINER_CAMPER_ETHAN, Route24_Text_EthanIntro, Route24_Text_EthanDefeat
+	trainerbattle_single TRAINER_CAMPER_ETHAN, Route24_Text_EthanIntro, Route24_Text_EthanDefeat, Route24_SneakilyHealParty
 	msgbox Route24_Text_EthanPostBattle, MSGBOX_AUTOCLOSE
 	end
 

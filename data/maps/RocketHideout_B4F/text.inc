@@ -26,7 +26,7 @@ RocketHideout_B4F_Text_Grunt2Intro::
 	.string "Who are you?\p"
 	.string "My name is LARS.\n"
 	.string "I'm an admin of the DMCA!\p"
-	.string "How dare you tresspass in our\n"
+	.string "How dare you tresspas in our\n"
 	.string "LAW OFFICES!$"
 
 RocketHideout_B4F_Text_Grunt2Defeat::
@@ -76,7 +76,7 @@ DMCA_LawOffices_PetrelIntro::
 	.string "Who are you?\p"
 	.string "My name is LARS.\n"
 	.string "I'm an admin of the DMCA!\p"
-	.string "How dare you tresspass in our\n"
+	.string "How dare you trespass in our\n"
 	.string "LAW OFFICES!$"
 
 DMCA_LawOffices_PetrelDefeat::
