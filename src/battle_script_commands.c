@@ -8887,7 +8887,7 @@ static void Cmd_tryinfatuating(void)
 
     if (gBattleWeather & B_WEATHER_SHADOW_SKY)
     {
-        BattleScriptPush(T1_READ_PTR(gBattlescriptCurrInstr + 1));
+        BattleScriptPush(BattleScript_MoveEnd);
         gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
         return;
     }
@@ -10638,6 +10638,13 @@ static void Cmd_doubledamagedealtifdamaged(void)
 
 static void Cmd_setyawn(void)
 {
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(BattleScript_MoveEnd);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
+
     if (gStatuses3[gBattlerTarget] & STATUS3_YAWN
         || gBattleMons[gBattlerTarget].status1 & STATUS1_ANY)
     {
