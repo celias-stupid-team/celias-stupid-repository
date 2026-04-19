@@ -1135,6 +1135,9 @@ gBattleAnims_Moves::
 	.4byte Move_SHROOM_DESIRE
 	.4byte Move_LUCKY_PANT
 	.4byte Move_WURMPLE_BEAM
+	.4byte Move_TILE_COLLISION
+	.4byte Move_MAP_MUSIC
+	.4byte Move_MAP_WEATHER
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -30937,3 +30940,11 @@ WurmpleHeads:
 	createsprite gWurmpleBeamPurpleHeadSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, -16
 	delay 2
 	return
+
+
+Move_TILE_COLLISION:
+	goto Move_TACKLE
+Move_MAP_MUSIC:
+	goto Move_TEETER_DANCE
+Move_MAP_WEATHER:
+	goto MOVE_RAIN_DANCE

@@ -1106,6 +1106,9 @@ const u8 gMoveDescription_ShroomDesire[] = _("I stop you from\nrunning, but only
 const u8 gMoveDescription_LuckyPant[] = _("Dummy");
 const u8 gMoveDescription_WurmpleBeam[] = _("Dummy");
 
+const u8 gMoveDescription_TileCollision[] = _("Dummy");
+const u8 gMoveDescription_MapMusic[] = _("Dummy");
+const u8 gMoveDescription_MapWeather[] = _("Dummy");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -2216,4 +2219,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_SHROOM_DESIRE     -1 ] = gMoveDescription_ShroomDesire,
     [MOVE_LUCKY_PANT     -1 ] = gMoveDescription_LuckyPant,
     [MOVE_WURMPLE_BEAM     -1 ] = gMoveDescription_WurmpleBeam,
+    [MOVE_TILE_COLLISION     -1 ] = gMoveDescription_TileCollision,
+    [MOVE_MAP_MUSIC     -1 ] = gMoveDescription_MapMusic,
+    [MOVE_MAP_WEATHER     -1 ] = gMoveDescription_MapWeather,
 };

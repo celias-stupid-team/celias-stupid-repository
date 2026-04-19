@@ -1109,6 +1109,10 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_SHROOM_DESIRE]     = _("SHROOM DSIRE"),
     [MOVE_LUCKY_PANT]     = _("LUCKY PANT"),
     [MOVE_WURMPLE_BEAM]     = _("FALSE "),
+
+    [MOVE_TILE_COLLISION]     = _("FALSE"),
+    [MOVE_MAP_MUSIC]     = _("MAP MUSIC"),
+    [MOVE_MAP_WEATHER]     = _("MAP WEATHER"),
 };
 
 
@@ -2225,4 +2229,8 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_LUCKY_PANT]     = _("LUCKY PANT"),
     
     [MOVE_WURMPLE_BEAM]     = _("WURMPLE BEAM"),
+
+    [MOVE_TILE_COLLISION]     = _("TILE COLLISION"),
+    [MOVE_MAP_MUSIC]     = _("MAP MUSIC"),
+    [MOVE_MAP_WEATHER]     = _("MAP WEATHER"),
 }; //For any move which needs its name lengthened, these will display in battle.

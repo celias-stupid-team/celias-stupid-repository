@@ -1110,7 +1110,11 @@
 #define MOVE_SHROOM_DESIRE 1104
 #define MOVE_LUCKY_PANT 1105
 #define MOVE_WURMPLE_BEAM 1106
-#define MOVES_COUNT 1107
+
+#define MOVE_TILE_COLLISION 1107
+#define MOVE_MAP_MUSIC 1108
+#define MOVE_MAP_WEATHER 1109
+#define MOVES_COUNT 1110
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
 
