@@ -1965,3 +1965,8 @@
 	callnative BS_SetBattleAnimTarget
 	.byte \battler
 	.endm
+
+	.macro trysetencoreboth failInstr:req
+	callnative BS_TrySetEncoreBoth
+	.4byte \failInstr
+	.endm

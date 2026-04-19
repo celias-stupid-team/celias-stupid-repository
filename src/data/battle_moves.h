@@ -14134,14 +14134,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_ARE_WE_NOT_MON] =
     {
-        .effect = EFFECT_ENCORE,
+        .effect = EFFECT_ENCORE_BOTH,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .accuracy = 0,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = -6,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 

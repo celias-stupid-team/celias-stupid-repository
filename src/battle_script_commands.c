@@ -13618,3 +13618,48 @@ void BS_SetBattleAnimTarget(void)
     gBattleSpritesDataPtr->animationData->animTargetOverrideActive = TRUE; // override is being read in TryHandleLaunchBattleTableAnimation()
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_TrySetEncoreBoth(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+    u8 battler;
+    s32 i;
+    u8 attackerSide = GET_BATTLER_SIDE(gBattlerAttacker);
+    bool32 anySuccess = FALSE;
+
+    for (battler = 0; battler < gBattlersCount; battler++)
+    {
+        if (GET_BATTLER_SIDE(battler) == attackerSide)
+            continue;
+        if (gAbsentBattlerFlags & gBitTable[battler])
+            continue;
+
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[battler].moves[i] == gLastMoves[battler])
+                break;
+        }
+
+        if (gLastMoves[battler] == MOVE_STRUGGLE
+            || gLastMoves[battler] == MOVE_ENCORE
+            || gLastMoves[battler] == MOVE_MIRROR_MOVE)
+        {
+            i = MAX_MON_MOVES;
+        }
+
+        if (gDisableStructs[battler].encoredMove == MOVE_NONE
+            && i != MAX_MON_MOVES && gBattleMons[battler].pp[i] != 0)
+        {
+            gDisableStructs[battler].encoredMove = gBattleMons[battler].moves[i];
+            gDisableStructs[battler].encoredMovePos = i;
+            gDisableStructs[battler].encoreTimer = (Random() & 3) + 3;
+            gDisableStructs[battler].encoreTimerStartValue = gDisableStructs[battler].encoreTimer;
+            anySuccess = TRUE;
+        }
+    }
+
+    if (anySuccess)
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    else
+        gBattlescriptCurrInstr = cmd->failInstr;
+}

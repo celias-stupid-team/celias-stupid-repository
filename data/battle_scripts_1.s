@@ -307,6 +307,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
 	.4byte BattleScript_End                     	 @ EFFECT_BAG
 	.4byte BattleScript_End                  		 @ EFFECT_CANCEL
+	.4byte BattleScript_EffectEncoreBoth             @ EFFECT_ENCORE_BOTH
 
 BattleScript_End::
 	end
@@ -1452,6 +1453,18 @@ BattleScript_EffectEncore::
 	attackstring
 	ppreduce
 	trysetencore BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNGOTENCORE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectEncoreBoth::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	trysetencoreboth BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNGOTENCORE
