@@ -7880,6 +7880,13 @@ static void Cmd_setreflect(void)
 
 static void Cmd_setseeded(void)
 {
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(gBattlescriptCurrInstr + 1);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
+
     if ((gMoveResultFlags & MOVE_RESULT_NO_EFFECT) || (gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED) || (gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE))
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
@@ -9724,6 +9731,13 @@ static void Cmd_healpartystatus(void)
 
 static void Cmd_cursetarget(void)
 {
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(BattleScript_MoveEnd);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
+
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
@@ -9766,6 +9780,13 @@ static void Cmd_trysetperishsong(void)
 {
     s32 i;
     s32 notAffectedCount = 0;
+
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(BattleScript_MoveEnd);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
 
     for (i = 0; i < gBattlersCount; i++)
     {
@@ -10417,6 +10438,13 @@ static void Cmd_cureifburnedparalysedorpoisoned(void)
 
 static void Cmd_settorment(void)
 {
+    if (gBattleWeather & B_WEATHER_SHADOW_SKY)
+    {
+        BattleScriptPush(BattleScript_MoveEnd);
+        gBattlescriptCurrInstr = BattleScript_ShadowSkyStatusImmunity;
+        return;
+    }
+
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
