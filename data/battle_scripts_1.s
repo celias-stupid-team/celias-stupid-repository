@@ -39,7 +39,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDefenseUp              @ EFFECT_DEFENSE_UP
 	.4byte BattleScript_EffectHit                    @ EFFECT_SPEED_UP
 	.4byte BattleScript_EffectSpecialAttackUp        @ EFFECT_SPECIAL_ATTACK_UP
-	.4byte BattleScript_EffectHit                    @ EFFECT_SPECIAL_DEFENSE_UP
+	.4byte BattleScript_EffectSpecialDefenseUp       @ EFFECT_SPECIAL_DEFENSE_UP
 	.4byte BattleScript_EffectHit                    @ EFFECT_ACCURACY_UP
 	.4byte BattleScript_EffectEvasionUp              @ EFFECT_EVASION_UP
 	.4byte BattleScript_EffectHit                    @ EFFECT_ALWAYS_HIT
@@ -308,12 +308,12 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
 	.4byte BattleScript_EffectPayWall           @ EFFECT_PAY_WALL
 	.4byte BattleScript_EffectShroomburst           @ EFFECT_SHROOMBURST
+	.4byte BattleScript_EffectFocusMiss           @ EFFECT_FOCUS_MISS
+	.4byte BattleScript_End                     	 @ EFFECT_BAG
+	.4byte BattleScript_End                  		 @ EFFECT_CANCEL
 
-	
-
-	
-
-
+BattleScript_End::
+	end
 
 BattleScript_End2::
 	end2
@@ -393,6 +393,7 @@ BattleScript_HitFromAtkAnimation_2::
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	jumpifmove MOVE_REVELATION_DANCE, BattleScript_RevelationDanceString
+	jumpifmove MOVE_REVELATION_DANCE_2, BattleScript_RevelationDanceString
 	seteffectwithchance
 	tryfaintmon BS_TARGET
 	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
@@ -673,6 +674,11 @@ BattleScript_EffectAttackAccuracyUpEnd::
 
 BattleScript_EffectDefenseUp::
 	setstatchanger STAT_DEF, 1, FALSE
+	goto BattleScript_EffectStatUp
+
+
+BattleScript_EffectSpecialDefenseUp::
+	setstatchanger STAT_SPDEF, 1, FALSE
 	goto BattleScript_EffectStatUp
 
 BattleScript_EffectSpecialAttackUp::
@@ -2451,9 +2457,9 @@ BattleScript_EffectMemento::
 	attackstring
 	ppreduce
 	trymemento BattleScript_ButItFailed
-	setatkhptozero
 	attackanimation
 	waitanimation
+	setatkhptozero
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_EffectMementoPrintNoEffect
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_SPATK, STAT_CHANGE_NEGATIVE | STAT_CHANGE_BY_TWO | STAT_CHANGE_MULTIPLE_STATS
@@ -6487,46 +6493,7 @@ BattleScript_GregoryBlastKOFail::
 
 
 
-BattleScript_EffectFocusMiss::
-	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
-	jumpifnostatus3 BS_TARGET, STATUS3_UNDERWATER, BattleScript_HitFromAtkCanceler
-	orword gHitMarker, HITMARKER_IGNORE_UNDERWATER
-	setbyte sDMG_MULTIPLIER, 2
-@ BattleScript_HitFromAtkCanceler::
-	attackcanceler
-@ BattleScript_HitFromAccCheck::
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
-@ BattleScript_HitFromAtkString::
-	attackstring
-	ppreduce
-	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
-@ BattleScript_HitFromCritCalc::
-	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
-	critcalc
-	damagecalc
-	typecalc
-	adjustnormaldamage
-@ BattleScript_HitFromAtkAnimation::
-	attackanimation
-	waitanimation
-	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 5, BattleScript_FinalBattle_StopBgm
-	effectivenesssound
-@ BattleScript_HitFromAtkAnimation_2::
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage B_WAIT_TIME_LONG
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	jumpifmove MOVE_REVELATION_DANCE, BattleScript_RevelationDanceString
-	seteffectwithchance
-	tryfaintmon BS_TARGET
-	jumpifvar CMP_EQUAL, VAR_CSR_FINAL_BATTLE_TURN, 3, BattleScript_FinalBattle_DadDontGiveUp
-@ BattleScript_MoveEnd::
-	moveendall
-	end
+
 
 
 	
@@ -6576,3 +6543,30 @@ BattleScript_ShroomburstLoop:
 	setatkhptozero
 	tryfaintmon BS_ATTACKER
 	end
+
+BattleScript_FocusMissTesting::
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	effectivenesssound
+	moveendall
+	end
+
+BattleScript_EffectFocusMiss::
+	attackcanceler
+	accuracycheck BattleScript_PrintFocusMissed, ACC_CURR_MOVE @ jump to actually hitting
+	goto BattleScript_FocusMissTesting
+
+BattleScript_PrintFocusMissed::
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	pause B_WAIT_TIME_SHORT
+	@ resultmessage
+	@ setatkhptozero
+	goto BattleScript_HitFromAtkAnimation_2
+

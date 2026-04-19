@@ -230,6 +230,11 @@ extern const u8 gText_DiedLower[];
 extern const u8 gText_YesLower[];
 extern const u8 gText_YupLower[];
 extern const u8 gText_YUP[];
+extern const u8 gText_YEP[];
+extern const u8 gText_YepLower[];
+extern const u8 gText_AYE[];
+extern const u8 gText_AyeLower[];
+
 extern const u8 gText_Oui[];
 
 
@@ -353,6 +358,7 @@ extern const u8 gText_NotAble2[];
 extern const u8 gText_Learned[];
 extern const u8 gText_Able2[];
 extern const u8 gText_CutATreeOrGrass[];
+extern const u8 gText_CutATreeOrHead[];
 extern const u8 gText_FlyToAKnownTown[];
 extern const u8 gText_TravelOnWater[];
 extern const u8 gText_MoveHeavyBoulders[];

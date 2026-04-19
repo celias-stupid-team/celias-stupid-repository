@@ -91,8 +91,7 @@ MtMoon_1F_Text_RobbyPostBattle::
 
 MtMoon_1F_Text_ZubatIsABloodsucker::
     .string "Beware!\n"
-    .string "TENTACOOL is annoying!\p"
-    .string "Be sure to have a FLYING-TYPE!$"
+    .string "TENTACOOL is annoying!$"
 
 MtMoon_1F_Text_BrockHelpsExcavateFossils::
     .string "I hear there's someone in this cave\n"

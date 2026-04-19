@@ -273,7 +273,7 @@ bool32 IsRunningDisallowed(u8 metatileBehavior)
     if (!gMapHeader.allowRunning)
     {
         // allow indoor running after receiving the running shoes item
-        if (!(VarGet(VAR_MAP_SCENE_PEWTER_CITY) == 2 && gMapHeader.mapType == MAP_TYPE_INDOOR))
+        if (!((VarGet(VAR_MAP_SCENE_PEWTER_CITY) == 2 || FlagGet(FLAG_NEW_GAME_PLUS)) && gMapHeader.mapType == MAP_TYPE_INDOOR))
             return TRUE;
         
     }

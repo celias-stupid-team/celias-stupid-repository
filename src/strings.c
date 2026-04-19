@@ -406,6 +406,7 @@ const u8 gText_Learned[] = _("LEARNED");
 const u8 gText_OakImportantToGetToKnowPokemonThroughly[] = _("OAK: Gah, the power's even off in \nmenus?\p");
 const u8 gText_OakThisIsListOfPokemon[] = _("Okay, they're turning on.\pThe rest will be on in a second.\p");
 const u8 gText_CutATreeOrGrass[] = _("Cut a tree or grass.");
+const u8 gText_CutATreeOrHead[] = _("Cut a tree or head.");
 const u8 gText_FlyToAKnownTown[] = _("Fly to a known town.");
 const u8 gText_TravelOnWater[] = _("Travel on water.");
 const u8 gText_MoveHeavyBoulders[] = _("Move heavy boulders.");
@@ -987,6 +988,10 @@ const u8 gText_AliveLower[] = _("Alive");
 const u8 gText_YesLower[] = _("Yes");
 const u8 gText_YUP[] = _("YUP");
 const u8 gText_YupLower[] = _("Yup");
+const u8 gText_YEP[] = _("YEP");
+const u8 gText_YepLower[] = _("Yep");
+const u8 gText_AYE[] = _("AYE");
+const u8 gText_AyeLower[] = _("Aye");
 const u8 gText_Oui[] = _("OUI");
 
 // Start menu option descriptions

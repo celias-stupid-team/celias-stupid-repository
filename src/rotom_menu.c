@@ -2944,48 +2944,21 @@ static void FieldMoveFunc_Whirlpool(void)
 
 static bool32 SetupFunc_Guillotine(void)
 {
-    s16 x, y;
-    u8 i, j;
-    gScheduleOpenDottedHole = FALSE;
-    if (CutMoveRuinValleyCheck() == TRUE)
-    {
-        gScheduleOpenDottedHole = TRUE;
-        sFieldMoveData = CUT_TYPE_GRASS;
-        return TRUE;
-    }
-
     if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK) || IsObjectInFrontOfPlayerCuttable()
-        || (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_11F) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_11F) && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_OLD_MAN_2)) )
+        || (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_11F) 
+            && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_11F) 
+            && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_OLD_MAN_2)) )
     {
         VarSet(VAR_USED_CUT, 1);
         sFieldMoveData = CUT_TYPE_TREE;
         return TRUE;
     }
-
     else
     {
-        PlayerGetDestCoords(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);
-
-        for (i = 0; i < CUT_SIDE; i++)
-        {
-            y = gPlayerFacingPosition.y - 1 + i;
-            for (j = 0; j < CUT_SIDE; j++)
-            {
-                x = gPlayerFacingPosition.x - 1 + j;
-                if (MapGridGetElevationAt(x, y) == gPlayerFacingPosition.elevation)
-                {
-                    if (MetatileAtCoordsIsGrassTile(x, y) == TRUE)
-                    {
-                        sFieldMoveData = CUT_TYPE_GRASS;
-                        return TRUE;
-                    }
-                }
-            }
-        }
-
         sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NOTHING_TO_CUT;
         return FALSE;
-    }}
+    }
+}
 
 static void FieldMoveFunc_Guillotine(void)
 {

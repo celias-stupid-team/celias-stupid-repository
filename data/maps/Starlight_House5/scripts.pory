@@ -23,9 +23,7 @@ script Starlight_House5_Dak_Pit { //test
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_MALE)
     msgbox(
-	"I haven't tried to get out yet\n"
-	"but I kinda like this place.\p"
-	"It's a nice fun map!", MSGBOX_DEFAULT)
+	"DAK: This is a nice fun map!", MSGBOX_NPC)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction

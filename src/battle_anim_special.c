@@ -1209,7 +1209,8 @@ static void SpriteCB_ThrowBall_DoClick(struct Sprite *sprite)
     {
         gDoingBattleAnim = FALSE;
         UpdateOamPriorityInAllHealthboxes(1);
-        if(!(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD))) {
+        if(!(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_RAINBOW_CLOUD) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_RAINBOW_CLOUD))
+            && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ZERO_ISLAND_LIBERTY_GARDEN) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ZERO_ISLAND_LIBERTY_GARDEN))) {
             m4aMPlayAllStop();
             PlaySE(MUS_CAUGHT_INTRO);
 

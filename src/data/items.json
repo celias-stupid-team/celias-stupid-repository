@@ -3158,7 +3158,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_LUCKY_EGG",
       "holdEffectParam": 0,
-      "description_english": "An item to be held by a POKéMON.\\nAn egg filled with happiness that\\nearns extra EXP. points in battle.",
+      "description_english": "An egg from an egg.\\nIncreases EXP gain in battle.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -4911,7 +4911,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Submission"
+      "moveId": "ExtremeSloth"
     },
     {
       "english": "TM18",
@@ -7245,7 +7245,7 @@
     {
       "english": "PREMIER CANDY",
       "itemId": "ITEM_PREMIER_CANDY",
-      "price": 200,
+      "price": 600,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "What, you can't give us PREMIER\\nBALLS but you can give us\\nCANDIES?",

@@ -465,7 +465,7 @@ struct BattleStruct
     const u8 *trainerSlideMsg;
     struct MessageStatus slideMessageStatus;
     bool8 switchInAfterItemUse; // used by BattleUseFunc_CreateKoraidon()
-    u8 field_8A; // unused
+    u8 openBag; // for EFFECT_BAG
     u8 playerPartyIdx;
     u8 lugiaShadowSkyDone;
     u8 lugiaShadowSpikesDone;

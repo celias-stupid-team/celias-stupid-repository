@@ -710,7 +710,7 @@ script ViridianCity_OnLoad {
 }
 
 script ViridianCity_SetShinyWeedle {
-	if(var(VAR_TEMP_2) < 9 && var(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN) == 1 && !flag(FLAG_TEMP_3)) {
+	if(var(VAR_TEMP_2) < 5 && var(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN) == 1 && !flag(FLAG_TEMP_3)) {
 		addvar(VAR_TEMP_2, 1)
 	} else {
 		if(checkmoncaught(SPECIES_WEEDLE)) {
@@ -856,3 +856,22 @@ script EventScript_CutTree {
 	goto(EventScript_CutTreeAfterBuffer)
 
 }
+
+
+script ViridianCity_EventScript_TutorialTriggerDown 
+{
+	lockall
+	textcolor (NPC_TEXT_COLOR_MALE)
+	applymovement (LOCALID_TUTORIAL_MAN, moves(
+		walk_in_place_faster_down
+	))
+	waitmovement (0)
+	applymovement (LOCALID_PLAYER, moves(
+		walk_in_place_faster_up
+	))
+	waitmovement (0)
+	call (ViridianCity_EventScript_DoTutorialBattle)
+	release
+	end
+}
+

@@ -667,7 +667,7 @@ static const u8 *const sFieldMoveDescriptionTable[] =
     [FIELD_MOVE_SOFT_BOILED] = gText_ShareHp,
     [FIELD_MOVE_SWEET_SCENT] = gText_LureWildPokemon,
     [FIELD_MOVE_RETREAT]     = gText_ReturnToABench,
-    [FIELD_MOVE_GUILLOTINE]         = gText_CutATreeOrGrass,
+    [FIELD_MOVE_GUILLOTINE]  = gText_CutATreeOrHead,
 };
 
 static const u32 sHeldItemGfx[] = INCBIN_U32("graphics/party_menu/hold_icons.4bpp");
@@ -994,7 +994,7 @@ static const u16 sTMHMMoves_Duplicate[] =
     MOVE_STEEL_WING, //dummy for now
     MOVE_BARRAGE,
     MOVE_PAY_DAY,
-    MOVE_SUBMISSION,
+    MOVE_EXTREMESLOTH,
     MOVE_RAIN_DANCE,
     MOVE_WRAP,
     MOVE_RAGE,
@@ -1205,7 +1205,7 @@ static struct
     [FIELD_MOVE_SOFT_BOILED]  = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
     [FIELD_MOVE_SWEET_SCENT]  = {SetUpFieldMove_SweetScent,  PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_RETREAT]      = {SetUpFieldMove_Retreat,     PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_GUILLOTINE]      = {SetUpFieldMove_Retreat,     PARTY_MSG_NOTHING_TO_CUT},
+    [FIELD_MOVE_GUILLOTINE]   = {SetUpFieldMove_Guillotine,  PARTY_MSG_NOTHING_TO_CUT},
 };
 
 static const u8 *const sUnionRoomTradeMessages[] =
@@ -1239,7 +1239,7 @@ static const u16 sTMHMMoves[] =
     MOVE_STEEL_WING, //dummy for now
     MOVE_BARRAGE,
     MOVE_PAY_DAY,
-    MOVE_SUBMISSION,
+    MOVE_EXTREMESLOTH,
     MOVE_RAIN_DANCE,
     MOVE_WRAP,
     MOVE_RAGE,

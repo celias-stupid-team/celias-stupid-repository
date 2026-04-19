@@ -81,8 +81,8 @@ script RainbowCloud_FindTheShinies {
 		buffernumberstring(STR_VAR_3, VAR_0x8006)
 		msgbox(
 		"PROGRESS:{PAUSE 30}\n"
-		"{STR_VAR_3}/151", MSGBOX_DEFAULT)
-		if(var(VAR_0x8006) >= 151) {
+		"{STR_VAR_3}/150", MSGBOX_DEFAULT)
+		if(var(VAR_0x8006) >= 150) {
 			fadenewbgm(MUS_NONE)
 			delay(120)
 			playse(SE_M_MEGA_KICK)

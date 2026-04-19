@@ -15,7 +15,9 @@ static const bool8 sBehaviorSurfable[NUM_METATILE_BEHAVIORS] = {
     [MB_EASTWARD_CURRENT]   = TRUE,
     [MB_WESTWARD_CURRENT]   = TRUE,
     [MB_NORTHWARD_CURRENT]  = TRUE,
-    [MB_SOUTHWARD_CURRENT]  = TRUE
+    [MB_SOUTHWARD_CURRENT]  = TRUE,
+    [MB_LUVDISC_TILE]  = TRUE,
+    [MB_LUVDISC_TILE_NORMAL]  = TRUE,
 };
 
 // maybe needed but probably not?
@@ -834,6 +836,15 @@ bool8 MetatileBehavior_IsPokeMartShelf(u8 metatileBehavior)
 bool8 MetatileBehavior_IsWalMartShelf(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_MINNESOTA_MART)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+
+bool8 MetatileBehavior_IsBrockRock(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_BROCK_ROCKS)
         return TRUE;
     else
         return FALSE;

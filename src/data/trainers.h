@@ -1220,7 +1220,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_LassMiriam),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_LassMiriam),
     },
     [TRAINER_LASS_CLEFAIRY] = {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -1526,7 +1526,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_PicnickerIsabelle),
     },
     [TRAINER_COOLTRAINER_BKC] = {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_CHAMPION_2,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("BKC"),
@@ -3842,7 +3842,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("JHON"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_SWITCH_IN_ORDER,
+        .aiFlags = AI_SCRIPT_SWITCH_IN_ORDER | AI_SCRIPT_NO_SWITCHING,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_CooltrainerSamuel),
     },
     [TRAINER_COOLTRAINER_GEORGE] = {
@@ -4352,7 +4352,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("HOPE"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_NO_SWITCHING,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_ChannelerHope),
     },
     [TRAINER_CHANNELER_PAULA] = {
@@ -4547,8 +4547,8 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_BikerVirgil),
     },
     [TRAINER_CAMPER_FLINT] = {
-        .trainerClass = TRAINER_CLASS_CAMPER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerClass = TRAINER_CLASS_CHAMPION_2,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_CAMPER,
         .trainerName = _("FINCH"),
         .items = {},
@@ -4937,7 +4937,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("ANTHONY"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_BugCatcherAnthony),
     },
     [TRAINER_BUG_CATCHER_CHARLIE] = {

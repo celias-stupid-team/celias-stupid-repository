@@ -5130,7 +5130,7 @@ static void CB2_ReturnToPartyMenuWhileLearningMove(void)
         gItemUseCB = ItemUseCB_ReplaceMoveWithTMHM;
         gPartyMenu.action = PARTY_ACTION_CHOOSE_MON;
     }
-    else if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_DISPENSER)
+    else if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_DISPENSER|| gSpecialVar_ItemId == ITEM_PREMIER_CANDY)
             && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD 
             && CheckBagHasItem(gSpecialVar_ItemId, 1))
         InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_NONE, Task_ReturnToPartyMenuWhileLearningMove, gPartyMenu.exitCallback);
@@ -5276,7 +5276,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc func)
                 RemoveBagItem(gSpecialVar_ItemId, 1);
  
             FreePartyPointers();
-            if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_DISPENSER) 
+            if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_DISPENSER || gSpecialVar_ItemId == ITEM_PREMIER_CANDY) 
                 && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD 
                 && CheckBagHasItem(gSpecialVar_ItemId, 1))
                 gCB2_AfterEvolution = CB2_ReturnToPartyMenuUsingRareCandy;
@@ -5441,7 +5441,7 @@ static void PartyMenuTryEvolution(u8 taskId)
     if (targetSpecies != SPECIES_NONE)
     {
         FreePartyPointers();
-        if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_DISPENSER) 
+        if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_DISPENSER || gSpecialVar_ItemId == ITEM_PREMIER_CANDY) 
             && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD 
             && CheckBagHasItem(gSpecialVar_ItemId, 1))
             gCB2_AfterEvolution = CB2_ReturnToPartyMenuUsingRareCandy;

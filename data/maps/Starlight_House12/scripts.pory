@@ -10,8 +10,695 @@ MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_DAK_HERE)) {
 			setflag(FLAG_TEMP_8)
 		}
+ if(checkplayergender == FEMALE) {
+
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RED_NORMAL)
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_GREEN_NORMAL)
+        } else {
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_GREEN_NORMAL)
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_NORMAL)
+
+        }
 		
 	}
 
 }
 
+script Starlight_Jukebox_Test {
+    playbgm(MUS_CSR_POKERAP, TRUE)
+    
+	msgbox(
+    "Music: MUS_CSR_POKERAP\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_Test2 {
+    playbgm(MUS_CSR_AVGN_GYM, TRUE)
+    
+	msgbox(
+    "Music: MUS_AVGN_GYM\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_Test3 {
+    playbgm(MUS_MUS_STRAIGHT_PEOPLE, TRUE)
+    
+	msgbox(
+    "Music: MUS_MUS_STRAIGHT_PEOPLE\n"
+	"Made by: ???", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_House_12_Go_Dance {
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Would you like to dance?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//fadescreen(FADE_TO_WHITE)
+            warp(MAP_STARLIGHT_HOUSE12, 1, 19, 12) // Map, Warp ID, X, Y
+            waitstate
+            //delay(120)
+            //fadescreen(FADE_FROM_WHITE)
+		}
+    release
+    end
+}
+
+script Starlight_House_12_MapReset {
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Would you like to reset\nthe room?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//fadescreen(FADE_TO_WHITE)
+			//setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setmetatile(25, 12, 0x2BB, FALSE)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	setmetatile(19, 11, 0x2B1, TRUE)
+	setmetatile(21, 11, 0x2B3, TRUE)
+	setmetatile(23, 11, 0x2B1, TRUE)
+	setmetatile(27, 11, 0x2B1, TRUE)
+	setmetatile(29, 11, 0x2B3, TRUE)
+	setmetatile(31, 11, 0x2B1, TRUE)
+	setmetatile(18, 12, 0x2B8, TRUE)
+	setmetatile(20, 12, 0x2BA, TRUE)
+	setmetatile(22, 12, 0x2B8, TRUE)
+	setmetatile(24, 12, 0x2BA, TRUE)
+	setmetatile(26, 12, 0x2B8, TRUE)
+	setmetatile(28, 12, 0x2BA, TRUE)
+	setmetatile(30, 12, 0x2B8, TRUE)
+	setmetatile(32, 12, 0x2BA, TRUE)
+			setflag(FLAG_TEMP_6)
+            warp(MAP_STARLIGHT_HOUSE12, 0, 19, 12) // Map, Warp ID, X, Y
+            waitstate
+            //delay(120)
+            //fadescreen(FADE_FROM_WHITE)
+		}
+    release
+    end
+}
+
+script Starlight_House_12_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Y'know, I was supposed to have a\n"
+	"DANCE scene in CELADON GYM.\l"
+	"Now I'm gettin' my groove on here!\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a breather?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script Starlight_House_12_Activate_Dancers {
+	setlayouttiles(LAYOUT_STARLIGHT_HOUSE12_LAYOUT_DANCERS, 0,0,0,0,70, 50)
+
+
+    //setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+    release
+}
+
+script Starlight_House_12_Deactivate_Dancers {
+	setlayouttiles(LAYOUT_STARLIGHT_HOUSE12, 0,0,0,0,70, 50)
+	release
+}
+
+script Starlight_House_12_Activate_Dancers2 {
+	setmetatile(41, 11, 0x289, FALSE)
+	setmetatile(43, 11, 0x28B, FALSE)
+	setmetatile(45, 11, 0x289, FALSE)
+	setmetatile(49, 11, 0x289, FALSE)
+	setmetatile(51, 11, 0x28B, FALSE)
+	setmetatile(53, 11, 0x289, FALSE)
+	setmetatile(40, 12, 0x290, FALSE)
+	setmetatile(42, 12, 0x292, FALSE)
+	setmetatile(44, 12, 0x290, FALSE)
+	setmetatile(46, 12, 0x292, FALSE)
+	setmetatile(48, 12, 0x290, FALSE)
+	setmetatile(50, 12, 0x292, FALSE)
+	setmetatile(52, 12, 0x290, FALSE)
+	setmetatile(54, 12, 0x292, FALSE)
+
+
+    //setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+    release
+}
+
+script Starlight_House_12_Deactivate_Dancers2 {
+
+	if(flag(FLAG_TEMP_6)) {
+	//setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
+	clearflag(FLAG_TEMP_6)
+	}
+	setmetatile(41, 11, 0x289, TRUE)
+	setmetatile(43, 11, 0x28B, TRUE)
+	setmetatile(45, 11, 0x289, TRUE)
+	setmetatile(49, 11, 0x289, TRUE)
+	setmetatile(51, 11, 0x28B, TRUE)
+	setmetatile(53, 11, 0x289, TRUE)
+	setmetatile(40, 12, 0x290, TRUE)
+	setmetatile(42, 12, 0x292, TRUE)
+	setmetatile(44, 12, 0x290, TRUE)
+	setmetatile(46, 12, 0x292, TRUE)
+	setmetatile(48, 12, 0x290, TRUE)
+	setmetatile(50, 12, 0x292, TRUE)
+	setmetatile(52, 12, 0x290, TRUE)
+	setmetatile(54, 12, 0x292, TRUE)
+    //setobjectmovementtype(D1, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D2, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D3, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D4, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D5, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(D6, MOVEMENT_TYPE_FACE_UP)
+	//setobjectmovementtype(DO1, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO2, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO3, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO4, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO5, MOVEMENT_TYPE_FACE_DOWN)
+	//setobjectmovementtype(DO6, MOVEMENT_TYPE_FACE_DOWN)
+    release
+}
+
+script Starlight_House_12_Clefairy {
+	finditem(ITEM_POKE_DOLL, 1)
+	end
+}
+
+
+const JUKEBOX_PAGES = 12
+const JUKEBOX_PAGES_MINUS_ONE = JUKEBOX_PAGES - 1
+script StarlightHouse_Jukebox {
+	lock
+	msgbox(
+	"It's a JUKEBOX!\n"
+	"")
+	setvar(VAR_RESULT, 0)
+	closemessage
+	
+	while(var(VAR_RESULT) != 254) {
+		if(var(VAR_RESULT) == 7) {
+			addvar(VAR_TEMP_0, 1)
+			if(var(VAR_TEMP_0) == JUKEBOX_PAGES) {
+				setvar(VAR_TEMP_0, 0)
+			}
+		}
+		if(var(VAR_RESULT) == 8) {
+			
+			if(var(VAR_TEMP_0) == 0) {
+				setvar(VAR_TEMP_0, JUKEBOX_PAGES_MINUS_ONE)
+			} else {
+				subvar(VAR_TEMP_0, 1)
+			}
+		}
+		switch(var(VAR_TEMP_0)) {
+			case 0:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"A Gruel Angle's Thesis",
+				"Celia's Stupid Romhack",
+				"Chapter Zero",
+				"Stupidity and Nonsense!",
+				"Defeat the DMCA!",
+				"My Secret Life",
+				"Nonstupidity and Sense!",
+				"NEXT",
+				"BACK")
+			case 1:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"That's The Way Through!",
+				"That's a Fancy Bike",
+				"{COLOR GREEN}Too Much Water",
+				"I'm walkin here!",
+				"Buy somethin', will ya?",
+				"{COLOR GREEN}Ooh, a Korok!",
+				"Something went wrong",
+				"NEXT",
+				"BACK")
+			case 2:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"TCG Town",
+				"Let's Trade!",
+				"{COLOR GREEN}Competitive Community",
+				"What kinda club?",
+				"Just kick it.19",
+				"Quick! Mash Buttons!",
+				"Can't Stop Lookin'",
+				"NEXT",
+				"BACK")
+			case 3:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"Gay People",
+				"No Eating in the Theater",
+				"Ceremonial Dance",
+				"Big Yellow and Friends",
+				"{COLOR GREEN}Don't listen to the music!",
+				"Stay dry, ya jerk",
+				"The Pattern in the Grass",
+				"NEXT",
+				"BACK")
+			case 4:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"Copyright Gangsters",
+				"Takedown Notice",
+				"Safari March",
+				"Safari Showdown",
+				"Last pathetic card!",
+				"Straight People",
+				"Shorts Gang Hideout",
+				"NEXT",
+				"BACK")
+			case 5:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"Slavery Capital",
+				"The Center of Town",
+				"Want Some Mulch?",
+				"A New World, A New Look",
+				"Furnace Fun",
+				"Let's Get Gold!",
+				"Fucking Horse Shit",
+				"NEXT",
+				"BACK")
+			case 6:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"It's a snap!",
+				"Welcome Back!",
+				"Celia Soundtrack (Free Download)",
+				"{COLOR GREEN}Noterday?",
+				"It's a pretty great Bay",
+				"Isn't it Paradise?",
+				"A Tragic Tale",
+				"NEXT",
+				"BACK")
+			case 7:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"A Long Way From Home",
+				"Corporate Paradise",
+				"How tall could it be?",
+				"{COLOR RED}Girl Meets Boy",
+				"We sell drugs.",
+				"TMT2 beat me to the punch",
+				"{COLOR GREEN}Chips and Salsa",
+				"NEXT",
+				"BACK")
+			case 8:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"Just a few more",
+				"Surely it's not a trap",
+				"Through the Mountains",
+				"In the Safari Zone",
+				"Underground",
+				"Unused!",
+				"Last Time on Stupid Romhack",
+				"NEXT",
+				"BACK")
+			case 9:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"The Rainbow Hides",
+				"Star wanted this",
+				"Yoshi Victory!",
+				"Story of Creation",
+				"Where's his head?",
+				"Starlight House",
+				"How'd we get here?",
+				"NEXT",
+				"BACK")
+			case 10:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"Moon Altar",
+				"Can I sell them?",
+				"Massive Flex",
+				"Spare Pillar",
+				"The Joy of Creation",
+				"oh shit",
+				"{COLOR GREEN}Claim Your Shining Prize",
+				"NEXT",
+				"BACK")
+			case 11:
+				dynmultichoice(2, 1, FALSE, 9, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"Prelude to Finale",
+				"Memory Leak",
+				"Everything You Need",
+				"You've Had All Along",
+				"Grand Finale",
+				"A Gruel Angle's Finale",
+				"Thank You For Playing!",
+				"NEXT",
+				"BACK")
+			default:
+				release
+				end
+		}
+		call(StarlightHouse_CallJukeboxSong)
+
+
+
+
+	}
+	release
+}
+
+script StarlightHouse_CallJukeboxSong {
+	switch(var(VAR_TEMP_0)) {
+		case 0:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_INTRO_FIGHT, TRUE)
+				case 1:
+					playbgm(MUS_TITLE, TRUE)
+				case 2:
+					playbgm(MUS_GAME_FREAK, TRUE)
+				case 3:
+					playbgm(MUS_CSR_CHAPTER_1, TRUE)
+				case 4:
+					playbgm(MUS_CSR_CHAPTER_2, TRUE)
+				case 5:
+					playbgm(MUS_CSR_CHAPTER_3, TRUE)
+				case 6:
+					playbgm(MUS_CHAPTER_8, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 1:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_CSR_DRILL_DOZER, TRUE)
+				case 1:
+					playbgm(MUS_CYCLING, TRUE)
+				case 2:
+					playbgm(MUS_SURF, TRUE)
+				case 3:
+					playbgm(MUS_CSR_FURRET, TRUE)
+				case 4:
+					playbgm(MUS_CSR_MART, TRUE)
+				case 5:
+					playbgm(MUS_KOROK_SEED, TRUE)
+				case 6:
+					playbgm(MUS_INCOMPATIBLE_EMULATOR, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 2:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_TCG_ISLAND, TRUE)
+				case 1:
+					playbgm(MUS_CERULEAN_CENTER, TRUE)
+				case 2:
+					playbgm(MUS_BATTLE_REVOLUTION, TRUE)
+				case 3:
+					playbgm(MUS_CSR_CERULEAN_CLUB, TRUE)
+				case 4:
+					playbgm(MUS_DELIVERY, TRUE)
+				case 5:
+					playbgm(MUS_THUNDERING_DYNAMO, TRUE)
+				case 6:
+					playbgm(MUS_LOOKER_THEME, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 3:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_CSR_CELADON_GYM, TRUE)
+				case 1:
+					playbgm(MUS_CSR_DANCE_THEATER, TRUE)
+				case 2:
+					playbgm(MUS_CSR_DANCE_PRELUDE, TRUE)
+				case 3:
+					playbgm(MUS_CSR_DRIFTVEIL, TRUE)
+				case 4:
+					playbgm(MUS_LAVENDER, TRUE)
+				case 5:
+					playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+				case 6:
+					playbgm(MUS_CSR_LOSS_WOODS, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 4:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_CSR_DMCA_BATTLE, TRUE)
+				case 1:
+					playbgm(MUS_CSR_DMCA_ADMIN, TRUE)
+				case 2:
+					playbgm(MUS_SAFARI_MARCH, TRUE)
+				case 3:
+					playbgm(MUS_DMCA_SHOWDOWN, TRUE)
+				case 4:
+					playbgm(MUS_YUGIOH, TRUE)
+				case 5:
+					playbgm(MUS_MUS_STRAIGHT_PEOPLE, TRUE)
+				case 6:
+					playbgm(MUS_PYRITE_TOWN, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 5:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_FOUR_ISLAND, TRUE)
+				case 1:
+					playbgm(MUS_FOUR_ISLAND_CENTER, TRUE)
+				case 2:
+					playbgm(MUS_FOUR_ISLAND_MART, TRUE)
+				case 3:
+					playbgm(MUS_GEN4_LASS, TRUE)
+				case 4:
+					playbgm(MUS_BLAINE_GYM, TRUE)
+				case 5:
+					playbgm(MUS_MUS_RINGSIDE, TRUE)
+				case 6:
+					playbgm(MUS_CSR_AVGN_GYM, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 6:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_POKEMON_ISLAND, TRUE)
+				case 1:
+					playbgm(MUS_POKEMON_ISLAND_LAB, TRUE)
+				case 2:
+					playbgm(MUS_BINKS_SAKE, TRUE)
+				case 3:
+					playbgm(MUS_YES, TRUE)
+				case 4:
+					playbgm(MUS_ALOLA_ROUTE2, TRUE)
+				case 5:
+					playbgm(MUS_IKI_TOWN_TEST, TRUE)
+				case 6:
+					playbgm(MUS_LEDER_SONG, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 7:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_NATIONAL_PARK, TRUE)
+				case 1:
+					playbgm(MUS_CYBER_WORLD, TRUE)
+				case 2:
+					playbgm(MUS_CSR_SKY_TOWER, TRUE)
+				case 3:
+					playbgm(MUS_CSR_TWOSON, TRUE)
+				case 4:
+					playbgm(MUS_TWO_ISLAND_MART, TRUE)
+				case 5:
+					playbgm(MUS_MEGALOVANIA, TRUE)
+				case 6:
+					playbgm(MUS_SALSA, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 8:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_CSR_STAIRS, TRUE)
+				case 1:
+					playbgm(MUS_CSR_CASTLE, TRUE)
+				case 2:
+					playbgm(MUS_CSR_SECRET_TUNNEL, TRUE)
+				case 3:
+					playbgm(MUS_CSR_SECRET_HOUSE, TRUE)
+				case 4:
+					playbgm(MUS_TUNNEL, TRUE)
+				case 5:
+					playbgm(MUS_CLOTHES_SHOP, TRUE)
+				case 6:
+					playbgm(MUS_DRAGON_BALL, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 9:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_RAINBOW_CASTLE, TRUE)
+				case 1:
+					playbgm(MUS_KOOPA_BROS, TRUE)
+				case 2:
+					playbgm(MUS_YOSHI_VICTORY, TRUE)
+				case 3:
+					playbgm(MUS_KENYA, TRUE)
+				case 4:
+					playbgm(MUS_HALF_SIGN, TRUE)
+				case 5:
+					playbgm(MUS_DOWNSTREAM, TRUE)
+				case 6:
+					playbgm(MUS_CSR_SOOTOPOLIS, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 10:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_CSR_MT_MOON_SQUARE, TRUE)
+				case 1:
+					playbgm(MUS_CSR_CLEFAIRY_DANCE, TRUE)
+				case 2:
+					playbgm(MUS_PISCES_GYM, TRUE)
+				case 3:
+					playbgm(MUS_KENYA, TRUE)
+				case 4:
+					playbgm(MUS_CSR_POKERAP, TRUE)
+				case 5:
+					playbgm(MUS_CSR_CYNTHIA, TRUE)
+				case 6:
+					playbgm(MUS_THE_MOON, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+		case 11:
+			switch(var(VAR_RESULT)) {
+				case 0:
+					playbgm(MUS_PRELUDE_TO_FINALE, TRUE)
+				case 1:
+					playbgm(MUS_SV_ELITE_FOUR, TRUE)
+				case 2:
+					playbgm(MUS_CYNTHIA_BATTLE, TRUE)
+				case 3:
+					playbgm(MUS_THE_GAME_IS_AFOOT, TRUE)
+				case 4:
+					playbgm(MUS_GRAND_FINALE, TRUE)
+				case 5:
+					playbgm(MUS_STUPID_CREDITS, TRUE)
+				case 6:
+					playbgm(MUS_STUPID_ENDING, TRUE)
+				case 7:
+				case 8:
+					return
+				default:
+					setvar(VAR_RESULT, 0)
+					release
+					end
+			}
+	}
+}

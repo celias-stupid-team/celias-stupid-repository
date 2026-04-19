@@ -3,7 +3,7 @@
   "name": "MtMoon_Outside",
   "layout": "LAYOUT_MT_MOON_OUTSIDE",
   "music": "MUS_CSR_MT_MOON_SQUARE",
-  "region_map_section": "MAPSEC_MT_MOON",
+  "region_map_section": "MAPSEC_ALTAR_OF_MOONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

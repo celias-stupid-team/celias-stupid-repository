@@ -4040,8 +4040,16 @@ static void Cmd_getexp(void)
 
                     if (holdEffect == HOLD_EFFECT_EXP_SHARE)
                         gBattleMoveDamage += gExpShareExp;
-                    if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
-                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+                    if (holdEffect == HOLD_EFFECT_LUCKY_EGG) {
+                        if(GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES) == SPECIES_CHARMANDER && !FlagGet(FLAG_BADGE01_GET)) {
+                            gBattleMoveDamage = (gBattleMoveDamage * 105) / 100;
+
+                        } else {
+                            gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+
+                        }
+
+                    }
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
                     if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId])
@@ -11328,7 +11336,7 @@ static void Cmd_handleballthrow(void)
             //DebugPrintf("Odds are above 255 for some reason");
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
-            if(gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM) {
+            if(gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM || gBattleMons[gBattlerTarget].species == SPECIES_VICTINI) {
                 gBattlescriptCurrInstr = BattleScript_SuccessBallThrowCastform;
 
             } else {

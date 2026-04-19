@@ -245,6 +245,7 @@ script Route24_EventScript_BattleRocket {
 		"Let's get the paperwork set up.", MSGBOX_DEFAULT)
 		closemessage
 		fadescreenswapbuffers(FADE_TO_BLACK)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
 		"And so {PLAYER} became a corporate\n"
 		"goon, spending their life hunting\l"

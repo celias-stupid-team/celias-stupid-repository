@@ -608,3 +608,11 @@ script CeruleanCity_RockTunnelSetup {
 	"I tried stocking up before ROCK\n"
 	"TUNNEL, but I can't seem to buy any.", MSGBOX_NPC)
 }
+
+
+script CeruleanCity_BerryPowderManHouse {
+	msgbox(
+	"Nope! That's not the BERRY POWDER\n"
+	"MAN'S HOUSE, silly!", MSGBOX_SIGN)
+
+}
