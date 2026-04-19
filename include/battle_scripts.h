@@ -299,6 +299,7 @@ extern const u8 BattleScript_FlipTurnTransform[];
 extern const u8 BattleScript_LeaveBattleImmediately[];
 extern const u8 BattleScript_ShowMoveAnimation[];
 extern const u8 BattleScript_HarvestActivates[];
+extern const u8 BattleScript_MoveCantSelect[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForRunningByItem[];

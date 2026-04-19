@@ -14120,7 +14120,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_GIGATON_CRUSHER] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_GIGATON_HAMMER,
         .power = 180,
         .type = TYPE_STEEL,
         .accuracy = 100,

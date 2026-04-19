@@ -388,6 +388,14 @@ u8 TrySetCantSelectMoveBattleScript(void)
         limitations++;
     }
 
+    if (gBattleMoves[move].effect == EFFECT_GIGATON_HAMMER && gLastResultingMoves[gActiveBattler] == move && !(limitations & MOVE_LIMITATION_GIGATON))
+    {
+        gCurrentMove = move;
+        PREPARE_MOVE_BUFFER(gBattleTextBuff1, move);
+        gSelectionBattleScripts[gActiveBattler] = BattleScript_MoveCantSelect;
+        limitations++;
+    }
+
     if (gBattleMons[gActiveBattler].item == ITEM_ENIGMA_BERRY)
         holdEffect = gEnigmaBerries[gActiveBattler].holdEffect;
     else
@@ -449,6 +457,9 @@ u8 CheckMoveLimitations(u8 battlerId, u8 unusableMoves, u8 check)
             unusableMoves |= gBitTable[i];
         // Choice Band
         if (holdEffect == HOLD_EFFECT_CHOICE_BAND && *choicedMove != MOVE_NONE && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != gBattleMons[battlerId].moves[i])
+            unusableMoves |= gBitTable[i];
+        // Gigaton Hammer; can't be used in succession
+        if (gBattleMoves[gBattleMons[battlerId].moves[i]].effect == EFFECT_GIGATON_HAMMER && gLastResultingMoves[battlerId] == gBattleMons[battlerId].moves[i] && check & MOVE_LIMITATION_GIGATON)
             unusableMoves |= gBitTable[i];
     }
     return unusableMoves;

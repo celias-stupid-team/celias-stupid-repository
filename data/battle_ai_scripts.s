@@ -219,6 +219,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_SUBSTITUTE_2, AI_CBM_Substitute_2
 	if_Effect EFFECT_REVIVAL_BLESSING, AI_CBM_RevivalBlessing
 	if_Effect EFFECT_EVASION_MAX, AI_CBM_108TupleTeam
+	if_effect EFFECT_GIGATON_HAMMER, AI_CBM_GigatonHammer
 	end
 
 AI_CBM_Sleep::
@@ -625,6 +626,11 @@ AI_CBM_RevivalBlessing::
 
 AI_CBM_108TupleTeam::
 	if_has108evasion AI_USER, Score_Minus10
+	goto Score_Plus5
+	end
+
+AI_CBM_GigatonHammer::
+	if_last_used_move AI_USER, MOVE_GIGATON_CRUSHER, Score_Minus10
 	goto Score_Plus5
 	end
 
