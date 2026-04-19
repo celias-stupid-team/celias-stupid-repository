@@ -4396,9 +4396,29 @@ u8 GetColorChangeDefType(u8 moveType)
 
 static const u16 sTwistedRealityMoves[] =
 {
-    MOVE_SPLASH,
+    //MOVE_SPLASH,
     MOVE_CELEBRATE,
-    MOVE_MEMENTO,
+    //MOVE_MEMENTO,
+    MOVE_SUPERSONIC,
+    MOVE_SECRET_POWER,
+    MOVE_SECRET_POWER,
+    MOVE_SECRET_POWER,
+    MOVE_MIST_BALL,
+    MOVE_UP_DOG,
+    MOVE_EXTREME_EVOBOOST,
+    MOVE_TRY_ATTACK,
+    MOVE_DARK_VOID_SMEARGLE,
+    MOVE_SHROOM_DESIRE,
+    MOVE_LUCKY_PANT,
+    MOVE_P_CREATE,
+    MOVE_FAIL_GLOW,
+    MOVE_LEER,
+    MOVE_HAZE,
+    MOVE_ROUNDEN,
+    MOVE_COTTON_SPORE,
+    MOVE_MEAN_LOOK,
+
+
 };
 
 u16 GetTwistedRealityMove(u8 index)
