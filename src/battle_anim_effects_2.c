@@ -1797,6 +1797,17 @@ const struct SpriteTemplate gHammerSpriteTemplate =
     .callback = AnimHammerSwing,
 };
 
+const struct SpriteTemplate gCrusherSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CRUSHER,
+    .paletteTag = ANIM_TAG_CRUSHER,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHammerSwing,
+};
+
 const struct SpriteTemplate gSpoonHammerSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SPOON,
@@ -1854,6 +1865,14 @@ static const union AffineAnimCmd sGrowAndShrinkAffineAnimCmds[] =
     AFFINEANIMCMD_FRAME(-4, -5, 0, 12),
     AFFINEANIMCMD_FRAME(0, 0, 0, 24),
     AFFINEANIMCMD_FRAME(4, 5, 0, 12),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sPuffUpAndShrinkAffineAnimCmds[] =
+{
+    AFFINEANIMCMD_FRAME(-4, -5, 0, 48),
+    AFFINEANIMCMD_FRAME(0, 0, 0, 40),
+    AFFINEANIMCMD_FRAME(4, 5, 0, 48),
     AFFINEANIMCMD_END,
 };
 
@@ -4925,6 +4944,15 @@ void AnimTask_GrowAndShrink(u8 taskId)
     u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
     
     PrepareAffineAnimInTaskData(task, spriteId, sGrowAndShrinkAffineAnimCmds);
+    task->func = AnimTask_GrowAndShrink_Step;
+}
+
+void AnimTask_PuffUpAndShrink(u8 taskId)
+{
+    struct Task* task = &gTasks[taskId];
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    
+    PrepareAffineAnimInTaskData(task, spriteId, sPuffUpAndShrinkAffineAnimCmds);
     task->func = AnimTask_GrowAndShrink_Step;
 }
 
