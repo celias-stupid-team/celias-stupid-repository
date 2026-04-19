@@ -7773,7 +7773,7 @@
     {
       "english": "HYPER REPEL",
       "itemId": "ITEM_HYPER_REPEL",
-      "price": 5000,
+      "price": 9999,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 201,
       "description_english": "Prevents weak wild POKéMON from\\nappearing for 201 steps.",

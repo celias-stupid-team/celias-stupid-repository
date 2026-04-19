@@ -26,7 +26,6 @@ VermilionCity_Mart_EventScript_Clerk::
 VermilionCity_Mart_Items::
 	.2byte ITEM_POKE_BALL
 	.2byte ITEM_RARE_CANDY
-	.2byte ITEM_MAX_ETHER
 	.2byte ITEM_REPEL
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_HYPER_REPEL
