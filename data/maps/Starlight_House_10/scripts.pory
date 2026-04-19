@@ -2,9 +2,11 @@ mapscripts Starlight_House_10_MapScripts {
 
 MAP_SCRIPT_ON_TRANSITION {
  if(checkplayergender == FEMALE) {
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYFIRE)
+            //setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RED_NORMAL)
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_GREEN_NORMAL)
         } else {
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYGREEN)
+            //setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_GREEN_NORMAL)
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RED_NORMAL)
 
         }
 		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
