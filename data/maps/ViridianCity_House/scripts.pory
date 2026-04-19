@@ -1907,6 +1907,7 @@ script CeliaSecret_NewGamePlus {
 		"Would you like to begin on\n"
 		"New Game+?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
+			setflag(FLAG_NEW_GAME_PLUS)
 			setflag(FLAG_CELIA_SECRET_PIT)
 			setflag(FLAG_CELIA_SECRET_PALLET)
 			setflag(FLAG_CELIA_SECRET_VIRIDIAN)

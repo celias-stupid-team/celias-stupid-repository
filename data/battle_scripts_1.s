@@ -2457,9 +2457,9 @@ BattleScript_EffectMemento::
 	attackstring
 	ppreduce
 	trymemento BattleScript_ButItFailed
-	setatkhptozero
 	attackanimation
 	waitanimation
+	setatkhptozero
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_EffectMementoPrintNoEffect
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_SPATK, STAT_CHANGE_NEGATIVE | STAT_CHANGE_BY_TWO | STAT_CHANGE_MULTIPLE_STATS
