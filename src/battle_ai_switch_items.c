@@ -462,15 +462,39 @@ u8 GetMostSuitableMonToSwitchInto(void)
     if (FlagGet(FLAG_FORCE_AI_SWITCH_IN_ORDER) || (gBattleResources->ai->aiFlags & AI_SCRIPT_SWITCH_IN_ORDER))
     {
         u8 validMons = 0;
-        for (i = 0; i < PARTY_SIZE; ++i)
+        if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
         {
-            if (((GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)) != SPECIES_NONE)
-              && (GetMonData(&gEnemyParty[i], MON_DATA_HP) > 0)
-              && (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)) != SPECIES_EGG)
+            // doubles; skip mons already on the field or already queued to switch in
+            for (i = 0; i < PARTY_SIZE; ++i)
             {
-                validMons++;
-                bestMonId = i;
-                break;
+                if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+                  && GetMonData(&gEnemyParty[i], MON_DATA_HP) > 0
+                  && GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) != SPECIES_EGG
+                  && gBattlerPartyIndexes[battlerIn1] != i
+                  && gBattlerPartyIndexes[battlerIn2] != i
+                  && i != *(gBattleStruct->monToSwitchIntoId + battlerIn1)
+                  && i != *(gBattleStruct->monToSwitchIntoId + battlerIn2))
+                {
+                    validMons++;
+                    bestMonId = i;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            // singles
+            for (i = 0; i < PARTY_SIZE; ++i)
+            {
+                if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+                  && GetMonData(&gEnemyParty[i], MON_DATA_HP) > 0
+                  && GetMonData(&gEnemyParty[i], MON_DATA_SPECIES) != SPECIES_EGG
+                  && gBattlerPartyIndexes[battlerIn1] != i)
+                {
+                    validMons++;
+                    bestMonId = i;
+                    break;
+                }
             }
         }
         if (validMons != 0)
