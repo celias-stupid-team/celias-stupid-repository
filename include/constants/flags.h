@@ -1362,7 +1362,7 @@
 #define FLAG_0x4ED               0x4ED
 #define FLAG_0x4EE               0x4EE
 #define FLAG_0x4EF               0x4EF
-#define FLAG_0x4F0               0x4F0
+#define FLAG_ITEM_TM43               0x4F0
 #define FLAG_ILEXIR               0x4F1
 #define FLAG_BROKE_INTO_SCHOOL               0x4F2
 #define FLAG_SHORTS_CAVE_PUFF               0x4F3

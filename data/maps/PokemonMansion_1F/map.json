@@ -111,7 +111,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM43",
       "script": "EventScript_FindItem",
-      "flag": "FLAG_ITEM_TM37"
+      "flag": "FLAG_ITEM_TM43"
     }
   ],
   "warp_events": [

@@ -5251,10 +5251,10 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "MilkDrink"
+      "moveId": "GameGenie"
     },
     {
-      "english": "TM39",
+      "english": "TM38",
       "itemId": "ITEM_TM38",
       "price": 5500,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -5262,13 +5262,13 @@
       "description_english": "STEVEN STONE's favorite move.\\nIt may help a certain desert\\nman remember something.",
       "importance": 0,
       "registrability": 0,
-      "pocket": "POCKET_KEY_ITEMS",
+      "pocket": "POCKET_TM_CASE",
       "type": "ITEM_TYPE_PARTY_MENU",
       "fieldUseFunc": "NULL",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "FireBlast"
+      "moveId": "MilkDrink"
     },
     {
       "english": "TM39",

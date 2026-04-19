@@ -1240,7 +1240,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_SuperNerdAidan[] = {
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_MEW,
-        .moves = {MOVE_PSY_BEAM, MOVE_ANCIENT_POWER, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_GAME_GENIE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
