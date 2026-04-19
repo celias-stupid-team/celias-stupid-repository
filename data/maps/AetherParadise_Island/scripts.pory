@@ -230,7 +230,12 @@ script FestivalPlaza_Sophacles {
 
 script StarlightIslandSign {
 	msgbox(
-	"Starlight's Map Workshop\n"
-	"", MSGBOX_SIGN)
+	"Starlight's Map Workshop\p"
+
+	"{COLOR RED}NOTICE{COLOR DARK_GRAY}: This is a fun bonus area!\n"
+	"There are no puzzles, hints,\l"
+	"secrets or rewards that are\l"
+	"related to anything outside of\l"
+	"this house. - Starlight", MSGBOX_SIGN)
 
 }

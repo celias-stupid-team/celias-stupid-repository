@@ -23,33 +23,23 @@ script Starlight_House2_Post_Battle {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"My name is KaizenStarlight!\n"
-    "But everybody calls me Starlight\l"
-    "for short.\p"
+	"I'm the map designer for CSR.\p"
 
-	"I am the map designer for\n"
-    "Celia's Stupid Romhack.\p"
+	"I created the maps, routes, towns\n"
+	"and so on that's out in the Great\l"
+	"Sea. As well as some other maps\l"
+	"here or there in the region.\p"
 
-	"I created just about everything\n"
-	"you will find in the Great Sea!\p"
+	"You might see me around from time\n"
+	"to time, don't worry about me if\l"
+	"you do. I am just doing some work\l"
+	"outside of bounds.\p"
 
-	"Well...\n"
-	"The visual world itself that is...\l"
-	"I placed most of the tiles you walk\l"
-	"Around on.\p"
-    "You might see me around working\n"
-    "out of bounds from time to time.\p"
-    "But hey, it was nice to meet you!\n"
-	"Feel free to explore around the\l"
-    "place before you go.\p"
-	"Just as a disclaimer:\p"
-	"Nothing in here is connected to\n"
-	"anything outside of this house.\l"
-	"Including puzzles, secrets, rewards\l"
-	"and so on. This was just a bonus\l"
-	"place I had a lot of fun making!\p"
-	"Also if you see my friend hanging\n"
-	"around here could you let me know?\l"
-	"Thanks!", MSGBOX_DEFAULT)
+	"Also my friend is somewhere around\n"
+	"here, if you see him let me know?\p"
+
+	"Thanks! It was nice to meet you!\n"
+	"", MSGBOX_NPC)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
@@ -71,18 +61,16 @@ script Starlight_House2_Battle { //test
 
 
 	msgbox(
-    "It was nice to meet you!\l"
-	"Feel free to explore around the\n"
-    "place before you go.\p"
-	"Just as a disclaimer:\p"
-	"Nothing in here is connected to\n"
-	"anything outside of this house.\l"
-	"Including puzzles, secrets, rewards\l"
-	"and so on. This was just a bonus\l"
-	"place I had a lot of fun making!\p"
-	"Also if you see my friend hanging\n"
-	"around here could you let me know?\l"
-	"Thanks!", MSGBOX_DEFAULT)
+	"It was nice to meet you!\p"
+
+	"You might see me around from time\n"
+	"to time, don't worry about me if\l"
+	"you do. I am just doing some work\l"
+	"outside of bounds.\p"
+
+	"Also my friend is somewhere around\n"
+	"here, if you see him would you let\l"
+	"me know? Thanks!", MSGBOX_NPC)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
@@ -180,7 +168,7 @@ script Starlight_House2_PC { //update table plans visual
 
 script Starlight_House2_Jukebox_Block { //update table plans visual
 	msgbox(
-	"Come back here {COLOR DYNAMIC_COLOR5}post game.", MSGBOX_SIGN)
+	"It's a super special secret wall.", MSGBOX_SIGN)
 
 }
 
