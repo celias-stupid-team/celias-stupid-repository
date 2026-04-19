@@ -456,11 +456,12 @@ script Route22_MapScripts_SetDexMons {
 	setbench(BENCH_ROUTE1)
 	setflag(FLAG_TEMP_1)
 	setflag(FLAG_TEMP_2)
-	if(flag(FLAG_CANDY_MAN_FELL) && flag(FLAG_RETRIEVED_CANDIES)) {
+	if(flag(FLAG_CANDY_MAN_FELL) && !flag(FLAG_RETRIEVED_CANDIES)) {
 		clearflag(FLAG_TEMP_2)
 	}
-	if(checkmoncaught(SPECIES_MELMETAL)) {
+	if(checkmoncaught(SPECIES_MELTAN)) {
 		clearflag(FLAG_TEMP_1)
+		setflag(FLAG_TEMP_2)
 	}
 	if(flag(FLAG_SYS_POKEDEX_GET)) {
 		setflag(FLAG_CSR_MAP_ROUTE_22)
