@@ -219,6 +219,7 @@ script PokemonTower_NeutralAnswer {
 script PokemonTower_MathQuestion_One {
 	lock
 	msgbox("Three plus Five plus Seven equals?\n{LEFT_ARROW} 2    {UP_ARROW} 16    {RIGHT_ARROW}15", MSGBOX_DEFAULT)
+	special(HealPlayerParty)
 	if(!flag(FLAG_CSR_POKEMON_TOWER_MUSIC)) {
 		playbgm(MUS_GYM, TRUE)
 	}
