@@ -9934,7 +9934,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCABlaine[] = {
     {
         .iv = 0,
         .lvl = 45,
-        .heldItem = ITEM_SITRUS_BERRY,
+        .heldItem = ITEM_LEFTOVERS,
         .species = SPECIES_MAGMAR,
         .moves = {MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
