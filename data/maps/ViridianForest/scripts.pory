@@ -342,3 +342,12 @@ script ViridianForest_10UGuyFuckYou {
 	}
 	release
 }
+
+script ViridianForest_SpawnCaterpie {
+	lock
+	setvar(VAR_VIRIDIAN_FOREST_CATERPIE, 1)
+	setwildbattle(SPECIES_CATERPIE, 6, ITEM_NONE)
+	dowildbattle
+	release
+
+}
