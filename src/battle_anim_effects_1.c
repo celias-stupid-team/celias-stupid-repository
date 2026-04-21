@@ -206,6 +206,28 @@ const struct SpriteTemplate gSleepPowderParticleSpriteTemplate =
     .callback = AnimMovePowderParticle,
 };
 
+static const union AnimCmd sDrugPowderAnimCmds[] =
+{
+    ANIMCMD_FRAME(12, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sDrugPowderAnimTable[] =
+{
+    sDrugPowderAnimCmds,
+};
+
+const struct SpriteTemplate gDrugPowderParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_DRUG,
+    .paletteTag = ANIM_TAG_HONG_KONG_DRUG,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sDrugPowderAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMovePowderParticle,
+};
+
 const struct SpriteTemplate gStunSporeParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_STUN_SPORE,
