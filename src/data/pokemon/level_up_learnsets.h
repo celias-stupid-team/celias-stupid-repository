@@ -383,7 +383,7 @@ static const struct LevelUpMove sSandslashLevelUpLearnset[] = {
 static const struct LevelUpMove sNidoranFLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_PECK),
     LEVEL_UP_MOVE(1, MOVE_TAIL_WHIP),
-    LEVEL_UP_MOVE(4, MOVE_SCRATCH),
+    //LEVEL_UP_MOVE(4, MOVE_SCRATCH),
     LEVEL_UP_MOVE(7, MOVE_HORN_ATTACK),
     LEVEL_UP_MOVE(11, MOVE_POISON_FANG),
     LEVEL_UP_MOVE(16, MOVE_BITE),
@@ -434,7 +434,7 @@ static const struct LevelUpMove sNidoqueenLevelUpLearnset[] = {
 static const struct LevelUpMove sNidoranMLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_POISON_STING),
     LEVEL_UP_MOVE(1, MOVE_GROWL),
-    LEVEL_UP_MOVE(4, MOVE_SCRATCH),
+    //LEVEL_UP_MOVE(4, MOVE_SCRATCH),
     LEVEL_UP_MOVE(7, MOVE_FURRY_SWIPES),
     LEVEL_UP_MOVE(11, MOVE_POISON_FANG),
     LEVEL_UP_MOVE(16, MOVE_BITE),

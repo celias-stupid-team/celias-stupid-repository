@@ -551,7 +551,7 @@ static const struct TrainerMonItemCustomMoves sParty_LassSally[] = {
         .iv = 0,
         .lvl = 10,
         .species = SPECIES_ROOKIDEE,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_SLUGMA_BALL,
         .moves = {MOVE_MEAN_LOOK, MOVE_PECK, MOVE_NONE, MOVE_NONE}
     },
 };
