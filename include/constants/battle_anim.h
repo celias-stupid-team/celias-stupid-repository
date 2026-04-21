@@ -512,6 +512,7 @@
 #define ANIM_TAG_MISSILE                    (ANIM_SPRITES_START + 502)
 #define ANIM_TAG_GNOME                      (ANIM_SPRITES_START + 503)
 #define ANIM_TAG_BOOK                       (ANIM_SPRITES_START + 504)
+#define ANIM_TAG_TAKEDOWN                   (ANIM_SPRITES_START + 505)
 
 // battlers
 #define ANIM_ATTACKER       0

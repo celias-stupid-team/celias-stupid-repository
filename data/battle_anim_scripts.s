@@ -1721,24 +1721,27 @@ Move_ICICLE_SPEAR:
 
 Move_TAKE_DOWN:
 	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_TAKEDOWN
 	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
 	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
 	createvisualtask AnimTask_WindUpLunge, 5, ANIM_ATTACKER, -24, 8, 23, 10, 40, 10
 	delay 35
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 10, RGB_BLACK, 0
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 4, -10, 0, ANIM_TARGET, 0
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 16, RGB_BLACK
+	@createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 4, -10, 0, ANIM_TARGET, 0
 	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createsprite gTakedownSpriteTemplate, ANIM_TARGET, 2, 0, -8, 0, 0, 0, 50, 0, 1
 	delay 1
 	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 1, -16, 0, 0, 4
-	waitforvisualfinish
+	delay 10
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
-	waitforvisualfinish
+	delay 10
 	delay 2
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 5
 	delay 3
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7
 	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 16, 0, RGB_BLACK
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end
@@ -31440,8 +31443,25 @@ WurmpleHeads:
 
 
 Move_TILE_COLLISION:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_SPARKLE_3
+	loadspritegfx ANIM_TAG_GREEN_LIGHT_WALL
+	loadspritegfx ANIM_TAG_X_SIGN
+	createsprite gBlockXHorPosSpriteTemplate, ANIM_ATTACKER, 66, 0
+	createsprite gBlockXHorPosSpriteTemplate, ANIM_ATTACKER, 66, -48
+	createsprite gBlockXHorPosSpriteTemplate, ANIM_ATTACKER, 66, 48
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_TARGET
+	waitforvisualfinish
+	setalpha 0, 16
+	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER, 15
+	createsprite gLightScreenWallSpriteTemplate, ANIM_ATTACKER, 1, 40, 0, ANIM_TAG_GREEN_LIGHT_WALL
+	delay 10
+	call SpecialScreenSparkle
+	waitforvisualfinish
+	delay 1
+	blendoff
+	end
 Move_MAP_MUSIC:
 	goto Move_TEETER_DANCE
 Move_MAP_WEATHER:
-	goto MOVE_RAIN_DANCE
+	goto Move_RAIN_DANCE
+	

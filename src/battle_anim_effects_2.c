@@ -656,6 +656,17 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gTakedownSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TAKEDOWN,
+    .paletteTag = ANIM_TAG_TAKEDOWN,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gGnomeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GNOME,

@@ -631,6 +631,9 @@ const u32 gBattleAnimSpritePal_Gnome[] = INCBIN_U32("graphics/battle_anims/sprit
 const u32 gBattleAnimSpriteGfx_Book[] = INCBIN_U32("graphics/battle_anims/sprites/book.4bpp.lz");
 const u32 gBattleAnimSpritePal_Book[] = INCBIN_U32("graphics/battle_anims/sprites/book.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Takedown[] = INCBIN_U32("graphics/battle_anims/sprites/takedown.4bpp.lz");
+const u32 gBattleAnimSpritePal_Takedown[] = INCBIN_U32("graphics/battle_anims/sprites/takedown.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");
