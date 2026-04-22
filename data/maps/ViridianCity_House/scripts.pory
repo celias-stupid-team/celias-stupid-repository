@@ -3662,3 +3662,16 @@ script CeliaSecret_ShortsPuff {
 	":)\n"
 	"", MSGBOX_NPC)
 }
+
+
+script CeliaSecret_PokecommunityBan {
+	msgbox(
+	"Fun fact!\p"
+
+	"“I study AIDS as PROF. OAK's\n"
+	"POKéMON” is the reason I was\l"
+	"almost banned from Pokecommunity.\p"
+
+	"Apparently mild wordplay is too\n"
+	"intense for them.", MSGBOX_NPC)
+}

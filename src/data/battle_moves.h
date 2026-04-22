@@ -11997,7 +11997,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_EVERYBODY_EXPLODE_NOW] =
     {
-        .effect = EFFECT_EXPLOSION,
+        .effect = EFFECT_RECOIL,
         .power = 250,
         .type = TYPE_STEEL,
         .accuracy = 100,

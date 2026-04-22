@@ -5399,7 +5399,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 		[SPECIES_PIKACHU_BIRTHDAY] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 10,
+		.y_offset = 5,
 	},
 	[SPECIES_MEW_ANCIENT] =
 	{

@@ -1335,14 +1335,8 @@ script TwoIsland_TrumpetPlayer {
 script TwoIsalnd_WaterfallNPC {
 	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
-	"Just upstream is the beautiful\n"
-	"GRAPEFRUIT FALLS.\p"
-
-	"I could just sit here, letting time\n"
-	"melt away as I watch it flow.\p"
-
-	"Whoever lives in that cabin up\n"
-	"top must be real lucky!", MSGBOX_NPC)
+    "Ahh…\n"
+	"{PAUSE 20}Waterfalls exist.\n", MSGBOX_NPC)
 }
 
 
