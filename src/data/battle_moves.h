@@ -1254,7 +1254,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CONFUSION] =
     {
-        .effect = EFFECT_CONFUSE_HIT,
+        .effect = EFFECT_HIT,
         .power = 50,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -2970,7 +2970,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DYNAMIC_PUNCH] =
     {
-        .effect = EFFECT_CONFUSE_HIT,
+        .effect = EFFECT_HIT,
         .power = 100,
         .type = TYPE_FIGHTING,
         .accuracy = 50,
@@ -4289,7 +4289,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SIGNAL_BEAM] =
     {
-        .effect = EFFECT_CONFUSE_HIT,
+        .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_BUG,
         .accuracy = 100,
@@ -4654,7 +4654,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WATER_PULSE] =
     {
-        .effect = EFFECT_CONFUSE_HIT,
+        .effect = EFFECT_HIT,
         .power = 60,
         .type = TYPE_WATER,
         .accuracy = 100,
@@ -5887,7 +5887,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_ROCK_CLIMB] =    {
-        .effect = EFFECT_CONFUSE_HIT,
+        .effect = EFFECT_HIT,
         .power = 95,
         .type = TYPE_NORMAL,
         .accuracy = 85,
@@ -5947,7 +5947,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_PSYCHIC_PUNCH] =    {
-        .effect = EFFECT_CONFUSE_HIT,
+        .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_PSYCHIC_PHYSICAL,
         .accuracy = 100,
@@ -7502,7 +7502,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CONFUSEON] =   
     {
-        .effect = EFFECT_CONFUSE_HIT,
+        .effect = EFFECT_HIT,
         .power = 50,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
