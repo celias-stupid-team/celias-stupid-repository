@@ -148,17 +148,94 @@ script Starlight_House3_Computer {
 	"A Google search of: What do\n"
 	"I do if I burn my cereal?", MSGBOX_SIGN)
     } else {
-    textcolor(NPC_TEXT_COLOR_NEUTRAL)
-	msgbox(
-	"There appears to be some files.\n"
-	"It seems to have a tab called Por-\l"
-	"ymaps and Poryscript.\p"
-	"It also has SkyTemple and HMA.\l"
-	"also\n"
-    "(Insert another rom software here).", MSGBOX_SIGN)
 
-	}
+     if(!flag(FLAG_TEMP_5)) {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(
+	"It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
+    setflag(FLAG_TEMP_5)
+    } else {
+        if(flag(FLAG_TEMP_6)) {
+            random(7)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
+                case 1:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
+                case 2:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
+                case 3:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
+                case 4:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+                case 5:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+	"It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
+            }    
+	   } else {
+            random(6)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
+                case 1:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
+                case 2:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
+                case 3:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
+                case 4:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a video of that famous Twitch\n"
+	"streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                    
+	            }
+
+	        }
+        }
+        msgbox(
+	"...\p"
+    "Let's close the tab.", MSGBOX_SIGN)
+
+    }
 }
+
+
 
 script Starlight_House3_Map_Table2 {
 	msgbox(
@@ -169,16 +246,14 @@ script Starlight_House3_Map_Table2 {
 
 script Starlight_House3_Computer2 {
 	msgbox(
-	"This computer only looks like it\n"
-    "was made in the early 2000's but\l"
-    "It has RGB so it must be modern\l"
-    "Right?", MSGBOX_SIGN)
+	"It's an early 2000's computer with\n"
+	"an RGB setup.", MSGBOX_NPC)
 
 }
 
 script Starlight_House3_Wall_Map {
 	msgbox(
-	"Aww! The giant map had a baby!", MSGBOX_SIGN)
+	"The giant map had a baby!", MSGBOX_SIGN)
     //closemessage
     //delay(30)
     //msgbox(
@@ -187,17 +262,150 @@ script Starlight_House3_Wall_Map {
 
 }
 
+script Starlight_House3_PlantA {
+    if(flag(FLAG_TEMP_10)) {
+        are_vars_equal(VAR_TEMP_1, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(Starlight_House3_Plant1)
+        }
+        are_vars_equal(VAR_TEMP_2, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(Starlight_House3_Plant2)
+        }
+        are_vars_equal(VAR_TEMP_3, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(Starlight_House3_Plant3)
+        }
+
+    } else {
+        setflag(FLAG_TEMP_10)
+        addvar(VAR_TEMP_0, 1)
+        switch(var(VAR_TEMP_0)) {
+            case 1:
+                copyvar(VAR_TEMP_1, VAR_LAST_TALKED)
+                goto(Starlight_House3_Plant1)
+            case 2:
+                copyvar(VAR_TEMP_2, VAR_LAST_TALKED)
+                goto(Starlight_House3_Plant2)
+            case 3:
+                copyvar(VAR_TEMP_3, VAR_LAST_TALKED)
+                goto(Starlight_House3_Plant3)
+        }
+    }
+
+
+}
+
+script Starlight_House3_PlantB {
+    if(flag(FLAG_TEMP_11)) {
+        are_vars_equal(VAR_TEMP_1, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(Starlight_House3_Plant1)
+        }
+        are_vars_equal(VAR_TEMP_2, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(Starlight_House3_Plant2)
+        }
+        are_vars_equal(VAR_TEMP_3, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(Starlight_House3_Plant3)
+        }
+
+    } else {
+        setflag(FLAG_TEMP_11)
+        addvar(VAR_TEMP_0, 1)
+        switch(var(VAR_TEMP_0)) {
+            case 1:
+                copyvar(VAR_TEMP_1, VAR_LAST_TALKED)
+                goto(Starlight_House3_Plant1)
+            case 2:
+                copyvar(VAR_TEMP_2, VAR_LAST_TALKED)
+                goto(Starlight_House3_Plant2)
+            case 3:
+                copyvar(VAR_TEMP_3, VAR_LAST_TALKED)
+                goto(Starlight_House3_Plant3)
+        }
+    }
+
+}
+
+script Starlight_House3_PlantC {
+    if(flag(FLAG_TEMP_12)) {
+        are_vars_equal(VAR_TEMP_1, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(Starlight_House3_Plant1)
+        }
+        are_vars_equal(VAR_TEMP_2, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(Starlight_House3_Plant2)
+        }
+        are_vars_equal(VAR_TEMP_3, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(Starlight_House3_Plant3)
+        }
+
+    } else {
+        setflag(FLAG_TEMP_12)
+        addvar(VAR_TEMP_0, 1)
+        switch(var(VAR_TEMP_0)) {
+            case 1:
+                copyvar(VAR_TEMP_1, VAR_LAST_TALKED)
+                goto(Starlight_House3_Plant1)
+            case 2:
+                copyvar(VAR_TEMP_2, VAR_LAST_TALKED)
+                goto(Starlight_House3_Plant2)
+            case 3:
+                copyvar(VAR_TEMP_3, VAR_LAST_TALKED)
+                goto(Starlight_House3_Plant3)
+        }
+    }
+
+
+}
+
+script Starlight_House3_Plant1 {
+    msgbox(
+	"It's just a plant.", MSGBOX_SIGN)
+}
+
+script Starlight_House3_Plant2 {
+    msgbox(
+	"Nope still a plant.", MSGBOX_SIGN)
+}
+
+script Starlight_House3_Plant3 {
+    lock
+    msgbox(
+	"Why would Oak be here?", MSGBOX_SIGN)
+    clearflag(FLAG_TEMP_10)
+    clearflag(FLAG_TEMP_11)
+    clearflag(FLAG_TEMP_12)
+    setvar(VAR_TEMP_1, 0)
+    setvar(VAR_TEMP_2, 0)
+    setvar(VAR_TEMP_3, 0)
+    setvar(VAR_TEMP_0, 0)
+    release
+}
+
 script Starlight_House3_Professor_Tree {
+    textcolor(NPC_TEXT_COLOR_GREEN)
 	msgbox(
-	"Professor Tree?\p"
-    "Nah it's just a regular tree\n"
-    "with sunglasses on it...", MSGBOX_SIGN)
+	"TREE: Oh... Hey! Rusty! That my\n"
+	"lunch?\p"
+
+	"Oh hah-ha, you're not Rusty.", MSGBOX_NPC)
 
 }
 
 script Starlight_House3_Painting {
 	msgbox(
-	"It's a painting of a window.", MSGBOX_SIGN)
+	"It's another painting of a window.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Painting2 {
+	msgbox(
+	"This one's painted too.", MSGBOX_SIGN)
 
 }
 

@@ -10603,11 +10603,32 @@ static const struct TrainerMonItemCustomMoves sParty_KimonoGirls[] = {
 static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
     {
         .iv = 0,
-        .lvl = 35,
+        .lvl = 100,
         .heldItem = ITEM_NONE,
         .species = SPECIES_GARDEVOIR,
-        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_CONFUSION_PSYDUCK, MOVE_SECRET_SWORD, MOVE_DOUBLE_JUMP, MOVE_BOTTOM_SURGERY}
     },
+    {
+        .iv = 0,
+        .lvl = 100,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_CHARIZARD,
+        .moves = {MOVE_WALUIGI, MOVE_ASS, MOVE_EVIL_METRONOME, MOVE_RHYDON}
+    },
+    {
+        .iv = 0,
+        .lvl = 100,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_SWAMPERT,
+        .moves = {MOVE_CRAB_THROW, MOVE_FOCUS_MISS, MOVE_NEUTRAL_METRONOME, MOVE_GAY_BALL_PROBLEMS}
+    },
+    {
+        .iv = 0,
+        .lvl = 100,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_LEAFEON,
+        .moves = {MOVE_METRONOME, MOVE_WURMPLE_BEAM, MOVE_HBO_MAX_FINALE, MOVE_LETTUCE_SNUGGLE}
+    }
 };
 
 static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {

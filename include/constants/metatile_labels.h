@@ -380,6 +380,10 @@
 
 // gTileset_Starlight_Interior
 #define METATILE_Starlight_Interior_StarlightFloor  0x281
+#define METATILE_Starlight_Interior_Table1          0x346
+#define METATILE_Starlight_Interior_Table2          0x347
+#define METATILE_Starlight_Interior_Table3          0x34E
+#define METATILE_Starlight_Interior_Table4          0x34F
 
 // gTileset_TrainerTower
 #define METATILE_TrainerTower_CounterBarrier         0x2B4

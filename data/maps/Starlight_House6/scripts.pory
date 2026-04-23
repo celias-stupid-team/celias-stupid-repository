@@ -19,11 +19,9 @@ script Starlight_House3_Commentary_Rusty {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"I was surprised this game had no\n"
-	"references to the YouTube show\l"
-	"Pokemon Rusty.\p"
+	"references to Pokemon Rusty.\p"
 
-	"So I added one in lol.\n"
-	"", MSGBOX_NPC)
+	"So I added one in.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Cutscene {
@@ -32,31 +30,18 @@ script Starlight_House3_Commentary_Cutscene {
 	"This was my first ever attempt at\n"
 	"scripting a cutscene and I had some\l"
 	"fun doing it! It reminds me of\l"
-	"SkyTemple Cutscene Scripting", MSGBOX_NPC)
+	"SkyTemple Cutscene Scripting.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Frame {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"This framed DMCA joke was actually\n"
-	"inspired by something Celia said.\p"
-	"I one time asked her what would she\l"
-	"do if she ever received a cease and\l"
-	"desist letter from Nintendo asking\l"
-	"to take the Romhack down?\p"
-	"She answered with:\l"
-	"If I get a C&D from Nintendo I'm\l"
-	"framing it on my wall", MSGBOX_NPC)
-}
+	"One time I asked Celia what she\n"
+	"would do if Nintendo sent her a C&D\l"
+	"letter.\p"
 
-script Starlight_House3_Commentary_Map_Table {
-    textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox(
-	"Idk why I added this table.\p"
-
-	"I thought it would be kind of cool\n"
-	"to put the town map onto a map\l"
-	"itself.", MSGBOX_NPC)
+	"She said she would frame it on her\n"
+	"wall.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_For_Outside {
@@ -68,31 +53,35 @@ script Starlight_House3_Commentary_For_Outside {
 
 	"So I am using this table as an\n"
 	"opportunity to talk about\l"
-	"stuff in different maps!", MSGBOX_NPC)
+	"stuff in different maps.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Minnesota {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Despite what Celia said about my\n"
-	"early issues with big maps lol,\l"
-	"I just wanted to make it accurate.\l"
-	"and so I attempted to make the\l"
-	"elevation, climate, and such accurate\l"
-	"similarly to the real Minnesota.", MSGBOX_NPC)
+	"I tried my best to make\n"
+	"Minnesota as accurate as possible.\p"
+
+	"I even tried to make the elevation,\n"
+	"water, and town locations based on\l"
+	"certain buildings similar.\p"
+
+	"I didn't have to, but I like those\n"
+	"small details that nobody would\l"
+	"likely notice", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Porygons {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Did you know I hid 2 porygons\n"
-	"within the map tiles? It was going\l"
-	"to be the original method for the\l"
-	"shiny.\p"
+	"On Pokemon Island, I hid 2 Porygons\n"
+	"within the map tiles.\l"
+	"It was the original method for the\l"
+	"shiny but since has been changed.\p"
 
 	"You can still find them! If you've\n"
-	"played the original Pokemon Snap\l"
-	"you might know where to look.", MSGBOX_NPC)
+	"played Pokemon Snap you might know\l"
+	"where to look.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Cinnabar {
@@ -108,10 +97,9 @@ script Starlight_House3_Commentary_Cinnabar {
 script Starlight_House3_Commentary_Thirty_Eight {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Thirty Eight Island used to be\n"
-	"to scale of the Johto route but I\l"
-	"had to shrink it down slightly\l"
-	"around 3 times for convenience.", MSGBOX_NPC)
+	"Thirty Eight Island used to be 1x1\n"
+	"scale of the original route but was\l"
+	"shrinked down 3x for convenience.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Commentary_Favorite_Maps {
@@ -135,15 +123,13 @@ script Starlight_House3_Commentary_Sky_Tower {
 script Starlight_House3_Commentary_Dak {
     textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"This is Dak.\p"
+	"Dak is my irl friend.\p"
 
-	"We've been irl friends for over\n"
-	"25 years.\p"
-
-	"I needed a second character for the\n"
-	"map house and was hoping putting\l"
-	"him in this hack will get him to\l"
-	"play it lol.", MSGBOX_NPC)
+	"I needed a second character for my\n"
+	"cutscene test and I'm hoping that\l"
+	"putting him in this game will\l"
+	"interest him in trying this\l"
+	"masterpiece of a romhack lol.", MSGBOX_NPC)
 }
 
 //main room
@@ -159,17 +145,128 @@ script Starlight_House_Commentary_Dev {
 }
 
 script Starlight_House_Commentary_Good_As_Celia {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"When it comes to gameplay pacing\n"
-	"and design, Celia is way better\l"
-	"than me. I hope to be as good as her\l"
-	"someday!\p"
+	"When it comes to pacing, jokes,\n"
+	"storytelling and overall design,\l"
+	"Celia has a lot of talent that I\l"
+	"strive for someday.\p"
 
-	"I am proud of a few ideas, like the\n"
-	"Gender Fluid item, Water Maze, Lass\l"
-	"looping around the map bit, Pit\l"
-	"Island, and more.", MSGBOX_NPC)
+	"I am proud of a few ideas though.\p"
+
+	"like the Gender Fluid item, Water\n"
+	"Maze, Lass looping around the map,\l"
+	"Pit Island, and more!", MSGBOX_NPC)
 }
+
+script Starlight_House_Commentary_Big_Maps {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"I went through a learning curve\n"
+	"for designing maps.\l"
+	"When I started I always made them\l"
+	"too big, even though I planned to\l"
+	"make them detailed.\p"
+
+	"When you have a birds eye view of\n"
+	"the entire map zoomed out, it's\l"
+	"easy to misinterpret the size\l"
+	"to the actual gameplay experience.\p"
+	closemessage
+	delay(60)
+	"At least for me at first...", MSGBOX_NPC)
+}
+
+script Starlight_House_Commentary_Purpose {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"I made this house because I wanted\n"
+	"to have some fun experimenting\l"
+	"with different map features and\l"
+	"ideas.", MSGBOX_NPC)
+}
+
+script Starlight_House_Commentary_Rant {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Would you like to hear my dumb rant\n"
+	"about Pokemon romhack mapping?", MSGBOX_YESNO)
+		//closemessage
+		if(var(VAR_RESULT)) {
+			msgbox(
+				"Are you sure? It's kind of long.", MSGBOX_YESNO)
+				//closemessage
+				if(var(VAR_RESULT)) {
+			
+			
+			msgbox(
+		
+	"Mapping is such an under-\n"
+	"appreciated and niche form of art.\p"
+
+	"I always see such cool maps made\n"
+	"but I don't often hear players\l"
+	"say anything about them, if ever.\p"
+
+	"It's nobody's fault though.\p"
+
+    "It's not something people really\n"
+	"think about, given they don't see\l"
+	"that much of it within that tiny\l"
+	"little screen.\p"
+
+	"The only time I see compliments are\n"
+	"when people post the whole map as a\l"
+	"screenshot in some romhack\l"
+	"communities.\p"
+
+	"Usually it's the spritework,\n"
+	"music, battle animation, and such\l"
+	"that gets praised during gameplay.\p"
+
+	"And as such! They absolutely\n"
+	"deserve that appreciation.\p"
+
+	"But mapping takes a lot of time,\n"
+	"planning, and effort to do as well.\p"
+
+	"It's unfortunate but it is what\n"
+	"it is {JPN}へ{ENG}({JPN}ツ{ENG}){JPN}へ{ENG}", MSGBOX_NPC)
+	closemessage
+	delay(60)
+
+msgbox(
+	"Thank you for listening to that\n"
+	"long BS rant."
+
+	//"I can't give you much, but here\n"
+	//"I heard this was rare.\p", MSGBOX_NPC)
+
+	//giveitem_msg("{PLAYER} found\n1 RARE CANDY!", ITEM_RARE_CANDY, 1)
+
+	//msgbox(
+	//"Better than nothing I guess lol."
+	, MSGBOX_NPC)
+
+} else {
+	msgbox("I don't blame you lol.", MSGBOX_NPC)
+	}
+		}
+		else {
+	msgbox("I don't blame you lol.", MSGBOX_NPC)
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+	
+
+
+
+
 
 
 

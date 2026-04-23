@@ -3575,7 +3575,8 @@ script CeliaSecret_FestivalPlaza {
 script CeliaSecret_StarlightIsland {
 	msgbox(
 	"Heads up, I gave literally zero\n"
-	"oversight into Starlight Island.\p"
+	"oversight into Starlight's\l"
+	"Workshop\p"
 
 	"I let Star do whatever the hell\n"
 	"she wanted.\p"
