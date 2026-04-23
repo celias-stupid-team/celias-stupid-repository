@@ -244,7 +244,7 @@ script MayRoom_LassAttack {
 	addobject(LANCE_LASS)
 	setobjectxy(LANCE_LASS, 6, 19)
 	setlayouttiles(LAYOUT_POKEMON_LEAGUE_LANCES_ROOM, 0, 0, 0, 0, 26, 29)
-					setmaplayoutindex(LAYOUT_POKEMON_LEAGUE_LANCES_ROOM)
+	setmaplayoutindex(LAYOUT_POKEMON_LEAGUE_LANCES_ROOM)
 	special(DrawWholeMapView)
 	applymovement(LANCE_LASS, moves(
 		face_up
@@ -293,6 +293,7 @@ script MayRoom_LassAttack {
 	fadescreeninstant(FADE_FROM_WHITE)
 	delay(120)
 	waitmovement(LOCALID_CAMERA)
+	call(PokemonLeague_LancesRoom_EventScript_SetEntryClosed)
 	call(PokemonLeague_EventScript_OpenDoorLance)
 	applymovement(LOCALID_CAMERA, moves(
 		walk_slow_up * 7
