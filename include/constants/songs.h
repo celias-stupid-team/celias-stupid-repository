@@ -490,7 +490,7 @@
 #define MUS_SE_MONSTER_MASH 481
 #define MUS_SE_SONIC_BOOM 482
 #define MUS_SE_SPACE_JAM 483
-#define mus_mirrorb2 484
+#define mus_star_battle 484
 
 #define MUS_NONE 0xFFFF
 

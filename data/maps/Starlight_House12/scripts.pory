@@ -25,7 +25,7 @@ MAP_SCRIPT_ON_TRANSITION {
 }
 
 script Starlight_Jukebox_Test {
-    playbgm(mus_mirrorb2, TRUE)
+    playbgm(mus_star_battle, TRUE)
     
 	msgbox(
     "Music: TESTING\n"
