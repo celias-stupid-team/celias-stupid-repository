@@ -461,7 +461,7 @@ script Warehouse_PlatoCameo {
 	if(checktrainerflag(TRAINER_PLASTO)) {
 		textcolor(NPC_TEXT_COLOR_BLUE)
 		msgbox(
-		"PLATO: Dan is Celia's deadname.\n"
+		"PLATO: Dan Blake is Celia's deadname.\n"
 		"", MSGBOX_NPC)
 		end
 		

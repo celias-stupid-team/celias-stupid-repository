@@ -386,7 +386,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_WEEDLE] =
     {
         .baseHP = 40,
-        .baseAttack = 35,
+        .baseAttack = 45,
         .baseDefense = 30,
         .baseSpeed = 50,
         .baseSpAttack = 20,
@@ -36362,7 +36362,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_FINALZAPDOS] =
     {
-        .baseHP = 150,
+        .baseHP = 180,
         .baseAttack = 1,
         .baseDefense = 255,
         .baseSpeed = 1,
