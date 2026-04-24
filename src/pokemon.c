@@ -1685,14 +1685,14 @@ static const s8 sFriendshipEventDeltas[][3] =
     [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 1,  1,  0 },
     [FRIENDSHIP_EVENT_VITAMIN]              = { 0,  0,  0 },
     [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 4,  3,  2 },
+    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 4,  2,  1 },
     [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 0,  0,  0 },
-    [FRIENDSHIP_EVENT_WALKING]              = { 1,  1,  1 },
+    [FRIENDSHIP_EVENT_WALKING]              = { 2,  2,  3 },
     [FRIENDSHIP_EVENT_MASSAGE]              = { 3,  3,  3 },
     [FRIENDSHIP_EVENT_FAINT_SMALL]          = {0, 0, 0 },
     [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {0, 0, 0 },
     [FRIENDSHIP_EVENT_FAINT_LARGE]          = {0, 0, 0 },
-    [FRIENDSHIP_EVENT_WORLD_TRAVEL]          = {5, 5, 5 },
+    [FRIENDSHIP_EVENT_WORLD_TRAVEL]          = {2, 2, 2 },
 };
 
 #define HM_MOVES_END 0xFFFF

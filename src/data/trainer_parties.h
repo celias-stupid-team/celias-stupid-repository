@@ -320,7 +320,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubElectric[] = 
         .iv = 0,
         .lvl = 13,
         .species = SPECIES_PIKACHU_BIRTHDAY,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_CELEBRATE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 
 };
@@ -330,7 +330,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubGrass[] = {
         .iv = 0,
         .lvl = 23,
         .species = SPECIES_SCYTHER,
-        .moves = {MOVE_SWORDS_DANCE, MOVE_RETREAT, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_SWORDSDANCE_TCG, MOVE_RETREAT, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
@@ -551,7 +551,7 @@ static const struct TrainerMonItemCustomMoves sParty_LassSally[] = {
         .iv = 0,
         .lvl = 10,
         .species = SPECIES_ROOKIDEE,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_SLUGMA_BALL,
         .moves = {MOVE_MEAN_LOOK, MOVE_PECK, MOVE_NONE, MOVE_NONE}
     },
 };
@@ -9934,7 +9934,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCABlaine[] = {
     {
         .iv = 0,
         .lvl = 45,
-        .heldItem = ITEM_SITRUS_BERRY,
+        .heldItem = ITEM_LEFTOVERS,
         .species = SPECIES_MAGMAR,
         .moves = {MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
