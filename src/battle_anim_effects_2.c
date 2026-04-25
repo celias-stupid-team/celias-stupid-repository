@@ -2690,6 +2690,31 @@ const struct SpriteTemplate gTCGBlizzardSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+static const union AnimCmd sTCGConfusionAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(64, 10),
+    ANIMCMD_FRAME(128, 10),
+    ANIMCMD_FRAME(192, 10),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTCGConfusionAnimTable[] =
+{
+    sTCGConfusionAnimCmds,
+};
+
+const struct SpriteTemplate gTCGConfusionSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_CONFUSION,
+    .paletteTag = ANIM_TAG_TCG_CONFUSION,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sTCGConfusionAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sTCGSlashImpactAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),

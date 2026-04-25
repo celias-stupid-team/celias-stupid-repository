@@ -18222,6 +18222,31 @@ Move_SINGLE_WINGBEAT:
 	end
 
 Move_CONFUSION_PSYDUCK:
+
+	loadspritegfx ANIM_TAG_TCG_COIN
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	loadspritegfx ANIM_TAG_TCG_CONFUSION
+	createsprite gTcgCoinTailsSpriteTemplate, 2, 0, 120, 80, 32, 45
+	delay 26
+	playse SE_TCG_COIN_FLIP
+	waitforvisualfinish
+	
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	@playse SE_TCG_CONFUSION
+	createsprite gTCGConfusionSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 88, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_TCG_IMPACT, SOUND_PAN_TARGET
+	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, -16, -8, 0, 0, 0, 10, 0, 0
+	delay 5
+	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 0, 10, 0, 0
+	delay 5
+	createsprite gTCGImpactSpriteTemplate, ANIM_TARGET, 2, -8, 8, 0, 0, 0, 10, 0, 0
+	waitforvisualfinish
+	end
+
 	monbg ANIM_DEF_PARTNER
 	call SetPsychicBackground
 	setalpha 8, 8
