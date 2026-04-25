@@ -1,7 +1,7 @@
 # Default variables
 
 GAME_VERSION  ?= FIRERED
-GAME_REVISION ?= 0
+GAME_REVISION ?= 1
 GAME_LANGUAGE ?= ENGLISH
 
 # Builds the ROM using a modern compiler
@@ -45,8 +45,8 @@ endif
 endif
 
 # Revision
-ifeq ($(GAME_REVISION),1)
-  BUILD_NAME  := $(BUILD_NAME)_rev1
+ifeq ($(GAME_REVISION),0)
+  BUILD_NAME  := $(BUILD_NAME)_rev0
 endif
 
 # Modern GCC

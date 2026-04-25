@@ -24,7 +24,6 @@
 #include "constants/union_room.h"
 
 EWRAM_DATA u8 sDownArrowCounterAndYCoordIdx[8] = {};
-EWRAM_DATA bool8 gGiftIsFromEReader = FALSE;
 
 static void CreateMysteryGiftTask(void);
 static void Task_MysteryGift(u8 taskId);
@@ -437,24 +436,12 @@ void CB2_InitMysteryGift(void)
     if (HandleMysteryGiftOrEReaderSetup(FALSE))
     {
         SetMainCallback2(CB2_MysteryGiftEReader);
-        gGiftIsFromEReader = FALSE;
         CreateMysteryGiftTask();
-    }
-}
-
-void CB2_InitEReader(void)
-{
-    if (HandleMysteryGiftOrEReaderSetup(TRUE))
-    {
-        SetMainCallback2(CB2_MysteryGiftEReader);
-        gGiftIsFromEReader = TRUE;
-        CreateEReaderTask();
     }
 }
 
 void MainCB_FreeAllBuffersAndReturnToInitTitleScreen(void)
 {
-    gGiftIsFromEReader = FALSE;
     FreeAllWindowBuffers();
     Free(GetBgTilemapBuffer(0));
     Free(GetBgTilemapBuffer(1));

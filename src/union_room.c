@@ -199,7 +199,6 @@ static EWRAM_DATA union
     struct WirelessLink_Group *group;
     struct WirelessLink_URoom *uRoom;
 } sWirelessLinkMain = {};
-static EWRAM_DATA u32 sUnused = 0;
 EWRAM_DATA struct RfuGameCompatibilityData gRfuPartnerCompatibilityData = {};
 EWRAM_DATA u16 gUnionRoomOfferedSpecies = SPECIES_NONE;
 EWRAM_DATA u8 gUnionRoomRequestedMonType = TYPE_NORMAL;
@@ -257,7 +256,6 @@ static bool32 IsPlayerFacingTradingBoard(void);
 static u32 GetResponseIdx_InviteToURoomActivity(s32);
 static u32 ConvPartnerUnameAndGetWhetherMetAlready(struct RfuPlayer *);
 static s32 UnionRoomGetPlayerInteractionResponse(struct RfuPlayerList *, u8, u8, u32);
-static void ItemPrintFunc_Unused(u8, u32, u8);
 static void TradeBoardListMenuItemPrintFunc(u8, u32, u8);
 static s32 GetIndexOfNthTradeBoardOffer(struct RfuPlayer *, s32);
 static s32 GetUnionRoomPlayerGender(s32, struct RfuPlayerList *);
@@ -3914,10 +3912,6 @@ static s32 UnionRoomGetPlayerInteractionResponse(struct RfuPlayerList * list, bo
         }
         return 0;
     }
-}
-
-static void ItemPrintFunc_Unused(u8 windowId, u32 itemId, u8 y)
-{
 }
 
 static void TradeBoardPrintItemInfo(u8 windowId, u8 y, struct RfuGameData * data, const u8 * playerName, u8 colorIdx)

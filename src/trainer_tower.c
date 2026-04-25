@@ -64,7 +64,6 @@ struct TrainerEncounterMusicPairs
 
 static EWRAM_DATA struct TrainerTowerState * sTrainerTowerState = NULL;
 static EWRAM_DATA struct TrainerTowerOpponent * sTrainerTowerOpponent = NULL;
-static EWRAM_DATA u8 sUnused = 0;
 
 static void SetUpTrainerTowerDataStruct(void);
 static void FreeTrainerTowerDataStruct(void);
@@ -321,8 +320,6 @@ static const struct WindowTemplate sTimeBoardWindowTemplate[] = {
     }, DUMMY_WIN_TEMPLATE
 };
 
-static const u32 sUnusedValue = 112;
-
 static const u8 sTextColors[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
 
 static void (*const sTrainerTowerFunctions[])(void) = {
@@ -516,24 +513,21 @@ static void SetUpTrainerTowerDataStruct(void)
     u32 challengeType = gSaveBlock1Ptr->towerChallengeId;
     s32 i;
     const struct TrainerTowerFloor *const * floors_p;
+    struct TrainerTowerState * ttstate_p;
+    const struct EReaderTrainerTowerSetSubstruct * header_p;
 
     sTrainerTowerState = AllocZeroed(sizeof(*sTrainerTowerState));
     sTrainerTowerState->floorIdx = gMapHeader.mapLayoutId - LAYOUT_TRAINER_TOWER_1F;
-    if (ReadTrainerTowerAndValidate() == TRUE)
-        CEReaderTool_LoadTrainerTower(&sTrainerTowerState->data);
-    else
+    ttstate_p = sTrainerTowerState;
+    header_p = &gTrainerTowerLocalHeader;
+    memcpy(&ttstate_p->data, header_p, sizeof(struct EReaderTrainerTowerSetSubstruct));
+    floors_p = gTrainerTowerFloors[challengeType];
+    for (i = 0; i < MAX_TRAINER_TOWER_FLOORS; i++)
     {
-        struct TrainerTowerState * ttstate_p = sTrainerTowerState;
-        const struct EReaderTrainerTowerSetSubstruct * header_p = &gTrainerTowerLocalHeader;
-        memcpy(&ttstate_p->data, header_p, sizeof(struct EReaderTrainerTowerSetSubstruct));
-        floors_p = gTrainerTowerFloors[challengeType];
-        for (i = 0; i < MAX_TRAINER_TOWER_FLOORS; i++)
-        {
-            *(sTrainerTowerState->data.floors + i) = *(floors_p[i]); // manual pointer arithmetic needed to match
-        }
-        sTrainerTowerState->data.checksum = CalcByteArraySum((void *)sTrainerTowerState->data.floors, sizeof(sTrainerTowerState->data.floors));
-        ValidateOrResetCurTrainerTowerRecord();
+        *(sTrainerTowerState->data.floors + i) = *(floors_p[i]); // manual pointer arithmetic needed to match
     }
+    sTrainerTowerState->data.checksum = CalcByteArraySum((void *)sTrainerTowerState->data.floors, sizeof(sTrainerTowerState->data.floors));
+    ValidateOrResetCurTrainerTowerRecord();
 }
 
 static void FreeTrainerTowerDataStruct(void)
@@ -773,10 +767,7 @@ static void StartTrainerTowerChallenge(void)
     if (gSaveBlock1Ptr->towerChallengeId >= NUM_TOWER_CHALLENGE_TYPES)
         gSaveBlock1Ptr->towerChallengeId = 0;
     ValidateOrResetCurTrainerTowerRecord();
-    if (!ReadTrainerTowerAndValidate())
-        TRAINER_TOWER.validated = TRUE;
-    else
-        TRAINER_TOWER.validated = FALSE;
+    TRAINER_TOWER.validated = FALSE;
     TRAINER_TOWER.floorsCleared = 0;
     SetVBlankCounter1Ptr(&TRAINER_TOWER.timer);
     TRAINER_TOWER.timer = 0;

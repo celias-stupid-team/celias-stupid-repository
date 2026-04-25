@@ -115,7 +115,6 @@ EWRAM_DATA struct {
     u8 lastSendQueueCount;
     bool8 disconnected;
 } sLinkErrorBuffer = {};
-static EWRAM_DATA u16 sReadyCloseLinkAttempts = 0; // never read
 static EWRAM_DATA void *sLinkErrorBgTilemapBuffer = NULL;
 
 static void InitLocalLinkPlayer(void);
@@ -1252,11 +1251,7 @@ void SetCloseLinkCallback(void)
     }
     else
     {
-        if (gLinkCallback != NULL)
-        {
-            sReadyCloseLinkAttempts++;
-        }
-        else
+        if (gLinkCallback == NULL)
         {
             gLinkCallback = LinkCB_ReadyCloseLink;
             gLinkDummy1 = FALSE;

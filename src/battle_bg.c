@@ -20,10 +20,7 @@
 
 #define TAG_VS_LETTERS 10000
 
-static void CB2_unused(void);
 static u8 GetBattleTerrainOverride(void);
-
-static const u8 sUnused[] = {1, 2};
 
 static const struct OamData sVsLetter_V_OamData = {
     .y = 0,
@@ -672,23 +669,6 @@ static const struct {
     {MAP_BATTLE_SCENE_LINK,     BATTLE_TERRAIN_LINK}
 };
 
-// Unused
-void CreateUnknownDebugSprite(void)
-{
-    u8 spriteId;
-
-    ResetSpriteData();
-    spriteId = CreateSprite(&gUnknownDebugSprite, 0, 0, 0);
-    gSprites[spriteId].invisible = TRUE;
-    SetMainCallback2(CB2_unused);
-}
-
-static void CB2_unused(void)
-{
-    AnimateSprites();
-    BuildOamBuffer();
-}
-
 static u8 GetBattleTerrainByMapScene(u8 mapBattleScene)
 {
     int i;
@@ -727,16 +707,6 @@ static void LoadBattleTerrainEntryGfx(u16 terrain)
     // Copy to bg1
     LZDecompressVram(sBattleTerrainTable[terrain].entryTileset, (void *)BG_CHAR_ADDR(1));
     LZDecompressVram(sBattleTerrainTable[terrain].entryTilemap, (void *)BG_SCREEN_ADDR(28));
-}
-
-// Unused
-void GetBattleTerrainGfxPtrs(u8 terrain, const u32 **tilesPtr, const u32 **mapPtr, const u32 **palPtr)
-{
-    if (terrain > BATTLE_TERRAIN_PLAIN)
-        terrain = BATTLE_TERRAIN_PLAIN;
-    *tilesPtr = sBattleTerrainTable[terrain].tileset;
-    *mapPtr = sBattleTerrainTable[terrain].tilemap;
-    *palPtr = sBattleTerrainTable[terrain].palette;
 }
 
 void BattleInitBgsAndWindows(void)

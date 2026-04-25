@@ -1478,25 +1478,21 @@ static void LinkOpponentHandleOneReturnValue_Duplicate(void)
 
 static void LinkOpponentHandleClearUnkVar(void)
 {
-    gUnusedControllerStruct.unk = 0;
     LinkOpponentBufferExecCompleted();
 }
 
 static void LinkOpponentHandleSetUnkVar(void)
 {
-    gUnusedControllerStruct.unk = gBattleBufferA[gActiveBattler][1];
     LinkOpponentBufferExecCompleted();
 }
 
 static void LinkOpponentHandleClearUnkFlag(void)
 {
-    gUnusedControllerStruct.flag = 0;
     LinkOpponentBufferExecCompleted();
 }
 
 static void LinkOpponentHandleToggleUnkFlag(void)
 {
-    gUnusedControllerStruct.flag ^= 1;
     LinkOpponentBufferExecCompleted();
 }
 

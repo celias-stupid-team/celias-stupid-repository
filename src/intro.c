@@ -3,7 +3,6 @@
 #include "m4a.h"
 #include "task.h"
 #include "scanline_effect.h"
-#include "libgcnmultiboot.h"
 #include "new_menu_helpers.h"
 #include "link.h"
 #include "menu.h"
@@ -149,18 +148,13 @@ struct IntroSequenceData
     u8 unused1[0x2080];
 }; // size: 0x28BC
 
-static EWRAM_DATA struct GcmbStruct sGcmb = {0};
-static EWRAM_DATA u16 sUnusedScene3Var0 = 0; // Set but never read
-static EWRAM_DATA u16 sUnusedScene3Var1 = 0; // Set but never read
 static EWRAM_DATA u16 sNidorinoJumpMult = 0;
 static EWRAM_DATA u16 sNidorinoAnimDelayTime = 0;
 static EWRAM_DATA u16 sNidorinoJumpDiv = 0;
 static EWRAM_DATA u16 sNidorinoRecoilReturnTime = 0;
-static EWRAM_DATA u16 sNidorinoUnusedVar = 0; // Set but never read
 static EWRAM_DATA u16 sStarSpeedX = 0;
 static EWRAM_DATA u16 sStarSpeedY = 0;
 static EWRAM_DATA u16 sStarSparklesXmodMask = 0;
-static EWRAM_DATA u16 sStarSparklesUnusedVar = 0; // Set but never read
 static EWRAM_DATA u16 sStarSparklesSpawnRate = 0;
 static EWRAM_DATA u16 sStarSparklesFlickerStartTime = 0;
 static EWRAM_DATA u16 sStarSparklesDestroySpriteTime = 0;
@@ -193,7 +187,6 @@ static void GFScene_StartNameSparklesBig(void);
 static void GFScene_Task_NameSparklesSmall(u8 taskId);
 static void GFScene_Task_NameSparklesBig(u8 taskId);
 static struct Sprite *GFScene_CreateLogoSprite(void);
-static void GFScene_CreatePresentsSprite(void);
 static void SpriteCB_Star(struct Sprite *sprite);
 static void SpriteCB_SparklesSmall_Star(struct Sprite *sprite);
 static void SpriteCB_SparklesSmall_Name(struct Sprite *sprite);
@@ -908,11 +901,6 @@ static void LoadCopyrightGraphics(u16 charBase, u16 screenBase, u16 palOffset)
     LoadPalette(sCopyright_Pal, palOffset, sizeof(sCopyright_Pal));
 }
 
-static void SerialCB_CopyrightScreen(void)
-{
-    GameCubeMultiBoot_HandleSerialInterrupt(&sGcmb);
-}
-
 static bool8 SetUpCopyrightScreen(void)
 {
     switch (gMain.state)
@@ -940,48 +928,16 @@ static bool8 SetUpCopyrightScreen(void)
         EnableInterrupts(INTR_FLAG_VBLANK);
         SetVBlankCallback(VBlankCB_Copyright);
         SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_BG0_ON);
-        SetSerialCallback(SerialCB_CopyrightScreen);
-        GameCubeMultiBoot_Init(&sGcmb);
         // fallthrough
     default:
         UpdatePaletteFade();
         gMain.state++;
-        GameCubeMultiBoot_Main(&sGcmb);
         break;
     case 140:
-        GameCubeMultiBoot_Main(&sGcmb);
-        if (sGcmb.gcmb_field_2 != 1)
-        {
-            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-            gMain.state++;
-        }
-        break;
-    case 141:
-        if (!UpdatePaletteFade())
-        {
-            gMain.state++;
-            if (sGcmb.gcmb_field_2 != 0)
-            {
-                if (sGcmb.gcmb_field_2 == 2)
-                {
-                    if (*(u32 *)(EWRAM_START + 0xAC) == COLOSSEUM_GAME_CODE)
-                    {
-                        CpuCopy16(gMultiBootProgram_PokemonColosseum_Start, (void *)EWRAM_START, 0x28000);
-                        *(u32 *)(EWRAM_START + 0xAC) = COLOSSEUM_GAME_CODE;
-                    }
-                    GameCubeMultiBoot_ExecuteProgram(&sGcmb);
-                }
-            }
-            else
-            {
-                GameCubeMultiBoot_Quit();
-                SetSerialCallback(SerialCB);
-            }
-            return FALSE;
-        }
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+        gMain.state++;
         break;
     case 142:
-        ResetSerial();
         SetMainCallback2(CB2_WaitFadeBeforeSetUpIntro);
         break;
     }
@@ -1249,9 +1205,6 @@ static void IntroCB_GF_RevealLogo(struct IntroSequenceData * this)
         if (!IsDma3ManagerBusyWithBgCopy())
         {
             DestroySprite(this->gameFreakLogoArtSprite);
-        #if REVISION >= 1
-            GFScene_CreatePresentsSprite();
-        #endif
             this->timer = 0;
             this->state++;
         }
@@ -1577,8 +1530,6 @@ static void IntroCB_Scene3_Entrance(struct IntroSequenceData * this)
         {
             DecompressAndCopyTileDataToVram(BG_SCENE3_GENGAR, sScene3_GengarAnim_Gfx, 0, 0, 0);
             DecompressAndCopyTileDataToVram(BG_SCENE3_GENGAR, sScene3_GengarAnim_Map, 0, 0, 1);
-            sUnusedScene3Var0 = 4;
-            sUnusedScene3Var1 = 52;
             ChangeBgX(BG_SCENE3_GENGAR, 0x00001800, BG_COORD_SET);
             ChangeBgY(BG_SCENE3_GENGAR, 0x0001F000, BG_COORD_SET);
             this->state++;
@@ -1953,7 +1904,6 @@ static void GFScene_LoadGfxCreateStar(void)
     sStarSpeedX = 96;
     sStarSpeedY = 16;
     sStarSparklesXmodMask = 0x07;
-    sStarSparklesUnusedVar = 5;
     sStarSparklesSpawnRate = 8;
     sStarSparklesFlickerStartTime = 90;
     sStarSparklesDestroySpriteTime = 120;
@@ -2030,7 +1980,6 @@ static void GFScene_Task_NameSparklesSmall(u8 taskId)
     u8 spriteId;
 
     tTimer++;
-    data[3]++; // Unused
     if (tTimer > 6)
     {
         tTimer = 0;
@@ -2094,15 +2043,6 @@ static struct Sprite *GFScene_CreateLogoSprite(void)
     u8 spriteId = CreateSprite(&sSpriteTemplate_GameFreakLogoArt, 120, 70, 4);
     return &gSprites[spriteId];
 }
-
-#if REVISION >= 1
-static void GFScene_CreatePresentsSprite(void)
-{
-    int i;
-    for (i = 0; i < 2; i++)
-        gSprites[CreateSprite(&sSpriteTemplate_Presents, 104 + 32 * i, 108, 5)].oam.tileNum += i * 4;
-}
-#endif
 
 #define tState  data[0]
 #define tTimer  data[1]
@@ -2726,12 +2666,8 @@ static void Scene3_StartNidorinoAttack(struct IntroSequenceData * ptr)
     ptr->scene3NidorinoSprite->sState = 0;
     ptr->scene3NidorinoSprite->sTimer = 0;
     ptr->scene3NidorinoSprite->sShakeTimer = 0;
-    ptr->scene3NidorinoSprite->data[3] = 0; // Unused
-    ptr->scene3NidorinoSprite->data[4] = 0; // Unused
-    ptr->scene3NidorinoSprite->data[5] = 0; // Unused
     ptr->scene3NidorinoSprite->x += ptr->scene3NidorinoSprite->x2;
     ptr->scene3NidorinoSprite->x2 = 0;
-    sNidorinoUnusedVar = 36;
     sNidorinoAnimDelayTime = 40;
     sNidorinoJumpMult = 3;
     sNidorinoJumpDiv = 4;

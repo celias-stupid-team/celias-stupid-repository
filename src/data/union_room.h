@@ -372,27 +372,6 @@ static const struct ListMenuItem sListMenuItems_Unused[] = {
     {gText_UR_EmptyString, 15}
 };
 
-static const struct ListMenuTemplate sListMenuTemplate_Unused = {
-    .items = sListMenuItems_Unused,
-    .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
-    .itemPrintFunc = ItemPrintFunc_Unused,
-    .totalItems = ARRAY_COUNT(sListMenuItems_Unused),
-    .maxShowed = 4,
-    .windowId = 0,
-    .header_X = 0,
-    .item_X = 8,
-    .cursor_X = 1,
-    .upText_Y = 0,
-    .cursorPal = 2,
-    .fillValue = 1,
-    .cursorShadowPal = 3,
-    .lettersSpacing = 1,
-    .itemVerticalPadding = 0,
-    .scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD,
-    .fontId = FONT_NORMAL,
-    .cursorKind = 0
-};
-
 static const struct RfuPlayerData sRfuPlayerData_Dummy = {};
 
 ALIGNED(4) static const u8 sAcceptedActivityIds_SingleBattle[] = {ACTIVITY_BATTLE_SINGLE, 0xFF};

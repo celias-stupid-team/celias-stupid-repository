@@ -1410,25 +1410,21 @@ static void LinkPartnerHandleOneReturnValue_Duplicate(void)
 
 static void LinkPartnerHandleClearUnkVar(void)
 {
-    gUnusedControllerStruct.unk = 0;
     LinkPartnerBufferExecCompleted();
 }
 
 static void LinkPartnerHandleSetUnkVar(void)
 {
-    gUnusedControllerStruct.unk = gBattleBufferA[gActiveBattler][1];
     LinkPartnerBufferExecCompleted();
 }
 
 static void LinkPartnerHandleClearUnkFlag(void)
 {
-    gUnusedControllerStruct.flag = 0;
     LinkPartnerBufferExecCompleted();
 }
 
 static void LinkPartnerHandleToggleUnkFlag(void)
 {
-    gUnusedControllerStruct.flag ^= 1;
     LinkPartnerBufferExecCompleted();
 }
 

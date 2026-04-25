@@ -47,7 +47,6 @@ struct ItemPcStaticResources
 static EWRAM_DATA struct ItemPcResources * sStateDataPtr = NULL;
 static EWRAM_DATA u8 * sBg1TilemapBuffer = NULL;
 static EWRAM_DATA struct ListMenuItem * sListMenuItems = NULL;
-static EWRAM_DATA u8 * sUnusedStringAllocation = NULL;
 static EWRAM_DATA struct ItemPcStaticResources sListMenuState = {};
 static EWRAM_DATA u8 sSubmenuWindowIds[3] = {};
 
@@ -472,7 +471,6 @@ static bool8 ItemPc_LoadGraphics(void)
 static bool8 ItemPc_AllocateResourcesForListMenu(void)
 {
     try_alloc(sListMenuItems, sizeof(struct ListMenuItem) * (PC_ITEMS_COUNT + 1));
-    try_alloc(sUnusedStringAllocation, 14 * (PC_ITEMS_COUNT + 1));
     return TRUE;
 }
 
@@ -624,7 +622,6 @@ static void ItemPc_FreeResources(void)
     try_free(sStateDataPtr);
     try_free(sBg1TilemapBuffer);
     try_free(sListMenuItems);
-    try_free(sUnusedStringAllocation);
     FreeAllWindowBuffers();
 }
 
