@@ -2037,6 +2037,28 @@ const struct SpriteTemplate gHammerSpriteTemplate =
     .callback = AnimHammerSwing,
 };
 
+const struct SpriteTemplate gKrabbyHammerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KRABBY_CLAW,
+    .paletteTag = ANIM_TAG_KRABBY_CLAW,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHammerSwing,
+};
+
+const struct SpriteTemplate gGliscorHammerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GLISCOR_CLAW,
+    .paletteTag = ANIM_TAG_GLISCOR_CLAW,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHammerSwing,
+};
+
 const struct SpriteTemplate gCrusherSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CRUSHER,

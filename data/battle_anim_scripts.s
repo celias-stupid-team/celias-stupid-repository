@@ -6661,10 +6661,10 @@ Move_ICE_PUNCH:
 	waitforvisualfinish
 	
 	playsewithpan SE_TCG_JAB, SOUND_PAN_TARGET
-	createsprite gTCGLeftPunchSpriteTemplate, ANIM_TARGET, 2, -32, 36, 8, -8, 8, 2, 3, 1
+	createsprite gTCGRightPunchSpriteTemplate, ANIM_TARGET, 2, 32, 36, -8, -8, 8, 2, 3, 1
 	waitforvisualfinish
 	playsewithpan SE_TCG_BLIZZARD, SOUND_PAN_TARGET
-	createsprite gTCGIceSpriteTemplate, ANIM_TARGET, 2, 0, 32, 0, -8, 4, 19, 20, 1
+	createsprite gTCGIceSpriteTemplate, ANIM_TARGET, 2, 0, 16, 0, -8, 2, 19, 20, 1
 	waitforvisualfinish
 	call TCGImpact
 	end
@@ -8502,6 +8502,37 @@ Move_EMBER:
 	end
 
 Move_CRABHAMMER:
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_KRABBY_CLAW
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET
+	createsprite gKrabbyHammerSpriteTemplate, ANIM_TARGET, 2, 1, -30, -10, 40, 45
+	delay 60
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 10, 1
+	delay 4
+	loopsewithpan SE_M_CRABHAMMER, SOUND_PAN_TARGET, 20, 3
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 10, 10, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 20, -20, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -15, 15, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -10, -20, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 16, -8, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, 5, 8, 20, ANIM_TARGET
+	delay 4
+	createsprite gSmallBubblePairSpriteTemplate, ANIM_ATTACKER, 2, -16, 0, 20, ANIM_TARGET
+	waitforvisualfinish
+	end
+
+	@Original crabhammer
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	loadspritegfx ANIM_TAG_WATER_IMPACT
 	monbg ANIM_DEF_PARTNER
@@ -30193,6 +30224,25 @@ Move_GAME_GENIE:
 	end
 
 Move_CRUSECEAN_WRENCH:
+
+	loadspritegfx ANIM_TAG_MUD_SAND
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_GLISCOR_CLAW
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET
+	createsprite gGliscorHammerSpriteTemplate, ANIM_TARGET, 2, 1, -30, -10, 40, 45
+	delay 60
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 10, 1
+	delay 4	
+	playsewithpan SE_M_SAND_TOMB, SOUND_PAN_TARGET
+	call SandTombSwirlingDirt
+	call SandTombSwirlingDirt
+	waitforvisualfinish
+	stopsound
+	end
+
+
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	loadspritegfx ANIM_TAG_WATER_IMPACT
 	monbg ANIM_DEF_PARTNER
@@ -31554,4 +31604,3 @@ Move_MAP_MUSIC:
 	goto Move_TEETER_DANCE
 Move_MAP_WEATHER:
 	goto Move_RAIN_DANCE
-	
