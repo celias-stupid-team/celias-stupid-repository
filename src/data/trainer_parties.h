@@ -330,7 +330,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubGrass[] = {
         .iv = 0,
         .lvl = 23,
         .species = SPECIES_SCYTHER,
-        .moves = {MOVE_SWORDS_DANCE, MOVE_RETREAT, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_SWORDSDANCE_TCG, MOVE_RETREAT, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,

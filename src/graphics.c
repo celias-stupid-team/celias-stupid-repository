@@ -634,6 +634,51 @@ const u32 gBattleAnimSpritePal_Book[] = INCBIN_U32("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_Takedown[] = INCBIN_U32("graphics/battle_anims/sprites/takedown.4bpp.lz");
 const u32 gBattleAnimSpritePal_Takedown[] = INCBIN_U32("graphics/battle_anims/sprites/takedown.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Hatchet[] = INCBIN_U32("graphics/battle_anims/sprites/hatchet.4bpp.lz");
+const u32 gBattleAnimSpritePal_Hatchet[] = INCBIN_U32("graphics/battle_anims/sprites/hatchet.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Lions[] = INCBIN_U32("graphics/battle_anims/sprites/lions.4bpp.lz");
+const u32 gBattleAnimSpritePal_Lions[] = INCBIN_U32("graphics/battle_anims/sprites/lions.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_HumanHand[] = INCBIN_U32("graphics/battle_anims/sprites/human_hand.4bpp.lz");
+const u32 gBattleAnimSpritePal_HumanHand[] = INCBIN_U32("graphics/battle_anims/sprites/human_hand.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgConfusion[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_confusion.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgConfusion[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_confusion.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgIce[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_ice.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgIce[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_ice.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgNeedle[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_needle.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgNeedle[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_needle.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgPoison[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_poison.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgPoison[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_poison.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Imakuni[] = INCBIN_U32("graphics/battle_anims/sprites/imakuni.4bpp.lz");
+const u32 gBattleAnimSpritePal_Imakuni[] = INCBIN_U32("graphics/battle_anims/sprites/imakuni.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgPsychic[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_psychic.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgPsychic[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_psychic.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgElectric[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_electric.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgElectric[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_electric.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgSpark[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_spark.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgSpark[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_spark.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgSlap[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_slap.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgSlap[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_slap.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TcgSlapImpact[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_slap_impact.4bpp.lz");
+const u32 gBattleAnimSpritePal_TcgSlapImpact[] = INCBIN_U32("graphics/battle_anims/sprites/tcg_slap_impact.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_KrabbyClaw[] = INCBIN_U32("graphics/battle_anims/sprites/krabby_claw.4bpp.lz");
+const u32 gBattleAnimSpritePal_KrabbyClaw[] = INCBIN_U32("graphics/battle_anims/sprites/krabby_claw.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_GliscorClaw[] = INCBIN_U32("graphics/battle_anims/sprites/gliscor_claw.4bpp.lz");
+const u32 gBattleAnimSpritePal_GliscorClaw[] = INCBIN_U32("graphics/battle_anims/sprites/gliscor_claw.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

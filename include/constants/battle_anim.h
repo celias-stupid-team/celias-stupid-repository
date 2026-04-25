@@ -513,6 +513,21 @@
 #define ANIM_TAG_GNOME                      (ANIM_SPRITES_START + 503)
 #define ANIM_TAG_BOOK                       (ANIM_SPRITES_START + 504)
 #define ANIM_TAG_TAKEDOWN                   (ANIM_SPRITES_START + 505)
+#define ANIM_TAG_HATCHET                    (ANIM_SPRITES_START + 506)
+#define ANIM_TAG_LIONS                      (ANIM_SPRITES_START + 507)
+#define ANIM_TAG_HUMAN_HAND                 (ANIM_SPRITES_START + 508)
+#define ANIM_TAG_TCG_CONFUSION              (ANIM_SPRITES_START + 509)
+#define ANIM_TAG_TCG_ICE                    (ANIM_SPRITES_START + 510)
+#define ANIM_TAG_TCG_NEEDLE                 (ANIM_SPRITES_START + 511)
+#define ANIM_TAG_TCG_POISON                 (ANIM_SPRITES_START + 512)
+#define ANIM_TAG_IMAKUNI                    (ANIM_SPRITES_START + 513)
+#define ANIM_TAG_TCG_PSYCHIC                (ANIM_SPRITES_START + 514)
+#define ANIM_TAG_TCG_ELECTRIC               (ANIM_SPRITES_START + 515)
+#define ANIM_TAG_TCG_SPARK                  (ANIM_SPRITES_START + 516)
+#define ANIM_TAG_TCG_SLAP                   (ANIM_SPRITES_START + 517)
+#define ANIM_TAG_TCG_SLAP_IMPACT            (ANIM_SPRITES_START + 518)
+#define ANIM_TAG_KRABBY_CLAW                (ANIM_SPRITES_START + 519)
+#define ANIM_TAG_GLISCOR_CLAW               (ANIM_SPRITES_START + 520)
 
 // battlers
 #define ANIM_ATTACKER       0

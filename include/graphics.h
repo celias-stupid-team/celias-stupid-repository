@@ -8909,6 +8909,21 @@ extern const u32 gBattleAnimSpriteGfx_Missile[];
 extern const u32 gBattleAnimSpriteGfx_Gnome[];
 extern const u32 gBattleAnimSpriteGfx_Book[];
 extern const u32 gBattleAnimSpriteGfx_Takedown[];
+extern const u32 gBattleAnimSpriteGfx_Hatchet[];
+extern const u32 gBattleAnimSpriteGfx_Lions[];
+extern const u32 gBattleAnimSpriteGfx_HumanHand[];
+extern const u32 gBattleAnimSpriteGfx_TcgConfusion[];
+extern const u32 gBattleAnimSpriteGfx_TcgIce[];
+extern const u32 gBattleAnimSpriteGfx_TcgNeedle[];
+extern const u32 gBattleAnimSpriteGfx_TcgPoison[];
+extern const u32 gBattleAnimSpriteGfx_Imakuni[];
+extern const u32 gBattleAnimSpriteGfx_TcgPsychic[];
+extern const u32 gBattleAnimSpriteGfx_TcgElectric[];
+extern const u32 gBattleAnimSpriteGfx_TcgSpark[];
+extern const u32 gBattleAnimSpriteGfx_TcgSlap[];
+extern const u32 gBattleAnimSpriteGfx_TcgSlapImpact[];
+extern const u32 gBattleAnimSpriteGfx_KrabbyClaw[];
+extern const u32 gBattleAnimSpriteGfx_GliscorClaw[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9369,6 +9384,21 @@ extern const u32 gBattleAnimSpritePal_Missile[];
 extern const u32 gBattleAnimSpritePal_Gnome[];
 extern const u32 gBattleAnimSpritePal_Book[];
 extern const u32 gBattleAnimSpritePal_Takedown[];
+extern const u32 gBattleAnimSpritePal_Hatchet[];
+extern const u32 gBattleAnimSpritePal_Lions[];
+extern const u32 gBattleAnimSpritePal_HumanHand[];
+extern const u32 gBattleAnimSpritePal_TcgConfusion[];
+extern const u32 gBattleAnimSpritePal_TcgIce[];
+extern const u32 gBattleAnimSpritePal_TcgNeedle[];
+extern const u32 gBattleAnimSpritePal_TcgPoison[];
+extern const u32 gBattleAnimSpritePal_Imakuni[];
+extern const u32 gBattleAnimSpritePal_TcgPsychic[];
+extern const u32 gBattleAnimSpritePal_TcgElectric[];
+extern const u32 gBattleAnimSpritePal_TcgSpark[];
+extern const u32 gBattleAnimSpritePal_TcgSlap[];
+extern const u32 gBattleAnimSpritePal_TcgSlapImpact[];
+extern const u32 gBattleAnimSpritePal_KrabbyClaw[];
+extern const u32 gBattleAnimSpritePal_GliscorClaw[];
 
 //CSR Moves
 

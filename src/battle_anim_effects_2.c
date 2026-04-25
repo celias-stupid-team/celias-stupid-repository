@@ -2622,6 +2622,17 @@ const struct SpriteTemplate gTCGBigRockSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+const struct SpriteTemplate gTCGIceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_ICE,
+    .paletteTag = ANIM_TAG_TCG_ICE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
 static const union AnimCmd sTCGSmallRockAnimCmds[] =
 {
     ANIMCMD_FRAME(48, 7),

@@ -6652,6 +6652,24 @@ MindReaderEyeSpikeEffect:
 	return
 
 Move_ICE_PUNCH:
+	loadspritegfx ANIM_TAG_TCG_PUNCH
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	loadspritegfx ANIM_TAG_TCG_ICE
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	
+	playsewithpan SE_TCG_JAB, SOUND_PAN_TARGET
+	createsprite gTCGLeftPunchSpriteTemplate, ANIM_TARGET, 2, -32, 36, 8, -8, 8, 2, 3, 1
+	waitforvisualfinish
+	playsewithpan SE_TCG_BLIZZARD, SOUND_PAN_TARGET
+	createsprite gTCGIceSpriteTemplate, ANIM_TARGET, 2, 0, 32, 0, -8, 4, 19, 20, 1
+	waitforvisualfinish
+	call TCGImpact
+	end
+
+	@Original Ice Punch
 	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
