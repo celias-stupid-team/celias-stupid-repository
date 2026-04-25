@@ -26,7 +26,6 @@
 #include "renewable_hidden_items.h"
 #include "trainer_tower.h"
 #include "script.h"
-#include "berry_powder.h"
 #include "save.h"
 #include "pokemon_jump.h"
 #include "event_scripts.h"
@@ -205,7 +204,6 @@ static void InitCSRData(void)
 static void ResetMiniGamesResults(void)
 {
     CpuFill16(0, &gSaveBlock2Ptr->berryCrush, sizeof(struct BerryCrush));
-    SetBerryPowder(&gSaveBlock2Ptr->berryCrush.berryPowderAmount, 0);
     ResetPokemonJumpRecords();
     CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
 }

@@ -27,8 +27,6 @@
 #include "constants/field_weather.h"
 #include "constants/maps.h"
 
-COMMON_DATA u32 UnusedVarNeededToMatch[8] = {0};
-
 static void Task_LinkupStart(u8 taskId);
 static void Task_LinkupAwaitConnection(u8 taskId);
 static void Task_LinkupConfirmWhenReady(u8 taskId);
@@ -437,9 +435,6 @@ static void Task_LinkupAwaitTrainerCardData(u8 taskId)
     HideFieldMessageBox();
     if (gSpecialVar_Result == LINKUP_SUCCESS)
     {
-        // Dumb trick required to match
-        if (gLinkType == LINKTYPE_BERRY_BLENDER_SETUP)
-            *UnusedVarNeededToMatch += 0;
         ClearLinkPlayerCountWindow(gTasks[taskId].tWindowId);
         ScriptContext_Enable();
         DestroyTask(taskId);

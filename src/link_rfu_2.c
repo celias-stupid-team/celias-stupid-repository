@@ -1043,22 +1043,6 @@ void ClearLinkRfuCallback(void)
     gRfu.callback = NULL;
 }
 
-/*
-static void Rfu_BerryBlenderSendHeldKeys(void)
-{
-    RfuPrepareSendBuffer(RFUCMD_BLENDER_SEND_KEYS);
-    if (GetMultiplayerId() == 0)
-        gSendCmd[BLENDER_COMM_ARROW_POS] = GetBlenderArrowPosition();
-    gBerryBlenderKeySendAttempts++;
-}
-
-void Rfu_SetBerryBlenderLinkCallback(void)
-{
-    if (gRfu.callback == NULL)
-        gRfu.callback = Rfu_BerryBlenderSendHeldKeys;
-}
-*/
-
 static void RfuHandleReceiveCommand(u8 unused)
 {
     u16 i;
@@ -1149,7 +1133,6 @@ static void RfuHandleReceiveCommand(u8 unused)
                 ClearSelectedLinkPlayerIds(gRecvCmds[i][1]);
             }
             break;
-      //case RFUCMD_BLENDER_SEND_KEYS:
         case RFUCMD_SEND_HELD_KEYS:
             gLinkPartnersHeldKeys[i] = gRecvCmds[i][1];
             break;

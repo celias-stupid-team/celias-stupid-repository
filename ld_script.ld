@@ -289,7 +289,6 @@ SECTIONS {
         src/wonder_news.o(.text);
         src/seagallop.o(.text);
         src/pokemon_jump.o(.text);
-        src/berry_crush.o(.text);
         src/wireless_communication_status_screen.o(.text);
         src/braille_text.o(.text);
         src/text_window.o(.text);
@@ -303,7 +302,6 @@ SECTIONS {
         src/ss_anne.o(.text);
         src/renewable_hidden_items.o(.text);
         src/trainer_tower.o(.text);
-        src/berry_powder.o(.text);
         src/minigame_countdown.o(.text);
         src/debug.o(.text);
         src/mugshot.o(.text);
@@ -584,7 +582,6 @@ SECTIONS {
         src/wonder_news.o(.rodata.str1.4);
         src/seagallop.o(.rodata);
         src/pokemon_jump.o(.rodata);
-        src/berry_crush.o(.rodata);
         src/wireless_communication_status_screen.o(.rodata);
         src/braille_text.o(.rodata);
         src/text_window_graphics.o(.rodata);

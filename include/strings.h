@@ -1285,40 +1285,6 @@ extern const u8 gText_CopperCard[];
 extern const u8 gText_SilverCard[];
 extern const u8 gText_GoldCard[];
 
-// berry_crush
-extern const u8 gText_BerryCrush_AreYouReady[];
-extern const u8 gText_BerryCrush_WaitForOthersToChooseBerry[];
-extern const u8 gText_BerryCrush_GainedXUnitsOfPowder[];
-extern const u8 gText_BerryCrush_RecordingGameResults[];
-extern const u8 gText_BerryCrush_WantToPlayAgain[];
-extern const u8 gText_BerryCrush_NoBerries[];
-extern const u8 gText_BerryCrush_MemberDroppedOut[];
-extern const u8 gText_BerryCrush_TimeUp[];
-extern const u8 gText_BerryCrush_CommunicationStandby[];
-extern const u8 gText_1_ClrBluShdwLtBlu_Dynamic0[];
-extern const u8 gText_1_Dynamic0[];
-extern const u8 gText_SpaceTimes2[];
-extern const u8 gText_XDotY[];
-extern const u8 gText_StrVar1Berry[];
-extern const u8 gText_TimeColon[];
-extern const u8 gText_PressingSpeed[];
-extern const u8 gText_Silkiness[];
-extern const u8 gText_StrVar1[];
-extern const u8 gText_SpaceMin[];
-extern const u8 gText_XDotY2[];
-extern const u8 gText_SpaceSec[];
-extern const u8 gText_XDotY3[];
-extern const u8 gText_TimesPerSec[];
-extern const u8 gText_Var1Percent[];
-extern const u8 gText_PressesRankings[];
-extern const u8 gText_CrushingResults[];
-extern const u8 gText_BerryCrush2[];
-extern const u8 gText_PressingSpeedRankings[];
-extern const u8 gText_Var1Players[];
-extern const u8 gText_NeatnessRankings[];
-extern const u8 gText_CooperativeRankings[];
-extern const u8 gText_PressingPowerRankings[];
-
 // quest log
 extern const u8 gText_QuestLog_PreviouslyOnYourQuest[];
 extern const u8 gText_QuestLog_SwitchMon1WithMon2[];

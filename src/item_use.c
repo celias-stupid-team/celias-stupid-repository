@@ -5,7 +5,6 @@
 #include "battle_anim.h"
 #include "battle_interface.h"
 #include "berry_pouch.h"
-#include "berry_powder.h"
 #include "sandwich_case.h"
 #include "bike.h"
 #include "coins.h"
@@ -466,7 +465,7 @@ void FieldUseFunc_CoinCase(u8 taskId)
 
 void FieldUseFunc_PowderJar(u8 taskId)
 {
-    ConvertIntToDecimalStringN(gStringVar1, GetBerryPowder(), STR_CONV_MODE_LEFT_ALIGN, 5);
+    ConvertIntToDecimalStringN(gStringVar1, 0, STR_CONV_MODE_LEFT_ALIGN, 5);
     StringExpandPlaceholders(gStringVar4, gText_PowderQty);
     ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
     if (gTasks[taskId].data[3] == 0)

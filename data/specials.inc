@@ -422,13 +422,7 @@ gSpecials::
 	def_special HelpSystem_Enable
 	def_special SetPostgameFlags
 	def_special HasAtLeastOneBerry
-	def_special DisplayBerryPowderVendorMenu
-	def_special RemoveBerryPowderVendorMenu
-	def_special Script_HasEnoughBerryPowder
-	def_special Script_TakeBerryPowder
-	def_special PrintPlayerBerryPowderAmount
 	def_special DoPokemonLeagueLightingEffect
-	def_special ShowBerryCrushRankings
 	def_special CapeBrinkGetMoveToTeachLeadPokemon
 	def_special HasLearnedAllMovesFromCapeBrinkTutor
 	def_special DoCredits
