@@ -1403,6 +1403,17 @@ const struct SpriteTemplate gKnockOffStrikeSpriteTemplate =
     .callback = AnimKnockOffStrike,
 };
 
+const struct SpriteTemplate gSecretSwordSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_SECRET_SWORD,
+    .paletteTag = ANIM_TAG_SECRET_SWORD,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = sKnockOffStrikeAnimTable,
+    .images = NULL,
+    .affineAnims = sKnockOffStrikeAffineAnimTable,
+    .callback = AnimKnockOffStrike,
+};
+
 static const union AffineAnimCmd sRecycleSpriteAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(0, 0, -4, 64),

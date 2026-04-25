@@ -12284,6 +12284,7 @@ Move_HEART_SWAP:
 	end
 
 Move_KNOCK_OFF:
+	@Original knock off
 	loadspritegfx ANIM_TAG_SLAM_HIT_2
 	loadspritegfx ANIM_TAG_IMPACT
 	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 6
@@ -12303,6 +12304,30 @@ Move_KNOCK_OFF:
 	delay 10
 	waitforvisualfinish
 	end
+
+	
+	loadspritegfx ANIM_TAG_TCG_SLASH
+	loadspritegfx ANIM_TAG_TCG_SLAP
+	loadspritegfx ANIM_TAG_TCG_SLAP_IMPACT
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_TCG_GOO, SOUND_PAN_TARGET
+	delay 3
+	createsprite gTCGSlapSpriteTemplate, ANIM_TARGET, 2, 16, 32, -2, -4, 11, 25, 2, 1
+    @    sprite->data[1] = gBattleAnimArgs[2]; // x step
+    @    sprite->data[2] = gBattleAnimArgs[3]; // y step
+    @    sprite->data[3] = gBattleAnimArgs[4]; // number of steps
+    @    sprite->data[4] = gBattleAnimArgs[5]; // wait duration
+    @    sprite->data[5] = gBattleAnimArgs[6]; // delay between steps
+	delay 19
+	createsprite gTCGSlapImpactSpriteTemplate, ANIM_TARGET, 2, -4, -4, 0, 0, 0, 7, 0, 1
+	waitforvisualfinish
+	call TCGImpact
+	end
+
 
 Move_DOOM_DESIRE:
 	createvisualtask GetIsDoomDesireHitTurn, 2
@@ -15674,6 +15699,27 @@ Move_CRAB_THROW:
 	end
 	
 Move_SECRET_SWORD:
+	loadspritegfx ANIM_TAG_SECRET_SWORD
+	loadspritegfx ANIM_TAG_IMPACT
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 6
+	delay 4
+	playsewithpan SE_M_VITAL_THROW, SOUND_PAN_TARGET
+	createsprite gSecretSwordSpriteTemplate, ANIM_TARGET, 2, -16, -16
+	delay 8
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 5, 1, RGB_WHITE, 10, RGB_BLACK, 0
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 2
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 1, -12, 10, 0, 3
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 5
+	delay 3
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 0, 3, 6, 1
+	delay 5
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 6
+	delay 10
+	waitforvisualfinish
+	end
+
+
 	loadspritegfx ANIM_TAG_SLASH
 	createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, -8, 0
 	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET

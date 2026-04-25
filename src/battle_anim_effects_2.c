@@ -2621,6 +2621,29 @@ const struct SpriteTemplate gTCGSlashSwipeSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+static const union AnimCmd sTCGSlapAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 22),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTCGSlapAnimTable[] =
+{
+    sTCGSlapAnimCmds,
+};
+const struct SpriteTemplate gTCGSlapSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_SLAP,
+    .paletteTag = ANIM_TAG_TCG_SLAP,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sTCGSlapAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
 static const union AnimCmd sTCGBigRockAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 7),
@@ -2730,6 +2753,16 @@ const struct SpriteTemplate gTCGSlashImpactSpriteTemplate =
 {
     .tileTag = ANIM_TAG_TCG_SLASH,
     .paletteTag = ANIM_TAG_TCG_SLASH,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sTCGSlashImpactAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+const struct SpriteTemplate gTCGSlapImpactSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_SLAP_IMPACT,
+    .paletteTag = ANIM_TAG_TCG_SLAP_IMPACT,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sTCGSlashImpactAnimTable,
     .images = NULL,
