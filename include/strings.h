@@ -462,6 +462,7 @@ extern const u8 gText_PkmnCantSwitchOut[];
 extern const u8 gText_CantUseRetreat[];
 extern const u8 gText_NoRetreat[];
 extern const u8 gText_NoSurf[];
+extern const u8 gText_NoBadge[];
 extern const u8 gText_ButItFailed[];
 extern const u8 gText_PCSwitchError[];
 
