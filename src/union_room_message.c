@@ -1,7 +1,5 @@
 #include "global.h"
 #include "link_rfu.h"
-#include "mystery_gift_server.h"
-#include "mystery_gift_client.h"
 #include "constants/union_room.h"
 
 ALIGNED(4) const u8 gText_UR_EmptyString[] = _("");
@@ -559,18 +557,3 @@ const u8 *const gTexts_UR_GladToMeetYou[GENDER_COUNT] = {
 ALIGNED(4) const u8 gText_UR_FinishedCheckingPlayersTrainerCard[] = _("Finished checking {DYNAMIC 1}'s\nTRAINER CARD.{PAUSE 60}");
 ALIGNED(4) static const u8 sText_CanceledReadingCard[] = _("Canceled reading the Card.");
 
-static const struct MysteryGiftClientCmd sClientScript_DynamicError[] = {
-    {CLI_RECV, MG_LINKID_DYNAMIC_MSG},
-    {CLI_COPY_MSG},
-    {CLI_SEND_READY_END},
-    {CLI_RETURN, CLI_MSG_BUFFER_FAILURE}
-};
-
-const struct MysteryGiftServerCmd gServerScript_ClientCanceledCard[] = {
-    {SVR_LOAD_CLIENT_SCRIPT, PTR_ARG(sClientScript_DynamicError)},
-    {SVR_SEND},
-    {SVR_LOAD_MSG, PTR_ARG(sText_CanceledReadingCard)},
-    {SVR_SEND},
-    {SVR_RECV, MG_LINKID_READY_END},
-    {SVR_RETURN, SVR_MSG_CLIENT_CANCELED}
-};

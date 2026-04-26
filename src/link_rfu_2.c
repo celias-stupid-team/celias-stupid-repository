@@ -4,7 +4,6 @@
 #include "battle.h"
 #include "link.h"
 #include "link_rfu.h"
-#include "mystery_gift_menu.h"
 #include "overworld.h"
 #include "quest_log.h"
 #include "random.h"
@@ -1963,8 +1962,6 @@ static void RfuCheckErrorStatus(void)
 {
     if (gRfu.errorState == RFU_ERROR_STATE_OCCURRED && lman.childClockSlave_flag == 0)
     {
-        if (gMain.callback2 == CB2_MysteryGiftEReader)
-            gWirelessCommType = 2;
         SetMainCallback2(CB2_LinkError);
         gMain.savedCallback = CB2_LinkError;
         SetLinkErrorFromRfu(

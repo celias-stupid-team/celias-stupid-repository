@@ -30,7 +30,6 @@
 #include "pokedex.h"
 #include "text_window.h"
 #include "menu.h"
-#include "mystery_gift.h"
 #include "item.h"
 #include "naming_screen.h"
 #include "party_menu.h"
@@ -2112,26 +2111,6 @@ void QuestLog_TryRecordDepartedLocation(void)
                 FlagSet(FLAG_SYS_QL_DEPARTED);
             }
         }
-    }
-}
-
-u16 GetMysteryGiftCardStat(void)
-{
-    switch (gSpecialVar_Result)
-    {
-    case GET_NUM_STAMPS:
-        return MysteryGift_GetCardStat(CARD_STAT_NUM_STAMPS);
-    case GET_MAX_STAMPS:
-        return MysteryGift_GetCardStat(CARD_STAT_MAX_STAMPS);
-    case GET_CARD_BATTLES_WON:
-        return MysteryGift_GetCardStat(CARD_STAT_BATTLES_WON);
-    case GET_CARD_BATTLES_LOST:
-        return MysteryGift_GetCardStat(CARD_STAT_BATTLES_LOST);
-    case GET_CARD_NUM_TRADES:
-        return MysteryGift_GetCardStat(CARD_STAT_NUM_TRADES);
-    default:
-        AGB_ASSERT_EX(0, ABSPATH("scr_tool.c"), 3873);
-        return 0;
     }
 }
 

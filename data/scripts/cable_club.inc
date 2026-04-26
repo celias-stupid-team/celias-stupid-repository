@@ -3,9 +3,6 @@ CableClub_OnTransition::
 	end
 
 CableClub_EventScript_HideOrShowMysteryGiftMan::
-	specialvar VAR_RESULT, ValidateSavedWonderCard
-	goto_if_eq VAR_RESULT, FALSE, EventScript_HideMysteryGiftMan
-	clearflag FLAG_HIDE_MG_DELIVERYMEN
 	return
 
 EventScript_HideMysteryGiftMan::

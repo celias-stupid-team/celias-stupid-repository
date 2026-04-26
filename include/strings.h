@@ -589,88 +589,6 @@ extern const u8 gText_Register[];
 
 // mystery_gift_menu
 extern const u8 gText_PickOKExit[];
-extern const u8 gText_PickOKCancel[];
-extern const u8 gText_MysteryGift2[];
-extern const u8 gJPText_MysteryGift[];
-extern const u8 gJPText_DecideStop[];
-extern const u8 gText_WhatToDoWithCards[];
-extern const u8 gText_WhatToDoWithNews[];
-extern const u8 gText_OkayToDiscardNews[];
-extern const u8 gText_IfThrowAwayCardEventWontHappen[];
-extern const u8 gText_WonderCardThrownAway[];
-extern const u8 gText_WonderNewsThrownAway[];
-extern const u8 gText_DataWillBeSaved[];
-extern const u8 gText_SaveCompletedPressA[];
-extern const u8 gText_WonderCards[];
-extern const u8 gText_WonderNews[];
-extern const u8 gText_Exit3[];
-extern const u8 gText_WirelessCommunication[];
-extern const u8 gText_Friend2[];
-extern const u8 gText_Receive[];
-extern const u8 gText_Send[];
-extern const u8 gText_Toss[];
-extern const u8 gText_VarietyOfEventsImportedWireless[];
-extern const u8 gText_WonderCardsInPossession[];
-extern const u8 gText_ReadNewsThatArrived[];
-extern const u8 gText_ReturnToTitle[];
-extern const u8 gText_NothingSentOver[];
-extern const u8 gText_RecordUploadedViaWireless[];
-extern const u8 gText_WonderCardReceived[];
-extern const u8 gText_WonderCardReceivedFrom[];
-extern const u8 gText_WonderNewsReceived[];
-extern const u8 gText_WonderNewsReceivedFrom[];
-extern const u8 gText_NewStampReceived[];
-extern const u8 gText_AlreadyHadCard[];
-extern const u8 gText_AlreadyHadStamp[];
-extern const u8 gText_AlreadyHadNews[];
-extern const u8 gText_NoMoreRoomForStamps[];
-extern const u8 gText_CommunicationCanceled[];
-extern const u8 gText_CantAcceptCardFromTrainer[];
-extern const u8 gText_CantAcceptNewsFromTrainer[];
-extern const u8 gText_CommunicationError[];
-extern const u8 gText_NewTrainerReceived[];
-extern const u8 gText_WonderCardSentTo[];
-extern const u8 gText_WonderNewsSentTo[];
-extern const u8 gText_StampSentTo[];
-extern const u8 gText_OtherTrainerHasCard[];
-extern const u8 gText_OtherTrainerHasStamp[];
-extern const u8 gText_OtherTrainerHasNews[];
-extern const u8 gText_OtherTrainerCanceled[];
-extern const u8 gText_GiftSentTo[];
-extern const u8 gText_CantSendGiftToTrainer[];
-extern const u8 gText_DontHaveCardNewOneInput[];
-extern const u8 gText_DontHaveNewsNewOneInput[];
-extern const u8 gText_WhereShouldCardBeAccessed[];
-extern const u8 gText_WhereShouldNewsBeAccessed[];
-extern const u8 gText_Communicating[];
-extern const u8 gText_ThrowAwayWonderCard[];
-extern const u8 gText_HaventReceivedCardsGift[];
-extern const u8 gText_CommunicationCompleted[];
-extern const u8 gText_HaventReceivedGiftOkayToDiscard[];
-extern const u8 gText_SendingWonderCard[];
-extern const u8 gText_SendingWonderNews[];
-
-// Dodrio Berry Picking
-extern const u8 gText_BerryPickingRecords[];
-extern const u8 gText_BerriesPicked[];
-extern const u8 gText_BerriesInRowFivePlayers[];
-extern const u8 gText_BestScore[];
-extern const u8 gText_1Colon[];
-extern const u8 gText_2Colon[];
-extern const u8 gText_3Colon[];
-extern const u8 gText_4Colon[];
-extern const u8 gText_5Colon[];
-extern const u8 gText_SpacePoints[];
-extern const u8 gText_10P30P50P50P[];
-extern const u8 gText_AnnouncingPrizes[];
-extern const u8 gText_AnnouncingRankings[];
-extern const u8 gText_FirstPlacePrize[];
-extern const u8 gText_CantHoldAnyMore[];
-extern const u8 gText_FilledStorageSpace[];
-extern const u8 gText_BerryPickingResults[];
-extern const u8 gText_WantToPlayAgain[];
-extern const u8 gText_CommunicationStandby3[];
-extern const u8 gText_SomeoneDroppedOut[];
 
 // player_pc
 extern const u8 gText_WhatWouldYouLikeToDo[];
@@ -1223,36 +1141,6 @@ extern const u8 gText_PeopleTrading[];
 extern const u8 gText_PeopleBattling[];
 extern const u8 gText_PeopleInUnionRoom[];
 extern const u8 gText_PeopleCommunicating[];
-
-// mystery_gift
-extern const u8 gJPText_ReceiveMysteryGiftWithEReader[];
-extern const u8 gJPText_SelectConnectFromEReaderMenu[];
-extern const u8 gJPText_SelectConnectWithGBA[];
-extern const u8 gJPText_LinkIsIncorrect[];
-extern const u8 gJPText_CardReadingHasBeenHalted[];
-extern const u8 gJPText_Connecting[];
-extern const u8 gJPText_ConnectionErrorCheckLink[];
-extern const u8 gJPText_ConnectionErrorTryAgain[];
-extern const u8 gJPText_AllowEReaderToLoadCard[];
-extern const u8 gJPText_ConnectionComplete[];
-extern const u8 gJPText_NewTrainerHasComeToSevii[];
-extern const u8 gJPText_PleaseWaitAMoment[];
-extern const u8 gJPText_WriteErrorUnableToSaveData[];
-
-// pokemon_jump
-extern const u8 gText_WantToPlayAgain2[];
-extern const u8 gText_SavingDontTurnOffPower[];
-extern const u8 gText_SomeoneDroppedOut2[];
-extern const u8 gText_CommunicationStandby4[];
-extern const u8 gText_AwesomeWonF701F700[];
-extern const u8 gText_FilledStorageSpace2[];
-extern const u8 gText_CantHoldMore[];
-extern const u8 gText_SpacePoints2[];
-extern const u8 gText_SpaceTimes3[];
-extern const u8 gText_JumpsInARow[];
-extern const u8 gText_BestScore2[];
-extern const u8 gText_ExcellentsInARow[];
-extern const u8 gText_PkmnJumpRecords[];
 
 // cable_club
 extern const u8 gText_NumPlayerLink[];

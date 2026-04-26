@@ -238,9 +238,6 @@ void MG_DrawCheckerboardPattern(void);
 void Rfu_SetCloseLinkCallback(void);
 bool8 IsLinkRfuTaskFinished(void);
 void DestroyWirelessStatusIndicatorSprite(void);
-void CreateTask_LinkMysteryGiftWithFriend(u32 activity);
-void CreateTask_LinkMysteryGiftOverWireless(u32 activity);
-void CreateTask_SendMysteryGift(u32 activity);
 void Rfu_SendPacket(void *data);
 u8 CreateTask_ListenToWireless(void);
 void DestroyTask_RfuIdle(void);
@@ -321,8 +318,5 @@ void Rfu_StopPartnerSearch(void);
 void RfuSetNormalDisconnectMode(void);
 void SetUnionRoomChatPlayerData(u32 numPlayers);
 void ClearRecvCommands(void);
-
-#include "mystery_gift_server.h"
-extern const struct MysteryGiftServerCmd gServerScript_ClientCanceledCard[];
 
 #endif //GUARD_LINK_RFU_H

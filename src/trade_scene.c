@@ -6,7 +6,6 @@
 #include "trade.h"
 #include "link.h"
 #include "link_rfu.h"
-#include "mystery_gift.h"
 #include "graphics.h"
 #include "strings.h"
 #include "menu.h"
@@ -2634,8 +2633,6 @@ static void CB2_SaveAndEndTrade(void)
             SetQuestLogEvent(QL_EVENT_LINK_TRADED, (void *)&sTradeAnim->questLogData);
             IncrementGameStat(GAME_STAT_POKEMON_TRADES);
         }
-        if (gWirelessCommType)
-            MysteryGift_TryIncrementStat(CARD_STAT_NUM_TRADES, gLinkPlayers[GetMultiplayerId() ^ 1].trainerId);
         SetContinueGameWarpStatusToDynamicWarp();
         LinkFullSave_Init();
         gMain.state++;

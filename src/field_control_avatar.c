@@ -16,7 +16,6 @@
 #include "field_specials.h"
 #include "item_menu.h"
 #include "link.h"
-#include "wonder_news.h"
 #include "map_name_popup.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
@@ -230,7 +229,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (input->tookStep)
     {
         IncrementGameStat(GAME_STAT_STEPS);
-        WonderNews_IncrementStepCounter();
         IncrementRenewableHiddenItemStepCounter();
         RunMassageCooldownStepCounter();
         IncrementResortGorgeousStepCounter();

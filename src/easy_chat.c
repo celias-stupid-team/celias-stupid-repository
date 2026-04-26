@@ -4,7 +4,6 @@
 #include "easy_chat.h"
 #include "event_data.h"
 #include "field_message_box.h"
-#include "mystery_gift.h"
 #include "menu.h"
 #include "mail.h"
 #include "pokedex.h"
@@ -475,7 +474,7 @@ void InitEasyChatPhrases(void)
 void InitQuestionnaireWords(void)
 {
     s32 i;
-    u16 *ptr = GetQuestionnaireWordsPtr();
+    u16 *ptr = gSaveBlock1Ptr->mysteryGift.questionnaireWords;
     for (i = 0; i < NUM_QUESTIONNAIRE_WORDS; i++)
         ptr[i] = EC_WORD_UNDEFINED;
 }
