@@ -8924,6 +8924,7 @@ extern const u32 gBattleAnimSpriteGfx_TcgSlap[];
 extern const u32 gBattleAnimSpriteGfx_TcgSlapImpact[];
 extern const u32 gBattleAnimSpriteGfx_KrabbyClaw[];
 extern const u32 gBattleAnimSpriteGfx_GliscorClaw[];
+extern const u32 gBattleAnimSpriteGfx_PrimeNumbers[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9399,6 +9400,7 @@ extern const u32 gBattleAnimSpritePal_TcgSlap[];
 extern const u32 gBattleAnimSpritePal_TcgSlapImpact[];
 extern const u32 gBattleAnimSpritePal_KrabbyClaw[];
 extern const u32 gBattleAnimSpritePal_GliscorClaw[];
+extern const u32 gBattleAnimSpritePal_PrimeNumbers[];
 
 //CSR Moves
 

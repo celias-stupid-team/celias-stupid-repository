@@ -528,6 +528,7 @@
 #define ANIM_TAG_TCG_SLAP_IMPACT            (ANIM_SPRITES_START + 518)
 #define ANIM_TAG_KRABBY_CLAW                (ANIM_SPRITES_START + 519)
 #define ANIM_TAG_GLISCOR_CLAW               (ANIM_SPRITES_START + 520)
+#define ANIM_TAG_PRIME_NUMBERS              (ANIM_SPRITES_START + 521)
 
 // battlers
 #define ANIM_ATTACKER       0

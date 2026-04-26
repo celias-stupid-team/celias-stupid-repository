@@ -679,6 +679,9 @@ const u32 gBattleAnimSpritePal_KrabbyClaw[] = INCBIN_U32("graphics/battle_anims/
 const u32 gBattleAnimSpriteGfx_GliscorClaw[] = INCBIN_U32("graphics/battle_anims/sprites/gliscor_claw.4bpp.lz");
 const u32 gBattleAnimSpritePal_GliscorClaw[] = INCBIN_U32("graphics/battle_anims/sprites/gliscor_claw.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_PrimeNumbers[] = INCBIN_U32("graphics/battle_anims/sprites/prime_numbers.4bpp.lz");
+const u32 gBattleAnimSpritePal_PrimeNumbers[] = INCBIN_U32("graphics/battle_anims/sprites/prime_numbers.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

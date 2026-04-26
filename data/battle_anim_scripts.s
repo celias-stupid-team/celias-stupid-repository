@@ -11174,6 +11174,25 @@ Move_BARK_BARRAGE:
 	end
 
 Move_ROAR_OF_PRIME:
+	loadspritegfx ANIM_TAG_PRIME_NUMBERS
+	call PrimeVoiceEffect
+	waitforvisualfinish
+	delay 8
+	call PrimeVoiceEffect
+	waitforvisualfinish
+	end
+
+PrimeVoiceEffect:
+	createvisualtask SoundTask_PlayCryWithEcho, 5
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 8, 0, RGB_YELLOW
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -5, -5, 5, ANIM_ATTACKER, 0
+	createsprite gRoarOfPrimeSpriteTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 1, 0, 6, 1
+	createvisualtask SoundTask_WaitForCry, 5
+	return
+
 Move_HYPER_VOICE:
 	loadspritegfx ANIM_TAG_THIN_RING
 	call HyperVoiceEffect
@@ -15127,6 +15146,7 @@ Move_CSR_DUMMY:
 Move_PRIMAL_RAGE:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_ANGER
+	loadspritegfx ANIM_TAG_PRIME_NUMBERS
 	monbg ANIM_TARGET
 	setalpha 12, 8
 	createvisualtask AnimTask_BlendMonInAndOut, 3, ANIM_ATTACKER, RGB_RED, 10, 0, 2
@@ -15136,12 +15156,30 @@ Move_PRIMAL_RAGE:
 	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, -28
 	playsewithpan SE_M_SWAGGER2, SOUND_PAN_ATTACKER
 	waitforvisualfinish
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 6
-	delay 4
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeTargetBasedOnMovePowerOrDmg, 2, TRUE, 1, 10, 1, 0
+	
+	createvisualtask AnimTask_ThrashMoveMonHorizontal, 2
+	createvisualtask AnimTask_ThrashMoveMonVertical, 2
+
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 2
+	createsprite gPrimeOneBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 7, 1
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	delay 28
+
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 2
+	createsprite gPrimeTwoBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
+
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 7, 1
 	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
-	waitforvisualfinish
+	delay 28
+
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 2
+	createsprite gPrimeThreeBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 8, 0, 16, 1
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+
 	clearmonbg ANIM_TARGET
 	end
 	

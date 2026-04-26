@@ -2456,6 +2456,28 @@ const struct SpriteTemplate gHyperVoiceRingSpriteTemplate =
     .callback = AnimHyperVoiceRing,
 };
 
+static const union AnimCmd sRoarOfPrimeAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sRoarOfPrimeAnimTable[] =
+{
+    sRoarOfPrimeAnimCmds,
+};
+
+const struct SpriteTemplate gRoarOfPrimeSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x32,
+    .anims = sRoarOfPrimeAnimTable,
+    .images = NULL,
+    .affineAnims = sHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
+};
+
 const struct SpriteTemplate gUproarRingSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_THIN_RING,
@@ -3400,6 +3422,62 @@ const struct SpriteTemplate gLetterRBurstSpriteTemplate =
     .paletteTag = ANIM_TAG_LETTER_R,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+static const union AnimCmd sPrimeBurstAnim_0[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sPrimeBurstAnim_1[] =
+{
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sPrimeBurstAnim_2[] =
+{
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sPrimeBurstAnimTable[] =
+{
+    sPrimeBurstAnim_0,
+    sPrimeBurstAnim_1,
+    sPrimeBurstAnim_2,
+};
+
+const struct SpriteTemplate gPrimeOneBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sPrimeBurstAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gPrimeTwoBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sPrimeBurstAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gPrimeThreeBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sPrimeBurstAnimTable[2],
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimParticleBurst,
