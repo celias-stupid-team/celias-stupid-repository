@@ -388,7 +388,6 @@ gSpecials::
 	def_special IsThereMonInRoute5Daycare
 	def_special GetNumLevelsGainedForRoute5DaycareMon
 	def_special TakePokemonFromRoute5Daycare
-	def_special DoSeagallopFerryScene
 	def_special DoesPlayerPartyContainSpecies
 	def_special Script_SetHelpContext
 	def_special BackupHelpContext
@@ -408,14 +407,11 @@ gSpecials::
 	def_special CloseMuseumFossilPic
 	def_special ChooseMonForMoveTutor
 	def_special ChooseMonForPledgeTutor
-	def_special ChooseMonForWirelessMinigame
 	def_special SetBattledTrainerFlag
 	def_special SetHelpContextForMap
 	def_special DoSSAnneDepartureCutscene
-	def_special IsPokemonJumpSpeciesInParty
 	def_special IsNationalPokedexEnabled
 	def_special CallTrainerTowerFunc
-	def_special ShowPokemonJumpRecords
 	def_special BufferTMHMMoveName
 	def_special DaisyMassageServices
 	def_special HelpSystem_Disable
@@ -426,14 +422,9 @@ gSpecials::
 	def_special CapeBrinkGetMoveToTeachLeadPokemon
 	def_special HasLearnedAllMovesFromCapeBrinkTutor
 	def_special DoCredits
-	def_special ShowDodrioBerryPickingRecords
-	def_special DrawSeagallopDestinationMenu
-	def_special GetSelectedSeagallopDestination
-	def_special GetSeagallopNumber
 	def_special GetPlayerFacingDirection
 	def_special DoDeoxysTriangleInteraction
 	def_special SetDeoxysTrianglePalette
-	def_special IsPlayerLeftOfVermilionSailor
 	def_special IsBadEggInParty
 	def_special HasAllMons
 	def_special IsPlayerNotInTrainerTowerLobby
@@ -441,7 +432,6 @@ gSpecials::
 	def_special Script_ResetUnionRoomTrade
 	def_special PlayerPartyContainsSpeciesWithPlayerID
 	def_special AnimateTeleporterHousing
-	def_special IsDodrioInParty
 	def_special AnimateTeleporterCable
 	def_special InitElevatorFloorSelectMenuPos
 	def_special UpdateLoreleiDollCollection

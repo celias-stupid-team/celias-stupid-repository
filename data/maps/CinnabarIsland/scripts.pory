@@ -173,21 +173,6 @@ CinnabarIsland_Movement_BillReEnterPokeCenter::
 
 @ Can be triggered outside, or after talking to Bill in the poke center
 CinnabarIsland_EventScript_SailToOneIsland::
-	call_if_set FLAG_TEMP_2, CinnabarIsland_EventScript_ApproachShore
-	addobject LOCALID_ALOLAN_GROWLITHE
-	call_if_unset FLAG_TEMP_2, CinnabarIsland_EventScript_BoatArrive
-	call_if_set FLAG_TEMP_2, CinnabarIsland_EventScript_BoatArriveExitedPokeCenter
-	msgbox CinnabarIsland_Text_MyPalsBoatArrived
-	closemessage
-	call_if_unset FLAG_TEMP_2, CinnabarIsland_EventScript_BoardBoat
-	call_if_set FLAG_TEMP_2, CinnabarIsland_EventScript_BoardBoatExitedPokeCenter
-	setvar VAR_CSR_DUMMY_11, 2
-	removeobject LOCALID_CINNABAR_BILL
-	delay 40
-	setflag FLAG_HIDE_CINNABAR_ALOLAN_GROWLITHE
-	setvar VAR_0x8004, ALOLAN_GROWLITHE_CINNABAR_ISLAND
-	setvar VAR_0x8006, ALOLAN_GROWLITHE_ONE_ISLAND
-	goto EventScript_SetSail
 	end
 
 CinnabarIsland_EventScript_ApproachShore::

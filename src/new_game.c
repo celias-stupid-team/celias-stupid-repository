@@ -27,12 +27,10 @@
 #include "trainer_tower.h"
 #include "script.h"
 #include "save.h"
-#include "pokemon_jump.h"
 #include "event_scripts.h"
 #include "constants/items.h"
 
 // this file's functions
-static void ResetMiniGamesResults(void);
 static void InitCSRData(void);
 
 // EWRAM vars
@@ -158,7 +156,7 @@ void NewGameInitData(void)
     InitEasyChatPhrases();
     ResetTrainerFanClub();
     UnionRoomChat_InitializeRegisteredTexts();
-    ResetMiniGamesResults();
+    CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
     ClearMysteryGift();
     SetAllRenewableItemFlags();
     WarpToPlayersRoom();
@@ -183,10 +181,6 @@ void NewGameInitData(void)
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
 }
 
-
-
-
-
 static void InitCSRData(void)
 {
     FlagSet(FLAG_ROUTE1_OBJECTS_RETREAT);
@@ -198,12 +192,4 @@ static void InitCSRData(void)
     FlagSet(FLAG_SYS_B_DASH);
     FlagSet(FLAG_CSR_CELIA_DEV_CREW);
     FlagSet(FLAG_SYS_FULL_RELEASE_SAVE);
-    
-}
-
-static void ResetMiniGamesResults(void)
-{
-    CpuFill16(0, &gSaveBlock2Ptr->berryCrush, sizeof(struct BerryCrush));
-    ResetPokemonJumpRecords();
-    CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
 }

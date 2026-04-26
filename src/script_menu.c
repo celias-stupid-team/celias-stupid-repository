@@ -467,12 +467,6 @@ static const struct MenuAction sMultichoiceList_TradeColosseum_2[] = {
     { gOtherText_Exit }
 };
 
-static const struct MenuAction sMultichoiceList_PokejumpDodrio[] = {
-    { gText_PokemonJump },
-    { gText_DodrioBerryPicking },
-    { gOtherText_Exit }
-};
-
 static const struct MenuAction sMultichoiceList_Mushrooms[] = {
     { gText_2Tinymushrooms },
     { gText_1BigMushroom }
@@ -619,7 +613,6 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_ISLAND_12]                                  = MULTICHOICE(sMultichoiceList_Island12),
     [MULTICHOICE_TRADE_COLOSSEUM_CRUSH]                      = MULTICHOICE(sMultichoiceList_TradeColosseumCrush),
     [MULTICHOICE_48]                                         = MULTICHOICE(sMultichoiceList_48),
-    [MULTICHOICE_POKEJUMP_DODRIO]                            = MULTICHOICE(sMultichoiceList_PokejumpDodrio),
     [MULTICHOICE_TRADE_COLOSSEUM_2]                          = MULTICHOICE(sMultichoiceList_TradeColosseum_2),
     [MULTICHOICE_MUSHROOMS]                                  = MULTICHOICE(sMultichoiceList_Mushrooms),
     [MULTICHOICE_TRADE_COLOSSEUM_BLANK_CRUSH]                = MULTICHOICE(sMultichoiceList_TradeColosseumBlankCrush),

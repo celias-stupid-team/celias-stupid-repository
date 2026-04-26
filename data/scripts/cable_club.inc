@@ -1173,33 +1173,9 @@ JoyfulGameCorner_EventScript_MinigameAttendant::
 	end
 
 CableClub_EventScript_PlayPokemonJump::
-	setvar VAR_0x8005, 0
-	special IsPokemonJumpSpeciesInParty
-	goto_if_eq VAR_RESULT, FALSE, CableClub_EventScript_NoEligiblePkmn
-	msgbox Text_EnterWhichPokemon
-	setvar VAR_0x8005, 0
-	special ChooseMonForWirelessMinigame
-	waitstate
-	goto_if_ge VAR_0x8004, PARTY_SIZE, CableClub_EventScript_AbortMinigame
-	call EventScript_AskSaveGame
-	goto_if_eq VAR_RESULT, 0, CableClub_EventScript_AbortMinigame
-	setvar VAR_0x8004, LINK_GROUP_POKEMON_JUMP
-	goto CableClub_EventScript_ChooseLinkLeaderMinigame
 	end
 
 CableClub_EventScript_PlayDodrioBerryPicking::
-	setvar VAR_0x8005, 1
-	special IsDodrioInParty
-	goto_if_eq VAR_RESULT, 0, CableClub_EventScript_NoEligiblePkmn
-	msgbox Text_EnterWhichPokemon
-	setvar VAR_0x8005, 1
-	special ChooseMonForWirelessMinigame
-	waitstate
-	goto_if_ge VAR_0x8004, PARTY_SIZE, CableClub_EventScript_AbortMinigame
-	call EventScript_AskSaveGame
-	goto_if_eq VAR_RESULT, 0, CableClub_EventScript_AbortMinigame
-	setvar VAR_0x8004, LINK_GROUP_BERRY_PICKING
-	goto CableClub_EventScript_ChooseLinkLeaderMinigame
 	end
 
 CableClub_EventScript_ChooseLinkLeaderMinigame::
@@ -1273,19 +1249,9 @@ CableClub_EventScript_ExplainDodrioBerryPickingRequirements::
 	return
 
 TwoIsland_JoyfulGameCorner_EventScript_ShowPokemonJumpRecords::
-	goto_if_questlog EventScript_ReleaseEnd
-	lockall
-	special ShowPokemonJumpRecords
-	waitstate
-	releaseall
 	end
 
 TwoIsland_JoyfulGameCorner_EventScript_ShowDodrioBerryPickingRecords::
-	goto_if_questlog EventScript_ReleaseEnd
-	lockall
-	special ShowDodrioBerryPickingRecords
-	waitstate
-	releaseall
 	end
 
 CableClub_Text_WelcomeWhichCableClubService::

@@ -862,8 +862,6 @@ extern const u8 gText_BerryCrush[];
 extern const u8 gText_EmptyLinkService1[];
 extern const u8 gText_EmptyLinkService2[];
 extern const u8 gText_RecordCorner[];
-extern const u8 gText_PokemonJump[];
-extern const u8 gText_DodrioBerryPicking[];
 extern const u8 gText_2Tinymushrooms[];
 extern const u8 gText_1BigMushroom[];
 extern const u8 gText_SeviiIslands[];

@@ -1011,8 +1011,6 @@ Text_FoundTMHMContainsMove::
 	.string "{PLAYER} found a {STR_VAR_2}!\n"
 	.string "It contains {STR_VAR_1}.$"
 
-	.include "data/text/seagallop.inc"
-
 @ Call for legendary bird trio
 Text_Gyaoo::
 	.string "Gyaoo!$"
@@ -1326,7 +1324,6 @@ EventScript_BufferPutAwayPocketBerryPouch::
 	bufferstdstring STR_VAR_3, STDSTRING_BERRY_POUCH
 	return
 
-	.include "data/scripts/seagallop.inc"
 	.include "data/scripts/static_pokemon.inc"
 
 EventScript_TryDarkenRuins::
