@@ -1855,6 +1855,7 @@ Move_DOUBLE_EDGE:
 	end
 
 Move_POISON_STING:
+	@Original poison sting
 	loadspritegfx ANIM_TAG_NEEDLE
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
@@ -1872,6 +1873,55 @@ Move_POISON_STING:
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
+	end
+
+
+	@tcg poison sting
+	loadspritegfx ANIM_TAG_TCG_NEEDLE
+	loadspritegfx ANIM_TAG_TCG_POISON
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	createvisualtask AnimTask_GetAttackerSide, 2
+	jumprettrue PoisonStingTcgAgainstPlayer
+
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_TCG_JAB, SOUND_PAN_TARGET
+	delay 4
+	createsprite gTCGNeedleRightSpriteTemplate, ANIM_TARGET, 2, -24, 18, 8, -6, 3, 5, 4, 1
+	delay 4
+	playsewithpan SE_TCG_SLASH, SOUND_PAN_TARGET
+	delay 12
+	stopsound
+	createsprite gTcgPoisonSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 63, 0, 1
+	waitforvisualfinish
+	call TCGImpact
+	end
+
+    @    sprite->data[1] = gBattleAnimArgs[2]; // x step
+    @    sprite->data[2] = gBattleAnimArgs[3]; // y step
+    @    sprite->data[3] = gBattleAnimArgs[4]; // number of steps
+    @    sprite->data[4] = gBattleAnimArgs[5]; // wait duration
+    @    sprite->data[5] = gBattleAnimArgs[6]; // delay between steps
+	
+
+	end
+
+PoisonStingTcgAgainstPlayer:
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_TCG_JAB, SOUND_PAN_TARGET
+	delay 4
+	createsprite gTCGNeedleLeftSpriteTemplate, ANIM_TARGET, 2, 24, -18, -8, 6, 3, 5, 4, 1
+	delay 4
+	playsewithpan SE_TCG_SLASH, SOUND_PAN_TARGET
+	delay 12
+	stopsound
+	createsprite gTcgPoisonSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 63, 0, 1
+	waitforvisualfinish
+	call TCGImpact
 	end
 
 Move_TWINEEDLE:
@@ -2304,6 +2354,22 @@ Move_TAIL_WHIP:
 	end
 
 Move_REAL_AXE:
+	loadspritegfx ANIM_TAG_HATCHET
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_BONEMERANG, SOUND_PAN_ATTACKER
+	createsprite gHatchetSpriteTemplate, ANIM_ATTACKER, 2
+	delay 20
+	playsewithpan SE_CRIT, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 13, 1
+	delay 17
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 6, -4
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
 Move_ITS_NOT_OAK:
 Move_CUT:
 	loadspritegfx ANIM_TAG_CUT
@@ -8145,6 +8211,7 @@ ToxicBubbles:
 	return
 
 Move_BELCH:
+	jumpifspecies ANIM_ATTACKER, SPECIES_MUK, ImBelch
 Move_SLUDGE:
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
@@ -8154,6 +8221,16 @@ Move_SLUDGE:
 	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 1, 2, 0, 12, RGB(30, 0, 31)
 	call PoisonBubblesEffect
 	waitforvisualfinish
+	end
+
+ImBelch:
+	loadspritegfx ANIM_TAG_POINTING_FINGER
+	createsprite gImBelchSpriteTemplate, ANIM_ATTACKER, 2, 0
+	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
+	delay 18
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	delay 71
+	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER, 22, 3
 	end
 
 Move_SLUDGE_BOMB:
@@ -11175,23 +11252,28 @@ Move_BARK_BARRAGE:
 
 Move_ROAR_OF_PRIME:
 	loadspritegfx ANIM_TAG_PRIME_NUMBERS
-	call PrimeVoiceEffect
-	waitforvisualfinish
-	delay 8
-	call PrimeVoiceEffect
-	waitforvisualfinish
-	end
 
-PrimeVoiceEffect:
 	createvisualtask SoundTask_PlayCryWithEcho, 5
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 8, 0, RGB_YELLOW
 	createvisualtask AnimTask_ScaleMonAndRestore, 5, -5, -5, 5, ANIM_ATTACKER, 0
-	createsprite gRoarOfPrimeSpriteTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
+	createsprite gRoarOfPrimeTwoSpriteTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 6, 1
 	createvisualtask AnimTask_ShakeBattleTerrain, 2, 1, 0, 6, 1
 	createvisualtask SoundTask_WaitForCry, 5
-	return
+	waitforvisualfinish
+
+	delay 8
+	createvisualtask SoundTask_PlayCryWithEcho, 5
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 8, 0, RGB_YELLOW
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -5, -5, 5, ANIM_ATTACKER, 0
+	createsprite gRoarOfPrimeOneSpriteTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 1, 0, 6, 1
+	createvisualtask SoundTask_WaitForCry, 5
+	waitforvisualfinish
+	end
 
 Move_HYPER_VOICE:
 	loadspritegfx ANIM_TAG_THIN_RING

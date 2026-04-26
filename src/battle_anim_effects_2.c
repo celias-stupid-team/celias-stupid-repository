@@ -656,6 +656,31 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sTcgPoisonAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(64, 10),
+    ANIMCMD_FRAME(128, 10),
+    ANIMCMD_FRAME(192, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTcgPoisonAnimTable[] =
+{
+    sTcgPoisonAnimCmds,
+};
+
+const struct SpriteTemplate gTcgPoisonSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_POISON,
+    .paletteTag = ANIM_TAG_TCG_POISON,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sTcgPoisonAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gTakedownSpriteTemplate =
 {
     .tileTag = ANIM_TAG_TAKEDOWN,
@@ -2456,23 +2481,41 @@ const struct SpriteTemplate gHyperVoiceRingSpriteTemplate =
     .callback = AnimHyperVoiceRing,
 };
 
-static const union AnimCmd sRoarOfPrimeAnimCmds[] =
+static const union AnimCmd sRoarOfPrimeOneAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 5),
     ANIMCMD_END,
 };
 
-static const union AnimCmd *const sRoarOfPrimeAnimTable[] =
+static const union AnimCmd sRoarOfPrimeTwoAnimCmds[] =
 {
-    sRoarOfPrimeAnimCmds,
+    ANIMCMD_FRAME(64, 5),
+    ANIMCMD_END,
 };
 
-const struct SpriteTemplate gRoarOfPrimeSpriteTemplate =    
+static const union AnimCmd *const sRoarOfPrimeAnimTable[] =
+{
+    sRoarOfPrimeOneAnimCmds,
+    sRoarOfPrimeTwoAnimCmds,
+};
+
+const struct SpriteTemplate gRoarOfPrimeOneSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_PRIME_NUMBERS,
     .paletteTag = ANIM_TAG_PRIME_NUMBERS,
     .oam = &gOamData_AffineDouble_ObjBlend_32x32,
-    .anims = sRoarOfPrimeAnimTable,
+    .anims = &sRoarOfPrimeAnimTable[0],
+    .images = NULL,
+    .affineAnims = sHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
+};
+
+const struct SpriteTemplate gRoarOfPrimeTwoSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x32,
+    .anims = &sRoarOfPrimeAnimTable[1],
     .images = NULL,
     .affineAnims = sHyperVoiceRingAffineAnimTable,
     .callback = AnimHyperVoiceRing,
@@ -2684,6 +2727,45 @@ const struct SpriteTemplate gTCGBigRockSpriteTemplate =
     .paletteTag = ANIM_TAG_TCG_ROCKS,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sTCGBigRockAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
+static const union AnimCmd sTCGNeedleRightAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sTCGNeedleLeftAnimCmds[] =
+{
+    ANIMCMD_FRAME(4, 12),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTCGNeedleAnimTable[] =
+{
+    sTCGNeedleRightAnimCmds,
+    sTCGNeedleLeftAnimCmds,
+};
+const struct SpriteTemplate gTCGNeedleRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_NEEDLE,
+    .paletteTag = ANIM_TAG_TCG_NEEDLE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = &sTCGNeedleAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+const struct SpriteTemplate gTCGNeedleLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_NEEDLE,
+    .paletteTag = ANIM_TAG_TCG_NEEDLE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = &sTCGNeedleAnimTable[1],
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveStaggeredThenWait,

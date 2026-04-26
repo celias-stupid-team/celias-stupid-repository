@@ -2986,6 +2986,17 @@ const struct SpriteTemplate gFollowMeFingerSpriteTemplate =
     .callback = AnimFollowMeFinger,
 };
 
+const struct SpriteTemplate gImBelchSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POINTING_FINGER,
+    .paletteTag = ANIM_TAG_POINTING_FINGER,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimFollowMeFinger,
+};
+
 static const union AffineAnimCmd sFollowHimAffineFingerAnimCmds1[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
