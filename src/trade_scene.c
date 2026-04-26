@@ -149,10 +149,8 @@ static void Task_CloseCenterWhiteColumn(u8 taskId);
 
 static const u16 sPokeball_Pal[]                    = INCBIN_U16("graphics/trade/pokeball.gbapal");
 static const u8 sPokeball_Gfx[]                     = INCBIN_U8("graphics/trade/pokeball.4bpp");
-static const u8 sPokeballSymbol_Gfx[]               = INCBIN_U8("graphics/trade/pokeball_symbol.8bpp"); // Unused
 static const u16 sCableCloseup_Map[]                = INCBIN_U16("graphics/trade/cable_closeup_map.bin");
 static const u16 sPokeballSymbol_Map[]              = INCBIN_U16("graphics/trade/pokeball_symbol_map.bin");
-static const u16 sUnusedPal1[]                      = INCBIN_U16("graphics/trade/unused1.gbapal");
 static const u16 sGba_Pal[]                         = INCBIN_U16("graphics/trade/gba.gbapal");
 static const u16 sShadowPalette[]                   = INCBIN_U16("graphics/trade/shadow.gbapal");
 static const u16 sBlackPalette[]                    = INCBIN_U16("graphics/trade/black.gbapal");

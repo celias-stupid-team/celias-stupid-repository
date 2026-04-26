@@ -36,7 +36,6 @@
 #include "script_pokemon_util.h"
 #include "strings.h"
 #include "task.h"
-#include "teachy_tv.h"
 #include "tm_case.h"
 #include "vs_seeker.h"
 #include "fldeff.h"
@@ -74,8 +73,6 @@ static void Task_InitBerryPouchFromField(u8 taskId);
 static void InitSandwichCaseFromBag(void);
 static void Task_InitSandwichCaseFromField(u8 taskId);
 static void InitBerryPouchFromBattle(void);
-static void InitTeachyTvFromBag(void);
-static void Task_InitTeachyTvFromField(u8 taskId);
 static void Task_UseRepel(u8 taskId);
 static void Task_UseMaxRepel(u8 taskId);
 static void RemoveUsedItem(void);
@@ -662,38 +659,6 @@ void BattleUseFunc_BerryPouch(u8 taskId)
 static void InitBerryPouchFromBattle(void)
 {
     InitBerryPouch(BERRYPOUCH_FROMBATTLE, CB2_BagMenuFromBattle, 0);
-}
-
-void FieldUseFunc_TeachyTv(u8 taskId)
-{
-    ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
-    if (gTasks[taskId].data[3] == 0)
-    {
-        ItemMenu_SetExitCallback(InitTeachyTvFromBag);
-        ItemMenu_StartFadeToExitCallback(taskId);
-    }
-    else
-    {
-        StopPokemonLeagueLightingEffectTask();
-        FadeScreen(FADE_TO_BLACK, 0);
-        gTasks[taskId].func = Task_InitTeachyTvFromField;
-    }
-}
-
-static void InitTeachyTvFromBag(void)
-{
-    InitTeachyTvController(0, CB2_BagMenuFromStartMenu);
-}
-
-static void Task_InitTeachyTvFromField(u8 taskId)
-{
-    if (!gPaletteFade.active)
-    {
-        CleanupOverworldWindowsAndTilemaps();
-        SetFieldCallback2ForItemUse();
-        InitTeachyTvController(0, CB2_ReturnToField);
-        DestroyTask(taskId);
-    }
 }
 
 void FieldUseFunc_Repel(u8 taskId)

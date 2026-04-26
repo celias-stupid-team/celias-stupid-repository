@@ -294,10 +294,8 @@ SECTIONS {
         src/text_window.o(.text);
         src/quest_log_player.o(.text);
         src/dodrio_berry_picking.o(.text);
-        src/battle_controller_pokedude.o(.text);
         src/quest_log_objects.o(.text);
         src/dodrio_berry_picking_comm.o(.text);
-        src/teachy_tv.o(.text);
         src/digit_obj_util.o(.text);
         src/ss_anne.o(.text);
         src/renewable_hidden_items.o(.text);
@@ -587,8 +585,6 @@ SECTIONS {
         src/text_window_graphics.o(.rodata);
         src/quest_log_player.o(.rodata);
         src/dodrio_berry_picking.o(.rodata);
-        src/battle_controller_pokedude.o(.rodata);
-        src/teachy_tv.o(.rodata);
         src/digit_obj_util.o(.rodata);
         src/ss_anne.o(.rodata);
         src/renewable_hidden_items.o(.rodata);

@@ -2148,28 +2148,6 @@ void AnimTranslateLinearAndFlicker_Flipped(struct Sprite *sprite)
     sprite->callback = TranslateSpriteLinearAndFlicker;
 }
 
-// Used by three different unused battle anim sprite templates.
-void AnimTranslateLinearAndFlicker(struct Sprite *sprite)
-{
-    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
-    {
-        sprite->x -= gBattleAnimArgs[0];
-        gBattleAnimArgs[3] *= -1;
-    }
-    else
-    {
-        sprite->x += gBattleAnimArgs[0];
-    }
-    sprite->y += gBattleAnimArgs[1];
-    sprite->data[0] = gBattleAnimArgs[2];
-    sprite->data[1] = gBattleAnimArgs[3];
-    sprite->data[3] = gBattleAnimArgs[4];
-    sprite->data[5] = gBattleAnimArgs[5];
-    StartSpriteAnim(sprite, gBattleAnimArgs[6]);
-    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
-    sprite->callback = TranslateSpriteLinearAndFlicker;
-}
-
 // Used by Detect/Disable
 void AnimSpinningSparkle(struct Sprite *sprite)
 {

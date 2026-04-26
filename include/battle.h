@@ -689,15 +689,6 @@ struct MonSpritesGfx
     u16 *multiUseBuffer;
 };
 
-struct PokedudeBattlerState
-{
-    u8 action_idx;
-    u8 move_idx;
-    u8 timer;
-    u8 msg_idx;
-    u8 saved_bg0y;
-};
-
 extern u16 gBattle_BG0_X;
 extern u16 gBattle_BG0_Y;
 extern u16 gBattle_BG1_X;
@@ -746,7 +737,6 @@ extern u8 gBattleBufferB[MAX_BATTLERS_COUNT][0x200];
 extern u8 gActionSelectionCursor[MAX_BATTLERS_COUNT];
 extern void (*gPreBattleCallback1)(void);
 extern bool8 gDoingBattleAnim;
-extern struct PokedudeBattlerState *gPokedudeBattlerStates[MAX_BATTLERS_COUNT];
 extern u8 *gBattleAnimBgTileBuffer;
 extern u8 *gBattleAnimBgTilemapBuffer;
 extern void (*gBattleMainFunc)(void);

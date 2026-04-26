@@ -176,8 +176,6 @@ static void AnimAllySwitch(struct Sprite* sprite);
 static void AnimExodiaBlastOrb(struct Sprite* sprite);
 static void AnimExodiaBlastOrb_Step(struct Sprite* sprite);
 
-static const u8 sUnused[] = {2, 4, 1, 3};
-
 static const union AnimCmd sPowderParticlesAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 5),
@@ -1630,30 +1628,6 @@ static const union AnimCmd *const sAnims_SlidingHit[] =
     sAnim_SlidingHit,
 };
 
-// Unused
-static const struct SpriteTemplate sSlidingHit1SpriteTemplate =
-{
-    .tileTag = ANIM_TAG_HIT,
-    .paletteTag = ANIM_TAG_HIT,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_SlidingHit,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimSlidingHit,
-};
-
-// Unused
-static const struct SpriteTemplate sSlidingHit2SpriteTemplate =
-{
-    .tileTag = ANIM_TAG_HIT_2,
-    .paletteTag = ANIM_TAG_HIT_2,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_SlidingHit,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimSlidingHit,
-};
-
 static const union AffineAnimCmd sAffineAnim_FlickeringPunch_Normal[] =
 {
     AFFINEANIMCMD_FRAME(256, 256, 0, 0),
@@ -1712,18 +1686,6 @@ static const union AffineAnimCmd *const sAffineAnims_FlickeringPunch[] =
     sAffineAnim_FlickeringPunch_TurnedBottomRight,
     sAffineAnim_FlickeringPunch_TurnedRight,
     sAffineAnim_FlickeringPunch_TurnedTopRight,
-};
-
-// Unused
-static const struct SpriteTemplate sFlickeringPunchSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_HANDS_AND_FEET,
-    .paletteTag = ANIM_TAG_HANDS_AND_FEET,
-    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = sAffineAnims_FlickeringPunch,
-    .callback = AnimFlickeringPunch,
 };
 
 static const union AnimCmd sCuttingSliceAnimCmds[] =
@@ -1834,18 +1796,6 @@ static const union AnimCmd *const sAnims_CirclingMusicNote[] =
     sAnim_CirclingMusicNote_BeamedEighth_Flipped,
     sAnim_CirclingMusicNote_SlantedBeamedEighth_Flipped,
     sAnim_CirclingMusicNote_Quarter_Flipped,
-};
-
-// Unused
-static const struct SpriteTemplate sCirclingMusicNoteSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_MUSIC_NOTES,
-    .paletteTag = ANIM_TAG_MUSIC_NOTES,
-    .oam = &gOamData_AffineOff_ObjNormal_16x16,
-    .anims = sAnims_CirclingMusicNote,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimCirclingMusicNote,
 };
 
 const struct SpriteTemplate gProtectSpriteTemplate =
@@ -2046,18 +1996,6 @@ static const union AnimCmd *const sAnims_BubbleBurst[] =
     sAnim_BubbleBurst_Flipped,
 };
 
-// Unused
-static const struct SpriteTemplate sBubbleBurstSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_BUBBLE_BURST,
-    .paletteTag = ANIM_TAG_BUBBLE_BURST,
-    .oam = &gOamData_AffineOff_ObjNormal_16x16,
-    .anims = sAnims_BubbleBurst,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimBubbleBurst,
-};
-
 static const union AnimCmd sSleepLetterZAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 40),
@@ -2164,19 +2102,6 @@ const struct SpriteTemplate gBowMonSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimBowMon,
-};
-
-// Unused
-// Same as BowMon above but without backing up
-static const struct SpriteTemplate sTipMonSpriteTemplate =
-{
-    .tileTag = 0,
-    .paletteTag = 0,
-    .oam = &gDummyOamData,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimTipMon,
 };
 
 static const union AnimCmd sSlashSliceAnimCmds1[] =
@@ -5262,39 +5187,6 @@ static void AnimSlice_Step(struct Sprite* sprite)
     }
 }
 
-static void UnusedFlickerAnim(struct Sprite* sprite)
-{
-    if (sprite->data[2] > 1)
-    {
-        if (sprite->data[3] & 1)
-        {
-            sprite->invisible = FALSE;
-            gSprites[sprite->data[0]].invisible = FALSE;
-            gSprites[sprite->data[1]].invisible = FALSE;
-        }
-        else
-        {
-            sprite->invisible = TRUE;
-            gSprites[sprite->data[0]].invisible = TRUE;
-            gSprites[sprite->data[1]].invisible = TRUE;
-        }
-
-        sprite->data[2] = 0;
-        sprite->data[3]++;
-    }
-    else
-    {
-        sprite->data[2]++;
-    }
-
-    if (sprite->data[3] == 10)
-    {
-        DestroySprite(&gSprites[sprite->data[0]]);
-        DestroySprite(&gSprites[sprite->data[1]]);
-        DestroyAnimSprite(sprite);
-    }
-}
-
 static void AnimCirclingMusicNote(struct Sprite* sprite)
 {
     sprite->data[0] = gBattleAnimArgs[2];
@@ -6433,33 +6325,6 @@ void AnimTask_Conversion2AlphaBlend(u8 taskId)
         if (gTasks[taskId].data[1] == 16)
             DestroyAnimVisualTask(taskId);
     }
-}
-
-// Unused
-static void AnimTask_HideBattlersHealthbox(u8 taskId)
-{
-    u8 i;
-    
-    for (i = 0; i < gBattlersCount; i++)
-    {
-        if (gBattleAnimArgs[0] == TRUE && GetBattlerSide(i) == B_SIDE_PLAYER)
-            SetHealthboxSpriteInvisible(gHealthboxSpriteIds[i]);
-
-        if (gBattleAnimArgs[1] == TRUE && GetBattlerSide(i) == B_SIDE_OPPONENT)
-            SetHealthboxSpriteInvisible(gHealthboxSpriteIds[i]);
-    }
-
-    DestroyAnimVisualTask(taskId);
-}
-
-// Unused
-static void AnimTask_ShowBattlersHealthbox(u8 taskId)
-{
-    u8 i;
-    for (i = 0; i < gBattlersCount; i++)
-        SetHealthboxSpriteVisible(gHealthboxSpriteIds[i]);
-
-    DestroyAnimVisualTask(taskId);
 }
 
 static void AnimMoon(struct Sprite* sprite)

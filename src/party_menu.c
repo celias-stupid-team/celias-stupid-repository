@@ -55,7 +55,6 @@
 #include "string_util.h"
 #include "strings.h"
 #include "task.h"
-#include "teachy_tv.h"
 #include "text_window.h"
 #include "tm_case.h"
 #include "trade.h"
@@ -388,10 +387,6 @@ static void Task_FirstBattleEnterParty_StartPrintMsg2(u8 taskId);
 static void Task_FirstBattleEnterParty_RunPrinterMsg2(u8 taskId);
 static void Task_FirstBattleEnterParty_FadeNormal(u8 taskId);
 static void Task_FirstBattleEnterParty_WaitFadeNormal(u8 taskId);
-static void Task_PartyMenu_PokedudeStep(u8 taskId);
-static void Task_PartyMenuFromBag_PokedudeStep(u8 taskId);
-static bool8 PartyMenuPokedudeIsCancelled(u8 taskId);
-static void PartyMenuHandlePokedudeCancel(void);
 static void PartyMenu_Oak_PrintText(u8 windowId, const u8 *str);
 static u8 FirstBattleEnterParty_CreateWindowAndMsg1Printer(void);
 static void FirstBattleEnterParty_DestroyVoiceoverWindow(u8 windowId);
@@ -2166,85 +2161,6 @@ static void Task_FirstBattleEnterParty_WaitFadeNormal(u8 taskId)
     }
 }
 
-// Pokedude switches Pokemon
-static void Task_PartyMenu_Pokedude(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-
-    data[0] = 0;
-    gTasks[taskId].func = Task_PartyMenu_PokedudeStep;
-}
-
-static void Task_PartyMenu_PokedudeStep(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-
-    if (!gPaletteFade.active && PartyMenuPokedudeIsCancelled(taskId) != TRUE)
-    {
-        switch (data[0])
-        {
-        case 80:
-            UpdateCurrentPartySelection(&gPartyMenu.slotId, MENU_DIR_RIGHT);
-            break;
-        case 160:
-            PlaySE(SE_SELECT);
-            CreateSelectionWindow();
-            break;
-        case 240:
-            PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[2]);
-            sCursorOptions[sPartyMenuInternal->actions[0]].func(taskId);
-            break;
-        }
-        ++data[0];
-    }
-}
-
-static bool8 PartyMenuPokedudeIsCancelled(u8 taskId)
-{
-    if (JOY_NEW(B_BUTTON))
-    {
-        sPartyMenuInternal->exitCallback = PartyMenuHandlePokedudeCancel;
-        Task_ClosePartyMenu(taskId);
-        return TRUE;
-    }
-    return FALSE;
-}
-
-static void PartyMenuHandlePokedudeCancel(void)
-{
-    FreeRestoreBattleData();
-    LoadPlayerParty();
-    SetTeachyTvControllerModeToResume();
-    SetMainCallback2(CB2_ReturnToTeachyTV);
-}
-
-// Pokedude uses item on his own Pokemon
-static void Task_PartyMenuFromBag_Pokedude(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-
-    data[0] = 0;
-    gTasks[taskId].func = Task_PartyMenuFromBag_PokedudeStep;
-}
-
-static void Task_PartyMenuFromBag_PokedudeStep(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-
-    if (!gPaletteFade.active && PartyMenuPokedudeIsCancelled(taskId) != TRUE)
-    {
-        if (data[0] != 80)
-        {
-            ++data[0];
-        }
-        else
-        {
-            sPartyMenuInternal->exitCallback = CB2_SetUpExitToBattleScreen;
-            gItemUseCB(taskId, Task_ClosePartyMenuAfterText);
-        }
-    }
-}
-
 static void InitPartyMenuWindows(u8 layout)
 {
     u8 i;
@@ -3022,30 +2938,9 @@ static void PartyMenuStartSpriteAnim(u8 spriteId, u8 animNum)
     StartSpriteAnim(&gSprites[spriteId], animNum);
 }
 
-// Unused. Might explain the large blank section in gPartyMenuPokeballSmall_Gfx
-// At the very least this is how the unused anim cmds for sSpriteAnimTable_MenuPokeballSmall were meant to be accessed
-void SpriteCB_BounceConfirmCancelButton(u8 spriteId, u8 spriteId2, u8 animNum)
-{
-    if (animNum == 0)
-    {
-        StartSpriteAnim(&gSprites[spriteId], 2);
-        StartSpriteAnim(&gSprites[spriteId2], 4);
-        gSprites[spriteId].y2 = 0;
-        gSprites[spriteId2].y2 = 0;
-    }
-    else
-    {
-        StartSpriteAnim(&gSprites[spriteId], 3);
-        StartSpriteAnim(&gSprites[spriteId2], 5);
-        gSprites[spriteId].y2 = -4;
-        gSprites[spriteId2].y2 = 4;
-    }
-}
-
 static void LoadPartyMenuPokeballGfx(void)
 {
     LoadCompressedSpriteSheet(&sSpriteSheet_MenuPokeball);
-    LoadCompressedSpriteSheet(&sSpriteSheet_MenuPokeballSmall);
     LoadCompressedSpritePalette(&sSpritePalette_MenuPokeball);
 }
 
@@ -6252,20 +6147,6 @@ void OpenPartyMenuInTutorialBattle(u8 partyAction)
                       Task_HandleChooseMonInput,
                       SetCB2ToReshowScreenAfterMenu);
     }
-    ReshowBattleScreenDummy();
-    UpdatePartyToBattleOrder();
-}
-
-void Pokedude_OpenPartyMenuInBattle(void)
-{
-    InitPartyMenu(PARTY_MENU_TYPE_IN_BATTLE, GetPartyLayoutFromBattleType(), PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_CHOOSE_MON, Task_PartyMenu_Pokedude, SetCB2ToReshowScreenAfterMenu);
-    ReshowBattleScreenDummy();
-    UpdatePartyToBattleOrder();
-}
-
-void Pokedude_ChooseMonForInBattleItem(void)
-{
-    InitPartyMenu(PARTY_MENU_TYPE_IN_BATTLE, GetPartyLayoutFromBattleType(), PARTY_ACTION_REUSABLE_ITEM, FALSE, PARTY_MSG_USE_ON_WHICH_MON, Task_PartyMenuFromBag_Pokedude, CB2_BagMenuFromBattle);
     ReshowBattleScreenDummy();
     UpdatePartyToBattleOrder();
 }

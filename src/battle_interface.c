@@ -186,32 +186,6 @@ static const struct SpriteTemplate sHealthbarSpriteTemplates[] = {
     }
 };
 
-static const struct Subsprite sUnused_Subsprites_0[] = {
-    { -16, 0, SPRITE_SHAPE(64x32), SPRITE_SIZE(64x32), 0, 1 },
-    { 48, 0, SPRITE_SHAPE(32x32), SPRITE_SIZE(32x32), 32, 1 },
-    { -16, 32, SPRITE_SHAPE(32x8), SPRITE_SIZE(32x8), 48, 1 },
-    { 16, 32, SPRITE_SHAPE(32x8), SPRITE_SIZE(32x8), 52, 1 },
-    { 48, 32, SPRITE_SHAPE(32x8), SPRITE_SIZE(32x8), 56, 1 }
-};
-
-static const struct Subsprite sUnused_Subsprites_2[] = {
-    { -16, 0, SPRITE_SHAPE(64x32), SPRITE_SIZE(64x32), 64, 1 },
-    { 48, 0, SPRITE_SHAPE(32x32), SPRITE_SIZE(32x32), 96, 1 },
-    { -16, 32, SPRITE_SHAPE(32x8), SPRITE_SIZE(32x8), 112, 1 },
-    { 16, 32, SPRITE_SHAPE(32x8), SPRITE_SIZE(32x8), 116, 1 },
-    { 48, 32, SPRITE_SHAPE(32x8), SPRITE_SIZE(32x8), 120, 1 }
-};
-
-static const struct Subsprite sUnused_Subsprites_1[] = {
-    { -16, 0, SPRITE_SHAPE(64x32), SPRITE_SIZE(64x32), 0, 1 },
-    { 48, 0, SPRITE_SHAPE(32x32), SPRITE_SIZE(32x32), 32, 1 }
-};
-
-static const struct Subsprite sUnused_Subsprites_3[] = {
-    { -16, 0, SPRITE_SHAPE(64x32), SPRITE_SIZE(64x32), 0, 1 },
-    { 48, 0, SPRITE_SHAPE(32x32), SPRITE_SIZE(32x32), 32, 1 }
-};
-
 static const struct Subsprite sHealthBar_Subsprites_Player[] = {
     {
         .x = -16,
@@ -256,14 +230,6 @@ static const struct Subsprite sHealthBar_Subsprites_Opponent[] = {
         .tileOffset = 8,
         .priority = 1
     },
-};
-
-// Unused
-static const struct SubspriteTable sUnused_SubspriteTable[] = {
-    {ARRAY_COUNT(sUnused_Subsprites_0), sUnused_Subsprites_0},
-    {ARRAY_COUNT(sUnused_Subsprites_1), sUnused_Subsprites_1},
-    {ARRAY_COUNT(sUnused_Subsprites_2), sUnused_Subsprites_2},
-    {ARRAY_COUNT(sUnused_Subsprites_3), sUnused_Subsprites_3}
 };
 
 static const struct SubspriteTable sHealthBar_SubspriteTable[] = {
@@ -365,8 +331,6 @@ static const struct SubspriteTable sStatusSummaryBar_SubspriteTable_Exit[] = {
     {ARRAY_COUNT(sStatusSummaryBar_Subsprites_Exit), sStatusSummaryBar_Subsprites_Exit}
 };
 
-static const u16 sBattleInterface_Unused[] = INCBIN_U16("graphics/battle_interface/unused.4bpp");
-
 static const struct CompressedSpriteSheet sPartySummaryBarSpriteSheets[] = {
     {gBattleInterface_PartySummaryBar_Gfx, 16 * TILE_SIZE_4BPP, TAG_PARTY_SUMMARY_BAR_PLAYER_TILE},
     {gBattleInterface_PartySummaryBar_Gfx, 16 * TILE_SIZE_4BPP, TAG_PARTY_SUMMARY_BAR_OPPONENT_TILE}
@@ -385,13 +349,6 @@ static const struct SpritePalette sPartySummaryBallSpritePals[] = {
 static const struct SpriteSheet sPartySummaryBallSpriteSheets[] = {
     {gBattleInterface_Gfx + B_INTERFACE_GFX_BALL_PARTY_SUMMARY, 4 * TILE_SIZE_4BPP, TAG_PARTY_SUMMARY_BALL_PLAYER_TILE},
     {gBattleInterface_Gfx + B_INTERFACE_GFX_BALL_PARTY_SUMMARY, 4 * TILE_SIZE_4BPP, TAG_PARTY_SUMMARY_BALL_OPPONENT_TILE}
-};
-
-// Unused
-static const struct OamData sOamData_Healthbox2 = {
-    .shape = SPRITE_SHAPE(64x32),
-    .size = SPRITE_SIZE(64x32),
-    .priority = 1
 };
 
 static const struct OamData sOamData_PartySummaryBall = {
@@ -506,14 +463,6 @@ static void Debug_DrawNumber(s16 number, u16 *dest, bool8 singleRow)
             }
         }
     }
-}
-
-// Unused
-static void Debug_DrawNumberPair(s16 num1, s16 num2, u16 *dest)
-{
-    dest[4] = 30;
-    Debug_DrawNumber(num2, &dest[0], FALSE);
-    Debug_DrawNumber(num1, &dest[5], TRUE);
 }
 
 // Because the healthbox is too large to fit into one sprite, it is divided
@@ -2190,61 +2139,6 @@ static u8 CalcBarFilledPixels(s32 maxValue, s32 oldValue, s32 receivedValue, s32
     }
 
     return totalFilledPixels;
-}
-
-// Unused
-// These functions seem as if they were made for testing the health bar.
-static s16 UpdateAndDrawHealthbarOntoScreen(struct TestingBar *barInfo, s32 *currValue, u8 bg, u8 x, u8 y)
-{
-    s16 hpVal;
-
-    hpVal = CalcNewBarValue(barInfo->maxValue,
-                          barInfo->oldValue,
-                          barInfo->receivedValue,
-                          currValue,
-                          B_HEALTHBAR_NUM_TILES,
-                          1);
-
-    DrawHealthbarOntoScreen(barInfo, currValue, bg, x, y);
-
-    return hpVal;
-}
-
-// Unused
-static s16 CalcNewHealthbarValue(struct TestingBar *barInfo, s32 *currValue)
-{
-    return CalcNewBarValue(barInfo->maxValue,
-                          barInfo->oldValue,
-                          barInfo->receivedValue,
-                          currValue,
-                          B_HEALTHBAR_NUM_TILES,
-                          1);
-}
-
-// Unused
-static void DoDrawHealthbarOntoScreen(struct TestingBar *barInfo, s32 *currValue, u8 bg, u8 x, u8 y)
-{
-    DrawHealthbarOntoScreen(barInfo, currValue, bg, x, y);
-}
-
-// Unused
-static void DrawHealthbarOntoScreen(struct TestingBar *barInfo, s32 *currValue, u8 bg, u8 x, u8 y)
-{
-    u8 filledPixels[B_HEALTHBAR_NUM_TILES];
-    u16 tiles[B_HEALTHBAR_NUM_TILES];
-    u8 i;
-
-    CalcBarFilledPixels(barInfo->maxValue,
-                        barInfo->oldValue,
-                        barInfo->receivedValue,
-                        currValue,
-                        filledPixels,
-                        B_HEALTHBAR_NUM_TILES);
-
-    for (i = 0; i < ARRAY_COUNT(tiles); i++)
-        tiles[i] = (barInfo->pal << 12) | (barInfo->tileOffset + filledPixels[i]);
-
-    CopyToBgTilemapBufferRect_ChangePalette(bg, tiles, x, y, 6, 1, 17);
 }
 
 static u8 GetReceivedValueInPixels(s32 oldValue, s32 receivedValue, s32 maxValue, u8 totalPixels)

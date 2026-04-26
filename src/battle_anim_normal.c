@@ -90,33 +90,6 @@ const struct SpriteTemplate gComplexPaletteBlendSpriteTemplate =
     .callback = AnimComplexPaletteBlend,
 };
 
-static const union AnimCmd sAnim_CirclingSparkle[] =
-{
-    ANIMCMD_FRAME(0, 3),
-    ANIMCMD_FRAME(16, 3),
-    ANIMCMD_FRAME(32, 3),
-    ANIMCMD_FRAME(48, 3),
-    ANIMCMD_FRAME(64, 3),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd *const sAnims_CirclingSparkle[] =
-{
-    sAnim_CirclingSparkle,
-};
-
-// Unused
-static const struct SpriteTemplate sCirclingSparkleSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_SPARKLE_4,
-    .paletteTag = ANIM_TAG_SPARKLE_4,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_CirclingSparkle,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimCirclingSparkle,
-};
-
 const struct SpriteTemplate gShakeMonOrTerrainSpriteTemplate =
 {
     .tileTag = 0,
@@ -748,63 +721,6 @@ void AnimTask_InvertScreenColor(u8 taskId)
     InvertPlttBuffer(selectedPalettes);
     DestroyAnimVisualTask(taskId);
 }
-
-// Unused
-#define tTimer         data[0]
-#define tLength        data[1]
-#define tFlagsScenery  data[2]
-#define tFlagsAttacker data[3]
-#define tFlagsTarget   data[4]
-#define tColorR        data[5]
-#define tColorG        data[6]
-#define tColorB        data[7]
-static void AnimTask_TintPalettes(u8 taskId)
-{
-    u8 attackerBattler;
-    u8 targetBattler;
-    u8 paletteIndex;
-    u32 selectedPalettes = 0;
-
-    if (gTasks[taskId].data[0] == 0)
-    {
-        gTasks[taskId].data[2] = gBattleAnimArgs[0];
-        gTasks[taskId].data[3] = gBattleAnimArgs[1];
-        gTasks[taskId].data[4] = gBattleAnimArgs[2];
-        gTasks[taskId].data[1] = gBattleAnimArgs[3];
-        gTasks[taskId].data[5] = gBattleAnimArgs[4];
-        gTasks[taskId].data[6] = gBattleAnimArgs[5];
-        gTasks[taskId].data[7] = gBattleAnimArgs[6];
-    }
-    ++gTasks[taskId].data[0];
-    attackerBattler = gBattleAnimAttacker;
-    targetBattler = gBattleAnimTarget;
-    if (gTasks[taskId].data[2] & 0x100)
-        selectedPalettes = 0x0000FFFF;
-    if (gTasks[taskId].data[2] & 0x1)
-    {
-        paletteIndex = IndexOfSpritePaletteTag(gSprites[gHealthboxSpriteIds[attackerBattler]].template->paletteTag);
-        selectedPalettes |= (1 << paletteIndex) << 16;
-    }
-    if (gTasks[taskId].data[3] & 0x100)
-        selectedPalettes |= (1 << attackerBattler) << 16;
-    if (gTasks[taskId].data[4] & 0x100)
-        selectedPalettes |= (1 << targetBattler) << 16;
-    TintPlttBuffer(selectedPalettes, gTasks[taskId].data[5], gTasks[taskId].data[6], gTasks[taskId].data[7]);
-    if (gTasks[taskId].data[0] == gTasks[taskId].data[1])
-    {
-        UnfadePlttBuffer(selectedPalettes);
-        DestroyAnimVisualTask(taskId);
-    }
-}
-
-#undef tTimer
-#undef tLength
-#undef tFlagsScenery
-#undef tFlagsAttacker
-#undef tFlagsTarget
-#undef tColorR
-#undef tColorG
-#undef tColorB
 
 static void AnimShakeMonOrBattleTerrain(struct Sprite *sprite)
 {

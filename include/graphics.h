@@ -7812,12 +7812,6 @@ extern const u16 gStandardMenuPalette[];
 extern const u32 gTradeGba2_Pal[];
 extern const u32 gTradeGba_Gfx[];
 
-// teachy_tv
-extern const u8 gTeachyTv_Gfx[];
-extern const u8 gTeachyTvScreen_Tilemap[];
-extern const u8 gTeachyTvTitle_Tilemap[];
-extern const u32 gTeachyTv_Pal[];
-
 // item_pc
 extern const u8 gItemPcTiles[];
 extern const u32 gItemPcBgPals[];
@@ -9576,7 +9570,6 @@ extern const u16 gDefaultWeatherSpritePalette[];
 // party_menu
 extern const u32 gPartyMenuPokeball_Gfx[];
 extern const u32 gPartyMenuPokeball_Pal[];
-extern const u32 gPartyMenuPokeballSmall_Gfx[];
 extern const u32 gStatusGfx_Icons[];
 extern const u32 gStatusPal_Icons[];
 extern const u32 gPartyMenuBg_Gfx[];

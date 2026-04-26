@@ -279,10 +279,6 @@ void OpponentBufferExecCompleted(void);
 // safari controller
 void SetControllerToSafari(void);
 
-// pokedude controller
-void SetControllerToPokedude(void);
-void InitPokedudePartyAndOpponent(void);
-
 // oak and old man controller
 void SetControllerToOakOrOldMan(void);
 
