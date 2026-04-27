@@ -37,7 +37,6 @@ bool32 WaitTeleportInPlayerAnim(void);
 bool8 PartyHasMonWithSurf(void);
 bool8 IsPlayerSurfingNorth(void);
 u8 player_get_pos_including_state_based_drift(s16 *x, s16 *y);
-void StartPlayerAvatarVsSeekerAnim(void);
 u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, u8 gender);
 u16 GetPlayerAvatarGraphicsIdByStateIdAndGender(u8 state, u8 gender);
 u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction, u8 metatileBehavior);

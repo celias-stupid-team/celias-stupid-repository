@@ -1,7 +1,6 @@
 #include "global.h"
 #include "gflib.h"
 #include "script.h"
-#include "mystery_event_script.h"
 #include "event_data.h"
 #include "event_scripts.h"
 #include "random.h"
@@ -275,12 +274,6 @@ bool8 ScrCmd_endram(struct ScriptContext * ctx)
     ClearRamScript();
     StopScript(ctx);
     return TRUE;
-}
-
-bool8 ScrCmd_setmysteryeventstatus(struct ScriptContext * ctx)
-{
-    SetMysteryEventScriptStatus(ScriptReadByte(ctx));
-    return FALSE;
 }
 
 bool8 ScrCmd_trywondercardscript(struct ScriptContext * ctx)

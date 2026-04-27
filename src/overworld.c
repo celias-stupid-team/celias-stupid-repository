@@ -45,7 +45,6 @@
 #include "start_menu.h"
 #include "tileset_anims.h"
 #include "trainer_pokemon_sprites.h"
-#include "vs_seeker.h"
 #include "wild_encounter.h"
 #include "constants/cable_club.h"
 #include "constants/event_objects.h"
@@ -794,7 +793,6 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     ClearBenchWarp();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
-    MapResetTrainerRematches(mapGroup, mapNum);
     SetSavedWeatherFromCurrMapHeader();
     ChooseAmbientCrySpecies();
     SetDefaultFlashLevel();
@@ -830,7 +828,6 @@ static void LoadMapFromWarp(bool32 unused)
     ClearBenchWarp();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
-    MapResetTrainerRematches(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     SetSavedWeatherFromCurrMapHeader();
     ChooseAmbientCrySpecies();
     if (isOutdoors)

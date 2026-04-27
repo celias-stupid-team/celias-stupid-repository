@@ -26,7 +26,6 @@
 #include "script.h"
 #include "start_menu.h"
 #include "trainer_see.h"
-#include "vs_seeker.h"
 #include "wild_encounter.h"
 #include "config/debug.h"
 #include "config/overworld.h"
@@ -731,12 +730,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
     {
-        if (UpdateVsSeekerStepCounter() == TRUE)
-        {
-            ScriptContext_SetupScript(EventScript_VsSeekerChargingDone);
-            return TRUE;
-        }
-        else if (UpdatePoisonStepCounter() == TRUE)
+        if (UpdatePoisonStepCounter() == TRUE)
         {
             ScriptContext_SetupScript(EventScript_FieldPoison);
             return TRUE;

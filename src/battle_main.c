@@ -32,7 +32,6 @@
 #include "scanline_effect.h"
 #include "task.h"
 #include "trig.h"
-#include "vs_seeker.h"
 #include "util.h"
 #include "constants/abilities.h"
 #include "constants/battle_move_effects.h"
@@ -3904,8 +3903,6 @@ static void HandleEndTurn_FinishBattle(void)
             }
         }
         TrySetQuestLogBattleEvent();
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-            ClearRematchStateByTrainerId();
         BeginFastPaletteFade(3);
         // if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
         //     FadeOutMapMusic(5);

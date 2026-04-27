@@ -8309,8 +8309,6 @@ extern const u32 gItemIcon_Bicycle[];
 extern const u32 gItemIconPalette_Bicycle[];
 extern const u32 gItemIcon_TownMap[];
 extern const u32 gItemIconPalette_TownMap[];
-extern const u32 gItemIcon_VSSeeker[];
-extern const u32 gItemIconPalette_VSSeeker[];
 extern const u32 gItemIcon_FameChecker[];
 extern const u32 gItemIconPalette_FameChecker[];
 extern const u32 gItemIcon_TMCase[];

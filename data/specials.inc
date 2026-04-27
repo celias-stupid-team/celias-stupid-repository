@@ -65,9 +65,6 @@ gSpecials::
 	def_special Script_HasTrainerBeenFought
 	def_special DoTrainerApproach
 	def_special PlayTrainerEncounterMusic
-	def_special ShouldTryRematchBattle
-	def_special IsTrainerReadyForRematch
-	def_special StartRematchBattle
 	def_special ShowPokemonStorageSystemPC
 	def_special HasEnoughMonsForDoubleBattle
 	def_special NullFieldSpecial  @ Hoenn TV specials
@@ -365,7 +362,6 @@ gSpecials::
 	def_special ForcePlayerToStartSurfing
 	def_special GetStarterSpecies
 	def_special SetSeenMon
-	def_special VsSeekerResetObjectMovementAfterChargeComplete
 	def_special ShouldShowBoxWasFullMessage
 	def_special ChangeBoxPokemonNickname
 	def_special UpdateTrainerCardPhotoIcons
@@ -375,7 +371,6 @@ gSpecials::
 	def_special EnableNationalPokedex
 	def_special SetWalkingIntoSignVars
 	def_special DisableMsgBoxWalkaway
-	def_special VsSeekerFreezeObjectsAfterChargeComplete
 	def_special SetFlavorTextFlagFromSpecialVars
 	def_special UpdatePickStateFromSpecialVar8005
 	def_special OverworldWhiteOutGetMoneyLoss

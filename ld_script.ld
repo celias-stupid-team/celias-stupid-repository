@@ -210,7 +210,6 @@ SECTIONS {
         src/palette_util.o(.text);
         src/cable_car_util.o(.text);
         src/save.o(.text);
-        src/mystery_event_script.o(.text);
         src/field_effect_helpers.o(.text);
         src/battle_anim_sound_tasks.o(.text);
         src/battle_controller_safari.o(.text);
@@ -242,7 +241,6 @@ SECTIONS {
         src/save_location.o(.text);
         src/bag.o(.text);
         src/trainer_pokemon_sprites.o(.text);
-        src/vs_seeker.o(.text);
         src/item_pc.o(.text);
         src/mailbox_pc.o(.text);
         src/menu.o(.text);
@@ -278,7 +276,6 @@ SECTIONS {
         src/ss_anne.o(.text);
         src/renewable_hidden_items.o(.text);
         src/trainer_tower.o(.text);
-        src/minigame_countdown.o(.text);
         src/debug.o(.text);
         src/mugshot.o(.text);
         src/trainer_slide.o(.text);
@@ -294,7 +291,6 @@ SECTIONS {
         data/field_effect_scripts.o(script_data);
         data/battle_scripts_2.o(script_data);
         data/battle_ai_scripts.o(script_data);
-        data/mystery_event_script_cmd_table.o(script_data);
     } > ROM =0
 
     lib_text :
@@ -506,7 +502,6 @@ SECTIONS {
         src/save_location.o(.rodata);
         src/bag.o(.rodata);
         src/trainer_pokemon_sprites.o(.rodata);
-        src/vs_seeker.o(.rodata);
         src/item_pc.o(.rodata);
         src/mailbox_pc.o(.rodata);
         src/decoration.o(.rodata);
@@ -541,7 +536,6 @@ SECTIONS {
         src/ss_anne.o(.rodata);
         src/renewable_hidden_items.o(.rodata);
         src/trainer_tower.o(.rodata);
-        src/minigame_countdown.o(.rodata);
         src/keyboard_text.o(.rodata);
         src/trainer_tower_sets.o(.rodata);
         src/move_descriptions.o(.rodata);
@@ -551,8 +545,6 @@ SECTIONS {
         src/trainer_slide.o(.rodata);
 
         /* These should not be moved to C files */
-        src/mystery_event_msg.o(.rodata);
-        data/mystery_event_msg.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
     } > ROM =0

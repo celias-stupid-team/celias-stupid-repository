@@ -5,7 +5,6 @@
 	.include "src/text_printer.o"
 	.include "src/sprite.o"
 	.include "src/link.o"
-	.include "src/multiboot.o"
 	.include "src/daycare.o"
 	.include "src/trade.o"
 	.include "src/play_time.o"
