@@ -932,20 +932,11 @@ static void Task_SelectedTMHM_Field(u8 taskId)
     
     // Create context window
     TMCase_SetWindowBorder2(WIN_SELECTED_MSG);
-    if (!MenuHelpers_IsLinkActive() && InUnionRoom() != TRUE)
-    {
-        // Regular TM/HM context menu
-        AddContextMenu(&sTMCaseDynamicResources->contextMenuWindowId, WIN_USE_GIVE_EXIT);
-        sTMCaseDynamicResources->menuActionIndices = sMenuActionIndices_Field;
-        sTMCaseDynamicResources->numMenuActions = ARRAY_COUNT(sMenuActionIndices_Field);
-    }
-    else
-    {
-        // In Union Room, "Use" is removed from the context menu
-        AddContextMenu(&sTMCaseDynamicResources->contextMenuWindowId, WIN_GIVE_EXIT);
-        sTMCaseDynamicResources->menuActionIndices = sMenuActionIndices_UnionRoom;
-        sTMCaseDynamicResources->numMenuActions = ARRAY_COUNT(sMenuActionIndices_UnionRoom);
-    }
+
+    // Regular TM/HM context menu
+    AddContextMenu(&sTMCaseDynamicResources->contextMenuWindowId, WIN_USE_GIVE_EXIT);
+    sTMCaseDynamicResources->menuActionIndices = sMenuActionIndices_Field;
+    sTMCaseDynamicResources->numMenuActions = ARRAY_COUNT(sMenuActionIndices_Field);
 
     // Print context window actions
     AddItemMenuActionTextPrinters(sTMCaseDynamicResources->contextMenuWindowId,

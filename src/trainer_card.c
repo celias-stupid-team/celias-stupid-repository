@@ -568,15 +568,8 @@ static void Task_TrainerCard(u8 taskId)
         }
         else if (JOY_NEW(B_BUTTON))
         {
-            if (gReceivedRemoteLinkPlayers && sTrainerCardDataPtr->isLink && InUnionRoom() == TRUE)
-            {
-                sTrainerCardDataPtr->mainState = STATE_WAIT_LINK_PARTNER;
-            }
-            else
-            {
-                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-                sTrainerCardDataPtr->mainState = STATE_CLOSE_CARD;
-            }
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+            sTrainerCardDataPtr->mainState = STATE_CLOSE_CARD;
         }
         break;
     case STATE_WAIT_FLIP_TO_BACK:
@@ -589,11 +582,7 @@ static void Task_TrainerCard(u8 taskId)
     case STATE_HANDLE_INPUT_BACK:
         if (JOY_NEW(B_BUTTON))
         {
-            if (gReceivedRemoteLinkPlayers && sTrainerCardDataPtr->isLink && InUnionRoom() == TRUE)
-            {
-                sTrainerCardDataPtr->mainState = STATE_WAIT_LINK_PARTNER;
-            }
-            else if (gReceivedRemoteLinkPlayers)
+            if (gReceivedRemoteLinkPlayers)
             {
                 BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
                 sTrainerCardDataPtr->mainState = STATE_CLOSE_CARD;
@@ -608,15 +597,8 @@ static void Task_TrainerCard(u8 taskId)
         }
         else if (JOY_NEW(A_BUTTON))
         {
-           if (gReceivedRemoteLinkPlayers && sTrainerCardDataPtr->isLink && InUnionRoom() == TRUE)
-           {
-               sTrainerCardDataPtr->mainState = STATE_WAIT_LINK_PARTNER;
-           }
-           else
-           {
-               BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-               sTrainerCardDataPtr->mainState = STATE_CLOSE_CARD;
-           }
+           BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+           sTrainerCardDataPtr->mainState = STATE_CLOSE_CARD;
         }
         break;
     case STATE_WAIT_LINK_PARTNER:
@@ -1914,11 +1896,7 @@ void ShowPlayerTrainerCard(void (*callback)(void))
 {
     sTrainerCardDataPtr = AllocZeroed(sizeof(*sTrainerCardDataPtr));
     sTrainerCardDataPtr->callback2 = callback;
-    if (InUnionRoom() == TRUE)
-        sTrainerCardDataPtr->isLink = TRUE;
-    else
-        sTrainerCardDataPtr->isLink = FALSE;
-
+    sTrainerCardDataPtr->isLink = FALSE;
     sTrainerCardDataPtr->language = GAME_LANGUAGE;
     TrainerCard_GenerateCardForLinkPlayer(&sTrainerCardDataPtr->trainerCard);
     SetMainCallback2(CB2_InitTrainerCard);
@@ -1974,48 +1952,16 @@ static void CreateTrainerCardTrainerPic(void)
 {
     u8 facilityClass = sTrainerPicFacilityClasses[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender];
 
-    if (InUnionRoom() == TRUE && gReceivedRemoteLinkPlayers == 1)
+    if (sTrainerCardDataPtr->cardType != CARD_TYPE_FRLG)
     {
-        facilityClass = sTrainerCardDataPtr->trainerCard.facilityClass;
         CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(facilityClass), TRUE, sTrainerPicOffsets[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender][0],
-                    sTrainerPicOffsets[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender][1], 8, 2);
+                sTrainerPicOffsets[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender][1], 8, 2);
     }
     else
     {
-        if (sTrainerCardDataPtr->cardType != CARD_TYPE_FRLG)
-        {
-            CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(facilityClass), TRUE, sTrainerPicOffsets[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender][0],
-                    sTrainerPicOffsets[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender][1], 8, 2);
-        }
-        else
-        {
-            CreateTrainerCardTrainerPicSprite(PlayerGenderToFrontTrainerPicId(sTrainerCardDataPtr->trainerCard.rse.gender, TRUE), TRUE,
-                    sTrainerPicOffsets[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender][0],
-                    sTrainerPicOffsets[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender][1],
-                    8, 2);
-        }
+        CreateTrainerCardTrainerPicSprite(PlayerGenderToFrontTrainerPicId(sTrainerCardDataPtr->trainerCard.rse.gender, TRUE), TRUE,
+                sTrainerPicOffsets[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender][0],
+                sTrainerPicOffsets[sTrainerCardDataPtr->cardType][sTrainerCardDataPtr->trainerCard.rse.gender][1],
+                8, 2);
     }
-}
-
-// Unused
-static void Unref_InitTrainerCard(void (*callback)(void))
-{
-    ShowPlayerTrainerCard(callback);
-    SetMainCallback2(CB2_InitTrainerCard);
-}
-
-// Unused
-static void Unref_InitTrainerCardLink(void (*callback)(void))
-{
-    memcpy(gTrainerCards, &sLinkPlayerTrainerCardTemplate1, sizeof(sLinkPlayerTrainerCardTemplate1));
-    ShowTrainerCardInLink(CARD_TYPE_FRLG, callback);
-    SetMainCallback2(CB2_InitTrainerCard);
-}
-
-// Unused
-static void Unref_InitTrainerCardLink2(void (*callback)(void))
-{
-    memcpy(gTrainerCards, &sLinkPlayerTrainerCardTemplate2, sizeof(sLinkPlayerTrainerCardTemplate2));
-    ShowTrainerCardInLink(CARD_TYPE_FRLG, callback);
-    SetMainCallback2(CB2_InitTrainerCard);
 }

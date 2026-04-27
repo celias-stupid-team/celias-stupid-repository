@@ -78,7 +78,6 @@ static bool8 sSaveDialogIsPrinting;
 
 static void BuildDebugStartMenu(void);
 static void SetUpStartMenu_Link(void);
-static void SetUpStartMenu_UnionRoom(void);
 static void SetUpStartMenu_SafariZone(void);
 static void SetUpStartMenu_NormalField(void);
 static bool8 StartCB_HandleInput(void);
@@ -210,10 +209,6 @@ static void SetUpStartMenu(void)
     {
         SetUpStartMenu_Link();
     }
-    else if (InUnionRoom() == TRUE)
-    {
-        SetUpStartMenu_UnionRoom();
-    }
     else if (GetSafariZoneFlag() == TRUE)
     {
         SetUpStartMenu_SafariZone();
@@ -283,15 +278,6 @@ static void SetUpStartMenu_Link(void)
     AppendToStartMenuItems(STARTMENU_POKEMON);
     AppendToStartMenuItems(STARTMENU_BAG);
     AppendToStartMenuItems(STARTMENU_PLAYER2);
-    AppendToStartMenuItems(STARTMENU_OPTION);
-    AppendToStartMenuItems(STARTMENU_EXIT);
-}
-
-static void SetUpStartMenu_UnionRoom(void)
-{
-    AppendToStartMenuItems(STARTMENU_POKEMON);
-    AppendToStartMenuItems(STARTMENU_BAG);
-    AppendToStartMenuItems(STARTMENU_PLAYER);
     AppendToStartMenuItems(STARTMENU_OPTION);
     AppendToStartMenuItems(STARTMENU_EXIT);
 }
@@ -371,7 +357,7 @@ static s8 DoDrawStartMenu(void)
         break;
     case 5:
         sStartMenuCursorPos = Menu_InitCursor(GetStartMenuWindowId(), FONT_NORMAL, 0, 0, 15, sNumStartMenuItems, sStartMenuCursorPos);
-        if (!MenuHelpers_IsLinkActive() && InUnionRoom() != TRUE && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_HELP)
+        if (!MenuHelpers_IsLinkActive() && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_HELP)
         {
             DrawHelpMessageWindowWithText(sStartMenuDescPointers[sStartMenuOrder[sStartMenuCursorPos]]);
         }
@@ -433,8 +419,6 @@ void Task_StartMenuHandleInput(u8 taskId)
     switch (data[0])
     {
     case 0:
-        if (InUnionRoom() == TRUE)
-            SetUsingUnionRoomStartMenu();
         sStartMenuCallback = StartCB_HandleInput;
         data[0]++;
         break;
@@ -463,7 +447,7 @@ static bool8 StartCB_HandleInput(void)
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(-1);
-        if (!MenuHelpers_IsLinkActive() && InUnionRoom() != TRUE && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_HELP)
+        if (!MenuHelpers_IsLinkActive() && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_HELP)
         {
             PrintTextOnHelpMessageWindow(sStartMenuDescPointers[sStartMenuOrder[sStartMenuCursorPos]], 2);
         }
@@ -472,7 +456,7 @@ static bool8 StartCB_HandleInput(void)
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(+1);
-        if (!MenuHelpers_IsLinkActive() && InUnionRoom() != TRUE && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_HELP)
+        if (!MenuHelpers_IsLinkActive() && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_HELP)
         {
             PrintTextOnHelpMessageWindow(sStartMenuDescPointers[sStartMenuOrder[sStartMenuCursorPos]], 2);
         }
@@ -1010,10 +994,7 @@ static void task50_after_link_battle_save(u8 taskId)
             PutWindowTilemap(0);
             CopyWindowToVram(0, COPYWIN_FULL);
             BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
-            if (gWirelessCommType != 0 && InUnionRoom())
-                data[0] = 5;
-            else
-                data[0] = 1;
+            data[0] = 1;
             break;
         case 1:
             SetContinueGameWarpStatusToDynamicWarp();

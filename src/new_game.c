@@ -21,7 +21,6 @@
 #include "player_pc.h"
 #include "berry.h"
 #include "easy_chat.h"
-#include "union_room_chat.h"
 #include "renewable_hidden_items.h"
 #include "trainer_tower.h"
 #include "script.h"
@@ -154,7 +153,6 @@ void NewGameInitData(void)
     ClearEnigmaBerries();
     InitEasyChatPhrases();
     ResetTrainerFanClub();
-    UnionRoomChat_InitializeRegisteredTexts();
     CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
     InitQuestionnaireWords();
     SetAllRenewableItemFlags();

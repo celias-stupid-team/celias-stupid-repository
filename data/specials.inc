@@ -372,10 +372,6 @@ gSpecials::
 	def_special StickerManGetBragFlags
 	def_special SetUsedPkmnCenterQuestLogEvent
 	def_special IsWirelessAdapterConnected
-	def_special TryBecomeLinkLeader
-	def_special TryJoinLinkGroup
-	def_special RunUnionRoom
-	def_special ShowWirelessCommunicationScreen
 	def_special EnableNationalPokedex
 	def_special SetWalkingIntoSignVars
 	def_special DisableMsgBoxWalkaway
@@ -393,8 +389,6 @@ gSpecials::
 	def_special BackupHelpContext
 	def_special RestoreHelpContext
 	def_special SetUnlockedPokedexFlags
-	def_special InitUnionRoom
-	def_special BufferUnionRoomPlayerName
 	def_special QuestLog_StartRecordingInputsAfterDeferredEvent
 	def_special GetMartClerkObjectId
 	def_special GetQuestLogState
@@ -426,7 +420,6 @@ gSpecials::
 	def_special HasAllMons
 	def_special IsPlayerNotInTrainerTowerLobby
 	def_special BrailleCursorToggle
-	def_special Script_ResetUnionRoomTrade
 	def_special PlayerPartyContainsSpeciesWithPlayerID
 	def_special AnimateTeleporterHousing
 	def_special AnimateTeleporterCable

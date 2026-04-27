@@ -1050,9 +1050,6 @@ enum
     CURSOR_OPTION_ENTER,
     CURSOR_OPTION_NO_ENTRY,
     CURSOR_OPTION_STORE,
-    CURSOR_OPTION_REGISTER,
-    CURSOR_OPTION_TRADE1,
-    CURSOR_OPTION_TRADE2,
     CURSOR_OPTION_FIELD_MOVES,
 };
 
@@ -1077,9 +1074,6 @@ static struct
     [CURSOR_OPTION_ENTER]                                = {gText_Enter,                  CursorCB_Enter    },
     [CURSOR_OPTION_NO_ENTRY]                             = {gText_NoEntry,                CursorCB_NoEntry  },
     [CURSOR_OPTION_STORE]                                = {gText_Store,                  CursorCB_Store    },
-    [CURSOR_OPTION_REGISTER]                             = {gText_Register,               CursorCB_Register },
-    [CURSOR_OPTION_TRADE1]                               = {gText_Trade4,                 CursorCB_Trade1   },
-    [CURSOR_OPTION_TRADE2]                               = {gText_Trade4,                 CursorCB_Trade2   },
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_FLASH]       = {gMoveNames[MOVE_TAIL_GLOW],       CursorCB_FieldMove},
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_CUT]         = {gMoveNames[MOVE_CUT],         CursorCB_FieldMove},
     [CURSOR_OPTION_FIELD_MOVES + FIELD_MOVE_FLY]         = {gMoveNames[MOVE_FLY],         CursorCB_FieldMove},
@@ -1105,9 +1099,6 @@ static const u8 sPartyMenuAction_NoEntrySummaryCancel[]  = {CURSOR_OPTION_NO_ENT
 static const u8 sPartyMenuAction_StoreSummaryCancel[]    = {CURSOR_OPTION_STORE,    CURSOR_OPTION_SUMMARY,   CURSOR_OPTION_CANCEL1};
 static const u8 sPartyMenuAction_GiveTakeItemCancel[]    = {CURSOR_OPTION_GIVE,     CURSOR_OPTION_TAKE_ITEM, CURSOR_OPTION_CANCEL2};
 static const u8 sPartyMenuAction_ReadTakeMailCancel[]    = {CURSOR_OPTION_READ,     CURSOR_OPTION_TAKE_MAIL, CURSOR_OPTION_CANCEL2};
-static const u8 sPartyMenuAction_RegisterSummaryCancel[] = {CURSOR_OPTION_REGISTER, CURSOR_OPTION_SUMMARY,   CURSOR_OPTION_CANCEL1};
-static const u8 sPartyMenuAction_TradeSummaryCancel1[]   = {CURSOR_OPTION_TRADE1,   CURSOR_OPTION_SUMMARY,   CURSOR_OPTION_CANCEL1};
-static const u8 sPartyMenuAction_TradeSummaryCancel2[]   = {CURSOR_OPTION_TRADE2,   CURSOR_OPTION_SUMMARY,   CURSOR_OPTION_CANCEL1};
 
 // IDs for the action lists that appear when a party mon is selected
 enum
@@ -1122,9 +1113,6 @@ enum
     ACTIONS_SUMMARY_ONLY,
     ACTIONS_ITEM,
     ACTIONS_MAIL,
-    ACTIONS_REGISTER,
-    ACTIONS_TRADE,
-    ACTIONS_SPIN_TRADE,
 };
 
 static const u8 *const sPartyMenuActions[] =
@@ -1139,9 +1127,6 @@ static const u8 *const sPartyMenuActions[] =
     [ACTIONS_SUMMARY_ONLY]  = sPartyMenuAction_SummaryCancel,
     [ACTIONS_ITEM]          = sPartyMenuAction_GiveTakeItemCancel,
     [ACTIONS_MAIL]          = sPartyMenuAction_ReadTakeMailCancel,
-    [ACTIONS_REGISTER]      = sPartyMenuAction_RegisterSummaryCancel,
-    [ACTIONS_TRADE]         = sPartyMenuAction_TradeSummaryCancel1,
-    [ACTIONS_SPIN_TRADE]    = sPartyMenuAction_TradeSummaryCancel2,
 };
 
 static const u8 sPartyMenuActionCounts[] =
@@ -1156,9 +1141,6 @@ static const u8 sPartyMenuActionCounts[] =
     [ACTIONS_SUMMARY_ONLY]  = NELEMS(sPartyMenuAction_SummaryCancel),
     [ACTIONS_ITEM]          = NELEMS(sPartyMenuAction_GiveTakeItemCancel),
     [ACTIONS_MAIL]          = NELEMS(sPartyMenuAction_ReadTakeMailCancel),
-    [ACTIONS_REGISTER]      = NELEMS(sPartyMenuAction_RegisterSummaryCancel),
-    [ACTIONS_TRADE]         = NELEMS(sPartyMenuAction_TradeSummaryCancel1),
-    [ACTIONS_SPIN_TRADE]    = NELEMS(sPartyMenuAction_TradeSummaryCancel2),
 };
 
 static const u16 sFieldMoves[] =
@@ -1201,19 +1183,6 @@ static struct
     [FIELD_MOVE_SWEET_SCENT]  = {SetUpFieldMove_SweetScent,  PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_RETREAT]      = {SetUpFieldMove_Retreat,     PARTY_MSG_CANT_USE_HERE},
     [FIELD_MOVE_GUILLOTINE]   = {SetUpFieldMove_Guillotine,  PARTY_MSG_NOTHING_TO_CUT},
-};
-
-static const u8 *const sUnionRoomTradeMessages[] =
-{
-    [UR_TRADE_MSG_NOT_MON_PARTNER_WANTS - 1]       = gText_NotPkmnOtherTrainerWants,
-    [UR_TRADE_MSG_NOT_EGG - 1]                     = gText_ThatIsntAnEgg,
-    [UR_TRADE_MSG_MON_CANT_BE_TRADED_1 - 1]        = gText_PkmnCantBeTradedNow,
-    [UR_TRADE_MSG_MON_CANT_BE_TRADED_2 - 1]        = gText_PkmnCantBeTradedNow,
-    [UR_TRADE_MSG_PARTNERS_MON_CANT_BE_TRADED - 1] = gText_OtherTrainersPkmnCantBeTraded,
-    [UR_TRADE_MSG_EGG_CANT_BE_TRADED -1]           = gText_EggCantBeTradedNow,
-    [UR_TRADE_MSG_PARTNER_CANT_ACCEPT_MON - 1]     = gText_OtherTrainerCantAcceptPkmn,
-    [UR_TRADE_MSG_CANT_TRADE_WITH_PARTNER_1 - 1]   = gText_CantTradeWithTrainer,
-    [UR_TRADE_MSG_CANT_TRADE_WITH_PARTNER_2 - 1]   = gText_CantTradeWithTrainer,
 };
 
 static const u16 sTMHMMoves[] =

@@ -20,7 +20,6 @@
 #include "task.h"
 #include "trade.h"
 #include "trainer_card.h"
-#include "union_room.h"
 #include "constants/songs.h"
 #include "constants/cable_club.h"
 #include "constants/field_weather.h"
@@ -674,95 +673,7 @@ static void Task_StartWiredCableClubBattle(u8 taskId)
     }
 }
 
-static void Task_StartWirelessCableClubBattle(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-    int i;
-
-    switch (tState)
-    {
-    case 0:
-        FadeScreen(FADE_TO_BLACK, 0);
-        gLinkType = LINKTYPE_BATTLE;
-        ClearLinkCallback_2();
-        tState = 1;
-        break;
-    case 1:
-        if (!gPaletteFade.active)
-            tState = 2;
-        break;
-    case 2:
-        SendBlock(0, &gLocalLinkPlayer, sizeof(gLocalLinkPlayer));
-        tState = 3;
-        break;
-    case 3:
-        if (GetBlockReceivedStatus() == GetLinkPlayerCountAsBitFlags())
-        {
-            for (i = 0; i < GetLinkPlayerCount(); i++)
-            {
-                gLinkPlayers[i] = *(struct LinkPlayer *)gBlockRecvBuffer[i];
-                ConvertLinkPlayerName(&gLinkPlayers[i]);
-                ResetBlockReceivedFlag(i);
-            }
-            tState = 4;
-        }
-        break;
-    case 4:
-        if (++tTimer > 20)
-            tState = 5;
-        break;
-    case 5:
-        SetLinkStandbyCallback();
-        tState = 6;
-        break;
-    case 6:
-        if (IsLinkTaskFinished())
-            tState = 7;
-        break;
-    case 7:
-        if (gLinkPlayers[0].trainerId & 1)
-            PlayMapChosenOrBattleBGM(MUS_RS_VS_GYM_LEADER);
-        else
-            PlayMapChosenOrBattleBGM(MUS_RS_VS_TRAINER);
-        gLinkPlayers[0].linkType = LINKTYPE_BATTLE;
-        switch (gSpecialVar_0x8004)
-        {
-        case USING_SINGLE_BATTLE:
-            gBattleTypeFlags = BATTLE_TYPE_TRAINER | BATTLE_TYPE_LINK;
-            break;
-        case USING_DOUBLE_BATTLE:
-            gBattleTypeFlags = BATTLE_TYPE_TRAINER | BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE;
-            break;
-        case USING_MULTI_BATTLE:
-            ReducePlayerPartyToThree();
-            gBattleTypeFlags = BATTLE_TYPE_TRAINER | BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI;
-            break;
-        }
-        CleanupOverworldWindowsAndTilemaps();
-        gTrainerBattleOpponent_A = TRAINER_LINK_OPPONENT;
-        SetMainCallback2(CB2_InitBattle);
-        gMain.savedCallback = CB2_ReturnFromCableClubBattle;
-        DestroyTask(taskId);
-        break;
-    }
-}
-
 #undef tTimer
-
-static void CB2_ReturnFromUnionRoomBattle(void)
-{
-    switch (gMain.state)
-    {
-    case 0:
-        SetCloseLinkCallback();
-        gMain.state++;
-        break;
-    case 1:
-        if (IsLinkTaskFinished())
-            SetMainCallback2(CB2_ReturnToField);
-        break;
-    }
-}
 
 void CB2_ReturnFromCableClubBattle(void)
 {
@@ -777,11 +688,7 @@ void CB2_ReturnFromCableClubBattle(void)
         UpdatePlayerLinkBattleRecords(gLocalLinkPlayerId ^ 1);
     }
 
-    if (InUnionRoom() == TRUE)
-        gMain.savedCallback = CB2_ReturnFromUnionRoomBattle;
-    else
-        gMain.savedCallback = CB2_ReturnToFieldFromMultiplayer;
-
+    gMain.savedCallback = CB2_ReturnToFieldFromMultiplayer;
     SetMainCallback2(CB2_SetUpSaveAfterLinkBattle);
 }
 
@@ -886,44 +793,9 @@ static void Task_StartWiredTrade(u8 taskId)
     }
 }
 
-static void Task_StartWirelessTrade(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-    switch (tState)
-    {
-    case 0:
-        LockPlayerFieldControls();
-        FadeScreen(FADE_TO_BLACK, 0);
-        ClearLinkRfuCallback();
-        tState++;
-        break;
-    case 1:
-        if (!gPaletteFade.active)
-            tState++;
-        break;
-    case 2:
-        gSelectedTradeMonPositions[TRADE_PLAYER] = 0;
-        gSelectedTradeMonPositions[TRADE_PARTNER] = 0;
-        m4aMPlayAllStop();
-        SetLinkStandbyCallback();
-        tState++;
-        break;
-    case 3:
-        if (IsLinkTaskFinished())
-        {
-            CreateTask_CreateTradeMenu();
-            DestroyTask(taskId);
-        }
-        break;
-    }
-}
-
 void EnterTradeSeat(void)
 {
-    if (gWirelessCommType)
-        CreateTask_EnterCableClubSeat(Task_StartWirelessTrade);
-    else
-        CreateTask_EnterCableClubSeat(Task_StartWiredTrade);
+    CreateTask_EnterCableClubSeat(Task_StartWiredTrade);
 }
 
 static void CreateTask_StartWiredTrade(void)
@@ -940,17 +812,7 @@ void StartWiredCableClubTrade(void)
 void EnterColosseumPlayerSpot(void)
 {
     gLinkType = LINKTYPE_BATTLE;
-    if (gWirelessCommType)
-        CreateTask_EnterCableClubSeat(Task_StartWirelessCableClubBattle);
-    else
-        CreateTask_EnterCableClubSeat(Task_StartWiredCableClubBattle);
-}
-
-// Unused
-static void CreateTask_EnterCableClubSeatNoFollowup(void)
-{
-    CreateTask(Task_EnterCableClubSeat, 80);
-    ScriptContext_Stop();
+    CreateTask_EnterCableClubSeat(Task_StartWiredCableClubBattle);
 }
 
 void Script_ShowLinkTrainerCard(void)

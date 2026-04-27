@@ -2624,15 +2624,8 @@ static void CB2_SaveAndEndTrade(void)
         DrawTextOnTradeWindow(0, gStringVar4, 0);
         break;
     case 50:
-        if (InUnionRoom())
-        {
-            SetQuestLogEvent(QL_EVENT_LINK_TRADED_UNION, (void *)&sTradeAnim->questLogData);
-        }
-        else
-        {
-            SetQuestLogEvent(QL_EVENT_LINK_TRADED, (void *)&sTradeAnim->questLogData);
-            IncrementGameStat(GAME_STAT_POKEMON_TRADES);
-        }
+        SetQuestLogEvent(QL_EVENT_LINK_TRADED, (void *)&sTradeAnim->questLogData);
+        IncrementGameStat(GAME_STAT_POKEMON_TRADES);
         SetContinueGameWarpStatusToDynamicWarp();
         LinkFullSave_Init();
         gMain.state++;

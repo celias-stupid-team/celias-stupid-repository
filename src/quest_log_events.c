@@ -62,10 +62,6 @@ static u16 *RecordEvent_LinkTraded(u16 *, const struct QuestLogEvent_Traded *);
 static u16 *RecordEvent_LinkBattledSingle(u16 *, const struct QuestLogEvent_LinkBattle *);
 static u16 *RecordEvent_LinkBattledDouble(u16 *, const struct QuestLogEvent_LinkBattle *);
 static u16 *RecordEvent_LinkBattledMulti(u16 *, const struct QuestLogEvent_LinkBattle *);
-static u16 *RecordEvent_UsedUnionRoom(u16 *, const u16 *);
-static u16 *RecordEvent_UsedUnionRoomChat(u16 *, const u16 *);
-static u16 *RecordEvent_LinkTradedUnionRoom(u16 *, const struct QuestLogEvent_Traded *);
-static u16 *RecordEvent_LinkBattledUnionRoom(u16 *, const struct QuestLogEvent_LinkBattle *);
 static u16 *RecordEvent_SwitchedMonsBetweenBoxes(u16 *, const struct QuestLogEvent_MovedBoxMon *);
 static u16 *RecordEvent_SwitchedMonsWithinBox(u16 *, const u16 *);
 static u16 *RecordEvent_SwitchedPartyMonForPCMon(u16 *, const u16 *);
@@ -100,10 +96,6 @@ static const u16 *LoadEvent_LinkTraded(const u16 *);
 static const u16 *LoadEvent_LinkBattledSingle(const u16 *);
 static const u16 *LoadEvent_LinkBattledDouble(const u16 *);
 static const u16 *LoadEvent_LinkBattledMulti(const u16 *);
-static const u16 *LoadEvent_UsedUnionRoom(const u16 *);
-static const u16 *LoadEvent_UsedUnionRoomChat(const u16 *);
-static const u16 *LoadEvent_LinkTradedUnionRoom(const u16 *);
-static const u16 *LoadEvent_LinkBattledUnionRoom(const u16 *);
 static const u16 *LoadEvent_SwitchedMonsBetweenBoxes(const u16 *);
 static const u16 *LoadEvent_SwitchedMonsWithinBox(const u16 *);
 static const u16 *LoadEvent_SwitchedPartyMonForPCMon(const u16 *);
@@ -149,10 +141,6 @@ static const RecordEventFunc sRecordEventFuncs[] = {
     [QL_EVENT_LINK_BATTLED_SINGLE]           = (RecordEventFunc) RecordEvent_LinkBattledSingle,
     [QL_EVENT_LINK_BATTLED_DOUBLE]           = (RecordEventFunc) RecordEvent_LinkBattledDouble,
     [QL_EVENT_LINK_BATTLED_MULTI]            = (RecordEventFunc) RecordEvent_LinkBattledMulti,
-    [QL_EVENT_USED_UNION_ROOM]               = (RecordEventFunc) RecordEvent_UsedUnionRoom,
-    [QL_EVENT_USED_UNION_ROOM_CHAT]          = (RecordEventFunc) RecordEvent_UsedUnionRoomChat,
-    [QL_EVENT_LINK_TRADED_UNION]             = (RecordEventFunc) RecordEvent_LinkTradedUnionRoom,
-    [QL_EVENT_LINK_BATTLED_UNION]            = (RecordEventFunc) RecordEvent_LinkBattledUnionRoom,
     [QL_EVENT_SWITCHED_MONS_BETWEEN_BOXES]   = (RecordEventFunc) RecordEvent_SwitchedMonsBetweenBoxes,
     [QL_EVENT_SWITCHED_MONS_WITHIN_BOX]      = (RecordEventFunc) RecordEvent_SwitchedMonsWithinBox,
     [QL_EVENT_SWITCHED_PARTY_MON_FOR_PC_MON] = (RecordEventFunc) RecordEvent_SwitchedPartyMonForPCMon,
@@ -195,10 +183,6 @@ static const u16 *(*const sLoadEventFuncs[])(const u16 *) = {
     [QL_EVENT_LINK_BATTLED_SINGLE]           = LoadEvent_LinkBattledSingle,
     [QL_EVENT_LINK_BATTLED_DOUBLE]           = LoadEvent_LinkBattledDouble,
     [QL_EVENT_LINK_BATTLED_MULTI]            = LoadEvent_LinkBattledMulti,
-    [QL_EVENT_USED_UNION_ROOM]               = LoadEvent_UsedUnionRoom,
-    [QL_EVENT_USED_UNION_ROOM_CHAT]          = LoadEvent_UsedUnionRoomChat,
-    [QL_EVENT_LINK_TRADED_UNION]             = LoadEvent_LinkTradedUnionRoom,
-    [QL_EVENT_LINK_BATTLED_UNION]            = LoadEvent_LinkBattledUnionRoom,
     [QL_EVENT_SWITCHED_MONS_BETWEEN_BOXES]   = LoadEvent_SwitchedMonsBetweenBoxes,
     [QL_EVENT_SWITCHED_MONS_WITHIN_BOX]      = LoadEvent_SwitchedMonsWithinBox,
     [QL_EVENT_SWITCHED_PARTY_MON_FOR_PC_MON] = LoadEvent_SwitchedPartyMonForPCMon,
@@ -485,7 +469,7 @@ void SetQuestLogEvent(u16 eventId, const u16 * data)
         return;
 
     // Link events handled above. If we're in an active link, don't record any other events.
-    if (MenuHelpers_IsLinkActive() == TRUE || InUnionRoom() == TRUE)
+    if (MenuHelpers_IsLinkActive() == TRUE)
         return;
 
     if (TryDeferTrainerBattleEvent(eventId, data) == TRUE)
@@ -1386,78 +1370,6 @@ static const u16 *LoadEvent_LinkBattledMulti(const u16 *eventData)
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, sBattleOutcomeTexts[rOutcome]);
     DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_MultiBattleWithPeopleResultedInOutcome);
     return (const u16 *)(record + 1 + PLAYER_NAME_LENGTH * 3);
-}
-
-// data argument will be a null pointer, no information needed for this event
-static u16 *RecordEvent_UsedUnionRoom(u16 *dest, const u16 * data)
-{
-    dest[0] = QL_EVENT_USED_UNION_ROOM;
-    dest[1] = gQuestLogCurActionIdx;
-    return dest + 2;
-}
-
-static const u16 *LoadEvent_UsedUnionRoom(const u16 *eventData)
-{
-    StringExpandPlaceholders(gStringVar4, gText_QuestLog_MingledInUnionRoom);
-    return eventData + 2;
-}
-
-// data argument will be a null pointer, no information needed for this event
-static u16 *RecordEvent_UsedUnionRoomChat(u16 *dest, const u16 * data)
-{
-    dest[0] = QL_EVENT_USED_UNION_ROOM_CHAT;
-    dest[1] = gQuestLogCurActionIdx;
-    return dest + 2;
-}
-
-static const u16 *LoadEvent_UsedUnionRoomChat(const u16 *eventData)
-{
-    StringExpandPlaceholders(gStringVar4, gText_QuestLog_ChattedWithManyTrainers);
-    return eventData + 2;
-}
-
-static u16 *RecordEvent_LinkTradedUnionRoom(u16 *dest, const struct QuestLogEvent_Traded * data)
-{
-    u8 *name = (u8 *)(dest + 4);
-    dest[0] = QL_EVENT_LINK_TRADED_UNION;
-    dest[1] = gQuestLogCurActionIdx;
-    dest[2] = data->speciesSent;
-    dest[3] = data->speciesReceived;
-    memcpy(name, &data->partnerName, PLAYER_NAME_LENGTH);
-    return (u16 *)(name + 8);
-}
-
-static const u16 *LoadEvent_LinkTradedUnionRoom(const u16 *a0)
-{
-    const u8 *r6 = (const u8 *)(a0 + 4);
-    memset(gStringVar1, EOS, PLAYER_NAME_LENGTH + 1);
-    memcpy(gStringVar1, r6, PLAYER_NAME_LENGTH);
-    TranslateLinkPartnersName(gStringVar1);
-    QuestLog_GetSpeciesName(a0[3], gStringVar2, 0);
-    QuestLog_GetSpeciesName(a0[2], gStringVar3, 0);
-    StringExpandPlaceholders(gStringVar4, gText_QuestLog_TradedMon1ForTrainersMon2);
-    return (const u16 *)(r6 + 8);
-}
-
-static u16 *RecordEvent_LinkBattledUnionRoom(u16 *dest, const struct QuestLogEvent_LinkBattle * data)
-{
-    dest[0] = QL_EVENT_LINK_BATTLED_UNION;
-    dest[1] = gQuestLogCurActionIdx;
-    *(u8 *)&dest[2] = data->outcome;
-    memcpy((u8 *)dest + 5, &data->playerNames[0], PLAYER_NAME_LENGTH);
-    return dest + 6;
-}
-
-static const u16 *LoadEvent_LinkBattledUnionRoom(const u16 *eventData)
-{
-    const u8 * record = (const u8 *)(eventData + 2);
-
-    memset(gStringVar1, EOS, PLAYER_NAME_LENGTH + 1);
-    memcpy(gStringVar1, &rBattler1Name, PLAYER_NAME_LENGTH);
-    TranslateLinkPartnersName(gStringVar1);
-    StringCopy(gStringVar2, sBattleOutcomeTexts[rOutcome]);
-    StringExpandPlaceholders(gStringVar4, gText_QuestLog_BattledTrainerEndedInOutcome);
-    return (const u16 *)(record + 1 + PLAYER_NAME_LENGTH);
 }
 
 #undef rOutcome

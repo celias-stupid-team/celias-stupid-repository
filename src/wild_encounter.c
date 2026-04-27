@@ -652,9 +652,6 @@ bool8 UpdateRepelCounter(void)
 {
     u16 steps;
 
-    if (InUnionRoom() == TRUE)
-        return FALSE;
-
     if (gQuestLogState == QL_STATE_PLAYBACK)
         return FALSE;
 

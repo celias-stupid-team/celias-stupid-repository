@@ -253,15 +253,9 @@ SECTIONS {
         src/help_message.o(.text);
         src/trainer_fan_club.o(.text);
         src/quest_log_events.o(.text);
-        src/union_room.o(.text);
-        src/union_room_player_avatar.o(.text);
-        src/union_room_battle.o(.text);
         src/pokemon_special_anim.o(.text);
         src/pokemon_special_anim_scene.o(.text);
         src/party_menu.o(.text);
-        src/union_room_chat.o(.text);
-        src/union_room_chat_display.o(.text);
-        src/union_room_chat_objects.o(.text);
         src/help_system.o(.text);
         src/quest_log_battle.o(.text);
         src/fame_checker.o(.text);
@@ -279,7 +273,6 @@ SECTIONS {
         src/buy_menu_helpers.o(.text);
         src/slot_machine.o(.text);
         src/roamer.o(.text);
-        src/wireless_communication_status_screen.o(.text);
         src/braille_text.o(.text);
         src/text_window.o(.text);
         src/quest_log_player.o(.text);
@@ -530,16 +523,9 @@ SECTIONS {
         src/help_message.o(.rodata);
         src/trainer_fan_club.o(.rodata);
         src/quest_log_events.o(.rodata);
-        src/union_room.o(.rodata);
-        src/union_room_player_avatar.o(.rodata);
-        src/union_room_battle.o(.rodata);
-        src/union_room_message.o(.rodata);
         src/pokemon_special_anim.o(.rodata);
         src/pokemon_special_anim_scene.o(.rodata);
         src/party_menu.o(.rodata);
-        src/union_room_chat.o(.rodata);
-        src/union_room_chat_display.o(.rodata);
-        src/union_room_chat_objects.o(.rodata);
         src/help_system.o(.rodata);
         src/fame_checker.o(.rodata);
         src/menu2.o(.rodata);
@@ -556,7 +542,6 @@ SECTIONS {
         src/buy_menu_helpers.o(.rodata);
         src/slot_machine.o(.rodata);
         src/roamer.o(.rodata);
-        src/wireless_communication_status_screen.o(.rodata);
         src/braille_text.o(.rodata);
         src/text_window_graphics.o(.rodata);
         src/quest_log_player.o(.rodata);

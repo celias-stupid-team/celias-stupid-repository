@@ -97,7 +97,6 @@ void TrySetQuestLogLinkBattleEvent(void)
     s32 opponentIdxs[2];
     u16 eventId;
     s32 i;
-    bool32 inUnionRoom;
 
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
     {
@@ -119,13 +118,7 @@ void TrySetQuestLogLinkBattleEvent(void)
             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
                 eventId = QL_EVENT_LINK_BATTLED_DOUBLE;
             else
-            {
-                inUnionRoom = InUnionRoom();
                 eventId = QL_EVENT_LINK_BATTLED_SINGLE;
-                
-                if (inUnionRoom == TRUE)
-                    eventId = QL_EVENT_LINK_BATTLED_UNION;
-            }
 
             for (i = 0; i < PLAYER_NAME_LENGTH; i++)
                 data->playerNames[0][i] = gLinkPlayers[gBattleStruct->multiplayerId ^ 1].name[i];

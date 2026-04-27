@@ -64,7 +64,6 @@
 #include "text.h"
 #include "text_window.h"
 #include "trainer_card.h"
-#include "union_room.h"
 #include "window.h"
 
 /* CALLBACKS */

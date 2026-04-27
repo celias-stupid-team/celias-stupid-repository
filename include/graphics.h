@@ -12578,17 +12578,6 @@ extern const u32 gBagBg_ItemPC_Tilemap[];
 extern const u32 gBagBgPalette[];
 extern const u32 gBagBgPalette_FemaleOverride[];
 
-// union_room_chat_display
-extern const u16 gUnionRoomChat_Panel_Pal[];
-extern const u32 gUnionRoomChat_Panel_Gfx[];
-extern const u32 gUnionRoomChat_Panel_Tilemap[];
-extern const u16 gUnionRoomChat_Bg_Pal[];
-extern const u32 gUnionRoomChat_Bg_Gfx[];
-extern const u32 gUnionRoomChat_Bg_Tilemap[];
-
-// union_room_chat_objects
-extern const u32 gUnionRoomChat_Icons_Gfx[];
-
 // battle_bg
 extern const u32 gFile_graphics_battle_transitions_vs_frame_sheet[];
 extern const u32 gVsLettersGfx[];

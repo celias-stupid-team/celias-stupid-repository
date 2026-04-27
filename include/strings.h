@@ -1094,54 +1094,6 @@ extern const u8 gText_NoRoomToStoreItems[];
 extern const u8 gOtherText_On[];
 extern const u8 gOtherText_Off[];
 
-// union_room_battle
-extern const u8 gText_CommStandbyAwaitingOtherPlayer[];
-extern const u8 gText_RefusedBattle[];
-extern const u8 gText_BattleWasRefused[];
-
-// union_room_chat
-extern const u8 gText_F700JoinedChat[];
-extern const u8 gText_F700LeftChat[];
-extern const u8 gText_Hello[];
-extern const u8 gText_Pokemon2[];
-extern const u8 gText_Trade[];
-extern const u8 gText_Battle[];
-extern const u8 gText_Lets[];
-extern const u8 gText_Ok[];
-extern const u8 gText_Sorry[];
-extern const u8 gText_YaySmileEmoji[];
-extern const u8 gText_ThankYou[];
-extern const u8 gText_ByeBye[];
-
-// union_room_chat_display
-extern const u8 gText_QuitChatting[];
-extern const u8 gText_RegisterTextWhere[];
-extern const u8 gText_RegisterTextHere[];
-extern const u8 gText_InputText[];
-extern const u8 gText_ExitingTheChat[];
-extern const u8 gText_LeaderHasLeftEndingChat[];
-extern const u8 gText_RegisteredTextChanged_OKtoSave[];
-extern const u8 gText_RegisteredTextChanged_AlreadySavedFile[];
-extern const u8 gText_RegisteredTextChanged_SavingDontTurnOff[];
-extern const u8 gText_RegisteredTextChanged_SavedTheGame[];
-extern const u8 gText_IfLeaderLeavesChatWillEnd[];
-extern const u8 gText_Upper[];
-extern const u8 gText_Lower[];
-extern const u8 gText_Symbols[];
-extern const u8 gText_Register2[];
-extern const u8 gText_Exit[];
-
-// wireless_communication_status_screen
-extern const u8 gText_Dynamic0Players[];
-extern const u8 gText_Dynamic1Players[];
-extern const u8 gText_Dynamic2Players[];
-extern const u8 gText_Dynamic3Players[];
-extern const u8 gText_WirelessCommunicationStatus[];
-extern const u8 gText_PeopleTrading[];
-extern const u8 gText_PeopleBattling[];
-extern const u8 gText_PeopleInUnionRoom[];
-extern const u8 gText_PeopleCommunicating[];
-
 // cable_club
 extern const u8 gText_NumPlayerLink[];
 extern const u8 gText_BronzeCard[];
