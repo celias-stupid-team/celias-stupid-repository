@@ -152,11 +152,6 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
             SetBattlerShadowSpriteCallback(opponentBattler, species);
         }
         ActionSelectionCreateCursorAt(gActionSelectionCursor[gBattlerInMenuId], 0);
-        if (gWirelessCommType && gReceivedRemoteLinkPlayers)
-        {
-            LoadWirelessStatusIndicatorSpriteGfx();
-            CreateWirelessStatusIndicatorSprite(0, 0);
-        }
         // special handling for Koraidon phase
         if (gBattleStruct->switchInAfterItemUse)
             SetHealthboxSpriteInvisible(gHealthboxSpriteIds[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)]);

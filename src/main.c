@@ -1,7 +1,6 @@
 #include "global.h"
 #include "gflib.h"
 #include "link.h"
-#include "link_rfu.h"
 #include "load_save.h"
 #include "m4a.h"
 #include "random.h"
@@ -132,7 +131,6 @@ void AgbMain()
     InitIntrHandlers();
     m4aSoundInit();
     EnableVCountIntrAtLine150();
-    InitRFU();
     CheckForFlashMemory();
     InitMainCallbacks();
     if (IsInaccurateEmulator())
@@ -171,8 +169,6 @@ void AgbMain()
          && (gMain.heldKeysRaw & A_BUTTON)
          && (gMain.heldKeysRaw & B_START_SELECT) == B_START_SELECT)
         {
-            rfu_REQ_stopMode();
-            rfu_waitREQComplete();
             DoSoftReset();
         }
 
@@ -369,9 +365,7 @@ extern void ProcessDma3Requests(void);
 
 static void VBlankIntr(void)
 {
-    if (gWirelessCommType)
-        RfuVSync();
-    else if (!gLinkVSyncDisabled)
+    if (!gLinkVSyncDisabled)
         LinkVSync();
 
     if (gMain.vblankCounter1)
@@ -397,7 +391,6 @@ static void VBlankIntr(void)
 
     TryReceiveLinkBattleData();
     Random();
-    UpdateWirelessStatusIndicatorSprite();
 
     INTR_CHECK |= INTR_FLAG_VBLANK;
     gMain.intrCheck |= INTR_FLAG_VBLANK;

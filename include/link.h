@@ -293,7 +293,6 @@ bool32 IsLinkRecvQueueAtOverworldMax(void);
 void ResetSerial(void);
 void SetWirelessCommType1(void);
 void LoadWirelessStatusIndicatorSpriteGfx(void);
-void CreateWirelessStatusIndicatorSprite(u8, u8);
 void StartSendingKeysToLink(void);
 void ClearLinkCallback_2(void);
 void Rfu_SetLinkStandbyCallback(void);

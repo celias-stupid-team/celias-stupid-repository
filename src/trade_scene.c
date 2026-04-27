@@ -5,7 +5,6 @@
 #include "decompress.h"
 #include "trade.h"
 #include "link.h"
-#include "link_rfu.h"
 #include "graphics.h"
 #include "strings.h"
 #include "menu.h"
@@ -891,11 +890,6 @@ void CB2_LinkTrade(void)
     case 12:
         if (!gPaletteFade.active)
         {
-            if (gWirelessCommType != 0)
-            {
-                LoadWirelessStatusIndicatorSpriteGfx();
-                CreateWirelessStatusIndicatorSprite(0, 0);
-            }
             SetMainCallback2(CB2_UpdateLinkTrade);
         }
         break;
@@ -2705,23 +2699,12 @@ static void CB2_SaveAndEndTrade(void)
     case 8:
         if (IsBGMStopped() == TRUE)
         {
-            if (gWirelessCommType && gMain.savedCallback == CB2_StartCreateTradeMenu)
-                SetLinkStandbyCallback();
-            else
-                SetCloseLinkCallback();
+            SetCloseLinkCallback();
             gMain.state++;
         }
         break;
     case 9:
-        if (gWirelessCommType && gMain.savedCallback == CB2_StartCreateTradeMenu)
-        {
-            if (IsLinkRfuTaskFinished())
-            {
-                gSoftResetDisabled = FALSE;
-                SetMainCallback2(CB2_FreeTradeAnim);
-            }
-        }
-        else if (!gReceivedRemoteLinkPlayers)
+        if (!gReceivedRemoteLinkPlayers)
         {
             gSoftResetDisabled = FALSE;
             SetMainCallback2(CB2_FreeTradeAnim);
@@ -2747,8 +2730,6 @@ static void CB2_FreeTradeAnim(void)
         Free(GetBgTilemapBuffer(0));
         FreeMonSpritesGfx();
         FREE_AND_SET_NULL(sTradeAnim);
-        if (gWirelessCommType != 0)
-            DestroyWirelessStatusIndicatorSprite();
         SetMainCallback2(gMain.savedCallback);
     }
     RunTasks();

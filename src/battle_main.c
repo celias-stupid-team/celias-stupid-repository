@@ -19,7 +19,6 @@
 #include "help_system.h"
 #include "item.h"
 #include "link.h"
-#include "link_rfu.h"
 #include "load_save.h"
 #include "m4a.h"
 #include "party_menu.h"
@@ -857,8 +856,6 @@ static void CB2_HandleStartBattle(void)
             BattleInterfaceSetWindowPals();
             gBattleCommunication[MULTIUSE_STATE] = 1;
         }
-        if (gWirelessCommType)
-            LoadWirelessStatusIndicatorSpriteGfx();
         break;
     case 1:
         if (gBattleTypeFlags & BATTLE_TYPE_LINK)
@@ -875,8 +872,6 @@ static void CB2_HandleStartBattle(void)
                     SendBlock(BitmaskAllOtherLinkPlayers(), &gBattleStruct->multiBuffer.linkBattlerHeader, sizeof(gBattleStruct->multiBuffer.linkBattlerHeader));
                     gBattleCommunication[MULTIUSE_STATE] = 2;
                 }
-                if (gWirelessCommType != 0)
-                    CreateWirelessStatusIndicatorSprite(0, 0);
             }
         }
         else
@@ -1066,23 +1061,11 @@ static void CB2_PreInitMultiBattle(void)
         if (!gPaletteFade.active)
         {
             gBattleCommunication[MULTIUSE_STATE]++;
-            if (gWirelessCommType)
-                SetLinkStandbyCallback();
-            else
-                SetCloseLinkCallback();
+            SetCloseLinkCallback();
         }
         break;
     case 3:
-        if (gWirelessCommType)
-        {
-            if (IsLinkRfuTaskFinished())
-            {
-                gBattleTypeFlags = *savedBattleTypeFlags;
-                gMain.savedCallback = *savedCallback;
-                SetMainCallback2(CB2_InitBattleInternal);
-            }
-        }
-        else if (!gReceivedRemoteLinkPlayers)
+        if (!gReceivedRemoteLinkPlayers)
         {
             gBattleTypeFlags = *savedBattleTypeFlags;
             gMain.savedCallback = *savedCallback;
@@ -1115,8 +1098,6 @@ static void CB2_HandleStartMultiBattle(void)
             BattleInterfaceSetWindowPals();
             gBattleCommunication[MULTIUSE_STATE] = 1;
         }
-        if (gWirelessCommType)
-            LoadWirelessStatusIndicatorSpriteGfx();
         break;
     case 1:
         if (gReceivedRemoteLinkPlayers)
@@ -1131,8 +1112,6 @@ static void CB2_HandleStartMultiBattle(void)
                 SendBlock(BitmaskAllOtherLinkPlayers(), &gBattleStruct->multiBuffer.linkBattlerHeader, sizeof(gBattleStruct->multiBuffer.linkBattlerHeader));
                 gBattleCommunication[MULTIUSE_STATE]++;
             }
-            if (gWirelessCommType)
-                CreateWirelessStatusIndicatorSprite(0, 0);
         }
         break;
     case 2:

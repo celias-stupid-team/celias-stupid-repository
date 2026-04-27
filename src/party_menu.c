@@ -27,7 +27,6 @@
 #include "item_use.h"
 #include "learn_move.h"
 #include "link.h"
-#include "link_rfu.h"
 #include "load_save.h"
 #include "mail.h"
 #include "mail_data.h"

@@ -7,8 +7,6 @@
 #include "save.h"
 #include "battle.h"
 #include "quest_log.h"
-#include "link_rfu.h"
-#include "librfu.h"
 #include "random.h"
 #include "task.h"
 #include "event_data.h"
@@ -214,21 +212,6 @@ static const u8 sLinkErrorTextColor[] = { 0x00, 0x01, 0x02 };
 
 bool8 IsWirelessAdapterConnected(void)
 {
-    if (QL_IS_PLAYBACK_STATE)
-        return FALSE;
-
-    SetWirelessCommType1();
-    InitRFUAPI();
-    RfuSetIgnoreError(TRUE);
-    if (rfu_LMAN_REQBN_softReset_and_checkID() == RFU_ID)
-    {
-        rfu_REQ_stopMode();
-        rfu_waitREQComplete();
-        return TRUE;
-    }
-    SetWirelessCommType0_Internal();
-    CloseLink();
-    RestoreSerialTimer3IntrHandlers();
     return FALSE;
 }
 
@@ -351,27 +334,19 @@ void Task_TriggerHandshake(u8 taskId)
 void OpenLink(void)
 {
     int i;
-
-    if (!gWirelessCommType)
-    {
-        ResetSerial();
-        InitLink();
-        gLinkCallback = LinkCB_RequestPlayerDataExchange;
-        gLinkVSyncDisabled = FALSE;
-        gLinkErrorOccurred = FALSE;
-        gSuppressLinkErrorMessage = FALSE;
-        ResetBlockReceivedFlags();
-        ResetBlockSend();
-        sDummy1 = FALSE;
-        gLinkDummy2 = FALSE;
-        gLinkDummy1 = FALSE;
-        gReadyCloseLinkType = 0;
-        CreateTask(Task_TriggerHandshake, 2);
-    }
-    else
-    {
-        InitRFUAPI();
-    }
+    ResetSerial();
+    InitLink();
+    gLinkCallback = LinkCB_RequestPlayerDataExchange;
+    gLinkVSyncDisabled = FALSE;
+    gLinkErrorOccurred = FALSE;
+    gSuppressLinkErrorMessage = FALSE;
+    ResetBlockReceivedFlags();
+    ResetBlockSend();
+    sDummy1 = FALSE;
+    gLinkDummy2 = FALSE;
+    gLinkDummy1 = FALSE;
+    gReadyCloseLinkType = 0;
+    CreateTask(Task_TriggerHandshake, 2);
     gReceivedRemoteLinkPlayers = FALSE;
     for (i = 0; i < MAX_LINK_PLAYERS; i++)
     {
@@ -384,8 +359,6 @@ void OpenLink(void)
 void CloseLink(void)
 {
     gReceivedRemoteLinkPlayers = FALSE;
-    if (gWirelessCommType)
-        LinkRfu_Shutdown();
     sLinkOpen = FALSE;
     DisableSerial();
 }
@@ -671,17 +644,11 @@ void BuildSendCmd(u16 command)
 
 void StartSendingKeysToLink(void)
 {
-    if (gWirelessCommType)
-        StartSendingKeysToRfu();
-
     gLinkCallback = LinkCB_SendHeldKeys;
 }
 
 bool32 IsSendingKeysToLink(void)
 {
-    if (gWirelessCommType)
-        return IsSendingKeysToRfu();
-
     if (gLinkCallback == LinkCB_SendHeldKeys)
         return TRUE;
 
@@ -701,17 +668,11 @@ void ClearLinkCallback(void)
 
 void ClearLinkCallback_2(void)
 {
-    if (gWirelessCommType)
-        ClearLinkRfuCallback();
-    else
-        gLinkCallback = NULL;
+    gLinkCallback = NULL;
 }
 
 u8 GetLinkPlayerCount(void)
 {
-    if (gWirelessCommType)
-        return Rfu_GetLinkPlayerCount();
-
     return EXTRACT_PLAYER_COUNT(gLinkStatus);
 }
 
@@ -890,9 +851,6 @@ static void LinkCB_BlockSendEnd(void)
 
 u8 GetMultiplayerId(void)
 {
-    if (gWirelessCommType == 1)
-        return Rfu_GetMultiplayerId();
-
     return SIO_MULTI_CNT->id;
 }
 
@@ -906,17 +864,11 @@ u8 BitmaskAllOtherLinkPlayers(void)
 
 bool8 SendBlock(u8 unused, const void *src, u16 size)
 {
-    if (gWirelessCommType == 1)
-        return Rfu_InitBlockSend(src, size);
-
     return InitBlockSend(src, size);
 }
 
 bool8 SendBlockRequest(u8 blockRequestType)
 {
-    if (gWirelessCommType == 1)
-        return Rfu_SendBlockRequest(blockRequestType);
-
     if (gLinkCallback == NULL)
     {
         gBlockRequestType = blockRequestType;
@@ -928,49 +880,30 @@ bool8 SendBlockRequest(u8 blockRequestType)
 
 bool8 IsLinkTaskFinished(void)
 {
-    if (gWirelessCommType == 1)
-        return IsLinkRfuTaskFinished();
-
     return gLinkCallback == NULL;
 }
 
 u8 GetBlockReceivedStatus(void)
 {
-    if (gWirelessCommType == 1)
-        return Rfu_GetBlockReceivedStatus();
-
     return (gBlockReceivedStatus[3] << 3) | (gBlockReceivedStatus[2] << 2) | (gBlockReceivedStatus[1] << 1) | (gBlockReceivedStatus[0] << 0);
 }
 
 static void SetBlockReceivedFlag(u8 who)
 {
-    if (gWirelessCommType == 1)
-        Rfu_SetBlockReceivedFlag(who);
-    else
-        gBlockReceivedStatus[who] = TRUE;
+    gBlockReceivedStatus[who] = TRUE;
 }
 
 void ResetBlockReceivedFlags(void)
 {
     int i;
 
-    if (gWirelessCommType == 1)
-    {
-        for (i = 0; i < MAX_RFU_PLAYERS; i++)
-            Rfu_ResetBlockReceivedFlag(i);
-    }
-    else
-    {
-        for (i = 0; i < MAX_LINK_PLAYERS; i++)
-            gBlockReceivedStatus[i] = FALSE;
-    }
+    for (i = 0; i < MAX_LINK_PLAYERS; i++)
+        gBlockReceivedStatus[i] = FALSE;
 }
 
 void ResetBlockReceivedFlag(u8 who)
 {
-    if (gWirelessCommType == 1)
-        Rfu_ResetBlockReceivedFlag(who);
-    else if (gBlockReceivedStatus[who])
+    if (gBlockReceivedStatus[who])
         gBlockReceivedStatus[who] = FALSE;
 }
 
@@ -1182,9 +1115,6 @@ u8 GetLinkPlayerCount_2(void)
 
 bool8 IsLinkMaster(void)
 {
-    if (gWirelessCommType)
-        return Rfu_IsMaster();
-
     return EXTRACT_MASTER(gLinkStatus);
 }
 
@@ -1196,35 +1126,21 @@ static u8 GetDummy2(void)
 
 void SetCloseLinkCallbackAndType(u16 type)
 {
-    if (gWirelessCommType == 1)
+    if (gLinkCallback == NULL)
     {
-        Rfu_SetCloseLinkCallback();
-    }
-    else
-    {
-        if (gLinkCallback == NULL)
-        {
-            gLinkCallback = LinkCB_ReadyCloseLink;
-            gLinkDummy1 = FALSE;
-            gReadyCloseLinkType = type;
-        }
+        gLinkCallback = LinkCB_ReadyCloseLink;
+        gLinkDummy1 = FALSE;
+        gReadyCloseLinkType = type;
     }
 }
 
 void SetCloseLinkCallback(void)
 {
-    if (gWirelessCommType == 1)
+    if (gLinkCallback == NULL)
     {
-        Rfu_SetCloseLinkCallback();
-    }
-    else
-    {
-        if (gLinkCallback == NULL)
-        {
-            gLinkCallback = LinkCB_ReadyCloseLink;
-            gLinkDummy1 = FALSE;
-            gReadyCloseLinkType = 0;
-        }
+        gLinkCallback = LinkCB_ReadyCloseLink;
+        gLinkDummy1 = FALSE;
+        gReadyCloseLinkType = 0;
     }
 }
 
@@ -1264,17 +1180,10 @@ static void LinkCB_WaitCloseLink(void)
 
 void SetLinkStandbyCallback(void)
 {
-    if (gWirelessCommType == 1)
-    {
-        Rfu_SetLinkStandbyCallback();
-    }
-    else
-    {
-        if (gLinkCallback == NULL)
-            gLinkCallback = LinkCB_Standby;
+    if (gLinkCallback == NULL)
+        gLinkCallback = LinkCB_Standby;
 
-        gLinkDummy1 = FALSE;
-    }
+    gLinkDummy1 = FALSE;
 }
 
 static void LinkCB_Standby(void)
@@ -1325,14 +1234,6 @@ static void CheckErrorStatus(void)
     }
 }
 
-void SetLinkErrorFromRfu(u32 status, u8 lastSendQueueCount, u8 lastRecvQueueCount, u8 isConnectionError)
-{
-    sLinkErrorBuffer.status = status;
-    sLinkErrorBuffer.lastSendQueueCount = lastSendQueueCount;
-    sLinkErrorBuffer.lastRecvQueueCount = lastRecvQueueCount;
-    sLinkErrorBuffer.disconnected = isConnectionError;
-}
-
 void CB2_LinkError(void)
 {
     u8 *tilemapBuffer;
@@ -1348,13 +1249,6 @@ void CB2_LinkError(void)
     SetBackdropFromColor(RGB_BLACK);
     ResetTasks();
     ScanlineEffect_Stop();
-    if (gWirelessCommType)
-    {
-        if (!sLinkErrorBuffer.disconnected)
-            gWirelessCommType = 3;
-
-        ResetLinkRfuGFLayer();
-    }
     SetVBlankCallback(VBlankCB_LinkError);
     ResetBgsAndClearDma3BusyFlags(FALSE);
     InitBgsFromTemplates(0, sLinkErrorBgTemplates, ARRAY_COUNT(sLinkErrorBgTemplates));
@@ -1435,35 +1329,7 @@ static void CB2_PrintErrorMessage(void)
         PlaySE(SE_BOO);
         break;
     case 130:
-        if (gWirelessCommType == 2)
-            AddTextPrinterParameterized3(0, FONT_NORMAL_COPY_2, 2, 20, sLinkErrorTextColor, 0, gText_ABtnTitleScreen);
-        else if (gWirelessCommType == 1)
-            AddTextPrinterParameterized3(0, FONT_NORMAL_COPY_2, 2, 20, sLinkErrorTextColor, 0, gText_ABtnRegistrationCounter);
         break;
-    }
-    if (gMain.state == 160)
-    {
-        if (gWirelessCommType == 1)
-        {
-            if (JOY_NEW(A_BUTTON))
-            {
-                HelpSystem_Enable();
-                PlaySE(SE_PIN);
-                gWirelessCommType = 0;
-                sLinkErrorBuffer.disconnected = 0;
-                ReloadSave();
-            }
-        }
-        else if (gWirelessCommType == 2)
-        {
-            if (JOY_NEW(A_BUTTON))
-            {
-                HelpSystem_Enable();
-                rfu_REQ_stopMode();
-                rfu_waitREQComplete();
-                DoSoftReset();
-            }
-        }
     }
     if (gMain.state != 160)
         gMain.state++;
@@ -1527,55 +1393,23 @@ void LinkPlayerFromBlock(u32 who)
 // When this function returns TRUE the callbacks are skipped
 bool8 HandleLinkConnection(void)
 {
-    bool32 main1Failed;
-    bool32 main2Failed;
-
-    if (gWirelessCommType == 0)
-    {
-        gLinkStatus = LinkMain1(&gShouldAdvanceLinkState, gSendCmd, gRecvCmds);
-        LinkMain2(&gMain.heldKeys);
-        if ((gLinkStatus & LINK_STAT_RECEIVED_NOTHING) && IsSendingKeysOverCable() == TRUE)
-            return TRUE;
-    }
-    else
-    {
-        main1Failed = RfuMain1(); // Always returns FALSE
-        main2Failed = RfuMain2();
-        if (IsSendingKeysOverCable() == TRUE)
-        {
-            // This will never be reached.
-            // IsSendingKeysOverCable is always FALSE for wireless communication
-            if (main1Failed == TRUE || IsRfuRecvQueueEmpty() || main2Failed)
-                return TRUE;
-        }
-    }
+    gLinkStatus = LinkMain1(&gShouldAdvanceLinkState, gSendCmd, gRecvCmds);
+    LinkMain2(&gMain.heldKeys);
+    if ((gLinkStatus & LINK_STAT_RECEIVED_NOTHING) && IsSendingKeysOverCable() == TRUE)
+        return TRUE;
     return FALSE;
 }
 
 void SetWirelessCommType1(void)
 {
-    if (!gReceivedRemoteLinkPlayers)
-        gWirelessCommType = 1;
 }
 
 static void SetWirelessCommType0_Internal(void)
 {
-    if (!gReceivedRemoteLinkPlayers)
-        gWirelessCommType = 0;
-}
-
-// Unused
-void SetWirelessCommType0(void)
-{
-    if (!gReceivedRemoteLinkPlayers)
-        gWirelessCommType = 0;
 }
 
 u32 GetLinkRecvQueueLength(void)
 {
-    if (gWirelessCommType != 0)
-        return GetRfuRecvQueueLength();
-
     return gLink.recvQueue.count;
 }
 

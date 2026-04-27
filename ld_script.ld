@@ -234,9 +234,6 @@ SECTIONS {
         src/tilemap_util.o(.text);
         src/save_menu_util.o(.text);
         src/map_preview_screen.o(.text);
-        src/link_rfu_2.o(.text);
-        src/link_rfu_3.o(.text);
-        src/AgbRfu_LinkManager.o(.text);
         src/easy_chat_2.o(.text);
         src/easy_chat_3.o(.text);
         src/pokedex_screen.o(.text);
@@ -310,9 +307,6 @@ SECTIONS {
         src/agb_flash_mx.o(.text);
         src/agb_flash_le.o(.text);
         src/librfu_stwi.o(.text);
-        src/librfu_intr.o(.text);
-        src/librfu_rfu.o(.text);
-        src/librfu_sio32id.o(.text);
         src/isagbprn.o(.text);
         src/libagbsyscall.o(.text);
         *libgcc.a:_call_via_rX.o(.text);
@@ -504,8 +498,6 @@ SECTIONS {
         src/new_menu_helpers.o(.rodata);
         src/tilemap_util.o(.rodata);
         src/map_preview_screen.o(.rodata);
-        src/link_rfu_2.o(.rodata);
-        src/link_rfu_3.o(.rodata);
         src/easy_chat_2.o(.rodata);
         src/easy_chat_3.o(.rodata);
         src/pokedex_screen.o(.rodata);
@@ -1063,8 +1055,6 @@ SECTIONS {
         src/agb_flash_1m.o(.rodata);
         src/agb_flash_mx.o(.rodata);
         src/agb_flash_le.o(.rodata);
-        src/librfu_rfu.o(.rodata);
-        src/librfu_sio32id.o(.rodata);
         src/isagbprn.o(.rodata);
         *libgcc.a:_divdi3.o(.rodata);
         *libgcc.a:_udivdi3.o(.rodata);

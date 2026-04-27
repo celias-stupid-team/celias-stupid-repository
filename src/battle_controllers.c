@@ -6,7 +6,6 @@
 #include "battle_message.h"
 #include "cable_club.h"
 #include "link.h"
-#include "link_rfu.h"
 #include "party_menu.h"
 #include "task.h"
 #include "util.h"
@@ -26,8 +25,6 @@ void HandleLinkBattleSetup(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
     {
-        if (gWirelessCommType)
-            SetWirelessCommType1();
         if (!gReceivedRemoteLinkPlayers)
             OpenLink();
         CreateTask(Task_WaitForLinkPlayerConnection, 0);
@@ -485,7 +482,6 @@ void TryReceiveLinkBattleData(void)
 
     if (gReceivedRemoteLinkPlayers != 0 && (gBattleTypeFlags & BATTLE_TYPE_LINK_IN_BATTLE) && (gLinkPlayers[0].linkType == 0x2211))
     {
-        DestroyTask_RfuIdle();
         for (i = 0; i < GetLinkPlayerCount(); i++)
         {
             if (GetBlockReceivedStatus() & gBitTable[i])
