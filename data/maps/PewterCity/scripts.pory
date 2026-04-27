@@ -845,7 +845,8 @@ mapscripts PewterCity_MapScripts {
 		&& var(VAR_MAP_SCENE_CSR_LASS_1) == 0
 		&& (!checkpartymon(SPECIES_BUTTERFREE)) // Is there a problem here??
 
-		&& !flag(FLAG_GOT_CATERPIE)) { //Make it check for grindy butterfree
+		&& !flag(FLAG_GOT_CATERPIE)
+		&& (!checkpartymon(SPECIES_KRABBY))) { //Make it check for grindy butterfree
 		//or checkaprty move > 6
 			setvar(VAR_PEWTER_CELIA_SCENE, 1)
 			setobjectxyperm(CELIA, 15, 19)
