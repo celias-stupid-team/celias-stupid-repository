@@ -15983,12 +15983,37 @@ Move_THUNDURUS_KICK:
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
-	
+
+
+//Move_GUST:
+	//loadspritegfx ANIM_TAG_GUST
+	//loadspritegfx ANIM_TAG_IMPACT
+	//monbg ANIM_DEF_PARTNER
+	//splitbgprio ANIM_TARGET
+	//setalpha 12, 8
+	//playsewithpan SE_M_GUST, SOUND_PAN_TARGET
+	//createsprite gEllipticalGustSpriteTemplate, ANIM_ATTACKER, 2, 0, -16
+	//createvisualtask AnimTask_AnimateGustTornadoPalette, 5, 1, 70
+	//waitforvisualfinish
+	//createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 7, 1
+	//createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	//playsewithpan SE_M_GUST2, SOUND_PAN_TARGET
+	//waitforvisualfinish
+	//clearmonbg ANIM_DEF_PARTNER
+	//blendoff
+	//end
+
+
 Move_TORNADUS_KICK:
+	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
 	monbg ANIM_TARGET
 	delay 2
+
+	createsprite gEllipticalGustSpriteTemplate, ANIM_ATTACKER, 2, 0, -16
+	createvisualtask AnimTask_AnimateGustTornadoPalette, 5, 1, 70
+
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 16, RGB_BLACK
 	setalpha 12, 8
 	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_TARGET
@@ -16001,7 +16026,14 @@ Move_TORNADUS_KICK:
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 0
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 22, 1
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 0, RGB_WHITE
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 8, RGB_BLACK, 0
+
+	
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 7, 1
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 7, 1
+	//createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+
+	//createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 8, RGB_BLACK, 0
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
@@ -18241,24 +18273,26 @@ Move_AQUA_CUTTER:
 
 
 Move_QUIVER_DANCE:
-	loadspritegfx ANIM_TAG_HOLLOW_ORB
+	loadspritegfx ANIM_TAG_BEE
 	monbg ANIM_ATTACKER
 	splitbgprio ANIM_ATTACKER
 	delay 1
 	createvisualtask AnimTask_DragonDanceWaver, 5
-	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	//playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
 	delay 8
-	createvisualtask AnimTask_BlendPalInAndOutByTag, 5, ANIM_TAG_HOLLOW_ORB, RGB(0, 0, 19), 14, 0, 3
-	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 0
-	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 43
-	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 85
-	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 128
-	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 170
-	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 213
-	delay 30
-	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
-	delay 30
-	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendPalInAndOutByTag, 5, ANIM_TAG_BEE, RGB(30, 28, 0), 14, 0, 3
+	createsprite gQuiverDanceBeeSpriteTemplate, ANIM_ATTACKER, 2, 0
+	createsprite gQuiverDanceBeeSpriteTemplate, ANIM_ATTACKER, 2, 43
+	createsprite gQuiverDanceBeeSpriteTemplate, ANIM_ATTACKER, 2, 85
+	createsprite gQuiverDanceBeeSpriteTemplate, ANIM_ATTACKER, 2, 128
+	createsprite gQuiverDanceBeeSpriteTemplate, ANIM_ATTACKER, 2, 170
+	createsprite gQuiverDanceBeeSpriteTemplate, ANIM_ATTACKER, 2, 213
+	loopsewithpan SE_M_FAINT_ATTACK, SOUND_PAN_ATTACKER, 1, 30
+	delay 1
+	loopsewithpan SE_M_FAINT_ATTACK, SOUND_PAN_ATTACKER, 1, 30
+	delay 1
+	loopsewithpan SE_M_FAINT_ATTACK, SOUND_PAN_ATTACKER, 1, 30
+	//playsewithpan SE_M_FAINT_ATTACK, SOUND_PAN_ATTACKER
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
 	delay 1
