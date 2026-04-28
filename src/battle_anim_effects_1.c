@@ -129,6 +129,7 @@ static void AnimHornHit(struct Sprite *);
 static void AnimHornHit_Step(struct Sprite *);
 static void AnimTask_DoubleTeam_Step(u8);
 static void AnimDoubleTeam(struct Sprite *);
+static void AnimTupleTeam(struct Sprite *);
 static void AnimWavyMusicNotes(struct Sprite *);
 static void AnimWavyMusicNotes_CalcVelocity(s16, s16, s16 *, s16 *, s8);
 static void AnimWavyMusicNotes_Step(struct Sprite *);
@@ -1242,6 +1243,17 @@ const struct SpriteTemplate gTrickBagSpriteTemplate =
     .tileTag = ANIM_TAG_ITEM_BAG,
     .paletteTag = ANIM_TAG_ITEM_BAG,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sFallingBagAnimTable,
+    .images = NULL,
+    .affineAnims = sTrickBagAffineAnimTable,
+    .callback = AnimTrickBag,
+};
+
+const struct SpriteTemplate gFlowerTrickSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FLOWER,
+    .paletteTag = ANIM_TAG_FLOWER,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
     .anims = sFallingBagAnimTable,
     .images = NULL,
     .affineAnims = sTrickBagAffineAnimTable,
@@ -6689,6 +6701,53 @@ static void AnimHornHit_Step(struct Sprite* sprite)
         DestroyAnimSprite(sprite);
 }
 
+void AnimTask_TupleTeam(u8 taskId)
+{
+    u16 i;
+    int obj;
+    u16 r3;
+    u16 r4;
+    struct Task* task = &gTasks[taskId];
+    int cloneCount = 8;
+    
+    task->data[0] = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    task->data[1] = AllocSpritePalette(ANIM_TAG_BENT_SPOON);
+    r3 = OBJ_PLTT_ID(task->data[1]);
+    r4 = OBJ_PLTT_ID2(gSprites[task->data[0]].oam.paletteNum);
+    for (i = 1; i < 16; i++)
+        gPlttBufferUnfaded[r3 + i] = gPlttBufferUnfaded[r4 + i];
+
+    BlendPalette(r3, 16, 11, RGB_BLACK);
+    task->data[3] = 0;
+    i = 0;
+    while (i < cloneCount && (obj = CloneBattlerSpriteWithBlend(0)) >= 0)
+    {
+        gSprites[obj].oam.paletteNum = task->data[1];
+        gSprites[obj].data[0] = 0;
+
+        // Even phase distribution
+        gSprites[obj].data[1] = i * (256 / cloneCount);
+
+        gSprites[obj].data[2] = taskId;
+
+        // NEW: store amplitude scale (higher = wider)
+        // outer clones get larger values
+        gSprites[obj].data[6] = (i < cloneCount / 2)
+            ? (i + 1)
+            : (cloneCount - i);
+
+        gSprites[obj].callback = AnimDoubleTeam;
+        task->data[3]++;
+        i++;
+    }
+
+    task->func = AnimTask_DoubleTeam_Step;
+    if (GetBattlerSpriteBGPriorityRank(gBattleAnimAttacker) == 1)
+        ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_BG1_ON);
+    else
+        ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_BG2_ON);
+}
+
 void AnimTask_DoubleTeam(u8 taskId)
 {
     u16 i;
@@ -6757,6 +6816,28 @@ static void AnimDoubleTeam(struct Sprite* sprite)
     else
     {
         sprite->data[4] = gSineTable[sprite->data[0]] / 6;
+        sprite->data[5] = gSineTable[sprite->data[0]] / 13;
+        sprite->data[1] = (sprite->data[1] + sprite->data[5]) & 0xFF;
+        sprite->x2 = Sin(sprite->data[1], sprite->data[4]);
+    }
+}
+
+static void AnimTupleTeam(struct Sprite* sprite)
+{
+    if (++sprite->data[3] > 1)
+    {
+        sprite->data[3] = 0;
+        sprite->data[0]++;
+    }
+
+    if (sprite->data[0] > 64)
+    {
+        gTasks[sprite->data[2]].data[3]--;
+        DestroySpriteWithActiveSheet(sprite);
+    }
+    else
+    {
+        sprite->data[4] = (gSineTable[sprite->data[0]] * sprite->data[6]) / 2;
         sprite->data[5] = gSineTable[sprite->data[0]] / 13;
         sprite->data[1] = (sprite->data[1] + sprite->data[5]) & 0xFF;
         sprite->x2 = Sin(sprite->data[1], sprite->data[4]);
