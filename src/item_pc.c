@@ -258,8 +258,6 @@ static void ItemPc_RunSetup(void)
     {
         if (ItemPc_DoGfxSetup() == TRUE)
             break;
-        if (MenuHelpers_IsLinkActive() == TRUE)
-            break;
     }
 }
 
@@ -378,8 +376,7 @@ static bool8 ItemPc_DoGfxSetup(void)
         gMain.state++;
         break;
     case 20:
-        if (IsActiveOverworldLinkBusy() != TRUE)
-            gMain.state++;
+        gMain.state++;
         break;
     default:
         SetVBlankCallback(ItemPc_VBlankCB);

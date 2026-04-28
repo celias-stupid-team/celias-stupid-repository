@@ -7,7 +7,6 @@
 #include "event_scripts.h"
 #include "menu_helpers.h"
 #include "item.h"
-#include "link.h"
 #include "quest_log.h"
 #include "party_menu.h"
 #include "pokemon_storage_system.h"
@@ -24,16 +23,9 @@ enum {
     STEP_RECORDING_MODE_DISABLED_UNTIL_DEPART,
 };
 
-struct DeferredLinkEvent
-{
-    u16 id;
-    u16 ALIGNED(4) data[14];
-};
-
 #define CMD_HEADER_SIZE 4
 #define MAX_CMD_REPEAT  4
 
-static EWRAM_DATA struct DeferredLinkEvent sDeferredEvent = {0};
 EWRAM_DATA struct QuestLogRepeatEventTracker gQuestLogRepeatEventTracker = {0};
 static EWRAM_DATA u8 sStepRecordingMode = 0;
 static EWRAM_DATA bool8 sNewlyEnteredMap = FALSE;
@@ -44,8 +36,6 @@ static bool8 InQuestLogDisabledLocation(void);
 static bool8 ShouldRegisterEvent_HandlePartyActions(u16, const u16 *);
 static bool8 ShouldRegisterEvent_HandleBeatStoryTrainer(u16, const u16 *);
 static u16 *ShouldRegisterEvent(u16, const u16 *);
-static bool8 TryDeferLinkEvent(u16, const u16 *);
-static bool8 TryDeferTrainerBattleEvent(u16, const u16 *);
 static bool8 IsEventWithSpecialEncounterSpecies(u16, const u16 *);
 static void UpdateRepeatEventCounter(u16);
 static u16 *QL_RecordAction_Wait(u16 *, u16);
@@ -58,10 +48,6 @@ static u16 *RecordEvent_TookHeldItem(u16 *, const struct QuestLogEvent_Item *);
 static u16 *RecordEvent_SwappedHeldItemFromBag(u16 *, const struct QuestLogEvent_SwappedHeldItem *);
 static u16 *RecordEvent_SwappedHeldItemFromPC(u16 *, const struct QuestLogEvent_SwappedHeldItem *);
 static u16 *RecordEvent_UsedPkmnCenter(u16 *, const u16 *);
-static u16 *RecordEvent_LinkTraded(u16 *, const struct QuestLogEvent_Traded *);
-static u16 *RecordEvent_LinkBattledSingle(u16 *, const struct QuestLogEvent_LinkBattle *);
-static u16 *RecordEvent_LinkBattledDouble(u16 *, const struct QuestLogEvent_LinkBattle *);
-static u16 *RecordEvent_LinkBattledMulti(u16 *, const struct QuestLogEvent_LinkBattle *);
 static u16 *RecordEvent_SwitchedMonsBetweenBoxes(u16 *, const struct QuestLogEvent_MovedBoxMon *);
 static u16 *RecordEvent_SwitchedMonsWithinBox(u16 *, const u16 *);
 static u16 *RecordEvent_SwitchedPartyMonForPCMon(u16 *, const u16 *);
@@ -92,10 +78,6 @@ static const u16 *LoadEvent_TookHeldItem(const u16 *);
 static const u16 *LoadEvent_SwappedHeldItem(const u16 *);
 static const u16 *LoadEvent_SwappedHeldItemFromPC(const u16 *);
 static const u16 *LoadEvent_UsedPkmnCenter(const u16 *);
-static const u16 *LoadEvent_LinkTraded(const u16 *);
-static const u16 *LoadEvent_LinkBattledSingle(const u16 *);
-static const u16 *LoadEvent_LinkBattledDouble(const u16 *);
-static const u16 *LoadEvent_LinkBattledMulti(const u16 *);
 static const u16 *LoadEvent_SwitchedMonsBetweenBoxes(const u16 *);
 static const u16 *LoadEvent_SwitchedMonsWithinBox(const u16 *);
 static const u16 *LoadEvent_SwitchedPartyMonForPCMon(const u16 *);
@@ -120,7 +102,6 @@ static const u16 *LoadEvent_ArrivedInLocation(const u16 *);
 static bool8 IsSpeciesFromSpecialEncounter(u16);
 static bool8 ShouldRegisterEvent_HandleDeparted(u16, const u16 *);
 static bool8 ShouldRegisterEvent_DepartedGameCorner(u16, const u16 *);
-static void TranslateLinkPartnersName(u8 *);
 
 typedef u16 *(*RecordEventFunc)(u16 *, const u16 *);
 
@@ -137,10 +118,6 @@ static const RecordEventFunc sRecordEventFuncs[] = {
     [QL_EVENT_SWAPPED_HELD_ITEM]             = (RecordEventFunc) RecordEvent_SwappedHeldItemFromBag,
     [QL_EVENT_SWAPPED_HELD_ITEM_PC]          = (RecordEventFunc) RecordEvent_SwappedHeldItemFromPC,
     [QL_EVENT_USED_PKMN_CENTER]              = (RecordEventFunc) RecordEvent_UsedPkmnCenter,
-    [QL_EVENT_LINK_TRADED]                   = (RecordEventFunc) RecordEvent_LinkTraded,
-    [QL_EVENT_LINK_BATTLED_SINGLE]           = (RecordEventFunc) RecordEvent_LinkBattledSingle,
-    [QL_EVENT_LINK_BATTLED_DOUBLE]           = (RecordEventFunc) RecordEvent_LinkBattledDouble,
-    [QL_EVENT_LINK_BATTLED_MULTI]            = (RecordEventFunc) RecordEvent_LinkBattledMulti,
     [QL_EVENT_SWITCHED_MONS_BETWEEN_BOXES]   = (RecordEventFunc) RecordEvent_SwitchedMonsBetweenBoxes,
     [QL_EVENT_SWITCHED_MONS_WITHIN_BOX]      = (RecordEventFunc) RecordEvent_SwitchedMonsWithinBox,
     [QL_EVENT_SWITCHED_PARTY_MON_FOR_PC_MON] = (RecordEventFunc) RecordEvent_SwitchedPartyMonForPCMon,
@@ -179,10 +156,6 @@ static const u16 *(*const sLoadEventFuncs[])(const u16 *) = {
     [QL_EVENT_SWAPPED_HELD_ITEM]             = LoadEvent_SwappedHeldItem,
     [QL_EVENT_SWAPPED_HELD_ITEM_PC]          = LoadEvent_SwappedHeldItemFromPC,
     [QL_EVENT_USED_PKMN_CENTER]              = LoadEvent_UsedPkmnCenter,
-    [QL_EVENT_LINK_TRADED]                   = LoadEvent_LinkTraded,
-    [QL_EVENT_LINK_BATTLED_SINGLE]           = LoadEvent_LinkBattledSingle,
-    [QL_EVENT_LINK_BATTLED_DOUBLE]           = LoadEvent_LinkBattledDouble,
-    [QL_EVENT_LINK_BATTLED_MULTI]            = LoadEvent_LinkBattledMulti,
     [QL_EVENT_SWITCHED_MONS_BETWEEN_BOXES]   = LoadEvent_SwitchedMonsBetweenBoxes,
     [QL_EVENT_SWITCHED_MONS_WITHIN_BOX]      = LoadEvent_SwitchedMonsWithinBox,
     [QL_EVENT_SWITCHED_PARTY_MON_FOR_PC_MON] = LoadEvent_SwitchedPartyMonForPCMon,
@@ -221,14 +194,6 @@ static const u8 sQuestLogEventCmdSizes[] = {
     [QL_EVENT_SWAPPED_HELD_ITEM]             = CMD_HEADER_SIZE + 6,
     [QL_EVENT_SWAPPED_HELD_ITEM_PC]          = CMD_HEADER_SIZE + 6,
     [QL_EVENT_USED_PKMN_CENTER]              = CMD_HEADER_SIZE + 0,
-    [QL_EVENT_LINK_TRADED]                   = CMD_HEADER_SIZE + 12,
-    [QL_EVENT_LINK_BATTLED_SINGLE]           = CMD_HEADER_SIZE + 8,
-    [QL_EVENT_LINK_BATTLED_DOUBLE]           = CMD_HEADER_SIZE + 8,
-    [QL_EVENT_LINK_BATTLED_MULTI]            = CMD_HEADER_SIZE + 22,
-    [QL_EVENT_USED_UNION_ROOM]               = CMD_HEADER_SIZE + 0,
-    [QL_EVENT_USED_UNION_ROOM_CHAT]          = CMD_HEADER_SIZE + 0,
-    [QL_EVENT_LINK_TRADED_UNION]             = CMD_HEADER_SIZE + 12,
-    [QL_EVENT_LINK_BATTLED_UNION]            = CMD_HEADER_SIZE + 8,
     [QL_EVENT_SWITCHED_MONS_BETWEEN_BOXES]   = CMD_HEADER_SIZE + 6,
     [QL_EVENT_SWITCHED_MONS_WITHIN_BOX]      = CMD_HEADER_SIZE + 6,
     [QL_EVENT_SWITCHED_PARTY_MON_FOR_PC_MON] = CMD_HEADER_SIZE + 6,
@@ -465,16 +430,6 @@ void SetQuestLogEvent(u16 eventId, const u16 * data)
     if (InQuestLogDisabledLocation() == TRUE)
         return;
 
-    if (TryDeferLinkEvent(eventId, data) == TRUE)
-        return;
-
-    // Link events handled above. If we're in an active link, don't record any other events.
-    if (MenuHelpers_IsLinkActive() == TRUE)
-        return;
-
-    if (TryDeferTrainerBattleEvent(eventId, data) == TRUE)
-        return;
-
     // Wild battles with static encounter species (Snorlax, Mewtwo, etc.) are not recorded.
     if (IsEventWithSpecialEncounterSpecies(eventId, data) == TRUE)
         return;
@@ -653,79 +608,6 @@ static u16 *ShouldRegisterEvent(u16 eventId, const u16 * data)
         gQuestLogDefeatedWildMonRecord = NULL;
 
     return sRecordEventFuncs[eventId](gQuestLogRecordingPointer, data);
-}
-
-static bool8 TryDeferLinkEvent(u16 eventId, const u16 * data)
-{
-    if (!IS_LINK_QL_EVENT(eventId))
-        return FALSE;
-
-    ResetDeferredLinkEvent();
-    sDeferredEvent.id = eventId;
-
-    // These two events have no data, so no need to copy
-    if (eventId != QL_EVENT_USED_UNION_ROOM && eventId != QL_EVENT_USED_UNION_ROOM_CHAT)
-    {
-        if (eventId == QL_EVENT_LINK_TRADED || eventId == QL_EVENT_LINK_TRADED_UNION)
-            memcpy(sDeferredEvent.data, data, sizeof(struct QuestLogEvent_Traded));
-        else
-            memcpy(sDeferredEvent.data, data, sizeof(struct QuestLogEvent_LinkBattle));
-    }
-    return TRUE;
-}
-
-void ResetDeferredLinkEvent(void)
-{
-    sDeferredEvent = (struct DeferredLinkEvent){};
-}
-
-void QuestLog_StartRecordingInputsAfterDeferredEvent(void)
-{
-    if (sDeferredEvent.id != 0)
-    {
-        u16 *resp;
-        sLastDepartedLocation = 0;
-        QL_StartRecordingAction(sDeferredEvent.id);
-        resp = sRecordEventFuncs[sDeferredEvent.id](gQuestLogRecordingPointer, sDeferredEvent.data);
-        gQuestLogRecordingPointer = resp;
-        ResetDeferredLinkEvent();
-    }
-}
-
-static bool8 TryDeferTrainerBattleEvent(u16 eventId, const u16 * data)
-{
-    if (eventId != QL_EVENT_DEFEATED_TRAINER
-     && eventId != QL_EVENT_DEFEATED_GYM_LEADER
-     && eventId != QL_EVENT_DEFEATED_E4_MEMBER
-     && eventId != QL_EVENT_DEFEATED_CHAMPION)
-        return FALSE;
-
-    ResetDeferredLinkEvent();
-    if (gQuestLogPlaybackState != QL_PLAYBACK_STATE_STOPPED || FlagGet(FLAG_SYS_GAME_CLEAR) || ShouldRegisterEvent_HandleBeatStoryTrainer(eventId, data) != TRUE)
-    {
-        sDeferredEvent.id = eventId;
-        memcpy(sDeferredEvent.data, data, sizeof(struct QuestLogEvent_TrainerBattle));
-    }
-    return TRUE;
-}
-
-void QuestLogEvents_HandleEndTrainerBattle(void)
-{
-    if (sDeferredEvent.id != 0)
-    {
-        u16 *resp;
-        if (gQuestLogPlaybackState == QL_PLAYBACK_STATE_STOPPED)
-        {
-            sLastDepartedLocation = 0;
-            QL_StartRecordingAction(sDeferredEvent.id);
-        }
-        UpdateRepeatEventCounter(sDeferredEvent.id);
-        resp = sRecordEventFuncs[sDeferredEvent.id](gQuestLogRecordingPointer, sDeferredEvent.data);
-        gQuestLogRecordingPointer = resp;
-        QL_RecordWait(1);
-        ResetDeferredLinkEvent();
-        QL_FinishRecordingScene();
-    }
 }
 
 void QL_RecordWait(u16 duration)
@@ -1248,134 +1130,6 @@ static const u16 *LoadEvent_UsedPkmnCenter(const u16 *eventData)
     StringExpandPlaceholders(gStringVar4, gText_QuestLog_MonsWereFullyRestoredAtCenter);
     return eventData + 2;
 }
-
-static u16 *RecordEvent_LinkTraded(u16 *dest, const struct QuestLogEvent_Traded * data)
-{
-    u16 *nameDest = dest + 4;
-
-    dest[0] = QL_EVENT_LINK_TRADED;
-    dest[1] = gQuestLogCurActionIdx;
-    dest[2] = data->speciesSent;
-    dest[3] = data->speciesReceived;
-    memcpy(nameDest, data->partnerName, PLAYER_NAME_LENGTH);
-    return nameDest + 4;
-}
-
-static const u16 *LoadEvent_LinkTraded(const u16 *eventData)
-{
-    const u16 *name = eventData + 4;
-
-    memset(gStringVar1, EOS, PLAYER_NAME_LENGTH + 1);
-    memcpy(gStringVar1, name, PLAYER_NAME_LENGTH);
-
-    TranslateLinkPartnersName(gStringVar1);
-    QuestLog_GetSpeciesName(eventData[3], gStringVar2, 0); // Mon received
-    QuestLog_GetSpeciesName(eventData[2], gStringVar3, 0); // Mon sent
-    StringExpandPlaceholders(gStringVar4, gText_QuestLog_TradedMon1ForPersonsMon2);
-    return name + 4;
-}
-
-#define rOutcome      record[0]
-#define rBattler1Name record[1]
-#define rBattler2Name record[1 + PLAYER_NAME_LENGTH]
-#define rBattler3Name record[1 + PLAYER_NAME_LENGTH * 2]
-
-static u16 *RecordEvent_LinkBattledSingle(u16 *dest, const struct QuestLogEvent_LinkBattle * data)
-{
-    u8 * record;
-
-    dest[0] = QL_EVENT_LINK_BATTLED_SINGLE;
-    dest[1] = gQuestLogCurActionIdx;
-    record = (u8 *)(dest + 2);
-
-    rOutcome = data->outcome;
-    memcpy(&rBattler1Name, data->playerNames[0], PLAYER_NAME_LENGTH);
-    return (u16 *)(record + 1 + PLAYER_NAME_LENGTH);
-}
-
-static const u16 *LoadEvent_LinkBattledSingle(const u16 *eventData)
-{
-    const u8 * record = (const u8 *)(eventData + 2);
-    DynamicPlaceholderTextUtil_Reset();
-
-    memset(gStringVar1, EOS, PLAYER_NAME_LENGTH + 1);
-    memcpy(gStringVar1, &rBattler1Name, PLAYER_NAME_LENGTH);
-    TranslateLinkPartnersName(gStringVar1);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, sBattleOutcomeTexts[rOutcome]);
-    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_SingleBattleWithPersonResultedInOutcome);
-    return (const u16 *)(record + 1 + PLAYER_NAME_LENGTH);
-}
-
-static u16 *RecordEvent_LinkBattledDouble(u16 *dest, const struct QuestLogEvent_LinkBattle * data)
-{
-    u8 * record;
-
-    dest[0] = QL_EVENT_LINK_BATTLED_DOUBLE;
-    dest[1] = gQuestLogCurActionIdx;
-    record = (u8 *)(dest + 2);
-
-    rOutcome = data->outcome;
-    memcpy(&rBattler1Name, data->playerNames[0], PLAYER_NAME_LENGTH);
-    return (u16 *)(record + 1 + PLAYER_NAME_LENGTH);
-}
-
-static const u16 *LoadEvent_LinkBattledDouble(const u16 *eventData)
-{
-    const u8 * record = (const u8 *)(eventData + 2);
-    DynamicPlaceholderTextUtil_Reset();
-
-    memset(gStringVar1, EOS, PLAYER_NAME_LENGTH + 1);
-    memcpy(gStringVar1, &rBattler1Name, PLAYER_NAME_LENGTH);
-    TranslateLinkPartnersName(gStringVar1);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, sBattleOutcomeTexts[rOutcome]);
-    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_DoubleBattleWithPersonResultedInOutcome);
-    return (const u16 *)(record + 1 + PLAYER_NAME_LENGTH);
-}
-
-static u16 *RecordEvent_LinkBattledMulti(u16 *dest, const struct QuestLogEvent_LinkBattle * data)
-{
-    u8 * record;
-
-    dest[0] = QL_EVENT_LINK_BATTLED_MULTI;
-    dest[1] = gQuestLogCurActionIdx;
-    record = (u8 *)(dest + 2);
-
-    rOutcome = data->outcome;
-    memcpy(&rBattler1Name, data->playerNames[0], PLAYER_NAME_LENGTH);
-    memcpy(&rBattler2Name, data->playerNames[1], PLAYER_NAME_LENGTH);
-    memcpy(&rBattler3Name, data->playerNames[2], PLAYER_NAME_LENGTH);
-    return (u16 *)(record + 1 + PLAYER_NAME_LENGTH * 3);
-}
-
-static const u16 *LoadEvent_LinkBattledMulti(const u16 *eventData)
-{
-    const u8 * record = (const u8 *)(eventData + 2);
-    DynamicPlaceholderTextUtil_Reset();
-
-    memset(gStringVar1, EOS, PLAYER_NAME_LENGTH + 1);
-    memset(gStringVar2, EOS, PLAYER_NAME_LENGTH + 1);
-    memset(gStringVar3, EOS, PLAYER_NAME_LENGTH + 1);
-    StringCopy_PlayerName(gStringVar1, &rBattler1Name);
-    StringCopy_PlayerName(gStringVar2, &rBattler2Name);
-    StringCopy_PlayerName(gStringVar3, &rBattler3Name);
-    TranslateLinkPartnersName(gStringVar1);
-    TranslateLinkPartnersName(gStringVar2);
-    TranslateLinkPartnersName(gStringVar3);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gSaveBlock2Ptr->playerName);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar1); // partner
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, gStringVar2); // opponent 1
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, gStringVar3); // opponent 2
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, sBattleOutcomeTexts[rOutcome]);
-    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_QuestLog_MultiBattleWithPeopleResultedInOutcome);
-    return (const u16 *)(record + 1 + PLAYER_NAME_LENGTH * 3);
-}
-
-#undef rOutcome
-#undef rBattler1Name
-#undef rBattler2Name
-#undef rBattler3Name
 
 #define rSpecies1 record[0]
 #define rSpecies2 record[1]
@@ -2133,21 +1887,4 @@ static const u16 *LoadEvent_ArrivedInLocation(const u16 *eventData)
     GetMapNameGeneric(gStringVar1, (u8)r4[0]);
     StringExpandPlaceholders(gStringVar4, gText_QuestLog_ArrivedInLocation);
     return r4 + 1;
-}
-
-static void TranslateLinkPartnersName(u8 *dest)
-{
-    s32 i;
-    if (*dest++ == EXT_CTRL_CODE_BEGIN && *dest++ == EXT_CTRL_CODE_JPN)
-    {
-        for (i = 0; i < 5; i++)
-        {
-            if (*dest == EXT_CTRL_CODE_BEGIN)
-                break;
-            dest++;
-        }
-        *dest++ = EXT_CTRL_CODE_BEGIN;
-        *dest++ = EXT_CTRL_CODE_ENG;
-        *dest++ = EOS;
-    }
 }

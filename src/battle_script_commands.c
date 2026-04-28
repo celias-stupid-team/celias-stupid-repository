@@ -214,7 +214,6 @@ static void Cmd_trainerslidein(void);
 static void Cmd_playse(void);
 static void Cmd_fanfare(void);
 static void Cmd_playfaintcry(void);
-static void Cmd_endlinkbattle(void);
 static void Cmd_returntoball(void);
 static void Cmd_handlelearnnewmove(void);
 static void Cmd_yesnoboxlearnmove(void);
@@ -475,7 +474,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_playse,                                  //0x54
     Cmd_fanfare,                                 //0x55
     Cmd_playfaintcry,                            //0x56
-    Cmd_endlinkbattle,                           //0x57
+    Cmd_end,                                     //0x57
     Cmd_returntoball,                            //0x58
     Cmd_handlelearnnewmove,                      //0x59
     Cmd_yesnoboxlearnmove,                       //0x5A
@@ -5659,30 +5658,6 @@ u8 CanBattlerSwitch(u32 battler)
     {
         ret = PARTY_SIZE;
     }
-    else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-    {
-        if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
-            party = gEnemyParty;
-        else
-            party = gPlayerParty;
-
-        i = 0;
-        if (GetLinkTrainerFlankId(GetBattlerMultiplayerId(battler)) == TRUE)
-            i = 3;
-        for (lastMonId = i + 3; i < lastMonId; i++)
-        {
-            if (GetMonData(&party[i], MON_DATA_SPECIES) != SPECIES_NONE
-             && !GetMonData(&party[i], MON_DATA_IS_EGG)
-             && GetMonData(&party[i], MON_DATA_HP) != 0
-             && gBattlerPartyIndexes[battler] != i)
-                break;
-        }
-
-        if (i == lastMonId)
-            ret = PARTY_SIZE;
-        else
-            ret = i;
-    }
     else
     {
         u8 battlerIn1, battlerIn2;
@@ -5757,7 +5732,6 @@ static void Cmd_openpartyscreen(void)
                     {
                         gAbsentBattlerFlags |= gBitTable[gActiveBattler];
                         gHitMarker &= ~HITMARKER_FAINTED(gActiveBattler);
-                        BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                         MarkBattlerForControllerExec(gActiveBattler);
                     }
                     else if (!gSpecialStatuses[gActiveBattler].faintedHasReplacement)
@@ -5768,7 +5742,6 @@ static void Cmd_openpartyscreen(void)
                 }
                 else
                 {
-                    BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                     MarkBattlerForControllerExec(gActiveBattler);
                 }
             }
@@ -5796,7 +5769,6 @@ static void Cmd_openpartyscreen(void)
                 }
                 else
                 {
-                    BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                     MarkBattlerForControllerExec(gActiveBattler);
                     flags |= 1;
                 }
@@ -5818,7 +5790,6 @@ static void Cmd_openpartyscreen(void)
                 }
                 else if (!(flags & 1))
                 {
-                    BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                     MarkBattlerForControllerExec(gActiveBattler);
                 }
             }
@@ -5839,7 +5810,6 @@ static void Cmd_openpartyscreen(void)
                 }
                 else
                 {
-                    BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                     MarkBattlerForControllerExec(gActiveBattler);
                     flags |= 2;
                 }
@@ -5861,7 +5831,6 @@ static void Cmd_openpartyscreen(void)
                 }
                 else if (!(flags & 2))
                 {
-                    BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                     MarkBattlerForControllerExec(gActiveBattler);
                 }
             }
@@ -5877,7 +5846,6 @@ static void Cmd_openpartyscreen(void)
                     else
                         gActiveBattler = 0;
 
-                    BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                     MarkBattlerForControllerExec(gActiveBattler);
                 }
 
@@ -5893,7 +5861,6 @@ static void Cmd_openpartyscreen(void)
                     else
                         gActiveBattler = 1;
 
-                    BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                     MarkBattlerForControllerExec(gActiveBattler);
                 }
             }
@@ -6001,7 +5968,6 @@ static void Cmd_openpartyscreen(void)
                 {
                     if (gActiveBattler != battlerId)
                     {
-                        BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                         MarkBattlerForControllerExec(gActiveBattler);
                     }
                 }
@@ -6012,7 +5978,6 @@ static void Cmd_openpartyscreen(void)
                 if (gAbsentBattlerFlags & gBitTable[gActiveBattler])
                     gActiveBattler ^= BIT_FLANK;
 
-                BtlController_EmitLinkStandbyMsg(BUFFER_A, LINK_STANDBY_MSG_ONLY);
                 MarkBattlerForControllerExec(gActiveBattler);
             }
         }
@@ -6254,15 +6219,6 @@ static void Cmd_playfaintcry(void)
     MarkBattlerForControllerExec(gActiveBattler);
 
     gBattlescriptCurrInstr += 2;
-}
-
-static void Cmd_endlinkbattle(void)
-{
-    gActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-    BtlController_EmitEndLinkBattle(BUFFER_A, gBattleOutcome);
-    MarkBattlerForControllerExec(gActiveBattler);
-
-    gBattlescriptCurrInstr += 1;
 }
 
 static void Cmd_returntoball(void)
@@ -8399,30 +8355,13 @@ static void Cmd_forcerandomswitch(void)
         else
             party = gEnemyParty;
 
-        if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+        valid = 0;
+        for (i = 0; i < PARTY_SIZE; i++)
         {
-            valid = 0;
-            val = 0;
-            if (GetLinkTrainerFlankId(GetBattlerMultiplayerId(gBattlerTarget)) == 1)
-                val = PARTY_SIZE / 2;
-            for (i = val; i < val + (PARTY_SIZE / 2); i++)
-            {
-                if (GetMonData(&party[i], MON_DATA_SPECIES) != SPECIES_NONE
-                 && !GetMonData(&party[i], MON_DATA_IS_EGG)
-                 && GetMonData(&party[i], MON_DATA_HP) != 0)
-                    ++valid;
-            }
-        }
-        else
-        {
-            valid = 0;
-            for (i = 0; i < PARTY_SIZE; i++)
-            {
-                if (GetMonData(&party[i], MON_DATA_SPECIES) != SPECIES_NONE
-                 && !GetMonData(&party[i], MON_DATA_IS_EGG)
-                 && GetMonData(&party[i], MON_DATA_HP) != 0)
-                    ++valid;
-            }
+            if (GetMonData(&party[i], MON_DATA_SPECIES) != SPECIES_NONE
+                && !GetMonData(&party[i], MON_DATA_IS_EGG)
+                && GetMonData(&party[i], MON_DATA_HP) != 0)
+                ++valid;
         }
 
         // Fails if there's only 1 mon left in single battle or there's less than 3 left in non-multi double battle.
@@ -8433,47 +8372,28 @@ static void Cmd_forcerandomswitch(void)
         }
         else if (TryDoForceSwitchOut())
         {
-            if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
             {
                 do
                 {
-                    val = Random() % (PARTY_SIZE / 2);
-                    if (GetLinkTrainerFlankId(GetBattlerMultiplayerId(gBattlerTarget)) == 1)
-                        i = val + (PARTY_SIZE / 2);
-                    else
-                        i = val;
+                    i = Random() % PARTY_SIZE;
                 }
                 while (i == gBattlerPartyIndexes[gBattlerTarget]
-                      || i == gBattlerPartyIndexes[gBattlerTarget ^ 2]
-                      || !MON_CAN_BATTLE(&party[i]));
+                    || i == gBattlerPartyIndexes[gBattlerTarget ^ 2]
+                    || !MON_CAN_BATTLE(&party[i]));
             }
             else
             {
-                if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+                do
                 {
-                    do
-                    {
-                        i = Random() % PARTY_SIZE;
-                    }
-                    while (i == gBattlerPartyIndexes[gBattlerTarget]
-                        || i == gBattlerPartyIndexes[gBattlerTarget ^ 2]
-                        || !MON_CAN_BATTLE(&party[i]));
+                    i = Random() % PARTY_SIZE;
                 }
-                else
-                {
-                    do
-                    {
-                        i = Random() % PARTY_SIZE;
-                    }
-                    while (i == gBattlerPartyIndexes[gBattlerTarget]
-                        || !MON_CAN_BATTLE(&party[i]));
-                }
+                while (i == gBattlerPartyIndexes[gBattlerTarget]
+                    || !MON_CAN_BATTLE(&party[i]));
             }
+
             *(gBattleStruct->monToSwitchIntoId + gBattlerTarget) = i;
-            if (!IsMultiBattle())
-                UpdatePartyOwnerOnSwitch_NonMulti(gBattlerTarget);
-            SwitchPartyOrderLinkMulti(gBattlerTarget, i, 0);
-            SwitchPartyOrderLinkMulti(gBattlerTarget ^ BIT_FLANK, i, 1);
+            UpdatePartyOwnerOnSwitch_NonMulti(gBattlerTarget);
         }
     }
     else

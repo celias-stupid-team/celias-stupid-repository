@@ -584,8 +584,6 @@ static bool8 DoInitMailView(void)
         }
         break;
     case 15:
-        if (Overworld_LinkRecvQueueLengthMoreThan2() == TRUE)
-            return FALSE;
         break;
     case 16:
         SetVBlankCallback(VBlankCB_ShowMail);
@@ -630,7 +628,7 @@ static void CB2_InitMailView(void)
             SetMainCallback2(CB2_RunShowMailCB);
             break;
         }
-    } while (MenuHelpers_IsLinkActive() != TRUE);
+    } while (TRUE);
 }
 
 static void BufferMailMessage(void)

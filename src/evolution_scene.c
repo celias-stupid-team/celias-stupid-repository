@@ -8,7 +8,6 @@
 #include "event_scripts.h"
 #include "evolution_scene.h"
 #include "evolution_graphics.h"
-#include "link.h"
 #include "m4a.h"
 #include "event_data.h"
 #include "trade_scene.h"
@@ -383,6 +382,13 @@ static void CB2_EvolutionSceneLoadGraphics(void)
     ShowBg(1);
     ShowBg(2);
     ShowBg(3);
+}
+
+void LinkTradeDrawWindow(void)
+{
+    FillWindowPixelBuffer(0, PIXEL_FILL(15));
+    PutWindowTilemap(0);
+    CopyWindowToVram(0, COPYWIN_FULL);
 }
 
 static void CB2_TradeEvolutionSceneLoadGraphics(void)

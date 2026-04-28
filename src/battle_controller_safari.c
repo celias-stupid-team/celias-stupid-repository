@@ -7,7 +7,6 @@
 #include "battle_message.h"
 #include "data.h"
 #include "item_menu.h"
-#include "link.h"
 #include "main.h"
 #include "pokeball.h"
 #include "util.h"
@@ -283,17 +282,7 @@ static void CompleteOnFinishedBattleAnimation(void)
 static void SafariBufferExecCompleted(void)
 {
     gBattlerControllerFuncs[gActiveBattler] = SafariBufferRunCommand;
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-    {
-        u8 playerId = GetMultiplayerId();
-
-        PrepareBufferDataTransferLink(2, 4, &playerId);
-        gBattleBufferA[gActiveBattler][0] = CONTROLLER_TERMINATOR_NOP;
-    }
-    else
-    {
-        gBattleControllerExecFlags &= ~gBitTable[gActiveBattler];
-    }
+    gBattleControllerExecFlags &= ~gBitTable[gActiveBattler];
 }
 
 // not used

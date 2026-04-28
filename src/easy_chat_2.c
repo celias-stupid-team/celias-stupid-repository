@@ -141,16 +141,8 @@ static void SetEasyChatTaskFunc(u8 taskId, TaskFunc func)
 
 static void Task_InitEasyChat(u8 taskId)
 {
-    if (!IsUpdateLinkStateCBActive())
-    {
-        while (Task_InitEasyChatInternal(taskId))
-            ;
-    }
-    else
-    {
-        if (Task_InitEasyChatInternal(taskId) == TRUE)
-            return;
-    }
+    if (Task_InitEasyChatInternal(taskId) == TRUE)
+        return;
     SetEasyChatTaskFunc(taskId, Task_RunEasyChat);
 }
 

@@ -4,36 +4,9 @@
 #include "global.h"
 #include "main.h"
 
-#define LINK_KEY_CODE_NULL 0x00
-#define LINK_KEY_CODE_EMPTY 0x11
-#define LINK_KEY_CODE_DPAD_DOWN 0x12
-#define LINK_KEY_CODE_DPAD_UP 0x13
-#define LINK_KEY_CODE_DPAD_LEFT 0x14
-#define LINK_KEY_CODE_DPAD_RIGHT 0x15
-#define LINK_KEY_CODE_READY 0x16
-#define LINK_KEY_CODE_EXIT_ROOM 0x17
-#define LINK_KEY_CODE_START_BUTTON 0x18
-#define LINK_KEY_CODE_A_BUTTON 0x19
-#define LINK_KEY_CODE_IDLE 0x1A
-
-// These two are a hack to stop user input until link stuff can be
-// resolved.
-#define LINK_KEY_CODE_HANDLE_RECV_QUEUE 0x1B
-#define LINK_KEY_CODE_HANDLE_SEND_QUEUE 0x1C
-
-#define LINK_KEY_CODE_EXIT_SEAT 0x1D
-
 #define MOVEMENT_MODE_FREE 0
 #define MOVEMENT_MODE_FROZEN 1
 #define MOVEMENT_MODE_SCRIPTED 2
-
-struct LinkPlayerObjectEvent
-{
-    u8 active;
-    u8 linkPlayerId;
-    u8 objEventId;
-    u8 movementMode;
-};
 
 struct CreditsOverworldCmd
 {
@@ -49,14 +22,11 @@ struct CreditsOverworldCmd
 
 extern const struct Coords32 gDirectionToVectors[];
 
-extern struct LinkPlayerObjectEvent gLinkPlayerObjectEvents[4];
 extern MainCallback gFieldCallback;
 
 extern struct WarpData gLastUsedWarp;
 
 extern u8 gExitStairsMovementDisabled;
-extern u8 gFieldLinkPlayerCount;
-extern u8 gLocalLinkPlayerId;
 
 void IncrementGameStat(u8 index);
 
@@ -85,9 +55,6 @@ void Overworld_SetSavedMusic(u16);
 void Overworld_ChangeMusicToDefault(void);
 void Overworld_ChangeMusicTo(u16);
 
-bool32 IsUpdateLinkStateCBActive(void);
-
-void ClearLinkPlayerObjectEvents(void);
 const struct MapHeader *const Overworld_GetMapHeaderByGroupAndId(u16, u16);
 void ObjectEventMoveDestCoords(struct ObjectEvent *, u32, s16 *, s16 *);
 void CB2_ReturnToField(void);
@@ -137,20 +104,16 @@ bool8 BGMusicStopped(void);
 bool8 IsMapTypeIndoors(u8 mapType);
 bool32 Overworld_IsBikingAllowed(void);
 void Overworld_ResetStateAfterDigEscRope(void);
-bool32 Overworld_LinkRecvQueueLengthMoreThan2(void);
 u8 GetCurrentMapType(void);
 bool32 IsCurrentMap(u16 map);
 
 u8 GetLastUsedWarpMapType(void);
 const struct MapHeader *const GetDestinationWarpMapHeader(void);
 void TryFadeOutOldMapMusic(void);
-void CB2_ReturnToFieldCableClub(void);
 void ResetGameStats(void);
 
 void Overworld_CreditsMainCB(void);
 bool32 Overworld_DoScrollSceneForCredits(u8 *, const struct CreditsOverworldCmd *, u8);
-
-bool32 IsSendingKeysOverCable(void);
 
 void CB2_ReturnToFieldWithOpenMenu(void);
 void CB2_WhiteOut(void);
@@ -162,18 +125,11 @@ void SetContinueGameWarpToHealLocation(u8 loc);
 
 void UpdateAmbientCry(s16 *state, u16 *delayCounter);
 void SetWarpDestinationToHealLocation(u8 a0);
-bool32 Overworld_SendKeysToLinkIsRunning(void);
-bool32 Overworld_RecvKeysFromLinkIsRunning(void);
 void OverworldWhiteOutGetMoneyLoss(void);
 u8 GetCurrentMapBattleScene(void);
 void Overworld_ResetStateAfterFly(void);
 bool8 MetatileBehavior_IsSurfableInSeafoamIslands(u16 metatileBehavior);
 void Overworld_ResetMapMusic(void);
-u16 QueueExitLinkRoomKey(void);
-u16 SetInCableClubSeat(void);
-u32 GetCableClubPartnersReady(void);
-u16 SetStartedCableClubActivity(void);
-u16 SetLinkWaitingForScript(void);
 void SetMainCallback1(MainCallback cb);
 void CB1_Overworld(void);
 void CB2_ReturnToFieldContinueScript(void);

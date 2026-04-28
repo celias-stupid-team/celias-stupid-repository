@@ -7,7 +7,6 @@
 #include "decompress.h"
 #include "event_data.h"
 #include "graphics.h"
-#include "link.h"
 #include "new_menu_helpers.h"
 #include "overworld.h"
 #include "script.h"
@@ -77,7 +76,7 @@ static const struct SpriteTemplate sVsLetter_V_SpriteTemplate = {
     .oam = &sVsLetter_V_OamData,
     .anims = gDummySpriteAnimTable,
     .affineAnims = sVsLetterAffineAnimTable,
-    .callback = SpriteCB_VsLetterDummy
+    .callback = SpriteCallbackDummy_2
 };
 
 static const struct SpriteTemplate sVsLetter_S_SpriteTemplate = {
@@ -86,7 +85,7 @@ static const struct SpriteTemplate sVsLetter_S_SpriteTemplate = {
     .oam = &sVsLetter_S_OamData,
     .anims = gDummySpriteAnimTable,
     .affineAnims = sVsLetterAffineAnimTable,
-    .callback = SpriteCB_VsLetterDummy
+    .callback = SpriteCallbackDummy_2
 };
 
 static const struct CompressedSpriteSheet sVsLettersSpriteSheet = {
@@ -773,285 +772,13 @@ void LoadBattleTextboxAndBackground(void)
     DrawMainBattleBackground();
 }
 
-static void DrawLinkBattleParticipantPokeballs(u8 taskId, u8 multiplayerId, u8 bgId, u8 destX, u8 destY)
-{
-    s32 i;
-    u16 pokeballStatuses = 0;
-    u16 tiles[6];
-
-    if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-    {
-        if (gTasks[taskId].data[5] != 0)
-        {
-            switch (multiplayerId)
-            {
-            case 0:
-                pokeballStatuses = 0x3F & gTasks[taskId].data[3];
-                break;
-            case 1:
-                pokeballStatuses = (0xFC0 & gTasks[taskId].data[4]) >> 6;
-                break;
-            case 2:
-                pokeballStatuses = (0xFC0 & gTasks[taskId].data[3]) >> 6;
-                break;
-            case 3:
-                pokeballStatuses = 0x3F & gTasks[taskId].data[4];
-                break;
-            }
-        }
-        else
-        {
-            switch (multiplayerId)
-            {
-            case 0:
-                pokeballStatuses = 0x3F & gTasks[taskId].data[3];
-                break;
-            case 1:
-                pokeballStatuses = 0x3F & gTasks[taskId].data[4];
-                break;
-            case 2:
-                pokeballStatuses = (0xFC0 & gTasks[taskId].data[3]) >> 6;
-                break;
-            case 3:
-                pokeballStatuses = (0xFC0 & gTasks[taskId].data[4]) >> 6;
-                break;
-            }
-        }
-
-        for (i = 0; i < 3; i++)
-            tiles[i] = ((pokeballStatuses & (3 << (i * 2))) >> (i * 2)) + 0x6001;
-
-        CopyToBgTilemapBufferRect_ChangePalette(bgId, tiles, destX, destY, 3, 1, 0x11);
-        CopyBgTilemapBufferToVram(bgId);
-    }
-    else
-    {
-        if (multiplayerId == gBattleStruct->multiplayerId)
-            pokeballStatuses = gTasks[taskId].data[3];
-        else
-            pokeballStatuses = gTasks[taskId].data[4];
-
-        for (i = 0; i < 6; i++)
-            tiles[i] = ((pokeballStatuses & (3 << (i * 2))) >> (i * 2)) + 0x6001;
-
-        CopyToBgTilemapBufferRect_ChangePalette(bgId, tiles, destX, destY, 6, 1, 0x11);
-        CopyBgTilemapBufferToVram(bgId);
-    }
-}
-
-static void DrawLinkBattleVsScreenOutcomeText(void)
-{
-    if (gBattleOutcome == B_OUTCOME_DREW)
-    {
-        BattlePutTextOnWindow(gText_Draw, B_WIN_VS_OUTCOME_DRAW);
-    }
-    else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-    {
-        if (gBattleOutcome == B_OUTCOME_WON)
-        {
-            switch (gLinkPlayers[gBattleStruct->multiplayerId].id)
-            {
-            case 0:
-                BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_LEFT);
-                BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_RIGHT);
-                break;
-            case 1:
-                BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_RIGHT);
-                BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_LEFT);
-                break;
-            case 2:
-                BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_LEFT);
-                BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_RIGHT);
-                break;
-            case 3:
-                BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_RIGHT);
-                BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_LEFT);
-                break;
-            }
-        }
-        else
-        {
-            switch (gLinkPlayers[gBattleStruct->multiplayerId].id)
-            {
-            case 0:
-                BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_RIGHT);
-                BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_LEFT);
-                break;
-            case 1:
-                BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_LEFT);
-                BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_RIGHT);
-                break;
-            case 2:
-                BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_RIGHT);
-                BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_LEFT);
-                break;
-            case 3:
-                BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_LEFT);
-                BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_RIGHT);
-                break;
-            }
-        }
-    }
-    else if (gBattleOutcome == B_OUTCOME_WON)
-    {
-        if (gLinkPlayers[gBattleStruct->multiplayerId].id != 0)
-        {
-            BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_RIGHT);
-            BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_LEFT);
-        }
-        else
-        {
-            BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_LEFT);
-            BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_RIGHT);
-        }
-    }
-    else
-    {
-        if (gLinkPlayers[gBattleStruct->multiplayerId].id != 0)
-        {
-            BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_LEFT);
-            BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_RIGHT);
-        }
-        else
-        {
-            BattlePutTextOnWindow(gText_Win, B_WIN_VS_OUTCOME_RIGHT);
-            BattlePutTextOnWindow(gText_Loss, B_WIN_VS_OUTCOME_LEFT);
-        }
-    }
-}
-
-void InitLinkBattleVsScreen(u8 taskId)
-{
-    struct LinkPlayer *linkPlayer;
-    u8 *name;
-    s32 i, palId;
-
-    switch (gTasks[taskId].data[0])
-    {
-    case 0:
-        if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-        {
-            for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-            {
-                name = gLinkPlayers[i].name;
-                linkPlayer = &gLinkPlayers[i];
-
-                switch (linkPlayer->id)
-                {
-                case 0:
-                    BattlePutTextOnWindow(name, B_WIN_VS_MULTI_PLAYER_1);
-                    DrawLinkBattleParticipantPokeballs(taskId, linkPlayer->id, 1, 2, 4);
-                    break;
-                case 1:
-                    BattlePutTextOnWindow(name, B_WIN_VS_MULTI_PLAYER_2);
-                    DrawLinkBattleParticipantPokeballs(taskId, linkPlayer->id, 2, 2, 4);
-                    break;
-                case 2:
-                    BattlePutTextOnWindow(name, B_WIN_VS_MULTI_PLAYER_3);
-                    DrawLinkBattleParticipantPokeballs(taskId, linkPlayer->id, 1, 2, 8);
-                    break;
-                case 3:
-                    BattlePutTextOnWindow(name, B_WIN_VS_MULTI_PLAYER_4);
-                    DrawLinkBattleParticipantPokeballs(taskId, linkPlayer->id, 2, 2, 8);
-                    break;
-                }
-            }
-        }
-        else
-        {
-            u8 playerId = gBattleStruct->multiplayerId;
-            u8 opponentId = playerId ^ BIT_SIDE;
-            u8 opponentId_copy = opponentId;
-
-            if (gLinkPlayers[playerId].id != 0)
-                opponentId = playerId, playerId = opponentId_copy;
-
-            name = gLinkPlayers[playerId].name;
-            BattlePutTextOnWindow(name, B_WIN_VS_PLAYER);
-
-            name = gLinkPlayers[opponentId].name;
-            BattlePutTextOnWindow(name, B_WIN_VS_OPPONENT);
-
-            DrawLinkBattleParticipantPokeballs(taskId, playerId, 1, 2, 7);
-            DrawLinkBattleParticipantPokeballs(taskId, opponentId, 2, 2, 7);
-        }
-        gTasks[taskId].data[0]++;
-        break;
-    case 1:
-        palId = AllocSpritePalette(TAG_VS_LETTERS);
-        gPlttBufferUnfaded[OBJ_PLTT_ID(palId) + 15] = gPlttBufferFaded[OBJ_PLTT_ID(palId) + 15] = RGB_WHITE;
-        gBattleStruct->linkBattleVsSpriteId_V = CreateSprite(&sVsLetter_V_SpriteTemplate, 108, 80, 0);
-        gBattleStruct->linkBattleVsSpriteId_S = CreateSprite(&sVsLetter_S_SpriteTemplate, 132, 80, 0);
-        gSprites[gBattleStruct->linkBattleVsSpriteId_V].invisible = TRUE;
-        gSprites[gBattleStruct->linkBattleVsSpriteId_S].invisible = TRUE;
-        gTasks[taskId].data[0]++;
-        break;
-    case 2:
-        if (gTasks[taskId].data[5] != 0)
-        {
-            gBattle_BG1_X = -(20) - (Sin2(gTasks[taskId].data[1]) / 32);
-            gBattle_BG2_X = -(140) - (Sin2(gTasks[taskId].data[2]) / 32);
-            gBattle_BG1_Y = -36;
-            gBattle_BG2_Y = -36;
-        }
-        else
-        {
-            gBattle_BG1_X = -(20) - (Sin2(gTasks[taskId].data[1]) / 32);
-            gBattle_BG1_Y = (Cos2(gTasks[taskId].data[1]) / 32) - 164;
-            gBattle_BG2_X = -(140) - (Sin2(gTasks[taskId].data[2]) / 32);
-            gBattle_BG2_Y = (Cos2(gTasks[taskId].data[2]) / 32) - 164;
-        }
-
-        if (gTasks[taskId].data[2] != 0)
-        {
-            gTasks[taskId].data[2] -= 2;
-            gTasks[taskId].data[1] += 2;
-        }
-        else
-        {
-            if (gTasks[taskId].data[5] != 0)
-                DrawLinkBattleVsScreenOutcomeText();
-
-            PlaySE(SE_M_HARDEN);
-            DestroyTask(taskId);
-            gSprites[gBattleStruct->linkBattleVsSpriteId_V].invisible = FALSE;
-            gSprites[gBattleStruct->linkBattleVsSpriteId_S].invisible = FALSE;
-            gSprites[gBattleStruct->linkBattleVsSpriteId_S].oam.tileNum += 0x40;
-            gSprites[gBattleStruct->linkBattleVsSpriteId_V].data[0] = 0;
-            gSprites[gBattleStruct->linkBattleVsSpriteId_S].data[0] = 1;
-            gSprites[gBattleStruct->linkBattleVsSpriteId_V].data[1] = gSprites[gBattleStruct->linkBattleVsSpriteId_V].x;
-            gSprites[gBattleStruct->linkBattleVsSpriteId_S].data[1] = gSprites[gBattleStruct->linkBattleVsSpriteId_S].x;
-            gSprites[gBattleStruct->linkBattleVsSpriteId_V].data[2] = 0;
-            gSprites[gBattleStruct->linkBattleVsSpriteId_S].data[2] = 0;
-        }
-        break;
-    }
-}
-
 void DrawBattleEntryBackground(void)
 {
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-    {
-        LZDecompressVram(gFile_graphics_battle_transitions_vs_frame_sheet, (void *)(BG_CHAR_ADDR(1)));
-        LZDecompressVram(gVsLettersGfx, (void *)(VRAM + 0x10000));
-        LoadCompressedPalette(gFile_graphics_battle_transitions_vs_frame_palette, BG_PLTT_ID(6), PLTT_SIZE_4BPP);
-        SetBgAttribute(1, BG_ATTR_SCREENSIZE, 1);
-        SetGpuReg(REG_OFFSET_BG1CNT, BGCNT_PRIORITY(0) | BGCNT_CHARBASE(1) | BGCNT_16COLOR | BGCNT_SCREENBASE(28) | BGCNT_TXT512x256);
-        CopyToBgTilemapBuffer(1, gFile_graphics_battle_transitions_vs_frame_tilemap, 0, 0);
-        CopyToBgTilemapBuffer(2, gFile_graphics_battle_transitions_vs_frame_tilemap, 0, 0);
-        CopyBgTilemapBufferToVram(1);
-        CopyBgTilemapBufferToVram(2);
-        SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG1 | WININ_WIN0_BG2 | WININ_WIN0_OBJ | WININ_WIN0_CLR);
-        SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG1 | WINOUT_WIN01_BG2 | WINOUT_WIN01_OBJ | WINOUT_WIN01_CLR);
-        gBattle_BG1_Y = -164;
-        gBattle_BG2_Y = -164;
-        LoadCompressedSpriteSheetUsingHeap(&sVsLettersSpriteSheet);
-    }
-    else if (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
+    if (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
     {
         LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_GRASS);
     }
-    else if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER))
+    else if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER))
     {
         LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_BUILDING);
     }
@@ -1134,7 +861,7 @@ static u8 GetBattleTerrainOverride(void)
         gBattleTerrain = BATTLE_TERRAIN_SPACE;
         return BATTLE_TERRAIN_SPACE;
     }
-    else if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER))
+    else if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER))
     {
         return BATTLE_TERRAIN_LINK;
     }

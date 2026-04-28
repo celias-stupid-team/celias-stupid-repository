@@ -65,7 +65,6 @@ SECTIONS {
         src/text.o(.text);
         src/sprite.o(.text);
         src/string_util.o(.text);
-        src/link.o(.text);
         src/main_menu.o(.text);
         src/battle_controllers.o(.text);
         src/decompress.o(.text);
@@ -78,7 +77,6 @@ SECTIONS {
         src/battle_gfx_sfx_util.o(.text);
         src/battle_controller_opponent.o(.text);
         src/battle_ai_switch_items.o(.text);
-        src/battle_controller_link_opponent.o(.text);
         src/pokemon.o(.text);
         src/trig.o(.text);
         src/random.o(.text);
@@ -89,7 +87,6 @@ SECTIONS {
         src/battle_anim_smokescreen.o(.text);
         src/pokeball.o(.text);
         src/load_save.o(.text);
-        src/trade.o(.text);
         src/trade_scene.o(.text);
         src/play_time.o(.text);
         src/new_game.o(.text);
@@ -126,7 +123,6 @@ SECTIONS {
         src/field_fadetransition.o(.text);
         src/field_screen_effect.o(.text);
         src/battle_setup.o(.text);
-        src/cable_club.o(.text);
         src/trainer_see.o(.text);
         src/wild_encounter.o(.text);
         src/field_effect.o(.text);
@@ -199,12 +195,10 @@ SECTIONS {
         src/prof_pc.o(.text);
         src/hof_pc.o(.text);
         src/field_specials.o(.text);
-        src/battle_records.o(.text);
         src/evolution_scene.o(.text);
         src/coins.o(.text);
         src/fldeff_strength.o(.text);
         src/battle_transition.o(.text);
-        src/battle_controller_link_partner.o(.text);
         src/battle_message.o(.text);
         src/math_util.o(.text);
         src/palette_util.o(.text);
@@ -371,7 +365,6 @@ SECTIONS {
         src/sprite.o(.rodata);
         src/bg_regs.o(.rodata);
         src/string_util.o(.rodata);
-        src/link.o(.rodata);
         src/main_menu.o(.rodata);
         src/data.o(.rodata);
         src/battle_bg.o(.rodata);
@@ -381,7 +374,6 @@ SECTIONS {
         src/battle_controller_player.o(.rodata);
         src/battle_anim_smokescreen.o(.rodata);
         src/battle_controller_opponent.o(.rodata);
-        src/battle_controller_link_opponent.o(.rodata);
         src/pokemon.o(.rodata);
         src/trig.o(.rodata);
         src/util.o(.rodata);
@@ -389,7 +381,6 @@ SECTIONS {
         src/battle_gfx_sfx_util.o(.rodata);
         src/battle_interface.o(.rodata);
         src/pokeball.o(.rodata);
-        src/trade.o(.rodata);
         src/trade_scene.o(.rodata);
         src/overworld.o(.rodata);
         src/tilesets.o(.rodata);
@@ -416,7 +407,6 @@ SECTIONS {
         src/field_weather_effects.o(.rodata);
         src/field_screen_effect.o(.rodata);
         src/battle_setup.o(.rodata);
-        src/cable_club.o(.rodata);
         src/trainer_see.o(.rodata);
         src/wild_encounter.o(.rodata);
         src/field_effect.o(.rodata);
@@ -469,10 +459,8 @@ SECTIONS {
         src/battle_ai_script_commands.o(.rodata);
         src/fldeff_flash.o(.rodata);
         src/field_specials.o(.rodata);
-        src/battle_records.o(.rodata);
         src/evolution_scene.o(.rodata);
         src/battle_transition.o(.rodata);
-        src/battle_controller_link_partner.o(.rodata);
         src/battle_message.o(.rodata);
         src/save.o(.rodata);
         src/field_effect_helpers.o(.rodata);

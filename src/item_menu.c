@@ -15,7 +15,6 @@
 #include "item_menu.h"
 #include "item_menu_icons.h"
 #include "item_use.h"
-#include "link.h"
 #include "list_menu.h"
 #include "load_save.h"
 #include "mail_data.h"
@@ -379,11 +378,7 @@ static void CB2_OpenBagMenu(void)
 {
     while (1)
     {
-        if (IsActiveOverworldLinkBusy() == TRUE)
-            break;
         if (LoadBagMenuGraphics() == TRUE)
-            break;
-        if (MenuHelpers_IsLinkActive() == TRUE)
             break;
     }
 }
@@ -421,10 +416,7 @@ static bool8 LoadBagMenuGraphics(void)
         gMain.state++;
         break;
     case 6:
-        if (!MenuHelpers_IsLinkActive())
-        {
-            ResetTasks();
-        }
+        ResetTasks();
         gMain.state++;
         break;
     case 7:
@@ -1054,8 +1046,6 @@ static void Task_BagMenu_HandleInput(u8 taskId)
         return;
     if (FuncIsActiveTask(Task_AnimateWin0v) == TRUE)
         return;
-    if (IsActiveOverworldLinkBusy() == TRUE)
-        return;
     switch (ProcessPocketSwitchInput(taskId, gBagMenuState.pocket))
     {
     case 1:
@@ -1178,7 +1168,7 @@ static void SwitchPockets(u8 taskId, s16 direction, bool16 a2)
 static void Task_AnimateSwitchPockets(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    if (!MenuHelpers_IsLinkActive() && !BagIsTutorial())
+    if (!BagIsTutorial())
     {
         switch (ProcessPocketSwitchInput(taskId, gBagMenuState.pocket + tSwitchDir))
         {
@@ -1249,8 +1239,6 @@ static void Task_MoveItemInPocket_HandleInput(u8 taskId)
     s32 input;
     u16 itemsAbove;
     u16 cursorPos;
-    if (IsActiveOverworldLinkBusy() == TRUE)
-        return;
     input = ListMenu_ProcessInput(data[0]);
     ListMenuGetScrollAndRow(data[0], &gBagMenuState.cursorPos[gBagMenuState.pocket], &gBagMenuState.itemsAbove[gBagMenuState.pocket]);
     UpdateSwapLinePos(0, ListMenuGetYCoordForPrintingArrowCursor(data[0]));
@@ -1391,74 +1379,56 @@ static void OpenContextMenu(u8 taskId)
         sContextMenuNumItems = 2;
         break;
     default:
-        if (MenuHelpers_IsLinkActive() == TRUE)
+        switch (gBagMenuState.pocket)
         {
-            if (gSpecialVar_ItemId == ITEM_TM_CASE || gSpecialVar_ItemId == ITEM_BERRY_POUCH)
+        case OPEN_BAG_ITEMS:
+            if (gSpecialVar_ItemId == ITEM_TM16 || gSpecialVar_ItemId == ITEM_MOON_STONE)
             {
-                sContextMenuItemsPtr = sContextMenuItems_Open;
+                sContextMenuItemsPtr = sContextMenuItems_PayDay;
                 sContextMenuNumItems = 2;
-            }  else
-            {
-                if (gBagMenuState.pocket == POCKET_KEY_ITEMS - 1)
-                    sContextMenuNumItems = 1;
-                else
-                    sContextMenuNumItems = 2;
-                sContextMenuItemsPtr = sContextMenuItems_GiveIfNotKeyItemPocket[gBagMenuState.pocket];
-            }
-        }
-        else
-        {
-            switch (gBagMenuState.pocket)
-            {
-            case OPEN_BAG_ITEMS:
-                if (gSpecialVar_ItemId == ITEM_TM16 || gSpecialVar_ItemId == ITEM_MOON_STONE)
-                {
-                    sContextMenuItemsPtr = sContextMenuItems_PayDay;
-                    sContextMenuNumItems = 2;
-                } else if (gSpecialVar_ItemId == ITEM_NEBBY || gSpecialVar_ItemId == ITEM_HAMBURGER) {
-                    sContextMenuItemsPtr = sContextMenuItems_Cancel;
-                    sContextMenuNumItems = 1;
-                    
-                } else {
-                    sContextMenuNumItems = 4;
-                    if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
-                        sContextMenuItemsPtr = sContextMenuItems_CheckGiveTossCancel;
-                    else
-                        sContextMenuItemsPtr = sContextMenuItems_Field[gBagMenuState.pocket];
+            } else if (gSpecialVar_ItemId == ITEM_NEBBY || gSpecialVar_ItemId == ITEM_HAMBURGER) {
+                sContextMenuItemsPtr = sContextMenuItems_Cancel;
+                sContextMenuNumItems = 1;
 
-                }
-                break;
-            case OPEN_BAG_KEYITEMS:
-                sContextMenuItemsPtr = sContextMenuItemsBuffer;
-                sContextMenuNumItems = 3;
-                sContextMenuItemsBuffer[2] = ITEMMENUACTION_CANCEL;
-                if (gSaveBlock1Ptr->registeredItem == gSpecialVar_ItemId)
-                    sContextMenuItemsBuffer[1] = ITEMMENUACTION_DESELECT;
+            } else {
+                sContextMenuNumItems = 4;
+                if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
+                    sContextMenuItemsPtr = sContextMenuItems_CheckGiveTossCancel;
                 else
-                    sContextMenuItemsBuffer[1] = ITEMMENUACTION_REGISTER;
-                if (gSpecialVar_ItemId == ITEM_TM_CASE || gSpecialVar_ItemId == ITEM_BERRY_POUCH || gSpecialVar_ItemId == ITEM_SANDWICH_CASE)
-                    sContextMenuItemsBuffer[0] = ITEMMENUACTION_OPEN;
-                else if (gSpecialVar_ItemId == ITEM_BICYCLE && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_MACH_BIKE))
-                    sContextMenuItemsBuffer[0] = ITEMMENUACTION_WALK;
-                
-                else if (gSpecialVar_ItemId == ITEM_RUNNING_SHOES || gSpecialVar_ItemId == ITEM_SUPER_SCOPE) { // This doesn't seem to work. If you can figure it out I'd apprecaite it :)
-                    sContextMenuNumItems = 2;
-                    sContextMenuItemsBuffer[0] = ITEMMENUACTION_USE;
-                    sContextMenuItemsBuffer[1] == ITEMMENUACTION_CANCEL;
-                }
-                
-                else if (gSpecialVar_ItemId == ITEM_EXP_SHARE) { // This doesn't seem to work. If you can figure it out I'd apprecaite it :)
-                    sContextMenuItemsBuffer[0] = ITEMMENUACTION_OFF;
-                }
-                
-                else
-                    sContextMenuItemsBuffer[0] = ITEMMENUACTION_USE;
-                break;
-            case OPEN_BAG_POKEBALLS:
-                sContextMenuItemsPtr = sContextMenuItems_Field[gBagMenuState.pocket];
-                sContextMenuNumItems = 3;
-                break;
+                    sContextMenuItemsPtr = sContextMenuItems_Field[gBagMenuState.pocket];
+
             }
+            break;
+        case OPEN_BAG_KEYITEMS:
+            sContextMenuItemsPtr = sContextMenuItemsBuffer;
+            sContextMenuNumItems = 3;
+            sContextMenuItemsBuffer[2] = ITEMMENUACTION_CANCEL;
+            if (gSaveBlock1Ptr->registeredItem == gSpecialVar_ItemId)
+                sContextMenuItemsBuffer[1] = ITEMMENUACTION_DESELECT;
+            else
+                sContextMenuItemsBuffer[1] = ITEMMENUACTION_REGISTER;
+            if (gSpecialVar_ItemId == ITEM_TM_CASE || gSpecialVar_ItemId == ITEM_BERRY_POUCH || gSpecialVar_ItemId == ITEM_SANDWICH_CASE)
+                sContextMenuItemsBuffer[0] = ITEMMENUACTION_OPEN;
+            else if (gSpecialVar_ItemId == ITEM_BICYCLE && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_MACH_BIKE))
+                sContextMenuItemsBuffer[0] = ITEMMENUACTION_WALK;
+
+            else if (gSpecialVar_ItemId == ITEM_RUNNING_SHOES || gSpecialVar_ItemId == ITEM_SUPER_SCOPE) { // This doesn't seem to work. If you can figure it out I'd apprecaite it :)
+                sContextMenuNumItems = 2;
+                sContextMenuItemsBuffer[0] = ITEMMENUACTION_USE;
+                sContextMenuItemsBuffer[1] == ITEMMENUACTION_CANCEL;
+            }
+
+            else if (gSpecialVar_ItemId == ITEM_EXP_SHARE) { // This doesn't seem to work. If you can figure it out I'd apprecaite it :)
+                sContextMenuItemsBuffer[0] = ITEMMENUACTION_OFF;
+            }
+
+            else
+                sContextMenuItemsBuffer[0] = ITEMMENUACTION_USE;
+            break;
+        case OPEN_BAG_POKEBALLS:
+            sContextMenuItemsPtr = sContextMenuItems_Field[gBagMenuState.pocket];
+            sContextMenuNumItems = 3;
+            break;
         }
     }
     r6 = ShowBagWindow(10, sContextMenuNumItems - 1);
@@ -1488,23 +1458,19 @@ static void Task_ItemContext_FieldOrBattle(u8 taskId)
 
 static void Task_FieldItemContextMenuHandleInput(u8 taskId)
 {
-    s8 input;
-    if (IsActiveOverworldLinkBusy() != TRUE)
+    s8 input = Menu_ProcessInputNoWrapAround();
+    switch (input)
     {
-        input = Menu_ProcessInputNoWrapAround();
-        switch (input)
-        {
-        case -1:
-            PlaySE(SE_SELECT);
-            sItemMenuContextActions[ITEMMENUACTION_CANCEL].func.void_u8(taskId);
-            break;
-        case -2:
-            break;
-        default:
-            PlaySE(SE_SELECT);
-            sItemMenuContextActions[sContextMenuItemsPtr[input]].func.void_u8(taskId);
-            break;
-        }
+    case -1:
+        PlaySE(SE_SELECT);
+        sItemMenuContextActions[ITEMMENUACTION_CANCEL].func.void_u8(taskId);
+        break;
+    case -2:
+        break;
+    default:
+        PlaySE(SE_SELECT);
+        sItemMenuContextActions[sContextMenuItemsPtr[input]].func.void_u8(taskId);
+        break;
     }
 }
 

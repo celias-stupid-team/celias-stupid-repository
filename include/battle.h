@@ -668,11 +668,6 @@ struct BattleSpriteData
 
 extern struct BattleSpriteData *gBattleSpritesDataPtr;
 
-#define BATTLE_BUFFER_LINK_SIZE 0x1000
-
-extern u8 *gLinkBattleSendBuffer;
-extern u8 *gLinkBattleRecvBuffer;
-
 // Move this somewhere else
 
 #include "sprite.h"

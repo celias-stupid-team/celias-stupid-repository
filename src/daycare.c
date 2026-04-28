@@ -26,7 +26,7 @@
 #include "naming_screen.h"
 #include "help_system.h"
 #include "field_fadetransition.h"
-#include "trade.h"
+#include "trade_scene.h"
 #include "constants/daycare.h"
 #include "constants/region_map_sections.h"
 #include "daycare.h"
@@ -34,6 +34,10 @@
 // Combination of RSE's Day-Care (re-used on Four Island), FRLG's Day-Care, and egg_hatch.c
 
 extern const struct Evolution gEvolutionTable[][EVOS_PER_MON];
+
+const u8 gText_MaleSymbol4[] = _("♂");
+const u8 gText_FemaleSymbol4[] = _("♀");
+const u8 gText_GenderlessSymbol[] = _("");
 
 struct EggHatchData
 {

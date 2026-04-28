@@ -16,7 +16,6 @@
 #include "evolution_scene.h"
 #include "battle_message.h"
 #include "battle_util.h"
-#include "link.h"
 #include "m4a.h"
 #include "pokedex.h"
 #include "strings.h"
@@ -2584,7 +2583,7 @@ static void DeleteFirstMoveAndGiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 mo
 
 // Own function in pokeemerald
 #define ShouldGetStatBadgeBoost(flag, battler)\
-    (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER)) && FlagGet(flag) && GetBattlerSide(battler) == B_SIDE_PLAYER)
+    (!(gBattleTypeFlags & (BATTLE_TYPE_EREADER_TRAINER)) && FlagGet(flag) && GetBattlerSide(battler) == B_SIDE_PLAYER)
 
 
 s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *defender, u32 move, u16 sideStatus, u16 powerOverride, u8 typeOverride, u8 battlerIdAtk, u8 battlerIdDef)
@@ -5664,51 +5663,6 @@ void EvolutionRenameMon(struct Pokemon *mon, u16 oldSpecies, u16 newSpecies)
         SetMonData(mon, MON_DATA_NICKNAME, gSpeciesNames[newSpecies]);
 }
 
-// The below two functions determine which side of a multi battle the trainer battles on
-// 0 is the left (top in  party menu), 1 is right (bottom in party menu)
-u8 GetPlayerFlankId(void)
-{
-    u8 flankId = 0;
-    switch (gLinkPlayers[GetMultiplayerId()].id)
-    {
-    case 0:
-    case 3:
-        flankId = 0;
-        break;
-    case 1:
-    case 2:
-        flankId = 1;
-        break;
-    }
-    return flankId;
-}
-
-u16 GetLinkTrainerFlankId(u8 linkPlayerId)
-{
-    u16 flankId = 0;
-    switch (gLinkPlayers[linkPlayerId].id)
-    {
-    case 0:
-    case 3:
-        flankId = 0;
-        break;
-    case 1:
-    case 2:
-        flankId = 1;
-        break;
-    }
-    return flankId;
-}
-
-s32 GetBattlerMultiplayerId(u16 id)
-{
-    s32 multiplayerId;
-    for (multiplayerId = 0; multiplayerId < MAX_LINK_PLAYERS; multiplayerId++)
-        if (gLinkPlayers[multiplayerId].id == id)
-            break;
-    return multiplayerId;
-}
-
 u8 GetTrainerEncounterMusicId(u16 trainerId)
 {
     return TRAINER_ENCOUNTER_MUSIC(trainerId);
@@ -6402,12 +6356,6 @@ static bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
     return retVal;
 }
 
-u8 *GetTrainerPartnerName(void)
-{
-    u8 id = GetMultiplayerId();
-    return gLinkPlayers[GetBattlerMultiplayerId(gLinkPlayers[id].id ^ 2)].name;
-}
-
 u8 GetPlayerPartyHighestLevel(void)
 {
     s32 slot;
@@ -6435,60 +6383,6 @@ u16 FacilityClassToPicIndex(u16 facilityClass)
 bool8 ShouldIgnoreDeoxysForm(u8 caseId, u8 battlerId)
 {
     return TRUE; //Make the Blaine fight load default deoxys
-
-
-    switch (caseId)
-    {
-    case 0:
-    default:
-        return FALSE;
-    case DEOXYS_CHECK_BATTLE_SPRITE:
-        if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
-            return FALSE;
-        if (!gMain.inBattle)
-            return FALSE;
-        if (gLinkPlayers[GetMultiplayerId()].id == battlerId)
-            return FALSE;
-        break;
-    case 2:
-        break;
-    case DEOXYS_CHECK_TRADE_MAIN:
-        if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
-            return FALSE;
-        if (!gMain.inBattle)
-            return FALSE;
-        if (battlerId == 1 || battlerId == 4 || battlerId == 5)
-            return TRUE;
-        return FALSE;
-    case 4:
-        break;
-    case DEOXYS_CHECK_BATTLE_ANIM:
-        if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-        {
-            if (!gMain.inBattle)
-                return FALSE;
-            if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-            {
-                if (gLinkPlayers[GetMultiplayerId()].id == battlerId)
-                    return FALSE;
-            }
-            else
-            {
-                if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
-                    return FALSE;
-            }
-        }
-        else
-        {
-            if (!gMain.inBattle)
-                return FALSE;
-            if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
-                return FALSE;
-        }
-        break;
-    }
-
-    return TRUE;
 }
 
 static u16 GetDeoxysStat(struct Pokemon *mon, s32 statId)
@@ -6529,24 +6423,6 @@ void SetDeoxysStats(void)
         value = GetMonData(mon, MON_DATA_SPDEF, NULL);
         SetMonData(mon, MON_DATA_SPDEF, &value);
     }
-}
-
-u16 GetUnionRoomTrainerPic(void)
-{
-    u8 linkId = GetMultiplayerId() ^ 1;
-
-    u32 arrId = gLinkPlayers[linkId].trainerId % NUM_UNION_ROOM_CLASSES;
-    arrId |= gLinkPlayers[linkId].gender * NUM_UNION_ROOM_CLASSES;
-    return FacilityClassToPicIndex(gUnionRoomFacilityClasses[arrId]);
-}
-
-u16 GetUnionRoomTrainerClass(void)
-{
-    u8 linkId = GetMultiplayerId() ^ 1;
-
-    u32 arrId = gLinkPlayers[linkId].trainerId % NUM_UNION_ROOM_CLASSES;
-    arrId |= gLinkPlayers[linkId].gender * NUM_UNION_ROOM_CLASSES;
-    return gFacilityClassToTrainerClass[gUnionRoomFacilityClasses[arrId]];
 }
 
 void CreateEnemyEventMon(void)

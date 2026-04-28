@@ -1276,38 +1276,24 @@ bool8 ScrCmd_turnvobject(struct ScriptContext * ctx)
 // The player is frozen after waiting for their current movement to finish.
 bool8 ScrCmd_lockall(struct ScriptContext * ctx)
 {
-    if (IsUpdateLinkStateCBActive())
+    FreezeObjects_WaitForPlayer();
+    SetupNativeScript(ctx, IsFreezePlayerFinished);
+    return TRUE;
+}
+
+bool8 ScrCmd_lock(struct ScriptContext * ctx)
+{
+    if (gObjectEvents[gSelectedObjectEvent].active)
     {
-        return FALSE;
+        FreezeObjects_WaitForPlayerAndSelected();
+        SetupNativeScript(ctx, IsFreezeSelectedObjectAndPlayerFinished);
     }
     else
     {
         FreezeObjects_WaitForPlayer();
         SetupNativeScript(ctx, IsFreezePlayerFinished);
-        return TRUE;
     }
-}
-
-bool8 ScrCmd_lock(struct ScriptContext * ctx)
-{
-    if (IsUpdateLinkStateCBActive())
-    {
-        return FALSE;
-    }
-    else
-    {
-        if (gObjectEvents[gSelectedObjectEvent].active)
-        {
-            FreezeObjects_WaitForPlayerAndSelected();
-            SetupNativeScript(ctx, IsFreezeSelectedObjectAndPlayerFinished);
-        }
-        else
-        {
-            FreezeObjects_WaitForPlayer();
-            SetupNativeScript(ctx, IsFreezePlayerFinished);
-        }
-        return TRUE;
-    }
+    return TRUE;
 }
 
 bool8 ScrCmd_releaseall(struct ScriptContext * ctx)

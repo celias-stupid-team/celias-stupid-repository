@@ -11,7 +11,6 @@
 #include "list_menu.h"
 #include "item.h"
 #include "item_menu.h"
-#include "link.h"
 #include "money.h"
 #include "shop.h"
 #include "teachy_tv.h"
@@ -440,11 +439,7 @@ static void CB2_SetUpTMCaseUI_Blocking(void)
 {
     while (1)
     {
-        if (IsActiveOverworldLinkBusy() == TRUE)
-            break;
         if (DoSetUpTMCaseUI() == TRUE)
-            break;
-        if (MenuHelpers_IsLinkActive() == TRUE)
             break;
     }
 }
@@ -880,38 +875,35 @@ static void Task_HandleListInput(u8 taskId)
 
     if (!gPaletteFade.active)
     {
-        if (IsActiveOverworldLinkBusy() != TRUE)
+        input = ListMenu_ProcessInput(tListTaskId);
+        ListMenuGetScrollAndRow(tListTaskId, &sTMCaseStaticResources.scrollOffset, &sTMCaseStaticResources.selectedRow);
+        if (JOY_NEW(SELECT_BUTTON) && sTMCaseStaticResources.allowSelectClose == TRUE)
         {
-            input = ListMenu_ProcessInput(tListTaskId);
-            ListMenuGetScrollAndRow(tListTaskId, &sTMCaseStaticResources.scrollOffset, &sTMCaseStaticResources.selectedRow);
-            if (JOY_NEW(SELECT_BUTTON) && sTMCaseStaticResources.allowSelectClose == TRUE)
+            PlaySE(SE_SELECT);
+            gSpecialVar_ItemId = ITEM_NONE;
+            Task_BeginFadeOutFromTMCase(taskId);
+        }
+        else
+        {
+            switch (input)
             {
+            case LIST_NOTHING_CHOSEN:
+                break;
+            case LIST_CANCEL:
                 PlaySE(SE_SELECT);
                 gSpecialVar_ItemId = ITEM_NONE;
                 Task_BeginFadeOutFromTMCase(taskId);
-            }
-            else
-            {
-                switch (input)
-                {
-                case LIST_NOTHING_CHOSEN:
-                    break;
-                case LIST_CANCEL:
-                    PlaySE(SE_SELECT);
-                    gSpecialVar_ItemId = ITEM_NONE;
-                    Task_BeginFadeOutFromTMCase(taskId);
-                    break;
-                default:
-                    PlaySE(SE_SELECT);
-                    SetDescriptionWindowShade(1);
-                    RemoveScrollArrows();
-                    PrintListCursor(tListTaskId, COLOR_CURSOR_SELECTED);
-                    tSelection = input;
-                    tQuantityOwned = BagGetQuantityByPocketPosition(POCKET_TM_CASE, input);
-                    gSpecialVar_ItemId = BagGetItemIdByPocketPosition(POCKET_TM_CASE, input);
-                    gTasks[taskId].func = sSelectTMActionTasks[sTMCaseStaticResources.menuType];
-                    break;
-                }
+                break;
+            default:
+                PlaySE(SE_SELECT);
+                SetDescriptionWindowShade(1);
+                RemoveScrollArrows();
+                PrintListCursor(tListTaskId, COLOR_CURSOR_SELECTED);
+                tSelection = input;
+                tQuantityOwned = BagGetQuantityByPocketPosition(POCKET_TM_CASE, input);
+                gSpecialVar_ItemId = BagGetItemIdByPocketPosition(POCKET_TM_CASE, input);
+                gTasks[taskId].func = sSelectTMActionTasks[sTMCaseStaticResources.menuType];
+                break;
             }
         }
     }
@@ -970,25 +962,20 @@ static void Task_SelectedTMHM_Field(u8 taskId)
 
 static void Task_ContextMenu_HandleInput(u8 taskId)
 {
-    s8 input;
-
-    if (IsActiveOverworldLinkBusy() != TRUE)
+    s8 input = Menu_ProcessInputNoWrapAround();
+    switch (input)
     {
-        input = Menu_ProcessInputNoWrapAround();
-        switch (input)
-        {
-        case MENU_B_PRESSED:
-            // Run last action in list (Exit)
-            PlaySE(SE_SELECT);
-            sMenuActions[sTMCaseDynamicResources->menuActionIndices[sTMCaseDynamicResources->numMenuActions - 1]].func.void_u8(taskId);
-            break;
-        case MENU_NOTHING_CHOSEN:
-            break;
-        default:
-            PlaySE(SE_SELECT);
-            sMenuActions[sTMCaseDynamicResources->menuActionIndices[input]].func.void_u8(taskId);
-            break;
-        }
+    case MENU_B_PRESSED:
+        // Run last action in list (Exit)
+        PlaySE(SE_SELECT);
+        sMenuActions[sTMCaseDynamicResources->menuActionIndices[sTMCaseDynamicResources->numMenuActions - 1]].func.void_u8(taskId);
+        break;
+    case MENU_NOTHING_CHOSEN:
+        break;
+    default:
+        PlaySE(SE_SELECT);
+        sMenuActions[sTMCaseDynamicResources->menuActionIndices[input]].func.void_u8(taskId);
+        break;
     }
 }
 

@@ -1828,8 +1828,6 @@ const u8 gTMCaseHM_Gfx[] = INCBIN_U8("graphics/tm_case/hm.4bpp");
 
 const u16 gKantoTrainerCardBlue_Pal[] = INCBIN_U16("graphics/trainer_card/blue.gbapal");
 const u32 gKantoTrainerCard_Gfx[] = INCBIN_U32("graphics/trainer_card/tiles.4bpp.lz");
-const u16 gHoennTrainerCardGreen_Pal[] = INCBIN_U16("graphics/trainer_card/rse/green.gbapal");
-const u32 gHoennTrainerCard_Gfx[] = INCBIN_U32("graphics/trainer_card/rse/tiles.4bpp.lz");
 
 const u16 gEasyChatWindow_Pal[] = INCBIN_U16("graphics/easy_chat/window.gbapal");
 const u32 gEasyChatWindow_Gfx[] = INCBIN_U32("graphics/easy_chat/window.4bpp.lz");

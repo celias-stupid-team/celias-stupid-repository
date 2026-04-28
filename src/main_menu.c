@@ -5,7 +5,6 @@
 #include "save.h"
 #include "event_data.h"
 #include "menu.h"
-#include "link.h"
 #include "oak_speech.h"
 #include "overworld.h"
 #include "quest_log.h"
@@ -557,7 +556,6 @@ static bool8 HandleMenuInput(u8 taskId)
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
-        IsWirelessAdapterConnected(); // called for its side effects only
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_ExecuteMainMenuSelection;
     }

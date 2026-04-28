@@ -8,11 +8,9 @@
 #include "field_player_avatar.h"
 #include "task.h"
 #include "script.h"
-#include "cable_club.h"
 #include "fieldmap.h"
 #include "metatile_behavior.h"
 #include "quest_log.h"
-#include "link.h"
 #include "event_object_movement.h"
 #include "field_door.h"
 #include "field_effect.h"
@@ -168,75 +166,6 @@ void FieldCB_ContinueScript(void)
     LockPlayerFieldControls();
     FadeInFromBlack();
     CreateTask(Task_ContinueScript, 10);
-}
-
-static void Task_ReturnToFieldCableLink(u8 taskId)
-{
-    struct Task *task = &gTasks[taskId];
-    switch (task->data[0])
-    {
-    case 0:
-        task->data[1] = CreateTask_ReestablishCableClubLink();
-        task->data[0]++;
-        break;
-    case 1:
-        if (gTasks[task->data[1]].isActive != TRUE)
-        {
-            WarpFadeInScreen();
-            task->data[0]++;
-        }
-        break;
-    case 2:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
-        {
-            UnlockPlayerFieldControls();
-            DestroyTask(taskId);
-        }
-        break;
-    }
-}
-
-void FieldCB_ReturnToFieldCableLink(void)
-{
-    LockPlayerFieldControls();
-    Overworld_PlaySpecialMapMusic();
-    palette_bg_faded_fill_black();
-    CreateTask(Task_ReturnToFieldCableLink, 10);
-}
-
-static void Task_ReturnToFieldRecordMixing(u8 taskId)
-{
-    struct Task *task = &gTasks[taskId];
-    switch (task->data[0])
-    {
-    case 0:
-        SetLinkStandbyCallback();
-        task->data[0]++;
-        break;
-    case 1:
-        if (IsLinkTaskFinished())
-        {
-            WarpFadeInScreen();
-            task->data[0]++;
-        }
-        break;
-    case 2:
-        if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
-        {
-            StartSendingKeysToLink();
-            UnlockPlayerFieldControls();
-            DestroyTask(taskId);
-        }
-        break;
-    }
-}
-
-void FieldCB_ReturnToFieldWirelessLink(void)
-{
-    LockPlayerFieldControls();
-    Overworld_PlaySpecialMapMusic();
-    palette_bg_faded_fill_black();
-    CreateTask(Task_ReturnToFieldRecordMixing, 10);
 }
 
 static void SetUpWarpExitTask(bool8 playerNotMoving)
@@ -624,71 +553,6 @@ static void DoPortholeWarp(void) // Unused
     WarpFadeOutScreen();
     CreateTask(Task_Teleport2Warp, 10);
     gFieldCallback = FieldCB_ShowPortholeView;
-}
-
-static void Task_CableClubWarp(u8 taskId)
-{
-    struct Task *task = &gTasks[taskId];
-    switch (task->data[0])
-    {
-    case 0:
-        LockPlayerFieldControls();
-        task->data[0]++;
-        break;
-    case 1:
-        if (!WaitWarpFadeOutScreen() && BGMusicStopped())
-            task->data[0]++;
-        break;
-    case 2:
-        WarpIntoMap();
-        SetMainCallback2(CB2_ReturnToFieldCableClub);
-        DestroyTask(taskId);
-        break;
-    }
-}
-
-void DoCableClubWarp(void)
-{
-    LockPlayerFieldControls();
-    TryFadeOutOldMapMusic();
-    WarpFadeOutScreen();
-    PlaySE(SE_EXIT);
-    CreateTask(Task_CableClubWarp, 10);
-}
-
-static void Task_ReturnFromLinkRoomWarp(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-    switch (data[0])
-    {
-    case 0:
-        ClearLinkCallback_2();
-        FadeScreen(FADE_TO_BLACK, 0);
-        TryFadeOutOldMapMusic();
-        PlaySE(SE_EXIT);
-        data[0]++;
-        break;
-    case 1:
-        if (!WaitWarpFadeOutScreen() && BGMusicStopped())
-        {
-            SetCloseLinkCallback();
-            data[0]++;
-        }
-        break;
-    case 2:
-        if (!gReceivedRemoteLinkPlayers)
-        {
-            WarpIntoMap();
-            SetMainCallback2(CB2_LoadMap);
-            DestroyTask(taskId);
-        }
-        break;
-    }
-}
-
-void ReturnFromLinkRoom(void)
-{
-    CreateTask(Task_ReturnFromLinkRoomWarp, 10);
 }
 
 static void Task_Teleport2Warp(u8 taskId)

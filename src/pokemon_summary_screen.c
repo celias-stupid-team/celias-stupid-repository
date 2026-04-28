@@ -5,7 +5,6 @@
 #include "help_system.h"
 #include "task.h"
 #include "menu_helpers.h"
-#include "link.h"
 #include "overworld.h"
 #include "constants/songs.h"
 #include "strings.h"
@@ -15,7 +14,6 @@
 #include "data.h"
 #include "item.h"
 #include "constants/party_menu.h"
-#include "trade.h"
 #include "battle_main.h"
 #include "scanline_effect.h"
 #include "constants/moves.h"
@@ -1118,11 +1116,7 @@ static void Task_InputHandler_Info(u8 taskId)
         sMonSummaryScreen->state3270 = PSS_STATE3270_PLAYCRY;
         break;
     case PSS_STATE3270_HANDLEINPUT:
-        if (IsActiveOverworldLinkBusy() == TRUE)
-            return;
-        else if (IsLinkRecvQueueAtOverworldMax() == TRUE)
-            return;
-        else if (FuncIsActiveTask(Task_PokeSum_SwitchDisplayedPokemon))
+        if (FuncIsActiveTask(Task_PokeSum_SwitchDisplayedPokemon))
             return;
 
         if (sMonSummaryScreen->curPageIndex != PSS_PAGE_MOVES_INFO)
@@ -1225,11 +1219,6 @@ static void Task_InputHandler_Info(u8 taskId)
         sMonSummaryScreen->state3270 = PSS_STATE3270_ATEXIT_WAITLINKDELAY;
         break;
     case PSS_STATE3270_ATEXIT_WAITLINKDELAY:
-        if (Overworld_LinkRecvQueueLengthMoreThan2() == TRUE)
-            return;
-        else if (IsLinkRecvQueueAtOverworldMax() == TRUE)
-            return;
-
         sMonSummaryScreen->state3270 = PSS_STATE3270_ATEXIT_WAITFADE;
         break;
     default:
@@ -1372,11 +1361,7 @@ static void Task_FlipPages_FromInfo(u8 taskId)
         break;
     case 3:
         PokeSum_PrintPageName(gText_PokeSum_PageName_KnownMoves);
-        if (!(gMain.inBattle || gReceivedRemoteLinkPlayers))
-            PokeSum_PrintControlsString(gText_PokeSum_Controls_PickSwitch);
-        else
-            PokeSum_PrintControlsString(gText_PokeSum_Controls_Pick);
-
+        PokeSum_PrintControlsString(gText_PokeSum_Controls_PickSwitch);
         break;
     case 4:
         CopyWindowToVram(sMonSummaryScreen->windowIds[POKESUM_WIN_PAGE_NAME], 2);
@@ -2180,50 +2165,25 @@ static void BufferMonSkills(void)
 
     sMonSkillsPrinterXpos->curHpStr = GetNumberRightAlign63(sMonSummaryScreen->summary.curHpStrBuf);
 
-    if (sMonSummaryScreen->savedCallback == CB2_ReturnToTradeMenuFromSummary && sMonSummaryScreen->isEnemyParty == TRUE)
-    {
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->atkStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK]);
+    statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+    sMonSkillsPrinterXpos->atkStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK]);
 
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->defStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF]);
+    statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+    sMonSkillsPrinterXpos->defStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF]);
 
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->spAStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA]);
+    statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+    sMonSkillsPrinterXpos->spAStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA]);
 
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->spDStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD]);
+    statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+    sMonSkillsPrinterXpos->spDStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD]);
 
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->speStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE]);
-    }
-    else
-    {
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->atkStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->defStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->spAStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->spDStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->speStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE]);
-    }
+    statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
+    sMonSkillsPrinterXpos->speStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE]);
 
     exp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_EXP);
     ConvertIntToDecimalStringN(sMonSummaryScreen->summary.expPointsStrBuf, exp, STR_CONV_MODE_LEFT_ALIGN, 7);
@@ -3269,20 +3229,8 @@ static void PokeSum_SetHelpContext(void)
 static u8 PokeSum_BufferOtName_IsEqualToCurrentOwner(struct Pokemon * mon)
 {
     u8 i;
-    u8 multiplayerId;
-    u32 trainerId = 0;
-
-    if (sMonSummaryScreen->monList.mons == gEnemyParty)
-    {
-        multiplayerId = GetMultiplayerId() ^ 1;
-        trainerId = gLinkPlayers[multiplayerId].trainerId & 0xffff;
-        StringCopy(sMonSummaryScreen->summary.otNameStrBufs[0], gLinkPlayers[multiplayerId].name);
-    }
-    else
-    {
-        trainerId = GetPlayerTrainerId() & 0xffff;
-        StringCopy(sMonSummaryScreen->summary.otNameStrBufs[0], gSaveBlock2Ptr->playerName);
-    }
+    u32 trainerId = GetPlayerTrainerId() & 0xffff;
+    StringCopy(sMonSummaryScreen->summary.otNameStrBufs[0], gSaveBlock2Ptr->playerName);
 
     if (trainerId != (GetMonData(mon, MON_DATA_OT_ID) & 0xffff))
         return FALSE;
@@ -3427,12 +3375,6 @@ void SetPokemonSummaryScreenMode(u8 mode)
 
 static bool32 IsMultiBattlePartner(void)
 {
-    if (!IsUpdateLinkStateCBActive()
-        && IsMultiBattle() == TRUE
-        && gReceivedRemoteLinkPlayers == 1
-        && (sLastViewedMonIndex >= 4 || sLastViewedMonIndex == 1))
-        return TRUE;
-
     return FALSE;
 }
 
@@ -3526,9 +3468,6 @@ static void Task_HandleInput_SelectMove(u8 taskId)
     switch (sMonSummaryScreen->selectMoveInputHandlerState)
     {
     case 0:
-        if (IsActiveOverworldLinkBusy() == TRUE || IsLinkRecvQueueAtOverworldMax() == TRUE)
-            return;
-
         if (JOY_NEW(DPAD_UP))
         {
             if (sMoveSelectionCursorPos > 0)
@@ -3628,8 +3567,7 @@ static void Task_HandleInput_SelectMove(u8 taskId)
             if (sMonSummaryScreen->isSwappingMoves != TRUE)
             {
                 if (sMonSummaryScreen->isEnemyParty == FALSE
-                    && gMain.inBattle == 0
-                    && gReceivedRemoteLinkPlayers == 0)
+                    && gMain.inBattle == 0)
                 {
                     sMoveSwapCursorPos = sMoveSelectionCursorPos;
                     sMonSummaryScreen->isSwappingMoves = TRUE;
@@ -3687,9 +3625,6 @@ static void Task_HandleInput_SelectMove(u8 taskId)
         sMonSummaryScreen->selectMoveInputHandlerState = 3;
         break;
     case 3:
-        if (IsActiveOverworldLinkBusy() == TRUE || IsLinkRecvQueueAtOverworldMax() == TRUE)
-            return;
-
         CopyWindowToVram(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], 2);
         CopyWindowToVram(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], 2);
         CopyWindowToVram(sMonSummaryScreen->windowIds[5], 2);
@@ -3905,9 +3840,6 @@ static void Task_InputHandler_SelectOrForgetMove(u8 taskId)
         sMonSummaryScreen->selectMoveInputHandlerState = 4;
         break;
     case 4:
-        if (IsActiveOverworldLinkBusy() == TRUE || IsLinkRecvQueueAtOverworldMax() == TRUE)
-            return;
-
         CopyWindowToVram(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], 2);
         CopyWindowToVram(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], 2);
         CopyWindowToVram(sMonSummaryScreen->windowIds[5], 2);
@@ -4043,20 +3975,10 @@ static void PokeSum_CreateMonPicSprite(void)
     personality = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_PERSONALITY);
     trainerId = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_OT_ID);
 
-    if (sMonSummaryScreen->savedCallback == CB2_ReturnToTradeMenuFromSummary)
-    {
-        if (sMonSummaryScreen->isEnemyParty == TRUE)
-            spriteId = CreateMonPicSprite(species, trainerId, personality, TRUE, 60, 65, 12, 0xffff, TRUE);
-        else
-            spriteId = CreateMonPicSprite_HandleDeoxys(species, trainerId, personality, TRUE, 60, 65, 12, 0xffff);
-    }
+    if (ShouldIgnoreDeoxysForm(DEOXYS_CHECK_TRADE_MAIN, sLastViewedMonIndex))
+        spriteId = CreateMonPicSprite(species, trainerId, personality, TRUE, 60, 65, 12, 0xffff, TRUE);
     else
-    {
-        if (ShouldIgnoreDeoxysForm(DEOXYS_CHECK_TRADE_MAIN, sLastViewedMonIndex))
-            spriteId = CreateMonPicSprite(species, trainerId, personality, TRUE, 60, 65, 12, 0xffff, TRUE);
-        else
-            spriteId = CreateMonPicSprite_HandleDeoxys(species, trainerId, personality, TRUE, 60, 65, 12, 0xffff);
-    }
+        spriteId = CreateMonPicSprite_HandleDeoxys(species, trainerId, personality, TRUE, 60, 65, 12, 0xffff);
 
     FreeSpriteOamMatrix(&gSprites[spriteId]);
 
@@ -4172,20 +4094,10 @@ static void PokeSum_CreateMonIconSprite(void)
 
     SafeLoadMonIconPalette(species);
 
-    if (sMonSummaryScreen->savedCallback == CB2_ReturnToTradeMenuFromSummary)
-    {
-        if (sMonSummaryScreen->isEnemyParty == TRUE)
-            sMonSummaryScreen->monIconSpriteId = CreateMonIcon(species, SpriteCallbackDummy, 24, 32, 0, personality, 0);
-        else
-            sMonSummaryScreen->monIconSpriteId = CreateMonIcon(species, SpriteCallbackDummy, 24, 32, 0, personality, 1);
-    }
+    if (ShouldIgnoreDeoxysForm(DEOXYS_CHECK_TRADE_MAIN, sLastViewedMonIndex))
+        sMonSummaryScreen->monIconSpriteId = CreateMonIcon(species, SpriteCallbackDummy, 24, 32, 0, personality, 0);
     else
-    {
-        if (ShouldIgnoreDeoxysForm(DEOXYS_CHECK_TRADE_MAIN, sLastViewedMonIndex))
-            sMonSummaryScreen->monIconSpriteId = CreateMonIcon(species, SpriteCallbackDummy, 24, 32, 0, personality, 0);
-        else
-            sMonSummaryScreen->monIconSpriteId = CreateMonIcon(species, SpriteCallbackDummy, 24, 32, 0, personality, 1);
-    }
+        sMonSummaryScreen->monIconSpriteId = CreateMonIcon(species, SpriteCallbackDummy, 24, 32, 0, personality, 1);
 
     if (!IsMonSpriteNotFlipped(species))
         gSprites[sMonSummaryScreen->monIconSpriteId].hFlip = TRUE;
@@ -4967,12 +4879,7 @@ static void PokeSum_SeekToNextMon(u8 taskId, s8 direction)
     }
     else
     {
-        if (IsUpdateLinkStateCBActive() == FALSE
-            && gReceivedRemoteLinkPlayers == 1
-            && IsMultiBattle() == TRUE)
-            scrollResult = SeekToNextMonInMultiParty(direction);
-        else
-            scrollResult = SeekToNextMonInSingleParty(direction);
+        scrollResult = SeekToNextMonInSingleParty(direction);
     }
 
     if (scrollResult == -1)
@@ -5173,12 +5080,9 @@ static void Task_PokeSum_SwitchDisplayedPokemon(u8 taskId)
         sMonSummaryScreen->switchMonTaskState++;
         break;
     case 11:
-        if (!Overworld_LinkRecvQueueLengthMoreThan2() && !IsLinkRecvQueueAtOverworldMax())
-        {
-            PokeSum_CreateSprites();
-            PokeSum_TryPlayMonCry();
-            sMonSummaryScreen->switchMonTaskState++;
-        }
+        PokeSum_CreateSprites();
+        PokeSum_TryPlayMonCry();
+        sMonSummaryScreen->switchMonTaskState++;
         break;
     default:
         sMonSummaryScreen->switchMonTaskState = 0;

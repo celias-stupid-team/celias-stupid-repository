@@ -43,7 +43,6 @@ u8 GetAilmentFromStatus(u32 status);
 u8 GetMonAilment(struct Pokemon *mon);
 void DisplayPartyMenuStdMessage(u32 stringId);
 void LoadHeldItemIcons(void);
-void DrawHeldItemIconsForTrade(u8 *partyCounts, u8 *partySpriteIds, u8 whichParty);
 void SpriteCB_BounceConfirmCancelButton(u8 spriteId, u8 spriteId2, u8 animNum);
 void CB2_SelectBagItemToGive(void);
 void CB2_GiveHoldItem(void);

@@ -257,13 +257,6 @@ extern const u8 gText_Diploma_GameFreak[];
 extern const u8 gText_Diploma_National[];
 extern const u8 gText_Diploma_Kanto[];
 
-// battle_records
-extern const u8 gString_BattleRecords_PlayersBattleResults[];
-extern const u8 gString_BattleRecords_TotalRecord[];
-extern const u8 gString_BattleRecords_ColumnHeaders[];
-extern const u8 gString_BattleRecords_7Dashes[];
-extern const u8 gString_BattleRecords_4Dashes[];
-
 // slot_machine
 extern const u8 gString_OutOfCoins[];
 extern const u8 gString_QuitPlaying[];

@@ -2,16 +2,13 @@
 #include "gflib.h"
 #include "battle.h"
 #include "battle_anim.h"
-#include "link.h"
 #include "overworld.h"
 #include "quest_log.h"
 #include "constants/trainers.h"
 
-static void GetLinkMultiBattlePlayerIndexes(s32 *, s32 *);
-
 void TrySetQuestLogBattleEvent(void)
 {
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_OLD_MAN_TUTORIAL | BATTLE_TYPE_POKEDUDE)) && (gBattleOutcome == B_OUTCOME_WON || gBattleOutcome == B_OUTCOME_CAUGHT))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_OLD_MAN_TUTORIAL | BATTLE_TYPE_POKEDUDE)) && (gBattleOutcome == B_OUTCOME_WON || gBattleOutcome == B_OUTCOME_CAUGHT))
     {
         // Why allocate both of these? Only one will ever be used at a time
         struct QuestLogEvent_TrainerBattle * trainerData = Alloc(sizeof(*trainerData));
@@ -88,56 +85,5 @@ void TrySetQuestLogBattleEvent(void)
         }
         Free(trainerData);
         Free(wildData);
-    }
-}
-
-void TrySetQuestLogLinkBattleEvent(void)
-{
-    s32 partnerIdx;
-    s32 opponentIdxs[2];
-    u16 eventId;
-    s32 i;
-
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-    {
-        struct QuestLogEvent_LinkBattle * data = Alloc(sizeof(*data));
-        data->outcome = gBattleOutcome - 1; // 0 = won, 1 = lost, 2 = drew
-        if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-        {
-            eventId = QL_EVENT_LINK_BATTLED_MULTI;
-            GetLinkMultiBattlePlayerIndexes(&partnerIdx, opponentIdxs);
-            for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-            {
-                data->playerNames[0][i] = gLinkPlayers[partnerIdx].name[i];
-                data->playerNames[1][i] = gLinkPlayers[opponentIdxs[0]].name[i];
-                data->playerNames[2][i] = gLinkPlayers[opponentIdxs[1]].name[i];
-            }
-        }
-        else
-        {
-            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-                eventId = QL_EVENT_LINK_BATTLED_DOUBLE;
-            else
-                eventId = QL_EVENT_LINK_BATTLED_SINGLE;
-
-            for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-                data->playerNames[0][i] = gLinkPlayers[gBattleStruct->multiplayerId ^ 1].name[i];
-        }
-        SetQuestLogEvent(eventId, (const u16 *)data);
-        Free(data);
-    }
-}
-
-static void GetLinkMultiBattlePlayerIndexes(s32 * partnerIdx, s32 * opponentIdxs)
-{
-    s32 i;
-    s32 numOpponentsFound = 0;
-    u8 partnerId = gLinkPlayers[gBattleStruct->multiplayerId].id ^ 2;
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    {
-        if (partnerId == gLinkPlayers[i].id)
-            *partnerIdx = i;
-        else if (i != gBattleStruct->multiplayerId)
-            opponentIdxs[numOpponentsFound++] = i;
     }
 }

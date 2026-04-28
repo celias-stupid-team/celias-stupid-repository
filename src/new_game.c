@@ -13,7 +13,6 @@
 #include "mail_data.h"
 #include "play_time.h"
 #include "money.h"
-#include "battle_records.h"
 #include "pokemon_size_record.h"
 #include "pokemon_storage_system.h"
 #include "roamer.h"
@@ -138,7 +137,6 @@ void NewGameInitData(void)
     ResetFameChecker();
     SetMoney(&gSaveBlock1Ptr->money, 2999);
     ResetGameStats();
-    ClearPlayerLinkBattleRecords();
     InitHeracrossSizeRecord();
     InitMagikarpSizeRecord();
     EnableNationalPokedex_RSE();

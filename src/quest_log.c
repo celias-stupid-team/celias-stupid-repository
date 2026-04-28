@@ -137,7 +137,6 @@ static void ResetActions(u8, struct QuestLogAction *, u16);
 static bool8 RecordHeadAtEndOfEntryOrScriptContext2Enabled(void);
 static bool8 RecordHeadAtEndOfEntry(void);
 static bool8 InQuestLogDisabledLocation(void);
-static bool8 TrySetLinkQuestLogEvent(u16, const u16 *);
 static bool8 TrySetTrainerBattleQuestLogEvent(u16, const u16 *);
 extern void EnterSafariMode();
 
@@ -210,7 +209,6 @@ void ResetQuestLog(void)
     gQuestLogRecordingPointer = NULL;
     gQuestLogDefeatedWildMonRecord = NULL;
     QL_ResetEventStates();
-    ResetDeferredLinkEvent();
 }
 
 static void ClearSavedScene(u8 sceneNum)
@@ -1352,11 +1350,8 @@ static void SortQuestLogInSav1(void)
 
 void SaveQuestLogData(void)
 {
-    if (MenuHelpers_IsLinkActive() != TRUE)
-    {
-        QuestLog_CutRecording();
-        SortQuestLogInSav1();
-    }
+    QuestLog_CutRecording();
+    SortQuestLogInSav1();
 }
 
 void QL_UpdateObject(struct Sprite *sprite)

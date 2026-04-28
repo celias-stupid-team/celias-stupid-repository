@@ -9,7 +9,6 @@
 #include "event_data.h"
 #include "graphics.h"
 #include "item.h"
-#include "link.h"
 #include "menu.h"
 #include "palette.h"
 #include "string_util.h"

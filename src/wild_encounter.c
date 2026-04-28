@@ -11,7 +11,6 @@
 #include "metatile_behavior.h"
 #include "event_scripts.h"
 #include "script.h"
-#include "link.h"
 #include "quest_log.h"
 #include "fldeff.h"
 #include "script_pokemon_util.h"
