@@ -656,14 +656,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "StarlightHouse_Jukebox"
-    },
-    {
-      "type": "sign",
-      "x": 19,
-      "y": 6,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House12_Swap_NPC_Direction"
     }
   ]
 }
