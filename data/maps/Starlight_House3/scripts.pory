@@ -65,9 +65,9 @@ msgbox(
     closemessage
     delay(30)
     msgbox(
-	"Oh...\p"
-	"Um...\p"
-    "Because memes lol?", MSGBOX_DEFAULT)
+	"Oh...\n"
+	"Um...\l"
+    "IDK...", MSGBOX_DEFAULT)
     closemessage
     delay(60)
     //setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
@@ -138,6 +138,27 @@ msgbox(
 }
 
 script Starlight_House3_Computer {
+    if(flag(FLAG_TEMP_1)) {
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(
+	"It shows a few tabs open.\p"
+	"One tab is an AVGN video.\n"
+	"Another is Dak's YouTube Page,\l"
+	"Third tab is... Um...\p"
+	"A Google search of: What do\n"
+	"I do if I burn my cereal?", MSGBOX_SIGN)
+    } else {
+            msgbox(
+	"There are some tabs open.\n"
+	"It's showing something called por-\l"
+	"ymaps and Poryscript.", MSGBOX_SIGN)
+     
+	        }
+
+    
+}
+
+script Starlight_House3_Computer_Special {//Not going to use this version for now unless I am okay to
     if(flag(FLAG_TEMP_1)) {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox(

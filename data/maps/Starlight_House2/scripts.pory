@@ -25,20 +25,16 @@ script Starlight_House2_Post_Battle {
 	"My name is KaizenStarlight!\n"
 	"I'm the map designer for CSR.\p"
 
-	"I created the maps, routes, towns\n"
-	"and so on that's out in the Great\l"
-	"Sea. As well as some other maps\l"
-	"here or there in the region.\p"
-
 	"You might see me around from time\n"
 	"to time, don't worry about me if\l"
 	"you do. I am just doing some work\l"
 	"outside of bounds.\p"
 
 	"Also my friend is somewhere around\n"
-	"here, if you see him let me know.\p"
+	"here. If you see him, tell him I\l"
+	"need him, thanks!\p"
 
-	"Thanks! It was nice to meet you!\n"
+	"It was nice to meet you!\n"
 	"", MSGBOX_NPC)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
@@ -57,7 +53,7 @@ script Starlight_House2_Battle { //test
 	"Oh hi!\p"
 	"I thought I hid this map.",
 	//
-	"My team is a mess...", Starlight_House2_Post_Battle)
+	"That was fun!", Starlight_House2_Post_Battle)
 
 
 	msgbox(
@@ -69,8 +65,8 @@ script Starlight_House2_Battle { //test
 	"outside of bounds.\p"
 
 	"Also my friend is somewhere around\n"
-	"here, if you see him would you let\l"
-	"me know? Thanks!", MSGBOX_NPC)
+	"here. If you see him, tell him I\l"
+	"need him, thanks!\p", MSGBOX_NPC)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
@@ -85,8 +81,8 @@ script Starlight_House2_Phone { //figure out yesno setup for reading messages.
 	"Celia - 2 voicemails\n"
 	"Dak - 1 voicemail\p"
 	"First Message:\l"
-	"Celia: Hey Star can you fix the\n"
-	"collision in Aether? Thanks!\p"
+	"Celia: Hey Star, could you fix the\n"
+	"tile collision in Aether? Thanks!\p"
 	"Second Message:\l"
 	"Celia: Great work with Seafoam and\n"
 	"Silph Co Layout!\p"
@@ -102,7 +98,7 @@ script Starlight_House2_Garbage1 {
 	"There's nothing in the trash\n"
 	"Except a crumpled up paper showing\l"
 	"plans for recreating the entire map\l"
-	"of Zelda BotW for a bit.", MSGBOX_SIGN)
+	"of Zelda BotW for a small bit.", MSGBOX_SIGN)
 
 }
 
@@ -112,15 +108,19 @@ script Starlight_House2_Garbage2 {
 	"schedule for PMD Team Hack Event.\p"
 	"There's also something scratched out\n"
 	"at the bottom.\p"
-	"-r---c- -vr-n", MSGBOX_SIGN)
+	"-r---c- -vr-n\p"
+	"...\n"
+	"\l"
+	"Probably unrelated to this hack.", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_5)
 
 }
 
 script Starlight_House2_Breaker {
 	msgbox(
-	"Might be a power breaker.\p"
+	"It's a power breaker.\p"
 	"Or just something the map maker\n"
-	"placed to make it not look plain.", MSGBOX_SIGN)
+	"placed to not make it look plain.", MSGBOX_SIGN)
 
 }
 
@@ -136,34 +136,60 @@ script Starlight_House2_Crane_Operator {
 
 script Starlight_House2_Table_Plans { //update table plans visual
 	msgbox(
-	"It appears to be map plans\n"
-	"laid out for world building.", MSGBOX_SIGN)
+	"It's map plans laid out for the\n"
+	"whole region.", MSGBOX_SIGN)
 
 }
 
 script Starlight_House2_Laptop {
+	if(flag(FLAG_TEMP_5)) {
 	msgbox(
-	"There appears to be some tabs.\n"
-	"It seems to have a tab called Por-\l"
-	"ymaps and Poryscript.\p"
-	"It also has SkyTemple and HMA.\l"
-	"also\n"
-    "(Insert another rom software here).", MSGBOX_SIGN)
+	"There are some tabs open.\n"
+	"It's showing something called por-\l"
+	"ymaps and Poryscript."
+	"It also has SkyTemple and HMA.", MSGBOX_SIGN)
+	} else {
 
+	msgbox(
+	"There are some tabs open.\n"
+	"It's showing something called por-\l"
+	"ymaps and Poryscript.", MSGBOX_SIGN)
+}
 }
 
 script Starlight_House2_Machine { //update table plans visual
 	msgbox(
-	"It's a machine.\p"
-	"...\p"
-	"(IDFK what else to say...)", MSGBOX_SIGN)
+	"It's a machine.\n"
+	"\l"
+	"...\l"
+	"(IDK what else to say...)", MSGBOX_SIGN)
 
 }
 
 script Starlight_House2_PC { //update table plans visual
+	
+	if(flag(FLAG_TEMP_4)) {
+	msgbox(
+	"No, this PC is not functional\p"
+	"either.", MSGBOX_SIGN)
+	} else {
 	msgbox(
 	"No, this PC is not functional.\p", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_2)
+	}
+}
 
+script Starlight_House2_Sign { //update table plans visual
+
+	if(flag(FLAG_TEMP_2)) {
+	msgbox(
+	"No, this sign doesn't say anything\n"
+	"either.", MSGBOX_SIGN)
+	} else {
+	msgbox(
+	"No, this sign doesn't say anything.\p", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_4)
+	}
 }
 
 script Starlight_House2_Jukebox_Block { //update table plans visual

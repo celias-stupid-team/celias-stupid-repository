@@ -483,7 +483,7 @@ gSongTable::
 	song mus_se_monster_mash, 2, 2
 	song mus_se_sonic_boom, 2, 2
 	song mus_se_space_jam, 2, 2
-	song mus_mirrorb2, 0, 0
+	song mus_star_battle, 0, 0
 
 
 dummy_song_header:
