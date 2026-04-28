@@ -187,6 +187,17 @@ const struct SpriteTemplate gDragonDanceOrbSpriteTemplate =
     .callback = AnimDragonDanceOrb,
 };
 
+const struct SpriteTemplate gQuiverDanceBeeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BEE,
+    .paletteTag = ANIM_TAG_BEE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimDragonDanceOrb,
+};
+
 const struct SpriteTemplate gOverheatFlameSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SMALL_EMBER,

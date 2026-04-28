@@ -837,6 +837,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_TRICK,
     MOVE_FOCUS_PUNCH,
     MOVE_10000_VOLTS,
+    MOVE_WILL_O_WISP,
     MOVE_SUBSTITUTE_TEACHER,
     MOVE_COLONIZE,
     MOVE_THIEF,
@@ -2769,7 +2770,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
         && GetBattlerSide(gEffectBattler) == B_SIDE_OPPONENT)
         INCREMENT_RETURN
 
-    if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE)
+    if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_STICKY_HOLD || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE)
         && !(gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
         && !primary && gBattleCommunication[MOVE_EFFECT_BYTE] <= 9)
         INCREMENT_RETURN
@@ -3320,7 +3321,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                         gBattlescriptCurrInstr++;
                     }
                     else if (gBattleMons[gBattlerTarget].item
-                        && gBattleMons[gBattlerTarget].ability == ABILITY_STICKY_HOLD)
+                        && (gBattleMons[gBattlerTarget].ability == ABILITY_STICKY_HOLD))
                     {
                         //DebugPrintf("Ding C");
                         gBattlescriptCurrInstr = BattleScript_StickyHoldActivates;
@@ -8232,7 +8233,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE) && flags == 0)
+        else if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STICKY_HOLD || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE) && flags == 0)
         {
             return STAT_CHANGE_DIDNT_WORK;
         }
@@ -9034,7 +9035,8 @@ static void Cmd_transformdataexecution(void)
     gChosenMove = MOVE_UNAVAILABLE;
     gBattlescriptCurrInstr++;
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_TRANSFORMED
-        || gStatuses3[gBattlerTarget] & STATUS3_SEMI_INVULNERABLE)
+        || gStatuses3[gBattlerTarget] & STATUS3_SEMI_INVULNERABLE
+        || gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
     {
         gMoveResultFlags |= MOVE_RESULT_FAILED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TRANSFORM_FAILED;
@@ -9425,6 +9427,9 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_VOLCANIC_HEALING
         && gLastPrintedMoves[gBattlerTarget] != MOVE_RAINBOW_BEAM
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SHEER_COLD
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_WILL_O_WISP
+
+        
         && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
     {

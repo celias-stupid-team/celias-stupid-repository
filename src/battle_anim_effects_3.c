@@ -92,6 +92,7 @@ static void AnimForesightMagnifyingGlass(struct Sprite *);
 static void AnimForesightMagnifyingGlass_Step(struct Sprite *);
 static void AnimTask_MonToSubstituteDoll(u8);
 static void AnimBlockX(struct Sprite *);
+static void AnimBlockXHorPos(struct Sprite *);
 static void AnimBlockX_Step(struct Sprite *);
 static void AnimTask_OdorSleuthMovementWaitFinish(u8);
 static void MoveOdorSleuthClone(struct Sprite *);
@@ -1337,6 +1338,17 @@ const struct SpriteTemplate gBlockXSpriteTemplate =
     .callback = AnimBlockX,
 };
 
+const struct SpriteTemplate gBlockXHorPosSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_X_SIGN,
+    .paletteTag = ANIM_TAG_X_SIGN,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBlockXHorPos,
+};
+
 static const struct SpriteTemplate sUnusedItemBagStealSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ITEM_BAG,
@@ -1384,6 +1396,17 @@ const struct SpriteTemplate gKnockOffStrikeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SLAM_HIT_2,
     .paletteTag = ANIM_TAG_SLAM_HIT_2,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = sKnockOffStrikeAnimTable,
+    .images = NULL,
+    .affineAnims = sKnockOffStrikeAffineAnimTable,
+    .callback = AnimKnockOffStrike,
+};
+
+const struct SpriteTemplate gSecretSwordSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_SECRET_SWORD,
+    .paletteTag = ANIM_TAG_SECRET_SWORD,
     .oam = &gOamData_AffineNormal_ObjNormal_64x64,
     .anims = sKnockOffStrikeAnimTable,
     .images = NULL,
@@ -5655,6 +5678,30 @@ static void AnimBlockX(struct Sprite *sprite)
 
     sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
     sprite->y2 = y;
+    sprite->callback = AnimBlockX_Step;
+}
+
+// Moves down an X that flickers and disappears.
+// Horizontal position arg
+static void AnimBlockXHorPos(struct Sprite *sprite)
+{
+    s16 y;
+
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+    {
+        sprite->subpriority = GetBattlerSpriteSubpriority(gBattleAnimAttacker) - 2;
+        y = -144;
+    }
+    else
+    {
+        sprite->subpriority = GetBattlerSpriteSubpriority(gBattleAnimAttacker) + 2;
+        y = -96;
+    }
+
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    sprite->y2 = y;
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    sprite->x2 = gBattleAnimArgs[0];
     sprite->callback = AnimBlockX_Step;
 }
 

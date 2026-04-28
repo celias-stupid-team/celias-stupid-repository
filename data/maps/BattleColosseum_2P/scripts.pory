@@ -82,7 +82,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_4_FAR)) {
 		setobtainable(SPECIES_SANDSHREW) // 20
 	}
-	if(checkmoncaught(SPECIES_SANDSLASH) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_SANDSHREW)) { 
+	if(checkmoncaught(SPECIES_SANDSLASH) || (checkitem(ITEM_FAME_CHECKER)) && checkmoncaught(SPECIES_SANDSHREW)) { 
 		setobtainable(SPECIES_SANDSLASH) // 21
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_4_FAR)) {

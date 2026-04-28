@@ -118,6 +118,7 @@ static void AnimSprite_MoveThenWait(struct Sprite *sprite);
 static void AnimSprite_MoveStaggeredThenWait(struct Sprite *sprite);
 static void AnimHammerSwing(struct Sprite *sprite);
 static void AnimTask_OnionCutter_Step(u8 taskId);
+static void AnimTask_EarthQuaker_Step(u8 taskId);
 static void AnimGarbotoxin(struct Sprite *sprite);
 static void AnimTask_DynamaxGrowthStep(u8 taskId);
 static void AnimSprite_FadeInOut(struct Sprite *sprite);
@@ -579,6 +580,43 @@ const struct SpriteTemplate gOnionCutterSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+static const union AnimCmd sEarthQuakerAnimCmds1[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sEarthQuakerAnimCmds2[] =    
+{
+    ANIMCMD_FRAME(64, 3),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd sEarthQuakerAnimCmds3[] =    
+{
+    ANIMCMD_FRAME(128, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sEarthQuakerAnimTable[] =
+{
+    sEarthQuakerAnimCmds1,
+    sEarthQuakerAnimCmds2,
+    sEarthQuakerAnimCmds3,
+};
+
+const struct SpriteTemplate gEarthQuakerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EARTH,
+    .paletteTag = ANIM_TAG_EARTH,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = sEarthQuakerAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 static const union AnimCmd sCoinAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -650,6 +688,42 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .tileTag = ANIM_TAG_MING_VASE,
     .paletteTag = ANIM_TAG_MING_VASE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sTcgPoisonAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(64, 10),
+    ANIMCMD_FRAME(128, 10),
+    ANIMCMD_FRAME(192, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTcgPoisonAnimTable[] =
+{
+    sTcgPoisonAnimCmds,
+};
+
+const struct SpriteTemplate gTcgPoisonSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_POISON,
+    .paletteTag = ANIM_TAG_TCG_POISON,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sTcgPoisonAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTakedownSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TAKEDOWN,
+    .paletteTag = ANIM_TAG_TAKEDOWN,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -981,13 +1055,37 @@ const struct SpriteTemplate gBonkingDrugSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
-
 const struct SpriteTemplate gEarthLiftSpriteTemplate =
 {
     .tileTag = ANIM_TAG_EARTH,
     .paletteTag = ANIM_TAG_EARTH,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sAnim_Quake[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(128, 2),
+    ANIMCMD_FRAME(192, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_Quake[] =
+{
+    sAnim_Quake,
+};
+
+const struct SpriteTemplate gQuakeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_QUAKE,
+    .paletteTag = ANIM_TAG_QUAKE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sAnims_Quake,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -2026,6 +2124,28 @@ const struct SpriteTemplate gHammerSpriteTemplate =
     .callback = AnimHammerSwing,
 };
 
+const struct SpriteTemplate gKrabbyHammerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KRABBY_CLAW,
+    .paletteTag = ANIM_TAG_KRABBY_CLAW,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHammerSwing,
+};
+
+const struct SpriteTemplate gGliscorHammerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GLISCOR_CLAW,
+    .paletteTag = ANIM_TAG_GLISCOR_CLAW,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHammerSwing,
+};
+
 const struct SpriteTemplate gCrusherSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CRUSHER,
@@ -2423,6 +2543,46 @@ const struct SpriteTemplate gHyperVoiceRingSpriteTemplate =
     .callback = AnimHyperVoiceRing,
 };
 
+static const union AnimCmd sRoarOfPrimeOneAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sRoarOfPrimeTwoAnimCmds[] =
+{
+    ANIMCMD_FRAME(64, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sRoarOfPrimeAnimTable[] =
+{
+    sRoarOfPrimeOneAnimCmds,
+    sRoarOfPrimeTwoAnimCmds,
+};
+
+const struct SpriteTemplate gRoarOfPrimeOneSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x32,
+    .anims = &sRoarOfPrimeAnimTable[0],
+    .images = NULL,
+    .affineAnims = sHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
+};
+
+const struct SpriteTemplate gRoarOfPrimeTwoSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x32,
+    .anims = &sRoarOfPrimeAnimTable[1],
+    .images = NULL,
+    .affineAnims = sHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
+};
+
 const struct SpriteTemplate gUproarRingSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_THIN_RING,
@@ -2588,6 +2748,29 @@ const struct SpriteTemplate gTCGSlashSwipeSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+static const union AnimCmd sTCGSlapAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 22),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTCGSlapAnimTable[] =
+{
+    sTCGSlapAnimCmds,
+};
+const struct SpriteTemplate gTCGSlapSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_SLAP,
+    .paletteTag = ANIM_TAG_TCG_SLAP,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sTCGSlapAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
 static const union AnimCmd sTCGBigRockAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 7),
@@ -2606,6 +2789,56 @@ const struct SpriteTemplate gTCGBigRockSpriteTemplate =
     .paletteTag = ANIM_TAG_TCG_ROCKS,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sTCGBigRockAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
+static const union AnimCmd sTCGNeedleRightAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sTCGNeedleLeftAnimCmds[] =
+{
+    ANIMCMD_FRAME(4, 12),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTCGNeedleAnimTable[] =
+{
+    sTCGNeedleRightAnimCmds,
+    sTCGNeedleLeftAnimCmds,
+};
+const struct SpriteTemplate gTCGNeedleRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_NEEDLE,
+    .paletteTag = ANIM_TAG_TCG_NEEDLE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = &sTCGNeedleAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+const struct SpriteTemplate gTCGNeedleLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_NEEDLE,
+    .paletteTag = ANIM_TAG_TCG_NEEDLE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = &sTCGNeedleAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
+const struct SpriteTemplate gTCGIceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_ICE,
+    .paletteTag = ANIM_TAG_TCG_ICE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveStaggeredThenWait,
@@ -2646,6 +2879,31 @@ const struct SpriteTemplate gTCGBlizzardSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+static const union AnimCmd sTCGConfusionAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(64, 10),
+    ANIMCMD_FRAME(128, 10),
+    ANIMCMD_FRAME(192, 10),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTCGConfusionAnimTable[] =
+{
+    sTCGConfusionAnimCmds,
+};
+
+const struct SpriteTemplate gTCGConfusionSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_CONFUSION,
+    .paletteTag = ANIM_TAG_TCG_CONFUSION,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sTCGConfusionAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sTCGSlashImpactAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -2661,6 +2919,16 @@ const struct SpriteTemplate gTCGSlashImpactSpriteTemplate =
 {
     .tileTag = ANIM_TAG_TCG_SLASH,
     .paletteTag = ANIM_TAG_TCG_SLASH,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sTCGSlashImpactAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+const struct SpriteTemplate gTCGSlapImpactSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_SLAP_IMPACT,
+    .paletteTag = ANIM_TAG_TCG_SLAP_IMPACT,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sTCGSlashImpactAnimTable,
     .images = NULL,
@@ -3298,6 +3566,62 @@ const struct SpriteTemplate gLetterRBurstSpriteTemplate =
     .paletteTag = ANIM_TAG_LETTER_R,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+static const union AnimCmd sPrimeBurstAnim_0[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sPrimeBurstAnim_1[] =
+{
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sPrimeBurstAnim_2[] =
+{
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sPrimeBurstAnimTable[] =
+{
+    sPrimeBurstAnim_0,
+    sPrimeBurstAnim_1,
+    sPrimeBurstAnim_2,
+};
+
+const struct SpriteTemplate gPrimeOneBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sPrimeBurstAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gPrimeTwoBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sPrimeBurstAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gPrimeThreeBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sPrimeBurstAnimTable[2],
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimParticleBurst,
@@ -7920,6 +8244,102 @@ static void AnimTask_OnionCutter_Step(u8 taskId)
 
             // create right half
             task->data[15] = CreateSprite(&gOnionCutterSpriteTemplate,
+                                          task->data[10], task->data[11], 0);
+            StartSpriteAnim(&gSprites[task->data[15]], 2);
+            gSprites[task->data[15]].data[0] = 8;
+            gSprites[task->data[15]].data[1] = 0;
+
+            task->data[0] = 1;
+            task->data[1] = 0;
+        }
+        break;
+
+    // MOVE HALVES WITH DECELERATION
+    case 1:
+    {
+        struct Sprite *left = &gSprites[task->data[14]];
+        struct Sprite *right = &gSprites[task->data[15]];
+
+        // left half
+        left->x2 += left->data[0];
+        if (left->data[0] < 0)
+            left->data[0]++;
+
+        // right half
+        right->x2 += right->data[0];
+        if (right->data[0] > 0)
+            right->data[0]--;
+
+        if (++task->data[1] >= task->data[13])
+        {
+            DestroySprite(left);
+            DestroySprite(right);
+            task->data[0] = 2;
+        }
+        break;
+    }
+
+    case 2:
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+
+void AnimTask_EarthQuaker(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 battler;
+    s16 x, y;
+
+    battler = (gBattleAnimArgs[0] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+    x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2) + gBattleAnimArgs[1];
+    y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[2];
+
+    task->data[10] = x;
+    task->data[11] = y;
+    task->data[12] = gBattleAnimArgs[3];
+    task->data[13] = gBattleAnimArgs[4];
+
+    task->data[14] = CreateSprite(&gEarthQuakerSpriteTemplate, x, y,
+                                  GetBattlerSpriteSubpriority(battler) + 1);
+
+    if (task->data[14] == MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    StartSpriteAnim(&gSprites[task->data[14]], 0);
+
+    task->data[0] = 0;
+    task->data[1] = 0;
+    task->func = AnimTask_EarthQuaker_Step;
+}
+
+static void AnimTask_EarthQuaker_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite;
+
+    switch (task->data[0])
+    {
+    // WAIT BEFORE SPLIT
+    case 0:
+        if (++task->data[1] >= task->data[12])
+        {
+            DestroySprite(&gSprites[task->data[14]]);
+
+            // create left half
+            task->data[14] = CreateSprite(&gEarthQuakerSpriteTemplate,
+                                          task->data[10], task->data[11], 0);
+            StartSpriteAnim(&gSprites[task->data[14]], 1);
+            gSprites[task->data[14]].data[0] = -8;   // velocity
+            gSprites[task->data[14]].data[1] = 0;
+
+            // create right half
+            task->data[15] = CreateSprite(&gEarthQuakerSpriteTemplate,
                                           task->data[10], task->data[11], 0);
             StartSpriteAnim(&gSprites[task->data[15]], 2);
             gSprites[task->data[15]].data[0] = 8;

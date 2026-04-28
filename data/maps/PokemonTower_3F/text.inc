@@ -15,8 +15,8 @@ PokemonTower_3F_Text_CarlyIntro::
 	.string "G O . B A C K …$"
 
 PokemonTower_3F_Text_CarlyDefeat::
-	.string "H E\n"
-	.string "D I E D …$"
+	.string "R E M E M B E R   T O    D R I N K \n"
+	.string "Y O U R   O V A L T I N E …$"
 
 PokemonTower_3F_Text_CarlyPostBattle::
 	.string "The DMCA does not approve of our\n"

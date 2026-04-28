@@ -77,6 +77,14 @@ STATIC_ASSERT(sizeof(struct SaveBlock2) <= SECTOR_DATA_SIZE, SaveBlock2FreeSpace
 STATIC_ASSERT(sizeof(struct SaveBlock1) <= SECTOR_DATA_SIZE * (SECTOR_ID_SAVEBLOCK1_END - SECTOR_ID_SAVEBLOCK1_START + 1), SaveBlock1FreeSpace);
 STATIC_ASSERT(sizeof(struct PokemonStorage) <= SECTOR_DATA_SIZE * (SECTOR_ID_PKMN_STORAGE_END - SECTOR_ID_PKMN_STORAGE_START + 1), PokemonStorageFreeSpace);
 
+#define CSR_SAVEBLOCK2_SIZE 3968
+#define CSR_SAVEBLOCK1_SIZE 15872
+#define CSR_POKEMONSTORAGE_SIZE 33744
+// these asserts ensure the saveblocks don't change in size and break existing save files
+STATIC_ASSERT(sizeof(struct SaveBlock2) == CSR_SAVEBLOCK2_SIZE, CSRSaveBlock2SaveBreak);
+STATIC_ASSERT(sizeof(struct SaveBlock1) == CSR_SAVEBLOCK1_SIZE, CSRSaveBlock1SaveBreak);
+STATIC_ASSERT(sizeof(struct PokemonStorage) == CSR_POKEMONSTORAGE_SIZE, CSRPokemonStorageSaveBreak);
+
 // Sector num to begin writing save data. Sectors are rotated each time the game is saved. (possibly to avoid wear on flash memory?)
 COMMON_DATA u16 gLastWrittenSector = 0;
 COMMON_DATA u32 gLastSaveCounter = 0;

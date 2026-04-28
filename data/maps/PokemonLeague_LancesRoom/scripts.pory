@@ -1,10 +1,5 @@
 raw `
-PokemonLeague_LancesRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, PokemonLeague_LancesRoom_OnResume
-	map_script MAP_SCRIPT_ON_LOAD, PokemonLeague_LancesRoom_OnLoad
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PokemonLeague_LancesRoom_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonLeague_LancesRoom_OnFrame
-	.byte 0
+
 
 PokemonLeague_LancesRoom_OnResume::
 	setvar VAR_0x8004, 3
@@ -145,6 +140,16 @@ PokemonLeague_LancesRoom_Movement_LanceMoveOutOfWayRight::
 	step_end
 `
 
+mapscripts PokemonLeague_LancesRoom_MapScripts {
+	MAP_SCRIPT_ON_RESUME: PokemonLeague_LancesRoom_OnResume
+	MAP_SCRIPT_ON_LOAD: PokemonLeague_LancesRoom_OnLoad
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: PokemonLeague_LancesRoom_OnWarp
+	MAP_SCRIPT_ON_FRAME_TABLE: PokemonLeague_LancesRoom_OnFrame
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_A)
+	}
+
+}
 script PokemonLeague_LancesRoom_EventScript_Lance {
 	lock
 	faceplayer
@@ -202,7 +207,7 @@ script MayRoom_LassAttack {
     textcolor(NPC_TEXT_COLOR_FEMALE)
     setvar(VAR_LANCE_LASS_ATTACK, 2)
     textcolor(NPC_TEXT_COLOR_FEMALE)
-    
+    addobject(LANCE_LASS)
     applymovement(LANCE_LASS, moves(
         face_up
     ))
@@ -244,7 +249,7 @@ script MayRoom_LassAttack {
 	addobject(LANCE_LASS)
 	setobjectxy(LANCE_LASS, 6, 19)
 	setlayouttiles(LAYOUT_POKEMON_LEAGUE_LANCES_ROOM, 0, 0, 0, 0, 26, 29)
-					setmaplayoutindex(LAYOUT_POKEMON_LEAGUE_LANCES_ROOM)
+	setmaplayoutindex(LAYOUT_POKEMON_LEAGUE_LANCES_ROOM)
 	special(DrawWholeMapView)
 	applymovement(LANCE_LASS, moves(
 		face_up
@@ -293,6 +298,7 @@ script MayRoom_LassAttack {
 	fadescreeninstant(FADE_FROM_WHITE)
 	delay(120)
 	waitmovement(LOCALID_CAMERA)
+	call(PokemonLeague_LancesRoom_EventScript_SetEntryClosed)
 	call(PokemonLeague_EventScript_OpenDoorLance)
 	applymovement(LOCALID_CAMERA, moves(
 		walk_slow_up * 7

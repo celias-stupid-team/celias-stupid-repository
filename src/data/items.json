@@ -3201,7 +3201,7 @@
       "secondaryId": 0
     },
     {
-      "english": "LEFTOVERS",
+      "english": "WEFTOVERS",
       "itemId": "ITEM_LEFTOVERS",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_LEFTOVERS",

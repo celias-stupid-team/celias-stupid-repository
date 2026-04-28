@@ -3196,7 +3196,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             case HOLD_EFFECT_LEFTOVERS:
                 if (gBattleMons[battlerId].hp < gBattleMons[battlerId].maxHP && !moveTurn)
                 {
-                    gBattleMoveDamage = gBattleMons[battlerId].maxHP / 16;
+                    gBattleMoveDamage = gBattleMons[battlerId].maxHP / 2;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     if (gBattleMons[battlerId].hp + gBattleMoveDamage > gBattleMons[battlerId].maxHP)

@@ -71,6 +71,30 @@ const struct SpriteTemplate gBonemerangSpriteTemplate =
     .callback = AnimBonemerangProjectile,
 };
 
+static const union AnimCmd sHatchetAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sHatchetAnimTable[] =
+{
+    sHatchetAnimCmds,
+};
+
+const struct SpriteTemplate gHatchetSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HATCHET,
+    .paletteTag = ANIM_TAG_HATCHET,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sHatchetAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBonemerangProjectile,
+};
+
 const struct SpriteTemplate gThrownBiteSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SHARP_TEETH,

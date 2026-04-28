@@ -5,8 +5,7 @@ CeruleanCity_BikeShop_Text_WelcomeToBikeShop::
     .string "you!$"
 
 CeruleanCity_BikeShop_Text_SorryYouCantAffordIt::
-    .string "Sorry!\n"
-    .string "You can't afford it!$"
+	.string "Gotta keep up with inflation!\n$"
 
 CeruleanCity_BikeShop_Text_OhBikeVoucherHereYouGo::
     .string "Oh, that's…\p"

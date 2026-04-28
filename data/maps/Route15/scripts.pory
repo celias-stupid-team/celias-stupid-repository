@@ -367,9 +367,9 @@ script Route15_SeasideHouseSign {
 
 script Route15_NoHMBoat {
 	lock
-	msgbox("Scattered across the floor of the\nboat are broken shards of an HM.\pA piece of paper is displayed on\nthe hull…", MSGBOX_DEFAULT)
-	closemessage
-	msgbox("Notice!\pExtensive testing found this boat\nto be incapable of crossing water.\pDon't fall for scams!\n", MSGBOX_DEFAULT)
+	msgbox(
+	"You wouldn't download a boat.\n"
+	"", MSGBOX_DEFAULT)
 	release
 }
 
