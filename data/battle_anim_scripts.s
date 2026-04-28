@@ -15876,6 +15876,7 @@ Move_CRAB_THROW:
 	blendoff
 	end
 	
+Move_SACRED_SWORD:
 Move_SECRET_SWORD:
 	loadspritegfx ANIM_TAG_SECRET_SWORD
 	loadspritegfx ANIM_TAG_IMPACT
@@ -15896,18 +15897,7 @@ Move_SECRET_SWORD:
 	delay 10
 	waitforvisualfinish
 	end
-
-
-	loadspritegfx ANIM_TAG_SLASH
-	createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, -8, 0
-	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
-	delay 4
-	createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, 8, 0
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 18, 1
-	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
-	waitforvisualfinish
-	end
-
+	
 Move_SEISMIC_TOSS:
 Move_EARTH_POWER:
 	loadspritegfx ANIM_TAG_EARTH
@@ -15928,17 +15918,6 @@ Move_EARTH_POWER:
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
-	end
-	
-Move_SACRED_SWORD:
-	loadspritegfx ANIM_TAG_SLASH
-	createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, -8, 0
-	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
-	delay 4
-	createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, 8, 0
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 18, 1
-	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
-	waitforvisualfinish
 	end
 	
 Move_FAIRY_FANG:
