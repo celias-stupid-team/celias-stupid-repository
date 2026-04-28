@@ -4025,7 +4025,35 @@ Move_LOW_KICK:
 	end
 
 Move_STAMPETE:
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
+	playsewithpan SE_M_EARTHQUAKE, 0
+	delay 10
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 16
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	end
 Move_EARTHQUAKE:
+	loadspritegfx ANIM_TAG_EARTH
+	loadspritegfx ANIM_TAG_QUAKE
+	monbg ANIM_TARGET
+	setalpha 12, 8
+
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createsprite gEarthLiftSpriteTemplate, ANIM_ATTACKER, 2, 0, 64, 0, -2, 32, 0, 0, 1
+	delay 30
+	createvisualtask AnimTask_EarthQuaker, 5, 1, 0, 0, 35, 70
+	delay 34
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	createsprite gQuakeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 67, 0, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 10, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	waitforvisualfinish
+	end
+
+	@earthquake original
 	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
 	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
 	playsewithpan SE_M_EARTHQUAKE, 0

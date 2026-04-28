@@ -1525,7 +1525,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Firered, 0x0200, ANIM_TAG_FIRERED},
     {gBattleAnimSpriteGfx_PrideFlag, 0x0200, ANIM_TAG_PRIDE_FLAG},
     {gBattleAnimSpriteGfx_CreamBubbles, 0x0180, ANIM_TAG_CREAM_BUBBLES},
-    {gBattleAnimSpriteGfx_Earth, 0x0800, ANIM_TAG_EARTH},
+    {gBattleAnimSpriteGfx_Earth, 0x1800, ANIM_TAG_EARTH},
     {gBattleAnimSpriteGfx_HumanLegOne, 0x0800, ANIM_TAG_HUMAN_LEG_ONE},
     {gBattleAnimSpriteGfx_HumanLegTwo, 0x2000, ANIM_TAG_HUMAN_LEG_TWO},
     {gBattleAnimSpriteGfx_MoltresKick, 0x0800, ANIM_TAG_MOLTRES_KICK},
@@ -1603,6 +1603,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_KrabbyClaw, 0x0800, ANIM_TAG_KRABBY_CLAW},
     {gBattleAnimSpriteGfx_GliscorClaw, 0x0800, ANIM_TAG_GLISCOR_CLAW},
     {gBattleAnimSpriteGfx_PrimeNumbers, 0x0A00, ANIM_TAG_PRIME_NUMBERS},
+    {gBattleAnimSpriteGfx_Quake, 0x2000, ANIM_TAG_QUAKE},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2129,6 +2130,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_KrabbyClaw, ANIM_TAG_KRABBY_CLAW},
     {gBattleAnimSpritePal_GliscorClaw, ANIM_TAG_GLISCOR_CLAW},
     {gBattleAnimSpritePal_PrimeNumbers, ANIM_TAG_PRIME_NUMBERS},
+    {gBattleAnimSpritePal_Quake, ANIM_TAG_QUAKE},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

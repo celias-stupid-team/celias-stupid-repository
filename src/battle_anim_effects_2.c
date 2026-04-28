@@ -118,6 +118,7 @@ static void AnimSprite_MoveThenWait(struct Sprite *sprite);
 static void AnimSprite_MoveStaggeredThenWait(struct Sprite *sprite);
 static void AnimHammerSwing(struct Sprite *sprite);
 static void AnimTask_OnionCutter_Step(u8 taskId);
+static void AnimTask_EarthQuaker_Step(u8 taskId);
 static void AnimGarbotoxin(struct Sprite *sprite);
 static void AnimTask_DynamaxGrowthStep(u8 taskId);
 static void AnimSprite_FadeInOut(struct Sprite *sprite);
@@ -579,6 +580,43 @@ const struct SpriteTemplate gOnionCutterSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+static const union AnimCmd sEarthQuakerAnimCmds1[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sEarthQuakerAnimCmds2[] =    
+{
+    ANIMCMD_FRAME(64, 3),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd sEarthQuakerAnimCmds3[] =    
+{
+    ANIMCMD_FRAME(128, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sEarthQuakerAnimTable[] =
+{
+    sEarthQuakerAnimCmds1,
+    sEarthQuakerAnimCmds2,
+    sEarthQuakerAnimCmds3,
+};
+
+const struct SpriteTemplate gEarthQuakerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EARTH,
+    .paletteTag = ANIM_TAG_EARTH,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = sEarthQuakerAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 static const union AnimCmd sCoinAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -1017,13 +1055,37 @@ const struct SpriteTemplate gBonkingDrugSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
-
 const struct SpriteTemplate gEarthLiftSpriteTemplate =
 {
     .tileTag = ANIM_TAG_EARTH,
     .paletteTag = ANIM_TAG_EARTH,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sAnim_Quake[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(128, 2),
+    ANIMCMD_FRAME(192, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_Quake[] =
+{
+    sAnim_Quake,
+};
+
+const struct SpriteTemplate gQuakeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_QUAKE,
+    .paletteTag = ANIM_TAG_QUAKE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sAnims_Quake,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -8182,6 +8244,102 @@ static void AnimTask_OnionCutter_Step(u8 taskId)
 
             // create right half
             task->data[15] = CreateSprite(&gOnionCutterSpriteTemplate,
+                                          task->data[10], task->data[11], 0);
+            StartSpriteAnim(&gSprites[task->data[15]], 2);
+            gSprites[task->data[15]].data[0] = 8;
+            gSprites[task->data[15]].data[1] = 0;
+
+            task->data[0] = 1;
+            task->data[1] = 0;
+        }
+        break;
+
+    // MOVE HALVES WITH DECELERATION
+    case 1:
+    {
+        struct Sprite *left = &gSprites[task->data[14]];
+        struct Sprite *right = &gSprites[task->data[15]];
+
+        // left half
+        left->x2 += left->data[0];
+        if (left->data[0] < 0)
+            left->data[0]++;
+
+        // right half
+        right->x2 += right->data[0];
+        if (right->data[0] > 0)
+            right->data[0]--;
+
+        if (++task->data[1] >= task->data[13])
+        {
+            DestroySprite(left);
+            DestroySprite(right);
+            task->data[0] = 2;
+        }
+        break;
+    }
+
+    case 2:
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+
+void AnimTask_EarthQuaker(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 battler;
+    s16 x, y;
+
+    battler = (gBattleAnimArgs[0] == 0) ? gBattleAnimAttacker : gBattleAnimTarget;
+
+    x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2) + gBattleAnimArgs[1];
+    y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[2];
+
+    task->data[10] = x;
+    task->data[11] = y;
+    task->data[12] = gBattleAnimArgs[3];
+    task->data[13] = gBattleAnimArgs[4];
+
+    task->data[14] = CreateSprite(&gEarthQuakerSpriteTemplate, x, y,
+                                  GetBattlerSpriteSubpriority(battler) + 1);
+
+    if (task->data[14] == MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    StartSpriteAnim(&gSprites[task->data[14]], 0);
+
+    task->data[0] = 0;
+    task->data[1] = 0;
+    task->func = AnimTask_EarthQuaker_Step;
+}
+
+static void AnimTask_EarthQuaker_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite;
+
+    switch (task->data[0])
+    {
+    // WAIT BEFORE SPLIT
+    case 0:
+        if (++task->data[1] >= task->data[12])
+        {
+            DestroySprite(&gSprites[task->data[14]]);
+
+            // create left half
+            task->data[14] = CreateSprite(&gEarthQuakerSpriteTemplate,
+                                          task->data[10], task->data[11], 0);
+            StartSpriteAnim(&gSprites[task->data[14]], 1);
+            gSprites[task->data[14]].data[0] = -8;   // velocity
+            gSprites[task->data[14]].data[1] = 0;
+
+            // create right half
+            task->data[15] = CreateSprite(&gEarthQuakerSpriteTemplate,
                                           task->data[10], task->data[11], 0);
             StartSpriteAnim(&gSprites[task->data[15]], 2);
             gSprites[task->data[15]].data[0] = 8;
