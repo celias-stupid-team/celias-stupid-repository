@@ -656,6 +656,42 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sTcgPoisonAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(64, 10),
+    ANIMCMD_FRAME(128, 10),
+    ANIMCMD_FRAME(192, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTcgPoisonAnimTable[] =
+{
+    sTcgPoisonAnimCmds,
+};
+
+const struct SpriteTemplate gTcgPoisonSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_POISON,
+    .paletteTag = ANIM_TAG_TCG_POISON,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sTcgPoisonAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTakedownSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TAKEDOWN,
+    .paletteTag = ANIM_TAG_TAKEDOWN,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gGnomeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GNOME,
@@ -2026,6 +2062,28 @@ const struct SpriteTemplate gHammerSpriteTemplate =
     .callback = AnimHammerSwing,
 };
 
+const struct SpriteTemplate gKrabbyHammerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KRABBY_CLAW,
+    .paletteTag = ANIM_TAG_KRABBY_CLAW,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHammerSwing,
+};
+
+const struct SpriteTemplate gGliscorHammerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GLISCOR_CLAW,
+    .paletteTag = ANIM_TAG_GLISCOR_CLAW,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHammerSwing,
+};
+
 const struct SpriteTemplate gCrusherSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CRUSHER,
@@ -2423,6 +2481,46 @@ const struct SpriteTemplate gHyperVoiceRingSpriteTemplate =
     .callback = AnimHyperVoiceRing,
 };
 
+static const union AnimCmd sRoarOfPrimeOneAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sRoarOfPrimeTwoAnimCmds[] =
+{
+    ANIMCMD_FRAME(64, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sRoarOfPrimeAnimTable[] =
+{
+    sRoarOfPrimeOneAnimCmds,
+    sRoarOfPrimeTwoAnimCmds,
+};
+
+const struct SpriteTemplate gRoarOfPrimeOneSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x32,
+    .anims = &sRoarOfPrimeAnimTable[0],
+    .images = NULL,
+    .affineAnims = sHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
+};
+
+const struct SpriteTemplate gRoarOfPrimeTwoSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x32,
+    .anims = &sRoarOfPrimeAnimTable[1],
+    .images = NULL,
+    .affineAnims = sHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
+};
+
 const struct SpriteTemplate gUproarRingSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_THIN_RING,
@@ -2588,6 +2686,29 @@ const struct SpriteTemplate gTCGSlashSwipeSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+static const union AnimCmd sTCGSlapAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 22),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTCGSlapAnimTable[] =
+{
+    sTCGSlapAnimCmds,
+};
+const struct SpriteTemplate gTCGSlapSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_SLAP,
+    .paletteTag = ANIM_TAG_TCG_SLAP,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sTCGSlapAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
 static const union AnimCmd sTCGBigRockAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 7),
@@ -2606,6 +2727,56 @@ const struct SpriteTemplate gTCGBigRockSpriteTemplate =
     .paletteTag = ANIM_TAG_TCG_ROCKS,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sTCGBigRockAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
+static const union AnimCmd sTCGNeedleRightAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sTCGNeedleLeftAnimCmds[] =
+{
+    ANIMCMD_FRAME(4, 12),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTCGNeedleAnimTable[] =
+{
+    sTCGNeedleRightAnimCmds,
+    sTCGNeedleLeftAnimCmds,
+};
+const struct SpriteTemplate gTCGNeedleRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_NEEDLE,
+    .paletteTag = ANIM_TAG_TCG_NEEDLE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = &sTCGNeedleAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+const struct SpriteTemplate gTCGNeedleLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_NEEDLE,
+    .paletteTag = ANIM_TAG_TCG_NEEDLE,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = &sTCGNeedleAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
+const struct SpriteTemplate gTCGIceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_ICE,
+    .paletteTag = ANIM_TAG_TCG_ICE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveStaggeredThenWait,
@@ -2646,6 +2817,31 @@ const struct SpriteTemplate gTCGBlizzardSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+static const union AnimCmd sTCGConfusionAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(64, 10),
+    ANIMCMD_FRAME(128, 10),
+    ANIMCMD_FRAME(192, 10),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTCGConfusionAnimTable[] =
+{
+    sTCGConfusionAnimCmds,
+};
+
+const struct SpriteTemplate gTCGConfusionSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_CONFUSION,
+    .paletteTag = ANIM_TAG_TCG_CONFUSION,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sTCGConfusionAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sTCGSlashImpactAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -2661,6 +2857,16 @@ const struct SpriteTemplate gTCGSlashImpactSpriteTemplate =
 {
     .tileTag = ANIM_TAG_TCG_SLASH,
     .paletteTag = ANIM_TAG_TCG_SLASH,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sTCGSlashImpactAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+const struct SpriteTemplate gTCGSlapImpactSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_SLAP_IMPACT,
+    .paletteTag = ANIM_TAG_TCG_SLAP_IMPACT,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sTCGSlashImpactAnimTable,
     .images = NULL,
@@ -3298,6 +3504,62 @@ const struct SpriteTemplate gLetterRBurstSpriteTemplate =
     .paletteTag = ANIM_TAG_LETTER_R,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+static const union AnimCmd sPrimeBurstAnim_0[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sPrimeBurstAnim_1[] =
+{
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sPrimeBurstAnim_2[] =
+{
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sPrimeBurstAnimTable[] =
+{
+    sPrimeBurstAnim_0,
+    sPrimeBurstAnim_1,
+    sPrimeBurstAnim_2,
+};
+
+const struct SpriteTemplate gPrimeOneBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sPrimeBurstAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gPrimeTwoBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sPrimeBurstAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gPrimeThreeBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_NUMBERS,
+    .paletteTag = ANIM_TAG_PRIME_NUMBERS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sPrimeBurstAnimTable[2],
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimParticleBurst,

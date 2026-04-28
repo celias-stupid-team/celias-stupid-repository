@@ -47,13 +47,4 @@ script Starlight_House_TV {
 
 }
 
-script Starlight_House_Commentary_But_No_Dak {
-	textcolor(NPC_TEXT_COLOR_RED)
-	msgbox(
-	"Hey! did you know I have a dev\n"
-	"commentary too?\p"
-
-	"But for it to appear, first you\n"
-	"need to go find my friend!", MSGBOX_NPC)
-}
 

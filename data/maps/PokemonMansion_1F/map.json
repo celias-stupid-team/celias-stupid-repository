@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
       "x": 24,
-      "y": 5,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -33,7 +33,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 27,
-      "y": 5,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -47,7 +47,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 25,
-      "y": 5,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -61,7 +61,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 26,
-      "y": 5,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -75,7 +75,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 23,
-      "y": 5,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 2,
@@ -89,7 +89,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
       "x": 35,
-      "y": 31,
+      "y": 45,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
@@ -103,7 +103,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 20,
-      "y": 28,
+      "y": 42,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -117,91 +117,91 @@
   "warp_events": [
     {
       "x": 10,
-      "y": 33,
+      "y": 47,
       "elevation": 3,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "7"
     },
     {
       "x": 10,
-      "y": 33,
+      "y": 47,
       "elevation": 3,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "7"
     },
     {
       "x": 10,
-      "y": 33,
+      "y": 47,
       "elevation": 3,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "7"
     },
     {
       "x": 13,
-      "y": 22,
+      "y": 36,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_MANSION_2F",
       "dest_warp_id": "2"
     },
     {
       "x": 25,
-      "y": 28,
+      "y": 42,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_MANSION_B1F",
       "dest_warp_id": "0"
     },
     {
       "x": 34,
-      "y": 33,
+      "y": 47,
       "elevation": 3,
       "dest_map": "MAP_NEW_MAP1",
       "dest_warp_id": "4"
     },
     {
       "x": 35,
-      "y": 34,
+      "y": 48,
       "elevation": 0,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "0"
     },
     {
       "x": 20,
-      "y": 22,
+      "y": 36,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_MANSION_3F",
       "dest_warp_id": "3"
     },
     {
       "x": 20,
-      "y": 22,
+      "y": 36,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_MANSION_3F",
       "dest_warp_id": "4"
     },
     {
       "x": 14,
-      "y": 22,
+      "y": 36,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_MANSION_2F",
       "dest_warp_id": "2"
     },
     {
       "x": 25,
-      "y": 22,
+      "y": 36,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_MANSION_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 27,
-      "y": 22,
+      "y": 36,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_MANSION_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 33,
-      "y": 20,
+      "y": 34,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_MANSION_2F",
       "dest_warp_id": "0"
@@ -212,7 +212,7 @@
     {
       "type": "sign",
       "x": 22,
-      "y": 5,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "PokemonMansion_1F_EventScript_Statue"
@@ -220,7 +220,7 @@
     {
       "type": "hidden_item",
       "x": 2,
-      "y": 21,
+      "y": 35,
       "elevation": 0,
       "item": "ITEM_MOON_STONE",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_23",

@@ -508,6 +508,30 @@ const struct SpriteTemplate gTcgCoinSpriteTemplate =
     .callback = AnimCoinFlip,
 };
 
+static const union AnimCmd sTcgCoinTailsAnimCmd_2[] =
+{
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const gTcgCoinTailsAnimTable[] =
+{
+    sTcgCoinAnimCmd_0,
+    sTcgCoinAnimCmd_1,
+    sTcgCoinTailsAnimCmd_2,
+};
+
+const struct SpriteTemplate gTcgCoinTailsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_COIN,
+    .paletteTag = ANIM_TAG_TCG_COIN,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gTcgCoinTailsAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinFlip,
+};
+
 static const union AffineAnimCmd sCaptureAffineAnimCmd[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),

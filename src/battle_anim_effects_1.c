@@ -206,6 +206,28 @@ const struct SpriteTemplate gSleepPowderParticleSpriteTemplate =
     .callback = AnimMovePowderParticle,
 };
 
+static const union AnimCmd sDrugPowderAnimCmds[] =
+{
+    ANIMCMD_FRAME(12, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sDrugPowderAnimTable[] =
+{
+    sDrugPowderAnimCmds,
+};
+
+const struct SpriteTemplate gDrugPowderParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_DRUG,
+    .paletteTag = ANIM_TAG_HONG_KONG_DRUG,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sDrugPowderAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMovePowderParticle,
+};
+
 const struct SpriteTemplate gStunSporeParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_STUN_SPORE,
@@ -2957,6 +2979,17 @@ const struct SpriteTemplate gFollowMeFingerSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FINGER,
     .paletteTag = ANIM_TAG_FINGER,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimFollowMeFinger,
+};
+
+const struct SpriteTemplate gImBelchSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_POINTING_FINGER,
+    .paletteTag = ANIM_TAG_POINTING_FINGER,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
