@@ -6202,6 +6202,8 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
+        case TRAINER_CLASS_STARLIGHT:
+            return MUS_SAFARI_MARCH;
         default:
             return MUS_VS_TRAINER;
         }

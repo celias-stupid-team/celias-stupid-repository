@@ -29,3 +29,27 @@ script Route5_TransitionScripts {
 	setflag(FLAG_CSR_MAP_ROUTE_5)
 	call(SetPlayerPokedexValues)
 }
+
+script Route5_SummonThePit3{
+	setlayouttiles(
+		LAYOUT_ROUTE5_LAYOUT_THE_PIT, 
+		0,	// startingX
+		0,	// startingY 
+		0,	// x1 
+		0,	// y1
+		47, // x2
+		40) // y2
+	release
+}
+
+script Route5_EscapeThePit3{
+	setlayouttiles(
+		LAYOUT_ROUTE5, 
+		0,	// startingX
+		0,	// startingY 
+		0,	// x1 
+		0,	// y1
+		47, // x2
+		40) // y2
+	release
+}
