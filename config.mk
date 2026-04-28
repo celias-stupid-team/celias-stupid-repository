@@ -5,7 +5,7 @@ GAME_REVISION ?= 1
 GAME_LANGUAGE ?= ENGLISH
 
 # Builds the ROM using a modern compiler
-MODERN        ?= 0
+MODERN        ?= 1
 # Compares the ROM to a checksum of the original - only makes sense using when non-modern
 COMPARE       ?= 0
 
@@ -14,8 +14,8 @@ KEEP_TEMPS    ?= 0
 # Release build - turn off debugging
 RELEASE       ?= 0
 
-ifeq (modern,$(MAKECMDGOALS))
-  MODERN := 1
+ifeq (classic,$(MAKECMDGOALS))
+  MODERN := 0
 endif
 ifeq (compare,$(MAKECMDGOALS))
   COMPARE := 1
@@ -50,8 +50,8 @@ ifeq ($(GAME_REVISION),0)
 endif
 
 # Modern GCC
-ifeq ($(MODERN),1)
-  BUILD_NAME := $(BUILD_NAME)_modern
+ifeq ($(MODERN),0)
+  BUILD_NAME := $(BUILD_NAME)_classic
 endif
 
 # Language

@@ -352,6 +352,29 @@ const struct SpriteTemplate gFireBlastRingSpriteTemplate =
     .callback = AnimFireRing,
 };
 
+static const union AnimCmd sAnim_FireBlastCross[] =
+{
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_FireBlastCross[] =
+{
+    sAnim_FireBlastCross,
+};
+
+const struct SpriteTemplate gFireBlastCrossSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FireBlastCross,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireCross,
+};
+
 //v create
 const struct SpriteTemplate gVCreateFlameTemplate =
 {
@@ -413,29 +436,6 @@ const struct SpriteTemplate gVCreateRedOrbTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSpriteOnMonPos
-};
-
-static const union AnimCmd sAnim_FireBlastCross[] =
-{
-    ANIMCMD_FRAME(32, 6),
-    ANIMCMD_FRAME(48, 6),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd *const sAnims_FireBlastCross[] =
-{
-    sAnim_FireBlastCross,
-};
-
-const struct SpriteTemplate gFireBlastCrossSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_SMALL_EMBER,
-    .paletteTag = ANIM_TAG_SMALL_EMBER,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_FireBlastCross,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimFireCross,
 };
 
 const struct SpriteTemplate gFireSpiralOutwardSpriteTemplate =
