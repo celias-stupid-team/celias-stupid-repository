@@ -21,6 +21,8 @@
 #include "pokedex_area_markers.h"
 #include "field_specials.h"
 #include "random.h"
+#include "event_scripts.h"
+#include "script.h"
 
 #define TAG_AREA_MARKERS 2001
 
@@ -1138,6 +1140,7 @@ static void DexScreen_InitGfxForTopMenu(void)
     sPokedexScreenData->modeSelectWindowId = AddWindow(&sWindowTemplate_ModeSelect);
     sPokedexScreenData->selectionIconWindowId = AddWindow(&sWindowTemplate_SelectionIcon);
     sPokedexScreenData->dexCountsWindowId = AddWindow(&sWindowTemplate_DexCounts);
+    RunScriptImmediately(SetPlayerPokedexValues);
     if (IsNationalPokedexEnabled())
     {
         listMenuTemplate = sListMenuTemplate_NatDexModeSelect;

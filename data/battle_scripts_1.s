@@ -555,6 +555,7 @@ BattleScript_EffectExplosion::
 	tryexplosion
 	setatkhptozero
 	waitstate
+	
 	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionDoAnimStartLoop
 	call BattleScript_PreserveMissedBitDoMoveAnim
 	goto BattleScript_ExplosionMissed
@@ -562,6 +563,9 @@ BattleScript_ExplosionDoAnimStartLoop:
 	attackanimation
 	waitanimation
 BattleScript_ExplosionLoop:
+	jumpifnostatus3 BS_TARGET, STATUS3_ON_AIR, BattleScript_ExplosionNotAir
+	orword gHitMarker, HITMARKER_IGNORE_ON_AIR
+BattleScript_ExplosionNotAir::
 	movevaluescleanup
 	critcalc
 	damagecalc

@@ -463,7 +463,7 @@ script Route19_CeliaTurnsYouAround {
 	lock
 	textcolor(NPC_TEXT_COLOR_RED)
 	if(!checkmoncaught(SPECIES_GIMMIGHOUL)) {
-		giveitem(ITEM_RARE_CANDY, 1)
+		additem(ITEM_RARE_CANDY, 1)
 		msgbox(
 		"Don't worry!\n"
 		"You don't need to go back!\p"

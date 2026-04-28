@@ -36,7 +36,7 @@ script Starlight_House2_Post_Battle {
 	"outside of bounds.\p"
 
 	"Also my friend is somewhere around\n"
-	"here, if you see him let me know?\p"
+	"here, if you see him let me know.\p"
 
 	"Thanks! It was nice to meet you!\n"
 	"", MSGBOX_NPC)
@@ -57,7 +57,7 @@ script Starlight_House2_Battle { //test
 	"Oh hi!\p"
 	"I thought I hid this map.",
 	//
-	"I... am not the best at coding...", Starlight_House2_Post_Battle)
+	"My team is a mess...", Starlight_House2_Post_Battle)
 
 
 	msgbox(

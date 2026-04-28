@@ -4331,7 +4331,7 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("JAN"),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_ChannelerPatricia),
     },
@@ -6464,7 +6464,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_RS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_JANINE,
-        .trainerName = _("JANINE"),
+        .trainerName = _("CHARINE"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -7168,7 +7168,7 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_STARLIGHT] = {
-        .trainerClass = TRAINER_CLASS_RS_BEAUTY,
+        .trainerClass = TRAINER_CLASS_STARLIGHT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_STARLIGHTSPRITE,
         .trainerName = _("STARLIGHT"),

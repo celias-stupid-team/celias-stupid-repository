@@ -25,10 +25,10 @@ MAP_SCRIPT_ON_TRANSITION {
 }
 
 script Starlight_Jukebox_Test {
-    playbgm(MUS_CSR_POKERAP, TRUE)
+    playbgm(mus_mirrorb2, TRUE)
     
 	msgbox(
-    "Music: MUS_CSR_POKERAP\n"
+    "Music: TESTING\n"
 	"Made by: ???", MSGBOX_SIGN)
     end
 }

@@ -2769,7 +2769,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
         && GetBattlerSide(gEffectBattler) == B_SIDE_OPPONENT)
         INCREMENT_RETURN
 
-    if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE)
+    if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_STICKY_HOLD || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE)
         && !(gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
         && !primary && gBattleCommunication[MOVE_EFFECT_BYTE] <= 9)
         INCREMENT_RETURN
@@ -3320,7 +3320,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                         gBattlescriptCurrInstr++;
                     }
                     else if (gBattleMons[gBattlerTarget].item
-                        && gBattleMons[gBattlerTarget].ability == ABILITY_STICKY_HOLD)
+                        && (gBattleMons[gBattlerTarget].ability == ABILITY_STICKY_HOLD))
                     {
                         //DebugPrintf("Ding C");
                         gBattlescriptCurrInstr = BattleScript_StickyHoldActivates;
@@ -8232,7 +8232,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE) && flags == 0)
+        else if ((gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST || gBattleMons[gActiveBattler].ability == ABILITY_STICKY_HOLD || gBattleMons[gActiveBattler].ability == ABILITY_STURDY || gBattleMons[gActiveBattler].ability == ABILITY_REVENGE) && flags == 0)
         {
             return STAT_CHANGE_DIDNT_WORK;
         }

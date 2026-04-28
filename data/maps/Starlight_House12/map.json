@@ -492,8 +492,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 29,
-      "y": 24,
+      "x": 25,
+      "y": 26,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_Jukebox_Test"

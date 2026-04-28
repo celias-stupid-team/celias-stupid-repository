@@ -15897,7 +15897,7 @@ Move_SECRET_SWORD:
 	delay 10
 	waitforvisualfinish
 	end
-	
+
 Move_SEISMIC_TOSS:
 Move_EARTH_POWER:
 	loadspritegfx ANIM_TAG_EARTH

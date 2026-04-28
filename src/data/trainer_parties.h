@@ -320,7 +320,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubElectric[] = 
         .iv = 0,
         .lvl = 13,
         .species = SPECIES_PIKACHU_BIRTHDAY,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_CELEBRATE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 
 };
@@ -551,7 +551,7 @@ static const struct TrainerMonItemCustomMoves sParty_LassSally[] = {
         .iv = 0,
         .lvl = 10,
         .species = SPECIES_ROOKIDEE,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_SLUGMA_BALL,
         .moves = {MOVE_MEAN_LOOK, MOVE_PECK, MOVE_NONE, MOVE_NONE}
     },
 };
@@ -9934,7 +9934,7 @@ static const struct TrainerMonItemCustomMoves sParty_DMCABlaine[] = {
     {
         .iv = 0,
         .lvl = 45,
-        .heldItem = ITEM_SITRUS_BERRY,
+        .heldItem = ITEM_LEFTOVERS,
         .species = SPECIES_MAGMAR,
         .moves = {MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
@@ -10603,11 +10603,32 @@ static const struct TrainerMonItemCustomMoves sParty_KimonoGirls[] = {
 static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
     {
         .iv = 0,
-        .lvl = 35,
+        .lvl = 100,
         .heldItem = ITEM_NONE,
         .species = SPECIES_GARDEVOIR,
-        .moves = {MOVE_CONFUSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_CONFUSION_PSYDUCK, MOVE_SECRET_SWORD, MOVE_DOUBLE_JUMP, MOVE_BOTTOM_SURGERY}
     },
+    {
+        .iv = 0,
+        .lvl = 100,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_CHARIZARD,
+        .moves = {MOVE_WALUIGI, MOVE_ASS, MOVE_EVIL_METRONOME, MOVE_RHYDON}
+    },
+    {
+        .iv = 0,
+        .lvl = 100,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_SWAMPERT,
+        .moves = {MOVE_CRAB_THROW, MOVE_FOCUS_MISS, MOVE_NEUTRAL_METRONOME, MOVE_GAY_BALL_PROBLEMS}
+    },
+    {
+        .iv = 0,
+        .lvl = 100,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_LEAFEON,
+        .moves = {MOVE_METRONOME, MOVE_WURMPLE_BEAM, MOVE_HBO_MAX_FINALE, MOVE_LETTUCE_SNUGGLE}
+    }
 };
 
 static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {

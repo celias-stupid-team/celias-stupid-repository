@@ -7776,6 +7776,18 @@
       "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/Entrance_2F_Loss/border.bin",
       "blockdata_filepath": "data/layouts/Entrance_2F_Loss/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE5_LAYOUT_THE_PIT",
+      "name": "Route5_Layout_The_Pit",
+      "width": 48,
+      "height": 41,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CeruleanCity",
+      "border_filepath": "data/layouts/Route5_Layout_The_Pit/border.bin",
+      "blockdata_filepath": "data/layouts/Route5_Layout_The_Pit/map.bin"
     }
   ]
 }
