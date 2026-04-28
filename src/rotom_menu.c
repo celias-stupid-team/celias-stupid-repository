@@ -180,6 +180,7 @@ enum RotomMoveMessage
     ROTOM_MSG_CANT_USE_RETREAT,
     ROTOM_MSG_NO_RETREAT,
     ROTOM_MSG_NO_SURF,
+    ROTOM_MSG_NO_BADGE,
     ROTOM_MSG_COUNT,
 };
 
@@ -266,6 +267,7 @@ static const u8 *const sRotomMoveMessages[ROTOM_MSG_COUNT] = {
     [ROTOM_MSG_CANT_USE_RETREAT] = gText_CantUseRetreat,
     [ROTOM_MSG_NO_RETREAT] = gText_NoRetreat,
     [ROTOM_MSG_NO_SURF] = gText_NoSurf,
+    [ROTOM_MSG_NO_BADGE] = gText_NoBadge,
 };
 
 struct RotomMove
@@ -2755,6 +2757,11 @@ static bool32 SetupFunc_Surf(void)
     s16 x, y;
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     
+    if (!FlagGet(FLAG_BADGE05_GET))
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NO_BADGE;
+        return FALSE;
+    }
 
     if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12))
     {
@@ -2780,8 +2787,6 @@ static bool32 SetupFunc_Surf(void)
         return FALSE;
     }
   
-
-
     return TRUE;
 }
 
@@ -2860,6 +2865,13 @@ static bool32 SetupFunc_Cut(void)
 {
     s16 x, y;
     u8 i, j;
+
+    if (!FlagGet(FLAG_BADGE02_GET))
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NO_BADGE;
+        return FALSE;
+    }
+
     gScheduleOpenDottedHole = FALSE;
     if (CutMoveRuinValleyCheck() == TRUE)
     {
@@ -2915,6 +2927,12 @@ static void FieldMoveFunc_Cut(void)
 
 static bool32 SetupFunc_Fly(void)
 {
+    if (!FlagGet(FLAG_BADGE04_GET))
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NO_BADGE;
+        return FALSE;
+    }
+
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) && !FlagGet(FLAG_SYS_BILL_GARDEN))
     {
         return TRUE;
@@ -2944,6 +2962,12 @@ static void FieldMoveFunc_Whirlpool(void)
 
 static bool32 SetupFunc_Guillotine(void)
 {
+    if (!FlagGet(FLAG_BADGE02_GET))
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NO_BADGE;
+        return FALSE;
+    }
+
     if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_SAMSON_OAK) || IsObjectInFrontOfPlayerCuttable()
         || (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SILPH_CO_11F) 
             && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SILPH_CO_11F) 
