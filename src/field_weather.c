@@ -256,6 +256,8 @@ static void Task_WeatherInit(u8 taskId)
 
 static void Task_WeatherMain(u8 taskId)
 {
+    u8 palIndex;
+
     if (gWeatherPtr->currWeather != gWeatherPtr->nextWeather)
     {
         if (!sWeatherFuncs[gWeatherPtr->currWeather].finish()
@@ -265,6 +267,15 @@ static void Task_WeatherMain(u8 taskId)
             sWeatherFuncs[gWeatherPtr->nextWeather].initVars();
             gWeatherPtr->gammaStepFrameCounter = 0;
             gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_CHANGING_WEATHER;
+
+            // always reload the default palette when switching weathers
+            // if a weather needs a custom palette, it must load it in the weather init/main funcs
+            palIndex = IndexOfSpritePaletteTag(PALTAG_WEATHER);
+            if (palIndex != 0xFF)
+            {
+                CpuCopy32(gDefaultWeatherSpritePalette, &gPlttBufferUnfaded[OBJ_PLTT_ID(palIndex)], PLTT_SIZE_4BPP);
+            }
+
             gWeatherPtr->currWeather = gWeatherPtr->nextWeather;
             gWeatherPtr->weatherChangeComplete = TRUE;
         }
