@@ -837,6 +837,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_TRICK,
     MOVE_FOCUS_PUNCH,
     MOVE_10000_VOLTS,
+    MOVE_WILL_O_WISP,
     MOVE_SUBSTITUTE_TEACHER,
     MOVE_COLONIZE,
     MOVE_THIEF,
@@ -9034,7 +9035,8 @@ static void Cmd_transformdataexecution(void)
     gChosenMove = MOVE_UNAVAILABLE;
     gBattlescriptCurrInstr++;
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_TRANSFORMED
-        || gStatuses3[gBattlerTarget] & STATUS3_SEMI_INVULNERABLE)
+        || gStatuses3[gBattlerTarget] & STATUS3_SEMI_INVULNERABLE
+        || gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA)
     {
         gMoveResultFlags |= MOVE_RESULT_FAILED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TRANSFORM_FAILED;
@@ -9425,6 +9427,9 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_VOLCANIC_HEALING
         && gLastPrintedMoves[gBattlerTarget] != MOVE_RAINBOW_BEAM
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SHEER_COLD
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_WILL_O_WISP
+
+        
         && gLastPrintedMoves[gBattlerTarget] != MOVE_HEART_SWAP // <- Added this even though you told me not to touch things :(
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SKETCH)
     {

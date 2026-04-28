@@ -18,7 +18,7 @@
     {
       "local_id": "LOCALID_ONE_ISLAND_ARTICUNO_EGG",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ARTICUNO_EGG",
+      "graphics_id": "OBJ_EVENT_GFX_ARTICUNO_EGG_2",
       "x": 20,
       "y": 15,
       "elevation": 0,
@@ -95,7 +95,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ARTICUNO",
       "x": 20,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,

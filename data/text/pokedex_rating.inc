@@ -329,7 +329,7 @@ PokedexRating_Text_HintGengar::
 	.string "Perhaps you could look into that?\n$"
 
 PokedexRating_Text_HintVulpix::
-	.string "ROUTE 8 has a wild POKéMON\n"
+	.string "ROUTE 7 has a wild POKéMON\n"
 	.string "you never caught.\p"
 	.string "Be sure to go back for it!\n$"
 

@@ -50,6 +50,7 @@ script CaveOfOrigin_ShinyGoldeen {
 	"GOLDEEN!", MSGBOX_DEFAULT)
 	waitfanfare
 	call(Common_Script_GiftPokemon19)
+	release
 }
 
 script CaveOfOrigin_CheckLeftRock {

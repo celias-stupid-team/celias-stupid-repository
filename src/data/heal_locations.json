@@ -623,6 +623,14 @@
       "y": 13,
       "respawn_map": "MAP_ROUTE15",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_MT_MOON_B2F",
+      "map": "MAP_MT_MOON_B2F",
+      "x": 14,
+      "y": 15,
+      "respawn_map": "MAP_MT_MOON_B2F",
+      "respawn_npc": "1"
     }
   ]
 }

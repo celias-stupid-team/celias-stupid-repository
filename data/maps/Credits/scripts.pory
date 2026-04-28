@@ -164,8 +164,8 @@ mapscripts Credits_MapScripts {
             ))
             delay(70)
             message(
-            "               Plasto{PAUSE 30}\n"
-            "          Learnsets and Balance")
+            "            Plasto{PAUSE 30}\n"
+            "       Learnsets and Balance")
             delay(330)
             closemessage
             applymovement(LOCALID_CREDITS_SWI, moves(

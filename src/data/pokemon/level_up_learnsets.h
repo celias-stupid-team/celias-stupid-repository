@@ -526,6 +526,7 @@ static const struct LevelUpMove sNinetalesLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sJigglypuffLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_UP_THROW),
     LEVEL_UP_MOVE(1, MOVE_POUND),
     LEVEL_UP_MOVE(1, MOVE_BACK_AIR),
     LEVEL_UP_MOVE(1, MOVE_REST_HBOX),
