@@ -1424,7 +1424,7 @@ static void OpenContextMenu(u8 taskId)
             switch (gBagMenuState.pocket)
             {
             case OPEN_BAG_ITEMS:
-                if (gSpecialVar_ItemId == ITEM_TM16 || gSpecialVar_ItemId == ITEM_MOON_STONE)
+                if (gSpecialVar_ItemId == ITEM_TM16 || gSpecialVar_ItemId == ITEM_MOON_STONE || gSpecialVar_ItemId == ITEM_COPYCAT_TM)
                 {
                     sContextMenuItemsPtr = sContextMenuItems_PayDay;
                     sContextMenuNumItems = 2;
