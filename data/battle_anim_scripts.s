@@ -4057,16 +4057,11 @@ Move_STAMPETE:
 	delay 16
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
 	end
+
+Move_EARTHQUAKER:
 Move_EARTHQUAKE:
-	@earthquake original
-	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
-	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
-	playsewithpan SE_M_EARTHQUAKE, 0
-	delay 10
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
-	delay 16
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
-	end
+	createvisualtask AnimTask_GetAttackerSide, 2
+	jumprettrue OnixEarthquake
 	
 	loadspritegfx ANIM_TAG_EARTH
 	loadspritegfx ANIM_TAG_QUAKE
@@ -4086,6 +4081,18 @@ Move_EARTHQUAKE:
 	blendoff
 	waitforvisualfinish
 	end
+	
+OnixEarthquake:
+	@earthquake original
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
+	playsewithpan SE_M_EARTHQUAKE, 0
+	delay 10
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 16
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	end
+
 
 
 Move_YESIPICE_BLADES:
@@ -31940,7 +31947,6 @@ Move_MAP_MUSIC:
 	goto Move_TEETER_DANCE
 Move_MAP_WEATHER:
 	goto Move_RAIN_DANCE
-Move_EARTHQUAKER:
 Move_FRYING_PAN:
 Move_FRENZIED_ESCAPE:
 Move_IMAKUNI:
