@@ -170,6 +170,22 @@
       "y": -4,
       "target_local_id": "9",
       "target_map": "MAP_ONE_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 17,
+      "y": 0,
+      "target_local_id": "10",
+      "target_map": "MAP_ONE_ISLAND"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_SS_ANNE",
+      "x": 24,
+      "y": 13,
+      "target_local_id": "1",
+      "target_map": "MAP_ROUTE20_SEAFOAM_ISLANDS"
     }
   ],
   "warp_events": [
