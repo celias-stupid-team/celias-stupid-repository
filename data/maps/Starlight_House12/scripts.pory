@@ -2447,6 +2447,21 @@ if(flag(FLAG_TEMP_1C)) {
 	release
 }
 
+script Starlight_House12_Temporary_MapReset {
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox("Would you like to reset\nthe room?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			//fadescreen(FADE_TO_WHITE)
+            warp(MAP_STARLIGHT_HOUSE12, 0, 30, 32) // Map, Warp ID, X, Y
+            waitstate
+            //delay(120)
+            //fadescreen(FADE_FROM_WHITE)
+		}
+    release
+    end
+}
 
 script StarlightHouse_D1_Script {
 	lock

@@ -31,10 +31,9 @@ script Starlight_House3_Dak {
 	faceplayer
     textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
-	"Oh! Um... Hey!\p"
-	"Listen, I am working on a video,\l"
-	"don't tell Starlight I am in here\n"
-    "Okay?", MSGBOX_NPC)
+	"Oh hi!\p"
+
+	"Pretend I am not here okay?", MSGBOX_NPC)
     
     //playbgm(MUS_NONE, TRUE)
     applymovement(LOCALID_DAK, moves(
@@ -65,9 +64,8 @@ msgbox(
     closemessage
     delay(30)
     msgbox(
-	"Oh...\n"
-	"Um...\l"
-    "IDK...", MSGBOX_DEFAULT)
+	"Um...\p"
+    "Important work stuff?", MSGBOX_DEFAULT)
     closemessage
     delay(60)
     //setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
@@ -144,7 +142,8 @@ script Starlight_House3_Computer {
 	"It shows a few tabs open.\p"
 	"One tab is an AVGN video.\n"
 	"Another is Dak's YouTube Page,\l"
-	"Third tab is... Um...\p"
+	"Third tab is...\l"
+    ""
 	"A Google search of: What do\n"
 	"I do if I burn my cereal?", MSGBOX_SIGN)
     } else {
@@ -165,8 +164,8 @@ script Starlight_House3_Computer_Special {//Not going to use this version for no
 	"It shows a few tabs open.\p"
 	"One tab is an AVGN video.\n"
 	"Another is Dak's YouTube Page,\l"
-	"Third tab is... Um...\p"
-	"A Google search of: What do\n"
+	"Third tab is...\l"
+	"A Google search of: What do\l"
 	"I do if I burn my cereal?", MSGBOX_SIGN)
     } else {
 
@@ -249,6 +248,7 @@ script Starlight_House3_Computer_Special {//Not going to use this version for no
 
 	        }
         }
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
         msgbox(
 	"...\p"
     "Let's close the tab.", MSGBOX_SIGN)
@@ -261,7 +261,7 @@ script Starlight_House3_Computer_Special {//Not going to use this version for no
 script Starlight_House3_Map_Table2 {
 	msgbox(
 	"Hey look, you can see\n"
-    "Starlight's House from here.", MSGBOX_SIGN)
+    "Starlight's Workshop from here.", MSGBOX_SIGN)
 
 }
 
@@ -412,39 +412,24 @@ script Starlight_House3_Professor_Tree {
     textcolor(NPC_TEXT_COLOR_GREEN)
 	msgbox(
 	"TREE: Oh... Hey! Rusty! That my\n"
-	"lunch?\p"
-
-	"Oh hah-ha, you're not Rusty.", MSGBOX_NPC)
-
-}
-
-script Starlight_House3_Painting {
-	msgbox(
-	"It's another painting of a window.", MSGBOX_SIGN)
-
-}
-
-script Starlight_House3_Painting2 {
-	msgbox(
-	"This one's painted too.", MSGBOX_SIGN)
+	"lunch?", MSGBOX_NPC)
 
 }
 
 script Starlight_House3_TV {
 	msgbox(
-	"It looks to be an episode of\n"
-    "The Office.\p"
-    "Oh wait...\l"
-    "That's just Silph Co. security\n"
-    "footage.", MSGBOX_SIGN)
+	"It's an episode of The Office.\p"
+	"...\l"
+
+	"Nevermind it's Silph Co security\n"
+	"camera footage.", MSGBOX_SIGN)
 
 }
 
 script Starlight_House3_DMCA_Notice {
 	msgbox(
-	"It's a framed DMCA notice\n"
-    "to shut down the Map Workshop.", MSGBOX_SIGN)
-
+	"It's a framed cease and desist\n"
+	"letter from the DMCA.", MSGBOX_NPC)
 }
 
 script Starlight_House3_Rematch {
@@ -470,15 +455,9 @@ script Starlight_House3_Rematch {
     trainerbattle_single(TRAINER_STARLIGHT,
 	"Yay!",
 	//
-	"Feel free to watch me fail anytime!")
+	"Damn, maybe next time.")
 		}
     release
     end
-}
-
-script Starlight_House3_Dak_Commentary_Reaction {
-	msgbox(
-	"Oh god, why are there so many\n"
-	"of them now?!", MSGBOX_NPC)
 }
 

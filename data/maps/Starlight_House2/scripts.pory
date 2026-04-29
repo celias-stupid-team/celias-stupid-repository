@@ -22,8 +22,10 @@ script Starlight_House2_Post_Battle {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"My name is KaizenStarlight!\n"
-	"I'm the map designer for CSR.\p"
+	"It's nice to meet you!\p"
+
+	"My name is KaizenStarlight.\n"
+	"or Starlight for short.\p"
 
 	"You might see me around from time\n"
 	"to time, don't worry about me if\l"
@@ -32,10 +34,7 @@ script Starlight_House2_Post_Battle {
 
 	"Also my friend is somewhere around\n"
 	"here. If you see him, tell him I\l"
-	"need him, thanks!\p"
-
-	"It was nice to meet you!\n"
-	"", MSGBOX_NPC)
+	"need him, thanks!", MSGBOX_NPC)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
@@ -57,16 +56,7 @@ script Starlight_House2_Battle { //test
 
 
 	msgbox(
-	"It was nice to meet you!\p"
-
-	"You might see me around from time\n"
-	"to time, don't worry about me if\l"
-	"you do. I am just doing some work\l"
-	"outside of bounds.\p"
-
-	"Also my friend is somewhere around\n"
-	"here. If you see him, tell him I\l"
-	"need him, thanks!\p", MSGBOX_NPC)
+	"It was nice to meet you!", MSGBOX_NPC)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
@@ -146,7 +136,7 @@ script Starlight_House2_Laptop {
 	msgbox(
 	"There are some tabs open.\n"
 	"It's showing something called por-\l"
-	"ymaps and Poryscript."
+	"ymaps and Poryscript.\p"
 	"It also has SkyTemple and HMA.", MSGBOX_SIGN)
 	} else {
 
