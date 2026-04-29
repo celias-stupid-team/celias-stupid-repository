@@ -7968,6 +7968,18 @@
       "secondary_tileset": "gTileset_Starlight_Interior3",
       "border_filepath": "data/layouts/Starlight_House12_Layout_Block/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House12_Layout_Block/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE22_LAYOUT_NIDOTRANS",
+      "name": "Route22_Layout_Nidotrans",
+      "width": 48,
+      "height": 24,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_ViridianCity",
+      "border_filepath": "data/layouts/Route22_Layout_Nidotrans/border.bin",
+      "blockdata_filepath": "data/layouts/Route22_Layout_Nidotrans/map.bin"
     }
   ]
 }
