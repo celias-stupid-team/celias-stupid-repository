@@ -4035,6 +4035,16 @@ Move_STAMPETE:
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
 	end
 Move_EARTHQUAKE:
+	@earthquake original
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
+	playsewithpan SE_M_EARTHQUAKE, 0
+	delay 10
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	delay 16
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	end
+	
 	loadspritegfx ANIM_TAG_EARTH
 	loadspritegfx ANIM_TAG_QUAKE
 	monbg ANIM_TARGET
@@ -4054,15 +4064,6 @@ Move_EARTHQUAKE:
 	waitforvisualfinish
 	end
 
-	@earthquake original
-	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
-	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
-	playsewithpan SE_M_EARTHQUAKE, 0
-	delay 10
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
-	delay 16
-	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
-	end
 
 Move_YESIPICE_BLADES:
 	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
@@ -15081,41 +15082,28 @@ Move_AIR_SLASH:
 	end
 	
 Move_THE_BEE_MOVE:
-	@Kinda broken at the end
 	loadspritegfx ANIM_TAG_BEE
-	loadspritegfx ANIM_TAG_SMALL_BUBBLES
-	monbg ANIM_TARGET
-	splitbgprio ANIM_TARGET
-	setalpha 12, 8
-	delay 1
-	call BeeMoveCreateBees
-	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_TARGET
-	call BeeMoveCreateBees
-	call BeeMoveCreateBees
+	playsewithpan SE_M_SACRED_FIRE2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 2, 47, 1
+	call BeeSpinEffect
+	call BeeSpinEffect
+	call BeeSpinEffect
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
 	end
 
-BeeMoveCreateBees:
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 35, 70, 0, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 20, 40, -10, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 10, -60, 0, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 15, -15, 10, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 30, 10, -10, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 25, -30, 10, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
+BeeSpinEffect:
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 28, 528, 30, 13, 50, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 32, 480, 20, 16, -46, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 33, 576, 20, 8, 42, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 31, 400, 25, 11, -42, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 28, 512, 25, 16, 46, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 33, 464, 30, 15, -50, ANIM_TARGET
+	delay 2
 	return
 	
 Move_WUMBOIZE:
@@ -16777,6 +16765,7 @@ Move_SHELL_SMASH:
 	end
 	
 Move_CONVERSION_Z:
+	loadspritegfx ANIM_TAG_ZYGARDE_Z
 	monbg ANIM_ATK_PARTNER
 	splitbgprio ANIM_ATTACKER
 	setalpha 16, 0
@@ -16788,6 +16777,8 @@ Move_CONVERSION_Z:
 	delay 8
 	createvisualtask AnimTask_SetCamouflageBlend, 5, F_PAL_ATTACKER, 0, 0, 0
 	waitforvisualfinish
+	createsprite gZGhostSpriteTemplate, ANIM_ATTACKER, 2
+	createvisualtask SoundTask_PlaySpecificCry, 2, 145
 	createvisualtask AnimTask_AttackerFadeFromInvisible, 2, 1, ANIM_ATTACKER
 	waitforvisualfinish
 	blendoff
@@ -20910,7 +20901,40 @@ Move_WEEDLE_ARM:
 	waitforvisualfinish
 	end
 Move_HYPER_BEE:
-	goto Move_THE_BEE_MOVE
+	@Kinda broken at the end
+	loadspritegfx ANIM_TAG_BEE
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	delay 1
+	call BeeMoveCreateBees
+	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_TARGET
+	call BeeMoveCreateBees
+	call BeeMoveCreateBees
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	end
+
+BeeMoveCreateBees:
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 35, 70, 0, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 20, 40, -10, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 10, -60, 0, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 15, -15, 10, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 30, 10, -10, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 25, -30, 10, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	return
 	
 Move_MEAN_LOOK_LOOK:
 	loadspritegfx ANIM_TAG_LOOK_LOOK

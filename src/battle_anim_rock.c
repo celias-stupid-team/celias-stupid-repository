@@ -315,6 +315,31 @@ const struct SpriteTemplate gFireSpinSpriteTemplate =
     .callback = AnimParticleInVortex,
 };
 
+static const union AnimCmd sAnim_Bees[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_Bees[] =
+{
+    sAnim_Bees,
+};
+
+const struct SpriteTemplate gBeeSpinSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_BEE,
+    .paletteTag = ANIM_TAG_SMALL_BEE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_Bees,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex,
+};
+
 const struct SpriteTemplate gFeatherSpinSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WHITE_FEATHER,
