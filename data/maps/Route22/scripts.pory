@@ -467,6 +467,9 @@ script Route22_MapScripts_SetDexMons {
 		setflag(FLAG_CSR_MAP_ROUTE_22)
 		call(SetPlayerPokedexValues)
 	}
+	if(!checkmoncaught(SPECIES_MANKEY) && !checkmoncaught(SPECIES_NIDORAN_M) && !checkmoncaught(SPECIES_NIDORAN_F)) {
+		setmaplayoutindex(LAYOUT_ROUTE22_LAYOUT_NIDOTRANS)
+	}
 }
 
 script Route22_MankeySpot {
@@ -482,9 +485,15 @@ script Route22_MankeySpot {
 
 script Route22_MankeySpot2 {
 	if(flag(FLAG_SYS_POKEDEX_GET)) {
+		if(checkmoncaught(SPECIES_MANKEY) || checkmoncaught(SPECIES_NIDORAN_M) || checkmoncaught(SPECIES_NIDORAN_F)) {
+			setvar(VAR_SHINY_NIDOTRAN, 1)
+			setlayouttiles(LAYOUT_ROUTE22, 0,0,0,0,47,15)
+			release
+			end
+		}
 		addvar(VAR_TEMP_2, 1)
 		if(!checkmoncaught(SPECIES_MANKEY) && !checkmoncaught(SPECIES_NIDORAN_M) && !checkmoncaught(SPECIES_NIDORAN_F) && var(VAR_TEMP_2) > 8) {
-			setvar(VAR_ROUTE22_MANKEY, 1)
+			setvar(VAR_SHINY_NIDOTRAN, 1)
 			setflag(FLAG_SHINY_CREATION)
 			setwildbattle(SPECIES_NIDORAN_F, 6, ITEM_LUCKY_EGG)
 			dowildbattle

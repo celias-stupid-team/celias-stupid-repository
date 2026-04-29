@@ -1604,6 +1604,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_GliscorClaw, 0x0800, ANIM_TAG_GLISCOR_CLAW},
     {gBattleAnimSpriteGfx_PrimeNumbers, 0x0A00, ANIM_TAG_PRIME_NUMBERS},
     {gBattleAnimSpriteGfx_Quake, 0x2000, ANIM_TAG_QUAKE},
+    {gBattleAnimSpriteGfx_FryingPan, 0x0200, ANIM_TAG_FRYING_PAN},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2131,6 +2132,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_GliscorClaw, ANIM_TAG_GLISCOR_CLAW},
     {gBattleAnimSpritePal_PrimeNumbers, ANIM_TAG_PRIME_NUMBERS},
     {gBattleAnimSpritePal_Quake, ANIM_TAG_QUAKE},
+    {gBattleAnimSpritePal_FryingPan, ANIM_TAG_FRYING_PAN},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -2174,4 +2176,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_PEWTER]              = {gBattleAnimBgImage_Pewter,     gBattleAnimBgPalette_Pewter,     gBattleAnimBgTilemap_Pewter},
     [BG_COKE]                = {gBattleAnimBgImage_Coke,       gBattleAnimBgPalette_Coke,       gBattleAnimBgTilemap_Coke},
     [BG_GHOST_TRICK]         = {gBattleAnimBgImage_GhostTrick, gBattleAnimBgPalette_GhostTrick, gBattleAnimBgTilemap_GhostTrick},
+    [BG_LOSS]                = {gBattleAnimBgImage_Loss,       gBattleAnimBgPalette_Loss,       gBattleAnimBgTilemap_Loss},
 };

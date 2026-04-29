@@ -685,6 +685,9 @@ const u32 gBattleAnimSpritePal_PrimeNumbers[] = INCBIN_U32("graphics/battle_anim
 const u32 gBattleAnimSpriteGfx_Quake[] = INCBIN_U32("graphics/battle_anims/sprites/quake.4bpp.lz");
 const u32 gBattleAnimSpritePal_Quake[] = INCBIN_U32("graphics/battle_anims/sprites/quake.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_FryingPan[] = INCBIN_U32("graphics/battle_anims/sprites/frying_pan.4bpp.lz");
+const u32 gBattleAnimSpritePal_FryingPan[] = INCBIN_U32("graphics/battle_anims/sprites/frying_pan.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");
@@ -1433,6 +1436,10 @@ const u32 gBattleAnimBgTilemap_Skyrim[] = INCBIN_U32("graphics/battle_anims/back
 const u32 gBattleAnimBgImage_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.4bpp.lz");
 const u32 gBattleAnimBgPalette_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.bin.lz");
+
+const u32 gBattleAnimBgImage_Loss[] = INCBIN_U32("graphics/battle_anims/backgrounds/loss_bg.4bpp.lz");
+const u32 gBattleAnimBgPalette_Loss[] = INCBIN_U32("graphics/battle_anims/backgrounds/loss_bg.gbapal.lz");
+const u32 gBattleAnimBgTilemap_Loss[] = INCBIN_U32("graphics/battle_anims/backgrounds/loss_bg.bin.lz");
 
 const u32 gBattleAnimBgImage_GhostTrick[] = INCBIN_U32("graphics/battle_anims/backgrounds/ghost_trick.4bpp.lz");
 const u32 gBattleAnimBgPalette_GhostTrick[] = INCBIN_U32("graphics/battle_anims/backgrounds/ghost_trick.gbapal.lz");

@@ -311,7 +311,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubPsychic[] = {
         .iv = 0,
         .lvl = 12,
         .species = SPECIES_MEW_ANCIENT,
-        .moves = {MOVE_PSY_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_PSYBEAM_TCG, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -336,7 +336,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubGrass[] = {
         .iv = 0,
         .lvl = 14,
         .species = SPECIES_ELECTABUZZ,
-        .moves = {MOVE_THUNDER_PUNCH, MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_THUNDERPUNCH_TCG, MOVE_THUNDERSHOCK_TCG, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
@@ -362,7 +362,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubFighting[] = 
         .iv = 0,
         .lvl = 11,
         .species = SPECIES_ONIX,
-        .moves = {MOVE_TACKLE, MOVE_SCREECH, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_ROCK_THROW_TCG, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
@@ -378,19 +378,19 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubPoison[] = {
         .iv = 0,
         .lvl = 15,
         .species = SPECIES_TANGELA,
-        .moves = {MOVE_SLUDGE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_SLUDGE_TCG, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 15,
         .species = SPECIES_DROWZEE,
-        .moves = {MOVE_POUND, MOVE_POISON_GAS, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_POUND_TCG, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 15,
         .species = SPECIES_SABLEYE,
-        .moves = {MOVE_FAKE_OUT, MOVE_KNOCK_OFF, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_KNOCK_OFF_TCG, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 
 };
@@ -5195,13 +5195,13 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderMisty[] = {
         .iv = 0,
         .lvl = 27,
         .species = SPECIES_WOOPER,
-        .moves = {MOVE_ICE_PUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_ICE_PUNCH_TCG, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 24,
         .species = SPECIES_MAREANIE,
-        .moves = {MOVE_POISON_STING, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_POISON_STING_TCG, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,

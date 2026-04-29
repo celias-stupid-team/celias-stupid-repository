@@ -230,3 +230,27 @@ script BobOmb_Daisy {
 	"PEACH around?", MSGBOX_SIGN)
 
 }
+
+
+script BobOmb_ArrowSign {
+	msgbox(
+	"/al\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script BobOmb_Jump {
+	msgbox(
+	"Press A to Jump!\p"
+
+	"Notice!\n"
+	"Only possible with JUMPING SHOES.", MSGBOX_SIGN)
+
+}
+
+script BobOmb_Tree {
+	msgbox(
+	"Nope!\n"
+	"OAK isn't in here either!", MSGBOX_SIGN)
+
+}
