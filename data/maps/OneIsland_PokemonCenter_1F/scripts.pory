@@ -431,57 +431,6 @@ OneIsland_PokemonCenter_1F_EventScript_LeaveOneIslandTriggerBottom::
 	end
 
 OneIsland_PokemonCenter_1F_EventScript_LeaveOneIslandScene::
-	textcolor NPC_TEXT_COLOR_MALE
-	playse SE_PIN
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_ExclamationMark
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_BillOhHeyPlayer
-	closemessage
-	call_if_eq VAR_TEMP_1, 1, OneIsland_PokemonCenter_1F_EventScript_PlayerWalkToBillTop
-	call_if_eq VAR_TEMP_1, 2, OneIsland_PokemonCenter_1F_EventScript_PlayerWalkToBillMidTop
-	call_if_eq VAR_TEMP_1, 3, OneIsland_PokemonCenter_1F_EventScript_PlayerWalkToBillMidBottom
-	call_if_eq VAR_TEMP_1, 4, OneIsland_PokemonCenter_1F_EventScript_PlayerWalkToBillBottom
-	delay 10
-	msgbox OneIsland_PokemonCenter_1F_Text_BillWeGotItDone
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_CelioJobWentQuick
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	applymovement LOCALID_CELIO, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_BillYouveLearnedALot
-	msgbox OneIsland_PokemonCenter_1F_Text_CelioOhReallyEhehe
-	closemessage
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	delay 10
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	delay 15
-	msgbox OneIsland_PokemonCenter_1F_Text_BillWeShouldHeadBackToKanto
-	closemessage
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	delay 15
-	applymovement LOCALID_CELIO, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_CelioPromiseIllShowYouAroundSometime
-	closemessage
-	delay 25
-	applymovement LOCALID_PLAYER, OneIsland_PokemonCenter_1F_Movement_PlayerExit
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, OneIsland_PokemonCenter_1F_Movement_BillExit
-	waitmovement 0
-	playse SE_EXIT
-	setflag FLAG_HIDE_ONE_ISLAND_POKECENTER_BILL
-	setvar VAR_CSR_DUMMY_15, 3
-	clearflag FLAG_HIDE_CINNABAR_BILL
-	setvar VAR_CSR_DUMMY_11, 3
-	setvar VAR_0x8004, ALOLAN_GROWLITHE_ONE_ISLAND
-	setvar VAR_0x8006, ALOLAN_GROWLITHE_CINNABAR_ISLAND
-	goto EventScript_SetSail
 	end
 
 OneIsland_PokemonCenter_1F_EventScript_PlayerWalkToBillTop::

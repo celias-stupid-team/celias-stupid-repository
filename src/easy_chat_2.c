@@ -3,7 +3,6 @@
 #include "easy_chat.h"
 #include "event_data.h"
 #include "menu.h"
-#include "mystery_gift.h"
 #include "overworld.h"
 #include "strings.h"
 #include "task.h"
@@ -142,16 +141,8 @@ static void SetEasyChatTaskFunc(u8 taskId, TaskFunc func)
 
 static void Task_InitEasyChat(u8 taskId)
 {
-    if (!IsUpdateLinkStateCBActive())
-    {
-        while (Task_InitEasyChatInternal(taskId))
-            ;
-    }
-    else
-    {
-        if (Task_InitEasyChatInternal(taskId) == TRUE)
-            return;
-    }
+    if (Task_InitEasyChatInternal(taskId) == TRUE)
+        return;
     SetEasyChatTaskFunc(taskId, Task_RunEasyChat);
 }
 
@@ -274,7 +265,7 @@ void ShowEasyChatScreen(void)
         words = gSaveBlock1Ptr->easyChatBattleLost;
         break;
     case EASY_CHAT_TYPE_QUESTIONNAIRE:
-        words = GetQuestionnaireWordsPtr();
+        words = gSaveBlock1Ptr->mysteryGift.questionnaireWords;
         break;
     case EASY_CHAT_TYPE_MAIL:
         words = gSaveBlock1Ptr->mail[gSpecialVar_0x8005].words;

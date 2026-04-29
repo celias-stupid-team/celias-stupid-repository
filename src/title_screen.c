@@ -13,7 +13,6 @@
 #include "save.h"
 #include "main_menu.h"
 #include "clear_save_data_screen.h"
-#include "berry_fix_program.h"
 #include "decompress.h"
 #include "constants/songs.h"
 
@@ -56,7 +55,6 @@ static void UpdateScanlineEffectRegBuffer(s16 y);
 static void ScheduleStopScanlineEffect(void);
 static void LoadMainTitleScreenPalsAndResetBgs(void);
 static void CB2_FadeOutTransitionToSaveClearScreen(void);
-static void CB2_FadeOutTransitionToBerryFix(void);
 static void LoadSpriteGfxAndPals(void);
 #if defined(FIRERED)
 static void SpriteCallback_TitleScreenLeaf(struct Sprite *sprite);
@@ -609,7 +607,6 @@ static void SetTitleScreenScene_FadeIn(s16 *data)
 }
 
 #define KEYSTROKE_DELSAVE (B_BUTTON | SELECT_BUTTON | DPAD_UP)
-#define KEYSTROKE_BERRY_FIX (B_BUTTON | SELECT_BUTTON)
 
 static void SetTitleScreenScene_Run(s16 *data)
 {
@@ -634,12 +631,6 @@ static void SetTitleScreenScene_Run(s16 *data)
             DeactivateSlashSprite(tSlashSpriteId);
             DestroyTask(FindTaskIdByFunc(Task_TitleScreenMain));
             SetMainCallback2(CB2_FadeOutTransitionToSaveClearScreen);
-        }
-        else if (JOY_HELD(KEYSTROKE_BERRY_FIX) == KEYSTROKE_BERRY_FIX)
-        {
-            DeactivateSlashSprite(tSlashSpriteId);
-            DestroyTask(FindTaskIdByFunc(Task_TitleScreenMain));
-            SetMainCallback2(CB2_FadeOutTransitionToBerryFix);
         }
         else if (JOY_NEW(A_BUTTON | START_BUTTON))
         {
@@ -923,15 +914,6 @@ static void CB2_FadeOutTransitionToSaveClearScreen(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_SaveClearScreen_Init);
-}
-
-static void CB2_FadeOutTransitionToBerryFix(void)
-{
-    if (!UpdatePaletteFade())
-    {
-        m4aMPlayAllStop();
-        SetMainCallback2(CB2_InitBerryFixProgram);
-    }
 }
 
 static void LoadSpriteGfxAndPals(void)

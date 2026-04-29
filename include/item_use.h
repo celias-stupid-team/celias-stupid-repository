@@ -3,7 +3,6 @@
 
 #include "global.h"
 
-void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8);
 void ItemUse_SetQuestLogEvent(u8, struct Pokemon *, u16, u16);
 
 void FieldUseFunc_Mail(u8 taskId);
@@ -33,7 +32,6 @@ void FieldUseFunc_Ruby(u8 taskId);
 void FieldUseFunc_BlackWhiteFlute(u8 taskId);
 void FieldUseFunc_TownMap(u8 taskId);
 void FieldUseFunc_FameChecker(u8 taskId);
-void FieldUseFunc_VsSeeker(u8 taskId);
 void BattleUseFunc_PokeBallEtc(u8 taskId);
 void BattleUseFunc_PokeFlute(u8 taskId);
 void BattleUseFunc_StatBooster(u8 taskId);

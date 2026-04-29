@@ -31,7 +31,6 @@
 #include "fldeff.h"
 #include "gpu_regs.h"
 #include "item_menu.h"
-#include "link.h"
 #include "load_save.h"
 #include "main.h"
 #include "malloc.h"
@@ -64,7 +63,6 @@
 #include "text.h"
 #include "text_window.h"
 #include "trainer_card.h"
-#include "union_room.h"
 #include "window.h"
 
 /* CALLBACKS */
@@ -1331,13 +1329,9 @@ static void UpdateMoveSelectorText(void)
 
 void RotomStartMenu_Init(void)
 {
-    if (!IsUpdateLinkStateCBActive())
-    {
-        FreezeObjectEvents();
-        HandleEnforcedLookDirectionOnPlayerStopMoving();
-        StopPlayerAvatar();
-    }
-
+    FreezeObjectEvents();
+    HandleEnforcedLookDirectionOnPlayerStopMoving();
+    StopPlayerAvatar();
     LockPlayerFieldControls();
 
     if (sRotomStartMenu == NULL)

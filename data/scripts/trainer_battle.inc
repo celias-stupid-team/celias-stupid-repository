@@ -52,51 +52,21 @@ EventScript_DoNoIntroTrainerBattle::
 	gotopostbattlescript
 
 EventScript_TryDoRematchBattle::
-	call EventScript_RevealTrainer
-	specialvar VAR_RESULT, IsTrainerReadyForRematch
-	goto_if_eq VAR_RESULT, FALSE, EventScript_NoRematchBattle
-	special PlayTrainerEncounterMusic
-	special SetUpTrainerMovement
-	special ShowTrainerIntroSpeech
-	waitmessage
-	waitbuttonpress
-	goto_if_questlog EventScript_EndQuestLogRematch
-	special StartRematchBattle
-	waitstate
-	releaseall
 	end
 
 EventScript_NoRematchBattle::
 	gotopostbattlescript
 
 EventScript_TryDoDoubleRematchBattle::
-	specialvar VAR_RESULT, IsTrainerReadyForRematch
-	goto_if_eq VAR_RESULT, FALSE, EventScript_NoDoubleRematchBattle
-	special HasEnoughMonsForDoubleBattle
-	goto_if_ne VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS, EventScript_NotEnoughMonsForDoubleRematchBattle
-	special PlayTrainerEncounterMusic
-	special SetUpTrainerMovement
-	special ShowTrainerIntroSpeech
-	waitmessage
-	waitbuttonpress
-	goto_if_questlog EventScript_EndQuestLogRematch
-	special StartRematchBattle
-	waitstate
-	releaseall
 	end
 
 EventScript_NoDoubleRematchBattle::
 	gotopostbattlescript
 
 EventScript_NotEnoughMonsForDoubleRematchBattle::
-	special ShowTrainerCantBattleSpeech
-	waitmessage
-	waitbuttonpress
-	release
 	end
 
 EventScript_EndQuestLogRematch::
-	releaseall
 	end
 
 EventScript_RevealTrainer::

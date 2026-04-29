@@ -1011,8 +1011,6 @@ Text_FoundTMHMContainsMove::
 	.string "{PLAYER} found a {STR_VAR_2}!\n"
 	.string "It contains {STR_VAR_1}.$"
 
-	.include "data/text/seagallop.inc"
-
 @ Call for legendary bird trio
 Text_Gyaoo::
 	.string "Gyaoo!$"
@@ -1251,13 +1249,6 @@ EventScript_DoInGameTrade::
 	faceplayer
 	return
 
-EventScript_VsSeekerChargingDone::
-	special VsSeekerFreezeObjectsAfterChargeComplete
-	waitstate
-	special VsSeekerResetObjectMovementAfterChargeComplete
-	releaseall
-	end
-
 Common_EventScript_UnionRoomAttendant::
 	call CableClub_EventScript_UnionRoomAttendant
 	end
@@ -1268,23 +1259,6 @@ Common_EventScript_WirelessClubAttendant::
 
 Common_EventScript_DirectCornerAttendant::
 	call CableClub_EventScript_DirectCornerAttendant
-	end
-
-VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman::
-	lock
-	faceplayer
-	goto_if_set FLAG_GOT_VS_SEEKER, VermilionCity_PokemonCenter_1F_EventScript_ExplainVSSeeker
-	msgbox VermilionCity_PokemonCenter_1F_Text_UrgeToBattleSomeoneAgain
-	setflag FLAG_GOT_VS_SEEKER
-	giveitem ITEM_VS_SEEKER
-	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
-	msgbox VermilionCity_PokemonCenter_1F_Text_UseDeviceForRematches
-	release
-	end
-
-VermilionCity_PokemonCenter_1F_EventScript_ExplainVSSeeker::
-	msgbox VermilionCity_PokemonCenter_1F_Text_ExplainVSSeeker
-	release
 	end
 
 	.include "data/scripts/itemfinder.inc"
@@ -1326,7 +1300,6 @@ EventScript_BufferPutAwayPocketBerryPouch::
 	bufferstdstring STR_VAR_3, STDSTRING_BERRY_POUCH
 	return
 
-	.include "data/scripts/seagallop.inc"
 	.include "data/scripts/static_pokemon.inc"
 
 EventScript_TryDarkenRuins::
@@ -1367,7 +1340,6 @@ Text_TestMsg::
 	.include "data/scripts/cable_club.inc"
 	.include "data/scripts/field_moves.inc"
 	.include "data/scripts/item_ball_scripts.inc"
-	.include "data/scripts/mystery_event_club.inc"
 	.include "data/scripts/day_care.inc"
 	.include "data/text/day_care.inc"
 	.include "data/scripts/flash.inc"

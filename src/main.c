@@ -1,7 +1,5 @@
 #include "global.h"
 #include "gflib.h"
-#include "link.h"
-#include "link_rfu.h"
 #include "load_save.h"
 #include "m4a.h"
 #include "random.h"
@@ -48,7 +46,7 @@ const IntrFunc gIntrTableTemplate[] =
 {
     VCountIntr, // V-count interrupt
     SerialIntr, // Serial interrupt
-    Timer3Intr, // Timer 3 interrupt
+    IntrDummy,  // Timer 3 interrupt
     HBlankIntr, // H-blank interrupt
     VBlankIntr, // V-blank interrupt
     IntrDummy,  // Timer 0 interrupt
@@ -65,13 +63,11 @@ const IntrFunc gIntrTableTemplate[] =
 #define INTR_COUNT ((int)(sizeof(gIntrTableTemplate)/sizeof(IntrFunc)))
 
 COMMON_DATA u16 gKeyRepeatStartDelay = 0;
-COMMON_DATA u8 gLinkTransferringData = 0;
 COMMON_DATA struct Main gMain = {0};
 COMMON_DATA u16 gKeyRepeatContinueDelay = 0;
 COMMON_DATA u8 gSoftResetDisabled = 0;
 COMMON_DATA IntrFunc gIntrTable[INTR_COUNT] = {0};
 COMMON_DATA u8 sVcountAfterSound = 0;
-COMMON_DATA bool8 gLinkVSyncDisabled = 0;
 COMMON_DATA u32 IntrMain_Buffer[0x200] = {0};
 COMMON_DATA u8 sVcountAtIntr = 0;
 COMMON_DATA u8 sVcountBeforeSound = 0;
@@ -82,7 +78,6 @@ static IntrFunc * const sTimerIntrFunc = gIntrTable + 0x7;
 EWRAM_DATA u8 gDecompressionBuffer[0x4000] = {0};
 EWRAM_DATA u16 gTrainerId = 0;
 
-static void UpdateLinkAndCallCallbacks(void);
 static void InitMainCallbacks(void);
 static void CallCallbacks(void);
 static void ReadKeys(void);
@@ -132,7 +127,6 @@ void AgbMain()
     InitIntrHandlers();
     m4aSoundInit();
     EnableVCountIntrAtLine150();
-    InitRFU();
     CheckForFlashMemory();
     InitMainCallbacks();
     if (IsInaccurateEmulator())
@@ -161,8 +155,6 @@ void AgbMain()
         SetMainCallback2(NULL);
 #endif
 
-    gLinkTransferringData = FALSE;
-
     for (;;)
     {
         ReadKeys();
@@ -171,31 +163,11 @@ void AgbMain()
          && (gMain.heldKeysRaw & A_BUTTON)
          && (gMain.heldKeysRaw & B_START_SELECT) == B_START_SELECT)
         {
-            rfu_REQ_stopMode();
-            rfu_waitREQComplete();
             DoSoftReset();
         }
 
-        if (Overworld_SendKeysToLinkIsRunning() == TRUE)
-        {
-            gLinkTransferringData = TRUE;
-            UpdateLinkAndCallCallbacks();
-            gLinkTransferringData = FALSE;
-        }
-        else
-        {
-            gLinkTransferringData = FALSE;
-            UpdateLinkAndCallCallbacks();
+        CallCallbacks();
 
-            if (Overworld_RecvKeysFromLinkIsRunning() == 1)
-            {
-                gMain.newKeys = 0;
-                ClearSpriteCopyRequests();
-                gLinkTransferringData = TRUE;
-                UpdateLinkAndCallCallbacks();
-                gLinkTransferringData = FALSE;
-            }
-        }
         if(FlagGet(FLAG_SYS_UNDER_WATERFALL)) {
             if(VarGet(VAR_TWO_ISLAND_COUNTER) < 10801) {
                 VarSet(VAR_TWO_ISLAND_COUNTER, VarGet(VAR_TWO_ISLAND_COUNTER) + 1);
@@ -205,12 +177,6 @@ void AgbMain()
         MapMusicMain();
         WaitForVBlank();
     }
-}
-
-static void UpdateLinkAndCallCallbacks(void)
-{
-    if (!HandleLinkConnection())
-        CallCallbacks();
 }
 
 static void InitMainCallbacks(void)
@@ -369,11 +335,6 @@ extern void ProcessDma3Requests(void);
 
 static void VBlankIntr(void)
 {
-    if (gWirelessCommType)
-        RfuVSync();
-    else if (!gLinkVSyncDisabled)
-        LinkVSync();
-
     if (gMain.vblankCounter1)
         (*gMain.vblankCounter1)++;
 
@@ -395,9 +356,7 @@ static void VBlankIntr(void)
     sVcountAfterSound = REG_VCOUNT;
 #endif
 
-    TryReceiveLinkBattleData();
     Random();
-    UpdateWirelessStatusIndicatorSprite();
 
     INTR_CHECK |= INTR_FLAG_VBLANK;
     gMain.intrCheck |= INTR_FLAG_VBLANK;
@@ -440,7 +399,7 @@ static void SerialIntr(void)
 void RestoreSerialTimer3IntrHandlers(void)
 {
     gIntrTable[1] = SerialIntr;
-    gIntrTable[2] = Timer3Intr;
+    gIntrTable[2] = IntrDummy;
 }
 
 static void IntrDummy(void)

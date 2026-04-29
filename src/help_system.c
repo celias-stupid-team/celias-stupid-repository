@@ -5,7 +5,6 @@
 #include "field_player_avatar.h"
 #include "help_system.h"
 #include "item.h"
-#include "link.h"
 #include "overworld.h"
 #include "pokedex.h"
 #include "quest_log.h"
@@ -860,8 +859,6 @@ bool8 HelpSystem_UpdateHasntSeenIntro(void)
 
 bool8 HelpSystem_IsSinglePlayer(void)
 {
-    if (gReceivedRemoteLinkPlayers == TRUE)
-        return FALSE;
     return TRUE;
 }
 

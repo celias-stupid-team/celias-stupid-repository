@@ -23,7 +23,6 @@
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "field_message_box.h"
-#include "vs_seeker.h"
 #include "battle.h"
 #include "battle_setup.h"
 #include "battle_transition.h"
@@ -445,25 +444,6 @@ void StartRegiBattle(void)
     CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RS_VS_TRAINER);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
-}
-
-// Unused
-static void EndPokedudeBattle(void)
-{
-    LoadPlayerParty();
-    CB2_EndWildBattle();
-}
-
-// Unused
-static void StartPokedudeBattle(void)
-{
-    LockPlayerFieldControls();
-    FreezeObjectEvents();
-    StopPlayerAvatar();
-    gMain.savedCallback = EndPokedudeBattle;
-    SavePlayerParty();
-    InitPokedudePartyAndOpponent();
-    CreateBattleStartTask(GetWildBattleTransition(), 0);
 }
 
 static void CB2_EndWildBattle(void)
@@ -910,18 +890,6 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
         TrainerBattleLoadArgs(sContinueScriptDoubleBattleParams, data);
         SetMapVarsToTrainer();
         return EventScript_TryDoDoubleTrainerBattle;
-    case TRAINER_BATTLE_REMATCH_DOUBLE:
-        QL_FinishRecordingScene();
-        TrainerBattleLoadArgs(sDoubleBattleParams, data);
-        SetMapVarsToTrainer();
-        gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
-        return EventScript_TryDoDoubleRematchBattle;
-    case TRAINER_BATTLE_REMATCH:
-        QL_FinishRecordingScene();
-        TrainerBattleLoadArgs(sOrdinaryBattleParams, data);
-        SetMapVarsToTrainer();
-        gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
-        return EventScript_TryDoRematchBattle;
     case TRAINER_BATTLE_EARLY_RIVAL:
         TrainerBattleLoadArgs(sEarlyRivalBattleParams, data);
         return EventScript_DoNoIntroTrainerBattle;
@@ -1049,14 +1017,12 @@ static void CB2_EndTrainerBattle(void)
             }
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
             SetBattledTrainerFlag();
-            QuestLogEvents_HandleEndTrainerBattle();
         }
         else
         {
             gSpecialVar_Result = FALSE;
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
             SetBattledTrainerFlag();
-            QuestLogEvents_HandleEndTrainerBattle();
         }
 
     }
@@ -1075,39 +1041,11 @@ static void CB2_EndTrainerBattle(void)
             if (gBattleOutcome != B_OUTCOME_RAN){
                 SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
                 SetBattledTrainerFlag();
-                QuestLogEvents_HandleEndTrainerBattle();
             }
             else
                 SetMainCallback2(CB2_WhiteOut);
         }
     }
-}
-
-static void CB2_EndRematchBattle(void)
-{
-    if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
-    {
-        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-    }
-    else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
-    {
-        SetMainCallback2(CB2_WhiteOut);
-    }
-    else
-    {
-        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-        SetBattledTrainerFlag();
-        ClearRematchStateOfLastTalked();
-        ResetDeferredLinkEvent();
-    }
-}
-
-void StartRematchBattle(void)
-{
-    gBattleTypeFlags = BATTLE_TYPE_TRAINER;
-    gMain.savedCallback = CB2_EndRematchBattle;
-    DoTrainerBattle();
-    ScriptContext_Stop();
 }
 
 void ShowTrainerIntroSpeech(void)

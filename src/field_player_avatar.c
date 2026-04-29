@@ -1212,7 +1212,6 @@ static const u16 sPlayerAvatarGfxIds[][GENDER_COUNT] = {
     [PLAYER_AVATAR_GFX_RIDE]       = {OBJ_EVENT_GFX_RED_SURF,       OBJ_EVENT_GFX_GREEN_SURF},
     [PLAYER_AVATAR_GFX_FIELD_MOVE] = {OBJ_EVENT_GFX_RED_FIELD_MOVE, OBJ_EVENT_GFX_GREEN_FIELD_MOVE},
     [PLAYER_AVATAR_GFX_FISH]       = {OBJ_EVENT_GFX_RED_FISH,       OBJ_EVENT_GFX_GREEN_FISH},
-    [PLAYER_AVATAR_GFX_VSSEEKER]   = {OBJ_EVENT_GFX_RED_VS_SEEKER,  OBJ_EVENT_GFX_GREEN_VS_SEEKER},
     [PLAYER_AVATAR_GFX_BOX_CLOSED]   = {OBJ_EVENT_GFX_BOY_BOX,  OBJ_EVENT_GFX_GIRL_BOX},
     [PLAYER_AVATAR_GFX_BOX_OPEN]   = {OBJ_EVENT_GFX_BOY_BOX_OPEN,  OBJ_EVENT_GFX_GIRL_BOX_OPEN},
     [PLAYER_AVATAR_GFX_BIKE_SHINY]       = {OBJ_EVENT_GFX_SHINY_BIKE,       OBJ_EVENT_GFX_SHINY_BIKE},
@@ -1429,25 +1428,6 @@ void StartPlayerAvatarSummonMonForFieldMoveAnim(void)
 {
     ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_FIELD_MOVE));
     StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], ANIM_FIELD_MOVE);
-}
-
-static const u16 sPlayerAvatarVsSeekerBikeGfxIds[] = {
-    OBJ_EVENT_GFX_RED_VS_SEEKER_BIKE,
-    OBJ_EVENT_GFX_GREEN_VS_SEEKER_BIKE
-};
-
-u16 GetPlayerAvatarVsSeekerGfxId(void)
-{
-    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
-        return sPlayerAvatarVsSeekerBikeGfxIds[gPlayerAvatar.gender];
-    else
-        return GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_VSSEEKER);
-}
-
-void StartPlayerAvatarVsSeekerAnim(void)
-{
-    ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarVsSeekerGfxId());
-    StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], ANIM_VS_SEEKER);
 }
 
 void StartPlayerAvatarFishAnim(u8 direction)

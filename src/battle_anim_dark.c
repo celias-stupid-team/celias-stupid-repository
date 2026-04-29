@@ -6,8 +6,6 @@
 #include "trig.h"
 #include "util.h"
 
-static void AnimUnusedBagSteal(struct Sprite *sprite);
-static void AnimUnusedBagSteal_Step(struct Sprite *sprite);
 static void AnimBite(struct Sprite *sprite);
 static void AnimTearDrop(struct Sprite *sprite);
 static void AnimClawSlash(struct Sprite *sprite);
@@ -24,18 +22,6 @@ static void AnimTask_MetallicShine_Step(u8 taskId);
 static void AnimTask_RickFall_Step(u8 taskId);
 static void AnimTask_RickRun_Step(u8 taskId);
 static void AnimTask_RickCrash_Step(u8 taskId);
-
-// Unused
-const struct SpriteTemplate sUnusedBagStealSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_TIED_BAG,
-    .paletteTag = ANIM_TAG_TIED_BAG,
-    .oam = &gOamData_AffineOff_ObjNormal_16x16,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimUnusedBagSteal,
-};
 
 static const union AffineAnimCmd sAffineAnim_Bite_0[] =
 {
@@ -325,47 +311,6 @@ void AnimTask_InitAttackerFadeFromInvisible(u8 taskId)
     else
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND | BLDCNT_TGT1_BG2);
     DestroyAnimVisualTask(taskId);
-}
-
-static void AnimUnusedBagSteal(struct Sprite *sprite)
-{
-    sprite->data[1] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
-    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
-    sprite->data[3] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
-    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
-    sprite->data[0] = 0x7E;
-    InitSpriteDataForLinearTranslation(sprite);
-    sprite->data[3] = -sprite->data[1];
-    sprite->data[4] = -sprite->data[2];
-    sprite->data[6] = 0xFFD8;
-    sprite->callback = AnimUnusedBagSteal_Step;
-    sprite->callback(sprite);
-}
-
-static void AnimUnusedBagSteal_Step(struct Sprite *sprite)
-{
-    sprite->data[3] += sprite->data[1];
-    sprite->data[4] += sprite->data[2];
-    sprite->x2 = sprite->data[3] >> 8;
-    sprite->y2 = sprite->data[4] >> 8;
-    if (sprite->data[7] == 0)
-    {
-        sprite->data[3] += sprite->data[1];
-        sprite->data[4] += sprite->data[2];
-        sprite->x2 = sprite->data[3] >> 8;
-        sprite->y2 = sprite->data[4] >> 8;
-        --sprite->data[0];
-    }
-    sprite->y2 += Sin(sprite->data[5], sprite->data[6]);
-    sprite->data[5] = (sprite->data[5] + 3) & 0xFF;
-    if (sprite->data[5] > 0x7F)
-    {
-        sprite->data[5] = 0;
-        sprite->data[6] += 20;
-        ++sprite->data[7];
-    }
-    if (--sprite->data[0] == 0)
-        DestroyAnimSprite(sprite);
 }
 
 // Move sprite inward for Bite/Crunch and Clamp

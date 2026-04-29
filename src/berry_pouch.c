@@ -21,7 +21,6 @@
 #include "strings.h"
 #include "string_util.h"
 #include "sound.h"
-#include "link.h"
 #include "money.h"
 #include "shop.h"
 #include "menu.h"
@@ -458,11 +457,7 @@ static void CB2_InitBerryPouch(void)
 {
     while (1)
     {
-        if (IsActiveOverworldLinkBusy() == TRUE)
-            break;
         if (RunBerryPouchInit() == TRUE)
-            break;
-        if (MenuHelpers_IsLinkActive() == TRUE)
             break;
     }
 }
@@ -499,8 +494,7 @@ static bool8 RunBerryPouchInit(void)
         gMain.state++;
         break;
     case 6:
-        if (!MenuHelpers_IsLinkActive())
-            ResetTasks();
+        ResetTasks();
         gMain.state++;
         break;
     case 7:
@@ -936,7 +930,7 @@ static void Task_BerryPouchMain(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
     s32 menuInput;
-    if (!gPaletteFade.active && IsActiveOverworldLinkBusy() != TRUE)
+    if (!gPaletteFade.active)
     {
         menuInput = ListMenu_ProcessInput(data[0]);
         ListMenuGetScrollAndRow(data[0], &sStaticCnt.listMenuScrollOffset, &sStaticCnt.listMenuSelectedRow);
@@ -1006,19 +1000,6 @@ static void CreateNormalContextMenu(u8 taskId)
         sContextMenuOptions = sOptions_UseToss_Exit;
         sContextMenuNumOptions = 3;
     }
-    else if (MenuHelpers_IsLinkActive() == TRUE || InUnionRoom() == TRUE)
-    {
-        if (!IsHoldingItemAllowed(gSpecialVar_ItemId))
-        {
-            sContextMenuOptions = sOptions_Exit;
-            sContextMenuNumOptions = 1;
-        }
-        else
-        {
-            sContextMenuOptions = sOptions_GiveExit;
-            sContextMenuNumOptions = 2;
-        }
-    }
     else
     {
         sContextMenuOptions = sOptions_UseGiveTossExit;
@@ -1041,23 +1022,19 @@ static void Task_NormalContextMenu(u8 taskId)
 
 static void Task_NormalContextMenu_HandleInput(u8 taskId)
 {
-    s8 input;
-    if (IsActiveOverworldLinkBusy() != TRUE)
+    s8 input = Menu_ProcessInputNoWrapAround();
+    switch (input)
     {
-        input = Menu_ProcessInputNoWrapAround();
-        switch (input)
-        {
-        case -2:
-            break;
-        case -1:
-            PlaySE(SE_SELECT);
-            sContextMenuActions[BP_ACTION_EXIT].func.void_u8(taskId);
-            break;
-        default:
-            PlaySE(SE_SELECT);
-            sContextMenuActions[sContextMenuOptions[input]].func.void_u8(taskId);
-            break;
-        }
+    case -2:
+        break;
+    case -1:
+        PlaySE(SE_SELECT);
+        sContextMenuActions[BP_ACTION_EXIT].func.void_u8(taskId);
+        break;
+    default:
+        PlaySE(SE_SELECT);
+        sContextMenuActions[sContextMenuOptions[input]].func.void_u8(taskId);
+        break;
     }
 }
 

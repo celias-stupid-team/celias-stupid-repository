@@ -4,7 +4,6 @@
 #include "overworld.h"
 #include "load_save.h"
 #include "task.h"
-#include "link.h"
 #include "save_failed_screen.h"
 #include "fieldmap.h"
 #include "pokemon_storage_system.h"
@@ -93,14 +92,12 @@ COMMON_DATA u32 gDamagedSaveSectors = 0;
 COMMON_DATA u32 gSaveCounter = 0;
 COMMON_DATA struct SaveSector *gSaveDataBufferPtr = NULL; // the pointer is in fast IWRAM but points to the slower EWRAM.
 COMMON_DATA u16 gIncrementalSectorId = 0;
-COMMON_DATA u16 gSaveUnusedVar = 0;
 COMMON_DATA u16 gSaveFileStatus = 0;
 COMMON_DATA void (*gGameContinueCallback)(void) = NULL;
 COMMON_DATA struct SaveSectorLocation gRamSaveSectorLocations[NUM_SECTORS_PER_SLOT] = {0};
 COMMON_DATA u16 gSaveAttemptStatus = 0;
 
 EWRAM_DATA struct SaveSector gSaveDataBuffer = {0};
-EWRAM_DATA u32 gSaveUnusedVar2 = 0;
 
 void ClearSaveData(void)
 {
@@ -715,47 +712,6 @@ u8 TrySavingData(u8 saveType)
     }
 }
 
-bool8 LinkFullSave_Init(void)
-{
-    if (gFlashMemoryPresent != TRUE)
-        return TRUE;
-
-    UpdateSaveAddresses();
-    SaveSerializedGame();
-    RestoreSaveBackupVarsAndIncrement(gRamSaveSectorLocations);
-    return FALSE;
-}
-
-bool8 LinkFullSave_WriteSector(void) 
-{
-    u8 status = HandleWriteIncrementalSector(NUM_SECTORS_PER_SLOT, gRamSaveSectorLocations);
-    if (gDamagedSaveSectors)
-        DoSaveFailedScreen(SAVE_NORMAL);
-
-    if (status == SAVE_STATUS_ERROR)
-        return TRUE;
-    else
-        return FALSE;
-}
-
-bool8 LinkFullSave_ReplaceLastSector(void)
-{
-    HandleReplaceSectorAndVerify(NUM_SECTORS_PER_SLOT, gRamSaveSectorLocations);
-    if (gDamagedSaveSectors)
-        DoSaveFailedScreen(SAVE_NORMAL);
-
-    return FALSE;
-}
-
-bool8 LinkFullSave_SetLastSectorSignature(void)
-{
-    CopySectorSignatureByte(NUM_SECTORS_PER_SLOT, gRamSaveSectorLocations);
-    if (gDamagedSaveSectors)
-        DoSaveFailedScreen(SAVE_NORMAL);
-
-    return FALSE;
-}
-
 bool8 WriteSaveBlock2(void)
 {
     if (gFlashMemoryPresent != TRUE)
@@ -872,75 +828,4 @@ u32 TryWriteSpecialSaveSector(u8 sector, u8 *src)
         return SAVE_STATUS_ERROR;
 
     return SAVE_STATUS_OK;
-}
-
-void Task_LinkFullSave(u8 taskId)
-{
-    switch (gTasks[taskId].data[0])
-    {
-    case 0:
-        gSoftResetDisabled = TRUE;
-        gTasks[taskId].data[0] = 1;
-        break;
-    case 1:
-        SetLinkStandbyCallback();
-        gTasks[taskId].data[0] = 2;
-        break;
-    case 2:
-        if (IsLinkTaskFinished())
-        {
-            SaveMapView();
-            gTasks[taskId].data[0] = 3;
-        }
-        break;
-    case 3:
-        SetContinueGameWarpStatusToDynamicWarp();
-        LinkFullSave_Init();
-        gTasks[taskId].data[0] = 4;
-        break;
-    case 4:
-        if (++gTasks[taskId].data[1] == 5)
-        {
-            gTasks[taskId].data[1] = 0;
-            gTasks[taskId].data[0] = 5;
-        }
-        break;
-    case 5:
-        if (LinkFullSave_WriteSector())
-            gTasks[taskId].data[0] = 6;
-        else
-            gTasks[taskId].data[0] = 4;
-        break;
-    case 6:
-        LinkFullSave_ReplaceLastSector();
-        gTasks[taskId].data[0] = 7;
-        break;
-    case 7:
-        ClearContinueGameWarpStatus2();
-        SetLinkStandbyCallback();
-        gTasks[taskId].data[0] = 8;
-        break;
-    case 8:
-        if (IsLinkTaskFinished())
-        {
-            LinkFullSave_SetLastSectorSignature();
-            gTasks[taskId].data[0] = 9;
-        }
-        break;
-    case 9:
-        SetLinkStandbyCallback();
-        gTasks[taskId].data[0] = 10;
-        break;
-    case 10:
-        if (IsLinkTaskFinished())
-            gTasks[taskId].data[0]++;
-        break;
-    case 11:
-        if (++gTasks[taskId].data[1] > 5)
-        {
-            gSoftResetDisabled = FALSE;
-            DestroyTask(taskId);
-        }
-        break;
-    }
 }

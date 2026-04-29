@@ -40,16 +40,11 @@ gBattlescriptsForSafariActions::
 
 BattleScript_ThrowBall::
 	jumpifbattletype BATTLE_TYPE_OLD_MAN_TUTORIAL, BattleScript_OldManThrowBall
-	jumpifbattletype BATTLE_TYPE_POKEDUDE, BattleScript_PokedudeThrowBall
 	printstring STRINGID_PLAYERUSEDITEM
 	handleballthrow
 
 BattleScript_OldManThrowBall::
 	printstring STRINGID_OLDMANUSEDITEM
-	handleballthrow
-
-BattleScript_PokedudeThrowBall::
-	printstring STRINGID_POKEDUDEUSED
 	handleballthrow
 
 BattleScript_ThrowSafariBall::

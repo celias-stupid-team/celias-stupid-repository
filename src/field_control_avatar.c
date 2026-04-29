@@ -15,8 +15,6 @@
 #include "field_weather.h"
 #include "field_specials.h"
 #include "item_menu.h"
-#include "link.h"
-#include "wonder_news.h"
 #include "map_name_popup.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
@@ -27,7 +25,6 @@
 #include "script.h"
 #include "start_menu.h"
 #include "trainer_see.h"
-#include "vs_seeker.h"
 #include "wild_encounter.h"
 #include "config/debug.h"
 #include "config/overworld.h"
@@ -230,7 +227,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (input->tookStep)
     {
         IncrementGameStat(GAME_STAT_STEPS);
-        WonderNews_IncrementStepCounter();
         IncrementRenewableHiddenItemStepCounter();
         RunMassageCooldownStepCounter();
         IncrementResortGorgeousStepCounter();
@@ -440,31 +436,6 @@ static const u8 *GetInteractionScript(struct MapPosition *position, u8 metatileB
     return NULL;
 }
 
-const u8 *GetInteractedLinkPlayerScript(struct MapPosition *position, u8 metatileBehavior, u8 direction)
-{
-    u8 objectEventId;
-    s32 i;
-
-    if (!MetatileBehavior_IsCounter(MapGridGetMetatileBehaviorAt(position->x, position->y)))
-        objectEventId = GetObjectEventIdByPosition(position->x, position->y, position->elevation);
-    else
-        objectEventId = GetObjectEventIdByPosition(position->x + gDirectionToVectors[direction].x, position->y + gDirectionToVectors[direction].y, position->elevation);
-
-    if (objectEventId == OBJECT_EVENTS_COUNT || gObjectEvents[objectEventId].localId == LOCALID_PLAYER)
-        return NULL;
-
-    for (i = 0; i < MAX_LINK_PLAYERS; i++)
-    {
-        if (gLinkPlayerObjectEvents[i].active == TRUE && gLinkPlayerObjectEvents[i].objEventId == objectEventId)
-            return NULL;
-    }
-
-    gSelectedObjectEvent = objectEventId;
-    gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
-    gSpecialVar_Facing = direction;
-    return GetObjectEventScriptPointerByObjectEventId(objectEventId);
-}
-
 static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8 metatileBehavior, u8 direction)
 {
     u8 objectEventId;
@@ -513,9 +484,6 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
         if (objectEventId == OBJECT_EVENTS_COUNT || gObjectEvents[objectEventId].localId == LOCALID_PLAYER)
             return NULL;
     }
-
-    if (InUnionRoom() == TRUE && !ObjectEventCheckHeldMovementStatus(&gObjectEvents[objectEventId]))
-        return NULL;
 
     gSelectedObjectEvent = objectEventId;
     gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
@@ -729,8 +697,6 @@ static bool8 TryStartMiscWalkingScripts(u16 metatileBehavior)
 
 static bool8 TryStartStepCountScript(u16 metatileBehavior)
 {
-    if (InUnionRoom() == TRUE)
-        return FALSE;
     if (gQuestLogState == QL_STATE_PLAYBACK)
         return FALSE;
 
@@ -738,12 +704,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
     {
-        if (UpdateVsSeekerStepCounter() == TRUE)
-        {
-            ScriptContext_SetupScript(EventScript_VsSeekerChargingDone);
-            return TRUE;
-        }
-        else if (UpdatePoisonStepCounter() == TRUE)
+        if (UpdatePoisonStepCounter() == TRUE)
         {
             ScriptContext_SetupScript(EventScript_FieldPoison);
             return TRUE;

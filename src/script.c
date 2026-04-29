@@ -2,7 +2,6 @@
 #include "script.h"
 #include "event_data.h"
 #include "quest_log.h"
-#include "mystery_gift.h"
 #include "trainer_see.h"
 #include "constants/maps.h"
 #include "constants/map_scripts.h"

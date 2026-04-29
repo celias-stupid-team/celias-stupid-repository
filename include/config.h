@@ -62,13 +62,13 @@
 
 // Crashes may occur due to section reordering in the modern build,
 // so we force BUGFIX here.
-#if MODERN
+//#if MODERN
 #ifndef BUGFIX
 #define BUGFIX
 #endif // BUGFIX
 #ifndef UBFIX
 #define UBFIX
 #endif // UBFIX
-#endif // MODERN
+//#endif // MODERN
 
 #endif // GUARD_CONFIG_H

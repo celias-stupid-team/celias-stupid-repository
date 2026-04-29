@@ -14,8 +14,6 @@ static void QL_GfxTransition_Bike(void);
 static void QL_GfxTransition_Fish(void);
 static void Task_QLFishMovement(u8 taskId);
 static void QL_GfxTransition_StartSurf(void);
-static void QL_GfxTransition_VSSeeker(void);
-static void Task_QLVSSeekerMovement(u8 taskId);
 static void QL_GfxTransition_StopSurfSouth(void);
 static void QL_GfxTransition_StopSurfNorth(void);
 static void QL_GfxTransition_StopSurfWest(void);
@@ -31,7 +29,6 @@ static void (*const sQLGfxTransitions[])(void) = {
     [QL_PLAYER_GFX_STOP_SURF_N] = QL_GfxTransition_StopSurfNorth,
     [QL_PLAYER_GFX_STOP_SURF_W] = QL_GfxTransition_StopSurfWest,
     [QL_PLAYER_GFX_STOP_SURF_E] = QL_GfxTransition_StopSurfEast,
-    [QL_PLAYER_GFX_VSSEEKER]    = QL_GfxTransition_VSSeeker
 };
 
 void QuestLogUpdatePlayerSprite(u8 state)
@@ -152,22 +149,6 @@ static void QL_GfxTransition_StartSurf(void)
         fieldEffectId = FieldEffectStart(FLDEFF_SURF_BLOB);
         objectEvent->fieldEffectSpriteId = fieldEffectId;
         SetSurfBlob_BobState(fieldEffectId, BOB_PLAYER_AND_MON);
-    }
-}
-
-static void QL_GfxTransition_VSSeeker(void)
-{
-    FieldEffectStart(FLDEFF_USE_VS_SEEKER);
-    CreateTask(Task_QLVSSeekerMovement, 0x00);
-}
-
-static void Task_QLVSSeekerMovement(u8 taskId)
-{
-    if (!FieldEffectActiveListContains(FLDEFF_USE_VS_SEEKER))
-    {
-        UnfreezeObjectEvents();
-        UnlockPlayerFieldControls();
-        DestroyTask(taskId);
     }
 }
 

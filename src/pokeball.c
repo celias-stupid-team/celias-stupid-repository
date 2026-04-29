@@ -9,7 +9,6 @@
 #include "task.h"
 #include "trig.h"
 #include "util.h"
-#include "link.h"
 #include "battle_gfx_sfx_util.h"
 #include "constants/songs.h"
 #include "constants/sound.h"
@@ -380,12 +379,7 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
 
     ballId = GetBattlerPokeballItemId(battlerId);
     LoadBallGfx(ballId);
-
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
-        gender = gLinkPlayers[GetBattlerMultiplayerId(battlerId)].gender;
-    else
-        gender = gSaveBlock2Ptr->playerGender;
-
+    gender = gSaveBlock2Ptr->playerGender;
     ballSpriteId = CreateSprite(&gBallSpriteTemplates[ballId], 32, 80, 29);
     gSprites[ballSpriteId].data[0] = 0x80;
     gSprites[ballSpriteId].data[1] = 0;

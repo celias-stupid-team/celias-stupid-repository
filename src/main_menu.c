@@ -5,11 +5,9 @@
 #include "save.h"
 #include "event_data.h"
 #include "menu.h"
-#include "link.h"
 #include "oak_speech.h"
 #include "overworld.h"
 #include "quest_log.h"
-#include "mystery_gift_menu.h"
 #include "strings.h"
 #include "title_screen.h"
 #include "help_system.h"
@@ -449,18 +447,10 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
                 menuAction = MAIN_MENU_NEWGAME;
                 break;
             case 2:
-                if (!IsWirelessAdapterConnected())
-                {
-                    SetStdFrame0OnBg(0);
-                    gTasks[taskId].func = Task_MysteryGiftError;
-                    BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
-                    return;
-                }
-                else
-                {
-                    menuAction = MAIN_MENU_MYSTERYGIFT;
-                }
-                break;
+                SetStdFrame0OnBg(0);
+                gTasks[taskId].func = Task_MysteryGiftError;
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+                return;
             }
             break;
         }
@@ -481,10 +471,6 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
             TryStartQuestLogPlayback(taskId);
             break;
         case MAIN_MENU_MYSTERYGIFT:
-            SetMainCallback2(CB2_InitMysteryGift);
-            HelpSystem_Disable();
-            FreeAllWindowBuffers();
-            DestroyTask(taskId);
             break;
         }
     }
@@ -570,7 +556,6 @@ static bool8 HandleMenuInput(u8 taskId)
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
-        IsWirelessAdapterConnected(); // called for its side effects only
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_ExecuteMainMenuSelection;
     }

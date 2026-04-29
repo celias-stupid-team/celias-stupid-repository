@@ -47,13 +47,6 @@ LZ77UnCompWram:
 	bx lr
 	thumb_func_end LZ77UnCompWram
 
-	thumb_func_start MultiBoot
-MultiBoot:
-	movs r1, 0x1
-	svc 0x25
-	bx lr
-	thumb_func_end MultiBoot
-
 	thumb_func_start ObjAffineSet
 ObjAffineSet:
 	svc 0xF

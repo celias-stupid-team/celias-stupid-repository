@@ -7812,32 +7812,6 @@ extern const u16 gStandardMenuPalette[];
 extern const u32 gTradeGba2_Pal[];
 extern const u32 gTradeGba_Gfx[];
 
-// teachy_tv
-extern const u8 gTeachyTv_Gfx[];
-extern const u8 gTeachyTvScreen_Tilemap[];
-extern const u8 gTeachyTvTitle_Tilemap[];
-extern const u32 gTeachyTv_Pal[];
-
-// berry_fix_program
-extern const u8 gBerryFixGameboy_Gfx[];
-extern const u8 gBerryFixGameboy_Tilemap[];
-extern const u8 gBerryFixGameboy_Pal[];
-extern const u8 gBerryFixGameboyLogo_Gfx[];
-extern const u8 gBerryFixGameboyLogo_Tilemap[];
-extern const u8 gBerryFixGameboyLogo_Pal[];
-extern const u8 gBerryFixGbaTransfer_Gfx[];
-extern const u8 gBerryFixGbaTransfer_Tilemap[];
-extern const u8 gBerryFixGbaTransfer_Pal[];
-extern const u8 gBerryFixGbaTransferHighlight_Gfx[];
-extern const u8 gBerryFixGbaTransferHighlight_Tilemap[];
-extern const u8 gBerryFixGbaTransferHighlight_Pal[];
-extern const u8 gBerryFixGbaTransferError_Gfx[];
-extern const u8 gBerryFixGbaTransferError_Tilemap[];
-extern const u8 gBerryFixGbaTransferError_Pal[];
-extern const u8 gBerryFixWindow_Gfx[];
-extern const u8 gBerryFixWindow_Tilemap[];
-extern const u8 gBerryFixWindow_Pal[];
-
 // item_pc
 extern const u8 gItemPcTiles[];
 extern const u32 gItemPcBgPals[];
@@ -8335,8 +8309,6 @@ extern const u32 gItemIcon_Bicycle[];
 extern const u32 gItemIconPalette_Bicycle[];
 extern const u32 gItemIcon_TownMap[];
 extern const u32 gItemIconPalette_TownMap[];
-extern const u32 gItemIcon_VSSeeker[];
-extern const u32 gItemIconPalette_VSSeeker[];
 extern const u32 gItemIcon_FameChecker[];
 extern const u32 gItemIconPalette_FameChecker[];
 extern const u32 gItemIcon_TMCase[];
@@ -9601,7 +9573,6 @@ extern const u16 gDefaultWeatherSpritePalette[];
 // party_menu
 extern const u32 gPartyMenuPokeball_Gfx[];
 extern const u32 gPartyMenuPokeball_Pal[];
-extern const u32 gPartyMenuPokeballSmall_Gfx[];
 extern const u32 gStatusGfx_Icons[];
 extern const u32 gStatusPal_Icons[];
 extern const u32 gPartyMenuBg_Gfx[];
@@ -12610,27 +12581,11 @@ extern const u32 gBagBg_ItemPC_Tilemap[];
 extern const u32 gBagBgPalette[];
 extern const u32 gBagBgPalette_FemaleOverride[];
 
-// union_room_chat_display
-extern const u16 gUnionRoomChat_Panel_Pal[];
-extern const u32 gUnionRoomChat_Panel_Gfx[];
-extern const u32 gUnionRoomChat_Panel_Tilemap[];
-extern const u16 gUnionRoomChat_Bg_Pal[];
-extern const u32 gUnionRoomChat_Bg_Gfx[];
-extern const u32 gUnionRoomChat_Bg_Tilemap[];
-
-// union_room_chat_objects
-extern const u32 gUnionRoomChat_Icons_Gfx[];
-
 // battle_bg
 extern const u32 gFile_graphics_battle_transitions_vs_frame_sheet[];
 extern const u32 gVsLettersGfx[];
 extern const u32 gFile_graphics_battle_transitions_vs_frame_palette[];
 extern const u32 gFile_graphics_battle_transitions_vs_frame_tilemap[];
-
-// berry_crush
-extern const u16 gBerryCrush_Crusher_Pal[];
-extern const u32 gBerryCrush_Crusher_Gfx[];
-extern const u32 gBerryCrush_TextWindows_Tilemap[];
 
 // easy_chat_3
 extern const u32 gEasyChatWindow_Gfx[];

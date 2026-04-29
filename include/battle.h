@@ -668,11 +668,6 @@ struct BattleSpriteData
 
 extern struct BattleSpriteData *gBattleSpritesDataPtr;
 
-#define BATTLE_BUFFER_LINK_SIZE 0x1000
-
-extern u8 *gLinkBattleSendBuffer;
-extern u8 *gLinkBattleRecvBuffer;
-
 // Move this somewhere else
 
 #include "sprite.h"
@@ -687,15 +682,6 @@ struct MonSpritesGfx
     u8 *barFontGfx;
     void *field_178; // freed but never allocated
     u16 *multiUseBuffer;
-};
-
-struct PokedudeBattlerState
-{
-    u8 action_idx;
-    u8 move_idx;
-    u8 timer;
-    u8 msg_idx;
-    u8 saved_bg0y;
 };
 
 extern u16 gBattle_BG0_X;
@@ -746,13 +732,10 @@ extern u8 gBattleBufferB[MAX_BATTLERS_COUNT][0x200];
 extern u8 gActionSelectionCursor[MAX_BATTLERS_COUNT];
 extern void (*gPreBattleCallback1)(void);
 extern bool8 gDoingBattleAnim;
-extern struct PokedudeBattlerState *gPokedudeBattlerStates[MAX_BATTLERS_COUNT];
 extern u8 *gBattleAnimBgTileBuffer;
 extern u8 *gBattleAnimBgTilemapBuffer;
 extern void (*gBattleMainFunc)(void);
 extern u8 gMoveSelectionCursor[MAX_BATTLERS_COUNT];
-extern u32 gUnusedFirstBattleVar1;
-extern u8 gUnusedFirstBattleVar2;
 extern u8 gBattlerAttacker;
 extern u8 gEffectBattler;
 extern u8 gMultiHitCounter;

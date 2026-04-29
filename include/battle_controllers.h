@@ -203,11 +203,8 @@ enum
 extern struct UnusedControllerStruct gUnusedControllerStruct;
 
 // general functions
-void HandleLinkBattleSetup(void);
 void SetUpBattleVars(void);
 void InitBattleControllers(void);
-void TryReceiveLinkBattleData(void);
-void PrepareBufferDataTransferLink(u8 bufferId, u16 size, u8 *data);
 void SetBattlePartyIds(void);
 
 // emitters
@@ -279,10 +276,6 @@ void OpponentBufferExecCompleted(void);
 // safari controller
 void SetControllerToSafari(void);
 
-// pokedude controller
-void SetControllerToPokedude(void);
-void InitPokedudePartyAndOpponent(void);
-
 // oak and old man controller
 void SetControllerToOakOrOldMan(void);
 
@@ -306,11 +299,5 @@ void PrintOakText_OakNoRunningFromATrainer(void);
 void OakOldManHandleInputChooseMove(void);
 void BtlCtrl_DrawVoiceoverMessageFrame(void);
 void BtlCtrl_RemoveVoiceoverMessageFrame(void);
-
-// link opponent controller
-void SetControllerToLinkOpponent(void);
-
-// link partner controller
-void SetControllerToLinkPartner(void);
 
 #endif // GUARD_BATTLE_CONTROLLERS_H

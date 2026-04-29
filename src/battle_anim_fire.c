@@ -11,7 +11,6 @@ static void AnimFireSpiralInward(struct Sprite *sprite);
 static void AnimLargeFlame(struct Sprite *sprite);
 static void AnimFirePlume(struct Sprite *sprite);
 static void AnimFirePlumeUnanchored(struct Sprite *sprite);
-static void AnimUnusedSmallEmber(struct Sprite *sprite);
 static void AnimSunlight(struct Sprite *sprite);
 static void AnimEmberFlare(struct Sprite *sprite);
 static void AnimBurnFlame(struct Sprite *sprite);
@@ -23,7 +22,6 @@ static void AnimEruptionFallingRock(struct Sprite *sprite);
 static void AnimWillOWispOrb(struct Sprite *sprite);
 static void AnimWillOWispFire(struct Sprite *sprite);
 static void AnimLargeFlame_Step(struct Sprite *sprite);
-static void AnimUnusedSmallEmber_Step(struct Sprite *sprite);
 static void AnimFireRing_Step1(struct Sprite *sprite);
 static void AnimFireRing_Step2(struct Sprite *sprite);
 static void AnimFireRing_Step3(struct Sprite *sprite);
@@ -250,42 +248,6 @@ const struct SpriteTemplate gAllegianceSpriteTemplate =
     .callback = AnimFirePlumeUnanchored,
 };
 
-
-static const struct SpriteTemplate sUnusedEmberFirePlumeSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_SMALL_EMBER,
-    .paletteTag = ANIM_TAG_SMALL_EMBER,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_FirePlume,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimFirePlume,
-};
-
-static const union AnimCmd sAnim_UnusedSmallEmber[] =
-{
-    ANIMCMD_FRAME(16, 6),
-    ANIMCMD_FRAME(32, 6),
-    ANIMCMD_FRAME(48, 6),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd *const sAnims_UnusedSmallEmber[] =
-{
-    sAnim_UnusedSmallEmber,
-};
-
-static const struct SpriteTemplate sUnusedSmallEmberSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_SMALL_EMBER,
-    .paletteTag = ANIM_TAG_SMALL_EMBER,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_UnusedSmallEmber,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimUnusedSmallEmber,
-};
-
 static const union AffineAnimCmd sAffineAnim_SunlightRay[] =
 {
     AFFINEANIMCMD_FRAME(0x50, 0x50, 0, 0),
@@ -390,6 +352,29 @@ const struct SpriteTemplate gFireBlastRingSpriteTemplate =
     .callback = AnimFireRing,
 };
 
+static const union AnimCmd sAnim_FireBlastCross[] =
+{
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_FireBlastCross[] =
+{
+    sAnim_FireBlastCross,
+};
+
+const struct SpriteTemplate gFireBlastCrossSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FireBlastCross,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireCross,
+};
+
 //v create
 const struct SpriteTemplate gVCreateFlameTemplate =
 {
@@ -451,47 +436,6 @@ const struct SpriteTemplate gVCreateRedOrbTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSpriteOnMonPos
-};
-
-static const union AnimCmd sAnim_FireBlastCross[] =
-{
-    ANIMCMD_FRAME(32, 6),
-    ANIMCMD_FRAME(48, 6),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd *const sAnims_FireBlastCross[] =
-{
-    sAnim_FireBlastCross,
-};
-
-static const union AffineAnimCmd sAffineAnim_Unused_0[] =
-{
-    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 1),
-    AFFINEANIMCMD_END,
-};
-
-static const union AffineAnimCmd sAffineAnim_Unused_1[] =
-{
-    AFFINEANIMCMD_FRAME(0xA0, 0xA0, 0, 0),
-    AFFINEANIMCMD_END,
-};
-
-static const union AffineAnimCmd *const sAffineAnims_Unused[] =
-{
-    sAffineAnim_Unused_0,
-    sAffineAnim_Unused_1,
-};
-
-const struct SpriteTemplate gFireBlastCrossSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_SMALL_EMBER,
-    .paletteTag = ANIM_TAG_SMALL_EMBER,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_FireBlastCross,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimFireCross,
 };
 
 const struct SpriteTemplate gFireSpiralOutwardSpriteTemplate =
@@ -813,50 +757,6 @@ static void AnimLargeFlame_Step(struct Sprite *sprite)
     }
     if (sprite->data[0] == sprite->data[1])
         DestroySpriteAndMatrix(sprite);
-}
-
-static void AnimUnusedSmallEmber(struct Sprite *sprite)
-{
-    SetSpriteCoordsToAnimAttackerCoords(sprite);
-    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
-    {
-        sprite->x -= gBattleAnimArgs[0];
-    }
-    else
-    {
-        sprite->x += gBattleAnimArgs[0];
-        sprite->subpriority = 8;
-    }
-    sprite->y += gBattleAnimArgs[1];
-    sprite->data[0] = gBattleAnimArgs[2];
-    sprite->data[1] = gBattleAnimArgs[3];
-    sprite->data[2] = gBattleAnimArgs[4];
-    sprite->data[3] = gBattleAnimArgs[5];
-    sprite->data[4] = gBattleAnimArgs[6];
-    sprite->data[5] = 0;
-    sprite->callback = AnimUnusedSmallEmber_Step;
-}
-
-static void AnimUnusedSmallEmber_Step(struct Sprite *sprite)
-{
-    if (sprite->data[3])
-    {
-        if(sprite->data[5] > 10000)
-            sprite->subpriority = 1;
-        sprite->x2 = Sin(sprite->data[0], sprite->data[1] + (sprite->data[5] >> 8));
-        sprite->y2 = Cos(sprite->data[0], sprite->data[1] + (sprite->data[5] >> 8));
-        sprite->data[0] += sprite->data[2];
-        sprite->data[5] += sprite->data[4];
-        if (sprite->data[0] > 255)
-            sprite->data[0] -= 256;
-        else if (sprite->data[0] < 0)
-            sprite->data[0] += 256;
-        --sprite->data[3];
-    }
-    else
-    {
-        DestroySpriteAndMatrix(sprite);
-    }
 }
 
 // Sunlight from Sunny Day / sunny weather

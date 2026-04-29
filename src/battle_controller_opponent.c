@@ -1582,25 +1582,21 @@ static void OpponentHandleOneReturnValue_Duplicate(void)
 
 static void OpponentHandleCmd37(void)
 {
-    gUnusedControllerStruct.unk = 0;
     OpponentBufferExecCompleted();
 }
 
 static void OpponentHandleCmd38(void)
 {
-    gUnusedControllerStruct.unk = gBattleBufferA[gActiveBattler][1];
     OpponentBufferExecCompleted();
 }
 
 static void OpponentHandleCmd39(void)
 {
-    gUnusedControllerStruct.flag = 0;
     OpponentBufferExecCompleted();
 }
 
 static void OpponentHandleCmd40(void)
 {
-    gUnusedControllerStruct.flag ^= 1;
     OpponentBufferExecCompleted();
 }
 

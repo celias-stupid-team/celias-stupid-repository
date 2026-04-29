@@ -4,7 +4,6 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "new_menu_helpers.h"
-#include "link.h"
 #include "overworld.h"
 #include "mail_data.h"
 #include "field_specials.h"
@@ -93,46 +92,12 @@ u8 GetLRKeysPressedAndHeld(void)
 
 bool8 IsHoldingItemAllowed(u16 itemId)
 {
-    // Enigma Berry can't be held in link areas
-    if (itemId == ITEM_ENIGMA_BERRY
-     && ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_TRADE_CENTER)
-       && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_TRADE_CENTER))
-       || InUnionRoom() == TRUE))
-        return FALSE;
-    else
-        return TRUE;
+    return TRUE;
 }
 
 bool8 IsWritingMailAllowed(u16 itemId)
 {
-    if ((IsUpdateLinkStateCBActive() == TRUE || InUnionRoom() == TRUE) && ItemIsMail(itemId) == TRUE)
-        return FALSE;
-    else
-        return TRUE;
-}
-
-bool8 MenuHelpers_IsLinkActive(void)
-{
-    if (IsUpdateLinkStateCBActive() == TRUE || gReceivedRemoteLinkPlayers == 1)
-        return TRUE;
-    else
-        return FALSE;
-}
-
-bool8 IsActiveOverworldLinkBusy(void)
-{
-    if (!MenuHelpers_IsLinkActive())
-        return FALSE;
-    else
-        return (u8)Overworld_LinkRecvQueueLengthMoreThan2();
-}
-
-bool8 MenuHelpers_ShouldWaitForLinkRecv(void)
-{
-    if (IsActiveOverworldLinkBusy() == TRUE || IsLinkRecvQueueAtOverworldMax() == TRUE)
-        return TRUE;
-    else
-        return FALSE;
+    return TRUE;
 }
 
 void SetVBlankHBlankCallbacksToNull(void)

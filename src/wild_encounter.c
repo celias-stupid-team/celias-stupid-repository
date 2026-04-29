@@ -11,7 +11,6 @@
 #include "metatile_behavior.h"
 #include "event_scripts.h"
 #include "script.h"
-#include "link.h"
 #include "quest_log.h"
 #include "fldeff.h"
 #include "script_pokemon_util.h"
@@ -651,9 +650,6 @@ u16 GetLocalWaterMon(void)
 bool8 UpdateRepelCounter(void)
 {
     u16 steps;
-
-    if (InUnionRoom() == TRUE)
-        return FALSE;
 
     if (gQuestLogState == QL_STATE_PLAYBACK)
         return FALSE;

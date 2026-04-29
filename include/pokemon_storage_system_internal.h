@@ -492,8 +492,6 @@ const u8 *GetMovingItemName(void);
 void InitItemInfoWindow(void);
 bool8 UpdateItemInfoWindowSlideIn(void);
 bool8 UpdateItemInfoWindowSlideOut(void);
-void UnkUtil_Init(struct UnkUtil *arg0, struct UnkUtilData *arg1, u32 arg2);
-void UnkUtil_Run(void);
 void AddMenu(void);
 bool8 CanMovePartyMon(void);
 bool8 CanShiftMon(void);

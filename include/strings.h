@@ -257,13 +257,6 @@ extern const u8 gText_Diploma_GameFreak[];
 extern const u8 gText_Diploma_National[];
 extern const u8 gText_Diploma_Kanto[];
 
-// battle_records
-extern const u8 gString_BattleRecords_PlayersBattleResults[];
-extern const u8 gString_BattleRecords_TotalRecord[];
-extern const u8 gString_BattleRecords_ColumnHeaders[];
-extern const u8 gString_BattleRecords_7Dashes[];
-extern const u8 gString_BattleRecords_4Dashes[];
-
 // slot_machine
 extern const u8 gString_OutOfCoins[];
 extern const u8 gString_QuitPlaying[];
@@ -298,28 +291,6 @@ extern const u8 gText_OakNoRunningFromATrainer[];
 extern const u8 gText_WinEarnsPrizeMoney[];
 extern const u8 gText_HowDissapointing[];
 extern const u8 gText_WhatWillOldManDo[];
-
-// battle_controller_pokedude
-extern const u8 Pokedude_Text_SpeedierBattlerGoesFirst[];
-extern const u8 Pokedude_Text_MyRattataFasterThanPidgey[];
-extern const u8 Pokedude_Text_BattlersTakeTurnsAttacking[];
-extern const u8 Pokedude_Text_MyRattataWonGetsEXP[];
-extern const u8 Pokedude_Text_UhOhRattataPoisoned[];
-extern const u8 Pokedude_Text_HealStatusRightAway[];
-extern const u8 Pokedude_Text_UsingItemTakesTurn[];
-extern const u8 Pokedude_Text_YayWeManagedToWin[];
-extern const u8 Pokedude_Text_WaterNotVeryEffectiveAgainstGrass[];
-extern const u8 Pokedude_Text_GrassEffectiveAgainstWater[];
-extern const u8 Pokedude_Text_LetsTryShiftingMons[];
-extern const u8 Pokedude_Text_ShiftingUsesTurn[];
-extern const u8 Pokedude_Text_ButterfreeDoubleResistsGrass[];
-extern const u8 Pokedude_Text_ButterfreeGoodAgainstOddish[];
-extern const u8 Pokedude_Text_YeahWeWon[];
-extern const u8 Pokedude_Text_WeakenMonBeforeCatching[];
-extern const u8 Pokedude_Text_BestIfTargetStatused[];
-extern const u8 Pokedude_Text_CantDoubleUpOnStatus[];
-extern const u8 Pokedude_Text_LetMeThrowBall[];
-extern const u8 Pokedude_Text_PickBestKindOfBall[];
 
 // party_menu
 extern const u8 gText_ChoosePokemon[];
@@ -611,88 +582,6 @@ extern const u8 gText_Register[];
 
 // mystery_gift_menu
 extern const u8 gText_PickOKExit[];
-extern const u8 gText_PickOKCancel[];
-extern const u8 gText_MysteryGift2[];
-extern const u8 gJPText_MysteryGift[];
-extern const u8 gJPText_DecideStop[];
-extern const u8 gText_WhatToDoWithCards[];
-extern const u8 gText_WhatToDoWithNews[];
-extern const u8 gText_OkayToDiscardNews[];
-extern const u8 gText_IfThrowAwayCardEventWontHappen[];
-extern const u8 gText_WonderCardThrownAway[];
-extern const u8 gText_WonderNewsThrownAway[];
-extern const u8 gText_DataWillBeSaved[];
-extern const u8 gText_SaveCompletedPressA[];
-extern const u8 gText_WonderCards[];
-extern const u8 gText_WonderNews[];
-extern const u8 gText_Exit3[];
-extern const u8 gText_WirelessCommunication[];
-extern const u8 gText_Friend2[];
-extern const u8 gText_Receive[];
-extern const u8 gText_Send[];
-extern const u8 gText_Toss[];
-extern const u8 gText_VarietyOfEventsImportedWireless[];
-extern const u8 gText_WonderCardsInPossession[];
-extern const u8 gText_ReadNewsThatArrived[];
-extern const u8 gText_ReturnToTitle[];
-extern const u8 gText_NothingSentOver[];
-extern const u8 gText_RecordUploadedViaWireless[];
-extern const u8 gText_WonderCardReceived[];
-extern const u8 gText_WonderCardReceivedFrom[];
-extern const u8 gText_WonderNewsReceived[];
-extern const u8 gText_WonderNewsReceivedFrom[];
-extern const u8 gText_NewStampReceived[];
-extern const u8 gText_AlreadyHadCard[];
-extern const u8 gText_AlreadyHadStamp[];
-extern const u8 gText_AlreadyHadNews[];
-extern const u8 gText_NoMoreRoomForStamps[];
-extern const u8 gText_CommunicationCanceled[];
-extern const u8 gText_CantAcceptCardFromTrainer[];
-extern const u8 gText_CantAcceptNewsFromTrainer[];
-extern const u8 gText_CommunicationError[];
-extern const u8 gText_NewTrainerReceived[];
-extern const u8 gText_WonderCardSentTo[];
-extern const u8 gText_WonderNewsSentTo[];
-extern const u8 gText_StampSentTo[];
-extern const u8 gText_OtherTrainerHasCard[];
-extern const u8 gText_OtherTrainerHasStamp[];
-extern const u8 gText_OtherTrainerHasNews[];
-extern const u8 gText_OtherTrainerCanceled[];
-extern const u8 gText_GiftSentTo[];
-extern const u8 gText_CantSendGiftToTrainer[];
-extern const u8 gText_DontHaveCardNewOneInput[];
-extern const u8 gText_DontHaveNewsNewOneInput[];
-extern const u8 gText_WhereShouldCardBeAccessed[];
-extern const u8 gText_WhereShouldNewsBeAccessed[];
-extern const u8 gText_Communicating[];
-extern const u8 gText_ThrowAwayWonderCard[];
-extern const u8 gText_HaventReceivedCardsGift[];
-extern const u8 gText_CommunicationCompleted[];
-extern const u8 gText_HaventReceivedGiftOkayToDiscard[];
-extern const u8 gText_SendingWonderCard[];
-extern const u8 gText_SendingWonderNews[];
-
-// Dodrio Berry Picking
-extern const u8 gText_BerryPickingRecords[];
-extern const u8 gText_BerriesPicked[];
-extern const u8 gText_BerriesInRowFivePlayers[];
-extern const u8 gText_BestScore[];
-extern const u8 gText_1Colon[];
-extern const u8 gText_2Colon[];
-extern const u8 gText_3Colon[];
-extern const u8 gText_4Colon[];
-extern const u8 gText_5Colon[];
-extern const u8 gText_SpacePoints[];
-extern const u8 gText_10P30P50P50P[];
-extern const u8 gText_AnnouncingPrizes[];
-extern const u8 gText_AnnouncingRankings[];
-extern const u8 gText_FirstPlacePrize[];
-extern const u8 gText_CantHoldAnyMore[];
-extern const u8 gText_FilledStorageSpace[];
-extern const u8 gText_BerryPickingResults[];
-extern const u8 gText_WantToPlayAgain[];
-extern const u8 gText_CommunicationStandby3[];
-extern const u8 gText_SomeoneDroppedOut[];
 
 // player_pc
 extern const u8 gText_WhatWouldYouLikeToDo[];
@@ -884,8 +773,6 @@ extern const u8 gText_BerryCrush[];
 extern const u8 gText_EmptyLinkService1[];
 extern const u8 gText_EmptyLinkService2[];
 extern const u8 gText_RecordCorner[];
-extern const u8 gText_PokemonJump[];
-extern const u8 gText_DodrioBerryPicking[];
 extern const u8 gText_2Tinymushrooms[];
 extern const u8 gText_1BigMushroom[];
 extern const u8 gText_SeviiIslands[];
@@ -1200,124 +1087,12 @@ extern const u8 gText_NoRoomToStoreItems[];
 extern const u8 gOtherText_On[];
 extern const u8 gOtherText_Off[];
 
-// union_room_battle
-extern const u8 gText_CommStandbyAwaitingOtherPlayer[];
-extern const u8 gText_RefusedBattle[];
-extern const u8 gText_BattleWasRefused[];
-
-// union_room_chat
-extern const u8 gText_F700JoinedChat[];
-extern const u8 gText_F700LeftChat[];
-extern const u8 gText_Hello[];
-extern const u8 gText_Pokemon2[];
-extern const u8 gText_Trade[];
-extern const u8 gText_Battle[];
-extern const u8 gText_Lets[];
-extern const u8 gText_Ok[];
-extern const u8 gText_Sorry[];
-extern const u8 gText_YaySmileEmoji[];
-extern const u8 gText_ThankYou[];
-extern const u8 gText_ByeBye[];
-
-// union_room_chat_display
-extern const u8 gText_QuitChatting[];
-extern const u8 gText_RegisterTextWhere[];
-extern const u8 gText_RegisterTextHere[];
-extern const u8 gText_InputText[];
-extern const u8 gText_ExitingTheChat[];
-extern const u8 gText_LeaderHasLeftEndingChat[];
-extern const u8 gText_RegisteredTextChanged_OKtoSave[];
-extern const u8 gText_RegisteredTextChanged_AlreadySavedFile[];
-extern const u8 gText_RegisteredTextChanged_SavingDontTurnOff[];
-extern const u8 gText_RegisteredTextChanged_SavedTheGame[];
-extern const u8 gText_IfLeaderLeavesChatWillEnd[];
-extern const u8 gText_Upper[];
-extern const u8 gText_Lower[];
-extern const u8 gText_Symbols[];
-extern const u8 gText_Register2[];
-extern const u8 gText_Exit[];
-
-// wireless_communication_status_screen
-extern const u8 gText_Dynamic0Players[];
-extern const u8 gText_Dynamic1Players[];
-extern const u8 gText_Dynamic2Players[];
-extern const u8 gText_Dynamic3Players[];
-extern const u8 gText_WirelessCommunicationStatus[];
-extern const u8 gText_PeopleTrading[];
-extern const u8 gText_PeopleBattling[];
-extern const u8 gText_PeopleInUnionRoom[];
-extern const u8 gText_PeopleCommunicating[];
-
-// mystery_gift
-extern const u8 gJPText_ReceiveMysteryGiftWithEReader[];
-extern const u8 gJPText_SelectConnectFromEReaderMenu[];
-extern const u8 gJPText_SelectConnectWithGBA[];
-extern const u8 gJPText_LinkIsIncorrect[];
-extern const u8 gJPText_CardReadingHasBeenHalted[];
-extern const u8 gJPText_Connecting[];
-extern const u8 gJPText_ConnectionErrorCheckLink[];
-extern const u8 gJPText_ConnectionErrorTryAgain[];
-extern const u8 gJPText_AllowEReaderToLoadCard[];
-extern const u8 gJPText_ConnectionComplete[];
-extern const u8 gJPText_NewTrainerHasComeToSevii[];
-extern const u8 gJPText_PleaseWaitAMoment[];
-extern const u8 gJPText_WriteErrorUnableToSaveData[];
-
-// pokemon_jump
-extern const u8 gText_WantToPlayAgain2[];
-extern const u8 gText_SavingDontTurnOffPower[];
-extern const u8 gText_SomeoneDroppedOut2[];
-extern const u8 gText_CommunicationStandby4[];
-extern const u8 gText_AwesomeWonF701F700[];
-extern const u8 gText_FilledStorageSpace2[];
-extern const u8 gText_CantHoldMore[];
-extern const u8 gText_SpacePoints2[];
-extern const u8 gText_SpaceTimes3[];
-extern const u8 gText_JumpsInARow[];
-extern const u8 gText_BestScore2[];
-extern const u8 gText_ExcellentsInARow[];
-extern const u8 gText_PkmnJumpRecords[];
-
 // cable_club
 extern const u8 gText_NumPlayerLink[];
 extern const u8 gText_BronzeCard[];
 extern const u8 gText_CopperCard[];
 extern const u8 gText_SilverCard[];
 extern const u8 gText_GoldCard[];
-
-// berry_crush
-extern const u8 gText_BerryCrush_AreYouReady[];
-extern const u8 gText_BerryCrush_WaitForOthersToChooseBerry[];
-extern const u8 gText_BerryCrush_GainedXUnitsOfPowder[];
-extern const u8 gText_BerryCrush_RecordingGameResults[];
-extern const u8 gText_BerryCrush_WantToPlayAgain[];
-extern const u8 gText_BerryCrush_NoBerries[];
-extern const u8 gText_BerryCrush_MemberDroppedOut[];
-extern const u8 gText_BerryCrush_TimeUp[];
-extern const u8 gText_BerryCrush_CommunicationStandby[];
-extern const u8 gText_1_ClrBluShdwLtBlu_Dynamic0[];
-extern const u8 gText_1_Dynamic0[];
-extern const u8 gText_SpaceTimes2[];
-extern const u8 gText_XDotY[];
-extern const u8 gText_StrVar1Berry[];
-extern const u8 gText_TimeColon[];
-extern const u8 gText_PressingSpeed[];
-extern const u8 gText_Silkiness[];
-extern const u8 gText_StrVar1[];
-extern const u8 gText_SpaceMin[];
-extern const u8 gText_XDotY2[];
-extern const u8 gText_SpaceSec[];
-extern const u8 gText_XDotY3[];
-extern const u8 gText_TimesPerSec[];
-extern const u8 gText_Var1Percent[];
-extern const u8 gText_PressesRankings[];
-extern const u8 gText_CrushingResults[];
-extern const u8 gText_BerryCrush2[];
-extern const u8 gText_PressingSpeedRankings[];
-extern const u8 gText_Var1Players[];
-extern const u8 gText_NeatnessRankings[];
-extern const u8 gText_CooperativeRankings[];
-extern const u8 gText_PressingPowerRankings[];
 
 // quest log
 extern const u8 gText_QuestLog_PreviouslyOnYourQuest[];

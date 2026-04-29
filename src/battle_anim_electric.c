@@ -5,8 +5,6 @@
 #include "constants/songs.h"
 
 static void AnimLightning(struct Sprite *sprite);
-static void AnimUnusedSpinningFist(struct Sprite *sprite);
-static void AnimUnusedCirclingShock(struct Sprite *sprite);
 static void AnimSparkElectricity(struct Sprite *sprite);
 static void AnimZapCannonSpark(struct Sprite *sprite);
 static void AnimThunderboltOrb(struct Sprite *sprite);
@@ -21,7 +19,6 @@ static void AnimVoltTackleBolt(struct Sprite *sprite);
 static void AnimGrowingShockWaveOrb(struct Sprite *sprite);
 static void AnimShockWaveProgressingBolt(struct Sprite *sprite);
 static void AnimLightning_Step(struct Sprite *sprite);
-static void AnimUnusedSpinningFist_Step(struct Sprite *sprite);
 static void AnimZapCannonSpark_Step(struct Sprite *sprite);
 static void AnimSparkElectricityFlashing_Step(struct Sprite *sprite);
 static void AnimTask_ElectricBolt_Step(u8 taskId);
@@ -70,57 +67,6 @@ const struct SpriteTemplate gBlueLightningSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimLightning,
-};
-
-static const union AffineAnimCmd sAffineAnim_UnusedSpinningFist[] =
-{
-    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
-    AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 20),
-    AFFINEANIMCMD_FRAME(0x0, 0x0, -16, 60),
-    AFFINEANIMCMD_END,
-};
-
-static const union AffineAnimCmd *const sAffineAnims_UnusedSpinningFist[] =
-{
-    sAffineAnim_UnusedSpinningFist,
-};
-
-static const struct SpriteTemplate sUnusedSpinningFistSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_HANDS_AND_FEET,
-    .paletteTag = ANIM_TAG_HANDS_AND_FEET,
-    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = sAffineAnims_UnusedSpinningFist,
-    .callback = AnimUnusedSpinningFist,
-};
-
-static const union AnimCmd sAnim_UnusedCirclingShock[] =
-{
-    ANIMCMD_FRAME(0, 5),
-    ANIMCMD_FRAME(16, 5),
-    ANIMCMD_FRAME(32, 5),
-    ANIMCMD_FRAME(48, 5),
-    ANIMCMD_FRAME(64, 5),
-    ANIMCMD_FRAME(80, 5),
-    ANIMCMD_JUMP(0),
-};
-
-static const union AnimCmd *const sAnims_UnusedCirclingShock[] =
-{
-    sAnim_UnusedCirclingShock,
-};
-
-static const struct SpriteTemplate sUnusedCirclingShockSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_SHOCK,
-    .paletteTag = ANIM_TAG_SHOCK,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_UnusedCirclingShock,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimUnusedCirclingShock,
 };
 
 const struct SpriteTemplate gSparkElectricitySpriteTemplate =
@@ -536,43 +482,6 @@ static void AnimLightning_Step(struct Sprite *sprite)
 {
     if (sprite->animEnded)
         DestroyAnimSprite(sprite);
-}
-
-static void AnimUnusedSpinningFist(struct Sprite *sprite)
-{
-    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
-        sprite->x -= gBattleAnimArgs[0];
-    else
-        sprite->x += gBattleAnimArgs[0];
-    sprite->callback = AnimUnusedSpinningFist_Step;
-}
-
-static void AnimUnusedSpinningFist_Step(struct Sprite *sprite)
-{
-    if (sprite->affineAnimEnded)
-        DestroySpriteAndMatrix(sprite);
-}
-
-static void AnimUnusedCirclingShock(struct Sprite *sprite)
-{
-    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
-    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
-    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
-    {
-        sprite->x -= gBattleAnimArgs[0];
-        sprite->y -= gBattleAnimArgs[1];
-    }
-    else
-    {
-        sprite->x += gBattleAnimArgs[0];
-        sprite->y += gBattleAnimArgs[1];
-    }
-    sprite->data[0] = 0;
-    sprite->data[1] = gBattleAnimArgs[2];
-    sprite->data[2] = gBattleAnimArgs[3];
-    sprite->data[3] = gBattleAnimArgs[4];
-    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
-    sprite->callback = TranslateSpriteInCircle;
 }
 
 static void AnimSparkElectricity(struct Sprite *sprite)

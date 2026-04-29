@@ -5861,7 +5861,7 @@
       "registrability": 1,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_FIELD",
-      "fieldUseFunc": "FieldUseFunc_VsSeeker",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

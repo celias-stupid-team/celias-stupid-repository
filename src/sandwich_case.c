@@ -312,11 +312,7 @@ static void CB2_InitSandwichCase(void)
 {
     while (1)
     {
-        if (IsActiveOverworldLinkBusy() == TRUE)
-            break;
         if (RunSandwichCaseInit() == TRUE)
-            break;
-        if (MenuHelpers_IsLinkActive() == TRUE)
             break;
     }
 }
@@ -353,8 +349,7 @@ static bool8 RunSandwichCaseInit(void)
         gMain.state++;
         break;
     case 6:
-        if (!MenuHelpers_IsLinkActive())
-            ResetTasks();
+        ResetTasks();
         gMain.state++;
         break;
     case 7:

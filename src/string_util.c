@@ -5,7 +5,6 @@ EWRAM_DATA u8 gStringVar1[32] = {};
 EWRAM_DATA u8 gStringVar2[20] = {};
 EWRAM_DATA u8 gStringVar3[20] = {};
 EWRAM_DATA u8 gStringVar4[1000] = {};
-EWRAM_DATA u8 gUnknownStringVar[16] = {0};
 
 static const u8 sDigits[] = __("0123456789ABCDEF");
 
@@ -365,11 +364,6 @@ u8 *StringBraille(u8 *dest, const u8 *src)
     }
 }
 
-static u8 *ExpandPlaceholder_UnknownStringVar(void)
-{
-    return gUnknownStringVar;
-}
-
 static u8 *ExpandPlaceholder_PlayerName(void)
 {
     return gSaveBlock2Ptr->playerName;
@@ -482,7 +476,6 @@ u8 *GetExpandedPlaceholder(u32 id)
 
     static const ExpandPlaceholderFunc funcs[] =
     {
-        [PLACEHOLDER_ID_UNKNOWN]      = ExpandPlaceholder_UnknownStringVar,
         [PLACEHOLDER_ID_PLAYER]       = ExpandPlaceholder_PlayerName,
         [PLACEHOLDER_ID_STRING_VAR_1] = ExpandPlaceholder_StringVar1,
         [PLACEHOLDER_ID_STRING_VAR_2] = ExpandPlaceholder_StringVar2,
@@ -498,7 +491,7 @@ u8 *GetExpandedPlaceholder(u32 id)
         [PLACEHOLDER_ID_KYOGRE]       = ExpandPlaceholder_Kyogre,
     };
 
-    if (id >= NELEMS(funcs))
+    if (id == PLACEHOLDER_ID_UNKNOWN || id >= NELEMS(funcs))
         return gExpandedPlaceholder_Empty;
     else
         return funcs[id]();

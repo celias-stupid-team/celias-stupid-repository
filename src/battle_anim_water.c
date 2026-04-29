@@ -58,9 +58,6 @@ static void AnimYellowDroplet(struct Sprite *sprite);
 static void AnimYellowDroplet_Step(struct Sprite *sprite);
 static void AnimTask_RotateFlipRockReturn_Step(u8 taskId);
 
-static const u8 sUnusedWater_Gfx[] = INCBIN_U8("graphics/battle_anims/unused/water.4bpp");
-static const u8 sUnusedWater[] = INCBIN_U8("graphics/battle_anims/unused/water.bin");
-
 static const union AnimCmd sAnim_RainDrop[] =
 {
     ANIMCMD_FRAME(0, 2),
@@ -1982,15 +1979,12 @@ static void CreateWaterPulseRingBubbles(struct Sprite *sprite, s32 xDiff, s32 yD
 {
     s16 combinedX, combinedY;
     s16 i, something;
-    s16 unusedVar = 1; //unusedVar is needed to match
     s16 somethingRandomX, somethingRandomY;
     u8 spriteId;
 
     something = sprite->data[0] / 2;
     combinedX = sprite->x + sprite->x2;
     combinedY = sprite->y + sprite->y2;
-    if (yDiff < 0)
-        unusedVar *= -1; //Needed to Match
     somethingRandomY = yDiff + (Random() % 10) - 5;
     somethingRandomX = -xDiff + (Random() % 10) - 5;
 

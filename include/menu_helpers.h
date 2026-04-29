@@ -15,9 +15,6 @@ struct YesNoFuncTable
 };
 
 bool16 RunTextPrinters_CheckActive(u8 textPrinterId);
-bool8 IsActiveOverworldLinkBusy(void);
-bool8 MenuHelpers_ShouldWaitForLinkRecv(void);
-bool8 MenuHelpers_IsLinkActive(void);
 void SetVBlankHBlankCallbacksToNull(void);
 void ResetAllBgsCoordinatesAndBgCntRegs(void);
 u8 GetDialogBoxFontId(void);

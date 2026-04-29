@@ -1,6 +1,5 @@
 #include "global.h"
 #include "gflib.h"
-#include "link.h"
 #include "data.h"
 #include "scanline_effect.h"
 #include "help_system.h"
@@ -25,23 +24,20 @@ void ReshowBattleScreenAfterMenu(void)
     SetGpuReg(REG_OFFSET_MOSAIC, 0);
     gBattleScripting.reshowMainState = 0;
     gBattleScripting.reshowHelperState = 0;
-    if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-        {
-            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-                SetHelpContext(HELPCONTEXT_TRAINER_BATTLE_DOUBLE);
-            else
-                SetHelpContext(HELPCONTEXT_TRAINER_BATTLE_SINGLE);
-        }
-        else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
-        {
-            SetHelpContext(HELPCONTEXT_SAFARI_BATTLE);
-        }
+        if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            SetHelpContext(HELPCONTEXT_TRAINER_BATTLE_DOUBLE);
         else
-        {
-            SetHelpContext(HELPCONTEXT_WILD_BATTLE);
-        }
+            SetHelpContext(HELPCONTEXT_TRAINER_BATTLE_SINGLE);
+    }
+    else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+    {
+        SetHelpContext(HELPCONTEXT_SAFARI_BATTLE);
+    }
+    else
+    {
+        SetHelpContext(HELPCONTEXT_WILD_BATTLE);
     }
     SetMainCallback2(CB2_ReshowBattleScreenAfterMenu);
 }
@@ -152,11 +148,6 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
             SetBattlerShadowSpriteCallback(opponentBattler, species);
         }
         ActionSelectionCreateCursorAt(gActionSelectionCursor[gBattlerInMenuId], 0);
-        if (gWirelessCommType && gReceivedRemoteLinkPlayers)
-        {
-            LoadWirelessStatusIndicatorSpriteGfx();
-            CreateWirelessStatusIndicatorSprite(0, 0);
-        }
         // special handling for Koraidon phase
         if (gBattleStruct->switchInAfterItemUse)
             SetHealthboxSpriteInvisible(gHealthboxSpriteIds[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)]);

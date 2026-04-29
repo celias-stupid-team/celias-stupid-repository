@@ -10,13 +10,6 @@ void AllocateBattleResources(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
         InitTrainerTowerBattleStruct();
-    if (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
-    {
-        s32 i;
-
-        for (i = 0; i < 4; i++)
-            gPokedudeBattlerStates[i] = AllocZeroed(sizeof(struct PokedudeBattlerState));
-    }
 
     gBattleStruct = AllocZeroed(sizeof(*gBattleStruct));
 
@@ -30,9 +23,6 @@ void AllocateBattleResources(void)
     gBattleResources->battleHistory = AllocZeroed(sizeof(*gBattleResources->battleHistory));
     gBattleResources->AI_ScriptsStack = AllocZeroed(sizeof(*gBattleResources->AI_ScriptsStack));
 
-    gLinkBattleSendBuffer = AllocZeroed(BATTLE_BUFFER_LINK_SIZE);
-    gLinkBattleRecvBuffer = AllocZeroed(BATTLE_BUFFER_LINK_SIZE);
-
     gBattleAnimBgTileBuffer = AllocZeroed(0x2000);
     gBattleAnimBgTilemapBuffer = AllocZeroed(0x1000);
 
@@ -44,15 +34,6 @@ void FreeBattleResources(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
         FreeTrainerTowerBattleStruct();
-    if (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
-    {
-        s32 i;
-
-        for (i = 0; i < 4; i++)
-        {
-            FREE_AND_SET_NULL(gPokedudeBattlerStates[i]);
-        }
-    }
     if (gBattleResources != NULL)
     {
         FREE_AND_SET_NULL(gBattleStruct);
@@ -66,9 +47,6 @@ void FreeBattleResources(void)
         FREE_AND_SET_NULL(gBattleResources->battleHistory);
         FREE_AND_SET_NULL(gBattleResources->AI_ScriptsStack);
         FREE_AND_SET_NULL(gBattleResources);
-
-        FREE_AND_SET_NULL(gLinkBattleSendBuffer);
-        FREE_AND_SET_NULL(gLinkBattleRecvBuffer);
 
         FREE_AND_SET_NULL(gBattleAnimBgTileBuffer);
         FREE_AND_SET_NULL(gBattleAnimBgTilemapBuffer);

@@ -74,7 +74,6 @@ static void UpdateObjectEventVisibility(struct ObjectEvent *, struct Sprite *);
 static void MakeObjectTemplateFromObjectEventTemplate(const struct ObjectEventTemplate *, struct SpriteTemplate *, const struct SubspriteTable **);
 static void GetObjectEventMovingCameraOffset(s16 *, s16 *);
 static const struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u8, u8, u8);
-static void RemoveObjectEventIfOutsideView(struct ObjectEvent *);
 static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y);
 static void SetPlayerAvatarObjectEventIdAndObjectId(u8, u8);
 static void ResetObjectEventFldEffData(struct ObjectEvent *);
@@ -1497,7 +1496,6 @@ static void ClearAllObjectEvents(void)
 
 void ResetObjectEvents(void)
 {
-    ClearLinkPlayerObjectEvents();
     ClearAllObjectEvents();
     ClearPlayerAvatarInfo();
     CreateReflectionEffectSprites();
@@ -2136,44 +2134,6 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
     }
 }
 
-void RemoveObjectEventsOutsideView(void)
-{
-    u8 i, j;
-    bool8 isActiveLinkPlayer;
-
-    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
-    {
-        for (j = 0, isActiveLinkPlayer = FALSE; j < NELEMS(gLinkPlayerObjectEvents); j++)
-        {
-            if (gLinkPlayerObjectEvents[j].active && i == gLinkPlayerObjectEvents[j].objEventId)
-                isActiveLinkPlayer = TRUE;
-        }
-        if (!isActiveLinkPlayer)
-        {
-            struct ObjectEvent *objectEvent = &gObjectEvents[i];
-
-            if (objectEvent->active && !objectEvent->isPlayer)
-                RemoveObjectEventIfOutsideView(objectEvent);
-        }
-    }
-}
-
-static void RemoveObjectEventIfOutsideView(struct ObjectEvent *objectEvent)
-{
-    s16 left =   gSaveBlock1Ptr->pos.x - 2;
-    s16 right =  gSaveBlock1Ptr->pos.x + MAP_OFFSET_W + 2;
-    s16 top =    gSaveBlock1Ptr->pos.y;
-    s16 bottom = gSaveBlock1Ptr->pos.y + MAP_OFFSET_H + 2;
-
-    if (objectEvent->currentCoords.x >= left && objectEvent->currentCoords.x <= right
-     && objectEvent->currentCoords.y >= top && objectEvent->currentCoords.y <= bottom)
-        return;
-    if (objectEvent->initialCoords.x >= left && objectEvent->initialCoords.x <= right
-     && objectEvent->initialCoords.y >= top && objectEvent->initialCoords.y <= bottom)
-        return;
-    RemoveObjectEvent(objectEvent);
-}
-
 void SpawnObjectEventsOnReturnToField(s16 x, s16 y)
 {
     u8 i;
@@ -2196,15 +2156,6 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
     struct SpriteFrameImage spriteFrameImage;
     const struct SubspriteTable *subspriteTables;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
-
-#define i spriteId
-    for (i = 0; i < NELEMS(gLinkPlayerObjectEvents); i++)
-    {
-        if (gLinkPlayerObjectEvents[i].active && objectEventId == gLinkPlayerObjectEvents[i].objEventId)
-            return;
-    }
-#undef i
-
     objectEvent = &gObjectEvents[objectEventId];
     objectEvent++;objectEvent--; // fakematch
     subspriteTables = NULL;
@@ -2689,7 +2640,6 @@ void UpdateObjectEventsForCameraUpdate(s16 x, s16 y)
 {
     UpdateObjectEventCoordsForCameraUpdate();
     TrySpawnObjectEvents(x, y);
-    RemoveObjectEventsOutsideView();
 }
 
 u8 AddCameraObject(u8 linkedSpriteId)
