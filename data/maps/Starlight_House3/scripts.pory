@@ -157,7 +157,7 @@ script Starlight_House3_Computer {
     
 }
 
-script Starlight_House3_Computer_Special {//Not going to use this version for now unless I am okay to
+script Starlight_House3_Computer_Special {
     if(flag(FLAG_TEMP_1)) {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox(
@@ -177,6 +177,7 @@ script Starlight_House3_Computer_Special {//Not going to use this version for no
     setflag(FLAG_TEMP_5)
     } else {
         if(flag(FLAG_TEMP_6)) {
+            setflag(FLAG_TEMP_4)
             random(7)
             switch(var(VAR_RESULT)) {
                 case 0:
@@ -211,6 +212,7 @@ script Starlight_House3_Computer_Special {//Not going to use this version for no
 	"streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
             }    
 	   } else {
+            setflag(FLAG_TEMP_4)
             random(6)
             switch(var(VAR_RESULT)) {
                 case 0:
@@ -243,17 +245,44 @@ script Starlight_House3_Computer_Special {//Not going to use this version for no
                     "It's a video of that famous Twitch\n"
 	"streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
-                    
-	            }
-
+                }
 	        }
         }
+    }   
+    
+        if(flag(FLAG_TEMP_4)) {
+        random(3)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+	"...\p"
+    "Let's close that tab.", MSGBOX_SIGN)
+                case 1:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+	"...\p"
+    "How silly!", MSGBOX_SIGN)
+                case 2:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+	"They were better in their early\n"
+	"days…", MSGBOX_NPC)
+           
+           
+            } 
+
+    } else {
+
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
         msgbox(
 	"...\p"
-    "Let's close the tab.", MSGBOX_SIGN)
-
-    }
+    "Let's close that tab.", MSGBOX_SIGN)
+            
+        }
+                    
+        release
+        end
 }
 
 
