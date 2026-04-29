@@ -530,6 +530,7 @@
 #define ANIM_TAG_GLISCOR_CLAW               (ANIM_SPRITES_START + 520)
 #define ANIM_TAG_PRIME_NUMBERS              (ANIM_SPRITES_START + 521)
 #define ANIM_TAG_QUAKE                      (ANIM_SPRITES_START + 522)
+#define ANIM_TAG_FRYING_PAN                 (ANIM_SPRITES_START + 523)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -596,6 +597,7 @@
 #define BG_PEWTER 37
 #define BG_COKE 38
 #define BG_GHOST_TRICK 39
+#define BG_LOSS 40
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
