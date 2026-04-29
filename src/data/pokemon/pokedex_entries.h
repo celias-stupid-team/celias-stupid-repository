@@ -5277,7 +5277,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_GIMMIGHOUL] =
     {
-        .categoryName = _("COIN-CASE"),
+        .categoryName = _("COIN"),
         .height = 1,
         .weight = .1,
         .description = gGimmighoulPokedexText,
