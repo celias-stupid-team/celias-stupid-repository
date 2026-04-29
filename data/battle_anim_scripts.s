@@ -17,6 +17,7 @@
 	.align 2
 gMovesWithQuietBGM::
 	.2byte MOVE_MEGA_KICK
+	.2byte MOVE_WRAP
 	.2byte MOVE_SING
 	.2byte MOVE_PERISH_SONG
 	.2byte MOVE_STRENGTH
@@ -9840,7 +9841,27 @@ BindWrapSqueezeTarget:
 
 Move_WRAP:
 	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 6, 4, 2, 4
-	goto BindWrap
+	@playsewithpan SE_M_BIND, SOUND_PAN_TARGET
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1187
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 16
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 16
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1136
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 11
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 2
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1245
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 16
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 22
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1142
+	call BindWrapSqueezeTarget
+	call BindWrapSqueezeTarget
+	waitforvisualfinish
+	end
 
 Move_PSY_MIEM:
 Move_PSY_BIEM:
@@ -13381,6 +13402,18 @@ Status_BindWrap:
 	delay 20
 	setarg 7, 0xFFFF
 	playsewithpan SE_M_BIND, SOUND_PAN_TARGET
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1091
+	delay 16
+	delay 6
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1107
+	delay 16
+	delay 10
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1110
+	delay 16
+	delay 8
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1104
+	delay 16
+	delay 8
 	waitforvisualfinish
 	end
 
