@@ -331,10 +331,10 @@ static const union AnimCmd *const sAnims_Bees[] =
 
 const struct SpriteTemplate gBeeSpinSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_SMALL_BEE,
-    .paletteTag = ANIM_TAG_SMALL_BEE,
+    .tileTag = ANIM_TAG_BEE,
+    .paletteTag = ANIM_TAG_BEE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnims_Bees,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimParticleInVortex,
