@@ -14714,9 +14714,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_OVULATION_BOMB] =
     {
         .effect = EFFECT_TAILSLAP,
-        .power = 10,
+        .power = 15,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .accuracy = 85,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
