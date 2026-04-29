@@ -1899,7 +1899,7 @@ Move_POISON_STING:
 	blendoff
 	end
 
-
+Move_POISON_STING_TCG:
 	@tcg poison sting
 	loadspritegfx ANIM_TAG_TCG_NEEDLE
 	loadspritegfx ANIM_TAG_TCG_POISON
@@ -1928,8 +1928,6 @@ Move_POISON_STING:
     @    sprite->data[3] = gBattleAnimArgs[4]; // number of steps
     @    sprite->data[4] = gBattleAnimArgs[5]; // wait duration
     @    sprite->data[5] = gBattleAnimArgs[6]; // delay between steps
-	
-
 	end
 
 PoisonStingTcgAgainstPlayer:
@@ -2222,6 +2220,7 @@ SonicBoomHit:
 	delay 4
 	return
 
+Move_THUNDERSHOCK_TCG:
 Move_THUNDER_SHOCK:
 	loadspritegfx ANIM_TAG_SPARK
 	loadspritegfx ANIM_TAG_SPARK_2
@@ -4062,7 +4061,7 @@ Move_EARTHQUAKER:
 Move_EARTHQUAKE:
 	createvisualtask AnimTask_GetAttackerSide, 2
 	jumprettrue OnixEarthquake
-	
+
 	loadspritegfx ANIM_TAG_EARTH
 	loadspritegfx ANIM_TAG_QUAKE
 	monbg ANIM_TARGET
@@ -4561,6 +4560,8 @@ Move_GLARE:
 	createvisualtask AnimTask_BlendBattleAnimPal, 5, F_PAL_BG, 0, 16, 0, RGB_BLACK
 	end
 
+Move_HEAVY_BALL:
+Move_OVULATION_BOMB:
 Move_CIRCLE_THROW:
 Move_EGGSPLPOSION:
 Move_HARDBOILED:
@@ -6798,7 +6799,7 @@ MindReaderEyeSpikeEffect:
 	delay 2
 	return
 
-Move_ICE_PUNCH:
+Move_ICE_PUNCH_TCG:
 	loadspritegfx ANIM_TAG_TCG_PUNCH
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
@@ -6816,6 +6817,7 @@ Move_ICE_PUNCH:
 	call TCGImpact
 	end
 
+Move_ICE_PUNCH:
 	@Original Ice Punch
 	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
@@ -6893,19 +6895,42 @@ Move_CONFUSION:
 
 
 
+Move_PSYBEAM_TCG:
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	loadspritegfx ANIM_TAG_TCG_PSYCHIC
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	delay 24
+	createsprite gTCGPsySpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 24, 0, 1
+	waitforvisualfinish
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	delay 24
+	createsprite gTCGPsySpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 24, 0, 1
+	waitforvisualfinish
+	call TCGImpact
+	end
 Move_PSY_BEAM:
-	monbg ANIM_DEF_PARTNER
+	loadspritegfx ANIM_TAG_GOLD_RING
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
 	call SetPsychicBackground
-	setalpha 8, 8
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 10, 1
-	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 2, 0, 8, RGB(31, 23, 0)
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_PSYBEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 3, 4, 0, 15
+	call PsybeamRings
+	call PsybeamRings
+	createvisualtask AnimTask_SwayMon, 5, 0, 6, 2048, 4, ANIM_TARGET
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 2, 0, 12, RGB(31, 18, 31)
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
 	waitforvisualfinish
-	loopsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET, 10, 3
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 15, 1
-	createvisualtask AnimTask_ScaleMonAndRestore, 5, -6, -6, 15, ANIM_TARGET, 1
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
-	blendoff
 	delay 1
 	call UnsetPsychicBackground
 	end
@@ -7006,6 +7031,7 @@ Move_THUNDER:
 	waitbgfadein
 	end
 
+Move_THUNDERPUNCH_TCG:
 Move_THUNDER_PUNCH:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
@@ -8380,6 +8406,7 @@ InkBubblesEffect:
 	playsewithpan SE_M_TOXIC, SOUND_PAN_TARGET
 	return
 
+Move_SLUDGE_TCG:
 Move_GARBOTOXIN:
 	loadspritegfx ANIM_TAG_TCG_GOO
 	loadspritegfx ANIM_TAG_TCG_CHARGE
@@ -12544,7 +12571,7 @@ Move_KNOCK_OFF:
 	waitforvisualfinish
 	end
 
-	
+Move_KNOCK_OFF_TCG:
 	loadspritegfx ANIM_TAG_TCG_SLASH
 	loadspritegfx ANIM_TAG_TCG_SLAP
 	loadspritegfx ANIM_TAG_TCG_SLAP_IMPACT
@@ -31061,6 +31088,7 @@ Move_CRAB_GRIP:
 	loopsewithpan SE_M_SWAGGER2, SOUND_PAN_TARGET, 16, 3
 	end
 
+Move_ROCK_THROW_TCG:
 Move_ANCIENT_POWER_TCG:
 	loadspritegfx ANIM_TAG_TCG_ROCKS
 	loadspritegfx ANIM_TAG_TCG_CHARGE
@@ -31076,6 +31104,15 @@ Move_ANCIENT_POWER_TCG:
 	createsprite gTCGBigRockSpriteTemplate, ANIM_TARGET, 2, 40, -20, -8, 8, 5, 6, 7, 1
 	delay 12
 	createsprite gTCGSmallRockSpriteTemplate, ANIM_TARGET, 2, 20, -40, -8, 8, 7, 6, 7, 1
+	waitforvisualfinish
+	call TCGImpact
+	end
+
+Move_POUND_TCG:
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
 	call TCGImpact
 	end
@@ -31947,26 +31984,61 @@ Move_MAP_MUSIC:
 	goto Move_TEETER_DANCE
 Move_MAP_WEATHER:
 	goto Move_RAIN_DANCE
+Move_SEISMIC_LOSS:
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_ROCKS
+	setarg 7, 0
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	waitforvisualfinish
+	delay 1
+	fadetobg BG_LOSS
+	waitbgfadeout
+	createvisualtask AnimTask_MoveSeismicTossBg, 3
+	playsewithpan SE_M_SKY_UPPERCUT, 0
+	waitbgfadein
+	waitforvisualfinish
+	createvisualtask AnimTask_SeismicTossBgAccelerateDownAtEnd, 3
+	call SeismicTossRockScatter2
+	delay 10
+	call SeismicTossRockScatter1
+	delay 10
+	call SeismicTossRockScatter2
+	delay 10
+	call SeismicTossRockScatter1
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFF
+	waitbgfadein
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
 Move_FRYING_PAN:
+	loadspritegfx ANIM_TAG_FRYING_PAN
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createsprite gFryingPanSpriteTemplate, ANIM_ATTACKER, 2
+	delay 20
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 5, 0, 5, 1
+	delay 17
+	playsewithpan SE_M_VITAL_THROW, SOUND_PAN_ATTACKER
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 6, -4
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
 Move_FRENZIED_ESCAPE:
 Move_IMAKUNI:
-Move_PSYBEAM_TCG:
-Move_THUNDERSHOCK_TCG:
-Move_THUNDERPUNCH_TCG:
-Move_ROCK_THROW_TCG:
-Move_POUND_TCG:
-Move_SLUDGE_TCG:
-Move_POISON_STING_TCG:
-Move_ICE_PUNCH_TCG:
-Move_KNOCK_OFF_TCG:
-Move_SEISMIC_LOSS:
 Move_LOSS_CHOP:
 Move_LOSS_POISON:
 Move_CLOSS_COMBAT:
-Move_OVULATION_BOMB:
 Move_REVENUESTEALSTRIKE:
 Move_DRM_BEATING:
 Move_LOVE_BALL:
 Move_MAX_TURNPIKE:
-Move_HEAVY_BALL:
 	goto Move_TACKLE

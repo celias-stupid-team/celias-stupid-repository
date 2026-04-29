@@ -1388,6 +1388,35 @@ const struct SpriteTemplate gTCGChargeSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sTCGPsyAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_FRAME(48, 3),
+    ANIMCMD_FRAME(64, 3),
+    ANIMCMD_FRAME(80, 3),
+    ANIMCMD_FRAME(96, 3),
+    ANIMCMD_FRAME(112, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTCGPsyAnimTable[] =
+{
+    sTCGPsyAnimCmds,
+};
+
+const struct SpriteTemplate gTCGPsySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_PSYCHIC,
+    .paletteTag = ANIM_TAG_TCG_PSYCHIC,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sTCGPsyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 
 static const union AnimCmd sTCGImpactAnimCmds[] =
 {
