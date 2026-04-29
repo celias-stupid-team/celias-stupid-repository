@@ -38,12 +38,14 @@ script PokemonIsland_Gun {
 		if(flag(FLAG_TEMP_3)) {
 			playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
 			fadescreeninstant(FADE_TO_WHITE)
-			delay(90)
+			delay(80)
 			closemessage
 			setflag(FLAG_TEMP_4)
 			removeobject(LOCALID_POKEMON_ISLAND_GROWLITHE)
 			fadescreenswapbuffers(FADE_FROM_WHITE)
-			delay(45)
+			delay(20)
+			playmoncry(SPECIES_PIKACHU_SNAP_BALL, CRY_MODE_DEFAULT)
+			waitmoncry
 
 		} else {
 			setflag(FLAG_TEMP_3)
