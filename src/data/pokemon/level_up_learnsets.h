@@ -149,6 +149,7 @@ static const struct LevelUpMove sCaterpieLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMetapodLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(0, MOVE_HARDEN),
     LEVEL_UP_MOVE(1, MOVE_HARDEN),
     LEVEL_UP_MOVE(98, MOVE_CONFUSION),
     LEVEL_UP_END

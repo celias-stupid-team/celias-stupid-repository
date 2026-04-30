@@ -13499,7 +13499,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_GASTER_BLASTER] =
     {
         .effect = EFFECT_HIT,
-        .power = 80,
+        .power = 300,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 35,

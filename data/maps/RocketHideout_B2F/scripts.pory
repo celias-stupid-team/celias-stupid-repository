@@ -19,7 +19,7 @@ mapscripts RocketHideout_B2F_MapScripts {
 	}
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_A)
-		if(flag(FLAG_COPYCAT_TM) && !checkitem(ITEM_COPYCAT_TM) && (!(var(VAR_COPYCAT_USED) == 2) && !flag(FLAG_SAFFRON_IS_TRAINS))) {
+		if(flag(FLAG_COPYCAT_TM) && !checkitem(ITEM_COPYCAT_TM) && (!(var(VAR_COPYCAT_USED) == 2)) && !flag(FLAG_SAFFRON_IS_TRAINS)) {
 			clearflag(FLAG_COPYCAT_TM)
 			clearflag(FLAG_TEMP_A)
 		}
