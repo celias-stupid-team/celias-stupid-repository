@@ -11251,6 +11251,41 @@ SweetScentEffect:
 	return
 
 Move_HYPER_BEAM:
+	createvisualtask AnimTask_GetAttackerSide, 2
+	jumprettrue OriginalHyperBeam
+	
+	loadspritegfx ANIM_TAG_HYPER_BEAM
+	loadspritegfx ANIM_TAG_LEER_BLAST_RIGHT
+
+	createvisualtask SoundTask_PlaySpecificCry, 2, 127
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 8
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 8
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	createsprite gHyperBeamSpriteTemplate, ANIM_ATTACKER, 2, 16, -8, 0, 0, 0, 61, 0, 0
+	delay 2
+	createsprite gHyperBeamSpriteTemplate, ANIM_ATTACKER, 2, 32, -16, 0, 0, 0, 61, 0, 0
+	delay 2
+	createsprite gHyperBeamSpriteTemplate, ANIM_ATTACKER, 2, 48, -24, 0, 0, 0, 61, 0, 0
+	delay 2
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	createsprite gHyperBeamSpriteTemplate, ANIM_ATTACKER, 2, 64, -32, 0, 0, 0, 61, 0, 0
+	delay 2
+	createsprite gHyperBeamSpriteTemplate, ANIM_ATTACKER, 2, 80, -40, 0, 0, 0, 61, 0, 0
+	delay 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 30, 1
+	createsprite gLeerBlastRightSpriteTemplate, ANIM_ATTACKER, 2, 96, -40, 0, 0, 0, 61, 0, 0
+	delay 2
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	delay 10
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	delay 10
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	delay 10
+	createvisualtask AnimTask_InvertScreenColor, 2, 257, 257, 257
+	waitforvisualfinish
+	end
+
+OriginalHyperBeam:
 	loadspritegfx ANIM_TAG_ORBS
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
 	waitforvisualfinish

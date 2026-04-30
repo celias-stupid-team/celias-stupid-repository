@@ -1605,6 +1605,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_PrimeNumbers, 0x0A00, ANIM_TAG_PRIME_NUMBERS},
     {gBattleAnimSpriteGfx_Quake, 0x2000, ANIM_TAG_QUAKE},
     {gBattleAnimSpriteGfx_FryingPan, 0x0200, ANIM_TAG_FRYING_PAN},
+    {gBattleAnimSpriteGfx_HyperBeam, 0x0200, ANIM_TAG_HYPER_BEAM},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2133,6 +2134,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_PrimeNumbers, ANIM_TAG_PRIME_NUMBERS},
     {gBattleAnimSpritePal_Quake, ANIM_TAG_QUAKE},
     {gBattleAnimSpritePal_FryingPan, ANIM_TAG_FRYING_PAN},
+    {gBattleAnimSpritePal_HyperBeam, ANIM_TAG_HYPER_BEAM},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

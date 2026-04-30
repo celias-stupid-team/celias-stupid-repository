@@ -694,6 +694,31 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sHyperBeamAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_FRAME(4, 2),
+    ANIMCMD_FRAME(8, 2),
+    ANIMCMD_FRAME(12, 2),
+    ANIMCMD_JUMP(2),
+};
+
+static const union AnimCmd *const sHyperBeamAnimTable[] =
+{
+    sHyperBeamAnimCmds,
+};
+
+const struct SpriteTemplate gHyperBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HYPER_BEAM,
+    .paletteTag = ANIM_TAG_HYPER_BEAM,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sHyperBeamAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sTcgPoisonAnimCmds[] =    
 {
     ANIMCMD_FRAME(0, 10),

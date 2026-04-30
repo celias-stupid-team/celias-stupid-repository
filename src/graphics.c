@@ -688,6 +688,9 @@ const u32 gBattleAnimSpritePal_Quake[] = INCBIN_U32("graphics/battle_anims/sprit
 const u32 gBattleAnimSpriteGfx_FryingPan[] = INCBIN_U32("graphics/battle_anims/sprites/frying_pan.4bpp.lz");
 const u32 gBattleAnimSpritePal_FryingPan[] = INCBIN_U32("graphics/battle_anims/sprites/frying_pan.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_HyperBeam[] = INCBIN_U32("graphics/battle_anims/sprites/hyper_beam.4bpp.lz");
+const u32 gBattleAnimSpritePal_HyperBeam[] = INCBIN_U32("graphics/battle_anims/sprites/hyper_beam.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

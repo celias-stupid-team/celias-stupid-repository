@@ -531,6 +531,7 @@
 #define ANIM_TAG_PRIME_NUMBERS              (ANIM_SPRITES_START + 521)
 #define ANIM_TAG_QUAKE                      (ANIM_SPRITES_START + 522)
 #define ANIM_TAG_FRYING_PAN                 (ANIM_SPRITES_START + 523)
+#define ANIM_TAG_HYPER_BEAM                 (ANIM_SPRITES_START + 524)
 
 // battlers
 #define ANIM_ATTACKER       0
