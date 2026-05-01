@@ -1011,7 +1011,7 @@ script SkyTower_Itemizer {
 	playse(SE_CLICK)
 	waitse
 	delay(30)
-	if(!flag(FLAG_TEMP_C)) {
+	if(!flag(FLAG_TEMP_B)) {
 		playse(SE_M_SPIT_UP)
 		removeobject(LOCALID_SKY_TOWER_TRAP_FINDER)
 		addobject(LOCALID_SKY_TOWER_ITEMIZER_ITEM)
@@ -1024,7 +1024,7 @@ script SkyTower_Itemizer {
 }
 
 script SkyTower_ItemizerItem {
-	setflag(FLAG_TEMP_C)
+	setflag(FLAG_TEMP_B)
 	finditem(ITEM_NUGGET)
 }
 

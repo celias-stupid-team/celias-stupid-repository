@@ -527,6 +527,23 @@ script FourIsland_DrFootstep {
 	}
 }
 
+script FourIsland_FootstepOak {
+	msgbox(
+	"I can confidently declare that\n"
+	"this{PAUSE 30} is not OAK.\p"
+
+	"{PAUSE 30}Silly.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script FourIsland_DarkOak {
+	msgbox(
+	"That's not DARK-TYPE, silly!\n"
+	"", MSGBOX_NPC)
+}
+
+
 script FourIsland_SealCase {
 	lock
 	faceplayer

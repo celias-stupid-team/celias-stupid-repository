@@ -905,11 +905,10 @@ PokedexRating_Text_HintHoopa::
 
 
 PokedexRating_Text_HintMimikyu::
-	.string "Now that the DMCA are gone, you\n"
-	.string "should be free to explore SAFFRON!\p"
-	.string "There was a house with a young\n"
-	.string "girl living in it.\l"
-	.string "Perhaps you should check on her?$"
+	.string "Say, did you get another TM that\n"
+	.string "mysteriously went to the ITEMS bag?\p"
+	.string "I wonder why that keeps happening.\n"
+	.string "Do you know what's in it?$"
 
 
 PokedexRating_Text_HintOmanyte::

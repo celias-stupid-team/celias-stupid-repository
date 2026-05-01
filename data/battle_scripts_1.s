@@ -5769,7 +5769,7 @@ BattleScript_Effect10kVolts::
 	ppreduce
 	critcalc
 	damagecalc
-	typecalc
+	@ typecalc
 	adjustnormaldamage
 	attackanimation
 	waitanimation

@@ -326,6 +326,16 @@ static const u16 sECPhrase_OddishTaurosMewtwoVulpix[] = {
 };
 
 
+
+static const u16 sECPhrase_OddishTaurosMewtwoVulpixAlola[] = {
+    EC_POKEMON(ODDISH),
+    EC_POKEMON(TAUROS),
+    EC_POKEMON(MEWTWO),
+    EC_POKEMON(VULPIX_ALOLA)
+};
+
+
+
 static void CompareQuestionnaireResponseWithPassphrase(void)
 {
     gSpecialVar_0x8002 = IsPhraseDifferentThanPlayerInput(sECPhrase_OddishTaurosMewtwoVulpix, NELEMS(sECPhrase_OddishTaurosMewtwoVulpix));
@@ -333,6 +343,7 @@ static void CompareQuestionnaireResponseWithPassphrase(void)
     gSpecialVar_0x8004 = IsPhraseDifferentThanPlayerInput(sECPhrase_LinkTogetherWithAll, NELEMS(sECPhrase_LinkTogetherWithAll));
     gSpecialVar_0x8005 = IsPhraseDifferentThanPlayerInput(sECPhrase_PsychicKeyGottenFree, NELEMS(sECPhrase_PsychicKeyGottenFree));
     gSpecialVar_0x8006 = DoesPhraseContainYes();
+    gSpecialVar_0x8007 = IsPhraseDifferentThanPlayerInput(sECPhrase_OddishTaurosMewtwoVulpixAlola, NELEMS(sECPhrase_OddishTaurosMewtwoVulpixAlola));
 }
 
 static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {

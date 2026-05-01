@@ -2242,7 +2242,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 switch (gLastUsedAbility)
                 {
                 case ABILITY_LIGHTNING_ROD:
-                    if (moveType == TYPE_ELECTRIC)
+                    if (moveType == TYPE_ELECTRIC && move != MOVE_10000_VOLTS)
                     {
                         if (gProtectStructs[gBattlerAttacker].notFirstStrike)
                             gBattlescriptCurrInstr = BattleScript_MoveHPDrain;
@@ -2253,7 +2253,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                     break;
                 case ABILITY_VOLT_ABSORB:
-                    if (moveType == TYPE_ELECTRIC)// && gBattleMoves[move].power != 0)
+                    if (moveType == TYPE_ELECTRIC && move != MOVE_10000_VOLTS)// && gBattleMoves[move].power != 0)
                     {
                         if (gProtectStructs[gBattlerAttacker].notFirstStrike)
                             gBattlescriptCurrInstr = BattleScript_MoveHPDrain;
