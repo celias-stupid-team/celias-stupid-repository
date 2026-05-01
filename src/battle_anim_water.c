@@ -57,6 +57,7 @@ static void AnimTask_PCreate_Step(u8 taskId);
 static void AnimYellowDroplet(struct Sprite *sprite);
 static void AnimYellowDroplet_Step(struct Sprite *sprite);
 static void AnimTask_RotateFlipRockReturn_Step(u8 taskId);
+static void AnimTask_FrenziedEscape_Step(u8 taskId);
 
 static const u8 sUnusedWater_Gfx[] = INCBIN_U8("graphics/battle_anims/unused/water.4bpp");
 static const u8 sUnusedWater[] = INCBIN_U8("graphics/battle_anims/unused/water.bin");
@@ -2106,4 +2107,97 @@ static void AnimTask_RotateFlipRockReturn_Step(u8 taskId)
     // Apply rotation every frame
     SetSpriteRotScale(spriteId, 0x100, 0x100, task->data[2]);
     SetBattlerSpriteYOffsetFromRotation(spriteId);
+}
+
+// Moves the attacker horizontally and vertically while continuously rotating.
+// The battler keeps its final position after the animation ends.
+// Used to fling the Pokemon off screen and have it kill itself lmao
+//
+// arg 0: horizontal speed
+// arg 1: vertical speed
+// arg 2: duration in frames
+// arg 3: rotation speed
+//
+// createvisualtask AnimTask_FrenziedEscape, 2, 6, -2, 40, 0x500
+
+void AnimTask_FrenziedEscape(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 spriteId;
+
+    spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+
+    PrepareBattlerSpriteForRotScale(spriteId, 0);
+
+    // Battler sprite ID
+    task->data[0] = spriteId;
+
+    // Current rotation angle
+    task->data[1] = 0;
+
+    // Horizontal speed
+    task->data[2] = gBattleAnimArgs[0];
+
+    // Vertical speed
+    task->data[3] = gBattleAnimArgs[1];
+
+    // Duration
+    task->data[4] = gBattleAnimArgs[2];
+
+    // Rotation speed
+    task->data[5] = gBattleAnimArgs[3];
+
+    if (task->data[5] == 0)
+        task->data[5] = 0x400;
+
+    // Frame counter
+    task->data[6] = 0;
+
+    task->func = AnimTask_FrenziedEscape_Step;
+}
+
+static void AnimTask_FrenziedEscape_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 spriteId = task->data[0];
+
+    // -------------------------
+    // Move battler
+    // -------------------------
+    gSprites[spriteId].x += task->data[2];
+    gSprites[spriteId].y += task->data[3];
+
+    // -------------------------
+    // Rotate continuously
+    // -------------------------
+    task->data[1] += task->data[5];
+
+    SetSpriteRotScale(
+        spriteId,
+        0x100,
+        0x100,
+        task->data[1]
+    );
+
+    SetBattlerSpriteYOffsetFromRotation(spriteId);
+
+    // -------------------------
+    // Advance timer
+    // -------------------------
+    task->data[6]++;
+
+    // -------------------------
+    // Finish animation
+    // -------------------------
+    if (task->data[6] >= task->data[4])
+    {
+        // Preserve final position.
+        // Only clear affine transform.
+        ResetSpriteRotScale(spriteId);
+
+        gSprites[spriteId].x2 = 0;
+        gSprites[spriteId].y2 = 0;
+
+        DestroyAnimVisualTask(taskId);
+    }
 }

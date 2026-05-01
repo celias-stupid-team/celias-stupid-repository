@@ -32068,6 +32068,20 @@ Move_FRYING_PAN:
 	blendoff
 	end
 Move_FRENZIED_ESCAPE:
+	loadspritegfx ANIM_TAG_HUMAN_HAND
+	createsprite gHumanHandMoveSpriteTemplate, ANIM_ATTACKER, 2, 16, 80, 0, -2, 32, 40, 0, 0
+	delay 70
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createsprite gHumanHandRotateSpriteTemplate, ANIM_ATTACKER, 2, 16, 16, 0xE00, 3, 40, 0
+	@createvisualtask AnimTask_FrenziedEscape, 2, 16, 45, -0xB00
+	createvisualtask AnimTask_FrenziedEscape, 2, -16, -4, 20, -0xB00
+	delay 20
+	playse SE_M_SELF_DESTRUCT
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 10
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 10
+	waitforvisualfinish
+	end
+
 Move_IMAKUNI:
 Move_LOSS_CHOP:
 Move_LOSS_POISON:
