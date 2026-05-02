@@ -248,7 +248,7 @@ script DMCAWarehouse_AZStory {
 	"{PAUSE 30}This made me very sad.\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
-	playbgm(MUS_NONE, TRUE)
+	playbgm(MUS_NONE, FALSE)
 	delay(60)
 	fadedefaultbgm
 	release

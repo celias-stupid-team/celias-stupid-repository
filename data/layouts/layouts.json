@@ -473,7 +473,7 @@
       "id": "LAYOUT_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE",
       "name": "FushciaCity_SafariZone_Entrance_Layout",
       "width": 9,
-      "height": 9,
+      "height": 10,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",

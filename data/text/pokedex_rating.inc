@@ -905,11 +905,17 @@ PokedexRating_Text_HintHoopa::
 
 
 PokedexRating_Text_HintMimikyu::
+	.string "COPYCAT's family must be grateful\n"
+	.string "now that you've returned her.\p"
+	.string "Did you check around her room?\n"
+	.string "Look carefully - something's off.$"
+
+
+PokedexRating_Text_HintMimikyu2::
 	.string "Say, did you get another TM that\n"
 	.string "mysteriously went to the ITEMS bag?\p"
 	.string "I wonder why that keeps happening.\n"
 	.string "Do you know what's in it?$"
-
 
 PokedexRating_Text_HintOmanyte::
 	.string "ROUTE 9 has a wild POKéMON\n"
@@ -940,8 +946,8 @@ PokedexRating_Text_HintArticuno::
 	.string "the secret yourself?$"
 
 PokedexRating_Text_HintVaporeon::
-	.string "MOLTRES evolved into FLAREON with\n"
-	.string "just a FIRE STONE?\l"
+	.string "MOLTRES evolve with a FIRE STONE?\n"
+	.string "And ZAPDOS with a THUNDER STONE?\l"
 	.string "Quite intriguing!\p"
 	.string "You'd think a WATER STONE would\n"
 	.string "work on ARTICUNO, but that doesn't\l"

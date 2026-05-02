@@ -780,7 +780,13 @@ script GetOakPCPokedexMessage {
 		case SPECIES_ORTHWORM: 
 			 msgbox(PokedexRating_Text_HintOrthworm)
 		case SPECIES_MIMIKYU: 
-			 msgbox(PokedexRating_Text_HintMimikyu)
+			if(checkitem(ITEM_COPYCAT_TM)) {
+			 	msgbox(PokedexRating_Text_HintMimikyu2)
+
+			} else {
+			 	msgbox(PokedexRating_Text_HintMimikyu)
+
+			}
 		case SPECIES_HOOPA: 
 			 msgbox(PokedexRating_Text_HintHoopa)
 		case SPECIES_JIRACHI: 

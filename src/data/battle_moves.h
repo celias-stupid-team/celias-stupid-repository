@@ -8116,7 +8116,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     {
         .effect = EFFECT_DOUBLE_DIP,
-        .power = 80,
+        .power = 150,
         .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 10,

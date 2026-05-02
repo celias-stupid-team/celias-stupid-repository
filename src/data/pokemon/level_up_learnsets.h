@@ -1371,7 +1371,7 @@ static const struct LevelUpMove sHypnoLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sKrabbyLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(0, MOVE_CRABHAMMER),
+    //LEVEL_UP_MOVE(0, MOVE_CRABHAMMER),
     LEVEL_UP_MOVE(0, MOVE_VICE_GRIP),
     LEVEL_UP_MOVE(1, MOVE_VICE_GRIP),
     LEVEL_UP_MOVE(1, MOVE_CRABHAMMER),
@@ -1960,7 +1960,7 @@ static const struct LevelUpMove sVaporeonLevelUpLearnset[] = {
 
 static const struct LevelUpMove sJolteonLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_TWINEEDLE),
-    LEVEL_UP_MOVE(1, MOVE_PIN_MISSILE),
+    LEVEL_UP_MOVE(0, MOVE_PIN_MISSILE),
     
     LEVEL_UP_MOVE(1, MOVE_THUNDERBOLT),
     LEVEL_UP_MOVE(1, MOVE_THUNDER),
