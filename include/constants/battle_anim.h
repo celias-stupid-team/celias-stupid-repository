@@ -532,6 +532,13 @@
 #define ANIM_TAG_QUAKE                      (ANIM_SPRITES_START + 522)
 #define ANIM_TAG_FRYING_PAN                 (ANIM_SPRITES_START + 523)
 #define ANIM_TAG_HYPER_BEAM                 (ANIM_SPRITES_START + 524)
+#define ANIM_TAG_STARMIE                    (ANIM_SPRITES_START + 525)
+#define ANIM_TAG_LIL_KENYA                  (ANIM_SPRITES_START + 526)
+#define ANIM_TAG_CUBONE                     (ANIM_SPRITES_START + 527)
+#define ANIM_TAG_ZYGARDE_CELL               (ANIM_SPRITES_START + 528)
+#define ANIM_TAG_BALL_LOVE                  (ANIM_SPRITES_START + 529)
+#define ANIM_TAG_REVENUE                    (ANIM_SPRITES_START + 530)
+#define ANIM_TAG_LOCK                       (ANIM_SPRITES_START + 531)
 
 // battlers
 #define ANIM_ATTACKER       0

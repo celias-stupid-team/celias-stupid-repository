@@ -512,6 +512,39 @@ const struct SpriteTemplate gScissorsThrowSpriteTemplate =
     .callback = AnimThrowProjectile,
 };
 
+const struct SpriteTemplate gKenyaThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_LIL_KENYA,
+    .paletteTag = ANIM_TAG_LIL_KENYA,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
+const struct SpriteTemplate gCuboneThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_CUBONE,
+    .paletteTag = ANIM_TAG_CUBONE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
+const struct SpriteTemplate gZygardeCellThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_ZYGARDE_CELL,
+    .paletteTag = ANIM_TAG_ZYGARDE_CELL,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
 const struct SpriteTemplate gKrabbyThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_CSR_CRAB,
@@ -691,6 +724,57 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .paletteTag = ANIM_TAG_MING_VASE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gImakuniSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_IMAKUNI,
+    .paletteTag = ANIM_TAG_IMAKUNI,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sStarmieStandAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sStarmieGrabAnimCmds[] =    
+{
+    ANIMCMD_FRAME(48, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sStarmieAnimTable[] =
+{
+    sStarmieStandAnimCmds,
+    sStarmieGrabAnimCmds,
+};
+
+const struct SpriteTemplate gStarmieStandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sStarmieAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gStarmieGrabSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sStarmieAnimTable[1],
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -1098,7 +1182,6 @@ static const union AnimCmd sAnim_Quake[] =
     ANIMCMD_FRAME(0, 2),
     ANIMCMD_FRAME(64, 2),
     ANIMCMD_FRAME(128, 2),
-    ANIMCMD_FRAME(192, 2),
     ANIMCMD_END,
 };
 
@@ -2720,6 +2803,17 @@ const struct SpriteTemplate gBallHealAttackSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BALL_HEAL,
     .paletteTag = ANIM_TAG_BALL_HEAL,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBallAttack,
+};
+
+const struct SpriteTemplate gBallLoveAttackSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BALL_LOVE,
+    .paletteTag = ANIM_TAG_BALL_LOVE,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

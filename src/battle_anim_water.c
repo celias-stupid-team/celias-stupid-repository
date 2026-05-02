@@ -149,6 +149,31 @@ const struct SpriteTemplate gWaterBubbleProjectileSpriteTemplate =
     .callback = AnimWaterBubbleProjectile,
 };
 
+static const union AnimCmd sAnim_StarmieProjectile[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+
+static const union AnimCmd *const sAnims_StarmieProjectile[] =
+{
+    sAnim_StarmieProjectile,
+};
+
+const struct SpriteTemplate gStarmieProjectileSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = sAnims_StarmieProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
 static const union AnimCmd sAnim_ClubbleProjectile[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -421,6 +446,17 @@ const struct SpriteTemplate gPsywaveRingSpriteTemplate =
     .tileTag = ANIM_TAG_BLUE_RING,
     .paletteTag = ANIM_TAG_BLUE_RING,
     .oam = &gOamData_AffineDouble_ObjNormal_16x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gGrowingRingAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+const struct SpriteTemplate gStarmieRingSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gGrowingRingAffineAnimTable,

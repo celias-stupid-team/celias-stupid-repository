@@ -10068,7 +10068,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_LOUDRED] =
     {
         .baseHP = 84,
-        .baseAttack = 71,
+        .baseAttack = 254,
         .baseDefense = 43,
         .baseSpeed = 48,
         .baseSpAttack = 71,
