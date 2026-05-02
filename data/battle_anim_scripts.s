@@ -17,6 +17,7 @@
 	.align 2
 gMovesWithQuietBGM::
 	.2byte MOVE_MEGA_KICK
+	.2byte MOVE_WRAP
 	.2byte MOVE_SING
 	.2byte MOVE_PERISH_SONG
 	.2byte MOVE_STRENGTH
@@ -1149,6 +1150,29 @@ gBattleAnims_Moves::
 	.4byte Move_TILE_COLLISION
 	.4byte Move_MAP_MUSIC
 	.4byte Move_MAP_WEATHER
+	.4byte Move_EARTHQUAKER
+	.4byte Move_FRYING_PAN
+	.4byte Move_FRENZIED_ESCAPE
+	.4byte Move_IMAKUNI
+	.4byte Move_PSYBEAM_TCG
+	.4byte Move_THUNDERSHOCK_TCG
+	.4byte Move_THUNDERPUNCH_TCG
+	.4byte Move_ROCK_THROW_TCG
+	.4byte Move_POUND_TCG
+	.4byte Move_SLUDGE_TCG
+	.4byte Move_POISON_STING_TCG
+	.4byte Move_ICE_PUNCH_TCG
+	.4byte Move_KNOCK_OFF_TCG
+	.4byte Move_SEISMIC_LOSS
+	.4byte Move_LOSS_CHOP
+	.4byte Move_LOSS_POISON
+	.4byte Move_CLOSS_COMBAT
+	.4byte Move_OVULATION_BOMB
+	.4byte Move_REVENUESTEALSTRIKE
+	.4byte Move_DRM_BEATING
+	.4byte Move_LOVE_BALL
+	.4byte Move_MAX_TURNPIKE
+	.4byte Move_HEAVY_BALL
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -1875,7 +1899,7 @@ Move_POISON_STING:
 	blendoff
 	end
 
-
+Move_POISON_STING_TCG:
 	@tcg poison sting
 	loadspritegfx ANIM_TAG_TCG_NEEDLE
 	loadspritegfx ANIM_TAG_TCG_POISON
@@ -1904,8 +1928,6 @@ Move_POISON_STING:
     @    sprite->data[3] = gBattleAnimArgs[4]; // number of steps
     @    sprite->data[4] = gBattleAnimArgs[5]; // wait duration
     @    sprite->data[5] = gBattleAnimArgs[6]; // delay between steps
-	
-
 	end
 
 PoisonStingTcgAgainstPlayer:
@@ -2198,6 +2220,7 @@ SonicBoomHit:
 	delay 4
 	return
 
+Move_THUNDERSHOCK_TCG:
 Move_THUNDER_SHOCK:
 	loadspritegfx ANIM_TAG_SPARK
 	loadspritegfx ANIM_TAG_SPARK_2
@@ -4033,7 +4056,12 @@ Move_STAMPETE:
 	delay 16
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
 	end
+
+Move_EARTHQUAKER:
 Move_EARTHQUAKE:
+	createvisualtask AnimTask_GetAttackerSide, 2
+	jumprettrue OnixEarthquake
+
 	loadspritegfx ANIM_TAG_EARTH
 	loadspritegfx ANIM_TAG_QUAKE
 	monbg ANIM_TARGET
@@ -4052,7 +4080,8 @@ Move_EARTHQUAKE:
 	blendoff
 	waitforvisualfinish
 	end
-
+	
+OnixEarthquake:
 	@earthquake original
 	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
 	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
@@ -4062,6 +4091,8 @@ Move_EARTHQUAKE:
 	delay 16
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
 	end
+
+
 
 Move_YESIPICE_BLADES:
 	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
@@ -4529,6 +4560,8 @@ Move_GLARE:
 	createvisualtask AnimTask_BlendBattleAnimPal, 5, F_PAL_BG, 0, 16, 0, RGB_BLACK
 	end
 
+Move_HEAVY_BALL:
+Move_OVULATION_BOMB:
 Move_CIRCLE_THROW:
 Move_EGGSPLPOSION:
 Move_HARDBOILED:
@@ -6766,7 +6799,7 @@ MindReaderEyeSpikeEffect:
 	delay 2
 	return
 
-Move_ICE_PUNCH:
+Move_ICE_PUNCH_TCG:
 	loadspritegfx ANIM_TAG_TCG_PUNCH
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
@@ -6784,6 +6817,7 @@ Move_ICE_PUNCH:
 	call TCGImpact
 	end
 
+Move_ICE_PUNCH:
 	@Original Ice Punch
 	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
@@ -6861,19 +6895,42 @@ Move_CONFUSION:
 
 
 
+Move_PSYBEAM_TCG:
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	loadspritegfx ANIM_TAG_TCG_PSYCHIC
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	delay 24
+	createsprite gTCGPsySpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 24, 0, 1
+	waitforvisualfinish
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	delay 24
+	createsprite gTCGPsySpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 0, 24, 0, 1
+	waitforvisualfinish
+	call TCGImpact
+	end
 Move_PSY_BEAM:
-	monbg ANIM_DEF_PARTNER
+	loadspritegfx ANIM_TAG_GOLD_RING
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
 	call SetPsychicBackground
-	setalpha 8, 8
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 10, 1
-	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 2, 0, 8, RGB(31, 23, 0)
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_PSYBEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 3, 4, 0, 15
+	call PsybeamRings
+	call PsybeamRings
+	createvisualtask AnimTask_SwayMon, 5, 0, 6, 2048, 4, ANIM_TARGET
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 2, 0, 12, RGB(31, 18, 31)
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
+	call PsybeamRings
 	waitforvisualfinish
-	loopsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET, 10, 3
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 15, 1
-	createvisualtask AnimTask_ScaleMonAndRestore, 5, -6, -6, 15, ANIM_TARGET, 1
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
-	blendoff
 	delay 1
 	call UnsetPsychicBackground
 	end
@@ -6974,6 +7031,7 @@ Move_THUNDER:
 	waitbgfadein
 	end
 
+Move_THUNDERPUNCH_TCG:
 Move_THUNDER_PUNCH:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
@@ -8348,6 +8406,7 @@ InkBubblesEffect:
 	playsewithpan SE_M_TOXIC, SOUND_PAN_TARGET
 	return
 
+Move_SLUDGE_TCG:
 Move_GARBOTOXIN:
 	loadspritegfx ANIM_TAG_TCG_GOO
 	loadspritegfx ANIM_TAG_TCG_CHARGE
@@ -9840,7 +9899,27 @@ BindWrapSqueezeTarget:
 
 Move_WRAP:
 	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 6, 4, 2, 4
-	goto BindWrap
+	@playsewithpan SE_M_BIND, SOUND_PAN_TARGET
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1187
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 16
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 16
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1136
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 11
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 2
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1245
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 16
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, 10, -5, 5, ANIM_TARGET, 0
+	delay 22
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1142
+	call BindWrapSqueezeTarget
+	call BindWrapSqueezeTarget
+	waitforvisualfinish
+	end
 
 Move_PSY_MIEM:
 Move_PSY_BIEM:
@@ -12492,7 +12571,7 @@ Move_KNOCK_OFF:
 	waitforvisualfinish
 	end
 
-	
+Move_KNOCK_OFF_TCG:
 	loadspritegfx ANIM_TAG_TCG_SLASH
 	loadspritegfx ANIM_TAG_TCG_SLAP
 	loadspritegfx ANIM_TAG_TCG_SLAP_IMPACT
@@ -13381,6 +13460,18 @@ Status_BindWrap:
 	delay 20
 	setarg 7, 0xFFFF
 	playsewithpan SE_M_BIND, SOUND_PAN_TARGET
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1091
+	delay 16
+	delay 6
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1107
+	delay 16
+	delay 10
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1110
+	delay 16
+	delay 8
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1104
+	delay 16
+	delay 8
 	waitforvisualfinish
 	end
 
@@ -15048,41 +15139,28 @@ Move_AIR_SLASH:
 	end
 	
 Move_THE_BEE_MOVE:
-	@Kinda broken at the end
 	loadspritegfx ANIM_TAG_BEE
-	loadspritegfx ANIM_TAG_SMALL_BUBBLES
-	monbg ANIM_TARGET
-	splitbgprio ANIM_TARGET
-	setalpha 12, 8
-	delay 1
-	call BeeMoveCreateBees
-	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_TARGET
-	call BeeMoveCreateBees
-	call BeeMoveCreateBees
+	playsewithpan SE_M_SACRED_FIRE2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 2, 47, 1
+	call BeeSpinEffect
+	call BeeSpinEffect
+	call BeeSpinEffect
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
 	end
 
-BeeMoveCreateBees:
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 35, 70, 0, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 20, 40, -10, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 10, -60, 0, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 15, -15, 10, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 30, 10, -10, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
-	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 25, -30, 10, 256, 50
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	delay 3
+BeeSpinEffect:
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 28, 528, 30, 13, 50, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 32, 480, 20, 16, -46, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 33, 576, 20, 8, 42, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 31, 400, 25, 11, -42, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 28, 512, 25, 16, 46, ANIM_TARGET
+	delay 2
+	createsprite gBeeSpinSpriteTemplate, ANIM_TARGET, 2, 0, 33, 464, 30, 15, -50, ANIM_TARGET
+	delay 2
 	return
 	
 Move_WUMBOIZE:
@@ -16775,6 +16853,7 @@ Move_SHELL_SMASH:
 	end
 	
 Move_CONVERSION_Z:
+	loadspritegfx ANIM_TAG_ZYGARDE_Z
 	monbg ANIM_ATK_PARTNER
 	splitbgprio ANIM_ATTACKER
 	setalpha 16, 0
@@ -16786,6 +16865,8 @@ Move_CONVERSION_Z:
 	delay 8
 	createvisualtask AnimTask_SetCamouflageBlend, 5, F_PAL_ATTACKER, 0, 0, 0
 	waitforvisualfinish
+	createsprite gZGhostSpriteTemplate, ANIM_ATTACKER, 2
+	createvisualtask SoundTask_PlaySpecificCry, 2, 145
 	createvisualtask AnimTask_AttackerFadeFromInvisible, 2, 1, ANIM_ATTACKER
 	waitforvisualfinish
 	blendoff
@@ -20910,7 +20991,40 @@ Move_WEEDLE_ARM:
 	waitforvisualfinish
 	end
 Move_HYPER_BEE:
-	goto Move_THE_BEE_MOVE
+	@Kinda broken at the end
+	loadspritegfx ANIM_TAG_BEE
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	delay 1
+	call BeeMoveCreateBees
+	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_TARGET
+	call BeeMoveCreateBees
+	call BeeMoveCreateBees
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	end
+
+BeeMoveCreateBees:
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 35, 70, 0, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 20, 40, -10, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 10, -60, 0, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 15, -15, 10, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 30, 10, -10, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	createsprite gBeeSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 25, -30, 10, 256, 50
+	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
+	delay 3
+	return
 	
 Move_MEAN_LOOK_LOOK:
 	loadspritegfx ANIM_TAG_LOOK_LOOK
@@ -31007,6 +31121,7 @@ Move_CRAB_GRIP:
 	loopsewithpan SE_M_SWAGGER2, SOUND_PAN_TARGET, 16, 3
 	end
 
+Move_ROCK_THROW_TCG:
 Move_ANCIENT_POWER_TCG:
 	loadspritegfx ANIM_TAG_TCG_ROCKS
 	loadspritegfx ANIM_TAG_TCG_CHARGE
@@ -31022,6 +31137,15 @@ Move_ANCIENT_POWER_TCG:
 	createsprite gTCGBigRockSpriteTemplate, ANIM_TARGET, 2, 40, -20, -8, 8, 5, 6, 7, 1
 	delay 12
 	createsprite gTCGSmallRockSpriteTemplate, ANIM_TARGET, 2, 20, -40, -8, 8, 7, 6, 7, 1
+	waitforvisualfinish
+	call TCGImpact
+	end
+
+Move_POUND_TCG:
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
 	waitforvisualfinish
 	call TCGImpact
 	end
@@ -31893,3 +32017,61 @@ Move_MAP_MUSIC:
 	goto Move_TEETER_DANCE
 Move_MAP_WEATHER:
 	goto Move_RAIN_DANCE
+Move_SEISMIC_LOSS:
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_ROCKS
+	setarg 7, 0
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	waitforvisualfinish
+	delay 1
+	fadetobg BG_LOSS
+	waitbgfadeout
+	createvisualtask AnimTask_MoveSeismicTossBg, 3
+	playsewithpan SE_M_SKY_UPPERCUT, 0
+	waitbgfadein
+	waitforvisualfinish
+	createvisualtask AnimTask_SeismicTossBgAccelerateDownAtEnd, 3
+	call SeismicTossRockScatter2
+	delay 10
+	call SeismicTossRockScatter1
+	delay 10
+	call SeismicTossRockScatter2
+	delay 10
+	call SeismicTossRockScatter1
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFF
+	waitbgfadein
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+Move_FRYING_PAN:
+	loadspritegfx ANIM_TAG_FRYING_PAN
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createsprite gFryingPanSpriteTemplate, ANIM_ATTACKER, 2
+	delay 20
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 5, 0, 5, 1
+	delay 17
+	playsewithpan SE_M_VITAL_THROW, SOUND_PAN_ATTACKER
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 6, -4
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+Move_FRENZIED_ESCAPE:
+Move_IMAKUNI:
+Move_LOSS_CHOP:
+Move_LOSS_POISON:
+Move_CLOSS_COMBAT:
+Move_REVENUESTEALSTRIKE:
+Move_DRM_BEATING:
+Move_LOVE_BALL:
+Move_MAX_TURNPIKE:
+	goto Move_TACKLE

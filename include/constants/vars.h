@@ -351,7 +351,7 @@ It is reset after every battle.
 #define VAR_ARTICUNO_SCENE                 0x40ED
 #define VAR_NOT_BROCK_SILLY                 0x40EE
 #define VAR_VIRIDIAN_FOREST_CATERPIE                 0x40EF
-#define VAR_0x40F0                 0x40F0
+#define VAR_SHINY_NIDOTRAN                 0x40F0
 #define VAR_DAILY_BP               0x40F1
 #define VAR_0x40F2                 0x40F2
 #define VAR_0x40F3                 0x40F3

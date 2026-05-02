@@ -161,6 +161,17 @@ const struct SpriteTemplate gOnemerangSpriteTemplate =
     .callback = AnimBonemerangProjectile,
 };
 
+const struct SpriteTemplate gFryingPanSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FRYING_PAN,
+    .paletteTag = ANIM_TAG_FRYING_PAN,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
 const struct SpriteTemplate gSpinningBoneSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BONE,
