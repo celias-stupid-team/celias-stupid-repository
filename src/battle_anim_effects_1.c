@@ -499,6 +499,31 @@ const struct SpriteTemplate gMeatballSpriteTemplate =
     .callback = AnimMeateorBeamOrb,
 };
 
+static const union AnimCmd sStarmieKickAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_StarmieKick[] =
+{
+    sStarmieKickAnimCmds,
+};
+
+const struct SpriteTemplate gStarmieKickSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_StarmieKick,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMeateorBeamOrb,
+};
+
 static const union AnimCmd sExodiaBlastAffineAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 8),
@@ -993,6 +1018,28 @@ const struct SpriteTemplate gMimicOrbSpriteTemplate =
     .paletteTag = ANIM_TAG_ORBS,
     .oam = &gOamData_AffineDouble_ObjNormal_16x16,
     .anims = gPowerAbsorptionOrbAnimTable,
+    .images = NULL,
+    .affineAnims = sMimicOrbAffineAnimTable,
+    .callback = AnimMimicOrb,
+};
+
+static const union AnimCmd sMiemicStarAnimCmds[] =
+{
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMiemicStarAnimTable[] =
+{
+    sMiemicStarAnimCmds,
+};
+
+const struct SpriteTemplate gMiemicOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = sMiemicStarAnimTable,
     .images = NULL,
     .affineAnims = sMimicOrbAffineAnimTable,
     .callback = AnimMimicOrb,
@@ -2775,6 +2822,17 @@ const struct SpriteTemplate gDrumBeatingHandSpriteTemplate =
     .callback = AnimDrumBeatingHand,
 };
 
+const struct SpriteTemplate gDrmBeatingLockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOCK,
+    .paletteTag = ANIM_TAG_LOCK,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimDrumBeatingHand,
+};
+
 static const union AffineAnimCmd sSlowFlyingMusicNotesAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(0xA0, 0xA0, 0, 0),
@@ -2993,6 +3051,31 @@ const struct SpriteTemplate gFollowMeFingerSpriteTemplate =
     .paletteTag = ANIM_TAG_FINGER,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimFollowMeFinger,
+};
+
+static const union AnimCmd sFollowMieStarAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sFollowMieStarAnimTable[] =
+{
+    sFollowMieStarAnimCmds,
+};
+
+const struct SpriteTemplate gFollowMieStarSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sFollowMieStarAnimTable,
     .images = NULL,
     .affineAnims = sMetronomeFingerAffineAnimTable,
     .callback = AnimFollowMeFinger,
