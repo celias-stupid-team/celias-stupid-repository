@@ -183,6 +183,17 @@ const struct SpriteTemplate gSpinningBoneSpriteTemplate =
     .callback = AnimBoneHitProjectile,
 };
 
+const struct SpriteTemplate gSpinningTongueSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PERISH_TONGUE,
+    .paletteTag = ANIM_TAG_PERISH_TONGUE,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_SpinningBone,
+    .callback = AnimBoneHitProjectile,
+};
+
 const struct SpriteTemplate gSpinningCrabSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CSR_CRAB,
