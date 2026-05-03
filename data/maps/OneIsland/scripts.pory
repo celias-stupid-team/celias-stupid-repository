@@ -282,8 +282,8 @@ script OneIsland_Kaylee {
 		))
 		delay(10)
 		msgbox(
-		"KAILIE: We're dancers from the\n"
-		"land of MINNESOTA.", MSGBOX_DEFAULT)
+		"KAILIE: We're dancers all cut from\n"
+		"the same cloth.", MSGBOX_DEFAULT)
 		closemessage
 		applymovement(LOCALID_KAYLEE, moves(
 			face_down

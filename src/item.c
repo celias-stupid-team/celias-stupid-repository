@@ -707,6 +707,9 @@ u8 ItemId_GetHoldEffectParam(u16 itemId)
 
 const u8 * ItemId_GetDescription(u16 itemId)
 {
+    if(itemId == ITEM_POTION && FlagGet(FLAG_ORTHWORM_POTION)) { //
+        return COMPOUND_STRING("Oh, hey!\nThere's another one!");
+    }
     return gItems[SanitizeItemId(itemId)].description;
 }
 

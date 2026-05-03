@@ -193,6 +193,7 @@ script Route3_DugrtioSign {
 		waitfanfare
 		delay(10)
 		setflag(FLAG_DUGTRIO_SIGN)
+		call(PokemonIsland_CheckForAllSigns)
 	}
 	release
 }

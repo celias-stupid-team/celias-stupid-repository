@@ -688,6 +688,30 @@ const u32 gBattleAnimSpritePal_Quake[] = INCBIN_U32("graphics/battle_anims/sprit
 const u32 gBattleAnimSpriteGfx_FryingPan[] = INCBIN_U32("graphics/battle_anims/sprites/frying_pan.4bpp.lz");
 const u32 gBattleAnimSpritePal_FryingPan[] = INCBIN_U32("graphics/battle_anims/sprites/frying_pan.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_HyperBeam[] = INCBIN_U32("graphics/battle_anims/sprites/hyper_beam.4bpp.lz");
+const u32 gBattleAnimSpritePal_HyperBeam[] = INCBIN_U32("graphics/battle_anims/sprites/hyper_beam.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Starmie[] = INCBIN_U32("graphics/battle_anims/sprites/starmie.4bpp.lz");
+const u32 gBattleAnimSpritePal_Starmie[] = INCBIN_U32("graphics/battle_anims/sprites/starmie.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_LilKenya[] = INCBIN_U32("graphics/battle_anims/sprites/lil_kenya.4bpp.lz");
+const u32 gBattleAnimSpritePal_LilKenya[] = INCBIN_U32("graphics/battle_anims/sprites/lil_kenya.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Cubone[] = INCBIN_U32("graphics/battle_anims/sprites/cubone.4bpp.lz");
+const u32 gBattleAnimSpritePal_Cubone[] = INCBIN_U32("graphics/battle_anims/sprites/cubone.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_ZygardeCell[] = INCBIN_U32("graphics/battle_anims/sprites/zygarde_cell.4bpp.lz");
+const u32 gBattleAnimSpritePal_ZygardeCell[] = INCBIN_U32("graphics/battle_anims/sprites/zygarde_cell.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BallLove[] = INCBIN_U32("graphics/battle_anims/sprites/ball_love.4bpp.lz");
+const u32 gBattleAnimSpritePal_BallLove[] = INCBIN_U32("graphics/battle_anims/sprites/ball_love.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Revenue[] = INCBIN_U32("graphics/battle_anims/sprites/revenue.4bpp.lz");
+const u32 gBattleAnimSpritePal_Revenue[] = INCBIN_U32("graphics/battle_anims/sprites/revenue.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Lock[] = INCBIN_U32("graphics/battle_anims/sprites/purple_lock.4bpp.lz");
+const u32 gBattleAnimSpritePal_Lock[] = INCBIN_U32("graphics/battle_anims/sprites/purple_lock.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

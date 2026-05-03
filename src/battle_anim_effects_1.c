@@ -65,6 +65,10 @@ static void AnimTrickBag(struct Sprite *);
 static void AnimTrickBag_Step1(struct Sprite *);
 static void AnimTrickBag_Step2(struct Sprite *);
 static void AnimTrickBag_Step3(struct Sprite *);
+static void AnimTakeBag(struct Sprite *);
+static void AnimTakeBag_Step1(struct Sprite *);
+static void AnimTakeBag_Step2(struct Sprite *);
+static void AnimTakeBag_Step3(struct Sprite *);
 static void AnimTask_LeafBlade_Step(u8);
 static s16 LeafBladeGetPosFactor(struct Sprite *);
 static void AnimTask_LeafBlade_Step2(struct Task *, u8);
@@ -494,6 +498,31 @@ const struct SpriteTemplate gMeatballSpriteTemplate =
     .paletteTag = ANIM_TAG_MEATBALL,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_MeatballGrow,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMeateorBeamOrb,
+};
+
+static const union AnimCmd sStarmieKickAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_StarmieKick[] =
+{
+    sStarmieKickAnimCmds,
+};
+
+const struct SpriteTemplate gStarmieKickSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_StarmieKick,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimMeateorBeamOrb,
@@ -998,6 +1027,28 @@ const struct SpriteTemplate gMimicOrbSpriteTemplate =
     .callback = AnimMimicOrb,
 };
 
+static const union AnimCmd sMiemicStarAnimCmds[] =
+{
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMiemicStarAnimTable[] =
+{
+    sMiemicStarAnimCmds,
+};
+
+const struct SpriteTemplate gMiemicOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = sMiemicStarAnimTable,
+    .images = NULL,
+    .affineAnims = sMimicOrbAffineAnimTable,
+    .callback = AnimMimicOrb,
+};
+
 static const union AnimCmd sIngrainRootAnimCmds1[] =
 {
     ANIMCMD_FRAME(0, 7),
@@ -1247,6 +1298,17 @@ const struct SpriteTemplate gTrickBagSpriteTemplate =
     .images = NULL,
     .affineAnims = sTrickBagAffineAnimTable,
     .callback = AnimTrickBag,
+};
+
+const struct SpriteTemplate gTakeBagSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ITEM_BAG,
+    .paletteTag = ANIM_TAG_ITEM_BAG,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sFallingBagAnimTable,
+    .images = NULL,
+    .affineAnims = sTrickBagAffineAnimTable,
+    .callback = AnimTakeBag,
 };
 
 const struct SpriteTemplate gFlowerTrickSpriteTemplate =
@@ -2775,6 +2837,17 @@ const struct SpriteTemplate gDrumBeatingHandSpriteTemplate =
     .callback = AnimDrumBeatingHand,
 };
 
+const struct SpriteTemplate gDrmBeatingLockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOCK,
+    .paletteTag = ANIM_TAG_LOCK,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimDrumBeatingHand,
+};
+
 static const union AffineAnimCmd sSlowFlyingMusicNotesAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(0xA0, 0xA0, 0, 0),
@@ -2993,6 +3066,31 @@ const struct SpriteTemplate gFollowMeFingerSpriteTemplate =
     .paletteTag = ANIM_TAG_FINGER,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimFollowMeFinger,
+};
+
+static const union AnimCmd sFollowMieStarAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sFollowMieStarAnimTable[] =
+{
+    sFollowMieStarAnimCmds,
+};
+
+const struct SpriteTemplate gFollowMieStarSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sFollowMieStarAnimTable,
     .images = NULL,
     .affineAnims = sMetronomeFingerAffineAnimTable,
     .callback = AnimFollowMeFinger,
@@ -4667,6 +4765,142 @@ static void AnimTrickBag_Step2(struct Sprite* sprite)
 }
 
 static void AnimTrickBag_Step3(struct Sprite* sprite)
+{
+    if (sprite->data[0] > 20)
+        DestroyAnimSprite(sprite);
+
+    sprite->invisible = sprite->data[0] % 2;
+    sprite->data[0]++;
+}
+
+// Moves a bag in a circular motion similar to Trick,
+// but stops after the first half-rotation so the bag
+// ends on the same side of the field it started from.
+//
+// arg 0: y position
+// arg 1: initial wave offset
+
+static void AnimTakeBag(struct Sprite *sprite)
+{
+    int a;
+    int b;
+
+    if (!sprite->data[0])
+    {
+        if (!IsContest())
+        {
+            sprite->data[1] = gBattleAnimArgs[1];
+            sprite->x = 120;
+        }
+        else
+        {
+            a = gBattleAnimArgs[1] - 32;
+
+            if (a < 0)
+                b = gBattleAnimArgs[1] + 0xDF;
+            else
+                b = a;
+
+            sprite->data[1] = a - ((b >> 8) << 8);
+            sprite->x = 70;
+        }
+
+        sprite->y = gBattleAnimArgs[0];
+        sprite->data[2] = gBattleAnimArgs[0];
+        sprite->data[4] = 20;
+
+        sprite->x2 = Cos(sprite->data[1], 60);
+        sprite->y2 = Sin(sprite->data[1], 20);
+
+        sprite->callback = AnimTakeBag_Step1;
+
+        if (sprite->data[1] > 0 && sprite->data[1] < 192)
+            sprite->subpriority = 31;
+        else
+            sprite->subpriority = 29;
+    }
+}
+
+static void AnimTakeBag_Step1(struct Sprite *sprite)
+{
+    switch (sprite->data[3])
+    {
+    // -------------------------------------------------
+    // Drop downward before rotating
+    // -------------------------------------------------
+    case 0:
+
+        if (sprite->data[2] > 78)
+        {
+            sprite->data[3] = 1;
+
+            // Same affine anim as Trick
+            StartSpriteAffineAnim(sprite, 1);
+        }
+        else
+        {
+            sprite->data[2] += sprite->data[4] / 10;
+            sprite->data[4] += 3;
+
+            sprite->y = sprite->data[2];
+        }
+
+        break;
+
+    // -------------------------------------------------
+    // Wait for affine anim
+    // -------------------------------------------------
+    case 1:
+
+        if (sprite->affineAnimEnded)
+        {
+            sprite->data[0] = 0;
+            sprite->data[2] = 0;
+
+            sprite->callback = AnimTakeBag_Step2;
+        }
+
+        break;
+    }
+}
+
+static void AnimTakeBag_Step2(struct Sprite *sprite)
+{
+    if (sprite->data[2] == gTrickBagCoordinates[sprite->data[0]][1])
+    {
+        if (sprite->data[0] >= 3)
+        {
+            sprite->data[0] = 0;
+            sprite->callback = AnimTakeBag_Step3;
+            return;
+        }
+
+        sprite->data[2] = 0;
+        sprite->data[0]++;
+    }
+    else
+    {
+        sprite->data[2]++;
+
+        sprite->data[1] =
+            (gTrickBagCoordinates[sprite->data[0]][0]
+            * gTrickBagCoordinates[sprite->data[0]][2]
+            + sprite->data[1]) & 0xFF;
+
+        if (!IsContest())
+        {
+            if ((u16)(sprite->data[1] - 1) < 191)
+                sprite->subpriority = 31;
+            else
+                sprite->subpriority = 29;
+        }
+
+        sprite->x2 = Cos(sprite->data[1], 60);
+        sprite->y2 = Sin(sprite->data[1], 20);
+    }
+}
+
+static void AnimTakeBag_Step3(struct Sprite *sprite)
 {
     if (sprite->data[0] > 20)
         DestroyAnimSprite(sprite);

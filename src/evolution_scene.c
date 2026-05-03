@@ -811,7 +811,10 @@ static void Task_EvolutionScene(u8 taskId)
     case EVOSTATE_INTRO_SOUND:
         if (IsCryFinished()) // wait for animation, play tu du SE
         {
-            PlaySE(MUS_EVOLUTION_INTRO);
+            if(gTasks[taskId].tPostEvoSpecies != SPECIES_WARTORTLE) {
+                PlaySE(MUS_EVOLUTION_INTRO);
+
+            }
             gTasks[taskId].tState++;
         }
         break;
@@ -819,7 +822,10 @@ static void Task_EvolutionScene(u8 taskId)
         if (!IsSEPlaying())
         {
             // Start music, fade background to black
-            PlayNewMapMusic(MUS_EVOLUTION);
+            if(gTasks[taskId].tPostEvoSpecies != SPECIES_WARTORTLE) {
+                PlayNewMapMusic(MUS_EVOLUTION);
+
+            }
             gTasks[taskId].tState++;
             BeginNormalPaletteFade(0x1C, 4, 0, 0x10, RGB_BLACK);
         }

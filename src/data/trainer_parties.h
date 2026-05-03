@@ -352,7 +352,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubImakuni[] = {
         .iv = 0,
         .lvl = 14,
         .species = SPECIES_LOUDRED,
-        .moves = {MOVE_ASTONISH, MOVE_UPROAR, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_IMAKUNI, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 
 };
@@ -2522,16 +2522,18 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GamerRich[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BeautyBridget[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_BeautyBridget[] = {
     {
         .iv = 0,
         .lvl = 21,
         .species = SPECIES_PANCHAM,
+        .moves = {MOVE_KARATE_CHOP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 21,
         .species = SPECIES_EXEGGCUTE,
+        .moves = {MOVE_FRYING_PAN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -9640,7 +9642,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_AngryNerdAndrew[] = {
         .iv = 0,
         .lvl = 35,
         .species = SPECIES_GENGAR,
-        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 
@@ -10604,12 +10606,6 @@ static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
     {
         .iv = 0,
         .lvl = 50,
-        .species = SPECIES_KRABBY_POKERAP,
-        .moves = {MOVE_CRAB_THROW, MOVE_CAMBRIAN_EXPLOSION, MOVE_CRAB_GRIP, MOVE_HAZE}
-    },
-    {
-        .iv = 0,
-        .lvl = 50,
         .heldItem = ITEM_NONE,
         .species = SPECIES_SWAMPERT,
         .moves = {MOVE_SOFT_LOCK, MOVE_MOONLIGHT_YEAR, MOVE_LANDS_MATH, MOVE_EARTH_POWER}
@@ -10620,14 +10616,7 @@ static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
         .heldItem = ITEM_NONE,
         .species = SPECIES_GARDEVOIR,
         .moves = {MOVE_FAIRY_FANG, MOVE_SECRET_SWORD, MOVE_DOUBLE_JUMP, MOVE_BOTTOM_SURGERY}
-    }
-    //{
-    //    .iv = 0,
-    //    .lvl = 50,
-    //    .heldItem = ITEM_NONE,
-    //    .species = SPECIES_CHARIZARD,
-    //    .moves = {MOVE_SOFT_LOCK, MOVE_MOONLIGHT_YEAR, MOVE_LANDS_MATH, MOVE_EARTH_POWER}
-    //},
+    },
 };
 
 static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {

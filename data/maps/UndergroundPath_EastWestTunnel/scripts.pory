@@ -22,7 +22,9 @@ mapscripts UndergroundPath_EastWestTunnel_MapScripts {
 script UndergroundPath_GoldTeeth {
 	if(!flag(FLAG_GOT_GOLD_TEETH)) {
 		setflag(FLAG_GOT_GOLD_TEETH)
-		finditem(ITEM_GOLD_TEETH)
+		giveitem_msg("{PLAYER} found\nGOLD TEETH!", ITEM_GOLD_TEETH)
+		release
+		end
 	} else {
 		lock
 		msgbox("Who manages to drop their teeth\nanyway?", MSGBOX_DEFAULT)

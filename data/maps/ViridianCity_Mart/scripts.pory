@@ -93,6 +93,7 @@ script EventScript_Questionnaire {
 	lockall
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	setvar(VAR_0x8002, 2)
+	setvar(VAR_0x8007, 2)
 	setvar(VAR_0x8004, 2)
 	setvar(VAR_0x8005, 2)
 	setvar(VAR_0x8006, 0)
@@ -164,6 +165,7 @@ script EventScript_Questionnaire {
 	}
 	
 	goto_if_eq(VAR_0x8002, 0, PokeMart_ShinyVulpix)
+	goto_if_eq(VAR_0x8007, 0, PokeMart_ShinyVulpix)
 	goto_if_eq(VAR_0x8004, 0, EventScript_EnableMysteryGift)
 	goto_if_eq(VAR_RESULT, 0, EventScript_DeclineQuestionnaire)
 	goto_if_eq(VAR_RESULT, 1, EventScript_TookQuestionnaire)

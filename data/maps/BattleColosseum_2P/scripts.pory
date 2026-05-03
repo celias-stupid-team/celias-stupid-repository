@@ -441,7 +441,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F)) { //TODO figure out logic
 		setobtainable(SPECIES_MOLTRES) // 140 
 	}
-	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || (checkmoncaught(SPECIES_FLAREON)) && (flag(FLAG_BADGE08_GET) && checkmoncaught(SPECIES_PERSIAN)))) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_MOLTRES)) { //TODO figure out logic
 		setobtainable(SPECIES_FLAREON) // 141
 	}
 	if(flag(FLAG_CSR_PHIONE_EGG)) {
@@ -780,7 +780,13 @@ script GetOakPCPokedexMessage {
 		case SPECIES_ORTHWORM: 
 			 msgbox(PokedexRating_Text_HintOrthworm)
 		case SPECIES_MIMIKYU: 
-			 msgbox(PokedexRating_Text_HintMimikyu)
+			if(checkitem(ITEM_COPYCAT_TM)) {
+			 	msgbox(PokedexRating_Text_HintMimikyu2)
+
+			} else {
+			 	msgbox(PokedexRating_Text_HintMimikyu)
+
+			}
 		case SPECIES_HOOPA: 
 			 msgbox(PokedexRating_Text_HintHoopa)
 		case SPECIES_JIRACHI: 

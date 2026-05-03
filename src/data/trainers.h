@@ -2571,7 +2571,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_BeautyBridget),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_BeautyBridget),
     },
     [TRAINER_BEAUTY_TAMIA] = {
         .trainerClass = TRAINER_CLASS_BEAUTY,
@@ -4070,7 +4070,7 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE | F_TRAINER_FEMALE,
         .trainerPic = TRAINER_PIC_LEADER_MISTY,
         .trainerName = _("MISTY"),
-        .items = {ITEM_X_SPECIAL},
+        .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_LeaderMisty),

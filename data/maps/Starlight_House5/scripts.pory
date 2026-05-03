@@ -32,6 +32,40 @@ script Starlight_House5_Dak_Pit { //test
 	release
 }
 
+script Starlight_House5_Dak_Pit_Unused { //test
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+    if(flag(FLAG_TEMP_3) && (flag(FLAG_TEMP_6))) {
+			 msgbox(
+	"Why would you take that?\p"
+
+	"Now how will I find my secret base\n"
+	"in the dark without a light source?", MSGBOX_NPC)
+		closemessage
+				}
+				if(flag(FLAG_TEMP_3) && (!flag(FLAG_TEMP_6))) {
+			 msgbox(
+	"DAK: This is a nice fun map!\p"
+
+	"Also why would you take that?\p"
+
+	"Now how will I find my secret base\n"
+	"in the dark without a light source?", MSGBOX_NPC)
+		closemessage
+				} else {
+	msgbox(
+	"DAK: This is a nice fun map!", MSGBOX_NPC)
+	closemessage
+	setflag(FLAG_TEMP_6)
+				}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
 script Starlight_House5_Todo_List {
 	msgbox(
 	"Starlight's Todo List:\n"

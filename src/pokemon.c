@@ -1685,14 +1685,14 @@ static const s8 sFriendshipEventDeltas[][3] =
     [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 1,  1,  0 },
     [FRIENDSHIP_EVENT_VITAMIN]              = { 0,  0,  0 },
     [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 4,  2,  1 },
+    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 3,  2,  1 },
     [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 0,  0,  0 },
-    [FRIENDSHIP_EVENT_WALKING]              = { 2,  2,  3 },
+    [FRIENDSHIP_EVENT_WALKING]              = { 2,  2,  2 },
     [FRIENDSHIP_EVENT_MASSAGE]              = { 3,  3,  3 },
     [FRIENDSHIP_EVENT_FAINT_SMALL]          = {0, 0, 0 },
     [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {0, 0, 0 },
     [FRIENDSHIP_EVENT_FAINT_LARGE]          = {0, 0, 0 },
-    [FRIENDSHIP_EVENT_WORLD_TRAVEL]          = {2, 2, 2 },
+    [FRIENDSHIP_EVENT_WORLD_TRAVEL]          = {1, 1, 1 },
 };
 
 #define HM_MOVES_END 0xFFFF
@@ -6194,6 +6194,8 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_DMCA:
         case TRAINER_CLASS_BUTTERFINGERS:
             return MUS_CSR_DMCA_BATTLE;
+        case TRAINER_CLASS_STARLIGHT:
+            return MUS_SAFARI_MARCH;
 
         case TRAINER_CLASS_DMCA_ADMIN:
             return MUS_CSR_DMCA_ADMIN;
@@ -6202,8 +6204,6 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
-        case TRAINER_CLASS_STARLIGHT:
-            return MUS_SAFARI_MARCH;
         default:
             return MUS_VS_TRAINER;
         }

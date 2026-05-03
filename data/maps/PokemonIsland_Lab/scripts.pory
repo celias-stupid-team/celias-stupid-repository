@@ -238,6 +238,7 @@ script PokemonIslandLab_GSBallCutscene {
     addvar(VAR_TEMP_5, 1)
     call(PokemonIslandLab_AddSignsBasedOnSigns)
     waitmovement(0)
+    call(PokemonIsland_CheckForAllSigns)
     release
     end
 
@@ -534,4 +535,17 @@ script PokemonIsland_OakPhoto {
 	"It's a photo of OAK!\n"
 	"", MSGBOX_SIGN)
 
+}
+
+
+script PokemonIsland_CheckForAllSigns {
+    if(flag(FLAG_DUGTRIO_SIGN) && flag(FLAG_GROWLITHE_SIGN) && flag(FLAG_ELECTIVIRE_SIGN) && flag(FLAG_AMBIGUOUS_STATUE_SIGN) && flag(FLAG_ONIX_TAIL_SIGN) && flag(FLAG_KINGLER_SIGN) && flag(FLAG_IVY_SIGN)) {
+        playfanfare(MUS_SLOTS_JACKPOT)
+        msgbox(
+        "That's it!\n"
+        "You've found all POKéMON SIGNS!", MSGBOX_DEFAULT)
+        waitfanfare
+
+    }
+    return
 }

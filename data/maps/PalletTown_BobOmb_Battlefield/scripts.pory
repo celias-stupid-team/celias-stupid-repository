@@ -234,7 +234,7 @@ script BobOmb_Daisy {
 
 script BobOmb_ArrowSign {
 	msgbox(
-	"/al\n"
+	"{LEFT_ARROW}\n"
 	"", MSGBOX_SIGN)
 
 }

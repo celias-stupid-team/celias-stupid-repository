@@ -70,6 +70,7 @@ mapscripts SafariZone_DMCAShowdown_MapScripts {
             closemessage
             applymovement(WARDEN, Common_Movement_FaceUp)
             msgbox("WARDEN: Come, {PLAYER}.\nYou should join us!", MSGBOX_DEFAULT)
+            setvar(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0)
             closemessage
             setvar(VAR_TEMP_3, 2)
             special(ExitSafariMode)

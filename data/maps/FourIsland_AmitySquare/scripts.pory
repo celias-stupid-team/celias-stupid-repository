@@ -69,6 +69,7 @@ script AmitySquare_PokemonStatue {
 		waitfanfare
 		delay(10)
 		setflag(FLAG_AMBIGUOUS_STATUE_SIGN)
+		call(PokemonIsland_CheckForAllSigns)
 	}
 	release
 }
