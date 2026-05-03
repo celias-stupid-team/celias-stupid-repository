@@ -110,6 +110,8 @@ script Route15_PokeRap_Trainer5_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_GOLDUCK)
     special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_MEW)
+    special(SetSeenMon)
     special(HealPlayerParty)
     special(DrawWholeMapView)
     release

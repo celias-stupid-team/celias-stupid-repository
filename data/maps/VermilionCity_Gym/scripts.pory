@@ -490,7 +490,7 @@ script VermillionGym_Celia_Can {
 
 
 script VermilionCity_Gym_EventScript_LtSurge {
-	if(flag(FLAG_BADGE08_GET) && !flag(FLAG_BADGE03_GET) && !flag(FLAG_SHINY_PIKABLU) && !flag(FLAG_TURNED_IN_BADGES)) {
+	if(flag(FLAG_BADGE08_GET) && !flag(FLAG_BADGE03_GET) && !flag(FLAG_SHINY_PIKABLU) && !flag(FLAG_GOT_HM05)) {
 		msgbox(
 		"Hey, kid!\n"
 		"What are you doing here?\p"

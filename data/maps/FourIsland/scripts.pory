@@ -264,7 +264,6 @@ script FourIsland_RockClimbDown {
 }
 
 script FourIsland_Rock {
-	famechecker(FAMECHECKER_GREAT_SEA_EAST, 3)
 	msgbox(
 	"It's a rock.\p"
 
@@ -283,6 +282,7 @@ script FourIsland_CenterOfTown {
 }
 
 script FourIsland_CombeeSign {
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 3)
 	msgbox("TRAINER TIPS\pCATERPIE evolves into a butterfly,\nand WEEDLE evolves into a bee!", MSGBOX_SIGN)
 }
 
@@ -313,6 +313,7 @@ script FourIsland_CeliaDawn {
 
 script FourIsland_HoneyTree {
 	lock
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 3)
 	if(checkitem(ITEM_HONEY)) {
 		msgbox("The tree has been hastily covered\nwith a coat of cheap paint.\lSlather the bark with HONEY?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {

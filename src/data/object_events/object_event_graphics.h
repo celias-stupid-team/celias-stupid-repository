@@ -916,3 +916,5 @@ const u32 gObjectEventPic_EVIL_CELIA[] = INCBIN_U32("graphics/object_events/pics
 const u16 gObjectEventPal_EVIL_CELIA[] = INCBIN_U16("graphics/object_events/palettes/EVIL_CELIA.gbapal");
 const u32 gObjectEventPic_LOOK_OAK[] = INCBIN_U32("graphics/object_events/pics/stupid/LOOK_OAK.4bpp");
 const u16 gObjectEventPal_LOOK_OAK[] = INCBIN_U16("graphics/object_events/palettes/LOOK_OAK.gbapal");
+const u32 gObjectEventPic_HONEY_TREE[] = INCBIN_U32("graphics/object_events/pics/stupid/HONEY_TREE.4bpp");
+const u16 gObjectEventPal_HONEY_TREE[] = INCBIN_U16("graphics/object_events/palettes/HONEY_TREE.gbapal");

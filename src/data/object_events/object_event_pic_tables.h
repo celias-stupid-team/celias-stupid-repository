@@ -6734,3 +6734,14 @@ const struct SpriteFrameImage gObjectEventPicTable_LOOK_OAK[] = {
     overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 2),
     overworld_frame(gObjectEventPic_LOOK_OAK, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_HONEY_TREE[] = {
+    overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 0),
+    overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 1),
+    overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 2),
+    overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 0),
+    overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 0),
+    overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 1),
+    overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 1),
+    overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 2),
+    overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 2),
+};
