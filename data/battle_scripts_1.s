@@ -5026,6 +5026,8 @@ BattleScript_BerryConfuseHealEnd2::
 	end2
 
 BattleScript_BerryStatRaiseEnd2::
+
+	playanimation BS_ATTACKER, B_ANIM_FOCUS_BAND
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_BerryStatRaiseDoStatUp
 BattleScript_BerryStatRaiseDoStatUp::
@@ -5769,7 +5771,7 @@ BattleScript_Effect10kVolts::
 	ppreduce
 	critcalc
 	damagecalc
-	typecalc
+	@ typecalc
 	adjustnormaldamage
 	attackanimation
 	waitanimation

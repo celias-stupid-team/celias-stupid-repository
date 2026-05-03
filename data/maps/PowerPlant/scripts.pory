@@ -425,12 +425,12 @@ script PowerPlant_MinigameStart {
 			//msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
 			//closemessage
 			delay(30)
-			playbgm(MUS_THUNDERING_DYNAMO, TRUE)
+			playbgm(MUS_THUNDERING_DYNAMO, FALSE)
 			callnative(StartPowerplantGame)
 			waitstate
 			if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
 				setvar(VAR_CSR_TURNED_ON_POWER, 0)
-				playbgm(MUS_NONE, TRUE)
+				playbgm(MUS_NONE, FALSE)
 				playse(SE_ITEMFINDER)
 				waitse
 				msgbox("{PLAYER} turned on the power!\n", MSGBOX_DEFAULT)
@@ -452,7 +452,7 @@ script PowerPlant_MinigameStart {
 					setflag(FLAG_SHINY_CREATION)
 				}
 				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
-				dowildbattle
+				special(StartLegendaryBattle)
 				delay(40)
 				removeobject(ETERNATUS)
 				specialvar(VAR_RESULT, GetBattleOutcome)
@@ -461,7 +461,8 @@ script PowerPlant_MinigameStart {
 					closemessage
 					giveitem(ITEM_POKE_BALL)
 					setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
-					dowildbattle
+					
+					special(StartLegendaryBattle)
 					delay(40)
 					removeobject(ETERNATUS)
 					specialvar(VAR_RESULT, GetBattleOutcome)

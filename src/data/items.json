@@ -6900,8 +6900,8 @@
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
-      "type": "ITEM_TYPE_PARTY_MENU",
-      "fieldUseFunc": "FieldUseFunc_Medicine",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OldGateau",
       "battleUsage": 1,
       "battleUseFunc": "BattleUseFunc_Medicine",
       "secondaryId": 0

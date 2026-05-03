@@ -27,6 +27,9 @@ void FieldUseFunc_Repel(u8 taskId);
 void FieldUseFunc_RunningScrews(u8 taskId);
 void FieldUseFunc_Mesprit(u8 taskId);
 void FieldUseFunc_Ligma(u8 taskId);
+void FieldUseFunc_OldGateau(u8 taskId);
+
+
 void FieldUseFunc_CopycatTM(u8 taskId);
 void FieldUseFunc_CeliaMessage(u8 taskId);
 void FieldUseFunc_Ruby(u8 taskId);

@@ -1928,7 +1928,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MEWTWO] =
     {
-        .categoryName = _("MURDER"),
+        .categoryName = _("INFRINGING"),
         .height = 20,
         .weight = 1220,
         .description = gMewtwoPokedexText,

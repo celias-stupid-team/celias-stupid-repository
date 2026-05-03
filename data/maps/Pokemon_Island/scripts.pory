@@ -16,6 +16,7 @@ script PokemonIsland_Kingler {
 		waitfanfare
 		delay(10)
 		setflag(FLAG_KINGLER_SIGN)
+		call(PokemonIsland_CheckForAllSigns)
 	}
 	release
 }

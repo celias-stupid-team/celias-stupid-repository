@@ -559,8 +559,8 @@ gFameCheckerFlavorText_GreatSeaEast2:: @ 0x81AF641
 gFameCheckerFlavorText_GreatSeaEast3:: @ 0x81AF6BA
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-	.string "It's a rock.\p"
-	.string "It feels normal to the touch.\n$"
+	.string "The tree has been hastily covered\n"
+	.string "with a coat of cheap paint.$"
 
 
 gFameCheckerFlavorText_GreatSeaEast4:: @ 0x81AF758
@@ -1154,7 +1154,7 @@ gRumorLogFlavorTextIntoLine1_Bill2::
 	.string "Workout$"
 
 gRumorLogFlavorTextIntoLine1_Bill3::
-	.string "Rock$"
+	.string "Golden$"
 
 gRumorLogFlavorTextIntoLine1_Bill4::
 	.string "Allure$"
@@ -1442,7 +1442,7 @@ gFameCheckerFlavorTextOriginObjectName_Bill2::
 	.string "Woes$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill3::
-	.string "$"
+	.string "Grove$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill4::
 	.string "Arbiter$"

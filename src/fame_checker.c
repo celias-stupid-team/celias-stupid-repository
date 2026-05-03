@@ -387,7 +387,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_BOY,
     OBJ_EVENT_GFX_BEAUTY,
     OBJ_EVENT_GFX_PICNICKER,
-    OBJ_EVENT_GFX_ROCK_SMASH_ROCK,
+    OBJ_EVENT_GFX_HONEY_SMALL,
     OBJ_EVENT_GFX_WOMAN_2,
     OBJ_EVENT_GFX_CAPTAIN,
     // Great Bay
@@ -1269,7 +1269,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(GetKantoPokedexCount(1) >= 151) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
@@ -1285,7 +1285,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(DexScreen_GetSetPokedexFlag(SPECIES_GENESECT, FLAG_GET_CAUGHT, TRUE))
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_MUK, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
@@ -1600,7 +1600,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(DexScreen_GetSetPokedexFlag(SPECIES_SOLACEON, FLAG_GET_CAUGHT, TRUE)) //Eevee
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_SMEARGLE, FLAG_GET_CAUGHT, TRUE)) //Smeargle
                         isQuestCompleted = TRUE;
                     break;
                 case 4:

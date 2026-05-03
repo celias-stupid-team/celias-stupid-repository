@@ -30,7 +30,7 @@ script MinnesotaHospital_Nurse {
                 msgbox(
                 "All right, if you insist.\p"
 
-                "That'll be ¥2,000,000.\n"
+                "That'll be ¥20,000,000.\n"
                 "{PAUSE 30}Cash or card?", MSGBOX_DEFAULT)
                 release
                 end

@@ -3315,6 +3315,46 @@ const struct SpriteTemplate gLatinasSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sLionMaleAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sLionFemaleAnimCmds[] =
+{
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd *const sLionAnimTable[] =
+{
+    sLionMaleAnimCmds,
+    sLionFemaleAnimCmds,
+};
+
+const struct SpriteTemplate gLionMaleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LIONS,
+    .paletteTag = ANIM_TAG_LIONS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sLionAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gLionFemaleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LIONS,
+    .paletteTag = ANIM_TAG_LIONS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sLionAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sToadZookaLeftAnimCmds[] =
 {
     ANIMCMD_FRAME(16, 4),

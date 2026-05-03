@@ -16098,8 +16098,8 @@
                 "species": "SPECIES_DODUO"
               },
               {
-                "min_level": 17,
-                "max_level": 17,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_DODUO"
               },
               {
@@ -16108,12 +16108,12 @@
                 "species": "SPECIES_DODUO"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_DODUO"
               },
               {
-                "min_level": 22,
+                "min_level": 19,
                 "max_level": 22,
                 "species": "SPECIES_DODUO"
               },
@@ -16123,9 +16123,9 @@
                 "species": "SPECIES_MANKEY"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_EXEGGCUTE"
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_DODUO"
               },
               {
                 "min_level": 15,

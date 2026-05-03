@@ -108,6 +108,7 @@ script Route25_Dad_Bench {
 script Route25_EventScript_Dan {
 	trainerbattle_single(TRAINER_YOUNGSTER_CHINO, Route25_Text_DanIntro, Route25_Text_DanDefeat, Route25_AddMewToSeen)
 	msgbox(Route25_Text_DanPostBattle, MSGBOX_AUTOCLOSE)
+	goto(Route25_AddMewToSeen)
 }
 
 script Route25_AddMewToSeen {

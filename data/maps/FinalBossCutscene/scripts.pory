@@ -121,6 +121,13 @@ mapscripts FinalBossCutscene_MapScripts {
 
 script FinalBattle_Simualtion {
     lock
+    
+    setflag(FLAG_DEFEATED_FINAL_BOSS)
+    setvar(VAR_TEMP_0, 1)
+    warpsilent(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM, 2)
+    end
+
+
     switch(var(VAR_FINAL_BATTLE_PHASE)) {
         case 0:
             msgbox(

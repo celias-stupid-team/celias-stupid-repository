@@ -37,7 +37,7 @@ script SkyTower_3FShop_Orb {
 	"It costs 50,000 POKé.\l"
 	"Is that acceptable to you?")
     waitmessage
-	dynmultichoice(19, 7, TRUE, 2, 0, DYN_MULTICHOICE_CB_NONE, "YES", "NO", "HURL")
+	dynmultichoice(19, 6, TRUE, 3, 0, DYN_MULTICHOICE_CB_NONE, "YES", "NO", "HURL")
     
     if(var(VAR_RESULT) == 0) {
         msgbox(

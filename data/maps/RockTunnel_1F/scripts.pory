@@ -138,6 +138,7 @@ script RockTunnel_PokemonSign {
 		addobject(HINT_GIRL)
 
 		clearflag(FLAG_TEMP_1)
+		call(PokemonIsland_CheckForAllSigns)
 	}
 	release
 	end

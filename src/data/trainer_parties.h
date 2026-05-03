@@ -9642,7 +9642,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_AngryNerdAndrew[] = {
         .iv = 0,
         .lvl = 35,
         .species = SPECIES_GENGAR,
-        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 

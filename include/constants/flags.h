@@ -1361,7 +1361,7 @@
 #define FLAG_0x4EC               0x4EC
 #define FLAG_0x4ED               0x4ED
 #define FLAG_0x4EE               0x4EE
-#define FLAG_0x4EF               0x4EF
+#define FLAG_TURNED_IN_BADGES               0x4EF
 #define FLAG_ITEM_TM43               0x4F0
 #define FLAG_ILEXIR               0x4F1
 #define FLAG_BROKE_INTO_SCHOOL               0x4F2

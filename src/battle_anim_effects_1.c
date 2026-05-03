@@ -65,6 +65,10 @@ static void AnimTrickBag(struct Sprite *);
 static void AnimTrickBag_Step1(struct Sprite *);
 static void AnimTrickBag_Step2(struct Sprite *);
 static void AnimTrickBag_Step3(struct Sprite *);
+static void AnimTakeBag(struct Sprite *);
+static void AnimTakeBag_Step1(struct Sprite *);
+static void AnimTakeBag_Step2(struct Sprite *);
+static void AnimTakeBag_Step3(struct Sprite *);
 static void AnimTask_LeafBlade_Step(u8);
 static s16 LeafBladeGetPosFactor(struct Sprite *);
 static void AnimTask_LeafBlade_Step2(struct Task *, u8);
@@ -1294,6 +1298,17 @@ const struct SpriteTemplate gTrickBagSpriteTemplate =
     .images = NULL,
     .affineAnims = sTrickBagAffineAnimTable,
     .callback = AnimTrickBag,
+};
+
+const struct SpriteTemplate gTakeBagSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ITEM_BAG,
+    .paletteTag = ANIM_TAG_ITEM_BAG,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sFallingBagAnimTable,
+    .images = NULL,
+    .affineAnims = sTrickBagAffineAnimTable,
+    .callback = AnimTakeBag,
 };
 
 const struct SpriteTemplate gFlowerTrickSpriteTemplate =
@@ -4750,6 +4765,142 @@ static void AnimTrickBag_Step2(struct Sprite* sprite)
 }
 
 static void AnimTrickBag_Step3(struct Sprite* sprite)
+{
+    if (sprite->data[0] > 20)
+        DestroyAnimSprite(sprite);
+
+    sprite->invisible = sprite->data[0] % 2;
+    sprite->data[0]++;
+}
+
+// Moves a bag in a circular motion similar to Trick,
+// but stops after the first half-rotation so the bag
+// ends on the same side of the field it started from.
+//
+// arg 0: y position
+// arg 1: initial wave offset
+
+static void AnimTakeBag(struct Sprite *sprite)
+{
+    int a;
+    int b;
+
+    if (!sprite->data[0])
+    {
+        if (!IsContest())
+        {
+            sprite->data[1] = gBattleAnimArgs[1];
+            sprite->x = 120;
+        }
+        else
+        {
+            a = gBattleAnimArgs[1] - 32;
+
+            if (a < 0)
+                b = gBattleAnimArgs[1] + 0xDF;
+            else
+                b = a;
+
+            sprite->data[1] = a - ((b >> 8) << 8);
+            sprite->x = 70;
+        }
+
+        sprite->y = gBattleAnimArgs[0];
+        sprite->data[2] = gBattleAnimArgs[0];
+        sprite->data[4] = 20;
+
+        sprite->x2 = Cos(sprite->data[1], 60);
+        sprite->y2 = Sin(sprite->data[1], 20);
+
+        sprite->callback = AnimTakeBag_Step1;
+
+        if (sprite->data[1] > 0 && sprite->data[1] < 192)
+            sprite->subpriority = 31;
+        else
+            sprite->subpriority = 29;
+    }
+}
+
+static void AnimTakeBag_Step1(struct Sprite *sprite)
+{
+    switch (sprite->data[3])
+    {
+    // -------------------------------------------------
+    // Drop downward before rotating
+    // -------------------------------------------------
+    case 0:
+
+        if (sprite->data[2] > 78)
+        {
+            sprite->data[3] = 1;
+
+            // Same affine anim as Trick
+            StartSpriteAffineAnim(sprite, 1);
+        }
+        else
+        {
+            sprite->data[2] += sprite->data[4] / 10;
+            sprite->data[4] += 3;
+
+            sprite->y = sprite->data[2];
+        }
+
+        break;
+
+    // -------------------------------------------------
+    // Wait for affine anim
+    // -------------------------------------------------
+    case 1:
+
+        if (sprite->affineAnimEnded)
+        {
+            sprite->data[0] = 0;
+            sprite->data[2] = 0;
+
+            sprite->callback = AnimTakeBag_Step2;
+        }
+
+        break;
+    }
+}
+
+static void AnimTakeBag_Step2(struct Sprite *sprite)
+{
+    if (sprite->data[2] == gTrickBagCoordinates[sprite->data[0]][1])
+    {
+        if (sprite->data[0] >= 3)
+        {
+            sprite->data[0] = 0;
+            sprite->callback = AnimTakeBag_Step3;
+            return;
+        }
+
+        sprite->data[2] = 0;
+        sprite->data[0]++;
+    }
+    else
+    {
+        sprite->data[2]++;
+
+        sprite->data[1] =
+            (gTrickBagCoordinates[sprite->data[0]][0]
+            * gTrickBagCoordinates[sprite->data[0]][2]
+            + sprite->data[1]) & 0xFF;
+
+        if (!IsContest())
+        {
+            if ((u16)(sprite->data[1] - 1) < 191)
+                sprite->subpriority = 31;
+            else
+                sprite->subpriority = 29;
+        }
+
+        sprite->x2 = Cos(sprite->data[1], 60);
+        sprite->y2 = Sin(sprite->data[1], 20);
+    }
+}
+
+static void AnimTakeBag_Step3(struct Sprite *sprite)
 {
     if (sprite->data[0] > 20)
         DestroyAnimSprite(sprite);
