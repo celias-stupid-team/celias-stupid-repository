@@ -748,8 +748,9 @@ PokedexRating_Text_HintAmpharos::
 PokedexRating_Text_HintAmoongus::
 	.string "KURT from SILPH CO. makes such\n"
 	.string "wonderful POKé BALLS.\p"
-	.string "Say, wasn't there something a bit\n"
-	.string "suspicious in his collection?$"
+	.string "Have you been able to get his\n"
+	.string "attention?\l"
+	.string "Maybe he's selling something good.$"
 
 
 PokedexRating_Text_HintRhydon::

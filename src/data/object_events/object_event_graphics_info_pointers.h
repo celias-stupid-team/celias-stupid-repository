@@ -1251,6 +1251,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SINGLE_SAWK] = &gObjectEventGraphicsInfo_SINGLE_SAWK,
     [OBJ_EVENT_GFX_EVIL_CELIA] = &gObjectEventGraphicsInfo_EVIL_CELIA,
     [OBJ_EVENT_GFX_LOOK_OAK] = &gObjectEventGraphicsInfo_LOOK_OAK,
-    [OBJ_EVENT_GFX_HONEY_TREE] = &gObjectEventGraphicsInfo_HONEY_TREE,
+    //[OBJ_EVENT_GFX_HONEY_TREE] = &gObjectEventGraphicsInfo_HONEY_TREE,
     [OBJ_EVENT_GFX_HONEY_SMALL] = &gObjectEventGraphicsInfo_HONEY_SMALL,
 };

@@ -750,6 +750,14 @@ void FieldUseFunc_Ligma(u8 taskId)
     DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_Ligma, Task_ReturnToBagFromContextMenu);
 }
 
+
+void FieldUseFunc_OldGateau(u8 taskId)
+{
+    //PlaySE(SE_FLEE);
+    //RemoveUsedItem();
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, COMPOUND_STRING("Good guess, but not quite!\pThis BRICK came from the first place\nyou saw a MEW you couldn't get.{PAUSE_UNTIL_PRESS}"), Task_ReturnToBagFromContextMenu);
+}
+
 static void ItemUseOnFieldCB_Unlock(u8 taskId)
 {
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
