@@ -3076,7 +3076,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ChainChomp = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BobombBuddy = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_GREEN,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BOBOMB_BUDDY,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

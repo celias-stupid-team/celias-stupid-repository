@@ -352,7 +352,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubImakuni[] = {
         .iv = 0,
         .lvl = 14,
         .species = SPECIES_LOUDRED,
-        .moves = {MOVE_ASTONISH, MOVE_UPROAR, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_IMAKUNI, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 
 };
@@ -2522,16 +2522,18 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GamerRich[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BeautyBridget[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_BeautyBridget[] = {
     {
         .iv = 0,
         .lvl = 21,
         .species = SPECIES_PANCHAM,
+        .moves = {MOVE_KARATE_CHOP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 21,
         .species = SPECIES_EXEGGCUTE,
+        .moves = {MOVE_FRYING_PAN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 

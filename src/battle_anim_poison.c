@@ -243,6 +243,17 @@ const struct SpriteTemplate gWaterBubbleSpriteTemplate =
     .callback = AnimBubbleEffect,
 };
 
+const struct SpriteTemplate gStarmieBubbleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STARMIE,
+    .paletteTag = ANIM_TAG_STARMIE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bubble,
+    .callback = AnimBubbleEffect,
+};
+
 const struct SpriteTemplate gClubbleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BLACK_CLUB,
