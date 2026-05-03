@@ -414,7 +414,7 @@ script Common_Script_BrickBreak {
 			release
 			end
 		} else {
-			msgbox("{PLAYER} decided against property damage.\n", MSGBOX_DEFAULT)
+			msgbox("{PLAYER} decided against property\ndamage.", MSGBOX_DEFAULT)
 		}
 
 	} else {

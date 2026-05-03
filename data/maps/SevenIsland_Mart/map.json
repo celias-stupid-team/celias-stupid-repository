@@ -3,7 +3,7 @@
   "name": "SevenIsland_Mart",
   "layout": "LAYOUT_WAL_MART_LAYOUT",
   "music": "MUS_CSR_MART",
-  "region_map_section": "MAPSEC_SEVEN_ISLAND",
+  "region_map_section": "MAPSEC_MINNESOTA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

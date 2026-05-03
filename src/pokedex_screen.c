@@ -369,7 +369,7 @@ static const struct ListMenuTemplate sListMenuTemplate_KantoDexModeSelect = {
 static const struct ListMenuItem sListMenuItems_NatDexModeSelect[] = {
     {gText_PokemonList,                  LIST_HEADER},
     {gText_NumericalModeKanto,           DEX_MODE(NUMERICAL_KANTO)},
-    {gText_NumericalModeNational,        DEX_MODE(NUMERICAL_NATIONAL)},
+    //{gText_NumericalModeNational,        DEX_MODE(NUMERICAL_NATIONAL)},
     {gText_PokemonHabitats,              LIST_HEADER},
     {gText_DexCategory_FirstBadgePkmn,    DEX_CATEGORY_FIRST_BADGE},
     {gText_DexCategory_SecondBadgePkmn,       DEX_CATEGORY_SECOND_BADGE},
@@ -380,12 +380,14 @@ static const struct ListMenuItem sListMenuItems_NatDexModeSelect[] = {
     {gText_DexCategory_SeventhBadgePkmn, DEX_CATEGORY_SEVENTH_BADGE},
     {gText_DexCategory_FinalBadgePkmn,        DEX_CATEGORY_FINAL_BADGE},
     {gText_DexCategory_RarePkmn,         DEX_CATEGORY_RARE},
+    /* I need to force the player to see Pokemon in their pokedex order
     {gText_Search,                       LIST_HEADER},
     {gText_AToZMode,                     DEX_MODE(ATOZ)},
     {gText_TypeMode,                     DEX_MODE(TYPE)},
     {gText_LightestMode,                 DEX_MODE(LIGHTEST)},
     {gText_SmallestMode,                 DEX_MODE(SMALLEST)},
     {gText_PokedexOther,                 LIST_HEADER},
+    */
     {gText_ClosePokedex,                 LIST_CANCEL},
 };
 
