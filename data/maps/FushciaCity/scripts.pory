@@ -568,6 +568,7 @@ script FushciaCity_SloganSign {
 	applymovement(SIGN_GUY, WalkInPlaceLeft)
 	waitmovement(0)
 	textcolor(NPC_TEXT_COLOR_MALE)
+	normalmsg
 	msgbox("…\pWhat the fuck kind of slogan is\nthat?", MSGBOX_DEFAULT)
 	release
 }
