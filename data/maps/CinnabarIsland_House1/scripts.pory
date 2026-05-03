@@ -2,6 +2,14 @@ mapscripts CinnabarIsland_House1_MapScripts {
 
 }
 
+script CinnabarIsland_ColorblindInk {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"What are you inking about?\n"
+	"", MSGBOX_SIGN)
+
+}
+
 
 script CinnabarIsland_ColorblindNPC {
 	lock

@@ -300,6 +300,7 @@ script Route8_GrowlitheSign {
 				playfanfare(MUS_SLOTS_WIN)
 				msgbox("{PLAYER} discovered a\nPOKéMON SIGN!", MSGBOX_DEFAULT)
 				waitfanfare
+				call(PokemonIsland_CheckForAllSigns)
 				closemessage
 				delay(10)
 

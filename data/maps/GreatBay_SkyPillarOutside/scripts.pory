@@ -239,7 +239,13 @@ script GreatSea_Buoy_SkyTowerLookGirl {
 	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
-	msgbox("TRAINER TIPS!\pTalk to her again!", MSGBOX_DEFAULT)
+    if(flag(FLAG_GIRL_PUT_IN_HOLE)) {
+	    msgbox("You can no longer talk to her.", MSGBOX_DEFAULT)
+
+    } else {
+	    msgbox("TRAINER TIPS!\pTalk to her again!", MSGBOX_DEFAULT)
+
+    }
 
 		
 	normalmsg

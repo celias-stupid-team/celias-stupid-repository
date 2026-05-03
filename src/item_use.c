@@ -1422,6 +1422,9 @@ void FieldUseFunc_LWPEmblem(u8 taskId)
 {
     u32 zubatIndex;
     zubatIndex = PartyHasMon(SPECIES_ZUBAT);
+    if(gSpecialVar_ItemId == ITEM_W_EMBLEM) {
+        VarSet(VAR_USED_W_EMBLEM, 1);
+    }
     if (gSpecialVar_ItemId == ITEM_W_EMBLEM && zubatIndex != PARTY_SIZE)
     {
         gPartyMenu.slotId = zubatIndex;
