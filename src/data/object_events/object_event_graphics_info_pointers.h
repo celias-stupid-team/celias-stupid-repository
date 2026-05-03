@@ -625,6 +625,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SINGLE_SAWK;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_EVIL_CELIA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LOOK_OAK;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HONEY_TREE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HONEY_SMALL;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1251,4 +1252,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_EVIL_CELIA] = &gObjectEventGraphicsInfo_EVIL_CELIA,
     [OBJ_EVENT_GFX_LOOK_OAK] = &gObjectEventGraphicsInfo_LOOK_OAK,
     [OBJ_EVENT_GFX_HONEY_TREE] = &gObjectEventGraphicsInfo_HONEY_TREE,
+    [OBJ_EVENT_GFX_HONEY_SMALL] = &gObjectEventGraphicsInfo_HONEY_SMALL,
 };

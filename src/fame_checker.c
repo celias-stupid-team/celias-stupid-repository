@@ -387,7 +387,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_BOY,
     OBJ_EVENT_GFX_BEAUTY,
     OBJ_EVENT_GFX_PICNICKER,
-    OBJ_EVENT_GFX_HONEY_TREE,
+    OBJ_EVENT_GFX_HONEY_SMALL,
     OBJ_EVENT_GFX_WOMAN_2,
     OBJ_EVENT_GFX_CAPTAIN,
     // Great Bay

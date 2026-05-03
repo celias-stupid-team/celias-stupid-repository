@@ -6745,3 +6745,14 @@ const struct SpriteFrameImage gObjectEventPicTable_HONEY_TREE[] = {
     overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 2),
     overworld_frame(gObjectEventPic_HONEY_TREE, 6, 6, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_HONEY_SMALL[] = {
+    overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 0),
+    overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 1),
+    overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 2),
+    overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 0),
+    overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 0),
+    overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 1),
+    overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 1),
+    overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 2),
+    overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 2),
+};
