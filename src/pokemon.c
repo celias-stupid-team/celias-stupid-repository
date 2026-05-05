@@ -6195,7 +6195,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_BUTTERFINGERS:
             return MUS_CSR_DMCA_BATTLE;
         case TRAINER_CLASS_STARLIGHT:
-            return MUS_SAFARI_MARCH;
+            return MUS_BW_RIVAL;
 
         case TRAINER_CLASS_DMCA_ADMIN:
             return MUS_CSR_DMCA_ADMIN;
