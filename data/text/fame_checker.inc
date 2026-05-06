@@ -282,7 +282,7 @@ gFameCheckerFlavorText_RockTunnel4:: @ 0x81AE48D
 	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "My name is DAZZLE!\n"
 	.string "And I collect STAR PIECES!\p"
-	.string "So, guy, if you have any STAR PIECES\n"
+	.string "So, guy, if you have a STAR PIECE\n"
 	.string "I'll trade you a BADGE for them!$"
 
 gFameCheckerFlavorText_RockTunnel5:: @ 0x81AE51B

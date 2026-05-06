@@ -247,7 +247,7 @@ script PowerPlant_Dazzle {
 		if(flag(FLAG_CSR_TALKED_TO_DAZZLE)) {
 			msgbox("DAZZLE: Hey, guy!\nDo you have a STAR PIECE?\lI'd love to trade one for a BADGE!\p… … …\n", MSGBOX_DEFAULT)
 		} else {
-			msgbox("DAZZLE: My name is DAZZLE!\nAnd I collect STAR PIECES!\lThe more I collect the happier I am!\pSo, guy, if you have any STAR PIECES\nI'll trade you a BADGE for them!\lYay!", MSGBOX_DEFAULT)
+			msgbox("DAZZLE: My name is DAZZLE!\nAnd I collect STAR PIECES!\lThe more I collect the happier I am!\pSo, guy, if you have a STAR PIECE\nI'll trade you a BADGE for them!\lYay!", MSGBOX_DEFAULT)
 		}
 		if(checkitem(ITEM_STAR_PIECE)) {
 				msgbox("DAZZLE: Ooh!\nYou have a STAR PIECE!\pWould you like to trade it for a\nBADGE?", MSGBOX_YESNO)
