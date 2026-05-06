@@ -1222,7 +1222,7 @@ static const struct TrainerMonItemCustomMoves sParty_SuperNerdMiguel[] = {
         .lvl = 14,
         .heldItem = ITEM_NONE,
         .species = SPECIES_KOFFING,
-        .moves = {MOVE_TACKLE, MOVE_POISON_GAS, MOVE_BITE, MOVE_SMOG}
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_BITE, MOVE_SMOG}
 
     },
     {

@@ -118,11 +118,11 @@ script ViridianGym_HintManSwitch {
 
                 "There's clues on every island, now\n"
                 "that you know what you're looking for.", MSGBOX_DEFAULT)
-                if(!checkmoncaught(SPECIES_ARCANINE)) {
+                //if(!checkmoncaught(SPECIES_ARCANINE)) {
                     msgbox(
                     "Incidentally, have you visited\n"
                     "CERULEAN CAVE yet?", MSGBOX_DEFAULT)
-                }
+                //}
             case 9:
                 msgbox(
                 "I don't think I'm supposed to be\n"
