@@ -452,7 +452,7 @@ script PowerPlant_MinigameStart {
 					setflag(FLAG_SHINY_CREATION)
 				}
 				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
-				special(StartLegendaryBattle)
+				dowildbattle
 				delay(40)
 				removeobject(ETERNATUS)
 				specialvar(VAR_RESULT, GetBattleOutcome)
@@ -462,7 +462,7 @@ script PowerPlant_MinigameStart {
 					giveitem(ITEM_POKE_BALL)
 					setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
 					
-					special(StartLegendaryBattle)
+					dowildbattle
 					delay(40)
 					removeobject(ETERNATUS)
 					specialvar(VAR_RESULT, GetBattleOutcome)

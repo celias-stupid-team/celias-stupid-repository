@@ -9699,7 +9699,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainLucy[] = {
     },
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 50,
         .species = SPECIES_REGIELEKI,
         .moves = {MOVE_AGILITY_DUMB, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },

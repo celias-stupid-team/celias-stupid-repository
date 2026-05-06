@@ -2250,7 +2250,7 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
     s32 arg;
-    u8 RegiSpeed = 3;
+    u8 RegiSpeed = 1;
     u8 StakatakaSpeed = 8;
 
     SetMonData(mon, MON_DATA_LEVEL, &level);
@@ -2325,9 +2325,7 @@ void CalculateMonStats(struct Pokemon *mon)
 
     SetMonData(mon, MON_DATA_HP, &currentHP);
 
-    if(species == SPECIES_REGIELEKI) {
-        SetMonData(mon, MON_DATA_SPEED, &RegiSpeed);
-    }
+
 
     if(species == SPECIES_STAKATAKA) {
         SetMonData(mon, MON_DATA_SPEED, &StakatakaSpeed);
@@ -2352,6 +2350,12 @@ void CalculateMonStats(struct Pokemon *mon)
         arg = 10;
         SetMonData(mon, MON_DATA_DEF, &arg);
         SetMonData(mon, MON_DATA_SPDEF, &arg);
+    }
+
+    
+    if(species == SPECIES_REGIELEKI) {
+        DebugPrintf("RegiSpeed");
+        SetMonData(mon, MON_DATA_SPEED, &RegiSpeed);
     }
 }
 

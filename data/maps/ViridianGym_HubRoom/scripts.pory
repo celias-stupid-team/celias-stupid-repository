@@ -35,7 +35,7 @@ script ViridianGym_HintManSwitch {
                 "powerful, it had to be Sealed away.\p"
 
                 "Perhaps once the Seal has been\n"
-                "destroyed, you'll find a way through!", MSGBOX_DEFAULT)
+                "BREAK'd, you'll find a way through!", MSGBOX_DEFAULT)
             case 3:
                 msgbox(
                 "Did you ever talk to the PHISHING\n"
@@ -112,6 +112,9 @@ script ViridianGym_HintManSwitch {
                 msgbox(
                 "Your RUMOR LOG may be helpful, but\n"
                 "not everything gets recorded there.\p"
+
+                "The POKéMON you need has now been\n"
+	            "marked obtainable in your DEX.\p"
 
                 "Go back and explore the GREAT SEA.\n"
                 "Check everything with fresh eyes.\p"
