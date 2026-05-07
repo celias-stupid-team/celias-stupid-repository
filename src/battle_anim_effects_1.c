@@ -430,6 +430,17 @@ const struct SpriteTemplate gAbsorptionOrbSpriteTemplate =
     .callback = AnimAbsorptionOrb,
 };
 
+const struct SpriteTemplate gAbsorptionCrabSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CSR_CRAB,
+    .paletteTag = ANIM_TAG_CSR_CRAB,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAbsorptionOrbAffineAnimTable,
+    .callback = AnimAbsorptionOrb,
+};
+
 static const union AnimCmd sPowerAbsorptionCreamAnimCmds[] =
 {
     ANIMCMD_FRAME(8, 8),
@@ -2815,6 +2826,78 @@ const struct SpriteTemplate gFlyingBibleStuffSpriteTemplate =
     .callback = AnimFlyingMusicNotes,
 };
 
+//This was incredibly lazy of me, very sorry
+static const union AnimCmd sWavyMusicCrabsAnimCmds1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sWavyMusicCrabsAnimCmds2[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sWavyMusicCrabsAnimCmds3[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sWavyMusicCrabsAnimCmds4[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sWavyMusicCrabsAnimCmds5[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sWavyMusicCrabsAnimCmds6[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sWavyMusicCrabsAnimCmds7[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sWavyMusicCrabsAnimCmds8[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gMusicCrabsAnimTable[] =    
+{
+    sWavyMusicCrabsAnimCmds1,
+    sWavyMusicCrabsAnimCmds2,
+    sWavyMusicCrabsAnimCmds3,
+    sWavyMusicCrabsAnimCmds4,
+    sWavyMusicCrabsAnimCmds5,
+    sWavyMusicCrabsAnimCmds6,
+    sWavyMusicCrabsAnimCmds7,
+    sWavyMusicCrabsAnimCmds8,
+};
+
+const struct SpriteTemplate gSlowFlyingMusicCrabsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THROWN_KRABBY,
+    .paletteTag = ANIM_TAG_THROWN_KRABBY,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gMusicCrabsAnimTable,
+    .images = NULL,
+    .affineAnims = sMusicNotesAffineAnimTable,
+    .callback = AnimFlyingMusicNotes,
+};
+
 const struct SpriteTemplate gBellyDrumHandSpriteTemplate =
 {
     .tileTag = ANIM_TAG_PURPLE_HAND_OUTLINE,
@@ -2835,6 +2918,17 @@ const struct SpriteTemplate gDrumBeatingHandSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimDrumBeatingHand,
+};
+
+const struct SpriteTemplate gShellyDrumClawSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CLAW,
+    .paletteTag = ANIM_TAG_CLAW,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBellyDrumHand,
 };
 
 const struct SpriteTemplate gDrmBeatingLockSpriteTemplate =

@@ -8935,6 +8935,17 @@ extern const u32 gBattleAnimSpriteGfx_ZygardeCell[];
 extern const u32 gBattleAnimSpriteGfx_BallLove[];
 extern const u32 gBattleAnimSpriteGfx_Revenue[];
 extern const u32 gBattleAnimSpriteGfx_Lock[];
+extern const u32 gBattleAnimSpriteGfx_Clock[];
+extern const u32 gBattleAnimSpriteGfx_Cloth[];
+extern const u32 gBattleAnimSpriteGfx_DireHit[];
+extern const u32 gBattleAnimSpriteGfx_Nobble[];
+extern const u32 gBattleAnimSpriteGfx_Feraligatr[];
+extern const u32 gBattleAnimSpriteGfx_Store[];
+extern const u32 gBattleAnimSpriteGfx_Gym[];
+extern const u32 gBattleAnimSpriteGfx_Nobstruct[];
+extern const u32 gBattleAnimSpriteGfx_Daisy[];
+extern const u32 gBattleAnimSpriteGfx_Nightsy[];
+extern const u32 gBattleAnimSpriteGfx_Claw[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9421,6 +9432,17 @@ extern const u32 gBattleAnimSpritePal_ZygardeCell[];
 extern const u32 gBattleAnimSpritePal_BallLove[];
 extern const u32 gBattleAnimSpritePal_Revenue[];
 extern const u32 gBattleAnimSpritePal_Lock[];
+extern const u32 gBattleAnimSpritePal_Clock[];
+extern const u32 gBattleAnimSpritePal_Cloth[];
+extern const u32 gBattleAnimSpritePal_DireHit[];
+extern const u32 gBattleAnimSpritePal_Nobble[];
+extern const u32 gBattleAnimSpritePal_Feraligatr[];
+extern const u32 gBattleAnimSpritePal_Store[];
+extern const u32 gBattleAnimSpritePal_Gym[];
+extern const u32 gBattleAnimSpritePal_Nobstruct[];
+extern const u32 gBattleAnimSpritePal_Daisy[];
+extern const u32 gBattleAnimSpritePal_Nightsy[];
+extern const u32 gBattleAnimSpritePal_Claw[];
 
 //CSR Moves
 

@@ -2682,6 +2682,17 @@ const struct SpriteTemplate gHyperVoiceRingSpriteTemplate =
     .callback = AnimHyperVoiceRing,
 };
 
+const struct SpriteTemplate gHyperVoiceStoreSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_STORE,
+    .paletteTag = ANIM_TAG_STORE,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
+};
+
 static const union AnimCmd sRoarOfPrimeOneAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 5),
@@ -3315,6 +3326,17 @@ const struct SpriteTemplate gLatinasSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gFeraligatrSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FERALIGATR,
+    .paletteTag = ANIM_TAG_FERALIGATR,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sLionMaleAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -3844,6 +3866,17 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .tileTag = ANIM_TAG_RED_HEART,
     .paletteTag = ANIM_TAG_RED_HEART,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gKrabbyBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THROWN_KRABBY,
+    .paletteTag = ANIM_TAG_THROWN_KRABBY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
