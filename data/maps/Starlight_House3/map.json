@@ -322,7 +322,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
+      "script": "Starlight_House3_Map_Table2"
     },
     {
       "type": "sign",
@@ -370,7 +370,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House3_Map_Table"
+      "script": "Starlight_House3_Map_Table2"
     },
     {
       "type": "sign",
