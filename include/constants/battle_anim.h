@@ -539,6 +539,17 @@
 #define ANIM_TAG_BALL_LOVE                  (ANIM_SPRITES_START + 529)
 #define ANIM_TAG_REVENUE                    (ANIM_SPRITES_START + 530)
 #define ANIM_TAG_LOCK                       (ANIM_SPRITES_START + 531)
+#define ANIM_TAG_CLOCK                      (ANIM_SPRITES_START + 532)
+#define ANIM_TAG_CLOTH                      (ANIM_SPRITES_START + 533)
+#define ANIM_TAG_DIRE_HIT                   (ANIM_SPRITES_START + 534)
+#define ANIM_TAG_NOBBLE                     (ANIM_SPRITES_START + 535)
+#define ANIM_TAG_FERALIGATR                 (ANIM_SPRITES_START + 536)
+#define ANIM_TAG_STORE                      (ANIM_SPRITES_START + 537)
+#define ANIM_TAG_GYM                        (ANIM_SPRITES_START + 538)
+#define ANIM_TAG_NOBSTRUCT                  (ANIM_SPRITES_START + 539)
+#define ANIM_TAG_DAISY                      (ANIM_SPRITES_START + 540)
+#define ANIM_TAG_NIGHTSY                    (ANIM_SPRITES_START + 541)
+#define ANIM_TAG_CLAW                       (ANIM_SPRITES_START + 542)
 
 // battlers
 #define ANIM_ATTACKER       0

@@ -199,6 +199,7 @@ extern const union AnimCmd *const gPowerAbsorptionOrbAnimTable[];
 extern const u8 *const gBattleAnims_StatusConditions[];
 extern const u8 *const gBattleAnims_Moves[];
 extern const u16 gMovesWithQuietBGM[];
+extern const u16 gMovesWithNoBGM[];
 
 void MoveBattlerSpriteToBG(u8 battlerId, u8);
 void ResetBattleAnimBg(u8);

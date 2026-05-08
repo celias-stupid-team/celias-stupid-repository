@@ -174,6 +174,17 @@ const struct SpriteTemplate gStarmieProjectileSpriteTemplate =
     .callback = AnimWaterBubbleProjectile,
 };
 
+const struct SpriteTemplate gNobbleProjectileSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_NOBBLE,
+    .paletteTag = ANIM_TAG_NOBBLE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = sAnims_StarmieProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
 static const union AnimCmd sAnim_ClubbleProjectile[] =
 {
     ANIMCMD_FRAME(0, 1),

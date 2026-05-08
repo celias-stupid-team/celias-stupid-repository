@@ -1613,6 +1613,17 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_BallLove, 0x0080, ANIM_TAG_BALL_LOVE},
     {gBattleAnimSpriteGfx_Revenue, 0x0200, ANIM_TAG_REVENUE},
     {gBattleAnimSpriteGfx_Lock, 0x0200, ANIM_TAG_LOCK},
+    {gBattleAnimSpriteGfx_Clock, 0x0400, ANIM_TAG_CLOCK},
+    {gBattleAnimSpriteGfx_Cloth, 0x0200, ANIM_TAG_CLOTH},
+    {gBattleAnimSpriteGfx_DireHit, 0x0200, ANIM_TAG_DIRE_HIT},
+    {gBattleAnimSpriteGfx_Nobble, 0x0200, ANIM_TAG_NOBBLE},
+    {gBattleAnimSpriteGfx_Feraligatr, 0x0800, ANIM_TAG_FERALIGATR},
+    {gBattleAnimSpriteGfx_Store, 0x0800, ANIM_TAG_STORE},
+    {gBattleAnimSpriteGfx_Gym, 0x0800, ANIM_TAG_GYM},
+    {gBattleAnimSpriteGfx_Nobstruct, 0x0800, ANIM_TAG_NOBSTRUCT},
+    {gBattleAnimSpriteGfx_Daisy, 0x0280, ANIM_TAG_DAISY},
+    {gBattleAnimSpriteGfx_Nightsy, 0x0280, ANIM_TAG_NIGHTSY},
+    {gBattleAnimSpriteGfx_Claw, 0x0200, ANIM_TAG_CLAW},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2149,6 +2160,17 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_BallLove, ANIM_TAG_BALL_LOVE},
     {gBattleAnimSpritePal_Revenue, ANIM_TAG_REVENUE},
     {gBattleAnimSpritePal_Lock, ANIM_TAG_LOCK},
+    {gBattleAnimSpritePal_Clock, ANIM_TAG_CLOCK},
+    {gBattleAnimSpritePal_Cloth, ANIM_TAG_CLOTH},
+    {gBattleAnimSpritePal_DireHit, ANIM_TAG_DIRE_HIT},
+    {gBattleAnimSpritePal_Nobble, ANIM_TAG_NOBBLE},
+    {gBattleAnimSpritePal_Feraligatr, ANIM_TAG_FERALIGATR},
+    {gBattleAnimSpritePal_Store, ANIM_TAG_STORE},
+    {gBattleAnimSpritePal_Gym, ANIM_TAG_GYM},
+    {gBattleAnimSpritePal_Nobstruct, ANIM_TAG_NOBSTRUCT},
+    {gBattleAnimSpritePal_Daisy, ANIM_TAG_DAISY},
+    {gBattleAnimSpritePal_Nightsy, ANIM_TAG_NIGHTSY},
+    {gBattleAnimSpritePal_Claw, ANIM_TAG_CLAW},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

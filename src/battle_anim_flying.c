@@ -691,6 +691,17 @@ const struct SpriteTemplate gSkyAttackBirdSpriteTemplate =
     .callback = AnimSkyAttackBird,
 };
 
+const struct SpriteTemplate gSkyAttackCrabSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CSR_CRAB,
+    .paletteTag = ANIM_TAG_CSR_CRAB,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
+
 static const union AnimCmd sAnim_Shorts[] =
 {
     ANIMCMD_FRAME(192, 16),

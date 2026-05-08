@@ -8050,7 +8050,7 @@ static const struct LevelUpMove sCinderaceLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSobbleLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_BUBBLE_BEAM),
+	LEVEL_UP_MOVE(1, MOVE_NOBBLEBEAM),
 	LEVEL_UP_END
 };
 
@@ -8280,7 +8280,7 @@ static const struct LevelUpMove sGrimmsnarlLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sObstagoonLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_HEADBUTT),
+	LEVEL_UP_MOVE(1, MOVE_NOBSTRUCT),
 	LEVEL_UP_END
 };
 

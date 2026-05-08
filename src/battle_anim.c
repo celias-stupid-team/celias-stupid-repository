@@ -276,6 +276,14 @@ void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMo
                 break;
             }
         }
+        for (i = 0; gMovesWithNoBGM[i] != 0xFFFF; i++)
+        {
+            if (tableId == gMovesWithNoBGM[i])
+            {
+                m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0);
+                break;
+            }
+        }
     }
 
     gBattle_WIN0H = 0;
