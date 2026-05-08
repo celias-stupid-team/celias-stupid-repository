@@ -83,7 +83,7 @@ script FushciaGym_RainRoom_Sign {
                 call(FushciaGym_RainRoom_OpenDoor)
                 special(DrawWholeMapView)
                 delay(60)
-                msgbox("The door appears happy to have found\na friend.", MSGBOX_DEFAULT)
+                msgbox("The door appears happy to have\nfound a friend.", MSGBOX_DEFAULT)
                 release
                 end
 

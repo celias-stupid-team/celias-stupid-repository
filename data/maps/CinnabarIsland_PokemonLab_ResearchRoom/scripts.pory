@@ -29,6 +29,7 @@ mapscripts CinnabarIsland_PokemonLab_ResearchRoom_MapScripts {
 		VAR_TEMP_5, 1 {
 			delay(60)
 			addobject(LOCALID_YANMEGABALL)
+			clearflag(FLAG_HIDE_CINNABAR_YANMEGA)
 			setobjectxy(LOCALID_YANMEGABALL, 7, 0)
 			playse(SE_FALL)
 			applymovement(LOCALID_YANMEGABALL, moves(
@@ -101,6 +102,7 @@ script PokemonLab_AmberGuardian {
 				delay(30)
 				clearflag(FLAG_TEMP_1)
 				addobject(LOCALID_YANMEGABALL)
+				clearflag(FLAG_HIDE_CINNABAR_YANMEGA)
 				fadescreenswapbuffers(FADE_FROM_BLACK)
 				msgbox(
 				"Oh, golly!\n"

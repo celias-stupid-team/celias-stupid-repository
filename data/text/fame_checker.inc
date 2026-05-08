@@ -282,7 +282,7 @@ gFameCheckerFlavorText_RockTunnel4:: @ 0x81AE48D
 	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "My name is DAZZLE!\n"
 	.string "And I collect STAR PIECES!\p"
-	.string "So, guy, if you have any STAR PIECES\n"
+	.string "So, guy, if you have a STAR PIECE\n"
 	.string "I'll trade you a BADGE for them!$"
 
 gFameCheckerFlavorText_RockTunnel5:: @ 0x81AE51B
@@ -661,7 +661,7 @@ gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
 	.string "and powerful, we humans had to\l"
 	.string "Seal it away for our own safety.\p"
 	.string "Some day, someone may come along\n"
-	.string "and Break the Seal themselves…$"
+	.string "and BREAK the Seal themselves…$"
 
 gFameCheckerFlavorText_GreatBay4:: @ 0x81AFD49
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
