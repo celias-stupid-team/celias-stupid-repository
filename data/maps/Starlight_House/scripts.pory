@@ -31,8 +31,7 @@ script Starlight_House_Window {
 
 script Starlight_House_Painting {
 	msgbox(
-	"It looks to be a painting\n"
-    "of a window.", MSGBOX_SIGN)
+	"It's a painting of a window.", MSGBOX_SIGN)
 
 }
 
@@ -91,6 +90,44 @@ script Starlight_House_Post_Game_Starlight {
 	"enriching experience for me.", MSGBOX_NPC)
 }
 
+script Starlight_House_My_Secret_Life {
+	msgbox(
+	 "My Secret Life, chapter three.\p"
+	 "I was neither a murder suspect, nor\n"
+	 "a target for an international spy\l"
+	 "organization.\p"
+	 "But I drove a car down the Jersey\n"
+	 "Turnpike at 80 mph.\p"
+	 "…A police officer pulled me over\n"
+	 "and asked for my driver's license.\p"
+	 "He said I was going 20 mph over the\n"
+	 "speed limit. I instantly pointed to\l"
+	 "my wife and said, “I'm in a hurry,\l"
+	 "my wife is in labor.”\p"
+	 "Fortunately, my wife actually had a\n"
+	 "big stomach.\p"
+	 "I hoped he'd let me go with this\n"
+	 "excuse.\p"
+	 "“Oh, since it's an emergency, I'll\n"
+	 "lead you to the hospital with my\l"
+	 "police car,” he said.\p"
+	 "“No, it's not necessary.”\p"
+	 "“Why not?” asked the officer.\n"
+	 "“Uh… well…”\p"
+	 "“Let's get going,” said the officer.\p"
+	 "“No, no! We can't! This baby is a\n"
+	 "demon child!”$", MSGBOX_SIGN)
+}
+
+
+
+
+
+
+
+
+
+
 script StarlightHouse_NotSoFunFactsMenu {
 	setvar(VAR_RESULT, 0)
 	//closemessage
@@ -128,11 +165,11 @@ script StarlightHouse_NotSoFunFactsOptions {
 }
 
 script StarlightHouse_Plant_Chain {
-	//setvar(VAR_TEMP_0, 14)//For testing the final animation
+	setvar(VAR_TEMP_0, 14)//For testing the final animation
 	closemessage
 		if(var(VAR_TEMP_0) == 0) {
 			msgbox(
-			"Look! It's an Oakn't.", MSGBOX_SIGN)
+			"It's an Oakn't.", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) == 1) {
 			msgbox(
@@ -149,11 +186,11 @@ script StarlightHouse_Plant_Chain {
 		}
 		if(var(VAR_TEMP_0) == 4) {
 			msgbox(
-			"I am all out of Oak jokes...", MSGBOX_SIGN)
+			"I'm out of Oak jokes...", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) >= 5 && var(VAR_TEMP_0) <= 6) {
 			msgbox(
-			"I am all out of Oak jokes..", MSGBOX_SIGN)
+			"I'm out of Oak jokes..", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) == 7) {
 			msgbox(
@@ -170,7 +207,7 @@ script StarlightHouse_Plant_Chain {
 				16, // x2
 				10) // y2
 		msgbox(
-			"No more trees.", MSGBOX_SIGN)
+			"Ok, no more trees.", MSGBOX_SIGN)
 		}
 
 		if(var(VAR_TEMP_0) >= 9 && var(VAR_TEMP_0) <= 13) {		
@@ -188,13 +225,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -205,13 +246,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -222,13 +267,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_left * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -239,13 +288,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -256,13 +309,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -273,13 +330,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_left * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -290,13 +351,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -307,13 +372,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 			
@@ -324,13 +393,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_up * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -341,13 +414,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -358,13 +435,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_up * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -385,13 +466,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
 			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -409,13 +494,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -433,13 +522,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_left * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -457,13 +550,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -479,13 +576,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -507,13 +608,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -531,13 +636,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -555,13 +664,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 			
@@ -579,13 +692,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_up * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -603,13 +720,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -656,8 +777,8 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
 			delay(20)
 			applymovement(POST_GAME_STARLIGHT, moves(
-			walk_faster_up * 5
-			walk_faster_right * 2
+			walk_fast_up * 5
+			walk_fast_right * 2
     		))
     		waitmovement(POST_GAME_STARLIGHT)
 			applymovement(LOCALID_PLAYER, moves(
@@ -669,13 +790,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_left * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 
 			} 
@@ -701,13 +826,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -732,13 +861,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -762,13 +895,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_left * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -792,13 +929,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -823,13 +964,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -853,13 +998,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_left * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -884,13 +1033,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_right * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -915,13 +1068,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 			
@@ -946,13 +1103,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_up * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -977,13 +1138,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_down * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -1008,13 +1173,17 @@ script StarlightHouse_Plant_Chain {
     		special(DrawWholeMapView)
     		applymovement(LOCALID_PLAYER, moves(
         		walk_in_place_faster_up * 15
-        		delay_16 * 4
-        		delay_16 * 4
-				delay_16 * 4
-			))
-    		delay(40)
-    		playse(SE_FALL)			
-			warp(MAP_STARLIGHT_HOUSE5, 4, 6, 9) // Map, Warp ID, X, Y
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
             waitstate
 			}
 
@@ -1108,3 +1277,12 @@ script Starlight_House_Test {
 		}
 }
 
+script Starlight_House_Exit {
+	if(flag(FLAG_POST_GAME)) {
+
+	}
+	if(!flag(FLAG_POST_GAME)) {
+		warp(MAP_AETHER_PARADISE_ISLAND, 3)
+	}
+	
+}

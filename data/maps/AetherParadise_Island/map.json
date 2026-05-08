@@ -197,8 +197,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 57,
-      "y": 16,
+      "x": 59,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -260,8 +260,15 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 56,
+      "x": 57,
       "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_STARLIGHT_HOUSE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 57,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_STARLIGHT_HOUSE",
       "dest_warp_id": "2"

@@ -6,6 +6,18 @@ mapscripts AetherParadise_Island_MapScripts {
 
         }
     }
+    MAP_SCRIPT_ON_LOAD {        
+        if(flag(FLAG_POST_GAME)) {
+        setlayouttiles(
+				LAYOUT_AETHER_PARADISE_ISLAND_LAYOUT_POST_GAME, 
+				0,	// startingX
+				0,	// startingY 
+				51,	// x1 
+				2,	// y1
+				63, // x2
+				19) // y2
+        }
+    }
 }
 
 script AetherParadise_LargeOak {
@@ -229,14 +241,15 @@ script FestivalPlaza_Sophacles {
 
 
 script StarlightIslandSign {
-	msgbox(
-	"Starlight's Map Workshop"
-
-	//"{COLOR RED}NOTICE{COLOR DARK_GRAY}: This is a fun bonus area!\n"
-	//"There are no puzzles, hints,\l"
-	//"secrets or rewards that are\l"
-	//"related to anything outside of\l"
-	//"this house. - Starlight"
+if(flag(FLAG_POST_GAME)) {
+        msgbox(
+	"Starlight's House\n"
+    "\l"
+	"(Now with more {COLOR RED}P{COLOR BLUE}I{COLOR GREEN}Z{COLOR RED}Z{COLOR BLUE}A{COLOR GREEN}Z{COLOR RED}Z{COLOR DARK_GRAY})"
     , MSGBOX_SIGN)
 
+} else {
+    msgbox(
+	"Starlight's House", MSGBOX_SIGN)
+}
 }
