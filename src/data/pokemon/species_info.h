@@ -27529,12 +27529,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_TOEDSCOOL] = //Dex Mon
     {
-        .baseHP = 40,
-        .baseAttack = 40,
-        .baseDefense = 35,
-        .baseSpeed = 70,
-        .baseSpAttack = 50,
-        .baseSpDefense = 100,
+        .baseHP = 80,
+        .baseAttack = 90,
+        .baseDefense = 95,
+        .baseSpeed = 100,
+        .baseSpAttack = 110,
+        .baseSpDefense = 120,
         .types = {TYPE_GROUND, TYPE_GRASS},
         .catchRate = 255,
         .expYield = 150,

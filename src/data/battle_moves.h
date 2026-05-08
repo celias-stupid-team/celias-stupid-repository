@@ -11582,8 +11582,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FIRE_PLAST] =
     {
         .effect = EFFECT_HIT,
-        .power = 10,
-        .type = TYPE_FIRE,
+        .power = 120,
+        .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -12627,7 +12627,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 90,
-        .type = TYPE_PSYCHIC,
+        .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
