@@ -22,19 +22,15 @@ script Starlight_House2_Post_Battle {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"It's nice to meet you!\p"
+	"Starlight: It was nice to meet you!\p"
 
-	"My name is KaizenStarlight.\n"
-	"or Starlight for short.\p"
+	"If you see me around don't worry\n"
+	"about me! I am just working.\p"
 
-	"You might see me around from time\n"
-	"to time, don't worry about me if\l"
-	"you do. I am just doing some work\l"
-	"outside of bounds.\p"
+	"Also if you ever see my friend Dak\n"
+	"around here, tell him I need him.\p"
 
-	"Also my friend is somewhere around\n"
-	"here. If you see him, tell him I\l"
-	"need him, thanks!", MSGBOX_NPC)
+	"Thanks!", MSGBOX_NPC)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
@@ -49,14 +45,22 @@ script Starlight_House2_Battle { //test
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	trainerbattle_single(TRAINER_STARLIGHT,
-	"Oh hi!\p"
+	"Starlight: Oh hi!\p"
 	"I thought I hid this map.",
 	//
 	"That was fun!", Starlight_House2_Post_Battle)
 
 
 	msgbox(
-	"It was nice to meet you!", MSGBOX_NPC)
+	"Starlight: It was nice to meet you!\p"
+
+	"If you see me around don't worry\n"
+	"about me! I am just working.\p"
+
+	"Also if you ever see my friend Dak\n"
+	"around here, tell him I need him.\p"
+
+	"Thanks!", MSGBOX_NPC)
 	closemessage
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
@@ -107,10 +111,16 @@ script Starlight_House2_Garbage2 {
 }
 
 script Starlight_House2_Breaker {
+	lock
+	textcolor(NPC_TEXT_COLOR_DARK_GRAY)
 	msgbox(
 	"It's a power breaker.\p"
-	"Or just something the map maker\n"
-	"placed to not make it look plain.", MSGBOX_SIGN)
+	"break deez-", MSGBOX_DEFAULT)
+	delay(5)
+	closemessage
+	release
+	end
+
 
 }
 
@@ -118,9 +128,8 @@ script Starlight_House2_Crane_Operator {
 	msgbox(
 	"A control panel for operating the\n"
 	"machine.\p"
-	"Doesn't acutally work, seems like\n"
-	"the map maker was too lazy to code\l"
-	"this function in.", MSGBOX_SIGN)
+	"Doesn't acutally work.\n"
+	"(I'm not coding this in...)", MSGBOX_SIGN)
 
 }
 

@@ -79,7 +79,8 @@ script Starlight_House_Eevee_Doll {
 script Starlight_House_Post_Game_Starlight {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Thank you for playing this hack!\p"
+	"Thank you {PLAYER} for playing\n"
+	"{COLOR GREEN}Celia's Stupid Romhack!"
 
 	"I made this house to learn new\n"
 	"skills and indulge in fun map\l"
@@ -87,7 +88,8 @@ script Starlight_House_Post_Game_Starlight {
 
 	"It was a lot of work making this\n"
 	"hack, but truly an enjoyable and\l"
-	"enriching experience for me.", MSGBOX_NPC)
+	"enriching experience, and I hope\l"
+	"you had fun too!", MSGBOX_NPC)
 }
 
 script Starlight_House_My_Secret_Life {
@@ -165,7 +167,7 @@ script StarlightHouse_NotSoFunFactsOptions {
 }
 
 script StarlightHouse_Plant_Chain {
-	setvar(VAR_TEMP_0, 14)//For testing the final animation
+	//setvar(VAR_TEMP_0, 14)//For testing the final animation
 	closemessage
 		if(var(VAR_TEMP_0) == 0) {
 			msgbox(
@@ -207,7 +209,7 @@ script StarlightHouse_Plant_Chain {
 				16, // x2
 				10) // y2
 		msgbox(
-			"Ok, no more trees.", MSGBOX_SIGN)
+			"Trees are gone now.", MSGBOX_SIGN)
 		}
 
 		if(var(VAR_TEMP_0) >= 9 && var(VAR_TEMP_0) <= 13) {		
