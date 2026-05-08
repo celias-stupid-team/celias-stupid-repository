@@ -2217,6 +2217,7 @@ static void BattleStartClearSetData(void)
         gLockedMoves[i] = MOVE_NONE;
         gLastPrintedMoves[i] = MOVE_NONE;
         gBattleResources->flags->flags[i] = 0;
+        gBattlerPartyIndexes[i] = 0;
     }
 
     for (i = 0; i < 2; i++)
@@ -2256,6 +2257,8 @@ static void BattleStartClearSetData(void)
     gPauseCounterBattle = 0;
     gBattleMoveDamage = 0;
     gIntroSlideFlags = 0;
+    gBattleTurnMonFainted = FALSE;
+    gBattleTurnMonUsedMove = FALSE;
     gBattleScripting.animTurn = 0;
     gBattleScripting.animTargetsHit = 0;
     gLeveledUpInBattle = 0;
