@@ -745,6 +745,18 @@ const u32 gBattleAnimSpritePal_Nightsy[] = INCBIN_U32("graphics/battle_anims/spr
 const u32 gBattleAnimSpriteGfx_Claw[] = INCBIN_U32("graphics/battle_anims/sprites/purple_claw.4bpp.lz");
 const u32 gBattleAnimSpritePal_Claw[] = INCBIN_U32("graphics/battle_anims/sprites/purple_claw.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Latias[] = INCBIN_U32("graphics/battle_anims/sprites/latias.4bpp.lz");
+const u32 gBattleAnimSpritePal_Latias[] = INCBIN_U32("graphics/battle_anims/sprites/latias.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_SoulDew[] = INCBIN_U32("graphics/battle_anims/sprites/soul_dew.4bpp.lz");
+const u32 gBattleAnimSpritePal_SoulDew[] = INCBIN_U32("graphics/battle_anims/sprites/soul_dew.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_EonTicket[] = INCBIN_U32("graphics/battle_anims/sprites/eon_ticket.4bpp.lz");
+const u32 gBattleAnimSpritePal_EonTicket[] = INCBIN_U32("graphics/battle_anims/sprites/eon_ticket.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TheLedge[] = INCBIN_U32("graphics/battle_anims/sprites/the_ledge.4bpp.lz");
+const u32 gBattleAnimSpritePal_TheLedge[] = INCBIN_U32("graphics/battle_anims/sprites/the_ledge.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

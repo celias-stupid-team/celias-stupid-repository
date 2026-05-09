@@ -550,6 +550,10 @@
 #define ANIM_TAG_DAISY                      (ANIM_SPRITES_START + 540)
 #define ANIM_TAG_NIGHTSY                    (ANIM_SPRITES_START + 541)
 #define ANIM_TAG_CLAW                       (ANIM_SPRITES_START + 542)
+#define ANIM_TAG_LATIAS                     (ANIM_SPRITES_START + 543)
+#define ANIM_TAG_SOUL_DEW                   (ANIM_SPRITES_START + 544)
+#define ANIM_TAG_EON_TICKET                 (ANIM_SPRITES_START + 545)
+#define ANIM_TAG_THE_LEDGE                  (ANIM_SPRITES_START + 546)
 
 // battlers
 #define ANIM_ATTACKER       0

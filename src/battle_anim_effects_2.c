@@ -729,6 +729,29 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sLatiasRiseAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sLatiasRiseAnimTable[] =
+{
+    sLatiasRiseAnimCmds,
+};
+
+const struct SpriteTemplate gLatiasRiseSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LATIAS,
+    .paletteTag = ANIM_TAG_LATIAS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sLatiasRiseAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gImakuniSpriteTemplate =
 {
     .tileTag = ANIM_TAG_IMAKUNI,
@@ -2431,6 +2454,17 @@ const struct SpriteTemplate gAngerMarkSpriteTemplate =
     .callback = AnimAngerMark,
 };
 
+const struct SpriteTemplate gAngerDewSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SOUL_DEW,
+    .paletteTag = ANIM_TAG_SOUL_DEW,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAngerMarkAffineAnimTable,
+    .callback = AnimAngerMark,
+};
+
 static const union AffineAnimCmd sThrashMoveMonAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(-10, 9, 0, 7),
@@ -3866,6 +3900,17 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .tileTag = ANIM_TAG_RED_HEART,
     .paletteTag = ANIM_TAG_RED_HEART,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gEonTicketBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EON_TICKET,
+    .paletteTag = ANIM_TAG_EON_TICKET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,

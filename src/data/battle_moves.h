@@ -7568,7 +7568,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ERUPTEON] =    
     {
         .effect = EFFECT_HIT,
-        .power = 35,
+        .power = 100,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -11361,7 +11361,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_PSY_MIEM] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 60,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
         .pp = 35,
@@ -11374,7 +11374,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BUBBLE_MIEM] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 65,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,
@@ -11413,7 +11413,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FISH_US_REND] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 80,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,
@@ -11439,7 +11439,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FOUL_THEY] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 80,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 35,
@@ -11451,8 +11451,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BLUE_HAIR] =
     {
-        .effect = EFFECT_HIT,
-        .power = 50,
+        .effect = EFFECT_RECOIL,
+        .power = 120,
         .type = TYPE_FAIRY_TRANS,
         .accuracy = 100,
         .pp = 35,
