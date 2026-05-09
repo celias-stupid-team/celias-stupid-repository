@@ -37,8 +37,8 @@ script Starlight_House_Painting {
 
 script Starlight_House_Bookshelf {
 	msgbox(
-	"There is a suspicous lack of books\n"
-	"containing My Secret Life...", MSGBOX_SIGN)
+	"There is a suspicious lack of\n"
+	"My Secret Life books here.", MSGBOX_NPC)
 
 }
 
@@ -79,8 +79,8 @@ script Starlight_House_Eevee_Doll {
 script Starlight_House_Post_Game_Starlight {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Thank you {PLAYER} for playing\n"
-	"{COLOR GREEN}Celia's Stupid Romhack!"
+	"STARLIGHT: Thank you {PLAYER} for\n"
+	"playing Celia's Stupid Romhack!\p"
 
 	"I made this house to learn new\n"
 	"skills and indulge in fun map\l"
@@ -88,8 +88,11 @@ script Starlight_House_Post_Game_Starlight {
 
 	"It was a lot of work making this\n"
 	"hack, but truly an enjoyable and\l"
-	"enriching experience, and I hope\l"
-	"you had fun too!", MSGBOX_NPC)
+	"enriching experience.", MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
 }
 
 script Starlight_House_My_Secret_Life {
@@ -209,7 +212,7 @@ script StarlightHouse_Plant_Chain {
 				16, // x2
 				10) // y2
 		msgbox(
-			"Trees are gone now.", MSGBOX_SIGN)
+			"There, no more trees.", MSGBOX_SIGN)
 		}
 
 		if(var(VAR_TEMP_0) >= 9 && var(VAR_TEMP_0) <= 13) {		
@@ -1288,3 +1291,29 @@ script Starlight_House_Exit {
 	}
 	
 }
+
+//script Debug_Script_3 {
+//msgbox("{PAL_CHANGE COLOR 1 RGB_RED RGB_GREEN}{PAL_CHANGE COLOR_2 RGB_BLUE RGB_PURPLE}{PAL_CHANGE COLOR_3 RGB_CYAN RGB_MAGENTA} Test {CUSTOM COLOR_1}Test {CUSTOM COLOR_2}Test {CUSTOM COLOR_3}Test")
+//return
+//}
+
+script Starlight_House_Color_Test {
+	msgbox(
+"{COLOR WHITE}C
+{COLOR DARK_GRAY}O
+{COLOR LIGHT_GRAY}L
+{COLOR RED}O
+{COLOR LIGHT_RED}R
+{COLOR GREEN}F
+{COLOR LIGHT_GREEN}U
+{COLOR BLUE}L
+{COLOR LIGHT_BLUE}L
+{COLOR DYNAMIC_COLOR1}R
+{COLOR DYNAMIC_COLOR2}A
+{COLOR DYNAMIC_COLOR3}I
+{COLOR DYNAMIC_COLOR4}N
+{COLOR DYNAMIC_COLOR5}B
+{COLOR DYNAMIC_COLOR6}O
+{COLOR DARK_GRAY}W", MSGBOX_SIGN)
+}
+

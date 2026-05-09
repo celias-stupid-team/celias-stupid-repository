@@ -5,9 +5,19 @@ mapscripts AetherParadise_Island_MapScripts {
             setflag(FLAG_CSR_MAP_AETHER_PARADISE)
 
         }
+        if(!flag(FLAG_POST_GAME) && flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+        setflag(FLAG_TEMP_1A)
+        }
+        if(flag(FLAG_POST_GAME) && flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+        setflag(FLAG_TEMP_1A)
+        setflag(FLAG_HIDE_POSTGAME_STARLIGHT)
+        }
+        if(flag(FLAG_HIDE_POSTGAME_STARLIGHT)) {
+        setflag(FLAG_TEMP_1A)
+        }
     }
     MAP_SCRIPT_ON_LOAD {        
-        if(flag(FLAG_POST_GAME)) {
+        if(flag(FLAG_POST_GAME) && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
         setlayouttiles(
 				LAYOUT_AETHER_PARADISE_ISLAND_LAYOUT_POST_GAME, 
 				0,	// startingX
@@ -241,15 +251,61 @@ script FestivalPlaza_Sophacles {
 
 
 script StarlightIslandSign {
-if(flag(FLAG_POST_GAME)) {
+if(flag(FLAG_POST_GAME) && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
         msgbox(
-	"Starlight's House\n"
-    "\l"
-	"(Now with more {COLOR RED}P{COLOR BLUE}I{COLOR GREEN}Z{COLOR RED}Z{COLOR BLUE}A{COLOR GREEN}Z{COLOR RED}Z{COLOR DARK_GRAY})"
+	"Star-LightHouse"
     , MSGBOX_SIGN)
 
 } else {
     msgbox(
 	"Starlight's House", MSGBOX_SIGN)
+    }
 }
+
+script StarlightPostGameOutside {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox("I remodeled my house, what do you\nthink?", MSGBOX_NPC)
+	closemessage
+	//camera goes up
+	delay(30)
+    applymovement(POST_GAME_STARLIGHT, moves(
+			face_up
+    		))
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, Star_Lighthouse_CameraGoesUp)
+	waitmovement(0)
+
+
+	delay(120) //waiting on lighthouse sign
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Yup.\nDesigned it myself.", MSGBOX_NPC)
+	closemessage
+	delay(15)
+	//camera goes down
+	applymovement(LOCALID_CAMERA, Star_Lighthouse_CameraGoesDown)
+	//NPC enters lighthouse
+	delay(8) //delay to make it line up with the camera
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Truly an original work of art.", MSGBOX_NPC)
+	closemessage
+    delay(30)
+	applymovement(STARLIGHT_POST_GAME_LIGHTHOUSE, moves(
+			walk_up
+    		))
+    
+    waitmovement(STARLIGHT_POST_GAME_LIGHTHOUSE)
+    playse(SE_EXIT)
+    removeobject(STARLIGHT_POST_GAME_LIGHTHOUSE)
+	special(RemoveCameraObject)
+    setflag(FLAG_HIDE_POSTGAME_STARLIGHT)
+    delay(30)
+	return
+}
+
+movement Star_Lighthouse_CameraGoesUp {
+	walk_up * 4
+}
+
+movement Star_Lighthouse_CameraGoesDown {
+	walk_down * 4
 }

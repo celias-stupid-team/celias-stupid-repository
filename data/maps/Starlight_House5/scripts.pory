@@ -2,6 +2,7 @@ mapscripts Starlight_House5_MapScripts {
 MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE)) {
     setflag(FLAG_TEMP_4)
+	setflag(FLAG_TEMP_3)
 }
 		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
 			setflag(FLAG_TEMP_8)
@@ -22,9 +23,19 @@ script Starlight_House5_Dak_Pit { //test
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_MALE)
-    msgbox(
+    if(flag(FLAG_TEMP_3)) {
+			msgbox(
+				"DAK: Why would you take my light\n"
+				"source?\p"
+
+				"How will I find my stuff in the\n"
+				"dark now?", MSGBOX_NPC)
+		closemessage
+				} else {
+	msgbox(
 	"DAK: This is a nice fun map!", MSGBOX_NPC)
 	closemessage
+				}
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
 	))
@@ -32,38 +43,10 @@ script Starlight_House5_Dak_Pit { //test
 	release
 }
 
-script Starlight_House5_Dak_Pit_Unused { //test
-	lock
-	faceplayer
-	textcolor(NPC_TEXT_COLOR_MALE)
-    if(flag(FLAG_TEMP_3) && (flag(FLAG_TEMP_6))) {
-			 msgbox(
-	"Why would you take that?\p"
-
-	"Now how will I find my secret base\n"
-	"in the dark without a light source?", MSGBOX_NPC)
-		closemessage
-				}
-				if(flag(FLAG_TEMP_3) && (!flag(FLAG_TEMP_6))) {
-			 msgbox(
-	"DAK: This is a nice fun map!\p"
-
-	"Also why would you take that?\p"
-
-	"Now how will I find my secret base\n"
-	"in the dark without a light source?", MSGBOX_NPC)
-		closemessage
-				} else {
-	msgbox(
-	"DAK: This is a nice fun map!", MSGBOX_NPC)
-	closemessage
-	setflag(FLAG_TEMP_6)
-				}
-	applymovement(VAR_LAST_TALKED, moves(
-		face_original_direction
-	))
-	waitmovement(0)
-	release
+script Starlight_House5_Charizard_Doll {
+	finditem(ITEM_POKE_DOLL)
+	removeobject(Charizard)
+	setflag(FLAG_TEMP_3)
 }
 
 script Starlight_House5_Todo_List {

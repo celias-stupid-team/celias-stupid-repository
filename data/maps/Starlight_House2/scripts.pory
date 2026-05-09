@@ -22,7 +22,7 @@ script Starlight_House2_Post_Battle {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Starlight: It was nice to meet you!\p"
+	"STARLIGHT: It's nice to meet you!\p"
 
 	"If you see me around don't worry\n"
 	"about me! I am just working.\p"
@@ -45,23 +45,23 @@ script Starlight_House2_Battle { //test
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	trainerbattle_single(TRAINER_STARLIGHT,
-	"Starlight: Oh hi!\p"
+	"STARLIGHT: Oh hi!\p"
 	"I thought I hid this map.",
-	//
 	"That was fun!", Starlight_House2_Post_Battle)
 
 
 	msgbox(
-	"Starlight: It was nice to meet you!\p"
+	"STARLIGHT: It's nice to meet you!\p"
 
 	"If you see me around don't worry\n"
 	"about me! I am just working.\p"
 
 	"Also if you ever see my friend Dak\n"
-	"around here, tell him I need him.\p"
+	"around here, tell him I need him.\l"
 
 	"Thanks!", MSGBOX_NPC)
 	closemessage
+	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
 	))
@@ -75,13 +75,13 @@ script Starlight_House2_Phone { //figure out yesno setup for reading messages.
 	"Celia - 2 voicemails\n"
 	"Dak - 1 voicemail\p"
 	"First Message:\l"
-	"Celia: Hey Star, could you fix the\n"
+	"CELIA: Hey Star, could you fix the\n"
 	"tile collision in Aether? Thanks!\p"
 	"Second Message:\l"
-	"Celia: Great work with Seafoam and\n"
+	"CELIA: Great work with Seafoam and\n"
 	"Silph Co Layout!\p"
 	"Third Message:\l"
-	"Dak: WHAAAAAADDUUUUUUUUUUUUUUUUUUU\n"
+	"DAK: WHAAAAAADDUUUUUUUUUUUUUUUUUUU\n"
 	"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUPP\p"
 	"End of messages.", MSGBOX_SIGN)
 
@@ -112,16 +112,17 @@ script Starlight_House2_Garbage2 {
 
 script Starlight_House2_Breaker {
 	lock
-	textcolor(NPC_TEXT_COLOR_DARK_GRAY)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"It's a power breaker.\p"
-	"break deez-", MSGBOX_DEFAULT)
-	delay(5)
+	"It's a power breaker.\n"
+	"\l"
+	"\l"
+	"\l"
+	"\l"
+	"Break deez-", MSGBOX_DEFAULT)
 	closemessage
 	release
 	end
-
-
 }
 
 script Starlight_House2_Crane_Operator {
@@ -173,7 +174,7 @@ script Starlight_House2_PC { //update table plans visual
 	"either.", MSGBOX_SIGN)
 	} else {
 	msgbox(
-	"No, this PC is not functional.\p", MSGBOX_SIGN)
+	"No, this PC is not functional.", MSGBOX_SIGN)
 	setflag(FLAG_TEMP_2)
 	}
 }
@@ -186,7 +187,7 @@ script Starlight_House2_Sign { //update table plans visual
 	"either.", MSGBOX_SIGN)
 	} else {
 	msgbox(
-	"No, this sign doesn't say anything.\p", MSGBOX_SIGN)
+	"No, this sign doesn't say anything.", MSGBOX_SIGN)
 	setflag(FLAG_TEMP_4)
 	}
 }
@@ -194,6 +195,10 @@ script Starlight_House2_Sign { //update table plans visual
 script Starlight_House2_Jukebox_Block { //update table plans visual
 	msgbox(
 	"It's a super special secret wall.", MSGBOX_SIGN)
-
 }
 
+script Starlight_House2_Reset_Battle { //update table plans visual
+	cleartrainerflag(TRAINER_STARLIGHT)
+	release
+	end
+}
