@@ -9832,7 +9832,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_MART_STRIKE] =
     {
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = 60,
         .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 35,
@@ -9860,7 +9860,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ASSURANCH] =
     {
         .effect = EFFECT_HIT,
-        .power = 60,
+        .power = 90,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 35,
@@ -10956,10 +10956,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_MAIL_SLAP] =
     {
-        .effect = EFFECT_HIT,
-        .power = 40,
+        .effect = EFFECT_DOUBLE_HIT,
+        .power = 35,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .accuracy = 95,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -10970,7 +10970,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_STRAP_ON] =
     {
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = 90,
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 35,
@@ -11191,7 +11191,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CAFEINT_ATTACK] =
     {
         .effect = EFFECT_HIT,
-        .power = 250,
+        .power = 60,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 35,
@@ -14081,7 +14081,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SAND_WOMB] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 75,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 35,
