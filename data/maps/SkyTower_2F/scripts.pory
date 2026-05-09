@@ -36,7 +36,7 @@ script SkyTower_SentryHole {
     playse(SE_ITEMFINDER)
     textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
-	"POKéMON Detected!\n"
+	"FOOTPRINT Detected!\n"
 	"", MSGBOX_DEFAULT)
     specialvar(VAR_RESULT, GetPlayerAvatarBike)
     if(!var(VAR_RESULT)) {

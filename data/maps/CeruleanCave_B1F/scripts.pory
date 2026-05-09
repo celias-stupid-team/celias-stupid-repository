@@ -36,7 +36,7 @@ CeruleanCave_B1F_EventScript_Mewtwo::
 	delay 20
 	playbgm MUS_ENCOUNTER_GYM_LEADER, 0
 	waitbuttonpress
-	setwildbattle SPECIES_ARCANINE, 70
+	setwildbattle SPECIES_ARCANINE, 70, ITEM_RUSTED_GUN
 	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
 	special StartLegendaryBattle
 	waitstate
@@ -127,8 +127,8 @@ script CeruleanCave_BerserkGene {
 	"I'm gonna go BERSERK on you!",
 
 	///defeat
-	"Grrraaah! "
-	"These fucking ducks\nwon't leave me alone!")
+	"Grrraaah!\p"
+	"These fucking ducks won't leave me\nalone!")
 
 	//After battle
 	msgbox(

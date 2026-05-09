@@ -115,6 +115,7 @@ script Route8_DrySoil {
 	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nbarren land would be a waste.", MSGBOX_SIGN)
 
 	}
+	release
 	end
 }
 
@@ -300,6 +301,7 @@ script Route8_GrowlitheSign {
 				playfanfare(MUS_SLOTS_WIN)
 				msgbox("{PLAYER} discovered a\nPOKéMON SIGN!", MSGBOX_DEFAULT)
 				waitfanfare
+				call(PokemonIsland_CheckForAllSigns)
 				closemessage
 				delay(10)
 

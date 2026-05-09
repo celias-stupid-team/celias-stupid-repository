@@ -11,3 +11,59 @@ script PokemonIsland_PhotoLabSign {
 	"PHOTO LAB", MSGBOX_SIGN)
 
 }
+
+script PokemonIsland_Gun {
+	lock
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fast_right * 4
+	))
+	waitmovement(0)
+	if(flag(FLAG_TEMP_4)) {
+		delay(60)
+		applymovement(LOCALID_CAMERA, moves(
+			walk_fast_left * 4
+		))
+		waitmovement(0)
+		special(RemoveCameraObject)
+		release
+		end
+
+	}
+	delay(10)
+	msgbox(
+	"Shoot him?\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		if(flag(FLAG_TEMP_3)) {
+			playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
+			fadescreeninstant(FADE_TO_WHITE)
+			delay(80)
+			closemessage
+			setflag(FLAG_TEMP_4)
+			removeobject(LOCALID_POKEMON_ISLAND_GROWLITHE)
+			fadescreenswapbuffers(FADE_FROM_WHITE)
+			delay(20)
+			playmoncry(SPECIES_PIKACHU_SNAP_BALL, CRY_MODE_DEFAULT)
+			waitmoncry
+
+		} else {
+			setflag(FLAG_TEMP_3)
+			playse(MUS_PHOTO)
+			dofieldeffect(FLDEFF_PHOTO_FLASH)
+			delay(60)
+			closemessage
+			playmoncry(SPECIES_GROWLITHE, CRY_MODE_DEFAULT)
+			waitmoncry
+
+		}
+		
+	}
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fast_left * 4
+	))
+	waitmovement(0)
+	special(RemoveCameraObject)
+	release
+	end
+}

@@ -187,9 +187,9 @@ script OneIsland_SetArticunoStatue {
 	setmetatile(26, 10, 0x39D, FALSE)
 	setmetatile(27, 10, 0x39E, FALSE)
 	
-	setmetatile(25, 11, 0x3A4, FALSE)
-	setmetatile(26, 11, 0x3A5, FALSE)
-	setmetatile(27, 11, 0x3A6, FALSE)
+	setmetatile(25, 11, 0x3A4, TRUE)
+	setmetatile(26, 11, 0x3A5, TRUE)
+	setmetatile(27, 11, 0x3A6, TRUE)
 	return
 }
 
@@ -282,8 +282,8 @@ script OneIsland_Kaylee {
 		))
 		delay(10)
 		msgbox(
-		"KAILIE: We're dancers from the\n"
-		"land of MINNESOTA.", MSGBOX_DEFAULT)
+		"KAILIE: We're dancers all cut from\n"
+		"the same cloth.", MSGBOX_DEFAULT)
 		closemessage
 		applymovement(LOCALID_KAYLEE, moves(
 			face_down

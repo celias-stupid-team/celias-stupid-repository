@@ -169,6 +169,8 @@ script PokemonLeague_ChampionsRoom_EventScript_TurnPlayerNorth {
 	turnobject (LOCALID_PLAYER, DIR_NORTH)
 	if(flag(FLAG_DEFEATED_FINAL_BOSS)) {
 		setvar(VAR_TEMP_1, 0)
+	} else {
+		special(BackgroundSave)
 	}
 	end
 }
@@ -183,13 +185,13 @@ mapscripts PokemonLeague_ChampionsRoom_MapScripts {
 
 script PokemonLeague_ChampionsRoom_EventScript_EnterRoom {
 	lockall
-	special(BackgroundSave)
 	textcolor (NPC_TEXT_COLOR_MALE)
+	setflag (FLAG_TEMP_2)
 	if(flag(FLAG_DEFEATED_FINAL_BOSS)) {
 		clearflag(FLAG_DEFEATED_FINAL_BOSS)
 		goto(PokemonLeagueChampionsRoom_FinishedBattle)
 	}
-	setflag (FLAG_TEMP_2)
+	//special(BackgroundSave)
 	applymovement (LOCALID_PLAYER, PokemonLeague_ChampionsRoom_Movement_PlayerEnter)
 	waitmovement (0)
 	delay (45)

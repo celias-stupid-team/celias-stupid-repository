@@ -112,6 +112,7 @@ script AetherParadise_DMCA_StopsYou {
 	))
 	waitmovement(0)
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	special(HealPlayerParty)
 	delay(30)
 	msgbox(
 	"ZUBAT: Ahaha!\n"

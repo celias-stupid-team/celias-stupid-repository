@@ -74,6 +74,10 @@ mapscripts Route23_MapScripts {
 		if(var(VAR_MAP_SCENE_ROUTE23) >= 4 && !(var(VAR_CURRENT_CHAPTER) >= 8)) {
 			setvar(VAR_MAP_SCENE_ROUTE23, 3)
 		}
+		if(var(VAR_MAP_SCENE_ROUTE23) == 10 && !flag(FLAG_TURNED_IN_BADGES)) {
+			setvar(VAR_MAP_SCENE_ROUTE23, 3)
+
+		}
 		if(!(var(VAR_CURRENT_CHAPTER) >= 8)) {
 			setflag(FLAG_TEMP_5)
 		}
@@ -1186,7 +1190,7 @@ script Route23_EventScript_MinnesotaBadgeGuardTrigger {
 	playse(SE_APPLAUSE)
 	delay(60)
 	closemessage
-	
+	setflag(FLAG_TURNED_IN_BADGES)
 	setvar(VAR_MAP_SCENE_ROUTE23, 10)
 	release
 	end

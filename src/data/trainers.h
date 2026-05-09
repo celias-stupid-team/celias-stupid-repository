@@ -4070,7 +4070,7 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE | F_TRAINER_FEMALE,
         .trainerPic = TRAINER_PIC_LEADER_MISTY,
         .trainerName = _("MISTY"),
-        .items = {ITEM_X_SPECIAL},
+        .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_LeaderMisty),
@@ -4352,7 +4352,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("HOPE"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_NO_SWITCHING,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_NO_SWITCHING | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_ChannelerHope),
     },
     [TRAINER_CHANNELER_PAULA] = {

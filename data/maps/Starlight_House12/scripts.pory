@@ -2407,21 +2407,6 @@ script Starlight_House_12_Clear_Dancer_Flags {
 			clearflag(FLAG_TEMP_1F)
 }
 
-script Starlight_House_12_Fix_Movement {
-			setobjectmovementtype(D1, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(D2, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(D3, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(D4, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(D5, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(D6, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-}
-
 script Starlight_House_12_Remove_Dancers {
 if(flag(FLAG_TEMP_1C)) {
 			removeobject(D1)
@@ -2462,61 +2447,21 @@ if(flag(FLAG_TEMP_1C)) {
 	release
 }
 
-script Starlight_House12_Swap_NPC_Direction {
-	lock
+script Starlight_House12_Temporary_MapReset {
+    lock
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
-    msgbox("Swap the top NPC's direction?", MSGBOX_YESNO)
+    msgbox("Would you like to reset\nthe room?", MSGBOX_YESNO)
 		closemessage
-		setvar(VAR_TEMP_7, 1)
-		if(var(VAR_RESULT) == 1) {
-			setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER)
-			setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER)
-		} else {
-			setobjectmovementtype(DO1, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO2, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO3, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO4, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO5, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setobjectmovementtype(DO6, MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE)
-			setvar(VAR_TEMP_7, 0)
+		if(var(VAR_RESULT)) {
+			//fadescreen(FADE_TO_WHITE)
+            warp(MAP_STARLIGHT_HOUSE12, 0, 30, 32) // Map, Warp ID, X, Y
+            waitstate
+            //delay(120)
+            //fadescreen(FADE_FROM_WHITE)
 		}
-	
     release
     end
 }
-
-script Starlight_House12_Auto_Floor_If_Dancer_Picked_First {
-		//closemessage
-		if(!flag(FLAG_TEMP_3) && !flag(FLAG_TEMP_4) && !flag(FLAG_TEMP_5) && !flag(FLAG_TEMP_6) && !flag(FLAG_TEMP_7) && !flag(FLAG_TEMP_8) && !flag(FLAG_TEMP_9) && !flag(FLAG_TEMP_2)) {
-			setflag(FLAG_TEMP_3)
-					setlayouttiles(
-						LAYOUT_STARLIGHT_HOUSE12_LAYOUT_BLOCK,
-						0,	// startingX
-						0,	// startingY 
-						12,	// x1 
-						6,	// y1
-						26, // x2
-						18) // y2
-					setlayouttiles(//Setup the Path to the Dance Floor
-						LAYOUT_STARLIGHT_HOUSE12_LAYOUT_DANCERS,
-						0,	// startingX
-						0,	// startingY 
-						19,	// x1 
-						19,	// y1
-						24, // x2
-						28) // y2
-					PlaySE(SE_TRUCK_DOOR)
-					setflag(FLAG_TEMP_A)
-		}
-	
-    //release
-    //end
-}
-
 
 script StarlightHouse_D1_Script {
 	lock

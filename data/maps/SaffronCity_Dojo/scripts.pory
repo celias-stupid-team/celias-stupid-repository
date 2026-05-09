@@ -172,12 +172,7 @@ mapscripts SaffronCity_Dojo_MapScripts {
 
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_READY_FOR_TORNADO, 2 {
-			specialvar(VAR_RESULT, GetPlayerFacingDirection)
-			if(var(VAR_RESULT) != DIR_WEST) {
-				setvar(VAR_READY_FOR_TORNADO, 1)
-				release
-				end
-			}
+			
 			fadenewbgm(MUS_NONE)
 			delay(60)
 			playse(SE_M_BLIZZARD)

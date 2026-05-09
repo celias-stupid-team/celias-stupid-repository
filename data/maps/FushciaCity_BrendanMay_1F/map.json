@@ -148,7 +148,7 @@
     {
       "type": "sign",
       "x": 2,
-      "y": 2,
+      "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BrendanMay_Arranging"
@@ -156,7 +156,7 @@
     {
       "type": "sign",
       "x": 1,
-      "y": 2,
+      "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BrendanMay_Arranging"

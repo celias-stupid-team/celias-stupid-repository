@@ -81,7 +81,24 @@ script HallOfFame_Toaster {
 }
 
 script HallOfFame_NotReady {
-	msgbox("Oh!\nHello there, {PLAYER}!\pLooks like you're here a little\nearly.\pUhh, we actually aren't quite ready\nfor you yet.\pI don't suppose you could go and\nfinish the rest of the game while\lwe get everything set up?", MSGBOX_NPC)
+	if(flag(FLAG_BADGE08_GET)) {
+		msgbox(
+		"Oh!\n"
+		"Hello there, {PLAYER}!\p"
+
+		"You've gotten all your BADGES?\n"
+		"Well done!\p"
+
+		"Could you please go through the\n"
+		"POKéMON LEAGUE first, though?\l"
+		"We have something very fun set up.\p"
+
+		"Thank you for understanding!\n"
+		"", MSGBOX_NPC)
+	} else {
+		msgbox("Oh!\nHello there, {PLAYER}!\pLooks like you're here a little\nearly.\pUhh, we actually aren't quite ready\nfor you yet.\pI don't suppose you could go and\nfinish the rest of the game while\lwe get everything set up?", MSGBOX_NPC)
+
+	}
 	end
 }
 script PokemonLeague_HallOfFame_EventScript_TurnPlayerNorth {

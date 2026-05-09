@@ -27,7 +27,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_D3_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -42,7 +42,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_D2_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -57,7 +57,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_D1_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -72,7 +72,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_D4_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -87,7 +87,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_D5_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -102,7 +102,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_D6_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -117,7 +117,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_DO1_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -132,7 +132,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_DO2_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -147,7 +147,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_DO3_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -162,7 +162,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_DO4_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -177,7 +177,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_DO5_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -192,7 +192,7 @@
       "movement_range_y": 15,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "StarlightHouse_DO6_Script",
+      "script": "Starlight_House12_Temporary_MapReset",
       "flag": "0"
     },
     {
@@ -656,14 +656,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "StarlightHouse_Jukebox"
-    },
-    {
-      "type": "sign",
-      "x": 19,
-      "y": 6,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House12_Swap_NPC_Direction"
     }
   ]
 }

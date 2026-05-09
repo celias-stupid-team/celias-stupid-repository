@@ -1928,7 +1928,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MEWTWO] =
     {
-        .categoryName = _("MURDER"),
+        .categoryName = _("INFRINGING"),
         .height = 20,
         .weight = 1220,
         .description = gMewtwoPokedexText,
@@ -5277,7 +5277,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_GIMMIGHOUL] =
     {
-        .categoryName = _("COIN-CASE"),
+        .categoryName = _("COIN"),
         .height = 1,
         .weight = .1,
         .description = gGimmighoulPokedexText,
@@ -5289,7 +5289,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_GHOLDENGO] =
     {
-        .categoryName = _("CHICKEN"),
+        .categoryName = _("NUGGET"),
         .height = 12,
         .weight = 30,
         .description = gGholdengoPokedexText,

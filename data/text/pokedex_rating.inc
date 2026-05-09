@@ -329,7 +329,7 @@ PokedexRating_Text_HintGengar::
 	.string "Perhaps you could look into that?\n$"
 
 PokedexRating_Text_HintVulpix::
-	.string "ROUTE 8 has a wild POKéMON\n"
+	.string "ROUTE 7 has a wild POKéMON\n"
 	.string "you never caught.\p"
 	.string "Be sure to go back for it!\n$"
 
@@ -748,8 +748,9 @@ PokedexRating_Text_HintAmpharos::
 PokedexRating_Text_HintAmoongus::
 	.string "KURT from SILPH CO. makes such\n"
 	.string "wonderful POKé BALLS.\p"
-	.string "Say, wasn't there something a bit\n"
-	.string "suspicious in his collection?$"
+	.string "Have you been able to get his\n"
+	.string "attention?\l"
+	.string "Maybe he's selling something good.$"
 
 
 PokedexRating_Text_HintRhydon::
@@ -905,12 +906,17 @@ PokedexRating_Text_HintHoopa::
 
 
 PokedexRating_Text_HintMimikyu::
-	.string "Now that the DMCA are gone, you\n"
-	.string "should be free to explore SAFFRON!\p"
-	.string "There was a house with a young\n"
-	.string "girl living in it.\l"
-	.string "Perhaps you should check on her?$"
+	.string "COPYCAT's family must be grateful\n"
+	.string "now that you've returned her.\p"
+	.string "Did you check around her room?\n"
+	.string "Look carefully - something's off.$"
 
+
+PokedexRating_Text_HintMimikyu2::
+	.string "Say, did you get another TM that\n"
+	.string "mysteriously went to the ITEMS bag?\p"
+	.string "I wonder why that keeps happening.\n"
+	.string "Do you know what's in it?$"
 
 PokedexRating_Text_HintOmanyte::
 	.string "ROUTE 9 has a wild POKéMON\n"
@@ -941,8 +947,8 @@ PokedexRating_Text_HintArticuno::
 	.string "the secret yourself?$"
 
 PokedexRating_Text_HintVaporeon::
-	.string "MOLTRES evolved into FLAREON with\n"
-	.string "just a FIRE STONE?\l"
+	.string "MOLTRES evolve with a FIRE STONE?\n"
+	.string "And ZAPDOS with a THUNDER STONE?\l"
 	.string "Quite intriguing!\p"
 	.string "You'd think a WATER STONE would\n"
 	.string "work on ARTICUNO, but that doesn't\l"

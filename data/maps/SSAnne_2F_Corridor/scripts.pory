@@ -331,6 +331,7 @@ script SSAnne_DeadArticuno {
 	msgbox(
 	"The ice-encrusted ARTICUNO lay\n"
 	"dormant in the hall.", MSGBOX_DEFAULT)
+	clearflag(FLAG_USED_SNOWGRAVY)
 	removeobject(VAR_LAST_TALKED)
 	msgbox(
 	"{PLAYER} obtained the\n"

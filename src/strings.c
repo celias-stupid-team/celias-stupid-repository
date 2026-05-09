@@ -122,7 +122,7 @@ const u8 gSaveStatName_Pokedex[] = _("POKéDEX");
 const u8 gSaveStatName_Time[] = _("TIME");
 const u8 gSaveStatName_Version[] = _("VERSION");
 // CSR version number - update before each release!
-const u8 gSaveStatName_VersionNumber[] = _("1.0.0");
+const u8 gSaveStatName_VersionNumber[] = _("1.0.8");
 const u8 gText_FlyToWhere[] = _("どこへ とびますか?");
 const u8 gOtherText_Use[] = _("USE");
 const u8 gOtherText_Toss[] = _("TOSS");
@@ -376,6 +376,7 @@ const u8 gText_CantUseHere[] = _("Can't use that here.");
 const u8 gText_CantUseRetreat[] = _("There is no bench nearby!");
 const u8 gText_NoRetreat[] = _("FALINKS used NO RETREAT!");
 const u8 gText_NoSurf[] = _("FALINKS used NO SURF!");
+const u8 gText_NoBadge[] = _("Need a new badge!");
 const u8 gText_ButItFailed[] = _("…But it failed!");
 const u8 gText_RestoreWhichMove[] = _("Restore which move?");
 const u8 gText_BoostPp[] = _("Boost PP of which?");

@@ -247,7 +247,7 @@ script PowerPlant_Dazzle {
 		if(flag(FLAG_CSR_TALKED_TO_DAZZLE)) {
 			msgbox("DAZZLE: Hey, guy!\nDo you have a STAR PIECE?\lI'd love to trade one for a BADGE!\p… … …\n", MSGBOX_DEFAULT)
 		} else {
-			msgbox("DAZZLE: My name is DAZZLE!\nAnd I collect STAR PIECES!\lThe more I collect the happier I am!\pSo, guy, if you have any STAR PIECES\nI'll trade you a BADGE for them!\lYay!", MSGBOX_DEFAULT)
+			msgbox("DAZZLE: My name is DAZZLE!\nAnd I collect STAR PIECES!\lThe more I collect the happier I am!\pSo, guy, if you have a STAR PIECE\nI'll trade you a BADGE for them!\lYay!", MSGBOX_DEFAULT)
 		}
 		if(checkitem(ITEM_STAR_PIECE)) {
 				msgbox("DAZZLE: Ooh!\nYou have a STAR PIECE!\pWould you like to trade it for a\nBADGE?", MSGBOX_YESNO)
@@ -425,12 +425,12 @@ script PowerPlant_MinigameStart {
 			//msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
 			//closemessage
 			delay(30)
-			playbgm(MUS_THUNDERING_DYNAMO, TRUE)
+			playbgm(MUS_THUNDERING_DYNAMO, FALSE)
 			callnative(StartPowerplantGame)
 			waitstate
 			if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
 				setvar(VAR_CSR_TURNED_ON_POWER, 0)
-				playbgm(MUS_NONE, TRUE)
+				playbgm(MUS_NONE, FALSE)
 				playse(SE_ITEMFINDER)
 				waitse
 				msgbox("{PLAYER} turned on the power!\n", MSGBOX_DEFAULT)
@@ -461,6 +461,7 @@ script PowerPlant_MinigameStart {
 					closemessage
 					giveitem(ITEM_POKE_BALL)
 					setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
+					
 					dowildbattle
 					delay(40)
 					removeobject(ETERNATUS)

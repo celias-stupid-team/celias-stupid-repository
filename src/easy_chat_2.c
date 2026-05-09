@@ -326,13 +326,28 @@ static const u16 sECPhrase_OddishTaurosMewtwoVulpix[] = {
 };
 
 
+
+static const u16 sECPhrase_OddishTaurosMewtwoVulpixAlola[] = {
+    SPECIES_ODDISH,
+    EC_POKEMON(TAUROS),
+    EC_POKEMON(MEWTWO),
+    SPECIES_VULPIX
+};
+
+
+
 static void CompareQuestionnaireResponseWithPassphrase(void)
 {
+    DebugPrintf("= = = Vulpix Test: = = =");
     gSpecialVar_0x8002 = IsPhraseDifferentThanPlayerInput(sECPhrase_OddishTaurosMewtwoVulpix, NELEMS(sECPhrase_OddishTaurosMewtwoVulpix));
-    gSpecialVar_0x8003 = IsPhraseDifferentThanPlayerInput(sECPhrase_UpgradeFromDemoTwo, NELEMS(sECPhrase_UpgradeFromDemoTwo));
+    //sgSpecialVar_0x8003 = IsPhraseDifferentThanPlayerInput(sECPhrase_UpgradeFromDemoTwo, NELEMS(sECPhrase_UpgradeFromDemoTwo));
+    DebugPrintf("= = = Survey Test: = = =");
     gSpecialVar_0x8004 = IsPhraseDifferentThanPlayerInput(sECPhrase_LinkTogetherWithAll, NELEMS(sECPhrase_LinkTogetherWithAll));
+    DebugPrintf("= = = Psychic Test: = = =");
     gSpecialVar_0x8005 = IsPhraseDifferentThanPlayerInput(sECPhrase_PsychicKeyGottenFree, NELEMS(sECPhrase_PsychicKeyGottenFree));
+    DebugPrintf("= = = Vulpix Test 2: = = =");
     gSpecialVar_0x8006 = DoesPhraseContainYes();
+    gSpecialVar_0x8007 = IsPhraseDifferentThanPlayerInput(sECPhrase_OddishTaurosMewtwoVulpixAlola, NELEMS(sECPhrase_OddishTaurosMewtwoVulpixAlola));
 }
 
 static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {
@@ -1364,6 +1379,9 @@ static bool8 IsPhraseDifferentThanPlayerInput(const u16 *phrase, u8 phraseLength
 
     for (i = 0; i < phraseLength; i++)
     {
+        DebugPrintf("Checking word %d:", i);
+        DebugPrintf("Alleged Phrase: %d", phrase[i]);
+        DebugPrintf("Inputted Phrase: %d", sEasyChatScreen->ecWordBuffer[i]);
         if (phrase[i] != sEasyChatScreen->ecWordBuffer[i])
             return TRUE;
     }

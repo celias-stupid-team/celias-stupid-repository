@@ -7,9 +7,6 @@ script OldManWhoTeachesTrendySayings {
     random(6)
     lock
     faceplayer
-    while(are_vars_equal(VAR_RESULT, VAR_TEMP_1)) {
-        random(6)
-    }
     switch(var(VAR_RESULT)) {
         case 0:
             msgbox(

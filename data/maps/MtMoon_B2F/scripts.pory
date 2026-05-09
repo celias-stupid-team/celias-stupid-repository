@@ -32,6 +32,7 @@ MtMoon_B2F_EventScript_Miguel::
 
 MtMoon_B2F_EventScript_BattleMiguel::
 	textcolor NPC_TEXT_COLOR_MALE
+	setrespawn HEAL_LOCATION_MT_MOON_B2F
 	message MtMoon_B2F_Text_MiguelIntro
 	waitmessage
 	playbgm MUS_ENCOUNTER_GYM_LEADER, 0

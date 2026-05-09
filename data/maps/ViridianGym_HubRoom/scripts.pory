@@ -35,7 +35,7 @@ script ViridianGym_HintManSwitch {
                 "powerful, it had to be Sealed away.\p"
 
                 "Perhaps once the Seal has been\n"
-                "destroyed, you'll find a way through!", MSGBOX_DEFAULT)
+                "BREAK'd, you'll find a way through!", MSGBOX_DEFAULT)
             case 3:
                 msgbox(
                 "Did you ever talk to the PHISHING\n"
@@ -113,16 +113,19 @@ script ViridianGym_HintManSwitch {
                 "Your RUMOR LOG may be helpful, but\n"
                 "not everything gets recorded there.\p"
 
+                "The POKéMON you need has now been\n"
+	            "marked obtainable in your DEX.\p"
+
                 "Go back and explore the GREAT SEA.\n"
                 "Check everything with fresh eyes.\p"
 
                 "There's clues on every island, now\n"
                 "that you know what you're looking for.", MSGBOX_DEFAULT)
-                if(!checkmoncaught(SPECIES_ARCANINE)) {
+                //if(!checkmoncaught(SPECIES_ARCANINE)) {
                     msgbox(
                     "Incidentally, have you visited\n"
                     "CERULEAN CAVE yet?", MSGBOX_DEFAULT)
-                }
+                //}
             case 9:
                 msgbox(
                 "I don't think I'm supposed to be\n"

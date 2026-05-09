@@ -1222,7 +1222,7 @@ static const struct TrainerMonItemCustomMoves sParty_SuperNerdMiguel[] = {
         .lvl = 14,
         .heldItem = ITEM_NONE,
         .species = SPECIES_KOFFING,
-        .moves = {MOVE_TACKLE, MOVE_POISON_GAS, MOVE_BITE, MOVE_SMOG}
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_BITE, MOVE_SMOG}
 
     },
     {
@@ -9642,7 +9642,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_AngryNerdAndrew[] = {
         .iv = 0,
         .lvl = 35,
         .species = SPECIES_GENGAR,
-        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 
@@ -9699,7 +9699,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainLucy[] = {
     },
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 50,
         .species = SPECIES_REGIELEKI,
         .moves = {MOVE_AGILITY_DUMB, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
@@ -10606,12 +10606,6 @@ static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
     {
         .iv = 0,
         .lvl = 50,
-        .species = SPECIES_KRABBY_POKERAP,
-        .moves = {MOVE_CRAB_THROW, MOVE_CAMBRIAN_EXPLOSION, MOVE_CRAB_GRIP, MOVE_HAZE}
-    },
-    {
-        .iv = 0,
-        .lvl = 50,
         .heldItem = ITEM_NONE,
         .species = SPECIES_SWAMPERT,
         .moves = {MOVE_SOFT_LOCK, MOVE_MOONLIGHT_YEAR, MOVE_LANDS_MATH, MOVE_EARTH_POWER}
@@ -10622,14 +10616,7 @@ static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
         .heldItem = ITEM_NONE,
         .species = SPECIES_GARDEVOIR,
         .moves = {MOVE_FAIRY_FANG, MOVE_SECRET_SWORD, MOVE_DOUBLE_JUMP, MOVE_BOTTOM_SURGERY}
-    }
-    //{
-    //    .iv = 0,
-    //    .lvl = 50,
-    //    .heldItem = ITEM_NONE,
-    //    .species = SPECIES_CHARIZARD,
-    //    .moves = {MOVE_SOFT_LOCK, MOVE_MOONLIGHT_YEAR, MOVE_LANDS_MATH, MOVE_EARTH_POWER}
-    //},
+    },
 };
 
 static const struct TrainerMonItemCustomMoves sParty_Plasto[] = {

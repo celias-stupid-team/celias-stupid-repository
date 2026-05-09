@@ -8004,7 +8004,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
-        .priority = 5,
+        .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
     [MOVE_MAGNET_RISE] =    {
@@ -8116,7 +8116,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     {
         .effect = EFFECT_DOUBLE_DIP,
-        .power = 80,
+        .power = 150,
         .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 10,
@@ -8173,7 +8173,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 3,
+        .priority = 5,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
@@ -11582,8 +11582,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FIRE_PLAST] =
     {
         .effect = EFFECT_HIT,
-        .power = 10,
-        .type = TYPE_FIRE,
+        .power = 120,
+        .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -12627,7 +12627,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 90,
-        .type = TYPE_PSYCHIC,
+        .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -13499,7 +13499,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_GASTER_BLASTER] =
     {
         .effect = EFFECT_HIT,
-        .power = 80,
+        .power = 300,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 35,
@@ -14714,9 +14714,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_OVULATION_BOMB] =
     {
         .effect = EFFECT_TAILSLAP,
-        .power = 10,
+        .power = 15,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .accuracy = 85,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,

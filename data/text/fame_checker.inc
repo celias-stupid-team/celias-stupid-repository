@@ -282,7 +282,7 @@ gFameCheckerFlavorText_RockTunnel4:: @ 0x81AE48D
 	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
 	.string "My name is DAZZLE!\n"
 	.string "And I collect STAR PIECES!\p"
-	.string "So, guy, if you have any STAR PIECES\n"
+	.string "So, guy, if you have a STAR PIECE\n"
 	.string "I'll trade you a BADGE for them!$"
 
 gFameCheckerFlavorText_RockTunnel5:: @ 0x81AE51B
@@ -559,8 +559,8 @@ gFameCheckerFlavorText_GreatSeaEast2:: @ 0x81AF641
 gFameCheckerFlavorText_GreatSeaEast3:: @ 0x81AF6BA
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}"
-	.string "It's a rock.\p"
-	.string "It feels normal to the touch.\n$"
+	.string "The tree has been hastily covered\n"
+	.string "with a coat of cheap paint.$"
 
 
 gFameCheckerFlavorText_GreatSeaEast4:: @ 0x81AF758
@@ -661,7 +661,7 @@ gFameCheckerFlavorText_GreatBay3:: @ 0x81AFCE9
 	.string "and powerful, we humans had to\l"
 	.string "Seal it away for our own safety.\p"
 	.string "Some day, someone may come along\n"
-	.string "and Break the Seal themselves…$"
+	.string "and BREAK the Seal themselves…$"
 
 gFameCheckerFlavorText_GreatBay4:: @ 0x81AFD49
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
@@ -1154,7 +1154,7 @@ gRumorLogFlavorTextIntoLine1_Bill2::
 	.string "Workout$"
 
 gRumorLogFlavorTextIntoLine1_Bill3::
-	.string "Rock$"
+	.string "Golden$"
 
 gRumorLogFlavorTextIntoLine1_Bill4::
 	.string "Allure$"
@@ -1442,7 +1442,7 @@ gFameCheckerFlavorTextOriginObjectName_Bill2::
 	.string "Woes$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill3::
-	.string "$"
+	.string "Grove$"
 
 gFameCheckerFlavorTextOriginObjectName_Bill4::
 	.string "Arbiter$"
