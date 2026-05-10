@@ -7135,3 +7135,11 @@ bool32 IsDanceMove(u16 moveId)
 {
     return gBattleMoves[moveId].danceMove;
 }
+
+bool32 IsDupe(u16 species_catch)
+{    
+    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species_catch), FLAG_GET_CAUGHT))
+        return TRUE;
+
+    return FALSE;
+}
