@@ -5804,8 +5804,11 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
         delta = sFriendshipEventDeltas[event][friendshipLevel];
         if (delta > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
-            // 50% increase, rounding down
-            delta = MAX_FRIENDSHIP;
+        {
+            friendship = MAX_FRIENDSHIP;
+            SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
+            return;
+        }
 
         friendship += delta;
         if (delta > 0)
