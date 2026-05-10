@@ -6,6 +6,7 @@ mapscripts Starlight_House_MapScripts {
         }
             if(flag(FLAG_CSR_CELIA_BONUS)) {
 			setflag(FLAG_TEMP_8)
+			setflag(FLAG_TEMP_4)
 		}
 		if(flag(FLAG_DAK_HERE)) {
 			setflag(FLAG_TEMP_8)
@@ -58,10 +59,15 @@ script Starlight_House_Smiley_Face {
 	release
 }
 
+script Starlight_House_Celia_Doll {
+	finditem(ITEM_POKE_DOLL)
+	removeobject(CeliaDoll)
+	setflag(FLAG_TEMP_4)
+}
 
 script Starlight_House_Mudkip_Doll {
 	finditem(ITEM_POKE_DOLL)
-	removeobject(Mudkip)
+	removeobject(MudkipDoll)
 	setflag(FLAG_TEMP_3)
 }
 
