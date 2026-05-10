@@ -120,7 +120,7 @@ script Starlight_House5_Blue_Tiles {
 			setmetatile(24, 6, 0x344, FALSE)//Daisy
 			setmetatile(25, 6, 0x355, TRUE)//top left cliff
 			setmetatile(26, 6, 0x356, TRUE)
-			setmetatile(27, 6, 0x357, TRUE)//top right cliff
+			setmetatile(27, 6, 0x315, TRUE)//top right cliff
 			setmetatile(28, 6, 0x348, FALSE)//grass3
 			
 			//row5
@@ -133,7 +133,7 @@ script Starlight_House5_Blue_Tiles {
 			setmetatile(25, 7, 0x35D, TRUE)
 			setmetatile(26, 7, 0x36E, TRUE)
 			setmetatile(27, 7, 0x35E, TRUE)
-			setmetatile(28, 7, 0x357, TRUE)//top right cliff
+			setmetatile(28, 7, 0x315, TRUE)//top right cliff
 			
 			//row6
 			setmetatile(19, 8, 0x360, TRUE)
