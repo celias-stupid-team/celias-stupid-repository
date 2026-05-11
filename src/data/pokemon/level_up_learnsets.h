@@ -1978,8 +1978,8 @@ static const struct LevelUpMove sJolteonLevelUpLearnset[] = {
 
 static const struct LevelUpMove sFlareonLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_BABY_DOLL_EYES),
-    LEVEL_UP_MOVE(0, MOVE_G_MAX_CHILDFIRE),
     LEVEL_UP_MOVE(0, MOVE_DEMOND_STORM),
+    LEVEL_UP_MOVE(0, MOVE_G_MAX_CHILDFIRE),
     LEVEL_UP_MOVE(1, MOVE_FLAMETHROWER),
     LEVEL_UP_MOVE(1, MOVE_SECRET_POWER),
     LEVEL_UP_MOVE(1, MOVE_SECRET_LIFE_DEW),
