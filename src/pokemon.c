@@ -6854,6 +6854,7 @@ u32 GetCurrentLevelCap(u16 species)
 {
     static const u32 sLevelCapFlagMap[][2] = //Level cap if the respective badge hasn't been gotten
     {
+        {FLAG_BEAT_RIVAL_IN_OAKS_LAB, 4}, 
         {FLAG_BADGE01_GET, 15}, 
         {FLAG_BADGE02_GET, 25}, 
         {FLAG_BADGE04_GET, MAX_LEVEL}, 
