@@ -1154,9 +1154,20 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_GRASS_KNOTS]     = _("GRASS KNOTS"),
     [MOVE_NOBBLEBEAM]     = _("NOBBLEBEAM"),
     [MOVE_NOBSTRUCT]     = _("NOBSTRUCT"),
+    [MOVE_MORTAL_SPIN]     = _("MORTAL SPIN"),
+    [MOVE_CEASELESS_LEDGE]     = _("CEASE LEDGE"),
+    [MOVE_ANARCHYONCUTTER]     = _("ANARCUTTER"),
+    [MOVE_NO_RETREAT]     = _("NO RETREAT"),
+    [MOVE_NO_SURF]     = _("NO SURF"),
+    [MOVE_WORM_UP]     = _("WORM UP"),
+    [MOVE_SHED_TAIL]     = _("SHED TAIL"),
+    [MOVE_T_POSE]     = _("T POSE"),
+    [MOVE_EARTH_BLASTER]     = _("EARTH BLAST"),
+    [MOVE_MIRAQLE_WHIP]     = _("MIRAQLE WHIP"),
+    [MOVE_PLUSLEPLUPOO]     = _("PLUSLEPLUPOO"),
+    [MOVE_DEDENEDEDOO]     = _("DEDENEDEDOO"),
+    [MOVE_TOGEDEEZNUTS]     = _("TOGEDEEZNUTS"),
 };
-
-
 
 const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_NONE]          = _("-$$$$$$"),
@@ -2314,4 +2325,17 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_GRASS_KNOTS]     = _("GRASS KNOTS"),
     [MOVE_NOBBLEBEAM]     = _("NOBBLEBEAM"),
     [MOVE_NOBSTRUCT]     = _("NOBSTRUCT"),
+    [MOVE_MORTAL_SPIN]     = _("MORTAL SPIN"),
+    [MOVE_CEASELESS_LEDGE]     = _("CEASELESS LEDGE"),
+    [MOVE_ANARCHYONCUTTER]     = _("ANARCHYONCUTTER"),
+    [MOVE_NO_RETREAT]     = _("NO RETREAT"),
+    [MOVE_NO_SURF]     = _("NO SURF"),
+    [MOVE_WORM_UP]     = _("WORM UP"),
+    [MOVE_SHED_TAIL]     = _("SHED TAIL"),
+    [MOVE_T_POSE]     = _("T POSE"),
+    [MOVE_EARTH_BLASTER]     = _("EARTH BLASTER"),
+    [MOVE_MIRAQLE_WHIP]     = _("MIRAQLE WHIP"),
+    [MOVE_PLUSLEPLUPOO]     = _("PLUSLEPLUPOO"),
+    [MOVE_DEDENEDEDOO]     = _("DEDENEDEDOO"),
+    [MOVE_TOGEDEEZNUTS]     = _("TOGEDEEZNUTS"),
 }; //For any move which needs its name lengthened, these will display in battle.

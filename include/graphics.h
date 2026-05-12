@@ -8954,6 +8954,13 @@ extern const u32 gBattleAnimSpriteGfx_Loss[];
 extern const u32 gBattleAnimSpriteGfx_LossBubbles[];
 extern const u32 gBattleAnimSpriteGfx_LossHands[];
 extern const u32 gBattleAnimSpriteGfx_Lobster[];
+extern const u32 gBattleAnimSpriteGfx_Shed[];
+extern const u32 gBattleAnimSpriteGfx_Dime[];
+extern const u32 gBattleAnimSpriteGfx_SpinTiles[];
+extern const u32 gBattleAnimSpriteGfx_Plus[];
+extern const u32 gBattleAnimSpriteGfx_Togedemaru[];
+extern const u32 gBattleAnimSpriteGfx_Dedenne[];
+extern const u32 gBattleAnimSpriteGfx_Anarchy[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9459,6 +9466,13 @@ extern const u32 gBattleAnimSpritePal_Loss[];
 extern const u32 gBattleAnimSpritePal_LossBubbles[];
 extern const u32 gBattleAnimSpritePal_LossHands[];
 extern const u32 gBattleAnimSpritePal_Lobster[];
+extern const u32 gBattleAnimSpritePal_Shed[];
+extern const u32 gBattleAnimSpritePal_Dime[];
+extern const u32 gBattleAnimSpritePal_SpinTiles[];
+extern const u32 gBattleAnimSpritePal_Plus[];
+extern const u32 gBattleAnimSpritePal_Togedemaru[];
+extern const u32 gBattleAnimSpritePal_Dedenne[];
+extern const u32 gBattleAnimSpritePal_Anarchy[];
 //CSR Moves
 
 extern const u32 gBattleAnimSpriteGfx_Crab[];

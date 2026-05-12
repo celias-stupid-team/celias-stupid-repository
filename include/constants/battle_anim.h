@@ -558,6 +558,13 @@
 #define ANIM_TAG_LOSS_BUBBLES               (ANIM_SPRITES_START + 548)
 #define ANIM_TAG_LOSS_HANDS                 (ANIM_SPRITES_START + 549)
 #define ANIM_TAG_LOBSTER                    (ANIM_SPRITES_START + 550)
+#define ANIM_TAG_SHED                       (ANIM_SPRITES_START + 551)
+#define ANIM_TAG_DIME                       (ANIM_SPRITES_START + 552)
+#define ANIM_TAG_SPIN_TILES                 (ANIM_SPRITES_START + 553)
+#define ANIM_TAG_PLUS                       (ANIM_SPRITES_START + 554)
+#define ANIM_TAG_TOGEDEMARU                 (ANIM_SPRITES_START + 555)
+#define ANIM_TAG_DEDENNE                    (ANIM_SPRITES_START + 556)
+#define ANIM_TAG_ANARCHY                    (ANIM_SPRITES_START + 557)
 
 // battlers
 #define ANIM_ATTACKER       0
