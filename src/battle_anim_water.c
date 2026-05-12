@@ -210,6 +210,70 @@ const struct SpriteTemplate gClubbleProjectileSpriteTemplate =
     .callback = AnimWaterBubbleProjectile,
 };
 
+static const union AnimCmd sAnim_DedenneProjectile_0[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DedenneProjectile_1[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_FRAME(16, 5),
+    ANIMCMD_FRAME(16, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DedenneProjectile_2[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_FRAME(32, 5),
+    ANIMCMD_FRAME(32, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_DedenneProjectile[] =
+{
+    sAnim_DedenneProjectile_0,
+    sAnim_DedenneProjectile_1,
+    sAnim_DedenneProjectile_2,
+};
+
+const struct SpriteTemplate gDedenneProjectileFaceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEDENNE,
+    .paletteTag = ANIM_TAG_DEDENNE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = &sAnims_DedenneProjectile[0],
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
+const struct SpriteTemplate gDedenneProjectileEarOneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEDENNE,
+    .paletteTag = ANIM_TAG_DEDENNE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = &sAnims_DedenneProjectile[1],
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
+const struct SpriteTemplate gDedenneProjectileEarTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEDENNE,
+    .paletteTag = ANIM_TAG_DEDENNE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = &sAnims_DedenneProjectile[2],
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
 const struct SpriteTemplate gBeeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BEE,

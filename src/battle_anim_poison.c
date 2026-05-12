@@ -316,6 +316,17 @@ const struct SpriteTemplate gClubbleSpriteTemplate =
     .callback = AnimBubbleEffect,
 };
 
+const struct SpriteTemplate gDedenneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEDENNE,
+    .paletteTag = ANIM_TAG_DEDENNE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bubble,
+    .callback = AnimBubbleEffect,
+};
+
 static void AnimSludgeProjectile(struct Sprite *sprite)
 {
     if (!gBattleAnimArgs[3])

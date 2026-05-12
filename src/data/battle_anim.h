@@ -1632,6 +1632,13 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_LossBubbles, 0x0400, ANIM_TAG_LOSS_BUBBLES},
     {gBattleAnimSpriteGfx_LossHands, 0x0400, ANIM_TAG_LOSS_HANDS},
     {gBattleAnimSpriteGfx_Lobster, 0x0800, ANIM_TAG_LOBSTER},
+    {gBattleAnimSpriteGfx_Shed, 0x0800, ANIM_TAG_SHED},
+    {gBattleAnimSpriteGfx_Dime, 0x0800, ANIM_TAG_DIME},
+    {gBattleAnimSpriteGfx_SpinTiles, 0x0800, ANIM_TAG_SPIN_TILES},
+    {gBattleAnimSpriteGfx_Plus, 0x0200, ANIM_TAG_PLUS},
+    {gBattleAnimSpriteGfx_Togedemaru, 0x0200, ANIM_TAG_TOGEDEMARU},
+    {gBattleAnimSpriteGfx_Dedenne, 0x0600, ANIM_TAG_DEDENNE},
+    {gBattleAnimSpriteGfx_Anarchy, 0x0A00, ANIM_TAG_ANARCHY},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2187,6 +2194,13 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_LossBubbles, ANIM_TAG_LOSS_BUBBLES},
     {gBattleAnimSpritePal_LossHands, ANIM_TAG_LOSS_HANDS},
     {gBattleAnimSpritePal_Lobster, ANIM_TAG_LOBSTER},
+    {gBattleAnimSpritePal_Shed, ANIM_TAG_SHED},
+    {gBattleAnimSpritePal_Dime, ANIM_TAG_DIME},
+    {gBattleAnimSpritePal_SpinTiles, ANIM_TAG_SPIN_TILES},
+    {gBattleAnimSpritePal_Plus, ANIM_TAG_PLUS},
+    {gBattleAnimSpritePal_Togedemaru, ANIM_TAG_TOGEDEMARU},
+    {gBattleAnimSpritePal_Dedenne, ANIM_TAG_DEDENNE},
+    {gBattleAnimSpritePal_Anarchy, ANIM_TAG_ANARCHY},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
