@@ -1347,3 +1347,14 @@ const struct Tileset gTileset_Alphabet =
     .metatileAttributes = gMetatileAttributes_Alphabet,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Aether_Paradise =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Aether_Paradise,
+    .palettes = gTilesetPalettes_Aether_Paradise,
+    .metatiles = gMetatiles_Aether_Paradise,
+    .metatileAttributes = gMetatileAttributes_Aether_Paradise,
+    .callback = InitTilesetAnim_Route15,
+};

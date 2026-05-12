@@ -3119,14 +3119,24 @@ static void Task_WithdrawMonInBackground(u8 taskId)
     {
     case 0:
         //WIP ToDo: handle double battles
-
-        //send all mons except the active one to the PC
-        for (i = 0; i < PARTY_SIZE; i++)
         {
-            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
-                break;
-            else if (gBattlerPartyIndexes[gActiveBattler] != i) //don't send activeBattler to PC
+            u8 currentActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+            u8 activeMon = gBattlerPartyIndexes[currentActiveBattler];
+
+            // shuffle the active mon to slot 0 for data consistency
+            if (activeMon != 0)
             {
+                struct Pokemon mon = gPlayerParty[0];
+                gPlayerParty[0] = gPlayerParty[activeMon];
+                gPlayerParty[activeMon] = mon;
+                gBattlerPartyIndexes[currentActiveBattler] = 0;
+            }
+
+            //send all mons except the active one in slot 0 to the PC
+            for (i = 1; i < PARTY_SIZE; i++)
+            {
+                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+                    break;
                 if (SendMonToPC(&gPlayerParty[i]))
                 {
                     ZeroMonData(&gPlayerParty[i]);

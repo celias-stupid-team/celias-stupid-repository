@@ -3870,7 +3870,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_SE_MONSTER_MASH) \
     X(MUS_SE_SONIC_BOOM) \
     X(MUS_SE_SPACE_JAM) \
-    X(mus_star_battle) \
+    X(MUS_BW_RIVAL) \
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

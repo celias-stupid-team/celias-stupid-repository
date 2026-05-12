@@ -2448,3 +2448,22 @@ const u16 gTilesetPalettes_Alphabet[][16] =
 };
 
 const u32 gTilesetTiles_Alphabet[] = INCBIN_U32("data/tilesets/secondary/alphabet/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Aether_Paradise[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/aether_paradise/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Aether_Paradise[] = INCBIN_U32("data/tilesets/secondary/aether_paradise/tiles.4bpp.lz");
