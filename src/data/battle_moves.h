@@ -13886,12 +13886,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_GAME_GENIE] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_FLINCH_HIT,
         .power = 75,
         .type = TYPE_GHOST,
-        .accuracy = 100,
-        .pp = 35,
-        .secondaryEffectChance = 0,
+        .accuracy = 90,
+        .pp = 10,
+        .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
@@ -14908,7 +14908,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_RECHARGE,
         .power = 130,
         .type = TYPE_DRAGON,
-        .accuracy = 80,
+        .accuracy = 90,
         .pp = 30,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,

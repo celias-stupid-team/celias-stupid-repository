@@ -757,6 +757,18 @@ const u32 gBattleAnimSpritePal_EonTicket[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpriteGfx_TheLedge[] = INCBIN_U32("graphics/battle_anims/sprites/the_ledge.4bpp.lz");
 const u32 gBattleAnimSpritePal_TheLedge[] = INCBIN_U32("graphics/battle_anims/sprites/the_ledge.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Loss[] = INCBIN_U32("graphics/battle_anims/sprites/loss.4bpp.lz");
+const u32 gBattleAnimSpritePal_Loss[] = INCBIN_U32("graphics/battle_anims/sprites/loss.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_LossBubbles[] = INCBIN_U32("graphics/battle_anims/sprites/loss_bubbles.4bpp.lz");
+const u32 gBattleAnimSpritePal_LossBubbles[] = INCBIN_U32("graphics/battle_anims/sprites/loss_bubbles.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_LossHands[] = INCBIN_U32("graphics/battle_anims/sprites/loss_hands.4bpp.lz");
+const u32 gBattleAnimSpritePal_LossHands[] = INCBIN_U32("graphics/battle_anims/sprites/loss_hands.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Lobster[] = INCBIN_U32("graphics/battle_anims/sprites/lobster.4bpp.lz");
+const u32 gBattleAnimSpritePal_Lobster[] = INCBIN_U32("graphics/battle_anims/sprites/lobster.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

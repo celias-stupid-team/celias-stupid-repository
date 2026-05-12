@@ -554,6 +554,10 @@
 #define ANIM_TAG_SOUL_DEW                   (ANIM_SPRITES_START + 544)
 #define ANIM_TAG_EON_TICKET                 (ANIM_SPRITES_START + 545)
 #define ANIM_TAG_THE_LEDGE                  (ANIM_SPRITES_START + 546)
+#define ANIM_TAG_LOSS                       (ANIM_SPRITES_START + 547)
+#define ANIM_TAG_LOSS_BUBBLES               (ANIM_SPRITES_START + 548)
+#define ANIM_TAG_LOSS_HANDS                 (ANIM_SPRITES_START + 549)
+#define ANIM_TAG_LOBSTER                    (ANIM_SPRITES_START + 550)
 
 // battlers
 #define ANIM_ATTACKER       0

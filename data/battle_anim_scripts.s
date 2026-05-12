@@ -31231,7 +31231,6 @@ Move_GAME_GENIE:
 	end
 
 Move_CRUSECEAN_WRENCH:
-
 	loadspritegfx ANIM_TAG_MUD_SAND
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_GLISCOR_CLAW
@@ -33049,14 +33048,129 @@ ShellyDrumRight:
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 8, 2, 1
 	return
 
-Move_LOSS_CHOP:
-Move_LOSS_POISON:
 Move_CLOSS_COMBAT:
+	loadspritegfx ANIM_TAG_LOSS_HANDS
+	loadspritegfx ANIM_TAG_LOSS_BUBBLES
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	createsprite gLossFaceSpriteTemplate, ANIM_TARGET, 2, 0, -8, 0, 0, 0, 60, 0, 1
+	createsprite gLossHandRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	delay 7
+	createsprite gLossHandRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	delay 7
+	createsprite gLossHandRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	delay 7
+	createsprite gLossHandRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	delay 7
+	createsprite gLossHandRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	delay 7
+	createsprite gLossHandRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
+Move_LOSS_POISON:
+	loadspritegfx ANIM_TAG_LOSS_BUBBLES
+	loadspritegfx ANIM_TAG_CROSS_IMPACT
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	delay 12
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 8, 0, 18, 1
+	createsprite gCrossImpactSpriteTemplate, ANIM_TARGET, 2, 0, 0, 1, 36
+	playsewithpan SE_M_LEER, SOUND_PAN_TARGET
+	waitforvisualfinish
+
+	createsprite gLossBubbleOneSpriteTemplate, ANIM_TARGET, 2, 10, 10, 0
+	playsewithpan SE_M_TOXIC, SOUND_PAN_TARGET
+	delay 6
+	createsprite gLossBubbleTwoSpriteTemplate, ANIM_TARGET, 2, 20, -20, 0
+	playsewithpan SE_M_TOXIC, SOUND_PAN_TARGET
+	delay 6
+	createsprite gLossBubbleOneSpriteTemplate, ANIM_TARGET, 2, -20, 15, 0
+	playsewithpan SE_M_TOXIC, SOUND_PAN_TARGET
+	delay 6
+	createsprite gLossBubbleTwoSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_TOXIC, SOUND_PAN_TARGET
+	delay 6
+	createsprite gLossBubbleOneSpriteTemplate, ANIM_TARGET, 2, -20, -20, 0
+	playsewithpan SE_M_TOXIC, SOUND_PAN_TARGET
+	delay 6
+	createsprite gLossBubbleTwoSpriteTemplate, ANIM_TARGET, 2, 16, -8, 0
+	playsewithpan SE_M_TOXIC, SOUND_PAN_TARGET
+
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+
+Move_LOSS_CHOP:
+	loadspritegfx ANIM_TAG_LOSS
+	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_TARGET
+	createsprite gLossRiseOneSpriteTemplate, ANIM_TARGET, 2, -32, 64, 0, -4, 24, 21, 0, 1
+	createsprite gLossRiseTwoSpriteTemplate, ANIM_TARGET, 2, 32, 64, 0, -4, 24, 21, 0, 1
+	delay 42
+	createsprite gLossChopOneSpriteTemplate, ANIM_TARGET, 2, -32, -32, 8, 8, 8, 50, 0, 1
+	createsprite gLossChopTwoSpriteTemplate, ANIM_TARGET, 2, 32, -32, -8, 8, 8, 50, 0, 1
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	delay 4
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 6, 0, 10, 1
+	waitforvisualfinish
+	end
+
+Move_LOBSTRUCT:
+	loadspritegfx ANIM_TAG_LOBSTER
+	createsprite gLobstructSpriteTemplate, ANIM_TARGET, 66
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_TARGET
+	end
+
+Move_CHORE_OF_TIME:
+	loadspritegfx ANIM_TAG_CLOCK
+	loadspritegfx ANIM_TAG_CLOTH
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_TARGET
+	createsprite gClockSpriteTemplate, ANIM_TARGET, 2, 0, -104, 0, 12, 8, 200, 0, 1
+	delay 8
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 0, 3
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 0, 3
+	delay 2
+	loopsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET, 8, 2
+	delay 90
+	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER, 22, 2
+	createsprite gClothSpriteTemplate, ANIM_TARGET, 2, -16, -8, 0, 0, 0, 40, 1, 1
+	delay 40
+	playsewithpan SE_M_ABSORB_2, SOUND_PAN_TARGET
+	createsprite gHealingBlueStarSpriteTemplate, ANIM_TARGET, 2, 0, -5, 1, 0
+	delay 7
+	createsprite gHealingBlueStarSpriteTemplate, ANIM_TARGET, 2, -15, 10, 1, 0
+	delay 7
+	createsprite gHealingBlueStarSpriteTemplate, ANIM_TARGET, 2, -15, -15, 1, 0
+	delay 7
+	createsprite gHealingBlueStarSpriteTemplate, ANIM_TARGET, 2, 10, -5, 1, 0
+	delay 7
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
 Move_REVENUESTEALSTRIKE:
 Move_MAX_TURNPIKE:
 Move_ROAR_OF_DIME:
-Move_LOBSTRUCT:
-Move_CHORE_OF_TIME:
 Move_NIGHT_DAISY:
 Move_DAY_NIGHTSY:
 	goto Move_TACKLE

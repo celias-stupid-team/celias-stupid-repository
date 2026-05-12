@@ -1520,7 +1520,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_DarkLloyd, 0x1000, ANIM_TAG_DARK_LLOYD},
     {gBattleAnimSpriteGfx_Protagonists, 0x0800, ANIM_TAG_PROTAGONISTS},
     {gBattleAnimSpriteGfx_Latinas, 0x0800, ANIM_TAG_LATINAS},
-    {gBattleAnimSpriteGfx_GameGenie, 0x0400, ANIM_TAG_GAME_GENIE},
+    {gBattleAnimSpriteGfx_GameGenie, 0x0800, ANIM_TAG_GAME_GENIE},
     {gBattleAnimSpriteGfx_Furby, 0x0200, ANIM_TAG_FURBY},
     {gBattleAnimSpriteGfx_Firered, 0x0200, ANIM_TAG_FIRERED},
     {gBattleAnimSpriteGfx_PrideFlag, 0x0200, ANIM_TAG_PRIDE_FLAG},
@@ -1628,6 +1628,10 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_SoulDew, 0x0080, ANIM_TAG_SOUL_DEW},
     {gBattleAnimSpriteGfx_EonTicket, 0x0200, ANIM_TAG_EON_TICKET},
     {gBattleAnimSpriteGfx_TheLedge, 0x2000, ANIM_TAG_THE_LEDGE},
+    {gBattleAnimSpriteGfx_Loss, 0x2000, ANIM_TAG_LOSS},
+    {gBattleAnimSpriteGfx_LossBubbles, 0x0400, ANIM_TAG_LOSS_BUBBLES},
+    {gBattleAnimSpriteGfx_LossHands, 0x0400, ANIM_TAG_LOSS_HANDS},
+    {gBattleAnimSpriteGfx_Lobster, 0x0800, ANIM_TAG_LOBSTER},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2179,6 +2183,10 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_SoulDew, ANIM_TAG_SOUL_DEW},
     {gBattleAnimSpritePal_EonTicket, ANIM_TAG_EON_TICKET},
     {gBattleAnimSpritePal_TheLedge, ANIM_TAG_THE_LEDGE},
+    {gBattleAnimSpritePal_Loss, ANIM_TAG_LOSS},
+    {gBattleAnimSpritePal_LossBubbles, ANIM_TAG_LOSS_BUBBLES},
+    {gBattleAnimSpritePal_LossHands, ANIM_TAG_LOSS_HANDS},
+    {gBattleAnimSpritePal_Lobster, ANIM_TAG_LOBSTER},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
