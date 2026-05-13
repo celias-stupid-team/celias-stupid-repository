@@ -26,20 +26,21 @@ mapscripts Starlight_House_MapScripts {
 script Starlight_House_Window {
 	msgbox(
 	"This window has a lovely view\n"
-    "of the other room.", MSGBOX_SIGN)
+    "of a painting.", MSGBOX_SIGN)
 
 }
 
 script Starlight_House_Painting {
 	msgbox(
-	"It's a painting of a window.", MSGBOX_SIGN)
+	"This painting is a lovely view\n"
+	"of a window.", MSGBOX_SIGN)
 
 }
 
 script Starlight_House_Bookshelf {
 	msgbox(
-	"There is a suspicious lack of\n"
-	"My Secret Life books here.", MSGBOX_NPC)
+	"The My Secret Life books are\n"
+	"suspiciously missing.", MSGBOX_SIGN)
 
 }
 
@@ -60,13 +61,13 @@ script Starlight_House_Smiley_Face {
 }
 
 script Starlight_House_Celia_Doll {
-	finditem(ITEM_POKE_DOLL)
+	finditem(ITEM_POKE_BALL)
 	removeobject(CeliaDoll)
 	setflag(FLAG_TEMP_4)
 }
 
 script Starlight_House_Mudkip_Doll {
-	finditem(ITEM_POKE_DOLL)
+	finditem(ITEM_POKE_BALL)
 	removeobject(MudkipDoll)
 	setflag(FLAG_TEMP_3)
 }
@@ -77,8 +78,8 @@ script Starlight_House_Eevee_Doll {
 	"Vee!", MSGBOX_NPC)
 	closemessage
 	delay(10)
-	finditem(ITEM_POKE_DOLL)
-	removeobject(Eevee)
+	finditem(ITEM_POKE_BALL)
+	removeobject(EeveeDoll)
 	setflag(FLAG_TEMP_2)
 }
 
@@ -86,22 +87,14 @@ script Starlight_House_Post_Game_Starlight {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"STARLIGHT: Thank you {PLAYER} for\n"
-	"playing Celia's Stupid Romhack!\p"
-
-	"I made this house to learn new\n"
-	"skills and indulge in fun map\l"
-	"ideas!\p"
-
-	"It was a lot of work making this\n"
-	"hack, but truly an enjoyable and\l"
-	"enriching experience.", MSGBOX_NPC)
+	"playing Celia's Stupid Romhack!", MSGBOX_NPC)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
 	))
 	waitmovement(0)
 }
 
-script Starlight_House_My_Secret_Life {
+script Starlight_House_My_Secret_Life {//UNUSED
 	msgbox(
 	 "My Secret Life, chapter three.\p"
 	 "I was neither a murder suspect, nor\n"
@@ -1323,3 +1316,12 @@ script Starlight_House_Color_Test {
 {COLOR DARK_GRAY}W", MSGBOX_SIGN)
 }
 
+script Starlight_House_TV {
+	msgbox(
+	"It's an episode of The Office.\p"
+	"...\l"
+
+	"Nevermind it's Silph Co security\n"
+	"camera footage.", MSGBOX_SIGN)
+
+}

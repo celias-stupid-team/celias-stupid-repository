@@ -22,15 +22,84 @@ script Starlight_House2_Post_Battle {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"STARLIGHT: It's nice to meet you!\p"
+	"It's nice to meet you!", MSGBOX_DEFAULT)
+	msgbox(
+	"Don't mind me, I am building the\n"
+	"world around you as you play!"
+, MSGBOX_DEFAULT)
 
-	"If you see me around don't worry\n"
-	"about me! I am just working.\p"
+playse(SE_CLICK)
+setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_2, 
+				0,	// startingX
+				0,	// startingY 
+				0,	// x1 
+				0,	// y1
+				38, // x2
+				19) // y2
+	delay(20)
+	playse(SE_CLICK)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_3, 
+				0,	// startingX
+				0,	// startingY 
+				0,	// x1 
+				0,	// y1
+				38, // x2
+				19) // y2
+	delay(20)
+	playse(SE_CLICK)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_4, 
+				0,	// startingX
+				0,	// startingY 
+				0,	// x1 
+				0,	// y1
+				38, // x2
+				19) // y2
+	delay(20)
+	playse(SE_CLICK)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_5, 
+				0,	// startingX
+				0,	// startingY 
+				0,	// x1 
+				0,	// y1
+				38, // x2
+				19) // y2
+	delay(20)
+	playse(SE_CLICK)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_6, 
+				0,	// startingX
+				0,	// startingY 
+				0,	// x1 
+				0,	// y1
+				38, // x2
+				19) // y2
+	delay(20)
+	playse(SE_CLICK)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2, 
+				0,	// startingX
+				0,	// startingY 
+				0,	// x1 
+				0,	// y1
+				38, // x2
+				19) // y2
+	delay(40)
 
-	"Also if you ever see my friend Dak\n"
-	"around here, tell him I need him.\p"
+	msgbox(
 
-	"Thanks!", MSGBOX_NPC)
+
+	"So if you see me out of bounds\n"
+	"just ignore me. I am working around\l"
+	"here and there.\p"
+
+	"Also, if you see my friend Dak\n"
+	"hanging about in this house, tell\l"
+	"him I need him.\l"
+	"Thanks!", MSGBOX_SIGN)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
@@ -49,17 +118,17 @@ script Starlight_House2_Battle { //test
 	"I thought I hid this map.",
 	"That was fun!", Starlight_House2_Post_Battle)
 
-
 	msgbox(
-	"STARLIGHT: It's nice to meet you!\p"
+	"It's nice to meet you!\p"
+	
+	"If you ever see me out of bounds\n"
+	"just ignore me. I am working around\l"
+	"here and there.\p"
 
-	"If you see me around don't worry\n"
-	"about me! I am just working.\p"
-
-	"Also if you ever see my friend Dak\n"
-	"around here, tell him I need him.\l"
-
-	"Thanks!", MSGBOX_NPC)
+	"Also, if you see my friend Dak\n"
+	"hanging about in this house, tell\l"
+	"him I need him.\l"
+	"Thanks!", MSGBOX_DEFAULT)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
@@ -71,9 +140,13 @@ script Starlight_House2_Battle { //test
 
 script Starlight_House2_Phone { //figure out yesno setup for reading messages.
 	msgbox(
-	"You have 3 missed calls.\p"
+	"You have 3 missed calls.\p" 
 	"Celia - 2 voicemails\n"
 	"Dak - 1 voicemail\p"
+	"Play Messages?\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
 	"First Message:\l"
 	"CELIA: Hey Star, could you fix the\n"
 	"tile collision in Aether? Thanks!\p"
@@ -84,6 +157,11 @@ script Starlight_House2_Phone { //figure out yesno setup for reading messages.
 	"DAK: WHAAAAAADDUUUUUUUUUUUUUUUUUUU\n"
 	"UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUPP\p"
 	"End of messages.", MSGBOX_SIGN)
+	closemessage
+	} else {
+		closemessage
+	}
+	
 
 }
 
@@ -98,7 +176,7 @@ script Starlight_House2_Garbage1 {
 
 script Starlight_House2_Garbage2 {
 	msgbox(
-	"There's scrapped paper containing a\n"
+	"There's some paper containing a\n"
 	"schedule for PMD Team Hack Event.\p"
 	"There's also something scratched out\n"
 	"at the bottom.\p"
@@ -201,4 +279,202 @@ script Starlight_House2_Reset_Battle { //update table plans visual
 	cleartrainerflag(TRAINER_STARLIGHT)
 	release
 	end
+}
+
+script Starlight_House2_Computer_Special {
+     if(!flag(FLAG_TEMP_5)) {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(
+	"It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
+    setflag(FLAG_TEMP_5)
+    } else {
+        if(flag(FLAG_TEMP_6)) {
+            setflag(FLAG_TEMP_4)
+            random(8)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
+                case 1:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
+                case 2:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
+                case 3:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
+                case 4:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+                case 5:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+	                "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
+                case 6:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TRex", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                case 7:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+            }    
+	   } else {
+            setflag(FLAG_TEMP_4)
+            random(7)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
+                case 1:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
+                case 2:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
+                case 3:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
+                case 4:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                case 5:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TRex", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                case 6:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                
+	        }
+        }
+    }   
+    
+        if(flag(FLAG_TEMP_4)) {
+        random(3)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+	"...\p"
+    "Let's close that tab.", MSGBOX_SIGN)
+                case 1:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+	"...\p"
+    "Let's see who else is streaming.", MSGBOX_SIGN)
+                case 2:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+	"They were better in their early\n"
+	"days.", MSGBOX_NPC)
+           
+           
+            } 
+
+    } else {
+
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(
+	"...\p"
+    "Let's see who else is streaming.", MSGBOX_SIGN)
+            
+        }
+                    
+        release
+        end
+}
+
+script Starlight_House2_Swap_Layouts {
+delay(30)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_2, 
+				0,	// startingX
+				0,	// startingY 
+				5,	// x1 
+				20,	// y1
+				5, // x2
+				16) // y2
+	delay(3)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_3, 
+				0,	// startingX
+				0,	// startingY 
+				5,	// x1 
+				20,	// y1
+				5, // x2
+				16) // y2
+	delay(3)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_4, 
+				0,	// startingX
+				0,	// startingY 
+				5,	// x1 
+				20,	// y1
+				5, // x2
+				16) // y2
+	delay(3)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_5, 
+				0,	// startingX
+				0,	// startingY 
+				5,	// x1 
+				20,	// y1
+				5, // x2
+				16) // y2
+	delay(3)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_6, 
+				0,	// startingX
+				0,	// startingY 
+				5,	// x1 
+				20,	// y1
+				5, // x2
+				16) // y2
+	delay(3)
+	setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE2, 
+				0,	// startingX
+				0,	// startingY 
+				5,	// x1 
+				20,	// y1
+				5, // x2
+				16) // y2
 }

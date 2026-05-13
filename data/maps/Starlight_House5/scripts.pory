@@ -44,7 +44,7 @@ script Starlight_House5_Dak_Pit { //test
 }
 
 script Starlight_House5_Charizard_Doll {
-	finditem(ITEM_POKE_DOLL)
+	finditem(ITEM_POKE_BALL)
 	removeobject(Charizard)
 	setflag(FLAG_TEMP_3)
 }
@@ -202,6 +202,8 @@ script Starlight_House5_Blue_Tiles {
 			clearflag(FLAG_TEMP_D)
 			setflag(FLAG_TEMP_5)
 			removeobject(LOCALID_HOUSE5_SECRET)
+			applymovement(LOCALID_STARDUCK, moves(set_visible))
+			waitmovement(LOCALID_STARDUCK)
 		}
 		}
     release
@@ -355,7 +357,8 @@ script Starlight_House5_Red_Tiles {
 			clearflag(FLAG_TEMP_D)
 			setflag(FLAG_TEMP_5)
 			removeobject(LOCALID_HOUSE5_SECRET)
-			
+			applymovement(LOCALID_STARDUCK, moves(set_visible))
+			waitmovement(LOCALID_STARDUCK)
 			}
 	}
 			
@@ -511,7 +514,8 @@ script Starlight_House5_Green_Tiles {
 			clearflag(FLAG_TEMP_D)
 			setflag(FLAG_TEMP_5)
 			removeobject(LOCALID_HOUSE5_SECRET)
-			
+			applymovement(LOCALID_STARDUCK, moves(set_visible))
+			waitmovement(LOCALID_STARDUCK)
 			}
 	}
 			
@@ -524,14 +528,14 @@ script Starlight_House5_Mystery_Tiles {
 	lock
 	if(flag(FLAG_TEMP_D)) {
 			 msgbox("Room is already set to\n"
-	"the ??? palette theme.", MSGBOX_SIGN)
+	"the DARK palette theme.", MSGBOX_SIGN)
 		closemessage
 				}
 	if(!flag(FLAG_TEMP_D)) {
     //textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	
     msgbox("Would you like to set the room\n"
-	"to a ??? palette theme?", MSGBOX_YESNO)
+	"to a DARK palette theme?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
 			//wall
@@ -666,6 +670,8 @@ script Starlight_House5_Mystery_Tiles {
 			clearflag(FLAG_TEMP_B)
 			clearflag(FLAG_TEMP_C)
 			clearflag(FLAG_TEMP_5)
+			applymovement(LOCALID_STARDUCK, moves(set_invisible))
+			waitmovement(LOCALID_STARDUCK)
 			}
 	}
 			
@@ -683,13 +689,25 @@ script Starlight_House5_Sign {
 
 script Starlight_House5_Secret {
 	lock
-	if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
-	"Come back after you've talked to\n"
-	"Starlight.", MSGBOX_SIGN)
-	} else {
+	"There's old Cheeto bags and some\n"
+	"other junk hiding in here.", MSGBOX_DEFAULT)
+	if(flag(FLAG_HIDE_BONUS_STARLIGHTS) && flag(FLAG_TEMP_D)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+	"In this lighting you can somehow\n"
+	"see a hatch underneath\p"
+
+	"Some magical force is holding it\n"
+	"shut until you find the owner.", MSGBOX_DEFAULT)
+	}
+	if(!flag(FLAG_HIDE_BONUS_STARLIGHTS) && flag(FLAG_TEMP_D)) {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
-    msgbox("Enter?", MSGBOX_YESNO)
+    msgbox("In this lighting you can somehow\n"
+	"see a hatch underneath\p"
+
+	"Enter?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
 			//fadescreen(FADE_TO_WHITE)
@@ -703,7 +721,8 @@ script Starlight_House5_Secret {
     end
 }
 
-script Starlight_House5_Pit_Sign {
+
+script Starlight_House5_Pit_Sign {//UNUSED
 	msgbox(
 	"TRAINER TIPS!\p"
 	"Press START to save the game!", MSGBOX_SIGN)
@@ -711,4 +730,55 @@ script Starlight_House5_Pit_Sign {
 	msgbox(
 	"…Dumbass.", MSGBOX_SIGN)
 
+}
+
+script Starlight_House5_Water {
+	if(!flag(FLAG_TEMP_A) && !flag(FLAG_TEMP_B) && !flag(FLAG_TEMP_C) && !flag(FLAG_TEMP_D)) {
+		msgbox(
+	"It looks like water but it's\n"
+	"actually just Blueberry Kool-Aid.", MSGBOX_SIGN)
+	}	
+	if(flag(FLAG_TEMP_A)) {
+		msgbox(
+	"It looks like water but it's\n"
+	"actually just Cool Blue Kool-Aid.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_B)) {
+		msgbox(
+	"It looks like water but it's\n"
+	"actually just Fruit Punch Kool-Aid.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_C)) {
+		msgbox(
+	"It looks like water but it's\n"
+	"actually just Lemon Lime Kool-Aid.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_D)) {
+		msgbox(
+	"It doesn't look like anything\n"
+	"because you can't see shit.", MSGBOX_SIGN)
+	} 
+}
+
+script Starlight_House5_Psyduck {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_D)) {
+		msgbox(
+	"The lights go out here too?", MSGBOX_NPC)
+	closemessage
+	applymovement(LOCALID_STARDUCK, moves(
+		face_left
+	))
+	waitmovement(LOCALID_STARDUCK)
+	} else {
+		msgbox(format("I make KOOL-AID as PROF. OAK's\nPOKéMON."), MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_STARDUCK, moves(
+		face_left
+	))
+	waitmovement(LOCALID_STARDUCK)
+	}
+	release
+	end
 }

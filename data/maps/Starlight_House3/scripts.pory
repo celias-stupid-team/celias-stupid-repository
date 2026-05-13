@@ -13,7 +13,22 @@ MAP_SCRIPT_ON_TRANSITION {
         if(flag(FLAG_CSR_CELIA_BONUS)) {
 			setflag(FLAG_TEMP_8)
 		}
-        setflag(FLAG_TEMP_8)//temporary until commentary is finished
+        if(!checktrainerflag(TRAINER_STARLIGHT)) {
+            setflag(FLAG_TEMP_15)
+        }
+        if(!checktrainerflag(TRAINER_WIZ1989)) {
+            setflag(FLAG_TEMP_16)
+        }
+        if(!checktrainerflag(TRAINER_PLASTO)) {
+            setflag(FLAG_TEMP_17)
+        }
+        if(!checktrainerflag(TRAINER_LICHEN)) {
+            setflag(FLAG_TEMP_18)
+        }
+        if(!checktrainerflag(TRAINER_HAKARI_BLIZ)) {
+            setflag(FLAG_TEMP_19)
+        }
+        
 		
 	}
 }
@@ -31,7 +46,7 @@ script Starlight_House3_Dak {
 	faceplayer
     textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
-	"Oh hi!\p"
+	"Oh hi! I am not a Dev...\p"
 
 	"Pretend I am not here okay?", MSGBOX_NPC)
     
@@ -117,12 +132,13 @@ msgbox(
 
     textcolor(NPC_TEXT_COLOR_RED)
     msgbox(
-	"Sorry about that, Dak is my friend.\p"
-    "He likes to mess with my stuff\n"
-    "from time to time.\p"
-    "Don't worry he will be fine!\p"
-    "I made sure he would go to\n" 
-    "a nice fun map!", MSGBOX_NPC)
+	"Sorry about that, he likes to mess\n"
+	"with my stuff from time to time.\p"
+
+	"Don't worry he will be fine!\p"
+
+	"I made sure he would go to a nice\n"
+	"fun map.", MSGBOX_NPC)
     closemessage
     applymovement(LOCALID_STARLIGHT2, moves(
     walk_right * 8
@@ -135,115 +151,117 @@ msgbox(
     release
 }
 
-script Starlight_House3_Computer {
-    if(flag(FLAG_TEMP_1)) {
-    textcolor(NPC_TEXT_COLOR_NEUTRAL)
-    msgbox(
-	"It shows a few tabs open.\p"
-	"One tab is an AVGN video.\n"
-	"Another is Dak's YouTube Page,\l"
-	"Third tab is...\l"
-    ""
-	"A Google search of: What do\n"
-	"I do if I burn my cereal?", MSGBOX_SIGN)
-    } else {
-            msgbox(
-	"There are some tabs open.\n"
-	"It's showing something called por-\l"
-	"ymaps and Poryscript.", MSGBOX_SIGN)
-     
-	        }
-
-    
-}
-
 script Starlight_House3_Computer_Special {
     if(flag(FLAG_TEMP_1)) {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox(
 	"It shows a few tabs open.\p"
 	"One tab is an AVGN video.\n"
-	"Another is Dak's YouTube Page,\l"
+	"Another is a YouTube video of Dak.\l"
 	"Third tab is...\l"
-	"A Google search of: What do\l"
-	"I do if I burn my cereal?", MSGBOX_SIGN)
+	"A Google search of: “How do I hide\l"
+	"my Cheetos better?”", MSGBOX_SIGN)
     } else {
 
      if(!flag(FLAG_TEMP_5)) {
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
         msgbox(
-	"It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
+	"It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
     setflag(FLAG_TEMP_5)
     } else {
         if(flag(FLAG_TEMP_6)) {
             setflag(FLAG_TEMP_4)
-            random(7)
+            random(8)
             switch(var(VAR_RESULT)) {
                 case 0:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
                 case 1:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
                 case 2:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
                 case 3:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
                 case 4:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
                 case 5:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-	"It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
+	                "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
+                case 6:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TRex", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                case 7:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
             }    
 	   } else {
             setflag(FLAG_TEMP_4)
-            random(6)
+            random(7)
             switch(var(VAR_RESULT)) {
                 case 0:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
                 setflag(FLAG_TEMP_6)
                 case 1:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
                 setflag(FLAG_TEMP_6)
                 case 2:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
                 setflag(FLAG_TEMP_6)
                 case 3:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
                 setflag(FLAG_TEMP_6)
                 case 4:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                case 5:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TRex", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                case 6:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 }
 	        }
@@ -262,23 +280,29 @@ script Starlight_House3_Computer_Special {
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
 	"...\p"
-    "How silly!", MSGBOX_SIGN)
+    "Let's see who else is streaming.", MSGBOX_SIGN)
                 case 2:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
 	"They were better in their early\n"
-	"days…", MSGBOX_NPC)
+	"days.", MSGBOX_NPC)
            
            
             } 
 
     } else {
+            if (flag(FLAG_TEMP_1)) {
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            msgbox(
+                "...\p"
+                "Let's close that tab.", MSGBOX_SIGN)
+            } else {
 
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
         msgbox(
 	"...\p"
-    "Let's close that tab.", MSGBOX_SIGN)
-            
+    "Let's see who else is streaming.", MSGBOX_SIGN)
+            }
         }
                     
         release
@@ -459,7 +483,10 @@ script Starlight_House3_Rematch {
     lock
 	faceplayer
     textcolor(NPC_TEXT_COLOR_FEMALE)
-    msgbox("Hi! Would you like to fight\nme again?", MSGBOX_YESNO)
+    msgbox("STARLIGHT: Hi! I am here if you\n"
+	"ever want a rematch.\p"
+
+	"Would you like to battle me again?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
 			cleartrainerflag(TRAINER_STARLIGHT)
@@ -467,9 +494,22 @@ script Starlight_House3_Rematch {
     trainerbattle_single(TRAINER_STARLIGHT,
 	"Yay!",
 	//
-	"Damn, maybe next time.")
+	"Feel free to kick my ass anytime!")
 		}
     release
     end
 }
 
+script Starlight_House3_Team_Hack_Event {
+	msgbox(
+	"There's some paper containing a\n"
+	"schedule for PMD Team Hack Event.\p"
+	"There's also something scratched out\n"
+	"at the bottom.\p"
+	"-r---c- -vr-n\p"
+	"...\n"
+	"\l"
+	"Probably unrelated to this hack.", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_5)
+
+}
