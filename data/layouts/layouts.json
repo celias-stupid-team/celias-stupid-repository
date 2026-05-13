@@ -8006,6 +8006,18 @@
       "blockdata_filepath": "data/layouts/AetherParadise_Island_Layout_Post_Game/map.bin"
     },
     {
+      "id": "LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_LAYOUT_3",
+      "name": "UndergroundPath_NorthSouthTunnel_Layout_3",
+      "width": 50,
+      "height": 63,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_UndergroundPath",
+      "border_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_Layout_3/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_Layout_3/map.bin"
+    },
+    {
       "id": "LAYOUT_STARLIGHT_HOUSE2_LAYOUT_5",
       "name": "Starlight_House2_Layout_5",
       "width": 39,

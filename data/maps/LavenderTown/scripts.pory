@@ -188,8 +188,9 @@ script LavenderTown_DanceDMCA {
 }
 
 script LavenderTown_MusicGoesAway {
-	fadenewbgm(MUS_DUMMY)
+	fadenewbgm(MUS_NONE)
 	setvar(VAR_TEMP_3, 1)
+	setvar(VAR_TEMP_4, 1)
 	setflag(FLAG_TEMP_5)
 	release
 }
@@ -287,3 +288,9 @@ script LavenderTown_FlowerPainting {
 	release
 }
 
+script LavenderTown_WindSound {
+	playse(SE_M_SAND_TOMB)
+	setvar(VAR_TEMP_4, 2)
+	release
+	end
+}

@@ -729,6 +729,122 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sLossRiseOneAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sLossRiseTwoAnimCmds[] =
+{
+    ANIMCMD_FRAME(64, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sLossRiseAnimTable[] =
+{
+    sLossRiseOneAnimCmds,
+    sLossRiseTwoAnimCmds,
+};
+
+const struct SpriteTemplate gLossRiseOneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOSS,
+    .paletteTag = ANIM_TAG_LOSS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = &sLossRiseAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gLossRiseTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOSS,
+    .paletteTag = ANIM_TAG_LOSS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = &sLossRiseAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sLossChopOneAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(192, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sLossChopTwoAnimCmds[] =
+{
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sLossChopAnimTable[] =
+{
+    sLossChopOneAnimCmds,
+    sLossChopTwoAnimCmds,
+};
+
+const struct SpriteTemplate gLossChopOneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOSS,
+    .paletteTag = ANIM_TAG_LOSS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = &sLossChopAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gLossChopTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOSS,
+    .paletteTag = ANIM_TAG_LOSS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = &sLossChopAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gLossFaceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOSS_BUBBLES,
+    .paletteTag = ANIM_TAG_LOSS_BUBBLES,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sOnionCutterAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sLatiasRiseAnimCmds[] =    
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sLatiasRiseAnimTable[] =
+{
+    sLatiasRiseAnimCmds,
+};
+
+const struct SpriteTemplate gLatiasRiseSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LATIAS,
+    .paletteTag = ANIM_TAG_LATIAS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sLatiasRiseAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gImakuniSpriteTemplate =
 {
     .tileTag = ANIM_TAG_IMAKUNI,
@@ -1031,7 +1147,7 @@ const struct SpriteTemplate gGameGenieSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GAME_GENIE,
     .paletteTag = ANIM_TAG_GAME_GENIE,
-    .oam = &gOamData_AffineOff_ObjNormal_32x64,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -1107,6 +1223,50 @@ const struct SpriteTemplate gThePitBottomRightSpriteTemplate =
 {
     .tileTag = ANIM_TAG_THE_PIT,
     .paletteTag = ANIM_TAG_THE_PIT,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
+    .anims = &sAnims_ThePit[3],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTheLedgeTopLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THE_LEDGE,
+    .paletteTag = ANIM_TAG_THE_LEDGE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
+    .anims = &sAnims_ThePit[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTheLedgeTopRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THE_LEDGE,
+    .paletteTag = ANIM_TAG_THE_LEDGE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
+    .anims = &sAnims_ThePit[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTheLedgeBottomLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THE_LEDGE,
+    .paletteTag = ANIM_TAG_THE_LEDGE,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
+    .anims = &sAnims_ThePit[2],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTheLedgeBottomRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THE_LEDGE,
+    .paletteTag = ANIM_TAG_THE_LEDGE,
     .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
     .anims = &sAnims_ThePit[3],
     .images = NULL,
@@ -2174,6 +2334,17 @@ const struct SpriteTemplate gDodgeballSpriteTemplate =
     .callback = AnimDodgeball,
 };
 
+const struct SpriteTemplate gTogedemaruSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_TOGEDEMARU,
+    .paletteTag = ANIM_TAG_TOGEDEMARU,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBulletSeedAffineAnimTable,
+    .callback = AnimDodgeball,
+};
+
 const struct SpriteTemplate gBulletPissSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_PISS_DROP,
@@ -2431,6 +2602,17 @@ const struct SpriteTemplate gAngerMarkSpriteTemplate =
     .callback = AnimAngerMark,
 };
 
+const struct SpriteTemplate gAngerDewSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SOUL_DEW,
+    .paletteTag = ANIM_TAG_SOUL_DEW,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAngerMarkAffineAnimTable,
+    .callback = AnimAngerMark,
+};
+
 static const union AffineAnimCmd sThrashMoveMonAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(-10, 9, 0, 7),
@@ -2675,6 +2857,17 @@ const struct SpriteTemplate gHyperVoiceRingSpriteTemplate =
 {
     .tileTag = ANIM_TAG_THIN_RING,
     .paletteTag = ANIM_TAG_THIN_RING,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
+};
+
+const struct SpriteTemplate gDimeSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_DIME,
+    .paletteTag = ANIM_TAG_DIME,
     .oam = &gOamData_AffineDouble_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -3326,6 +3519,28 @@ const struct SpriteTemplate gLatinasSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gClockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CLOCK,
+    .paletteTag = ANIM_TAG_CLOCK,
+    .oam = &gOamData_AffineOff_ObjNormal_32x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gClothSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CLOTH,
+    .paletteTag = ANIM_TAG_CLOTH,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gFeraligatrSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FERALIGATR,
@@ -3867,6 +4082,103 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .paletteTag = ANIM_TAG_RED_HEART,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gEonTicketBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EON_TICKET,
+    .paletteTag = ANIM_TAG_EON_TICKET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+static const union AnimCmd sAnarchyOneAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnarchyTwoAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnarchyThreeAnimCmds[] =
+{
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnarchyFourAnimCmds[] =
+{
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnarchyFiveAnimCmds[] =
+{
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnarchyAnimTable[] =
+{
+    sAnarchyOneAnimCmds,
+    sAnarchyTwoAnimCmds,
+    sAnarchyThreeAnimCmds,
+    sAnarchyFourAnimCmds,
+    sAnarchyFiveAnimCmds,
+};
+
+const struct SpriteTemplate gAnarchyBurstOneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ANARCHY,
+    .paletteTag = ANIM_TAG_ANARCHY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sAnarchyAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+const struct SpriteTemplate gAnarchyBurstTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ANARCHY,
+    .paletteTag = ANIM_TAG_ANARCHY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sAnarchyAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+const struct SpriteTemplate gAnarchyBurstThreeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ANARCHY,
+    .paletteTag = ANIM_TAG_ANARCHY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sAnarchyAnimTable[2],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+const struct SpriteTemplate gAnarchyBurstFourSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ANARCHY,
+    .paletteTag = ANIM_TAG_ANARCHY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sAnarchyAnimTable[3],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+const struct SpriteTemplate gAnarchyBurstFiveSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ANARCHY,
+    .paletteTag = ANIM_TAG_ANARCHY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sAnarchyAnimTable[4],
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimParticleBurst,

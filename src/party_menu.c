@@ -5269,6 +5269,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc func)
     //PlaySE(SE_SELECT);
     if (noEffect)
     {
+        AdjustFriendship(mon, FRIENDSHIP_EVENT_GROW_LEVEL); // required for Articuno evo at lvl 100
         targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
         if (targetSpecies != SPECIES_NONE)
         {

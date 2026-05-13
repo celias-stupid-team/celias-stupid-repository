@@ -165,7 +165,7 @@ CeruleanCity_Gym_Celia::
 	.string "And I know just the thing...$"
 
 CeruleanCity_Gym_UnlockedCommentary::
-	.string "{PLAYER} unlocked Developer Commentary!\n"
+	.string "{PLAYER} unlocked Dev Commentary!\n"
 	.string "Congratulations!$"
 
 CeruleanCity_Gym_CeliaUnlocksCommentary::

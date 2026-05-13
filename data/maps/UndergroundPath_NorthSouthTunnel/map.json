@@ -301,6 +301,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_WEST",
       "script": "UndergroundPath_SecretSwitch"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 35,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "UndergroundPath_SecretSwitch2"
     }
   ]
 }

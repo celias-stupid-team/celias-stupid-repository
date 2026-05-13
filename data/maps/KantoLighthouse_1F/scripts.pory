@@ -414,7 +414,7 @@ script GTS_TradeScammer_Right {
         waitmoncry
         closemessage
         playfanfare(MUS_LEVEL_UP)
-        msgbox("{PLAYER} received their own {STR_VAR_1}\nfrom the incompetent scammer!!", MSGBOX_DEFAULT)
+        msgbox("{PLAYER} received their own {STR_VAR_1}\nfrom the incompetent scammer!", MSGBOX_DEFAULT)
         waitfanfare
         textcolor(NPC_TEXT_COLOR_MALE)
         msgbox("Later!\n", MSGBOX_DEFAULT)

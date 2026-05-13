@@ -4021,25 +4021,25 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt10[] = {
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_PLUSLE,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_PLUSLEPLUPOO, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_DEDENNE,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_DEDENEDEDOO, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_TOGEDEMARU,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_TOGEDEEZNUTS, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_STEAMBOAT_WILLIE,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_HARDEN, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
