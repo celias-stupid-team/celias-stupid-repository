@@ -182,16 +182,5 @@
     }
   ],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 69,
-      "y": 6,
-      "elevation": 3,
-      "item": "ITEM_LAVA_COOKIE",
-      "flag": "FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE",
-      "quantity": 1,
-      "underfoot": false
-    }
-  ]
+  "bg_events": []
 }

@@ -198,16 +198,5 @@
       "script": "PokemonTower_CorrectAnswer"
     }
   ],
-  "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 7,
-      "y": 3,
-      "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE7_WEPEAR_BERRY",
-      "quantity": 1,
-      "underfoot": false
-    }
-  ]
+  "bg_events": []
 }

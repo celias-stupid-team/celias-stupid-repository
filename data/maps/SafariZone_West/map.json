@@ -327,16 +327,6 @@
       "script": "SafariZone_West_SecretHouse"
     },
     {
-      "type": "hidden_item",
-      "x": 19,
-      "y": 4,
-      "elevation": 3,
-      "item": "ITEM_REVIVE",
-      "flag": "FLAG_HIDDEN_ITEM_SPONGEBOB",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 18,
       "y": 28,
