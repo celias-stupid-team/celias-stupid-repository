@@ -44,7 +44,7 @@ script Starlight_House5_Dak_Pit { //test
 }
 
 script Starlight_House5_Charizard_Doll {
-	finditem(ITEM_POKE_BALL)
+	finditem(ITEM_POKE_DOLL)
 	removeobject(Charizard)
 	setflag(FLAG_TEMP_3)
 }
@@ -736,22 +736,22 @@ script Starlight_House5_Water {
 	if(!flag(FLAG_TEMP_A) && !flag(FLAG_TEMP_B) && !flag(FLAG_TEMP_C) && !flag(FLAG_TEMP_D)) {
 		msgbox(
 	"It looks like water but it's\n"
-	"actually just Blueberry Kool-Aid.", MSGBOX_SIGN)
+	"actually Blueberry Kool-Aid.", MSGBOX_SIGN)
 	}	
 	if(flag(FLAG_TEMP_A)) {
 		msgbox(
 	"It looks like water but it's\n"
-	"actually just Cool Blue Kool-Aid.", MSGBOX_SIGN)
+	"actually Cool Blue Kool-Aid.", MSGBOX_SIGN)
 	}
 	if(flag(FLAG_TEMP_B)) {
 		msgbox(
 	"It looks like water but it's\n"
-	"actually just Fruit Punch Kool-Aid.", MSGBOX_SIGN)
+	"actually Fruit Punch Kool-Aid.", MSGBOX_SIGN)
 	}
 	if(flag(FLAG_TEMP_C)) {
 		msgbox(
 	"It looks like water but it's\n"
-	"actually just Lemon Lime Kool-Aid.", MSGBOX_SIGN)
+	"actually Lemon Lime Kool-Aid.", MSGBOX_SIGN)
 	}
 	if(flag(FLAG_TEMP_D)) {
 		msgbox(

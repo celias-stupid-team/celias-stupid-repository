@@ -13,22 +13,24 @@ MAP_SCRIPT_ON_TRANSITION {
         if(flag(FLAG_CSR_CELIA_BONUS)) {
 			setflag(FLAG_TEMP_8)
 		}
-        if(!checktrainerflag(TRAINER_STARLIGHT)) {
-            setflag(FLAG_TEMP_15)
+        //if(!checktrainerflag(TRAINER_STARLIGHT)) {
+        //    setflag(FLAG_TEMP_15)
+        //}
+        //if(!checktrainerflag(TRAINER_WIZ1989)) {
+        //    setflag(FLAG_TEMP_16)
+        //}
+        //if(!checktrainerflag(TRAINER_PLASTO)) {
+        //    setflag(FLAG_TEMP_17)
+        //}
+        //if(!checktrainerflag(TRAINER_LICHEN)) {
+        //    setflag(FLAG_TEMP_18)
+        //}
+        //if(!checktrainerflag(TRAINER_HAKARI_BLIZ)) {
+        //    setflag(FLAG_TEMP_19)
+        //}
+        if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE) || !flag(FLAG_POST_GAME)) {
+			setflag(FLAG_TEMP_3)
         }
-        if(!checktrainerflag(TRAINER_WIZ1989)) {
-            setflag(FLAG_TEMP_16)
-        }
-        if(!checktrainerflag(TRAINER_PLASTO)) {
-            setflag(FLAG_TEMP_17)
-        }
-        if(!checktrainerflag(TRAINER_LICHEN)) {
-            setflag(FLAG_TEMP_18)
-        }
-        if(!checktrainerflag(TRAINER_HAKARI_BLIZ)) {
-            setflag(FLAG_TEMP_19)
-        }
-        
 		
 	}
 }
@@ -501,7 +503,8 @@ script Starlight_House3_Rematch {
 }
 
 script Starlight_House3_Team_Hack_Event {
-	msgbox(
+	if(flag(FLAG_POST_GAME)) {
+    msgbox(
 	"There's some paper containing a\n"
 	"schedule for PMD Team Hack Event.\p"
 	"There's also something scratched out\n"
@@ -510,6 +513,26 @@ script Starlight_House3_Team_Hack_Event {
 	"...\n"
 	"\l"
 	"Probably unrelated to this hack.", MSGBOX_SIGN)
-	setflag(FLAG_TEMP_5)
+    } else {
+        msgbox(
+	"The My Secret Life books are\n"
+	"suspiciously missing.", MSGBOX_SIGN)
+    }
 
+}
+
+script Starlight_House3_PMD_Star_Character {
+	lock
+    faceplayer
+    playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    msgbox(
+	"...!", MSGBOX_NPC)
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_PMD_STAR_OBJECT)
+    setflag(FLAG_TEMP_3)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
 }

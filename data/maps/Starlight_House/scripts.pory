@@ -61,13 +61,13 @@ script Starlight_House_Smiley_Face {
 }
 
 script Starlight_House_Celia_Doll {
-	finditem(ITEM_POKE_BALL)
+	finditem(ITEM_POKE_DOLL)
 	removeobject(CeliaDoll)
 	setflag(FLAG_TEMP_4)
 }
 
 script Starlight_House_Mudkip_Doll {
-	finditem(ITEM_POKE_BALL)
+	finditem(ITEM_POKE_DOLL)
 	removeobject(MudkipDoll)
 	setflag(FLAG_TEMP_3)
 }
@@ -78,7 +78,7 @@ script Starlight_House_Eevee_Doll {
 	"Vee!", MSGBOX_NPC)
 	closemessage
 	delay(10)
-	finditem(ITEM_POKE_BALL)
+	finditem(ITEM_POKE_DOLL)
 	removeobject(EeveeDoll)
 	setflag(FLAG_TEMP_2)
 }
