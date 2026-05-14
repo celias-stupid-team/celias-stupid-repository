@@ -65,7 +65,7 @@ script Route11_Route11 {
 
 
 script Route11_RouteLoss {
-	msgbox("ROUTE 1_\pNEW WILD POKéMON: 1", MSGBOX_SIGN)
+	msgbox("ROUTE 1{UNDERSCORE}\pNEW WILD POKéMON: 1", MSGBOX_SIGN)
 }
 
 
