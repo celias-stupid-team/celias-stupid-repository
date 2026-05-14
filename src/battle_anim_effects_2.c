@@ -729,6 +729,59 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sGBAScreenAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sGBAHelpAnimCmds[] =
+{
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sGBAScreenAnimTable[] =
+{
+    sGBAScreenAnimCmds,
+    sGBAHelpAnimCmds,
+};
+
+const struct SpriteTemplate gGBALiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GBA,
+    .paletteTag = ANIM_TAG_GBA,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sGBAScreenAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gGBAThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_GBA,
+    .paletteTag = ANIM_TAG_GBA,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sGBAScreenAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
+const struct SpriteTemplate gFallingGBASpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GBA,
+    .paletteTag = ANIM_TAG_GBA,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sGBAScreenAnimTable[1],
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
 static const union AnimCmd sLossRiseOneAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),

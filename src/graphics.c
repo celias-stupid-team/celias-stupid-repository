@@ -790,6 +790,9 @@ const u32 gBattleAnimSpritePal_Dedenne[] = INCBIN_U32("graphics/battle_anims/spr
 const u32 gBattleAnimSpriteGfx_Anarchy[] = INCBIN_U32("graphics/battle_anims/sprites/anarchy.4bpp.lz");
 const u32 gBattleAnimSpritePal_Anarchy[] = INCBIN_U32("graphics/battle_anims/sprites/anarchy.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_GBA[] = INCBIN_U32("graphics/battle_anims/sprites/gba.4bpp.lz");
+const u32 gBattleAnimSpritePal_GBA[] = INCBIN_U32("graphics/battle_anims/sprites/gba.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

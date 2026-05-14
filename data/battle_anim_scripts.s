@@ -35,6 +35,7 @@ gMovesWithQuietBGM::
 	.2byte MOVE_MONSTER_MASH
 	.2byte MOVE_FOURSIGHT
 	.2byte MOVE_HBO_MAX_FINALE
+	.2byte MOVE_RAGE
 	.2byte 0xFFFF
 
 	.align 2
@@ -4518,6 +4519,40 @@ Move_RAGE_SNOUT:
 	blendoff
 	end
 Move_RAGE:
+	loadspritegfx ANIM_TAG_GBA
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_ANGER
+
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+
+	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER
+	createsprite gGBALiftSpriteTemplate, ANIM_ATTACKER, 2, 16, 16, 0, -1, 30, 97, 0, 0
+
+	delay 80
+	createvisualtask AnimTask_BlendMonInAndOut, 3, ANIM_ATTACKER, RGB_RED, 10, 0, 2
+	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, -28
+	playsewithpan SE_M_SWAGGER2, SOUND_PAN_ATTACKER
+	delay 20
+	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, -28
+	playsewithpan SE_M_SWAGGER2, SOUND_PAN_ATTACKER
+	delay 20
+
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gGBAThrowSpriteTemplate, ANIM_ATTACKER, 2, 20, 0, 0, 0, 1152
+	waitforvisualfinish
+	playsewithpan SE_HELP_OPEN, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
+	createsprite gFallingGBASpriteTemplate, ANIM_ATTACKER, 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+
+
+	@original rage
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_ANGER
 	monbg ANIM_TARGET
