@@ -5689,6 +5689,39 @@ Move_FURRY_SWIPES:
 	end
 
 Move_FOCUS_MISS:
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_METEOR
+	loadspritegfx ANIM_TAG_FLAT_ROCK
+	monbg ANIM_ATK_PARTNER
+	splitbgprio ANIM_ATTACKER
+	setalpha 12, 8
+	createsprite gFocusMissOrbSpriteTemplate, ANIM_TARGET, 2, ANIM_ATTACKER
+	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	delay 20
+	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 4, 1, 180, 1
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_EARTHQUAKE, 0
+	delay 40
+	@createsprite gSuperpowerRockSpriteTemplate, ANIM_ATTACKER, 41, 200, 96, 1, 120
+	delay 8
+	@createsprite gSuperpowerRockSpriteTemplate, ANIM_ATTACKER, 41, 20, 248, 4, 112
+	delay 8
+	@createsprite gSuperpowerRockSpriteTemplate, ANIM_ATTACKER, 41, 130, 160, 2, 104
+	delay 8
+	@createsprite gSuperpowerRockSpriteTemplate, ANIM_ATTACKER, 41, 160, 192, 0, 96
+	delay 8
+	@createsprite gSuperpowerRockSpriteTemplate, ANIM_ATTACKER, 41, 60, 288, 3, 88
+	delay 74
+	@createsprite gFocusMissFireballSpriteTemplate, ANIM_TARGET, 3, ANIM_ATTACKER
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	delay 16
+	@createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 8, 0, 16, 1
+	@playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	delay 30
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	delay 1
+	end
 Move_SUPERPOWER:
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
 	loadspritegfx ANIM_TAG_METEOR
@@ -21917,9 +21950,18 @@ Move_INCINERATE:
 Move_QUICK_BALL:
     loadspritegfx ANIM_TAG_BALL_QUICK
     loadspritegfx ANIM_TAG_IMPACT
+    monbg ANIM_DEF_PARTNER
+    setalpha 12, 8
     playsewithpan SE_BALL_THROW, 0
     createsprite gBallQuickAttackSpriteTemplate, ANIM_ATTACKER, 2
-	call BallAttack
+    delay 9
+	stopsound
+	delay 1
+    playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+    createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, -4, -20, ANIM_TARGET, 2
+    waitforvisualfinish
+    clearmonbg ANIM_DEF_PARTNER
+    blendoff
 	end
 BallAttack:
     delay 28

@@ -20,9 +20,11 @@ static void AnimDizzyPunchDuck(struct Sprite *sprite);
 static void AnimBrickBreakWall(struct Sprite *sprite);
 static void AnimBrickBreakWallShard(struct Sprite *sprite);
 static void AnimSuperpowerOrb(struct Sprite *sprite);
+static void AnimFocusMissOrb(struct Sprite *sprite);
 static void AnimSuperpowerRock(struct Sprite *sprite);
 static void AnimFloatingRock(struct Sprite *sprite);
 static void AnimSuperpowerFireball(struct Sprite *sprite);
+static void AnimFocusMissFireball(struct Sprite *sprite);
 static void AnimArmThrustHit(struct Sprite *sprite);
 static void AnimRevengeScratch(struct Sprite *sprite);
 static void AnimFocusPunchFist(struct Sprite *sprite);
@@ -35,6 +37,7 @@ static void AnimStompFootEnd(struct Sprite *sprite);
 static void AnimBrickBreakWall_Step(struct Sprite *sprite);
 static void AnimBrickBreakWallShard_Step(struct Sprite *sprite);
 static void AnimSuperpowerOrb_Step(struct Sprite *sprite);
+static void AnimFocusMissOrb_Step(struct Sprite *sprite);
 static void AnimSuperpowerRock_Step1(struct Sprite *sprite);
 static void AnimSuperpowerRock_Step2(struct Sprite *sprite);
 static void AnimFloatingRock_Step1(struct Sprite *sprite);
@@ -435,6 +438,17 @@ const struct SpriteTemplate gSuperpowerOrbSpriteTemplate =
     .callback = AnimSuperpowerOrb,
 };
 
+const struct SpriteTemplate gFocusMissOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SuperpowerOrb,
+    .callback = AnimFocusMissOrb,
+};
+
 const struct SpriteTemplate gSouperpowerSpoonSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SPOON,
@@ -512,6 +526,17 @@ const struct SpriteTemplate gSuperpowerFireballSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSuperpowerFireball,
+};
+
+const struct SpriteTemplate gFocusMissFireballSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_METEOR,
+    .paletteTag = ANIM_TAG_METEOR,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFocusMissOrb,
 };
 
 const struct SpriteTemplate gSouperpowerFireballSpriteTemplate =
@@ -1215,6 +1240,43 @@ static void AnimSuperpowerOrb_Step(struct Sprite *sprite)
     }
 }
 
+
+static void AnimFocusMissOrb(struct Sprite *sprite)
+{
+    if (gBattleAnimArgs[0] == 0)
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattlerAttacker, BATTLER_COORD_X_2);
+        sprite->y = GetBattlerSpriteCoord(gBattlerAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker);
+        sprite->data[7] = gBattleAnimTarget;
+    }
+    else
+    {
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimTarget);
+        sprite->data[7] = gBattleAnimAttacker;
+    }
+    sprite->data[0] = 0;
+    sprite->data[1] = 12;
+    sprite->data[2] = 8;
+    sprite->callback = AnimFocusMissOrb_Step;
+}
+
+static void AnimFocusMissOrb_Step(struct Sprite *sprite)
+{
+    if (++sprite->data[0] == 180)
+    {
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        sprite->data[0] = 16;
+        sprite->data[1] = sprite->x;
+        sprite->data[2] = GetBattlerSpriteCoord(sprite->data[7], BATTLER_COORD_X_2)-64;
+        sprite->data[3] = sprite->y;
+        sprite->data[4] = GetBattlerSpriteCoord(sprite->data[7], BATTLER_COORD_Y_PIC_OFFSET)-64;
+        InitAnimLinearTranslation(sprite);
+        StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
+        sprite->callback = AnimTranslateLinear_WithFollowup;
+    }
+}
+
 // Floating rock that flies off to hit the target. Used by Superpower
 static void AnimSuperpowerRock(struct Sprite *sprite)
 {
@@ -1296,6 +1358,37 @@ static void AnimSuperpowerFireball(struct Sprite *sprite)
     sprite->data[2] = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
     sprite->data[3] = sprite->y;
     sprite->data[4] = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+    InitAnimLinearTranslation(sprite);
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+    sprite->callback = AnimTranslateLinear_WithFollowup;
+}
+
+
+static void AnimFocusMissFireball(struct Sprite *sprite)
+{
+    u8 battler;
+
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattlerAttacker, BATTLER_COORD_X_2);
+        sprite->y = GetBattlerSpriteCoord(gBattlerAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+        battler = gBattleAnimTarget;
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker);
+    }
+    else
+    {
+        battler = gBattleAnimAttacker;
+        sprite->oam.priority = GetBattlerSpriteBGPriority(gBattleAnimTarget);
+    }
+    if (IsContest())
+        sprite->oam.matrixNum |= ST_OAM_HFLIP;
+    else if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        sprite->oam.matrixNum |= (ST_OAM_HFLIP | ST_OAM_VFLIP);
+    sprite->data[0] = 16;
+    sprite->data[1] = sprite->x;
+    sprite->data[2] = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2)-64;
+    sprite->data[3] = sprite->y;
+    sprite->data[4] = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET)-64;
     InitAnimLinearTranslation(sprite);
     StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
     sprite->callback = AnimTranslateLinear_WithFollowup;

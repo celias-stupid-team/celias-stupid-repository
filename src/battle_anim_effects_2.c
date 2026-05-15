@@ -112,6 +112,9 @@ static void AnimCardFly(struct Sprite *);
 static void AnimBallAttack(struct Sprite *sprite);
 static void AnimBallAttack_Arc(struct Sprite *sprite);
 static void AnimBallAttack_Bounce(struct Sprite *sprite);
+static void AnimQuickBallAttack(struct Sprite *sprite);
+static void AnimQuickBallAttack_Arc(struct Sprite *sprite);
+static void AnimQuickBallAttack_Bounce(struct Sprite *sprite);
 static void AnimTimerBallAttack(struct Sprite *sprite);
 static void AnimTimerBallAttack_Arc(struct Sprite *sprite);
 static void AnimSprite_MoveThenWait(struct Sprite *sprite);
@@ -3009,7 +3012,7 @@ const struct SpriteTemplate gBallQuickAttackSpriteTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimBallAttack,
+    .callback = AnimQuickBallAttack,
 };
 
 const struct SpriteTemplate gBallDiveAttackSpriteTemplate =
@@ -8476,6 +8479,82 @@ static void AnimBallAttack_Bounce(struct Sprite *sprite)
 {
     sprite->x -= 4;
     sprite->y += 6;
+
+    if (sprite->x < -16 || sprite->y > DISPLAY_HEIGHT + 16)
+        DestroyAnimSprite(sprite);
+}
+
+static void AnimQuickBallAttack(struct Sprite *sprite)
+{
+    int attackerX;
+    int attackerY;
+    int targetX;
+    int targetY;
+
+    attackerX = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X);
+    attackerY = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y);
+
+    targetX = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X);
+    targetY = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+
+    sprite->x = attackerX - 16;
+    sprite->y = attackerY - 8;
+
+    sprite->data[0] = 0;
+
+    sprite->data[1] = sprite->x;
+    sprite->data[2] = sprite->y;
+
+    sprite->data[3] = targetX;
+    sprite->data[4] = targetY;
+
+    sprite->callback = AnimQuickBallAttack_Arc;
+}
+
+static void AnimQuickBallAttack_Arc(struct Sprite *sprite)
+{
+    int t;
+    int startX;
+    int startY;
+    int endX;
+    int endY;
+    int arc;
+    int duration;
+
+    duration = 14;
+
+    t = sprite->data[0]++;
+
+    if (t >= duration)
+    {
+        sprite->data[0] = 0;
+        sprite->callback = AnimQuickBallAttack_Bounce;
+        return;
+    }
+
+    startX = sprite->data[1];
+    startY = sprite->data[2];
+
+    endX = sprite->data[3];
+    endY = sprite->data[4];
+
+    sprite->x =
+        startX + (endX - startX) * t / duration;
+
+    // Preserve same arc shape while shortening duration
+    arc =
+        -((t - duration / 2) * (t - duration / 2))
+        + (duration * duration) / 4;
+
+    sprite->y =
+        startY + (endY - startY) * t / duration
+        - arc / 6;
+}
+
+static void AnimQuickBallAttack_Bounce(struct Sprite *sprite)
+{
+    sprite->x -= 8;
+    sprite->y += 12;
 
     if (sprite->x < -16 || sprite->y > DISPLAY_HEIGHT + 16)
         DestroyAnimSprite(sprite);
