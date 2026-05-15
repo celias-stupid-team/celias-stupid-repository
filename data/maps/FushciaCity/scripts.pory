@@ -333,6 +333,7 @@ script FushciaCity_OnTransition {
 }
 
 script FuschiaCity_BrickBreak {
+	flagasbrickbreakable
 	if(flag(FLAG_FUSCHIA_BROKE_WALL)) {
 		msgbox("The BRICKS have been BREAKED.\n", MSGBOX_DEFAULT)
 		release
