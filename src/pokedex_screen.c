@@ -1422,6 +1422,8 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
                 caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
                 if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
                     ndex_num = NATIONAL_DEX_MEW;
+                    seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
+                    caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
                 }
                 if (seen)
                     sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
@@ -1448,6 +1450,8 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
                 caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
                 if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
                     ndex_num = NATIONAL_DEX_MEW;
+                    seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
+                    caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
                 }
                 if (seen)
                     sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
@@ -2437,6 +2441,10 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
     if(nationalDexNo == NATIONAL_DEX_SEEL && (!FlagGet(FLAG_CSR_MAP_MINNESOTA) && !FlagGet(FLAG_CAUGHT_VERMILION_SEAL)) ) {
         return 0;
     }
+
+    // set dex flags for MEW using the Castform slot.
+    if (nationalDexNo == NATIONAL_DEX_MEW)
+        nationalDexNo = NATIONAL_DEX_CASTFORM;
 
     if (nationalDexNo > KANTO_DEX_COUNT)
         return 0;

@@ -287,7 +287,7 @@ script PowerPlant_Max {
 	faceplayer
 	msgbox("MAX: Hello!\nMy name is MAX.\pBehind me is a very important LOCK.\nNo one is allowed to touch it.", MSGBOX_DEFAULT)
 	closemessage
-	if(flag(FLAG_SYS_MAX_REPEL)) {
+	if(flag(FLAG_CSR_DEBUG_NO_ENCOUNTER)) { // Max Repel flag
 		applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
 		playse(SE_PIN)
 		waitmovement(0)
