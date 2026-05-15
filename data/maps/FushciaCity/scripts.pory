@@ -402,7 +402,6 @@ script Common_Script_BrickBreak {
 		msgbox("There's a BRICK wall in the way.\nWould you like to BREAK it?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			checkfieldmove(MOVE_BRICK_BREAK)
-			bufferpartymonnick(STR_VAR_1, VAR_RESULT)
 			buffermovename(STR_VAR_2, MOVE_BRICK_BREAK)
 			msgbox(Text_MonUsedMove)
 			closemessage
