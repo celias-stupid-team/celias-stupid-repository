@@ -2714,6 +2714,14 @@ BattleScript_EffectBrickBreak::
 	attackstring
 	ppreduce
 	removelightscreenreflect
+BattleScript_EvolveToHoopa::
+	@ trigger form change effect, when opponent is SPECIES_SEEL
+	jumpifnotspecies BS_TARGET, SPECIES_SEEL, BattleScript_EffectBrickBreakDoDamage
+	attackanimation
+	waitanimation
+	call BattleScript_SeelHoopaTransform
+	goto BattleScript_MoveEnd
+BattleScript_EffectBrickBreakDoDamage::
 	critcalc
 	damagecalc
 	typecalc
@@ -4340,13 +4348,12 @@ BattleScript_SeelHoopaTransform::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_SEELHOOPATRANSFORMSTART
 	waitmessage B_WAIT_TIME_LONG
-	playanimation BS_FAINTED, B_ANIM_SEEL_HOOPA_TRANSFORM
+	playanimation BS_TARGET, B_ANIM_SEEL_HOOPA_TRANSFORM
 	pause B_WAIT_TIME_LONG
-    updatebattlerdata BS_FAINTED
-	redrawhealthbox BS_FAINTED
-	hoopatransformsetfullhp @ for healing animation
-	healthbarupdate BS_FAINTED
-	datahpupdate BS_FAINTED
+    updatebattlerdata BS_TARGET
+	redrawhealthbox BS_TARGET
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
 	end2
 
 BattleScript_SlowpokeTransform::
