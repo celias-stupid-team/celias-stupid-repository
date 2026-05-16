@@ -305,17 +305,17 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
 	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
-	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
-	.4byte BattleScript_EffectPayWall           @ EFFECT_PAY_WALL
-	.4byte BattleScript_EffectShroomburst           @ EFFECT_SHROOMBURST
-	.4byte BattleScript_EffectFocusMiss           @ EFFECT_FOCUS_MISS
+	.4byte BattleScript_EffectTypeLarge              @ EFFECT_TYPE_LARGE
+	.4byte BattleScript_EffectPayWall                @ EFFECT_PAY_WALL
+	.4byte BattleScript_EffectShroomburst            @ EFFECT_SHROOMBURST
+	.4byte BattleScript_EffectFocusMiss              @ EFFECT_FOCUS_MISS
 	.4byte BattleScript_End                     	 @ EFFECT_BAG
 	.4byte BattleScript_End                  		 @ EFFECT_CANCEL
 	.4byte BattleScript_EffectEncoreBoth             @ EFFECT_ENCORE_BOTH
 	.4byte BattleScript_EffectGrinMissile            @ EFFECT_GRIN_MISSILE
 	.4byte BattleScript_EffectHit		             @ EFFECT_GIGATON_HAMMER
-	.4byte BattleScript_EffectSleepHit		             @ EFFECT_SLEEP_HIT
-
+	.4byte BattleScript_EffectSleepHit		         @ EFFECT_SLEEP_HIT
+	.4byte BattleScript_EffectImakuni                @ EFFECT_IMAKUNI
 	
 
 BattleScript_End::
@@ -6652,9 +6652,20 @@ BattleScript_MoveCantSelect::
 	printselectionstring STRINGID_CURRENTMOVECANTSELECT
 	endselectionscript
 
-
-
 BattleScript_EffectSleepHit::
 	setmoveeffect MOVE_EFFECT_SLEEP
 	goto BattleScript_EffectHit
 
+BattleScript_EffectImakuni::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifability BS_ATTACKER, ABILITY_OWN_TEMPO, BattleScript_OwnTempoPrevents
+	jumpifstatus2 BS_ATTACKER, STATUS2_CONFUSION, BattleScript_AlreadyConfused
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

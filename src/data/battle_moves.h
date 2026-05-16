@@ -14545,15 +14545,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     [MOVE_IMAKUNI] =
     {
-        .effect = EFFECT_CONFUSE,
+        .effect = EFFECT_IMAKUNI,
         .power = 0,
-        .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 1,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+        .flags = 0,
     },
     [MOVE_PSYBEAM_TCG] =
     {
