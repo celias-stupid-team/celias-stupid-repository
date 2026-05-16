@@ -2281,7 +2281,6 @@ Move_THUNDER_SHOCK:
 	end
 	
 Move_FUSION_BOLT:
-Move_10000_VOLTS:
 Move_THUNDERBOLT:
 	loadspritegfx ANIM_TAG_SPARK
 	loadspritegfx ANIM_TAG_SHOCK_3
@@ -2328,6 +2327,39 @@ Move_THUNDERBOLT:
 	waitforvisualfinish
 	delay 20
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 6, 0, RGB_BLACK
+	waitforvisualfinish
+	end
+
+Move_10000_VOLTS:
+	loadspritegfx ANIM_TAG_LIGHTNING
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 16, -32
+	playsewithpan SE_M_TRI_ATTACK2, SOUND_PAN_TARGET
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 16, -16
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 16, 16
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 6, 0, 8, 1
+	delay 10
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, -16, -32
+	playsewithpan SE_M_TRI_ATTACK2, SOUND_PAN_TARGET
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, -16, -16
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, -16, 16
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 10, 0, 8, 1
+	delay 10
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, -32
+	playsewithpan SE_M_TRI_ATTACK2, SOUND_PAN_TARGET
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, -16
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, 16
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 14, 0, 16, 1
+	delay 10
+	delay 1
+	@createvisualtask AnimTask_ShakeTargetInPattern, 2, 30, 3, TRUE, 0
+	delay 2
+	delay 1
 	waitforvisualfinish
 	end
 
@@ -5579,6 +5611,38 @@ Move_RISING_VULVAGE:
 	end
 
 Move_CHARGE:
+	@fast charge
+	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_ELECTRICITY
+	monbg ANIM_ATTACKER
+	setalpha 12, 8
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 2, 0, 4, RGB_BLACK
+	waitforvisualfinish
+	createvisualtask AnimTask_ElectricChargingParticles, 2, ANIM_ATTACKER, 30, 1, 4
+	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gFastGrowingChargeOrbSpriteTemplate, ANIM_ATTACKER, 2, 0
+	delay 25
+	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+	delay 20
+	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+	delay 15
+	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+	delay 10
+	delay 6
+	loopsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER, 6, 1
+	waitforvisualfinish
+	createsprite gElectricPuffSpriteTemplate, ANIM_ATTACKER, 2, 0, 16, 16
+	delay 2
+	createsprite gElectricPuffSpriteTemplate, ANIM_ATTACKER, 2, 0, -16, -16
+	playsewithpan SE_M_THUNDERBOLT2, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 4, 0, RGB_BLACK
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	end
+
+	@charge unedited
 	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
 	loadspritegfx ANIM_TAG_ELECTRICITY
@@ -5612,6 +5676,7 @@ Move_CHARGE:
 	clearmonbg ANIM_ATTACKER
 	blendoff
 	end
+
 
 Move_TAUNT:
 	loadspritegfx ANIM_TAG_FINGER_2
@@ -8866,7 +8931,6 @@ MegahornInContest:
 	createvisualtask AnimTask_StartSlidingBg, 5, 2304, 768, 0, -1
 	goto MegahornContinue
 
-Move_TAIL_BLOW:
 Move_GUST:
 	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_IMPACT
@@ -15620,6 +15684,7 @@ Move_WUMBOIZE:
 	waitforvisualfinish
 	end
 	
+Move_TAIL_BLOW:
 Move_WIND:
 Move_TAILWIND:
 	delay 20

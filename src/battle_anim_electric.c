@@ -382,6 +382,54 @@ const struct SpriteTemplate gGrowingChargeOrbSpriteTemplate =
     .callback = AnimGrowingChargeOrb,
 };
 
+static const union AffineAnimCmd sAffineAnim_FastGrowingElectricOrb_0[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 30),
+    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
+    AFFINEANIMCMD_LOOP(0),
+    AFFINEANIMCMD_FRAME(-0x8, -0x8, 0, 2),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 2),
+    AFFINEANIMCMD_LOOP(10),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sAffineAnim_FastGrowingElectricOrb_1[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 15),
+    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
+    AFFINEANIMCMD_FRAME(-0x8, -0x8, 0, 2),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 2),
+    AFFINEANIMCMD_JUMP(3),
+};
+
+static const union AffineAnimCmd sAffineAnim_FastGrowingElectricOrb_2[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 15),
+    AFFINEANIMCMD_FRAME(-0x10, -0x10, 0, 15),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sAffineAnims_FastGrowingElectricOrb[] =
+{
+    sAffineAnim_FastGrowingElectricOrb_0,
+    sAffineAnim_FastGrowingElectricOrb_1,
+    sAffineAnim_FastGrowingElectricOrb_2,
+};
+
+const struct SpriteTemplate gFastGrowingChargeOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_FastGrowingElectricOrb,
+    .callback = AnimGrowingChargeOrb,
+};
+
 static const union AffineAnimCmd sAffineAnim_ShrinkingElectricOrb_0[] =
 {
     AFFINEANIMCMD_LOOP(0),
@@ -418,7 +466,6 @@ static const union AffineAnimCmd *const sAffineAnims_ShrinkingElectricOrb[] =
     sAffineAnim_ShrinkingElectricOrb_1,
     sAffineAnim_ShrinkingElectricOrb_2,
 };
-
 const struct SpriteTemplate gShrinkingChargeOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,

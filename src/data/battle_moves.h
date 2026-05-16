@@ -6043,15 +6043,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_DRAGON_HAMMER] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 95,
-        .type = TYPE_DRAGON,
-        .accuracy = 100,
-        .pp = 35,
-        .secondaryEffectChance = 10,
+        .effect = EFFECT_RECOIL,
+        .power = 15,
+        .type = TYPE_NORMAL,
+        .accuracy = 85,
+        .pp = 20,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
     [MOVE_PICKLE_SPEAR] =    {
@@ -6519,7 +6519,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_WOOD_HAMMER] =    {
         .effect = EFFECT_RECOIL,
         .power = 15,
-        .type = TYPE_NORMAL,
+        .type = TYPE_GRASS,
         .accuracy = 85,
         .pp = 20,
         .secondaryEffectChance = 10,
@@ -14744,7 +14744,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 35,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED
     },
     [MOVE_LOVE_BALL] =
