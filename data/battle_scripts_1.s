@@ -1110,6 +1110,7 @@ BattleScript_MoveMissedDoDamage::
 	waitmessage B_WAIT_TIME_LONG
 	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
 	moveendcase MOVEEND_PROTECT_LIKE_EFFECT @ Spiky Shield's damage happens before recoil.
+	jumpifabsent BS_ATTACKER, BattleScript_MoveEnd @ return if already fainted from Spiky Shield
 	printstring STRINGID_PKMNCRASHED
 	waitmessage B_WAIT_TIME_LONG
 	damagecalc

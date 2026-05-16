@@ -5039,7 +5039,7 @@ static void Cmd_moveend(void)
                 if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD)
                 {
                     gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
-                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
+                        gBattleMoveDamage = (gBattleMons[gBattlerAttacker].maxHP + 1) / 2; //rounded up
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptPushCursor();
