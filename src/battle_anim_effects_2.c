@@ -732,6 +732,32 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sDaisyAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(4, 8),
+    ANIMCMD_FRAME(8, 8),
+    ANIMCMD_FRAME(12, 8),
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sDaisyAnimTable[] =
+{
+    sDaisyAnimCmds,
+};
+
+const struct SpriteTemplate gDaisySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DAISY,
+    .paletteTag = ANIM_TAG_DAISY,
+    .oam = &gOamData_AffineOff_ObjBlend_16x16,
+    .anims = sDaisyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sGBAScreenAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -4136,6 +4162,17 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_RED_HEART,
     .paletteTag = ANIM_TAG_RED_HEART,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gPixelBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SESAME,
+    .paletteTag = ANIM_TAG_SESAME,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

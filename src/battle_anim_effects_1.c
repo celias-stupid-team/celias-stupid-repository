@@ -620,6 +620,17 @@ const struct SpriteTemplate gLeechSeedSpriteTemplate =
     .callback = AnimLeechSeed,
 };
 
+const struct SpriteTemplate gBeseechSeedSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BESEECH_SEED,
+    .paletteTag = ANIM_TAG_BESEECH_SEED,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sLeechSeedAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimLeechSeed,
+};
+
 static const union AnimCmd sSporeParticleAnimCmds1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -681,6 +692,33 @@ const struct SpriteTemplate gFuzzyParticleSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSporeParticle,
 };
+
+static const union AnimCmd sNightsyAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(4, 8),
+    ANIMCMD_FRAME(8, 8),
+    ANIMCMD_FRAME(12, 8),
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sNightsyAnimTable[] =
+{
+    sNightsyAnimCmds,
+};
+
+const struct SpriteTemplate gNightsyParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_NIGHTSY,
+    .paletteTag = ANIM_TAG_NIGHTSY,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sNightsyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSporeParticle,
+};
+
 
 static const union AnimCmd sHAnimCmds[] =    
 {

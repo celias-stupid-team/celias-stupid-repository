@@ -438,6 +438,17 @@ const struct SpriteTemplate gSuperpowerOrbSpriteTemplate =
     .callback = AnimSuperpowerOrb,
 };
 
+const struct SpriteTemplate gGymOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LIGHT_GYM,
+    .paletteTag = ANIM_TAG_LIGHT_GYM,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SuperpowerOrb,
+    .callback = AnimSuperpowerOrb,
+};
+
 const struct SpriteTemplate gFocusMissOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
@@ -521,6 +532,17 @@ const struct SpriteTemplate gSuperpowerFireballSpriteTemplate =
 {
     .tileTag = ANIM_TAG_METEOR,
     .paletteTag = ANIM_TAG_METEOR,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSuperpowerFireball,
+};
+
+const struct SpriteTemplate gGymFireballSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GYM,
+    .paletteTag = ANIM_TAG_GYM,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

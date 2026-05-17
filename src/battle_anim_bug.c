@@ -145,6 +145,17 @@ const struct SpriteTemplate gWebThreadSpriteTemplate =
     .callback = AnimTranslateWebThread,
 };
 
+const struct SpriteTemplate gStoneFreeThreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STONE_FREE,
+    .paletteTag = ANIM_TAG_STONE_FREE,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTranslateWebThread,
+};
+
 const struct SpriteTemplate gShortsThreadSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEB_THREAD,
