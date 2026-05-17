@@ -688,6 +688,17 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+const struct SpriteTemplate gBoltThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_BOLT,
+    .paletteTag = ANIM_TAG_BOLT,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
 const struct SpriteTemplate gPokedadThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_POKEDAD,
@@ -2280,6 +2291,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
     .tileTag = ANIM_TAG_COIN,
     .paletteTag = ANIM_TAG_COIN,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallingBoltSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BOLT,
+    .paletteTag = ANIM_TAG_BOLT,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
     .anims = sCoinAnimTable,
     .images = NULL,
     .affineAnims = sFallingCoinAffineAnimTable,
