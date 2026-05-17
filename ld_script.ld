@@ -1108,6 +1108,7 @@ SECTIONS {
         sound/songs/midi/mus_se_sonic_boom.o(.rodata);
         sound/songs/midi/mus_se_space_jam.o(.rodata);
         sound/songs/midi/mus_bw_rival.o(.rodata);
+        sound/songs/midi/mus_tiny_lass.o(.rodata);
 
     } > ROM =0
 

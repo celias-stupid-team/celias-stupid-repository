@@ -47,8 +47,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PMD_STARLIGHT",
-      "x": 37,
-      "y": 6,
+      "x": 42,
+      "y": -15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -165,7 +165,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House2_Table_Plans"
+      "script": "Starlight_House2_Table_Plans2"
     },
     {
       "type": "sign",
@@ -173,7 +173,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_House2_Table_Plans"
+      "script": "Starlight_House2_Table_Plans2"
     },
     {
       "type": "sign",

@@ -31,16 +31,44 @@ MAP_SCRIPT_ON_TRANSITION {
         if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE) || !flag(FLAG_POST_GAME)) {
 			setflag(FLAG_TEMP_3)
         }
+        if(flag(FLAG_POST_GAME)) {
+        }
 		
 	}
+MAP_SCRIPT_ON_LOAD {        
+        if(flag(FLAG_POST_GAME) && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+        setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE3_LAYOUT_2, 
+				0,	// startingX
+				0,	// startingY 
+				13,	// x1 
+				0,	// y1
+				16, // x2
+				4) // y2
+        }
+    }
 }
-script Starlight_House3_Map_Table {
-	msgbox(
-	"A table containing the map of the\n"
-	"entire region.\p"
-	"Seems to be used for planning out\n"
-    "the region layout.", MSGBOX_SIGN)
 
+script Starlight_House3_Map_Table {
+	if(flag(FLAG_TEMP_7)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        } else {
+        msgbox(
+        "A table containing the map of the\n"
+        "entire region.", MSGBOX_SIGN)
+    }
+}
+
+script Starlight_House3_Become_Godzilla {
+	setflag(FLAG_TEMP_7)
+	release
+}
+
+script Starlight_House3_No_Longer_Godzilla {
+	clearflag(FLAG_TEMP_7)
+	release
 }
 
 script Starlight_House3_Dak {
@@ -48,21 +76,27 @@ script Starlight_House3_Dak {
 	faceplayer
     textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
-	"Oh hi! I am not a Dev...\p"
+	"Oh hey!...\n"
+    "\l"
+    "I am not a Dev...\l"
 
 	"Pretend I am not here okay?", MSGBOX_NPC)
-    
-    //playbgm(MUS_NONE, TRUE)
+
+    //player
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(
+    "Hey DAK!", MSGBOX_DEFAULT)
+    closemessage
+
+    playse(SE_PIN)
     applymovement(LOCALID_DAK, moves(
         emote_exclamation_mark
         face_right
     ))
-    textcolor(NPC_TEXT_COLOR_RED)
-    msgbox(
-    "Hey Dak!", MSGBOX_DEFAULT)
-    closemessage
+    //waitmovement(LOCALID_DAK)
+    //waitmovement(0)
     
-    delay(10)
+    //delay(10)
     addobject(LOCALID_STARLIGHT2)
     applymovement(LOCALID_STARLIGHT2, moves(
         set_visible
@@ -70,18 +104,23 @@ script Starlight_House3_Dak {
         walk_left * 8
     ))
     waitmovement(LOCALID_STARLIGHT2)
-    //applymovement(LOCALID_PLAYER, moves(
-    //    face_right
-    //))
+    waitmovement(0)
 
-//textcolor(NPC_TEXT_COLOR_RED)
-msgbox(
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+    ))
+    waitmovement(LOCALID_PLAYER)
+    waitmovement(0)
+
+    msgbox(
 	"Why are you using my work computer?", MSGBOX_DEFAULT)
     textcolor(NPC_TEXT_COLOR_BLUE)
     closemessage
     delay(30)
     msgbox(
-	"Um...\p"
+	"Um...\n"
+    "\l"
+    "...\l"
     "Important work stuff?", MSGBOX_DEFAULT)
     closemessage
     delay(60)
@@ -91,13 +130,28 @@ msgbox(
     //setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
     //special(ShakeScreen)
 	//delay(60)
+
+    switch(var(VAR_TEMP_A)) {
+			case 1:
+					applymovement(LOCALID_PLAYER, moves(face_right))
+					//waitmovement(0)
+					//break
+			case 2:
+					applymovement(LOCALID_PLAYER, moves(face_left))
+					//waitmovement(0)
+					//break
+            case 3:
+                    applymovement(LOCALID_PLAYER, moves(face_up))
+                    //waitmovement(0)
+                    //break
+		}
+    waitmovement(0)
+
     playse(SE_CLICK)
-    setmetatile(1, 2, 0x2A6, FALSE)
+    setmetatile(1, 3, 0x2A6, FALSE)
     special(DrawWholeMapView)
 
-    //applymovement(LOCALID_PLAYER, moves(//moves(
-    //    face_left
-    //))
+    
 
     applymovement(LOCALID_DAK, moves(
         walk_in_place_faster_right * 10
@@ -118,19 +172,15 @@ msgbox(
 	special(ShakeScreen)
     delay(90)
     playse(SE_CLICK)
-    setmetatile(1, 2, 0x2EB, FALSE)
+    setmetatile(1, 3, 0x2EB, FALSE)
     special(DrawWholeMapView)
     delay(30)
     
-    //waitmovement(LOCALID_DAK)
-
-    //applymovement(LOCALID_PLAYER, face_right)
-    //applymovement(LOCALID_PLAYER, moves(
-    //    face_right
-    //))
-    //applymovement(LOCALID_PLAYER, moves(
-    //    face_right
-    //))
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+    ))
+    waitmovement(LOCALID_PLAYER)
+    waitmovement(0)
 
     textcolor(NPC_TEXT_COLOR_RED)
     msgbox(
@@ -153,6 +203,21 @@ msgbox(
     release
 }
 
+script Starlight_House3_Right_Of_Dak {
+	setvar(VAR_TEMP_A, 2)
+	release
+}
+
+script Starlight_House3_Below_Dak {
+	setvar(VAR_TEMP_A, 3)
+	release
+}
+
+script Starlight_House3_Left_Of_Dak {
+	setvar(VAR_TEMP_A, 1)
+	release
+}
+
 script Starlight_House3_Computer_Special {
     if(flag(FLAG_TEMP_1)) {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
@@ -162,7 +227,7 @@ script Starlight_House3_Computer_Special {
 	"Another is a YouTube video of Dak.\l"
 	"Third tab is...\l"
 	"A Google search of: “How do I hide\l"
-	"my Cheetos better?”", MSGBOX_SIGN)
+	"my Cheetos better?”", MSGBOX_DEFAULT)
     } else {
 
      if(!flag(FLAG_TEMP_5)) {
@@ -314,22 +379,28 @@ script Starlight_House3_Computer_Special {
 
 
 script Starlight_House3_Map_Table2 {
-	msgbox(
+	if(flag(FLAG_POST_GAME)) {
+    msgbox(
+	"Hey look, you can see the\n"
+    "Star-Lighthouse from here!", MSGBOX_SIGN)
+    }
+    else {
+        msgbox(
 	"Hey look, you can see\n"
-    "Starlight's House from here.", MSGBOX_SIGN)
-
+    "Starlight's House from here!", MSGBOX_SIGN)
+    }
 }
 
 script Starlight_House3_Computer2 {
 	msgbox(
 	"It's an early 2000's computer with\n"
 	"an RGB setup.", MSGBOX_NPC)
-
 }
 
 script Starlight_House3_Wall_Map {
 	msgbox(
-	"The giant map had a baby!", MSGBOX_SIGN)
+	"The table map had a baby.\p"
+    "This baby is a demon child!", MSGBOX_SIGN)
 }
 
 script Starlight_House3_PlantA {
@@ -435,18 +506,18 @@ script Starlight_House3_PlantC {
 
 script Starlight_House3_Plant1 {
     msgbox(
-	"It's just a plant.", MSGBOX_SIGN)
+	"This", MSGBOX_SIGN)
 }
 
 script Starlight_House3_Plant2 {
     msgbox(
-	"Nope still a plant.", MSGBOX_SIGN)
+	"Isn't", MSGBOX_SIGN)
 }
 
 script Starlight_House3_Plant3 {
     lock
     msgbox(
-	"Why would Oak be here?", MSGBOX_SIGN)
+	"OAK.", MSGBOX_SIGN)
     clearflag(FLAG_TEMP_10)
     clearflag(FLAG_TEMP_11)
     clearflag(FLAG_TEMP_12)
@@ -496,7 +567,7 @@ script Starlight_House3_Rematch {
     trainerbattle_single(TRAINER_STARLIGHT,
 	"Yay!",
 	//
-	"Feel free to kick my ass anytime!")
+	"Another fun battle!")
 		}
     release
     end
@@ -515,8 +586,41 @@ script Starlight_House3_Team_Hack_Event {
 	"Probably unrelated to this hack.", MSGBOX_SIGN)
     } else {
         msgbox(
-	"The My Secret Life books are\n"
-	"suspiciously missing.", MSGBOX_SIGN)
+	"The MY SECRET LIFE section is\n"
+	"suspiciously empty.", MSGBOX_SIGN)
+    }
+
+}
+
+script Starlight_House3_MysteryMail {
+	if(flag(FLAG_POST_GAME)) {
+    msgbox(
+	"There is a lot of Mysterious Mail\n"
+	"shoved inside.\p"
+
+    "All of them have the word “Chaos”\n"
+	"written on top.", MSGBOX_SIGN)
+    } else {
+        msgbox(
+	"The MY SECRET LIFE section is\n"
+	"suspiciously empty.", MSGBOX_SIGN)
+    }
+
+}
+
+script Starlight_House3_SkyTemple {
+	if(flag(FLAG_POST_GAME)) {
+    msgbox(
+	"There's a book about Sky Tower.\p"
+
+	"It says something about being a\n"
+	"Temple some time ago.\l"
+    "\l"
+	"A Sky Temple.", MSGBOX_SIGN)
+    } else {
+        msgbox(
+	"The MY SECRET LIFE section is\n"
+	"suspiciously empty.", MSGBOX_SIGN)
     }
 
 }
@@ -535,4 +639,74 @@ script Starlight_House3_PMD_Star_Character {
     fadescreenswapbuffers(FADE_FROM_WHITE)
     release
     end
+}
+
+script Starlight_House3_Table_On_Or_Off_Check {
+	lock
+    getplayerxy(VAR_TEMP_5, VAR_TEMP_6)
+            if(var(VAR_TEMP_6) == 9 && var(VAR_TEMP_5) == 2) {
+                msgbox(
+                    "A table containing the map of the\n"
+                    "entire region.", MSGBOX_SIGN)
+                release
+                end
+            } else {
+                msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“IT'S GODZILLA!!!”", MSGBOX_SIGN)
+
+                release
+                end
+            }
+}
+
+script Starlight_House3_Hi_Table {
+    msgbox(
+	"HI", MSGBOX_SIGN)
+}
+
+script Starlight_House3_Tiny_Lass {
+	lockall
+		msgbox(
+	"You hear tiny voices scream out\n"
+	"“IT'S GO-", MSGBOX_SIGN)
+		closemessage
+		delay(10)
+		msgbox("...", MSGBOX_DEFAULT)
+		closemessage
+		fadeoutbgm(1)
+		msgbox("Wait...", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+        playbgm(MUS_TINY_LASS, FALSE)
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("{FONT_SMALL}Hey! Did you just look at me?!", MSGBOX_DEFAULT)
+		closemessage
+		//delay(20)
+		delay(180)
+        playbgm(MUS_NONE, FALSE)
+        playse(SE_MUD_BALL)
+        delay(90)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+            "...\n"
+            "\l"
+            "You accidentally stepped on her...", MSGBOX_SIGN)
+            delay(60)
+		playbgm(MUS_DOWNSTREAM, TRUE)
+        setflag(FLAG_TEMP_9)
+		release
+		end
+	}
+
+script StarLighthouse_3F_Ampharos {
+    lock
+	waitse
+	playmoncry(SPECIES_AMPHAROS, CRY_MODE_DEFAULT)
+    //delay(40)
+	//waitmoncry
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(
+	"Kamina: I'm Bumblebee Starlight!", MSGBOX_NPC)
+    release
 }

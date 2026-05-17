@@ -491,6 +491,7 @@
 #define MUS_SE_SONIC_BOOM 482
 #define MUS_SE_SPACE_JAM 483
 #define MUS_BW_RIVAL 484
+#define MUS_TINY_LASS 485
 
 #define MUS_NONE 0xFFFF
 

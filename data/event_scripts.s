@@ -1974,3 +1974,6 @@ Text_TestMsg::
 
 	.include "data/maps/Starlight_House12/scripts.inc"
 	.include "data/maps/Starlight_House12/text.inc"
+
+	.include "data/maps/Starlight_House_Light/scripts.inc"
+	.include "data/maps/Starlight_House_Light/text.inc"

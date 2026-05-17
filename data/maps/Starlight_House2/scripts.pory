@@ -22,11 +22,13 @@ script Starlight_House2_Post_Battle {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"It's nice to meet you!", MSGBOX_DEFAULT)
-	msgbox(
-	"Don't mind me, I am building the\n"
-	"world around you as you play!"
-, MSGBOX_DEFAULT)
+	"STARLIGHT: It's nice to mee you!\p"
+
+	"My name is KaizenStarlight but I\n"
+	"go by Starlight for short.\p"
+
+	"I'm the one who builds the maps you\n"
+	"walk around on.", MSGBOX_DEFAULT)
 
 playse(SE_CLICK)
 setlayouttiles(
@@ -90,20 +92,17 @@ setlayouttiles(
 	delay(40)
 
 	msgbox(
+	"So if you ever see me out of bounds\n"
+	"around The Great Sea, I am just\l"
+	"working, pay no attention to me!\p"
 
-
-	"So if you see me out of bounds\n"
-	"just ignore me. I am working around\l"
-	"here and there.\p"
-
-	"Also, if you see my friend Dak\n"
+	"Oh! If you see my friend DAK\n"
 	"hanging about in this house, tell\l"
-	"him I need him.\l"
-	"Thanks!", MSGBOX_SIGN)
+	"him I need him. Thanks!", MSGBOX_NPC)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
-		face_original_direction
+		face_up
 	))
 	waitmovement(0)
 	release
@@ -125,14 +124,13 @@ script Starlight_House2_Battle { //test
 	"just ignore me. I am working around\l"
 	"here and there.\p"
 
-	"Also, if you see my friend Dak\n"
+	"Also, if you see my friend DAK\n"
 	"hanging about in this house, tell\l"
-	"him I need him.\l"
-	"Thanks!", MSGBOX_DEFAULT)
+	"him I need him. Thanks!", MSGBOX_DEFAULT)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
-	applymovement(VAR_LAST_TALKED, moves(
-		face_original_direction
+	applymovement(LOCALID_STARLIGHT_NPC, moves(
+		face_up
 	))
 	waitmovement(0)
 	release
@@ -195,9 +193,7 @@ script Starlight_House2_Breaker {
 	"It's a power breaker.\n"
 	"\l"
 	"\l"
-	"\l"
-	"\l"
-	"Break deez-", MSGBOX_DEFAULT)
+	"Breaker deez-", MSGBOX_DEFAULT)
 	closemessage
 	release
 	end
@@ -215,7 +211,20 @@ script Starlight_House2_Crane_Operator {
 script Starlight_House2_Table_Plans { //update table plans visual
 	msgbox(
 	"It's map plans laid out for the\n"
-	"whole region.", MSGBOX_SIGN)
+	"whole region.\p"
+
+	"Looking closely you see a map\n"
+	"called “Ocean11”...", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Table_Plans2 { //update table plans visual
+	msgbox(
+	"It's map plans laid out for the\n"
+	"whole region.\p"
+
+	"Looking closely you see a map\n"
+	"called “Hi”...", MSGBOX_SIGN)
 
 }
 

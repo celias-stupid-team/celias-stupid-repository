@@ -39,8 +39,8 @@ script Starlight_House_Painting {
 
 script Starlight_House_Bookshelf {
 	msgbox(
-	"The My Secret Life books are\n"
-	"suspiciously missing.", MSGBOX_SIGN)
+	"The MY SECRET LIFE section is\n"
+	"suspiciously empty.", MSGBOX_SIGN)
 
 }
 
@@ -61,13 +61,13 @@ script Starlight_House_Smiley_Face {
 }
 
 script Starlight_House_Celia_Doll {
-	finditem(ITEM_POKE_DOLL)
+	finditem(ITEM_POKE_BALL)
 	removeobject(CeliaDoll)
 	setflag(FLAG_TEMP_4)
 }
 
 script Starlight_House_Mudkip_Doll {
-	finditem(ITEM_POKE_DOLL)
+	finditem(ITEM_POKE_BALL)
 	removeobject(MudkipDoll)
 	setflag(FLAG_TEMP_3)
 }
@@ -78,7 +78,7 @@ script Starlight_House_Eevee_Doll {
 	"Vee!", MSGBOX_NPC)
 	closemessage
 	delay(10)
-	finditem(ITEM_POKE_DOLL)
+	finditem(ITEM_POKE_BALL)
 	removeobject(EeveeDoll)
 	setflag(FLAG_TEMP_2)
 }
@@ -87,7 +87,29 @@ script Starlight_House_Post_Game_Starlight {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"STARLIGHT: Thank you {PLAYER} for\n"
-	"playing Celia's Stupid Romhack!", MSGBOX_NPC)
+	"playing Celia's Stupid Romhack!\p"
+
+	"I am grateful to be a part of this\n"
+	"dev team and for Celia to give me\l"
+	"an opportunity to learn and\l"
+	"express some of my ideas in this\l"
+	"hack!\p"
+
+	"I made this house to apply those\n"
+	"ideas and try new things! I have\l"
+	"learned a lot since then.\p"
+
+	"I hope those that play this hack\n"
+	"can find inspiration and express\l"
+	"themselves through their own\l"
+	"creations! No matter what it is.\p"
+
+	"Anyways sorry for my ramble.\p"
+
+	"Remember, there's stuff to do post\n"
+	"game! I hid secrets in this house.\l"
+
+	"Have you found them all?", MSGBOX_NPC)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
 	))
@@ -173,28 +195,28 @@ script StarlightHouse_Plant_Chain {
 	closemessage
 		if(var(VAR_TEMP_0) == 0) {
 			msgbox(
-			"It's an Oakn't.", MSGBOX_SIGN)
+			"It's an OAKn't.", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) == 1) {
 			msgbox(
-			"No Oak here.", MSGBOX_SIGN)
+			"No OAK here.", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) == 2) {
 			msgbox(
-			"Still not Oak.", MSGBOX_SIGN)
+			"Still not OAK.", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) == 3) {
 			msgbox(
 			"If you squint your eyes hard enough\n"
-			"it could be Oak.", MSGBOX_SIGN)
+			"it could be OAK.", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) == 4) {
 			msgbox(
-			"I'm out of Oak jokes...", MSGBOX_SIGN)
+			"I'm out of OAK jokes...", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) >= 5 && var(VAR_TEMP_0) <= 6) {
 			msgbox(
-			"I'm out of Oak jokes..", MSGBOX_SIGN)
+			"I'm out of OAK jokes..", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) == 7) {
 			msgbox(
@@ -202,6 +224,7 @@ script StarlightHouse_Plant_Chain {
 		}
 		if(var(VAR_TEMP_0) == 8) {
 			//playse(SE_CLICK)
+			playse(SE_CLICK)
 			setlayouttiles(
 				LAYOUT_STARLIGHT_HOUSE_LAYOUT_2, 
 				0,	// startingX
@@ -218,7 +241,9 @@ script StarlightHouse_Plant_Chain {
 			msgbox(
 			"...", MSGBOX_SIGN)
 		}
+		
 
+		//God I wish I knew how to make this smaller... I know there's a way, I just haven't figured it out yet.
 		if(var(VAR_TEMP_0) >= 14) {
 			if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {//before talking to starlight
 			
@@ -1323,5 +1348,12 @@ script Starlight_House_TV {
 
 	"Nevermind it's Silph Co security\n"
 	"camera footage.", MSGBOX_SIGN)
+
+}
+
+script Starlight_Tiny_Lass_Mus_Test {
+	playbgm(MUS_TINY_LASS, TRUE)
+	msgbox(
+	"Test Song", MSGBOX_SIGN)
 
 }
