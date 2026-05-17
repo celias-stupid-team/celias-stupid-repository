@@ -32983,6 +32983,7 @@ Move_MEGA_PINCH:
 
 	@createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 0, RGB_WHITE
 	@createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 8, RGB_BLACK, 0
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 0, RGB_BLACK
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
