@@ -4213,6 +4213,10 @@ void TryRestoreHeldItems(void)
         if (ItemId_GetPocket(lostItem) == POCKET_BERRY_POUCH && currentItem != lostItem)
             lostItem = ITEM_NONE; // berries can't restore
 
+        // never restore MAGIC MUFFLER
+        if (ItemId_GetHoldEffect(lostItem) == HOLD_EFFECT_MAGIC_MUFFLER && currentItem != lostItem)
+            lostItem = ITEM_NONE;
+
         // Check if the lost item should be restored
         if (lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH
             && (currentItem == ITEM_NONE || currentItem == lostItem)) // don't overwrite a stolen item

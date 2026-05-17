@@ -592,6 +592,8 @@ struct BattleScripting
     u8 savedBattler;
     s32 savedData;
     u8 overrideBerryRequirements;
+    bool8 itemConsumed;
+    u32 remainingEXP;
 };
 
 struct BattleSpriteInfo

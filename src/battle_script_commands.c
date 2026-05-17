@@ -4039,21 +4039,37 @@ static void Cmd_getexp(void)
 
                         } else {
                             gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-
                         }
-
                     }
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-                    if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId])
-                     && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
+                    if (holdEffect == HOLD_EFFECT_MAGIC_MUFFLER && GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL, NULL) < 97)
                     {
-                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-                        i = STRINGID_ABOOSTED;
+                        u16 species = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES, NULL);
+                        u32 currentExp = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_EXP, NULL);
+                        u32 targetExp = gExperienceTables[gSpeciesInfo[species].growthRate][97];
+                        u32 totalExp = targetExp - currentExp;
+                        // handle in 30k junks, because BtlController_EmitExpUpdate only uses a u16
+                        u32 exp30k = (totalExp > 30000) ? 30000 : totalExp;
+
+                        gBattleScripting.remainingEXP = totalExp - exp30k;
+                        gBattleMoveDamage = exp30k;
+                        gBattleScripting.itemConsumed = TRUE;
+
+                        i = STRINGID_MAGIC_MUFFLER;
                     }
                     else
                     {
-                        i = STRINGID_EMPTYSTRING4;
+                        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                            gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+                        if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId])
+                         && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
+                        {
+                            gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+                            i = STRINGID_ABOOSTED;
+                        }
+                        else
+                        {
+                            i = STRINGID_EMPTYSTRING4;
+                        }
                     }
 
                     // get exp getter battlerId
@@ -4075,11 +4091,19 @@ static void Cmd_getexp(void)
                     }
 
                     PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
-                    // buffer 'gained' or 'gained a boosted'
-                    PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
-                    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
+                    if (i != STRINGID_MAGIC_MUFFLER)
+                    {
+                        // buffer 'gained' or 'gained a boosted'
+                        PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
+                        PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
 
-                    PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                        PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                    }
+                    else
+                    {
+                        PrepareStringBattle(i, gBattleStruct->expGetterBattlerId);
+                    }
+
                     MonGainEVs(&gPlayerParty[gBattleStruct->expGetterMonId], gBattleMons[gBattlerFainted].species);
                 }
                 gBattleStruct->sentInPokes >>= 1;
@@ -4172,6 +4196,26 @@ static void Cmd_getexp(void)
         }
         else
         {
+            // only used for MAGIC MUFFLER to handle huge EXP amounts
+            if (gBattleScripting.remainingEXP > 0)
+            {
+                u32 exp30k = (gBattleScripting.remainingEXP > 30000) ? 30000 : gBattleScripting.remainingEXP;
+                
+                gBattleScripting.remainingEXP -= exp30k;
+                gBattleMoveDamage = exp30k;
+                gBattleScripting.getexpState = 3;
+                break;
+            }
+            // consume item, currently only used for MAGIC MUFFLER
+            if (gBattleScripting.itemConsumed)
+            {
+                u16 item = ITEM_NONE;
+
+                gBattleScripting.itemConsumed = FALSE;
+                SetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HELD_ITEM, &item);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_MagicMufflerConsumed;
+            }
             gBattleStruct->expGetterMonId++;
             if (gBattleStruct->expGetterMonId < PARTY_SIZE)
                 gBattleScripting.getexpState = 2; // loop again

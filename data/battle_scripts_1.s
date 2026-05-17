@@ -6669,3 +6669,8 @@ BattleScript_EffectImakuni::
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_MagicMufflerConsumed::
+	printstring STRINGID_MAGICMUFFLERCONSUMED
+	waitmessage B_WAIT_TIME_LONG
+	return
