@@ -46,6 +46,16 @@ MAP_SCRIPT_ON_LOAD {
 				16, // x2
 				4) // y2
         }
+        if(flag(FLAG_POST_GAME)) {
+        setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE3_LAYOUT_2, 
+				0,	// startingX
+				0,	// startingY 
+				13,	// x1 
+				5,	// y1
+				16, // x2
+				7) // y2
+        }
     }
 }
 
