@@ -2642,10 +2642,16 @@ BattleScript_EffectWonderSeed::
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	jumpiftype2 BS_TARGET, TYPE_GRASS, BattleScript_EffectWonderSeed_FailsOnGrass
 	trycopyability BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_WONDER_SEED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectWonderSeed_FailsOnGrass::
+	printstring STRINGID_NOTAFFECTEDBYSEEDING
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
