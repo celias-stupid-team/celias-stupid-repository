@@ -1194,6 +1194,7 @@ extern const u16 Bible_Book_Name_3_John[];
 extern const u16 Bible_Book_Name_Jude[];
 extern const u16 Bible_Book_Name_Revelation[];
 
+extern const u8 EventScript_FldEffBrickBreak[];
 extern const u8 EventScript_FldEffStrength[];
 extern const u8 EventScript_FailSweetScent[];
 extern const u8 EventScript_FldEffRockSmash[];

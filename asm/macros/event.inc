@@ -2049,6 +2049,12 @@
 	.2byte \vary
 	.endm
 
+	@ marks a script as a valid Brick Break field effect script when used as the first command
+	@ calls ScrCmd_nop when executed, so it hasn't any actual effect
+	.macro flagasbrickbreakable
+	.byte 0xeb
+	.endm
+
 	.macro dogenderfluideffect
 	callnative StandaloneGenderFluidEffect
 	.endm
