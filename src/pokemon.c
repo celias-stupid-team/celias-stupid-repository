@@ -1819,9 +1819,9 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
     // handle hard/easy mode
     if (level == 6 && (species == SPECIES_WARTORTLE || species == SPECIES_FINALWARTORTLE || species == SPECIES_WARTORTLE_POKERAP))
     {
-        if (gModeNewGame == 1)
+        if (VarGet(VAR_NEW_GAME_MODE) == 1)
             level = 7;
-        else if (gModeNewGame == 2)
+        else if (VarGet(VAR_NEW_GAME_MODE) == 2)
             level = 5;
     }
     ZeroMonData(mon);
