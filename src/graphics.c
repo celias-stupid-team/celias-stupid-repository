@@ -811,6 +811,12 @@ const u32 gBattleAnimSpritePal_LightGym[] = INCBIN_U32("graphics/battle_anims/sp
 const u32 gBattleAnimSpriteGfx_StoneFree[] = INCBIN_U32("graphics/battle_anims/sprites/stone_free.4bpp.lz");
 const u32 gBattleAnimSpritePal_StoneFree[] = INCBIN_U32("graphics/battle_anims/sprites/stone_free.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Flipper[] = INCBIN_U32("graphics/battle_anims/sprites/flipper.4bpp.lz");
+const u32 gBattleAnimSpritePal_Flipper[] = INCBIN_U32("graphics/battle_anims/sprites/flipper.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_PrimeRibs[] = INCBIN_U32("graphics/battle_anims/sprites/prime_ribs.4bpp.lz");
+const u32 gBattleAnimSpritePal_PrimeRibs[] = INCBIN_U32("graphics/battle_anims/sprites/prime_ribs.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lightning[] = INCBIN_U32("graphics/battle_anims/sprites/lightning.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningBall[] = INCBIN_U32("graphics/battle_anims/unused/spinning_ball.4bpp.lz");

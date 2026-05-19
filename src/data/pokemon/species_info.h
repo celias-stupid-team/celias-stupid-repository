@@ -2503,11 +2503,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_SEEL] =
     {
         .baseHP = 65,
-        .baseAttack = 45,
-        .baseDefense = 20,
-        .baseSpeed = 5,
-        .baseSpAttack = 45,
-        .baseSpDefense = 20,
+        .baseAttack = 105,
+        .baseDefense = 110,
+        .baseSpeed = 35,
+        .baseSpAttack = 105,
+        .baseSpDefense = 120,
         .types = {TYPE_WATER, TYPE_NORMAL},
         .catchRate = 0,
         .expYield = 100,

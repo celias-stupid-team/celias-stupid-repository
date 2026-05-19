@@ -33652,7 +33652,7 @@ Move_ANARCHYONCUTTER:
 	end
 
 Move_MORTAL_SPIN:
-	createvisualtask AnimTask_FrenziedEscape, 2, 2, 0, 90, -0xB00
+	createvisualtask AnimTask_MortalSpin, 2, 2, 0, 90, -0xB00
 	waitforvisualfinish
 	end
 
@@ -33880,17 +33880,95 @@ Move_TRIPLE_PIXEL:
 	@createsprite gPixelBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
 	@createsprite gPixelBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
 	
+Move_SHED_TAIL:
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_SHED
+	createvisualtask SoundTask_PlaySpecificCry, 2, 89
+	fadetobg BG_SOLACEON_TOWN
+	waitbgfadein
+	loopsewithpan SE_M_HARDEN, SOUND_PAN_ATTACKER, 28, 2
+	createvisualtask AnimTask_MetallicShine, 5, 1, 0, 0
+	waitforvisualfinish
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
+	delay 3
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	createsprite gShedSpriteTemplate, ANIM_ATTACKER, 2, -24, -24, 4, 4, 6, 20, 1, 1
+	delay 6
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 12, 0, 10, 1
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_SetGrayscaleOrOriginalPal, 5, ANIM_ATTACKER, 1
+	restorebg
+	waitbgfadein
+	clearmonbg ANIM_TARGET
+	blendoff
+	waitforvisualfinish
+	end
+
+Move_CLAP:
+	loadspritegfx ANIM_TAG_FLIPPER
+	createsprite gClappingFlipperSpriteTemplate, ANIM_ATTACKER, 2, 10, -4, 0, 0, 9
+	createsprite gClappingFlipperSpriteTemplate, ANIM_ATTACKER, 2, 14, -4, 1, 0, 9
+	@createsprite gClappingHand2SpriteTemplate, ANIM_ATTACKER, 3, -2, 0, 0, 0, 9
+	@createsprite gClappingHand2SpriteTemplate, ANIM_ATTACKER, 3, 2, 0, 1, 0, 9
+	delay 16
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_ENCORE2, SOUND_PAN_TARGET
+	@createvisualtask AnimTask_SwayMon, 5, 1, 8, 1536, 5, ANIM_TARGET
+	waitforvisualfinish
+	end
+
+Move_PRIME_RIBS:
+	loadspritegfx ANIM_TAG_PRIME_RIBS
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_BONEMERANG, SOUND_PAN_ATTACKER
+	createsprite gRibmerangSpriteTemplate, ANIM_ATTACKER, 2
+	delay 20
+	playsewithpan SE_M_DIVE, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 13, 1
+	delay 17
+	playsewithpan SE_M_VITAL_THROW, SOUND_PAN_ATTACKER
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 6, -4
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
+Move_ROLL_OVER:
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_MortalSpin, 2, ANIM_ATTACKER, 0, 0, 86, -0x300
+	waitforvisualfinish
+	end
+
+Move_BARK:
+	loadspritegfx ANIM_TAG_NOISE_LINE
+	createvisualtask AnimTask_DeepInhale, 2, 0
+	delay 12
+	call RoarEffect
+	createvisualtask SoundTask_PlayCry, 2, ANIM_ATTACKER
+	waitforvisualfinish
+	delay 60
+	end
+	
+Move_GALUMPH:
+	createvisualtask AnimTask_MeditateStretchAttacker, 2
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	delay 16
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	end
+
 Move_REVENUESTEALSTRIKE:
 Move_MAX_TURNPIKE:
 Move_NO_SURF:
-Move_SHED_TAIL:
 Move_T_POSE:
 Move_EARTH_BLASTER:
-Move_BARK:
-Move_ROLL_OVER:
-Move_CLAP:
-Move_GALUMPH:
 Move_SOAK:
-Move_PRIME_RIBS:
 Move_JUNJI_HEALING:
 	goto Move_TACKLE

@@ -71,6 +71,17 @@ const struct SpriteTemplate gBonemerangSpriteTemplate =
     .callback = AnimBonemerangProjectile,
 };
 
+const struct SpriteTemplate gRibmerangSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_RIBS,
+    .paletteTag = ANIM_TAG_PRIME_RIBS,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
 static const union AnimCmd sHatchetAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),

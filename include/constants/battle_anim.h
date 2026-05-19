@@ -572,6 +572,8 @@
 #define ANIM_TAG_CONCRETE                   (ANIM_SPRITES_START + 562)
 #define ANIM_TAG_LIGHT_GYM                  (ANIM_SPRITES_START + 563)
 #define ANIM_TAG_STONE_FREE                 (ANIM_SPRITES_START + 564)
+#define ANIM_TAG_FLIPPER                    (ANIM_SPRITES_START + 565)
+#define ANIM_TAG_PRIME_RIBS                 (ANIM_SPRITES_START + 566)
 
 // battlers
 #define ANIM_ATTACKER       0

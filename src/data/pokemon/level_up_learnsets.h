@@ -823,7 +823,8 @@ static const struct LevelUpMove sPrimeapeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(29, MOVE_ROCK_SLIDE),
     LEVEL_UP_MOVE(31, MOVE_IRON_TAIL),
     LEVEL_UP_MOVE(37, MOVE_CLOSE_COMBAT),
-    LEVEL_UP_MOVE(41, MOVE_ROAR_OF_PRIME),
+    LEVEL_UP_MOVE(41, MOVE_PRIME_RIBS),
+    LEVEL_UP_MOVE(43, MOVE_ROAR_OF_PRIME),
     LEVEL_UP_END
 };
 
@@ -1198,6 +1199,10 @@ static const struct LevelUpMove sDodrioLevelUpLearnset[] = {
 
 static const struct LevelUpMove sSeelLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_IMPRISON),
+    LEVEL_UP_MOVE(31, MOVE_BARK),
+    LEVEL_UP_MOVE(31, MOVE_ROLL_OVER),
+    LEVEL_UP_MOVE(31, MOVE_CLAP),
+    LEVEL_UP_MOVE(31, MOVE_GALUMPH),
     LEVEL_UP_END
 };
 

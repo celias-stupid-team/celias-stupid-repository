@@ -15155,7 +15155,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
-[MOVE_ROLL_OVER] =
+    [MOVE_ROLL_OVER] =
     {
         .effect = EFFECT_PARALYZE_HIT,
         .power = 80,
@@ -15183,7 +15183,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_RAMPAGE,
         .power = 120,
-        .type = TYPE_WATER,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 100,

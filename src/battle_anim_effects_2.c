@@ -2103,6 +2103,17 @@ const struct SpriteTemplate gCensoredBarSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gShedSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHED,
+    .paletteTag = ANIM_TAG_SHED,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gBookSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BOOK,

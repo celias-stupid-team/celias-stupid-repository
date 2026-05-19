@@ -1642,10 +1642,12 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_GBA, 0x0A00, ANIM_TAG_GBA},
     {gBattleAnimSpriteGfx_BeseechSeed, 0x0180, ANIM_TAG_BESEECH_SEED},
     {gBattleAnimSpriteGfx_Bolt, 0x0080, ANIM_TAG_BOLT},
-    {gBattleAnimSpriteGfx_Cop, 0x0800, ANIM_TAG_COP},
+    {gBattleAnimSpriteGfx_Cop, 0x1000, ANIM_TAG_COP},
     {gBattleAnimSpriteGfx_Concrete, 0x0800, ANIM_TAG_CONCRETE},
     {gBattleAnimSpriteGfx_LightGym, 0x0800, ANIM_TAG_LIGHT_GYM},
     {gBattleAnimSpriteGfx_StoneFree, 0x0020, ANIM_TAG_STONE_FREE},
+    {gBattleAnimSpriteGfx_Flipper, 0x0400, ANIM_TAG_FLIPPER},
+    {gBattleAnimSpriteGfx_PrimeRibs, 0x0200, ANIM_TAG_PRIME_RIBS},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2215,6 +2217,8 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Concrete, ANIM_TAG_CONCRETE},
     {gBattleAnimSpritePal_LightGym, ANIM_TAG_LIGHT_GYM},
     {gBattleAnimSpritePal_StoneFree, ANIM_TAG_STONE_FREE},
+    {gBattleAnimSpritePal_Flipper, ANIM_TAG_FLIPPER},
+    {gBattleAnimSpritePal_PrimeRibs, ANIM_TAG_PRIME_RIBS},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
