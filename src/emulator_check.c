@@ -19,8 +19,10 @@
 #define EMU_CHECK_REG_IMC       (1 << 0)
 #define EMU_CHECK_TIMER_CASCADE (1 << 1)
 #define EMU_CHECK_SOUNDCNT_H    (1 << 2)
+#define EMU_CHECK_KEYCNT        (1 << 3)
+#define EMU_CHECK_SOUNDCNT_L    (1 << 4)
 
-#define ACTIVE_EMU_CHECKS       (EMU_CHECK_SOUNDCNT_H)
+#define ACTIVE_EMU_CHECKS       (EMU_CHECK_SOUNDCNT_L)
 
 // Below are explanations for each check and their known results on popular emulators as of April 2026.
 
@@ -36,8 +38,9 @@
 //                                                                      //
 // fails on:                                                            //
 //   - mGBA (RetroArch Android)                                         //
-//   - VBA                                                              //
+//   - VBA M 2.2.3                                                      //
 //   - Pizzaboy                                                         //
+//   - Delta                                                            //
 //   - JohnGBA                                                          //
 //   - MyBoy                                                            //
 //                                                                      //
@@ -62,8 +65,9 @@
 //   - Lemuroid                                                         //
 //                                                                      //
 // fails on:                                                            //
-//   - VBA                                                              //
+//   - VBA M 2.2.3                                                      //
 //   - Pizzaboy                                                         //
+//   - Delta                                                            //
 //   - JohnGBA                                                          //
 //   - MyBoy                                                            //
 //                                                                      //
@@ -83,8 +87,9 @@
 //   - real hardware                                                    //
 //   - mGBA (desktop, RetroArch iOS and Android)                        //
 //   - Lemuroid                                                         //
-//   - VBA                                                              //
+//   - VBA M 2.2.3                                                      //
 //   - Pizzaboy                                                         //
+//   - Delta                                                            //
 //   - JohnGBA                                                          //
 //                                                                      //
 // fails on:                                                            //
@@ -92,6 +97,52 @@
 //                                                                      //
 // Source: GBATEK – "GBA Sound Control Registers"                       //
 //         https://problemkaputt.de/gbatek.htm#gbasoundcontrolregisters //
+// ==================================================================== //
+
+// === EMU_CHECK_KEYCNT =============================================== //
+//                                                                      //
+// Write 0xFFFF to KEYCNT (key interrupt control, 0x04000132), then     //
+// read back. Bits 10-13 are unused and must read 0, giving an expected //
+// result of 0xC3FF.                                                    //
+//                                                                      //
+// works on:                                                            //
+//   - real hardware                                                    //
+//   - mGBA (desktop, RetroArch iOS and Android)                        //
+//   - Lemuroid                                                         //
+//   - VBA M 2.2.3                                                      //
+//   - Delta                                                            //
+//   - JohnGBA                                                          //
+//                                                                      //
+// fails on:                                                            //
+//   - Pizzaboy                                                         //
+//   - MyBoy                                                            //
+//                                                                      //
+// Source: GBATEK – "GBA Keypad Input"                                  //
+//         https://problemkaputt.de/gbatek.htm#gbakeypadinput           //
+//         (see 4000132h – KEYCNT, bits 10-13 "Not Used")               //
+// ==================================================================== //
+
+// === EMU_CHECK_SOUNDCNT_L =========================================== //
+//                                                                      //
+// Write 0xFFFF to SOUNDCNT_L (PSG channel volume/enable, 0x04000080),  //
+// then read back. Bits 3 and 7 are unused and must read 0, giving an   //
+// expected result of 0xFF77.                                           //
+//                                                                      //
+// works on:                                                            //
+//   - real hardware                                                    //
+//   - mGBA (desktop, RetroArch iOS and Android)                        //
+//   - Lemuroid                                                         //
+//   - Pizzaboy                                                         //
+//   - JohnGBA                                                          //
+//                                                                      //
+// fails on:                                                            //
+//   - VBA M 2.2.3                                                      //
+//   - Delta                                                            //
+//   - MyBoy                                                            //
+//                                                                      //
+// Source: GBATEK – "GBA Sound Control Registers"                       //
+//         https://problemkaputt.de/gbatek.htm#gbasoundcontrolregisters //
+//         (see 4000080h – SOUNDCNT_L, bits 3 and 7 "Not Used")         //
 // ==================================================================== //
 
 static EWRAM_DATA u8 sEmulatorCheckScreenState = 0;
@@ -153,6 +204,37 @@ bool32 IsInaccurateEmulator(void)
         *soundcnt_h = savedH;
         *soundcnt_x = savedX;
         if (result != 0x770F)
+            return TRUE;
+    }
+#endif
+#if (ACTIVE_EMU_CHECKS & EMU_CHECK_KEYCNT)
+    {
+        vu16 *const keycnt = (vu16 *)0x04000132;
+        const u16 keycnt_expected = 0xC3FF;
+        u16 saved = *keycnt;
+        u16 result;
+
+        *keycnt = 0xFFFF;
+        result = *keycnt;
+        *keycnt = saved;
+        if (result != keycnt_expected)
+            return TRUE;
+    }
+#endif
+#if (ACTIVE_EMU_CHECKS & EMU_CHECK_SOUNDCNT_L)
+    {
+        vu16 *const soundcnt_x = (vu16 *)0x04000084;
+        vu16 *const soundcnt_l = (vu16 *)0x04000080;
+        u16 savedX = *soundcnt_x;
+        u16 savedL = *soundcnt_l;
+        u16 result;
+
+        *soundcnt_x = 0x0080;  // enable master sound
+        *soundcnt_l = 0xFFFF;
+        result = *soundcnt_l;
+        *soundcnt_l = savedL;
+        *soundcnt_x = savedX;
+        if (result != 0xFF77)
             return TRUE;
     }
 #endif

@@ -457,5 +457,6 @@ void HealPokemon(struct Pokemon *mon);
 u16 GetBattleBGM(void);
 u16 GetCurrentZapmolcunoSpecies(void);
 bool32 IsDanceMove(u16 moveId);
+bool32 IsDupe(u16 species_catch);
 
 #endif // GUARD_POKEMON_H

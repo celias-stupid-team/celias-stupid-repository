@@ -236,6 +236,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_setplayermetatile              @ 0xe8
 	.4byte ScrCmd_are_vars_equal                 @ 0xe9
 	.4byte ScrCmd_getobjectxy                    @ 0xea
+	.4byte ScrCmd_nop                            @ 0xeb // used for flagasbrickbreakable
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
