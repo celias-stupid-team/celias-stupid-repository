@@ -1264,6 +1264,7 @@ static void Cmd_accuracycheck(void)
         return;
     }
     if (gBattleMons[gBattlerTarget].species == SPECIES_KECLEON_SANS
+        && gBattlerAttacker != gBattlerTarget
         && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
         && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD
         && gCurrentMove != MOVE_MAGICAL_LEAF
