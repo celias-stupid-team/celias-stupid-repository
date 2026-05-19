@@ -1639,6 +1639,13 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Togedemaru, 0x0200, ANIM_TAG_TOGEDEMARU},
     {gBattleAnimSpriteGfx_Dedenne, 0x0600, ANIM_TAG_DEDENNE},
     {gBattleAnimSpriteGfx_Anarchy, 0x0A00, ANIM_TAG_ANARCHY},
+    {gBattleAnimSpriteGfx_GBA, 0x0A00, ANIM_TAG_GBA},
+    {gBattleAnimSpriteGfx_BeseechSeed, 0x0180, ANIM_TAG_BESEECH_SEED},
+    {gBattleAnimSpriteGfx_Bolt, 0x0080, ANIM_TAG_BOLT},
+    {gBattleAnimSpriteGfx_Cop, 0x0800, ANIM_TAG_COP},
+    {gBattleAnimSpriteGfx_Concrete, 0x0800, ANIM_TAG_CONCRETE},
+    {gBattleAnimSpriteGfx_LightGym, 0x0800, ANIM_TAG_LIGHT_GYM},
+    {gBattleAnimSpriteGfx_StoneFree, 0x0020, ANIM_TAG_STONE_FREE},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2201,6 +2208,13 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Togedemaru, ANIM_TAG_TOGEDEMARU},
     {gBattleAnimSpritePal_Dedenne, ANIM_TAG_DEDENNE},
     {gBattleAnimSpritePal_Anarchy, ANIM_TAG_ANARCHY},
+    {gBattleAnimSpritePal_GBA, ANIM_TAG_GBA},
+    {gBattleAnimSpritePal_BeseechSeed, ANIM_TAG_BESEECH_SEED},
+    {gBattleAnimSpritePal_Bolt, ANIM_TAG_BOLT},
+    {gBattleAnimSpritePal_Cop, ANIM_TAG_COP},
+    {gBattleAnimSpritePal_Concrete, ANIM_TAG_CONCRETE},
+    {gBattleAnimSpritePal_LightGym, ANIM_TAG_LIGHT_GYM},
+    {gBattleAnimSpritePal_StoneFree, ANIM_TAG_STONE_FREE},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

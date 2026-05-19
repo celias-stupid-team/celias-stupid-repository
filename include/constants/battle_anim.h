@@ -565,6 +565,13 @@
 #define ANIM_TAG_TOGEDEMARU                 (ANIM_SPRITES_START + 555)
 #define ANIM_TAG_DEDENNE                    (ANIM_SPRITES_START + 556)
 #define ANIM_TAG_ANARCHY                    (ANIM_SPRITES_START + 557)
+#define ANIM_TAG_GBA                        (ANIM_SPRITES_START + 558)
+#define ANIM_TAG_BESEECH_SEED               (ANIM_SPRITES_START + 559)
+#define ANIM_TAG_BOLT                       (ANIM_SPRITES_START + 560)
+#define ANIM_TAG_COP                        (ANIM_SPRITES_START + 561)
+#define ANIM_TAG_CONCRETE                   (ANIM_SPRITES_START + 562)
+#define ANIM_TAG_LIGHT_GYM                  (ANIM_SPRITES_START + 563)
+#define ANIM_TAG_STONE_FREE                 (ANIM_SPRITES_START + 564)
 
 // battlers
 #define ANIM_ATTACKER       0

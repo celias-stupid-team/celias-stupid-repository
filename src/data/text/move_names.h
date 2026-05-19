@@ -1167,6 +1167,17 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_PLUSLEPLUPOO]     = _("PLUSLEPLUPOO"),
     [MOVE_DEDENEDEDOO]     = _("DEDENEDEDOO"),
     [MOVE_TOGEDEEZNUTS]     = _("TOGEDEEZNUTS"),
+    [MOVE_BARK]     = _("Bark"),
+    [MOVE_ROLL_OVER]     = _("Roll over"),
+    [MOVE_CLAP]     = _("Clap"),
+    [MOVE_GALUMPH]     = _("Galumph"),
+    [MOVE_SOAK]     = _("SOAK"),
+    [MOVE_PRIME_RIBS]     = _("PRIME RIBS"),
+    [MOVE_TRIPLE_PIXEL]     = _("TRIPLE PIXEL"),
+    [MOVE_STONE_FREE_EDGE]     = _("STONE FREE"),
+    [MOVE_LIQUID_UZUMAKI]     = _("LIQUID UZU"),
+    [MOVE_JUNJI_HEALING]     = _("JUNJI HEAL"),
+    [MOVE_BESEECH_SEED]     = _("BESEECH SEED"),
 };
 
 const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
@@ -2338,4 +2349,15 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_PLUSLEPLUPOO]     = _("PLUSLEPLUPOO"),
     [MOVE_DEDENEDEDOO]     = _("DEDENEDEDOO"),
     [MOVE_TOGEDEEZNUTS]     = _("TOGEDEEZNUTS"),
+    [MOVE_BARK]     = _("Bark"),
+    [MOVE_ROLL_OVER]     = _("Roll over"),
+    [MOVE_CLAP]     = _("Clap"),
+    [MOVE_GALUMPH]     = _("Galumph"),
+    [MOVE_SOAK]     = _("SOAK"),
+    [MOVE_PRIME_RIBS]     = _("PRIME RIBS"),
+    [MOVE_TRIPLE_PIXEL]     = _("TRIPLE PIXEL"),
+    [MOVE_STONE_FREE_EDGE]     = _("STONE FREE EDGE"),
+    [MOVE_LIQUID_UZUMAKI]     = _("LIQUID UZUMAKI"),
+    [MOVE_JUNJI_HEALING]     = _("JUNJI HEALING"),
+    [MOVE_BESEECH_SEED]     = _("BESEECH SEED"),
 }; //For any move which needs its name lengthened, these will display in battle.

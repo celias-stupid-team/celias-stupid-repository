@@ -309,6 +309,7 @@ const struct SpriteTemplate gSunlightRaySpriteTemplate =
     .callback = AnimSunlight,
 };
 
+
 const struct SpriteTemplate gSunlightDadSpriteTemplate =
 {
     .tileTag = ANIM_TAG_DAD_OF_LIGHT,

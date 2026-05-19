@@ -121,6 +121,7 @@ static u8 CreateGlitchQuadrantSprite(u8 battlerSpriteId, s16 x, s16 y, u8 subpri
 static void AnimTask_MingVaseThrow_Step(u8 taskId);
 static void AnimSpellingSalts(struct Sprite *sprite);
 static void AnimTask_TranslateMonAndReturn_Step(u8 taskId);
+static void AnimTask_MortalSpin_Step(u8 taskId);
 static void AnimCrabGrip(struct Sprite *sprite);
 
 static const union AnimCmd sScratchAnimCmds[] =
@@ -1488,6 +1489,24 @@ static const union AffineAnimCmd sSlackOffSquishAffineAnimCmds[] =
     AFFINEANIMCMD_FRAME(0, 0, 0, 24),
     AFFINEANIMCMD_FRAME(1, -5, 0, 16),
     AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sMortalSpinFlip_Normal[] =
+{
+    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 1),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sMortalSpinFlip_Mirrored[] =
+{
+    AFFINEANIMCMD_FRAME(-0x100, 0x100, 0, 1),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sMortalSpinAffineAnims[] =
+{
+    sMortalSpinFlip_Normal,
+    sMortalSpinFlip_Mirrored,
 };
 
 static void AnimBlackSmoke(struct Sprite *sprite)
@@ -6812,6 +6831,135 @@ static void AnimTask_TranslateMonAndReturn_Step(u8 taskId)
 
         // Clean exit
         DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_MortalSpin(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    u8 battler = gBattleAnimArgs[0];
+    u8 spriteId = GetAnimBattlerSpriteId(battler);
+
+    PrepareBattlerSpriteForRotScale(spriteId, ST_OAM_OBJ_NORMAL);
+
+    task->data[0] = 0; // state
+    task->data[1] = 0; // frame counter
+
+    task->data[2] = gBattleAnimArgs[1]; // dx/frame
+    task->data[3] = gBattleAnimArgs[2]; // dy/frame
+
+    task->data[4] = gBattleAnimArgs[3]; // move duration
+    task->data[5] = gBattleAnimArgs[4]; // hold duration
+
+    task->data[6] = spriteId;
+
+    // accumulated offsets
+    task->data[7] = 0;
+    task->data[8] = 0;
+
+    // frames between flips
+    task->data[9] = gBattleAnimArgs[5];
+
+    // flip timer
+    task->data[10] = 0;
+
+    // current affine anim
+    task->data[11] = 0;
+
+    StartSpriteAffineAnim(
+        &gSprites[spriteId],
+        0
+    );
+
+    task->func = AnimTask_MortalSpin_Step;
+}
+
+static void AnimTask_MortalSpin_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite = &gSprites[task->data[6]];
+
+    switch (task->data[0])
+    {
+    // -----------------------------------
+    // MOVE
+    // -----------------------------------
+    case 0:
+
+        sprite->x2 += task->data[2];
+        sprite->y2 += task->data[3];
+
+        task->data[7] += task->data[2];
+        task->data[8] += task->data[3];
+
+        // flip interval
+        if (task->data[9] > 0)
+        {
+            if (++task->data[10] >= task->data[9])
+            {
+                task->data[10] = 0;
+
+                task->data[11] ^= 1;
+
+                StartSpriteAffineAnim(
+                    sprite,
+                    task->data[11]
+                );
+            }
+        }
+
+        if (++task->data[1] >= task->data[4])
+        {
+            task->data[1] = 0;
+            task->data[0] = 1;
+        }
+
+        break;
+
+    // -----------------------------------
+    // HOLD
+    // -----------------------------------
+    case 1:
+
+        if (task->data[9] > 0)
+        {
+            if (++task->data[10] >= task->data[9])
+            {
+                task->data[10] = 0;
+
+                task->data[11] ^= 1;
+
+                StartSpriteAffineAnim(
+                    sprite,
+                    task->data[11]
+                );
+            }
+        }
+
+        if (++task->data[1] >= task->data[5])
+        {
+            task->data[1] = 0;
+            task->data[0] = 2;
+        }
+
+        break;
+
+    // -----------------------------------
+    // RESET
+    // -----------------------------------
+    case 2:
+
+        sprite->x2 -= task->data[7];
+        sprite->y2 -= task->data[8];
+
+        StartSpriteAffineAnim(sprite, 0);
+
+        ResetSpriteRotScale(task->data[6]);
+
+        DestroyAnimVisualTask(taskId);
+
         break;
     }
 }

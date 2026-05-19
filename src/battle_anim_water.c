@@ -508,7 +508,7 @@ const struct SpriteTemplate gFlamethrowerFlameSpriteTemplate =
 const struct SpriteTemplate gFlamethrowerWaterSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SMALL_EMBER,
-    .paletteTag = ANIM_TAG_WATER_ORB,
+    .paletteTag = ANIM_TAG_STONE_FREE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_FlamethrowerFlame,
     .images = NULL,

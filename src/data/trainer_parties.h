@@ -3949,7 +3949,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt5[] = {
         .iv = 0,
         .lvl = 15,
         .species = SPECIES_SPEAROW,
-        .moves = {MOVE_TAKE_DOWN, MOVE_BLOCK, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_DRM_BEATING, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 

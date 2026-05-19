@@ -112,6 +112,9 @@ static void AnimCardFly(struct Sprite *);
 static void AnimBallAttack(struct Sprite *sprite);
 static void AnimBallAttack_Arc(struct Sprite *sprite);
 static void AnimBallAttack_Bounce(struct Sprite *sprite);
+static void AnimQuickBallAttack(struct Sprite *sprite);
+static void AnimQuickBallAttack_Arc(struct Sprite *sprite);
+static void AnimQuickBallAttack_Bounce(struct Sprite *sprite);
 static void AnimTimerBallAttack(struct Sprite *sprite);
 static void AnimTimerBallAttack_Arc(struct Sprite *sprite);
 static void AnimSprite_MoveThenWait(struct Sprite *sprite);
@@ -685,6 +688,17 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+const struct SpriteTemplate gBoltThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_BOLT,
+    .paletteTag = ANIM_TAG_BOLT,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
 const struct SpriteTemplate gPokedadThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_POKEDAD,
@@ -727,6 +741,85 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sDaisyAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(4, 8),
+    ANIMCMD_FRAME(8, 8),
+    ANIMCMD_FRAME(12, 8),
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sDaisyAnimTable[] =
+{
+    sDaisyAnimCmds,
+};
+
+const struct SpriteTemplate gDaisySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DAISY,
+    .paletteTag = ANIM_TAG_DAISY,
+    .oam = &gOamData_AffineOff_ObjBlend_16x16,
+    .anims = sDaisyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sGBAScreenAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sGBAHelpAnimCmds[] =
+{
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sGBAScreenAnimTable[] =
+{
+    sGBAScreenAnimCmds,
+    sGBAHelpAnimCmds,
+};
+
+const struct SpriteTemplate gGBALiftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GBA,
+    .paletteTag = ANIM_TAG_GBA,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sGBAScreenAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gGBAThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_GBA,
+    .paletteTag = ANIM_TAG_GBA,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sGBAScreenAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
+const struct SpriteTemplate gFallingGBASpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GBA,
+    .paletteTag = ANIM_TAG_GBA,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sGBAScreenAnimTable[1],
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
 };
 
 static const union AnimCmd sLossRiseOneAnimCmds[] =
@@ -2204,6 +2297,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
     .callback = AnimFallingCoin,
 };
 
+const struct SpriteTemplate gFallingBoltSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BOLT,
+    .paletteTag = ANIM_TAG_BOLT,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
 const struct SpriteTemplate gFallingPokedadSpriteTemplate =
 {
     .tileTag = ANIM_TAG_POKEDAD,
@@ -2956,7 +3060,7 @@ const struct SpriteTemplate gBallQuickAttackSpriteTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimBallAttack,
+    .callback = AnimQuickBallAttack,
 };
 
 const struct SpriteTemplate gBallDiveAttackSpriteTemplate =
@@ -4080,6 +4184,17 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
 {
     .tileTag = ANIM_TAG_RED_HEART,
     .paletteTag = ANIM_TAG_RED_HEART,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gPixelBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SESAME,
+    .paletteTag = ANIM_TAG_SESAME,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -8423,6 +8538,82 @@ static void AnimBallAttack_Bounce(struct Sprite *sprite)
 {
     sprite->x -= 4;
     sprite->y += 6;
+
+    if (sprite->x < -16 || sprite->y > DISPLAY_HEIGHT + 16)
+        DestroyAnimSprite(sprite);
+}
+
+static void AnimQuickBallAttack(struct Sprite *sprite)
+{
+    int attackerX;
+    int attackerY;
+    int targetX;
+    int targetY;
+
+    attackerX = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X);
+    attackerY = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y);
+
+    targetX = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X);
+    targetY = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+
+    sprite->x = attackerX - 16;
+    sprite->y = attackerY - 8;
+
+    sprite->data[0] = 0;
+
+    sprite->data[1] = sprite->x;
+    sprite->data[2] = sprite->y;
+
+    sprite->data[3] = targetX;
+    sprite->data[4] = targetY;
+
+    sprite->callback = AnimQuickBallAttack_Arc;
+}
+
+static void AnimQuickBallAttack_Arc(struct Sprite *sprite)
+{
+    int t;
+    int startX;
+    int startY;
+    int endX;
+    int endY;
+    int arc;
+    int duration;
+
+    duration = 14;
+
+    t = sprite->data[0]++;
+
+    if (t >= duration)
+    {
+        sprite->data[0] = 0;
+        sprite->callback = AnimQuickBallAttack_Bounce;
+        return;
+    }
+
+    startX = sprite->data[1];
+    startY = sprite->data[2];
+
+    endX = sprite->data[3];
+    endY = sprite->data[4];
+
+    sprite->x =
+        startX + (endX - startX) * t / duration;
+
+    // Preserve same arc shape while shortening duration
+    arc =
+        -((t - duration / 2) * (t - duration / 2))
+        + (duration * duration) / 4;
+
+    sprite->y =
+        startY + (endY - startY) * t / duration
+        - arc / 6;
+}
+
+static void AnimQuickBallAttack_Bounce(struct Sprite *sprite)
+{
+    sprite->x -= 8;
+    sprite->y += 12;
 
     if (sprite->x < -16 || sprite->y > DISPLAY_HEIGHT + 16)
         DestroyAnimSprite(sprite);
