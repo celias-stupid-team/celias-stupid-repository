@@ -296,6 +296,13 @@ script FourIsland_OldLady {
 	"Ah, what a fun legend!", MSGBOX_NPC)
 }
 
+script FourIsland_GrowlitheCry {
+	lock
+	playmoncry(SPECIES_GROWLITHE, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
+}
 
 
 script FourIsland_CeliaDawn {

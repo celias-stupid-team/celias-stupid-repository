@@ -3323,8 +3323,6 @@ BattleScript_LocalBattleLostEnd::
 	printstring STRINGID_PLAYERLOSTAGAINSTENEMYTRAINER
 	waitmessage B_WAIT_TIME_LONG
 	getmoneyreward BattleScript_LocalBattleLostPrintTrainersWinText
-	printstring STRINGID_PLAYERPAIDPRIZEMONEY
-	waitmessage B_WAIT_TIME_LONG
 BattleScript_EReaderOrSecretBaseTrainerEnd::
 	end2
 

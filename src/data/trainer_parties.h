@@ -1222,7 +1222,7 @@ static const struct TrainerMonItemCustomMoves sParty_SuperNerdMiguel[] = {
         .lvl = 14,
         .heldItem = ITEM_NONE,
         .species = SPECIES_KOFFING,
-        .moves = {MOVE_TACKLE, MOVE_POISON_GAS, MOVE_BITE, MOVE_SMOG}
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_BITE, MOVE_SMOG}
 
     },
     {
@@ -4021,25 +4021,25 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt10[] = {
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_PLUSLE,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_PLUSLEPLUPOO, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_DEDENNE,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_DEDENEDEDOO, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_TOGEDEMARU,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_TOGEDEEZNUTS, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 20,
         .species = SPECIES_STEAMBOAT_WILLIE,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_HARDEN, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -9699,7 +9699,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainLucy[] = {
     },
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 50,
         .species = SPECIES_REGIELEKI,
         .moves = {MOVE_AGILITY_DUMB, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },

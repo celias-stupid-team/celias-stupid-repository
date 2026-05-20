@@ -1360,6 +1360,28 @@ const struct SpriteTemplate gBlockXSpriteTemplate =
     .callback = AnimBlockX,
 };
 
+const struct SpriteTemplate gNobstructSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_NOBSTRUCT,
+    .paletteTag = ANIM_TAG_NOBSTRUCT,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBlockX,
+};
+
+const struct SpriteTemplate gLobstructSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_LOBSTER,
+    .paletteTag = ANIM_TAG_LOBSTER,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBlockX,
+};
+
 const struct SpriteTemplate gBlockXHorPosSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_X_SIGN,

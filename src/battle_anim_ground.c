@@ -311,6 +311,28 @@ const struct SpriteTemplate gThrownBigMushroomSpriteTemplate =
     .callback = AnimMakeItRain,
 };
 
+const struct SpriteTemplate gThrownEonTicketSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EON_TICKET,
+    .paletteTag = ANIM_TAG_EON_TICKET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gThrownSoulDewSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SOUL_DEW,
+    .paletteTag = ANIM_TAG_SOUL_DEW,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
 const struct SpriteTemplate gMudsportSmallMushroomSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MUSHROOM,
@@ -328,6 +350,39 @@ const struct SpriteTemplate gMudsportBigMushroomSpriteTemplate =
     .paletteTag = ANIM_TAG_MUSHROOM,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMudSportDirt,
+};
+
+static const union AnimCmd sErupteonAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sErupteonAnimTable[] =
+{
+    sErupteonAnimCmds,
+};
+
+const struct SpriteTemplate gMudsportEonTicketSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EON_TICKET,
+    .paletteTag = ANIM_TAG_EON_TICKET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sErupteonAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMudSportDirt,
+};
+
+const struct SpriteTemplate gMudsportSoulDewSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SOUL_DEW,
+    .paletteTag = ANIM_TAG_SOUL_DEW,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sErupteonAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimMudSportDirt,

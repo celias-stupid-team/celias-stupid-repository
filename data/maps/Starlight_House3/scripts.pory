@@ -290,7 +290,7 @@ script Starlight_House3_Computer_Special {
 script Starlight_House3_Map_Table2 {
 	msgbox(
 	"Hey look, you can see\n"
-    "Starlight's Workshop from here.", MSGBOX_SIGN)
+    "Starlight's House from here.", MSGBOX_SIGN)
 
 }
 
@@ -304,12 +304,6 @@ script Starlight_House3_Computer2 {
 script Starlight_House3_Wall_Map {
 	msgbox(
 	"The giant map had a baby!", MSGBOX_SIGN)
-    //closemessage
-    //delay(30)
-    //msgbox(
-    //"Yeah idk why there's 2 maps\n"
-    //"either...", MSGBOX_SIGN)
-
 }
 
 script Starlight_House3_PlantA {
@@ -463,17 +457,6 @@ script Starlight_House3_DMCA_Notice {
 
 script Starlight_House3_Rematch {
     lock
-    //cleartrainerflag(TRAINER_STARLIGHT)
-    //textcolor(NPC_TEXT_COLOR_FEMALE)
-    //trainerbattle_single(TRAINER_STARLIGHT,
-	//"Oh hi!",
-	//
-	//"I... am not the best at coding...", Starlight_House2_Post_Battle)
-
-
-	//msgbox(
-    //"Test...", MSGBOX_DEFAULT)
-	//closemessage
 	faceplayer
     textcolor(NPC_TEXT_COLOR_FEMALE)
     msgbox("Hi! Would you like to fight\nme again?", MSGBOX_YESNO)

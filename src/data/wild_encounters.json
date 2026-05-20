@@ -25203,7 +25203,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PINSIR"
+                "species": "SPECIES_MELTAN"
               }
             ]
           },
@@ -25277,7 +25277,7 @@
               {
                 "min_level": 19,
                 "max_level": 19,
-                "species": "SPECIES_CHARMANDER"
+                "species": "SPECIES_BULBASAUR"
               },
               {
                 "min_level": 19,
@@ -27031,6 +27031,61 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_MEW"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_PARAS"
               }
             ]
           }

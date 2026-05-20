@@ -6609,7 +6609,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands67",
+      "secondary_tileset": "gTileset_Aether_Paradise",
       "border_filepath": "data/layouts/AetherParadise_Island/border.bin",
       "blockdata_filepath": "data/layouts/AetherParadise_Island/map.bin"
     },
@@ -7457,7 +7457,7 @@
       "id": "LAYOUT_STARLIGHT_HOUSE",
       "name": "Starlight_House_Layout",
       "width": 17,
-      "height": 12,
+      "height": 29,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -7980,6 +7980,42 @@
       "secondary_tileset": "gTileset_ViridianCity",
       "border_filepath": "data/layouts/Route22_Layout_Nidotrans/border.bin",
       "blockdata_filepath": "data/layouts/Route22_Layout_Nidotrans/map.bin"
+    },
+    {
+      "id": "LAYOUT_STARLIGHT_HOUSE_LAYOUT_2",
+      "name": "Starlight_House_Layout_2",
+      "width": 17,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Starlight_Interior",
+      "border_filepath": "data/layouts/Starlight_House_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/Starlight_House_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_AETHER_PARADISE_ISLAND_LAYOUT_POST_GAME",
+      "name": "AetherParadise_Island_Layout_Post_Game",
+      "width": 69,
+      "height": 61,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Aether_Paradise",
+      "border_filepath": "data/layouts/AetherParadise_Island_Layout_Post_Game/border.bin",
+      "blockdata_filepath": "data/layouts/AetherParadise_Island_Layout_Post_Game/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_LAYOUT_3",
+      "name": "UndergroundPath_NorthSouthTunnel_Layout_3",
+      "width": 50,
+      "height": 63,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_UndergroundPath",
+      "border_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_Layout_3/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundPath_NorthSouthTunnel_Layout_3/map.bin"
     }
   ]
 }

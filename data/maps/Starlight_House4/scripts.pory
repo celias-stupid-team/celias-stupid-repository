@@ -25,7 +25,7 @@ MAP_SCRIPT_ON_LOAD {
 script Starlight_House4_Post_Game {
 	if(flag(FLAG_POST_GAME)) {
 	msgbox(
-		"Come back now.\p", MSGBOX_SIGN)
+		"Come back now.", MSGBOX_SIGN)
 
 	} else {
 	msgbox(

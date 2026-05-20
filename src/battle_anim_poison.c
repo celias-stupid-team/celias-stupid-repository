@@ -221,6 +221,46 @@ const struct SpriteTemplate gPoisonBubbleSpriteTemplate =
     .callback = AnimBubbleEffect,
 };
 
+static const union AnimCmd sAnim_LossBubbleOne[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_LossBubbleTwo[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_LossBubbles[] =
+{
+    sAnim_LossBubbleOne,
+    sAnim_LossBubbleTwo,
+};
+
+const struct SpriteTemplate gLossBubbleOneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOSS_BUBBLES,
+    .paletteTag = ANIM_TAG_LOSS_BUBBLES,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sAnims_LossBubbles[0],
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bubble,
+    .callback = AnimBubbleEffect,
+};
+
+const struct SpriteTemplate gLossBubbleTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LOSS_BUBBLES,
+    .paletteTag = ANIM_TAG_LOSS_BUBBLES,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sAnims_LossBubbles[1],
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bubble,
+    .callback = AnimBubbleEffect,
+};
+
 const struct SpriteTemplate gInkBubbleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_POISON_BUBBLE,
@@ -243,6 +283,17 @@ const struct SpriteTemplate gWaterBubbleSpriteTemplate =
     .callback = AnimBubbleEffect,
 };
 
+const struct SpriteTemplate gWaterNobbleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_NOBBLE,
+    .paletteTag = ANIM_TAG_NOBBLE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gAnims_WaterBubble,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bubble,
+    .callback = AnimBubbleEffect,
+};
+
 const struct SpriteTemplate gStarmieBubbleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_STARMIE,
@@ -259,6 +310,17 @@ const struct SpriteTemplate gClubbleSpriteTemplate =
     .tileTag = ANIM_TAG_BLACK_CLUB,
     .paletteTag = ANIM_TAG_BLACK_CLUB,
     .oam = &gOamData_AffineNormal_ObjBlend_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bubble,
+    .callback = AnimBubbleEffect,
+};
+
+const struct SpriteTemplate gDedenneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEDENNE,
+    .paletteTag = ANIM_TAG_DEDENNE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sAffineAnims_Bubble,

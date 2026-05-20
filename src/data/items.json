@@ -6949,7 +6949,7 @@
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
-      "fieldUseFunc": "FieldUseFunc_EvoItem",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

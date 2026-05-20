@@ -261,6 +261,35 @@ script UndergroundPath_SecretSwitch {
 	
 }
 
+
+
+script UndergroundPath_SecretSwitch2 {
+	lock
+	if(flag(FLAG_TEMP_B)) {
+		msgbox(
+		"Neat!\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	playse(SE_CLICK)
+	waitse
+	delay(10)
+	setflag(FLAG_TEMP_B)
+	setlayouttiles(LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_LAYOUT_3, 0,0,0,0,38,62)
+	setmaplayoutindex(LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL_LAYOUT_3)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 4)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
+	release
+	end
+
+
+	
+}
+
 script UndergroundPath_CuckChair1 {
 	msgbox(
 	"Magnum cuck chair.\n"
