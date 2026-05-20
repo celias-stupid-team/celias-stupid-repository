@@ -162,7 +162,7 @@ EWRAM_DATA u16 gChosenMove = 0;
 EWRAM_DATA u16 gCalledMove = 0;
 EWRAM_DATA s32 gBattleMoveDamage = 0;
 EWRAM_DATA bool8 gBattleTurnMonFainted = 0;
-EWRAM_DATA bool8 gBattleTurnMonUsedMove = 0;
+EWRAM_DATA bool8 gBattleTurnMonUsedMoveOrItem = 0;
 EWRAM_DATA u8 gBattleSwitchFromPSS = 0;
 EWRAM_DATA u8 gMadePSSSwitch = 0;
 EWRAM_DATA s32 gHpDealt = 0;
@@ -2257,7 +2257,7 @@ static void BattleStartClearSetData(void)
     gBattleMoveDamage = 0;
     gIntroSlideFlags = 0;
     gBattleTurnMonFainted = FALSE;
-    gBattleTurnMonUsedMove = FALSE;
+    gBattleTurnMonUsedMoveOrItem = FALSE;
     gBattleScripting.animTurn = 0;
     gBattleScripting.animTargetsHit = 0;
     gLeveledUpInBattle = 0;
@@ -3051,7 +3051,7 @@ void BattleTurnPassed(void)
     gBattleScripting.moveendState = 0;
     gBattleMoveDamage = 0;
     gBattleTurnMonFainted = FALSE;
-    gBattleTurnMonUsedMove = FALSE;
+    gBattleTurnMonUsedMoveOrItem = FALSE;
     gMoveResultFlags = 0;
     for (i = 0; i < 5; i++)
         gBattleCommunication[i] = 0;
@@ -4425,7 +4425,7 @@ static void HandleAction_UseMove(void)
     }
 
     if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
-        gBattleTurnMonUsedMove = TRUE;
+        gBattleTurnMonUsedMoveOrItem = TRUE;
 
     if (twistedRealityActivated)
         gBattlescriptCurrInstr = BattleScript_TwistedRealityActivates;
@@ -4543,6 +4543,10 @@ static void HandleAction_UseItem(void)
         }
         gBattlescriptCurrInstr = gBattlescriptsForUsingItem[*(gBattleStruct->AI_itemType + gBattlerAttacker / 2)];
     }
+
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+        gBattleTurnMonUsedMoveOrItem = TRUE;
+
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
 

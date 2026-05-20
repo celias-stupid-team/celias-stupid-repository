@@ -93,7 +93,7 @@ Debug_BoxFilledMessage_Text:
 
 Debug_EventScript_Script_1::
 	@ setflag FLAG_SHINY_CREATION
-	setwildbattle SPECIES_LUVDISC, 10
+	setwildbattle SPECIES_SEEL, 10
 	dowildbattle
 	end
 

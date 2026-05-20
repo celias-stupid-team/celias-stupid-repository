@@ -725,7 +725,7 @@ static bool8 IsWildLevelAllowedByRepel(u8 wildLevel)
 {
     u8 i;
 
-    if (!VarGet(VAR_REPEL_STEP_COUNT) || FlagGet(FLAG_SYS_MAX_REPEL))
+    if (!VarGet(VAR_REPEL_STEP_COUNT))
         return TRUE;
 
     for (i = 0; i < PARTY_SIZE; i++)
@@ -900,7 +900,7 @@ bool8 TryStandardWildEncounter(u32 currMetatileAttrs)
 
 static void AddToWildEncounterRateBuff(u8 encounterRate)
 {
-    if (VarGet(VAR_REPEL_STEP_COUNT) == 0 || !FlagGet(FLAG_SYS_MAX_REPEL))
+    if (VarGet(VAR_REPEL_STEP_COUNT) == 0)
         sWildEncounterData.encounterRateBuff += encounterRate;
     else
         sWildEncounterData.encounterRateBuff = 0;

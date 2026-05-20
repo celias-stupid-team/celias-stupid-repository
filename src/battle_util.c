@@ -699,7 +699,7 @@ u8 DoFieldEndTurnEffects(void)
                 if (gStatuses3[gActiveBattler] & STATUS3_DOUBLE_DIP)
                 {
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
-                    if (gBattleMoveDamage == 0)
+                    if (gBattleMoveDamage == 0 || ((gBattleMons[gActiveBattler].status1 & STATUS1_BAD_BURN) && gBattleMons[gActiveBattler].ability != ABILITY_GUTS))
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_DoubleDipHits);
                     gStatuses3[gBattlerAttacker] &= ~STATUS3_DOUBLE_DIP;
@@ -837,7 +837,7 @@ u8 DoFieldEndTurnEffects(void)
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_SHADOW_SKY:
-            if ((gBattleWeather & B_WEATHER_SHADOW_SKY) && (gBattleTurnMonUsedMove && !gBattleTurnMonFainted))
+            if ((gBattleWeather & B_WEATHER_SHADOW_SKY) && (gBattleTurnMonUsedMoveOrItem && !gBattleTurnMonFainted))
             {
                 gBattlescriptCurrInstr = BattleScript_DamagingWeatherContinues;
                 gBattleScripting.animArg1 = B_ANIM_SHADOW_SKY_CONTINUES;
@@ -4212,6 +4212,10 @@ void TryRestoreHeldItems(void)
         // Check if the lost item is a berry and the mon is not holding it
         if (ItemId_GetPocket(lostItem) == POCKET_BERRY_POUCH && currentItem != lostItem)
             lostItem = ITEM_NONE; // berries can't restore
+
+        // never restore MAGIC MUFFLER
+        if (ItemId_GetHoldEffect(lostItem) == HOLD_EFFECT_MAGIC_MUFFLER && currentItem != lostItem)
+            lostItem = ITEM_NONE;
 
         // Check if the lost item should be restored
         if (lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH

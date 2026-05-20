@@ -1401,7 +1401,7 @@
 #define FLAG_SYS_EXEGGUTOR                                          (SYS_FLAGS + 0xA)
 #define FLAG_SYS_SNORLAX_FIGHT                                      (SYS_FLAGS + 0xB)
 #define FLAG_SYS_KANGA_FIGHT                                        (SYS_FLAGS + 0xC)
-#define FLAG_SYS_MAX_REPEL                                          (SYS_FLAGS + 0xD)
+#define FLAG_SYS_MAX_REPEL                                          (SYS_FLAGS + 0xD) // no longer in use
 #define FLAG_SYS_DISABLE_SAVE                                       (SYS_FLAGS + 0xE)
 #define FLAG_SYS_CARRYING_BOX                                       (SYS_FLAGS + 0xF)
 #define FLAG_SYS_BILL_GARDEN                                        (SYS_FLAGS + 0x10)

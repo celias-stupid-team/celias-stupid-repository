@@ -539,10 +539,13 @@
 #define STRINGID_CURRENTMOVECANTSELECT 537
 #define STRINGID_PKMNRAISEDATTACK 538
 #define STRINGID_CREAMEATEN 539
+#define STRINGID_MAGIC_MUFFLER 540
+#define STRINGID_MAGICMUFFLERCONSUMED 541
+#define STRINGID_HI_PLAYER 542
+#define STRINGID_BYE_PLAYER 543
 
 
-
-#define STRINGID_NONE 540
+#define STRINGID_NONE 544
 // #define STRINGID_NONE 
 // ^ for easier copypaste
 #define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
@@ -797,11 +800,13 @@
 #define B_MSG_SHED             14
 #define B_MSG_HACK_ATTACK      15
 #define B_MSG_SNOWGRAVY        16
-#define B_MSG_LATIAS        17
-#define B_MSG_TM07        18
-#define B_MSG_SMEARGLE        19
-#define B_MSG_SHROOM_DESIRE        20
-#define B_MSG_PANT_SHROUD        21
+#define B_MSG_LATIAS           17
+#define B_MSG_TM07             18
+#define B_MSG_SMEARGLE         19
+#define B_MSG_SHROOM_DESIRE    20
+#define B_MSG_PANT_SHROUD      21
+#define B_MSG_HI_PLAYER        22
+#define B_MSG_BYE_PLAYER       23
 
 
 

@@ -817,11 +817,28 @@ static const u16 sProtectSuccessRates[] = {USHRT_MAX, USHRT_MAX / 2, USHRT_MAX /
 
 static const u16 sMovesForbiddenToCopy[] =
 {
+    // This array lists all moves that are black listed for Assist (+ Copycat), Metronome, Mimic and Sketch
     MOVE_METRONOME,
     MOVE_STRUGGLE,
     MOVE_SKETCH,
     MOVE_MIMIC,
+    MOVE_HACK_ATTACK,
+    MOVE_FLASH,
+    MOVE_FISSURE,
+    MOVE_WHITE_LIGHTNING,
+    MOVE_ADOBE_FLASH,
+    MOVE_PLEDGE_OF_ALLEGIANCE,
+    MOVE_REFLECT,
+    MOVE_AURORA_VEIL,
+    MOVE_KINESIS,
+    MOVE_WILL_O_WISP,
+    MOVE_SHOOT_BIG,
+    MOVE_SHEER_COLD,
+    MOVE_SHADOW_SHIELD,
+    MOVE_10000_VOLTS,
+    MOVE_SUBSTITUTE_TEACHER,
     MIMIC_FORBIDDEN_END,
+    // the moves below are NOT black listed for Mimic and Sketch
     MOVE_COUNTER,
     MOVE_MIRROR_COAT,
     MOVE_PROTECT,
@@ -836,9 +853,6 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_COVET,
     MOVE_TRICK,
     MOVE_FOCUS_PUNCH,
-    MOVE_10000_VOLTS,
-    MOVE_WILL_O_WISP,
-    MOVE_SUBSTITUTE_TEACHER,
     MOVE_COLONIZE,
     MOVE_THIEF,
     MOVE_MIEF,
@@ -1250,6 +1264,7 @@ static void Cmd_accuracycheck(void)
         return;
     }
     if (gBattleMons[gBattlerTarget].species == SPECIES_KECLEON_SANS
+        && gBattlerAttacker != gBattlerTarget
         && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
         && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD
         && gCurrentMove != MOVE_MAGICAL_LEAF
@@ -3633,18 +3648,6 @@ static void Cmd_tryfaintmon(void)
         if (!(gAbsentBattlerFlags & gBitTable[gActiveBattler])
          && gBattleMons[gActiveBattler].hp == 0)
         {
-            // special handling for Seel -> Hoopa transformation
-            if ((GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER && GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES) == SPECIES_SEEL)
-              || (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES) == SPECIES_SEEL))
-            {
-                gBattlerFainted = gActiveBattler;
-                gBattleMons[gActiveBattler].species = SPECIES_HOOPA;
-                gBattleMoveDamage = -1000; // force full HP after transformation
-                BattleScriptPush(gBattlescriptCurrInstr);
-                gBattlescriptCurrInstr = BattleScript_SeelHoopaTransform;
-                return;
-            }
-            
             if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
             {
                 u8 final_battle_state = VarGet(VAR_CSR_FINAL_BATTLE_PHASE);
@@ -4051,21 +4054,37 @@ static void Cmd_getexp(void)
 
                         } else {
                             gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-
                         }
-
                     }
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-                    if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId])
-                     && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
+                    if (holdEffect == HOLD_EFFECT_MAGIC_MUFFLER && GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL, NULL) < 97)
                     {
-                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
-                        i = STRINGID_ABOOSTED;
+                        u16 species = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES, NULL);
+                        u32 currentExp = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_EXP, NULL);
+                        u32 targetExp = gExperienceTables[gSpeciesInfo[species].growthRate][97];
+                        u32 totalExp = targetExp - currentExp;
+                        // handle in 30k junks, because BtlController_EmitExpUpdate only uses a u16
+                        u32 exp30k = (totalExp > 30000) ? 30000 : totalExp;
+
+                        gBattleScripting.remainingEXP = totalExp - exp30k;
+                        gBattleMoveDamage = exp30k;
+                        gBattleScripting.itemConsumed = TRUE;
+
+                        i = STRINGID_MAGIC_MUFFLER;
                     }
                     else
                     {
-                        i = STRINGID_EMPTYSTRING4;
+                        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                            gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+                        if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId])
+                         && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
+                        {
+                            gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+                            i = STRINGID_ABOOSTED;
+                        }
+                        else
+                        {
+                            i = STRINGID_EMPTYSTRING4;
+                        }
                     }
 
                     // get exp getter battlerId
@@ -4087,11 +4106,19 @@ static void Cmd_getexp(void)
                     }
 
                     PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
-                    // buffer 'gained' or 'gained a boosted'
-                    PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
-                    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
+                    if (i != STRINGID_MAGIC_MUFFLER)
+                    {
+                        // buffer 'gained' or 'gained a boosted'
+                        PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
+                        PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
 
-                    PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                        PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                    }
+                    else
+                    {
+                        PrepareStringBattle(i, gBattleStruct->expGetterBattlerId);
+                    }
+
                     MonGainEVs(&gPlayerParty[gBattleStruct->expGetterMonId], gBattleMons[gBattlerFainted].species);
                 }
                 gBattleStruct->sentInPokes >>= 1;
@@ -4184,6 +4211,26 @@ static void Cmd_getexp(void)
         }
         else
         {
+            // only used for MAGIC MUFFLER to handle huge EXP amounts
+            if (gBattleScripting.remainingEXP > 0)
+            {
+                u32 exp30k = (gBattleScripting.remainingEXP > 30000) ? 30000 : gBattleScripting.remainingEXP;
+                
+                gBattleScripting.remainingEXP -= exp30k;
+                gBattleMoveDamage = exp30k;
+                gBattleScripting.getexpState = 3;
+                break;
+            }
+            // consume item, currently only used for MAGIC MUFFLER
+            if (gBattleScripting.itemConsumed)
+            {
+                u16 item = ITEM_NONE;
+
+                gBattleScripting.itemConsumed = FALSE;
+                SetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HELD_ITEM, &item);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_MagicMufflerConsumed;
+            }
             gBattleStruct->expGetterMonId++;
             if (gBattleStruct->expGetterMonId < PARTY_SIZE)
                 gBattleScripting.getexpState = 2; // loop again
@@ -5039,7 +5086,7 @@ static void Cmd_moveend(void)
                 if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_SPIKY_SHIELD)
                 {
                     gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
-                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
+                        gBattleMoveDamage = (gBattleMons[gBattlerAttacker].maxHP + 1) / 2; //rounded up
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptPushCursor();
@@ -12296,14 +12343,7 @@ void BS_UpdateBattlerData(void)
     gBattleMons[battler].spAttack = GetMonData(mon, MON_DATA_SPATK);
     gBattleMons[battler].spDefense = GetMonData(mon, MON_DATA_SPDEF);
     gBattleMons[battler].maxHP = GetMonData(mon, MON_DATA_MAX_HP);
-    if (gBattleMons[battler].species == SPECIES_HOOPA) // start with 1 HP for the healing animation
-    {
-        u16 oneHp = 1;
-        gBattleMons[battler].hp = 1;
-        SetMonData(mon, MON_DATA_HP, &oneHp);
-    }
-    else
-        gBattleMons[battler].hp = gBattleMons[battler].maxHP;
+    gBattleMons[battler].hp = gBattleMons[battler].maxHP;
     gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
     gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
     gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, FALSE);
