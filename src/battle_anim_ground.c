@@ -322,6 +322,28 @@ const struct SpriteTemplate gThrownBigMushroomSpriteTemplate =
     .callback = AnimMakeItRain,
 };
 
+const struct SpriteTemplate gMrExplosionSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MR_EXPLOSION,
+    .paletteTag = ANIM_TAG_MR_EXPLOSION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gMrExplosionShinySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MR_EXPLOSION,
+    .paletteTag = ANIM_TAG_MR_EXPLOSION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
 const struct SpriteTemplate gThrownEonTicketSpriteTemplate =
 {
     .tileTag = ANIM_TAG_EON_TICKET,

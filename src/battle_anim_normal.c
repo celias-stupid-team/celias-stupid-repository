@@ -225,6 +225,17 @@ const struct SpriteTemplate gWaterHitSplatSpriteTemplate =
     .callback = AnimHitSplatBasic,
 };
 
+const struct SpriteTemplate gWetDadSplatSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WET_DAD_IMPACT,
+    .paletteTag = ANIM_TAG_WET_DAD_IMPACT,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_HitSplat,
+    .callback = AnimHitSplatBasic,
+};
+
 const struct SpriteTemplate gRandomPosHitSplatSpriteTemplate =
 {
     .tileTag = ANIM_TAG_IMPACT,

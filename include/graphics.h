@@ -8970,6 +8970,16 @@ extern const u32 gBattleAnimSpriteGfx_LightGym[];
 extern const u32 gBattleAnimSpriteGfx_StoneFree[];
 extern const u32 gBattleAnimSpriteGfx_Flipper[];
 extern const u32 gBattleAnimSpriteGfx_PrimeRibs[];
+extern const u32 gBattleAnimSpriteGfx_Bream[];
+extern const u32 gBattleAnimSpriteGfx_WagonFront[];
+extern const u32 gBattleAnimSpriteGfx_WagonBack[];
+extern const u32 gBattleAnimSpriteGfx_WagonTopLeft[];
+extern const u32 gBattleAnimSpriteGfx_WagonTopRight[];
+extern const u32 gBattleAnimSpriteGfx_WagonCorner[];
+extern const u32 gBattleAnimSpriteGfx_MrExplosion[];
+extern const u32 gBattleAnimSpriteGfx_Paperboy[];
+extern const u32 gBattleAnimSpriteGfx_Newspaper[];
+extern const u32 gBattleAnimSpriteGfx_WetDadImpact[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9491,6 +9501,12 @@ extern const u32 gBattleAnimSpritePal_LightGym[];
 extern const u32 gBattleAnimSpritePal_StoneFree[];
 extern const u32 gBattleAnimSpritePal_Flipper[];
 extern const u32 gBattleAnimSpritePal_PrimeRibs[];
+extern const u32 gBattleAnimSpritePal_Bream[];
+extern const u32 gBattleAnimSpritePal_Wagon[];
+extern const u32 gBattleAnimSpritePal_MrExplosion[];
+extern const u32 gBattleAnimSpritePal_Paperboy[];
+extern const u32 gBattleAnimSpritePal_Newspaper[];
+extern const u32 gBattleAnimSpritePal_WetDadImpact[];
 //CSR Moves
 
 extern const u32 gBattleAnimSpriteGfx_Crab[];

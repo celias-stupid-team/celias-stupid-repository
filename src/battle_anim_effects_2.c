@@ -743,6 +743,144 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sPaperboyAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sPaperboyAnimTable[] =
+{
+    sPaperboyAnimCmds,
+};
+
+const struct SpriteTemplate gPaperboySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PAPERBOY,
+    .paletteTag = ANIM_TAG_PAPERBOY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sPaperboyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sNewspaperAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_FRAME(2, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sNewspaperAnimTable[] =
+{
+    sNewspaperAnimCmds,
+};
+
+const struct SpriteTemplate gNewspaperSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_NEWSPAPER,
+    .paletteTag = ANIM_TAG_NEWSPAPER,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = sNewspaperAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sWagonFrontAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_FRAME(64, 8),
+    ANIMCMD_FRAME(96, 8),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sWagonBackAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sWagonTopAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(8, 8),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sWagonCornerAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(4, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sWagonAnimTable[] =
+{
+    sWagonFrontAnimCmds,
+    sWagonBackAnimCmds,
+    sWagonTopAnimCmds,
+    sWagonCornerAnimCmds,
+};
+
+const struct SpriteTemplate gWagonFrontSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WAGON_FRONT,
+    .paletteTag = ANIM_TAG_WAGON_FRONT,
+    .oam = &gOamData_AffineOff_ObjNormal_64x32,
+    .anims = &sWagonAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gWagonBackSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WAGON_BACK,
+    .paletteTag = ANIM_TAG_WAGON_BACK,
+    .oam = &gOamData_AffineOff_ObjNormal_64x32,
+    .anims = &sWagonAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gWagonTopLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WAGON_TOP_LEFT,
+    .paletteTag = ANIM_TAG_WAGON_TOP_LEFT,
+    .oam = &gOamData_AffineOff_ObjNormal_32x16,
+    .anims = &sWagonAnimTable[2],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gWagonTopRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WAGON_TOP_RIGHT,
+    .paletteTag = ANIM_TAG_WAGON_TOP_RIGHT,
+    .oam = &gOamData_AffineOff_ObjNormal_32x16,
+    .anims = &sWagonAnimTable[2],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gWagonCornerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WAGON_CORNER,
+    .paletteTag = ANIM_TAG_WAGON_CORNER,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = &sWagonAnimTable[3],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sDaisyAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 8),
