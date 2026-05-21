@@ -999,7 +999,6 @@ static u8 GetValidEncountersforMap(const struct WildPokemonInfo *wildMonInfo, u8
             if (sUniqueEncounters[j] == 0)
             {
                 sUniqueEncounters[j] = species;
-                DebugPrintf("Unique encounter %d: %d", uniqueEncountersOnMap, species);
                 uniqueEncountersOnMap++;
                 break;
             }
@@ -1027,7 +1026,6 @@ static u8 GetValidEncountersforMap(const struct WildPokemonInfo *wildMonInfo, u8
                 if (sValidEncounters[j] == 0)
                 {
                     sValidEncounters[j] = species;
-                    DebugPrintf("Valid encounter %d: %d", validEncountersLeftOnMap, species);
                     validEncountersLeftOnMap++;
                     break;
                 }

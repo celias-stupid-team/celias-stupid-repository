@@ -91,7 +91,6 @@ static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
 void GetUnownCount(void);
-void IsNicknameMewtwo(void);
 extern const u8 *const gKayleeNameTable[];
 
 
@@ -1806,8 +1805,8 @@ static void SayYes_CB(void) {
 }
 
 
-void IsNicknameMewtwo(void) {
-    
+void IsNicknameMewtwo(void)
+{
     GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar3);
     //DebugPrintf("Get Trade Species %d", VarGet(VAR_0x800B));
     DebugPrintf("First check %d", VarGet(VAR_0x8009));
