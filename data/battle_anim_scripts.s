@@ -26,7 +26,6 @@ gMovesWithQuietBGM::
 	.2byte MOVE_SANDSTORM
 	.2byte MOVE_BRAVE_BIRTH
 	.2byte MOVE_DARK_LLOYD
-	.2byte MOVE_DRUG
 	.2byte MOVE_CHOCOLATE_RAIN
 	.2byte MOVE_CHOCOLATE_RAIN2
 	.2byte MOVE_SLAM
@@ -42,6 +41,7 @@ gMovesWithQuietBGM::
 
 gMovesWithNoBGM::
 	.2byte MOVE_ROAR_OF_MIME
+	.2byte MOVE_DRUG
 	.2byte 0xFFFF
 
 	.align 2
@@ -14298,7 +14298,21 @@ General_ShadowSky:
 
 
 General_ShadowSpikes:
-	goto Move_SPIKES
+	loadspritegfx ANIM_TAG_SHADOW_SPIKES
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 28
+	createsprite gShadowSpikesSpriteTemplate, ANIM_TARGET, 2, 20, 0, 0, 24, 30
+	delay 10
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 28
+	createsprite gShadowSpikesSpriteTemplate, ANIM_TARGET, 2, 20, 0, -24, 24, 30
+	delay 10
+	waitplaysewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 28
+	createsprite gShadowSpikesSpriteTemplate, ANIM_TARGET, 2, 20, 0, 24, 24, 30
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
 
 General_Hail:
 	goto Move_HAIL
@@ -32482,15 +32496,72 @@ Move_BAG:
 
 Move_DRUG:
 	loadspritegfx ANIM_TAG_HONG_KONG_DRUG
-	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_DIDDY
+	loadspritegfx ANIM_TAG_TETO
+	loadspritegfx ANIM_TAG_DRUG
+	loadspritegfx ANIM_TAG_EXPLOSION
+
 	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
-	createsprite gBonkingDrugSpriteTemplate, ANIM_ATTACKER, 2, 0, -120, 0, 8, 15, 0, 0, 0
+	createsprite gDescendDrugSpriteTemplate, ANIM_ATTACKER, 2, -40, -80, 0, 2, 30, 120, 0, 0
+	delay 100
+	delay 45
+	loopsewithpan SE_USE_ITEM, SOUND_PAN_ATTACKER, 2, 44
+	createsprite gStabDrugSpriteTemplate, ANIM_ATTACKER, 2, -40, -20, -8, -20, 530, 3, 0
+	delay 90
+
+	createvisualtask SoundTask_PlaySpecificCry, 2, 127
+	createsprite gDrugTextSpriteTemplate, ANIM_ATTACKER, 2, 120, 60, 0, 0, 0, 420, 0, 2
+	delay 80
+	playse SE_M_ENCORE2
+	createsprite gDiddySpriteTemplate, ANIM_ATTACKER, 2, 100, 80, 0, 0, 0, 340, 0, 2
+	delay 5
+	createsprite gDiddySpriteTemplate, ANIM_ATTACKER, 2, 41, 56, 0, 0, 0, 335, 0, 2
+	delay 5
+	createsprite gDiddySpriteTemplate, ANIM_ATTACKER, 2, 222, 65, 0, 0, 0, 330, 0, 2
+	delay 5
+	createsprite gDiddySpriteTemplate, ANIM_ATTACKER, 2, 120, 105, 0, 0, 0, 325, 0, 2
+	delay 5
+	createsprite gDiddySpriteTemplate, ANIM_ATTACKER, 2, 20, 96, 0, 0, 0, 320, 0, 2
+	delay 10
+	createsprite gTetoSpriteTemplate, ANIM_ATTACKER, 2, 175, 24, 0, 0, 0, 310, 0, 2
+	createsprite gTetoSpriteTemplate, ANIM_ATTACKER, 2, 145, 24, 0, 0, 0, 310, 0, 2
+	createsprite gTetoSpriteTemplate, ANIM_ATTACKER, 2, 205, 24, 0, 0, 0, 310, 0, 2
+	delay 10
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1101
+	delay 20
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1101
+	delay 20
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1101
+	delay 20
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1101
+	delay 20
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1101
+	delay 20
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1101
+	delay 20
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1101
+	delay 20
+	createvisualtask SoundTask_PlaySpecificCry, 2, 1101
+	delay 20
+	createvisualtask AnimTask_ShakeMon2, 5, 8, 8, 0, 40, 1
+	call Explosion1
+	createvisualtask AnimTask_BlendEveryBattleAnimPal, 5, 0, 2, 0, 16, RGB_WHITEALPHA
+	call Explosion1
 	waitforvisualfinish
-	playsewithpan SE_USE_ITEM, SOUND_PAN_ATTACKER
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_ATTACKER, 2
-	createsprite gFallingDrugSpriteTemplate, ANIM_ATTACKER, 2
+	createvisualtask AnimTask_BlendEveryBattleAnimPal, 5, 5, 2, 16, 0, RGB_WHITEALPHA
 	waitforvisualfinish
+	delay 60
+
 	end
+
+	
+	@playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	@createsprite gBonkingDrugSpriteTemplate, ANIM_ATTACKER, 2, 0, -120, 0, 8, 15, 0, 0, 0
+	@waitforvisualfinish
+	@playsewithpan SE_USE_ITEM, SOUND_PAN_ATTACKER
+	@createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_ATTACKER, 2
+	@createsprite gFallingDrugSpriteTemplate, ANIM_ATTACKER, 2
+	@waitforvisualfinish
 
 Move_FUCK:
 	loadspritegfx ANIM_TAG_MISSILE

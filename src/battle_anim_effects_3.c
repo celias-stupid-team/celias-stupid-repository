@@ -272,6 +272,17 @@ const struct SpriteTemplate gSpikesSpriteTemplate =
     .callback = AnimSpikes,
 };
 
+const struct SpriteTemplate gShadowSpikesSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_SHADOW_SPIKES,
+    .paletteTag = ANIM_TAG_SHADOW_SPIKES,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpikes,
+};
+
 static const union AnimCmd sLeerAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 3),

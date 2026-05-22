@@ -118,6 +118,7 @@ static void AnimQuickBallAttack_Bounce(struct Sprite *sprite);
 static void AnimTimerBallAttack(struct Sprite *sprite);
 static void AnimTimerBallAttack_Arc(struct Sprite *sprite);
 static void AnimSprite_MoveThenWait(struct Sprite *sprite);
+static void AnimSprite_Oscillate(struct Sprite *sprite);
 static void AnimSprite_MoveStaggeredThenWait(struct Sprite *sprite);
 static void AnimHammerSwing(struct Sprite *sprite);
 static void AnimTask_OnionCutter_Step(u8 taskId);
@@ -751,6 +752,100 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sTetoAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(16, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTetoAnimTable[] =
+{
+    sTetoAnimCmds,
+};
+
+const struct SpriteTemplate gTetoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TETO,
+    .paletteTag = ANIM_TAG_TETO,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sTetoAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sDiddyAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_FRAME(48, 4),
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sDiddyAnimTable[] =
+{
+    sDiddyAnimCmds,
+};
+
+const struct SpriteTemplate gDiddySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DIDDY,
+    .paletteTag = ANIM_TAG_DIDDY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sDiddyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sDrugTextAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(32, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(96, 2),
+    ANIMCMD_FRAME(128, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sDrugTextAnimTable[] =
+{
+    sDrugTextAnimCmds,
+};
+
+static const union AffineAnimCmd sAffineAnim_DrugText[] =
+{
+    AFFINEANIMCMD_FRAME(0x20, 0x20, 0, 0),
+    AFFINEANIMCMD_FRAME(0x4, 0x4, 0, 120),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sAffineAnims_DrugText[] =
+{
+    sAffineAnim_DrugText,
+};
+
+const struct SpriteTemplate gDrugTextSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DRUG,
+    .paletteTag = ANIM_TAG_DRUG,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x32,
+    .anims = sDrugTextAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_DrugText,
     .callback = AnimSprite_MoveThenWait,
 };
 
@@ -1567,6 +1662,56 @@ const struct SpriteTemplate gBonkingDrugSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
 };
+
+static const union AnimCmd sAnim_DescendDrug[] =
+{
+    ANIMCMD_FRAME(12, 45),
+    ANIMCMD_FRAME(12, 45),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_DescendDrug[] =
+{
+    sAnim_DescendDrug,
+};
+
+static const union AnimCmd sAnim_StabDrug[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_StabDrug[] =
+{
+    sAnim_StabDrug,
+};
+
+const struct SpriteTemplate gDescendDrugSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_DRUG,
+    .paletteTag = ANIM_TAG_HONG_KONG_DRUG,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_StabDrug,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+
+const struct SpriteTemplate gStabDrugSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HONG_KONG_DRUG,
+    .paletteTag = ANIM_TAG_HONG_KONG_DRUG,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_StabDrug,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_Oscillate,
+};
+
 
 const struct SpriteTemplate gEarthLiftSpriteTemplate =
 {
@@ -8941,6 +9086,166 @@ static void AnimSprite_MoveThenWait(struct Sprite *sprite)
             sprite->y2 = 0;
             DestroyAnimSprite(sprite);
         }
+        break;
+    }
+}
+// ------------------------------------------------------------------
+// AnimSprite_Oscillate
+//
+// Arguments:
+//
+// 0 = start X
+// 1 = start Y
+// 2 = end X
+// 3 = end Y
+// 4 = total oscillation duration
+// 5 = frames to move between positions
+// 6 = coordinate mode
+//     0 = attacker
+//     1 = target
+//     2 = absolute
+//
+// Behaviour:
+// - Sprite oscillates continuously between start and end points.
+// - If move duration is 0, sprite instantly snaps between positions.
+// - Sprite is destroyed immediately after oscillation duration ends.
+// ------------------------------------------------------------------
+
+static void AnimSprite_Oscillate(struct Sprite *sprite)
+{
+    s16 battler;
+    s16 startX, startY;
+    s16 endX, endY;
+    s32 t;
+
+    switch (sprite->data[0])
+    {
+    // -------------------------------------------------
+    // INIT
+    // -------------------------------------------------
+    case 0:
+
+        if (gBattleAnimArgs[6] == 2)
+        {
+            startX = gBattleAnimArgs[0];
+            startY = gBattleAnimArgs[1];
+
+            endX = gBattleAnimArgs[2];
+            endY = gBattleAnimArgs[3];
+        }
+        else
+        {
+            battler =
+                (gBattleAnimArgs[6] == 0)
+                ? gBattleAnimAttacker
+                : gBattleAnimTarget;
+
+            startX =
+                GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2)
+                + gBattleAnimArgs[0];
+
+            startY =
+                GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET)
+                + gBattleAnimArgs[1];
+
+            endX =
+                GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2)
+                + gBattleAnimArgs[2];
+
+            endY =
+                GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET)
+                + gBattleAnimArgs[3];
+        }
+
+        // Base position
+        sprite->x = startX;
+        sprite->y = startY;
+
+        // Delta to endpoint
+        sprite->data[1] = endX - startX;
+        sprite->data[2] = endY - startY;
+
+        // Total oscillation duration
+        sprite->data[3] = gBattleAnimArgs[4];
+
+        // Frames to move between positions
+        sprite->data[4] = gBattleAnimArgs[5];
+
+        // Interpolation timer
+        sprite->data[5] = 0;
+
+        // Direction
+        // 0 = forward
+        // 1 = backward
+        sprite->data[6] = 0;
+
+        sprite->x2 = 0;
+        sprite->y2 = 0;
+
+        sprite->data[0] = 1;
+
+        break;
+
+    // -------------------------------------------------
+    // OSCILLATION
+    // -------------------------------------------------
+    case 1:
+
+        // Instant switching mode
+        if (sprite->data[4] == 0)
+        {
+            if (sprite->data[6] == 0)
+            {
+                sprite->x2 = sprite->data[1];
+                sprite->y2 = sprite->data[2];
+            }
+            else
+            {
+                sprite->x2 = 0;
+                sprite->y2 = 0;
+            }
+
+            sprite->data[6] ^= 1;
+        }
+        else
+        {
+            t = (sprite->data[5] << 8) / sprite->data[4];
+
+            if (sprite->data[6] == 0)
+            {
+                // Move toward endpoint
+                sprite->x2 =
+                    (sprite->data[1] * t) >> 8;
+
+                sprite->y2 =
+                    (sprite->data[2] * t) >> 8;
+            }
+            else
+            {
+                // Move back toward origin
+                sprite->x2 =
+                    sprite->data[1]
+                    - ((sprite->data[1] * t) >> 8);
+
+                sprite->y2 =
+                    sprite->data[2]
+                    - ((sprite->data[2] * t) >> 8);
+            }
+
+            sprite->data[5]++;
+
+            if (sprite->data[5] >= sprite->data[4])
+            {
+                sprite->data[5] = 0;
+                sprite->data[6] ^= 1;
+            }
+        }
+
+        sprite->data[3]--;
+
+        if (sprite->data[3] <= 0)
+            DestroyAnimSprite(sprite);
+
         break;
     }
 }

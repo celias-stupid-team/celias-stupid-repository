@@ -1658,6 +1658,10 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Paperboy, 0x0400, ANIM_TAG_PAPERBOY},
     {gBattleAnimSpriteGfx_Newspaper, 0x0080, ANIM_TAG_NEWSPAPER},
     {gBattleAnimSpriteGfx_WetDadImpact, 0x0200, ANIM_TAG_WET_DAD_IMPACT},
+    {gBattleAnimSpriteGfx_Diddy, 0x0800, ANIM_TAG_DIDDY},
+    {gBattleAnimSpriteGfx_Drug, 0x1400, ANIM_TAG_DRUG},
+    {gBattleAnimSpriteGfx_Teto, 0x0600, ANIM_TAG_TETO},
+    {gBattleAnimSpriteGfx_Shadow_Spikes, 0x0080, ANIM_TAG_SHADOW_SPIKES},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2239,6 +2243,10 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Paperboy, ANIM_TAG_PAPERBOY},
     {gBattleAnimSpritePal_Newspaper, ANIM_TAG_NEWSPAPER},
     {gBattleAnimSpritePal_WetDadImpact, ANIM_TAG_WET_DAD_IMPACT},
+    {gBattleAnimSpritePal_Diddy, ANIM_TAG_DIDDY},
+    {gBattleAnimSpritePal_Drug, ANIM_TAG_DRUG},
+    {gBattleAnimSpritePal_Teto, ANIM_TAG_TETO},
+    {gBattleAnimSpritePal_Shadow_Spikes, ANIM_TAG_SHADOW_SPIKES},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

@@ -584,7 +584,10 @@
 #define ANIM_TAG_PAPERBOY                   (ANIM_SPRITES_START + 574)
 #define ANIM_TAG_NEWSPAPER                  (ANIM_SPRITES_START + 575)
 #define ANIM_TAG_WET_DAD_IMPACT             (ANIM_SPRITES_START + 576)
-
+#define ANIM_TAG_DIDDY                      (ANIM_SPRITES_START + 577)
+#define ANIM_TAG_DRUG                       (ANIM_SPRITES_START + 578)
+#define ANIM_TAG_TETO                       (ANIM_SPRITES_START + 579)
+#define ANIM_TAG_SHADOW_SPIKES              (ANIM_SPRITES_START + 580)
 // battlers
 #define ANIM_ATTACKER       0
 #define ANIM_TARGET         1
