@@ -71,6 +71,17 @@ const struct SpriteTemplate gBonemerangSpriteTemplate =
     .callback = AnimBonemerangProjectile,
 };
 
+const struct SpriteTemplate gRibmerangSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_RIBS,
+    .paletteTag = ANIM_TAG_PRIME_RIBS,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
 static const union AnimCmd sHatchetAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -304,6 +315,28 @@ const struct SpriteTemplate gThrownBigMushroomSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MUSHROOM,
     .paletteTag = ANIM_TAG_MUSHROOM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gMrExplosionSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MR_EXPLOSION,
+    .paletteTag = ANIM_TAG_MR_EXPLOSION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gMrExplosionShinySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MR_EXPLOSION,
+    .paletteTag = ANIM_TAG_MR_EXPLOSION,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = &sMushroomsAnimTable[1],
     .images = NULL,

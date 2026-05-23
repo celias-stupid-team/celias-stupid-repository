@@ -572,7 +572,22 @@
 #define ANIM_TAG_CONCRETE                   (ANIM_SPRITES_START + 562)
 #define ANIM_TAG_LIGHT_GYM                  (ANIM_SPRITES_START + 563)
 #define ANIM_TAG_STONE_FREE                 (ANIM_SPRITES_START + 564)
-
+#define ANIM_TAG_FLIPPER                    (ANIM_SPRITES_START + 565)
+#define ANIM_TAG_PRIME_RIBS                 (ANIM_SPRITES_START + 566)
+#define ANIM_TAG_BREAM                      (ANIM_SPRITES_START + 567)
+#define ANIM_TAG_WAGON_FRONT                (ANIM_SPRITES_START + 568)
+#define ANIM_TAG_WAGON_BACK                 (ANIM_SPRITES_START + 569)
+#define ANIM_TAG_WAGON_TOP_LEFT             (ANIM_SPRITES_START + 570)
+#define ANIM_TAG_WAGON_TOP_RIGHT            (ANIM_SPRITES_START + 571)
+#define ANIM_TAG_WAGON_CORNER               (ANIM_SPRITES_START + 572)
+#define ANIM_TAG_MR_EXPLOSION               (ANIM_SPRITES_START + 573)
+#define ANIM_TAG_PAPERBOY                   (ANIM_SPRITES_START + 574)
+#define ANIM_TAG_NEWSPAPER                  (ANIM_SPRITES_START + 575)
+#define ANIM_TAG_WET_DAD_IMPACT             (ANIM_SPRITES_START + 576)
+#define ANIM_TAG_DIDDY                      (ANIM_SPRITES_START + 577)
+#define ANIM_TAG_DRUG                       (ANIM_SPRITES_START + 578)
+#define ANIM_TAG_TETO                       (ANIM_SPRITES_START + 579)
+#define ANIM_TAG_SHADOW_SPIKES              (ANIM_SPRITES_START + 580)
 // battlers
 #define ANIM_ATTACKER       0
 #define ANIM_TARGET         1

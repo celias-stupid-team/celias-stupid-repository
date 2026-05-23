@@ -272,6 +272,17 @@ const struct SpriteTemplate gSpikesSpriteTemplate =
     .callback = AnimSpikes,
 };
 
+const struct SpriteTemplate gShadowSpikesSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_SHADOW_SPIKES,
+    .paletteTag = ANIM_TAG_SHADOW_SPIKES,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpikes,
+};
+
 static const union AnimCmd sLeerAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 3),
@@ -431,6 +442,17 @@ const struct SpriteTemplate gClappingHand2SpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimClappingHand2,
+};
+
+const struct SpriteTemplate gClappingFlipperSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FLIPPER,
+    .paletteTag = ANIM_TAG_FLIPPER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimClappingHand,
 };
 
 static const union AnimCmd sRapidSpinAnimCmds[] =
@@ -6838,40 +6860,45 @@ static void AnimTask_TranslateMonAndReturn_Step(u8 taskId)
 void AnimTask_MortalSpin(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
+    u8 battler;
+    u8 spriteId;
 
-    u8 battler = gBattleAnimArgs[0];
-    u8 spriteId = GetAnimBattlerSpriteId(battler);
+    // Which battler to affect
+    battler = gBattleAnimArgs[0];
 
-    PrepareBattlerSpriteForRotScale(spriteId, ST_OAM_OBJ_NORMAL);
+    spriteId = GetAnimBattlerSpriteId(battler);
 
-    task->data[0] = 0; // state
-    task->data[1] = 0; // frame counter
+    PrepareBattlerSpriteForRotScale(spriteId, 0);
 
-    task->data[2] = gBattleAnimArgs[1]; // dx/frame
-    task->data[3] = gBattleAnimArgs[2]; // dy/frame
+    // Battler sprite ID
+    task->data[0] = spriteId;
 
-    task->data[4] = gBattleAnimArgs[3]; // move duration
-    task->data[5] = gBattleAnimArgs[4]; // hold duration
+    // Current rotation angle
+    task->data[1] = 0;
 
-    task->data[6] = spriteId;
+    // Horizontal speed
+    task->data[2] = gBattleAnimArgs[1];
 
-    // accumulated offsets
+    // Vertical speed
+    task->data[3] = gBattleAnimArgs[2];
+
+    // Duration
+    task->data[4] = gBattleAnimArgs[3];
+
+    // Rotation speed
+    task->data[5] = gBattleAnimArgs[4];
+
+    if (task->data[5] == 0)
+        task->data[5] = 0x400;
+
+    // Frame counter
+    task->data[6] = 0;
+
+    // Total accumulated X movement
     task->data[7] = 0;
+
+    // Total accumulated Y movement
     task->data[8] = 0;
-
-    // frames between flips
-    task->data[9] = gBattleAnimArgs[5];
-
-    // flip timer
-    task->data[10] = 0;
-
-    // current affine anim
-    task->data[11] = 0;
-
-    StartSpriteAffineAnim(
-        &gSprites[spriteId],
-        0
-    );
 
     task->func = AnimTask_MortalSpin_Step;
 }
@@ -6879,88 +6906,53 @@ void AnimTask_MortalSpin(u8 taskId)
 static void AnimTask_MortalSpin_Step(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
-    struct Sprite *sprite = &gSprites[task->data[6]];
+    u8 spriteId = task->data[0];
 
-    switch (task->data[0])
+    // -------------------------
+    // Move battler
+    // -------------------------
+    gSprites[spriteId].x += task->data[2];
+    gSprites[spriteId].y += task->data[3];
+
+    // Track total displacement
+    task->data[7] += task->data[2];
+    task->data[8] += task->data[3];
+
+    // -------------------------
+    // Rotate continuously
+    // -------------------------
+    task->data[1] += task->data[5];
+
+    SetSpriteRotScale(
+        spriteId,
+        0x100,
+        0x100,
+        task->data[1]
+    );
+
+    SetBattlerSpriteYOffsetFromRotation(spriteId);
+
+    // -------------------------
+    // Advance timer
+    // -------------------------
+    task->data[6]++;
+
+    // -------------------------
+    // Finish animation
+    // -------------------------
+    if (task->data[6] >= task->data[4])
     {
-    // -----------------------------------
-    // MOVE
-    // -----------------------------------
-    case 0:
+        // Restore original position
+        gSprites[spriteId].x -= task->data[7];
+        gSprites[spriteId].y -= task->data[8];
 
-        sprite->x2 += task->data[2];
-        sprite->y2 += task->data[3];
+        // Clear affine transform
+        ResetSpriteRotScale(spriteId);
 
-        task->data[7] += task->data[2];
-        task->data[8] += task->data[3];
-
-        // flip interval
-        if (task->data[9] > 0)
-        {
-            if (++task->data[10] >= task->data[9])
-            {
-                task->data[10] = 0;
-
-                task->data[11] ^= 1;
-
-                StartSpriteAffineAnim(
-                    sprite,
-                    task->data[11]
-                );
-            }
-        }
-
-        if (++task->data[1] >= task->data[4])
-        {
-            task->data[1] = 0;
-            task->data[0] = 1;
-        }
-
-        break;
-
-    // -----------------------------------
-    // HOLD
-    // -----------------------------------
-    case 1:
-
-        if (task->data[9] > 0)
-        {
-            if (++task->data[10] >= task->data[9])
-            {
-                task->data[10] = 0;
-
-                task->data[11] ^= 1;
-
-                StartSpriteAffineAnim(
-                    sprite,
-                    task->data[11]
-                );
-            }
-        }
-
-        if (++task->data[1] >= task->data[5])
-        {
-            task->data[1] = 0;
-            task->data[0] = 2;
-        }
-
-        break;
-
-    // -----------------------------------
-    // RESET
-    // -----------------------------------
-    case 2:
-
-        sprite->x2 -= task->data[7];
-        sprite->y2 -= task->data[8];
-
-        StartSpriteAffineAnim(sprite, 0);
-
-        ResetSpriteRotScale(task->data[6]);
+        gSprites[spriteId].x2 = 0;
+        gSprites[spriteId].y2 = 0;
 
         DestroyAnimVisualTask(taskId);
-
-        break;
     }
 }
 
