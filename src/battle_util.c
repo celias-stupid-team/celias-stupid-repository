@@ -699,7 +699,7 @@ u8 DoFieldEndTurnEffects(void)
                 if (gStatuses3[gActiveBattler] & STATUS3_DOUBLE_DIP)
                 {
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
-                    if (gBattleMoveDamage == 0)
+                    if (gBattleMoveDamage == 0 || ((gBattleMons[gActiveBattler].status1 & STATUS1_BAD_BURN) && gBattleMons[gActiveBattler].ability != ABILITY_GUTS))
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_DoubleDipHits);
                     gStatuses3[gBattlerAttacker] &= ~STATUS3_DOUBLE_DIP;

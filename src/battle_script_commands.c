@@ -817,11 +817,28 @@ static const u16 sProtectSuccessRates[] = {USHRT_MAX, USHRT_MAX / 2, USHRT_MAX /
 
 static const u16 sMovesForbiddenToCopy[] =
 {
+    // This array lists all moves that are black listed for Assist (+ Copycat), Metronome, Mimic and Sketch
     MOVE_METRONOME,
     MOVE_STRUGGLE,
     MOVE_SKETCH,
     MOVE_MIMIC,
+    MOVE_HACK_ATTACK,
+    MOVE_FLASH,
+    MOVE_FISSURE,
+    MOVE_WHITE_LIGHTNING,
+    MOVE_ADOBE_FLASH,
+    MOVE_PLEDGE_OF_ALLEGIANCE,
+    MOVE_REFLECT,
+    MOVE_AURORA_VEIL,
+    MOVE_KINESIS,
+    MOVE_WILL_O_WISP,
+    MOVE_SHOOT_BIG,
+    MOVE_SHEER_COLD,
+    MOVE_SHADOW_SHIELD,
+    MOVE_10000_VOLTS,
+    MOVE_SUBSTITUTE_TEACHER,
     MIMIC_FORBIDDEN_END,
+    // the moves below are NOT black listed for Mimic and Sketch
     MOVE_COUNTER,
     MOVE_MIRROR_COAT,
     MOVE_PROTECT,
@@ -836,9 +853,6 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_COVET,
     MOVE_TRICK,
     MOVE_FOCUS_PUNCH,
-    MOVE_10000_VOLTS,
-    MOVE_WILL_O_WISP,
-    MOVE_SUBSTITUTE_TEACHER,
     MOVE_COLONIZE,
     MOVE_THIEF,
     MOVE_MIEF,
@@ -1250,6 +1264,7 @@ static void Cmd_accuracycheck(void)
         return;
     }
     if (gBattleMons[gBattlerTarget].species == SPECIES_KECLEON_SANS
+        && gBattlerAttacker != gBattlerTarget
         && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
         && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD
         && gCurrentMove != MOVE_MAGICAL_LEAF

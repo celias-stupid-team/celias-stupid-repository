@@ -316,6 +316,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit		             @ EFFECT_GIGATON_HAMMER
 	.4byte BattleScript_EffectSleepHit		         @ EFFECT_SLEEP_HIT
 	.4byte BattleScript_EffectImakuni                @ EFFECT_IMAKUNI
+	.4byte BattleScript_EffectHitMessage             @ EFFECT_HIT_MESSAGE
 	
 
 BattleScript_End::
@@ -2641,10 +2642,16 @@ BattleScript_EffectWonderSeed::
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	jumpiftype2 BS_TARGET, TYPE_GRASS, BattleScript_EffectWonderSeed_FailsOnGrass
 	trycopyability BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_WONDER_SEED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectWonderSeed_FailsOnGrass::
+	printstring STRINGID_NOTAFFECTEDBYSEEDING
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -6673,3 +6680,25 @@ BattleScript_MagicMufflerConsumed::
 	printstring STRINGID_MAGICMUFFLERCONSUMED
 	waitmessage B_WAIT_TIME_LONG
 	return
+
+BattleScript_EffectHitMessage::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	typecalc
+	jumpifmovehadnoeffect BattleScript_MoveMissedPause
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	setbattlestringid
+	printfromtable gDoNothingStringIds
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
