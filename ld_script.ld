@@ -1108,6 +1108,9 @@ SECTIONS {
         sound/songs/midi/se_yoshi_eat.o(.rodata);
         sound/songs/midi/se_yoshi_spit.o(.rodata);
         sound/songs/midi/se_yoshi_ground_pound.o(.rodata);
+        sound/songs/midi/se_its_t.o(.rodata);
+        sound/songs/midi/se_time.o(.rodata);
+        sound/songs/midi/se_ass_blaster.o(.rodata);
         sound/songs/midi/mus_safari_evolution.o(.rodata);
         sound/songs/midi/mus_incompatible_emulator.o(.rodata);
         sound/songs/midi/mus_the_moon.o(.rodata);

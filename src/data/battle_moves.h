@@ -15073,12 +15073,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     [MOVE_T_POSE] =
     {
-        .effect = EFFECT_ATTACK_DOWN_2,
-        .power = 0,
+        .effect = EFFECT_DEFENSE_DOWN_HIT,
+        .power = 90,
         .type = TYPE_BUG,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 35,
-        .secondaryEffectChance = 10,
+        .secondaryEffectChance = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,

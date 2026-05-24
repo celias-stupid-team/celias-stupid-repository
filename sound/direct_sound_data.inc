@@ -558,6 +558,18 @@ DirectSoundWaveData_YoshiSpit::
 	.incbin "sound/direct_sound_samples/yoshi_spit.bin"
 
 	.align 2
+DirectSoundWaveData_ItsT::
+	.incbin "sound/direct_sound_samples/its_t.bin"
+
+	.align 2
+DirectSoundWaveData_Time::
+	.incbin "sound/direct_sound_samples/time.bin"
+
+	.align 2
+DirectSoundWaveData_AssBlaster::
+	.incbin "sound/direct_sound_samples/ass_blaster.bin"
+
+	.align 2
 Cry_Bulbasaur::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 

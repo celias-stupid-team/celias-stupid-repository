@@ -507,6 +507,9 @@
 #define SE_YOSHI_EAT 498
 #define SE_YOSHI_SPIT 499
 #define SE_YOSHI_GROUND_POUND 500
+#define SE_ITS_T 501
+#define SE_TIME 502
+#define SE_ASS_BLASTER 503
 
 #define MUS_NONE 0xFFFF
 

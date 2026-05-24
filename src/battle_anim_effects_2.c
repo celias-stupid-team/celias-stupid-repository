@@ -755,6 +755,75 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sTennaSmallAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(32, 12),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTennaSmallAnimTable[] =
+{
+    sTennaSmallAnimCmds,
+};
+
+static const union AnimCmd sTennaBigAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 12),
+    ANIMCMD_FRAME(64, 12),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTennaBigAnimTable[] =
+{
+    sTennaBigAnimCmds,
+};
+
+static const union AffineAnimCmd sAffineAnim_TennaAppear[] =
+{
+    AFFINEANIMCMD_FRAME(0x80, 0x80, 0, 1),
+    AFFINEANIMCMD_FRAME(-0x8, -0x8, 0, 16),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sAffineAnims_TennaAppear[] =
+{
+    sAffineAnim_TennaAppear,
+};
+
+const struct SpriteTemplate gTennaItsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TENNA_ITS,
+    .paletteTag = ANIM_TAG_TENNA_ITS,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x32,
+    .anims = sTennaSmallAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_TennaAppear,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTennaTSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TENNA_T,
+    .paletteTag = ANIM_TAG_TENNA_T,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x32,
+    .anims = sTennaSmallAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_TennaAppear,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTennaTimeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TENNA_TIME,
+    .paletteTag = ANIM_TAG_TENNA_TIME,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = sTennaBigAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_TennaAppear,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sTetoAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 8),

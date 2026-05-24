@@ -500,6 +500,9 @@ gSongTable::
     song se_yoshi_eat, 1, 1
     song se_yoshi_spit, 1, 1
     song se_yoshi_ground_pound, 1, 1
+    song se_its_t, 1, 1
+    song se_time, 1, 1
+    song se_ass_blaster, 2, 2
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

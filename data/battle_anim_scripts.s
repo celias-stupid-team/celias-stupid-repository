@@ -39,6 +39,7 @@ gMovesWithQuietBGM::
 	.2byte MOVE_DOSWINGBEAT
 	.2byte MOVE_WAGON_ASCENT
 	.2byte MOVE_CAMBRIAN_EXPLOSION
+	.2byte MOVE_T_POSE
 	.2byte 0xFFFF
 
 	.align 2
@@ -23991,7 +23992,6 @@ Move_TASTY_PLOT:
 	end
 	
 Move_DANKEST_LARIAT:
-Move_DARKEST_LARIAT:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_RAPID_SPIN
 	loadspritegfx ANIM_TAG_WEED_SMALL
@@ -24011,6 +24011,36 @@ Move_DARKEST_LARIAT:
 	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
 	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
 	createsprite gWeedBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+	waitforvisualfinish
+	delay 8
+	createvisualtask AnimTask_RapinSpinMonElevation, 2, 0, 2, 1
+	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
+	waitforvisualfinish
+	restorebg
+	waitbgfadein
+	clearmonbg ANIM_ATTACKER
+	end
+
+Move_DARKEST_LARIAT:
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_RAPID_SPIN
+	loadspritegfx ANIM_TAG_CHOCOLATE
+	monbg ANIM_ATTACKER
+	fadetobg BG_DARK
+	waitbgfadein
+	createsprite gRapidSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 32, -32, 40, -2
+	createvisualtask AnimTask_RapinSpinMonElevation, 2, 0, 2, 0
+	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
+	waitforvisualfinish
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeTargetBasedOnMovePowerOrDmg, 2, FALSE, 1, 10, 1, 0
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	createsprite gChocolateBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createsprite gChocolateBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
+	createsprite gChocolateBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	createsprite gChocolateBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	createsprite gChocolateBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	createsprite gChocolateBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
 	waitforvisualfinish
 	delay 8
 	createvisualtask AnimTask_RapinSpinMonElevation, 2, 0, 2, 1
@@ -34349,10 +34379,26 @@ Move_SOAK:
 	blendoff
 	end
 
+Move_T_POSE:
+	loadspritegfx ANIM_TAG_TENNA_ITS
+	loadspritegfx ANIM_TAG_TENNA_T
+	loadspritegfx ANIM_TAG_TENNA_TIME
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
+	waitforvisualfinish
+	playse SE_ITS_T
+	createsprite gTennaItsSpriteTemplate, ANIM_ATTACKER, 2, 26, 62, 0, 0, 0, 342, 0, 2
+	delay 72
+	createsprite gTennaTSpriteTemplate, ANIM_ATTACKER, 2, 69, 62, 0, 0, 0, 268, 0, 2
+	delay 91
+	playse SE_TIME
+	createsprite gTennaTimeSpriteTemplate, ANIM_ATTACKER, 2, 117, 62, 0, 0, 0, 175, 0, 2
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_BLACK
+	end
+
 Move_REVENUESTEALSTRIKE:
 Move_MAX_TURNPIKE:
 Move_NO_SURF:
-Move_T_POSE:
 Move_EARTH_BLASTER:
 Move_JUNJI_HEALING:
 	goto Move_TACKLE

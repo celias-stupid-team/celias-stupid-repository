@@ -1662,6 +1662,9 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Drug, 0x1400, ANIM_TAG_DRUG},
     {gBattleAnimSpriteGfx_Teto, 0x0600, ANIM_TAG_TETO},
     {gBattleAnimSpriteGfx_Shadow_Spikes, 0x0080, ANIM_TAG_SHADOW_SPIKES},
+    {gBattleAnimSpriteGfx_TennaIts, 0x0800, ANIM_TAG_TENNA_ITS},
+    {gBattleAnimSpriteGfx_TennaT, 0x0800, ANIM_TAG_TENNA_T},
+    {gBattleAnimSpriteGfx_TennaTime, 0x1000, ANIM_TAG_TENNA_TIME},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2247,6 +2250,9 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Drug, ANIM_TAG_DRUG},
     {gBattleAnimSpritePal_Teto, ANIM_TAG_TETO},
     {gBattleAnimSpritePal_Shadow_Spikes, ANIM_TAG_SHADOW_SPIKES},
+    {gBattleAnimSpritePal_TennaIts, ANIM_TAG_TENNA_ITS},
+    {gBattleAnimSpritePal_TennaT, ANIM_TAG_TENNA_T},
+    {gBattleAnimSpritePal_TennaTime, ANIM_TAG_TENNA_TIME},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

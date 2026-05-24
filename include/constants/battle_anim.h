@@ -588,6 +588,9 @@
 #define ANIM_TAG_DRUG                       (ANIM_SPRITES_START + 578)
 #define ANIM_TAG_TETO                       (ANIM_SPRITES_START + 579)
 #define ANIM_TAG_SHADOW_SPIKES              (ANIM_SPRITES_START + 580)
+#define ANIM_TAG_TENNA_ITS                  (ANIM_SPRITES_START + 581)
+#define ANIM_TAG_TENNA_T                    (ANIM_SPRITES_START + 582)
+#define ANIM_TAG_TENNA_TIME                 (ANIM_SPRITES_START + 583)
 // battlers
 #define ANIM_ATTACKER       0
 #define ANIM_TARGET         1

@@ -844,6 +844,15 @@ const u32 gBattleAnimSpritePal_Teto[] = INCBIN_U32("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_Shadow_Spikes[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_spikes.4bpp.lz");
 const u32 gBattleAnimSpritePal_Shadow_Spikes[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_spikes.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_TennaIts[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_its.4bpp.lz");
+const u32 gBattleAnimSpritePal_TennaIts[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_its.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TennaT[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_t.4bpp.lz");
+const u32 gBattleAnimSpritePal_TennaT[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_t.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TennaTime[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_time.4bpp.lz");
+const u32 gBattleAnimSpritePal_TennaTime[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_time.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_WagonFront[] = INCBIN_U32("graphics/battle_anims/sprites/wagon_front.4bpp.lz");
 const u32 gBattleAnimSpritePal_Wagon[] = INCBIN_U32("graphics/battle_anims/sprites/wagon_front.gbapal.lz");
 
