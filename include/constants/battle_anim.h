@@ -654,6 +654,7 @@
 #define BG_COKE 38
 #define BG_GHOST_TRICK 39
 #define BG_LOSS 40
+#define BG_OREGON 41
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

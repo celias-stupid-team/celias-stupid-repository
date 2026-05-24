@@ -15464,6 +15464,8 @@ WagonTrailContinue:
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
 	delay 10
+	changebg BG_OREGON
+	playse SE_EFFECTIVE
 
 	@// Task to facilitate simple shaking of a pokemon's picture in battle.
 	@// The shaking alternates between the original position and the target position.
@@ -15473,7 +15475,10 @@ WagonTrailContinue:
 	@// arg 3: num times to shake
 	@// arg 4: frame delay
 	waitforvisualfinish
+	delay 30
 	stopsound
+	restorebg
+	waitbgfadein
 	@setarg 7, 0xFFFF
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff

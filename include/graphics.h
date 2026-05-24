@@ -9570,6 +9570,7 @@ extern const u32 gBattleAnimBgImage_Pewter[];
 extern const u32 gBattleAnimBgImage_Coke[];
 extern const u32 gBattleAnimBgImage_GhostTrick[];
 extern const u32 gBattleAnimBgImage_Loss[];
+extern const u32 gBattleAnimBgImage_Oregon[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9608,6 +9609,7 @@ extern const u32 gBattleAnimBgPalette_MeatWater[];
 extern const u32 gBattleAnimBgPalette_EarfWater[];
 extern const u32 gBattleAnimBgPalette_GhostTrick[];
 extern const u32 gBattleAnimBgPalette_Loss[];
+extern const u32 gBattleAnimBgPalette_Oregon[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9645,6 +9647,7 @@ extern const u32 gBattleAnimBgTilemap_Pewter[];
 extern const u32 gBattleAnimBgTilemap_Coke[];
 extern const u32 gBattleAnimBgTilemap_GhostTrick[];
 extern const u32 gBattleAnimBgTilemap_Loss[];
+extern const u32 gBattleAnimBgTilemap_Oregon[];
 
 // dark
 extern const u32 gMetalShineGfx[];

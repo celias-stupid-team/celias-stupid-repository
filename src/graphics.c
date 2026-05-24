@@ -1601,6 +1601,10 @@ const u32 gBattleAnimBgImage_Coke[] = INCBIN_U32("graphics/battle_anims/backgrou
 const u32 gBattleAnimBgPalette_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.bin.lz");
 
+const u32 gBattleAnimBgImage_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.4bpp.lz");
+const u32 gBattleAnimBgPalette_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.gbapal.lz");
+const u32 gBattleAnimBgTilemap_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.bin.lz");
+
 const u32 gBattleAnimBgImage_Loss[] = INCBIN_U32("graphics/battle_anims/backgrounds/loss_bg.4bpp.lz");
 const u32 gBattleAnimBgPalette_Loss[] = INCBIN_U32("graphics/battle_anims/backgrounds/loss_bg.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Loss[] = INCBIN_U32("graphics/battle_anims/backgrounds/loss_bg.bin.lz");

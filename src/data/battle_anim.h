@@ -2291,4 +2291,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_COKE]                = {gBattleAnimBgImage_Coke,       gBattleAnimBgPalette_Coke,       gBattleAnimBgTilemap_Coke},
     [BG_GHOST_TRICK]         = {gBattleAnimBgImage_GhostTrick, gBattleAnimBgPalette_GhostTrick, gBattleAnimBgTilemap_GhostTrick},
     [BG_LOSS]                = {gBattleAnimBgImage_Loss,       gBattleAnimBgPalette_Loss,       gBattleAnimBgTilemap_Loss},
+    [BG_OREGON]              = {gBattleAnimBgImage_Oregon,     gBattleAnimBgPalette_Oregon,     gBattleAnimBgTilemap_Oregon},
 };
