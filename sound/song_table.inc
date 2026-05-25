@@ -485,6 +485,7 @@ gSongTable::
 	song mus_se_space_jam, 2, 2
 	song mus_bw_rival, 0, 0
 	song mus_tiny_lass, 0, 0
+	song mus_encounter_rival_high, 0, 0
 
 
 dummy_song_header:
