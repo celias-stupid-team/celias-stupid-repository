@@ -806,6 +806,17 @@ const struct SpriteTemplate gTennaTSpriteTemplate =
 {
     .tileTag = ANIM_TAG_TENNA_T,
     .paletteTag = ANIM_TAG_TENNA_T,
+    .oam = &gOamData_AffineDouble_ObjBlend_16x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_TennaAppear,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gTennaExclamationMarkSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TENNA_EXCLAMATION_MARK,
+    .paletteTag = ANIM_TAG_TENNA_EXCLAMATION_MARK,
     .oam = &gOamData_AffineDouble_ObjBlend_64x32,
     .anims = sTennaSmallAnimTable,
     .images = NULL,
@@ -2927,6 +2938,17 @@ const struct SpriteTemplate gKrabbyHammerSpriteTemplate =
 {
     .tileTag = ANIM_TAG_KRABBY_CLAW,
     .paletteTag = ANIM_TAG_KRABBY_CLAW,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHammerSwing,
+};
+
+const struct SpriteTemplate gBreamHammerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BREAM,
+    .paletteTag = ANIM_TAG_BREAM,
     .oam = &gOamData_AffineNormal_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

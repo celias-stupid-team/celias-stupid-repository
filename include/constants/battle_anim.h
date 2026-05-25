@@ -590,7 +590,8 @@
 #define ANIM_TAG_SHADOW_SPIKES              (ANIM_SPRITES_START + 580)
 #define ANIM_TAG_TENNA_ITS                  (ANIM_SPRITES_START + 581)
 #define ANIM_TAG_TENNA_T                    (ANIM_SPRITES_START + 582)
-#define ANIM_TAG_TENNA_TIME                 (ANIM_SPRITES_START + 583)
+#define ANIM_TAG_TENNA_EXCLAMATION_MARK     (ANIM_SPRITES_START + 583)
+#define ANIM_TAG_TENNA_TIME                 (ANIM_SPRITES_START + 584)
 // battlers
 #define ANIM_ATTACKER       0
 #define ANIM_TARGET         1

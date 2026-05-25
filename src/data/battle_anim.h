@@ -1648,7 +1648,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_StoneFree, 0x0020, ANIM_TAG_STONE_FREE},
     {gBattleAnimSpriteGfx_Flipper, 0x0400, ANIM_TAG_FLIPPER},
     {gBattleAnimSpriteGfx_PrimeRibs, 0x0200, ANIM_TAG_PRIME_RIBS},
-    {gBattleAnimSpriteGfx_Bream, 0x0400, ANIM_TAG_BREAM},
+    {gBattleAnimSpriteGfx_Bream, 0x0800, ANIM_TAG_BREAM},
     {gBattleAnimSpriteGfx_WagonFront, 0x1000, ANIM_TAG_WAGON_FRONT},
     {gBattleAnimSpriteGfx_WagonBack, 0x0800, ANIM_TAG_WAGON_BACK},
     {gBattleAnimSpriteGfx_WagonTopLeft, 0x0200, ANIM_TAG_WAGON_TOP_LEFT},
@@ -1663,7 +1663,8 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Teto, 0x0600, ANIM_TAG_TETO},
     {gBattleAnimSpriteGfx_Shadow_Spikes, 0x0080, ANIM_TAG_SHADOW_SPIKES},
     {gBattleAnimSpriteGfx_TennaIts, 0x0800, ANIM_TAG_TENNA_ITS},
-    {gBattleAnimSpriteGfx_TennaT, 0x0800, ANIM_TAG_TENNA_T},
+    {gBattleAnimSpriteGfx_TennaT, 0x0100, ANIM_TAG_TENNA_T},
+    {gBattleAnimSpriteGfx_TennaExclamationMark, 0x0800, ANIM_TAG_TENNA_EXCLAMATION_MARK},
     {gBattleAnimSpriteGfx_TennaTime, 0x1000, ANIM_TAG_TENNA_TIME},
 };
 
@@ -2252,6 +2253,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Shadow_Spikes, ANIM_TAG_SHADOW_SPIKES},
     {gBattleAnimSpritePal_TennaIts, ANIM_TAG_TENNA_ITS},
     {gBattleAnimSpritePal_TennaT, ANIM_TAG_TENNA_T},
+    {gBattleAnimSpritePal_TennaExclamationMark, ANIM_TAG_TENNA_EXCLAMATION_MARK},
     {gBattleAnimSpritePal_TennaTime, ANIM_TAG_TENNA_TIME},
 };
 

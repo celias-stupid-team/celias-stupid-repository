@@ -779,6 +779,17 @@ const struct SpriteTemplate gMoltresKickSpriteTemplate =
     .callback = AnimMoltresKick,
 };
 
+const struct SpriteTemplate gHyperBreamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BREAM,
+    .paletteTag = ANIM_TAG_BREAM,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoltresKick,
+};
+
 /*static const union AnimCmd sAnim_MoltresFire[] =
 {
     ANIMCMD_FRAME(32, 4),

@@ -8986,6 +8986,7 @@ extern const u32 gBattleAnimSpriteGfx_Teto[];
 extern const u32 gBattleAnimSpriteGfx_Shadow_Spikes[];
 extern const u32 gBattleAnimSpriteGfx_TennaIts[];
 extern const u32 gBattleAnimSpriteGfx_TennaT[];
+extern const u32 gBattleAnimSpriteGfx_TennaExclamationMark[];
 extern const u32 gBattleAnimSpriteGfx_TennaTime[];
 
 // battle anim particle pals
@@ -9520,6 +9521,7 @@ extern const u32 gBattleAnimSpritePal_Teto[];
 extern const u32 gBattleAnimSpritePal_Shadow_Spikes[];
 extern const u32 gBattleAnimSpritePal_TennaIts[];
 extern const u32 gBattleAnimSpritePal_TennaT[];
+extern const u32 gBattleAnimSpritePal_TennaExclamationMark[];
 extern const u32 gBattleAnimSpritePal_TennaTime[];
 //CSR Moves
 

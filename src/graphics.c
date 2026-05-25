@@ -850,6 +850,9 @@ const u32 gBattleAnimSpritePal_TennaIts[] = INCBIN_U32("graphics/battle_anims/sp
 const u32 gBattleAnimSpriteGfx_TennaT[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_t.4bpp.lz");
 const u32 gBattleAnimSpritePal_TennaT[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_t.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_TennaExclamationMark[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_exclamation_mark.4bpp.lz");
+const u32 gBattleAnimSpritePal_TennaExclamationMark[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_exclamation_mark.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_TennaTime[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_time.4bpp.lz");
 const u32 gBattleAnimSpritePal_TennaTime[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_time.gbapal.lz");
 

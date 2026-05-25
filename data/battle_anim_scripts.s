@@ -34382,23 +34382,69 @@ Move_SOAK:
 Move_T_POSE:
 	loadspritegfx ANIM_TAG_TENNA_ITS
 	loadspritegfx ANIM_TAG_TENNA_T
+	loadspritegfx ANIM_TAG_TENNA_EXCLAMATION_MARK
 	loadspritegfx ANIM_TAG_TENNA_TIME
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
 	waitforvisualfinish
 	playse SE_ITS_T
-	createsprite gTennaItsSpriteTemplate, ANIM_ATTACKER, 2, 26, 62, 0, 0, 0, 342, 0, 2
+	createsprite gTennaItsSpriteTemplate, ANIM_ATTACKER, 2, 26, 62, 0, 0, 0, 344, 0, 2
 	delay 72
-	createsprite gTennaTSpriteTemplate, ANIM_ATTACKER, 2, 69, 62, 0, 0, 0, 268, 0, 2
-	delay 91
+	createsprite gTennaTSpriteTemplate, ANIM_ATTACKER, 2, 59, 62, 0, 0, 0, 270, 0, 2
+	delay 45
+	createsprite gTennaExclamationMarkSpriteTemplate, ANIM_ATTACKER, 2, 69, 62, 0, 0, 0, 223, 0, 2
+	delay 46
 	playse SE_TIME
 	createsprite gTennaTimeSpriteTemplate, ANIM_ATTACKER, 2, 117, 62, 0, 0, 0, 175, 0, 2
 	waitforvisualfinish
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_BLACK
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 16, 0, RGB_BLACK
 	end
 
+Move_NO_SURF:
+	loadspritegfx ANIM_TAG_SWEAT_BEAD
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_BREAM
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 126, -59, 190, 206, 9, 4
+	delay 40
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 252, 112, -46, 2, 10, 4
+	delay 36
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, -51, 16, 282, 50, 11, 4
+	delay 32
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 272, -37, 80, 230, 11, 4
+	delay 28
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 126, 224, 98, -42, 12, 4
+	delay 24
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 200, -21, -48, 88, 12, 4
+	delay 20
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, -41, 88, 298, 36, 13, 4
+	waitforvisualfinish
+	delay 16
+	
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET
+	createsprite gBreamHammerSpriteTemplate, ANIM_TARGET, 2, 1, -30, -10, 40, 45
+	delay 60
+	playsewithpan SE_M_ENCORE, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 10, 1
+	delay 4
+	
+	playsewithpan SE_M_ENCORE, SOUND_PAN_ATTACKER
+	createsprite gSprayWaterDropletSpriteTemplate, ANIM_TARGET, 5, 0, 1
+	playsewithpan SE_M_SKETCH, SOUND_PAN_TARGET
+	createsprite gSprayWaterDropletSpriteTemplate, ANIM_TARGET, 5, 1, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1
+	createvisualtask AnimTask_StretchTargetUp, 3
+	waitforvisualfinish
+
+	end
 Move_REVENUESTEALSTRIKE:
 Move_MAX_TURNPIKE:
-Move_NO_SURF:
 Move_EARTH_BLASTER:
 Move_JUNJI_HEALING:
 	goto Move_TACKLE
