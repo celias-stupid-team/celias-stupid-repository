@@ -303,7 +303,7 @@
       "x": 26,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_STARLIGHT_HOUSE2",
+      "dest_map": "MAP_STARLIGHT_HOUSE2_FIXED",
       "dest_warp_id": "1"
     },
     {

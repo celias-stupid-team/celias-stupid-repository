@@ -79,6 +79,16 @@ script Starlight_House5_Todo_List {
 
 }
 
+script Starlight_House5_Hidden_Item {
+	msgbox(
+	"There's a hidden item in the wall.\p"
+
+	"Despite your best efforts it is\n"
+	"impossible to obtain without the\l"
+	"use of cheats.", MSGBOX_SIGN)
+
+}
+
 script Starlight_House5_Blue_Tiles {
 	lock
 	if(flag(FLAG_TEMP_A)) {
@@ -554,14 +564,14 @@ script Starlight_House5_Mystery_Tiles {
 	lock
 	if(flag(FLAG_TEMP_D)) {
 			 msgbox("Room is already set to\n"
-	"the DARK palette theme.", MSGBOX_SIGN)
+	"the ??? palette theme.", MSGBOX_SIGN)
 		closemessage
 				}
 	if(!flag(FLAG_TEMP_D)) {
     //textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	
     msgbox("Would you like to set the room\n"
-	"to a DARK palette theme?", MSGBOX_YESNO)
+	"to a ??? palette theme?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
 			//wall

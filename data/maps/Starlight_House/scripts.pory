@@ -26,7 +26,7 @@ mapscripts Starlight_House_MapScripts {
 script Starlight_House_Window {
 	msgbox(
 	"This window has a lovely view\n"
-    "of a painting.", MSGBOX_SIGN)
+    "of the other room.", MSGBOX_SIGN)
 
 }
 
@@ -43,6 +43,16 @@ script Starlight_House_Bookshelf {
 	"suspiciously empty.", MSGBOX_SIGN)
 
 }
+
+script Starlight_House_Cabinet {
+	msgbox(
+	"Opening the cabinet, some pills\n"
+	"fall on the floor.\p"
+
+	"Oh no! Grandpa's Med(s)!\n", MSGBOX_SIGN)
+
+}
+
 
 script Starlight_House_Smiley_Face {
 	if(!flag(FLAG_TEMP_2)) {
@@ -90,10 +100,9 @@ script Starlight_House_Post_Game_Starlight {
 	"playing Celia's Stupid Romhack!\p"
 
 	"I am grateful to be a part of this\n"
-	"dev team and for Celia to give me\l"
-	"an opportunity to learn and\l"
-	"express some of my ideas in this\l"
-	"hack!\p"
+	"Team and for Celia to give me an\l"
+	"opportunity to learn and express\l"
+	"some of my ideas in this hack!\p"
 
 	"I made this house to apply those\n"
 	"ideas and try new things! I have\l"
@@ -1351,9 +1360,60 @@ script Starlight_House_TV {
 
 }
 
-script Starlight_Tiny_Lass_Mus_Test {
-	playbgm(MUS_TINY_LASS, TRUE)
+script Starlight_Rival_High_Mus_Test {
+	playbgm(MUS_ENCOUNTER_RIVAL_HIGH, TRUE)
 	msgbox(
 	"Test Song", MSGBOX_SIGN)
+
+}
+
+script Starlight_House_Sink { //figure out yesno setup for reading messages.
+	if(flag(FLAG_TEMP_5)) {
+	msgbox(
+	"There's another one poking out of\n"
+	"the faucet, blocking the water.\p"
+
+	"Poke it?", MSGBOX_YESNO)
+	}
+	if(!flag(FLAG_TEMP_5)) {
+	msgbox(
+	"There's something poking out of\n"
+	"the faucet, blocking the water.\p"
+
+	"Poke it?", MSGBOX_YESNO)
+	}
+		if(var(VAR_RESULT)) {
+			closemessage
+			msgbox(
+			"An ear popped out.\p"
+
+			"Poke it again?", MSGBOX_YESNO)
+		}
+			if(var(VAR_RESULT)) {
+				//closemessage
+				setwildbattle(SPECIES_JIGGLYPUFF, 15)
+				waitse
+				playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+				delay(40)
+				waitmoncry
+				setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+				setflag(FLAG_TEMP_5)
+				dowildbattle
+				clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+			closemessage
+	} else {
+		closemessage
+	}
+}
+
+script Starlight_House_Stove {
+	msgbox(
+	"The stove is hot.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House_Fridge {
+	msgbox(
+	"The fridge is cool.", MSGBOX_SIGN)
 
 }
