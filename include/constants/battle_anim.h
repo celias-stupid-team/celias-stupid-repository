@@ -592,6 +592,14 @@
 #define ANIM_TAG_TENNA_T                    (ANIM_SPRITES_START + 582)
 #define ANIM_TAG_TENNA_EXCLAMATION_MARK     (ANIM_SPRITES_START + 583)
 #define ANIM_TAG_TENNA_TIME                 (ANIM_SPRITES_START + 584)
+#define ANIM_TAG_JUNJI_STAR                 (ANIM_SPRITES_START + 585)
+#define ANIM_TAG_DEMON_CHILD                (ANIM_SPRITES_START + 586)
+#define ANIM_TAG_YOSHI_RUN                  (ANIM_SPRITES_START + 587)
+#define ANIM_TAG_CHATTER_LUL                (ANIM_SPRITES_START + 588)
+#define ANIM_TAG_CHATTER_KAPPA              (ANIM_SPRITES_START + 589)
+#define ANIM_TAG_CHATTER_SMILE              (ANIM_SPRITES_START + 590)
+#define ANIM_TAG_LETTER_W                   (ANIM_SPRITES_START + 591)
+
 // battlers
 #define ANIM_ATTACKER       0
 #define ANIM_TARGET         1

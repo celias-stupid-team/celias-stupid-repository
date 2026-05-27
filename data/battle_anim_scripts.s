@@ -4303,6 +4303,34 @@ Move_LOW_KICK:
 	end
 
 Move_STAMPETE:
+	loadspritegfx ANIM_TAG_YOSHI_RUN
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	loopsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET, 4, 16
+	createsprite gYoshiRunSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, 0, 22, 20, 1
+	delay 5
+	createsprite gYoshiRunSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, 5, 22, -18, 1
+	delay 5
+	createsprite gYoshiRunSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, -10, 22, 15, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 8, 0, 36, 1
+	delay 5
+	createsprite gYoshiRunSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, 0, 22, 20, 1
+	delay 5
+	createsprite gYoshiRunSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, 5, 22, -18, 1
+	delay 5
+	createsprite gYoshiRunSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, -10, 22, 15, 1
+	delay 5
+	createsprite gYoshiRunSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, 0, 22, 20, 1
+	delay 5
+	createsprite gYoshiRunSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, 5, 22, -18, 1
+	delay 5
+	createsprite gYoshiRunSpriteTemplate, ANIM_TARGET, 3, 20, -10, 20, -10, 22, 15, 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
 	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 50
 	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 10, 50
 	playsewithpan SE_M_EARTHQUAKE, 0
@@ -17087,6 +17115,22 @@ SunnyDadLightRay:
 	return
 	
 Move_CHATTER:
+	loadspritegfx ANIM_TAG_CHATTER_LUL
+	loadspritegfx ANIM_TAG_CHATTER_KAPPA
+	loadspritegfx ANIM_TAG_CHATTER_SMILE
+	createvisualtask AnimTask_SwayMon, 3, 0, 6, 1280, 3, ANIM_ATTACKER
+	playsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER
+	createsprite gChatterSmileSpriteTemplate, ANIM_ATTACKER, 3, 0, 20
+	delay 15
+	playsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER
+	createsprite gChatterKappaSpriteTemplate, ANIM_ATTACKER, 3, -20, 20
+	delay 15
+	playsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER
+	createsprite gChatterLulSpriteTemplate, ANIM_ATTACKER, 3, 20, 20
+	waitforvisualfinish
+	end
+
+
 	loadspritegfx ANIM_TAG_NOISE_LINE
 	createvisualtask SoundTask_PlayDoubleCry, 2, ANIM_ATTACKER, DOUBLE_CRY_GROWL
 	call RoarEffect
@@ -21207,19 +21251,19 @@ Move_SHED:
 	end
 
 Move_QWICK_ATTACK:
-	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_LETTER_W
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
 	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 24, 6, 1, 5
 	createvisualtask AnimTask_TraceMonBlended, 2, 0, 4, 7, 3
 	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
 	delay 4
+	blendoff
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 6, 1
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, 0, 0, ANIM_TARGET, 1
+	createsprite gWHitSplatSpriteTemplate, ANIM_TARGET, 4, 0, 0, ANIM_TARGET, 1
 	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
-	blendoff
 	waitforvisualfinish
 	end
 Move_WHISH:
@@ -23840,6 +23884,7 @@ Move_ACROBATICS:
 	
 Move_W_TURN:
 	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_LETTER_W
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 6, 4, 10
@@ -23852,6 +23897,7 @@ Move_W_TURN:
 	delay 6
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gFallingWSpriteTemplate, ANIM_ATTACKER, 2
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	createvisualtask AnimTask_WTurnSlideOffScreen, 5, ANIM_ATTACKER, -4
 	waitforvisualfinish
@@ -34443,8 +34489,35 @@ Move_NO_SURF:
 	waitforvisualfinish
 
 	end
-Move_REVENUESTEALSTRIKE:
 Move_MAX_TURNPIKE:
+	loadspritegfx ANIM_TAG_CONCRETE
+	loadspritegfx ANIM_TAG_COP
+	loadspritegfx ANIM_TAG_DEMON_CHILD
+	
+	playse SE_M_SAND_ATTACK
+	createsprite gConcreteSpriteTemplate, ANIM_TARGET, 2, 16, 48, 0, -2, 20, 201, 0, 1
+	delay 57
+	createsprite gCopCarSpriteTemplate, ANIM_TARGET, 2, -116, -58, 16, 8, 7, 155, 0, 1
+	delay 1
+	playsewithpan SE_CAR_CRASH, SOUND_PAN_TARGET
+	delay 6
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 0, 10
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 0, 10
+	delay 100
+	@createsprite gFallenChildSpriteTemplate, ANIM_TARGET, 2
+
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -256, -50
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+
+	waitforvisualfinish
+	end
+
+
+Move_REVENUESTEALSTRIKE:
 Move_EARTH_BLASTER:
 Move_JUNJI_HEALING:
 	goto Move_TACKLE

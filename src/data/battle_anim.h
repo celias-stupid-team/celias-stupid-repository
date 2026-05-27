@@ -153,6 +153,20 @@ const struct OamData gOamData_CensoredBar =
     .paletteNum = 0,
 };
 
+const struct OamData gOamData_Concrete =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+};
+
 const struct OamData gOamData_AffineOff_ObjNormal_8x16 =
 {
     .y = 0,
@@ -1666,6 +1680,13 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_TennaT, 0x0100, ANIM_TAG_TENNA_T},
     {gBattleAnimSpriteGfx_TennaExclamationMark, 0x0800, ANIM_TAG_TENNA_EXCLAMATION_MARK},
     {gBattleAnimSpriteGfx_TennaTime, 0x1000, ANIM_TAG_TENNA_TIME},
+    {gBattleAnimSpriteGfx_JunjiStar, 0x0E00, ANIM_TAG_JUNJI_STAR},
+    {gBattleAnimSpriteGfx_DemonChild, 0x0200, ANIM_TAG_DEMON_CHILD},
+    {gBattleAnimSpriteGfx_YoshiRun, 0x0800, ANIM_TAG_YOSHI_RUN},
+    {gBattleAnimSpriteGfx_ChatterLul, 0x0200, ANIM_TAG_CHATTER_LUL},
+    {gBattleAnimSpriteGfx_ChatterKappa, 0x0200, ANIM_TAG_CHATTER_KAPPA},
+    {gBattleAnimSpriteGfx_ChatterSmile, 0x0200, ANIM_TAG_CHATTER_SMILE},
+    {gBattleAnimSpriteGfx_LetterW, 0x0200, ANIM_TAG_LETTER_W},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2255,6 +2276,13 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_TennaT, ANIM_TAG_TENNA_T},
     {gBattleAnimSpritePal_TennaExclamationMark, ANIM_TAG_TENNA_EXCLAMATION_MARK},
     {gBattleAnimSpritePal_TennaTime, ANIM_TAG_TENNA_TIME},
+    {gBattleAnimSpritePal_JunjiStar, ANIM_TAG_JUNJI_STAR},
+    {gBattleAnimSpritePal_DemonChild, ANIM_TAG_DEMON_CHILD},
+    {gBattleAnimSpritePal_YoshiRun, ANIM_TAG_YOSHI_RUN},
+    {gBattleAnimSpritePal_ChatterLul, ANIM_TAG_CHATTER_LUL},
+    {gBattleAnimSpritePal_ChatterKappa, ANIM_TAG_CHATTER_KAPPA},
+    {gBattleAnimSpritePal_ChatterSmile, ANIM_TAG_CHATTER_SMILE},
+    {gBattleAnimSpritePal_LetterW, ANIM_TAG_LETTER_W},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

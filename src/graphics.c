@@ -856,6 +856,27 @@ const u32 gBattleAnimSpritePal_TennaExclamationMark[] = INCBIN_U32("graphics/bat
 const u32 gBattleAnimSpriteGfx_TennaTime[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_time.4bpp.lz");
 const u32 gBattleAnimSpritePal_TennaTime[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_time.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_JunjiStar[] = INCBIN_U32("graphics/battle_anims/sprites/junji_star.4bpp.lz");
+const u32 gBattleAnimSpritePal_JunjiStar[] = INCBIN_U32("graphics/battle_anims/sprites/junji_star.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_DemonChild[] = INCBIN_U32("graphics/battle_anims/sprites/demon_child.4bpp.lz");
+const u32 gBattleAnimSpritePal_DemonChild[] = INCBIN_U32("graphics/battle_anims/sprites/demon_child.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_YoshiRun[] = INCBIN_U32("graphics/battle_anims/sprites/yoshi_run.4bpp.lz");
+const u32 gBattleAnimSpritePal_YoshiRun[] = INCBIN_U32("graphics/battle_anims/sprites/yoshi_run.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_ChatterLul[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_lul.4bpp.lz");
+const u32 gBattleAnimSpritePal_ChatterLul[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_lul.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_ChatterKappa[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_kappa.4bpp.lz");
+const u32 gBattleAnimSpritePal_ChatterKappa[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_kappa.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_ChatterSmile[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_smile.4bpp.lz");
+const u32 gBattleAnimSpritePal_ChatterSmile[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_smile.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_LetterW[] = INCBIN_U32("graphics/battle_anims/sprites/letter_w.4bpp.lz");
+const u32 gBattleAnimSpritePal_LetterW[] = INCBIN_U32("graphics/battle_anims/sprites/letter_w.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_WagonFront[] = INCBIN_U32("graphics/battle_anims/sprites/wagon_front.4bpp.lz");
 const u32 gBattleAnimSpritePal_Wagon[] = INCBIN_U32("graphics/battle_anims/sprites/wagon_front.gbapal.lz");
 

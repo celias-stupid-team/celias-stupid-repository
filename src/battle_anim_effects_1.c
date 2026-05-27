@@ -989,6 +989,29 @@ const struct SpriteTemplate gWaterShurikenSpriteTemplate =
     .callback = AnimTranslateLinearSingleSineWave,
 };
 
+static const union AnimCmd sAnim_YoshiRun[] =
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_YoshiRun[] =
+{
+    sAnim_YoshiRun,
+};
+
+const struct SpriteTemplate gYoshiRunSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_YOSHI_RUN,
+    .paletteTag = ANIM_TAG_YOSHI_RUN,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x32,
+    .anims = sAnims_YoshiRun,
+    .images = NULL,
+    .affineAnims = sSwiftStarAffineAnimTable,
+    .callback = AnimTranslateLinearSingleSineWave,
+};
+
 static const union AnimCmd sAnim_ConstrictBinding[] =
 {
     ANIMCMD_FRAME(0, 4),

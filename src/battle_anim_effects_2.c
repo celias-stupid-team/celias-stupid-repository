@@ -2477,6 +2477,40 @@ const struct SpriteTemplate gCensoredBarSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gConcreteSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CONCRETE,
+    .paletteTag = ANIM_TAG_CONCRETE,
+    .oam = &gOamData_Concrete,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sCopCarAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 7),
+    ANIMCMD_FRAME(64, 20),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sCopCarAnimTable[] =
+{
+    sCopCarAnimCmds,
+};
+
+const struct SpriteTemplate gCopCarSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_COP,
+    .paletteTag = ANIM_TAG_COP,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sCopCarAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gShedSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SHED,
@@ -2679,6 +2713,28 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
     .anims = sCoinAnimTable,
     .images = NULL,
     .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallenChildSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEMON_CHILD,
+    .paletteTag = ANIM_TAG_DEMON_CHILD,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallingWSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LETTER_W,
+    .paletteTag = ANIM_TAG_LETTER_W,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFallingCoin,
 };
 
@@ -4436,6 +4492,39 @@ const struct SpriteTemplate gMagentaHeartSpriteTemplate =
     .callback = AnimMagentaHeart,
 };
 
+const struct SpriteTemplate gChatterLulSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CHATTER_LUL,
+    .paletteTag = ANIM_TAG_CHATTER_LUL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMagentaHeart,
+};
+
+const struct SpriteTemplate gChatterKappaSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CHATTER_KAPPA,
+    .paletteTag = ANIM_TAG_CHATTER_KAPPA,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMagentaHeart,
+};
+
+const struct SpriteTemplate gChatterSmileSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CHATTER_SMILE,
+    .paletteTag = ANIM_TAG_CHATTER_SMILE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMagentaHeart,
+};
+
 const struct SpriteTemplate gLettuceSnuggleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_LETTUCE,
@@ -4592,6 +4681,17 @@ const struct SpriteTemplate gRedHeartBurstSpriteTemplate =
     .tileTag = ANIM_TAG_RED_HEART,
     .paletteTag = ANIM_TAG_RED_HEART,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+const struct SpriteTemplate gChildBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEMON_CHILD,
+    .paletteTag = ANIM_TAG_DEMON_CHILD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,

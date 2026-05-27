@@ -8988,6 +8988,13 @@ extern const u32 gBattleAnimSpriteGfx_TennaIts[];
 extern const u32 gBattleAnimSpriteGfx_TennaT[];
 extern const u32 gBattleAnimSpriteGfx_TennaExclamationMark[];
 extern const u32 gBattleAnimSpriteGfx_TennaTime[];
+extern const u32 gBattleAnimSpriteGfx_JunjiStar[];
+extern const u32 gBattleAnimSpriteGfx_DemonChild[];
+extern const u32 gBattleAnimSpriteGfx_YoshiRun[];
+extern const u32 gBattleAnimSpriteGfx_ChatterLul[];
+extern const u32 gBattleAnimSpriteGfx_ChatterKappa[];
+extern const u32 gBattleAnimSpriteGfx_ChatterSmile[];
+extern const u32 gBattleAnimSpriteGfx_LetterW[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9523,6 +9530,13 @@ extern const u32 gBattleAnimSpritePal_TennaIts[];
 extern const u32 gBattleAnimSpritePal_TennaT[];
 extern const u32 gBattleAnimSpritePal_TennaExclamationMark[];
 extern const u32 gBattleAnimSpritePal_TennaTime[];
+extern const u32 gBattleAnimSpritePal_JunjiStar[];
+extern const u32 gBattleAnimSpritePal_DemonChild[];
+extern const u32 gBattleAnimSpritePal_YoshiRun[];
+extern const u32 gBattleAnimSpritePal_ChatterLul[];
+extern const u32 gBattleAnimSpritePal_ChatterKappa[];
+extern const u32 gBattleAnimSpritePal_ChatterSmile[];
+extern const u32 gBattleAnimSpritePal_LetterW[];
 //CSR Moves
 
 extern const u32 gBattleAnimSpriteGfx_Crab[];
