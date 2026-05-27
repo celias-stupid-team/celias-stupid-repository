@@ -1611,7 +1611,8 @@ script Starlight_House3_Map_Table_Bit_Dad {
 	"{FONT_SMALL}DAD: {PLAYER}!\n"
     "What are you doing out here?\p"
     
-    "You've grown a lot since I last saw you!\p"
+    "Wow!\n"
+    "You've grown a lot since I last saw you.\l"
 	"Have you been eating your vegetables?\p"
 
 	"Well, never mind that.\n"
