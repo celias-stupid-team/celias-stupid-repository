@@ -1604,17 +1604,25 @@ script Starlight_House3_Map_Table_Bit_My_Secret_Life {
 
 script Starlight_House3_Map_Table_Bit_Dad {
 	if(flag(FLAG_TEMP_13)) {
-        lock
+    lock
 	faceplayer
 	textcolor(0)
 	msgbox(
-	"{FONT_SMALL}DAD: {PLAYER}! What are you doing\n"
-	"up there? I am really tiny now and\l"
-	"everybody is running around screaming.\p"
+	"{FONT_SMALL}DAD: {PLAYER}!\n"
+    "What are you doing out here?\p"
+    
+    "You've grown a lot since I last saw you!\p"
+	"Have you been eating your vegetables?\p"
 
-	"Well, never mind that. How about\n"
-	"you take a rest?", MSGBOX_DEFAULT)
-	call(EventScript_DadHeal)
+	"Well, never mind that.\n"
+    "How about you take a rest?", MSGBOX_DEFAULT)
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	closemessage
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	special(HealPlayerParty)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	msgbox(("{FONT_SMALL}DAD: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
 	release
 	end
         } else {
@@ -1675,7 +1683,7 @@ script Starlight_House3_Map_Table_Bit_Fairy {
     }
 }
 
-script Starlight_House3_Map_Table_Bit_Psyduck {//No Bit(TEMPLATE)
+script Starlight_House3_Map_Table_Bit_Psyduck {
 	if(flag(FLAG_TEMP_13)) {
         msgbox(
         "{FONT_SMALL}I'm studying TARDIGRADES as PROF. OAK's\n"
@@ -1688,9 +1696,9 @@ script Starlight_House3_Map_Table_Bit_Psyduck {//No Bit(TEMPLATE)
     }
 }
 
-script Starlight_House3_Map_Table_Bit_Snap {//No Bit(TEMPLATE)
+script Starlight_House3_Map_Table_Bit_Snap {
 	if(flag(FLAG_TEMP_13)) {
-        playmoncry(SPECIES_PIKACHU_SNAP_CLOSE, CRY_MODE_DEFAULT)
+        playmoncry(SPECIES_PIKACHU_SNAP_BALL, CRY_MODE_DEFAULT)
         showmonpic(SPECIES_KENYA, 10, 3)
         waitbuttonpress
         hidemonpic
@@ -1705,7 +1713,7 @@ script Starlight_House3_Map_Table_Bit_Snap {//No Bit(TEMPLATE)
     }
 }
 
-script Starlight_House3_Map_Table_Bit_American_Version {//No Bit(TEMPLATE)
+script Starlight_House3_Map_Table_Bit_American_Version {
 	if(flag(FLAG_TEMP_13)) {
         msgbox(
         "You hear tiny voices scream out\n"
@@ -1759,7 +1767,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
 				case 0:
 					if(flag(FLAG_CSR_MAP_POKEMON_ISLAND)) {
                     msgbox(
-                    "I hid 2 porygon within the tiles of\n"
+                    "I hid 2 Porygon within the tiles of\n"
                     "Pokemon Island, similarly to how\l"
                     "they were hidden in the Pokemon\l"
                     "Snap game.\p"
@@ -1767,7 +1775,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "They are still there if you want to\n"
                     "look for them. It was the original\l"
                     "shiny method but we since changed\l"
-                    "that. Now they do nothing.", MSGBOX_DEFAULT)
+                    "that. Now they just chill there.", MSGBOX_DEFAULT)
                     closemessage
                     } else {
                     msgbox(
@@ -1781,7 +1789,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "what happens in my house.\p"
 
                     "But since she wanted this house to\n"
-                    "only be bonus content and not add\l"
+                    "only have bonus content and not add\l"
                     "anything to the rest of the game,\l"
                     "I was fairly limited with what I\l"
                     "could do.\p"
@@ -1950,34 +1958,10 @@ script StarlightHouse3_NotSoFunFactsOptions {
 
                     "I only added them because I needed\n"
                     "NPCs or phrases for some bits I\l"
-                    "wanted to use. Every one of them\l"
-                    "was added with a purpose, not just\l"
-                    "to add them in for the sake of\l"
-                    "adding them in.\p"
-
-                    "I added Dak because I wanted a\n"
-                    "NPC to practice with making a\l"
-                    "cutscene.\p"
-
-                    "I added Bri because I had that\n"
-                    "eevee idea similar to Celia's but\l"
-                    "executed in a different way so I\l"
-                    "needed another NPC.\p"
-
-                    "I added Kamina because I needed an\n"
-                    "Ampharos for my post game\l"
-                    "lighthouse bit.\p"
-
-                    "And I added atinybitjaded in my\n"
-                    "sentence when talking to Dak\l"
-                    "because I needed a way to sound\l"
-                    "tired in the dialogue and her\l"
-                    "online name fit the wording.\p"
-
-                    "I wanted to add another relative\n"
-                    "of mine named JB, but I had no room\l"
-                    "to put him anywhere with a purpose\l"
-                    "in mind.", MSGBOX_DEFAULT)
+                    "wanted to use.\p"
+                    
+                    "Every single one of them was added\n"
+                    "with a purpose.", MSGBOX_DEFAULT)
                     closemessage
                     } else {
                     msgbox(
@@ -1988,7 +1972,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     }
 				default:
 					setvar(VAR_RESULT, 0)
-                    call(StarlightHouse3_NotSoFunFactsMenu)
+                    call(StarlightHouse3_NotSoFunFactsOptions)
 					release
 					end
 	}
