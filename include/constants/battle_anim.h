@@ -599,6 +599,8 @@
 #define ANIM_TAG_CHATTER_KAPPA              (ANIM_SPRITES_START + 589)
 #define ANIM_TAG_CHATTER_SMILE              (ANIM_SPRITES_START + 590)
 #define ANIM_TAG_LETTER_W                   (ANIM_SPRITES_START + 591)
+#define ANIM_TAG_BLUK_BERRY                 (ANIM_SPRITES_START + 592)
+#define ANIM_TAG_BLUK_JUICE                 (ANIM_SPRITES_START + 593)
 
 // battlers
 #define ANIM_ATTACKER       0

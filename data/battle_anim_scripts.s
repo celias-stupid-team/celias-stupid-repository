@@ -6854,13 +6854,45 @@ Move_PUFF_UP:
 	waitforvisualfinish
 	end
 Move_BROWTH:
-Move_BULK_UP:
 	loadspritegfx ANIM_TAG_BREATH
 	createvisualtask AnimTask_GrowAndShrink, 2
 	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
 	waitforvisualfinish
 	createsprite gBreathPuffSpriteTemplate, ANIM_ATTACKER, 2
 	loopsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER, 4, 2
+	waitforvisualfinish
+	end
+Move_BULK_UP:
+	loadspritegfx ANIM_TAG_BLUK_BERRY
+	loadspritegfx ANIM_TAG_BLUK_JUICE
+	createsprite gVerticalDipSpriteTemplate, ANIM_ATTACKER, 2, 8, 1, ANIM_ATTACKER
+	delay 8
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	createsprite gBlukUpSpriteTemplate, ANIM_ATTACKER, 2
+	waitforvisualfinish
+	delay 15
+	playsewithpan SE_M_DETECT, 0
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 5, 1, RGB_WHITE, 10, RGB_BLACK, 0
+	waitforvisualfinish
+	createsprite gBlukDownSpriteTemplate, ANIM_TARGET, 2, -30, -100, 25, 1, 0, 0
+	waitforvisualfinish
+
+	@playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	@createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, -10, 0, ANIM_TARGET, 2
+	@createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 8, 1
+	@waitforvisualfinish
+
+	createsprite gBlukSmushSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 60, 0, 1
+
+	createsprite gBlukJuiceSpriteTemplate, ANIM_TARGET, 5, 0, 1
+	createsprite gBlukJuiceSpriteTemplate, ANIM_TARGET, 5, 0, 1
+	createsprite gBlukJuiceSpriteTemplate, ANIM_TARGET, 5, 0, 1
+	playsewithpan SE_M_SKETCH, SOUND_PAN_TARGET
+	createsprite gBlukJuiceSpriteTemplate, ANIM_TARGET, 5, 1, 1
+	createsprite gBlukJuiceSpriteTemplate, ANIM_TARGET, 5, 1, 1
+	createsprite gBlukJuiceSpriteTemplate, ANIM_TARGET, 5, 1, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 5, 2
+	@createvisualtask AnimTask_StretchTargetUp, 3
 	waitforvisualfinish
 	end
 
@@ -23884,20 +23916,24 @@ Move_ACROBATICS:
 	
 Move_W_TURN:
 	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_LETTER_W
+	@loadspritegfx ANIM_TAG_LETTER_W
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 6, 4, 10
-	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_WPatternDash, 5
+	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER
 	delay 20
-	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	loopsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER, 10, 2
+	@createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 6, 4, 10
+	@playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	@delay 20
+	@playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
 	waitforvisualfinish
 	createvisualtask AnimTask_AttackerPunchWithTrace, 2, RGB(8, 9, 28), 10
 	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
 	delay 6
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
 	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	createsprite gFallingWSpriteTemplate, ANIM_ATTACKER, 2
+	@createsprite gFallingWSpriteTemplate, ANIM_ATTACKER, 2
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	createvisualtask AnimTask_WTurnSlideOffScreen, 5, ANIM_ATTACKER, -4
 	waitforvisualfinish
@@ -34495,18 +34531,20 @@ Move_MAX_TURNPIKE:
 	loadspritegfx ANIM_TAG_DEMON_CHILD
 	
 	playse SE_M_SAND_ATTACK
-	createsprite gConcreteSpriteTemplate, ANIM_TARGET, 2, 16, 48, 0, -2, 20, 201, 0, 1
+	createsprite gConcreteSpriteTemplate, ANIM_TARGET, 2, 16, 48, 0, -2, 20, 251, 0, 1
 	delay 57
-	createsprite gCopCarSpriteTemplate, ANIM_TARGET, 2, -116, -58, 16, 8, 7, 155, 0, 1
+	createsprite gCopCarSpriteTemplate, ANIM_TARGET, 2, -116, -58, 16, 8, 7, 205, 0, 1
 	delay 1
 	playsewithpan SE_CAR_CRASH, SOUND_PAN_TARGET
 	delay 6
 	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 0, 10
 	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 0, 10
-	delay 100
+	delay 120
 	@createsprite gFallenChildSpriteTemplate, ANIM_TARGET, 2
 
 	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createvisualtask SoundTask_PlaySpecificCry, 2, 174
+	delay 13
 	createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -256, -50
 	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
 	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38

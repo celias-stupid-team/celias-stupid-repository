@@ -755,6 +755,28 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sBlukSmushAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 12),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sBlukSmushAnimTable[] =
+{
+    sBlukSmushAnimCmds,
+};
+
+const struct SpriteTemplate gBlukSmushSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLUK_BERRY,
+    .paletteTag = ANIM_TAG_BLUK_BERRY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sBlukSmushAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sTennaSmallAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 12),

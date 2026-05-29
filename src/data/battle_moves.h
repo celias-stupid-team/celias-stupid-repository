@@ -4484,15 +4484,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BULK_UP] =
     {
-        .effect = EFFECT_BULK_UP,
-        .power = 0,
-        .type = TYPE_FIGHTING,
-        .accuracy = 0,
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_WATER,
+        .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_SNATCH_AFFECTED,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
     [MOVE_BOUNCE] =

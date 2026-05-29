@@ -669,6 +669,17 @@ const struct SpriteTemplate gSprayWaterDropletSpriteTemplate =
     .callback = AnimSprayWaterDroplet,
 };
 
+const struct SpriteTemplate gBlukJuiceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLUK_JUICE,
+    .paletteTag = ANIM_TAG_BLUK_JUICE,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprayWaterDroplet,
+};
+
 static const struct SpriteTemplate sUnusedFlashingLightSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,

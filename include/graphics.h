@@ -8995,6 +8995,8 @@ extern const u32 gBattleAnimSpriteGfx_ChatterLul[];
 extern const u32 gBattleAnimSpriteGfx_ChatterKappa[];
 extern const u32 gBattleAnimSpriteGfx_ChatterSmile[];
 extern const u32 gBattleAnimSpriteGfx_LetterW[];
+extern const u32 gBattleAnimSpriteGfx_BlukBerry[];
+extern const u32 gBattleAnimSpriteGfx_BlukJuice[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9537,6 +9539,8 @@ extern const u32 gBattleAnimSpritePal_ChatterLul[];
 extern const u32 gBattleAnimSpritePal_ChatterKappa[];
 extern const u32 gBattleAnimSpritePal_ChatterSmile[];
 extern const u32 gBattleAnimSpritePal_LetterW[];
+extern const u32 gBattleAnimSpritePal_BlukBerry[];
+extern const u32 gBattleAnimSpritePal_BlukJuice[];
 //CSR Moves
 
 extern const u32 gBattleAnimSpriteGfx_Crab[];

@@ -123,6 +123,7 @@ static void AnimSpellingSalts(struct Sprite *sprite);
 static void AnimTask_TranslateMonAndReturn_Step(u8 taskId);
 static void AnimTask_MortalSpin_Step(u8 taskId);
 static void AnimCrabGrip(struct Sprite *sprite);
+static void AnimTask_WPatternDash_Step(u8 taskId);
 
 static const union AnimCmd sScratchAnimCmds[] =
 {
@@ -7124,6 +7125,95 @@ void AnimTask_UnboundSpriteUpdate(u8 taskId)
         BlendPalettes(PALETTES_ALL, coeff, RGB_WHITEALPHA);
         if (coeff == 0)
             DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_WPatternDash(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[0] = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+
+    // Phase
+    task->data[1] = 0;
+
+    // Frame counter within phase
+    task->data[2] = 0;
+
+    // Total displacement applied
+    task->data[3] = 0; // total x
+    task->data[4] = 0; // total y
+
+    task->func = AnimTask_WPatternDash_Step;
+}
+
+static void AnimTask_WPatternDash_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite = &gSprites[task->data[0]];
+
+    switch (task->data[1])
+    {
+    // ---------------------------------
+    // Move left 20 frames
+    // ---------------------------------
+    case 0:
+        sprite->x2 -= 1;
+
+        task->data[3] -= 1;
+
+        if (++task->data[2] >= 20)
+        {
+            task->data[2] = 0;
+            task->data[1]++;
+        }
+        break;
+
+    // ---------------------------------
+    // Down-right 5 frames
+    // ---------------------------------
+    case 1:
+    case 3:
+        sprite->x2 += 1;
+        sprite->y2 += 2;
+
+        task->data[3] += 1;
+        task->data[4] += 2;
+
+        if (++task->data[2] >= 5)
+        {
+            task->data[2] = 0;
+            task->data[1]++;
+        }
+        break;
+
+    // ---------------------------------
+    // Up-right 5 frames
+    // ---------------------------------
+    case 2:
+    case 4:
+        sprite->x2 += 1;
+        sprite->y2 -= 2;
+
+        task->data[3] += 1;
+        task->data[4] -= 2;
+
+        if (++task->data[2] >= 5)
+        {
+            task->data[2] = 0;
+            task->data[1]++;
+        }
+        break;
+
+    // ---------------------------------
+    // Restore position
+    // ---------------------------------
+    case 5:
+        sprite->x2 -= task->data[3];
+        sprite->y2 -= task->data[4];
+
+        DestroyAnimVisualTask(taskId);
         break;
     }
 }
