@@ -10359,7 +10359,7 @@ static const struct TrainerMonItemCustomMoves sParty_BerriedAlive[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_HAUNTER,
-        .moves = {MOVE_TOMBSTONER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_TOMBSTONER, MOVE_BULK_UP, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_Sans[] = {
@@ -10412,7 +10412,7 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN1[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_ZACIAN,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_HEADBUTT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
@@ -10426,7 +10426,7 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN1[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_STUNKY,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_POISON_GAS, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
