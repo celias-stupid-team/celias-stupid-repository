@@ -1689,6 +1689,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_LetterW, 0x0200, ANIM_TAG_LETTER_W},
     {gBattleAnimSpriteGfx_BlukBerry, 0x0400, ANIM_TAG_BLUK_BERRY},
     {gBattleAnimSpriteGfx_BlukJuice, 0x0020, ANIM_TAG_BLUK_JUICE},
+    {gBattleAnimSpriteGfx_LCDExplosion, 0x0800, ANIM_TAG_LCD_EXPLOSION},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2287,6 +2288,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_LetterW, ANIM_TAG_LETTER_W},
     {gBattleAnimSpritePal_BlukBerry, ANIM_TAG_BLUK_BERRY},
     {gBattleAnimSpritePal_BlukJuice, ANIM_TAG_BLUK_JUICE},
+    {gBattleAnimSpritePal_LCDExplosion, ANIM_TAG_LCD_EXPLOSION},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -2332,4 +2334,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_GHOST_TRICK]         = {gBattleAnimBgImage_GhostTrick, gBattleAnimBgPalette_GhostTrick, gBattleAnimBgTilemap_GhostTrick},
     [BG_LOSS]                = {gBattleAnimBgImage_Loss,       gBattleAnimBgPalette_Loss,       gBattleAnimBgTilemap_Loss},
     [BG_OREGON]              = {gBattleAnimBgImage_Oregon,     gBattleAnimBgPalette_Oregon,     gBattleAnimBgTilemap_Oregon},
+    [BG_LCD]                 = {gBattleAnimBgImage_LCD,        gBattleAnimBgPalette_LCD,        gBattleAnimBgTilemap_LCD},
 };

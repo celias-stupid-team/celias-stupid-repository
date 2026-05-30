@@ -15321,11 +15321,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_WOOBAT] =
     {
         .baseHP = 65,
-        .baseAttack = 45,
-        .baseDefense = 43,
-        .baseSpeed = 72,
-        .baseSpAttack = 55,
-        .baseSpDefense = 43,
+        .baseAttack = 95,
+        .baseDefense = 73,
+        .baseSpeed = 92,
+        .baseSpAttack = 115,
+        .baseSpDefense = 83,
         .types = {TYPE_PSYCHIC, TYPE_FLYING},
         .catchRate = 255,
         .expYield = 150,

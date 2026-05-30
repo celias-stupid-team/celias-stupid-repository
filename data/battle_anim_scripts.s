@@ -1227,6 +1227,11 @@ gBattleAnims_Moves::
 	.4byte Move_LIQUID_UZUMAKI
 	.4byte Move_JUNJI_HEALING
 	.4byte Move_BESEECH_SEED
+	.4byte Move_HYPER_BREAM
+	.4byte Move_WAGON_TRAIL
+	.4byte Move_BEHEMOTH_TRASH
+	.4byte Move_WRISTY_EXPLOSION
+	.4byte Move_FART_STRIKE
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -15475,7 +15480,7 @@ Move_FINAL_GAMBIT:
 	blendoff
 	end
 	
-Move_WAGON_ASCENT:
+Move_WAGON_TRAIL:
 	loadspritegfx ANIM_TAG_WAGON_FRONT
 	loadspritegfx ANIM_TAG_WAGON_BACK
 	loadspritegfx ANIM_TAG_WAGON_TOP_LEFT
@@ -34546,50 +34551,6 @@ Move_MAX_TURNPIKE:
 
 	waitforvisualfinish
 	end
-HyperBream:
-	loadspritegfx ANIM_TAG_SWEAT_BEAD
-	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_BREAM
-	playse SE_M_WATERFALL
-	createsprite gHyperBreamSpriteTemplate, 2, 0, 126, -59, 190, 206, 9, 4
-	delay 40
-	playse SE_M_WATERFALL
-	createsprite gHyperBreamSpriteTemplate, 2, 0, 252, 112, -46, 2, 10, 4
-	delay 36
-	playse SE_M_WATERFALL
-	createsprite gHyperBreamSpriteTemplate, 2, 0, -51, 16, 282, 50, 11, 4
-	delay 32
-	playse SE_M_WATERFALL
-	createsprite gHyperBreamSpriteTemplate, 2, 0, 272, -37, 80, 230, 11, 4
-	delay 28
-	playse SE_M_WATERFALL
-	createsprite gHyperBreamSpriteTemplate, 2, 0, 126, 224, 98, -42, 12, 4
-	delay 24
-	playse SE_M_WATERFALL
-	createsprite gHyperBreamSpriteTemplate, 2, 0, 200, -21, -48, 88, 12, 4
-	delay 20
-	playse SE_M_WATERFALL
-	createsprite gHyperBreamSpriteTemplate, 2, 0, -41, 88, 298, 36, 13, 4
-	waitforvisualfinish
-	delay 16
-	
-	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET
-	createsprite gBreamHammerSpriteTemplate, ANIM_TARGET, 2, 1, -30, -10, 40, 45
-	delay 60
-	playsewithpan SE_M_ENCORE, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 10, 1
-	delay 4
-	
-	playsewithpan SE_M_ENCORE, SOUND_PAN_ATTACKER
-	createsprite gSprayWaterDropletSpriteTemplate, ANIM_TARGET, 5, 0, 1
-	playsewithpan SE_M_SKETCH, SOUND_PAN_TARGET
-	createsprite gSprayWaterDropletSpriteTemplate, ANIM_TARGET, 5, 1, 1
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1
-	createvisualtask AnimTask_StretchTargetUp, 3
-	waitforvisualfinish
-
-	end
 
 Move_REVENUESTEALSTRIKE:
 	loadspritegfx ANIM_TAG_REVENUE
@@ -34730,5 +34691,79 @@ Move_EARTH_BLASTER:
 	end
 
 
+
+Move_WRISTY_EXPLOSION:
+	loadspritegfx ANIM_TAG_LCD_EXPLOSION
+	fadetobg BG_LCD
+	waitbgfadein
+	call LCDExplosion
+	waitforvisualfinish
+	restorebg
+	waitbgfadein
+	end
+LCDExplosion:
+	playsewithpan SE_FAINT, SOUND_PAN_ATTACKER
+	createsprite gLCDExplosionSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 1
+	delay 17
+	playsewithpan SE_FAINT, SOUND_PAN_ATTACKER
+	createsprite gLCDExplosionSpriteTemplate, ANIM_ATTACKER, 3, 24, -24, 0, 1
+	delay 17
+	playsewithpan SE_FAINT, SOUND_PAN_ATTACKER
+	createsprite gLCDExplosionSpriteTemplate, ANIM_ATTACKER, 3, -16, 16, 0, 1
+	delay 17
+	playsewithpan SE_FAINT, SOUND_PAN_ATTACKER
+	createsprite gLCDExplosionSpriteTemplate, ANIM_ATTACKER, 3, -24, -12, 0, 1
+	delay 17
+	playsewithpan SE_FAINT, SOUND_PAN_ATTACKER
+	createsprite gLCDExplosionSpriteTemplate, ANIM_ATTACKER, 3, 16, 16, 0, 1
+	delay 17
+	return
+
+Move_HYPER_BREAM:
+	loadspritegfx ANIM_TAG_SWEAT_BEAD
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_BREAM
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 126, -59, 190, 206, 9, 4
+	delay 40
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 252, 112, -46, 2, 10, 4
+	delay 36
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, -51, 16, 282, 50, 11, 4
+	delay 32
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 272, -37, 80, 230, 11, 4
+	delay 28
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 126, 224, 98, -42, 12, 4
+	delay 24
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, 200, -21, -48, 88, 12, 4
+	delay 20
+	playse SE_M_WATERFALL
+	createsprite gHyperBreamSpriteTemplate, 2, 0, -41, 88, 298, 36, 13, 4
+	waitforvisualfinish
+	delay 16
+	
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_TARGET
+	createsprite gBreamHammerSpriteTemplate, ANIM_TARGET, 2, 1, -30, -10, 40, 45
+	delay 60
+	playsewithpan SE_M_ENCORE, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, -10, -10, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 10, 1
+	delay 4
+	
+	playsewithpan SE_M_ENCORE, SOUND_PAN_ATTACKER
+	createsprite gSprayWaterDropletSpriteTemplate, ANIM_TARGET, 5, 0, 1
+	playsewithpan SE_M_SKETCH, SOUND_PAN_TARGET
+	createsprite gSprayWaterDropletSpriteTemplate, ANIM_TARGET, 5, 1, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 5, 1
+	createvisualtask AnimTask_StretchTargetUp, 3
+	waitforvisualfinish
+	end
+Move_WAGON_ASCENT:
+Move_BEHEMOTH_TRASH:
+Move_FART_STRIKE:
 Move_JUNJI_HEALING:
 	goto Move_TACKLE

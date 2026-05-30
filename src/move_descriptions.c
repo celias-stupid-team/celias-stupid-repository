@@ -1175,6 +1175,11 @@ const u8 gMoveDescription_StoneFreeEdge[] = _("UNUSED");
 const u8 gMoveDescription_LiquidUzumaki[] = _("UNUSED");
 const u8 gMoveDescription_JunjiHealing[] = _("UNUSED");
 const u8 gMoveDescription_BeseechSeed[] = _("UNUSED");
+const u8 gMoveDescription_HyperBream[] = _("Dummy");
+const u8 gMoveDescription_WagonTrail[] = _("Dummy");
+const u8 gMoveDescription_BehemothTrash[] = _("UNUSED");
+const u8 gMoveDescription_WristyExplosion[] = _("UNUSED");
+const u8 gMoveDescription_FartStrike[] = _("Dummy");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -2354,4 +2359,9 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_LIQUID_UZUMAKI     -1 ] = gMoveDescription_LiquidUzumaki,
     [MOVE_JUNJI_HEALING     -1 ] = gMoveDescription_JunjiHealing,
     [MOVE_BESEECH_SEED     -1 ] = gMoveDescription_BeseechSeed,
+    [MOVE_HYPER_BREAM     -1 ] = gMoveDescription_HyperBream,
+    [MOVE_WAGON_TRAIL     -1 ] = gMoveDescription_WagonTrail,
+    [MOVE_BEHEMOTH_TRASH     -1 ] = gMoveDescription_BehemothTrash,
+    [MOVE_WRISTY_EXPLOSION     -1 ] = gMoveDescription_WristyExplosion,
+    [MOVE_FART_STRIKE     -1 ] = gMoveDescription_FartStrike,
 };

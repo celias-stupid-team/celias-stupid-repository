@@ -601,6 +601,7 @@
 #define ANIM_TAG_LETTER_W                   (ANIM_SPRITES_START + 591)
 #define ANIM_TAG_BLUK_BERRY                 (ANIM_SPRITES_START + 592)
 #define ANIM_TAG_BLUK_JUICE                 (ANIM_SPRITES_START + 593)
+#define ANIM_TAG_LCD_EXPLOSION              (ANIM_SPRITES_START + 594)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -669,6 +670,7 @@
 #define BG_GHOST_TRICK 39
 #define BG_LOSS 40
 #define BG_OREGON 41
+#define BG_LCD 42
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

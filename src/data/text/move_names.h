@@ -1178,6 +1178,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_LIQUID_UZUMAKI]     = _("LIQUID UZU"),
     [MOVE_JUNJI_HEALING]     = _("JUNJI HEAL"),
     [MOVE_BESEECH_SEED]     = _("BESEECH SEED"),
+    [MOVE_HYPER_BREAM]     = _("HYPER BREAM"),
+    [MOVE_WAGON_TRAIL]     = _("WAGON TRAIL"),
+    [MOVE_BEHEMOTH_TRASH]     = _("BIG TRASH"),
+    [MOVE_WRISTY_EXPLOSION]     = _("WRISTY BOOM"),
+    [MOVE_FART_STRIKE]     = _("FART STRIKE"),
 };
 
 const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
@@ -2360,4 +2365,9 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_LIQUID_UZUMAKI]     = _("LIQUID UZUMAKI"),
     [MOVE_JUNJI_HEALING]     = _("JUNJI HEALING"),
     [MOVE_BESEECH_SEED]     = _("BESEECH SEED"),
+    [MOVE_HYPER_BREAM]     = _("HYPER BREAM"),
+    [MOVE_WAGON_TRAIL]     = _("WAGON TRAIL"),
+    [MOVE_BEHEMOTH_TRASH]     = _("BEHEMOTH TRASH"),
+    [MOVE_WRISTY_EXPLOSION]     = _("WRISTY EXPLOSION"),
+    [MOVE_FART_STRIKE]     = _("FART STRIKE"),
 }; //For any move which needs its name lengthened, these will display in battle.

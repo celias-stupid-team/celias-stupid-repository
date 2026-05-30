@@ -3281,6 +3281,31 @@ const struct SpriteTemplate gExplosionSpriteTemplate =
     .callback = AnimSpriteOnMonPos,
 };
 
+static const union AnimCmd sLCDExplosionAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 11),
+    ANIMCMD_FRAME(16, 10),
+    ANIMCMD_FRAME(32, 10),
+    ANIMCMD_FRAME(48, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sLCDExplosionAnimTable[] =
+{
+    sLCDExplosionAnimCmds,
+};
+
+const struct SpriteTemplate gLCDExplosionSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_LCD_EXPLOSION,
+    .paletteTag = ANIM_TAG_LCD_EXPLOSION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sLCDExplosionAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpriteOnMonPos,
+};
+
 static const union AnimCmd sHistoryExplosionAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 5),

@@ -1505,6 +1505,9 @@ const u32 gBattleAnimSpritePal_BlukBerry[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpriteGfx_BlukJuice[] = INCBIN_U32("graphics/battle_anims/sprites/bluk_juice.4bpp.lz");
 const u32 gBattleAnimSpritePal_BlukJuice[] = INCBIN_U32("graphics/battle_anims/sprites/bluk_juice.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_LCDExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/lcd_explosion.4bpp.lz");
+const u32 gBattleAnimSpritePal_LCDExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/lcd_explosion.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_CircleOfLight[] = INCBIN_U32("graphics/battle_anims/sprites/circle_of_light.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_ElectricOrbs[] = INCBIN_U32("graphics/battle_anims/sprites/electric_orbs.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_Electricity[] = INCBIN_U32("graphics/battle_anims/sprites/electricity.4bpp.lz");
@@ -1639,6 +1642,10 @@ const u32 gBattleAnimBgTilemap_Skyrim[] = INCBIN_U32("graphics/battle_anims/back
 const u32 gBattleAnimBgImage_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.4bpp.lz");
 const u32 gBattleAnimBgPalette_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.bin.lz");
+
+const u32 gBattleAnimBgImage_LCD[] = INCBIN_U32("graphics/battle_anims/backgrounds/lcd.4bpp.lz");
+const u32 gBattleAnimBgPalette_LCD[] = INCBIN_U32("graphics/battle_anims/backgrounds/lcd.gbapal.lz");
+const u32 gBattleAnimBgTilemap_LCD[] = INCBIN_U32("graphics/battle_anims/backgrounds/lcd.bin.lz");
 
 const u32 gBattleAnimBgImage_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.4bpp.lz");
 const u32 gBattleAnimBgPalette_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.gbapal.lz");

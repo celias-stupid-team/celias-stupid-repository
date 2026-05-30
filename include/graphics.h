@@ -8997,6 +8997,7 @@ extern const u32 gBattleAnimSpriteGfx_ChatterSmile[];
 extern const u32 gBattleAnimSpriteGfx_LetterW[];
 extern const u32 gBattleAnimSpriteGfx_BlukBerry[];
 extern const u32 gBattleAnimSpriteGfx_BlukJuice[];
+extern const u32 gBattleAnimSpriteGfx_LCDExplosion[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9541,6 +9542,7 @@ extern const u32 gBattleAnimSpritePal_ChatterSmile[];
 extern const u32 gBattleAnimSpritePal_LetterW[];
 extern const u32 gBattleAnimSpritePal_BlukBerry[];
 extern const u32 gBattleAnimSpritePal_BlukJuice[];
+extern const u32 gBattleAnimSpritePal_LCDExplosion[];
 //CSR Moves
 
 extern const u32 gBattleAnimSpriteGfx_Crab[];
@@ -9597,6 +9599,7 @@ extern const u32 gBattleAnimBgImage_Coke[];
 extern const u32 gBattleAnimBgImage_GhostTrick[];
 extern const u32 gBattleAnimBgImage_Loss[];
 extern const u32 gBattleAnimBgImage_Oregon[];
+extern const u32 gBattleAnimBgImage_LCD[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9636,6 +9639,7 @@ extern const u32 gBattleAnimBgPalette_EarfWater[];
 extern const u32 gBattleAnimBgPalette_GhostTrick[];
 extern const u32 gBattleAnimBgPalette_Loss[];
 extern const u32 gBattleAnimBgPalette_Oregon[];
+extern const u32 gBattleAnimBgPalette_LCD[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9674,6 +9678,7 @@ extern const u32 gBattleAnimBgTilemap_Coke[];
 extern const u32 gBattleAnimBgTilemap_GhostTrick[];
 extern const u32 gBattleAnimBgTilemap_Loss[];
 extern const u32 gBattleAnimBgTilemap_Oregon[];
+extern const u32 gBattleAnimBgTilemap_LCD[];
 
 // dark
 extern const u32 gMetalShineGfx[];
