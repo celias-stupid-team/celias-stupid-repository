@@ -2958,6 +2958,87 @@ void AnimTask_TransformMon(u8 taskId)
     }
 }
 
+void AnimTask_MosaicMon(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u16 stretch;
+    u8 battler;
+
+    battler = (gBattleAnimArgs[0] == 0)
+        ? gBattleAnimAttacker
+        : gBattleAnimTarget;
+
+    switch (task->data[0])
+    {
+    // --------------------------
+    // Initialise mosaic effect
+    // --------------------------
+    case 0:
+        SetGpuReg(REG_OFFSET_MOSAIC, 0);
+
+        if (GetBattlerSpriteBGPriorityRank(battler) == 1)
+            SetAnimBgAttribute(1, BG_ANIM_MOSAIC, 1);
+        else
+            SetAnimBgAttribute(2, BG_ANIM_MOSAIC, 1);
+
+        task->data[10] = battler;
+        task->data[0]++;
+        break;
+
+    // --------------------------
+    // Increase mosaic
+    // --------------------------
+    case 1:
+        if (++task->data[2] > 1)
+        {
+            task->data[2] = 0;
+            task->data[1]++;
+
+            stretch = task->data[1];
+            SetGpuReg(REG_OFFSET_MOSAIC,
+                      (stretch << 4) | stretch);
+
+            if (stretch >= 15)
+                task->data[0]++;
+        }
+        break;
+
+    // --------------------------
+    // Decrease mosaic
+    // --------------------------
+    case 2:
+        if (++task->data[2] > 1)
+        {
+            task->data[2] = 0;
+            task->data[1]--;
+
+            stretch = task->data[1];
+            SetGpuReg(REG_OFFSET_MOSAIC,
+                      (stretch << 4) | stretch);
+
+            if (stretch == 0)
+                task->data[0]++;
+        }
+        break;
+
+    // --------------------------
+    // Cleanup
+    // --------------------------
+    case 3:
+        SetGpuReg(REG_OFFSET_MOSAIC, 0);
+
+        battler = task->data[10];
+
+        if (GetBattlerSpriteBGPriorityRank(battler) == 1)
+            SetAnimBgAttribute(1, BG_ANIM_MOSAIC, 0);
+        else
+            SetAnimBgAttribute(2, BG_ANIM_MOSAIC, 0);
+
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
 void AnimTask_HideSwapSprite(u8 taskId)
 {
     int i, j;

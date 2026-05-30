@@ -2541,6 +2541,22 @@ Move_HIDDEN_POWER:
 	end
 
 Move_REVERSAL:
+	loadspritegfx ANIM_TAG_REVERSE
+	loadspritegfx ANIM_TAG_MIDDLE_FINGER
+	loadspritegfx ANIM_TAG_THOUGHT_BUBBLE
+	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER
+	createsprite gUnoReverseSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, 0, -4, 16, 150, 0, 0
+	delay 50
+	createsprite gThoughtBubbleSpriteTemplate, ANIM_ATTACKER, 11, 0, 100
+	playsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER
+	delay 6
+	createsprite gEvilMetronomeMiddleFingerSpriteTemplate, ANIM_ATTACKER, 12, 0
+	delay 24
+	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER, 22, 3
+	waitforvisualfinish
+	end
+
+	@original reversal
 	loadspritegfx ANIM_TAG_BLUE_ORB
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
 	loadspritegfx ANIM_TAG_IMPACT
@@ -18557,26 +18573,26 @@ Move_TAX_FRAUD:
 	delay 14
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 10, 0, 18, 1
 	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_MEGA_KICK2, SOUND_PAN_TARGET
-	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_ATTACKER, 10, 5
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, -3, -2, 10, 1
+	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_TARGET, 10, 5
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -2, 10, 1
 	delay 2
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, -1, -1, 15, 1
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -1, -1, 15, 1
 	delay 2
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, -4, -4, 7, 1
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -4, -4, 7, 1
 	delay 2
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, 3, -3, 11, 1
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 3, -3, 11, 1
 	delay 2
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, -1, -6, 8, 1
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -1, -6, 8, 1
 	delay 2
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, 2, -1, 12, 1
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 2, -1, 12, 1
 	delay 2
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, -3, -4, 13, 1
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -4, 13, 1
 	delay 2
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, 4, -5, 7, 1
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 4, -5, 7, 1
 	delay 2
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, 2, -6, 11, 1
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 2, -6, 11, 1
 	delay 2
-	createsprite gMoneyParticleSpriteTemplate, ANIM_ATTACKER, 2, -3, -5, 8, 1
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -5, 8, 1
 	delay 2
 	waitforvisualfinish
 	end
@@ -34356,9 +34372,12 @@ Move_TRIPLE_PIXEL:
 	createsprite gPixelBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
 	createsprite gPixelBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
 	createsprite gPixelBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 10, 1
+	@playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 28
+	createvisualtask AnimTask_MosaicMon, 5, 1
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
+	
 	end
 
 	@createsprite gPixelBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
@@ -34482,6 +34501,52 @@ Move_T_POSE:
 	end
 
 Move_NO_SURF:
+	loadspritegfx ANIM_TAG_X_SIGN
+	createvisualtask AnimTask_GetAttackerSide, 2
+	jumprettrue NoSurfAgainstPlayer
+	createvisualtask AnimTask_CreateSurfWave, 2, 0
+NoSurfContinue:
+	delay 24
+	panse SE_M_WHIRLPOOL, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	delay 40
+	playsewithpan SE_BUZZER, SOUND_PAN_TARGET
+	createsprite gRedXSpriteTemplate, ANIM_ATTACKER, 5, ANIM_ATTACKER, 50
+	waitforvisualfinish
+	end
+
+NoSurfAgainstPlayer:
+	createvisualtask AnimTask_CreateSurfWave, 2, 0
+	goto NoSurfContinue
+
+Move_MAX_TURNPIKE:
+	loadspritegfx ANIM_TAG_CONCRETE
+	loadspritegfx ANIM_TAG_COP
+	loadspritegfx ANIM_TAG_DEMON_CHILD
+	
+	playse SE_M_SAND_ATTACK
+	createsprite gConcreteSpriteTemplate, ANIM_TARGET, 2, 16, 48, 0, -2, 20, 251, 0, 1
+	delay 57
+	createsprite gCopCarSpriteTemplate, ANIM_TARGET, 2, -116, -58, 16, 8, 7, 205, 0, 1
+	delay 1
+	playsewithpan SE_CAR_CRASH, SOUND_PAN_TARGET
+	delay 6
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 0, 10
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 0, 10
+	delay 120
+	@createsprite gFallenChildSpriteTemplate, ANIM_TARGET, 2
+
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createvisualtask SoundTask_PlaySpecificCry, 2, 174
+	delay 13
+	createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -256, -50
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+
+	waitforvisualfinish
+	end
+HyperBream:
 	loadspritegfx ANIM_TAG_SWEAT_BEAD
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_BREAM
@@ -34525,37 +34590,145 @@ Move_NO_SURF:
 	waitforvisualfinish
 
 	end
-Move_MAX_TURNPIKE:
-	loadspritegfx ANIM_TAG_CONCRETE
-	loadspritegfx ANIM_TAG_COP
-	loadspritegfx ANIM_TAG_DEMON_CHILD
-	
-	playse SE_M_SAND_ATTACK
-	createsprite gConcreteSpriteTemplate, ANIM_TARGET, 2, 16, 48, 0, -2, 20, 251, 0, 1
-	delay 57
-	createsprite gCopCarSpriteTemplate, ANIM_TARGET, 2, -116, -58, 16, 8, 7, 205, 0, 1
-	delay 1
-	playsewithpan SE_CAR_CRASH, SOUND_PAN_TARGET
-	delay 6
-	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 0, 10
-	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 0, 10
-	delay 120
-	@createsprite gFallenChildSpriteTemplate, ANIM_TARGET, 2
 
-	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
-	createvisualtask SoundTask_PlaySpecificCry, 2, 174
-	delay 13
-	createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -256, -50
-	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
-	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
-	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
-	@createsprite gChildBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+Move_REVENUESTEALSTRIKE:
+	loadspritegfx ANIM_TAG_REVENUE
+	loadspritegfx ANIM_TAG_MONEY
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	createsprite gRevenueRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -4, 13, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 4, -5, 7, 1
+	delay 2
 
+	createsprite gRevenueRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 2, -6, 11, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -5, 8, 1
+	delay 2
+
+	createsprite gRevenueRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -2, 10, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -1, -1, 15, 1
+	delay 2
+
+	createsprite gRevenueRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -4, -4, 7, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 3, -3, 11, 1
+	delay 2
+
+	createsprite gRevenueRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -1, -6, 8, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 2, -1, 12, 1
+	delay 2
+
+	createsprite gRevenueRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -4, 13, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 4, -5, 7, 1
+	delay 2
+
+	createsprite gRevenueRandomPosSpriteTemplate, ANIM_ATTACKER, 3, 1, 10, 0
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, 2, -6, 11, 1
+	delay 2
+	createsprite gMoneyParticleSpriteTemplate, ANIM_TARGET, 2, -3, -5, 8, 1
+	delay 2
+
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
+Move_EARTH_BLASTER:
+	loadspritegfx ANIM_TAG_EARTH
+	loadspritegfx ANIM_TAG_ORBS
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
+	waitforvisualfinish
+	delay 10
+	playsewithpan SE_ASS_BLASTER, SOUND_PAN_ATTACKER
+	createsprite gEarthLiftSpriteTemplate, ANIM_TARGET, 2, 0, 64, 0, -2, 32, 40, 0, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
+	delay 32
+	delay 20
+	@createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_HYPER_BEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 1, 0, 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 50, 1
+	createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB(31, 0, 0), 16, 0, 0
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	createvisualtask AnimTask_EarthQuaker, 5, 1, 0, 0, 0, 100
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 50, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 11, RGB(25, 25, 25)
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	loopsewithpan SE_M_HYPER_BEAM2, SOUND_PAN_TARGET, 5, 10
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 11, 0, RGB(25, 25, 25)
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_BLACK
+	end
+
+
+
+	loadspritegfx ANIM_TAG_EARTH
+	loadspritegfx ANIM_TAG_QUAKE
+	monbg ANIM_TARGET
+	setalpha 12, 8
+
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createsprite gEarthLiftSpriteTemplate, ANIM_ATTACKER, 2, 0, 64, 0, -2, 32, 0, 0, 1
+	delay 30
+	createvisualtask AnimTask_EarthQuaker, 5, 1, 0, 0, 35, 70
+	delay 34
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
+	createsprite gQuakeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 67, 0, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 10, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
 	waitforvisualfinish
 	end
 
 
-Move_REVENUESTEALSTRIKE:
-Move_EARTH_BLASTER:
 Move_JUNJI_HEALING:
 	goto Move_TACKLE

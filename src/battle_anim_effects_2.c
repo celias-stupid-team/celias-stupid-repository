@@ -755,6 +755,17 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gUnoReverseSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_REVERSE,
+    .paletteTag = ANIM_TAG_REVERSE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sBlukSmushAnimCmds[] =
 {
     ANIMCMD_FRAME(16, 12),
