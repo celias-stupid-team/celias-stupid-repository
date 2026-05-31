@@ -1602,7 +1602,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 // requires to recalc EXP to set the level accordingly
                 u32 level = GetPlayerPartyHighestLevel();
                 u16 species = GetMonData(&party[i], MON_DATA_SPECIES, NULL);
-                u32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+                u32 exp = 0;
+                
+                if (level < 30) // min level is always 30
+                    level = 30;
+                exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
 
                 SetMonData(&party[i], MON_DATA_EXP, &exp);
                 CalculateMonStats(&party[i]);
