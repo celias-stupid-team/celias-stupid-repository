@@ -7,13 +7,14 @@ mapscripts AetherParadise_Island_MapScripts {
         }
         if(flag(FLAG_POST_GAME) && flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
         setflag(FLAG_TEMP_1A)
-        setflag(FLAG_HIDE_POSTGAME_STARLIGHT)
         }
         if(!flag(FLAG_POST_GAME) && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
         setflag(FLAG_TEMP_1A)
-        clearflag(FLAG_HIDE_POSTGAME_STARLIGHT)
         }
         if(!flag(FLAG_POST_GAME) && flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+        setflag(FLAG_TEMP_1A)
+        }
+        if(flag(FLAG_HIDE_POSTGAME_STARLIGHT)) {
         setflag(FLAG_TEMP_1A)
         }
         //if(flag(FLAG_HIDE_POSTGAME_STARLIGHT)) {
