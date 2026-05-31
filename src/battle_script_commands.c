@@ -838,6 +838,11 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_10000_VOLTS,
     MOVE_SUBSTITUTE_TEACHER,
     MOVE_LEECH_SEED_LICHEN,
+    MOVE_FRENZIED_ESCAPE,
+    MOVE_ME_FIRST,
+    MOVE_THORN_WHIP,
+    MOVE_DRUG,
+    MOVE_THUNDER_WAVE_CYNTHIA,
     MIMIC_FORBIDDEN_END,
     // the moves below are NOT black listed for Mimic and Sketch
     MOVE_COUNTER,
@@ -858,6 +863,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_THIEF,
     MOVE_MIEF,
     MOVE_PANTY_SHOT,
+    MOVE_NOTHING,
     METRONOME_FORBIDDEN_END
 };
 
