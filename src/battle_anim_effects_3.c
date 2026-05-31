@@ -6866,6 +6866,9 @@ void AnimTask_UnboundSpriteUpdateWithMosaic(u8 taskId)
                 mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
             }
 
+            if (IsMonShiny(mon))
+                paletteData = gMonShinyPalette_HoopaUnbound;
+
             position = GetBattlerPosition(battler);
             personalityValue = GetMonData(mon, MON_DATA_PERSONALITY);
 
@@ -6937,6 +6940,9 @@ void AnimTask_UnboundSpriteUpdate(u8 taskId)
             paletteData = gMonPalette_HoopaUnbound;
             mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
         }
+
+        if (IsMonShiny(mon))
+            paletteData = gMonShinyPalette_HoopaUnbound;
 
         // Load Hoopa-Unbound tiles for the battler
         position = GetBattlerPosition(battler);
