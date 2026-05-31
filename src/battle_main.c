@@ -4544,7 +4544,7 @@ static void HandleAction_UseItem(void)
         gBattlescriptCurrInstr = gBattlescriptsForUsingItem[*(gBattleStruct->AI_itemType + gBattlerAttacker / 2)];
     }
 
-    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && gLastUsedItem != ITEM_BICYCLE && gLastUsedItem != ITEM_SHINY_BIKE)
         gBattleTurnMonUsedMoveOrItem = TRUE;
 
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
