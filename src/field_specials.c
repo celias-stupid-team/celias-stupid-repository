@@ -2710,6 +2710,10 @@ u16 ScriptGetPartyMonSpecies(void)
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
 }
 
+bool32 ScriptIsPartyMonFainted(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP, NULL) == 0;
+}
 
 void ScriptPartyContainsSpecies(void)
 {
