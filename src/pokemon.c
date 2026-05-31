@@ -4270,9 +4270,8 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
         friendshipChange = itemEffect[idx];                                                             \
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);                                        \
         if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)                            \
-            friendship = MAX_FRIENDSHIP;                                                 \
-        else                                                                                            \
-            friendship += friendshipChange;                                                             \
+            friendshipChange += (friendshipChange + 1) / 2;                                            \
+        friendship += friendshipChange;                                                                 \
         if (friendshipChange > 0)                                                                       \
         {                                                                                               \
             if (GetMonData(mon, MON_DATA_POKEBALL, NULL) == ITEM_LUXURY_BALL)                           \
@@ -5411,6 +5410,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(gEvolutionTable[species][i].param) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(gEvolutionTable[species][i].param))
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_HOLD_ITEM:
+                if (GetMonData(mon, MON_DATA_HELD_ITEM, NULL) == gEvolutionTable[species][i].param)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             case EVO_PARTY: //Have Gun in party
                 
                 for (j = 0; j < PARTY_SIZE; j++)
@@ -5806,11 +5809,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
         delta = sFriendshipEventDeltas[event][friendshipLevel];
         if (delta > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
-        {
-            friendship = MAX_FRIENDSHIP;
-            SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
-            return;
-        }
+            delta += (delta + 1) / 2;
 
         friendship += delta;
         if (delta > 0)
