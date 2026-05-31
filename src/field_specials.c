@@ -1798,6 +1798,18 @@ static void SayYes_CB(void) {
 
     } else if (!StringCompare(gText_Oui, gStringVar1)) {
         VarSet(VAR_RESULT, 2);
+    } else if (!StringCompare(gText_Ja, gStringVar1)) {
+        VarSet(VAR_RESULT, 2);
+    } else if (!StringCompare(gText_Tak, gStringVar1)) {
+        VarSet(VAR_RESULT, 2);
+    } else if (!StringCompare(gText_Oklahoma, gStringVar1)) {
+        VarSet(VAR_RESULT, 3);
+    } else if (!StringCompare(gText_Si, gStringVar1)) {
+        VarSet(VAR_RESULT, 4);
+    } else if (!StringCompare(gText_SiLower, gStringVar1)) {
+        VarSet(VAR_RESULT, 4);
+    } else if (!StringCompare(gText_SiAllLower, gStringVar1)) {
+        VarSet(VAR_RESULT, 4);
     }  else {
         VarSet(VAR_RESULT, 0);
 

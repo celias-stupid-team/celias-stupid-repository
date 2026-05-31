@@ -10708,3 +10708,11 @@ static const struct TrainerMonItemCustomMoves sParty_HakariBliz[] = {
         .moves = {MOVE_RIP_ROARING, MOVE_BULLDOZE, MOVE_MEGA_KICK, MOVE_MOONLIGHT_YEAR}
     },
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_YesLass[] = {
+    {
+        .iv = 0,
+        .lvl = 25,
+        .species = SPECIES_CLEFAIRY,
+    },
+};

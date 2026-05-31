@@ -18,7 +18,7 @@ CeladonCity_Hotel_EventScript_BeautyBrother::
 `
 
 script CeladonCity_Hotel_EventScript_Receptionist {
-	special(GetPlayerFacingDirection)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	if(var(VAR_RESULT) == DIR_NORTH) {
 		goto(CeladonHotel_AcrossCounter)
 	} else {

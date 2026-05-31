@@ -168,6 +168,126 @@ script Yes_ChanseyNPC {
 			"I'll wait here until you're ready\n"
 			"to give a proper answer.", MSGBOX_DEFAULT)
 			release
+		case 3:
+			lock
+			faceplayer
+			msgbox(
+				"Hmm… I'm not sure what OKLAHOMA\n"
+				"has to do with this.\p"
+
+				"I'll wait here until you're ready\n"
+				"to give a proper answer.", MSGBOX_DEFAULT)
+			release
+		case 4:
+			lock
+			faceplayer
+			delay(30)
+			playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+			delay(60)
+			addobject(LOCALID_YES_LASS)
+			specialvar(VAR_TEMP_1, GetPlayerFacingDirection)
+			switch(var(VAR_TEMP_1)) {
+				case DIR_NORTH:
+					applymovement(LOCALID_YES_LASS, moves(
+						walk_down * 3
+						walk_left * 4
+					))
+					waitmovement(LOCALID_YES_LASS)
+					applymovement(LOCALID_PLAYER, moves(
+						face_right
+					))
+				case DIR_WEST:
+					applymovement(LOCALID_YES_LASS, moves(
+						walk_down * 2
+						walk_left * 3
+					))
+					waitmovement(LOCALID_YES_LASS)
+					applymovement(LOCALID_PLAYER, moves(
+						face_right
+					))
+				case DIR_EAST:
+					applymovement(LOCALID_YES_LASS, moves(
+						walk_down * 3
+						walk_left * 6
+						face_up
+					))
+					waitmovement(LOCALID_YES_LASS)
+					applymovement(LOCALID_PLAYER, moves(
+						face_down
+					))
+				case DIR_SOUTH:
+					applymovement(LOCALID_YES_LASS, moves(
+						walk_down * 1
+						walk_left * 4
+					))
+					waitmovement(LOCALID_YES_LASS)
+					applymovement(LOCALID_PLAYER, moves(
+						face_right
+					))
+			}
+			waitmovement(LOCALID_YES_LASS)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			if(checktrainerflag(TRAINER_YES_LASS))
+			{
+				delay(20)
+				msgbox(
+					"…\n"
+					"", MSGBOX_DEFAULT)
+				delay(30)
+				fadedefaultbgm
+				closemessage
+			}
+			else
+			{
+				msgbox(
+					"Oh, man!\p"
+
+					"I thought you couldn't SI me…\n"
+					"", MSGBOX_DEFAULT)
+				playbgm(MUS_YES, TRUE)
+				trainerbattle_no_intro(TRAINER_YES_LASS, "¡Ay!")
+				msgbox(
+					"Mama mia!\n"
+					"", MSGBOX_DEFAULT)
+				closemessage
+			}
+			delay(20)
+			switch(var(VAR_TEMP_1)) {
+				case DIR_NORTH:
+					applymovement(LOCALID_YES_LASS, moves(
+						walk_down * 6
+					))
+					applymovement(LOCALID_PLAYER, moves(
+						face_down
+					))
+				case DIR_WEST:
+					applymovement(LOCALID_YES_LASS, moves(
+						walk_down * 1
+						walk_left * 1
+						walk_down * 5
+					))
+					applymovement(LOCALID_PLAYER, moves(
+						face_down
+					))
+				case DIR_EAST:
+					applymovement(LOCALID_YES_LASS, moves(
+						walk_right * 2
+						walk_down * 5
+						face_up
+					))
+				case DIR_SOUTH:
+					applymovement(LOCALID_YES_LASS, moves(
+						walk_down * 6
+					))
+					applymovement(LOCALID_PLAYER, moves(
+						face_down
+					))
+			}
+			waitmovement(LOCALID_YES_LASS)
+			removeobject(LOCALID_YES_LASS)
+			release
+			end
+
 	}
 }
 
