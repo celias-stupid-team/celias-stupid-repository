@@ -5709,3 +5709,23 @@ Cry_RICKETOT::
 	.incbin "sound/direct_sound_samples/cries/ricketot.bin"
 
 	.align 2
+Cry_IMAKUNIDODUO::
+	.incbin "sound/direct_sound_samples/cries/imakunidoduo.bin"
+
+	.align 2
+Cry_ABSOLYNE::
+	.incbin "sound/direct_sound_samples/cries/absolyne.bin"
+
+	.align 2
+Cry_LICHENMASQUERAIN::
+	.incbin "sound/direct_sound_samples/cries/lichenmasquerain.bin"
+
+	.align 2
+Cry_LICHENMAWILE::
+	.incbin "sound/direct_sound_samples/cries/lichenmawile.bin"
+
+	.align 2
+Cry_DMCACUTOUT::
+	.incbin "sound/direct_sound_samples/cries/dmcacutout.bin"
+
+	.align 2

@@ -13705,3 +13705,43 @@ extern const u32 gItemIconPalette_Ilexir[];
 
 extern const u32 gItemIcon_HyperRepel[];
 extern const u32 gItemIconPalette_HyperRepel[];
+// IMAKUNI_DODUO
+extern const u32 gMonFrontPic_IMAKUNIDODUO[];
+extern const u32 gMonPalette_IMAKUNIDODUO[];
+extern const u32 gMonBackPic_IMAKUNIDODUO[];
+extern const u32 gMonShinyPalette_IMAKUNIDODUO[];
+extern const u8 gMonFootprint_IMAKUNIDODUO[];
+extern const u8 gMonIcon_IMAKUNIDODUO[];
+
+// ABSOLYNE
+extern const u32 gMonFrontPic_ABSOLYNE[];
+extern const u32 gMonPalette_ABSOLYNE[];
+extern const u32 gMonBackPic_ABSOLYNE[];
+extern const u32 gMonShinyPalette_ABSOLYNE[];
+extern const u8 gMonFootprint_ABSOLYNE[];
+extern const u8 gMonIcon_ABSOLYNE[];
+
+// LICHEN_MASQUERAIN
+extern const u32 gMonFrontPic_LICHENMASQUERAIN[];
+extern const u32 gMonPalette_LICHENMASQUERAIN[];
+extern const u32 gMonBackPic_LICHENMASQUERAIN[];
+extern const u32 gMonShinyPalette_LICHENMASQUERAIN[];
+extern const u8 gMonFootprint_LICHENMASQUERAIN[];
+extern const u8 gMonIcon_LICHENMASQUERAIN[];
+
+// LICHEN_MAWILE
+extern const u32 gMonFrontPic_LICHENMAWILE[];
+extern const u32 gMonPalette_LICHENMAWILE[];
+extern const u32 gMonBackPic_LICHENMAWILE[];
+extern const u32 gMonShinyPalette_LICHENMAWILE[];
+extern const u8 gMonFootprint_LICHENMAWILE[];
+extern const u8 gMonIcon_LICHENMAWILE[];
+
+// DMCA_CUTOUT
+extern const u32 gMonFrontPic_DMCACUTOUT[];
+extern const u32 gMonPalette_DMCACUTOUT[];
+extern const u32 gMonBackPic_DMCACUTOUT[];
+extern const u32 gMonShinyPalette_DMCACUTOUT[];
+extern const u8 gMonFootprint_DMCACUTOUT[];
+extern const u8 gMonIcon_DMCACUTOUT[];
+

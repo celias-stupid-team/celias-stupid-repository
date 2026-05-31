@@ -354,6 +354,12 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubImakuni[] = {
         .species = SPECIES_LOUDRED,
         .moves = {MOVE_IMAKUNI, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
+    {
+        .iv = 0,
+        .lvl = 14,
+        .species = SPECIES_IMAKUNIDODUO,
+        .moves = {MOVE_FRENZIED_ESCAPE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
 
 };
 
