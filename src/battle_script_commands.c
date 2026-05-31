@@ -837,6 +837,7 @@ static const u16 sMovesForbiddenToCopy[] =
     MOVE_SHADOW_SHIELD,
     MOVE_10000_VOLTS,
     MOVE_SUBSTITUTE_TEACHER,
+    MOVE_LEECH_SEED_LICHEN,
     MIMIC_FORBIDDEN_END,
     // the moves below are NOT black listed for Mimic and Sketch
     MOVE_COUNTER,
@@ -3004,6 +3005,11 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     if (gCurrentMove == MOVE_THORN_WHIP)
                     {
                         gStatuses3[gBattlerTarget] |= STATUS3_TOXIC_SEED;
+                    }
+
+                    if (gCurrentMove == MOVE_LEECH_SEED_LICHEN)
+                    {
+                        gStatuses3[gEffectBattler] |= STATUS3_LEECH_SEED_OHKO;
                     }
 
                     statusChanged = TRUE;
@@ -7974,6 +7980,9 @@ static void Cmd_setseeded(void)
 
         if (gCurrentMove == MOVE_THORN_WHIP)
             gStatuses3[gBattlerTarget] |= STATUS3_TOXIC_SEED;
+
+        if (gCurrentMove == MOVE_LEECH_SEED_LICHEN)
+            gStatuses3[gBattlerTarget] |= STATUS3_LEECH_SEED_OHKO;
             
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_SET;
     }

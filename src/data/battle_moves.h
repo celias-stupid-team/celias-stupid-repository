@@ -15143,4 +15143,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
+    
+    [MOVE_LEECH_SEED_LICHEN] =
+    {
+        .effect = EFFECT_LEECH_SEED,
+        .power = 0,
+        .type = TYPE_GRASS,
+        .accuracy = 90,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
 };

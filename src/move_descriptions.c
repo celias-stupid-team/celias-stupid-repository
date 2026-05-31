@@ -2333,4 +2333,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_PLUSLEPLUPOO     -1 ] = gMoveDescription_Plusleplupoo,
     [MOVE_DEDENEDEDOO     -1 ] = gMoveDescription_Dedenededoo,
     [MOVE_TOGEDEEZNUTS     -1 ] = gMoveDescription_Togedeeznuts,
+    [MOVE_LEECH_SEED_LICHEN     -1 ] = gMoveDescription_LeechSeed,
 };

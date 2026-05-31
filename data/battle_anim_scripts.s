@@ -1210,6 +1210,7 @@ gBattleAnims_Moves::
 	.4byte Move_PLUSLEPLUPOO
 	.4byte Move_DEDENEDEDOO
 	.4byte Move_TOGEDEEZNUTS
+	.4byte Move_LEECH_SEED
 
 	.4byte Move_COUNT @ cannot be reached
 

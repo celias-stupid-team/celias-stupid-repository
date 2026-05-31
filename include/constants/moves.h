@@ -1169,8 +1169,9 @@
 #define MOVE_PLUSLEPLUPOO 1160
 #define MOVE_DEDENEDEDOO 1161
 #define MOVE_TOGEDEEZNUTS 1162
+#define MOVE_LEECH_SEED_LICHEN 1163
 
-#define MOVES_COUNT 1163
+#define MOVES_COUNT 1164
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
 

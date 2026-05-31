@@ -1167,6 +1167,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_PLUSLEPLUPOO]     = _("PLUSLEPLUPOO"),
     [MOVE_DEDENEDEDOO]     = _("DEDENEDEDOO"),
     [MOVE_TOGEDEEZNUTS]     = _("TOGEDEEZNUTS"),
+    [MOVE_LEECH_SEED_LICHEN]     = _("LEECH SEED"),
 };
 
 const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
@@ -2338,4 +2339,5 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_PLUSLEPLUPOO]     = _("PLUSLEPLUPOO"),
     [MOVE_DEDENEDEDOO]     = _("DEDENEDEDOO"),
     [MOVE_TOGEDEEZNUTS]     = _("TOGEDEEZNUTS"),
+    [MOVE_LEECH_SEED_LICHEN]     = _("LEECH SEED"),
 }; //For any move which needs its name lengthened, these will display in battle.
