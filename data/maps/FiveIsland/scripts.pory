@@ -114,6 +114,7 @@ script Yes_WhereAreYouFrom {
 script Yes_ChanseyNPC {
 	lock
 	faceplayer
+	bufferspeciesname(STR_VAR_1, SPECIES_CHANSEY)
 	famechecker(FAMECHECKER_GREAT_BAY, 4)
 	if(flag(FLAG_LEARNED_YES_NAH_CHANSEY)) {
 		msgbox(

@@ -1784,6 +1784,7 @@ static void BerryPowderManAlive_CB(void) {
 }
 
 static void SayYes_CB(void) {
+    VarSet(VAR_RESULT, 0);
     if(!StringCompare(gText_Yes, gStringVar1) ||
         !StringCompare(gText_YesLower, gStringVar1) ||
         !StringCompare(gText_YUP, gStringVar1) ||
