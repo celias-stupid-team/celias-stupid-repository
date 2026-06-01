@@ -490,7 +490,7 @@
 #define MUS_SE_MONSTER_MASH 481
 #define MUS_SE_SONIC_BOOM 482
 #define MUS_SE_SPACE_JAM 483
-#define mus_star_battle 484
+#define MUS_BW_RIVAL 484
 #define SE_BOO_WOMP 485
 #define SE_CAMBRIAN_1 486
 #define SE_CAMBRIAN_2 487
@@ -510,7 +510,6 @@
 #define SE_ITS_T 501
 #define SE_TIME 502
 #define SE_ASS_BLASTER 503
-#define MUS_BW_RIVAL 504
 
 #define MUS_NONE 0xFFFF
 

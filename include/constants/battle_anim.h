@@ -602,6 +602,8 @@
 #define ANIM_TAG_BLUK_BERRY                 (ANIM_SPRITES_START + 592)
 #define ANIM_TAG_BLUK_JUICE                 (ANIM_SPRITES_START + 593)
 #define ANIM_TAG_LCD_EXPLOSION              (ANIM_SPRITES_START + 594)
+#define ANIM_TAG_TRASH                      (ANIM_SPRITES_START + 595)
+#define ANIM_TAG_TM                         (ANIM_SPRITES_START + 596)
 
 // battlers
 #define ANIM_ATTACKER       0

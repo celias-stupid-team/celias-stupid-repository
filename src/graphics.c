@@ -1508,6 +1508,12 @@ const u32 gBattleAnimSpritePal_BlukJuice[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpriteGfx_LCDExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/lcd_explosion.4bpp.lz");
 const u32 gBattleAnimSpritePal_LCDExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/lcd_explosion.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Trash[] = INCBIN_U32("graphics/battle_anims/sprites/trash.4bpp.lz");
+const u32 gBattleAnimSpritePal_Trash[] = INCBIN_U32("graphics/battle_anims/sprites/trash.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TM[] = INCBIN_U32("graphics/battle_anims/sprites/tm.4bpp.lz");
+const u32 gBattleAnimSpritePal_TM[] = INCBIN_U32("graphics/battle_anims/sprites/tm.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_CircleOfLight[] = INCBIN_U32("graphics/battle_anims/sprites/circle_of_light.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_ElectricOrbs[] = INCBIN_U32("graphics/battle_anims/sprites/electric_orbs.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_Electricity[] = INCBIN_U32("graphics/battle_anims/sprites/electricity.4bpp.lz");
