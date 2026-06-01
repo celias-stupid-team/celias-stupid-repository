@@ -1602,7 +1602,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 // requires to recalc EXP to set the level accordingly
                 u32 level = GetPlayerPartyHighestLevel();
                 u16 species = GetMonData(&party[i], MON_DATA_SPECIES, NULL);
-                u32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+                u32 exp = 0;
+                
+                if (level < 30) // min level is always 30
+                    level = 30;
+                exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
 
                 SetMonData(&party[i], MON_DATA_EXP, &exp);
                 CalculateMonStats(&party[i]);
@@ -2347,7 +2351,7 @@ void SwitchInClearSetData(void)
     if (gBattleMoves[gCurrentMove].effect == EFFECT_BATON_PASS)
     {
         gBattleMons[gActiveBattler].status2 &= (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_ESCAPE_PREVENTION | STATUS2_CURSED);
-        gStatuses3[gActiveBattler] &= (STATUS3_LEECHSEED_BATTLER | STATUS3_LEECHSEED | STATUS3_ALWAYS_HITS | STATUS3_PERISH_SONG | STATUS3_ROOTED | STATUS3_MUDSPORT | STATUS3_WATERSPORT | STATUS3_TOXIC_SEED);
+        gStatuses3[gActiveBattler] &= (STATUS3_LEECHSEED_BATTLER | STATUS3_LEECHSEED | STATUS3_ALWAYS_HITS | STATUS3_PERISH_SONG | STATUS3_ROOTED | STATUS3_MUDSPORT | STATUS3_WATERSPORT | STATUS3_TOXIC_SEED | STATUS3_LEECH_SEED_OHKO);
         for (i = 0; i < gBattlersCount; i++)
         {
             if (GetBattlerSide(gActiveBattler) != GetBattlerSide(i)
@@ -4544,7 +4548,7 @@ static void HandleAction_UseItem(void)
         gBattlescriptCurrInstr = gBattlescriptsForUsingItem[*(gBattleStruct->AI_itemType + gBattlerAttacker / 2)];
     }
 
-    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+    if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLCUNOOHGIA) && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && gLastUsedItem != ITEM_BICYCLE && gLastUsedItem != ITEM_SHINY_BIKE)
         gBattleTurnMonUsedMoveOrItem = TRUE;
 
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;

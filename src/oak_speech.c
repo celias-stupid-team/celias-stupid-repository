@@ -47,7 +47,6 @@ struct OakSpeechResources
 };
 
 static EWRAM_DATA struct OakSpeechResources *sOakSpeechResources = NULL;
-EWRAM_DATA u8 gModeNewGame = 0; // 1 = hard mode, 2 = easy mode
 
 static void Task_NewGameScene(u8);
 
@@ -1509,7 +1508,7 @@ static void Task_OakSpeech_HandleConfirmNameInput(u8 taskId)
         }
         else
         {
-            if (gModeNewGame != 0)
+            if (VarGet(VAR_NEW_GAME_MODE) != 0)
                 gTasks[taskId].func = Task_OakSpeech_ShowModeActivatedMessage;
             else
             {
@@ -1551,7 +1550,7 @@ static void Task_OakSpeech_ShowModeActivatedMessage(u8 taskId)
 
     if (!IsTextPrinterActive(WIN_INTRO_TEXTBOX))
     {
-        const u8 *modeText = (gModeNewGame == 1) ? sTextHardModeActivated : sTextEasyModeActivated;
+        const u8 *modeText = (VarGet(VAR_NEW_GAME_MODE) == 1) ? sTextHardModeActivated : sTextEasyModeActivated;
         OakSpeechPrintMessage(modeText, sOakSpeechResources->textSpeed);
         gTasks[taskId].func = Task_OakSpeech_FadeOutRivalPic;
     }
@@ -1886,11 +1885,11 @@ static void CB2_ReturnFromNamingScreen(void)
             static const u8 sRivalNameGaryUpper[] = _("GARY");
             static const u8 sRivalNameGaryLower[] = _("gary");
 
-            gModeNewGame = 0;
+            VarSet(VAR_NEW_GAME_MODE, 0);
             if (StringCompare(gSaveBlock1Ptr->rivalName, sRivalNameGaryUpper) == 0)
-                gModeNewGame = 1; // hard mode
+                VarSet(VAR_NEW_GAME_MODE, 1); // hard mode
             else if (StringCompare(gSaveBlock1Ptr->rivalName, sRivalNameGaryLower) == 0)
-                gModeNewGame = 2; // easy mode
+                VarSet(VAR_NEW_GAME_MODE, 2); // easy mode
             
             LoadTrainerPic(RIVAL_PIC, 0);
         }

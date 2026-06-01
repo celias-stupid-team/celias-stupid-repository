@@ -6481,7 +6481,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_BARRAGE_2] =    {
-        .effect = EFFECT_MULTI_HIT,
+        .effect = EFFECT_HIT,
         .power = 15,
         .type = TYPE_NORMAL,
         .accuracy = 85,
@@ -15264,6 +15264,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
     [MOVE_BESEECH_SEED] =
+    {
+        .effect = EFFECT_LEECH_SEED,
+        .power = 0,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
+    
+    [MOVE_LEECH_SEED_LICHEN] =
     {
         .effect = EFFECT_LEECH_SEED,
         .power = 0,

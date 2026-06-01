@@ -6,6 +6,7 @@ mapscripts Starlight_House_MapScripts {
         }
             if(flag(FLAG_CSR_CELIA_BONUS)) {
 			setflag(FLAG_TEMP_8)
+			setflag(FLAG_TEMP_4)
 		}
 		if(flag(FLAG_DAK_HERE)) {
 			setflag(FLAG_TEMP_8)
@@ -13,21 +14,13 @@ mapscripts Starlight_House_MapScripts {
 		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || flag(FLAG_DAK_HERE) || flag(FLAG_CSR_CELIA_BONUS)) {
 			setflag(FLAG_TEMP_9)
 		}
-		if(!flag(FLAG_POST_GAME) || flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE)) {
+		if(!flag(FLAG_POST_GAME) || flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
 			setflag(FLAG_TEMP_7)
 		}
 
 		 
 
 	}
-	MAP_SCRIPT_ON_LOAD {
-	if(!flag(FLAG_CSR_CELIA_BONUS)) {
-		setmetatile(9, 9, METATILE_Starlight_Interior_Table1, FALSE)
-		setmetatile(10, 9, METATILE_Starlight_Interior_Table2, FALSE)
-		setmetatile(9, 10, METATILE_Starlight_Interior_Table3, FALSE)
-		setmetatile(10, 10, METATILE_Starlight_Interior_Table4, FALSE)
-	}
-}
 }
 
 script Starlight_House_Window {
@@ -39,15 +32,14 @@ script Starlight_House_Window {
 
 script Starlight_House_Painting {
 	msgbox(
-	"It looks to be a painting\n"
-    "of a window.", MSGBOX_SIGN)
+	"It's a painting of a window.", MSGBOX_SIGN)
 
 }
 
-script Starlight_House_TV {
+script Starlight_House_Bookshelf {
 	msgbox(
-	"Why are there always TV's in\n"
-    "houses, but no couches?", MSGBOX_SIGN)
+	"There is a suspicious lack of\n"
+	"My Secret Life books here.", MSGBOX_NPC)
 
 }
 
@@ -67,10 +59,15 @@ script Starlight_House_Smiley_Face {
 	release
 }
 
+script Starlight_House_Celia_Doll {
+	finditem(ITEM_POKE_DOLL)
+	removeobject(CeliaDoll)
+	setflag(FLAG_TEMP_4)
+}
 
 script Starlight_House_Mudkip_Doll {
 	finditem(ITEM_POKE_DOLL)
-	removeobject(Mudkip)
+	removeobject(MudkipDoll)
 	setflag(FLAG_TEMP_3)
 }
 
@@ -88,16 +85,1241 @@ script Starlight_House_Eevee_Doll {
 script Starlight_House_Post_Game_Starlight {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Thank you so much for playing\n"
-	"Celia's Stupid Romhack!\p"
+	"STARLIGHT: Thank you {PLAYER} for\n"
+	"playing Celia's Stupid Romhack!\p"
 
-	"I made this house to learn how to\n"
-	"script and indulge in fun map\l"
+	"I made this house to learn new\n"
+	"skills and indulge in fun map\l"
 	"ideas!\p"
 
-	"Working on this hack was a lot of\n"
-	"work, but one of the most\l"
-	"enriching experiences in my life.\l"
-	"I thank Celia for helping me\l"
-	"achieve my dreams!", MSGBOX_NPC)
+	"It was a lot of work making this\n"
+	"hack, but truly an enjoyable and\l"
+	"enriching experience.", MSGBOX_NPC)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
 }
+
+script Starlight_House_My_Secret_Life {
+	msgbox(
+	 "My Secret Life, chapter three.\p"
+	 "I was neither a murder suspect, nor\n"
+	 "a target for an international spy\l"
+	 "organization.\p"
+	 "But I drove a car down the Jersey\n"
+	 "Turnpike at 80 mph.\p"
+	 "…A police officer pulled me over\n"
+	 "and asked for my driver's license.\p"
+	 "He said I was going 20 mph over the\n"
+	 "speed limit. I instantly pointed to\l"
+	 "my wife and said, “I'm in a hurry,\l"
+	 "my wife is in labor.”\p"
+	 "Fortunately, my wife actually had a\n"
+	 "big stomach.\p"
+	 "I hoped he'd let me go with this\n"
+	 "excuse.\p"
+	 "“Oh, since it's an emergency, I'll\n"
+	 "lead you to the hospital with my\l"
+	 "police car,” he said.\p"
+	 "“No, it's not necessary.”\p"
+	 "“Why not?” asked the officer.\n"
+	 "“Uh… well…”\p"
+	 "“Let's get going,” said the officer.\p"
+	 "“No, no! We can't! This baby is a\n"
+	 "demon child!”$", MSGBOX_SIGN)
+}
+
+
+
+
+
+
+
+
+
+
+script StarlightHouse_NotSoFunFactsMenu {
+	setvar(VAR_RESULT, 0)
+	//closemessage
+	dynmultichoice(2, 1, FALSE, 3, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+				"Music Tracks",
+				"Dance Floor",
+				"Dancers"
+				//"BACK"
+				,)
+				
+		closemessage
+		call(StarlightHouse_CallMusicMenuOptions)
+	
+
+	
+	release
+}
+
+script StarlightHouse_NotSoFunFactsOptions {
+			switch(var(VAR_RESULT)) {
+				case 0:
+					call(StarlightHouse_Jukebox)
+				case 1:
+					call(StarlightHouse_Floorbox)
+				case 2:
+					call(StarlightHouse_Dancebox)
+				//case 3:
+					//call(StarlightHouse_MainMenu)
+				default:
+				//call(StarlightHouse_MainMenu)
+					setvar(VAR_RESULT, 0)
+					release
+					end
+	}
+}
+
+script StarlightHouse_Plant_Chain {
+	//setvar(VAR_TEMP_0, 14)//For testing the final animation
+	closemessage
+		if(var(VAR_TEMP_0) == 0) {
+			msgbox(
+			"It's an Oakn't.", MSGBOX_SIGN)
+		}
+		if(var(VAR_TEMP_0) == 1) {
+			msgbox(
+			"No Oak here.", MSGBOX_SIGN)
+		}
+		if(var(VAR_TEMP_0) == 2) {
+			msgbox(
+			"Still not Oak.", MSGBOX_SIGN)
+		}
+		if(var(VAR_TEMP_0) == 3) {
+			msgbox(
+			"If you squint your eyes hard enough\n"
+			"it could be Oak.", MSGBOX_SIGN)
+		}
+		if(var(VAR_TEMP_0) == 4) {
+			msgbox(
+			"I'm out of Oak jokes...", MSGBOX_SIGN)
+		}
+		if(var(VAR_TEMP_0) >= 5 && var(VAR_TEMP_0) <= 6) {
+			msgbox(
+			"I'm out of Oak jokes..", MSGBOX_SIGN)
+		}
+		if(var(VAR_TEMP_0) == 7) {
+			msgbox(
+			"STOP!!!", MSGBOX_SIGN)
+		}
+		if(var(VAR_TEMP_0) == 8) {
+			//playse(SE_CLICK)
+			setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE_LAYOUT_2, 
+				0,	// startingX
+				0,	// startingY 
+				0,	// x1 
+				0,	// y1
+				16, // x2
+				10) // y2
+		msgbox(
+			"There, no more trees.", MSGBOX_SIGN)
+		}
+
+		if(var(VAR_TEMP_0) >= 9 && var(VAR_TEMP_0) <= 13) {		
+			msgbox(
+			"...", MSGBOX_SIGN)
+		}
+
+		if(var(VAR_TEMP_0) >= 14) {
+			if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {//before talking to starlight
+			
+			if(var(VAR_TEMP_4) == 1) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(0, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 2) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(1, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 3) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(2, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_left * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 4) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(4, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 5) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(5, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 6) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(6, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_left * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 7) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(13, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 8) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(14, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+			
+			if(var(VAR_TEMP_4) == 9) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(15, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_up * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 10) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(16, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 11) {
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(16, 2, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_up * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			}
+			if(flag(FLAG_POST_GAME) && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {//post game and after starlight battle
+			
+			if(var(VAR_TEMP_4) == 1) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fast_up
+			walk_fast_left * 8
+			face_down
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			//delay(50)
+			playse(SE_CLICK)
+    		setmetatile(0, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+			))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 2) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fast_up
+			walk_fast_left * 7
+			face_down
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			//delay(50)
+			playse(SE_CLICK)
+    		setmetatile(1, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 3) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fast_up
+			walk_fast_left * 6
+			face_down
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			//delay(50)
+			playse(SE_CLICK)
+    		setmetatile(2, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_left * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 4) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fast_up
+			walk_fast_left * 4
+			face_down
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			//delay(50)
+			playse(SE_CLICK)
+    		setmetatile(4, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 5) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			face_left
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			delay(50)
+			playse(SE_CLICK)
+    		setmetatile(5, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 6) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_faster_down
+			walk_faster_left
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			delay(10)
+			applymovement(LOCALID_PLAYER, moves(
+			face_right
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(6, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 7) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fast_up
+			walk_fast_right * 5
+			face_down
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			//delay(50)
+			playse(SE_CLICK)
+    		setmetatile(13, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 8) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fast_up
+			walk_fast_right * 6
+			face_down
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			//delay(50)
+			playse(SE_CLICK)
+    		setmetatile(14, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+			
+			if(var(VAR_TEMP_4) == 9) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fast_up
+			walk_fast_right * 7
+			face_down
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			//delay(50)
+			playse(SE_CLICK)
+    		setmetatile(15, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_up * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 10) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fast_up
+			walk_fast_right * 8
+			face_down
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			//delay(50)
+			playse(SE_CLICK)
+    		setmetatile(16, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 11) {
+			delay(30)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fastest_up 
+			walk_fastest_right * 4
+			walk_fast_up 
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			delay(20)
+			playse(SE_SLIDING_DOOR)
+			setmetatile(12, 4, 0x118, FALSE)
+			setmetatile(13, 4, 0x160, FALSE)
+			setmetatile(12, 5, 0x120, FALSE)
+			setmetatile(13, 5, 0x168, FALSE)
+			setmetatile(12, 6, 0x109, FALSE)
+			setmetatile(13, 6, 0x109, FALSE)
+    		special(DrawWholeMapView)
+			delay(1)
+			setmetatile(12, 3, 0x118, FALSE)
+			setmetatile(13, 3, 0x160, FALSE)
+			setmetatile(12, 4, 0x120, FALSE)
+			setmetatile(13, 4, 0x168, FALSE)
+			setmetatile(12, 5, 0x109, FALSE)
+			setmetatile(13, 5, 0x109, FALSE)
+    		special(DrawWholeMapView)
+			delay(1)
+			setmetatile(11, 3, 0x118, FALSE)
+			setmetatile(11, 4, 0x120, FALSE)
+			setmetatile(12, 3, 0x160, FALSE)
+			setmetatile(12, 4, 0x168, FALSE)
+			setmetatile(13, 3, 0x109, FALSE)
+			setmetatile(13, 4, 0x109, FALSE)
+    		special(DrawWholeMapView)
+			delay(1)
+			setmetatile(10, 3, 0x118, FALSE)
+			setmetatile(10, 4, 0x120, FALSE)
+			setmetatile(11, 3, 0x160, FALSE)
+			setmetatile(11, 4, 0x168, FALSE)
+			setmetatile(12, 3, 0x109, FALSE)
+			setmetatile(12, 4, 0x109, FALSE)
+    		special(DrawWholeMapView)
+			delay(20)
+			applymovement(POST_GAME_STARLIGHT, moves(
+			walk_fast_up * 5
+			walk_fast_right * 2
+    		))
+    		waitmovement(POST_GAME_STARLIGHT)
+			applymovement(LOCALID_PLAYER, moves(
+        		face_left
+			))
+			delay(40)
+			playse(SE_CLICK)
+    		setmetatile(16, 2, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_left * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+
+			} 
+			}
+			if(!flag(FLAG_POST_GAME) && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {//pre post game, have talked to starlight
+			if(var(VAR_TEMP_4) == 1) {
+			delay(30)
+			addobject(TREE_STARLIGHT_1)
+			playse(SE_DOOR)
+			applymovement(TREE_STARLIGHT_1, moves(
+        	walk_fastest_up * 2
+			set_visible
+			))
+			waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			applymovement(TREE_STARLIGHT_1, moves(
+			face_left
+    		))
+    		waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(0, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 2) {
+			delay(30)
+			addobject(TREE_STARLIGHT_1)
+			playse(SE_DOOR)
+			applymovement(TREE_STARLIGHT_1, moves(
+        	walk_fastest_up * 2
+			set_visible
+			))
+			waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			applymovement(TREE_STARLIGHT_1, moves(
+			walk_up
+			face_left
+    		))
+    		waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(1, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 3) {
+			delay(30)
+			addobject(TREE_STARLIGHT_1)
+			playse(SE_DOOR)
+			applymovement(TREE_STARLIGHT_1, moves(
+        	walk_fastest_up * 2
+			set_visible
+			))
+			waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			applymovement(TREE_STARLIGHT_1, moves(
+			face_left
+    		))
+    		waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(2, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_left * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 4) {
+			delay(30)
+			addobject(TREE_STARLIGHT_1)
+			playse(SE_DOOR)
+			applymovement(TREE_STARLIGHT_1, moves(
+        	walk_fastest_up * 2
+			set_visible
+			))
+			waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			applymovement(TREE_STARLIGHT_1, moves(
+			face_right
+    		))
+    		waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(4, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 5) {
+			delay(30)
+			addobject(TREE_STARLIGHT_1)
+			playse(SE_DOOR)
+			applymovement(TREE_STARLIGHT_1, moves(
+        	walk_fastest_up * 2
+			set_visible
+			))
+			waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			applymovement(TREE_STARLIGHT_1, moves(
+			walk_up
+			face_right
+    		))
+    		waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(5, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 6) {
+			delay(30)
+			addobject(TREE_STARLIGHT_1)
+			playse(SE_DOOR)
+			applymovement(TREE_STARLIGHT_1, moves(
+        	walk_fastest_up * 2
+			set_visible
+			))
+			waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			applymovement(TREE_STARLIGHT_1, moves(
+			face_right
+    		))
+    		waitmovement(TREE_STARLIGHT_1)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(6, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_left * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 7) {
+			delay(30)
+			addobject(TREE_STARLIGHT_3)
+			playse(SE_EXIT)
+			applymovement(TREE_STARLIGHT_3, moves(
+        	walk_fastest_left * 2
+			set_visible
+			walk_left * 1
+			))
+			waitmovement(TREE_STARLIGHT_3)
+			delay(30)
+			applymovement(TREE_STARLIGHT_3, moves(
+			face_down
+    		))
+    		waitmovement(TREE_STARLIGHT_3)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(13, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_right * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 8) {
+			delay(30)
+			addobject(TREE_STARLIGHT_3)
+			playse(SE_EXIT)
+			applymovement(TREE_STARLIGHT_3, moves(
+        	walk_fastest_left * 2
+			set_visible
+			walk_left * 1
+			))
+			waitmovement(TREE_STARLIGHT_3)
+			delay(30)
+			applymovement(TREE_STARLIGHT_3, moves(
+			face_down
+    		))
+    		waitmovement(TREE_STARLIGHT_3)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(14, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+			
+			if(var(VAR_TEMP_4) == 9) {
+			delay(30)
+			addobject(TREE_STARLIGHT_3)
+			playse(SE_EXIT)
+			applymovement(TREE_STARLIGHT_3, moves(
+        	walk_fastest_left * 2
+			set_visible
+			walk_left * 1
+			))
+			waitmovement(TREE_STARLIGHT_3)
+			delay(30)
+			applymovement(TREE_STARLIGHT_3, moves(
+			face_down
+    		))
+    		waitmovement(TREE_STARLIGHT_3)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(15, 10, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_up * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 10) {
+			delay(30)
+			addobject(TREE_STARLIGHT_3)
+			playse(SE_EXIT)
+			applymovement(TREE_STARLIGHT_3, moves(
+        	walk_fastest_left * 2
+			set_visible
+			walk_left * 1
+			))
+			waitmovement(TREE_STARLIGHT_3)
+			delay(30)
+			applymovement(TREE_STARLIGHT_3, moves(
+			face_down
+    		))
+    		waitmovement(TREE_STARLIGHT_3)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(16, 9, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_down * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			if(var(VAR_TEMP_4) == 11) {
+			delay(30)
+			addobject(TREE_STARLIGHT_2)
+			playse(SE_DOOR)
+			applymovement(TREE_STARLIGHT_2, moves(
+        	walk_fastest_down * 1
+			set_visible
+			walk_down * 1
+			))
+			waitmovement(TREE_STARLIGHT_2)
+			delay(30)
+			applymovement(TREE_STARLIGHT_2, moves(
+			face_right
+    		))
+    		waitmovement(TREE_STARLIGHT_2)
+			delay(30)
+			playse(SE_CLICK)
+    		setmetatile(16, 2, 0x357, FALSE)
+    		special(DrawWholeMapView)
+    		applymovement(LOCALID_PLAYER, moves(
+        		walk_in_place_faster_up * 15
+        	))
+			waitmovement(LOCALID_PLAYER)
+    		playse(SE_FALL)
+			applymovement(LOCALID_PLAYER, moves(set_invisible))	
+			delay(30)	
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			setobjectxy(LOCALID_PLAYER, 6, 9)
+			special(SpawnCameraObject)
+			applymovement(LOCALID_CAMERA, moves(walk_fastest_down * 20))
+			waitmovement(0)
+			warphole(MAP_STARLIGHT_HOUSE5)
+            waitstate
+			}
+
+			}
+
+			}
+
+		
+		
+
+addvar(VAR_TEMP_0, 1)
+}
+
+script Starlight_House_Plant1A {
+	setvar(VAR_TEMP_4, 1)
+	release
+}
+
+script Starlight_House_Plant1B {
+	setvar(VAR_TEMP_4, 2)
+	release
+}
+
+script Starlight_House_Plant1C {
+	setvar(VAR_TEMP_4, 3)
+	release
+}
+
+script Starlight_House_Plant2A {
+	setvar(VAR_TEMP_4, 4)
+	release
+}
+
+script Starlight_House_Plant2B {
+	setvar(VAR_TEMP_4, 5)
+	release
+}
+
+script Starlight_House_Plant2C {
+	setvar(VAR_TEMP_4, 6)
+	release
+}
+
+script Starlight_House_Plant3A {
+	setvar(VAR_TEMP_4, 7)
+	release
+}
+
+script Starlight_House_Plant3B {
+	setvar(VAR_TEMP_4, 8)
+	release
+}
+
+script Starlight_House_Plant3C {
+	setvar(VAR_TEMP_4, 9)
+	release
+}
+
+script Starlight_House_Plant4A {
+	setvar(VAR_TEMP_4, 10)
+	release
+}
+
+script Starlight_House_Plant5A {
+	setvar(VAR_TEMP_4, 11)
+	release
+}
+
+
+
+
+
+
+
+
+
+
+
+script Starlight_House_Test {
+	if(var(VAR_TEMP_3) == 0) {		
+			msgbox(
+			"Test 1", MSGBOX_SIGN)
+		}
+	if(var(VAR_TEMP_3) == 1) {		
+			msgbox(
+			"Test 2", MSGBOX_SIGN)
+		}
+	if(var(VAR_TEMP_3) == 2) {		
+			msgbox(
+			"Test 3", MSGBOX_SIGN)
+		}
+}
+
+script Starlight_House_Exit {
+	if(flag(FLAG_POST_GAME)) {
+
+	}
+	if(!flag(FLAG_POST_GAME)) {
+		warp(MAP_AETHER_PARADISE_ISLAND, 3)
+	}
+	
+}
+
+//script Debug_Script_3 {
+//msgbox("{PAL_CHANGE COLOR 1 RGB_RED RGB_GREEN}{PAL_CHANGE COLOR_2 RGB_BLUE RGB_PURPLE}{PAL_CHANGE COLOR_3 RGB_CYAN RGB_MAGENTA} Test {CUSTOM COLOR_1}Test {CUSTOM COLOR_2}Test {CUSTOM COLOR_3}Test")
+//return
+//}
+
+script Starlight_House_Color_Test {
+	msgbox(
+"{COLOR WHITE}C
+{COLOR DARK_GRAY}O
+{COLOR LIGHT_GRAY}L
+{COLOR RED}O
+{COLOR LIGHT_RED}R
+{COLOR GREEN}F
+{COLOR LIGHT_GREEN}U
+{COLOR BLUE}L
+{COLOR LIGHT_BLUE}L
+{COLOR DYNAMIC_COLOR1}R
+{COLOR DYNAMIC_COLOR2}A
+{COLOR DYNAMIC_COLOR3}I
+{COLOR DYNAMIC_COLOR4}N
+{COLOR DYNAMIC_COLOR5}B
+{COLOR DYNAMIC_COLOR6}O
+{COLOR DARK_GRAY}W", MSGBOX_SIGN)
+}
+

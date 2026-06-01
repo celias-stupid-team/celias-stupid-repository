@@ -1232,6 +1232,7 @@ gBattleAnims_Moves::
 	.4byte Move_BEHEMOTH_TRASH
 	.4byte Move_WRISTY_EXPLOSION
 	.4byte Move_FART_STRIKE
+	.4byte Move_LEECH_SEED_LICHEN
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -34782,4 +34783,5 @@ Move_FART_STRIKE:
 Move_WAGON_ASCENT:
 Move_BEHEMOTH_TRASH:
 Move_JUNJI_HEALING:
+Move_LEECH_SEED_LICHEN:
 	goto Move_TACKLE

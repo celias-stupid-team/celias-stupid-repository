@@ -1186,8 +1186,9 @@
 #define MOVE_BEHEMOTH_TRASH 1176
 #define MOVE_WRISTY_EXPLOSION 1177
 #define MOVE_FART_STRIKE 1178
+#define MOVE_LEECH_SEED_LICHEN 1179
 
-#define MOVES_COUNT 1179
+#define MOVES_COUNT 1180
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
 

@@ -161,9 +161,9 @@ static const u8 sItemEffect_SacredAsh[7] = {
 };
 
 #define VITAMIN_FRIENDSHIP_CHANGE(i)             \
-    [(i) + 0] = 5, /* Friendship change, low */  \
-    [(i) + 1] = 3, /* Friendship change, mid */  \
-    [(i) + 2] = 2  /* Friendship change, high */
+    [(i) + 0] = 0, /* Friendship change, low */  \
+    [(i) + 1] = 0, /* Friendship change, mid */  \
+    [(i) + 2] = 0  /* Friendship change, high */
 
 static const u8 sItemEffect_HPUp[10] = {
     [4] = ITEM4_EV_HP,

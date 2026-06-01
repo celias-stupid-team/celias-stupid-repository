@@ -973,7 +973,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_CONFUSING_GLARE]     = _("CONFUSE GLRE"),
     [MOVE_SECRET_LIFE_DEW]     = _("S.LIFE DEW 3"),
     [MOVE_G_MAX_CHILDFIRE]     = _("BURNT KID"),
-    [MOVE_DEMOND_STORM]     = _("DEMOND STORM"),
+    [MOVE_DEMOND_STORM]     = _("DEMON STORM"),
     [MOVE_TAIL_BLOW]     = _("TAIL BLOW"),
     [MOVE_FAIL_GLOW]     = _("FAIL GLOW"),
     [MOVE_P_CREATE]     = _("P-CREATE"),
@@ -1183,6 +1183,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_BEHEMOTH_TRASH]     = _("BIG TRASH"),
     [MOVE_WRISTY_EXPLOSION]     = _("WRISTY BOOM"),
     [MOVE_FART_STRIKE]     = _("FART STRIKE"),
+    [MOVE_LEECH_SEED_LICHEN]     = _("LEECH SEED"),
 };
 
 const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
@@ -2161,7 +2162,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_CONFUSING_GLARE]     = _("CONFUSING GLARE"),
     [MOVE_SECRET_LIFE_DEW]     = _("SECRET LIFE DEW"),
     [MOVE_G_MAX_CHILDFIRE]     = _("G-MAX CHILDFIRE"),
-    [MOVE_DEMOND_STORM]     = _("DEMOND STORM"),
+    [MOVE_DEMOND_STORM]     = _("DEMON STORM"),
     [MOVE_TAIL_BLOW]     = _("TAIL BLOW"),
     [MOVE_FAIL_GLOW]     = _("FAIL GLOW"),
     [MOVE_P_CREATE]     = _("P-CREATE"),
@@ -2370,4 +2371,5 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_BEHEMOTH_TRASH]     = _("BEHEMOTH TRASH"),
     [MOVE_WRISTY_EXPLOSION]     = _("WRISTY EXPLOSION"),
     [MOVE_FART_STRIKE]     = _("FART STRIKE"),
+    [MOVE_LEECH_SEED_LICHEN]     = _("LEECH SEED"),
 }; //For any move which needs its name lengthened, these will display in battle.

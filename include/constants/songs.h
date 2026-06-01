@@ -510,6 +510,7 @@
 #define SE_ITS_T 501
 #define SE_TIME 502
 #define SE_ASS_BLASTER 503
+#define MUS_BW_RIVAL 504
 
 #define MUS_NONE 0xFFFF
 

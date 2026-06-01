@@ -1682,17 +1682,17 @@ static const u8 sStatsToRaise[] =
 // 0-99, 100-199, 200+
 static const s8 sFriendshipEventDeltas[][3] = 
 {
-    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 1,  0,  0 },
-    [FRIENDSHIP_EVENT_VITAMIN]              = { 0,  0,  0 },
-    [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 1,  1,  0 },
-    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 3,  2,  1 }, //Gets triggered for any trainer battle, except in pokerap
+    [FRIENDSHIP_EVENT_GROW_LEVEL]           = { 0,  0,  0 },
+    [FRIENDSHIP_EVENT_VITAMIN]              = { 0,  0,  0 }, //unused
+    [FRIENDSHIP_EVENT_BATTLE_ITEM]          = { 0,  0,  0 }, //unused
+    [FRIENDSHIP_EVENT_LEAGUE_BATTLE]        = { 2,  2,  2 }, //Gets triggered for any trainer battle, except in pokerap
     [FRIENDSHIP_EVENT_LEARN_TMHM]           = { 0,  0,  0 },
-    [FRIENDSHIP_EVENT_WALKING]              = { 2,  2,  2 },
-    [FRIENDSHIP_EVENT_MASSAGE]              = { 3,  3,  3 }, //unused
-    [FRIENDSHIP_EVENT_FAINT_SMALL]          = {0, 0, 0 },
-    [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = {0, 0, 0 },
-    [FRIENDSHIP_EVENT_FAINT_LARGE]          = {0, 0, 0 },
-    [FRIENDSHIP_EVENT_WORLD_TRAVEL]          = {1, 1, 1 }, //Using Fly
+    [FRIENDSHIP_EVENT_WALKING]              = { 1,  1,  1 },
+    [FRIENDSHIP_EVENT_MASSAGE]              = { 0,  0,  0 }, //not triggered in this hack
+    [FRIENDSHIP_EVENT_FAINT_SMALL]          = { 0,  0,  0 },
+    [FRIENDSHIP_EVENT_FAINT_OUTSIDE_BATTLE] = { 0,  0,  0 },
+    [FRIENDSHIP_EVENT_FAINT_LARGE]          = { 0,  0,  0 },
+    [FRIENDSHIP_EVENT_WORLD_TRAVEL]         = { 1,  1,  1 }, //Using Fly
 };
 
 #define HM_MOVES_END 0xFFFF
@@ -1819,9 +1819,9 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
     // handle hard/easy mode
     if (level == 6 && (species == SPECIES_WARTORTLE || species == SPECIES_FINALWARTORTLE || species == SPECIES_WARTORTLE_POKERAP))
     {
-        if (gModeNewGame == 1)
+        if (VarGet(VAR_NEW_GAME_MODE) == 1)
             level = 7;
-        else if (gModeNewGame == 2)
+        else if (VarGet(VAR_NEW_GAME_MODE) == 2)
             level = 5;
     }
     ZeroMonData(mon);
@@ -2250,8 +2250,8 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
     s32 arg;
-    u8 RegiSpeed = 1;
-    u8 StakatakaSpeed = 8;
+    s32 RegiSpeed = 1;
+    s32 StakatakaSpeed = 8;
 
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
@@ -2324,8 +2324,6 @@ void CalculateMonStats(struct Pokemon *mon)
     }
 
     SetMonData(mon, MON_DATA_HP, &currentHP);
-
-
 
     if(species == SPECIES_STAKATAKA) {
         SetMonData(mon, MON_DATA_SPEED, &StakatakaSpeed);
@@ -4272,9 +4270,8 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
         friendshipChange = itemEffect[idx];                                                             \
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);                                        \
         if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)                            \
-            friendship = MAX_FRIENDSHIP;                                                 \
-        else                                                                                            \
-            friendship += friendshipChange;                                                             \
+            friendshipChange += (friendshipChange + 1) / 2;                                            \
+        friendship += friendshipChange;                                                                 \
         if (friendshipChange > 0)                                                                       \
         {                                                                                               \
             if (GetMonData(mon, MON_DATA_POKEBALL, NULL) == ITEM_LUXURY_BALL)                           \
@@ -5413,6 +5410,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(gEvolutionTable[species][i].param) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(gEvolutionTable[species][i].param))
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_HOLD_ITEM:
+                if (GetMonData(mon, MON_DATA_HELD_ITEM, NULL) == gEvolutionTable[species][i].param)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             case EVO_PARTY: //Have Gun in party
                 
                 for (j = 0; j < PARTY_SIZE; j++)
@@ -5808,11 +5809,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
         delta = sFriendshipEventDeltas[event][friendshipLevel];
         if (delta > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
-        {
-            friendship = MAX_FRIENDSHIP;
-            SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
-            return;
-        }
+            delta += (delta + 1) / 2;
 
         friendship += delta;
         if (delta > 0)
@@ -6202,7 +6199,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_BUTTERFINGERS:
             return MUS_CSR_DMCA_BATTLE;
         case TRAINER_CLASS_STARLIGHT:
-            return MUS_SAFARI_MARCH;
+            return MUS_BW_RIVAL;
 
         case TRAINER_CLASS_DMCA_ADMIN:
             return MUS_CSR_DMCA_ADMIN;
@@ -6857,6 +6854,7 @@ u32 GetCurrentLevelCap(u16 species)
 {
     static const u32 sLevelCapFlagMap[][2] = //Level cap if the respective badge hasn't been gotten
     {
+        {FLAG_BEAT_RIVAL_IN_OAKS_LAB, 4}, 
         {FLAG_BADGE01_GET, 15}, 
         {FLAG_BADGE02_GET, 25}, 
         {FLAG_BADGE04_GET, MAX_LEVEL}, 
