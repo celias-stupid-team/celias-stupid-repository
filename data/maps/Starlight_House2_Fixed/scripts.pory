@@ -27,6 +27,7 @@ script Starlight_House2_Post_Battle {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
+	if(!flag(FLAG_POST_GAME) ) {
 	msgbox(
 	"STARLIGHT: It's nice to meet you!\p"
 
@@ -35,6 +36,20 @@ script Starlight_House2_Post_Battle {
 
 	"I'm the one who builds the maps you\n"
 	"walk around on.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+	"STARLIGHT: Where have you been?\p"
+
+	"I was here before post game too!\p"
+
+	"Anyways, it's nice to meet you!\p"
+
+	"My name is KaizenStarlight but I\n"
+	"go by Starlight for short.\p"
+
+	"I'm the one who builds the maps you\n"
+	"walk around on.", MSGBOX_DEFAULT)
+	}
 
 playse(SE_CLICK)
 setlayouttiles(
@@ -118,18 +133,13 @@ script Starlight_House2_Battle {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	if(!flag(FLAG_POST_GAME)) {
 		trainerbattle_single(TRAINER_STARLIGHT,
 	"STARLIGHT: Oh hi!\p"
-	"I thought I hid this map.",
+	"It's nice of you to stop by my\n"
+	"map workshop.\p"
+
+	"How about a battle?",
 	"That was fun!", Starlight_House2_Post_Battle)
-	} else {
-		trainerbattle_single(TRAINER_STARLIGHT,
-	"STARLIGHT: Oh hi!\p"
-	"Where have you been this whole\n"
-	"time? I was here before post game!",
-	"That was fun!", Starlight_House2_Post_Battle)
-	}
 	release
 	end
 
@@ -150,6 +160,7 @@ script Starlight_House2_Battle {
 	))
 	waitmovement(0)
 	release
+	
 }
 
 script Starlight_House2_Phone { //figure out yesno setup for reading messages.
@@ -182,7 +193,7 @@ script Starlight_House2_Phone { //figure out yesno setup for reading messages.
 script Starlight_House2_Garbage1 {
 	msgbox(
 	"There's nothing in the trash\n"
-	"Except a crumpled up paper showing\l"
+	"except a crumpled up paper showing\l"
 	"plans for recreating the entire map\l"
 	"of Zelda BotW for a small bit.", MSGBOX_SIGN)
 
@@ -219,7 +230,7 @@ script Starlight_House2_Crane_Operator {
 	msgbox(
 	"A control panel for operating the\n"
 	"machine.\p"
-	"Doesn't acutally work.\n"
+	"Doesn't actually work.\n"
 	"(I'm not coding this in...)", MSGBOX_SIGN)
 
 }
@@ -232,9 +243,9 @@ script Starlight_House2_Table_Plans {
 	"It's map plans laid out for the\n"
 	"whole region.\p"
 
-	"Looking high you can't see\n"
-	"anything because you have glasses\l"
-	"in your face.", MSGBOX_SIGN)
+	"Looking closely you don't see\n"
+	"anything, because you have\l"
+	"glasses covering your eyes.", MSGBOX_SIGN)
                 release
                 end
             } else {
@@ -368,7 +379,7 @@ script Starlight_House2_Computer_Special {
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles.", MSGBOX_DEFAULT)
                 case 5:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
@@ -378,13 +389,13 @@ script Starlight_House2_Computer_Special {
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}TRex", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}AFex.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 case 7:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
             }    
 	   } else {
@@ -419,19 +430,19 @@ script Starlight_House2_Computer_Special {
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 case 5:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}TRex", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}AFex.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 case 6:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 
 	        }

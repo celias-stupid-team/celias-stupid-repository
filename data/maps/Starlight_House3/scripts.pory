@@ -255,7 +255,7 @@ script Starlight_House3_Computer_Special {
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles.", MSGBOX_DEFAULT)
                 case 5:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
@@ -265,13 +265,13 @@ script Starlight_House3_Computer_Special {
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}Afex", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}AFex.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 case 7:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
             }    
 	   } else {
@@ -306,19 +306,19 @@ script Starlight_House3_Computer_Special {
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 case 5:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}TRex", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}AFex.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 case 6:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
                     "It's a livestream of that famous\n"
-	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm", MSGBOX_DEFAULT)
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 }
 	        }
@@ -802,7 +802,7 @@ script Starlight_House3_Map_Table_Bit_DMCA {
 	"“STILL, WE SHOULD RUN LIKE IT IS\n"
 	"GODZILLA!”\p"
 
-	"“Though it isn't ;)”", MSGBOX_SIGN)
+	"“Though it isn't ;)”.", MSGBOX_SIGN)
         } else {
         msgbox(
         "You hear tiny voices scream out\n"
@@ -923,7 +923,7 @@ script Starlight_House3_Map_Table_Bit_Celadon_Randomizer {
                     msgbox(
                     "You hear tiny voices scream out\n"
                     "“Take your stinking paws off me, you\l"
-                    "damned dirty ape”", MSGBOX_SIGN)
+                    "damned dirty ape!”", MSGBOX_SIGN)
                 case 23:
                     msgbox(
                     "You hear tiny voices scream out\n"
@@ -1557,7 +1557,7 @@ script Starlight_House3_Map_Table_Edge_Bit_Look_Look {
 }
 
 script Starlight_House3_Look_Look_Fallen {
-	if(flag(FLAG_TEMP_1D)) {
+	if(flag(FLAG_TEMP_1D) && !flag(FLAG_TEMP_7)) {
     msgbox(
 	"There's a tiny little crater on\n"
 	"the floor.", MSGBOX_SIGN)

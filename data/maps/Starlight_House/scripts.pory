@@ -225,7 +225,7 @@ script StarlightHouse_Plant_Chain {
 		}
 		if(var(VAR_TEMP_0) >= 5 && var(VAR_TEMP_0) <= 6) {
 			msgbox(
-			"I'm out of OAK jokes..", MSGBOX_SIGN)
+			"I'm out of OAK jokes....", MSGBOX_SIGN)
 		}
 		if(var(VAR_TEMP_0) == 7) {
 			msgbox(

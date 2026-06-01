@@ -733,7 +733,7 @@ script Starlight_House5_Secret {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
 	"In this lighting you can somehow\n"
-	"see a hatch underneath\p"
+	"see a hatch underneath.\p"
 
 	"Some magical force is holding it\n"
 	"shut until you complete the game.", MSGBOX_DEFAULT)
@@ -742,7 +742,7 @@ script Starlight_House5_Secret {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
 	"In this lighting you can somehow\n"
-	"see a hatch underneath\p"
+	"see a hatch underneath.\p"
 
 	"Some magical force is holding it\n"
 	"shut until you complete the game.", MSGBOX_DEFAULT)
@@ -751,7 +751,7 @@ script Starlight_House5_Secret {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
 	"In this lighting you can somehow\n"
-	"see a hatch underneath\p"
+	"see a hatch underneath.\p"
 
 	"Some magical force is holding it\n"
 	"shut until you find the owner.", MSGBOX_DEFAULT)
@@ -759,7 +759,7 @@ script Starlight_House5_Secret {
 	if(!flag(FLAG_HIDE_BONUS_STARLIGHTS) && flag(FLAG_TEMP_D) && flag(FLAG_POST_GAME)) {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox("In this lighting you can somehow\n"
-	"see a hatch underneath\p"
+	"see a hatch underneath.\p"
 
 	"Enter?", MSGBOX_YESNO)
 		closemessage
