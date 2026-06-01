@@ -59,13 +59,13 @@ script Starlight_House_Smiley_Face {
 	lock
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
-	"Bri: :)", MSGBOX_DEFAULT)
+	"BRI: :)", MSGBOX_DEFAULT)
 	} else {
 		lock
 		faceplayer
 		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox(
-	"Bri: :(", MSGBOX_DEFAULT)
+	"BRI: :(", MSGBOX_DEFAULT)
 	}
 	release
 }
