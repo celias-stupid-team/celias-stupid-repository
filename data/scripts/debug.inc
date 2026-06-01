@@ -138,6 +138,13 @@ Debug_EventScript_Script_9::
 	callnative CSRBadgeDebug
 	end
 
+Debug_EventScript_Script_10::
+	finditem ITEM_COIN_CASE
+	setflag FLAG_GOT_COIN_CASE
+	addcoins 500
+	call CeladonCity_GameCorner_EventScript_SlotMachine
+	end
+
 Debug_CheckSaveBlock::
 	callnative CheckSaveBlock1Size
 	msgbox Debug_SaveBlock1Size, MSGBOX_DEFAULT
