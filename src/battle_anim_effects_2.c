@@ -409,6 +409,17 @@ const struct SpriteTemplate gYoshiEggThrowSpriteTemplate =
     .callback = AnimThrowProjectile,
 };
 
+const struct SpriteTemplate gTrashThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_TRASH,
+    .paletteTag = ANIM_TAG_TRASH,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
 const struct SpriteTemplate gFireredThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_FIRERED,
@@ -4870,6 +4881,28 @@ const struct SpriteTemplate gKrabbyBurstSpriteTemplate =
     .paletteTag = ANIM_TAG_THROWN_KRABBY,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleBurst,
+};
+
+static const union AnimCmd sTMAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTMAnimTable[] =
+{
+    sTMAnimCmds,
+};
+
+const struct SpriteTemplate gTMBurstSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TM,
+    .paletteTag = ANIM_TAG_TM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sTMAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimParticleBurst,

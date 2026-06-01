@@ -34780,8 +34780,37 @@ Move_FART_STRIKE:
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
-Move_WAGON_ASCENT:
 Move_BEHEMOTH_TRASH:
+	loadspritegfx ANIM_TAG_EXPLOSION
+	loadspritegfx ANIM_TAG_TRASH
+	loadspritegfx ANIM_TAG_TM
+	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
+	createsprite gTrashThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 16, 1
+	createsprite gTMBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	@createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gTMBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
+	@createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gTMBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	@createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gTMBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	@createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gTMBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	@createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	waitforvisualfinish
+	end
+Move_WAGON_ASCENT:
 Move_JUNJI_HEALING:
 Move_LEECH_SEED_LICHEN:
 	goto Move_TACKLE
