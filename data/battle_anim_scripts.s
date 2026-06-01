@@ -33428,12 +33428,13 @@ Move_FRYING_PAN:
 	end
 Move_FRENZIED_ESCAPE:
 	loadspritegfx ANIM_TAG_HUMAN_HAND
-	createsprite gHumanHandMoveSpriteTemplate, ANIM_ATTACKER, 2, 16, 80, 0, -2, 32, 40, 0, 0
+	createsprite gHumanHandMoveSpriteTemplate, ANIM_ATTACKER, 2, 16, 80, 0, -2, 32, 41, 0, 0
 	delay 70
 	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
 	createsprite gHumanHandRotateSpriteTemplate, ANIM_ATTACKER, 2, 16, 16, 0xE00, 3, 40, 0
 	@createvisualtask AnimTask_FrenziedEscape, 2, 16, 45, -0xB00
 	createvisualtask AnimTask_FrenziedEscape, 2, -16, -4, 20, -0xB00
+	
 	delay 20
 	playse SE_CAR_CRASH
 	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 10, 10
@@ -34762,8 +34763,23 @@ Move_HYPER_BREAM:
 	createvisualtask AnimTask_StretchTargetUp, 3
 	waitforvisualfinish
 	end
+Move_FART_STRIKE:
+	loadspritegfx ANIM_TAG_CUT
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 24, 6, 1, 5
+	createvisualtask AnimTask_TraceMonBlended, 2, 0, 4, 7, 3
+	createsprite gCuttingSliceSpriteTemplate, ANIM_ATTACKER, 2, 40, -32, 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 10, 1
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 10, RGB_BLACK, 0
+	playsewithpan SE_FART, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
 Move_WAGON_ASCENT:
 Move_BEHEMOTH_TRASH:
-Move_FART_STRIKE:
 Move_JUNJI_HEALING:
 	goto Move_TACKLE

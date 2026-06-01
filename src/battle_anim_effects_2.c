@@ -10499,62 +10499,52 @@ void AnimRotateThenWait(struct Sprite *sprite)
     s16 baseY;
     u8 battler;
 
-    // -------------------------------------------------
-    // Determine positioning basis
-    // -------------------------------------------------
-
     switch (gBattleAnimArgs[5])
     {
-    // Relative to attacker
-    case 0:
+    case 0: // attacker
         battler = gBattleAnimAttacker;
-
         baseX = GetBattlerSpriteCoord(battler, BATTLER_COORD_X);
         baseY = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y);
         break;
 
-    // Relative to target
-    case 1:
+    case 1: // target
         battler = gBattleAnimTarget;
-
         baseX = GetBattlerSpriteCoord(battler, BATTLER_COORD_X);
         baseY = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y);
         break;
 
-    // Screen space
-    case 2:
+    case 2: // screen space
     default:
         baseX = 0;
         baseY = 0;
         break;
     }
 
-    // -------------------------------------------------
-    // Apply initial position
-    // -------------------------------------------------
-
     sprite->x = baseX + gBattleAnimArgs[0];
     sprite->y = baseY + gBattleAnimArgs[1];
 
-    // Rotation speed
+    // rotation amount per frame
     sprite->data[0] = gBattleAnimArgs[2];
 
-    // Rotation duration
+    // rotation duration
     sprite->data[1] = gBattleAnimArgs[3];
 
-    // Hold duration
+    // hold duration
     sprite->data[2] = gBattleAnimArgs[4];
 
-    // Frame counter
+    // frame counter
     sprite->data[3] = 0;
 
-    // Current angle
+    // current angle
     sprite->data[4] = 0;
 
-    // State
-    // 0 = rotating
-    // 1 = holding
+    // state
     sprite->data[5] = 0;
+
+    // store sprite ID for SetSpriteRotScale
+    sprite->data[6] = sprite - gSprites;
+
+    sprite->data[7] = 0;
 
     sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
 
@@ -10562,18 +10552,17 @@ void AnimRotateThenWait(struct Sprite *sprite)
 }
 
 static void AnimRotateThenWait_Step(struct Sprite *sprite)
-{    
+{
     switch (sprite->data[5])
     {
-    // -------------------------------------------------
-    // ROTATING
-    // -------------------------------------------------
+    // -------------------------
+    // ROTATE
+    // -------------------------
     case 0:
-
         sprite->data[4] += sprite->data[0];
 
         SetSpriteRotScale(
-            sprite->oam.affineParam,
+            sprite->data[6],
             0x100,
             0x100,
             sprite->data[4]
@@ -10585,27 +10574,26 @@ static void AnimRotateThenWait_Step(struct Sprite *sprite)
         {
             sprite->data[3] = 0;
             sprite->data[5] = 1;
+            sprite->data[7] = sprite->data[4];
         }
-
         break;
 
-    // -------------------------------------------------
+    // -------------------------
     // HOLD
-    // -------------------------------------------------
+    // -------------------------
     case 1:
+        SetSpriteRotScale(
+            sprite->data[6],
+            0x100,
+            0x100,
+            sprite->data[7]
+        );
 
-        sprite->data[3]++;
-
-        if (sprite->data[3] >= sprite->data[2])
+        if (++sprite->data[3] >= sprite->data[2])
         {
-            //ResetSpriteRotScale(spriteId);
-
-            //sprite->x2 = 0;
-            //sprite->y2 = 0;
-
+            ResetSpriteRotScale(sprite->data[6]);
             DestroyAnimSprite(sprite);
         }
-
         break;
     }
 }
