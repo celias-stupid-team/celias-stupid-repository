@@ -3784,6 +3784,75 @@ const struct SpriteTemplate gTCGBigRockSpriteTemplate =
     .callback = AnimSprite_MoveStaggeredThenWait,
 };
 
+
+static const union AnimCmd sTCGElectricityAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(64, 2),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sTCGElectricityAnimTable[] =
+{
+    sTCGElectricityAnimCmds,
+};
+const struct SpriteTemplate gTCGElectricitySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_ELECTRIC,
+    .paletteTag = ANIM_TAG_TCG_ELECTRIC,
+    .oam = &gOamData_AffineOff_ObjNormal_32x64,
+    .anims = sTCGElectricityAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+
+static const union AnimCmd sTCGSparkAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(1, 2),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sTCGSpark2AnimCmds[] =
+{
+    ANIMCMD_FRAME(1, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sTCGSparkAnimTable[] =
+{
+    sTCGSparkAnimCmds,
+    sTCGSpark2AnimCmds,
+};
+const struct SpriteTemplate gTCGSparkSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_SPARK,
+    .paletteTag = ANIM_TAG_TCG_SPARK,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = &sTCGSparkAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+const struct SpriteTemplate gTCGSpark2SpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TCG_SPARK,
+    .paletteTag = ANIM_TAG_TCG_SPARK,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = &sTCGSparkAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveStaggeredThenWait,
+};
+
 static const union AnimCmd sTCGNeedleRightAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 12),

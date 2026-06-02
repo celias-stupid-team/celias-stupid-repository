@@ -2282,6 +2282,33 @@ SonicBoomHit:
 	return
 
 Move_THUNDERSHOCK_TCG:
+	loadspritegfx ANIM_TAG_TCG_ELECTRIC
+	loadspritegfx ANIM_TAG_TCG_SPARK
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_TCG_ELECTRICITY, SOUND_PAN_TARGET
+	createsprite gTCGElectricitySpriteTemplate, ANIM_TARGET, 2, 0, -16, 0, 0, 0, 26, 0, 1
+	delay 26
+	createsprite gTCGSpark2SpriteTemplate, ANIM_TARGET, 2, -11, -8, -3, -4, 4, 1, 2, 1
+	createsprite gTCGSparkSpriteTemplate, ANIM_TARGET, 2, 11, -8, 3, -4, 4, 1, 2, 1
+	createsprite gTCGSparkSpriteTemplate, ANIM_TARGET, 2, -11, 8, -3, 4, 4, 1, 2, 1
+	createsprite gTCGSpark2SpriteTemplate, ANIM_TARGET, 2, 11, 8, 3, 4, 4, 1, 2, 1
+
+	waitforvisualfinish
+	call TCGImpact
+	end
+
+    @    sprite->data[1] = gBattleAnimArgs[2]; // x step
+    @    sprite->data[2] = gBattleAnimArgs[3]; // y step
+    @    sprite->data[3] = gBattleAnimArgs[4]; // number of steps
+    @    sprite->data[4] = gBattleAnimArgs[5]; // wait duration
+    @    sprite->data[5] = gBattleAnimArgs[6]; // delay between steps
+	end
+
 Move_THUNDER_SHOCK:
 	loadspritegfx ANIM_TAG_SPARK
 	loadspritegfx ANIM_TAG_SPARK_2
@@ -5366,7 +5393,6 @@ Move_CHARM:
 	waitforvisualfinish
 	end
 
-Move_ROLLOVER:
 Move_ROLLOUT:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_MUD_SAND
@@ -7555,6 +7581,36 @@ Move_THUNDER:
 	end
 
 Move_THUNDERPUNCH_TCG:
+	loadspritegfx ANIM_TAG_TCG_ELECTRIC
+	loadspritegfx ANIM_TAG_TCG_SPARK
+	loadspritegfx ANIM_TAG_TCG_CHARGE
+	loadspritegfx ANIM_TAG_TCG_IMPACT
+	loadspritegfx ANIM_TAG_TCG_PUNCH
+
+	playsewithpan SE_TCG_CHARGE, SOUND_PAN_ATTACKER
+	createsprite gTCGChargeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 0, 36, 0, 0
+	waitforvisualfinish
+	playsewithpan SE_TCG_JAB, SOUND_PAN_TARGET
+	createsprite gTCGRightPunchSpriteTemplate, ANIM_TARGET, 2, 32, 36, -8, -8, 8, 2, 3, 1
+	waitforvisualfinish
+	playsewithpan SE_TCG_ELECTRICITY, SOUND_PAN_TARGET
+	createsprite gTCGElectricitySpriteTemplate, ANIM_TARGET, 2, 0, -16, 0, 0, 0, 26, 0, 1
+	delay 26
+	createsprite gTCGSpark2SpriteTemplate, ANIM_TARGET, 2, -11, -8, -3, -4, 4, 1, 2, 1
+	createsprite gTCGSparkSpriteTemplate, ANIM_TARGET, 2, 11, -8, 3, -4, 4, 1, 2, 1
+	createsprite gTCGSparkSpriteTemplate, ANIM_TARGET, 2, -11, 8, -3, 4, 4, 1, 2, 1
+	createsprite gTCGSpark2SpriteTemplate, ANIM_TARGET, 2, 11, 8, 3, 4, 4, 1, 2, 1
+
+	waitforvisualfinish
+	call TCGImpact
+	end
+
+    @    sprite->data[1] = gBattleAnimArgs[2]; // x step
+    @    sprite->data[2] = gBattleAnimArgs[3]; // y step
+    @    sprite->data[3] = gBattleAnimArgs[4]; // number of steps
+    @    sprite->data[4] = gBattleAnimArgs[5]; // wait duration
+    @    sprite->data[5] = gBattleAnimArgs[6]; // delay between steps
+	end
 Move_THUNDER_PUNCH:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
@@ -16427,7 +16483,8 @@ Move_COLLISION_COURSE:
 	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, 0, 0, 4
 	delay 3
 	waitforvisualfinish
-	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	@playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	playsewithpan SE_CAR_CRASH, SOUND_PAN_TARGET
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, -10, 0, ANIM_TARGET, 0
 	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 1, -32, 0, 0, 3
 	waitforvisualfinish
@@ -34337,7 +34394,9 @@ StoneFreeThread:
 Move_LIQUID_UZUMAKI:
 	loadspritegfx ANIM_TAG_SPIRAL
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
-	@monbg ANIM_DEF_PARTNER
+	@monbg ANIM_DEF_PARTNER	
+	fadetobg BG_MANGA
+	waitbgfadein
 	createvisualtask AnimTask_BlendColorCycleExclude, 2, 1, 2, 4, 1, 11, RGB_BLACK
 	setalpha 12, 8
 	loopsewithpan SE_M_PSYBEAM2, SOUND_PAN_TARGET, 5, 10
@@ -34364,6 +34423,8 @@ Move_LIQUID_UZUMAKI:
 	delay 30
 	waitforvisualfinish
 	@clearmonbg ANIM_DEF_PARTNER
+	restorebg
+	waitbgfadein
 	blendoff
 	end
 
@@ -34452,6 +34513,7 @@ Move_PRIME_RIBS:
 	blendoff
 	end
 
+Move_ROLLOVER:
 Move_ROLL_OVER:
 	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
 	createvisualtask AnimTask_MortalSpin, 2, ANIM_ATTACKER, 0, 0, 86, -0x300
@@ -34810,7 +34872,56 @@ Move_BEHEMOTH_TRASH:
 	delay 3
 	waitforvisualfinish
 	end
-Move_WAGON_ASCENT:
 Move_JUNJI_HEALING:
+	loadspritegfx ANIM_TAG_JUNJI_STAR
+	loadspritegfx ANIM_TAG_ROOTS
+	loadspritegfx ANIM_TAG_ORBS
+	@monbg ANIM_DEF_PARTNER	
+	fadetobg BG_MANGA
+	waitbgfadein
+	
+
+	createsprite gJunjiRootSpriteTemplate, ANIM_ATTACKER, 2, 16, 26, -1, 2, 150
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_ATTACKER
+	delay 10
+	createsprite gJunjiRootSpriteTemplate, ANIM_ATTACKER, 2, -32, 20, 1, 1, 140
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_ATTACKER
+	delay 10
+	createsprite gJunjiRootSpriteTemplate, ANIM_ATTACKER, 2, 32, 22, 1, 0, 130
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_ATTACKER
+	delay 10
+	createsprite gJunjiRootSpriteTemplate, ANIM_ATTACKER, 2, -16, 25, -1, 3, 120
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_ATTACKER
+	delay 40
+	createsprite gJunjiOrbSpriteTemplate, ANIM_ATTACKER, 3, 32, 26, -1, 3, 30
+	delay 5
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	delay 5
+	createsprite gJunjiOrbSpriteTemplate, ANIM_ATTACKER, 3, -48, 20, 1, 2, 30
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	delay 5
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	delay 5
+	createsprite gJunjiOrbSpriteTemplate, ANIM_ATTACKER, 3, 48, 26, -2, 3, 18
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	delay 10
+	waitforvisualfinish
+
+	playsewithpan SE_M_ABSORB_2, SOUND_PAN_ATTACKER
+	createsprite gHealingJunjiStarSpriteTemplate, ANIM_ATTACKER, 2, 0, -5, 0, 0
+	delay 7
+	createsprite gHealingJunjiStarSpriteTemplate, ANIM_ATTACKER, 2, -15, 10, 0, 0
+	delay 7
+	createsprite gHealingJunjiStarSpriteTemplate, ANIM_ATTACKER, 2, -15, -15, 0, 0
+	delay 7
+	createsprite gHealingJunjiStarSpriteTemplate, ANIM_ATTACKER, 2, 10, -5, 0, 0
+	delay 7
+	waitforvisualfinish
+
+	restorebg
+	waitbgfadein
+	blendoff
+	end
+Move_WAGON_ASCENT:
 Move_LEECH_SEED_LICHEN:
 	goto Move_TACKLE

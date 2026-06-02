@@ -1653,6 +1653,10 @@ const u32 gBattleAnimBgImage_LCD[] = INCBIN_U32("graphics/battle_anims/backgroun
 const u32 gBattleAnimBgPalette_LCD[] = INCBIN_U32("graphics/battle_anims/backgrounds/lcd.gbapal.lz");
 const u32 gBattleAnimBgTilemap_LCD[] = INCBIN_U32("graphics/battle_anims/backgrounds/lcd.bin.lz");
 
+const u32 gBattleAnimBgImage_Manga[] = INCBIN_U32("graphics/battle_anims/backgrounds/manga.4bpp.lz");
+const u32 gBattleAnimBgPalette_Manga[] = INCBIN_U32("graphics/battle_anims/backgrounds/manga.gbapal.lz");
+const u32 gBattleAnimBgTilemap_Manga[] = INCBIN_U32("graphics/battle_anims/backgrounds/manga.bin.lz");
+
 const u32 gBattleAnimBgImage_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.4bpp.lz");
 const u32 gBattleAnimBgPalette_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.bin.lz");
