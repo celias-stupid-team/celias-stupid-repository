@@ -5,16 +5,22 @@ mapscripts AetherParadise_Island_MapScripts {
             setflag(FLAG_CSR_MAP_AETHER_PARADISE)
 
         }
-        if(!flag(FLAG_POST_GAME) && flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
-        setflag(FLAG_TEMP_1A)
-        }
         if(flag(FLAG_POST_GAME) && flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
         setflag(FLAG_TEMP_1A)
-        setflag(FLAG_HIDE_POSTGAME_STARLIGHT)
+        }
+        if(!flag(FLAG_POST_GAME) && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+        setflag(FLAG_TEMP_1A)
+        }
+        if(!flag(FLAG_POST_GAME) && flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+        setflag(FLAG_TEMP_1A)
         }
         if(flag(FLAG_HIDE_POSTGAME_STARLIGHT)) {
         setflag(FLAG_TEMP_1A)
         }
+        //if(flag(FLAG_HIDE_POSTGAME_STARLIGHT)) {
+        //setflag(FLAG_TEMP_1A)
+        //}
+        //^ I know there's a better solution for this but I am too tired to do it the right way.
     }
     MAP_SCRIPT_ON_LOAD {        
         if(flag(FLAG_POST_GAME) && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {

@@ -833,16 +833,6 @@
       "script": "FushciaCity_SloganSign"
     },
     {
-      "type": "hidden_item",
-      "x": 48,
-      "y": 30,
-      "elevation": 3,
-      "item": "ITEM_MAX_REVIVE",
-      "flag": "FLAG_HIDDEN_ITEM_FUSHCIA_CITY_MAX_REVIVE",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 46,
       "y": 10,

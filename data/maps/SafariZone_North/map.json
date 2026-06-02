@@ -298,6 +298,90 @@
       "elevation": 0,
       "dest_map": "MAP_SAFARI_ZONE_CENTER",
       "dest_warp_id": "4"
+    },
+    {
+      "x": 37,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 38,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 40,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SAFARI_ZONE_DMCASHOWDOWN",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

@@ -13,17 +13,51 @@ MAP_SCRIPT_ON_TRANSITION {
         if(flag(FLAG_CSR_CELIA_BONUS)) {
 			setflag(FLAG_TEMP_8)
 		}
-        setflag(FLAG_TEMP_8)//temporary until commentary is finished
+        //if(!checktrainerflag(TRAINER_STARLIGHT)) {
+        //    setflag(FLAG_TEMP_15)
+        //}
+        //if(!checktrainerflag(TRAINER_WIZ1989)) {
+        //    setflag(FLAG_TEMP_16)
+        //}
+        //if(!checktrainerflag(TRAINER_PLASTO)) {
+        //    setflag(FLAG_TEMP_17)
+        //}
+        //if(!checktrainerflag(TRAINER_LICHEN)) {
+        //    setflag(FLAG_TEMP_18)
+        //}
+        //if(!checktrainerflag(TRAINER_HAKARI_BLIZ)) {
+        //    setflag(FLAG_TEMP_19)
+        //}
+        if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_POST_GAME)) {
+			setflag(FLAG_TEMP_3)
+        }
+        if(flag(FLAG_POST_GAME)) {
+        }
+        setvar(VAR_TEMP_7, 20)
 		
 	}
-}
-script Starlight_House3_Map_Table {
-	msgbox(
-	"A table containing the map of the\n"
-	"entire region.\p"
-	"Seems to be used for planning out\n"
-    "the region layout.", MSGBOX_SIGN)
-
+MAP_SCRIPT_ON_LOAD {        
+        if(flag(FLAG_POST_GAME) && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+        setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE3_LAYOUT_2, 
+				0,	// startingX
+				0,	// startingY 
+				13,	// x1 
+				0,	// y1
+				16, // x2
+				4) // y2
+        }
+        if(flag(FLAG_POST_GAME)) {
+        setlayouttiles(
+				LAYOUT_STARLIGHT_HOUSE3_LAYOUT_2, 
+				0,	// startingX
+				0,	// startingY 
+				13,	// x1 
+				5,	// y1
+				16, // x2
+				7) // y2
+        }
+    }
 }
 
 script Starlight_House3_Dak {
@@ -31,21 +65,27 @@ script Starlight_House3_Dak {
 	faceplayer
     textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
-	"Oh hi!\p"
+	"Oh hey!...\n"
+    "\l"
+    "Listen, I am not a Dev...\l"
 
 	"Pretend I am not here okay?", MSGBOX_NPC)
-    
-    //playbgm(MUS_NONE, TRUE)
+
+    //player
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(
+    "Hey DAK!", MSGBOX_DEFAULT)
+    closemessage
+
+    playse(SE_PIN)
     applymovement(LOCALID_DAK, moves(
         emote_exclamation_mark
         face_right
     ))
-    textcolor(NPC_TEXT_COLOR_RED)
-    msgbox(
-    "Hey Dak!", MSGBOX_DEFAULT)
-    closemessage
+    //waitmovement(LOCALID_DAK)
+    //waitmovement(0)
     
-    delay(10)
+    //delay(10)
     addobject(LOCALID_STARLIGHT2)
     applymovement(LOCALID_STARLIGHT2, moves(
         set_visible
@@ -53,18 +93,23 @@ script Starlight_House3_Dak {
         walk_left * 8
     ))
     waitmovement(LOCALID_STARLIGHT2)
-    //applymovement(LOCALID_PLAYER, moves(
-    //    face_right
-    //))
+    waitmovement(0)
 
-//textcolor(NPC_TEXT_COLOR_RED)
-msgbox(
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+    ))
+    waitmovement(LOCALID_PLAYER)
+    waitmovement(0)
+
+    msgbox(
 	"Why are you using my work computer?", MSGBOX_DEFAULT)
     textcolor(NPC_TEXT_COLOR_BLUE)
     closemessage
     delay(30)
     msgbox(
-	"Um...\p"
+	"Um...\n"
+    "\l"
+    "...\l"
     "Important work stuff?", MSGBOX_DEFAULT)
     closemessage
     delay(60)
@@ -74,13 +119,28 @@ msgbox(
     //setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
     //special(ShakeScreen)
 	//delay(60)
+
+    switch(var(VAR_TEMP_A)) {
+			case 1:
+					applymovement(LOCALID_PLAYER, moves(face_right))
+					//waitmovement(0)
+					//break
+			case 2:
+					applymovement(LOCALID_PLAYER, moves(face_left))
+					//waitmovement(0)
+					//break
+            case 3:
+                    applymovement(LOCALID_PLAYER, moves(face_up))
+                    //waitmovement(0)
+                    //break
+		}
+    waitmovement(0)
+
     playse(SE_CLICK)
-    setmetatile(1, 2, 0x2A6, FALSE)
+    setmetatile(1, 3, 0x2A6, FALSE)
     special(DrawWholeMapView)
 
-    //applymovement(LOCALID_PLAYER, moves(//moves(
-    //    face_left
-    //))
+    
 
     applymovement(LOCALID_DAK, moves(
         walk_in_place_faster_right * 10
@@ -101,28 +161,26 @@ msgbox(
 	special(ShakeScreen)
     delay(90)
     playse(SE_CLICK)
-    setmetatile(1, 2, 0x2EB, FALSE)
+    setmetatile(1, 3, 0x2EB, FALSE)
     special(DrawWholeMapView)
     delay(30)
     
-    //waitmovement(LOCALID_DAK)
-
-    //applymovement(LOCALID_PLAYER, face_right)
-    //applymovement(LOCALID_PLAYER, moves(
-    //    face_right
-    //))
-    //applymovement(LOCALID_PLAYER, moves(
-    //    face_right
-    //))
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+    ))
+    waitmovement(LOCALID_PLAYER)
+    waitmovement(0)
 
     textcolor(NPC_TEXT_COLOR_RED)
     msgbox(
-	"Sorry about that, Dak is my friend.\p"
-    "He likes to mess with my stuff\n"
-    "from time to time.\p"
-    "Don't worry he will be fine!\p"
-    "I made sure he would go to\n" 
-    "a nice fun map!", MSGBOX_NPC)
+	"Sorry about that, I'm feeling\n"
+	"a tiny bit jaded at the moment, and\l"
+	"he likes to mess with my stuff.\p"
+
+	"Don't worry, he'll be fine!\p"
+
+	"I made sure he'd end up in a nice,\n"
+	"fun map.", MSGBOX_NPC)
     closemessage
     applymovement(LOCALID_STARLIGHT2, moves(
     walk_right * 8
@@ -135,26 +193,19 @@ msgbox(
     release
 }
 
-script Starlight_House3_Computer {
-    if(flag(FLAG_TEMP_1)) {
-    textcolor(NPC_TEXT_COLOR_NEUTRAL)
-    msgbox(
-	"It shows a few tabs open.\p"
-	"One tab is an AVGN video.\n"
-	"Another is Dak's YouTube Page,\l"
-	"Third tab is...\l"
-    ""
-	"A Google search of: What do\n"
-	"I do if I burn my cereal?", MSGBOX_SIGN)
-    } else {
-            msgbox(
-	"There are some tabs open.\n"
-	"It's showing something called por-\l"
-	"ymaps and Poryscript.", MSGBOX_SIGN)
-     
-	        }
+script Starlight_House3_Right_Of_Dak {
+	setvar(VAR_TEMP_A, 2)
+	release
+}
 
-    
+script Starlight_House3_Below_Dak {
+	setvar(VAR_TEMP_A, 3)
+	release
+}
+
+script Starlight_House3_Left_Of_Dak {
+	setvar(VAR_TEMP_A, 1)
+	release
 }
 
 script Starlight_House3_Computer_Special {
@@ -163,87 +214,111 @@ script Starlight_House3_Computer_Special {
     msgbox(
 	"It shows a few tabs open.\p"
 	"One tab is an AVGN video.\n"
-	"Another is Dak's YouTube Page,\l"
+	"Another is a YouTube video of Dak.\l"
 	"Third tab is...\l"
-	"A Google search of: What do\l"
-	"I do if I burn my cereal?", MSGBOX_SIGN)
+	"A Google search of: “How do I hide\l"
+	"my Cheetos better?”", MSGBOX_DEFAULT)
     } else {
 
-     if(!flag(FLAG_TEMP_5)) {
+     if(!flag(FLAG_TEMP_1E)) {
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
         msgbox(
-	"It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
-    setflag(FLAG_TEMP_5)
+	"It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
+    setflag(FLAG_TEMP_1E)
     } else {
         if(flag(FLAG_TEMP_6)) {
+            setflag(FLAG_TEMP_4)
+            random(8)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
+                case 1:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
+                case 2:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
+                case 3:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
+                case 4:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles.", MSGBOX_DEFAULT)
+                case 5:
+                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+	                "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
+                case 6:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}AFex.", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                case 7:
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    msgbox(
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm.", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+            }    
+	   } else {
             setflag(FLAG_TEMP_4)
             random(7)
             switch(var(VAR_RESULT)) {
                 case 0:
-                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
                 case 1:
-                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
                 case 2:
-                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
                 case 3:
-                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
+                setflag(FLAG_TEMP_6)
                 case 4:
-                textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}pHurdles.", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
                 case 5:
-                textcolor(NPC_TEXT_COLOR_NEUTRAL)
-                    msgbox(
-	"It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}DirectionalRaven.", MSGBOX_DEFAULT)
-            }    
-	   } else {
-            setflag(FLAG_TEMP_4)
-            random(6)
-            switch(var(VAR_RESULT)) {
-                case 0:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}TinyTermite.", MSGBOX_DEFAULT)
-                setflag(FLAG_TEMP_6)
-                case 1:
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}AFex.", MSGBOX_DEFAULT)
+                    setflag(FLAG_TEMP_6)
+                case 6:
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}SalamenceHG.", MSGBOX_DEFAULT)
-                setflag(FLAG_TEMP_6)
-                case 2:
-                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
-                    msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}ScrumptiousJimmy.", MSGBOX_DEFAULT)
-                setflag(FLAG_TEMP_6)
-                case 3:
-                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
-                    msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}OmegaGnarly.", MSGBOX_DEFAULT)
-                setflag(FLAG_TEMP_6)
-                case 4:
-                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
-                    msgbox(
-                    "It's a video of that famous Twitch\n"
-	"streamer {COLOR DYNAMIC_COLOR6}pHurdles", MSGBOX_DEFAULT)
+                    "It's a livestream of that famous\n"
+	"Twitch streamer {COLOR DYNAMIC_COLOR6}180Cyrusm.", MSGBOX_DEFAULT)
                     setflag(FLAG_TEMP_6)
                 }
 	        }
@@ -262,23 +337,29 @@ script Starlight_House3_Computer_Special {
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
 	"...\p"
-    "How silly!", MSGBOX_SIGN)
+    "Let's see who else is streaming.", MSGBOX_SIGN)
                 case 2:
                 textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     msgbox(
 	"They were better in their early\n"
-	"days…", MSGBOX_NPC)
+	"days.", MSGBOX_NPC)
            
            
             } 
 
     } else {
+            if (flag(FLAG_TEMP_1)) {
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            msgbox(
+                "...\p"
+                "Let's close that tab.", MSGBOX_SIGN)
+            } else {
 
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
         msgbox(
 	"...\p"
-    "Let's close that tab.", MSGBOX_SIGN)
-            
+    "Let's see who else is streaming.", MSGBOX_SIGN)
+            }
         }
                     
         release
@@ -287,23 +368,39 @@ script Starlight_House3_Computer_Special {
 
 
 
-script Starlight_House3_Map_Table2 {
-	msgbox(
+script Starlight_House3_Map_Table_Bit_StarHouse {
+	if(flag(FLAG_POST_GAME)) {
+    msgbox(
+	"Hey look, you can see the\n"
+    "Star-Lighthouse from here!", MSGBOX_SIGN)
+    }
+    else {
+        msgbox(
 	"Hey look, you can see\n"
-    "Starlight's House from here.", MSGBOX_SIGN)
-
+    "Starlight's House from here!", MSGBOX_SIGN)
+    }
 }
 
 script Starlight_House3_Computer2 {
 	msgbox(
 	"It's an early 2000's computer with\n"
 	"an RGB setup.", MSGBOX_NPC)
-
 }
 
 script Starlight_House3_Wall_Map {
-	msgbox(
-	"The giant map had a baby!", MSGBOX_SIGN)
+	lock
+    msgbox(
+	"The table had a baby!", MSGBOX_DEFAULT)
+
+    setmetatile(6, 1, 0x2F0, FALSE)
+	setmetatile(7, 1, 0x2F1, FALSE)
+    special(DrawWholeMapView)
+
+    msgbox(
+	"Wait! No!\n"
+	"This baby is a demon child!", MSGBOX_DEFAULT)
+    release
+    end
 }
 
 script Starlight_House3_PlantA {
@@ -409,18 +506,18 @@ script Starlight_House3_PlantC {
 
 script Starlight_House3_Plant1 {
     msgbox(
-	"It's just a plant.", MSGBOX_SIGN)
+	"This", MSGBOX_SIGN)
 }
 
 script Starlight_House3_Plant2 {
     msgbox(
-	"Nope still a plant.", MSGBOX_SIGN)
+	"Isn't", MSGBOX_SIGN)
 }
 
 script Starlight_House3_Plant3 {
     lock
     msgbox(
-	"Why would Oak be here?", MSGBOX_SIGN)
+	"OAK.", MSGBOX_SIGN)
     clearflag(FLAG_TEMP_10)
     clearflag(FLAG_TEMP_11)
     clearflag(FLAG_TEMP_12)
@@ -459,7 +556,10 @@ script Starlight_House3_Rematch {
     lock
 	faceplayer
     textcolor(NPC_TEXT_COLOR_FEMALE)
-    msgbox("Hi! Would you like to fight\nme again?", MSGBOX_YESNO)
+    msgbox("STARLIGHT: Hi! I am here if you\n"
+	"ever want a rematch.\p"
+
+	"Would you like to battle me again?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
 			cleartrainerflag(TRAINER_STARLIGHT)
@@ -467,8 +567,1465 @@ script Starlight_House3_Rematch {
     trainerbattle_single(TRAINER_STARLIGHT,
 	"Yay!",
 	//
-	"Damn, maybe next time.")
+	"Another fun battle!")
 		}
+    release
+    end
+}
+
+script Starlight_House3_Team_Hack_Event {
+	if(flag(FLAG_POST_GAME)) {
+    msgbox(
+	"There's some paper containing a\n"
+	"schedule for PMD Team Hack Event.\p"
+	"There's also something scratched out\n"
+	"at the bottom.\p"
+	"-r---c- -vr-n\p"
+	"...\n"
+	"\l"
+	"Probably unrelated to this hack.", MSGBOX_SIGN)
+    } else {
+        msgbox(
+	"The MY SECRET LIFE section is\n"
+	"suspiciously empty.", MSGBOX_SIGN)
+    }
+
+}
+
+script Starlight_House3_MysteryMail {
+	if(flag(FLAG_POST_GAME)) {
+    msgbox(
+	"There is a lot of Mysterious Mail\n"
+	"shoved inside.\p"
+
+    "All of them have the word “Chaos”\n"
+	"written on top.", MSGBOX_SIGN)
+    } else {
+        msgbox(
+	"The MY SECRET LIFE section is\n"
+	"suspiciously empty.", MSGBOX_SIGN)
+    }
+
+}
+
+script Starlight_House3_SkyTemple {
+	if(flag(FLAG_POST_GAME)) {
+    msgbox(
+	"There's a book about Sky Tower.\p"
+
+	"It says something about being a\n"
+	"Temple some time ago.\l"
+    "\l"
+	"A Sky Temple.", MSGBOX_SIGN)
+    } else {
+        msgbox(
+	"The MY SECRET LIFE section is\n"
+	"suspiciously empty.", MSGBOX_SIGN)
+    }
+
+}
+
+script Starlight_House3_PMD_Star_Character {
+	lock
+    faceplayer
+    playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    msgbox(
+	"...!", MSGBOX_NPC)
+    closemessage
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_PMD_STAR_OBJECT)
+    setflag(FLAG_TEMP_3)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House3_PMD_Star_Character2 {
+	lock
+    faceplayer
+    playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    //msgbox(
+	//"...!", MSGBOX_NPC)
+    delay(30)
+    release
+    end
+}
+
+script StarLighthouse_3F_Ampharos {
+    lock
+	waitse
+	playmoncry(SPECIES_AMPHAROS, CRY_MODE_DEFAULT)
+    //delay(40)
+	//waitmoncry
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(
+	"KAMINA: I'm Bumblebee Starlight!", MSGBOX_NPC)
+    release
+}
+
+//GODZILLA BITS--------------------------------------------------------------------------------------------------
+
+//TEMPLATE-------------------------------------------------------------------------------------------------------
+script Starlight_House3_Map_Table_Bit {//No Bit(TEMPLATE)
+	if(flag(FLAG_TEMP_13)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+//---------------------------------------------------------------------------------------------------------------
+script Starlight_House3_Become_Godzilla {
+	setflag(FLAG_TEMP_7)
+	release
+}
+
+script Starlight_House3_No_Longer_Godzilla {
+	clearflag(FLAG_TEMP_7)
+	release
+}
+
+script Starlight_House3_Table_On_Or_Off_Check {
+	lock
+    getplayerxy(VAR_TEMP_5, VAR_TEMP_6)
+            if(var(VAR_TEMP_6) == 9 && var(VAR_TEMP_5) == 2) {
+                msgbox(
+                    "A table containing the map of the\n"
+                    "entire region.", MSGBOX_SIGN)
+                release
+                end
+            } else {
+                msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+                    setflag(FLAG_TEMP_13)
+
+                release
+                end
+            }
+}
+
+script Starlight_House3_Map_Table_Edge {
+	if(flag(FLAG_TEMP_7)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+        } else {
+        msgbox(
+        "A table of the entire region\n"
+        "showing future work plans.", MSGBOX_SIGN)
+    }
+}
+
+script Starlight_House3_Map_Table_Edge_Bit_Hi {
+    
+    if(flag(FLAG_TEMP_13) && flag(FLAG_TEMP_7)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH, HI GODZILLA!!!”", MSGBOX_SIGN)
+        }
+    if(flag(FLAG_TEMP_7) && !flag(FLAG_TEMP_13)) {
+        msgbox(
+        "HI!!!", MSGBOX_SIGN)
+    
+        } 
+    if(!flag(FLAG_TEMP_7) && !flag(FLAG_TEMP_13)) {
+        msgbox(
+        "A table of the entire region\n"
+        "showing future work plans.", MSGBOX_SIGN)
+        }
+    if(!flag(FLAG_TEMP_7) && flag(FLAG_TEMP_13)) {
+        msgbox(
+        "A table of the entire region\n"
+        "showing future work plans.", MSGBOX_SIGN)
+        }
+}
+
+script Starlight_House3_Map_Table_Bit_Lass {
+	if(flag(FLAG_TEMP_13) && !flag(FLAG_TEMP_9)) {
+        lockall
+		msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, LOOK! IT'S GO-”", MSGBOX_SIGN)
+		closemessage
+		//delay(10)
+		//msgbox("...", MSGBOX_DEFAULT)
+		//closemessage
+		fadeoutbgm(1)
+		msgbox("Wait...", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+        playbgm(MUS_TINY_LASS, FALSE)
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("{FONT_SMALL}Hey! Did you just look at me?!", MSGBOX_DEFAULT)
+		closemessage
+		//delay(20)
+		delay(150)
+        playbgm(MUS_NONE, FALSE)
+        playse(SE_MUD_BALL)
+        delay(60)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+            "...\n"
+            "\l"
+            "You accidentally stepped on her...", MSGBOX_SIGN)
+            delay(60)
+		playbgm(MUS_DOWNSTREAM, TRUE)
+        setflag(FLAG_TEMP_9)
+		release
+		end
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_DMCA {
+	if(flag(FLAG_TEMP_13)) {
+        msgbox(
+	"You hear tiny voices scream out\n"
+	"“OH NO, RUN! IT'S GODZILLA!!!”\p"
+
+	"“It looks like Godzilla, but due to\n"
+	"DMCA international copyright laws,\l"
+	"it's not.”\p"
+
+	"“STILL, WE SHOULD RUN LIKE IT IS\n"
+	"GODZILLA!”\p"
+
+	"“Though it isn't ;)”.", MSGBOX_SIGN)
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Celadon_Randomizer {
+	if(flag(FLAG_TEMP_13)) {
+        random(100)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Luke. I am your father.”", MSGBOX_SIGN)
+                case 1:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“BILBO BAGGINS! DO NOT TAKE ME FOR\l"
+                    "SOME CONJURER OF CHEAP TRICKS!\p"
+
+                    "I AM NOT TRYING TO ROB YOU! I’m\n"
+                    "trying to help you.”", MSGBOX_SIGN)
+                case 2:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“It's Morbin' time.”", MSGBOX_SIGN)
+                case 3:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I've got a bad feeling about this.”", MSGBOX_SIGN)
+                case 4:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“YOU ARE TEARING ME APART, LISA!”", MSGBOX_SIGN)
+                case 5:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I did not hit her, it's not true!\l"
+                    "It's bullshit! I did not hit her! I\l"
+                    "did not!\l"
+                    "\l"
+                    "Oh, hi, Mark.”", MSGBOX_SIGN)
+                case 6:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I'm gonna make him an offer he\l"
+	                "can't refuse.”", MSGBOX_SIGN)
+                case 7:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Toto, I've a feeling we're not in\l"
+                    "Kansas anymore.”", MSGBOX_SIGN)
+                case 8:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Go ahead, make my day.”", MSGBOX_SIGN)
+                case 9:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“E.T. phone home.”", MSGBOX_SIGN)
+                case 10:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Bond. James Bond.”", MSGBOX_SIGN)
+                case 11:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“There's no place like home.”", MSGBOX_SIGN)
+                case 12:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You can't handle the truth!”", MSGBOX_SIGN)
+                case 13:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You're gonna need a bigger boat.”", MSGBOX_SIGN)
+                case 14:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I see dead people.”", MSGBOX_SIGN)
+                case 15:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“It's alive! It's alive!”", MSGBOX_SIGN)
+                case 16:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I'll be back.”", MSGBOX_SIGN)
+                case 17:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Get to the choppa!”", MSGBOX_SIGN)
+                case 18:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“My mama always said life was like a\l"
+                    "box of chocolates. You never know\l"
+                    "what you're gonna get.”", MSGBOX_SIGN)
+                case 19:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You've got to ask yourself one\l"
+                    "question:\p"
+
+                    "'Do I feel lucky?' Well, do ya,\n"
+                    "punk?”", MSGBOX_SIGN)
+                case 20:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Say 'hello' to my little friend!”", MSGBOX_SIGN)
+                case 21:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Elementary, my dear Watson.”", MSGBOX_SIGN)
+                case 22:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Take your stinking paws off me, you\l"
+                    "damned dirty ape!”", MSGBOX_SIGN)
+                case 23:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Here's Johnny!”", MSGBOX_SIGN)
+                case 24:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Hasta la vista, baby.”", MSGBOX_SIGN)
+                case 25:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Oh, no, it wasn't the airplanes. It\l"
+                    "was Beauty killed the Beast.”", MSGBOX_SIGN)
+                case 26:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "A martini. Shaken, not stirred.", MSGBOX_SIGN)
+                case 27:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“My precious.”", MSGBOX_SIGN)
+                case 28:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I feel the need-the need for speed!”", MSGBOX_SIGN)
+                case 29:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I'll get you, my pretty, and your\l"
+                    "little dog too!”", MSGBOX_SIGN)
+                case 30:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I'm the king of the world!”", MSGBOX_SIGN)
+                case 31:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Avengers, assemble!”", MSGBOX_SIGN)
+                case 32:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I see this as an absolute win.”", MSGBOX_SIGN)
+                case 33:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Why so serious?”", MSGBOX_SIGN)
+                case 34:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You either die a hero or you live\l"
+                    "long enough to see yourself become\l"
+                    "the villain.”", MSGBOX_SIGN)
+                case 35:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Look at me. I'm the captain now.”", MSGBOX_SIGN)
+                case 36:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You shall not pass!”", MSGBOX_SIGN)
+                case 37:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“THIS IS SPARTA!”", MSGBOX_SIGN)
+                case 38:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“May the Force be with you.”", MSGBOX_SIGN)
+                case 39:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Lions, and tigers, and bears!\l"
+                    "Oh, my!”", MSGBOX_SIGN)
+                case 40:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“O Captain, my Captain.”", MSGBOX_SIGN)
+                case 41:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Keep the change, ya filthy animal.”", MSGBOX_SIGN)
+                case 42:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“The first rule of Fight Club is you\l"
+                    "do not talk about Fight Club.”", MSGBOX_SIGN)
+                case 43:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You talkin' to me?”", MSGBOX_SIGN)
+                case 44:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Great Scott!”", MSGBOX_SIGN)
+                case 45:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“There's a snake in my boot!”", MSGBOX_SIGN)
+                case 46:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Stupid is as stupid does.”", MSGBOX_SIGN)
+                case 47:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Every time a bell rings, an angel\l"
+                    "gets his wings.”", MSGBOX_SIGN)
+                case 48:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“It's just a flesh wound.”", MSGBOX_SIGN)
+                case 49:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You sit on a throne of lies!”", MSGBOX_SIGN)
+                case 50:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Welcome to Jurassic Park!”", MSGBOX_SIGN)
+                case 51:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Life, uh, finds a way.”", MSGBOX_SIGN)
+                case 52:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Snakes. Why did it have to be\l"
+                    "snakes?”", MSGBOX_SIGN)
+                case 53:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“As you wish.”", MSGBOX_SIGN)
+                case 54:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“It's showtime!”", MSGBOX_SIGN)
+                case 55:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I'm going to steal the\l"
+                    "Declaration of Independence.”", MSGBOX_SIGN)
+                case 56:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You underestimate my power!”", MSGBOX_SIGN)
+                case 57:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Hello there!”", MSGBOX_SIGN)
+                case 58:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“General Kenobi! You're a bold one!”", MSGBOX_SIGN)
+                case 59:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Can the Spiderman come out to play?”", MSGBOX_SIGN)
+                case 60:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Go get 'em, tiger.”", MSGBOX_SIGN)
+                case 61:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“No capes!”", MSGBOX_SIGN)
+                case 62:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You wanna know how I got these\l"
+                    "scars?”", MSGBOX_SIGN)
+                case 63:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“We know each other! He's a friend\l"
+                    "from work!”", MSGBOX_SIGN)
+                case 64:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“What about the droid attack on\l"
+                    "the Wookies?”", MSGBOX_SIGN)
+                case 65:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Long live the king!”", MSGBOX_SIGN)
+                case 66:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I am the Senate!”", MSGBOX_SIGN)
+                case 67:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“It's treason then.”", MSGBOX_SIGN)
+                case 68:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Welcome to the Caribbean mate.”", MSGBOX_SIGN)
+                case 69:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Remember, with great power comes\l"
+                    "great responsibility.”", MSGBOX_SIGN)
+                case 70:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Why is the rum gone?”", MSGBOX_SIGN)
+                case 71:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Where's my super suit?”", MSGBOX_SIGN)
+                case 72:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You're a wizard, Harry.”", MSGBOX_SIGN)
+                case 73:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Just keep swimming.”", MSGBOX_SIGN)
+                case 74:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“CAPTAIN Jack Sparrow!”", MSGBOX_SIGN)
+                case 75:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I can do this all day.”", MSGBOX_SIGN)
+                case 76:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“That is without a doubt the\l"
+                    "worst pirate I have ever seen.”", MSGBOX_SIGN)
+                case 77:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“That's got to be the best pirate\l"
+                    "I've ever seen.”", MSGBOX_SIGN)
+                case 78:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I've got a jar of dirt! I've got\l"
+                    "a jar of dirt! And guess what's\l"
+                    "inside it!”", MSGBOX_SIGN)
+                case 79:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Skadoosh.”", MSGBOX_SIGN)
+                case 80:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“It's over, Anakin! I have the\l"
+                    "high ground!”", MSGBOX_SIGN)
+                case 81:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“I am Iron Man.”", MSGBOX_SIGN)
+                case 82:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Not quite my tempo.”", MSGBOX_SIGN)
+                case 83:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Wilson!”", MSGBOX_SIGN)
+                case 84:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“What are you doing in my swamp?!”", MSGBOX_SIGN)
+                case 85:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Help me, Obi-Wan Kenobi. You’re\l"
+                    "my only hope.”", MSGBOX_SIGN)
+                case 86:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Roads? Where we're going we don't\l"
+                    "need roads.”", MSGBOX_SIGN)
+                case 87:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“To infinity and beyond!”", MSGBOX_SIGN)
+                case 88:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Yippie-ki-yay, motherfucker!”", MSGBOX_SIGN)
+                case 89:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Hello. My name is Inigo Montoya.\l"
+                    "You killed my father. Prepare to\l"
+                    "die.”", MSGBOX_SIGN)
+                case 90:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“That is one big pile of shit.”", MSGBOX_SIGN)
+                case 91:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Your scientists were so\l"
+                    "preoccupied with whether or not\l"
+                    "they could, they didn't stop to\l"
+                    "think if they should.”", MSGBOX_SIGN)
+                case 92:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Clever girl.”", MSGBOX_SIGN)
+                case 93:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Hold onto your butts.”", MSGBOX_SIGN)
+                case 94:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“1.21 gigawatts!”", MSGBOX_SIGN)
+                case 95:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Wait a minute, Doc. Are you\l"
+                    "telling me that you built a time\l"
+                    "machine... out of a DeLorean?!”", MSGBOX_SIGN)
+                case 96:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Not all treasure is silver and\l"
+                    "gold, mate.”", MSGBOX_SIGN)
+                case 97:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“You will always remember this as\l"
+                    "the day that you almost caught\l"
+                    "Captain Jack Sparrow!”", MSGBOX_SIGN)
+                case 98:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Do you fear death?”", MSGBOX_SIGN)
+                case 99:
+                    msgbox(
+                    "You hear tiny voices scream out\n"
+                    "“Some of you may die, but it's a\l"
+                    "sacrifice I am willing to make.”", MSGBOX_SIGN)
+                
+                
+                
+                
+            }
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Grandpas_Dead {
+	if(flag(FLAG_TEMP_13) && !flag(FLAG_TEMP_1B) && !flag(FLAG_TEMP_1C)) {
+        delay(20)
+        playbgm(MUS_NONE, FALSE)
+        playse(SE_MUD_BALL)
+        delay(60)
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, GRANDPA'S DEAD!!!”", MSGBOX_SIGN)
+        delay(60)
+		playbgm(MUS_DOWNSTREAM, TRUE)
+        setflag(FLAG_TEMP_1B)
+        }
+    if(flag(FLAG_TEMP_13) && flag(FLAG_TEMP_1B) && !flag(FLAG_TEMP_1C)) {   
+        msgbox(
+        "Something is stuck on your shoe.\p"
+
+	    "Wipe it off across the floor?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox(
+            "You hear tiny voices scream out\n"
+            "“OH NO, GRANDPA'S SPREAD!!!”", MSGBOX_SIGN)
+			closemessage
+        }
+        setflag(FLAG_TEMP_1C)
+    } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Bills_PC {
+	msgbox(
+	"Huh! You can almost operate the PC\n"
+	"normally now.", MSGBOX_SIGN)
+}
+
+script Starlight_House3_Map_Table_Bit_Helixzilla {
+	if(flag(FLAG_TEMP_13)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S HELIXZILLA!!!”", MSGBOX_SIGN)
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Yes {
+	if(flag(FLAG_TEMP_13)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH YES, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Monica {
+	if(flag(FLAG_TEMP_13)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S POKESTAR STUDIOS\l"
+	    "MONICA!!!”", MSGBOX_SIGN)
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Chuckster {
+	if(flag(FLAG_TEMP_13)) {
+        lockall
+		msgbox(
+        "You hear a tiny voice scream out\n"
+        "{FONT_SMALL}“I'M A CHUCKSTER!”", MSGBOX_SIGN)
+		closemessage
+		delay(60)
+        playse(SE_LEDGE)
+        applymovement(LOCALID_PLAYER, moves(
+        jump_in_place_up
+        ))
+        delay(20)
+		release
+		end
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Cinnabar {
+	if(flag(FLAG_TEMP_13) && flag(FLAG_MIRAGE_ISLAND_APPEARS)) {
+        msgbox(
+        "It looks like another Godzilla\n"
+        "stopped by here already...", MSGBOX_SIGN)
+        }
+    if(flag(FLAG_TEMP_13) && !flag(FLAG_MIRAGE_ISLAND_APPEARS)) {
+        msgbox(
+        "They look so peaceful down there.\p"
+
+        "Let's hope nothing bad happens to\n"
+        "them...", MSGBOX_SIGN)
+        }
+    if(!flag(FLAG_TEMP_13) && flag(FLAG_MIRAGE_ISLAND_APPEARS)) {
+        msgbox(
+        "What happened here? It's all\n"
+        "destroyed...", MSGBOX_SIGN)
+        }
+    if(!flag(FLAG_TEMP_13) && !flag(FLAG_MIRAGE_ISLAND_APPEARS)) {
+        msgbox(
+        "They look so peaceful down there.\p"
+
+        "Let's hope nothing bad happens to\n"
+        "them...", MSGBOX_SIGN)
+        }
+    }
+
+    script Starlight_House3_Map_Table_Bit_Two_Island {
+	if(flag(FLAG_TEMP_13)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S T-REX!!!”", MSGBOX_SIGN)
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Look_Look {
+	lock
+    if(var(VAR_TEMP_7) <= 16) {
+        msgbox(
+        "TRAINER TIPS!\p"
+
+        "She has moved far enough to not be\n"
+        "on this tile.", MSGBOX_SIGN)
+    }
+    if(var(VAR_TEMP_7) >= 24) {
+        msgbox(
+        "TRAINER TIPS!\p"
+
+        "She is now stuck in the trees.", MSGBOX_SIGN)
+    }
+    if(var(VAR_TEMP_7) >= 17 && var(VAR_TEMP_7) <= 23) {
+        msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+        //delay(5)
+        playse(SE_PIN)
+        //delay(5)
+        delay(48)
+        msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
+        closemessage
+    }
+    getplayerxy(VAR_TEMP_6, VAR_TEMP_5)
+    if(var(VAR_TEMP_6) >= 4) {           
+        subvar(VAR_TEMP_7, 1)
+    }
+    if(var(VAR_TEMP_6) <= 3) {
+        if(!flag(FLAG_TEMP_1D)) {
+        addvar(VAR_TEMP_7, 1)
+        }
+    }    
+    if(var(VAR_TEMP_7) == 16) {
+    setmetatile(4, 7, 0x2B9, FALSE)
+    setmetatile(3, 7, 0x2B8, TRUE)
+    //setflag(FLAG_TEMP_1C)  
+    }
+    if(var(VAR_TEMP_7) == 24) {
+    setmetatile(4, 7, 0x2B9, FALSE)
+    }
+    release
+    end
+}
+
+         //msgbox("TRAINER TIPS!\pLook, look!\nTo the right of this sign!", MSGBOX_DEFAULT)
+		//closemessage   
+            
+            //} else {
+            //    msgbox(
+            //        "You hear tiny voices scream out\n"
+            //        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+            //        setflag(FLAG_TEMP_13)
+
+            //    release
+            //    end
+            //}
+    
+    
+    //if(flag(FLAG_TEMP_13)) {
+    //    msgbox(
+    //    "You hear tiny voices scream out\n"
+    //    "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+    //    } else {
+    //    msgbox(
+    //    "You hear tiny voices scream out\n"
+    //    "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+    //    setflag(FLAG_TEMP_13)
+    //}
+//}
+
+script Starlight_House3_Map_Table_Edge_Bit_Look_Look {
+	lock
+    if(flag(FLAG_TEMP_7)) {
+        if(var(VAR_TEMP_7) <= 11) {
+                msgbox(
+                "TRAINER TIPS!\p"
+
+                "She fell off the table...", MSGBOX_SIGN)
+        }
+        if(var(VAR_TEMP_7) == 12) {
+                msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+                //delay(5)
+                playse(SE_PIN)
+                //delay(5)
+                delay(48)
+                msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
+                closemessage        
+                delay(30)
+                playbgm(MUS_NONE, FALSE)
+                playse(SE_WALL_HIT)
+                setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+                setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+                setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+                setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+                special(ShakeScreen)
+                subvar(VAR_TEMP_7, 1)
+                setmetatile(3, 7, 0x2B8, FALSE)
+                delay(60)
+                playbgm(MUS_DOWNSTREAM, TRUE)
+                setflag(FLAG_TEMP_1D)
+        }
+        if(var(VAR_TEMP_7) >= 13 && var(VAR_TEMP_7) <= 16) {
+            //if(var(VAR_TEMP_7) >= 17 && var(VAR_TEMP_7) <= 23) {
+                msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+                //delay(5)
+                playse(SE_PIN)
+                //delay(5)
+                delay(48)
+                msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
+                closemessage        
+                subvar(VAR_TEMP_7, 1)
+                
+            //}
+            if(var(VAR_TEMP_7) == 11) {
+            setmetatile(3, 7, 0x2B8, FALSE)
+            }
+        }
+        if(var(VAR_TEMP_7) >= 17) {
+                msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        }
+    }
+    if(!flag(FLAG_TEMP_7)) {
+        msgbox(
+        "A table of the entire region\n"
+        "showing future work plans.", MSGBOX_SIGN)       
+    }
+    //} else {
+    //    msgbox(
+    //    "A table of the entire region\n"
+    //    "showing future work plans.", MSGBOX_SIGN)
+    
+    release
+    end
+}
+
+script Starlight_House3_Look_Look_Fallen {
+	if(flag(FLAG_TEMP_1D) && !flag(FLAG_TEMP_7)) {
+    msgbox(
+	"There's a tiny little crater on\n"
+	"the floor.", MSGBOX_SIGN)
+    }
+
+}
+
+script Starlight_House3_Map_Table_Bit_My_Secret_Life {
+	if(flag(FLAG_TEMP_13)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+	 "“MY SECRET LIFE, CHAPTER THREE.\p"
+	 "I WAS NEITHER A MURDER SUSPECT, NOR\n"
+	 "A TARGET FOR AN INTERNATIONAL SPY\l"
+	 "ORGANIZATION.\p"
+	 "BUT I DROVE A CAR DOWN THE JERSEY\n"
+	 "TURNPIKE AT 80 MPH.\p"
+	 "…A POLICE OFFICER PULLED ME OVER\n"
+	 "AND ASKED FOR MY DRIVER'S LICENSE.\p"
+	 "HE SAID I WAS GOING 20 MPH OVER THE\n"
+	 "SPEED LIMIT. I INSTANTLY POINTED TO\l"
+	 "MY WIFE AND SAID, “I'M IN A HURRY,\l"
+	 "MY WIFE IS IN LABOR.”\p"
+	 "FORTUNATELY, MY WIFE ACTUALLY HAD A\n"
+	 "BIG STOMACH.\p"
+	 "I HOPED HE'D LET ME GO WITH THIS\n"
+	 "EXCUSE.\p"
+	 "“OH, SINCE IT'S AN EMERGENCY, I'll\n"
+	 "LEAD YOU TO THE HOSPITAL WITH MY\l"
+	 "POLICE CAR,” HE SAID.\p"
+	 "“NO, IT'S NOT NECESSARY.”\p"
+	 "“WHY NOT?” ASKED THE OFFICER.\n"
+	 "“UH… WELL…”\p"
+	 "“LET'S GET GOING,” SAID THE OFFICER.\p"
+	 "“NO, NO! WE CAN'T! THIS BABY IS A\n"
+	 "DEMON CHILD!””$", MSGBOX_SIGN)
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Dad {
+	if(flag(FLAG_TEMP_13)) {
+    lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"{FONT_SMALL}DAD: {PLAYER}!\n"
+    "What are you doing out here?\p"
+    
+    "Wow!\n"
+    "You've grown a lot since I last saw you.\l"
+	"Have you been eating your vegetables?\p"
+
+	"Well, never mind that.\n"
+    "How about you take a rest?", MSGBOX_DEFAULT)
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	closemessage
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	special(HealPlayerParty)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	msgbox(("{FONT_SMALL}DAD: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
+	release
+	end
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_HBox {
+	if(flag(FLAG_TEMP_13)) {
+        setwildbattle(SPECIES_JIGGLYPUFF, 15)
+				waitse
+				playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_HIGH_PITCH)
+				delay(40)
+				waitmoncry
+				setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+				setflag(FLAG_TEMP_5)
+				dowildbattle
+				clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+			closemessage
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Fairy {
+	if(flag(FLAG_TEMP_13) && !flag(FLAG_TEMP_1F)) {
+        lock
+        playbgm(MUS_ENCOUNTER_RIVAL_HIGH, TRUE)
+        textcolor(NPC_TEXT_COLOR_FEMALE)
+        msgbox(
+	"{FONT_SMALL}FAIRY: Hey! Listen! {PLAYER}!\n"
+	"Messing around in the bonus house?\p"
+    
+	"There's a lot of fun things around\n"
+	"here but nothing that interests me.\p"
+
+	"Anyway, I gotta go.\n"
+	"Exist near ya later!", MSGBOX_DEFAULT)
+    closemessage
+        setflag(FLAG_TEMP_1F)
+                fadeoutbgm(2)
+                delay(60)
+                playbgm(MUS_DOWNSTREAM, TRUE)
+                release
+                end
+        
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Psyduck {
+	if(flag(FLAG_TEMP_13)) {
+        msgbox(
+        "{FONT_SMALL}I'm studying TARDIGRADES as PROF. OAK's\n"
+        "POKéMON.", MSGBOX_NPC)
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_Snap {
+	if(flag(FLAG_TEMP_13)) {
+        playmoncry(SPECIES_PIKACHU_SNAP_BALL, CRY_MODE_DEFAULT)
+        showmonpic(SPECIES_KENYA, 10, 3)
+        waitbuttonpress
+        hidemonpic
+        release
+        end
+
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+script Starlight_House3_Map_Table_Bit_American_Version {
+	if(flag(FLAG_TEMP_13)) {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S KING KONG!!!”", MSGBOX_SIGN)
+        } else {
+        msgbox(
+        "You hear tiny voices scream out\n"
+        "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
+        setflag(FLAG_TEMP_13)
+    }
+}
+
+//-------------------------------------------------------------------------------------------------
+
+script Starlight_House3_Window {
+	msgbox(
+	"This window has a lovely view\n"
+    "of the underground dirt.", MSGBOX_SIGN)
+
+}
+
+script StarlightHouse3_NotSoFunFactsMenu {
+	lock
+    
+    msgbox(
+                    "Starlight's Journal.", MSGBOX_DEFAULT)
+                    closemessage
+    setvar(VAR_RESULT, 0)
+	//closemessage
+	dynmultichoice(2, 1, FALSE, 11, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+                "Fun Fact 1 (Pkmn Island)",
+                "Fun Fact 2 (House Limits)",
+                "Fun Fact 3 (Aether Hi)",
+				"Fun Fact 4 (Sky Tower)",
+                "Fun Fact 5 (Morph Rock)",
+                "Fun Fact 6 (Seafoam Puzzle)",
+                "Fun Fact 7 (Four Island)",
+                "Fun Fact 8 (FirstLast Maps)",
+                "Fun Fact 9 (Thirty Eight)",
+                "Fun Fact 10 (Pit Room)",
+                "Fun Fact 11 (House Guests)",)
+
+	closemessage
+	call(StarlightHouse3_NotSoFunFactsOptions)	
+	release
+}
+
+
+script StarlightHouse3_NotSoFunFactsOptions {
+			switch(var(VAR_RESULT)) {
+				case 0:
+					if(flag(FLAG_CSR_MAP_POKEMON_ISLAND)) {
+                    msgbox(
+                    "I hid 2 Porygon within the tiles of\n"
+                    "Pokemon Island, similarly to how\l"
+                    "they were hidden in the Pokemon\l"
+                    "Snap game.\p"
+
+                    "They are still there if you want to\n"
+                    "look for them. It was the original\l"
+                    "shiny method but we since changed\l"
+                    "that. Now they just chill there.", MSGBOX_DEFAULT)
+                    closemessage
+                    } else {
+                    msgbox(
+                    "You have not discovered or\n"
+                    "unlocked this part of the game yet.", MSGBOX_DEFAULT)
+                    closemessage
+                    }
+				case 1:
+                    msgbox(
+                    "Celia gave me full control over\n"
+                    "what happens in my house.\p"
+
+                    "But since she wanted this house to\n"
+                    "only have bonus content and not add\l"
+                    "anything to the rest of the game,\l"
+                    "I was fairly limited with what I\l"
+                    "could do.\p"
+
+                    "I had to come up with fun ideas\n"
+                    "without using any permament flags,\l"
+                    "using any special items or items\l"
+                    "that aren't common, and same goes\l"
+                    "with pokemon too.\p"
+
+                    "It was a little challenging but I\n"
+                    "am proud of what I could come up\l"
+                    "with for this house.", MSGBOX_DEFAULT)
+                    closemessage
+                    
+				case 2:
+                    msgbox(
+                    "Did you know? Northwest of the cave\n"
+                    "entrance to Mt. Moon in Aether\l"
+                    "(to the left of my house), I drew\l"
+                    "in the out of bounds cliff area\l"
+                    "“HI :)”.", MSGBOX_DEFAULT)
+                    closemessage
+                case 3:
+					if(flag(FLAG_CSR_MAP_YES)) {
+                    msgbox(
+                    "When I was recruited to make the\n"
+                    "Great Sea, as soon as I got access\l"
+                    "to the files, the first thing I did\l"
+                    "was make that overly tall Sky Tower\l"
+                    "cover everything because I was\l"
+                    "screwing around and it was funny\l"
+                    "lol, so we kept it.", MSGBOX_DEFAULT)
+                    closemessage
+                    } else {
+                    msgbox(
+                    "You have not discovered or\n"
+                    "unlocked this part of the game yet.", MSGBOX_DEFAULT)
+                    closemessage
+                    }
+                case 4:
+					if(flag(FLAG_WORLD_MAP_PIRATE_BAY)) {
+                    msgbox(
+                    "Did you know? That rock formation\n"
+                    "between Sky Tower and southern\l"
+                    "Pirate Bay has different shapes\l"
+                    "based on what side you are looking\l"
+                    "at it from?\p"
+
+                    "This was because the bike path map\n"
+                    "is actually longer than the maps\l"
+                    "to the left and right and is a bit\l"
+                    "screwy with how it works, so I\l"
+                    "got creative and designed it to\l"
+                    "work no matter where the maps are\l"
+                    "alligned with the bike path map.", MSGBOX_DEFAULT)
+                    closemessage
+                    } else {
+                    msgbox(
+                    "You have not discovered or\n"
+                    "unlocked this part of the game yet.", MSGBOX_DEFAULT)
+                    closemessage
+                    }
+                case 5:
+					if(flag(FLAG_CAPTAIN_DIRECTS_SPHEALS)) {
+                    msgbox(
+                    "The Seafoam strength puzzle was\n"
+                    "the only puzzle contribution I got\l"
+                    "to do for CSR! Celia gave me an\l"
+                    "opportunity to practice my puzzle\l"
+                    "making skills for the first time.\p"
+
+                    "It was fun but there was a puzzle\n"
+                    "I was more proud of that I made\l"
+                    "prior to the current one we ended\l"
+                    "up scrapping because we couldn't\l"
+                    "get the physics to work with my\l"
+                    "puzzle design. I had the older one\l"
+                    "designed as if the boulders would\l"
+                    "keep sliding on the ice without you\l"
+                    "coming along with it.\p"
+
+                    "Oh well, it was a fun experience\n"
+                    "with both puzzles I made!", MSGBOX_DEFAULT)
+                    closemessage
+                    } else {
+                    msgbox(
+                    "You have not discovered or\n"
+                    "unlocked this part of the game yet.", MSGBOX_DEFAULT)
+                    closemessage
+                    }
+                case 6:
+					if(flag(FLAG_WORLD_MAP_FOUR_ISLAND)) {
+                    msgbox(
+                    "Did you know? On Four Island, the\n"
+                    "two upper areas with the honey tree\l"
+                    "and the daycare were originally\l"
+                    "swapped to be on the other side.\p"
+
+                    "Celia felt the pacing wouldn't be\n"
+                    "as effective. It was something I\l"
+                    "thought was interesting during the\l"
+                    "design process to share about.", MSGBOX_DEFAULT)
+                    closemessage
+                    } else {
+                    msgbox(
+                    "You have not discovered or\n"
+                    "unlocked this part of the game yet.", MSGBOX_DEFAULT)
+                    closemessage
+                    }
+                case 7:
+					if(flag(FLAG_MIRAGE_ISLAND_APPEARS)) {
+                    msgbox(
+                    "The first map I made was Pokemon\n"
+                    "Park from Johto.\p"
+
+                    "The last map I made was Faraway\n"
+                    "Island.\p"
+
+                    "Both ironically were just\n"
+                    "recreations of vanilla game maps.", MSGBOX_DEFAULT)
+                    closemessage
+                    } else {
+                    msgbox(
+                    "You have not discovered or\n"
+                    "unlocked this part of the game yet.", MSGBOX_DEFAULT)
+                    closemessage
+                    }
+                case 8:
+					if(flag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)) {
+                    msgbox(
+                    "Thirty Eight Island used to be an\n"
+                    "exact replica of Route 38 with\l"
+                    "Island drawn around it.\p"
+
+                    "Since then it's been shrunk down\n"
+                    "twice to not take so much space\l"
+                    "in the Great Sea.", MSGBOX_DEFAULT)
+                    closemessage
+                    } else {
+                    msgbox(
+                    "You have not discovered or\n"
+                    "unlocked this part of the game yet.", MSGBOX_DEFAULT)
+                    closemessage
+                    }
+                case 9:
+                    msgbox(
+                    "The Pit Room in my house was\n"
+                    "actually a reference to how I was\l"
+                    "always forgetting to do the map\l"
+                    "collision when making the maps.\p"
+
+                    "Personally I just liked designing\n"
+                    "them and then worry about\l"
+                    "collision afterwards.", MSGBOX_DEFAULT)
+                    closemessage
+                case 10:
+					if(flag(FLAG_POST_GAME)) {
+                    msgbox(
+                    "Dak my irl friend, Bri (short for\n"
+                    "Brianna) my sister, Kamina my\l"
+                    "online friend and atinybitjaded\l"
+                    "my other online friend were all\l"
+                    "close family or friends of mine\l"
+                    "I wanted to reference in here.\p"
+
+                    "I only added them because I needed\n"
+                    "NPCs or phrases for some bits I\l"
+                    "wanted to use.\p"
+                    
+                    "Every single one of them was added\n"
+                    "with a purpose.", MSGBOX_DEFAULT)
+                    closemessage
+                    } else {
+                    msgbox(
+                    "You have not discovered or\n"
+                    "unlocked this part of the game yet.\p"
+                    "Unlocked during post game.", MSGBOX_DEFAULT)
+                    closemessage
+                    }
+				default:
+					setvar(VAR_RESULT, 0)
+                    call(StarlightHouse3_NotSoFunFactsOptions)
+					release
+					end
+	}
+}
+
+script Starlight_House3_Secret_Plant {
+	msgbox(
+	"Of all places, do you really think\n"
+	"OAK would be here?", MSGBOX_SIGN)
+
+}
+
+script Starlight_House3_Secret_Fire {
+	msgbox(
+	"In the fire you see a bed of coals.\p"
+
+	"Stick your hand in?", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        closemessage
+        playse(SE_M_FLAME_WHEEL2)
+        delay(50)
+                msgbox(
+                "Mmmm...\n"
+                "Smells like you!", MSGBOX_SIGN)
+			closemessage
+	} else {
+		closemessage
+	}
+    
+    
+
+}
+
+script Starlight_House3_Secret_Mug {
+	lock
+    delay(30)
+    playse(SE_CLICK)
+    applymovement(LOCALID_STAR_MUGGER, moves(
+        walk_fastest_left * 2  
+        set_visible      
+    ))
+    delay(30)
+    msgbox(
+	"You just got MUGGED!", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
+    playse(SE_CLICK)
+    applymovement(LOCALID_STAR_MUGGER, moves(
+        set_invisible
+        walk_fastest_right * 2               
+    ))
+    waitmovement(0)
     release
     end
 }

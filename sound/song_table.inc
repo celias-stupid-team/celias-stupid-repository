@@ -503,6 +503,8 @@ gSongTable::
     song se_time, 1, 1
     song se_ass_blaster, 2, 2
 	song mus_bw_rival, 0, 0
+	song mus_tiny_lass, 0, 0
+	song mus_encounter_rival_high, 0, 0
 
 
 dummy_song_header:

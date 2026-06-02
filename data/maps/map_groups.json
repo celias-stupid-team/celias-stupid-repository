@@ -75,7 +75,8 @@
     "Starlight_House2",
     "Starlight_House3",
     "One_Island_Cave",
-    "Starlight_House5"
+    "Starlight_House5",
+    "Starlight_House_Light"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -751,7 +752,8 @@
     "Starlight_House6edge2",
     "Starlight_House_jukebox",
     "Starlight_House11",
-    "Starlight_House12"
+    "Starlight_House12",
+    "Starlight_House2_Fixed"
   ],
   "gMapGroup_Ocean": [
     "Ocean1",
