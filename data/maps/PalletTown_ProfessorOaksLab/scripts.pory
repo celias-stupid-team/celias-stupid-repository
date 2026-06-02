@@ -1497,8 +1497,10 @@ movement OakLab_LeftAideRuns {
 script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall1 {
 	lock
 	faceplayer
+			callnative(OaksLabDebug)
 	if(var(NUM_STARTERS_CHECKED) == 0) {
 		copyvar(VAR_TEMP_9, VAR_LAST_TALKED)
+			callnative(OaksLabDebug)
 	}
 	if(!flag(BALL_1_CHECKED)) {
 		addvar(NUM_STARTERS_CHECKED, 1)
@@ -1523,8 +1525,10 @@ script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall1 {
 script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall2 {
 	lock
 	faceplayer
+			callnative(OaksLabDebug)
 	if(var(NUM_STARTERS_CHECKED) == 0) {
 		copyvar(VAR_TEMP_9, VAR_LAST_TALKED)
+			callnative(OaksLabDebug)
 	}
 	if(!flag(BALL_2_CHECKED)) {
 		addvar(NUM_STARTERS_CHECKED, 1)
@@ -1549,8 +1553,10 @@ script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall2 {
 script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall3 {
 	lock
 	faceplayer
+			callnative(OaksLabDebug)
 	if(var(NUM_STARTERS_CHECKED) == 0) {
 		copyvar(VAR_TEMP_9, VAR_LAST_TALKED)
+			callnative(OaksLabDebug)
 	}
 	if(!flag(BALL_3_CHECKED)) {
 		addvar(NUM_STARTERS_CHECKED, 1)
@@ -1577,8 +1583,8 @@ script PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice {
 	waitmovement(0)
 	showmonpic(PLAYER_STARTER_SPECIES, 10, 3)
 	textcolor(NPC_TEXT_COLOR_MALE)
-	if(var(VAR_TEMP_9 == VAR_LAST_TALKED) && var(NUM_STARTERS_CHECKED) == 2 && flag(FLAG_TEMP_7) && !flag(FLAG_SHINY_CREATION)) {
-			
+	if(are_vars_equal(VAR_TEMP_9, VAR_LAST_TALKED) && var(NUM_STARTERS_CHECKED) == 2 && flag(FLAG_TEMP_7) && !flag(FLAG_SHINY_CREATION)) {
+			callnative(OaksLabDebug)
 			textcolor(NPC_TEXT_COLOR_TREE)
 			setflag(FLAG_SHINY_CREATION) //Charmander
 			msgbox("Oh, you didn't want that\nother CHARMANDER?\pThat's okay - this one is still\nan option!", MSGBOX_YESNO)

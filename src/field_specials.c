@@ -2872,7 +2872,7 @@ void DrawChapterTitle(void)
 
 
 
-const u8 *const gKayleeNameTable[] = {
+const u8 *const gKayleeNameTable[] = { // Don't ask
     COMPOUND_STRING("CAAGHLI"),
     COMPOUND_STRING("CAAGHLY"),
     COMPOUND_STRING("CAAHLAY"),
@@ -6848,6 +6848,7 @@ const u8 *const gKayleeNameTable[] = {
     COMPOUND_STRING("QQEYLLI"),
     COMPOUND_STRING("QQEYLLY"),
     COMPOUND_STRING("QQEYLY"),
+    COMPOUND_STRING("CLYDE"),
 
      
 };
@@ -6912,4 +6913,10 @@ void CSRBadgeDebug(void)
     badgeState++;
     if (badgeState > 6) badgeState = 0;
     VarSet(VAR_TEMP_F, badgeState);
+}
+
+
+void OaksLabDebug(void) {
+    DebugPrintf("First Ball Checked: %d", VarGet(VAR_TEMP_9));
+    DebugPrintf("Last Ball Checked %d", VarGet(VAR_LAST_TALKED));
 }
