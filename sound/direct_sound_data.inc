@@ -493,6 +493,81 @@ DirectSoundWaveData_SonicBoom::
 DirectSoundWaveData_SpaceJam::
 	.incbin "sound/direct_sound_samples/space_jam.bin"
 
+	.align 2
+DirectSoundWaveData_BooWomp::
+	.incbin "sound/direct_sound_samples/boo_womp.bin"
+
+	.align 2
+DirectSoundWaveData_CambrianOne::
+	.incbin "sound/direct_sound_samples/cambrian_1.bin"
+
+	.align 2
+DirectSoundWaveData_CambrianTwo::
+	.incbin "sound/direct_sound_samples/cambrian_2.bin"
+
+	.align 2
+DirectSoundWaveData_CarCrash::
+	.incbin "sound/direct_sound_samples/car_crash.bin"
+
+	.align 2
+DirectSoundWaveData_TCGConfused::
+	.incbin "sound/direct_sound_samples/tcg_confused.bin"
+
+	.align 2
+DirectSoundWaveData_TCGElectricity::
+	.incbin "sound/direct_sound_samples/tcg_electricity.bin"
+
+	.align 2
+DirectSoundWaveData_TCGPoison::
+	.incbin "sound/direct_sound_samples/tcg_poison.bin"
+
+	.align 2
+DirectSoundWaveData_TCGPsychic::
+	.incbin "sound/direct_sound_samples/tcg_psychic.bin"
+
+	.align 2
+DirectSoundWaveData_Hoo::
+	.incbin "sound/direct_sound_samples/hoo.bin"
+
+	.align 2
+DirectSoundWaveData_Salsa::
+	.incbin "sound/direct_sound_samples/salsa.bin"
+
+	.align 2
+DirectSoundWaveData_SealClap::
+	.incbin "sound/direct_sound_samples/seal_clap.bin"
+
+	.align 2
+DirectSoundWaveData_Wagon::
+	.incbin "sound/direct_sound_samples/wagon.bin"
+
+	.align 2
+DirectSoundWaveData_WhatsGoingOn::
+	.incbin "sound/direct_sound_samples/whats_going_on.bin"
+
+	.align 2
+DirectSoundWaveData_YoshiEat::
+	.incbin "sound/direct_sound_samples/yoshi_eat.bin"
+
+	.align 2
+DirectSoundWaveData_YoshiGroundPound::
+	.incbin "sound/direct_sound_samples/yoshi_ground_pound.bin"
+
+	.align 2
+DirectSoundWaveData_YoshiSpit::
+	.incbin "sound/direct_sound_samples/yoshi_spit.bin"
+
+	.align 2
+DirectSoundWaveData_ItsT::
+	.incbin "sound/direct_sound_samples/its_t.bin"
+
+	.align 2
+DirectSoundWaveData_Time::
+	.incbin "sound/direct_sound_samples/time.bin"
+
+	.align 2
+DirectSoundWaveData_AssBlaster::
+	.incbin "sound/direct_sound_samples/ass_blaster.bin"
 
 	.align 2
 Cry_Bulbasaur::
@@ -5632,5 +5707,25 @@ Cry_TINKANETTE::
 	.align 2
 Cry_RICKETOT::
 	.incbin "sound/direct_sound_samples/cries/ricketot.bin"
+
+	.align 2
+Cry_IMAKUNIDODUO::
+	.incbin "sound/direct_sound_samples/cries/imakunidoduo.bin"
+
+	.align 2
+Cry_ABSOLYNE::
+	.incbin "sound/direct_sound_samples/cries/absolyne.bin"
+
+	.align 2
+Cry_LICHENMASQUERAIN::
+	.incbin "sound/direct_sound_samples/cries/lichenmasquerain.bin"
+
+	.align 2
+Cry_LICHENMAWILE::
+	.incbin "sound/direct_sound_samples/cries/lichenmawile.bin"
+
+	.align 2
+Cry_DMCACUTOUT::
+	.incbin "sound/direct_sound_samples/cries/dmcacutout.bin"
 
 	.align 2

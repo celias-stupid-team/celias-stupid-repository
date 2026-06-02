@@ -91,7 +91,6 @@ static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
 void GetUnownCount(void);
-void IsNicknameMewtwo(void);
 extern const u8 *const gKayleeNameTable[];
 
 
@@ -1784,6 +1783,7 @@ static void BerryPowderManAlive_CB(void) {
 }
 
 static void SayYes_CB(void) {
+    VarSet(VAR_RESULT, 0);
     if(!StringCompare(gText_Yes, gStringVar1) ||
         !StringCompare(gText_YesLower, gStringVar1) ||
         !StringCompare(gText_YUP, gStringVar1) ||
@@ -1798,6 +1798,18 @@ static void SayYes_CB(void) {
 
     } else if (!StringCompare(gText_Oui, gStringVar1)) {
         VarSet(VAR_RESULT, 2);
+    } else if (!StringCompare(gText_Ja, gStringVar1)) {
+        VarSet(VAR_RESULT, 2);
+    } else if (!StringCompare(gText_Tak, gStringVar1)) {
+        VarSet(VAR_RESULT, 2);
+    } else if (!StringCompare(gText_Oklahoma, gStringVar1)) {
+        VarSet(VAR_RESULT, 3);
+    } else if (!StringCompare(gText_Si, gStringVar1)) {
+        VarSet(VAR_RESULT, 4);
+    } else if (!StringCompare(gText_SiLower, gStringVar1)) {
+        VarSet(VAR_RESULT, 4);
+    } else if (!StringCompare(gText_SiAllLower, gStringVar1)) {
+        VarSet(VAR_RESULT, 4);
     }  else {
         VarSet(VAR_RESULT, 0);
 
@@ -1806,8 +1818,8 @@ static void SayYes_CB(void) {
 }
 
 
-void IsNicknameMewtwo(void) {
-    
+void IsNicknameMewtwo(void)
+{
     GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar3);
     //DebugPrintf("Get Trade Species %d", VarGet(VAR_0x800B));
     DebugPrintf("First check %d", VarGet(VAR_0x8009));
@@ -2711,6 +2723,10 @@ u16 ScriptGetPartyMonSpecies(void)
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
 }
 
+bool32 ScriptIsPartyMonFainted(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP, NULL) == 0;
+}
 
 void ScriptPartyContainsSpecies(void)
 {

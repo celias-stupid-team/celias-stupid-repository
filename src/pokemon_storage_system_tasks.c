@@ -2354,6 +2354,7 @@ static void Task_ChangeScreen(u8 taskId)
         GoToBagMenu(ITEMMENULOCATION_PCBOX, OPEN_BAG_ITEMS, CB2_ReturnToPokeStorage);
         break;
     case SCREEN_CHANGE_PSS_EVO:
+        SaveMovingMon();
         FreePokeStorageData();
         PSSEvolutionScene(&gPSSEvoMon, SPECIES_PORYGON_Z);
         break;

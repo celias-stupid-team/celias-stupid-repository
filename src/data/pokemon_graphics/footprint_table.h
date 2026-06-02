@@ -1300,4 +1300,9 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_ZOMBON]    = gMonFootprint_ZOMBON,
 	[SPECIES_TINKANETTE]    = gMonFootprint_TINKANETTE,
 	[SPECIES_RICKETOT]    = gMonFootprint_RICKETOT,
+	[SPECIES_IMAKUNIDODUO]    = gMonFootprint_IMAKUNIDODUO,
+	[SPECIES_ABSOLYNE]    = gMonFootprint_ABSOLYNE,
+	[SPECIES_LICHENMASQUERAIN]    = gMonFootprint_LICHENMASQUERAIN,
+	[SPECIES_LICHENMAWILE]    = gMonFootprint_LICHENMAWILE,
+	[SPECIES_DMCACUTOUT]    = gMonFootprint_DMCACUTOUT,
 };

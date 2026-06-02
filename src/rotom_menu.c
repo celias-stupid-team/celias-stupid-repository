@@ -2818,6 +2818,7 @@ static bool32 SetupFunc_Waterfall(void)
 
 static void FieldMoveFunc_Waterfall(void)
 {
+    ObjectEventClearHeldMovementIfActive(&gObjectEvents[gPlayerAvatar.objectEventId]);
     FieldEffectStart(FLDEFF_USE_WATERFALL);
 }
 

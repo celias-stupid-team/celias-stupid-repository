@@ -15373,3 +15373,2494 @@ voicegroup247::
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
 
+.align 2
+voicegroup248::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_BooWomp, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup249::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_CambrianOne, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup250::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_CambrianTwo, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup251::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_CarCrash, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup252::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_TCGConfused, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup253::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_TCGElectricity, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup254::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_TCGPoison, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup255::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_TCGPsychic, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup256::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_Hoo, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup257::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_Salsa, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup258::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_SealClap, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup259::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_Wagon, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup260::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_WhatsGoingOn, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup261::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_YoshiEat, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup262::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_YoshiSpit, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+.align 2
+voicegroup263::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_YoshiGroundPound, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+
+.align 2
+voicegroup264::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_ItsT, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+
+.align 2
+voicegroup265::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_Time, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0
+
+
+.align 2
+voicegroup266::
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound_alt 60, 0, DirectSoundWaveData_bicycle_bell, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_synth_snare, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 1
+	voice_noise_alt 60, 0, 1, 0, 1, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 0, 255, 165
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 2, 0, 0
+	voice_square_1 60, 0, 103, 3, 2, 7, 0, 0
+	voice_square_2 60, 0, 3, 2, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 204, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 2, 0, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_58, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 7, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_rnd_snare, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 0, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_wave_61, 255, 0, 255, 127
+	voice_noise_alt 60, 0, 1, 0, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 246, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 19, 2, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 0, 255, 127
+	voice_square_1 60, 0, 103, 0, 0, 0, 15, 0
+	voice_directsound_alt 60, 0, DirectSoundWaveData_wave_62, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_64, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 242, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_65, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_close_hihat, 255, 127, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_wave_68, 255, 249, 0, 165
+	voice_square_1 60, 0, 0, 0, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 13, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_big_boned, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 252, 0, 204
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_square_1 60, 0, 0, 0, 4, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 188, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 226, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 26, 0, 255, 127
+	voice_square_1_alt 60, 0, 0, 2, 0, 1, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 252, 0, 127
+	voice_square_1_alt 60, 0, 0, 1, 0, 2, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 127, 0, 127
+	voice_noise_alt 60, 0, 0, 1, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tr909_hand_clap, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_french_horn_72, 11, 242, 0, 127
+	voice_square_1_alt 60, 0, 0, 2, 4, 6, 0, 0
+	voice_directsound 60, 0, DirectSoundWaveData_wave_73, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sc55_tom, 255, 0, 255, 165
+	voice_noise_alt 60, 0, 0, 5, 7, 15, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_square_wave, 128, 242, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 165
+	voice_square_1 60, 0, 0, 0, 1, 5, 0, 0
+	voice_noise_alt 60, 0, 0, 6, 6, 0, 1
+	voice_noise_alt 60, 0, 0, 3, 6, 0, 1
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 15, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_AssBlaster, 255, 255, 255, 127
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 12, 0

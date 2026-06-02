@@ -582,7 +582,7 @@ script Minnesota_Bliz {
 		))
 		msgbox(
 		"HAKARI: Thanks for that!\n"
-		"Nowe we can finally put together\l"
+		"Now we can finally put together\l"
 		"our all-star doubles team.\p"
 
 		"Are you ready to fight us?\n"

@@ -565,6 +565,45 @@
 #define ANIM_TAG_TOGEDEMARU                 (ANIM_SPRITES_START + 555)
 #define ANIM_TAG_DEDENNE                    (ANIM_SPRITES_START + 556)
 #define ANIM_TAG_ANARCHY                    (ANIM_SPRITES_START + 557)
+#define ANIM_TAG_GBA                        (ANIM_SPRITES_START + 558)
+#define ANIM_TAG_BESEECH_SEED               (ANIM_SPRITES_START + 559)
+#define ANIM_TAG_BOLT                       (ANIM_SPRITES_START + 560)
+#define ANIM_TAG_COP                        (ANIM_SPRITES_START + 561)
+#define ANIM_TAG_CONCRETE                   (ANIM_SPRITES_START + 562)
+#define ANIM_TAG_LIGHT_GYM                  (ANIM_SPRITES_START + 563)
+#define ANIM_TAG_STONE_FREE                 (ANIM_SPRITES_START + 564)
+#define ANIM_TAG_FLIPPER                    (ANIM_SPRITES_START + 565)
+#define ANIM_TAG_PRIME_RIBS                 (ANIM_SPRITES_START + 566)
+#define ANIM_TAG_BREAM                      (ANIM_SPRITES_START + 567)
+#define ANIM_TAG_WAGON_FRONT                (ANIM_SPRITES_START + 568)
+#define ANIM_TAG_WAGON_BACK                 (ANIM_SPRITES_START + 569)
+#define ANIM_TAG_WAGON_TOP_LEFT             (ANIM_SPRITES_START + 570)
+#define ANIM_TAG_WAGON_TOP_RIGHT            (ANIM_SPRITES_START + 571)
+#define ANIM_TAG_WAGON_CORNER               (ANIM_SPRITES_START + 572)
+#define ANIM_TAG_MR_EXPLOSION               (ANIM_SPRITES_START + 573)
+#define ANIM_TAG_PAPERBOY                   (ANIM_SPRITES_START + 574)
+#define ANIM_TAG_NEWSPAPER                  (ANIM_SPRITES_START + 575)
+#define ANIM_TAG_WET_DAD_IMPACT             (ANIM_SPRITES_START + 576)
+#define ANIM_TAG_DIDDY                      (ANIM_SPRITES_START + 577)
+#define ANIM_TAG_DRUG                       (ANIM_SPRITES_START + 578)
+#define ANIM_TAG_TETO                       (ANIM_SPRITES_START + 579)
+#define ANIM_TAG_SHADOW_SPIKES              (ANIM_SPRITES_START + 580)
+#define ANIM_TAG_TENNA_ITS                  (ANIM_SPRITES_START + 581)
+#define ANIM_TAG_TENNA_T                    (ANIM_SPRITES_START + 582)
+#define ANIM_TAG_TENNA_EXCLAMATION_MARK     (ANIM_SPRITES_START + 583)
+#define ANIM_TAG_TENNA_TIME                 (ANIM_SPRITES_START + 584)
+#define ANIM_TAG_JUNJI_STAR                 (ANIM_SPRITES_START + 585)
+#define ANIM_TAG_DEMON_CHILD                (ANIM_SPRITES_START + 586)
+#define ANIM_TAG_YOSHI_RUN                  (ANIM_SPRITES_START + 587)
+#define ANIM_TAG_CHATTER_LUL                (ANIM_SPRITES_START + 588)
+#define ANIM_TAG_CHATTER_KAPPA              (ANIM_SPRITES_START + 589)
+#define ANIM_TAG_CHATTER_SMILE              (ANIM_SPRITES_START + 590)
+#define ANIM_TAG_LETTER_W                   (ANIM_SPRITES_START + 591)
+#define ANIM_TAG_BLUK_BERRY                 (ANIM_SPRITES_START + 592)
+#define ANIM_TAG_BLUK_JUICE                 (ANIM_SPRITES_START + 593)
+#define ANIM_TAG_LCD_EXPLOSION              (ANIM_SPRITES_START + 594)
+#define ANIM_TAG_TRASH                      (ANIM_SPRITES_START + 595)
+#define ANIM_TAG_TM                         (ANIM_SPRITES_START + 596)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -632,6 +671,8 @@
 #define BG_COKE 38
 #define BG_GHOST_TRICK 39
 #define BG_LOSS 40
+#define BG_OREGON 41
+#define BG_LCD 42
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

@@ -996,6 +996,13 @@ const u8 gText_YeaLower[] = _("Yea");
 const u8 gText_AYE[] = _("AYE");
 const u8 gText_AyeLower[] = _("Aye");
 const u8 gText_Oui[] = _("OUI");
+const u8 gText_Si[] = _("SI");
+const u8 gText_SiLower[] = _("Si");
+const u8 gText_SiAllLower[] = _("si");
+const u8 gText_Oklahoma[] = _("OK");
+const u8 gText_Ja[] = _("JA");
+const u8 gText_Tak[] = _("TAK");
+const u8 gText_Blank[] = _("");
 
 // Start menu option descriptions
 const u8 gStartMenuDesc_Pokedex[] = _("A device that records POKéMON secrets\nupon meeting or catching them.");

@@ -833,6 +833,14 @@ script CinnabarGym_GymQuestionLoop {
 		release
 		end
     }
+	specialvar(VAR_RESULT, ScriptIsPartyMonFainted)
+	if(var(VAR_RESULT) == TRUE) {
+		msgbox(
+		"That POKéMON can't battle!\n"
+		"Pick one that's ready to fight.", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	copyvar(VAR_TEMP_A, VAR_0x8004)
 	
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
