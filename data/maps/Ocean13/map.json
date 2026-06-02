@@ -73,11 +73,11 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
-      "x": 38,
+      "x": 40,
       "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
-      "movement_range_x": 3,
+      "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -169,6 +169,42 @@
       "var": "VAR_CSR_OCEAN_LASS_MAZE",
       "var_value": "1",
       "script": "ThirtyEightIsland_LassMazeJumpscare"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_7"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_7"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_7"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_7"
     }
   ],
   "bg_events": [
