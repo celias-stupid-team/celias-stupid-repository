@@ -21,6 +21,18 @@ mapscripts Starlight_House_MapScripts {
 		 
 
 	}
+	MAP_SCRIPT_ON_LOAD {
+		setflag(FLAG_TEMP_1)
+		if (var(VAR_BONUS_STARS) == 1023) {
+		setmetatile(2, 0, 0x2A8, TRUE)
+		setmetatile(3, 0, 0x282, TRUE)
+		setmetatile(2, 1, 0x2B0, TRUE)
+		setmetatile(3, 1, 0x283, TRUE)
+		setmetatile(2, 2, 0x2D3, FALSE)
+		setmetatile(3, 2, 0x32D, FALSE)
+		clearflag(FLAG_TEMP_1)
+		}
+	}
 }
 
 script Starlight_House_Window {
@@ -1416,4 +1428,14 @@ script Starlight_House_Fridge {
 	msgbox(
 	"The fridge is cool.", MSGBOX_SIGN)
 
+}
+
+script Starlight_House_Trophy {
+	//if(!flag(FLAG_TEMP_1)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"{COLOR LIGHT_RED}YOU'RE WINNER{FONT_SMALL} !\n"
+	"\l"
+	"{COLOR DARK_GRAY}{FONT_SMALL}(Sprite made by Kamina)", MSGBOX_SIGN)
+	//}
 }

@@ -18,7 +18,7 @@
   "warp_events": [
     {
       "x": 15,
-      "y": 5,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_STARLIGHT_HOUSE4",
       "dest_warp_id": "4"
@@ -31,6 +31,25 @@
       "dest_warp_id": "4"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Starlight_House11_Flag"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Starlight_House11_Cry"
+    }
+  ],
   "bg_events": []
 }
