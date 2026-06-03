@@ -653,7 +653,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_HONEY_TREE  0x11E1
 #define OBJ_EVENT_PAL_TAG_BOBOMB_BUDDY  0x11E2
 #define OBJ_EVENT_PAL_TAG_HONEY_SMALL  0x11E3
-#define OBJ_EVENT_PAL_TAG_PMD_STARLIGHT  0x11E4
+#define OBJ_EVENT_PAL_TAG_GARDEVOIRSTAR  0x11E4
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -879,7 +879,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_HONEY_TREE,             OBJ_EVENT_PAL_TAG_HONEY_TREE},
     {gObjectEventPal_BOBOMB_BUDDY,             OBJ_EVENT_PAL_TAG_BOBOMB_BUDDY},
     {gObjectEventPal_HONEY_SMALL,             OBJ_EVENT_PAL_TAG_HONEY_SMALL},
-    {gObjectEventPal_PMD_STARLIGHT,             OBJ_EVENT_PAL_TAG_PMD_STARLIGHT},
+    {gObjectEventPal_GARDEVOIRSTAR,             OBJ_EVENT_PAL_TAG_GARDEVOIRSTAR},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
