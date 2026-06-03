@@ -1359,7 +1359,7 @@
 #define FLAG_0x4EA               0x4EA
 #define FLAG_0x4EB               0x4EB
 #define FLAG_0x4EC               0x4EC
-#define FLAG_0x4ED               0x4ED
+#define FLAG_TRANSPORTED_IRATE_GAMER               0x4ED
 #define FLAG_DIDNT_USE_CONFUSION_ON_BROCK               0x4EE
 #define FLAG_TURNED_IN_BADGES               0x4EF
 #define FLAG_ITEM_TM43               0x4F0

@@ -150,3 +150,10 @@ script FourthTrial_FourthTrialTorch {
     release
     end
 }
+
+script OvenRangeCuckChair {
+	msgbox(
+	"Oven range cuck chair.\n"
+	"", MSGBOX_SIGN)
+
+}

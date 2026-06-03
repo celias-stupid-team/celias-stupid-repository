@@ -3,7 +3,7 @@
   "name": "CinnabarIsland_Mart",
   "layout": "LAYOUT_MART",
   "music": "MUS_CSR_MART",
-  "region_map_section": "MAPSEC_CINNABAR_ISLAND",
+  "region_map_section": "MAPSEC_SINNABAR_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

@@ -725,7 +725,8 @@ const u8 gGoldeenPokedexText[] = _(
 const u8 gGoldeenPokedexTextUnused[] = _("");
 
 const u8 gSeakingPokedexText[] = _(
-	"I see king, I eat it.");
+	"Oh?\n"
+	"What are you SEAKING about?");
 
 const u8 gSeakingPokedexTextUnused[] = _("");
 

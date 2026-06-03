@@ -1050,7 +1050,7 @@
     },
     {
       "id": "MAPSEC_ALTAR_OF_MOONE",
-      "name": "MT. MOON",
+      "name": "ALTAR OF THE MOON",
       "x": 9,
       "y": 1,
       "width": 1,
@@ -1235,6 +1235,78 @@
     {
       "id": "MAPSEC_CLEFAIRY_COVE",
       "name": "MT MOON",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_GLITCH_CITY",
+      "name": "INf88eNV9saaaaa??98JmkD",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CINNEBAR_ISLAND",
+      "name": "CINNEBAR ISLAND",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_VIRIDIAN_ISLAND",
+      "name": "VIRIDIAN ISLAND",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CYNNABAR_ISLAND",
+      "name": "CYNNABAR ISLAND",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_SINNABAR_ISLAND",
+      "name": "SINNABAR ISLAND",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CINABAR_ISLAND",
+      "name": "CINABAR ISLAND",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CINNIBAR_ISLAND",
+      "name": "CINNIBAR ISLAND",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CINNEBAR_ISLAMD",
+      "name": "CINNABAR ISLAMD",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_CENNABAR_ISLAND",
+      "name": "CENNABAR ISLAND",
       "x": 0,
       "y": 0,
       "width": 1,

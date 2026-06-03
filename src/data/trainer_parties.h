@@ -617,7 +617,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_LassAli[] = {
         .iv = 0,
         .lvl = 14,
         .species = SPECIES_CRESSELIA,
-        .moves = {MOVE_ICEBEAM, MOVE_PSY_BEAM, MOVE_ICY_WIND, MOVE_NONE},
+        .moves = {MOVE_ICEBEAM, MOVE_PSY_WIND, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,

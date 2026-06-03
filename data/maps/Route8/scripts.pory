@@ -75,6 +75,12 @@ script Route8_StartRaining {
 }
 
 script Route8_DrySoil {
+	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nbarren land would be a waste.", MSGBOX_SIGN)
+
+}
+
+
+script Route8_DrySoilRich {
 	if(checkitem(ITEM_RICH_MULCH) && !flag(FLAG_SHINY_PERSIAN)) {
 		msgbox(
 		"The soil is intensely dry and arid.\n"
@@ -118,7 +124,6 @@ script Route8_DrySoil {
 	release
 	end
 }
-
 script Route8_Rich2 {
 	msgbox(
 	"I love being RICH.\n"

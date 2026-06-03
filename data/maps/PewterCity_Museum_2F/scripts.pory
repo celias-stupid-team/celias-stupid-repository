@@ -33,3 +33,11 @@ PewterCity_Museum_2F_EventScript_MoonStone::
 	msgbox PewterCity_Museum_1F_Text_MeteoriteThatFellOnMtMoon, MSGBOX_SIGN
 	end
 `
+
+
+script Museum_Oak {
+	msgbox(
+	"We have OAK at home.\n"
+	"", MSGBOX_SIGN)
+
+}

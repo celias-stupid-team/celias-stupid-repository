@@ -7,6 +7,7 @@ RocketHideout_B4F_MapScripts::
 
 RocketHideout_B4F_OnLoad::
 	setvar NUM_DOOR_GRUNTS_DEFEATED, 0
+	special HealPlayerParty
 	call_if_defeated TRAINER_DMCA_PETREL_1, RocketHideout_B4F_EventScript_CountGruntDefeated
 	call_if_defeated TRAINER_DMCA_GRUNT_17, RocketHideout_B4F_EventScript_CountGruntDefeated
 	call_if_ne NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_SetBarrier
@@ -130,10 +131,7 @@ script DMCAHideout_SuperScope {
 script DMCAHideout_Vent {
 	lock
 	msgbox(
-	"There's a vent in the wall.\p"
-
-	"Perhaps a POKéMON could fit\n"
-	"through…", MSGBOX_DEFAULT)
+	"There's a vent in the wall.", MSGBOX_DEFAULT)
 	if(checkpartymon(SPECIES_AMOONGUSS) && !flag(FLAG_GOT_BALM_MUSHROOM)) {
 		msgbox(
 		"Your AMOONGUSS is acting a bit\n"

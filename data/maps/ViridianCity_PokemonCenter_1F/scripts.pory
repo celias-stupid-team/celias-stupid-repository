@@ -68,3 +68,10 @@ script EventScript_PkmnCenterNurse {
 		call(EventScript_PkmnCenterNurse_Goodbye)
 	}
 }
+
+script PokemonCenter_Oak {
+	msgbox(
+	"That's not the PC, silly!\n"
+	"", MSGBOX_SIGN)
+
+}

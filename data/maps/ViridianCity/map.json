@@ -393,6 +393,20 @@
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_CITY_SCHOOL",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 23,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_CITY",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 29,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_CITY",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
