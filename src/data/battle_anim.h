@@ -1610,7 +1610,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_TcgPoison, 0x2000, ANIM_TAG_TCG_POISON},
     {gBattleAnimSpriteGfx_Imakuni, 0x0800, ANIM_TAG_IMAKUNI},
     {gBattleAnimSpriteGfx_TcgPsychic, 0x1000, ANIM_TAG_TCG_PSYCHIC},
-    {gBattleAnimSpriteGfx_TcgElectric, 0x0800, ANIM_TAG_TCG_ELECTRIC},
+    {gBattleAnimSpriteGfx_TcgElectric, 0x0C00, ANIM_TAG_TCG_ELECTRIC},
     {gBattleAnimSpriteGfx_TcgSpark, 0x0040, ANIM_TAG_TCG_SPARK},
     {gBattleAnimSpriteGfx_TcgSlap, 0x1800, ANIM_TAG_TCG_SLAP},
     {gBattleAnimSpriteGfx_TcgSlapImpact, 0x0400, ANIM_TAG_TCG_SLAP_IMPACT},
@@ -2339,4 +2339,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_LOSS]                = {gBattleAnimBgImage_Loss,       gBattleAnimBgPalette_Loss,       gBattleAnimBgTilemap_Loss},
     [BG_OREGON]              = {gBattleAnimBgImage_Oregon,     gBattleAnimBgPalette_Oregon,     gBattleAnimBgTilemap_Oregon},
     [BG_LCD]                 = {gBattleAnimBgImage_LCD,        gBattleAnimBgPalette_LCD,        gBattleAnimBgTilemap_LCD},
+    [BG_MANGA]               = {gBattleAnimBgImage_Manga,      gBattleAnimBgPalette_Manga,      gBattleAnimBgTilemap_Manga},
 };

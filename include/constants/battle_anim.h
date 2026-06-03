@@ -673,6 +673,7 @@
 #define BG_LOSS 40
 #define BG_OREGON 41
 #define BG_LCD 42
+#define BG_MANGA 43
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

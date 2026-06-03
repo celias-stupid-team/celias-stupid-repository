@@ -10587,7 +10587,28 @@ static const struct TrainerMonItemCustomMoves sParty_Lichen[] = {
         .lvl = 16,
         .heldItem = ITEM_NONE,
         .species = SPECIES_SUNKERN,
-        .moves = {MOVE_LEECH_SEED, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_BESEECH_SEED, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 16,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_LICHENMAWILE,
+        .moves = {MOVE_TRIPLE_PIXEL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 16,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_LICHENMASQUERAIN,
+        .moves = {MOVE_LIQUID_UZUMAKI, MOVE_JUNJI_HEALING, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 16,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_ABSOLYNE,
+        .moves = {MOVE_STONE_FREE_EDGE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
