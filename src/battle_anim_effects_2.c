@@ -4224,6 +4224,17 @@ const struct SpriteTemplate gLatinasSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+const struct SpriteTemplate gSpinTilesSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPIN_TILES,
+    .paletteTag = ANIM_TAG_SPIN_TILES,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64_LowPriority,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 const struct SpriteTemplate gClockSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CLOCK,

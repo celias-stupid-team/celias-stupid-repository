@@ -15315,7 +15315,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BEHEMOTH_TRASH] =
     {
         .effect = EFFECT_HIT,
-        .power = 50,
+        .power = 100,
         .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 15,

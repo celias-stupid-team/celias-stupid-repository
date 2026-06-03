@@ -25790,7 +25790,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_ZACIAN] =
     {
         .baseHP = 92,
-        .baseAttack = 120,
+        .baseAttack = 60,
         .baseDefense = 115,
         .baseSpeed = 138,
         .baseSpAttack = 80,
