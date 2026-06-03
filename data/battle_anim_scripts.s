@@ -34217,7 +34217,16 @@ Move_ANARCHYONCUTTER:
 	end
 
 Move_MORTAL_SPIN:
-	createvisualtask AnimTask_MortalSpin, 2, 2, 0, 90, -0xB00
+	loadspritegfx ANIM_TAG_SPIN_TILES
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_TARGET
+	createsprite gSpinTilesSpriteTemplate, ANIM_TARGET, 2, 0, -104, 0, 12, 8, 113, 0, 1
+	delay 8
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_HorizontalShake, 5, (MAX_BATTLERS_COUNT + 1), 0, 2
+	createvisualtask AnimTask_HorizontalShake, 5, MAX_BATTLERS_COUNT, 0, 2
+	createvisualtask AnimTask_MortalSpin, 2, ANIM_TARGET, -1, 0, 110, -0xC00
+	delay 2
+	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_TARGET, 8, 12
 	waitforvisualfinish
 	end
 
