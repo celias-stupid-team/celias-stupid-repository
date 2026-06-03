@@ -11497,9 +11497,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HONEY_SMALL = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PMD_STARLIGHT = { 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GARDEVOIRSTAR = {
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PMD_STARLIGHT,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GARDEVOIRSTAR,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 1024,
     .width = 32,
@@ -11512,6 +11512,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PMD_STARLIGHT = {
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = gObjectEventSpriteOamTables_32x32,
     .anims = sAnimTable_Standard,
-    .images = gObjectEventPicTable_PMD_STARLIGHT,
+    .images = gObjectEventPicTable_GARDEVOIRSTAR,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
+

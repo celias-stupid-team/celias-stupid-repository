@@ -6756,15 +6756,14 @@ const struct SpriteFrameImage gObjectEventPicTable_HONEY_SMALL[] = {
     overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 2),
     overworld_frame(gObjectEventPic_HONEY_SMALL, 2, 2, 2),
 };
-const struct SpriteFrameImage gObjectEventPicTable_PMD_STARLIGHT[] = {
-
-    overworld_frame(gObjectEventPic_PMD_STARLIGHT, 4, 4, 0),
-    overworld_frame(gObjectEventPic_PMD_STARLIGHT, 4, 4, 1),
-    overworld_frame(gObjectEventPic_PMD_STARLIGHT, 4, 4, 2),
-    overworld_frame(gObjectEventPic_PMD_STARLIGHT, 4, 4, 0),
-    overworld_frame(gObjectEventPic_PMD_STARLIGHT, 4, 4, 0),
-    overworld_frame(gObjectEventPic_PMD_STARLIGHT, 4, 4, 1),
-    overworld_frame(gObjectEventPic_PMD_STARLIGHT, 4, 4, 1),
-    overworld_frame(gObjectEventPic_PMD_STARLIGHT, 4, 4, 2),
-    overworld_frame(gObjectEventPic_PMD_STARLIGHT, 4, 4, 2),
+const struct SpriteFrameImage gObjectEventPicTable_GARDEVOIRSTAR[] = {
+    overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 2),
 };
