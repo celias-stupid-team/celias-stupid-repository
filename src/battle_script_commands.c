@@ -12468,10 +12468,12 @@ void BS_FadeScreen(void)
             FadeScreen(FADE_TO_WHITE, 3);
             break;
         case FADE_FROM_BLACK:
-            FadeScreen(FADE_FROM_BLACK, 3);
+            // call BeginNormalPaletteFade directly, because FadeScreen can't handle ow weather
+            BeginNormalPaletteFade(PALETTES_ALL, 3, 16, 0, RGB_BLACK);
             break;
         case FADE_FROM_WHITE:
-            FadeScreen(FADE_FROM_WHITE, 3);
+            // call BeginNormalPaletteFade directly, because FadeScreen can't handle ow weather
+            BeginNormalPaletteFade(PALETTES_ALL, 3, 16, 0, RGB_WHITEALPHA);
             break;
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
@@ -12493,10 +12495,10 @@ void BS_FadeScreenInstant(void)
             FadeScreen(FADE_TO_WHITE, 0);
             break;
         case FADE_FROM_BLACK:
-            FadeScreen(FADE_FROM_BLACK, 0);
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
             break;
         case FADE_FROM_WHITE:
-            FadeScreen(FADE_FROM_WHITE, 0);
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_WHITEALPHA);
             break;
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
