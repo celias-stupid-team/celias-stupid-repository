@@ -656,7 +656,7 @@ script Starlight_House3_PMD_Star_Character2 {
 script StarLighthouse_3F_Ampharos {
     lock
 	waitse
-	playmoncry(SPECIES_AMPHAROS, CRY_MODE_DEFAULT)
+	playmoncry(SPECIES_AMPHAROS, CRY_MODE_HIGH_PITCH)
     //delay(40)
 	//waitmoncry
 	textcolor(NPC_TEXT_COLOR_FEMALE)

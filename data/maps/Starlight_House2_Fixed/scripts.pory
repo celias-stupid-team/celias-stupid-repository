@@ -569,6 +569,6 @@ script Starlight_House2_Glasses_Up {
 
 script Starlight_House2_Headquarters_Sign {
 	msgbox(
-	"STARLIGHT's Headquarters", MSGBOX_SIGN)
+	"Map Workshop Lounge", MSGBOX_SIGN)
 
 }
