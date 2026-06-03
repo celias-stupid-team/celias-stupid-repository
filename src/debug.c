@@ -3881,6 +3881,25 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_SE_MONSTER_MASH) \
     X(MUS_SE_SONIC_BOOM) \
     X(MUS_SE_SPACE_JAM) \
+    X(SE_BOO_WOMP) \
+    X(SE_CAMBRIAN_1) \
+    X(SE_CAMBRIAN_2) \
+    X(SE_CAR_CRASH) \
+    X(SE_TCG_CONFUSED) \
+    X(SE_TCG_ELECTRICITY) \
+    X(SE_TCG_POISON) \
+    X(SE_TCG_PSYCHIC) \
+    X(SE_HOO) \
+    X(SE_SALSA) \
+    X(SE_SEAL_CLAP) \
+    X(SE_WAGON) \
+    X(SE_WHATS_GOING_ON) \
+    X(SE_YOSHI_EAT) \
+    X(SE_YOSHI_SPIT) \
+    X(SE_YOSHI_GROUND_POUND) \
+    X(SE_ITS_T) \
+    X(SE_TIME) \
+    X(SE_ASS_BLASTER) \
     X(MUS_BW_RIVAL) \
     X(MUS_TINY_LASS) \
     X(MUS_ENCOUNTER_RIVAL_HIGH)      \
