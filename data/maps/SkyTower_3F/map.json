@@ -320,6 +320,24 @@
       "var": "VAR_TEMP_4",
       "var_value": "0",
       "script": "SkyTower_3F_KillThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 53,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_1"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_1"
     }
   ],
   "bg_events": [

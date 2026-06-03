@@ -720,7 +720,8 @@ script Starlight_House3_Map_Table_Edge {
         } else {
         msgbox(
         "A table of the entire region\n"
-        "showing future work plans.", MSGBOX_SIGN)
+        "showing future work plans of\l"
+        "{COLOR BLUE}indoor {COLOR DARK_GRAY}and {COLOR RED}outdoor {COLOR DARK_GRAY}mapping.", MSGBOX_SIGN)
     }
 }
 
@@ -739,12 +740,14 @@ script Starlight_House3_Map_Table_Edge_Bit_Hi {
     if(!flag(FLAG_TEMP_7) && !flag(FLAG_TEMP_13)) {
         msgbox(
         "A table of the entire region\n"
-        "showing future work plans.", MSGBOX_SIGN)
+        "showing future work plans of\l"
+        "{COLOR BLUE}indoor {COLOR DARK_GRAY}and {COLOR RED}outdoor {COLOR DARK_GRAY}mapping.", MSGBOX_SIGN)
         }
     if(!flag(FLAG_TEMP_7) && flag(FLAG_TEMP_13)) {
         msgbox(
         "A table of the entire region\n"
-        "showing future work plans.", MSGBOX_SIGN)
+        "showing future work plans of\l"
+        "{COLOR BLUE}indoor {COLOR DARK_GRAY}and {COLOR RED}outdoor {COLOR DARK_GRAY}mapping.", MSGBOX_SIGN)
         }
 }
 
@@ -1545,7 +1548,8 @@ script Starlight_House3_Map_Table_Edge_Bit_Look_Look {
     if(!flag(FLAG_TEMP_7)) {
         msgbox(
         "A table of the entire region\n"
-        "showing future work plans.", MSGBOX_SIGN)       
+        "showing future work plans of\l"
+        "{COLOR BLUE}indoor {COLOR DARK_GRAY}and {COLOR RED}outdoor {COLOR DARK_GRAY}mapping.", MSGBOX_SIGN)       
     }
     //} else {
     //    msgbox(

@@ -2,3 +2,19 @@ mapscripts Starlight_House11_MapScripts {
 
 }
 
+script Starlight_House11_Cry {
+	if(flag(FLAG_TEMP_1)) {
+    playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
+    clearflag(FLAG_TEMP_1)
+    }
+    release
+    end
+
+}
+
+script Starlight_House11_Flag {
+	setflag(FLAG_TEMP_1)
+    release
+    end
+
+}

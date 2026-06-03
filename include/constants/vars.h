@@ -353,7 +353,7 @@ It is reset after every battle.
 #define VAR_VIRIDIAN_FOREST_CATERPIE                 0x40EF
 #define VAR_SHINY_NIDOTRAN                 0x40F0
 #define VAR_DAILY_BP               0x40F1
-#define VAR_0x40F2                 0x40F2
+#define VAR_BONUS_STARS                 0x40F2
 #define VAR_0x40F3                 0x40F3
 #define VAR_0x40F4                 0x40F4
 #define VAR_0x40F5                 0x40F5

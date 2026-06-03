@@ -540,3 +540,11 @@ bool8 LoadTrainerObjectScript(void)
     sGlobalScriptContext.scriptPtr = gApproachingTrainers[gNoOfApproachingTrainers - 1].trainerScriptPtr;
     return TRUE;
 }
+
+void CheckStarlightEE(void)
+{
+    u16 value = VarGet(gSpecialVar_0x8000);
+    u16 bit   = gSpecialVar_0x8001;
+
+    gSpecialVar_Result = (value & bit) != 0;
+}
