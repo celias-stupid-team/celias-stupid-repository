@@ -317,7 +317,7 @@ script SafariZone_KangaBabyCage {
 		end
 
 	}
-	if(flag(FLAG_FREED_KANGA)) {
+	if(flag(FLAG_FREED_KANGA) || checkfieldmove(MOVE_BRICK_BREAK)) {
 		call(Common_Script_BrickBreak)
 			if(var(VAR_RESULT) == 1) {
 		
@@ -563,4 +563,36 @@ movement PlayerWalkDown {
 	walk_left
 	walk_down
 	face_up
+}
+
+script SafariZone_Baby {
+	lock
+	faceplayer
+	playmoncry(SPECIES_CUBONE, CRY_MODE_FAINT)
+	msgbox(
+	"BABY KANGA: Kaaang?\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(15)
+	msgbox(
+	"Hmm, it seems you're here a little\n"
+	"bit ahead of schedule.\p"
+
+	"The BABY isn't sure how to proceed\n"
+	"from here.", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script SafariZone_BigKanga {
+	msgbox(
+	"KANGASKHAN: Uhh… hey.\p"
+
+	"I thought the script said you had\n"
+	"to give me the TM through the wall.\l"
+	"That was the whole plan.\p"
+
+	"Shit, I've never been good at\n"
+	"improv.", MSGBOX_NPC)
 }

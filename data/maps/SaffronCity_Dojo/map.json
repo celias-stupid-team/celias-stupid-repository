@@ -61,6 +61,7 @@
       "flag": "FLAG_JASON_IS_IN_ROOM"
     },
     {
+      "local_id": "LOCALID_IRATE_GAMER",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN",
       "x": 2,
@@ -467,7 +468,16 @@
     {
       "type": "trigger",
       "x": 1,
-      "y": 12,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "0",
+      "script": "SaffronDojo_ReadyForTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 13,
       "elevation": 0,
       "var": "VAR_READY_FOR_TORNADO",
       "var_value": "1",
@@ -477,6 +487,96 @@
       "type": "trigger",
       "x": 2,
       "y": 14,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "1",
+      "script": "SaffronDojo_NoTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "1",
+      "script": "SaffronDojo_NoTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "0",
+      "script": "SaffronDojo_ReadyForTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "1",
+      "script": "SaffronDojo_NoTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "0",
+      "script": "SaffronDojo_ReadyForTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "1",
+      "script": "SaffronDojo_NoTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "0",
+      "script": "SaffronDojo_ReadyForTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "1",
+      "script": "SaffronDojo_NoTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "1",
+      "script": "SaffronDojo_NoTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_READY_FOR_TORNADO",
+      "var_value": "0",
+      "script": "SaffronDojo_ReadyForTornado"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_READY_FOR_TORNADO",
       "var_value": "0",
@@ -486,15 +586,6 @@
       "type": "trigger",
       "x": 2,
       "y": 13,
-      "elevation": 0,
-      "var": "VAR_READY_FOR_TORNADO",
-      "var_value": "1",
-      "script": "SaffronDojo_NoTornado"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 14,
       "elevation": 0,
       "var": "VAR_READY_FOR_TORNADO",
       "var_value": "1",

@@ -187,7 +187,7 @@ script VermilionFanClub_Rotom {
 
 script VermilionFanClub_Polish {
 	msgbox(
-	"Jesli mnie pytasz?\n"
+	"Wedlug mnie?\n"
 	"Nowe gry POKéMON nie maja\l"
 	"wystarczajaco duzo POLSKIEGO.", MSGBOX_NPC)
 }

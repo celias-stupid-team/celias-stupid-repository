@@ -483,6 +483,25 @@ gSongTable::
 	song mus_se_monster_mash, 2, 2
 	song mus_se_sonic_boom, 2, 2
 	song mus_se_space_jam, 2, 2
+    song se_boo_womp, 1, 1
+    song se_cambrian_1, 1, 1
+    song se_cambrian_2, 1, 1
+    song se_car_crash, 1, 1
+    song se_tcg_confused, 1, 1
+    song se_tcg_electricity, 1, 1
+    song se_tcg_poison, 1, 1
+    song se_tcg_psychic, 1, 1
+    song se_hoo, 1, 1
+    song se_salsa, 1, 1
+    song se_seal_clap, 1, 1
+    song se_wagon, 1, 1
+    song se_whats_going_on, 1, 1
+    song se_yoshi_eat, 1, 1
+    song se_yoshi_spit, 1, 1
+    song se_yoshi_ground_pound, 1, 1
+    song se_its_t, 1, 1
+    song se_time, 1, 1
+    song se_ass_blaster, 2, 2
 	song mus_bw_rival, 0, 0
 	song mus_tiny_lass, 0, 0
 	song mus_encounter_rival_high, 0, 0

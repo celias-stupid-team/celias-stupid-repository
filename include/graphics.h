@@ -8984,6 +8984,22 @@ extern const u32 gBattleAnimSpriteGfx_Diddy[];
 extern const u32 gBattleAnimSpriteGfx_Drug[];
 extern const u32 gBattleAnimSpriteGfx_Teto[];
 extern const u32 gBattleAnimSpriteGfx_Shadow_Spikes[];
+extern const u32 gBattleAnimSpriteGfx_TennaIts[];
+extern const u32 gBattleAnimSpriteGfx_TennaT[];
+extern const u32 gBattleAnimSpriteGfx_TennaExclamationMark[];
+extern const u32 gBattleAnimSpriteGfx_TennaTime[];
+extern const u32 gBattleAnimSpriteGfx_JunjiStar[];
+extern const u32 gBattleAnimSpriteGfx_DemonChild[];
+extern const u32 gBattleAnimSpriteGfx_YoshiRun[];
+extern const u32 gBattleAnimSpriteGfx_ChatterLul[];
+extern const u32 gBattleAnimSpriteGfx_ChatterKappa[];
+extern const u32 gBattleAnimSpriteGfx_ChatterSmile[];
+extern const u32 gBattleAnimSpriteGfx_LetterW[];
+extern const u32 gBattleAnimSpriteGfx_BlukBerry[];
+extern const u32 gBattleAnimSpriteGfx_BlukJuice[];
+extern const u32 gBattleAnimSpriteGfx_LCDExplosion[];
+extern const u32 gBattleAnimSpriteGfx_Trash[];
+extern const u32 gBattleAnimSpriteGfx_TM[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9515,6 +9531,22 @@ extern const u32 gBattleAnimSpritePal_Diddy[];
 extern const u32 gBattleAnimSpritePal_Drug[];
 extern const u32 gBattleAnimSpritePal_Teto[];
 extern const u32 gBattleAnimSpritePal_Shadow_Spikes[];
+extern const u32 gBattleAnimSpritePal_TennaIts[];
+extern const u32 gBattleAnimSpritePal_TennaT[];
+extern const u32 gBattleAnimSpritePal_TennaExclamationMark[];
+extern const u32 gBattleAnimSpritePal_TennaTime[];
+extern const u32 gBattleAnimSpritePal_JunjiStar[];
+extern const u32 gBattleAnimSpritePal_DemonChild[];
+extern const u32 gBattleAnimSpritePal_YoshiRun[];
+extern const u32 gBattleAnimSpritePal_ChatterLul[];
+extern const u32 gBattleAnimSpritePal_ChatterKappa[];
+extern const u32 gBattleAnimSpritePal_ChatterSmile[];
+extern const u32 gBattleAnimSpritePal_LetterW[];
+extern const u32 gBattleAnimSpritePal_BlukBerry[];
+extern const u32 gBattleAnimSpritePal_BlukJuice[];
+extern const u32 gBattleAnimSpritePal_LCDExplosion[];
+extern const u32 gBattleAnimSpritePal_Trash[];
+extern const u32 gBattleAnimSpritePal_TM[];
 //CSR Moves
 
 extern const u32 gBattleAnimSpriteGfx_Crab[];
@@ -9570,6 +9602,9 @@ extern const u32 gBattleAnimBgImage_Pewter[];
 extern const u32 gBattleAnimBgImage_Coke[];
 extern const u32 gBattleAnimBgImage_GhostTrick[];
 extern const u32 gBattleAnimBgImage_Loss[];
+extern const u32 gBattleAnimBgImage_Oregon[];
+extern const u32 gBattleAnimBgImage_LCD[];
+extern const u32 gBattleAnimBgImage_Manga[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9608,6 +9643,9 @@ extern const u32 gBattleAnimBgPalette_MeatWater[];
 extern const u32 gBattleAnimBgPalette_EarfWater[];
 extern const u32 gBattleAnimBgPalette_GhostTrick[];
 extern const u32 gBattleAnimBgPalette_Loss[];
+extern const u32 gBattleAnimBgPalette_Oregon[];
+extern const u32 gBattleAnimBgPalette_LCD[];
+extern const u32 gBattleAnimBgPalette_Manga[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9645,6 +9683,9 @@ extern const u32 gBattleAnimBgTilemap_Pewter[];
 extern const u32 gBattleAnimBgTilemap_Coke[];
 extern const u32 gBattleAnimBgTilemap_GhostTrick[];
 extern const u32 gBattleAnimBgTilemap_Loss[];
+extern const u32 gBattleAnimBgTilemap_Oregon[];
+extern const u32 gBattleAnimBgTilemap_LCD[];
+extern const u32 gBattleAnimBgTilemap_Manga[];
 
 // dark
 extern const u32 gMetalShineGfx[];
@@ -13671,3 +13712,43 @@ extern const u32 gItemIconPalette_Ilexir[];
 
 extern const u32 gItemIcon_HyperRepel[];
 extern const u32 gItemIconPalette_HyperRepel[];
+// IMAKUNI_DODUO
+extern const u32 gMonFrontPic_IMAKUNIDODUO[];
+extern const u32 gMonPalette_IMAKUNIDODUO[];
+extern const u32 gMonBackPic_IMAKUNIDODUO[];
+extern const u32 gMonShinyPalette_IMAKUNIDODUO[];
+extern const u8 gMonFootprint_IMAKUNIDODUO[];
+extern const u8 gMonIcon_IMAKUNIDODUO[];
+
+// ABSOLYNE
+extern const u32 gMonFrontPic_ABSOLYNE[];
+extern const u32 gMonPalette_ABSOLYNE[];
+extern const u32 gMonBackPic_ABSOLYNE[];
+extern const u32 gMonShinyPalette_ABSOLYNE[];
+extern const u8 gMonFootprint_ABSOLYNE[];
+extern const u8 gMonIcon_ABSOLYNE[];
+
+// LICHEN_MASQUERAIN
+extern const u32 gMonFrontPic_LICHENMASQUERAIN[];
+extern const u32 gMonPalette_LICHENMASQUERAIN[];
+extern const u32 gMonBackPic_LICHENMASQUERAIN[];
+extern const u32 gMonShinyPalette_LICHENMASQUERAIN[];
+extern const u8 gMonFootprint_LICHENMASQUERAIN[];
+extern const u8 gMonIcon_LICHENMASQUERAIN[];
+
+// LICHEN_MAWILE
+extern const u32 gMonFrontPic_LICHENMAWILE[];
+extern const u32 gMonPalette_LICHENMAWILE[];
+extern const u32 gMonBackPic_LICHENMAWILE[];
+extern const u32 gMonShinyPalette_LICHENMAWILE[];
+extern const u8 gMonFootprint_LICHENMAWILE[];
+extern const u8 gMonIcon_LICHENMAWILE[];
+
+// DMCA_CUTOUT
+extern const u32 gMonFrontPic_DMCACUTOUT[];
+extern const u32 gMonPalette_DMCACUTOUT[];
+extern const u32 gMonBackPic_DMCACUTOUT[];
+extern const u32 gMonShinyPalette_DMCACUTOUT[];
+extern const u8 gMonFootprint_DMCACUTOUT[];
+extern const u8 gMonIcon_DMCACUTOUT[];
+

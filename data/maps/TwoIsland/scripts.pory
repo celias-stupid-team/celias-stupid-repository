@@ -1535,3 +1535,11 @@ script TwoIsland_Cop {
 	"blow off steam.", MSGBOX_NPC)
 }
 
+script TwoIsland_Drugstore_Sign {
+	msgbox(
+	"DRUGSTORE\p"
+
+	"We sell drugs.\n"
+	"", MSGBOX_SIGN)
+
+}

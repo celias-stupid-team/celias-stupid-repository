@@ -119,6 +119,7 @@ enum ScriptMenu
     DEBUG_UTIL_MENU_ITEM_SCRIPT_7,
     DEBUG_UTIL_MENU_ITEM_SCRIPT_8,
     DEBUG_UTIL_MENU_ITEM_SCRIPT_9,
+    DEBUG_UTIL_MENU_ITEM_SCRIPT_10,
 };
 
 enum FlagsVarsMenu
@@ -174,7 +175,7 @@ enum SoundMenu
 #define DEBUG_MENU_FONT FONT_SMALL
 
 #define DEBUG_MENU_WIDTH_MAIN 16
-#define DEBUG_MENU_HEIGHT_MAIN 9
+#define DEBUG_MENU_HEIGHT_MAIN 10
 
 #define DEBUG_MENU_WIDTH_EXTRA 10
 #define DEBUG_MENU_HEIGHT_EXTRA 4
@@ -252,6 +253,7 @@ static void DebugAction_Util_Script_6(u8 taskId);
 static void DebugAction_Util_Script_7(u8 taskId);
 static void DebugAction_Util_Script_8(u8 taskId);
 static void DebugAction_Util_Script_9(u8 taskId);
+static void DebugAction_Util_Script_10(u8 taskId);
 
 static void DebugAction_OpenUtilitiesMenu(u8 taskId);
 static void DebugAction_OpenPartyBoxesMenu(u8 taskId);
@@ -352,6 +354,7 @@ extern const u8 Debug_EventScript_Script_6[];
 extern const u8 Debug_EventScript_Script_7[];
 extern const u8 Debug_EventScript_Script_8[];
 extern const u8 Debug_EventScript_Script_9[];
+extern const u8 Debug_EventScript_Script_10[];
 extern const u8 DebugScript_DaycareMonsNotCompatible[];
 extern const u8 DebugScript_OneDaycareMons[];
 extern const u8 DebugScript_ZeroDaycareMons[];
@@ -398,6 +401,7 @@ static const u8 sDebugText_Util_Script_6[] = _("start final cutscene");
 static const u8 sDebugText_Util_Script_7[] = _("start final battle");
 static const u8 sDebugText_Util_Script_8[] = _("toggle battle PC switch");
 static const u8 sDebugText_Util_Script_9[] = _("Cycle badge state");
+static const u8 sDebugText_Util_Script_10[] = _("Run slots game");
 // Util Menu
 static const u8 sDebugText_Util_FlyToMap[] = _("Fly to map…{CLEAR_TEXT_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_Util_WarpToMap[] = _("Warp to map warp…{CLEAR_TEXT_TO 110}{RIGHT_ARROW}");
@@ -568,6 +572,7 @@ static const struct ListMenuItem sDebugMenu_Items_Scripts[] =
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_7] = {sDebugText_Util_Script_7, DEBUG_UTIL_MENU_ITEM_SCRIPT_7},
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_8] = {sDebugText_Util_Script_8, DEBUG_UTIL_MENU_ITEM_SCRIPT_8},
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_9] = {sDebugText_Util_Script_9, DEBUG_UTIL_MENU_ITEM_SCRIPT_9},
+        [DEBUG_UTIL_MENU_ITEM_SCRIPT_10] = {sDebugText_Util_Script_10, DEBUG_UTIL_MENU_ITEM_SCRIPT_10},
 };
 
 static const struct ListMenuItem sDebugMenu_Items_FlagsVars[] =
@@ -664,6 +669,7 @@ static void (*const sDebugMenu_Actions_Scripts[])(u8) =
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_7] = DebugAction_Util_Script_7,
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_8] = DebugAction_Util_Script_8,
         [DEBUG_UTIL_MENU_ITEM_SCRIPT_9] = DebugAction_Util_Script_9,
+        [DEBUG_UTIL_MENU_ITEM_SCRIPT_10] = DebugAction_Util_Script_10,
 };
 
 static void (*const sDebugMenu_Actions_Flags[])(u8) =
@@ -719,7 +725,7 @@ static const struct WindowTemplate sDebugMenuWindowTemplateMain =
         .tilemapLeft = 1,
         .tilemapTop = 1,
         .width = DEBUG_MENU_WIDTH_MAIN,
-        .height = 2 * DEBUG_MENU_HEIGHT_MAIN,
+        .height = 2 * DEBUG_MENU_HEIGHT_MAIN - 2,
         .paletteNum = 15,
         .baseBlock = 1,
 };
@@ -1821,6 +1827,11 @@ static void DebugAction_Util_Script_8(u8 taskId)
 static void DebugAction_Util_Script_9(u8 taskId)
 {
     Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_9);
+}
+
+static void DebugAction_Util_Script_10(u8 taskId)
+{
+    Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_10);
 }
 
 // *******************************
@@ -3870,6 +3881,25 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_SE_MONSTER_MASH) \
     X(MUS_SE_SONIC_BOOM) \
     X(MUS_SE_SPACE_JAM) \
+    X(SE_BOO_WOMP) \
+    X(SE_CAMBRIAN_1) \
+    X(SE_CAMBRIAN_2) \
+    X(SE_CAR_CRASH) \
+    X(SE_TCG_CONFUSED) \
+    X(SE_TCG_ELECTRICITY) \
+    X(SE_TCG_POISON) \
+    X(SE_TCG_PSYCHIC) \
+    X(SE_HOO) \
+    X(SE_SALSA) \
+    X(SE_SEAL_CLAP) \
+    X(SE_WAGON) \
+    X(SE_WHATS_GOING_ON) \
+    X(SE_YOSHI_EAT) \
+    X(SE_YOSHI_SPIT) \
+    X(SE_YOSHI_GROUND_POUND) \
+    X(SE_ITS_T) \
+    X(SE_TIME) \
+    X(SE_ASS_BLASTER) \
     X(MUS_BW_RIVAL) \
     X(MUS_TINY_LASS) \
     X(MUS_ENCOUNTER_RIVAL_HIGH)      \

@@ -844,6 +844,39 @@ const u32 gBattleAnimSpritePal_Teto[] = INCBIN_U32("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_Shadow_Spikes[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_spikes.4bpp.lz");
 const u32 gBattleAnimSpritePal_Shadow_Spikes[] = INCBIN_U32("graphics/battle_anims/sprites/shadow_spikes.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_TennaIts[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_its.4bpp.lz");
+const u32 gBattleAnimSpritePal_TennaIts[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_its.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TennaT[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_t.4bpp.lz");
+const u32 gBattleAnimSpritePal_TennaT[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_t.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TennaExclamationMark[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_exclamation_mark.4bpp.lz");
+const u32 gBattleAnimSpritePal_TennaExclamationMark[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_exclamation_mark.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TennaTime[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_time.4bpp.lz");
+const u32 gBattleAnimSpritePal_TennaTime[] = INCBIN_U32("graphics/battle_anims/sprites/tenna_time.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_JunjiStar[] = INCBIN_U32("graphics/battle_anims/sprites/junji_star.4bpp.lz");
+const u32 gBattleAnimSpritePal_JunjiStar[] = INCBIN_U32("graphics/battle_anims/sprites/junji_star.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_DemonChild[] = INCBIN_U32("graphics/battle_anims/sprites/demon_child.4bpp.lz");
+const u32 gBattleAnimSpritePal_DemonChild[] = INCBIN_U32("graphics/battle_anims/sprites/demon_child.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_YoshiRun[] = INCBIN_U32("graphics/battle_anims/sprites/yoshi_run.4bpp.lz");
+const u32 gBattleAnimSpritePal_YoshiRun[] = INCBIN_U32("graphics/battle_anims/sprites/yoshi_run.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_ChatterLul[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_lul.4bpp.lz");
+const u32 gBattleAnimSpritePal_ChatterLul[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_lul.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_ChatterKappa[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_kappa.4bpp.lz");
+const u32 gBattleAnimSpritePal_ChatterKappa[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_kappa.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_ChatterSmile[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_smile.4bpp.lz");
+const u32 gBattleAnimSpritePal_ChatterSmile[] = INCBIN_U32("graphics/battle_anims/sprites/chatter_smile.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_LetterW[] = INCBIN_U32("graphics/battle_anims/sprites/letter_w.4bpp.lz");
+const u32 gBattleAnimSpritePal_LetterW[] = INCBIN_U32("graphics/battle_anims/sprites/letter_w.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_WagonFront[] = INCBIN_U32("graphics/battle_anims/sprites/wagon_front.4bpp.lz");
 const u32 gBattleAnimSpritePal_Wagon[] = INCBIN_U32("graphics/battle_anims/sprites/wagon_front.gbapal.lz");
 
@@ -1466,6 +1499,21 @@ const u32 gBattleAnimBg_AttractTilemap[] = INCBIN_U32("graphics/battle_anims/bac
 const u32 gBattleAnimSpriteGfx_RedOrb[] = INCBIN_U32("graphics/battle_anims/sprites/red_orb.4bpp.lz");
 const u32 gBattleAnimSpritePal_RedOrb[] = INCBIN_U32("graphics/battle_anims/sprites/red_orb.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_BlukBerry[] = INCBIN_U32("graphics/battle_anims/sprites/bluk.4bpp.lz");
+const u32 gBattleAnimSpritePal_BlukBerry[] = INCBIN_U32("graphics/battle_anims/sprites/bluk.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BlukJuice[] = INCBIN_U32("graphics/battle_anims/sprites/bluk_juice.4bpp.lz");
+const u32 gBattleAnimSpritePal_BlukJuice[] = INCBIN_U32("graphics/battle_anims/sprites/bluk_juice.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_LCDExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/lcd_explosion.4bpp.lz");
+const u32 gBattleAnimSpritePal_LCDExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/lcd_explosion.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Trash[] = INCBIN_U32("graphics/battle_anims/sprites/trash.4bpp.lz");
+const u32 gBattleAnimSpritePal_Trash[] = INCBIN_U32("graphics/battle_anims/sprites/trash.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_TM[] = INCBIN_U32("graphics/battle_anims/sprites/tm.4bpp.lz");
+const u32 gBattleAnimSpritePal_TM[] = INCBIN_U32("graphics/battle_anims/sprites/tm.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_CircleOfLight[] = INCBIN_U32("graphics/battle_anims/sprites/circle_of_light.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_ElectricOrbs[] = INCBIN_U32("graphics/battle_anims/sprites/electric_orbs.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_Electricity[] = INCBIN_U32("graphics/battle_anims/sprites/electricity.4bpp.lz");
@@ -1600,6 +1648,18 @@ const u32 gBattleAnimBgTilemap_Skyrim[] = INCBIN_U32("graphics/battle_anims/back
 const u32 gBattleAnimBgImage_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.4bpp.lz");
 const u32 gBattleAnimBgPalette_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Coke[] = INCBIN_U32("graphics/battle_anims/backgrounds/coke.bin.lz");
+
+const u32 gBattleAnimBgImage_LCD[] = INCBIN_U32("graphics/battle_anims/backgrounds/lcd.4bpp.lz");
+const u32 gBattleAnimBgPalette_LCD[] = INCBIN_U32("graphics/battle_anims/backgrounds/lcd.gbapal.lz");
+const u32 gBattleAnimBgTilemap_LCD[] = INCBIN_U32("graphics/battle_anims/backgrounds/lcd.bin.lz");
+
+const u32 gBattleAnimBgImage_Manga[] = INCBIN_U32("graphics/battle_anims/backgrounds/manga.4bpp.lz");
+const u32 gBattleAnimBgPalette_Manga[] = INCBIN_U32("graphics/battle_anims/backgrounds/manga.gbapal.lz");
+const u32 gBattleAnimBgTilemap_Manga[] = INCBIN_U32("graphics/battle_anims/backgrounds/manga.bin.lz");
+
+const u32 gBattleAnimBgImage_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.4bpp.lz");
+const u32 gBattleAnimBgPalette_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.gbapal.lz");
+const u32 gBattleAnimBgTilemap_Oregon[] = INCBIN_U32("graphics/battle_anims/backgrounds/oregon.bin.lz");
 
 const u32 gBattleAnimBgImage_Loss[] = INCBIN_U32("graphics/battle_anims/backgrounds/loss_bg.4bpp.lz");
 const u32 gBattleAnimBgPalette_Loss[] = INCBIN_U32("graphics/battle_anims/backgrounds/loss_bg.gbapal.lz");

@@ -989,6 +989,29 @@ const struct SpriteTemplate gWaterShurikenSpriteTemplate =
     .callback = AnimTranslateLinearSingleSineWave,
 };
 
+static const union AnimCmd sAnim_YoshiRun[] =
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_YoshiRun[] =
+{
+    sAnim_YoshiRun,
+};
+
+const struct SpriteTemplate gYoshiRunSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_YOSHI_RUN,
+    .paletteTag = ANIM_TAG_YOSHI_RUN,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x32,
+    .anims = sAnims_YoshiRun,
+    .images = NULL,
+    .affineAnims = sSwiftStarAffineAnimTable,
+    .callback = AnimTranslateLinearSingleSineWave,
+};
+
 static const union AnimCmd sAnim_ConstrictBinding[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -1151,6 +1174,17 @@ const struct SpriteTemplate gIngrainRootSpriteTemplate =
     .callback = AnimIngrainRoot,
 };
 
+const struct SpriteTemplate gJunjiRootSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROOTS,
+    .paletteTag = ANIM_TAG_JUNJI_STAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sIngrainRootAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimIngrainRoot,
+};
+
 const struct SpriteTemplate gIceRootSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROOTS,
@@ -1189,6 +1223,17 @@ const struct SpriteTemplate gIngrainOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ORBS,
     .paletteTag = ANIM_TAG_ORBS,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = sIngrainOrbAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimIngrainOrb,
+};
+
+const struct SpriteTemplate gJunjiOrbSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_ORBS,
+    .paletteTag = ANIM_TAG_JUNJI_STAR,
     .oam = &gOamData_AffineOff_ObjNormal_8x8,
     .anims = sIngrainOrbAnimTable,
     .images = NULL,
@@ -2697,6 +2742,17 @@ const struct SpriteTemplate gHealingBlueStarSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BLUE_STAR,
     .paletteTag = ANIM_TAG_BLUE_STAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sHealingBlueStarAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpriteOnMonPos,
+};
+
+const struct SpriteTemplate gHealingJunjiStarSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_JUNJI_STAR,
+    .paletteTag = ANIM_TAG_JUNJI_STAR,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sHealingBlueStarAnimTable,
     .images = NULL,

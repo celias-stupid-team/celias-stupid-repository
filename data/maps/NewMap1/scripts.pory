@@ -13,9 +13,32 @@ mapscripts NewMap1_MapScripts {
 		if(!flag(FLAG_HOENN_DELIVERY_SERVICE)) {
 			setflag(FLAG_TEMP_4)
 		}
+		if(checkitem(ITEM_BALM_MUSHROOM)) {
+			setvar(VAR_TEMP_6, 1)
+		}
 	}
 	MAP_SCRIPT_ON_LOAD {
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_6, 1 {
+			delay(20)
+			msgbox(
+			"Wha-\n"
+			"Hey!\p"
+
+			"The BALM MUSHROOM fell out of\n"
+			"your BAG!", MSGBOX_DEFAULT)
+			playmoncry(SPECIES_AMOONGUSS, CRY_MODE_DEFAULT)
+			removeitem(ITEM_BALM_MUSHROOM)
+			setvar(VAR_TEMP_6, 0)
+			clearflag(FLAG_GOT_BALM_MUSHROOM)
+			waitmoncry
+			msgbox(
+			"Thankfully it appears that it\n"
+			"bounced right back into the VENT.", MSGBOX_DEFAULT)
+			closemessage
+		}
+	]
 }
 script Sootopolis_EventScript_Dad {
 	lock

@@ -153,6 +153,20 @@ const struct OamData gOamData_CensoredBar =
     .paletteNum = 0,
 };
 
+const struct OamData gOamData_Concrete =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+};
+
 const struct OamData gOamData_AffineOff_ObjNormal_8x16 =
 {
     .y = 0,
@@ -1596,7 +1610,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_TcgPoison, 0x2000, ANIM_TAG_TCG_POISON},
     {gBattleAnimSpriteGfx_Imakuni, 0x0800, ANIM_TAG_IMAKUNI},
     {gBattleAnimSpriteGfx_TcgPsychic, 0x1000, ANIM_TAG_TCG_PSYCHIC},
-    {gBattleAnimSpriteGfx_TcgElectric, 0x0800, ANIM_TAG_TCG_ELECTRIC},
+    {gBattleAnimSpriteGfx_TcgElectric, 0x0C00, ANIM_TAG_TCG_ELECTRIC},
     {gBattleAnimSpriteGfx_TcgSpark, 0x0040, ANIM_TAG_TCG_SPARK},
     {gBattleAnimSpriteGfx_TcgSlap, 0x1800, ANIM_TAG_TCG_SLAP},
     {gBattleAnimSpriteGfx_TcgSlapImpact, 0x0400, ANIM_TAG_TCG_SLAP_IMPACT},
@@ -1648,7 +1662,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_StoneFree, 0x0020, ANIM_TAG_STONE_FREE},
     {gBattleAnimSpriteGfx_Flipper, 0x0400, ANIM_TAG_FLIPPER},
     {gBattleAnimSpriteGfx_PrimeRibs, 0x0200, ANIM_TAG_PRIME_RIBS},
-    {gBattleAnimSpriteGfx_Bream, 0x0400, ANIM_TAG_BREAM},
+    {gBattleAnimSpriteGfx_Bream, 0x0800, ANIM_TAG_BREAM},
     {gBattleAnimSpriteGfx_WagonFront, 0x1000, ANIM_TAG_WAGON_FRONT},
     {gBattleAnimSpriteGfx_WagonBack, 0x0800, ANIM_TAG_WAGON_BACK},
     {gBattleAnimSpriteGfx_WagonTopLeft, 0x0200, ANIM_TAG_WAGON_TOP_LEFT},
@@ -1662,6 +1676,22 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Drug, 0x1400, ANIM_TAG_DRUG},
     {gBattleAnimSpriteGfx_Teto, 0x0600, ANIM_TAG_TETO},
     {gBattleAnimSpriteGfx_Shadow_Spikes, 0x0080, ANIM_TAG_SHADOW_SPIKES},
+    {gBattleAnimSpriteGfx_TennaIts, 0x0800, ANIM_TAG_TENNA_ITS},
+    {gBattleAnimSpriteGfx_TennaT, 0x0100, ANIM_TAG_TENNA_T},
+    {gBattleAnimSpriteGfx_TennaExclamationMark, 0x0800, ANIM_TAG_TENNA_EXCLAMATION_MARK},
+    {gBattleAnimSpriteGfx_TennaTime, 0x1000, ANIM_TAG_TENNA_TIME},
+    {gBattleAnimSpriteGfx_JunjiStar, 0x0E00, ANIM_TAG_JUNJI_STAR},
+    {gBattleAnimSpriteGfx_DemonChild, 0x0200, ANIM_TAG_DEMON_CHILD},
+    {gBattleAnimSpriteGfx_YoshiRun, 0x0800, ANIM_TAG_YOSHI_RUN},
+    {gBattleAnimSpriteGfx_ChatterLul, 0x0200, ANIM_TAG_CHATTER_LUL},
+    {gBattleAnimSpriteGfx_ChatterKappa, 0x0200, ANIM_TAG_CHATTER_KAPPA},
+    {gBattleAnimSpriteGfx_ChatterSmile, 0x0200, ANIM_TAG_CHATTER_SMILE},
+    {gBattleAnimSpriteGfx_LetterW, 0x0200, ANIM_TAG_LETTER_W},
+    {gBattleAnimSpriteGfx_BlukBerry, 0x0400, ANIM_TAG_BLUK_BERRY},
+    {gBattleAnimSpriteGfx_BlukJuice, 0x0020, ANIM_TAG_BLUK_JUICE},
+    {gBattleAnimSpriteGfx_LCDExplosion, 0x0800, ANIM_TAG_LCD_EXPLOSION},
+    {gBattleAnimSpriteGfx_Trash, 0x0080, ANIM_TAG_TRASH},
+    {gBattleAnimSpriteGfx_TM, 0x0200, ANIM_TAG_TM},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2247,6 +2277,22 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Drug, ANIM_TAG_DRUG},
     {gBattleAnimSpritePal_Teto, ANIM_TAG_TETO},
     {gBattleAnimSpritePal_Shadow_Spikes, ANIM_TAG_SHADOW_SPIKES},
+    {gBattleAnimSpritePal_TennaIts, ANIM_TAG_TENNA_ITS},
+    {gBattleAnimSpritePal_TennaT, ANIM_TAG_TENNA_T},
+    {gBattleAnimSpritePal_TennaExclamationMark, ANIM_TAG_TENNA_EXCLAMATION_MARK},
+    {gBattleAnimSpritePal_TennaTime, ANIM_TAG_TENNA_TIME},
+    {gBattleAnimSpritePal_JunjiStar, ANIM_TAG_JUNJI_STAR},
+    {gBattleAnimSpritePal_DemonChild, ANIM_TAG_DEMON_CHILD},
+    {gBattleAnimSpritePal_YoshiRun, ANIM_TAG_YOSHI_RUN},
+    {gBattleAnimSpritePal_ChatterLul, ANIM_TAG_CHATTER_LUL},
+    {gBattleAnimSpritePal_ChatterKappa, ANIM_TAG_CHATTER_KAPPA},
+    {gBattleAnimSpritePal_ChatterSmile, ANIM_TAG_CHATTER_SMILE},
+    {gBattleAnimSpritePal_LetterW, ANIM_TAG_LETTER_W},
+    {gBattleAnimSpritePal_BlukBerry, ANIM_TAG_BLUK_BERRY},
+    {gBattleAnimSpritePal_BlukJuice, ANIM_TAG_BLUK_JUICE},
+    {gBattleAnimSpritePal_LCDExplosion, ANIM_TAG_LCD_EXPLOSION},
+    {gBattleAnimSpritePal_Trash, ANIM_TAG_TRASH},
+    {gBattleAnimSpritePal_TM, ANIM_TAG_TM},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -2291,4 +2337,7 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_COKE]                = {gBattleAnimBgImage_Coke,       gBattleAnimBgPalette_Coke,       gBattleAnimBgTilemap_Coke},
     [BG_GHOST_TRICK]         = {gBattleAnimBgImage_GhostTrick, gBattleAnimBgPalette_GhostTrick, gBattleAnimBgTilemap_GhostTrick},
     [BG_LOSS]                = {gBattleAnimBgImage_Loss,       gBattleAnimBgPalette_Loss,       gBattleAnimBgTilemap_Loss},
+    [BG_OREGON]              = {gBattleAnimBgImage_Oregon,     gBattleAnimBgPalette_Oregon,     gBattleAnimBgTilemap_Oregon},
+    [BG_LCD]                 = {gBattleAnimBgImage_LCD,        gBattleAnimBgPalette_LCD,        gBattleAnimBgTilemap_LCD},
+    [BG_MANGA]               = {gBattleAnimBgImage_Manga,      gBattleAnimBgPalette_Manga,      gBattleAnimBgTilemap_Manga},
 };

@@ -176,10 +176,23 @@ mapscripts SaffronCity_Dojo_MapScripts {
 			fadenewbgm(MUS_NONE)
 			delay(60)
 			playse(SE_M_BLIZZARD)
+			addobject(LOCALID_SIMON_TORNADO)
+			getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+			setobjectxy(LOCALID_SIMON_TORNADO, 9, VAR_TEMP_2)
 			applymovement(LOCALID_SIMON_TORNADO, moves(
-				walk_up * 2
-				walk_left * 8
+				delay_16 * 2
+				walk_left * 6
 			))
+			waitmovement(LOCALID_SIMON_TORNADO)
+			if(var(VAR_TEMP_2) == 4 && !flag(FLAG_TEMP_6)) {
+				removeobject(LOCALID_IRATE_GAMER)
+				setflag(FLAG_TRANSPORTED_IRATE_GAMER)
+			}
+			applymovement(LOCALID_SIMON_TORNADO, moves(
+				
+				walk_left
+			))
+			waitmovement(LOCALID_SIMON_TORNADO)
 			waitmovement(LOCALID_SIMON_TORNADO)
 			applymovement(LOCALID_PLAYER, moves(
 				set_invisible

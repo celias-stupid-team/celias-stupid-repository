@@ -90,6 +90,14 @@ script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji {
 		msgbox(
 		"{PLAYER} caught MR. FUJI\n"
 		"in the MISTER BALL!", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		applymovement(LOCALID_FUJI_MISTER_BALL, moves(
+			walk_fast_down * 4
+		))
+		delay(5)
+		playse(SE_FALL)
+		waitmovement(LOCALID_FUJI_MISTER_BALL)
 		release
 		end
 

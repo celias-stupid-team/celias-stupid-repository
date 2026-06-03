@@ -1268,6 +1268,11 @@ gCryTable::
 	cry Cry_ZOMBON
 	cry Cry_TINKANETTE
 	cry Cry_RICKETOT
+	cry Cry_IMAKUNIDODUO
+	cry Cry_ABSOLYNE
+	cry Cry_LICHENMASQUERAIN
+	cry Cry_LICHENMAWILE
+	cry Cry_DMCACUTOUT
 
 
 	.align 2
@@ -2540,3 +2545,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_ZOMBON
 	cry_reverse Cry_TINKANETTE
 	cry_reverse Cry_RICKETOT
+	cry_reverse Cry_IMAKUNIDODUO
+	cry_reverse Cry_ABSOLYNE
+	cry_reverse Cry_LICHENMASQUERAIN
+	cry_reverse Cry_LICHENMAWILE
+	cry_reverse Cry_DMCACUTOUT

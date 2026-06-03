@@ -1341,6 +1341,32 @@ void FieldUseFunc_BalmMushroom(u8 taskId)
     }
 }
 
+
+
+void FieldUseFunc_WaterGun(u8 taskId)
+{
+    u16 species;
+
+    species = SPECIES_REMORAID;
+    FlagSet(FLAG_SHINY_CREATION);
+
+    gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
+
+    switch (gSpecialVar_Result)
+    {
+    case MON_CANT_GIVE: // no space in PC
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_AllBoxesFull);
+        break;
+    case MON_GIVEN_TO_PARTY:
+    case MON_GIVEN_TO_PC:
+        PlayCry_Normal(species, CRY_MODE_DEFAULT);
+        GetSpeciesName(gStringVar1, species);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_GiveMon;
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_GimmieghoulTMUsed, SetUpItemUseOnFieldCallback);
+        break;
+    }
+}
+
 void FieldUseFunc_DragoniteBag(u8 taskId)
 {
     u16 species;

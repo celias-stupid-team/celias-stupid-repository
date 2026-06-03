@@ -238,6 +238,13 @@ extern const u8 gText_AYE[];
 extern const u8 gText_AyeLower[];
 
 extern const u8 gText_Oui[];
+extern const u8 gText_Si[];
+extern const u8 gText_SiLower[];
+extern const u8 gText_SiAllLower[];
+extern const u8 gText_Ja[];
+extern const u8 gText_Tak[];
+extern const u8 gText_Oklahoma[];
+extern const u8 gText_Blank[];
 
 
 

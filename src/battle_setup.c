@@ -413,6 +413,7 @@ void StartLegendaryBattle(void)
     case SPECIES_ZAPDOS:
     case SPECIES_PIDGEY:
     case SPECIES_LUGIA:
+    case SPECIES_ARCANINE:
     case SPECIES_ETERNATUS:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_LEGEND);
         break;

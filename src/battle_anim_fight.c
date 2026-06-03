@@ -212,6 +212,17 @@ const struct SpriteTemplate gLossHandRandomPosSpriteTemplate =
     .callback = AnimFistOrFootRandomPos,
 };
 
+const struct SpriteTemplate gRevenueRandomPosSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_REVENUE,
+    .paletteTag = ANIM_TAG_REVENUE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_HandsAndFeet,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFistOrFootRandomPos,
+};
+
 const struct SpriteTemplate gPlusRandomPosSpriteTemplate =
 {
     .tileTag = ANIM_TAG_PLUS,

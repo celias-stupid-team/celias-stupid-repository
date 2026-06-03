@@ -3,7 +3,7 @@
   "name": "ThreeIsland_Core",
   "layout": "LAYOUT_THREE_ISLAND_CORE",
   "music": "MUS_CINNABAR",
-  "region_map_section": "MAPSEC_CINNABAR_ISLAND",
+  "region_map_section": "MAPSEC_CINNIBAR_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -241,6 +241,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourthTrial_BlueBallsChair"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OvenRangeCuckChair"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OvenRangeCuckChair"
     }
   ]
 }

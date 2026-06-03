@@ -921,5 +921,5 @@ const u16 gObjectEventPal_HONEY_TREE[] = INCBIN_U16("graphics/object_events/pale
 const u16 gObjectEventPal_BOBOMB_BUDDY[] = INCBIN_U16("graphics/object_events/palettes/BOBOMB_BUDDY.gbapal");
 const u32 gObjectEventPic_HONEY_SMALL[] = INCBIN_U32("graphics/object_events/pics/stupid/HONEY_SMALL.4bpp");
 const u16 gObjectEventPal_HONEY_SMALL[] = INCBIN_U16("graphics/object_events/palettes/HONEY_SMALL.gbapal");
-const u32 gObjectEventPic_PMD_STARLIGHT[] = INCBIN_U32("graphics/object_events/pics/stupid/PMD_STARLIGHT.4bpp");
-const u16 gObjectEventPal_PMD_STARLIGHT[] = INCBIN_U16("graphics/object_events/palettes/PMD_STARLIGHT.gbapal");
+const u32 gObjectEventPic_PMD_STARLIGHT[] = INCBIN_U32("graphics/object_events/pics/stupid/PMD_Starlight.4bpp");
+const u16 gObjectEventPal_PMD_STARLIGHT[] = INCBIN_U16("graphics/object_events/palettes/PMD_Starlight.gbapal");

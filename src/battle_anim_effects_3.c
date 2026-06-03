@@ -123,6 +123,7 @@ static void AnimSpellingSalts(struct Sprite *sprite);
 static void AnimTask_TranslateMonAndReturn_Step(u8 taskId);
 static void AnimTask_MortalSpin_Step(u8 taskId);
 static void AnimCrabGrip(struct Sprite *sprite);
+static void AnimTask_WPatternDash_Step(u8 taskId);
 
 static const union AnimCmd sScratchAnimCmds[] =
 {
@@ -2951,6 +2952,87 @@ void AnimTask_TransformMon(u8 taskId)
                     SetBattlerShadowSpriteCallback(gBattleAnimAttacker, gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies);
             }
         }
+
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_MosaicMon(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u16 stretch;
+    u8 battler;
+
+    battler = (gBattleAnimArgs[0] == 0)
+        ? gBattleAnimAttacker
+        : gBattleAnimTarget;
+
+    switch (task->data[0])
+    {
+    // --------------------------
+    // Initialise mosaic effect
+    // --------------------------
+    case 0:
+        SetGpuReg(REG_OFFSET_MOSAIC, 0);
+
+        if (GetBattlerSpriteBGPriorityRank(battler) == 1)
+            SetAnimBgAttribute(1, BG_ANIM_MOSAIC, 1);
+        else
+            SetAnimBgAttribute(2, BG_ANIM_MOSAIC, 1);
+
+        task->data[10] = battler;
+        task->data[0]++;
+        break;
+
+    // --------------------------
+    // Increase mosaic
+    // --------------------------
+    case 1:
+        if (++task->data[2] > 1)
+        {
+            task->data[2] = 0;
+            task->data[1]++;
+
+            stretch = task->data[1];
+            SetGpuReg(REG_OFFSET_MOSAIC,
+                      (stretch << 4) | stretch);
+
+            if (stretch >= 15)
+                task->data[0]++;
+        }
+        break;
+
+    // --------------------------
+    // Decrease mosaic
+    // --------------------------
+    case 2:
+        if (++task->data[2] > 1)
+        {
+            task->data[2] = 0;
+            task->data[1]--;
+
+            stretch = task->data[1];
+            SetGpuReg(REG_OFFSET_MOSAIC,
+                      (stretch << 4) | stretch);
+
+            if (stretch == 0)
+                task->data[0]++;
+        }
+        break;
+
+    // --------------------------
+    // Cleanup
+    // --------------------------
+    case 3:
+        SetGpuReg(REG_OFFSET_MOSAIC, 0);
+
+        battler = task->data[10];
+
+        if (GetBattlerSpriteBGPriorityRank(battler) == 1)
+            SetAnimBgAttribute(1, BG_ANIM_MOSAIC, 0);
+        else
+            SetAnimBgAttribute(2, BG_ANIM_MOSAIC, 0);
 
         DestroyAnimVisualTask(taskId);
         break;
@@ -7006,6 +7088,9 @@ void AnimTask_UnboundSpriteUpdateWithMosaic(u8 taskId)
                 mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
             }
 
+            if (IsMonShiny(mon))
+                paletteData = gMonShinyPalette_HoopaUnbound;
+
             position = GetBattlerPosition(battler);
             personalityValue = GetMonData(mon, MON_DATA_PERSONALITY);
 
@@ -7078,6 +7163,9 @@ void AnimTask_UnboundSpriteUpdate(u8 taskId)
             mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
         }
 
+        if (IsMonShiny(mon))
+            paletteData = gMonShinyPalette_HoopaUnbound;
+
         // Load Hoopa-Unbound tiles for the battler
         position = GetBattlerPosition(battler);
         personalityValue = GetMonData(mon, MON_DATA_PERSONALITY);
@@ -7124,6 +7212,95 @@ void AnimTask_UnboundSpriteUpdate(u8 taskId)
         BlendPalettes(PALETTES_ALL, coeff, RGB_WHITEALPHA);
         if (coeff == 0)
             DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_WPatternDash(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[0] = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+
+    // Phase
+    task->data[1] = 0;
+
+    // Frame counter within phase
+    task->data[2] = 0;
+
+    // Total displacement applied
+    task->data[3] = 0; // total x
+    task->data[4] = 0; // total y
+
+    task->func = AnimTask_WPatternDash_Step;
+}
+
+static void AnimTask_WPatternDash_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite = &gSprites[task->data[0]];
+
+    switch (task->data[1])
+    {
+    // ---------------------------------
+    // Move left 20 frames
+    // ---------------------------------
+    case 0:
+        sprite->x2 -= 1;
+
+        task->data[3] -= 1;
+
+        if (++task->data[2] >= 20)
+        {
+            task->data[2] = 0;
+            task->data[1]++;
+        }
+        break;
+
+    // ---------------------------------
+    // Down-right 5 frames
+    // ---------------------------------
+    case 1:
+    case 3:
+        sprite->x2 += 1;
+        sprite->y2 += 2;
+
+        task->data[3] += 1;
+        task->data[4] += 2;
+
+        if (++task->data[2] >= 5)
+        {
+            task->data[2] = 0;
+            task->data[1]++;
+        }
+        break;
+
+    // ---------------------------------
+    // Up-right 5 frames
+    // ---------------------------------
+    case 2:
+    case 4:
+        sprite->x2 += 1;
+        sprite->y2 -= 2;
+
+        task->data[3] += 1;
+        task->data[4] -= 2;
+
+        if (++task->data[2] >= 5)
+        {
+            task->data[2] = 0;
+            task->data[1]++;
+        }
+        break;
+
+    // ---------------------------------
+    // Restore position
+    // ---------------------------------
+    case 5:
+        sprite->x2 -= task->data[3];
+        sprite->y2 -= task->data[4];
+
+        DestroyAnimVisualTask(taskId);
         break;
     }
 }

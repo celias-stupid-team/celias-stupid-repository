@@ -192,6 +192,17 @@ const struct SpriteTemplate gBasicHitSplatSpriteTemplate =
     .callback = AnimHitSplatBasic,
 };
 
+const struct SpriteTemplate gWHitSplatSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LETTER_W,
+    .paletteTag = ANIM_TAG_LETTER_W,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_HitSplat,
+    .callback = AnimHitSplatBasic,
+};
+
 const struct SpriteTemplate gPoundSpriteTemplate =
 {
     .tileTag = ANIM_TAG_POUND,

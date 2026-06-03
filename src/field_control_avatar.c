@@ -594,6 +594,8 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_WalMartShelf;
     if (MetatileBehavior_IsBrockRock(metatileBehavior) == TRUE)
         return PewterGym_Rocks;
+    if (MetatileBehavior_IsPokecenterOak(metatileBehavior) == TRUE)
+        return PokemonCenter_Oak;
     if (MetatileBehavior_IsFood(metatileBehavior) == TRUE)
         return EventScript_Food;
     if (MetatileBehavior_IsImpressiveMachine(metatileBehavior) == TRUE)
