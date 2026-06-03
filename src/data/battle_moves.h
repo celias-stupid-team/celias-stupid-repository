@@ -4063,7 +4063,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 50,
         .target = MOVE_TARGET_BOTH,
         .priority = 2,
-        .flags = 0,
+        .flags = FLAG_PROTECT_AFFECTED,
     },
 
     [MOVE_FIRE_PLEDGE] =

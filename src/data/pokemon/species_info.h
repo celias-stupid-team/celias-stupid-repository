@@ -36269,7 +36269,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_FINALLUGIA] =
     {
-        .baseHP = 1,
+        .baseHP = 30,
         .baseAttack = 1,
         .baseDefense = 1,
         .baseSpeed = 1,
