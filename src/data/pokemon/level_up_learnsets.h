@@ -286,6 +286,7 @@ static const struct LevelUpMove sRaticateLevelUpLearnset[] = {
 static const struct LevelUpMove sSpearowLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_BARRAGE_2),
     LEVEL_UP_MOVE(1, MOVE_PECK),
+    LEVEL_UP_MOVE(1, MOVE_PLUCK),
     LEVEL_UP_MOVE(20, MOVE_NOT_CUT),
     LEVEL_UP_MOVE(40, MOVE_PICKLE_SPEAR),
     LEVEL_UP_END

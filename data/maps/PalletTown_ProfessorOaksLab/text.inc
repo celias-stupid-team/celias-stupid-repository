@@ -228,8 +228,8 @@ PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls::
     .string "They contain POKéMON!$"
 
 PalletTown_ProfessorOaksLab_Text_OaksLastMon::
-	.string "Wow!\n"
-	.string "This BALL has a VENUSAUR!$"
+	.string "Do you really want another\n"
+	.string "CHARMANDER?$"
 
 PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
     .string "Press SPACE to speed up!$"
