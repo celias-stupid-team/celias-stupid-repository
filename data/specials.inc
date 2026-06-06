@@ -470,4 +470,5 @@ gSpecials::
 	def_special IsPlayerNameKaylee
 	def_special BackgroundSave
 	def_special IsNicknameMewtwo
+	def_special RtcGetErrorStatus
 gSpecialsEnd::

@@ -93,6 +93,8 @@ SECTIONS {
         src/trade.o(.text);
         src/trade_scene.o(.text);
         src/play_time.o(.text);
+        src/rtc.o(.text);
+        src/siirtc.o(.text);
         src/new_game.o(.text);
         src/overworld.o(.text);
         src/fieldmap.o(.text);

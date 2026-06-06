@@ -16,6 +16,7 @@
 	.align 4
 	.include "field_camera.o"
 	.include "scrcmd.o"
+	.include "rtc.o"
 	.include "field_control_avatar.o"
 	.include "event_data.o"
 	.include "sound.o"
