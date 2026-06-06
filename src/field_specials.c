@@ -10,6 +10,7 @@
 #include "overworld.h"
 #include "field_message_box.h"
 #include "event_data.h"
+#include "rtc.h"
 #include "strings.h"
 #include "battle.h"
 #include "fieldmap.h"
@@ -6742,4 +6743,36 @@ void CSRBadgeDebug(void)
     badgeState++;
     if (badgeState > 6) badgeState = 0;
     VarSet(VAR_TEMP_F, badgeState);
+}
+
+// Saves current RTC time into two temp vars:
+// VAR_TEMP_6 = minutes since midnight to also allow for day rollover handling
+// VAR_TEMP_7 = seconds
+void SaveRtcStartTime(void)
+{
+    RtcCalcLocalTime();
+    VarSet(VAR_TEMP_6, (gLocalTime.hours * 60 + gLocalTime.minutes)); // minutes since midnight
+    VarSet(VAR_TEMP_7, gLocalTime.seconds);
+}
+
+#define SECONDS_PER_DAY 86400
+
+// Returns TRUE if the number of seconds in gSpecialVar_0x8004 have elapsed
+// since SaveRtcStartTime() was called
+bool32 CheckRtcSecondsElapsed(void)
+{
+    // all vars are in seconds
+    u32 startTotal = VarGet(VAR_TEMP_6) * 60 + VarGet(VAR_TEMP_7);
+    u32 threshold = gSpecialVar_0x8004;
+    u32 currentTotal;
+    u32 elapsed;
+
+    RtcCalcLocalTime();
+    currentTotal = (gLocalTime.hours * 60 + gLocalTime.minutes) * 60
+                 + gLocalTime.seconds;
+                 
+    // adding SECONDS_PER_DAY as a midnight rollover guard
+    elapsed = (currentTotal + SECONDS_PER_DAY - startTotal) % SECONDS_PER_DAY;
+
+    return elapsed >= threshold ? TRUE : FALSE;
 }
