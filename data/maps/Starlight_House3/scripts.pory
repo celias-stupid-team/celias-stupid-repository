@@ -34,6 +34,17 @@ MAP_SCRIPT_ON_TRANSITION {
         if(flag(FLAG_POST_GAME)) {
         }
         setvar(VAR_TEMP_7, 20)
+        random(50)
+		setflag(FLAG_TEMP_14)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_14)
+		}
+        if (var(VAR_BONUS_STARS) == 1023) {
+		random(30)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		}
 		
 	}
 MAP_SCRIPT_ON_LOAD {        
@@ -641,6 +652,8 @@ script Starlight_House3_PMD_Star_Character {
     release
     end
 }
+
+
 
 script Starlight_House3_PMD_Star_Character2 {
 	lock
@@ -1301,7 +1314,6 @@ script Starlight_House3_Map_Table_Bit_Grandpas_Dead {
             msgbox(
             "You hear tiny voices scream out\n"
             "“OH NO, GRANDPA'S SPREAD!!!”", MSGBOX_SIGN)
-			closemessage
         }
         setflag(FLAG_TEMP_1C)
     } else {
@@ -1310,6 +1322,9 @@ script Starlight_House3_Map_Table_Bit_Grandpas_Dead {
         "“OH NO, RUN! IT'S GODZILLA!!!”", MSGBOX_SIGN)
         setflag(FLAG_TEMP_13)
     }
+    closemessage
+    release
+    end
 }
 
 script Starlight_House3_Map_Table_Bit_Bills_PC {
@@ -1748,18 +1763,19 @@ script StarlightHouse3_NotSoFunFactsMenu {
                     closemessage
     setvar(VAR_RESULT, 0)
 	//closemessage
-	dynmultichoice(2, 1, FALSE, 11, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
+	dynmultichoice(2, 1, FALSE, 8, VAR_RESULT, DYN_MULTICHOICE_CB_NONE,
                 "Fun Fact 1 (Pkmn Island)",
-                "Fun Fact 2 (House Limits)",
-                "Fun Fact 3 (Aether Hi)",
-				"Fun Fact 4 (Sky Tower)",
-                "Fun Fact 5 (Morph Rock)",
-                "Fun Fact 6 (Seafoam Puzzle)",
-                "Fun Fact 7 (Four Island)",
-                "Fun Fact 8 (FirstLast Maps)",
-                "Fun Fact 9 (Thirty Eight)",
+                "Fun Fact 2 (Aether Hi)",
+				"Fun Fact 3 (Sky Tower)",
+                "Fun Fact 4 (Morph Rock)",
+                "Fun Fact 5 (Seafoam Puzzle)",
+                "Fun Fact 6 (Four Island)",
+                "Fun Fact 7 (FirstLast Maps)",
+                "Fun Fact 8 (Thirty Eight)",
+                "Fun Fact 9 (House Limits)",
                 "Fun Fact 10 (Pit Room)",
-                "Fun Fact 11 (House Guests)",)
+                "Fun Fact 11 (Zelda BotW)",
+                "Fun Fact 12 (House Guests)",)
 
 	closemessage
 	call(StarlightHouse3_NotSoFunFactsOptions)	
@@ -1790,35 +1806,13 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     }
 				case 1:
                     msgbox(
-                    "Celia gave me full control over\n"
-                    "what happens in my house.\p"
-
-                    "But since she wanted this house to\n"
-                    "only have bonus content and not add\l"
-                    "anything to the rest of the game,\l"
-                    "I was fairly limited with what I\l"
-                    "could do.\p"
-
-                    "I had to come up with fun ideas\n"
-                    "without using any permament flags,\l"
-                    "using any special items or items\l"
-                    "that aren't common, and same goes\l"
-                    "with pokemon too.\p"
-
-                    "It was a little challenging but I\n"
-                    "am proud of what I could come up\l"
-                    "with for this house.", MSGBOX_DEFAULT)
-                    closemessage
-                    
-				case 2:
-                    msgbox(
                     "Did you know? Northwest of the cave\n"
                     "entrance to Mt. Moon in Aether\l"
                     "(to the left of my house), I drew\l"
                     "in the out of bounds cliff area\l"
                     "“HI :)”.", MSGBOX_DEFAULT)
                     closemessage
-                case 3:
+                case 2:
 					if(flag(FLAG_CSR_MAP_YES)) {
                     msgbox(
                     "When I was recruited to make the\n"
@@ -1835,7 +1829,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "unlocked this part of the game yet.", MSGBOX_DEFAULT)
                     closemessage
                     }
-                case 4:
+                case 3:
 					if(flag(FLAG_WORLD_MAP_PIRATE_BAY)) {
                     msgbox(
                     "Did you know? That rock formation\n"
@@ -1858,8 +1852,8 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "unlocked this part of the game yet.", MSGBOX_DEFAULT)
                     closemessage
                     }
-                case 5:
-					if(flag(FLAG_CAPTAIN_DIRECTS_SPHEALS)) {
+                case 4:
+					if(flag(FLAG_CAPTAIN_DIRECTS_SPHEALS) || flag(FLAG_POST_GAME)) {
                     msgbox(
                     "The Seafoam strength puzzle was\n"
                     "the only puzzle contribution I got\l"
@@ -1886,7 +1880,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "unlocked this part of the game yet.", MSGBOX_DEFAULT)
                     closemessage
                     }
-                case 6:
+                case 5:
 					if(flag(FLAG_WORLD_MAP_FOUR_ISLAND)) {
                     msgbox(
                     "Did you know? On Four Island, the\n"
@@ -1905,7 +1899,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "unlocked this part of the game yet.", MSGBOX_DEFAULT)
                     closemessage
                     }
-                case 7:
+                case 6:
 					if(flag(FLAG_MIRAGE_ISLAND_APPEARS)) {
                     msgbox(
                     "The first map I made was Pokemon\n"
@@ -1923,7 +1917,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "unlocked this part of the game yet.", MSGBOX_DEFAULT)
                     closemessage
                     }
-                case 8:
+                case 7:
 					if(flag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)) {
                     msgbox(
                     "Thirty Eight Island used to be an\n"
@@ -1940,6 +1934,28 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "unlocked this part of the game yet.", MSGBOX_DEFAULT)
                     closemessage
                     }
+                case 8:
+                    msgbox(
+                    "Celia gave me full control over\n"
+                    "what happens in my house.\p"
+
+                    "However there was a catch.\p"
+
+                    "I couldn't add anything that\n"
+                    "affected the rest of the game as\l"
+                    "well as using hardly any permanent\l"
+                    "flags due to the game's\l"
+                    "limitations. (I only used 2)\p"
+
+                    "So only temporary flags that reset\n"
+                    "every time you leave the room were\l"
+                    "my only tools for the most part as\l"
+                    "well as common items and pokemon.\p"
+
+                    "It was a little challenging but I\n"
+                    "am proud of what I could come up\l"
+                    "with for this house.", MSGBOX_DEFAULT)
+                    closemessage
                 case 9:
                     msgbox(
                     "The Pit Room in my house was\n"
@@ -1952,7 +1968,20 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "collision afterwards.", MSGBOX_DEFAULT)
                     closemessage
                 case 10:
-					if(flag(FLAG_POST_GAME)) {
+                    msgbox(
+                    "If you talk to the trash bin in\n"
+                    "the lab where you first battle me,\l"
+                    "it talks about recreating the botw\l"
+                    "map for a small bit.\p"
+
+                    "This was added because during\n"
+                    "development I once had a dream I\l"
+                    "actually did just that! I thought\l"
+                    "it was so ridiculous and funny I\l"
+                    "added it as some flavored text.", MSGBOX_SIGN)
+                    closemessage
+                case 11:
+                    if(flag(FLAG_POST_GAME)) {
                     msgbox(
                     "Dak my irl friend, Bri (short for\n"
                     "Brianna) my sister, Kamina my\l"
@@ -1977,7 +2006,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     }
 				default:
 					setvar(VAR_RESULT, 0)
-                    call(StarlightHouse3_NotSoFunFactsOptions)
+                    call(StarlightHouse3_NotSoFunFactsMenu)
 					release
 					end
 	}
@@ -2021,7 +2050,7 @@ script Starlight_House3_Secret_Mug {
     ))
     delay(30)
     msgbox(
-	"You just got MUGGED!", MSGBOX_DEFAULT)
+	"You're being MUGGED!", MSGBOX_DEFAULT)
     closemessage
     delay(30)
     playse(SE_CLICK)

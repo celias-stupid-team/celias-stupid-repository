@@ -1,10 +1,22 @@
 mapscripts Starlight_House11_MapScripts {
-
+MAP_SCRIPT_ON_TRANSITION {
+    random(50)
+		setflag(FLAG_TEMP_19)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+        if (var(VAR_BONUS_STARS) == 1023) {
+		random(30)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		}
+}
 }
 
 script Starlight_House11_Cry {
 	if(flag(FLAG_TEMP_1)) {
-    playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
+    playmoncry(SPECIES_PIKACHU_SNAP_CLOSE, CRY_MODE_DEFAULT)
     clearflag(FLAG_TEMP_1)
     }
     release
@@ -17,4 +29,310 @@ script Starlight_House11_Flag {
     release
     end
 
+}
+
+script Starlight_House_Star_Character1 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR1, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR1)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character2 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR2, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR2)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character3 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR3, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR3)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character4 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR4, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR4)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character5 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR5, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR5)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character6 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR6, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR6)
+    setflag(FLAG_TEMP_14)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character7 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR7, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR7)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character8 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR8, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR8)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character9 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR9, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR9)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character10 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR10, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR10)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character11 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR11, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR11)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character12 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR12, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR12)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character13 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR13, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR13)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character14 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR14, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR14)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character15 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR15, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR15)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character16 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR16, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR16)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
+}
+
+script Starlight_House_Star_Character17 {
+	lock
+    faceplayer
+    //playmoncry(SPECIES_GARDEVOIR, CRY_MODE_DEFAULT)
+    playse(SE_PIN)
+	applymovement(LOCALID_STAR_GARDEVOIR17, moves(
+		emote_exclamation_mark
+	))
+    delay(30)
+    playse(SE_M_TELEPORT)
+    fadescreeninstant(FADE_TO_WHITE)
+    removeobject(LOCALID_STAR_GARDEVOIR17)
+    setflag(FLAG_TEMP_19)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
+    release
+    end
 }

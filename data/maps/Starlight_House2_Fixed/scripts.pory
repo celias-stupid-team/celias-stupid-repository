@@ -15,6 +15,17 @@ mapscripts Starlight_House2_Fixed_MapScripts {
 			setflag(FLAG_TEMP_8)
 		}
         //setbench(BENCH_STARLIGHTS_HOUSE)
+		random(50)
+		setflag(FLAG_TEMP_19)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		if (var(VAR_BONUS_STARS) == 1023) {
+		random(30)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		}
 		
 	}
 	MAP_SCRIPT_ON_LOAD {
@@ -121,6 +132,9 @@ setlayouttiles(
 	"hanging about in this house, tell\l"
 	"him I need him. Thanks!", MSGBOX_NPC)
 	closemessage
+	if(flag(FLAG_POST_GAME)) {
+		setflag(FLAG_HIDE_POSTGAME_STARLIGHT)
+	}
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_up
@@ -132,6 +146,7 @@ setlayouttiles(
 script Starlight_House2_Battle {
 	lock
 	faceplayer
+	if(!flag(FLAG_TEMP_1)) {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 		trainerbattle_single(TRAINER_STARLIGHT,
 	"STARLIGHT: Oh hi!\p"
@@ -142,7 +157,8 @@ script Starlight_House2_Battle {
 	"That was fun!", Starlight_House2_Post_Battle)
 	release
 	end
-
+	setflag(FLAG_TEMP_1)
+	} else {
 	msgbox(
 	"It's nice to meet you!\p"
 	
@@ -155,12 +171,16 @@ script Starlight_House2_Battle {
 	"him I need him. Thanks!", MSGBOX_DEFAULT)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
+	if(flag(FLAG_POST_GAME)) {
+		setflag(FLAG_HIDE_POSTGAME_STARLIGHT)
+	}
 	applymovement(LOCALID_STARLIGHT_NPC, moves(
 		face_up
 	))
 	waitmovement(0)
 	release
-	
+	end
+	}
 }
 
 script Starlight_House2_Phone { //figure out yesno setup for reading messages.
@@ -220,7 +240,7 @@ script Starlight_House2_Breaker {
 	"It's a power breaker.\n"
 	"\l"
 	"\l"
-	"Breaker deez-", MSGBOX_DEFAULT)
+	"Yeah...", MSGBOX_DEFAULT)
 	closemessage
 	release
 	end
@@ -308,15 +328,36 @@ script Starlight_House2_Machine { //update table plans visual
 
 script Starlight_House2_PC { //update table plans visual
 	
-	if(flag(FLAG_TEMP_4)) {
+	if(flag(FLAG_TEMP_7)) {
 	msgbox(
-	"No, this PC is not functional\p"
+	"No, this PC is not functional\n"
 	"either.", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_9)
+	} else {
+	msgbox(
+	"No, this PC is not functional.", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_2)
+	setflag(FLAG_TEMP_9)
+	}
+}
+
+script Starlight_House2_PC2 {
+	
+	if(flag(FLAG_TEMP_9)) {
+	msgbox(
+	"Told you.", MSGBOX_SIGN)
 	} else {
 	msgbox(
 	"No, this PC is not functional.", MSGBOX_SIGN)
 	setflag(FLAG_TEMP_2)
 	}
+}
+
+script Starlight_House2_Sign_Functional {
+	msgbox(
+	"“No this sign is not functional.”"
+	"-Starlight", MSGBOX_SIGN)
+
 }
 
 script Starlight_House2_Sign { //update table plans visual
@@ -328,7 +369,7 @@ script Starlight_House2_Sign { //update table plans visual
 	} else {
 	msgbox(
 	"No, this sign doesn't say anything.", MSGBOX_SIGN)
-	setflag(FLAG_TEMP_4)
+	setflag(FLAG_TEMP_7)
 	}
 }
 
@@ -551,19 +592,19 @@ script Starlight_House2_Professor_Tree {
 
 script Starlight_House2_Glasses_Down {
 	msgbox(
-	"Looking fly!", MSGBOX_SIGN)
+	"Sick shades!", MSGBOX_SIGN)
 
 }
 
 script Starlight_House2_Glasses_Right {
 	msgbox(
-	"Looking high!", MSGBOX_SIGN)
+	"Sick shades?", MSGBOX_SIGN)
 
 }
 
 script Starlight_House2_Glasses_Up {
 	msgbox(
-	"Looking... Why?", MSGBOX_SIGN)
+	"Sick shades???", MSGBOX_SIGN)
 
 }
 

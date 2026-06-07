@@ -2,7 +2,7 @@
 #define GUARD_METATILE_LABELS_H
 
 // gTileset_Aether_Paradise
-#define METATILE_Aether_Paradise_METATILE_Route15_LIGHTHOUSE_DOOR  0x3EF
+#define METATILE_Aether_Paradise_LIGHTHOUSE_DOOR  0x3EF
 
 // gTileset_BlaineFurnaceFun
 #define METATILE_BlaineFurnaceFun_BonusBottom    0x2E1
