@@ -2737,12 +2737,12 @@
       "secondaryId": 0
     },
     {
-      "english": "PETAYA BERRY",
+      "english": "MARANGA BERRY",
       "itemId": "ITEM_PETAYA_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_SP_ATTACK_UP",
       "holdEffectParam": 4,
-      "description_english": "When held by a POKéMON, it raises\\nthe SP. ATK stat in a pinch.",
+      "description_english": "A blue berry.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",

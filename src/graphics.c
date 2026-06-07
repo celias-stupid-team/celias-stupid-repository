@@ -1514,6 +1514,18 @@ const u32 gBattleAnimSpritePal_Trash[] = INCBIN_U32("graphics/battle_anims/sprit
 const u32 gBattleAnimSpriteGfx_TM[] = INCBIN_U32("graphics/battle_anims/sprites/tm.4bpp.lz");
 const u32 gBattleAnimSpritePal_TM[] = INCBIN_U32("graphics/battle_anims/sprites/tm.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Bike[] = INCBIN_U32("graphics/battle_anims/sprites/bike.4bpp.lz");
+const u32 gBattleAnimSpritePal_Bike[] = INCBIN_U32("graphics/battle_anims/sprites/bike.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_WagonAscent[] = INCBIN_U32("graphics/battle_anims/sprites/wagon_ascent.4bpp.lz");
+const u32 gBattleAnimSpritePal_WagonAscent[] = INCBIN_U32("graphics/battle_anims/sprites/wagon_ascent.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Balloon[] = INCBIN_U32("graphics/battle_anims/sprites/balloon.4bpp.lz");
+const u32 gBattleAnimSpritePal_Balloon[] = INCBIN_U32("graphics/battle_anims/sprites/balloon.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Doduo[] = INCBIN_U32("graphics/battle_anims/sprites/doduo.4bpp.lz");
+const u32 gBattleAnimSpritePal_Doduo[] = INCBIN_U32("graphics/battle_anims/sprites/doduo.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_CircleOfLight[] = INCBIN_U32("graphics/battle_anims/sprites/circle_of_light.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_ElectricOrbs[] = INCBIN_U32("graphics/battle_anims/sprites/electric_orbs.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_Electricity[] = INCBIN_U32("graphics/battle_anims/sprites/electricity.4bpp.lz");

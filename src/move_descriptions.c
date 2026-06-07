@@ -1184,6 +1184,16 @@ const u8 gMoveDescription_HyperBream[] = _("A key ingredient of\na-salt and\nbat
 const u8 gMoveDescription_WagonTrail[] = _("A severely damaging\nattack that makes\nthe user west on\nthe next turn.");
 const u8 gMoveDescription_FartStrike[] = _("Exactly the kind\nof highbrow humor\nyou'd expect from\nthis romhack.");
 
+const u8 gMoveDescription_Bolt[] = _("UNUSED");
+const u8 gMoveDescription_BicycleCrash[] = _("UNUSED");
+const u8 gMoveDescription_PastSight[] = _("UNUSED");
+const u8 gMoveDescription_Machbatics[] = _("UNUSED");
+const u8 gMoveDescription_Acrobatics2[] = _("UNUSED");
+const u8 gMoveDescription_AbsorbTCG[] = _("UNUSED");
+const u8 gMoveDescription_TripleFinash[] = _("UNUSED");
+const u8 gMoveDescription_Bonermerang[] = _("UNUSED");
+const u8 gMoveDescription_WeatherBalloon[] = _("Regularly mistaken\nfor a UFO.");
+
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
     [MOVE_KARATE_CHOP   - 1] = gMoveDescription_KarateChop,
@@ -2368,4 +2378,14 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_WRISTY_EXPLOSION     -1 ] = gMoveDescription_WristyExplosion,
     [MOVE_FART_STRIKE     -1 ] = gMoveDescription_FartStrike,
     [MOVE_LEECH_SEED_LICHEN     -1 ] = gMoveDescription_LeechSeed,
+
+    [MOVE________BOLT     -1 ] = gMoveDescription_Bolt,
+    [MOVE_BICYCLE_CRASH     -1 ] = gMoveDescription_BicycleCrash,
+    [MOVE_PAST_SIGHT     -1 ] = gMoveDescription_PastSight,
+    [MOVE_MACHBATICS     -1 ] = gMoveDescription_Machbatics,
+    [MOVE_ACROBATICS2     -1 ] = gMoveDescription_Acrobatics2,
+    [MOVE_ABSORBTCG     -1 ] = gMoveDescription_AbsorbTCG,
+    [MOVE_TRIPLE_FINASH     -1 ] = gMoveDescription_TripleFinash,
+    [MOVE_BONERMERANG     -1 ] = gMoveDescription_Bonermerang,
+    [MOVE_WEATHER_BALLOON     -1 ] = gMoveDescription_WeatherBalloon,
 };

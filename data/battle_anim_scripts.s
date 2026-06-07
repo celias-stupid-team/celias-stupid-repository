@@ -1233,6 +1233,15 @@ gBattleAnims_Moves::
 	.4byte Move_WRISTY_EXPLOSION
 	.4byte Move_FART_STRIKE
 	.4byte Move_LEECH_SEED_LICHEN
+	.4byte Move________BOLT
+	.4byte Move_BICYCLE_CRASH
+	.4byte Move_PAST_SIGHT
+	.4byte Move_MACHBATICS
+	.4byte Move_ACROBATICS2
+	.4byte Move_ABSORBTCG
+	.4byte Move_TRIPLE_FINASH
+	.4byte Move_BONERMERANG
+	.4byte Move_WEATHER_BALLOON
 
 	.4byte Move_COUNT @ cannot be reached
 
@@ -1377,6 +1386,7 @@ Move_POISON_POWDER:
 	waitforvisualfinish
 	end
 
+Move_ABSORBTCG:
 Move_ITCHY_POLLEN:
 	loadspritegfx ANIM_TAG_TCG_CHARGE
 	loadspritegfx ANIM_TAG_TCG_IMPACT
@@ -2330,6 +2340,39 @@ Move_THUNDER_SHOCK:
 	waitforvisualfinish
 	end
 	
+Move________BOLT:
+	loadspritegfx ANIM_TAG_SPARK
+	loadspritegfx ANIM_TAG_SHOCK_3
+	loadspritegfx ANIM_TAG_SPARK_2
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 0, 6, RGB_BLACK
+	waitforvisualfinish
+	delay 10
+	delay 7
+	delay 7
+	delay 9
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 0, 0, 13, RGB_BLACK
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 0, 13, 0, RGB_BLACK
+	waitforvisualfinish
+	delay 20
+	delay 0
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 2, 2, RGB_BLACK
+	delay 6
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 6, 6, RGB_BLACK
+	delay 6
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 2, 2, RGB_BLACK
+	delay 6
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 6, 6, RGB_BLACK
+	waitforvisualfinish
+	delay 20
+	waitplaysewithpan SE_M_THUNDERBOLT2, SOUND_PAN_TARGET, 19
+	call ElectricityEffect
+	waitforvisualfinish
+	delay 20
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 6, 0, RGB_BLACK
+	waitforvisualfinish
+	end
+
 Move_FUSION_BOLT:
 Move_THUNDERBOLT:
 	loadspritegfx ANIM_TAG_SPARK
@@ -15766,6 +15809,7 @@ Move_FLY_O_METEOR:
 	waitforvisualfinish
 	end
 	
+Move_TRIPLE_FINASH:
 Move_TRIPLE_FINISH:
 	loadspritegfx ANIM_TAG_ROOTS
 	loadspritegfx ANIM_TAG_IMPACT
@@ -17087,6 +17131,7 @@ Move_POPULATION_BOMB:
 	jumpifspecies ANIM_ATTACKER, SPECIES_KENYA, PopBombKenya
 	jumpifspecies ANIM_ATTACKER, SPECIES_MAROWAK, PopBombMarowak
 	jumpifspecies ANIM_ATTACKER, SPECIES_ZYGARDE, PopBombZygarde
+	jumpifspecies ANIM_ATTACKER, SPECIES_DODODUO, PopBombDododuo
 
 	createsprite gKrabbyThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
 PopBombContinue:
@@ -17143,6 +17188,11 @@ PopBombZygarde:
 PopBombMarowak:
 	loadspritegfx ANIM_TAG_CUBONE
 	createsprite gCuboneThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	goto PopBombContinue
+
+PopBombDododuo:
+	loadspritegfx ANIM_TAG_DODUO
+	createsprite gDoduoThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
 	goto PopBombContinue
 	
 Move_DADDLING_GLEAM:
@@ -34284,7 +34334,7 @@ Move_DAY_NIGHTSY:
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_BATTLERS_2, 1, 0, 6, RGB_WHITE
 	waitforvisualfinish
 	panse_adjustnone SE_M_PETAL_DANCE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +1, 0
-	createsprite gNightsyParticleSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, 85, 130, 0
+	createsprite gNightsyParticleSpriteTemplate, ANIM_TARGET, 2, 0, -20, 85, 130, 0
 	call SunnyDayLightRay
 	call SunnyDayLightRay
 	call SunnyDayLightRay
@@ -34932,5 +34982,69 @@ Move_JUNJI_HEALING:
 	blendoff
 	end
 Move_WAGON_ASCENT:
+	loadspritegfx ANIM_TAG_WAGON_ASCENT
+	playsewithpan SE_M_EARTHQUAKE, SOUND_PAN_TARGET
+	createsprite gWagonAscentSpriteTemplate, ANIM_ATTACKER, 2, 135, 45, -6, -2, 70, 0, 0, 1
+	delay 22
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 10, 1
+	waitforvisualfinish
+	end
+	
+Move_PAST_SIGHT:
+	monbg ANIM_ATK_PARTNER
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	call SetPsychicBackground
+	setalpha 8, 8
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 2, 0, 8, RGB_WHITE
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -4, -4, 15, ANIM_ATTACKER, 1
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	waitforvisualfinish
+	delay 1
+	call UnsetPsychicBackground
+	end
+Move_BICYCLE_CRASH:
+	loadspritegfx ANIM_TAG_BIKE
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createsprite gBikeThrowSpriteTemplate, ANIM_ATTACKER, 2, 20, 0, 0, 0, 1152
+	waitforvisualfinish
+	playsewithpan SE_BIKE_BELL, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
+	createsprite gFallingBikeSpriteTemplate, ANIM_ATTACKER, 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+Move_WEATHER_BALLOON:
+	loadspritegfx ANIM_TAG_BALLOON
+	loadspritegfx ANIM_TAG_IMPACT
+	createsprite gVerticalDipSpriteTemplate, ANIM_ATTACKER, 2, 8, 1, ANIM_ATTACKER
+	delay 8
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	createsprite gBalloonUpSpriteTemplate, ANIM_ATTACKER, 2
+	waitforvisualfinish
+	delay 15
+	playsewithpan SE_M_DETECT, 0
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 5, 1, RGB_WHITE, 10, RGB_BLACK, 0
+	waitforvisualfinish
+	createsprite gBalloonDownSpriteTemplate, ANIM_TARGET, 2, -30, -100, 250, 1, 0, 0
+	waitforvisualfinish
+
+	playsewithpan SE_BALLOON_RED, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, -10, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 8, 1
+	waitforvisualfinish
+	end
 Move_LEECH_SEED_LICHEN:
+Move_MACHBATICS:
+Move_ACROBATICS2:
+Move_BONERMERANG:
 	goto Move_TACKLE
