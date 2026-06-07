@@ -144,6 +144,7 @@ script OneIsland_BirdCultist {
 
 script OneIsland_MysticCrestPedestal {
 	lock
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	if(flag(FLAG_INSERTED_MYSTIC_SEAL)) {
 		msgbox("The MYSTIC SEAL has been\ninserted.", MSGBOX_DEFAULT)
 	} else {

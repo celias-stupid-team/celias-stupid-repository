@@ -10184,7 +10184,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ABSORB,
         .power = 110,
-        .type = TYPE_WATER,
+        .type = TYPE_BIRD,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,

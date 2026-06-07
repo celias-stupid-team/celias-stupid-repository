@@ -3,7 +3,7 @@
   "name": "SaffronCity_Dojo",
   "layout": "LAYOUT_SAFFRON_CITY_DOJO",
   "music": "MUS_CSR_AVGN_GYM",
-  "region_map_section": "MAPSEC_SAFFRON_GYM",
+  "region_map_section": "MAPSEC_DEBORAH_CLIFF",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
