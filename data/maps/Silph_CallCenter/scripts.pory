@@ -315,7 +315,7 @@ script Silph_LookGirl {
 		delay(10)
 		textcolor(NPC_TEXT_COLOR_BLUE)
 		msgbox(
-		"I'm a CHUCKSTER!\n"
+		"I will thorw!\n"
 		"", MSGBOX_DEFAULT)
 		closemessage
 		delay(30)
@@ -367,8 +367,8 @@ script Silph_MovieWatcher {
 
 script Silph_Television {
 	msgbox(
-	"Massive Tax Fraud and You!{PAUSE 30}\n"
-	"A SILPH CO service announcement.", MSGBOX_SIGN)
+	"Your Running Gags and You!{PAUSE 30}\n"
+	"A SILPH CO performance review.", MSGBOX_SIGN)
 
 }
 
@@ -616,3 +616,105 @@ script Silph_BookshelfTop {
 	"My Secret Life, chapter three", MSGBOX_SIGN)
 
 }
+
+
+script Silph_OakSilly {
+	msgbox(
+	"That's OAK, silly!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Silph_Bookshelf {
+	callnative(OpenHelpSystem)
+	release
+}
+
+script Silph_AidDuck {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"I'm applying bandages.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script Silph_UndeadGrandpa {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"Good news!\n"
+	"He's making a steady recovery!", MSGBOX_NPC)
+}
+
+
+script Silph_LearningChuckster {
+	lock
+	faceplayer
+	msgbox("I will thorw!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_down
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+
+}
+
+script Silph_Shirt {
+	msgbox(
+	"I'm SHIRT!\n"
+	"I'm bumpy and easy to share!", MSGBOX_NPC)
+}
+
+
+script Silph_Smartphone {
+	msgbox(
+	"It's a smartphone.\p"
+
+	"It's on the floor.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script Silph_NoSitting {
+	msgbox(
+	"NOTICE!\p"
+
+	"No sitting on company time!\n"
+	"", MSGBOX_SIGN)
+
+}
+

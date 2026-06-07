@@ -562,7 +562,8 @@
 #define ITEM_RIPPED_MEMO 480
 #define ITEM_ILEXIR 481
 #define ITEM_HYPER_REPEL 482
-#define ITEMS_COUNT 483
+#define ITEM_NOTHING_BURGER 483
+#define ITEMS_COUNT 484
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

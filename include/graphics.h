@@ -13752,3 +13752,6 @@ extern const u32 gMonShinyPalette_DMCACUTOUT[];
 extern const u8 gMonFootprint_DMCACUTOUT[];
 extern const u8 gMonIcon_DMCACUTOUT[];
 
+
+extern const u32 gItemIcon_NothingBurger[];
+extern const u32 gItemIconPalette_NothingBurger[];
