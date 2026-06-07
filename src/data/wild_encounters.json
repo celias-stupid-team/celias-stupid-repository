@@ -15366,7 +15366,7 @@
               {
                 "min_level": 9,
                 "max_level": 9,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_RATTATA"
               }
             ]
           },
@@ -15842,7 +15842,7 @@
               {
                 "min_level": 16,
                 "max_level": 16,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_MEOWTH"
               }
             ]
           },
@@ -16150,7 +16150,7 @@
               {
                 "min_level": 20,
                 "max_level": 20,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_EXEGGCUTE"
               }
             ]
           }
@@ -16288,7 +16288,7 @@
               {
                 "min_level": 18,
                 "max_level": 18,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_EXEGGCUTE"
               }
             ]
           },
@@ -16481,7 +16481,7 @@
               {
                 "min_level": 17,
                 "max_level": 17,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_OMANYTE"
               }
             ]
           }
@@ -16619,7 +16619,7 @@
               {
                 "min_level": 17,
                 "max_level": 17,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_VOLTORB"
               }
             ]
           },
@@ -16927,7 +16927,7 @@
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_CUBONE"
               }
             ]
           },
@@ -18022,7 +18022,7 @@
               {
                 "min_level": 25,
                 "max_level": 25,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_GOLURK"
               }
             ]
           },
@@ -20034,7 +20034,7 @@
               {
                 "min_level": 12,
                 "max_level": 12,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_EKANS"
               }
             ]
           },
@@ -20342,7 +20342,7 @@
               {
                 "min_level": 13,
                 "max_level": 13,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_BELLSPROUT"
               }
             ]
           },
@@ -25327,7 +25327,7 @@
               {
                 "min_level": 19,
                 "max_level": 19,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_CHARMANDER"
               }
             ]
           },
@@ -29109,22 +29109,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_REGIFILSAMIE"
+                "species": "SPECIES_JIGGLYPUFF"
               },
               {
                 "min_level": 5,
@@ -29135,16 +29120,6 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_COFAGRIGUS"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_COFAGRIGUS"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_GUZZLORD"
               },
               {
                 "min_level": 5,
@@ -29165,6 +29140,31 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_IGGLYBUFF"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_IGGLYBUFF"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
               }
             ]
           }
