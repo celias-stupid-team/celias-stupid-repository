@@ -923,3 +923,7 @@ const u32 gObjectEventPic_HONEY_SMALL[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_HONEY_SMALL[] = INCBIN_U16("graphics/object_events/palettes/HONEY_SMALL.gbapal");
 const u32 gObjectEventPic_GARDEVOIRSTAR[] = INCBIN_U32("graphics/object_events/pics/stupid/GARDEVOIRSTAR.4bpp");
 const u16 gObjectEventPal_GARDEVOIRSTAR[] = INCBIN_U16("graphics/object_events/palettes/GARDEVOIRSTAR.gbapal");
+const u32 gObjectEventPic_MASQUERADE[] = INCBIN_U32("graphics/object_events/pics/stupid/MASQUERADE.4bpp");
+const u16 gObjectEventPal_MASQUERADE[] = INCBIN_U16("graphics/object_events/palettes/MASQUERADE.gbapal");
+const u32 gObjectEventPic_SOBREROLASS[] = INCBIN_U32("graphics/object_events/pics/stupid/SOBREROLASS.4bpp");
+const u16 gObjectEventPal_SOBREROLASS[] = INCBIN_U16("graphics/object_events/palettes/SOBREROLASS.gbapal");

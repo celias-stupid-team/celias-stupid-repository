@@ -19,6 +19,11 @@ FiveIsland_EventScript_Fisher::
 
 script FiveIsland_OnTransition {
 	setworldmapflag(FLAG_CSR_MAP_YES)
+	setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LASS)
+	if(checktrainerflag(TRAINER_YES_LASS)) {
+		setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SOBREROLASS)
+
+	}
 	if(!flag(FLAG_YES_MAN_TRAVELING)){
 		setflag(FLAG_TEMP_1)
 
@@ -232,11 +237,11 @@ script Yes_ChanseyNPC {
 			{
 				delay(20)
 				msgbox(
-					"…\n"
-					"", MSGBOX_DEFAULT)
-				delay(30)
+				"…{PAUSE 20}\n"
+				"Porqué…?", MSGBOX_DEFAULT)
 				fadedefaultbgm
 				closemessage
+				delay(30)
 			}
 			else
 			{
@@ -286,6 +291,7 @@ script Yes_ChanseyNPC {
 			}
 			waitmovement(LOCALID_YES_LASS)
 			removeobject(LOCALID_YES_LASS)
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SOBREROLASS)
 			release
 			end
 
