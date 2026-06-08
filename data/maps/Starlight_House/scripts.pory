@@ -270,9 +270,10 @@ script StarlightHouse_Plant_Chain {
 				16, // x2
 				10) // y2
 		if (var(VAR_BONUS_STARS) == 1023) {
+		setflag(FLAG_TEMP_6)
 		msgbox(
 		"There, no more trees, and you lost\n"
-		"trophy privileges. >:()", MSGBOX_SIGN)
+		"trophy privileges. >:(", MSGBOX_SIGN)
 		} else {
 			msgbox(
 			"There, no more trees.", MSGBOX_SIGN)
@@ -1452,57 +1453,84 @@ script Starlight_House_Fridge {
 }
 
 script Starlight_House_Trophy {
-	random(2)
-	if(var(VAR_RESULT) == 1) {
-	msgbox("IMMA FIRIN' MAH LAZOR!!!!", MSGBOX_SIGN)
-	delay(30)
-	setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
-    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
-    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
-    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
-	playmoncry(SPECIES_TAUROS, CRY_MODE_NORMAL)
-	special(ShakeScreenSilent)
-	delay(5)
-	special(ShakeScreenSilent)
-	delay(5)
-	special(ShakeScreenSilent)
-	delay(5)
-	special(ShakeScreenSilent)
-	} else {	
-	if(!flag(FLAG_TEMP_1)) {
+	//random(2)
+	//if(var(VAR_RESULT) == 5) {
+	//msgbox("IMMA FIRIN' MAH LAZOR!!!!", MSGBOX_SIGN)
+	//delay(30)
+	//setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    //setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+	//playmoncry(SPECIES_TAUROS, CRY_MODE_NORMAL)
+	//special(ShakeScreenSilent)
+	//delay(5)
+	//special(ShakeScreenSilent)
+	//delay(5)
+	//special(ShakeScreenSilent)
+	//delay(5)
+	//special(ShakeScreenSilent)
+	//} else {	
+	if(!flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
 	"{COLOR LIGHT_RED}YOU'RE WINNER{FONT_SMALL} !", MSGBOX_SIGN)
-	} else {
-		msgbox(
+	}
+	if(!flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"{COLOR RED}YOU'RE LOSER{FONT_SMALL} !", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
 		"A decorative table for something\n"
-		"special.", MSGBOX_SIGN)
+		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
 	}
+	if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+		"A decorative table for something\n"
+		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
 	}
+	//}
 }
 
 script Starlight_House_Trophy_Kamina {
-	random(2)
-	if(var(VAR_RESULT) == 1) {
-	msgbox("IMMA FIRIN' MAH LAZOR!!!!", MSGBOX_SIGN)
-	delay(30)
-	setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
-    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
-    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
-    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
-	playmoncry(SPECIES_TAUROS, CRY_MODE_NORMAL)
-	special(ShakeScreen)
-	special(ShakeScreen)
-	special(ShakeScreen)
-	} else {
-	if(!flag(FLAG_TEMP_1)) {
+	//random(2)
+	//if(var(VAR_RESULT) == 1) {
+	//msgbox("IMMA FIRIN' MAH LAZOR!!!!", MSGBOX_SIGN)
+	///delay(30)
+	//setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    //setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+	//playmoncry(SPECIES_TAUROS, CRY_MODE_NORMAL)
+	//special(ShakeScreen)
+	//special(ShakeScreen)
+	//special(ShakeScreen)
+	//} else {
+
+	if(!flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
 	"{COLOR DARK_GRAY}Sprite made by {COLOR BLUE}Kamina{COLOR DARK_GRAY}.", MSGBOX_SIGN)
-	} else {
-		msgbox(
+	}
+	if(!flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"{COLOR BLUE}Kamina{COLOR DARK_GRAY} is dissapointed in you.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
 		"A decorative table for something\n"
-		"special.", MSGBOX_SIGN)
+		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
 	}
+	if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+		"A decorative table for something\n"
+		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
 	}
+	//}
 }

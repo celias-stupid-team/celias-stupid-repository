@@ -39,6 +39,7 @@ script Starlight_House2_Post_Battle {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	if(!flag(FLAG_POST_GAME) ) {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"STARLIGHT: It's nice to meet you!\p"
 
@@ -48,6 +49,7 @@ script Starlight_House2_Post_Battle {
 	"I'm the one who builds the maps you\n"
 	"walk around on.", MSGBOX_DEFAULT)
 	} else {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox(
 	"STARLIGHT: Where have you been?\p"
 
@@ -61,7 +63,12 @@ script Starlight_House2_Post_Battle {
 	"I'm the one who builds the maps you\n"
 	"walk around on.", MSGBOX_DEFAULT)
 	}
-
+applymovement(LOCALID_STARTER_SQUAD, moves(
+		set_invisible
+	))
+applymovement(LOCALID_POKEMON_RUSTY, moves(
+		set_invisible
+	))
 playse(SE_CLICK)
 setlayouttiles(
 				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_2, 
@@ -112,9 +119,15 @@ setlayouttiles(
 				38, // x2
 				19) // y2
 	delay(20)
+	applymovement(LOCALID_STARTER_SQUAD, moves(
+		set_visible
+	))
+applymovement(LOCALID_POKEMON_RUSTY, moves(
+		set_visible
+	))
 	playse(SE_CLICK)
 	setlayouttiles(
-				LAYOUT_STARLIGHT_HOUSE2, 
+				LAYOUT_STARLIGHT_HOUSE2_FIXED, 
 				0,	// startingX
 				0,	// startingY 
 				0,	// x1 
@@ -131,6 +144,7 @@ setlayouttiles(
 	"Oh! If you see my friend DAK\n"
 	"hanging about in this house, tell\l"
 	"him I need him. Thanks!", MSGBOX_NPC)
+	setflag(FLAG_TEMP_1)
 	closemessage
 	if(flag(FLAG_POST_GAME)) {
 		setflag(FLAG_HIDE_POSTGAME_STARLIGHT)
@@ -155,10 +169,11 @@ script Starlight_House2_Battle {
 
 	"How about a battle?",
 	"That was fun!", Starlight_House2_Post_Battle)
+	setflag(FLAG_TEMP_1)
 	release
 	end
-	setflag(FLAG_TEMP_1)
 	} else {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"It's nice to meet you!\p"
 	
@@ -265,7 +280,7 @@ script Starlight_House2_Table_Plans {
 
 	"Looking closely you don't see\n"
 	"anything, because you have\l"
-	"glasses covering your eyes.", MSGBOX_SIGN)
+	"sick shades covering your eyes.", MSGBOX_SIGN)
                 release
                 end
             } else {
@@ -330,12 +345,13 @@ script Starlight_House2_PC { //update table plans visual
 	
 	if(flag(FLAG_TEMP_7)) {
 	msgbox(
-	"No, this PC is not functional\n"
-	"either.", MSGBOX_SIGN)
+	"“No, this PC is not functional.\n"
+	"either” -Starlight", MSGBOX_SIGN)
 	setflag(FLAG_TEMP_9)
 	} else {
 	msgbox(
-	"No, this PC is not functional.", MSGBOX_SIGN)
+	"“No, this PC is not functional.”\n"
+	"-Starlight", MSGBOX_SIGN)
 	setflag(FLAG_TEMP_2)
 	setflag(FLAG_TEMP_9)
 	}
@@ -343,20 +359,28 @@ script Starlight_House2_PC { //update table plans visual
 
 script Starlight_House2_PC2 {
 	
-	if(flag(FLAG_TEMP_9)) {
 	msgbox(
-	"Told you.", MSGBOX_SIGN)
-	} else {
+	"This PC is not functional.", MSGBOX_SIGN)
+}
+
+script Starlight_House2_Sand_Star {
 	msgbox(
-	"No, this PC is not functional.", MSGBOX_SIGN)
-	setflag(FLAG_TEMP_2)
-	}
+	"Under this LIGHT you see a STAR.", MSGBOX_SIGN)
+
 }
 
 script Starlight_House2_Sign_Functional {
+	if(flag(FLAG_TEMP_9)) {
 	msgbox(
-	"“No this sign is not functional.”"
+	"“No, this sign is not functional.”\n"
 	"-Starlight", MSGBOX_SIGN)
+	} else {
+	msgbox(
+	"“No, This sign is not functional.”\n"
+	"-Starlight", MSGBOX_SIGN)
+	}
+	
+	
 
 }
 
@@ -364,12 +388,15 @@ script Starlight_House2_Sign { //update table plans visual
 
 	if(flag(FLAG_TEMP_2)) {
 	msgbox(
-	"No, this sign doesn't say anything\n"
-	"either.", MSGBOX_SIGN)
+	"“No, this door is not functional.\n"
+	"either” -Starlight", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_9)
 	} else {
 	msgbox(
-	"No, this sign doesn't say anything.", MSGBOX_SIGN)
+	"“No this door is not functional.”\n"
+	"-Starlight", MSGBOX_SIGN)
 	setflag(FLAG_TEMP_7)
+	setflag(FLAG_TEMP_9)
 	}
 }
 
@@ -592,19 +619,19 @@ script Starlight_House2_Professor_Tree {
 
 script Starlight_House2_Glasses_Down {
 	msgbox(
-	"Sick shades!", MSGBOX_SIGN)
+	"Sick shades, looking fly!", MSGBOX_SIGN)
 
 }
 
 script Starlight_House2_Glasses_Right {
 	msgbox(
-	"Sick shades?", MSGBOX_SIGN)
+	"Sick shades, looking high!", MSGBOX_SIGN)
 
 }
 
 script Starlight_House2_Glasses_Up {
 	msgbox(
-	"Sick shades???", MSGBOX_SIGN)
+	"Sick shades, looking... Why?", MSGBOX_SIGN)
 
 }
 

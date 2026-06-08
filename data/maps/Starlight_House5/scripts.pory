@@ -861,6 +861,7 @@ script Starlight_House5_Auto_Pit {
 	applymovement(LOCALID_PLAYER, moves(
         walk_down * 1
     ))
+	waitmovement(LOCALID_PLAYER)
 	playse(SE_LEDGE)
 	applymovement(LOCALID_PLAYER, moves(
 		jump_2_down
@@ -878,6 +879,7 @@ script Starlight_House5_Auto_Pit2 {
 	applymovement(LOCALID_PLAYER, moves(
         walk_down * 2
     ))
+	waitmovement(LOCALID_PLAYER)
 	playse(SE_LEDGE)
 	applymovement(LOCALID_PLAYER, moves(
 		jump_2_down

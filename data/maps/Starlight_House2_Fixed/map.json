@@ -59,6 +59,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_STARTER_SQUAD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SQUIRTLE",
       "x": 20,
@@ -73,6 +74,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_POKEMON_RUSTY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
       "x": 17,
@@ -355,11 +357,27 @@
     },
     {
       "type": "sign",
-      "x": 29,
+      "x": 25,
       "y": 10,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_House2_Sign_Functional"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Sand_Star"
     }
   ]
 }
