@@ -10743,3 +10743,10 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YesLass[] = {
         .species = SPECIES_CLEFAIRY,
     },
 };
+static const struct TrainerMonNoItemDefaultMoves sParty_DMCAFisher[] = {
+    {
+        .iv = 0,
+        .lvl = 25,
+        .species = SPECIES_DMCACUTOUT,
+    },
+};

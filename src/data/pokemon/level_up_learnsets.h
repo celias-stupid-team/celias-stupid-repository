@@ -10611,7 +10611,7 @@ static const struct LevelUpMove sLICHENMAWILELevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sDMCACUTOUTLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_FLATTER),
 	LEVEL_UP_END
 };
 
