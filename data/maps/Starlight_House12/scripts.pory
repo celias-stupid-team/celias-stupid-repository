@@ -3304,3 +3304,20 @@ script StarlightHouse_BattleMenu {//not sure if you need this?
 	//call(StarlightHouse_MainMenu)
 }
 
+script Starlight_Jukebox_Jank_Note {
+    msgbox(
+	"NOTICE: This feature was my early\n"
+	"attempt at scripting and I overly\l"
+	"used flags, so this code is a bit\l"
+	"janky and I apologize for any bugs\l"
+	"that may occur. I wasn't able to\l"
+	"find time to fix them.\p"
+
+	"Another note: You need to reload\n"
+	"the room every time you change the\l"
+	"dancers, I didn't get a chance to\l"
+	"fix this and I apologize.\l"
+	"-Starlight", MSGBOX_SIGN)
+
+    end
+}

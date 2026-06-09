@@ -652,11 +652,11 @@
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 24,
+      "x": 30,
+      "y": 26,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_Jukebox_Test3"
+      "script": "Starlight_Jukebox_Jank_Note"
     },
     {
       "type": "sign",

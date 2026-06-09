@@ -1775,9 +1775,9 @@ script StarlightHouse3_NotSoFunFactsMenu {
                 "Fun Fact 6 (Four Island)",
                 "Fun Fact 7 (FirstLast Maps)",
                 "Fun Fact 8 (Thirty Eight)",
-                //"Fun Fact 9 (House Limits)",
-                "Fun Fact 9 (Pit Room)",
-                "Fun Fact 10 (Zelda BotW)",)
+                "Fun Fact 9 (House Limits)",
+                "Fun Fact 10 (Pit Room)",
+                "Fun Fact 11 (Zelda BotW)",)
 
 	closemessage
 	call(StarlightHouse3_NotSoFunFactsOptions)	
@@ -1951,29 +1951,29 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     closemessage
                     call(StarlightHouse3_NotSoFunFactsMenu)
                     }
-                //case 8:
-                //    msgbox(
-                //    "Celia gave me full control over\n"
-                //    "what happens in my house.\p"
-//
-//                    "However there was a catch.\p"
-//
-//                    "I couldn't add anything that\n"
-//                    "affected the rest of the game as\l"
-//                    "well as using hardly any permanent\l"
-//                    "flags due to the game's\l"
-//                    "limitations. (I only used 2)\p"
-
-//                    "So only temporary flags that reset\n"
-//                    "every time you leave the room were\l"
-//                    "my only tools for the most part as\l"
-//                    "well as common items and pokemon.\p"
-//
-//                    "It was a little challenging but I\n"
-//                    "am proud of what I could come up\l"
-//                    "with for this house.", MSGBOX_DEFAULT)
-//                    closemessage
                 case 8:
+                    msgbox(
+                    "Celia gave me full control over\n"
+                    "what happens in my house.\p"
+
+                    "However there was a catch.\p"
+
+                    "I couldn't add anything that\n"
+                    "affected the rest of the game as\l"
+                    "well as using hardly any permanent\l"
+                    "flags due to the game's\l"
+                    "limitations. (I only used 2)\p"
+
+                    "So only temporary flags that reset\n"
+                    "every time you leave the room were\l"
+                    "my only tools for the most part as\l"
+                    "well as common items and pokemon.\p"
+
+                    "It was a little challenging but I\n"
+                    "am proud of what I could come up\l"
+                    "with for this house.", MSGBOX_DEFAULT)
+                    closemessage
+                case 9:
                     msgbox(
                     "The Pit Room in my house was\n"
                     "actually a reference to how I was\l"
@@ -1985,7 +1985,7 @@ script StarlightHouse3_NotSoFunFactsOptions {
                     "collision afterwards.", MSGBOX_DEFAULT)
                     closemessage
                     call(StarlightHouse3_NotSoFunFactsMenu)
-                case 9:
+                case 10:
                     msgbox(
                     "If you talk to the trash bin in\n"
                     "the lab where you first battle me,\l"
