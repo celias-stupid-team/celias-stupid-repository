@@ -35,12 +35,12 @@ mapscripts Starlight_House_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		setflag(FLAG_TEMP_1)
 		if (var(VAR_BONUS_STARS) == 1023) {
-		setmetatile(2, 0, 0x1C4, TRUE)
-		setmetatile(3, 0, 0x1C5, TRUE)
-		setmetatile(4, 0, 0x1C6, TRUE)
-		setmetatile(2, 1, 0x1CC, TRUE)
-		setmetatile(3, 1, 0x1CD, TRUE)
-		setmetatile(4, 1, 0x1CE, TRUE)
+		setmetatile(2, 0, 0x281, TRUE)
+		setmetatile(3, 0, 0x282, TRUE)
+		setmetatile(4, 0, 0x283, TRUE)
+		setmetatile(2, 1, 0x289, TRUE)
+		setmetatile(3, 1, 0x28A, TRUE)
+		setmetatile(4, 1, 0x28B, TRUE)
 		clearflag(FLAG_TEMP_1)
 		}
 	}

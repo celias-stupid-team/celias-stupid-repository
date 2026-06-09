@@ -7461,7 +7461,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Starlight_Interior",
+      "secondary_tileset": "gTileset_Starlight_interior4",
       "border_filepath": "data/layouts/Starlight_House/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House/map.bin"
     },
@@ -7989,7 +7989,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Starlight_Interior",
+      "secondary_tileset": "gTileset_Starlight_interior4",
       "border_filepath": "data/layouts/Starlight_House_Layout_2/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House_Layout_2/map.bin"
     },
