@@ -2448,6 +2448,7 @@ Move_10000_VOLTS:
 	delay 1
 	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, 16
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 14, 0, 16, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 14, 0, 16, 1
 	delay 10
 	delay 1
 	@createvisualtask AnimTask_ShakeTargetInPattern, 2, 30, 3, TRUE, 0
@@ -9159,6 +9160,7 @@ Move_BONE_CLUB:
 	blendoff
 	end
 
+Move_BONERMERANG:
 Move_BONE_RUSH:
 	loadspritegfx ANIM_TAG_BONE
 	loadspritegfx ANIM_TAG_IMPACT
@@ -11779,7 +11781,35 @@ OpponentBargaining:
 	createvisualtask AnimTask_ShakeMon, 3, ANIM_TARGET, 5, 0, 7, 2
 	waitforvisualfinish
 	end
+
 Move_GRASS_MONKEY:
+	loadspritegfx ANIM_TAG_MILK_BOTTLE
+	loadspritegfx ANIM_TAG_SPEED_DUST
+	@createsprite gTrickMilkSpriteTemplate, ANIM_ATTACKER, 2, -40, 80
+	createsprite gTrickMilkSpriteTemplate, ANIM_ATTACKER, 2, -40, 208
+	delay 16
+	playsewithpan SE_M_SKETCH, 0
+	@createvisualtask AnimTask_StretchTargetUp, 3
+	createvisualtask AnimTask_StretchAttackerUp, 3
+	delay 30
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 24
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_ATTRACT, 0
+	@createvisualtask AnimTask_ShakeMon, 3, ANIM_ATTACKER, 5, 0, 7, 2
+	createvisualtask AnimTask_ShakeMon, 3, ANIM_TARGET, 5, 0, 7, 2
+	waitforvisualfinish
+	end
+
 Move_TRICK:
 	loadspritegfx ANIM_TAG_ITEM_BAG
 	loadspritegfx ANIM_TAG_SPEED_DUST
@@ -34365,6 +34395,7 @@ Move_DAY_NIGHTSY:
 	call UnsetPsychicBackground
 	end
 
+Move_LEECH_SEED_LICHEN:
 Move_BESEECH_SEED:
 	loadspritegfx ANIM_TAG_BESEECH_SEED
 	playsewithpan SE_M_POISON_POWDER, SOUND_PAN_ATTACKER
@@ -34897,6 +34928,7 @@ Move_FART_STRIKE:
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 10, RGB_BLACK, 0
 	playsewithpan SE_FART, SOUND_PAN_TARGET
 	waitforvisualfinish
+	stopsound
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
@@ -34988,6 +35020,7 @@ Move_WAGON_ASCENT:
 	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 10, 1
 	waitforvisualfinish
+	stopsound
 	end
 	
 Move_PAST_SIGHT:
@@ -35005,6 +35038,9 @@ Move_PAST_SIGHT:
 	delay 1
 	call UnsetPsychicBackground
 	end
+	
+Move_MACHBATICS:
+Move_ACROBATICS2:
 Move_BICYCLE_CRASH:
 	loadspritegfx ANIM_TAG_BIKE
 	loadspritegfx ANIM_TAG_IMPACT
@@ -35019,6 +35055,7 @@ Move_BICYCLE_CRASH:
 	createsprite gFallingBikeSpriteTemplate, ANIM_ATTACKER, 2
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
 	waitforvisualfinish
+	stopsound
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
@@ -35034,6 +35071,7 @@ Move_WEATHER_BALLOON:
 	playsewithpan SE_M_DETECT, 0
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 5, 1, RGB_WHITE, 10, RGB_BLACK, 0
 	waitforvisualfinish
+	delay 30
 	createsprite gBalloonDownSpriteTemplate, ANIM_TARGET, 2, -30, -100, 250, 1, 0, 0
 	waitforvisualfinish
 
@@ -35042,8 +35080,21 @@ Move_WEATHER_BALLOON:
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 8, 1
 	waitforvisualfinish
 	end
-Move_LEECH_SEED_LICHEN:
-Move_MACHBATICS:
-Move_ACROBATICS2:
-Move_BONERMERANG:
-	goto Move_TACKLE
+
+General_GulpSpit:
+	loadspritegfx ANIM_TAG_KOOPA_SHELL
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_YOSHI_SPIT, SOUND_PAN_ATTACKER
+	createsprite gKoopaShellThrowSpriteTemplate, ANIM_ATTACKER, 2, 40, 0, 0, 0, 1152
+	waitforvisualfinish
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
+	createsprite gFallingKoopaShellSpriteTemplate, ANIM_ATTACKER, 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end

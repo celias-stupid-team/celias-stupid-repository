@@ -1526,6 +1526,9 @@ const u32 gBattleAnimSpritePal_Balloon[] = INCBIN_U32("graphics/battle_anims/spr
 const u32 gBattleAnimSpriteGfx_Doduo[] = INCBIN_U32("graphics/battle_anims/sprites/doduo.4bpp.lz");
 const u32 gBattleAnimSpritePal_Doduo[] = INCBIN_U32("graphics/battle_anims/sprites/doduo.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_KoopaShell[] = INCBIN_U32("graphics/battle_anims/sprites/koopa_shell.4bpp.lz");
+const u32 gBattleAnimSpritePal_KoopaShell[] = INCBIN_U32("graphics/battle_anims/sprites/koopa_shell.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_CircleOfLight[] = INCBIN_U32("graphics/battle_anims/sprites/circle_of_light.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_ElectricOrbs[] = INCBIN_U32("graphics/battle_anims/sprites/electric_orbs.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_Electricity[] = INCBIN_U32("graphics/battle_anims/sprites/electricity.4bpp.lz");

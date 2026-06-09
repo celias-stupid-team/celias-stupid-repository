@@ -13831,10 +13831,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_PSI_ROCKIN] =
     {
-        .effect = EFFECT_OVERHEAT,
+        .effect = EFFECT_HIT,
         .power = 120,
         .type = TYPE_PSYCHIC,
-        .accuracy = 100,
+        .accuracy = 90,
         .pp = 35,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_BOTH,
@@ -15449,8 +15449,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_WEATHER_BALLOON] =
     {
         .effect = EFFECT_HIT,
-        .power = 50,
-        .type = TYPE_NORMAL,
+        .power = 100,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,

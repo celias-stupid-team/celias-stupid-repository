@@ -10411,7 +10411,7 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN1[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_CELEBI2,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_PAST_SIGHT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
@@ -10725,14 +10725,14 @@ static const struct TrainerMonItemCustomMoves sParty_HakariBliz[] = {
         .lvl = 50,
         .heldItem = ITEM_TM34,
         .species = SPECIES_GROOKEY,
-        .moves = {MOVE_GRASS_MONKEY, MOVE_DARK_LLOYD, MOVE_VACUUM_FEAR, MOVE_FUCK}
+        .moves = {MOVE_GRASS_MONKEY, MOVE_DARK_LLOYD, MOVE_VACUUM_FEAR, MOVE_WAGON_TRAIL}
     },
     {
         .iv = 0,
         .lvl = 50,
         .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_RICKETOT,
-        .moves = {MOVE_RIP_ROARING, MOVE_BULLDOZE, MOVE_MEGA_KICK, MOVE_MOONLIGHT_YEAR}
+        .moves = {MOVE_RIP_ROARING, MOVE_BULLDOZE, MOVE_MEGA_KICK, MOVE_WEATHER_BALLOON}
     },
 };
 

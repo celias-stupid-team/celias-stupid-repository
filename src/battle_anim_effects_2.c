@@ -711,6 +711,31 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+static const union AnimCmd sKoopaShellAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 3),
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_FRAME(48, 3),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sKoopaShellAnimTable[] =
+{
+    sKoopaShellAnimCmds,
+};
+
+const struct SpriteTemplate gKoopaShellThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_KOOPA_SHELL,
+    .paletteTag = ANIM_TAG_KOOPA_SHELL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sKoopaShellAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
 const struct SpriteTemplate gBikeThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_BIKE,
@@ -2798,6 +2823,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
 {
     .tileTag = ANIM_TAG_COIN,
     .paletteTag = ANIM_TAG_COIN,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallingKoopaShellSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_KOOPA_SHELL,
+    .paletteTag = ANIM_TAG_KOOPA_SHELL,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = sCoinAnimTable,
     .images = NULL,

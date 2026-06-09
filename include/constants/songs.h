@@ -505,7 +505,7 @@
 #define SE_WAGON 495
 #define SE_WHATS_GOING_ON 496
 #define SE_YOSHI_EAT 497
-#define SE_YOSHI_SPIT 499
+#define SE_YOSHI_SPIT 498
 #define SE_YOSHI_GROUND_POUND 499
 #define SE_ITS_T 500
 #define SE_TIME 501

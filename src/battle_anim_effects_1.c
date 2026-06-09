@@ -1394,6 +1394,17 @@ const struct SpriteTemplate gTrickBagSpriteTemplate =
     .callback = AnimTrickBag,
 };
 
+const struct SpriteTemplate gTrickMilkSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MILK_BOTTLE,
+    .paletteTag = ANIM_TAG_MILK_BOTTLE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sFallingBagAnimTable,
+    .images = NULL,
+    .affineAnims = sTrickBagAffineAnimTable,
+    .callback = AnimTrickBag,
+};
+
 const struct SpriteTemplate gTakeBagSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ITEM_BAG,
