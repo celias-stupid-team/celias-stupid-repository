@@ -67,8 +67,8 @@
     {
       "type": "clone",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 15,
-      "y": 12,
+      "x": 14,
+      "y": 10,
       "target_local_id": "30",
       "target_map": "MAP_FOUR_ISLAND"
     },
