@@ -600,24 +600,24 @@ bool8 SweetScentWildEncounter(void)
             } else {
                 FlagClear(FLAG_SHINY_CREATION);
                 switch(VarGet(VAR_SWEET_SCENT_WATER)) {
-                    case 10:
-                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
-                        GenerateWildMon(SPECIES_JIGGLYPUFF, 20, 0);
-                        StartWildBattle();
-                        return TRUE;
-                        break;
-                    case 12:
-                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
-                        FlagSet(FLAG_SHINY_CREATION);
-                        GenerateWildMon(SPECIES_ZUBAT, 20, 0);
-                        StartWildBattle();
-                        return TRUE;
-                        break;
-                    case 15:
-                        return FALSE;
-                        break;
+                    // case 10:
+                    //     VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                    //     GenerateWildMon(SPECIES_JIGGLYPUFF, 20, 0);
+                    //     StartWildBattle();
+                    //     return TRUE;
+                    //     break;
+                    // case 12:
+                    //     VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                    //     FlagSet(FLAG_SHINY_CREATION);
+                    //     GenerateWildMon(SPECIES_ZUBAT, 20, 0);
+                    //     StartWildBattle();
+                    //     return TRUE;
+                    //     break;
+                    // case 15:
+                    //     return FALSE;
+                    //     break;
                     default:
-                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                        //VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
                         GenerateWildMon(SPECIES_ZUBAT, 20, 0);
                         StartWildBattle();
                         return TRUE;

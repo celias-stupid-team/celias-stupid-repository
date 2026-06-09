@@ -1337,7 +1337,7 @@
 #define FLAG_HIDE_POSTGAME_STARLIGHT              0x4D4//I can remove this if you need the flag
 #define FLAG_SHINY_CATERPIE_SPAWNS               0x4D5
 #define FLAG_SHINY_NIDOTRAN_SPAWNS               0x4D6
-#define FLAG_0x4D7               0x4D7
+#define FLAG_GOT_SHINY_ZUBAT               0x4D7
 #define FLAG_0x4D8               0x4D8
 #define FLAG_0x4D9               0x4D9
 #define FLAG_0x4DA               0x4DA
