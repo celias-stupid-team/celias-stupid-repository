@@ -5750,7 +5750,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_MURKROW] =
     {
-        .baseHP = 60,
+        .baseHP = 15,
         .baseAttack = 85,
         .baseDefense = 42,
         .baseSpeed = 91,
@@ -6620,7 +6620,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_HOUNDOUR] =
     {
-        .baseHP = 45,
+        .baseHP = 15,
         .baseAttack = 60,
         .baseDefense = 30,
         .baseSpeed = 65,

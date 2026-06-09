@@ -1184,6 +1184,15 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_WRISTY_EXPLOSION]     = _("WRISTY BOOM"),
     [MOVE_FART_STRIKE]     = _("FART STRIKE"),
     [MOVE_LEECH_SEED_LICHEN]     = _("LEECH SEED"),
+    [MOVE________BOLT]     = _("       BOLT"),
+    [MOVE_BICYCLE_CRASH]     = _("BIKE CRASH"),
+    [MOVE_PAST_SIGHT]     = _("PAST SIGHT"),
+    [MOVE_MACHBATICS]     = _("MACHBATICS"),
+    [MOVE_ACROBATICS2]     = _("ACROBATICS"),
+    [MOVE_ABSORBTCG]     = _("ABSORBTCG"),
+    [MOVE_TRIPLE_FINASH]     = _("TRIPLEFINASH"),
+    [MOVE_BONERMERANG]     = _("BONERMERANG"),
+    [MOVE_WEATHER_BALLOON]     = _("WEATHERBLOON"),
 };
 
 const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
@@ -2372,4 +2381,13 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_WRISTY_EXPLOSION]     = _("WRISTY EXPLOSION"),
     [MOVE_FART_STRIKE]     = _("FART STRIKE"),
     [MOVE_LEECH_SEED_LICHEN]     = _("LEECH SEED"),
+    [MOVE________BOLT]     = _("       BOLT"),
+    [MOVE_BICYCLE_CRASH]     = _("BICYCLE CRASH"),
+    [MOVE_PAST_SIGHT]     = _("PAST SIGHT"),
+    [MOVE_MACHBATICS]     = _("MACHBATICS"),
+    [MOVE_ACROBATICS2]     = _("ACROBATICS"),
+    [MOVE_ABSORBTCG]     = _("ABSORBTCG"),
+    [MOVE_TRIPLE_FINASH]     = _("TRIPLE FINASH"),
+    [MOVE_BONERMERANG]     = _("BONERMERANG"),
+    [MOVE_WEATHER_BALLOON]     = _("WEATHER BALLOON"),
 }; //For any move which needs its name lengthened, these will display in battle.

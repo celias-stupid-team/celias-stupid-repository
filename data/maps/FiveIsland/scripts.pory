@@ -253,8 +253,8 @@ script Yes_ChanseyNPC {
 				playbgm(MUS_YES, TRUE)
 				trainerbattle_no_intro(TRAINER_YES_LASS, "¡Ay!")
 				msgbox(
-					"Mama mia!\n"
-					"", MSGBOX_DEFAULT)
+					"That's it!\n"
+					"I'm moving to MEXI-NO.", MSGBOX_DEFAULT)
 				closemessage
 			}
 			delay(20)

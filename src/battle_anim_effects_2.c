@@ -549,6 +549,17 @@ const struct SpriteTemplate gCuboneThrowSpriteTemplate =
     .callback = AnimThrowProjectile,
 };
 
+const struct SpriteTemplate gDoduoThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_DODUO,
+    .paletteTag = ANIM_TAG_DODUO,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThrowProjectile,
+};
+
 const struct SpriteTemplate gZygardeCellThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_ZYGARDE_CELL,
@@ -700,6 +711,17 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+const struct SpriteTemplate gBikeThrowSpriteTemplate =    
+{
+    .tileTag = ANIM_TAG_BIKE,
+    .paletteTag = ANIM_TAG_BIKE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimCoinThrow,
+};
+
 const struct SpriteTemplate gDireHitThrowSpriteTemplate =    
 {
     .tileTag = ANIM_TAG_DIRE_HIT,
@@ -761,6 +783,29 @@ const struct SpriteTemplate gVaseLiftSpriteTemplate =
     .paletteTag = ANIM_TAG_MING_VASE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+static const union AnimCmd sWagonAscentAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sWagonAscentAnimTable[] =
+{
+    sWagonAscentAnimCmds,
+};
+
+const struct SpriteTemplate gWagonAscentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WAGON_ASCENT,
+    .paletteTag = ANIM_TAG_WAGON_ASCENT,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sWagonAscentAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSprite_MoveThenWait,
@@ -2753,6 +2798,17 @@ const struct SpriteTemplate gFallingCoinSpriteTemplate =
 {
     .tileTag = ANIM_TAG_COIN,
     .paletteTag = ANIM_TAG_COIN,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sCoinAnimTable,
+    .images = NULL,
+    .affineAnims = sFallingCoinAffineAnimTable,
+    .callback = AnimFallingCoin,
+};
+
+const struct SpriteTemplate gFallingBikeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BIKE,
+    .paletteTag = ANIM_TAG_BIKE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = sCoinAnimTable,
     .images = NULL,

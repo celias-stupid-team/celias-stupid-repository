@@ -604,6 +604,10 @@
 #define ANIM_TAG_LCD_EXPLOSION              (ANIM_SPRITES_START + 594)
 #define ANIM_TAG_TRASH                      (ANIM_SPRITES_START + 595)
 #define ANIM_TAG_TM                         (ANIM_SPRITES_START + 596)
+#define ANIM_TAG_BIKE                       (ANIM_SPRITES_START + 597)
+#define ANIM_TAG_WAGON_ASCENT               (ANIM_SPRITES_START + 598)
+#define ANIM_TAG_BALLOON                    (ANIM_SPRITES_START + 599)
+#define ANIM_TAG_DODUO                      (ANIM_SPRITES_START + 600)
 
 // battlers
 #define ANIM_ATTACKER       0
