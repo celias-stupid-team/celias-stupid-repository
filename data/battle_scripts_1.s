@@ -6329,18 +6329,19 @@ BattleScript_EffectHackAttack::
 BattleScript_EffectHackAttack_1::
 	@ attackcanceler
 	attackstring
-	flicker FADE_TO_BLACK, 2
+	@flicker FADE_TO_BLACK, 2
 	ppreduce
 	attackanimation
-	flicker FADE_TO_BLACK, 4
-	flicker FADE_TO_BLACK, 2
+	flicker FADE_TO_BLACK, 20
 	waitanimation
-	flicker FADE_TO_BLACK, 7
-	setbattlestringid
+	pause 40
+	flicker FADE_TO_BLACK, 20
 	glitchpalettes
+	setbattlestringid
 	printfromtable gDoNothingStringIds
-	flicker FADE_TO_BLACK, 4
-	flicker FADE_TO_BLACK, 2
+	pause 35
+	@flicker FADE_TO_BLACK, 4
+	flicker FADE_TO_BLACK, 20
 	waitmessage B_WAIT_TIME_LONGEST
 	restoreglitchpalettes
 	setflag FLAG_HACK_ATTACK_USED
@@ -6348,21 +6349,22 @@ BattleScript_EffectHackAttack_1::
 
 BattleScript_EffectHackAttack_2::
 	@ attackcanceler
-	flicker FADE_TO_BLACK, 2
-	flicker FADE_TO_BLACK, 4
+	@flicker FADE_TO_BLACK, 2
+	flicker FADE_TO_BLACK, 20
 	attackstring
 	ppreduce
 	glitchbattlescreen
 	attackanimation
-	flicker FADE_TO_BLACK, 6
+	flicker FADE_TO_BLACK, 20
 	restoreglitchbattlescreen
 	glitchbattlebgm
 	glitchbattlescreen
 	waitanimation
 	setbattlestringid
 	printstring STRINGID_WAITWHAT
-	flicker FADE_TO_BLACK, 4
-	flicker FADE_TO_BLACK, 2
+	pause 20
+	flicker FADE_TO_BLACK, 20
+	@flicker FADE_TO_BLACK, 2
 	waitmessage B_WAIT_TIME_LONG
 	restoreglitchbattlescreen
 	printstring STRINGID_FINISHHACKATTACK

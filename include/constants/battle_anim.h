@@ -608,6 +608,7 @@
 #define ANIM_TAG_WAGON_ASCENT               (ANIM_SPRITES_START + 598)
 #define ANIM_TAG_BALLOON                    (ANIM_SPRITES_START + 599)
 #define ANIM_TAG_DODUO                      (ANIM_SPRITES_START + 600)
+#define ANIM_TAG_KOOPA_SHELL                (ANIM_SPRITES_START + 601)
 
 // battlers
 #define ANIM_ATTACKER       0
