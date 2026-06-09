@@ -730,3 +730,35 @@ script Silph_Honedge {
 	waitmoncry
 	release
 }
+
+script Silph_YesNoDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"We're all taking this class on how\n"
+	"to do our running gags.\l"
+	"Seems we need to work a bit harder!\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"DAD: Are you sure?\n"
+		"", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox(
+			"DAD: Are you REALLY sure?\n"
+			"", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				call(EventScript_DadHeal)
+				
+			}
+		}
+	}
+	release
+	end
+}
