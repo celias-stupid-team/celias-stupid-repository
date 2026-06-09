@@ -9160,6 +9160,7 @@ Move_BONE_CLUB:
 	blendoff
 	end
 
+Move_BONERMERANG:
 Move_BONE_RUSH:
 	loadspritegfx ANIM_TAG_BONE
 	loadspritegfx ANIM_TAG_IMPACT
@@ -34395,6 +34396,7 @@ Move_DAY_NIGHTSY:
 	call UnsetPsychicBackground
 	end
 
+Move_LEECH_SEED_LICHEN:
 Move_BESEECH_SEED:
 	loadspritegfx ANIM_TAG_BESEECH_SEED
 	playsewithpan SE_M_POISON_POWDER, SOUND_PAN_ATTACKER
@@ -35037,6 +35039,9 @@ Move_PAST_SIGHT:
 	delay 1
 	call UnsetPsychicBackground
 	end
+	
+Move_MACHBATICS:
+Move_ACROBATICS2:
 Move_BICYCLE_CRASH:
 	loadspritegfx ANIM_TAG_BIKE
 	loadspritegfx ANIM_TAG_IMPACT
@@ -35076,7 +35081,8 @@ Move_WEATHER_BALLOON:
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 8, 1
 	waitforvisualfinish
 	end
-Move_BONERMERANG:
+
+General_GulpSpit:
 	loadspritegfx ANIM_TAG_KOOPA_SHELL
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
@@ -35093,7 +35099,3 @@ Move_BONERMERANG:
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
-Move_LEECH_SEED_LICHEN:
-Move_MACHBATICS:
-Move_ACROBATICS2:
-	goto Move_TACKLE
