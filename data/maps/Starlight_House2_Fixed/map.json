@@ -59,10 +59,11 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_STARTER_SQUAD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SQUIRTLE",
-      "x": 21,
-      "y": 12,
+      "x": 20,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -73,6 +74,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_POKEMON_RUSTY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
       "x": 17,
@@ -85,6 +87,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Starlight_House2_Professor_Tree",
       "flag": "FLAG_TEMP_12"
+    },
+    {
+      "local_id": "LOCALID_STAR_GARDEVOIR5",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GARDEVOIRSTAR",
+      "x": 17,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 6,
+      "movement_range_y": 6,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Starlight_House_Star_Character5",
+      "flag": "FLAG_TEMP_19"
     }
   ],
   "warp_events": [
@@ -329,6 +346,38 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Starlight_House2_Headquarters_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_PC2"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Sign_Functional"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Starlight_House2_Sand_Star"
     }
   ]
 }

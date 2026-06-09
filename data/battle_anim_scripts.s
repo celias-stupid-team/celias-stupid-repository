@@ -17081,8 +17081,8 @@ Move_TORNADUS_KICK:
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 7, RGB_WHITE
 	delay 50
 	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
-	fadetobg BG_THUNDER
-	waitbgfadeout
+	changebg BG_THUNDER
+	
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 0
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 22, 1
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 0, RGB_WHITE
@@ -17092,7 +17092,6 @@ Move_TORNADUS_KICK:
 	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 7, 1
 	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 7, 1
 	
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 16, 0, RGB_BLACK
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff

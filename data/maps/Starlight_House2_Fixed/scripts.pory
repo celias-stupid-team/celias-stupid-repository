@@ -15,6 +15,17 @@ mapscripts Starlight_House2_Fixed_MapScripts {
 			setflag(FLAG_TEMP_8)
 		}
         //setbench(BENCH_STARLIGHTS_HOUSE)
+		random(50)
+		setflag(FLAG_TEMP_19)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		if (var(VAR_BONUS_STARS) == 1023) {
+		random(30)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		}
 		
 	}
 	MAP_SCRIPT_ON_LOAD {
@@ -28,6 +39,7 @@ script Starlight_House2_Post_Battle {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	if(!flag(FLAG_POST_GAME) ) {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"STARLIGHT: It's nice to meet you!\p"
 
@@ -37,6 +49,7 @@ script Starlight_House2_Post_Battle {
 	"I'm the one who builds the maps you\n"
 	"walk around on.", MSGBOX_DEFAULT)
 	} else {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox(
 	"STARLIGHT: Where have you been?\p"
 
@@ -50,7 +63,12 @@ script Starlight_House2_Post_Battle {
 	"I'm the one who builds the maps you\n"
 	"walk around on.", MSGBOX_DEFAULT)
 	}
-
+applymovement(LOCALID_STARTER_SQUAD, moves(
+		set_invisible
+	))
+applymovement(LOCALID_POKEMON_RUSTY, moves(
+		set_invisible
+	))
 playse(SE_CLICK)
 setlayouttiles(
 				LAYOUT_STARLIGHT_HOUSE2_LAYOUT_2, 
@@ -101,9 +119,15 @@ setlayouttiles(
 				38, // x2
 				19) // y2
 	delay(20)
+	applymovement(LOCALID_STARTER_SQUAD, moves(
+		set_visible
+	))
+applymovement(LOCALID_POKEMON_RUSTY, moves(
+		set_visible
+	))
 	playse(SE_CLICK)
 	setlayouttiles(
-				LAYOUT_STARLIGHT_HOUSE2, 
+				LAYOUT_STARLIGHT_HOUSE2_FIXED, 
 				0,	// startingX
 				0,	// startingY 
 				0,	// x1 
@@ -120,7 +144,11 @@ setlayouttiles(
 	"Oh! If you see my friend DAK\n"
 	"hanging about in this house, tell\l"
 	"him I need him. Thanks!", MSGBOX_NPC)
+	setflag(FLAG_TEMP_1)
 	closemessage
+	if(flag(FLAG_POST_GAME)) {
+		setflag(FLAG_HIDE_POSTGAME_STARLIGHT)
+	}
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_up
@@ -132,6 +160,7 @@ setlayouttiles(
 script Starlight_House2_Battle {
 	lock
 	faceplayer
+	if(!flag(FLAG_TEMP_1)) {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 		trainerbattle_single(TRAINER_STARLIGHT,
 	"STARLIGHT: Oh hi!\p"
@@ -140,9 +169,11 @@ script Starlight_House2_Battle {
 
 	"How about a battle?",
 	"That was fun!", Starlight_House2_Post_Battle)
+	setflag(FLAG_TEMP_1)
 	release
 	end
-
+	} else {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"It's nice to meet you!\p"
 	
@@ -155,12 +186,16 @@ script Starlight_House2_Battle {
 	"him I need him. Thanks!", MSGBOX_DEFAULT)
 	closemessage
 	clearflag(FLAG_HIDE_BONUS_STARLIGHTS)
+	if(flag(FLAG_POST_GAME)) {
+		setflag(FLAG_HIDE_POSTGAME_STARLIGHT)
+	}
 	applymovement(LOCALID_STARLIGHT_NPC, moves(
 		face_up
 	))
 	waitmovement(0)
 	release
-	
+	end
+	}
 }
 
 script Starlight_House2_Phone { //figure out yesno setup for reading messages.
@@ -220,7 +255,7 @@ script Starlight_House2_Breaker {
 	"It's a power breaker.\n"
 	"\l"
 	"\l"
-	"Breaker deez-", MSGBOX_DEFAULT)
+	"Yeah...", MSGBOX_DEFAULT)
 	closemessage
 	release
 	end
@@ -245,7 +280,7 @@ script Starlight_House2_Table_Plans {
 
 	"Looking closely you don't see\n"
 	"anything, because you have\l"
-	"glasses covering your eyes.", MSGBOX_SIGN)
+	"sick shades covering your eyes.", MSGBOX_SIGN)
                 release
                 end
             } else {
@@ -308,27 +343,60 @@ script Starlight_House2_Machine { //update table plans visual
 
 script Starlight_House2_PC { //update table plans visual
 	
-	if(flag(FLAG_TEMP_4)) {
+	if(flag(FLAG_TEMP_7)) {
 	msgbox(
-	"No, this PC is not functional\p"
-	"either.", MSGBOX_SIGN)
+	"“No, this PC is not functional.\n"
+	"either” -Starlight", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_9)
 	} else {
 	msgbox(
-	"No, this PC is not functional.", MSGBOX_SIGN)
+	"“No, this PC is not functional.”\n"
+	"-Starlight", MSGBOX_SIGN)
 	setflag(FLAG_TEMP_2)
+	setflag(FLAG_TEMP_9)
 	}
+}
+
+script Starlight_House2_PC2 {
+	
+	msgbox(
+	"This PC is not functional.", MSGBOX_SIGN)
+}
+
+script Starlight_House2_Sand_Star {
+	msgbox(
+	"Under this LIGHT you see a STAR.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House2_Sign_Functional {
+	if(flag(FLAG_TEMP_9)) {
+	msgbox(
+	"“No, this sign is not functional.”\n"
+	"-Starlight", MSGBOX_SIGN)
+	} else {
+	msgbox(
+	"“No, This sign is not functional.”\n"
+	"-Starlight", MSGBOX_SIGN)
+	}
+	
+	
+
 }
 
 script Starlight_House2_Sign { //update table plans visual
 
 	if(flag(FLAG_TEMP_2)) {
 	msgbox(
-	"No, this sign doesn't say anything\n"
-	"either.", MSGBOX_SIGN)
+	"“No, this door is not functional.\n"
+	"either” -Starlight", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_9)
 	} else {
 	msgbox(
-	"No, this sign doesn't say anything.", MSGBOX_SIGN)
-	setflag(FLAG_TEMP_4)
+	"“No this door is not functional.”\n"
+	"-Starlight", MSGBOX_SIGN)
+	setflag(FLAG_TEMP_7)
+	setflag(FLAG_TEMP_9)
 	}
 }
 
@@ -551,24 +619,24 @@ script Starlight_House2_Professor_Tree {
 
 script Starlight_House2_Glasses_Down {
 	msgbox(
-	"Looking fly!", MSGBOX_SIGN)
+	"Sick shades, looking fly!", MSGBOX_SIGN)
 
 }
 
 script Starlight_House2_Glasses_Right {
 	msgbox(
-	"Looking high!", MSGBOX_SIGN)
+	"Sick shades, looking high!", MSGBOX_SIGN)
 
 }
 
 script Starlight_House2_Glasses_Up {
 	msgbox(
-	"Looking... Why?", MSGBOX_SIGN)
+	"Sick shades, looking... Why?", MSGBOX_SIGN)
 
 }
 
 script Starlight_House2_Headquarters_Sign {
 	msgbox(
-	"STARLIGHT's Headquarters", MSGBOX_SIGN)
+	"Map Workshop Lounge", MSGBOX_SIGN)
 
 }

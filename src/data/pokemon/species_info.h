@@ -10733,14 +10733,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .noFlip = TRUE,
     },
     [SPECIES_GARDEVOIR] =
-    {
+    {//I set it to Mega Gardevoir's stats to buff my trainer's battle slightly.
         .baseHP = 68,
-        .baseAttack = 65,
+        .baseAttack = 85,
         .baseDefense = 65,
-        .baseSpeed = 80,
-        .baseSpAttack = 125,
-        .baseSpDefense = 115,
-        .types = {TYPE_PSYCHIC, TYPE_FAIRY},
+        .baseSpeed = 100,
+        .baseSpAttack = 165,
+        .baseSpDefense = 135,
+        .types = {TYPE_PSYCHIC, TYPE_FAIRY_TRANS},
         .catchRate = 255,
         .expYield = 208,
         .evYield_HP = 0,

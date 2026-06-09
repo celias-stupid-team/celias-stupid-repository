@@ -13,27 +13,38 @@ MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_DAK_HERE)) {
 			setflag(FLAG_TEMP_8)
 		}
-}
-MAP_SCRIPT_ON_LOAD {
-	getplayerxy(VAR_TEMP_5, VAR_TEMP_6)
-    if(var(VAR_TEMP_6) == 3 && var(VAR_TEMP_5) == 5) {
-		if(!flag(FLAG_DAK_HERE) && !flag(FLAG_TEMP_6)) {
-			lock
-			applymovement(LOCALID_PLAYER, moves(
-				walk_down * 2
-				jump_down
-				
-			))
-			waitmovement(LOCALID_PLAYER)
-			setflag(FLAG_TEMP_6)
-			delay(30)
-			}
+		random(50)
+		setflag(FLAG_TEMP_19)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
 		}
-	release
+		if (var(VAR_BONUS_STARS) == 1023) {
+		random(30)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		}
+}
+//MAP_SCRIPT_ON_LOAD {
+//	getplayerxy(VAR_TEMP_5, VAR_TEMP_6)
+//    if(var(VAR_TEMP_6) == 2 && var(VAR_TEMP_5) == 5) {
+//		if(!flag(FLAG_DAK_HERE) && !flag(FLAG_TEMP_6)) {
+//			lock
+//			applymovement(LOCALID_PLAYER, moves(
+//				walk_down * 2
+//				jump_down
+//				
+//			))
+//			waitmovement(LOCALID_PLAYER)
+//			setflag(FLAG_TEMP_6)
+//			delay(30)
+//			}
+//		}
+//	release
 		
 	
-setflag(FLAG_TEMP_5)
-		}
+//setflag(FLAG_TEMP_5)
+//		}
 	}
 
 script Starlight_House5_Dak_Pit { //test
@@ -845,11 +856,15 @@ script Starlight_House5_Psyduck {
 }
 
 script Starlight_House5_Auto_Pit {
-	if(!flag(FLAG_DAK_HERE) && !flag(FLAG_TEMP_6)) {
+	if(flag(FLAG_HIDE_BONUS_STARLIGHTS) && !flag(FLAG_TEMP_6)) {
 	lock
 	applymovement(LOCALID_PLAYER, moves(
         walk_down * 1
-		jump_down
+    ))
+	waitmovement(LOCALID_PLAYER)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, moves(
+		jump_2_down
     ))
 	waitmovement(LOCALID_PLAYER)
 	setflag(FLAG_TEMP_6)
@@ -859,11 +874,15 @@ script Starlight_House5_Auto_Pit {
 }
 
 script Starlight_House5_Auto_Pit2 {
-	if(!flag(FLAG_DAK_HERE) && !flag(FLAG_TEMP_6)) {
+	if(flag(FLAG_HIDE_BONUS_STARLIGHTS) && !flag(FLAG_TEMP_6)) {
 	lock
 	applymovement(LOCALID_PLAYER, moves(
         walk_down * 2
-		jump_down
+    ))
+	waitmovement(LOCALID_PLAYER)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, moves(
+		jump_2_down
     ))
 	waitmovement(LOCALID_PLAYER)
 	setflag(FLAG_TEMP_6)

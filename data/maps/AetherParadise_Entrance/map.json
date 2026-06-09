@@ -508,7 +508,7 @@
     {
       "type": "sign",
       "x": 19,
-      "y": 4,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Aether_Trees"
@@ -516,7 +516,7 @@
     {
       "type": "sign",
       "x": 20,
-      "y": 10,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Aether_Trees"
@@ -524,7 +524,47 @@
     {
       "type": "sign",
       "x": 0,
-      "y": 4,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Aether_Trees"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Aether_Trees"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Aether_Trees"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Aether_Trees"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Aether_Trees"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Aether_Trees"

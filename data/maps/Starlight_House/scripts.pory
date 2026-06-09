@@ -17,6 +17,17 @@ mapscripts Starlight_House_MapScripts {
 		if(!flag(FLAG_POST_GAME) || flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
 			setflag(FLAG_TEMP_7)
 		}
+		random(50)
+		setflag(FLAG_TEMP_19)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		if (var(VAR_BONUS_STARS) == 1023) {
+		random(30)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		}
 
 		 
 
@@ -24,12 +35,12 @@ mapscripts Starlight_House_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		setflag(FLAG_TEMP_1)
 		if (var(VAR_BONUS_STARS) == 1023) {
-		setmetatile(2, 0, 0x2A8, TRUE)
+		setmetatile(2, 0, 0x281, TRUE)
 		setmetatile(3, 0, 0x282, TRUE)
-		setmetatile(2, 1, 0x2B0, TRUE)
-		setmetatile(3, 1, 0x283, TRUE)
-		setmetatile(2, 2, 0x2D3, FALSE)
-		setmetatile(3, 2, 0x32D, FALSE)
+		setmetatile(4, 0, 0x283, TRUE)
+		setmetatile(2, 1, 0x289, TRUE)
+		setmetatile(3, 1, 0x28A, TRUE)
+		setmetatile(4, 1, 0x28B, TRUE)
 		clearflag(FLAG_TEMP_1)
 		}
 	}
@@ -233,9 +244,13 @@ script StarlightHouse_Plant_Chain {
 		}
 		if(var(VAR_TEMP_0) == 4) {
 			msgbox(
+			"I'm out of OAK jokes..", MSGBOX_SIGN)
+		}
+		if(var(VAR_TEMP_0) == 5) {
+			msgbox(
 			"I'm out of OAK jokes...", MSGBOX_SIGN)
 		}
-		if(var(VAR_TEMP_0) >= 5 && var(VAR_TEMP_0) <= 6) {
+		if(var(VAR_TEMP_0) == 6) {
 			msgbox(
 			"I'm out of OAK jokes....", MSGBOX_SIGN)
 		}
@@ -254,8 +269,15 @@ script StarlightHouse_Plant_Chain {
 				0,	// y1
 				16, // x2
 				10) // y2
+		if (var(VAR_BONUS_STARS) == 1023) {
+		setflag(FLAG_TEMP_6)
 		msgbox(
+		"There, no more trees, and you lost\n"
+		"trophy privileges. >:(", MSGBOX_SIGN)
+		} else {
+			msgbox(
 			"There, no more trees.", MSGBOX_SIGN)
+		}
 		}
 
 		if(var(VAR_TEMP_0) >= 9 && var(VAR_TEMP_0) <= 13) {		
@@ -1431,11 +1453,84 @@ script Starlight_House_Fridge {
 }
 
 script Starlight_House_Trophy {
-	//if(!flag(FLAG_TEMP_1)) {
+	//random(2)
+	//if(var(VAR_RESULT) == 5) {
+	//msgbox("IMMA FIRIN' MAH LAZOR!!!!", MSGBOX_SIGN)
+	//delay(30)
+	//setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    //setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+	//playmoncry(SPECIES_TAUROS, CRY_MODE_NORMAL)
+	//special(ShakeScreenSilent)
+	//delay(5)
+	//special(ShakeScreenSilent)
+	//delay(5)
+	//special(ShakeScreenSilent)
+	//delay(5)
+	//special(ShakeScreenSilent)
+	//} else {	
+	if(!flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"{COLOR LIGHT_RED}YOU'RE WINNER{FONT_SMALL} !\n"
-	"\l"
-	"{COLOR DARK_GRAY}{FONT_SMALL}(Sprite made by Kamina)", MSGBOX_SIGN)
+	"{COLOR LIGHT_RED}YOU'RE WINNER{FONT_SMALL} !", MSGBOX_SIGN)
+	}
+	if(!flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"{COLOR RED}YOU'RE LOSER{FONT_SMALL} !", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+		"A decorative table for something\n"
+		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+		"A decorative table for something\n"
+		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
+	}
+	//}
+}
+
+script Starlight_House_Trophy_Kamina {
+	//random(2)
+	//if(var(VAR_RESULT) == 1) {
+	//msgbox("IMMA FIRIN' MAH LAZOR!!!!", MSGBOX_SIGN)
+	///delay(30)
+	//setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    //setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    //setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+	//playmoncry(SPECIES_TAUROS, CRY_MODE_NORMAL)
+	//special(ShakeScreen)
+	//special(ShakeScreen)
+	//special(ShakeScreen)
+	//} else {
+
+	if(!flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"{COLOR DARK_GRAY}Sprite made by {COLOR BLUE}Kamina{COLOR DARK_GRAY}.", MSGBOX_SIGN)
+	}
+	if(!flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"{COLOR BLUE}Kamina{COLOR DARK_GRAY} is dissapointed in you.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+		"A decorative table for something\n"
+		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+		"A decorative table for something\n"
+		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
+	}
 	//}
 }

@@ -1369,3 +1369,14 @@ const struct Tileset gTileset_StarLighthouse =
     .metatileAttributes = gMetatileAttributes_StarLighthouse,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Starlight_interior4 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Starlight_interior4,
+    .palettes = gTilesetPalettes_Starlight_interior4,
+    .metatiles = gMetatiles_Starlight_interior4,
+    .metatileAttributes = gMetatileAttributes_Starlight_interior4,
+    .callback = NULL,
+};
