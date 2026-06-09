@@ -41,6 +41,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_ROUTE3_LASS",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 72,
@@ -52,7 +53,7 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "10",
       "script": "Route3_EventScript_Sally",
-      "flag": "0"
+      "flag": "FLAG_TEMP_A"
     },
     {
       "type": "object",
@@ -291,6 +292,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecrets_Bonus_HboxRespawn",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "local_id": "LOCALID_ROUTE3_DEAD_LASS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DEADLASS",
+      "x": 26,
+      "y": -5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route3_DeadOriginalLass",
+      "flag": "0"
     }
   ],
   "warp_events": [

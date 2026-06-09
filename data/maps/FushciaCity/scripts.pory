@@ -139,6 +139,9 @@ FushciaCity_EventScript_StakatakaSign::
 mapscripts FushciaCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: FushciaCity_OnTransition
 	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_NO_TM_CASE)) {
+			setrespawn(HEAL_LOCATION_FUSHCIA_OUTSIDE)
+		}
 		setvar(VAR_USED_CUT, 0)
 		setvar(VAR_0x8004, SPECIES_HORSEA)
 		special(SetSeenMon)

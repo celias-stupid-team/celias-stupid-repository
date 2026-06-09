@@ -92,6 +92,17 @@ const struct SpriteTemplate gBlukUpSpriteTemplate =
     .callback = AnimWeatherBallUp,
 };
 
+const struct SpriteTemplate gBalloonUpSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BALLOON,
+    .paletteTag = ANIM_TAG_BALLOON,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_WeatherBallNormal,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWeatherBallUp,
+};
+
 const struct SpriteTemplate gWeatherBallNormalDownSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WEATHER_BALL,
@@ -107,6 +118,17 @@ const struct SpriteTemplate gBlukDownSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BLUK_BERRY,
     .paletteTag = ANIM_TAG_BLUK_BERRY,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_WeatherBallNormal,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWeatherBallDown,
+};
+
+const struct SpriteTemplate gBalloonDownSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BALLOON,
+    .paletteTag = ANIM_TAG_BALLOON,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_WeatherBallNormal,
     .images = NULL,

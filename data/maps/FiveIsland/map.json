@@ -216,7 +216,7 @@
     {
       "local_id": "LOCALID_YES_LASS",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 16,
       "y": 12,
       "elevation": 0,

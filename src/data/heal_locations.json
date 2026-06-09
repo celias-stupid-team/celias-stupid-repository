@@ -403,8 +403,8 @@
     {
       "id": "HEAL_LOCATION_FUSHCIA_OUTSIDE",
       "map": "MAP_FUSHCIA_CITY",
-      "x": 9,
-      "y": 11,
+      "x": 46,
+      "y": 17,
       "respawn_map": "MAP_FUSHCIA_CITY",
       "respawn_npc": "1"
     },
@@ -630,6 +630,14 @@
       "x": 14,
       "y": 15,
       "respawn_map": "MAP_MT_MOON_B2F",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_BILLS_SECRET_GARDEN",
+      "map": "MAP_ROUTE25_BILLS_SECRET_GARDEN",
+      "x": 19,
+      "y": 23,
+      "respawn_map": "MAP_ROUTE25_BILLS_SECRET_GARDEN",
       "respawn_npc": "1"
     }
   ]

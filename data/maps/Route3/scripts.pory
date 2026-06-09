@@ -87,6 +87,7 @@ script Route4_Trigger_Lass2 {
 	addvar(VAR_TEMP_4, 8) 
 	addobject(LASS_2)
 	setobjectxy(LASS_2, VAR_TEMP_4, 8)
+	copyobjectxytoperm(LOCALID_ROUTE3_LASS)
 	//setobjectxyperm(3, VAR_TEMP_4, 8)
 	release
 }
@@ -359,4 +360,27 @@ movement NerdApproachesPlayerRight {
 movement NerdApproachesPlayerFar {
 	walk_left *4
 	face_player
+}
+
+script Route3_KillOriginalLass {
+	lock
+	getobjectxy(LOCALID_ROUTE3_LASS, VAR_TEMP_6, VAR_TEMP_9)
+	getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
+	if(are_vars_equal(VAR_TEMP_6, VAR_TEMP_A)) {
+		removeobject(LOCALID_ROUTE3_LASS)
+		addobject(LOCALID_ROUTE3_DEAD_LASS)
+		setobjectxy(LOCALID_ROUTE3_DEAD_LASS, VAR_TEMP_A, VAR_TEMP_B)
+		copyobjectxytoperm(LOCALID_ROUTE3_DEAD_LASS)
+		playse(SE_BANG)
+		waitse
+	}
+	release
+	end
+}
+
+script Route3_DeadOriginalLass {
+	msgbox(
+	"Whoops.\n"
+	"", MSGBOX_SIGN)
+
 }

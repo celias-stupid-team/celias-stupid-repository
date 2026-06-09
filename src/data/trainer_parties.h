@@ -6704,13 +6704,13 @@ static const struct TrainerMonNoItemCustomMoves sParty_TeamRocketAdmin[] = {
         .iv = 150,
         .lvl = 27,
         .species = SPECIES_PAWMO,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_SCREECH, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_THUNDER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 150,
         .lvl = 28,
         .species = SPECIES_PAWMOT,
-        .moves = {MOVE_THUNDERBOLT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE________BOLT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -10349,7 +10349,7 @@ static const struct TrainerMonItemCustomMoves sParty_HyperDrill[] = {
         .lvl = 13,
         .heldItem = ITEM_NONE,
         .species = SPECIES_DODODUO,
-        .moves = {MOVE_TRIPLE_KICK, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_POPULATION_BOMB, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
@@ -10418,7 +10418,7 @@ static const struct TrainerMonItemCustomMoves sParty_AVGN1[] = {
         .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_ZACIAN,
-        .moves = {MOVE_HEADBUTT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_BEHEMOTH_TRASH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,

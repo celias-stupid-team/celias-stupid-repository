@@ -344,9 +344,13 @@ script DMCAKoga_StopSnowingString {
         "", MSGBOX_DEFAULT)
         playmoncry(SPECIES_SNOVER, CRY_MODE_FAINT)
         waitmoncry
+        delay(30)
         msgbox(
         "The snow has stopped.\n"
         "", MSGBOX_DEFAULT)
+        closemessage
+        delay(30)
+        
         //setlayouttiles(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN, 0,0,0,0,31,25)
 					//setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
         

@@ -6767,3 +6767,36 @@ const struct SpriteFrameImage gObjectEventPicTable_GARDEVOIRSTAR[] = {
     overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 2),
     overworld_frame(gObjectEventPic_GARDEVOIRSTAR, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_MASQUERADE[] = {
+    overworld_frame(gObjectEventPic_MASQUERADE, 2, 2, 0),
+    overworld_frame(gObjectEventPic_MASQUERADE, 2, 2, 1),
+    overworld_frame(gObjectEventPic_MASQUERADE, 2, 2, 2),
+    overworld_frame(gObjectEventPic_MASQUERADE, 2, 2, 0),
+    overworld_frame(gObjectEventPic_MASQUERADE, 2, 2, 0),
+    overworld_frame(gObjectEventPic_MASQUERADE, 2, 2, 1),
+    overworld_frame(gObjectEventPic_MASQUERADE, 2, 2, 1),
+    overworld_frame(gObjectEventPic_MASQUERADE, 2, 2, 2),
+    overworld_frame(gObjectEventPic_MASQUERADE, 2, 2, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_SOBREROLASS[] = {
+    overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 2),
+    overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 3),
+    overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 4),
+    overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 5),
+    overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 6),
+    overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 7),
+    overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_HONEDGE[] = {
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 3),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 4),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 5),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 6),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 7),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 8),
+};

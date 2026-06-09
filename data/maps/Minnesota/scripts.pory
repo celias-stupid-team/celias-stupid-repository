@@ -2,6 +2,15 @@ mapscripts Minnesota_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_CSR_MAP_MINNESOTA)
 		setflag(FLAG_TEMP_5)
+		setflag(FLAG_TEMP_A)
+		setflag(FLAG_TEMP_B)
+		if(flag(FLAG_RELEASED_ZUBAT)) {
+			clearflag(FLAG_TEMP_A)
+			setflag(FLAG_TEMP_C)
+			if(!flag(FLAG_GOT_SHINY_ZUBAT)) {
+				clearflag(FLAG_TEMP_B)
+			}
+		}
 		if(flag(FLAG_SYS_ROTOM_MENU)) {
 			
 			
@@ -90,6 +99,12 @@ script Minnesota_EastSign {
 }
 
 script Minnesota_SanDiegoZooGirl {
+	if(flag(FLAG_RELEASED_ZUBAT)) {
+		msgbox(
+		"Hey, where'd all these ZUBAT come\n"
+		"from?", MSGBOX_NPC)
+		end
+	}
 	msgbox(
 	"Ah, I love visiting MINNESOTA's\n"
 	"famous SAN DIEGO ZOO!\l"
@@ -177,9 +192,19 @@ script MinnesotaZoo_CagedDad {
 }
 
 script MinnesotaZoo_FirstCage {
-	msgbox(
-	"MONGOOSE\n"
-	"{PAUSE 30}The sworn enemy of VIPER", MSGBOX_SIGN)
+	if(flag(FLAG_RELEASED_ZUBAT)) {
+		msgbox(
+		"MONGOOSE\p"
+
+		"Note!\n"
+		"Sprite unloaded for memory reasons.", MSGBOX_SIGN)
+		end
+	} else {
+		msgbox(
+		"MONGOOSE\n"
+		"{PAUSE 30}The sworn enemy of VIPER", MSGBOX_SIGN)
+
+	}
 
 }
 
@@ -667,4 +692,51 @@ script Minnesota_StarEasterEgg {
 	"I might've lost"
 	"{PAUSE 30}WEST", MSGBOX_SIGN)
 
+}
+
+script Minnesota_ReleasedZubats {
+	faceplayer
+	playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+	msgbox(
+	"Oh, wow!\n"
+	"It's more ZOO BATS!", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+script Minnesota_ReleasedHbox {
+	faceplayer
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script Minnesota_ReleasedShinyZubats {
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if(var(VAR_RESULT) != DIR_SOUTH) {
+		faceplayer
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+		waitmoncry
+		msgbox(
+		"Waiiit a second!\n"
+		"That's not a normal ZUBAT!", MSGBOX_DEFAULT)
+		setflag(FLAG_SHINY_CREATION)
+		removeobject(VAR_LAST_TALKED)
+		setflag(FLAG_GOT_SHINY_ZUBAT)
+		playfanfare(MUS_LEVEL_UP)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ZUBAT)
+		msgbox(
+		"{PLAYER} got a special ZUBAT!\n"
+		"", MSGBOX_DEFAULT)
+		call(Common_Script_GiftPokemon)
+		release
+		end
+
+	} else {
+		goto(Minnesota_ReleasedZubats)
+	}
+
+	release
+	end
 }
