@@ -304,10 +304,7 @@ Route8_EventScript_Leslie::
 	msgbox Route8_Text_LesliePostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route8_EventScript_Stan::
-	trainerbattle_single TRAINER_GAMER_STAN, Route8_Text_StanIntro, Route8_Text_StanDefeat
-	msgbox Route8_Text_StanPostBattle, MSGBOX_AUTOCLOSE
-	end
+
 
 Route8_EventScript_Rich::
 	trainerbattle_single TRAINER_GAMER_RICH, Route8_Text_RichIntro, Route8_Text_RichDefeat

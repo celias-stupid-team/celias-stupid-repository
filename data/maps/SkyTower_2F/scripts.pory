@@ -4,9 +4,15 @@ mapscripts SkyTower_2F_MapScripts {
         if(flag(FLAG_GOT_WIDE_CUT)) {
             setflag(FLAG_TEMP_A)
             setflag(FLAG_TEMP_B)
-            setobjectxy(LOCALID_SKY_TOWER_FROSLASS, 18, 27)
         }
         setflag(FLAG_TEMP_B)
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if(var(VAR_SKY_TOWER_LASS) != 0) {
+            
+            setobjectxy(LOCALID_SKY_TOWER_FROSLASS, 18, 27)
+            setobjectxyperm(LOCALID_SKY_TOWER_FROSLASS, 18, 27)
+        }
     }
 }
 

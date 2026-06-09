@@ -616,6 +616,7 @@ script SeafoamIslands_B3F_CaptainGetsTheSpheals {
 }
 
 script SeafoamIslands_ZubatWall {
+	flagasbrickbreakable
 	lock
 	msgbox(
 	"There is a brick wall in the way.\n"

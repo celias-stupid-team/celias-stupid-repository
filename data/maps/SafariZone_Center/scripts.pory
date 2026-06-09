@@ -21,6 +21,7 @@ const DMCA_Right = 3
 
 mapscripts SafariZone_Center_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
+		setrespawn(HEAL_LOCATION_FUSHCIA_OUTSIDE)
 
 		if(flag(FLAG_FREED_KANGA)) {
 			call(SafariZone_Center_BreakLeftWall)
@@ -310,6 +311,7 @@ script SafariZone_KangaJailDMCA {
 }
 
 script SafariZone_KangaBabyCage {
+	flagasbrickbreakable
 	lock
 	if(flag(FLAG_BROKE_BABY_KANGA_WALL)) {
 		msgbox("The BRICKS have been BREAKED.\n", MSGBOX_DEFAULT)
