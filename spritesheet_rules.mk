@@ -1431,3 +1431,5 @@ $(OBJEVENTGFXDIR)/stupid/MASQUERADE.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 $(OBJEVENTGFXDIR)/stupid/SOBREROLASS.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/HONEDGE.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4

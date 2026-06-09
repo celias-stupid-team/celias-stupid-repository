@@ -6789,3 +6789,14 @@ const struct SpriteFrameImage gObjectEventPicTable_SOBREROLASS[] = {
     overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 7),
     overworld_frame(gObjectEventPic_SOBREROLASS, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_HONEDGE[] = {
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 3),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 4),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 5),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 6),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 7),
+    overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 8),
+};

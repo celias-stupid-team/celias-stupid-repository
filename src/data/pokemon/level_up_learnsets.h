@@ -151,7 +151,7 @@ static const struct LevelUpMove sCaterpieLevelUpLearnset[] = {
 static const struct LevelUpMove sMetapodLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_HARDEN),
     LEVEL_UP_MOVE(1, MOVE_HARDEN),
-    LEVEL_UP_MOVE(98, MOVE_CONFUSION),
+    LEVEL_UP_MOVE(98, MOVE_PSYCHIC_PUNCH),
     LEVEL_UP_END
 };
 
@@ -188,6 +188,7 @@ static const struct LevelUpMove sKakunaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_HARDEN),
     LEVEL_UP_MOVE(11, MOVE_CLOSE_COMBAT),
     LEVEL_UP_MOVE(12, MOVE_SHOOT),
+    LEVEL_UP_MOVE(15, MOVE_PSYCHIC_PUNCH),
     LEVEL_UP_END
 };
 

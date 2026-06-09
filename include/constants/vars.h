@@ -234,6 +234,7 @@ It is reset after every battle.
 #define EVENT_BATTLE_JAMES  20 //check
 #define EVENT_BATTLE_MARY  21 //check
 #define EVENT_BATTLE_YUGIOH  22 //check
+#define EVENT_BATTLE_CINNABAR  23 //check
 
 
 

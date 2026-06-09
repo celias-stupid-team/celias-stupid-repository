@@ -927,3 +927,5 @@ const u32 gObjectEventPic_MASQUERADE[] = INCBIN_U32("graphics/object_events/pics
 const u16 gObjectEventPal_MASQUERADE[] = INCBIN_U16("graphics/object_events/palettes/MASQUERADE.gbapal");
 const u32 gObjectEventPic_SOBREROLASS[] = INCBIN_U32("graphics/object_events/pics/stupid/SOBREROLASS.4bpp");
 const u16 gObjectEventPal_SOBREROLASS[] = INCBIN_U16("graphics/object_events/palettes/SOBREROLASS.gbapal");
+const u32 gObjectEventPic_HONEDGE[] = INCBIN_U32("graphics/object_events/pics/stupid/HONEDGE.4bpp");
+const u16 gObjectEventPal_HONEDGE[] = INCBIN_U16("graphics/object_events/palettes/HONEDGE.gbapal");

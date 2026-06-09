@@ -718,3 +718,15 @@ script Silph_NoSitting {
 
 }
 
+script Silph_Vulpix {
+	playmoncry(SPECIES_VULPIX, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+}
+
+
+script Silph_Honedge {
+	playmoncry(SPECIES_HONEDGE, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+}

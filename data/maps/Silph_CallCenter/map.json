@@ -301,7 +301,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 34,
+      "x": 35,
       "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -357,8 +357,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 32,
-      "y": 27,
+      "x": 31,
+      "y": 31,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -371,8 +371,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 41,
-      "y": 28,
+      "x": 32,
+      "y": 32,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -394,6 +394,34 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Silph_Shirt",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_HONEDGE",
+      "x": 41,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Silph_Honedge",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VULPIX",
+      "x": 39,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Silph_Vulpix",
       "flag": "0"
     }
   ],
@@ -690,7 +718,7 @@
     },
     {
       "type": "sign",
-      "x": 40,
+      "x": 33,
       "y": 25,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

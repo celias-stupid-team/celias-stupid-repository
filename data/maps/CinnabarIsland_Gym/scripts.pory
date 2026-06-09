@@ -975,6 +975,8 @@ script CinnabarGym_GymQuestionLoop {
 
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
+				
+   				 setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_CINNABAR)
 				// battle
 				special(ReducePlayerPartyToOne)
 				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_8, RIVAL_BATTLE_HEAL_AFTER, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
