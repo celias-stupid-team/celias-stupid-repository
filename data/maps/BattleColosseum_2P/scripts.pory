@@ -266,7 +266,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) { //TODO figure out this logic
 		setobtainable(SPECIES_SLOWPOKE) // 82
 	}
-	if(flag(FLAG_SHE_SELLS_SEASHELLS) || checkmoncaught(SPECIES_SHELLDER)) {
+	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY) || checkmoncaught(SPECIES_SHELLDER)) {
 		setobtainable(SPECIES_SHELLDER) // 83
 	}
 	if(checkmoncaught(SPECIES_SHELLDER)) { //And if Shellder

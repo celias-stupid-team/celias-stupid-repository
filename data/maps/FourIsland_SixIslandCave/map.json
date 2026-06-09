@@ -3,7 +3,7 @@
   "name": "FourIsland_SixIslandCave",
   "layout": "LAYOUT_FOUR_ISLAND_SIX_ISLAND_CAVE",
   "music": "MUS_FOUR_ISLAND",
-  "region_map_section": "MAPSEC_FOUR_ISLAND",
+  "region_map_section": "MAPSEC_SIX_ISLAND_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

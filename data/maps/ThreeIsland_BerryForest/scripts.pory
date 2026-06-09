@@ -129,7 +129,7 @@ script ThreeIsland_BerryForest_EventScript_Lostelle{
 }
 
 script BerryForest_Sign {
-	msgbox("BERRY FOREST\nNew Wild POKéMON: 1", MSGBOX_SIGN)
+	msgbox("PATTERN BUSH\nNew Wild POKéMON: 1", MSGBOX_SIGN)
 	end
 }
 

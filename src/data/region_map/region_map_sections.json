@@ -1311,6 +1311,14 @@
       "y": 0,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_SIX_ISLAND_CAVE",
+      "name": "SIX ISLAND CAVE",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
     }
   ]
 }

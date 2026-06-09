@@ -2051,6 +2051,10 @@ void BufferStringBattle(u16 stringId)
                     break;
                         
                 case 2: //Onix
+                    if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_DRAGON
+                    ||  gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_DARK)  {
+                        FlagSet(FLAG_SHINY_CATERPIE_SPAWNS);
+                    }
                     if(sBattleMsgDataPtr->currentMove == MOVE_CONFUSION) {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
@@ -2093,6 +2097,9 @@ void BufferStringBattle(u16 stringId)
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    if(sBattleMsgDataPtr->currentMove == MOVE_ODOR_SLEUTH) {
+                        FlagSet(FLAG_SHINY_NIDOTRAN_SPAWNS);
                     }
                     break;
                 case EVENT_BATTLE_ARIANA:
@@ -2155,6 +2162,15 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
+                case EVENT_BATTLE_CINNABAR: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_FINAL_GAMBIT )  { //Snowgravy
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayHoopa); //Play silence
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+
+                    
                 default:
                     break;
             }

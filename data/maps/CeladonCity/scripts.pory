@@ -100,6 +100,10 @@ const CELIA = 15
 mapscripts CeladonCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_2)
+		setflag(FLAG_TEMP_3)
+		if(flag(FLAG_SHINY_NIDOTRAN_SPAWNS)) {
+			clearflag(FLAG_TEMP_3)
+		}
 		clearflag(FLAG_SYS_ON_CYCLING_ROAD)
 		if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY) && !flag(FLAG_BADGE04_GET) && flag(FLAG_WORLD_MAP_CELADON_CITY)) {
 			clearflag(FLAG_TEMP_2)
@@ -122,6 +126,9 @@ mapscripts CeladonCity_MapScripts {
 		if(checkitem(ITEM_HM06) && var(VAR_TEMP_A) == 5) {
 			setobjectxyperm(LOCALID_CELADON_FAKE_ITEM, 9, 12)
 			setobjectmovementtype(LOCALID_CELADON_FAKE_BOULDER, MOVEMENT_TYPE_FACE_DOWN)
+		}
+		if(flag(FLAG_SHINY_NIDOTRAN_SPAWNS)) {
+			setvar(VAR_TEMP_1, 1)
 		}
 	}
 
@@ -157,26 +164,48 @@ mapscripts CeladonCity_MapScripts {
 		}
 		VAR_TEMP_1, 1 {
 			setvar(VAR_TEMP_1, 0)
-			playse(SE_PIN)
-			applymovement(CELIA, Celadon_CeliaAppearsForMankey)
+			clearflag(FLAG_SHINY_NIDOTRAN_SPAWNS)
+			applymovement(LOCALID_CELADON_CELIA, moves(
+				delay_16
+				walk_up
+				face_up
+			))
 			waitmovement(0)
 			textcolor(NPC_TEXT_COLOR_FEMALE)
-			msgbox("Hi!\nI'm CELIA, the creator.\pY'know, that GYM would've been\nmuch easier if you'd just let your\lNIDOs evolve.\pYou really went that far to avoid\nsupporting trans people? Damn!\pWell, I have news for you:\nMANKEY still says TRANS RIGHTS!\pTake this, you scumbag!\n:)", MSGBOX_DEFAULT)
+			msgbox(
+			"Hey, there!\n"
+			"Nice job beating the GYM!\p"
+
+			"But, uh… Are you really so\n"
+			"opposed to evolving your NIDOs?\l"
+			"That's, uh…\p"
+
+			"You really went that far to avoid\n"
+			"supporting trans people? Damn!\p"
+
+			"Well, I have news for you:\n"
+			"MANKEY still says TRANS RIGHTS!\l"
+			"So take this!", MSGBOX_DEFAULT)
 			textcolor(NPC_TEXT_COLOR_NEUTRAL)
 			playfanfare(MUS_LEVEL_UP)
-			msgbox("{PLAYER} recieved the trans-supporting\nMANKEY!", MSGBOX_DEFAULT)
+			msgbox(
+			"{PLAYER} was gifted an EGG!\n"
+			"", MSGBOX_DEFAULT)
 			waitfanfare
-			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MANKEY)
+			if(checkplayergender == MALE) {
+				setvar(VAR_CSR_GIFT_POKEMON, SPECIES_NIDORAN_M)
+			} else {
+				setvar(VAR_CSR_GIFT_POKEMON, SPECIES_NIDORAN_F)
+
+			}
 			setflag(FLAG_SHINY_CREATION) 
-			call(Common_Script_GiftPokemon)
-			setflag(FLAG_GOT_SHINY_MANKEY_FROM_CELIA)
+			givemon(VAR_CSR_GIFT_POKEMON, 15)
 			textcolor(NPC_TEXT_COLOR_FEMALE)
-			msgbox("I hope you take some time to\nreflect on your actions!\pAnyway, I'll be leaving now.\nRemember to fill out the POKéDEX!", MSGBOX_DEFAULT)
+			msgbox("I hope you take some time to\nreflect on your actions!\pAnyway, I'll be leaving now.\nBest of luck!", MSGBOX_DEFAULT)
 			closemessage
-			applymovement(CELIA, Celadon_CeliaLeaves)
-			removeobject(CELIA)
-			setobjectmovementtype(CELIA, MOVEMENT_TYPE_INVISIBLE)
-			setobjectxyperm(CELIA, 30, 9)
+			applymovement(LOCALID_CELADON_CELIA, Celadon_CeliaLeaves)
+			removeobject(LOCALID_CELADON_CELIA)
+
 			release
 		}
 	]

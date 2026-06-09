@@ -191,3 +191,9 @@ script VermilionFanClub_Polish {
 	"Nowe gry POKéMON nie maja\l"
 	"wystarczajaco duzo POLSKIEGO.", MSGBOX_NPC)
 }
+
+script VermilionFanClub_PolishComms {
+	msgbox(
+	"POLSKA GORUM!\n"
+	"", MSGBOX_NPC)
+}

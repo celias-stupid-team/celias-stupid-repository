@@ -21,6 +21,7 @@ const DMCA_Right = 3
 
 mapscripts SafariZone_Center_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
+		setrespawn(HEAL_LOCATION_FUSHCIA_OUTSIDE)
 
 		if(flag(FLAG_FREED_KANGA)) {
 			call(SafariZone_Center_BreakLeftWall)
@@ -136,7 +137,7 @@ script SafariZone_KangaskahnCage {
 	msgbox("KANGASKHAN: Kang! Kanga-!!\n", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
-	if(checkitem(ITEM_TM32) || (checkitem(ITEM_TM_CASE) && checkpartymove(MOVE_BRICK_BREAK) != PARTY_SIZE)) {
+	if(checkitem(ITEM_TM32) || (checkitem(ITEM_TM_CASE))) {
 		msgbox("She's staring intently at your\nTM CASE.\pWould you like to give her a\nTM?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			if(var(VAR_RESULT)) {
@@ -310,6 +311,7 @@ script SafariZone_KangaJailDMCA {
 }
 
 script SafariZone_KangaBabyCage {
+	flagasbrickbreakable
 	lock
 	if(flag(FLAG_BROKE_BABY_KANGA_WALL)) {
 		msgbox("The BRICKS have been BREAKED.\n", MSGBOX_DEFAULT)
@@ -595,4 +597,21 @@ script SafariZone_BigKanga {
 
 	"Shit, I've never been good at\n"
 	"improv.", MSGBOX_NPC)
+}
+
+
+script SafariZone_VenonatBricks {
+	if(flag(FLAG_FREED_KANGA)) {
+		msgbox(
+		"This message box exists as a\n"
+		"level 3 contingency.\p"
+
+		"You do not need to know why\n"
+		"you're seeing it.", MSGBOX_SIGN)
+		end
+	}
+	msgbox(
+	"Hmm… No good!\n"
+	"It's got ANTI-VENONAT bricks!", MSGBOX_SIGN)
+
 }

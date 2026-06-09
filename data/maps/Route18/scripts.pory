@@ -53,7 +53,7 @@ script Route18_OnTransition {
 }
 
 script Route18_TiredBiker {
-	msgbox("Man!\nThis slope is something else.\pI tried to tackle it, but I'm\nfamished!\lCan't do this on an empty stomach!\pMaybe I should make myself a\nlittle something to eat before\ltrying again.", MSGBOX_NPC)
+	msgbox("Man!\nThis slope is something else.\pI tried to tackle it, but I'm\nfamished!\lCan't do this on an empty stomach.\pMaybe I should make myself a little\nsomething to eat before trying again.", MSGBOX_NPC)
 	end
 }
 

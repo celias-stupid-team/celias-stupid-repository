@@ -130,13 +130,14 @@ PalletTown_ProfessorOaksLab_Text_OakThisMonIsEnergetic::
 PalletTown_ProfessorOaksLab_Text_OakCanReachNextTownWithMon::
     .string "OAK: If a wild POKéMON appears,\n"
     .string "your POKéMON can battle it.\p"
-    .string "With it at your side, you should be\n"
-    .string "able to reach the next town.$"
+    .string "…What?\n"
+    .string "Why are you looking at me that way?$"
 
 PalletTown_ProfessorOaksLab_Text_OakBattleMonForItToGrow::
     .string "OAK: {PLAYER}, raise your young\n"
     .string "POKéMON by making it battle.\p"
-    .string "It has to battle for it to grow.$"
+    .string "…What?\n"
+    .string "Why are you looking at me that way?$"
 
 PalletTown_ProfessorOaksLab_Text_OakHaveSomethingForMe::
     .string "OAK: Oh, {PLAYER}!\n"
@@ -228,8 +229,8 @@ PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls::
     .string "They contain POKéMON!$"
 
 PalletTown_ProfessorOaksLab_Text_OaksLastMon::
-	.string "Wow!\n"
-	.string "This BALL has a VENUSAUR!$"
+	.string "Do you really want another\n"
+	.string "CHARMANDER?$"
 
 PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
     .string "Press SPACE to speed up!$"

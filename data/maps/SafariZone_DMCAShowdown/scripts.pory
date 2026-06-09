@@ -127,7 +127,7 @@ script SafariZone_IronCleftBattle {
     textcolor(NPC_TEXT_COLOR_MALE)
     if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
         if(flag(FLAG_ARCHER_CUTSCENE_SECOND)) {
-            msgbox("ALFRED: Oh?\nYou're back again?", MSGBOX_DEFAULT)
+            msgbox("DAUMAN: Oh?\nYou're back again?", MSGBOX_DEFAULT)
         } else {
             setflag(FLAG_ARCHER_CUTSCENE_SECOND)
             msgbox("DAUMAN: So.\nYou've finally arrived.\pI hear you're the little rascal\nwho's been disrupting our plans.\lYou'd better listen here!\pWe are the DMCA!\pWe command the production of all\ncreative works.\lNothing gets made without us!\pDo you think you're doing creators\na favor by infringing on them?\lStealing profits from their mouths?", MSGBOX_DEFAULT)

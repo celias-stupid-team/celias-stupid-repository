@@ -1928,6 +1928,9 @@ s32 MoveBattleBar(u8 battlerId, u8 healthboxSpriteId, u8 whichBar, u8 unused)
     s32 currentBarValue;
     s32 changedHp = gBattleSpritesDataPtr->battleBars[battlerId].receivedValue;
 
+    if (changedHp > gBattleSpritesDataPtr->battleBars[battlerId].oldValue)
+        changedHp = gBattleSpritesDataPtr->battleBars[battlerId].oldValue;
+
     if (changedHp < 0)
         changedHp = -changedHp;
 

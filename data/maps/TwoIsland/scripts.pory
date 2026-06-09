@@ -1502,6 +1502,7 @@ script TwoIsland_LivingSans {
 
 			"it's not too special, but i know\n"
 			"the artist appreciates it", MSGBOX_DEFAULT)
+			release
 		default:
 			msgbox(
 			"{FONT_COMIC_SANS}now that i'm totally out of the\n"

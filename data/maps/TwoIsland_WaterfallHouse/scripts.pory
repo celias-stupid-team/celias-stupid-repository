@@ -3,6 +3,7 @@ mapscripts TwoIsland_WaterfallHouse_MapScripts {
 		if(var(VAR_TWO_ISLAND_STARMAN) != 2) {
 			setflag(FLAG_TEMP_1)
 		}
+		setflag(FLAG_TEMP_7)
 	}
 }
 
@@ -109,10 +110,27 @@ script TwoIsland_SideOfWall {
 				"before going further!\l"
 				"-Celia, the creator", MSGBOX_DEFAULT)
 			case 11:
+				clearflag(FLAG_TEMP_7)
+				addobject(GLITCH_HOLE_NONSENSE_1)
+				addobject(GLITCH_HOLE_NONSENSE_2)
+				addobject(GLITCH_HOLE_NONSENSE_3)
+				addobject(GLITCH_HOLE_NONSENSE_4)
+				addobject(GLITCH_HOLE_NONSENSE_5)
+				addobject(GLITCH_HOLE_NONSENSE_6)
+				addobject(GLITCH_HOLE_NONSENSE_7)
+				addobject(GLITCH_HOLE_NONSENSE_8)
 				
 				gotorandom
 				
 
 	}
 	release
+}
+
+script GlitchHole_NoProblemHere {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"No problem here.\n"
+	"", MSGBOX_SIGN)
+
 }

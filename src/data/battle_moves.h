@@ -4063,7 +4063,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 50,
         .target = MOVE_TARGET_BOTH,
         .priority = 2,
-        .flags = 0,
+        .flags = FLAG_PROTECT_AFFECTED,
     },
 
     [MOVE_FIRE_PLEDGE] =
@@ -10184,7 +10184,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ABSORB,
         .power = 110,
-        .type = TYPE_WATER,
+        .type = TYPE_BIRD,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,

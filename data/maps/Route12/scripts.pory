@@ -281,6 +281,7 @@ script Route12_Snorlax {
 			setflag(FLAG_CSR_HIDE_OMANYTE)
 			message(Text_PlayedPokeFlute)
 			waitmessage
+			delay(20)
 			playfanfare(MUS_POKE_FLUTE)
 			waitfanfare
 			closemessage

@@ -46,7 +46,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PMD_STARLIGHT",
+      "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
       "x": 42,
       "y": -15,
       "elevation": 0,
