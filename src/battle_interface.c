@@ -1634,10 +1634,15 @@ void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
         return;
     if (CheckBattleTypeGhost(&gEnemyParty[gBattlerPartyIndexes[battlerId]], battlerId))
         return;
-    if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)), FLAG_GET_CAUGHT))
-        return;
 
     healthBarSpriteId = gSprites[healthboxSpriteId].sHealthBarSpriteId;
+
+    if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES)), FLAG_GET_CAUGHT))
+    {
+        // update the tile, so it is removed for species transforms
+        CpuFill32(0, (void *)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 1 * TILE_SIZE_4BPP);
+        return;
+    }
 
     if (noStatus)
         CpuCopy32(GetBattleInterfaceGfxPtr(B_INTERFACE_GFX_BALL_CAUGHT), (void *)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 1 * TILE_SIZE_4BPP);
@@ -1916,19 +1921,22 @@ void UpdateHealthboxAttribute(u8 healthboxSpriteId, struct Pokemon *mon, u8 elem
 #define B_HEALTHBAR_NUM_TILES  (B_HEALTHBAR_NUM_PIXELS / 8)
 #define B_EXPBAR_NUM_PIXELS    64
 #define B_EXPBAR_NUM_TILES     (B_EXPBAR_NUM_PIXELS / 8)
+#define HEALTH_BAR_ANIM_FRAMES 90 // duration for HP bar animations
 
 s32 MoveBattleBar(u8 battlerId, u8 healthboxSpriteId, u8 whichBar, u8 unused)
 {
     s32 currentBarValue;
-    u32 changedHp = gBattleSpritesDataPtr->battleBars[battlerId].receivedValue;
+    s32 changedHp = gBattleSpritesDataPtr->battleBars[battlerId].receivedValue;
+
+    if (changedHp > gBattleSpritesDataPtr->battleBars[battlerId].oldValue)
+        changedHp = gBattleSpritesDataPtr->battleBars[battlerId].oldValue;
 
     if (changedHp < 0)
         changedHp = -changedHp;
 
     if (whichBar == HEALTH_BAR)
     {
-        u16 incrementRate = (gBattleMons[battlerId].species == SPECIES_FINALZAPDOS
-                              && changedHp > 200) ? 2 : 1;
+        u16 incrementRate = (changedHp / HEALTH_BAR_ANIM_FRAMES > 1) ? (u16)(changedHp / HEALTH_BAR_ANIM_FRAMES) : 1;
 
         currentBarValue = CalcNewBarValue(gBattleSpritesDataPtr->battleBars[battlerId].maxValue,
                                           gBattleSpritesDataPtr->battleBars[battlerId].oldValue,

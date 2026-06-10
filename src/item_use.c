@@ -701,23 +701,21 @@ void FieldUseFunc_Repel(u8 taskId)
 {
     if (gSpecialVar_ItemId == ITEM_MAX_REPEL) {
         if(FlagGet(FLAG_CSR_POWER_IS_ON) || FlagGet(FLAG_UNLEASHED_ENERGY)) {
-            if(FlagGet(FLAG_SYS_MAX_REPEL)) {
-                FlagClear(FLAG_SYS_MAX_REPEL);
+            if(FlagGet(FLAG_CSR_DEBUG_NO_ENCOUNTER)) {
+                FlagClear(FLAG_CSR_DEBUG_NO_ENCOUNTER);
                 DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelTurnedOff, Task_ReturnToBagFromContextMenu);
 
             } else {
-                VarSet(VAR_REPEL_STEP_COUNT, 0);
-                FlagSet(FLAG_SYS_MAX_REPEL);
+                FlagSet(FLAG_CSR_DEBUG_NO_ENCOUNTER);
                 PlaySE(SE_REPEL);
                 gTasks[taskId].func = Task_UseMaxRepel;
             }
             
         } else {
             DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelDoesntWork, Task_ReturnToBagFromContextMenu);
-
         }
 
-    } else if (VarGet(VAR_REPEL_STEP_COUNT) == 0 || FlagGet(FLAG_SYS_MAX_REPEL))
+    } else if (VarGet(VAR_REPEL_STEP_COUNT) == 0 && !FlagGet(FLAG_CSR_DEBUG_NO_ENCOUNTER))
     {
         PlaySE(SE_REPEL);
         gTasks[taskId].func = Task_UseRepel;
@@ -1324,6 +1322,32 @@ void FieldUseFunc_BalmMushroom(u8 taskId)
     u16 species;
 
     species = SPECIES_AMOONGUSS;
+    FlagSet(FLAG_SHINY_CREATION);
+
+    gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
+
+    switch (gSpecialVar_Result)
+    {
+    case MON_CANT_GIVE: // no space in PC
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_AllBoxesFull);
+        break;
+    case MON_GIVEN_TO_PARTY:
+    case MON_GIVEN_TO_PC:
+        PlayCry_Normal(species, CRY_MODE_DEFAULT);
+        GetSpeciesName(gStringVar1, species);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_GiveMon;
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_GimmieghoulTMUsed, SetUpItemUseOnFieldCallback);
+        break;
+    }
+}
+
+
+
+void FieldUseFunc_WaterGun(u8 taskId)
+{
+    u16 species;
+
+    species = SPECIES_REMORAID;
     FlagSet(FLAG_SHINY_CREATION);
 
     gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);

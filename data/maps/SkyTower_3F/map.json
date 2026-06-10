@@ -247,6 +247,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_SkyTowerTrapMaze",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GARDEVOIRSTAR",
+      "x": 43,
+      "y": 57,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_BONUS_STARLIGHTS"
     }
   ],
   "warp_events": [
@@ -306,6 +320,24 @@
       "var": "VAR_TEMP_4",
       "var_value": "0",
       "script": "SkyTower_3F_KillThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 53,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_1"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_1"
     }
   ],
   "bg_events": [

@@ -390,6 +390,7 @@ static void Task_Hof_InitMonData(u8 taskId)
     u8 k;
     u8 maxId;
     u8 partyId;
+    u8 isHofCandidate;
     struct BoxPokemon *boxMon;
     // saved values
     u8 candFriendship[PARTY_SIZE];
@@ -503,7 +504,7 @@ static void Task_Hof_InitMonData(u8 taskId)
                 sHofMonPtr[0].mon[i].species     = GetBoxMonData(boxMon, MON_DATA_SPECIES_OR_EGG);
                 sHofMonPtr[0].mon[i].tid         = GetBoxMonData(boxMon, MON_DATA_OT_ID);
                 sHofMonPtr[0].mon[i].personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
-                sHofMonPtr[0].mon[i].lvl         = GetBoxMonData(boxMon, MON_DATA_LEVEL);
+                sHofMonPtr[0].mon[i].lvl         = GetLevelFromBoxMonExp(boxMon);
                 GetBoxMonData(boxMon, MON_DATA_NICKNAME, nick);
             }
             // copy nickname data
@@ -526,23 +527,28 @@ static void Task_Hof_InitMonData(u8 taskId)
         DebugPrintf("HoF slot[%d] species=%d friendship=%d", i, sHofMonPtr[0].mon[i].species, candFriendship[i]);
 
     // replace current team with the HoF squad
-    // send all mons to the PC
+    // send non-HoF party mons to the PC
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
             break;
-        else if (candInParty[i]) // mon is already in the party, don't send to PC
-            break;
-        else
+        isHofCandidate = FALSE;
+        for (k = 0; k < candidateCount; k++)
+        {
+            if (candInParty[k] && candBox[k] == (u8)i)
+            {
+                isHofCandidate = TRUE;
+                break;
+            }
+        }
+        if (!isHofCandidate)
         {
             if (SendMonToPC(&gPlayerParty[i]))
-            {
                 ZeroMonData(&gPlayerParty[i]);
-            }
         }
     }
     // add HoF mons to the party
-    for (i = 0; i < PARTY_SIZE; i++)
+    for (i = 0; i < candidateCount; i++)
     {
         if (candInParty[i])
             gPlayerParty[i] = partyBuffer[i];

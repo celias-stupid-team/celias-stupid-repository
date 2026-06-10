@@ -1347,3 +1347,36 @@ const struct Tileset gTileset_Alphabet =
     .metatileAttributes = gMetatileAttributes_Alphabet,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Aether_Paradise =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Aether_Paradise,
+    .palettes = gTilesetPalettes_Aether_Paradise,
+    .metatiles = gMetatiles_Aether_Paradise,
+    .metatileAttributes = gMetatileAttributes_Aether_Paradise,
+    .callback = InitTilesetAnim_Route15,
+};
+
+const struct Tileset gTileset_StarLighthouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_StarLighthouse,
+    .palettes = gTilesetPalettes_StarLighthouse,
+    .metatiles = gMetatiles_StarLighthouse,
+    .metatileAttributes = gMetatileAttributes_StarLighthouse,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Starlight_interior4 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Starlight_interior4,
+    .palettes = gTilesetPalettes_Starlight_interior4,
+    .metatiles = gMetatiles_Starlight_interior4,
+    .metatileAttributes = gMetatileAttributes_Starlight_interior4,
+    .callback = NULL,
+};

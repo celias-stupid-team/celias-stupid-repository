@@ -71,6 +71,17 @@ const struct SpriteTemplate gBonemerangSpriteTemplate =
     .callback = AnimBonemerangProjectile,
 };
 
+const struct SpriteTemplate gRibmerangSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PRIME_RIBS,
+    .paletteTag = ANIM_TAG_PRIME_RIBS,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
 static const union AnimCmd sHatchetAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -311,6 +322,50 @@ const struct SpriteTemplate gThrownBigMushroomSpriteTemplate =
     .callback = AnimMakeItRain,
 };
 
+const struct SpriteTemplate gMrExplosionSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MR_EXPLOSION,
+    .paletteTag = ANIM_TAG_MR_EXPLOSION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gMrExplosionShinySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MR_EXPLOSION,
+    .paletteTag = ANIM_TAG_MR_EXPLOSION,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gThrownEonTicketSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EON_TICKET,
+    .paletteTag = ANIM_TAG_EON_TICKET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
+const struct SpriteTemplate gThrownSoulDewSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SOUL_DEW,
+    .paletteTag = ANIM_TAG_SOUL_DEW,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakeItRain,
+};
+
 const struct SpriteTemplate gMudsportSmallMushroomSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MUSHROOM,
@@ -328,6 +383,39 @@ const struct SpriteTemplate gMudsportBigMushroomSpriteTemplate =
     .paletteTag = ANIM_TAG_MUSHROOM,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = &sMushroomsAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMudSportDirt,
+};
+
+static const union AnimCmd sErupteonAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sErupteonAnimTable[] =
+{
+    sErupteonAnimCmds,
+};
+
+const struct SpriteTemplate gMudsportEonTicketSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_EON_TICKET,
+    .paletteTag = ANIM_TAG_EON_TICKET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sErupteonAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMudSportDirt,
+};
+
+const struct SpriteTemplate gMudsportSoulDewSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SOUL_DEW,
+    .paletteTag = ANIM_TAG_SOUL_DEW,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sErupteonAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimMudSportDirt,

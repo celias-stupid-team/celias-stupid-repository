@@ -1,5 +1,5 @@
 Route2_EventScript_ItemEther::
-	finditem ITEM_TM11
+	finditem ITEM_HM01
 	end
 
 Route2_EventScript_ItemPokeBall:: 

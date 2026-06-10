@@ -1,6 +1,9 @@
 #ifndef GUARD_METATILE_LABELS_H
 #define GUARD_METATILE_LABELS_H
 
+// gTileset_Aether_Paradise
+#define METATILE_Aether_Paradise_METATILE_Aether_Paradise_METATILE_Route15_LIGHTHOUSE_DOOR  0x3EF
+
 // gTileset_BlaineFurnaceFun
 #define METATILE_BlaineFurnaceFun_BonusBottom    0x2E1
 #define METATILE_BlaineFurnaceFun_BonusTop       0x2D9

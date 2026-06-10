@@ -455,6 +455,7 @@ gSpecials::
 	def_special LoopWingFlapSound
 	def_special CreateEnemyEventMon
 	def_special ScriptGetPartyMonSpecies
+	def_special ScriptIsPartyMonFainted
 	def_special ClearBenchWarp
 	def_special TeleportCamera
 	def_special SocialSecurityCheck
@@ -468,4 +469,6 @@ gSpecials::
 	def_special ShakeScreenSilent
 	def_special IsPlayerNameKaylee
 	def_special BackgroundSave
+	def_special IsNicknameMewtwo
+	def_special CheckStarlightEE
 gSpecialsEnd::

@@ -850,6 +850,15 @@ bool8 MetatileBehavior_IsBrockRock(u8 metatileBehavior)
         return FALSE;
 }
 
+
+bool8 MetatileBehavior_IsPokecenterOak(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_POKEMONCENTER_TREE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsPlayerFacingPokemonCenterSign(u8 metatileBehavior, u8 playerDirection)
 {
     if (playerDirection != DIR_NORTH)

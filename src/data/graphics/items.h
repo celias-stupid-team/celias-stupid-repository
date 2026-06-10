@@ -1017,3 +1017,6 @@ const u32 gItemIconPalette_Ilexir[] = INCBIN_U32("graphics/items/icon_palettes/i
 
 const u32 gItemIcon_HyperRepel[] = INCBIN_U32("graphics/items/icons/hyper_repel.4bpp.lz");
 const u32 gItemIconPalette_HyperRepel[] = INCBIN_U32("graphics/items/icon_palettes/hyper_repel.gbapal.lz");
+
+const u32 gItemIcon_NothingBurger[] = INCBIN_U32("graphics/items/icons/nothing_burger.4bpp.lz");
+const u32 gItemIconPalette_NothingBurger[] = INCBIN_U32("graphics/items/icon_palettes/nothing_burger.gbapal.lz");

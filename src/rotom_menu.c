@@ -3,6 +3,7 @@
 
 #include "global.h"
 
+#include "constants/event_bg.h"
 #include "constants/event_objects.h"
 #include "constants/map_groups.h"
 #include "constants/maps.h"
@@ -22,6 +23,7 @@
 #include "event_object_lock.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
+#include "field_control_avatar.h"
 #include "field_effect.h"
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
@@ -410,6 +412,7 @@ static EWRAM_DATA u8 sStoredMoveRow = 0;
 static EWRAM_DATA u8 (*sSaveDialogCallback)(void) = NULL;
 static EWRAM_DATA u8 sSaveDialogTimer = 0;
 static EWRAM_DATA u8 sSaveInfoWindowId = 0;
+static EWRAM_DATA const u8 *sBrickBreakScript = NULL;
 
 // --BG-GFX--
 static const u32 sStartMenuTiles[] = INCBIN_U32("graphics/rotom_menu/bg.4bpp.lz");
@@ -2815,6 +2818,7 @@ static bool32 SetupFunc_Waterfall(void)
 
 static void FieldMoveFunc_Waterfall(void)
 {
+    ObjectEventClearHeldMovementIfActive(&gObjectEvents[gPlayerAvatar.objectEventId]);
     FieldEffectStart(FLDEFF_USE_WATERFALL);
 }
 
@@ -2989,14 +2993,59 @@ static void FieldMoveFunc_Guillotine(void)
     ScriptContext_SetupScript(EventScript_FldEffCut);
 }
 
+#define SCRIPT_BRICKBREAKABLE_MARKER 0xEB // same hex value as macro flagasbrickbreakable
+#define IS_BRICKBREAK_BGEVENT  OBJECT_EVENTS_COUNT // acts as a flag in FieldMoveFunc_BrickBreak to call the correct script
+
 static bool32 SetupFunc_BrickBreak(void)
 {
+    struct MapPosition position;
+    u8 objectEventId;
+    const u8 *script;
+    const struct BgEvent *bgEvent;
+
+    GetInFrontOfPlayerPosition(&position);
+
+    //check object events first
+    objectEventId = GetObjectEventIdByXY(position.x, position.y);
+    if (objectEventId != OBJECT_EVENTS_COUNT)
+    {
+        script = GetObjectEventScriptPointerByObjectEventId(objectEventId);
+        if (script != NULL && script[0] == SCRIPT_BRICKBREAKABLE_MARKER)
+        {
+            sFieldMoveData = objectEventId;
+            return TRUE;
+        }
+    }
+
+    //check bg events like signs next
+    bgEvent = GetBackgroundEventAtPosition(&gMapHeader, position.x - MAP_OFFSET, position.y - MAP_OFFSET, PlayerGetElevation());
+    if (bgEvent != NULL
+        && bgEvent->kind != BG_EVENT_HIDDEN_ITEM
+        && bgEvent->kind != BG_EVENT_SECRET_BASE
+        && bgEvent->bgUnion.script != NULL
+        && bgEvent->bgUnion.script[0] == SCRIPT_BRICKBREAKABLE_MARKER)
+    {
+        sBrickBreakScript = bgEvent->bgUnion.script;
+        sFieldMoveData = IS_BRICKBREAK_BGEVENT;
+
+        return TRUE;
+    }
+
+    sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CANT_USE_HERE;
     return FALSE;
 }
 
 static void FieldMoveFunc_BrickBreak(void)
 {
-    return;
+    if (sFieldMoveData != IS_BRICKBREAK_BGEVENT)
+    {
+        VarSet(VAR_LAST_TALKED, gObjectEvents[sFieldMoveData].localId);
+        ScriptContext_SetupScript(GetObjectEventScriptPointerByObjectEventId(sFieldMoveData));
+    }
+    else
+    {
+        ScriptContext_SetupScript(sBrickBreakScript);
+    }
 }
 
 static bool32 SetupFunc_TailGlow(void)

@@ -586,6 +586,33 @@
       "var": "VAR_PIRATE_BAY_SCENE",
       "var_value": "0",
       "script": "PirateBay_Entrance"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_4"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_4"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_4"
     }
   ],
   "bg_events": [

@@ -103,6 +103,7 @@ extern const struct OamData gOamData_AffineOff_ObjNormal_32x8;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x16;
 extern const struct OamData gOamData_AffineOff_ObjNormal_64x32;
 extern const struct OamData gOamData_CensoredBar;
+extern const struct OamData gOamData_Concrete;
 extern const struct OamData gOamData_AffineOff_ObjNormal_8x16;
 extern const struct OamData gOamData_AffineOff_ObjNormal_8x32;
 extern const struct OamData gOamData_AffineOff_ObjNormal_16x32;
@@ -199,6 +200,7 @@ extern const union AnimCmd *const gPowerAbsorptionOrbAnimTable[];
 extern const u8 *const gBattleAnims_StatusConditions[];
 extern const u8 *const gBattleAnims_Moves[];
 extern const u16 gMovesWithQuietBGM[];
+extern const u16 gMovesWithNoBGM[];
 
 void MoveBattlerSpriteToBG(u8 battlerId, u8);
 void ResetBattleAnimBg(u8);

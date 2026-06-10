@@ -5289,7 +5289,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_GHOLDENGO] =
     {
-        .categoryName = _("CHICKEN"),
+        .categoryName = _("NUGGET"),
         .height = 12,
         .weight = 30,
         .description = gGholdengoPokedexText,

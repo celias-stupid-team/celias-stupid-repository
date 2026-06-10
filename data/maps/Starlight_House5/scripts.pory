@@ -2,6 +2,7 @@ mapscripts Starlight_House5_MapScripts {
 MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_HIDE_BONUS_STARLIGHTS) || !flag(FLAG_DAK_HERE)) {
     setflag(FLAG_TEMP_4)
+	setflag(FLAG_TEMP_3)
 }
 		if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
 			setflag(FLAG_TEMP_8)
@@ -12,19 +13,57 @@ MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_DAK_HERE)) {
 			setflag(FLAG_TEMP_8)
 		}
+		random(50)
+		setflag(FLAG_TEMP_19)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		if (var(VAR_BONUS_STARS) == 1023) {
+		random(30)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		}
+}
+//MAP_SCRIPT_ON_LOAD {
+//	getplayerxy(VAR_TEMP_5, VAR_TEMP_6)
+//    if(var(VAR_TEMP_6) == 2 && var(VAR_TEMP_5) == 5) {
+//		if(!flag(FLAG_DAK_HERE) && !flag(FLAG_TEMP_6)) {
+//			lock
+//			applymovement(LOCALID_PLAYER, moves(
+//				walk_down * 2
+//				jump_down
+//				
+//			))
+//			waitmovement(LOCALID_PLAYER)
+//			setflag(FLAG_TEMP_6)
+//			delay(30)
+//			}
+//		}
+//	release
 		
 	
-setflag(FLAG_TEMP_5)
+//setflag(FLAG_TEMP_5)
+//		}
 	}
-}
 
 script Starlight_House5_Dak_Pit { //test
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_MALE)
-    msgbox(
+    if(flag(FLAG_TEMP_3)) {
+			msgbox(
+				"DAK: Why would you take my light\n"
+				"source?\p"
+
+				"How will I find my stuff in the\n"
+				"dark now?", MSGBOX_NPC)
+		closemessage
+				} else {
+	msgbox(
 	"DAK: This is a nice fun map!", MSGBOX_NPC)
 	closemessage
+				}
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
 	))
@@ -32,44 +71,32 @@ script Starlight_House5_Dak_Pit { //test
 	release
 }
 
-script Starlight_House5_Dak_Pit_Unused { //test
-	lock
-	faceplayer
-	textcolor(NPC_TEXT_COLOR_MALE)
-    if(flag(FLAG_TEMP_3) && (flag(FLAG_TEMP_6))) {
-			 msgbox(
-	"Why would you take that?\p"
-
-	"Now how will I find my secret base\n"
-	"in the dark without a light source?", MSGBOX_NPC)
-		closemessage
-				}
-				if(flag(FLAG_TEMP_3) && (!flag(FLAG_TEMP_6))) {
-			 msgbox(
-	"DAK: This is a nice fun map!\p"
-
-	"Also why would you take that?\p"
-
-	"Now how will I find my secret base\n"
-	"in the dark without a light source?", MSGBOX_NPC)
-		closemessage
-				} else {
+script Starlight_House5_Charizard_Doll {
 	msgbox(
-	"DAK: This is a nice fun map!", MSGBOX_NPC)
+	"Despite being a FLYING type, I\n"
+	"cannot help this man...", MSGBOX_NPC)
 	closemessage
-	setflag(FLAG_TEMP_6)
-				}
-	applymovement(VAR_LAST_TALKED, moves(
-		face_original_direction
-	))
-	waitmovement(0)
-	release
+	//delay(30)
+	
+	finditem(ITEM_POKE_BALL)
+	removeobject(Charizard)
+	setflag(FLAG_TEMP_3)
 }
 
 script Starlight_House5_Todo_List {
 	msgbox(
 	"Starlight's Todo List:\n"
     "-Fix the collision on this map.", MSGBOX_SIGN)
+
+}
+
+script Starlight_House5_Hidden_Item {
+	msgbox(
+	"There's a hidden item in the wall.\p"
+
+	"Despite your best efforts it is\n"
+	"impossible to obtain without the\l"
+	"use of cheats.", MSGBOX_SIGN)
 
 }
 
@@ -137,7 +164,7 @@ script Starlight_House5_Blue_Tiles {
 			setmetatile(24, 6, 0x344, FALSE)//Daisy
 			setmetatile(25, 6, 0x355, TRUE)//top left cliff
 			setmetatile(26, 6, 0x356, TRUE)
-			setmetatile(27, 6, 0x357, TRUE)//top right cliff
+			setmetatile(27, 6, 0x315, TRUE)//top right cliff
 			setmetatile(28, 6, 0x348, FALSE)//grass3
 			
 			//row5
@@ -150,7 +177,7 @@ script Starlight_House5_Blue_Tiles {
 			setmetatile(25, 7, 0x35D, TRUE)
 			setmetatile(26, 7, 0x36E, TRUE)
 			setmetatile(27, 7, 0x35E, TRUE)
-			setmetatile(28, 7, 0x357, TRUE)//top right cliff
+			setmetatile(28, 7, 0x315, TRUE)//top right cliff
 			
 			//row6
 			setmetatile(19, 8, 0x360, TRUE)
@@ -218,7 +245,10 @@ script Starlight_House5_Blue_Tiles {
 			clearflag(FLAG_TEMP_C)
 			clearflag(FLAG_TEMP_D)
 			setflag(FLAG_TEMP_5)
+			addvar(VAR_TEMP_4, 1)
 			removeobject(LOCALID_HOUSE5_SECRET)
+			applymovement(LOCALID_STARDUCK, moves(set_visible))
+			waitmovement(LOCALID_STARDUCK)
 		}
 		}
     release
@@ -371,8 +401,10 @@ script Starlight_House5_Red_Tiles {
 			clearflag(FLAG_TEMP_C)
 			clearflag(FLAG_TEMP_D)
 			setflag(FLAG_TEMP_5)
+			addvar(VAR_TEMP_4, 1)
 			removeobject(LOCALID_HOUSE5_SECRET)
-			
+			applymovement(LOCALID_STARDUCK, moves(set_visible))
+			waitmovement(LOCALID_STARDUCK)
 			}
 	}
 			
@@ -527,8 +559,10 @@ script Starlight_House5_Green_Tiles {
 			clearflag(FLAG_TEMP_B)
 			clearflag(FLAG_TEMP_D)
 			setflag(FLAG_TEMP_5)
+			addvar(VAR_TEMP_4, 1)
 			removeobject(LOCALID_HOUSE5_SECRET)
-			
+			applymovement(LOCALID_STARDUCK, moves(set_visible))
+			waitmovement(LOCALID_STARDUCK)
 			}
 	}
 			
@@ -683,6 +717,8 @@ script Starlight_House5_Mystery_Tiles {
 			clearflag(FLAG_TEMP_B)
 			clearflag(FLAG_TEMP_C)
 			clearflag(FLAG_TEMP_5)
+			applymovement(LOCALID_STARDUCK, moves(set_invisible))
+			waitmovement(LOCALID_STARDUCK)
 			}
 	}
 			
@@ -700,17 +736,47 @@ script Starlight_House5_Sign {
 
 script Starlight_House5_Secret {
 	lock
-	if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
-	"Come back after you've talked to\n"
-	"Starlight.", MSGBOX_SIGN)
-	} else {
+	"There's old Cheeto bags and some\n"
+	"other junk hiding in here.", MSGBOX_DEFAULT)
+	if(flag(FLAG_HIDE_BONUS_STARLIGHTS) && flag(FLAG_TEMP_D) && !flag(FLAG_POST_GAME)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+	"In this lighting you can somehow\n"
+	"see a hatch underneath.\p"
+
+	"Some magical force is holding it\n"
+	"shut until you complete the game.", MSGBOX_DEFAULT)
+	}
+	if(!flag(FLAG_HIDE_BONUS_STARLIGHTS) && flag(FLAG_TEMP_D) && !flag(FLAG_POST_GAME)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+	"In this lighting you can somehow\n"
+	"see a hatch underneath.\p"
+
+	"Some magical force is holding it\n"
+	"shut until you complete the game.", MSGBOX_DEFAULT)
+	}
+	if(flag(FLAG_HIDE_BONUS_STARLIGHTS) && flag(FLAG_TEMP_D) && flag(FLAG_POST_GAME)) {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(
+	"In this lighting you can somehow\n"
+	"see a hatch underneath.\p"
+
+	"Some magical force is holding it\n"
+	"shut until you find the owner.", MSGBOX_DEFAULT)
+	}
+	if(!flag(FLAG_HIDE_BONUS_STARLIGHTS) && flag(FLAG_TEMP_D) && flag(FLAG_POST_GAME)) {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
-    msgbox("Enter?", MSGBOX_YESNO)
+    msgbox("In this lighting you can somehow\n"
+	"see a hatch underneath.\p"
+
+	"Enter?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
 			//fadescreen(FADE_TO_WHITE)
-            warp(MAP_STARLIGHT_HOUSE3, 1, 9, 22) // Map, Warp ID, X, Y
+            warp(MAP_STARLIGHT_HOUSE_JUKEBOX, 0, 26, 19) // Map, Warp ID, X, Y
             waitstate
             //delay(120)
             //fadescreen(FADE_FROM_WHITE)
@@ -720,7 +786,8 @@ script Starlight_House5_Secret {
     end
 }
 
-script Starlight_House5_Pit_Sign {
+
+script Starlight_House5_Pit_Sign {//UNUSED
 	msgbox(
 	"TRAINER TIPS!\p"
 	"Press START to save the game!", MSGBOX_SIGN)
@@ -728,4 +795,98 @@ script Starlight_House5_Pit_Sign {
 	msgbox(
 	"…Dumbass.", MSGBOX_SIGN)
 
+}
+
+script Starlight_House5_Water {
+	if(!flag(FLAG_TEMP_A) && !flag(FLAG_TEMP_B) && !flag(FLAG_TEMP_C) && !flag(FLAG_TEMP_D)) {
+		msgbox(
+	"It looks like\n"
+	"Ocean Blue Kool-Aid.", MSGBOX_SIGN)
+	}	
+	if(flag(FLAG_TEMP_A)) {
+		msgbox(
+	"It looks like\n"
+	"Blueberry Kool-Aid.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_B)) {
+		msgbox(
+	"It looks like\n"
+	"Fruit Punch Kool-Aid.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_C)) {
+		msgbox(
+	"It looks like\n"
+	"Lime Kool-Aid.", MSGBOX_SIGN)
+	}
+	if(flag(FLAG_TEMP_D)) {
+		msgbox(
+	"It doesn't look like anything\n"
+	"because you can't see.", MSGBOX_SIGN)
+	} 
+}
+
+script Starlight_House5_Psyduck {
+	lock
+	faceplayer
+	if(var(VAR_TEMP_4) >= 4 && !flag(FLAG_TEMP_D)) {
+			msgbox(
+	"Somebody keeps mixing up my\n"
+	"Kool-Aid flavors!", MSGBOX_NPC)
+	closemessage
+	}
+	if(flag(FLAG_TEMP_D)) {
+		msgbox(
+	"The lights go out here too?", MSGBOX_NPC)
+	closemessage
+	applymovement(LOCALID_STARDUCK, moves(
+		face_left
+	))
+	waitmovement(LOCALID_STARDUCK)
+	} 
+	if(var(VAR_TEMP_4) <= 3 && !flag(FLAG_TEMP_D)) {
+		msgbox(format("I make KOOL-AID as PROF. OAK's\nPOKéMON."), MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LOCALID_STARDUCK, moves(
+		face_left
+	))
+	waitmovement(LOCALID_STARDUCK)
+	}
+	release
+	end
+}
+
+script Starlight_House5_Auto_Pit {
+	if(flag(FLAG_HIDE_BONUS_STARLIGHTS) && !flag(FLAG_TEMP_6)) {
+	lock
+	applymovement(LOCALID_PLAYER, moves(
+        walk_down * 1
+    ))
+	waitmovement(LOCALID_PLAYER)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, moves(
+		jump_2_down
+    ))
+	waitmovement(LOCALID_PLAYER)
+	setflag(FLAG_TEMP_6)
+	delay(30)
+	}
+	release
+}
+
+script Starlight_House5_Auto_Pit2 {
+	if(flag(FLAG_HIDE_BONUS_STARLIGHTS) && !flag(FLAG_TEMP_6)) {
+	lock
+	applymovement(LOCALID_PLAYER, moves(
+        walk_down * 2
+    ))
+	waitmovement(LOCALID_PLAYER)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, moves(
+		jump_2_down
+    ))
+	waitmovement(LOCALID_PLAYER)
+	setflag(FLAG_TEMP_6)
+	delay(30)
+	}
+	release
 }

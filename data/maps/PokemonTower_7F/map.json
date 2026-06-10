@@ -158,16 +158,6 @@
   ],
   "bg_events": [
     {
-      "type": "hidden_item",
-      "x": 22,
-      "y": -12,
-      "elevation": 3,
-      "item": "ITEM_BASCI_BERRY_WHITE",
-      "flag": "FLAG_HIDDEN_ITEM_POKEMON_TOWER_7F_SOOTHE_BELL",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 15,
       "y": 7,

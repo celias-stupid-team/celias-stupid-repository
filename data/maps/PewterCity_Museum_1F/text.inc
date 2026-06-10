@@ -50,7 +50,7 @@ PewterCity_Museum_1F_Text_WantYouToGetAmberExamined::
     .string "I'm sure they won't mind...$"
 
 PewterCity_Museum_1F_Text_ReceivedOldAmberFromMan::
-    .string "{PLAYER}  stole the OLD AMBER\n"
+    .string "{PLAYER} stole the OLD AMBER\n"
     .string "from the display!$"
 
 PewterCity_Museum_1F_Text_GetOldAmberChecked::

@@ -21,6 +21,7 @@ const DMCA_Right = 3
 
 mapscripts SafariZone_Center_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
+		setrespawn(HEAL_LOCATION_FUSHCIA_OUTSIDE)
 
 		if(flag(FLAG_FREED_KANGA)) {
 			call(SafariZone_Center_BreakLeftWall)
@@ -136,7 +137,7 @@ script SafariZone_KangaskahnCage {
 	msgbox("KANGASKHAN: Kang! Kanga-!!\n", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
-	if(checkitem(ITEM_TM32) || (checkitem(ITEM_TM_CASE) && checkpartymove(MOVE_BRICK_BREAK) != PARTY_SIZE)) {
+	if(checkitem(ITEM_TM32) || (checkitem(ITEM_TM_CASE))) {
 		msgbox("She's staring intently at your\nTM CASE.\pWould you like to give her a\nTM?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			if(var(VAR_RESULT)) {
@@ -310,6 +311,7 @@ script SafariZone_KangaJailDMCA {
 }
 
 script SafariZone_KangaBabyCage {
+	flagasbrickbreakable
 	lock
 	if(flag(FLAG_BROKE_BABY_KANGA_WALL)) {
 		msgbox("The BRICKS have been BREAKED.\n", MSGBOX_DEFAULT)
@@ -317,7 +319,7 @@ script SafariZone_KangaBabyCage {
 		end
 
 	}
-	if(flag(FLAG_FREED_KANGA)) {
+	if(flag(FLAG_FREED_KANGA) || checkfieldmove(MOVE_BRICK_BREAK)) {
 		call(Common_Script_BrickBreak)
 			if(var(VAR_RESULT) == 1) {
 		
@@ -563,4 +565,53 @@ movement PlayerWalkDown {
 	walk_left
 	walk_down
 	face_up
+}
+
+script SafariZone_Baby {
+	lock
+	faceplayer
+	playmoncry(SPECIES_CUBONE, CRY_MODE_FAINT)
+	msgbox(
+	"BABY KANGA: Kaaang?\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(15)
+	msgbox(
+	"Hmm, it seems you're here a little\n"
+	"bit ahead of schedule.\p"
+
+	"The BABY isn't sure how to proceed\n"
+	"from here.", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script SafariZone_BigKanga {
+	msgbox(
+	"KANGASKHAN: Uhh… hey.\p"
+
+	"I thought the script said you had\n"
+	"to give me the TM through the wall.\l"
+	"That was the whole plan.\p"
+
+	"Shit, I've never been good at\n"
+	"improv.", MSGBOX_NPC)
+}
+
+
+script SafariZone_VenonatBricks {
+	if(flag(FLAG_FREED_KANGA)) {
+		msgbox(
+		"This message box exists as a\n"
+		"level 3 contingency.\p"
+
+		"You do not need to know why\n"
+		"you're seeing it.", MSGBOX_SIGN)
+		end
+	}
+	msgbox(
+	"Hmm… No good!\n"
+	"It's got ANTI-VENONAT bricks!", MSGBOX_SIGN)
+
 }

@@ -3,7 +3,7 @@
   "name": "CinnabarIsland_PokemonLab_ResearchRoom",
   "layout": "LAYOUT_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM",
   "music": "MUS_CINNABAR",
-  "region_map_section": "MAPSEC_CINNABAR_LAB",
+  "region_map_section": "MAPSEC_CINNEBAR_ISLAMD",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

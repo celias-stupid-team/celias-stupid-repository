@@ -75,7 +75,7 @@ script CeladonDepartmentStore_ElevatorGuy { //Rumor Log Variables
 
 script CeladonDepartmentStore_DrugstoreCrack {
 	msgbox(
-	"There's a crack in the wall…\n"
+	"There's crack in the wall…\n"
 	"", MSGBOX_SIGN)
 
 }

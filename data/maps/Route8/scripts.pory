@@ -41,7 +41,18 @@ mapscripts Route8_MapScripts {
 
 }
 
+script Route8_EventScript_Stan {
+	if(!checktrainerflag(TRAINER_GAMER_STAN)) {
+		playbgm(MUS_ENCOUNTER_BOY, FALSE)
+		setflag(FLAG_SHINY_CREATION)
+		trainerbattle_single(TRAINER_GAMER_STAN, Route8_Text_StanIntro, Route8_Text_StanDefeat)
 
+	} else {
+		msgbox (Route8_Text_StanPostBattle, MSGBOX_AUTOCLOSE)
+
+	}
+	end
+}
 
 script Route8_RouteSign {
 	msgbox("ROUTE 7\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
@@ -75,6 +86,12 @@ script Route8_StartRaining {
 }
 
 script Route8_DrySoil {
+	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nbarren land would be a waste.", MSGBOX_SIGN)
+
+}
+
+
+script Route8_DrySoilRich {
 	if(checkitem(ITEM_RICH_MULCH) && !flag(FLAG_SHINY_PERSIAN)) {
 		msgbox(
 		"The soil is intensely dry and arid.\n"
@@ -115,9 +132,9 @@ script Route8_DrySoil {
 	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nbarren land would be a waste.", MSGBOX_SIGN)
 
 	}
+	release
 	end
 }
-
 script Route8_Rich2 {
 	msgbox(
 	"I love being RICH.\n"

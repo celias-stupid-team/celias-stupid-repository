@@ -239,14 +239,17 @@ script BobOmb_ArrowSign {
 
 }
 
+
 script BobOmb_Jump {
 	msgbox(
-	"Press A to Jump!\p"
+	"That box contains a WING CAP!\n"
+	"To open it, simply JUMP!\p"
 
-	"Notice!\n"
-	"Only possible with JUMPING SHOES.", MSGBOX_SIGN)
+	"(Sadly not possible if you are\n"
+	"unable to jump)", MSGBOX_SIGN)
 
 }
+
 
 script BobOmb_Tree {
 	msgbox(

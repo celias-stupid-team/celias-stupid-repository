@@ -282,7 +282,7 @@
     },
     {
       "type": "trigger",
-      "x": 53,
+      "x": 54,
       "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_3",
@@ -315,6 +315,96 @@
       "var": "VAR_TEMP_3",
       "var_value": "1",
       "script": "LavenderTown_MusicComesBack"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "LavenderTown_WindSound"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "2",
+      "script": "LavenderTown_MusicComesBack"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "2",
+      "script": "LavenderTown_MusicComesBack"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "2",
+      "script": "LavenderTown_MusicComesBack"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "LavenderTown_WindSound"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "LavenderTown_WindSound"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "LavenderTown_WindSound"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "LavenderTown_WindSound"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "LavenderTown_WindSound"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "LavenderTown_WindSound"
     }
   ],
   "bg_events": [

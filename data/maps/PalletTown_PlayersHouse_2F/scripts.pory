@@ -108,6 +108,7 @@ script PalletTown_Truck_Opening {
 		waitmovement(0)
 		delay(5)
 		playbgm(MUS_PALLET, TRUE)
+		clearflag(FLAG_FOUND_Y)
 		
 		releaseall
 	}

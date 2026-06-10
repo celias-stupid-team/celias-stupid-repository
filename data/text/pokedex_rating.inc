@@ -610,10 +610,11 @@ PokedexRating_Text_HintMuk::
 
 
 PokedexRating_Text_HintShellder::
-	.string "I hear if you comb the beach,\n"
-	.string "you can find many valuables.\p"
-	.string "You should see if you can find\n"
-	.string "anything on ROUTE 15!$"
+	.string "Looking at your POKéDEX, it seems\n"
+	.string "that SHELLDER is marked available.\p"
+	.string "Perhaps it's hiding somewhere near\n"
+	.string "where you are?\l"
+	.string "Backtracking won't be necessary.$"
 
 PokedexRating_Text_HintSlowbro::
 	.string "I think someone in CELADON\n"

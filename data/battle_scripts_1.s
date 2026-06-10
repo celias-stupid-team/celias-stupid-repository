@@ -305,17 +305,18 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTypeSmall              @ EFFECT_TYPE_SMALL
 	.4byte BattleScript_EffectFling                  @ EFFECT_FLING
 	.4byte BattleScript_EffectGregoryBlast           @ EFFECT_GREGORY_BLAST
-	.4byte BattleScript_EffectTypeLarge           @ EFFECT_TYPE_LARGE
-	.4byte BattleScript_EffectPayWall           @ EFFECT_PAY_WALL
-	.4byte BattleScript_EffectShroomburst           @ EFFECT_SHROOMBURST
-	.4byte BattleScript_EffectFocusMiss           @ EFFECT_FOCUS_MISS
+	.4byte BattleScript_EffectTypeLarge              @ EFFECT_TYPE_LARGE
+	.4byte BattleScript_EffectPayWall                @ EFFECT_PAY_WALL
+	.4byte BattleScript_EffectShroomburst            @ EFFECT_SHROOMBURST
+	.4byte BattleScript_EffectFocusMiss              @ EFFECT_FOCUS_MISS
 	.4byte BattleScript_End                     	 @ EFFECT_BAG
 	.4byte BattleScript_End                  		 @ EFFECT_CANCEL
 	.4byte BattleScript_EffectEncoreBoth             @ EFFECT_ENCORE_BOTH
 	.4byte BattleScript_EffectGrinMissile            @ EFFECT_GRIN_MISSILE
 	.4byte BattleScript_EffectHit		             @ EFFECT_GIGATON_HAMMER
-	.4byte BattleScript_EffectSleepHit		             @ EFFECT_SLEEP_HIT
-
+	.4byte BattleScript_EffectSleepHit		         @ EFFECT_SLEEP_HIT
+	.4byte BattleScript_EffectImakuni                @ EFFECT_IMAKUNI
+	.4byte BattleScript_EffectHitMessage             @ EFFECT_HIT_MESSAGE
 	
 
 BattleScript_End::
@@ -1110,6 +1111,7 @@ BattleScript_MoveMissedDoDamage::
 	waitmessage B_WAIT_TIME_LONG
 	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
 	moveendcase MOVEEND_PROTECT_LIKE_EFFECT @ Spiky Shield's damage happens before recoil.
+	jumpifabsent BS_ATTACKER, BattleScript_MoveEnd @ return if already fainted from Spiky Shield
 	printstring STRINGID_PKMNCRASHED
 	waitmessage B_WAIT_TIME_LONG
 	damagecalc
@@ -2640,10 +2642,16 @@ BattleScript_EffectWonderSeed::
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	jumpiftype2 BS_TARGET, TYPE_GRASS, BattleScript_EffectWonderSeed_FailsOnGrass
 	trycopyability BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_WONDER_SEED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectWonderSeed_FailsOnGrass::
+	printstring STRINGID_NOTAFFECTEDBYSEEDING
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -2713,6 +2721,14 @@ BattleScript_EffectBrickBreak::
 	attackstring
 	ppreduce
 	removelightscreenreflect
+BattleScript_EvolveToHoopa::
+	@ trigger form change effect, when opponent is SPECIES_SEEL
+	jumpifnotspecies BS_TARGET, SPECIES_SEEL, BattleScript_EffectBrickBreakDoDamage
+	attackanimation
+	waitanimation
+	call BattleScript_SeelHoopaTransform
+	goto BattleScript_MoveEnd
+BattleScript_EffectBrickBreakDoDamage::
 	critcalc
 	damagecalc
 	typecalc
@@ -3192,6 +3208,7 @@ BattleScript_FaintedMonTryChoose::
 	jumpifbattletype BATTLE_TYPE_BATTLE_TOWER, BattleScript_FaintedMonSendOutNew
 	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_FaintedMonSendOutNew
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonSendOutNew
+	jumpifbattlerside BS_FAINTED, B_SIDE_PLAYER, BattleScript_FaintedMonSendOutNew @ skip switch prompt if player's mon fainted without HITMARKER_PLAYER_FAINTED (e.g. Explosion absorbed by ability)
 	jumpifbyte CMP_EQUAL, sBATTLE_STYLE, OPTIONS_BATTLE_STYLE_SET, BattleScript_FaintedMonSendOutNew
 	jumpifopponenttrainerclass TRAINER_CLASS_RAPPER, BattleScript_FaintedMonSendOutNew
 	jumpifcantswitch BS_PLAYER1, BattleScript_FaintedMonSendOutNew
@@ -3306,8 +3323,6 @@ BattleScript_LocalBattleLostEnd::
 	printstring STRINGID_PLAYERLOSTAGAINSTENEMYTRAINER
 	waitmessage B_WAIT_TIME_LONG
 	getmoneyreward BattleScript_LocalBattleLostPrintTrainersWinText
-	printstring STRINGID_PLAYERPAIDPRIZEMONEY
-	waitmessage B_WAIT_TIME_LONG
 BattleScript_EReaderOrSecretBaseTrainerEnd::
 	end2
 
@@ -4339,13 +4354,12 @@ BattleScript_SeelHoopaTransform::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_SEELHOOPATRANSFORMSTART
 	waitmessage B_WAIT_TIME_LONG
-	playanimation BS_FAINTED, B_ANIM_SEEL_HOOPA_TRANSFORM
+	playanimation BS_TARGET, B_ANIM_SEEL_HOOPA_TRANSFORM
 	pause B_WAIT_TIME_LONG
-    updatebattlerdata BS_FAINTED
-	redrawhealthbox BS_FAINTED
-	hoopatransformsetfullhp @ for healing animation
-	healthbarupdate BS_FAINTED
-	datahpupdate BS_FAINTED
+    updatebattlerdata BS_TARGET
+	redrawhealthbox BS_TARGET
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
 	end2
 
 BattleScript_SlowpokeTransform::
@@ -6315,18 +6329,19 @@ BattleScript_EffectHackAttack::
 BattleScript_EffectHackAttack_1::
 	@ attackcanceler
 	attackstring
-	flicker FADE_TO_BLACK, 2
+	@flicker FADE_TO_BLACK, 2
 	ppreduce
 	attackanimation
-	flicker FADE_TO_BLACK, 4
-	flicker FADE_TO_BLACK, 2
+	flicker FADE_TO_BLACK, 20
 	waitanimation
-	flicker FADE_TO_BLACK, 7
-	setbattlestringid
+	pause 40
+	flicker FADE_TO_BLACK, 20
 	glitchpalettes
+	setbattlestringid
 	printfromtable gDoNothingStringIds
-	flicker FADE_TO_BLACK, 4
-	flicker FADE_TO_BLACK, 2
+	pause 35
+	@flicker FADE_TO_BLACK, 4
+	flicker FADE_TO_BLACK, 20
 	waitmessage B_WAIT_TIME_LONGEST
 	restoreglitchpalettes
 	setflag FLAG_HACK_ATTACK_USED
@@ -6334,21 +6349,22 @@ BattleScript_EffectHackAttack_1::
 
 BattleScript_EffectHackAttack_2::
 	@ attackcanceler
-	flicker FADE_TO_BLACK, 2
-	flicker FADE_TO_BLACK, 4
+	@flicker FADE_TO_BLACK, 2
+	flicker FADE_TO_BLACK, 20
 	attackstring
 	ppreduce
 	glitchbattlescreen
 	attackanimation
-	flicker FADE_TO_BLACK, 6
+	flicker FADE_TO_BLACK, 20
 	restoreglitchbattlescreen
 	glitchbattlebgm
 	glitchbattlescreen
 	waitanimation
 	setbattlestringid
 	printstring STRINGID_WAITWHAT
-	flicker FADE_TO_BLACK, 4
-	flicker FADE_TO_BLACK, 2
+	pause 20
+	flicker FADE_TO_BLACK, 20
+	@flicker FADE_TO_BLACK, 2
 	waitmessage B_WAIT_TIME_LONG
 	restoreglitchbattlescreen
 	printstring STRINGID_FINISHHACKATTACK
@@ -6644,9 +6660,47 @@ BattleScript_MoveCantSelect::
 	printselectionstring STRINGID_CURRENTMOVECANTSELECT
 	endselectionscript
 
-
-
 BattleScript_EffectSleepHit::
 	setmoveeffect MOVE_EFFECT_SLEEP
 	goto BattleScript_EffectHit
 
+BattleScript_EffectImakuni::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifability BS_ATTACKER, ABILITY_OWN_TEMPO, BattleScript_OwnTempoPrevents
+	jumpifstatus2 BS_ATTACKER, STATUS2_CONFUSION, BattleScript_AlreadyConfused
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_MagicMufflerConsumed::
+	printstring STRINGID_MAGICMUFFLERCONSUMED
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_EffectHitMessage::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	typecalc
+	jumpifmovehadnoeffect BattleScript_MoveMissedPause
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	setbattlestringid
+	printfromtable gDoNothingStringIds
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd

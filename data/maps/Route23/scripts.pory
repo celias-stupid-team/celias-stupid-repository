@@ -324,14 +324,14 @@ script IndigoPlateau_Lucca {
 	textcolor(NPC_TEXT_COLOR_GREEN)
 	if(flag(FLAG_TEMP_1)) {
 		msgbox(
-		"LUCCA: No… No, I got this.\n"
+		"DR. LUCCA: No… No, I got this.\n"
 		"I don't need any help.\p"
 
 		"Just gotta…\n"
 		"", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"LUCCA: So, I get that this place\n"
+		"DR. LUCCA: So, I get that this place\n"
 		"is for the pinnacle of TRAINERS.\p"
 
 		"But…{PAUSE 30} don'tcha think they could've\n"

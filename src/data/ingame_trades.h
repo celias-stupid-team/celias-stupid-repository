@@ -163,10 +163,10 @@ static const struct InGameTrade sInGameTrades[] = {
         .sheen = 10,
         .requestedSpecies = SPECIES_MEWTWO
     },
-    [INGAME_TRADE_GOLDEEN] = 
+    [INGAME_TRADE_BULBASAUR] = 
     {
-        .nickname = _("GREENDEEN"),
-        .species = SPECIES_GOLDEEN,
+        .nickname = _("WERBENMAN"),
+        .species = SPECIES_BULBASAUR,
         .ivs = {24, 15, 22, 16, 23, 22},
         .abilityNum = 0,
         .otId = 0,
@@ -174,10 +174,10 @@ static const struct InGameTrade sInGameTrades[] = {
         .personality = 0x0,
         .heldItem = ITEM_NONE,
         .mailNum = 255,
-        .otName = _("CODY"),
+        .otName = _("SMITTY"),
         .otGender = MALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_GOLURK
+        .requestedSpecies = SPECIES_MISSINGNO
     },
     [INGAME_TRADE_JIRACHI] = 
     {

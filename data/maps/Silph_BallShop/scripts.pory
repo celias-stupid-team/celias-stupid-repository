@@ -1,6 +1,7 @@
 mapscripts Silph_BallShop_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_2)
+		setflag(FLAG_CSR_MAP_BALL_SHOP)
 		setvar(VAR_TEMP_5, 11)
 		if(var(VAR_SILPH_LOOK_GIRL) == 1) {
 			clearflag(FLAG_TEMP_2)
@@ -22,7 +23,6 @@ mapscripts Silph_BallShop_MapScripts {
 
 script SilphCo_BallShop_Kurt {
 	lock
-	setflag(FLAG_CSR_MAP_BALL_SHOP)
 	msgbox(
 	"KURT: Hello, there.\n"
 	"Are you a fan of BALLS?", MSGBOX_DEFAULT)

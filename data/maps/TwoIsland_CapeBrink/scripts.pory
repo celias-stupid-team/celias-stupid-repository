@@ -5,7 +5,10 @@ raw `
 mapscripts TwoIsland_CapeBrink_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_3)
-		setbench(BENCH_TWO_ISLAND_CAVE)
+		if(var(VAR_TWO_ISLAND_STARMAN) != 1) {
+			setbench(BENCH_TWO_ISLAND_CAVE)
+
+		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TWO_ISLAND_COUNTER, 10800 {
@@ -26,6 +29,7 @@ mapscripts TwoIsland_CapeBrink_MapScripts {
 script TwoIsland_StarmanEncounter {
 	lock
 	playse(SE_M_CONFUSE_RAY)
+	setbench(BENCH_TWO_ISLAND_CAVE)
 	addobject(LOCALID_TWO_ISLAND_STARMAN)
 	applymovement(LOCALID_TWO_ISLAND_STARMAN, moves(
 		delay_8

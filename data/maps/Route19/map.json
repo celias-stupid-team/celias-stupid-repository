@@ -580,6 +580,33 @@
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "4",
       "script": "Route19_CeliaTurnsYouAround"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_9"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_9"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_9"
     }
   ],
   "bg_events": [

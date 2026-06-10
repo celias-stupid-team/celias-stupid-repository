@@ -216,16 +216,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "PokemonMansion_1F_EventScript_Statue"
-    },
-    {
-      "type": "hidden_item",
-      "x": 2,
-      "y": 35,
-      "elevation": 0,
-      "item": "ITEM_MOON_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_23",
-      "quantity": 1,
-      "underfoot": false
     }
   ]
 }

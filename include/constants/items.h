@@ -562,7 +562,8 @@
 #define ITEM_RIPPED_MEMO 480
 #define ITEM_ILEXIR 481
 #define ITEM_HYPER_REPEL 482
-#define ITEMS_COUNT 483
+#define ITEM_NOTHING_BURGER 483
+#define ITEMS_COUNT 484
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
@@ -580,6 +581,7 @@
 #define OLD_ROD 0
 #define GOOD_ROD 1
 #define SUPER_ROD 2
+#define NO_ROD    0xF
 
 // Check if the item is one that can be used on a Pokemon.
 #define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX) || (item >= ITEM_CSR_START && item < ITEMS_COUNT) || (item == ITEM_SUPER_SCOPE) || (item == ITEM_SOUL_DEW) || (item == ITEM_RAT_STONE) || (item == ITEM_SCOPE_CREEP)|| (item == ITEM_PREMIER_CANDY))

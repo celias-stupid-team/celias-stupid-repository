@@ -1,5 +1,9 @@
 mapscripts OnixRoom_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+        if(!flag(FLAG_TRANSPORTED_IRATE_GAMER)) {
+            setflag(FLAG_TEMP_2)
+        }
+    }
 }
 
 
@@ -16,4 +20,15 @@ script OnixRoom_Onix {
     removeobject(VAR_LAST_TALKED)
     release
     end
+}
+
+
+
+script OnixRoom_Suckman {
+	msgbox(
+	"IRATE GAMER: What the fuck is\n"
+	"this shit?\p"
+
+	"I am transphobic.\n"
+	"", MSGBOX_NPC)
 }

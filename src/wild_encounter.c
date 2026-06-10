@@ -37,6 +37,8 @@ struct WildEncounterData
 
 static EWRAM_DATA struct WildEncounterData sWildEncounterData = {};
 static EWRAM_DATA bool8 sWildEncountersDisabled = FALSE;
+static EWRAM_DATA u16 sValidEncounters[LAND_WILD_COUNT] = {};
+static EWRAM_DATA u16 sUniqueEncounters[LAND_WILD_COUNT] = {};
 
 static bool8 UnlockedTanobyOrAreNotInTanoby(void);
 static u32 GenerateUnownPersonalityByLetter(u8 letter);
@@ -47,6 +49,8 @@ static void ApplyCleanseTagEncounterRateMod(u32 *rate);
 static bool8 IsLeadMonHoldingCleanseTag(void);
 static u16 WildEncounterRandom(void);
 static void AddToWildEncounterRateBuff(u8 encouterRate);
+static u8 GetValidEncountersforMap(const struct WildPokemonInfo *wildMonInfo, u8 area, u8 rod);
+static u8 GetEncounterIndexBySpecies(u16 species, const struct WildPokemonInfo *wildMonInfo, u8 area, u8 rod);
 
 #include "data/wild_encounters.h"
 
@@ -259,7 +263,7 @@ u8 GetUnownLetterByPersonalityLoByte(u32 personality)
     return GET_UNOWN_LETTER(personality);
 }
 
-enum
+enum WildPokemonArea
 {
     WILD_AREA_LAND,
     WILD_AREA_WATER,
@@ -270,17 +274,61 @@ enum
 #define WILD_CHECK_REPEL    0x1
 #define WILD_CHECK_KEEN_EYE 0x2
 
-static bool8 TryGenerateWildMon(const struct WildPokemonInfo * info, u8 area, u8 flags)
+static bool8 TryGenerateWildMon(const struct WildPokemonInfo *info, u8 area, u8 flags)
 {
     u8 slot = 0;
     u8 level;
+    u8 validEncountersLeftOnMap = 0;
+    bool8 dupeEncounter = TRUE;
+    u8 rod = NO_ROD;
+    u8 i;
+
     switch (area)
     {
     case WILD_AREA_LAND:
         slot = ChooseWildMonIndex_Land();
+
+        // Count valid encounters for the map
+        validEncountersLeftOnMap = GetValidEncountersforMap(info, area, NO_ROD);
+        do
+        {
+            if (validEncountersLeftOnMap != 1)
+                slot = ChooseWildMonIndex_Land();
+            else
+                slot = GetEncounterIndexBySpecies(sValidEncounters[0], info, area, rod);
+
+            for (i = 0; i < validEncountersLeftOnMap; i++)
+            {
+                u16 checkSpecies = sValidEncounters[i];
+                if (info->wildPokemon[slot].species == checkSpecies)
+                {
+                    dupeEncounter = FALSE;
+                    break;
+                }
+            }
+        }
+        while (dupeEncounter && validEncountersLeftOnMap > 1);
         break;
     case WILD_AREA_WATER:
-        slot = ChooseWildMonIndex_WaterRock();
+        // Count valid encounters for the map
+        validEncountersLeftOnMap = GetValidEncountersforMap(info, area, NO_ROD);
+        do
+        {
+            if (validEncountersLeftOnMap != 1)
+                slot = ChooseWildMonIndex_WaterRock();
+            else
+                slot = GetEncounterIndexBySpecies(sValidEncounters[0], info, area, rod);
+            for (i = 0; i < validEncountersLeftOnMap; i++)
+            {
+                u16 checkSpecies = sValidEncounters[i];
+                if (info->wildPokemon[slot].species == checkSpecies)
+                {
+                    dupeEncounter = FALSE;
+                    break;
+                }
+            }
+        }
+        while (dupeEncounter && validEncountersLeftOnMap > 1);
         break;
     case WILD_AREA_ROCKS:
         slot = ChooseWildMonIndex_WaterRock();
@@ -552,24 +600,24 @@ bool8 SweetScentWildEncounter(void)
             } else {
                 FlagClear(FLAG_SHINY_CREATION);
                 switch(VarGet(VAR_SWEET_SCENT_WATER)) {
-                    case 10:
-                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
-                        GenerateWildMon(SPECIES_JIGGLYPUFF, 20, 0);
-                        StartWildBattle();
-                        return TRUE;
-                        break;
-                    case 12:
-                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
-                        FlagSet(FLAG_SHINY_CREATION);
-                        GenerateWildMon(SPECIES_ZUBAT, 20, 0);
-                        StartWildBattle();
-                        return TRUE;
-                        break;
-                    case 15:
-                        return FALSE;
-                        break;
+                    // case 10:
+                    //     VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                    //     GenerateWildMon(SPECIES_JIGGLYPUFF, 20, 0);
+                    //     StartWildBattle();
+                    //     return TRUE;
+                    //     break;
+                    // case 12:
+                    //     VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                    //     FlagSet(FLAG_SHINY_CREATION);
+                    //     GenerateWildMon(SPECIES_ZUBAT, 20, 0);
+                    //     StartWildBattle();
+                    //     return TRUE;
+                    //     break;
+                    // case 15:
+                    //     return FALSE;
+                    //     break;
                     default:
-                        VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
+                        //VarSet(VAR_SWEET_SCENT_WATER, VarGet(VAR_SWEET_SCENT_WATER) + 1);
                         GenerateWildMon(SPECIES_ZUBAT, 20, 0);
                         StartWildBattle();
                         return TRUE;
@@ -677,7 +725,7 @@ static bool8 IsWildLevelAllowedByRepel(u8 wildLevel)
 {
     u8 i;
 
-    if (!VarGet(VAR_REPEL_STEP_COUNT) || FlagGet(FLAG_SYS_MAX_REPEL))
+    if (!VarGet(VAR_REPEL_STEP_COUNT))
         return TRUE;
 
     for (i = 0; i < PARTY_SIZE; i++)
@@ -852,8 +900,138 @@ bool8 TryStandardWildEncounter(u32 currMetatileAttrs)
 
 static void AddToWildEncounterRateBuff(u8 encounterRate)
 {
-    if (VarGet(VAR_REPEL_STEP_COUNT) == 0 || !FlagGet(FLAG_SYS_MAX_REPEL))
+    if (VarGet(VAR_REPEL_STEP_COUNT) == 0)
         sWildEncounterData.encounterRateBuff += encounterRate;
     else
         sWildEncounterData.encounterRateBuff = 0;
+}
+
+static u8 GetMaxEncounterSlots(enum WildPokemonArea area, u8 rod)
+{
+    switch (area)
+    {
+    case WILD_AREA_LAND:
+        return LAND_WILD_COUNT;
+    case WILD_AREA_WATER:
+        return WATER_WILD_COUNT;
+    case WILD_AREA_ROCKS:
+        return ROCK_WILD_COUNT;
+    // case WILD_AREA_FISHING: // not required since there are only single species available for fishing
+    // {
+    //     switch (rod)
+    //     {
+    //     case OLD_ROD:
+    //         return 2; // = first Good Rod slot index
+    //     case GOOD_ROD:
+    //         return 5; // = first Super Rod slot index
+    //     case SUPER_ROD:
+    //     default:
+    //         return FISH_WILD_COUNT;
+    //     }
+    // }
+    default:
+        return LAND_WILD_COUNT;
+    }
+}
+
+static u8 GetEncounterIndexBySpecies(u16 species, const struct WildPokemonInfo *wildMonInfo, u8 area, u8 rod)
+{
+    u8 encounterIndex = 0;
+    u8 maxIndex = GetMaxEncounterSlots(area, rod);
+    u8 minIndex = 0;
+    u16 headerId = GetCurrentMapWildMonHeaderId();
+    u8 i;
+    
+    switch (area)
+    {
+    case WILD_AREA_LAND:
+        wildMonInfo = gWildMonHeaders[headerId].landMonsInfo;
+        break;
+    case WILD_AREA_WATER:
+        wildMonInfo = gWildMonHeaders[headerId].waterMonsInfo;
+        break;
+    case WILD_AREA_ROCKS:
+        wildMonInfo = gWildMonHeaders[headerId].rockSmashMonsInfo;
+        break;
+    case WILD_AREA_FISHING:
+        wildMonInfo = gWildMonHeaders[headerId].fishingMonsInfo;
+        break;
+    default:
+        wildMonInfo = gWildMonHeaders[headerId].landMonsInfo;
+        break;
+    }
+
+    for (i = minIndex; i < maxIndex; i++)
+    {
+        if (wildMonInfo->wildPokemon[i].species == species)
+        {
+            encounterIndex = i;
+            break;
+        }
+    }
+
+    return encounterIndex;
+}
+
+static u8 GetValidEncountersforMap(const struct WildPokemonInfo *wildMonInfo, u8 area, u8 rod)
+{
+    u8 maxIndex = GetMaxEncounterSlots(area, rod);
+    u8 minIndex = 0;
+    u8 uniqueEncountersOnMap = 0;
+    u8 validEncountersLeftOnMap = 0;
+    u16 species = SPECIES_NONE;
+    u8 i, j;
+
+    for (i = minIndex; i < maxIndex; i++)
+    {
+        // Clear the list on first iteration
+        if (i == minIndex)
+        {
+            for (j = 0; j < LAND_WILD_COUNT; j++)
+                sUniqueEncounters[j] = 0;
+        }
+
+        species = wildMonInfo->wildPokemon[i].species;
+        if (species == SPECIES_NONE)
+            continue;
+        for (j = 0; j < maxIndex; j++)
+        {
+            if (sUniqueEncounters[j] == 0)
+            {
+                sUniqueEncounters[j] = species;
+                uniqueEncountersOnMap++;
+                break;
+            }
+            if (sUniqueEncounters[j] == species)
+                break;
+        }
+    }
+
+    // Count valid encounters left for the map
+    for (i = 0; i < uniqueEncountersOnMap; i++)
+    {
+        // Clear the list on first iteration
+        if (i == 0)
+        {
+            validEncountersLeftOnMap = 0;
+            for (j = 0; j < LAND_WILD_COUNT; j++)
+                sValidEncounters[j] = 0;
+        }
+
+        species = sUniqueEncounters[i];
+        if (species != SPECIES_NONE && !IsDupe(species))
+        {
+            for (j = 0; j < uniqueEncountersOnMap; j++)
+            {
+                if (sValidEncounters[j] == 0)
+                {
+                    sValidEncounters[j] = species;
+                    validEncountersLeftOnMap++;
+                    break;
+                }
+            }
+        }
+    }
+
+    return validEncountersLeftOnMap;
 }

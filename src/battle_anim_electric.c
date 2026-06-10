@@ -28,6 +28,8 @@ static void AnimTask_ElectricBolt_Step(u8 taskId);
 static void AnimThunderWave_Step(struct Sprite *sprite);
 static void AnimTask_ElectricChargingParticles_Step(u8 taskId);
 static void AnimElectricChargingParticles(struct Sprite *sprite);
+static void AnimTask_SoulDewChargingParticles_Step(u8 taskId);
+static void AnimSoulDewChargingParticles(struct Sprite *sprite);
 static void AnimVoltTackleOrbSlide_Step(struct Sprite *sprite);
 static bool8 CreateVoltTackleBolt(struct Task *task, u8 taskId);
 static bool8 CreateShockWaveBoltSprite(struct Task *task, u8 taskId);
@@ -303,6 +305,35 @@ static const struct SpriteTemplate gElectricChargingParticlesSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+static const union AnimCmd sAnim_SoulDewChargingParticles_0[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_SoulDewChargingParticles_1[] =
+{
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_SoulDewChargingParticles[] =
+{
+    sAnim_SoulDewChargingParticles_0,
+    sAnim_SoulDewChargingParticles_1,
+};
+
+static const struct SpriteTemplate gSoulDewChargingParticlesSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SOUL_DEW,
+    .paletteTag = ANIM_TAG_SOUL_DEW,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = sAnims_SoulDewChargingParticles,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 static const union AffineAnimCmd sAffineAnim_GrowingElectricOrb_0[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
@@ -351,6 +382,54 @@ const struct SpriteTemplate gGrowingChargeOrbSpriteTemplate =
     .callback = AnimGrowingChargeOrb,
 };
 
+static const union AffineAnimCmd sAffineAnim_FastGrowingElectricOrb_0[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 30),
+    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
+    AFFINEANIMCMD_LOOP(0),
+    AFFINEANIMCMD_FRAME(-0x8, -0x8, 0, 2),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 2),
+    AFFINEANIMCMD_LOOP(10),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sAffineAnim_FastGrowingElectricOrb_1[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 15),
+    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
+    AFFINEANIMCMD_FRAME(-0x8, -0x8, 0, 2),
+    AFFINEANIMCMD_FRAME(0x8, 0x8, 0, 2),
+    AFFINEANIMCMD_JUMP(3),
+};
+
+static const union AffineAnimCmd sAffineAnim_FastGrowingElectricOrb_2[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 15),
+    AFFINEANIMCMD_FRAME(-0x10, -0x10, 0, 15),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sAffineAnims_FastGrowingElectricOrb[] =
+{
+    sAffineAnim_FastGrowingElectricOrb_0,
+    sAffineAnim_FastGrowingElectricOrb_1,
+    sAffineAnim_FastGrowingElectricOrb_2,
+};
+
+const struct SpriteTemplate gFastGrowingChargeOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_FastGrowingElectricOrb,
+    .callback = AnimGrowingChargeOrb,
+};
+
 static const union AffineAnimCmd sAffineAnim_ShrinkingElectricOrb_0[] =
 {
     AFFINEANIMCMD_LOOP(0),
@@ -387,7 +466,6 @@ static const union AffineAnimCmd *const sAffineAnims_ShrinkingElectricOrb[] =
     sAffineAnim_ShrinkingElectricOrb_1,
     sAffineAnim_ShrinkingElectricOrb_2,
 };
-
 const struct SpriteTemplate gShrinkingChargeOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
@@ -930,6 +1008,94 @@ static void AnimElectricChargingParticles(struct Sprite *sprite)
 {
     StartSpriteAnim(sprite, 1);
     sprite->callback = AnimElectricChargingParticles_Step;
+}
+
+
+// Animates small electric orbs moving from around the battler inward. For Charge/Shock Wave
+void AnimTask_SoulDewChargingParticles(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    if (!gBattleAnimArgs[0])
+    {
+        task->data[14] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+        task->data[15] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    }
+    else
+    {
+        task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+        task->data[15] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    }
+    task->data[6] = gBattleAnimArgs[1];
+    task->data[7] = 0;
+    task->data[8] = 0;
+    task->data[9] = 0;
+    task->data[10] = 0;
+    task->data[11] = gBattleAnimArgs[3];
+    task->data[12] = 0;
+    task->data[13] = gBattleAnimArgs[2];
+    task->func = AnimTask_SoulDewChargingParticles_Step;
+}
+
+static void AnimTask_SoulDewChargingParticles_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    if (task->data[6])
+    {
+        if (++task->data[12] > task->data[13])
+        {
+            u8 spriteId;
+
+            task->data[12] = 0;
+            spriteId = CreateSprite(&gSoulDewChargingParticlesSpriteTemplate, task->data[14], task->data[15], 2);
+            if (spriteId != MAX_SPRITES)
+            {
+                struct Sprite *sprite = &gSprites[spriteId];
+
+                sprite->x += sElectricChargingParticleCoordOffsets[task->data[9]][0];
+                sprite->y += sElectricChargingParticleCoordOffsets[task->data[9]][1];
+                sprite->data[0] = 40 - task->data[8] * 5;
+                sprite->data[1] = sprite->x;
+                sprite->data[2] = task->data[14];
+                sprite->data[3] = sprite->y;
+                sprite->data[4] = task->data[15];
+                sprite->data[5] = taskId;
+                InitAnimLinearTranslation(sprite);
+                StoreSpriteCallbackInData6(sprite, AnimSoulDewChargingParticles);
+                sprite->callback = RunStoredCallbackWhenAnimEnds;
+                if (++task->data[9] > 15)
+                    task->data[9] = 0;
+                if (++task->data[10] >= task->data[11])
+                {
+                    task->data[10] = 0;
+                    if (task->data[8] <= 5)
+                        ++task->data[8];
+                }
+                ++task->data[7];
+                --task->data[6];
+            }
+        }
+    }
+    else if(task->data[7] == 0)
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+static void AnimSoulDewChargingParticles_Step(struct Sprite *sprite)
+{
+    if (AnimTranslateLinear(sprite))
+    {
+        --gTasks[sprite->data[5]].data[7];
+        DestroySprite(sprite);
+    }
+}
+
+static void AnimSoulDewChargingParticles(struct Sprite *sprite)
+{
+    StartSpriteAnim(sprite, 1);
+    sprite->callback = AnimSoulDewChargingParticles_Step;
 }
 
 static void AnimGrowingChargeOrb(struct Sprite *sprite)

@@ -125,6 +125,10 @@ mapscripts SaffronCity_MapScripts {
 	} else {
 		setdynamicwarp(MAP_SILPH_CO_1F, 1)
 	}
+	setflag(FLAG_TEMP_7)
+	if(flag(FLAG_PUSHED_CARDBOARD_CUTOUT)) {
+		clearflag(FLAG_TEMP_7)
+	}
 	setworldmapflag(FLAG_WORLD_MAP_SAFFRON_CITY)
 	if(flag(FLAG_SAFFRON_IS_TRAINS)) {
 		setmaplayoutindex(LAYOUT_SAFFRON_CITY_TRAINS)
@@ -654,4 +658,13 @@ script Saffron_TheLeekFancyNewspaper {
 
 	"We're the fanciest newspaper\n"
 	"around!", MSGBOX_NPC)
+}
+
+
+script Saffron_DMCAFisher {
+	trainerbattle_single(TRAINER_DMCA_FISHER, "Whoa!\pLook what I fished up!", "Mamma mia!")
+	msgbox(
+	"Y'know, for how vicious these DMCA\n"
+	"guys are, you'd think they'd be mad\l"
+	"about this cardboard copy of 'em!", MSGBOX_NPC)
 }

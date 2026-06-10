@@ -540,16 +540,6 @@
     },
     {
       "type": "hidden_item",
-      "x": 30,
-      "y": 51,
-      "elevation": 3,
-      "item": "ITEM_ELIXIR",
-      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_32",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
       "x": 17,
       "y": 65,
       "elevation": 3,
@@ -557,16 +547,6 @@
       "flag": "FLAG_HIDDEN_ITEM_ROUTE12_LEFTOVERS",
       "quantity": 1,
       "underfoot": true
-    },
-    {
-      "type": "hidden_item",
-      "x": 9,
-      "y": 116,
-      "elevation": 3,
-      "item": "ITEM_RARE_CANDY",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE12_RARE_CANDY",
-      "quantity": 1,
-      "underfoot": false
     },
     {
       "type": "sign",

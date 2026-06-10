@@ -250,8 +250,22 @@ script DMCAKoga_BrickWall4 {
             waitmovement(0)
             setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_DOWN)
         } else {
+                if(flag(FLAG_TEMP_4)) {
+                    msgbox(
+                    "Your DITTO noticed the BRICK WALL.\n"
+                    "Maybe it knows how to help.\l"
+                    "Go place him where he belongs!\p"
+
+                    "If you don't know what that means,\n"
+                    "maybe the HINT MAN can help you.", MSGBOX_DEFAULT)
+                    release
+                    end
+                }
                 if(checkpartymon(SPECIES_DITTO_MEW)) {
                     playmoncry(SPECIES_DITTO_MEW, CRY_MODE_DEFAULT)
+                    if(flag(FLAG_TRIED_DITTO_IN_WALL)) {
+                        setflag(FLAG_TEMP_4)
+                    }
                     setflag(FLAG_TRIED_DITTO_IN_WALL)
                     waitmoncry
                     msgbox(
@@ -330,9 +344,13 @@ script DMCAKoga_StopSnowingString {
         "", MSGBOX_DEFAULT)
         playmoncry(SPECIES_SNOVER, CRY_MODE_FAINT)
         waitmoncry
+        delay(30)
         msgbox(
         "The snow has stopped.\n"
         "", MSGBOX_DEFAULT)
+        closemessage
+        delay(30)
+        
         //setlayouttiles(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN, 0,0,0,0,31,25)
 					//setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_KOGA_OPEN)
         

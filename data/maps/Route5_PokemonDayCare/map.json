@@ -210,46 +210,6 @@
   "coord_events": [],
   "bg_events": [
     {
-      "type": "hidden_item",
-      "x": 2,
-      "y": -2,
-      "elevation": 0,
-      "item": "ITEM_LEAF_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
-      "x": 3,
-      "y": -2,
-      "elevation": 0,
-      "item": "ITEM_LEAF_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
-      "x": 0,
-      "y": -2,
-      "elevation": 0,
-      "item": "ITEM_LEAF_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
-      "x": 1,
-      "y": -2,
-      "elevation": 0,
-      "item": "ITEM_LEAF_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 1,
       "y": 5,

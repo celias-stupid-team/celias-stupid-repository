@@ -93,7 +93,7 @@ Debug_BoxFilledMessage_Text:
 
 Debug_EventScript_Script_1::
 	@ setflag FLAG_SHINY_CREATION
-	setwildbattle SPECIES_WEEDLE, 10
+	setwildbattle SPECIES_SEEL, 10
 	dowildbattle
 	end
 
@@ -136,6 +136,13 @@ Debug_EventScript_Script_8:: @ directly used in C code
 
 Debug_EventScript_Script_9::
 	callnative CSRBadgeDebug
+	end
+
+Debug_EventScript_Script_10::
+	finditem ITEM_COIN_CASE
+	setflag FLAG_GOT_COIN_CASE
+	addcoins 500
+	call CeladonCity_GameCorner_EventScript_SlotMachine
 	end
 
 Debug_CheckSaveBlock::

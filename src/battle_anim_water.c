@@ -46,6 +46,7 @@ static void AnimTask_CreateSurfWave_Step2(u8);
 static void AnimTask_SurfWaveScanlineEffect(u8);
 static void AnimTask_WaterSpoutLaunch_Step(u8);
 static void AnimTask_WaterSpoutRain_Step(u8);
+static void AnimTask_SoakRain_Step(u8);
 static u8 GetWaterSpoutPowerForAnim(void);
 static void CreateWaterSpoutLaunchDroplets(struct Task *, u8);
 static void CreateWaterSpoutRainDroplet(struct Task *, u8);
@@ -174,6 +175,17 @@ const struct SpriteTemplate gStarmieProjectileSpriteTemplate =
     .callback = AnimWaterBubbleProjectile,
 };
 
+const struct SpriteTemplate gNobbleProjectileSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_NOBBLE,
+    .paletteTag = ANIM_TAG_NOBBLE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = sAnims_StarmieProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
 static const union AnimCmd sAnim_ClubbleProjectile[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -194,6 +206,70 @@ const struct SpriteTemplate gClubbleProjectileSpriteTemplate =
     .paletteTag = ANIM_TAG_BLACK_CLUB,
     .oam = &gOamData_AffineNormal_ObjBlend_16x16,
     .anims = sAnims_ClubbleProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
+static const union AnimCmd sAnim_DedenneProjectile_0[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_FRAME(0, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DedenneProjectile_1[] =
+{
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_FRAME(16, 5),
+    ANIMCMD_FRAME(16, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DedenneProjectile_2[] =
+{
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_FRAME(32, 5),
+    ANIMCMD_FRAME(32, 5),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_DedenneProjectile[] =
+{
+    sAnim_DedenneProjectile_0,
+    sAnim_DedenneProjectile_1,
+    sAnim_DedenneProjectile_2,
+};
+
+const struct SpriteTemplate gDedenneProjectileFaceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEDENNE,
+    .paletteTag = ANIM_TAG_DEDENNE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = &sAnims_DedenneProjectile[0],
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
+const struct SpriteTemplate gDedenneProjectileEarOneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEDENNE,
+    .paletteTag = ANIM_TAG_DEDENNE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = &sAnims_DedenneProjectile[1],
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
+const struct SpriteTemplate gDedenneProjectileEarTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DEDENNE,
+    .paletteTag = ANIM_TAG_DEDENNE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = &sAnims_DedenneProjectile[2],
     .images = NULL,
     .affineAnims = sAffineAnims_WaterBubbleProjectile,
     .callback = AnimWaterBubbleProjectile,
@@ -433,7 +509,7 @@ const struct SpriteTemplate gFlamethrowerFlameSpriteTemplate =
 const struct SpriteTemplate gFlamethrowerWaterSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SMALL_EMBER,
-    .paletteTag = ANIM_TAG_WATER_ORB,
+    .paletteTag = ANIM_TAG_STONE_FREE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_FlamethrowerFlame,
     .images = NULL,
@@ -1494,6 +1570,92 @@ static void AnimTask_WaterSpoutLaunch_Step(u8 taskId)
     case 7:
         if (task->data[2] == 0)
             DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_SoakRain(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    // Always maximum intensity
+    task->data[1] = 5;
+
+    // Spawn rain over attacker instead of target
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+    {
+        task->data[4] = 16;
+        task->data[6] = 80;
+    }
+    else
+    {
+        task->data[4] = 136;
+        task->data[6] = 40;
+    }
+
+    task->data[5] = 118;
+    task->data[7] = task->data[4] + 49;
+
+    task->data[12] = task->data[1] * 5 + 5;
+
+    task->func = AnimTask_SoakRain_Step;
+}
+
+static void AnimTask_SoakRain_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 taskId2;
+
+    switch (task->data[0])
+    {
+    case 0:
+
+        if (++task->data[2] > 2)
+        {
+            task->data[2] = 0;
+            CreateWaterSpoutRainDroplet(task, taskId);
+        }
+
+        // Begin shake once droplets start landing
+        if (task->data[10] != 0 && task->data[13] == 0)
+        {
+            // Shake USER instead of TARGET
+            gBattleAnimArgs[0] = ANIM_ATTACKER;
+            gBattleAnimArgs[1] = 0;
+            gBattleAnimArgs[2] = 30;
+
+            taskId2 = CreateTask(AnimTask_HorizontalShake, 80);
+
+            if (taskId2 != 0xFF)
+            {
+                gTasks[taskId2].func(taskId2);
+                gAnimVisualTaskCount++;
+            }
+
+            // Optional partner shake for doubles
+            gBattleAnimArgs[0] = ANIM_ATK_PARTNER;
+
+            taskId2 = CreateTask(AnimTask_HorizontalShake, 80);
+
+            if (taskId2 != 0xFF)
+            {
+                gTasks[taskId2].func(taskId2);
+                gAnimVisualTaskCount++;
+            }
+
+            task->data[13] = 1;
+        }
+
+        if (task->data[11] >= task->data[12])
+            task->data[0]++;
+
+        break;
+
+    case 1:
+
+        if (task->data[9] == 0)
+            DestroyAnimVisualTask(taskId);
+
         break;
     }
 }

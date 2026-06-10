@@ -89,21 +89,21 @@
 // Used by Quest Log.
 #define VAR_QUEST_LOG_MON_COUNTS           0x4027
 #define VAR_WONDER_NEWS_STEP_COUNTER       0x4028
-#define VAR_PSYDUCK_PAIL_COUNTER                         0x4029
-#define VAR_GLITCH_CITY_STATUS                         0x402A
-#define VAR_GLITCH_CITY_STEP_COUNT                         0x402B
-#define VAR_NUMBER_FOR_SALES                         0x402C
+#define VAR_PSYDUCK_PAIL_COUNTER           0x4029
+#define VAR_GLITCH_CITY_STATUS             0x402A
+#define VAR_GLITCH_CITY_STEP_COUNT         0x402B
+#define VAR_NUMBER_FOR_SALES               0x402C
 #define VAR_0x402D                         0x402D
 #define VAR_0x402E                         0x402E
 
-#define VAR_0x402F                         0x402F
+#define VAR_NEW_GAME_MODE                  0x402F // 1 = hard mode, 2 = easy mode, 0 = standard
 
 #define VAR_ICE_STEP_COUNT                 0x4030
 #define VAR_STARTER_MON                    0x4031 // 0: Bulbasaur, 1: Squirtle, 2: Charmander
 #define VAR_RESET_RTC_ENABLE               0x4032
 #define VAR_ENIGMA_BERRY_AVAILABLE         0x4033
 
-#define VAR_POKEMON_MANSION_LAVAFALL                         0x4034
+#define VAR_POKEMON_MANSION_LAVAFALL       0x4034
 #define VAR_RESORT_GOREGEOUS_STEP_COUNTER  0x4035
 #define VAR_RESORT_GORGEOUS_REQUESTED_MON  0x4036
 #define VAR_PC_BOX_TO_SEND_MON             0x4037
@@ -234,6 +234,7 @@ It is reset after every battle.
 #define EVENT_BATTLE_JAMES  20 //check
 #define EVENT_BATTLE_MARY  21 //check
 #define EVENT_BATTLE_YUGIOH  22 //check
+#define EVENT_BATTLE_CINNABAR  23 //check
 
 
 
@@ -353,7 +354,7 @@ It is reset after every battle.
 #define VAR_VIRIDIAN_FOREST_CATERPIE                 0x40EF
 #define VAR_SHINY_NIDOTRAN                 0x40F0
 #define VAR_DAILY_BP               0x40F1
-#define VAR_0x40F2                 0x40F2
+#define VAR_BONUS_STARS                 0x40F2
 #define VAR_0x40F3                 0x40F3
 #define VAR_0x40F4                 0x40F4
 #define VAR_0x40F5                 0x40F5

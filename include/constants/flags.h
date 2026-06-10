@@ -1334,10 +1334,10 @@
 #define FLAG_DAD_SISTERS               0x4D1
 #define FLAG_DAK_HERE             0x4D2
 #define FLAG_TRIED_DITTO_IN_WALL               0x4D3
-#define FLAG_0x4D4               0x4D4
-#define FLAG_0x4D5               0x4D5
-#define FLAG_0x4D6               0x4D6
-#define FLAG_0x4D7               0x4D7
+#define FLAG_HIDE_POSTGAME_STARLIGHT              0x4D4//I can remove this if you need the flag
+#define FLAG_SHINY_CATERPIE_SPAWNS               0x4D5
+#define FLAG_SHINY_NIDOTRAN_SPAWNS               0x4D6
+#define FLAG_GOT_SHINY_ZUBAT               0x4D7
 #define FLAG_0x4D8               0x4D8
 #define FLAG_0x4D9               0x4D9
 #define FLAG_0x4DA               0x4DA
@@ -1359,8 +1359,8 @@
 #define FLAG_0x4EA               0x4EA
 #define FLAG_0x4EB               0x4EB
 #define FLAG_0x4EC               0x4EC
-#define FLAG_0x4ED               0x4ED
-#define FLAG_0x4EE               0x4EE
+#define FLAG_TRANSPORTED_IRATE_GAMER               0x4ED
+#define FLAG_DIDNT_USE_CONFUSION_ON_BROCK               0x4EE
 #define FLAG_TURNED_IN_BADGES               0x4EF
 #define FLAG_ITEM_TM43               0x4F0
 #define FLAG_ILEXIR               0x4F1
@@ -1401,7 +1401,7 @@
 #define FLAG_SYS_EXEGGUTOR                                          (SYS_FLAGS + 0xA)
 #define FLAG_SYS_SNORLAX_FIGHT                                      (SYS_FLAGS + 0xB)
 #define FLAG_SYS_KANGA_FIGHT                                        (SYS_FLAGS + 0xC)
-#define FLAG_SYS_MAX_REPEL                                          (SYS_FLAGS + 0xD)
+#define FLAG_SYS_MAX_REPEL                                          (SYS_FLAGS + 0xD) // no longer in use
 #define FLAG_SYS_DISABLE_SAVE                                       (SYS_FLAGS + 0xE)
 #define FLAG_SYS_CARRYING_BOX                                       (SYS_FLAGS + 0xF)
 #define FLAG_SYS_BILL_GARDEN                                        (SYS_FLAGS + 0x10)

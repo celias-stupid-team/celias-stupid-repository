@@ -222,3 +222,17 @@ script EventScript_CantCutFinalTree {
 script PokemonLeague_FinalBookshelf {
 	msgbox(IndigoPlateau_FinalChapter, MSGBOX_SIGN)
 }
+
+
+script PokemonLeague_TrainerTip {
+	msgbox(
+	"TRAINER TIPS\p"
+
+	"If you're in a fight you think you\n"
+	"can't win, you can RUN away.\p"
+
+	"Fights will continue where you\n"
+	"left off.\l"
+	"You will not need to redo progress.", MSGBOX_SIGN)
+
+}

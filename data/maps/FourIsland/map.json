@@ -454,8 +454,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 3,
-      "y": 12,
+      "x": 2,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -468,8 +468,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 30,
-      "y": 4,
+      "x": 29,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -767,9 +767,9 @@
     },
     {
       "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_BILL_BOARD",
-      "x": 78,
-      "y": 14,
+      "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
+      "x": 91,
+      "y": 12,
       "target_local_id": "18",
       "target_map": "MAP_MINNESOTA"
     },
@@ -794,6 +794,20 @@
       "trainer_sight_or_berry_tree_id": "ITEM_TM17",
       "script": "EventScript_FindItem",
       "flag": "FLAG_ITEM_TM17"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GROWLITHE",
+      "x": 58,
+      "y": 31,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FourIsland_GrowlitheCry",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -973,6 +987,15 @@
       "var": "VAR_FOUR_ISLAND_LASS",
       "var_value": "0",
       "script": "FourIsland_LassAttack_PrepareAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 53,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Easter_Egg_Starlight_10"
     }
   ],
   "bg_events": [

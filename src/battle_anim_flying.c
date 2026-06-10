@@ -669,6 +669,17 @@ const struct SpriteTemplate gSprayWaterDropletSpriteTemplate =
     .callback = AnimSprayWaterDroplet,
 };
 
+const struct SpriteTemplate gBlukJuiceSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLUK_JUICE,
+    .paletteTag = ANIM_TAG_BLUK_JUICE,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprayWaterDroplet,
+};
+
 static const struct SpriteTemplate sUnusedFlashingLightSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
@@ -684,6 +695,17 @@ const struct SpriteTemplate gSkyAttackBirdSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BIRD,
     .paletteTag = ANIM_TAG_BIRD,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
+
+const struct SpriteTemplate gSkyAttackCrabSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CSR_CRAB,
+    .paletteTag = ANIM_TAG_CSR_CRAB,
     .oam = &gOamData_AffineDouble_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -761,6 +783,17 @@ const struct SpriteTemplate gMoltresKickSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MOLTRES_KICK,
     .paletteTag = ANIM_TAG_MOLTRES_KICK,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoltresKick,
+};
+
+const struct SpriteTemplate gHyperBreamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BREAM,
+    .paletteTag = ANIM_TAG_BREAM,
     .oam = &gOamData_AffineDouble_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

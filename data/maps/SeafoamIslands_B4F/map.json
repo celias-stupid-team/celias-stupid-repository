@@ -287,16 +287,6 @@
   ],
   "bg_events": [
     {
-      "type": "hidden_item",
-      "x": 27,
-      "y": 0,
-      "elevation": 0,
-      "item": "ITEM_WATER_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_22",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 30,
       "y": 0,

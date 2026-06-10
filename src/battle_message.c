@@ -1076,7 +1076,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNATEBERRYNOEFFECT - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} ate the {B_LAST_ITEM},\nbut nothing happened!"),
     [STRINGID_PKMNBERRYWASBURNED - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nwas burned."),
     [STRINGID_BESTOWITEMGIVING - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} received {B_LAST_ITEM}\nfrom {B_ATK_NAME_WITH_PREFIX}!"),
-    [STRINGID_REVELATIONDANCEMATCHEDTYPE - BATTLESTRINGS_TABLE_START]    = COMPOUND_STRING("REVELATION DANCE matched\n{B_ATK_NAME_WITH_PREFIX}'s typing!"),
+    [STRINGID_REVELATIONDANCEMATCHEDTYPE - BATTLESTRINGS_TABLE_START]    = COMPOUND_STRING("REVELATION DANCE matched\n{B_ATK_NAME_WITH_PREFIX}'s typing!{PAUSE 30}"),
     [STRINGID_REFLECTTARGETSTYPE - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} became {B_BUFF1} type\nand {B_BUFF2} type."),
     [STRINGID_PKMNBECAMETYPE - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} became {B_BUFF1} type!"),
     [STRINGID_VANISHEDINSTANTLY - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} vanished instantly!"),
@@ -1110,11 +1110,13 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_SHROOM_DESIRE - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} chose\nSHROOM DESIRE as its destiny!"),
     [STRINGID_PANTS_SHROUD - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} became\nshrouded in PANTS!"),
     [STRINGID_CURRENTMOVECANTSELECT - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_BUFF1} cannot be used!\p"),
-    [STRINGID_PKMNRAISEDATTACK - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nraised its ATTACK!"),
-    [STRINGID_CREAMEATEN - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s\ncream was eaten!"),
-
+    [STRINGID_PKMNRAISEDATTACK - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nraised its ATTACK!"),
+    [STRINGID_CREAMEATEN - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s\ncream was eaten!"),
+    [STRINGID_MAGIC_MUFFLER - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("{B_SCR_ACTIVE_NAME_WITH_PREFIX} gained\na lot of EXP. Points!\p"),
+    [STRINGID_MAGICMUFFLERCONSUMED - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The MAGIC MUFFLER\nhas been consumed."),
+    [STRINGID_HI_PLAYER - BATTLESTRINGS_TABLE_START]                     = COMPOUND_STRING("Hi, {B_PLAYER_NAME}!\nHow are you?"),
+    [STRINGID_BYE_PLAYER - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("Bye, {B_PLAYER_NAME}!\nWho are you?"),
     
-
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1537,34 +1539,30 @@ const u16 gDmgHazardsStringIds[] =
 
 const u16 gDoNothingStringIds[] =
 {
-    [B_MSG_NONE]          = STRINGID_NONE,
-    [B_MSG_CELEBRATE] = STRINGID_CELEBRATE,
-    [B_MSG_1DER_ROOM] = STRINGID_1DERROOM,
-    [B_MSG_SECRETPOWER] = STRINGID_SECRETPOWER,
-    [B_MSG_UPDOG] = STRINGID_UPDOG,
-    [B_MSG_TRYATTACK] = STRINGID_TRYATTACK,
-    [B_MSG_GMAX_MOVE] = STRINGID_GMAX_MOVE,
+    [B_MSG_NONE]             = STRINGID_NONE,
+    [B_MSG_CELEBRATE]        = STRINGID_CELEBRATE,
+    [B_MSG_1DER_ROOM]        = STRINGID_1DERROOM,
+    [B_MSG_SECRETPOWER]      = STRINGID_SECRETPOWER,
+    [B_MSG_UPDOG]            = STRINGID_UPDOG,
+    [B_MSG_TRYATTACK]        = STRINGID_TRYATTACK,
+    [B_MSG_GMAX_MOVE]        = STRINGID_GMAX_MOVE,
     [B_MSG_EXTREME_EVOBOOST] = STRINGID_EXTREME_EVOBOOST,
-    [B_MSG_VEEVEE_VOLLEY] = STRINGID_VEEVEE_VOLLEY,
-    [B_MSG_FICKLE_BEAM] = STRINGID_FICKLE_BEAM,
-    [B_MSG_MIST] = STRINGID_IT_MIST,
-    [B_MSG_MAGNET_RISE] = STRINGID_MAGNET_RISE,
-    [B_MSG_TAUNT] = STRINGID_TAUNT,
-    [B_MSG_SUPERSONIC] = STRINGID_SUPERSONIC,
-    [B_MSG_SHED] = STRINGID_SHED,
-    [B_MSG_HACK_ATTACK] = STRINGID_HACK_ATTACK,
-    [B_MSG_SNOWGRAVY] = STRINGID_SNOWGRAVY,
-    [B_MSG_LATIAS] = STRINGID_LATIAS,
-    [B_MSG_TM07] = STRINGID_TM07,
-    [B_MSG_SMEARGLE] = STRINGID_SMEARGLE,
-    [B_MSG_SHROOM_DESIRE] = STRINGID_SHROOM_DESIRE,
-    [B_MSG_PANT_SHROUD] = STRINGID_PANTS_SHROUD,
-
-    
-
-    
-
-    
+    [B_MSG_VEEVEE_VOLLEY]    = STRINGID_VEEVEE_VOLLEY,
+    [B_MSG_FICKLE_BEAM]      = STRINGID_FICKLE_BEAM,
+    [B_MSG_MIST]             = STRINGID_IT_MIST,
+    [B_MSG_MAGNET_RISE]      = STRINGID_MAGNET_RISE,
+    [B_MSG_TAUNT]            = STRINGID_TAUNT,
+    [B_MSG_SUPERSONIC]       = STRINGID_SUPERSONIC,
+    [B_MSG_SHED]             = STRINGID_SHED,
+    [B_MSG_HACK_ATTACK]      = STRINGID_HACK_ATTACK,
+    [B_MSG_SNOWGRAVY]        = STRINGID_SNOWGRAVY,
+    [B_MSG_LATIAS]           = STRINGID_LATIAS,
+    [B_MSG_TM07]             = STRINGID_TM07,
+    [B_MSG_SMEARGLE]         = STRINGID_SMEARGLE,
+    [B_MSG_SHROOM_DESIRE]    = STRINGID_SHROOM_DESIRE,
+    [B_MSG_PANT_SHROUD]      = STRINGID_PANTS_SHROUD,
+    [B_MSG_HI_PLAYER]        = STRINGID_HI_PLAYER,
+    [B_MSG_BYE_PLAYER]       = STRINGID_BYE_PLAYER,
 };
 
 const u16 gSwitchInAbilityStringIds[] =
@@ -2053,6 +2051,10 @@ void BufferStringBattle(u16 stringId)
                     break;
                         
                 case 2: //Onix
+                    if(gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_DRAGON
+                    ||  gBattleMoves[sBattleMsgDataPtr->currentMove].type == TYPE_DARK)  {
+                        FlagSet(FLAG_SHINY_CATERPIE_SPAWNS);
+                    }
                     if(sBattleMsgDataPtr->currentMove == MOVE_CONFUSION) {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
@@ -2095,6 +2097,9 @@ void BufferStringBattle(u16 stringId)
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    if(sBattleMsgDataPtr->currentMove == MOVE_ODOR_SLEUTH) {
+                        FlagSet(FLAG_SHINY_NIDOTRAN_SPAWNS);
                     }
                     break;
                 case EVENT_BATTLE_ARIANA:
@@ -2157,6 +2162,15 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
+                case EVENT_BATTLE_CINNABAR: 
+                        if(sBattleMsgDataPtr->currentMove == MOVE_FINAL_GAMBIT )  { //Snowgravy
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayHoopa); //Play silence
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+
+                    
                 default:
                     break;
             }

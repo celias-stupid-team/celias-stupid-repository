@@ -1194,6 +1194,7 @@ extern const u16 Bible_Book_Name_3_John[];
 extern const u16 Bible_Book_Name_Jude[];
 extern const u16 Bible_Book_Name_Revelation[];
 
+extern const u8 EventScript_FldEffBrickBreak[];
 extern const u8 EventScript_FldEffStrength[];
 extern const u8 EventScript_FailSweetScent[];
 extern const u8 EventScript_FldEffRockSmash[];
@@ -1277,6 +1278,7 @@ extern const u8 EventScript_ShitWall[];
 extern const u8 EventScript_PokeMartShelf[];
 extern const u8 EventScript_WalMartShelf[];
 extern const u8 PewterGym_Rocks[];
+extern const u8 PokemonCenter_Oak[];
 extern const u8 EventScript_Food[];
 extern const u8 EventScript_ImpressiveMachine[];
 extern const u8 EventScript_Blueprints[];

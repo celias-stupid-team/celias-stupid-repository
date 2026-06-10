@@ -48,7 +48,7 @@
     {
       "local_id": "D1",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_C",
       "x": 13,
       "y": 18,
       "elevation": 0,
@@ -622,6 +622,15 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Starlight_House_12_Remove_Dancers"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Starlight_House_12_Deactivate_Dancers"
     }
   ],
   "bg_events": [
@@ -643,11 +652,11 @@
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 24,
+      "x": 30,
+      "y": 26,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Starlight_Jukebox_Test3"
+      "script": "Starlight_Jukebox_Jank_Note"
     },
     {
       "type": "sign",

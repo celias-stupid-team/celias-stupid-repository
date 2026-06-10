@@ -889,7 +889,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ALTAR_OF_MOONE          - KANTO_MAPSEC_START] = {MAP(MAP_MT_MOON_OUTSIDE),                           HEAL_LOCATION_ALTAR_OF_THE_MOONE},
     [MAPSEC_BIRTH_ISLAND        - KANTO_MAPSEC_START] = {MAP(MAP_BIRTH_ISLAND_EXTERIOR),                 HEAL_LOCATION_NONE},
     [MAPSEC_THIRTY_EIGHT_ISLAND           - KANTO_MAPSEC_START] = {MAP(MAP_THIRTY_EIGHT_ISLAND),                           HEAL_LOCATION_THIRTY_EIGHT_ISLAND},
-    [MAPSEC_SECRET_GARDEN      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_SECRET_GARDEN      - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE25_BILLS_SECRET_GARDEN),                           HEAL_LOCATION_BILLS_SECRET_GARDEN},
     [MAPSEC_AMITY_SQUARE      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_POKEMON_ISLAND     - KANTO_MAPSEC_START] = {MAP(MAP_POKEMON_ISLAND_SOUTH),                           HEAL_LOCATION_POKEMON_ISLAND_SOUTH},
     [MAPSEC_AETHER_PARADISE      - KANTO_MAPSEC_START] = {MAP(MAP_AETHER_PARADISE_ISLAND),                           HEAL_LOCATION_AETHER_PARADISE_ISLAND},
@@ -1451,7 +1451,13 @@ static void DisplayCurrentMapName(void)
     }
     else
     {
-        GetMapName(sRegionMap->mapName, GetMapsecUnderCursor(), 0);
+        if(GetMapsecUnderCursor() == MAPSEC_ALTAR_OF_MOONE) {
+            GetMapName(sRegionMap->mapName, MAPSEC_MT_MOON, 0);
+
+        } else {
+            GetMapName(sRegionMap->mapName, GetMapsecUnderCursor(), 0);
+
+        }
         AddTextPrinterParameterized3(WIN_MAP_NAME, FONT_NORMAL, 2, 2, sTextColor_White, 0, sRegionMap->mapName);
         PutWindowTilemap(WIN_MAP_NAME);
         CopyWindowToVram(WIN_MAP_NAME, COPYWIN_GFX);
@@ -3020,8 +3026,12 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ONE_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ALTAR_OF_MOONE:
         return FlagGet(FLAG_CSR_MAP_ALTAR_OF_MOONE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_SECRET_GARDEN:
+        return FlagGet(FLAG_CSR_MAP_SECRET_GARDEN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
+
+        
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3970,20 +3980,34 @@ static void FreeAndResetGpuRegs(void)
 
 static bool32 IsCeladonDeptStoreMapsec(u16 mapsec)
 {
-    if (sRegionMap != NULL)
+    if (sRegionMap != NULL) {
+        //DebugPrintf("No Wonk1");
         return FALSE;
-    if (mapsec != MAPSEC_CELADON_CITY)
+
+    }
+    if (mapsec != MAPSEC_CELADON_CITY && mapsec != MAPSEC_DEPT_STORE_2) {
+        //DebugPrintf("No Wonk2");
         return FALSE;
-    if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_CELADON_CITY_DEPARTMENT_STORE_1F))
+
+    }
+    if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_CELADON_CITY_DEPARTMENT_STORE_1F)) {
+        //DebugPrintf("No Wonk3");
         return FALSE;
+
+    }
     if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_1F)
      && gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_2F)
      && gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_3F)
      && gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_4F)
      && gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_5F)
      && gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF)
-     && gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_ELEVATOR))
+     && gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CELADON_CITY_DEPARTMENT_STORE_ELEVATOR)) {
+        //DebugPrintf("No Wonk");
         return FALSE;
+        
+
+     }
+        //DebugPrintf("Yes Wonk");
     return TRUE;
 }
 
@@ -3994,8 +4018,19 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
     u16 idx;
     if ((idx = mapsec - KANTO_MAPSEC_START) <= MAPSEC_NONE - KANTO_MAPSEC_START)
     {
-        if (IsCeladonDeptStoreMapsec(mapsec) == TRUE)
-            dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);
+        if (IsCeladonDeptStoreMapsec(mapsec) == TRUE) {
+            //DebugPrintf("The wonk is happening");
+            if(mapsec == MAPSEC_DEPT_STORE_2) {
+                //DebugPrintf("MAPSEC_DEPT_STORE_2");
+                dst = StringCopy(dst0, sMapsecName_CELADON_CITY);
+
+            } else {
+                //DebugPrintf("MAPSEC_CELADON_CITY");
+                dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);
+
+            }
+
+        }
         else if (sMapNames[idx] != NULL)
             dst = StringCopy(dst0, sMapNames[idx]);
         else

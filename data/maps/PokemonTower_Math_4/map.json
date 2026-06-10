@@ -227,16 +227,6 @@
   ],
   "bg_events": [
     {
-      "type": "hidden_item",
-      "x": 8,
-      "y": 4,
-      "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE7_WEPEAR_BERRY",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 11,
       "y": 8,

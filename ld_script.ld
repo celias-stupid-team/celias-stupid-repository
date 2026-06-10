@@ -1092,6 +1092,25 @@ SECTIONS {
         sound/songs/midi/se_tcg_slash.o(.rodata);
         sound/songs/midi/se_waa.o(.rodata);
         sound/songs/midi/se_tcg_waterfall.o(.rodata);
+        sound/songs/midi/se_boo_womp.o(.rodata);
+        sound/songs/midi/se_cambrian_1.o(.rodata);
+        sound/songs/midi/se_cambrian_2.o(.rodata);
+        sound/songs/midi/se_car_crash.o(.rodata);
+        sound/songs/midi/se_tcg_confused.o(.rodata);
+        sound/songs/midi/se_tcg_electricity.o(.rodata);
+        sound/songs/midi/se_tcg_poison.o(.rodata);
+        sound/songs/midi/se_tcg_psychic.o(.rodata);
+        sound/songs/midi/se_hoo.o(.rodata);
+        sound/songs/midi/se_salsa.o(.rodata);
+        sound/songs/midi/se_seal_clap.o(.rodata);
+        sound/songs/midi/se_wagon.o(.rodata);
+        sound/songs/midi/se_whats_going_on.o(.rodata);
+        sound/songs/midi/se_yoshi_eat.o(.rodata);
+        sound/songs/midi/se_yoshi_spit.o(.rodata);
+        sound/songs/midi/se_yoshi_ground_pound.o(.rodata);
+        sound/songs/midi/se_its_t.o(.rodata);
+        sound/songs/midi/se_time.o(.rodata);
+        sound/songs/midi/se_ass_blaster.o(.rodata);
         sound/songs/midi/mus_safari_evolution.o(.rodata);
         sound/songs/midi/mus_incompatible_emulator.o(.rodata);
         sound/songs/midi/mus_the_moon.o(.rodata);
@@ -1107,7 +1126,9 @@ SECTIONS {
         sound/songs/midi/mus_se_monster_mash.o(.rodata);
         sound/songs/midi/mus_se_sonic_boom.o(.rodata);
         sound/songs/midi/mus_se_space_jam.o(.rodata);
-        sound/songs/midi/mus_star_battle.o(.rodata);
+        sound/songs/midi/mus_bw_rival.o(.rodata);
+        sound/songs/midi/mus_tiny_lass.o(.rodata);
+        sound/songs/midi/mus_encounter_rival_high.o(.rodata);
 
     } > ROM =0
 

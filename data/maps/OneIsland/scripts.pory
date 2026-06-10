@@ -113,6 +113,7 @@ script OneIsland_OnTransition {
 	if(flag(FLAG_DID_ARTICUNO_FIGHT)) {
 		clearflag(FLAG_TEMP_5)
 	}
+	//setflag(FLAG_TEMP_10)
 }
 
 script OneIsland_OnLoad {
@@ -144,6 +145,7 @@ script OneIsland_BirdCultist {
 
 script OneIsland_MysticCrestPedestal {
 	lock
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	if(flag(FLAG_INSERTED_MYSTIC_SEAL)) {
 		msgbox("The MYSTIC SEAL has been\ninserted.", MSGBOX_DEFAULT)
 	} else {
@@ -183,13 +185,13 @@ script OneIsland_SetArticunoStatue {
 	setmetatile(26, 9, 0x395, FALSE)
 	setmetatile(27, 9, 0x396, FALSE)
 	
-	setmetatile(25, 10, 0x39C, FALSE)
-	setmetatile(26, 10, 0x39D, FALSE)
-	setmetatile(27, 10, 0x39E, FALSE)
+	setmetatile(25, 10, 0x39C, TRUE)
+	setmetatile(26, 10, 0x39D, TRUE)
+	setmetatile(27, 10, 0x39E, TRUE)
 	
-	setmetatile(25, 11, 0x3A4, FALSE)
-	setmetatile(26, 11, 0x3A5, FALSE)
-	setmetatile(27, 11, 0x3A6, FALSE)
+	setmetatile(25, 11, 0x3A4, TRUE)
+	setmetatile(26, 11, 0x3A5, TRUE)
+	setmetatile(27, 11, 0x3A6, TRUE)
 	return
 }
 
@@ -504,6 +506,8 @@ script OneIsland_Kaylee {
 
 		"Who knows?\n"
 		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
+		clearflag(FLAG_TEMP_10)
+		addobject(LOCALID_MASQUERADE_PSYDUCK)
 		setflag(FLAG_DID_ARTICUNO_FIGHT)
 	} else {
 		msgbox(
@@ -757,4 +761,12 @@ script OneIsland_PreReleaseWarning {
 	"Please savestate before you\n"
 	"proceed!", MSGBOX_SIGN)
 
+}
+
+
+script OneIsland_Maskduck {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"I'm studying MASQUERADES as…{PAUSE 20}\n"
+	"a mysterious stranger.", MSGBOX_NPC)
 }

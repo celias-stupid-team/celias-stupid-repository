@@ -6,6 +6,18 @@ MAP_SCRIPT_ON_TRANSITION {
             setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYGREEN)
 
         }
+    random(50)
+		setflag(FLAG_TEMP_19)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+        if (var(VAR_BONUS_STARS) == 1023) {
+		random(30)
+		if(var(VAR_RESULT) == 22 && !flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+			clearflag(FLAG_TEMP_19)
+		}
+		}
+
 //if (var(VAR_RESULT) == FEMALE) {
         //setobjectsprite (DANCER1, SPRITE_GFX_PLAYGREEN)
     //} else {
@@ -16,20 +28,33 @@ MAP_SCRIPT_ON_TRANSITION {
 
 
 script Starlight_Jukebox_Notice {
-	msgbox(
-	"Hello! Idk how you managed to\n"
-	"figure out this little secret room\l"
-	"given I hid it behind a wall but\l"
-	"congrats!\p"
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(
+	"STARLIGHT: I'm amazed you managed\n"
+	"to find this place! Congrats!\p"
 
-	"This was my attempt as a Jukebox\n"
-	"but we felt a room wasn't ideal for\l"
-	"this kind of thing so it was\l"
-	"scrapped.\p"
+	"This was the old Jukebox room I\n"
+	"did. It was scrapped because it was\l"
+	"pretty cumbersome compared to\l"
+	"the actual Jukebox we use now.\p"
 
-	"It was never finished so excuse\n"
-	"anything that's buggy, but enjoy\l"
-	"it I guess lol.", MSGBOX_NPC)
+	"I have no idea why I made it this\n"
+	"way originally, but I figured\l"
+	"since I went through the work to\l"
+	"make this, I might as well let\l"
+	"people use it if they can figure\l"
+	"out how to get here!\p"
+
+	"It does have the base FireRed music\n"
+	"and sounds also, as well as any\l"
+	"music you can't find in the other\l"
+	"jukebox so there's at least that!\p"
+
+	"Also keep in mind, this was a beta\n"
+	"map, so there might be bugs,\l"
+	"issues or unfinished features, and\l"
+	"we don't intend on fixing any of\l"
+	"this.", MSGBOX_NPC)
 }
 
 
@@ -127,7 +152,7 @@ script Starlight_Jukebox_1 {
     
 	msgbox(
     "Music: MUS_ENCOUNTER_BOY\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -136,7 +161,7 @@ script Starlight_Jukebox_2 {
     
 	msgbox(
     "Music: MUS_ENCOUNTER_DEOXYS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -145,7 +170,7 @@ script Starlight_Jukebox_3 {
     
 	msgbox(
     "Music: MUS_ENCOUNTER_GIRL\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -154,7 +179,7 @@ script Starlight_Jukebox_4 {
     
 	msgbox(
     "Music: MUS_ENCOUNTER_GYM_LEADER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -163,7 +188,7 @@ script Starlight_Jukebox_5 {
     
 	msgbox(
     "Music: MUS_ENCOUNTER_MAY\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -172,7 +197,7 @@ script Starlight_Jukebox_6 {
     
 	msgbox(
     "Music: MUS_ENCOUNTER_RIVAL\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -181,7 +206,7 @@ script Starlight_Jukebox_7 {
     
 	msgbox(
     "Music: MUS_ENCOUNTER_ROCKET\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -190,7 +215,7 @@ script Starlight_Jukebox_8 {
     
 	msgbox(
     "Music: MUS_GEN4_LASS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -200,7 +225,7 @@ script Starlight_Jukebox_9 {
     
 	msgbox(
     "Music: MUS_CSR_DMCA_ADMIN\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -209,7 +234,7 @@ script Starlight_Jukebox_10 {
     
 	msgbox(
     "Music: MUS_CSR_DMCA_BATTLE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -218,7 +243,7 @@ script Starlight_Jukebox_11 {
     
 	msgbox(
     "Music: MUS_DMCA_SHOWDOWN\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -227,7 +252,7 @@ script Starlight_Jukebox_12 {
     
 	msgbox(
     "Music: MUS_BATTLE_MAY\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -236,7 +261,7 @@ script Starlight_Jukebox_13 {//Clone of the one above ^
     
 	msgbox(
     "Music: MUS_MUS_VS_RIVAL\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -245,7 +270,7 @@ script Starlight_Jukebox_14 {
     
 	msgbox(
     "Music: MUS_RS_VS_GYM_LEADER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -254,7 +279,7 @@ script Starlight_Jukebox_15 {
     
 	msgbox(
     "Music: MUS_RS_VS_TRAINER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -263,7 +288,7 @@ script Starlight_Jukebox_16 {
     
 	msgbox(
     "Music: MUS_PISCES_GYM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -272,7 +297,7 @@ script Starlight_Jukebox_17 {
     
 	msgbox(
     "Music: MUS_VS_GYM_LEADER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -281,7 +306,7 @@ script Starlight_Jukebox_18 {
     
 	msgbox(
     "Music: MUS_VS_TRAINER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -290,7 +315,7 @@ script Starlight_Jukebox_19 {
     
 	msgbox(
     "Music: MUS_CYNTHIA_BATTLE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -299,7 +324,7 @@ script Starlight_Jukebox_20 {
     
 	msgbox(
     "Music: MUS_GRAND_FINALE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -308,7 +333,7 @@ script Starlight_Jukebox_21 {
     
 	msgbox(
     "Music: MUS_MEGALOVANIA\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -317,7 +342,7 @@ script Starlight_Jukebox_22 {
     
 	msgbox(
     "Music: MUS_THE_GAME_IS_AFOOT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -326,7 +351,7 @@ script Starlight_Jukebox_23 {
     
 	msgbox(
     "Music: MUS_VS_CHAMPION\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -335,7 +360,7 @@ script Starlight_Jukebox_24 {
     
 	msgbox(
     "Music: MUS_MUS_VS_REGI\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -344,7 +369,7 @@ script Starlight_Jukebox_25 {
     
 	msgbox(
     "Music: MUS_VS_DEOXYS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -353,7 +378,7 @@ script Starlight_Jukebox_26 {
     
 	msgbox(
     "Music: MUS_VS_MEWTWO\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -362,7 +387,7 @@ script Starlight_Jukebox_27 {
     
 	msgbox(
     "Music: MUS_VS_WILD\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -372,7 +397,7 @@ script Starlight_Jukebox_28 {
     
 	msgbox(
     "Music: MUS_CAUGHT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -381,7 +406,7 @@ script Starlight_Jukebox_29 {
     
 	msgbox(
     "Music: MUS_VICTORY_GYM_LEADER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -390,7 +415,7 @@ script Starlight_Jukebox_30 {
     
 	msgbox(
     "Music: MUS_VICTORY_TRAINER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -399,7 +424,7 @@ script Starlight_Jukebox_31 {
     
 	msgbox(
     "Music: MUS_VICTORY_WILD\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -408,7 +433,7 @@ script Starlight_Jukebox_32 {
     
 	msgbox(
     "Music: MUS_CSR_DRILL_DOZER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -417,7 +442,7 @@ script Starlight_Jukebox_33 {
     
 	msgbox(
     "Music: MUS_MUS_YUGIOH_2\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -426,7 +451,7 @@ script Starlight_Jukebox_34 {
     
 	msgbox(
     "Music: MUS_YOSHI_VICTORY\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -436,7 +461,7 @@ script Starlight_Jukebox_35 {
     
 	msgbox(
     "Music: MUS_CSR_CHAPTER_1\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -445,7 +470,7 @@ script Starlight_Jukebox_36 {
     
 	msgbox(
     "Music: MUS_CSR_CHAPTER_2\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -454,7 +479,7 @@ script Starlight_Jukebox_37 {
     
 	msgbox(
     "Music: MUS_CSR_CHAPTER_3\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -463,7 +488,7 @@ script Starlight_Jukebox_38 {
     
 	msgbox(
     "Music: MUS_CHAPTER_8\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -473,7 +498,7 @@ script Starlight_Jukebox_39 {
     
 	msgbox(
     "Music: MUS_CSR_CYNTHIA\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -482,7 +507,7 @@ script Starlight_Jukebox_40 {
     
 	msgbox(
     "Music: MUS_IMPOSTER_OAK\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -491,7 +516,7 @@ script Starlight_Jukebox_41 {
     
 	msgbox(
     "Music: MUS_LOOKER_THEME\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -500,7 +525,7 @@ script Starlight_Jukebox_42 {
     
 	msgbox(
     "Music: MUS_OAK\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -509,7 +534,7 @@ script Starlight_Jukebox_43 {
     
 	msgbox(
     "Music: MUS_RIVAL_EXIT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -519,7 +544,7 @@ script Starlight_Jukebox_44 {
     
 	msgbox(
     "Music: MUS_SAFARI_MARCH\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -528,7 +553,7 @@ script Starlight_Jukebox_45 {
     
 	msgbox(
     "Music: MUS_SURF\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -537,7 +562,7 @@ script Starlight_Jukebox_46 {
     
 	msgbox(
     "Music: MUS_CYCLING\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -546,7 +571,7 @@ script Starlight_Jukebox_47 {
     
 	msgbox(
     "Music: MUS_LEDER_SONG\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -555,7 +580,7 @@ script Starlight_Jukebox_48 {
     
 	msgbox(
     "Music: MUS_EVOLUTION\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -564,7 +589,7 @@ script Starlight_Jukebox_49 {
     
 	msgbox(
     "Music: MUS_SALSA\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -573,7 +598,7 @@ script Starlight_Jukebox_50 {
     
 	msgbox(
     "Music: MUS_FOLLOW_ME\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -582,7 +607,7 @@ script Starlight_Jukebox_51 {
     
 	msgbox(
     "Music: MUS_HALL_OF_FAME\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -591,7 +616,7 @@ script Starlight_Jukebox_52 {
     
 	msgbox(
     "Music: MUS_PRELUDE_TO_FINALE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -600,7 +625,7 @@ script Starlight_Jukebox_53 {
     
 	msgbox(
     "Music: MUS_SLOW_PALLET\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -610,7 +635,7 @@ script Starlight_Jukebox_54 {
     
 	msgbox(
     "Music: MUS_BERRY_PICK\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -619,7 +644,7 @@ script Starlight_Jukebox_55 {
     
 	msgbox(
     "Music: MUS_MYSTERY_GIFT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -628,7 +653,7 @@ script Starlight_Jukebox_56 {
     
 	msgbox(
     "Music: MUS_POKE_JUMP\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -637,7 +662,7 @@ script Starlight_Jukebox_57 {
     
 	msgbox(
     "Music: MUS_TEACHY_TV_SHOW\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -647,7 +672,7 @@ script Starlight_Jukebox_58 {
     
 	msgbox(
     "Music: MUS_CAUGHT_INTRO\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -656,7 +681,7 @@ script Starlight_Jukebox_59 {
     
 	msgbox(
     "Music: MUS_DEX_RATING\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -665,7 +690,7 @@ script Starlight_Jukebox_60 {
     
 	msgbox(
     "Music: MUS_EVOLUTION_INTRO\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -674,7 +699,7 @@ script Starlight_Jukebox_61 {
     
 	msgbox(
     "Music: MUS_EVOLVED\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -683,7 +708,7 @@ script Starlight_Jukebox_62 {
     
 	msgbox(
     "Music: MUS_GAME_FREAK\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -692,7 +717,7 @@ script Starlight_Jukebox_63 {
     
 	msgbox(
     "Music: MUS_HEAL\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -701,7 +726,7 @@ script Starlight_Jukebox_64 {
     
 	msgbox(
     "Music: MUS_HEAL_UNUSED\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -710,7 +735,7 @@ script Starlight_Jukebox_65 {
     
 	msgbox(
     "Music: MUS_LEVEL_UP\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -719,7 +744,7 @@ script Starlight_Jukebox_66 {
     
 	msgbox(
     "Music: MUS_MOVE_DELETED\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -728,7 +753,7 @@ script Starlight_Jukebox_67 {
     
 	msgbox(
     "Music: MUS_NEW_GAME_EXIT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -737,7 +762,7 @@ script Starlight_Jukebox_68 {
     
 	msgbox(
     "Music: MUS_OBTAIN_BADGE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -746,7 +771,7 @@ script Starlight_Jukebox_69 {
     
 	msgbox(
     "Music: MUS_OBTAIN_BERRY\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -755,7 +780,7 @@ script Starlight_Jukebox_70 {
     
 	msgbox(
     "Music: MUS_OBTAIN_ITEM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -764,7 +789,7 @@ script Starlight_Jukebox_71 {
     
 	msgbox(
     "Music: MUS_OBTAIN_KEY_ITEM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -773,7 +798,7 @@ script Starlight_Jukebox_72 {
     
 	msgbox(
     "Music: MUS_OBTAIN_TMHM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -782,7 +807,7 @@ script Starlight_Jukebox_73 {
     
 	msgbox(
     "Music: MUS_PHOTO\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -791,7 +816,7 @@ script Starlight_Jukebox_74 {
     
 	msgbox(
     "Music: MUS_SLOTS_JACKPOT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -800,7 +825,7 @@ script Starlight_Jukebox_75 {
     
 	msgbox(
     "Music: MUS_SLOTS_WIN\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -809,7 +834,7 @@ script Starlight_Jukebox_76 {
     
 	msgbox(
     "Music: MUS_TEACHY_TV_MENU\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -818,7 +843,7 @@ script Starlight_Jukebox_77 {
     
 	msgbox(
     "Music: MUS_TOO_BAD\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -827,7 +852,7 @@ script Starlight_Jukebox_78 {
     
 	msgbox(
     "Music: MUS_POKE_FLUTE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -836,7 +861,7 @@ script Starlight_Jukebox_79 {
     
 	msgbox(
     "Music: MUS_TRUMPETS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -845,7 +870,7 @@ script Starlight_Jukebox_80 {
     
 	msgbox(
     "Music: MUS_KOROK_SEED\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -854,7 +879,7 @@ script Starlight_Jukebox_81 {
     
 	msgbox(
     "Music: MUS_HALF_SIGN\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -863,7 +888,7 @@ script Starlight_Jukebox_82 {
     
 	msgbox(
     "Music: MUS_LASS_INTRO\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -872,7 +897,7 @@ script Starlight_Jukebox_83 {
     
 	msgbox(
     "Music: MUS_SE_DESKSLAM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -881,7 +906,7 @@ script Starlight_Jukebox_84 {
     
 	msgbox(
     "Music: MUS_SE_GUILTY\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -890,7 +915,7 @@ script Starlight_Jukebox_85 {
     
 	msgbox(
     "Music: MUS_CELADON_GYM_2\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -899,7 +924,7 @@ script Starlight_Jukebox_86 {
     
 	msgbox(
     "Music: MUS_CSR_CLEFAIRY_DANCE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -908,7 +933,7 @@ script Starlight_Jukebox_87 {
     
 	msgbox(
     "Music: MUS_CSR_DANCE_PRELUDE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -917,7 +942,7 @@ script Starlight_Jukebox_88 {
     
 	msgbox(
     "Music: MUS_DRAGON_BALL\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -926,7 +951,7 @@ script Starlight_Jukebox_89 {
     
 	msgbox(
     "Music: MUS_JIGGLYPUFF\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -935,7 +960,7 @@ script Starlight_Jukebox_90 {
     
 	msgbox(
     "Music: MUS_KENYA\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -944,7 +969,7 @@ script Starlight_Jukebox_91 {
     
 	msgbox(
     "Music: MUS_THUNDERING_DYNAMO\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -954,7 +979,7 @@ script Starlight_Jukebox_92 {
     
 	msgbox(
     "Music: MUS_AVGN_GYM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -963,7 +988,7 @@ script Starlight_Jukebox_93 {
     
 	msgbox(
     "Music: MUS_BLAINE_GYM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -972,7 +997,7 @@ script Starlight_Jukebox_94 {
     
 	msgbox(
     "Music: MUS_CSR_CELADON_GYM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -981,7 +1006,7 @@ script Starlight_Jukebox_95 {
     
 	msgbox(
     "Music: MUS_GYM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -990,7 +1015,7 @@ script Starlight_Jukebox_96 {
     
 	msgbox(
     "Music: MUS_MUS_RINGSIDE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -999,7 +1024,7 @@ script Starlight_Jukebox_97 {//Clone of 95 ^
     
 	msgbox(
     "Music: MUS_TRAINER_TOWER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1009,7 +1034,7 @@ script Starlight_Jukebox_98 {
     
 	msgbox(
     "Music: MUS_ABANDONED_SHIP\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1018,7 +1043,7 @@ script Starlight_Jukebox_99 {
     
 	msgbox(
     "Music: MUS_BATTLE_FRONTIER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1027,7 +1052,7 @@ script Starlight_Jukebox_100 {
     
 	msgbox(
     "Music: MUS_LITTLEROOT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1036,7 +1061,7 @@ script Starlight_Jukebox_101 {
     
 	msgbox(
     "Music: MUS_CSR_SOOTOPOLIS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1045,7 +1070,7 @@ script Starlight_Jukebox_102 {
     
 	msgbox(
     "Music: MUS_TRICK_HOUSE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1055,7 +1080,7 @@ script Starlight_Jukebox_103 {
     
 	msgbox(
     "Music: MUS_CELADON\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1064,7 +1089,7 @@ script Starlight_Jukebox_104 {
     
 	msgbox(
     "Music: MUS_CINNABAR\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1073,7 +1098,7 @@ script Starlight_Jukebox_105 {
     
 	msgbox(
     "Music: MUS_FUSHCIA\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1082,7 +1107,7 @@ script Starlight_Jukebox_106 {
     
 	msgbox(
     "Music: MUS_GAME_CORNER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1091,7 +1116,7 @@ script Starlight_Jukebox_107 {
     
 	msgbox(
     "Music: MUS_LAVENDER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1100,7 +1125,7 @@ script Starlight_Jukebox_108 {
     
 	msgbox(
     "Music: MUS_CSR_MART\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1109,7 +1134,7 @@ script Starlight_Jukebox_109 {
     
 	msgbox(
     "Music: MUS_MT_MOON\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1118,7 +1143,7 @@ script Starlight_Jukebox_110 {
     
 	msgbox(
     "Music: MUS_CSR_MT_MOON_SQUARE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1127,7 +1152,7 @@ script Starlight_Jukebox_111 {
     
 	msgbox(
     "Music: MUS_NET_CENTER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1136,7 +1161,7 @@ script Starlight_Jukebox_112 {
     
 	msgbox(
     "Music: MUS_OAK_LAB\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1145,7 +1170,7 @@ script Starlight_Jukebox_113 {
     
 	msgbox(
     "Music: MUS_PALLET\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1154,7 +1179,7 @@ script Starlight_Jukebox_114 {
     
 	msgbox(
     "Music: MUS_PEWTER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1163,7 +1188,7 @@ script Starlight_Jukebox_115 {
     
 	msgbox(
     "Music: MUS_POKE_CENTER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1172,7 +1197,7 @@ script Starlight_Jukebox_116 {
     
 	msgbox(
     "Music: MUS_POKE_MANSION\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1181,7 +1206,7 @@ script Starlight_Jukebox_117 {
     
 	msgbox(
     "Music: MUS_POKE_TOWER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1190,7 +1215,7 @@ script Starlight_Jukebox_118 {
     
 	msgbox(
     "Music: MUS_ROCKET_HIDEOUT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1199,7 +1224,7 @@ script Starlight_Jukebox_119 {
     
 	msgbox(
     "Music: MUS_ROUTE1\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1208,7 +1233,7 @@ script Starlight_Jukebox_120 {
     
 	msgbox(
     "Music: MUS_ROUTE3\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1217,7 +1242,7 @@ script Starlight_Jukebox_121 {
     
 	msgbox(
     "Music: MUS_ROUTE11\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1226,7 +1251,7 @@ script Starlight_Jukebox_122 {
     
 	msgbox(
     "Music: MUS_ROUTE24\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1235,7 +1260,7 @@ script Starlight_Jukebox_123 {
     
 	msgbox(
     "Music: MUS_SAFARI_EVOLUTION\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1244,7 +1269,7 @@ script Starlight_Jukebox_124 {
     
 	msgbox(
     "Music: MUS_SCHOOL\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1253,7 +1278,7 @@ script Starlight_Jukebox_125 {
     
 	msgbox(
     "Music: MUS_SEVII_45\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1262,7 +1287,7 @@ script Starlight_Jukebox_126 {
     
 	msgbox(
     "Music: MUS_SEVII_67\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1271,7 +1296,7 @@ script Starlight_Jukebox_127 {
     
 	msgbox(
     "Music: MUS_SEVII_123\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1280,7 +1305,7 @@ script Starlight_Jukebox_128 {
     
 	msgbox(
     "Music: MUS_SEVII_CAVE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1289,7 +1314,7 @@ script Starlight_Jukebox_129 {
     
 	msgbox(
     "Music: MUS_SEVII_DUNGEON\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1298,7 +1323,7 @@ script Starlight_Jukebox_130 {
     
 	msgbox(
     "Music: MUS_SEVII_ROUTE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1307,7 +1332,7 @@ script Starlight_Jukebox_131 {
     
 	msgbox(
     "Music: MUS_SILPH\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1316,7 +1341,7 @@ script Starlight_Jukebox_132 {
     
 	msgbox(
     "Music: MUS_SS_ANNE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1325,7 +1350,7 @@ script Starlight_Jukebox_133 {
     
 	msgbox(
     "Music: MUS_UNION_ROOM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1334,7 +1359,7 @@ script Starlight_Jukebox_134 {
     
 	msgbox(
     "Music: MUS_VERMILLION\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1343,7 +1368,7 @@ script Starlight_Jukebox_135 {
     
 	msgbox(
     "Music: MUS_VICTORY_ROAD\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1352,7 +1377,7 @@ script Starlight_Jukebox_136 {
     
 	msgbox(
     "Music: MUS_VIRIDIAN_FOREST\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1362,7 +1387,7 @@ script Starlight_Jukebox_137 {
     
 	msgbox(
     "Music: MUS_ALOLA_ROUTE2\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1371,7 +1396,7 @@ script Starlight_Jukebox_138 {
     
 	msgbox(
     "Music: MUS_DRIFTVEIL\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1380,7 +1405,7 @@ script Starlight_Jukebox_139 {
     
 	msgbox(
     "Music: MUS_CSR_FURRET\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1389,7 +1414,7 @@ script Starlight_Jukebox_140 {
     
 	msgbox(
     "Music: MUS_NATIONAL_PARK\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1399,7 +1424,7 @@ script Starlight_Jukebox_141 {
     
 	msgbox(
     "Music: MUS_FOUR_ISLAND\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1408,7 +1433,7 @@ script Starlight_Jukebox_142 {
     
 	msgbox(
     "Music: MUS_FOUR_ISLAND_CENTER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1417,7 +1442,7 @@ script Starlight_Jukebox_143 {
     
 	msgbox(
     "Music: MUS_FOUR_ISLAND_MART\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1426,7 +1451,7 @@ script Starlight_Jukebox_144 {
     
 	msgbox(
     "Music: MUS_TWO_ISLAND_CENTER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1435,7 +1460,7 @@ script Starlight_Jukebox_145 {
     
 	msgbox(
     "Music: MUS_TWO_ISLAND_MART\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1444,7 +1469,7 @@ script Starlight_Jukebox_146 {
     
 	msgbox(
     "Music: MUS_CERULEAN_CENTER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1453,7 +1478,7 @@ script Starlight_Jukebox_147 {
     
 	msgbox(
     "Music: MUS_CSR_CERULEAN_CLUB\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1462,7 +1487,7 @@ script Starlight_Jukebox_148 {
     
 	msgbox(
     "Music: MUS_TCG_ISLAND\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1472,7 +1497,7 @@ script Starlight_Jukebox_149 {
     
 	msgbox(
     "Music: MUS_BINKS_SAKE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1481,7 +1506,7 @@ script Starlight_Jukebox_150 {
     
 	msgbox(
     "Music: MUS_CSR_CASTLE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1490,7 +1515,7 @@ script Starlight_Jukebox_151 {
     
 	msgbox(
     "Music: MUS_CYBER_WORLD\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1499,7 +1524,7 @@ script Starlight_Jukebox_152 {
     
 	msgbox(
     "Music: MUS_CSR_DANCE_THEATER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1508,7 +1533,7 @@ script Starlight_Jukebox_153 {
     
 	msgbox(
     "Music: MUS_DOWNSTREAM\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1517,7 +1542,7 @@ script Starlight_Jukebox_154 {
     
 	msgbox(
     "Music: MUS_IKI_TOWN_TEST\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1526,7 +1551,7 @@ script Starlight_Jukebox_155 {
     
 	msgbox(
     "Music: MUS_CSR_LOSS_WOODS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1535,7 +1560,7 @@ script Starlight_Jukebox_156 {
     
 	msgbox(
     "Music: MUS_MUS_STRAIGHT_PEOPLE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1544,7 +1569,7 @@ script Starlight_Jukebox_157 {
     
 	msgbox(
     "Music: MUS_POKEMON_ISLAND\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1553,7 +1578,7 @@ script Starlight_Jukebox_158 {
     
 	msgbox(
     "Music: MUS_POKEMON_ISLAND_LAB\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1562,7 +1587,7 @@ script Starlight_Jukebox_159 {
     
 	msgbox(
     "Music: MUS_CSR_POKERAP\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1571,7 +1596,7 @@ script Starlight_Jukebox_160 {
     
 	msgbox(
     "Music: MUS_PYRITE_TOWN\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1580,7 +1605,7 @@ script Starlight_Jukebox_161 {
     
 	msgbox(
     "Music: MUS_CSR_SECRET_TUNNEL\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1589,7 +1614,7 @@ script Starlight_Jukebox_162 {
     
 	msgbox(
     "Music: MUS_SECRET_HOUSE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1598,7 +1623,7 @@ script Starlight_Jukebox_163 {
     
 	msgbox(
     "Music: MUS_CSR_SKY_TOWER\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1607,7 +1632,7 @@ script Starlight_Jukebox_164 {
     
 	msgbox(
     "Music: MUS_CSR_STAIRS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1616,7 +1641,7 @@ script Starlight_Jukebox_165 {
     
 	msgbox(
     "Music: MUS_TUNNEL\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1625,7 +1650,7 @@ script Starlight_Jukebox_166 {
     
 	msgbox(
     "Music: MUS_YES\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1634,7 +1659,7 @@ script Starlight_Jukebox_167 {
     
 	msgbox(
     "Music: MUS_YUGIOH\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1644,7 +1669,7 @@ script Starlight_Jukebox_168 {
     
 	msgbox(
     "Music: MUS_CREDITS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1653,7 +1678,7 @@ script Starlight_Jukebox_169 {
     
 	msgbox(
     "Music: MUS_INTRO_FIGHT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1662,7 +1687,7 @@ script Starlight_Jukebox_170 {
     
 	msgbox(
     "Music: MUS_NEW_GAME_INSTRUCT\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1671,7 +1696,7 @@ script Starlight_Jukebox_171 {
     
 	msgbox(
     "Music: MUS_NEW_GAME_INTRO\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1680,7 +1705,7 @@ script Starlight_Jukebox_172 {
     
 	msgbox(
     "Music: MUS_STUPID_CREDITS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1689,7 +1714,7 @@ script Starlight_Jukebox_173 {
     
 	msgbox(
     "Music: MUS_STUPID_ENDING\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1698,7 +1723,7 @@ script Starlight_Jukebox_174 {
     
 	msgbox(
     "Music: MUS_TITLE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1708,7 +1733,7 @@ script Starlight_Jukebox_175 {
     
 	msgbox(
     "Music: MUS_DELIVERY\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1717,7 +1742,7 @@ script Starlight_Jukebox_176 {
     
 	msgbox(
     "Music: MUS_RAINBOW_CASTLE\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1726,7 +1751,7 @@ script Starlight_Jukebox_177 {
     
 	msgbox(
     "Music: MUS_CLOTHES_SHOP\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1735,7 +1760,7 @@ script Starlight_Jukebox_178 {
     
 	msgbox(
     "Music: MUS_KOOPA_BROS\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1744,7 +1769,7 @@ script Starlight_Jukebox_179 {
     
 	msgbox(
     "Music: MUS_SV_ELITE_FOUR\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
 
@@ -1753,8 +1778,36 @@ script Starlight_Jukebox_180 {
     
 	msgbox(
     "Music: MUS_TWOSON\n"
-	"Made by: ???", MSGBOX_SIGN)
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
     end
 }
+
+script Starlight_Jukebox_181 {
+    playbgm(MUS_BW_RIVAL, TRUE)
+    
+	msgbox(
+    "Music: MUS_BW_RIVAL\n"
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_182 {
+    playbgm(MUS_TINY_LASS, TRUE)
+    
+	msgbox(
+    "Music: MUS_TINY_LASS\n"
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
+    end
+}
+
+script Starlight_Jukebox_183 {
+    playbgm(MUS_ENCOUNTER_RIVAL_HIGH, TRUE)
+    
+	msgbox(
+    "Music: MUS_ENCOUNTER_RIVAL_HIGH\n"
+	"Made by: (UNFINISHED)", MSGBOX_SIGN)
+    end
+}
+
 
 

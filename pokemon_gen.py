@@ -321,30 +321,22 @@ def edit_file_15(data):
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
 
-    pattern = r'(static const u8 sMonSpriteAnchorCoords\[\]\[5\] = \{\n)(.*?)(\n\};)'  # capture header, body, footer
-    match = re.search(pattern, file_content, flags=re.DOTALL)
+    pattern = (
+        r'(static const u8 sMonSpriteAnchorCoords\[\]\[5\] = \{.*?)(\n\};)'
+    )
 
-    if not match:
-        print("Array not found!")
-        return
+    new_entry = (
+        f"\n    [{species_number}       - 1] = "
+        f"{{0x20, 0x23, 0x08, 0x20, 0x2d}},"
+    )
 
-    header, body, footer = match.groups()
-
-    # Split the body into lines and fix the last element
-    lines = body.strip().splitlines()
-    if lines:
-        if not lines[-1].strip().endswith(","):
-            lines[-1] += ","
-
-    # Add the new entry WITHOUT a trailing comma
-    new_entry = f"\t[{species_number}       - 1] = {{0x20, 0x23, 0x08, 0x20, 0x2d}}"
-
-    lines.append(new_entry)
-
-    # Rebuild the array
-    new_body = "\n".join(lines) + "\n"
-
-    updated_content = header + new_body + footer
+    updated_content = re.sub(
+        pattern,
+        lambda m: m.group(1) + new_entry + m.group(2),
+        file_content,
+        count=1,
+        flags=re.DOTALL
+    )
 
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write(updated_content)
