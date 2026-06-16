@@ -1,7 +1,0 @@
-const u8 gMoveDescription_WideSlash[] = _("Dummy"); //Mystery Dungeon
-const u8 gMoveDescription_VacuumCut[] = _("Dummy"); //Mystery Dungeon
-const u8 gMoveDescription_maxairstream[] = _("Dummy"); //Pidgey
-const u8 gMoveDescription_Azubatics[] = _("Dummy"); //zubat
-const u8 gMoveDescription_Agolbatics[] = _("Dummy"); //zubat
-const u8 gMoveDescription_NakeItRain[] = _("Dummy"); //amph
-const u8 gMoveDescription_BoltStreak[] = _("Dummy"); //amph 

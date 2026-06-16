@@ -1,8 +1,0 @@
-mapscripts Wormhole_Entrance_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
-        if(checkmoncaught(SPECIES_ORTHWORM)) {
-            setmaplayoutindex(LAYOUT_WORMHOLE_ENTRANCE_LAYOUT_2)
-        }
-        setrespawn(HEAL_LOCATION_WORMHOLE_ENTRANCE)
-    }
-}

@@ -1,8 +1,0 @@
-mapscripts PokemonTower_Math_Poincare_MapScripts {
-    
-}
-
-script PokemonTower_Math_Poincare_Sign {
-	msgbox("How many simply-connected, closed 3-\nmanifolds exist up to homeomorphism?\l{LEFT_ARROW}0      {UP_ARROW}1      {RIGHT_ARROW}2", MSGBOX_SIGN)
-	end
-}
