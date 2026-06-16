@@ -1,5 +1,0 @@
-script MtMoon_Square_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION:
-        end
-    
-}

@@ -1,6 +1,0 @@
-mapscripts FushciaGym_DrillRoom_MapScripts {
-    MAP_SCRIPT_ON_LOAD {
-        
-        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_DRILL_ROOM)
-    }
-}
