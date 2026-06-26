@@ -173,18 +173,20 @@ TwoIsland_JoyfulGameCorner_EventScript_Lostelle::
 	msgbox TwoIsland_JoyfulGameCorner_Text_PleaseShowMeYouBeingCool
 	release
 	end
+
+TwoIsland_Saturn::
+	lockall
+	faceplayer
+	textcolor NPC_TEXT_COLOR_MALE
+	msgbox TwoIsland_Text_Saturn
+	release
+	end
 `
 
 mapscripts TwoIsland_JoyfulGameCorner_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		
 	}
-}
-
-
-script TwoIsland_Saturn {
-	textcolor(NPC_TEXT_COLOR_BLUE)
-	msgbox("SATURN: Mwahaha!\nTEAM GALACTIC cannot be stopped!\lBoing!", MSGBOX_NPC)
 }
 
 
