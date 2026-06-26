@@ -16,6 +16,27 @@ script Route21_LassSign {
 script Route21_AroundTheWorld {
 	lock
 	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+
+	// 	special(SpawnCameraObject)
+	// applymovement(LOCALID_CAMERA, moves(
+	// 	delay_16 * 7
+	// 	walk_faster_right * 10
+	// 	walk_faster_right * 365
+	// ))
+	// applymovement(LOCALID_AROUND_WORLD_LASS, moves(
+	// 	face_right
+	// 	emote_exclamation_mark
+	// 	delay_16 * 5
+	// 	walk_right * 4
+	// 	walk_faster_right * 364
+		
+	// ))
+	// waitmovement(LOCALID_CAMERA)
+	// waitmovement(LOCALID_AROUND_WORLD_LASS)
+	// addobject(LOCALID_PLAYER)
+
+
+
 	applymovement(LOCALID_AROUND_WORLD_LASS, moves(
 		face_right
 		emote_exclamation_mark

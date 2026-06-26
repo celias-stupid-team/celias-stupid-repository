@@ -122,7 +122,7 @@ const u8 gSaveStatName_Pokedex[] = _("POKéDEX");
 const u8 gSaveStatName_Time[] = _("TIME");
 const u8 gSaveStatName_Version[] = _("VERSION");
 // CSR version number - update before each release!
-const u8 gSaveStatName_VersionNumber[] = _("1.0.93");
+const u8 gSaveStatName_VersionNumber[] = _("1.1.2");
 const u8 gText_FlyToWhere[] = _("どこへ とびますか?");
 const u8 gOtherText_Use[] = _("USE");
 const u8 gOtherText_Toss[] = _("TOSS");

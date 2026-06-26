@@ -10112,8 +10112,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_BONEMERANCH] =
     {
-        .effect = EFFECT_DOUBLE_HIT,
-        .power = 40,
+        .effect = EFFECT_HIT,
+        .power = 80,
         .type = TYPE_BIRD,
         .accuracy = 100,
         .pp = 35,
@@ -14859,7 +14859,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 120,
-        .type = TYPE_DRAGON,
+        .type = TYPE_WATER,
         .accuracy = 90,
         .pp = 5,
         .secondaryEffectChance = 0,
@@ -14871,7 +14871,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ABSORB,
         .power = 21,
-        .type = TYPE_GRASS,
+        .type = TYPE_WATER,
         .accuracy = 101,
         .pp = 21,
         .secondaryEffectChance = 0,

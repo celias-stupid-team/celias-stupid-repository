@@ -101,8 +101,9 @@ mapscripts CeladonCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_2)
 		setflag(FLAG_TEMP_3)
+		setflag(FLAG_TEMP_4)
 		if(flag(FLAG_SHINY_NIDOTRAN_SPAWNS)) {
-			clearflag(FLAG_TEMP_3)
+			clearflag(FLAG_TEMP_4)
 		}
 		clearflag(FLAG_SYS_ON_CYCLING_ROAD)
 		if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY) && !flag(FLAG_BADGE04_GET) && flag(FLAG_WORLD_MAP_CELADON_CITY)) {
@@ -110,8 +111,8 @@ mapscripts CeladonCity_MapScripts {
 		}
 		setworldmapflag(FLAG_WORLD_MAP_CELADON_CITY)
 		setbench(BENCH_CELADON)
-		if(!flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
-			setflag(FLAG_TEMP_3)
+		if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
+			clearflag(FLAG_TEMP_3)
 		} 
 		getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
 		if(checkitem(ITEM_HM06) && var(VAR_TEMP_A) == 5) {
@@ -204,6 +205,7 @@ mapscripts CeladonCity_MapScripts {
 			msgbox("I hope you take some time to\nreflect on your actions!\pAnyway, I'll be leaving now.\nBest of luck!", MSGBOX_DEFAULT)
 			closemessage
 			applymovement(LOCALID_CELADON_CELIA, Celadon_CeliaLeaves)
+			waitmovement(0)
 			removeobject(LOCALID_CELADON_CELIA)
 
 			release
