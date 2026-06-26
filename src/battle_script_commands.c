@@ -9493,6 +9493,7 @@ static void Cmd_copymovepermanently(void)
         && gLastPrintedMoves[gBattlerTarget] != MOVE_ELECTRIFY
         && gLastPrintedMoves[gBattlerTarget] != MOVE_10000_VOLTS
         && gLastPrintedMoves[gBattlerTarget] != MOVE_VOLCANIC_HEALING
+        && gLastPrintedMoves[gBattlerTarget] != MOVE_HACK_ATTACK
         && gLastPrintedMoves[gBattlerTarget] != MOVE_RAINBOW_BEAM
         && gLastPrintedMoves[gBattlerTarget] != MOVE_SHEER_COLD
         && gLastPrintedMoves[gBattlerTarget] != MOVE_WILL_O_WISP
