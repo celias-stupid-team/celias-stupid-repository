@@ -100,6 +100,7 @@ const CELIA = 15
 mapscripts CeladonCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_2)
+		setflag(FLAG_TEMP_3)
 		setflag(FLAG_TEMP_4)
 		if(flag(FLAG_SHINY_NIDOTRAN_SPAWNS)) {
 			clearflag(FLAG_TEMP_4)
@@ -110,8 +111,8 @@ mapscripts CeladonCity_MapScripts {
 		}
 		setworldmapflag(FLAG_WORLD_MAP_CELADON_CITY)
 		setbench(BENCH_CELADON)
-		if(!flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
-			setflag(FLAG_TEMP_3)
+		if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
+			clearflag(FLAG_TEMP_3)
 		} 
 		getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
 		if(checkitem(ITEM_HM06) && var(VAR_TEMP_A) == 5) {
