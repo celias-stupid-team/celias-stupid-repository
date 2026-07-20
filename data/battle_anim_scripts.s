@@ -158,7 +158,7 @@ gBattleAnims_Moves::
 	.4byte Move_SCREECH
 	.4byte Move_DOUBLE_TEAM
 	.4byte Move_RECOVER
-	.4byte Move_BULK_UP
+	.4byte Move_HARDEN
 	.4byte Move_MINIMIZE
 	.4byte Move_SMOKESCREEN
 	.4byte Move_CONFUSE_RAY

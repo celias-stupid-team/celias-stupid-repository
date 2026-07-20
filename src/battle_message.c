@@ -2165,7 +2165,7 @@ void BufferStringBattle(u16 stringId)
                 case EVENT_BATTLE_CINNABAR: 
                         if(sBattleMsgDataPtr->currentMove == MOVE_FINAL_GAMBIT )  { //Snowgravy
                         BattleStopLowHpSound();
-                        RunScriptImmediately(FadeSongAndPlayHoopa); //Play silence
+                        RunScriptImmediately(FadeSongAndPlayVictory); //Play silence
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;

@@ -1516,7 +1516,7 @@ static const struct LevelUpMove sMarowakLevelUpLearnset[] = {
     LEVEL_UP_MOVE(24, MOVE_ROCK_SLIDE),
     LEVEL_UP_MOVE(30, MOVE_POWER_UP_PUNCH),
     LEVEL_UP_MOVE(34, MOVE_SKULL_BASH),
-    LEVEL_UP_MOVE(37, MOVE_BONE_RUSH),
+    //LEVEL_UP_MOVE(37, MOVE_BONE_RUSH),
     LEVEL_UP_MOVE(40, MOVE_POPULATION_BOMB),
     LEVEL_UP_END
 };
@@ -2031,8 +2031,8 @@ static const struct LevelUpMove sPorygonLevelUpLearnset[] = {
 
 static const struct LevelUpMove sOmanyteLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_JUDGEMENT),
-    LEVEL_UP_MOVE(1, MOVE_CEASELESS_LEDGE),
-    LEVEL_UP_MOVE(1, MOVE_ANARCHYONCUTTER),
+    LEVEL_UP_MOVE(21, MOVE_CEASELESS_LEDGE),
+    LEVEL_UP_MOVE(21, MOVE_ANARCHYONCUTTER),
     LEVEL_UP_END
 };
 
