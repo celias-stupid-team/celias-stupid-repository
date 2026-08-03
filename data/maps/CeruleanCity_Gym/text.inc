@@ -171,7 +171,7 @@ CeruleanCity_Gym_UnlockedCommentary::
 CeruleanCity_Gym_CeliaUnlocksCommentary::
 	.string "There!\n"
 	.string "Now you've unlocked Dev Commentary!\p"
-	.string "Look around to find be in various\n"
+	.string "Look around to find me in various\n"
 	.string "places across KANTO!\l"
 	.string "I'll have fun tidbits about the hack!\p"
 	.string "And while you're exploring, I\n"

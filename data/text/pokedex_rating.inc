@@ -575,7 +575,7 @@ PokedexRating_Text_HintMagnalone::
 
 
 PokedexRating_Text_HintDoduo::
-	.string "ROUTE 7 has a wild POKéMON\n"
+	.string "ROUTE 8 has a wild POKéMON\n"
 	.string "you never caught.\p"
 	.string "Be sure to go back for it!\n$"
 

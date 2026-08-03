@@ -1,6 +1,5 @@
 raw `
-LavenderTown_VolunteerPokemonHouse_MapScripts::
-	.byte 0
+
 
 
 
@@ -75,7 +74,13 @@ LavenderTown_VolunteerPokemonHouse_EventScript_Blackboard::
 	msgbox LavenderTown_VolunteerPokemonHouse_Text_Blackboard, MSGBOX_SIGN
 	end
 `
-
+mapscripts LavenderTown_VolunteerPokemonHouse_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_HIDE_POKEHOUSE_FUJI) && !(checkitem(ITEM_MASTER_BALL) || checkmoncaught(SPECIES_MR_MIME))) {
+			setobjectxyperm(LOCALID_FUJI_MISTER_BALL, 3, 3)
+		}
+	}
+}
 
 script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji {
 	lock

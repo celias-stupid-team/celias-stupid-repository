@@ -785,3 +785,9 @@ script EventScript_BufferKeyItemsPocket {
 }
 
 
+script EventScript_OldGrass {
+	msgbox(
+	"There's a old grass by the water.\n"
+	"", MSGBOX_SIGN)
+
+}
