@@ -114,7 +114,7 @@ const u32 gProtectedMoves[] = {
     MOVE_WATERFALL,
     MOVE_RETREAT,
     MOVE_SURF,
-    //MOVE_GULP,
+    MOVE_GULP,
     MOVE_WHIRLPOOL,
     MOVE_MAGICAL_LEAF,
     MOVE_BRICK_BREAK,

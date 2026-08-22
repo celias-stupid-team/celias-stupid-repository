@@ -4,7 +4,7 @@ raw `
 
 mapscripts Route19_UnusedHouse_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		if(checkmoncaught(SPECIES_GHOLDENGO) && flag(FLAG_BADGE05_GET)) {
+		if(flag(FLAG_BADGE05_GET)) {
 			setmaplayoutindex(LAYOUT_SURF_FURRET_2)
 		}
 	}

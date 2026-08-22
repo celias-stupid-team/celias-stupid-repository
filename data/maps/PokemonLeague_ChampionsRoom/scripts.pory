@@ -372,7 +372,7 @@ script PokemonLeagueChampionsRoom_FinishedBattle {
 	"You should be proud of yourself.\p"
 
 	"And all those times I bullied you,{PAUSE 20}\n"
-	"I'd done so I could build you up.\l"
+	"I'd done it so I could build you up.\l"
 	"I hope you can understand.\p"
 
 	"Now, come along!{PAUSE 20}\n"

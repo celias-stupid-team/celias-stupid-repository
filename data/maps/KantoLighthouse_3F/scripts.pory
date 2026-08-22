@@ -74,19 +74,28 @@ script KantoLighthouse_3F_Dad {
 }
 
 script KantoLighthouse_3F_Ampharos {
-    lock
+
+
+	
+    goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+    //callnative(GetObjectEventTrainerRangeFromTemplate)
     setwildbattle(SPECIES_AMPHAROS_MEGA, 30, ITEM_SECRETETHER)
 	waitse
-	playmoncry(SPECIES_AMPHAROS_MEGA, CRY_MODE_ENCOUNTER)
+	playmoncry(VAR_RESULT, CRY_MODE_ENCOUNTER)
 	delay(40)
 	waitmoncry
 	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
 	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
 	specialvar(VAR_RESULT, GetBattleOutcome)
     fadescreenswapbuffers(FADE_TO_BLACK)
     removeobject(VAR_LAST_TALKED)
     fadescreenswapbuffers(FADE_FROM_BLACK)
-    release
+	release
+	end
 }
 
 //Gonna put the common encounter script here just to see if it works 

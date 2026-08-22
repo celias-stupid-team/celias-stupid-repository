@@ -9915,7 +9915,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
     [MOVE_LIGHT_OF_RUINS] =
     {
-        .effect = EFFECT_DRAGON_RAGE, // damage number is set in the BattleScript
+        .effect = EFFECT_HIT, // damage number is set in the BattleScript
         .power = 140,
         .type = TYPE_FAIRY,
         .accuracy = 100,
@@ -13290,7 +13290,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 85,
-        .type = TYPE_FIGHTING,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
