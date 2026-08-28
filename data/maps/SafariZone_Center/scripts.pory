@@ -21,7 +21,7 @@ const DMCA_Right = 3
 
 mapscripts SafariZone_Center_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		setrespawn(HEAL_LOCATION_FUSHCIA_OUTSIDE)
+		setrespawn(HEAL_LOCATION_ROUTE15)
 
 		if(flag(FLAG_FREED_KANGA)) {
 			call(SafariZone_Center_BreakLeftWall)

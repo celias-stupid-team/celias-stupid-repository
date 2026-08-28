@@ -140,7 +140,7 @@ mapscripts FushciaCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: FushciaCity_OnTransition
 	MAP_SCRIPT_ON_LOAD {
 		if(flag(FLAG_NO_TM_CASE)) {
-			setrespawn(HEAL_LOCATION_FUSHCIA_OUTSIDE)
+			setrespawn(HEAL_LOCATION_ROUTE15)
 		}
 		setvar(VAR_USED_CUT, 0)
 		setvar(VAR_0x8004, SPECIES_HORSEA)
@@ -584,7 +584,7 @@ movement WalkInPlaceLeft {
 const DAD = 1
 script FushciaCity_Dad {
 	lock
-	setrespawn(HEAL_LOCATION_FUSHCIA_OUTSIDE)
+	setrespawn(HEAL_LOCATION_ROUTE15)
 	applymovement(DAD, Common_Movement_FaceDown)
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out there?\pI'm just relaxing here in my\ncage.\lI love when people come to see me!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
