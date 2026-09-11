@@ -39,6 +39,7 @@ mapscripts AetherParadise_Island_MapScripts {
 script AetherParadise_LargeOak {
     lock
     textcolor(NPC_TEXT_COLOR_GREEN)
+	famechecker(FAMECHECKER_GREAT_BAY, 2)
 
     msgbox(
 	"SAMSON: Hello, there!\n"

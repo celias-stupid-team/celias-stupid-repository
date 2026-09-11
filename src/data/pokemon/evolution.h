@@ -30,7 +30,8 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_SEVIPER]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
 
     [SPECIES_SANDSHREW]  = {{EVO_LEVEL, 20, SPECIES_SANDSLASH},
-                            {EVO_ITEM, ITEM_RAT_STONE, SPECIES_MEOWTH}},
+                        //    {EVO_ITEM, ITEM_RAT_STONE, SPECIES_MEOWTH}
+                        },
 
     [SPECIES_NIDORAN_F]  = {{EVO_LEVEL, 16, SPECIES_NIDORINO}},
     [SPECIES_NIDORINA]   = {{EVO_ITEM, ITEM_DAWN_STONE, SPECIES_NIDOQUEEN}},
@@ -44,7 +45,8 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_ZUBAT]      = {{EVO_ITEM, ITEM_W_EMBLEM, SPECIES_WOOBAT}}, //Zubat evolves from the Seafoam Island quest
 
     [SPECIES_RAICHU]     = {{EVO_TRADE, 0, SPECIES_MEOWTH},
-                            {EVO_ITEM, ITEM_RAT_STONE, SPECIES_MEOWTH}},
+                        //    {EVO_ITEM, ITEM_RAT_STONE, SPECIES_MEOWTH}
+                        },
 
     [SPECIES_PARAS]      = {{EVO_ITEM, ITEM_SUN_STONE, SPECIES_PARASECT}},
 
@@ -121,7 +123,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
                             {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_SYLVEON},
                             {EVO_ITEM, ITEM_SOUL_DEW, SPECIES_LATIAS},
                             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EEVEE},
-                            {EVO_ITEM, ITEM_RAT_STONE, SPECIES_EEVEE},
+                           // {EVO_ITEM, ITEM_RAT_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_SUN_STONE, SPECIES_EEVEE}},
 
@@ -255,7 +257,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_BUTTERFREE]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_PRIMEAPE]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_SANDSLASH]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
-    [SPECIES_PIKABLU]     = {{EVO_ITEM, ITEM_RAT_STONE, SPECIES_MEOWTH}},
+    [SPECIES_PIKABLU]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_JIGGLYPUFF_ABOVE]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_JIGGLYPUFF]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_NIDOQUEEN]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},

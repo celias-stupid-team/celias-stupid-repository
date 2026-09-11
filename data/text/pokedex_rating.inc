@@ -751,7 +751,7 @@ PokedexRating_Text_HintAmoongus::
 	.string "wonderful POKé BALLS.\p"
 	.string "Have you been able to get his\n"
 	.string "attention?\l"
-	.string "Maybe he's selling something good.$"
+	.string "Maybe surrounding rooms will help.$"
 
 
 PokedexRating_Text_HintRhydon::

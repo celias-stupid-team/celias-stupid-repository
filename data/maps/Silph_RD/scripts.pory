@@ -59,7 +59,7 @@ script SilphCo_RD_ApplinKid {
 		"By the way, I'm starving.\n"
 		"Can I have something to eat?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			if(checkitem(ITEM_HAMBURGER)) {
+			if(flag(FLAG_GOT_HAMBURGER)) {
 				removeitem(ITEM_HAMBURGER)
 				msgbox(
 				"Oh, that's a HAMBURGER!\n"

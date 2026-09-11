@@ -3,6 +3,7 @@ mapscripts AetherParadise_Entrance_MapScripts {
         if(checkitem(ITEM_NEBBY)) { // Outside of Aether, make On Frame Table script for Nebby, then after two failed attempts do early nebby
             setvar(VAR_TEMP_9, 1)
         }
+		famechecker(FAMECHECKER_GREAT_BAY, 2)
 		if(flag(FLAG_DMCA_SKULL_FIGHT_1)) {
 			setvar(VAR_TEMP_0, 1)
 		}

@@ -7149,7 +7149,7 @@
     {
       "english": "HAMBURGER",
       "itemId": "ITEM_HAMBURGER",
-      "price": 300,
+      "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 80,
       "description_english": "The last HAMBURGER in existence.\\nIt restores the HP of one POKéMON\\nby 80 points.",

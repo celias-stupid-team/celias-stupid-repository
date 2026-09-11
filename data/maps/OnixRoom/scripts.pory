@@ -26,8 +26,8 @@ script OnixRoom_Onix {
 
 script OnixRoom_Suckman {
 	msgbox(
-	"IRATE GAMER: What the fuck is\n"
-	"this shit?\p"
+	"IRATE GAMER: What the shit is\n"
+	"this fuck?\p"
 
 	"I am transphobic.\n"
 	"", MSGBOX_NPC)

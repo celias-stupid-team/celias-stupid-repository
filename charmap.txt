@@ -905,8 +905,18 @@ SATURN_N                  = F9 2E
 SATURN_G                  = F9 2F
 SATURN_BANG                  = F9 30
 
-WALUIGI                  = F9 40
 
+WALUIGI                  = F9 40
+BRAILLE_I                  = F9 41
+BRAILLE_T                  = F9 42
+BRAILLE_S                  = F9 43
+BRAILLE_F                  = F9 44
+BRAILLE_L                  = F9 45
+BRAILLE_A                  = F9 46
+BRAILLE_N                  = F9 47
+BRAILLE_B                  = F9 48
+BRAILLE_R                  = F9 49
+BRAILLE_E                  = F9 4A
 
 EMOJI_UNDERSCORE = F9 D0
 EMOJI_PIPE = F9 D1
