@@ -5171,7 +5171,7 @@ static const struct TrainerMonItemCustomMoves sParty_EliteFourLance[] = {
         .lvl = 18,
         .species = SPECIES_WINGULL,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_SUPERSONIC, MOVE_WATER_GUN, MOVE_WING_ATTACK, MOVE_NONE},
+        .moves = {MOVE_WING_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 250,

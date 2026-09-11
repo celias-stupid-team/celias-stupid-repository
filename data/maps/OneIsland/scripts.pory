@@ -268,6 +268,7 @@ script OneIsland_Kaylee {
 			walk_down
 		))
 		waitmovement(0)
+		clearflag(FLAG_TEMP_10)
 		release
 		end
 	}
@@ -416,6 +417,7 @@ script OneIsland_Kaylee {
 		"Who knows?\n"
 		"Maybe you'll need it someday.", MSGBOX_DEFAULT)
 		setflag(FLAG_DID_ARTICUNO_FIGHT)
+		clearflag(FLAG_TEMP_10)
 
 
 		release

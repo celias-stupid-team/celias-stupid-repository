@@ -377,3 +377,10 @@ script Common_Script_GiftPokemon30 {
 			break
 	}
 }
+
+script PalletTown_WrongTV {
+	msgbox(
+	"Oops!\n"
+	"Wrong TV!", MSGBOX_SIGN)
+
+}

@@ -4,7 +4,7 @@ EventScript_ItemfinderDigUpUnderfootItem::
 	waitse
 	setflag FLAG_HIDDEN_ITEM_ROUTE12_LEFTOVERS
 	setflag FLAG_SHINY_CREATION
-	goto Route25_Hbox
+	goto Itemfinder_Hbox
 	end
 
 EventScript_DigUpItemPutInPocket::

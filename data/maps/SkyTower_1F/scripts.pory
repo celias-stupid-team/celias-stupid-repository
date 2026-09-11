@@ -11,8 +11,23 @@ mapscripts SkyTower_1F_MapScripts {
 			setflag(FLAG_TEMP_C)
 		}
 		setflag(FLAG_TEMP_A)
+		setflag(FLAG_TEMP_9)
+		if(var(VAR_SKY_TOWER_LASS) != 0 && !flag(FLAG_SKY_TOWER_STAIR_ORB)) {
+			clearflag(FLAG_TEMP_9)
+		}
 	}
 }
+
+script SkyTower_Sphealia {
+	msgbox(
+	"Stuck on the next floor?\n"
+	"Don't worry!\l"
+	"You don't have to backtrack.\p"
+
+	"Think about your tools and pay\n"
+	"careful attention to the problem.", MSGBOX_NPC)
+}
+
 
 script SkyTower_UnderConstruction {
 	msgbox(

@@ -47,10 +47,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HOSPITAL_LADY",
-      "x": 12,
-      "y": 12,
+      "x": 0,
+      "y": 8,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -75,8 +75,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 0,
-      "y": 8,
+      "x": -5,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -131,8 +131,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 0,
-      "y": 10,
+      "x": -7,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -209,16 +209,16 @@
     },
     {
       "type": "sign",
-      "x": -1,
-      "y": 7,
+      "x": -5,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TwoIsland_NoProblem"
     },
     {
       "type": "sign",
-      "x": -1,
-      "y": 9,
+      "x": -6,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TwoIsland_NoProblem"

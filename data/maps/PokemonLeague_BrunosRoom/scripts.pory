@@ -181,3 +181,11 @@ script BrunoRoom_Oak {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script BrunoRoom_NotOak {
+	msgbox(
+	"That's not OAK, silly!\n"
+	"", MSGBOX_SIGN)
+
+}
