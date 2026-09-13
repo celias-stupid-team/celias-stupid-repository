@@ -2477,6 +2477,10 @@ static void CreateInGameTradePokemonInternal(u8 playerSlot, u8 inGameTradeIdx)
         
     } else {
         DebugPrintf("Markings: %d", markings);
+        if(inGameTradeIdx == INGAME_TRADE_BULBASAUR) {
+            FlagClear(FLAG_SHINY_CREATION);
+
+        }
         CreateMon(tradeMon, inGameTrade->species, level, USE_RANDOM_IVS, TRUE, inGameTrade->personality, TRUE, inGameTrade->otId);
 
     }

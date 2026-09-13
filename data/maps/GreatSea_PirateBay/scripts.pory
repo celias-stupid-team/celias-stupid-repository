@@ -83,7 +83,7 @@ script PirateBay_BreakTheSealHint {
 script PirateBay_BurnDriveGuy {
 	lock
 	faceplayer
-	if(flag(FLAG_GOT_BURN_DRIVE)) {
+	if(checkitem(ITEM_BURN_DRIVE) || flag(FLAG_HIDE_SAFFRON_ROCKETS)) {
 		msgbox(
 		"I put that disk together myself!\p"
 
@@ -101,7 +101,9 @@ script PirateBay_BurnDriveGuy {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	giveitem_msg("{PLAYER} obtained the\nBURN DRIVE!", ITEM_BURN_DRIVE)
 	waitfanfare
+	//if(checkitem(ITEM_BURN_DRIVE)) {
 	setflag(FLAG_GOT_BURN_DRIVE)
+	
 
 	release
 }

@@ -843,6 +843,7 @@ script CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_Garett {
 
 	"How about it?\n"
 	"", MSGBOX_YESNO)
+	clearflag(FLAG_SHINY_CREATION)
 	goto_if_eq (VAR_RESULT, NO, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_DeclineTrade)
 	call (EventScript_ChooseMonForInGameTrade)
 	goto_if_ge (VAR_0x8004, PARTY_SIZE, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_DeclineTrade)
