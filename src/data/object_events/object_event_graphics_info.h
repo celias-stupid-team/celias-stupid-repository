@@ -11576,3 +11576,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HONEDGE = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GUNLESSTHER = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GUNLESSTHER,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 768,
+    .width = 32,
+    .height = 48,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x48,
+    .subspriteTables = gObjectEventSpriteOamTables_32x48,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_GUNLESSTHER,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+

@@ -630,6 +630,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GARDEVOIRSTAR;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MASQUERADE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SOBREROLASS;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HONEDGE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GUNLESSTHER;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -1261,4 +1262,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MASQUERADE] = &gObjectEventGraphicsInfo_MASQUERADE,
     [OBJ_EVENT_GFX_SOBREROLASS] = &gObjectEventGraphicsInfo_SOBREROLASS,
     [OBJ_EVENT_GFX_HONEDGE] = &gObjectEventGraphicsInfo_HONEDGE,
+    [OBJ_EVENT_GFX_GUNLESSTHER] = &gObjectEventGraphicsInfo_GUNLESSTHER,
 };

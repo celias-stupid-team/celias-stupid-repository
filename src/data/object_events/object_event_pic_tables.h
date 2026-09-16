@@ -6800,3 +6800,14 @@ const struct SpriteFrameImage gObjectEventPicTable_HONEDGE[] = {
     overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 7),
     overworld_frame(gObjectEventPic_HONEDGE, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_GUNLESSTHER[] = {
+    overworld_frame(gObjectEventPic_GUNLESSTHER, 4, 6, 0),
+    overworld_frame(gObjectEventPic_GUNLESSTHER, 4, 6, 1),
+    overworld_frame(gObjectEventPic_GUNLESSTHER, 4, 6, 2),
+    overworld_frame(gObjectEventPic_GUNLESSTHER, 4, 6, 0),
+    overworld_frame(gObjectEventPic_GUNLESSTHER, 4, 6, 0),
+    overworld_frame(gObjectEventPic_GUNLESSTHER, 4, 6, 1),
+    overworld_frame(gObjectEventPic_GUNLESSTHER, 4, 6, 1),
+    overworld_frame(gObjectEventPic_GUNLESSTHER, 4, 6, 2),
+    overworld_frame(gObjectEventPic_GUNLESSTHER, 4, 6, 2),
+};

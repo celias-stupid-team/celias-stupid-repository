@@ -929,3 +929,5 @@ const u32 gObjectEventPic_SOBREROLASS[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_SOBREROLASS[] = INCBIN_U16("graphics/object_events/palettes/SOBREROLASS.gbapal");
 const u32 gObjectEventPic_HONEDGE[] = INCBIN_U32("graphics/object_events/pics/stupid/HONEDGE.4bpp");
 const u16 gObjectEventPal_HONEDGE[] = INCBIN_U16("graphics/object_events/palettes/HONEDGE.gbapal");
+const u32 gObjectEventPic_GUNLESSTHER[] = INCBIN_U32("graphics/object_events/pics/stupid/GUNLESSTHER.4bpp");
+const u16 gObjectEventPal_GUNLESSTHER[] = INCBIN_U16("graphics/object_events/palettes/GUNLESSTHER.gbapal");

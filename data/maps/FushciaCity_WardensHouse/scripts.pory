@@ -238,9 +238,9 @@ script WardensHouse_GunDog {
 	faceplayer
 	playmoncry(SPECIES_ARCANINE, CRY_MODE_DEFAULT)
 	waitmoncry
-	msgbox(
-	"He's getting ready to grow up!\n"
-	"", MSGBOX_DEFAULT)
+	// msgbox(
+	// "He's getting ready to grow up!\n"
+	// "", MSGBOX_DEFAULT)
 	release
 	end
 }
