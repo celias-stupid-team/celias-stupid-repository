@@ -19,6 +19,17 @@ mapscripts TwoIsland_CapeBrink_MapScripts {
 
 			"C'mon in!\n"
 			"", MSGBOX_DEFAULT)
+			if(checkitem(ITEM_SHAMPOO)) {
+				removeitem(ITEM_SHAMPOO, 1)
+				additem(ITEM_PRETTY_HAIR)
+			}
+			if(checkpartymon(SPECIES_AMPHAROS)) {
+				checkpartymonslot(SPECIES_AMPHAROS)
+				callnative(AmpharosHairEvo)
+				if(var(VAR_RESULT)) {
+					
+				}
+			}
 			setvar(VAR_TWO_ISLAND_COUNTER, 0)
 			warp(MAP_TWO_ISLAND_WATERFALL_CAVE, 0)
 
