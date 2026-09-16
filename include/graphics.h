@@ -13765,3 +13765,9 @@ extern const u8 gMonIcon_DMCACUTOUT[];
 
 extern const u32 gItemIcon_NothingBurger[];
 extern const u32 gItemIconPalette_NothingBurger[];
+
+extern const u32 gItemIcon_Shampoo[];
+extern const u32 gItemIconPalette_Shampoo[];
+
+extern const u32 gItemIcon_PRETTYHAIR[];
+extern const u32 gItemIconPalette_PRETTYHAIR[];

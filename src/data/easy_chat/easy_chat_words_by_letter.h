@@ -1927,25 +1927,25 @@ static const u16 sEasyChatWordsByLetter_X[] = {
 };
 
 static const u16 sEasyChatWordsByLetter_Y[] = {
-    EC_WORD_YAHOO,
-    EC_POKEMON(YANMA),
-    EC_MOVE(YAWN),
-    EC_WORD_YAY,
-    EC_WORD_YEAH,
-    EC_WORD_YEAH_YEAH,
-    EC_WORD_YEEHAW_EXCL,
+    // EC_WORD_YAHOO,
+    // EC_POKEMON(YANMA),
+    // EC_MOVE(YAWN),
+    // EC_WORD_YAY,
+    // EC_WORD_YEAH,
+    // EC_WORD_YEAH_YEAH,
+    // EC_WORD_YEEHAW_EXCL,
     EC_WORD_YES,
-    EC_WORD_YES_SIR_EXCL,
-    EC_WORD_YESTERDAY,
-    EC_WORD_YET,
-    EC_WORD_YO,
-    EC_WORD_YOU,
-    EC_WORD_YOU_RE,
-    EC_WORD_YOU_VE,
-    EC_WORD_YOUNG,
-    EC_WORD_YOUR,
-    EC_WORD_YOURS,
-    EC_WORD_YUP,
+    // EC_WORD_YES_SIR_EXCL,
+    // EC_WORD_YESTERDAY,
+    // EC_WORD_YET,
+    // EC_WORD_YO,
+    // EC_WORD_YOU,
+    // EC_WORD_YOU_RE,
+    // EC_WORD_YOU_VE,
+    // EC_WORD_YOUNG,
+    // EC_WORD_YOUR,
+    // EC_WORD_YOURS,
+    // EC_WORD_YUP,
 };
 
 static const u16 sEasyChatWordsByLetter_Z[] = {
@@ -2061,7 +2061,7 @@ static const struct EasyChatWordsByLetter sEasyChatWordsByLetterPointers[] = {
     },
     {
         .words = sEasyChatWordsByLetter_Y,
-        .numWords = 19,
+        .numWords = 1,
     },
     {
         .words = sEasyChatWordsByLetter_Z,

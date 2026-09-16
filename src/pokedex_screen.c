@@ -1658,8 +1658,16 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
         if (type1 != gSpeciesInfo[species].types[1])
             BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, gSpeciesInfo[species].types[1] + 1, 0x98, y);
     } else {
-        if (obtainable && species != SPECIES_DRAGONITE && species != SPECIES_HORSEA) {
-            BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_OBTAINABLE, 0x28, y); // Icon Obtainable
+        if (obtainable) {
+            if(species == SPECIES_DRAGONITE || species == SPECIES_HORSEA) {
+                if(FlagGet(FLAG_HORSEA_MARKED_OBTAINABLE)) {
+                    BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_OBTAINABLE, 0x28, y); // Icon Obtainable
+                    //please don't make me pretty this up
+                }
+            } else {
+                BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_OBTAINABLE, 0x28, y); // Icon Obtainable
+
+            }
         }
     }
 }
@@ -3438,6 +3446,11 @@ u8 DexScreen_DrawMonAreaPage(void)
     DexScreen_PrintControlInfo(gText_CancelPreviousData);
     PutWindowTilemap(1);
     CopyWindowToVram(1, COPYWIN_GFX);
+    if(species == SPECIES_HORSEA) {
+        FlagSet(FLAG_HORSEA_MARKED_OBTAINABLE);
+        RunScriptImmediately(SetPlayerPokedexValues);
+
+    }
 
     return 1;
 }

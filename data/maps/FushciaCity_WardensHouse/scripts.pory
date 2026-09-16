@@ -63,7 +63,7 @@ const WARDEN = 1
 mapscripts FushciaCity_WardensHouse_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_A)
-		if(var(VAR_CURRENT_CHAPTER) >= 7) {
+		if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
 			clearflag(FLAG_TEMP_A)
 		}
 	}

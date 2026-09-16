@@ -7801,6 +7801,38 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "SHAMPOO",
+      "itemId": "ITEM_SHAMPOO",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Source of the longest speedrun in\\nhistory. After a long wait, it'll\\nbecome SPLENDID HAIR.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "PRETTY HAIR",
+      "itemId": "ITEM_PRETTY_HAIR",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Five minutes of waiting has made\\namazingly moist and lively hair.\\nAbsolutely worth a world record!",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_EvoItem",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

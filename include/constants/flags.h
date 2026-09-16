@@ -531,7 +531,7 @@
 #define FLAG_RAT_GUY_EVOLVED  0x1E0
 #define FLAG_0x1E1         0x1E1
 #define FLAG_0x1E2            0x1E2
-#define FLAG_0x1E3      0x1E3
+#define FLAG_HORSEA_MARKED_OBTAINABLE      0x1E3
 #define FLAG_SHINY_GOLDEEN_FOUND     0x1E4
 #define FLAG_DEFEATED_DMCA_KOGA            0x1E5
 #define FLAG_RECEIVED_MESPRIT 0x1E6

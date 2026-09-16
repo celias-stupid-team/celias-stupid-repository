@@ -6055,7 +6055,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_PICKLE_SPEAR] =    {
-        .effect = EFFECT_MULTI_HIT,
+        .effect = EFFECT_HIT,
         .power = 25,
         .type = TYPE_POISON,
         .accuracy = 95,

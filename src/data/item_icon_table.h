@@ -512,5 +512,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_ILEXIR]      =  {gItemIcon_Ilexir, gItemIconPalette_Ilexir},
     [ITEM_HYPER_REPEL]      =  {gItemIcon_HyperRepel, gItemIconPalette_HyperRepel},
     [ITEM_NOTHING_BURGER]      =  {gItemIcon_NothingBurger, gItemIconPalette_NothingBurger},
+    [ITEM_SHAMPOO]      =  {gItemIcon_Shampoo, gItemIconPalette_Shampoo},
+    [ITEM_PRETTY_HAIR]      =  {gItemIcon_PRETTYHAIR, gItemIconPalette_PRETTYHAIR},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

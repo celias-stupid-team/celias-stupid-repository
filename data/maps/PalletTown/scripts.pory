@@ -453,27 +453,54 @@ script PalletTown_PostgameCelia {
 	clearflag (FLAG_DEFEATED_AGATHA)
 	clearflag (FLAG_DEFEATED_LANCE)
 	clearflag (FLAG_DEFEATED_CHAMP)
-	msgbox(
-	"Hello!\p"
+	if(flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
+		msgbox(
+		"Hello!\p"
 
-	"Thank you so much for playing\n"
-	"Celia's Stupid Romhack!\p"
+		"Thank you so much for playing\n"
+		"Celia's Stupid Romhack!\p"
 
-	"There is not a formal post-game,\n"
-	"but there's still plenty to find!\p"
+		"There's not a formal post-game,\n"
+		"but there's still plenty to find!\p"
 
-	"Feel free to explore the world and\n"
-	"find as many secrets as you can!\p"
+		"Feel free to explore the world and\n"
+		"find as many secrets as you can!\p"
 
-	"By the way: Check the right side\n"
-	"of the TV in your house.\p"
+		"By the way: Check the right side\n"
+		"of the TV in your house.\p"
 
-	"A friend has been waiting for you\n"
-	"there since the beginning.\p"
-	
-	"And when you're ready, go visit\n"
-	"RAINBOW CLOUD again to uncover\l"
-	"my final challenge for you.", MSGBOX_NPC)
+		"A friend has been waiting for you\n"
+		"there since the beginning.\p"
+		
+		"And when you're ready, go visit\n"
+		"RAINBOW CLOUD again to uncover\l"
+		"my final challenge for you.", MSGBOX_NPC)
+
+	} else {
+		msgbox(
+		"Hello!\p"
+
+		"Thank you so much for playing\n"
+		"Celia's Stupid Romhack!\p"
+
+		"There's not a formal post-game,\n"
+		"but there's still plenty to find!\p"
+
+		"Feel free to explore the world and\n"
+		"find as many secrets as you can!\l"
+		"I know STARLIGHT wants to say hi."
+
+		"By the way: Check the right side\n"
+		"of the TV in your house.\p"
+
+		"A friend has been waiting for you\n"
+		"there since the beginning.\p"
+		
+		"And when you're ready, go visit\n"
+		"RAINBOW CLOUD again to uncover\l"
+		"my final challenge for you.", MSGBOX_NPC)
+
+	}
 }
 
 

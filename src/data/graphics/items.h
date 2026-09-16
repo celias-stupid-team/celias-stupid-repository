@@ -1020,3 +1020,9 @@ const u32 gItemIconPalette_HyperRepel[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_NothingBurger[] = INCBIN_U32("graphics/items/icons/nothing_burger.4bpp.lz");
 const u32 gItemIconPalette_NothingBurger[] = INCBIN_U32("graphics/items/icon_palettes/nothing_burger.gbapal.lz");
+
+const u32 gItemIcon_Shampoo[] = INCBIN_U32("graphics/items/icons/shampoo.4bpp.lz");
+const u32 gItemIconPalette_Shampoo[] = INCBIN_U32("graphics/items/icon_palettes/shampoo.gbapal.lz");
+
+const u32 gItemIcon_PRETTYHAIR[] = INCBIN_U32("graphics/items/icons/pretty_hair.4bpp.lz");
+const u32 gItemIconPalette_PRETTYHAIR[] = INCBIN_U32("graphics/items/icon_palettes/pretty_hair.gbapal.lz");
