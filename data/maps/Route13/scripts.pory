@@ -595,7 +595,7 @@ script CeliaSecrets_Bonus_PayDayTM {
 }
 
 script CeliaSecrets_Bonus_ShinyGun {
-	msgbox("In retrospect, this shiny was\nprobably a little too easy.\pOh well.\n", MSGBOX_NPC)
+	msgbox("No more shiny here!\nIt was way too easy.", MSGBOX_NPC)
 }
 
 script CeliaSecrets_Bonus_TauntTM {

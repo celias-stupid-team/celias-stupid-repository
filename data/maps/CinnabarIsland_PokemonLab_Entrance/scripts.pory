@@ -30,9 +30,46 @@ mapscripts CinnabarIsland_PokemonLab_Entrance_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		if(!flag(FLAG_TALKED_TO_SWORDFUCK)) {
 			setflag(FLAG_TEMP_5)
+			setflag(FLAG_TEMP_6) //The gun
+		}
+		if(flag(FLAG_CUT_GUNTHER)) {
+			setflag(FLAG_TEMP_6)
 		}
 
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_5, 1 {
+			setvar(VAR_TEMP_5, 0)
+			delay(45)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER} got a new GUN!", MSGBOX_DEFAULT)
+			waitfanfare
+			setflag(FLAG_SHINY_CREATION)
+			setflag(FLAG_SHINY_HAUNTER)
+			setvar(VAR_USED_CUT, 0)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
+			copyvar(VAR_TEMP_1, SPECIES_REMORAID)
+			givemon(SPECIES_REMORAID, 30)
+			clearflag(FLAG_SHINY_CREATION)
+			switch(var(VAR_RESULT)) {
+				case 0: //Mon goes to party
+					bufferspeciesname(STR_VAR_1, SPECIES_REMORAID)
+					
+				case 1: //Mon goes to PC
+					bufferspeciesname(STR_VAR_1, SPECIES_REMORAID) //Breaks here??
+						
+				case 2:
+					goto(EventScript_NoMoreRoomForPokemon)
+					
+			}
+	
+
+			release
+			end
+
+		}
+	]
 }
 
 script PokemonLab_BlockingTree {

@@ -529,7 +529,7 @@
 #define FLAG_SKY_TOWER_BILL           0x1DE
 #define FLAG_SKY_TOWER_MONEY_ORB                0x1DF
 #define FLAG_RAT_GUY_EVOLVED  0x1E0
-#define FLAG_0x1E1         0x1E1
+#define FLAG_CUT_GUNTHER         0x1E1
 #define FLAG_0x1E2            0x1E2
 #define FLAG_HORSEA_MARKED_OBTAINABLE      0x1E3
 #define FLAG_SHINY_GOLDEEN_FOUND     0x1E4

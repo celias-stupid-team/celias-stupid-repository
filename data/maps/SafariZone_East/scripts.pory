@@ -16,6 +16,10 @@ SafariZone_East_EventScript_AreaSign::
 mapscripts SafariZone_East_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setbench(BENCH_SAFARIZONE_EAST)
+		setflag(FLAG_TEMP_A)
+		if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			clearflag(FLAG_TEMP_A)
+		}
 	}
 }
 
@@ -49,7 +53,7 @@ script SafariZone_MazeSign {
 script SafariZone_WaterGunTM {
 	lock
 	if(!flag(FLAG_NO_TM_CASE)) {
-		setflag(FLAG_SHINY_CREATION) // GUN
+		//setflag(FLAG_SHINY_CREATION) // GUN
 		playfanfare(MUS_LEVEL_UP)
 		removeobject(VAR_LAST_TALKED)
 		msgbox("{PLAYER} found the TM11!\nIt contained WATER GUN!", MSGBOX_DEFAULT)
@@ -57,7 +61,7 @@ script SafariZone_WaterGunTM {
 		delay(20)
 		msgbox("…Wait, no!\nThis is just a regular GUN!", MSGBOX_DEFAULT)
 		playfanfare(MUS_LEVEL_UP)
-		msgbox("{PLAYER} found a fucking GUN!\n", MSGBOX_DEFAULT)
+		msgbox("{PLAYER} found another GUN!\n", MSGBOX_DEFAULT)
 		waitfanfare
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
 		call(Common_Script_GiftPokemon)

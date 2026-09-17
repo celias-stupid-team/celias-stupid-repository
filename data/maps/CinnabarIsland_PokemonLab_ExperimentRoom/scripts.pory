@@ -492,12 +492,38 @@ script Cinnabar_Shield {
 
 
 script Cinnabar_Gunther {
+	lock
 	textcolor(NPC_TEXT_COLOR_BLUE)
-	msgbox(
-	"Hi, I'm GUNTHER.\p"
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			turnobject(LOCALID_GUNTHER_BODY, DIR_SOUTH)
+			turnobject(LOCALID_GUNTHER, DIR_SOUTH)
+		case DIR_EAST:
+			turnobject(LOCALID_GUNTHER_BODY, DIR_WEST)
+			turnobject(LOCALID_GUNTHER, DIR_WEST)
+		case DIR_WEST:
+			turnobject(LOCALID_GUNTHER_BODY, DIR_EAST)
+			turnobject(LOCALID_GUNTHER, DIR_EAST)
 
-	"My friends are dickheads.\n"
-	"", MSGBOX_NPC)
+	}
+	if(flag(FLAG_CUT_GUNTHER)) {
+	msgbox(
+		"Hi, I'm    THER.\p"
+
+		"My friends are dickheads.\n"
+		"", MSGBOX_DEFAULT)
+
+	} else {
+		msgbox(
+		"Hi, I'm GUNTHER.\p"
+
+		"My friends are dickheads.\n"
+		"", MSGBOX_DEFAULT)
+
+	}
+	release
+	end
 }
 
 script ExperimentRoom_FlavorText1 {

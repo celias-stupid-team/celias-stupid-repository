@@ -54,6 +54,12 @@ bool8 IsObjectInFrontOfPlayerCuttable() {
     if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_BRUNO))
         return TRUE;
 
+    if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_GUNTHER)) {
+        FlagSet(FLAG_CUT_GUNTHER);
+        VarSet(VAR_TEMP_5, 1);
+        return TRUE;
+
+    }
 
     if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_WORKER_M)
     && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PEWTER_CITY_MUSEUM_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PEWTER_CITY_MUSEUM_1F))
