@@ -37,7 +37,7 @@ script Route13_SignItem {
 		setvar(VAR_LAST_TALKED, 30)
 		finditem(ITEM_ZINC)
 	} else {
-		msgbox("There's nothing here… {PAUSE 20}yet.\n", MSGBOX_DEFAULT)
+		msgbox("There isn't anything here… {PAUSE 20}yet.\n", MSGBOX_DEFAULT)
 			release
 	}
 }
