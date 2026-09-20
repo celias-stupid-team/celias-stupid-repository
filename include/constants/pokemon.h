@@ -309,6 +309,7 @@
 #define EVO_STONE_SHEDINJA   22
 #define EVO_LEVEL_ON_LOCATION 23
 #define EVO_HOLD_ITEM        24 // Pokémon levels up while holding the specified item
+#define EVO_IN_LAVENDER        25 //
 
 
 

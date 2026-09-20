@@ -39,6 +39,7 @@
 #include "constants/battle_move_effects.h"
 #include "constants/union_room.h"
 #include "constants/maps.h"
+#include "constants/region_map_sections.h"
 
 #define SPECIES_TO_HOENN(name)      [SPECIES_##name - 1] = HOENN_DEX_##name
 #define SPECIES_TO_NATIONAL(name)   [SPECIES_##name - 1] = NATIONAL_DEX_##name
@@ -5408,6 +5409,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 break;
             case EVO_LEVEL_ON_LOCATION:
                 if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(gEvolutionTable[species][i].param) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(gEvolutionTable[species][i].param))
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_IN_LAVENDER:
+                if (gMapHeader.regionMapSectionId == MAPSEC_LAVENDER_TOWN || gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TOWER)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HOLD_ITEM:

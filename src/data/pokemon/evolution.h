@@ -139,7 +139,9 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
 
     [SPECIES_MISSINGNO]  = {{EVO_TRADE, 0, SPECIES_ALAKAZAM},
-                            {EVO_LEVEL_ON_LOCATION, MAP_LAVENDER_TOWN, SPECIES_KANGASKHAN}},  
+    
+                            {EVO_LEVEL_ON_LOCATION, MAP_LAVENDER_TOWN, SPECIES_KANGASKHAN},
+                            {EVO_IN_LAVENDER, MAP_LAVENDER_TOWN, SPECIES_KANGASKHAN}},  
                                         //TODO
     [SPECIES_GIMMIGHOUL]  = {{EVO_LEVEL, 1, SPECIES_GHOLDENGO}}, 
     
