@@ -545,7 +545,7 @@ const struct Tileset gTileset_PokemonMansion =
     .palettes = gTilesetPalettes_PokemonMansion,
     .metatiles = gMetatiles_PokemonMansion,
     .metatileAttributes = gMetatileAttributes_PokemonMansion,
-    .callback = NULL,
+    .callback = InitTilesetAnim_PokemonMansion,
 };
 
 const struct Tileset gTileset_RestaurantHotel =

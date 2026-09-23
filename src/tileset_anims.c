@@ -155,6 +155,18 @@ static const u16 *const sTilesetAnims_Route15_Sign[] = {
     sTilesetAnims_Route15_Sign_Frame0
 };
 
+static const u16 sTilesetAnims_Mansion_Lava_Frame0[] = INCBIN_U16("data/tilesets/secondary/pokemon_mansion/anim/lava/0.4bpp");
+static const u16 sTilesetAnims_Mansion_Lava_Frame1[] = INCBIN_U16("data/tilesets/secondary/pokemon_mansion/anim/lava/1.4bpp");
+static const u16 sTilesetAnims_Mansion_Lava_Frame2[] = INCBIN_U16("data/tilesets/secondary/pokemon_mansion/anim/lava/2.4bpp");
+static const u16 sTilesetAnims_Mansion_Lava_Frame3[] = INCBIN_U16("data/tilesets/secondary/pokemon_mansion/anim/lava/3.4bpp");
+
+static const u16 *const sTilesetAnims_Mansion_Lava[] = {
+    sTilesetAnims_Mansion_Lava_Frame0,
+    sTilesetAnims_Mansion_Lava_Frame1,
+    sTilesetAnims_Mansion_Lava_Frame2,
+    sTilesetAnims_Mansion_Lava_Frame3
+};
+
 static void ResetTilesetAnimBuffer(void)
 {
     sTilesetDMA3TransferBufferSize = 0;
@@ -379,4 +391,24 @@ void InitTilesetAnim_Route15(void)
     sSecondaryTilesetAnimCounter = 0;
     sSecondaryTilesetAnimCounterMax = 480;
     sSecondaryTilesetAnimCallback = TilesetAnim_Route15;
+}
+
+static void QueueAnimTiles_PokemonMansion_Lava(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(sTilesetAnims_Mansion_Lava);
+    
+    AppendTilesetAnimToBuffer(sTilesetAnims_Mansion_Lava[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x3E0)), 4 * TILE_SIZE_4BPP);
+}
+
+static void TilesetAnim_PokemonMansion(u16 timer)
+{
+    if (timer % 16 == 1)
+        QueueAnimTiles_PokemonMansion_Lava(timer / 16);
+}
+
+void InitTilesetAnim_PokemonMansion(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = 256;
+    sSecondaryTilesetAnimCallback = TilesetAnim_PokemonMansion;
 }
