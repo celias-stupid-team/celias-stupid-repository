@@ -439,6 +439,8 @@ script FourIsland_Blissey {
 	"BLISSEY has approximately\n"
 	"65% HP remaining!\l"
 	"{PAUSE 30}…64% {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}…63%… {PAUSE 30}… {PAUSE 30}…", MSGBOX_DEFAULT)
+	call(CommonScript_UseShampoo)
+
 	release
 }
 

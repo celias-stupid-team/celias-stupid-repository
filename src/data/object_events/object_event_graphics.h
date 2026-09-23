@@ -933,3 +933,5 @@ const u32 gObjectEventPic_GUNLESSTHER[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_GUNLESSTHER[] = INCBIN_U16("graphics/object_events/palettes/GUNLESSTHER.gbapal");
 const u32 gObjectEventPic_GUNTHER_BODY[] = INCBIN_U32("graphics/object_events/pics/stupid/GUNTHER_BODY.4bpp");
 const u16 gObjectEventPal_GUNTHER_BODY[] = INCBIN_U16("graphics/object_events/palettes/GUNTHER_BODY.gbapal");
+const u32 gObjectEventPic_CIRCUMCISION[] = INCBIN_U32("graphics/object_events/pics/stupid/CIRCUMCISION.4bpp");
+const u16 gObjectEventPal_CIRCUMCISION[] = INCBIN_U16("graphics/object_events/palettes/CIRCUMCISION.gbapal");

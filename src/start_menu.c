@@ -866,6 +866,7 @@ static u8 SaveDialogCB_PrintSavingDontTurnOffPower(void)
     SaveQuestLogData();
     if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FOUR_ISLAND) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND)) 
     {
+        RunScriptImmediately(CommonScript_UseShampoo);
         PrintSaveTextWithFollowupFunc(gText_SavingALotOfDataDontTurnOffThePower, SaveDialogCB_DoSave);
 
     } else

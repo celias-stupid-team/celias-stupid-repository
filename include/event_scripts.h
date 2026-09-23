@@ -1342,6 +1342,7 @@ extern const u8 TradeCenter_TerminateLink[];
 extern const u8 SetPlayerPokedexValues[];
 extern const u8 FadeSongAndPlayVictory[];
 extern const u8 FadeSongAndPlayYoshi[];
+extern const u8 CommonScript_UseShampoo[];
 
 
 extern const u8 FadeSongAndPlayHoopa[];

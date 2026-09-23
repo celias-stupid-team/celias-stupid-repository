@@ -110,6 +110,11 @@ mapscripts PokemonLeague_BrunosRoom_MapScripts {
 		if(flag(FLAG_DEFEATED_BRUNO)) {
 			call(PokemonLeague_BrunosRoom_EventScript_SetDoorOpen)
 		}
+		if(flag(FLAG_POST_GAME) && !flag(FLAG_BEAT_MASTER_FOF)) {
+			setobjectxyperm(LOCALID_BRUNO, 13,0)
+		} else {
+			setflag(FLAG_TEMP_1)
+		}
 	} 
 	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: PokemonLeague_BrunosRoom_OnWarp
 	MAP_SCRIPT_ON_FRAME_TABLE [
@@ -188,4 +193,19 @@ script BrunoRoom_NotOak {
 	"That's not OAK, silly!\n"
 	"", MSGBOX_SIGN)
 
+}
+
+
+script BrunosRoom_MasterFof {
+	lock
+	faceplayer
+	setflag(FLAG_BEAT_MASTER_FOF)
+	msgbox(
+	"hi i'm chris my favorite color is\n"
+	"orange and i like turtles", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	call(BrunosRoom_OpenDoor)
+	release
+	end
 }

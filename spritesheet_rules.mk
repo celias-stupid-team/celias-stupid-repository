@@ -1437,3 +1437,5 @@ $(OBJEVENTGFXDIR)/stupid/GUNLESSTHER.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 6 -mheight 6
 $(OBJEVENTGFXDIR)/stupid/GUNTHER_BODY.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 6 -mheight 6
+$(OBJEVENTGFXDIR)/stupid/CIRCUMCISION.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4

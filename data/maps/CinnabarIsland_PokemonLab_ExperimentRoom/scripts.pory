@@ -3,8 +3,7 @@ raw `
 .equ DOME_FOSSIL,  2
 .equ OLD_AMBER,    3
 
-CinnabarIsland_PokemonLab_ExperimentRoom_MapScripts::
-	.byte 0
+
 
 
 
@@ -257,6 +256,15 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_CheckRevivedDome::
 	return
 `
 
+mapscripts CinnabarIsland_PokemonLab_ExperimentRoom_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_CUT_GUNTHER)) {
+			setflag(FLAG_TEMP_2)
+		} else {
+			setflag(FLAG_TEMP_1)
+		}
+	}
+}
 
 script CinnabarIsland_ReviveFossils {
 	lock
@@ -484,6 +492,12 @@ script Cinnabar_Sword {
 }
 
 script Cinnabar_Shield {
+	if(flag(FLAG_CUT_GUNTHER)) {
+		playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+		waitmoncry
+		release
+		end
+	}
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"Hi, I'm SHIELDFUCK.\n"
@@ -511,7 +525,7 @@ script Cinnabar_Gunther {
 	msgbox(
 		"Hi, I'm    THER.\p"
 
-		"My friends are dickheads.\n"
+		"My friends are     heads.\n"
 		"", MSGBOX_DEFAULT)
 
 	} else {
@@ -558,4 +572,11 @@ script ExperimentRoom_FlavorText4 {
 	"Annotations reading “This one!”\n"
 	"and “Try this!” adorn the display.", MSGBOX_SIGN)
 
+}
+
+
+script ExperimentRoom_Circumcision {
+	msgbox(
+	"Circumcision...\n"
+	"", MSGBOX_NPC)
 }

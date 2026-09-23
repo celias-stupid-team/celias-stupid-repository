@@ -6822,3 +6822,14 @@ const struct SpriteFrameImage gObjectEventPicTable_GUNTHER_BODY[] = {
     overworld_frame(gObjectEventPic_GUNTHER_BODY, 6, 6, 2),
     overworld_frame(gObjectEventPic_GUNTHER_BODY, 6, 6, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_CIRCUMCISION[] = {
+    overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 0),
+    overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 1),
+    overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 2),
+    overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 0),
+    overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 0),
+    overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 1),
+    overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 1),
+    overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 2),
+    overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 2),
+};

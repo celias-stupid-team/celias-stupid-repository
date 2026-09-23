@@ -502,8 +502,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPHEALIA",
-      "x": 43,
-      "y": 14,
+      "x": 50,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

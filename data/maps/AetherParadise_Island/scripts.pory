@@ -219,6 +219,8 @@ script AetherParadise_SophaclesFindsYou {
     fadescreenswapbuffers(FADE_FROM_BLACK)
     textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox("SOPHOCLES: …And that's just the\ntip of the iceberg!", MSGBOX_DEFAULT)
+	call(CommonScript_UseShampoo)
+
     setobjectmovementtype(LOCALID_SOPHACLES, MOVEMENT_TYPE_FACE_DOWN)
     setvar(VAR_FESTIVAL_PLAZA_TRIGGER, 1)
     release

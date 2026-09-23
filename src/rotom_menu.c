@@ -2073,6 +2073,8 @@ static u8 SaveSavingMessageCallback(void)
 {
     if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FOUR_ISLAND) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND)) 
     {
+                RunScriptImmediately(CommonScript_UseShampoo);
+
         ShowSaveMessage(gText_SavingALotOfDataDontTurnOffThePower, SaveDoSaveCallback);
 
     } else
