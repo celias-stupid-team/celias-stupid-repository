@@ -284,6 +284,7 @@ clean-generated:
 	@echo "rm -f <AUTO_GEN_TARGETS>"
 
 ifeq ($(MODERN),0)
+$(C_BUILDDIR)/siirtc.o: CFLAGS := -mthumb-interwork
 $(C_BUILDDIR)/agb_flash.o: CFLAGS := -O -mthumb-interwork
 $(C_BUILDDIR)/agb_flash_1m.o: CFLAGS := -O -mthumb-interwork
 $(C_BUILDDIR)/agb_flash_mx.o: CFLAGS := -O -mthumb-interwork

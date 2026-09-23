@@ -1421,17 +1421,32 @@ script TwoIsland_RunawayFiveVenonat {
 
 script TwoIsland_WaitThreeMinutes {
 	lock
-	if(var(VAR_TEMP_5) < 5) {
+	if(var(VAR_TEMP_5) < 5)
+	{
 		addvar(VAR_TEMP_5, 1)
-	} else {
-		delay(10800)
-		msgbox(
-		"Hey!\n"
-		"That's the secret code!\p"
+	}
+	else
+	{
+		// check for RTC support
+		specialvar(VAR_RESULT, RtcGetErrorStatus)
 
-		"C'mon in!\n"
-		"", MSGBOX_DEFAULT)
-		warp(MAP_TWO_ISLAND_WATERFALL_CAVE, 0)
+        if(var(VAR_RESULT) == 0)
+		{
+            // RTC available
+			special(SaveRtcStartTime)
+			setvar(VAR_0x8004, 180) // set the threshold in seconds
+			while(var(VAR_RESULT) == 0) {
+				delay(60) // waiting 60 frames per check
+				specialvar(VAR_RESULT, CheckRtcSecondsElapsed)
+			}
+        }
+		else
+		{
+            // fallback (= wait 10800 frames)
+            delay(10800)
+        }
+        msgbox("Hey!\nThat's the secret code!\pC'mon in!\n", MSGBOX_DEFAULT)
+        warp(MAP_TWO_ISLAND_WATERFALL_CAVE, 0)
 	}
 	release
 }

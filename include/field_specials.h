@@ -32,5 +32,7 @@ void QuestLog_TryRecordDepartedLocation(void);
 bool8 SocialSecurityCheck(void);
 void DrawChapterTitle(void);
 bool32 ScriptIsPartyMonFainted(void);
+void SaveRtcStartTime(void);
+bool32 CheckRtcSecondsElapsed(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

@@ -471,4 +471,7 @@ gSpecials::
 	def_special BackgroundSave
 	def_special IsNicknameMewtwo
 	def_special CheckStarlightEE
+	def_special RtcGetErrorStatus
+	def_special SaveRtcStartTime
+	def_special CheckRtcSecondsElapsed
 gSpecialsEnd::

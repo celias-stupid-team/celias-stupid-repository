@@ -4,6 +4,7 @@
 #include "link_rfu.h"
 #include "load_save.h"
 #include "m4a.h"
+#include "rtc.h"
 #include "random.h"
 #include "gba/flash_internal.h"
 #include "help_system.h"
@@ -21,6 +22,7 @@
 #include "quest_log.h"
 #include "event_scripts.h"
 #include "script.h"
+#include "field_specials.h"
 
 extern u32 intr_main[];
 
@@ -133,6 +135,7 @@ void AgbMain()
     m4aSoundInit();
     EnableVCountIntrAtLine150();
     InitRFU();
+    RtcInit();
     CheckForFlashMemory();
     InitMainCallbacks();
     if (IsInaccurateEmulator())
@@ -196,10 +199,17 @@ void AgbMain()
                 gLinkTransferringData = FALSE;
             }
         }
-        if(FlagGet(FLAG_SYS_UNDER_WATERFALL)) {
-            if(VarGet(VAR_TWO_ISLAND_COUNTER) < 10801) {
-                VarSet(VAR_TWO_ISLAND_COUNTER, VarGet(VAR_TWO_ISLAND_COUNTER) + 1);
+        if (FlagGet(FLAG_SYS_UNDER_WATERFALL)) {
+            if (RtcGetErrorStatus() == FALSE) // use RTC based time
+            {
+                if ((gMain.vblankCounter2 & 59) == 0) // check only every 60 frames
+                {
+                    if (CheckRtcSecondsElapsed())
+                        VarSet(VAR_TWO_ISLAND_COUNTER, 10800);
+                }
             }
+            else if (VarGet(VAR_TWO_ISLAND_COUNTER) < 10801) // use frames as a fallback
+                VarSet(VAR_TWO_ISLAND_COUNTER, VarGet(VAR_TWO_ISLAND_COUNTER) + 1);
         }
         PlayTimeCounter_Update();
         MapMusicMain();
@@ -472,6 +482,7 @@ void DoSoftReset(void)
     DmaStop(1);
     DmaStop(2);
     DmaStop(3);
+    SiiRtcProtect();
     SoftReset(RESET_ALL & ~RESET_SIO_REGS);
 }
 
