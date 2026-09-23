@@ -879,10 +879,13 @@ static void SetPlacedMonData(u8 boxId, u8 position)
         gPlayerParty[position] = gStorage->movingMon;
     else
     {
+        bool8 PSSEvoAlreadyTriggered = gPSSEvoTriggered; // fixes the SHIFT mon bug that deleted mons earlier
+
         CheckPorygonEvolve(boxId, position);
         CheckBrickPieceGet(boxId, position);
         CheckItsPikachuFuck(boxId, position);
-        if (!gPSSEvoTriggered)
+        
+        if (!gPSSEvoTriggered || PSSEvoAlreadyTriggered)
         {
             BoxMonRestorePP(&gStorage->movingMon.box);
             SetBoxMonAt(boxId, position, &gStorage->movingMon.box);
