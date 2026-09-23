@@ -4274,7 +4274,8 @@ static void SetFlyWarpDestination(u16 mapsec)
 
         } else 
             SetWarpDestinationToHealLocation(sMapFlyDestinations[idx][2]);
-        SetUsedFlyQuestLogEvent(sMapFlyDestinations[idx]);
+        // this was potentially causing the player name corruption bug
+        // SetUsedFlyQuestLogEvent(sMapFlyDestinations[idx]);
     }
     else
     {

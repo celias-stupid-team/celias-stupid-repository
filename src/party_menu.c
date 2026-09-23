@@ -4148,7 +4148,8 @@ static void CursorCB_FieldMove(u8 taskId)
                 }
             default:
                 gPartyMenu.exitCallback = CB2_ReturnToField;
-                SetUsedFieldMoveQuestLogEvent(&gPlayerParty[GetCursorSelectionMonId()], fieldMove);
+                // this was potentially causing the player name corruption bug
+                // SetUsedFieldMoveQuestLogEvent(&gPlayerParty[GetCursorSelectionMonId()], fieldMove);
                 Task_ClosePartyMenu(taskId);
                 break;
             }
@@ -4203,7 +4204,8 @@ static void Task_HandleFieldMoveExitAreaYesNoInput(u8 taskId)
     {
     case 0: // Yes
         gPartyMenu.exitCallback = CB2_ReturnToField;
-        SetUsedFieldMoveQuestLogEvent(&gPlayerParty[GetCursorSelectionMonId()], sPartyMenuInternal->data[0]);
+        // this was potentially causing the player name corruption bug
+        // SetUsedFieldMoveQuestLogEvent(&gPlayerParty[GetCursorSelectionMonId()], sPartyMenuInternal->data[0]);
         Task_ClosePartyMenu(taskId);
         break;
     case MENU_B_PRESSED:
