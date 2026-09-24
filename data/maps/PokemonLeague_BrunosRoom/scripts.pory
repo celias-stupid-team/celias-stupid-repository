@@ -201,8 +201,23 @@ script BrunosRoom_MasterFof {
 	faceplayer
 	setflag(FLAG_BEAT_MASTER_FOF)
 	msgbox(
-	"hi i'm chris my favorite color is\n"
-	"orange and i like turtles", MSGBOX_DEFAULT)
+	"MasterFoF: Oh duck, I'm late!\p"
+
+	"I waddled over as soon as I heard\n"
+	"you beat GARY\l"
+	"and LARRY\l"
+	"and JERRY\l"
+	"and HARRY\l"
+	"and BARRY\l"
+	"and PERRY\l"
+	"…{PAUSE 30}and OAK.\p"
+
+	"It's time to give you a show!\p"
+
+	"I padAIDE as PROF Oak's POKéMON!\n"
+	"", MSGBOX_DEFAULT)
+
+	
 	closemessage
 	delay(30)
 	call(BrunosRoom_OpenDoor)

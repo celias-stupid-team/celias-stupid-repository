@@ -402,7 +402,7 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
    >   Where *\<folder where pokefirered is to be stored>* is the path of the folder [where you chose to store pokefirered](#Choosing-where-to-store-pokefirered-WSL1). Then run the `git clone` command again.
     </details>
 
-2. Copy [poryscript files](https://github.com/huderlem/poryscript/releases/tag/3.3.0) for your environment (probalby linux) to a new directory `/tools/poryscript`
+2. Copy [poryscript files](https://github.com/huderlem/poryscript/releases) for your environment (probalby linux) to a new directory `/tools/poryscript`
 
     <details>
         <summary><i>Note...</i></summary>
