@@ -505,6 +505,20 @@ gSongTable::
 	song mus_bw_rival, 0, 0
 	song mus_tiny_lass, 0, 0
 	song mus_encounter_rival_high, 0, 0
+	song se_tcg_heal, 1, 1
+	song se_tcg_drain, 1, 1
+	song se_sudden_death, 1, 1
+	song se_raichu_echo, 1, 1
+	song se_on_da_scene, 1, 1
+	song se_oh_no, 1, 1
+	song se_mmhmm, 1, 1
+	song se_mario_lava, 1, 1
+	song se_i_see, 1, 1
+	song se_fuck, 1, 1
+	song se_bobomb, 1, 1
+	song se_azumarill, 1, 1
+	song se_azu, 1, 1
+	song se_and_there_you_have_it, 1, 1
 
 
 dummy_song_header:

@@ -6218,7 +6218,7 @@ u16 GetBattleBGM(void)
             return MUS_VS_TRAINER;
         }
     }
-    return MUS_VS_WILD;
+    return MUS_OBTAIN_BERRY;//MUS_VS_WILD;
 }
 
 void PlayBattleBGM(void)

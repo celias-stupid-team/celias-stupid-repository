@@ -17,6 +17,7 @@ static void AnimSpiderWeb(struct Sprite *sprite);
 static void AnimSpiderWeb_Step(struct Sprite *sprite);
 static void AnimSpiderWeb_End(struct Sprite *sprite);
 static void AnimTranslateStinger(struct Sprite *sprite);
+static void AnimTranslateStingerNoRotate(struct Sprite *sprite);
 static void AnimMissileArc(struct Sprite *sprite);
 static void AnimMissileArc_Step(struct Sprite *sprite);
 static void AnimTailGlowOrb(struct Sprite *sprite);
@@ -63,6 +64,17 @@ const struct SpriteTemplate gMegahornHornSpriteTemplate =
     .callback = AnimMegahornHorn,
 };
 
+const struct SpriteTemplate gHeracrossHornSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HERACROSS_HORN,
+    .paletteTag = ANIM_TAG_HERACROSS_HORN,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_MegahornHorn,
+    .callback = AnimMegahornHorn,
+};
+
 static const union AffineAnimCmd sAffineAnim_LeechLifeNeedle_0[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, -33, 1),
@@ -96,6 +108,17 @@ const struct SpriteTemplate gLeechLifeNeedleSpriteTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sAffineAnims_LeechLifeNeedle,
+    .callback = AnimLeechLifeNeedle,
+};
+
+const struct SpriteTemplate gBranchSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BRANCH,
+    .paletteTag = ANIM_TAG_BRANCH,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimLeechLifeNeedle,
 };
 static const union AffineAnimCmd sAffineAnim_ShootBullet_0[] =
@@ -245,6 +268,31 @@ const struct SpriteTemplate gLinearStingerSpriteTemplate =
     .callback = AnimTranslateStinger,
 };
 
+static const union AnimCmd sRaichuHatAnimCmd[] =
+{
+    ANIMCMD_FRAME(192, 8),
+    ANIMCMD_FRAME(128, 8),
+    ANIMCMD_FRAME(64, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const gRaichuHatAnimTable[] =
+{
+    sRaichuHatAnimCmd,
+};
+
+const struct SpriteTemplate gRaichuHatSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RAICHU_HAT,
+    .paletteTag = ANIM_TAG_RAICHU_HAT,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gRaichuHatAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTranslateStingerNoRotate,
+};
+
 const struct SpriteTemplate gPinMissileSpriteTemplate =
 {
     .tileTag = ANIM_TAG_NEEDLE,
@@ -260,6 +308,17 @@ const struct SpriteTemplate gIcicleSpearSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ICICLE_SPEAR,
     .paletteTag = ANIM_TAG_ICICLE_SPEAR,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMissileArc,
+};
+
+const struct SpriteTemplate gSraicheSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SRAICHE,
+    .paletteTag = ANIM_TAG_SRAICHE,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -764,6 +823,45 @@ static void AnimTranslateStinger(struct Sprite *sprite)
     rot = ArcTan2Neg(lVarX - sprite->x, lVarY - sprite->y);
     rot += 0xC000;
     TrySetSpriteRotScale(sprite, FALSE, 0x100, 0x100, rot);
+    sprite->data[0] = gBattleAnimArgs[4];
+    sprite->data[2] = lVarX;
+    sprite->data[4] = lVarY;
+    sprite->callback = StartAnimLinearTranslation;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+static void AnimTranslateStingerNoRotate(struct Sprite *sprite)
+{
+    s16 lVarX, lVarY;
+
+    if (IsContest())
+    {
+        gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+    }
+    else if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+    {
+        gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+        gBattleAnimArgs[1] = -gBattleAnimArgs[1];
+        gBattleAnimArgs[3] = -gBattleAnimArgs[3];
+    }
+    if (!IsContest() && GetBattlerSide(gBattleAnimAttacker) == GetBattlerSide(gBattleAnimTarget))
+    {
+        if (GetBattlerPosition(gBattleAnimTarget) == B_POSITION_PLAYER_LEFT
+         || GetBattlerPosition(gBattleAnimTarget) == B_POSITION_OPPONENT_LEFT)
+        {
+            s16 temp1, temp2;
+
+            temp1 = gBattleAnimArgs[2];
+            gBattleAnimArgs[2] = -temp1;
+
+            temp2 = gBattleAnimArgs[0];
+            gBattleAnimArgs[0] = -temp2;
+        }
+    }
+    InitSpritePosToAnimAttacker(sprite, 1);
+    lVarX = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2) + gBattleAnimArgs[2];
+    lVarY = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[3];
+    TrySetSpriteRotScale(sprite, FALSE, 0x100, 0x100, 0);
     sprite->data[0] = gBattleAnimArgs[4];
     sprite->data[2] = lVarX;
     sprite->data[4] = lVarY;

@@ -12,7 +12,9 @@
 static u8 Task_FlashingCircleImpacts(u8 battlerId, bool8 b);
 static void Task_UpdateFlashingCircleImpacts(u8 taskId);
 static void AnimTask_FrozenIceCube_Step1(u8 taskId);
+static void AnimTask_SheerGold_Step1(u8 taskId);
 static void AnimTask_FrozenIceCube_Step2(u8 taskId);
+static void AnimTask_SheerGold_Step2(u8 taskId);
 static void AnimTask_FrozenIceCube_Step3(u8 taskId);
 static void AnimTask_FrozenIceCube_Step4(u8 taskId);
 static void AnimTask_SummonCircle_Fade(u8 taskId);
@@ -273,6 +275,30 @@ static const struct SpriteTemplate sFrozenIceCubeSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+static const struct Subsprite sSheerGoldSubsprites[] =
+{
+    {.x = -16, .y = -16, .shape = SPRITE_SHAPE(64x64),  .size = SPRITE_SIZE(64x64), .tileOffset =   0, .priority = 2},
+    {.x = -16, .y =  48, .shape = SPRITE_SHAPE(64x32), .size = SPRITE_SIZE(64x32), .tileOffset =  64, .priority = 2},
+    {.x =  48, .y = -16, .shape = SPRITE_SHAPE(32x64), .size = SPRITE_SIZE(32x64), .tileOffset =  96, .priority = 2},
+    {.x =  48, .y =  48, .shape = SPRITE_SHAPE(32x32),  .size = SPRITE_SIZE(32x32), .tileOffset = 128, .priority = 2},
+};
+
+static const struct SubspriteTable sSheerGoldSubspriteTable[] =
+{
+    {NELEMS(sSheerGoldSubsprites), sSheerGoldSubsprites},
+};
+
+static const struct SpriteTemplate sSheerGoldSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SHEER_GOLD,
+    .paletteTag = ANIM_TAG_SHEER_GOLD,
+    .oam = &gOamData_AffineOff_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 
 static const struct Subsprite sSummonCircleSubsprites[] =
 {
@@ -511,6 +537,75 @@ void AnimTask_FrozenIceCube(u8 taskId)
     SetSubspriteTables(&gSprites[spriteId], sFrozenIceCubeSubspriteTable);
     gTasks[taskId].data[15] = spriteId;
     gTasks[taskId].func = AnimTask_FrozenIceCube_Step1;
+}
+
+void AnimTask_SheerGold(u8 taskId)
+{
+    s16 x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2) - 32;
+    s16 y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) - 36;
+    u8 spriteId;
+
+    if (IsContest())
+        x -= 6;
+    
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_ALL);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 16));
+    spriteId = CreateSprite(&sSheerGoldSpriteTemplate, x, y, 4);
+    if (GetSpriteTileStartByTag(ANIM_TAG_SHEER_GOLD) == 0xFFFF)
+        gSprites[spriteId].invisible = TRUE;
+    
+    SetSubspriteTables(&gSprites[spriteId], sSheerGoldSubspriteTable);
+    gTasks[taskId].data[15] = spriteId;
+    gTasks[taskId].func = AnimTask_SheerGold_Step1;
+}
+
+static void AnimTask_SheerGold_Step1(u8 taskId)
+{
+    gTasks[taskId].data[1]++;
+    if (gTasks[taskId].data[1] == 14)
+    {
+        gTasks[taskId].func = AnimTask_SheerGold_Step2;
+        gTasks[taskId].data[1] = 0;
+    }
+    else
+    {
+        u8 var = gTasks[taskId].data[1];
+
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(var, 16 - var));
+    }
+}
+
+static void AnimTask_SheerGold_Step2(u8 taskId)
+{
+    u8 palIndex = IndexOfSpritePaletteTag(ANIM_TAG_SHEER_GOLD);
+
+    if (gTasks[taskId].data[1]++ > 13)
+    {
+        gTasks[taskId].data[2]++;
+        if (gTasks[taskId].data[2] == 3)
+        {
+            u16 temp;
+
+            temp = gPlttBufferFaded[OBJ_PLTT_ID(palIndex) + 15];
+            gPlttBufferFaded[OBJ_PLTT_ID(palIndex) + 15] = gPlttBufferFaded[OBJ_PLTT_ID(palIndex) + 14];
+            gPlttBufferFaded[OBJ_PLTT_ID(palIndex) + 14] = gPlttBufferFaded[OBJ_PLTT_ID(palIndex) + 13];
+            gPlttBufferFaded[OBJ_PLTT_ID(palIndex) + 13] = temp;
+
+            gTasks[taskId].data[2] = 0;
+            gTasks[taskId].data[3]++;
+            if (gTasks[taskId].data[3] == 3)
+            {
+                gTasks[taskId].data[3] = 0;
+                gTasks[taskId].data[1] = 0;
+                gTasks[taskId].data[4]++;
+                if (gTasks[taskId].data[4] == 3)
+                {
+                    gTasks[taskId].data[1] = 9;
+                    gTasks[taskId].func = AnimTask_FrozenIceCube_Step3;
+                }
+            }
+        }
+    }
 }
 
 static void AnimTask_FrozenIceCube_Step1(u8 taskId)

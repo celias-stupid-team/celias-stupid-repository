@@ -317,6 +317,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSleepHit		         @ EFFECT_SLEEP_HIT
 	.4byte BattleScript_EffectImakuni                @ EFFECT_IMAKUNI
 	.4byte BattleScript_EffectHitMessage             @ EFFECT_HIT_MESSAGE
+	.4byte BattleScript_EffectFishure				 @ EFFECT_FISHURE
 	
 
 BattleScript_End::
@@ -2573,6 +2574,17 @@ BattleScript_EffectNaturePower::
 	pause B_WAIT_TIME_SHORT
 	callterrainattack
 	printstring STRINGID_NATUREPOWERTURNEDINTO
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_EffectFishure::
+	attackcanceler
+	attackstring
+	pause B_WAIT_TIME_SHORT
+	attackanimation
+	waitanimation
+	callbiteattack
+	printstring STRINGID_FISHURE
 	waitmessage B_WAIT_TIME_LONG
 	return
 

@@ -514,6 +514,21 @@
 #define MUS_TINY_LASS 504
 #define MUS_ENCOUNTER_RIVAL_HIGH 505
 
+#define SE_TCG_HEAL 506
+#define SE_TCG_DRAIN 507
+#define SE_SUDDEN_DEATH 508
+#define SE_RAICHU_ECHO 509
+#define SE_ON_DA_SCENE 510
+#define SE_OH_NO 511
+#define SE_MMHMM 512
+#define SE_MARIO_LAVA 513
+#define SE_I_SEE 514
+#define SE_FUCK 515
+#define SE_BOBOMB 516
+#define SE_AZUMARILL 517
+#define SE_AZU 518
+#define SE_AND_THERE_YOU_HAVE_IT 519
+
 #define MUS_NONE 0xFFFF
 
 #define START_MUS MUS_HEAL

@@ -9,6 +9,7 @@
 
 static void AnimFireSpiralInward(struct Sprite *sprite);
 static void AnimLargeFlame(struct Sprite *sprite);
+static void AnimLargeFlameTarget(struct Sprite *sprite);
 static void AnimFirePlume(struct Sprite *sprite);
 static void AnimFirePlumeUnanchored(struct Sprite *sprite);
 static void AnimUnusedSmallEmber(struct Sprite *sprite);
@@ -31,7 +32,9 @@ static void UpdateFireRingCircleOffset(struct Sprite *sprite);
 static void AnimFireSpiralOutward_Step1(struct Sprite *sprite);
 static void AnimFireSpiralOutward_Step2(struct Sprite *sprite);
 static void AnimTask_EruptionLaunchRocks_Step(u8 taskId);
+static void AnimTask_EruptionLaunchEmoji_Step(u8 taskId);
 static void CreateEruptionLaunchRocks(u8 spriteId, u8 taskId, u8 a3);
+static void CreateEruptionLaunchEmoji(u8 spriteId, u8 taskId, u8 a3);
 static u16 GetEruptionLaunchRockInitialYPos(u8 spriteId);
 static void InitEruptionLaunchRockCoordData(struct Sprite *sprite, s16 x, s16 y);
 static void UpdateEruptionLaunchRockPos(struct Sprite *sprite);
@@ -215,6 +218,28 @@ const struct SpriteTemplate gLargeFlameScatterSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimLargeFlame,
+};
+
+const struct SpriteTemplate gLargeFlameTargetSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FIRE,
+    .paletteTag = ANIM_TAG_FIRE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sAnims_LargeFlame,
+    .images = NULL,
+    .affineAnims = sAffineAnims_LargeFlame,
+    .callback = AnimLargeFlameTarget,
+};
+
+const struct SpriteTemplate gLargeFlameScatterTargetSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FIRE,
+    .paletteTag = ANIM_TAG_FIRE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_LargeFlame,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimLargeFlameTarget,
 };
 
 const struct SpriteTemplate gFirePlumeSpriteTemplate =
@@ -562,6 +587,17 @@ static const struct SpriteTemplate gEruptionLaunchRockSpriteTemplate =
     .callback = AnimEruptionLaunchRock,
 };
 
+static const struct SpriteTemplate gEruptionLaunchEmojiSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ANGRY_EMOJI,
+    .paletteTag = ANIM_TAG_ANGRY_EMOJI,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimEruptionLaunchRock,
+};
+
 static const s16 sEruptionLaunchRockSpeeds[][2] =
 {
     {-2, -5},
@@ -577,6 +613,17 @@ const struct SpriteTemplate gEruptionFallingRockSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WARM_ROCK,
     .paletteTag = ANIM_TAG_WARM_ROCK,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimEruptionFallingRock,
+};
+
+const struct SpriteTemplate gEruptionFallingEmojiSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ANGRY_EMOJI,
+    .paletteTag = ANIM_TAG_ANGRY_EMOJI,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -802,6 +849,44 @@ static void AnimLargeFlame(struct Sprite *sprite)
     sprite->data[1] = gBattleAnimArgs[2];
     sprite->data[4] = gBattleAnimArgs[3];
     sprite->data[3] = gBattleAnimArgs[5];
+    sprite->callback = AnimLargeFlame_Step;
+}
+
+static void AnimLargeFlameTarget(struct Sprite *sprite)
+{
+    u8 battler;
+
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
+
+    // Position relative to the selected battler
+    if (GetBattlerSide(battler) != B_SIDE_PLAYER)
+    {
+        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+        sprite->x -= gBattleAnimArgs[1];
+        sprite->y += gBattleAnimArgs[2];
+
+        sprite->data[2] = gBattleAnimArgs[5];
+    }
+    else
+    {
+        sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+        sprite->y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+        sprite->x += gBattleAnimArgs[1];
+        sprite->y += gBattleAnimArgs[2];
+
+        sprite->data[2] = -gBattleAnimArgs[5];
+    }
+
+    sprite->data[1] = gBattleAnimArgs[3];
+    sprite->data[4] = gBattleAnimArgs[4];
+    sprite->data[3] = gBattleAnimArgs[6];
+
     sprite->callback = AnimLargeFlame_Step;
 }
 
@@ -1244,6 +1329,175 @@ static void UpdateEruptionLaunchRockPos(struct Sprite *sprite)
 
     if (sprite->x < -8 || sprite->x > DISPLAY_WIDTH + 8 || sprite->y < -8 || sprite->y > 120)
         sprite->invisible = TRUE;
+}
+
+void AnimTask_EruptionLaunchEmoji(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->tAttackerSpriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    task->tState = 0;
+    task->tTimer1 = 0;
+    task->tTimer2 = 0;
+    task->tTimer3 = 0;
+    task->tAttackerY = gSprites[task->tAttackerSpriteId].y;
+    task->tAttackerSide = GetBattlerSide(gBattleAnimAttacker);
+    task->tActiveSprites = 0;
+
+    PrepareBattlerSpriteForRotScale(task->tAttackerSpriteId, ST_OAM_OBJ_NORMAL);
+
+    task->func = AnimTask_EruptionLaunchEmoji_Step;
+}
+
+static void AnimTask_EruptionLaunchEmoji_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    switch (task->tState)
+    {
+    case 0:
+        BattleAnimHelper_SetSpriteSquashParams(task, task->tAttackerSpriteId, 0x100, 0x100, 0xE0, 0x200, 32);
+        task->tState++;
+    case 1:
+        if (++task->tTimer1 > 1)
+        {
+            task->tTimer1 = 0;
+
+            if (++task->tTimer2 & 1)
+                gSprites[task->tAttackerSpriteId].x2 = 3;
+            else
+                gSprites[task->tAttackerSpriteId].x2 = -3;
+        }
+
+        if (task->tAttackerSide != B_SIDE_PLAYER)
+        {
+            if (++task->tTimer3 > 4)
+            {
+                task->tTimer3 = 0;
+                gSprites[task->tAttackerSpriteId].y++;
+            }
+        }
+
+        if(!BattleAnimHelper_RunSpriteSquash(task))
+        {
+            SetBattlerSpriteYOffsetFromYScale(task->tAttackerSpriteId);
+            gSprites[task->tAttackerSpriteId].x2 = 0;
+
+            task->tTimer1 = 0;
+            task->tTimer2 = 0;
+            task->tTimer3 = 0;
+            task->tState++;
+        }
+        break;
+    case 2:
+        if (++task->tTimer1 > 4)
+        {
+            if (task->tAttackerSide != B_SIDE_PLAYER)
+                BattleAnimHelper_SetSpriteSquashParams(task, task->tAttackerSpriteId, 0xE0, 0x200, 0x180, 0xF0, 6);
+            else
+                BattleAnimHelper_SetSpriteSquashParams(task, task->tAttackerSpriteId, 0xE0, 0x200, 0x180, 0xC0, 6);
+
+            task->tTimer1 = 0;
+            task->tState++;
+        }
+        break;
+    case 3:
+        if (!BattleAnimHelper_RunSpriteSquash(task))
+        {
+            CreateEruptionLaunchEmoji(task->tAttackerSpriteId, taskId, IDX_ACTIVE_SPRITES);
+            task->tState++;
+        }
+        break;
+    case 4:
+        if (++task->tTimer1 > 1)
+        {
+            task->tTimer1 = 0;
+
+            if (++task->tTimer2 & 1)
+                gSprites[task->tAttackerSpriteId].y2 += 3;
+            else
+                gSprites[task->tAttackerSpriteId].y2 -= 3;
+        }
+
+        if (++task->tTimer3 > 24)
+        {
+            if (task->tAttackerSide != B_SIDE_PLAYER)
+                BattleAnimHelper_SetSpriteSquashParams(task, task->tAttackerSpriteId, 0x180, 0xF0, 0x100, 0x100, 8);
+            else
+                BattleAnimHelper_SetSpriteSquashParams(task, task->tAttackerSpriteId, 0x180, 0xC0, 0x100, 0x100, 8);
+
+            if (task->tTimer2 & 1)
+                gSprites[task->tAttackerSpriteId].y2 -= 3;
+
+            task->tTimer1 = 0;
+            task->tTimer2 = 0;
+            task->tTimer3 = 0;
+            task->tState++;
+        }
+        break;
+    case 5:
+        if (task->tAttackerSide != B_SIDE_PLAYER)
+            gSprites[task->tAttackerSpriteId].y--;
+
+        if (!BattleAnimHelper_RunSpriteSquash(task))
+        {
+            gSprites[task->tAttackerSpriteId].y = task->tAttackerY;
+            ResetSpriteRotScale(task->tAttackerSpriteId);
+            task->tTimer2 = 0;
+            task->tState++;
+        }
+        break;
+    case 6:
+        if (task->tActiveSprites == 0)
+            DestroyAnimVisualTask(taskId);
+        break;
+    default:
+        break;
+    }
+}
+
+static void CreateEruptionLaunchEmoji(u8 spriteId, u8 taskId, u8 activeSpritesIdx)
+{
+    u16 i, j;
+    s8 sign;
+
+    u16 y = GetEruptionLaunchRockInitialYPos(spriteId);
+    u16 x = gSprites[spriteId].x;
+
+    if (!GetBattlerSide(gBattleAnimAttacker))
+    {
+        x -= 12;
+        sign = 1;
+    }
+    else
+    {
+        x += 16;
+        sign = -1;
+    }
+
+    for (i = 0, j = 0; i <= 6; i++)
+    {
+        u8 spriteId = CreateSprite(&gEruptionLaunchEmojiSpriteTemplate, x, y, 2);
+
+        if (spriteId != MAX_SPRITES)
+        {
+            gSprites[spriteId].oam.tileNum += j * 4 + 0x40;
+
+            if (++j >= 5)
+                j = 0;
+
+            InitEruptionLaunchRockCoordData(
+                &gSprites[spriteId],
+                sEruptionLaunchRockSpeeds[i][0] * sign,
+                sEruptionLaunchRockSpeeds[i][1]
+            );
+
+            gSprites[spriteId].sTaskId = taskId;
+            gSprites[spriteId].sActiveSpritesIdx = activeSpritesIdx;
+
+            gTasks[taskId].data[activeSpritesIdx]++;
+        }
+    }
 }
 
 #undef IDX_ACTIVE_SPRITES

@@ -1116,7 +1116,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_MAGICMUFFLERCONSUMED - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The MAGIC MUFFLER\nhas been consumed."),
     [STRINGID_HI_PLAYER - BATTLESTRINGS_TABLE_START]                     = COMPOUND_STRING("Hi, {B_PLAYER_NAME}!\nHow are you?"),
     [STRINGID_BYE_PLAYER - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("Bye, {B_PLAYER_NAME}!\nWho are you?"),
-    
+    [STRINGID_NO_SACRED_FIRE - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("But it failed!\p{B_ATK_NAME_WITH_PREFIX} doesn't know the\nmove SACRED FIRE!"),
+    [STRINGID_PAST_SIGHT - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} remembered\nan attack!"),
+    [STRINGID_FISHURE - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("Oh, a bite!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1563,6 +1565,8 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_PANT_SHROUD]      = STRINGID_PANTS_SHROUD,
     [B_MSG_HI_PLAYER]        = STRINGID_HI_PLAYER,
     [B_MSG_BYE_PLAYER]       = STRINGID_BYE_PLAYER,
+    [B_MSG_NO_SACRED_FIRE]   = STRINGID_NO_SACRED_FIRE,
+    [B_MSG_PAST_SIGHT]       = STRINGID_PAST_SIGHT,
 };
 
 const u16 gSwitchInAbilityStringIds[] =
