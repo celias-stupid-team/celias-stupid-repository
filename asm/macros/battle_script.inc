@@ -1346,7 +1346,6 @@
 	.4byte \jumpInstr
 	.endm
 
-
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req
 	various \battler, VARIOUS_CANCEL_MULTI_TURN_MOVES
@@ -1975,6 +1974,9 @@
 	callnative BS_RemoveMoney
 	.endm
 
+	.macro callbiteattack
+	callnative BS_Fishure
+	.endm
 	
 	.macro setbattleanimtarget battler:req
 	callnative BS_SetBattleAnimTarget
@@ -1985,3 +1987,4 @@
 	callnative BS_TrySetEncoreBoth
 	.4byte \failInstr
 	.endm
+

@@ -10,6 +10,7 @@ static void AnimDefensiveWall(struct Sprite *sprite);
 static void AnimWallSparkle(struct Sprite *sprite);
 static void AnimBentSpoon(struct Sprite *sprite);
 static void AnimQuestionMark(struct Sprite *sprite);
+static void AnimTargetQuestionMark(struct Sprite *sprite);
 static void AnimRedX(struct Sprite *sprite);
 static void AnimFlashCrash(struct Sprite *sprite);
 static void AnimSkillSwapOrb(struct Sprite *sprite);
@@ -279,6 +280,17 @@ const struct SpriteTemplate gQuestionMarkSpriteTemplate =
     .callback = AnimQuestionMark,
 };
 
+const struct SpriteTemplate gTargetQuestionMarkSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_AMNESIA,
+    .paletteTag = ANIM_TAG_AMNESIA,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_QuestionMark,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTargetQuestionMark,
+};
+
 static const union AffineAnimCmd sAffineAnim_MeditateStretchAttacker[] =
 {
     AFFINEANIMCMD_FRAME(-8, 10, 0, 16),
@@ -310,6 +322,17 @@ const struct SpriteTemplate gRedXSpriteTemplate =
     .tileTag = ANIM_TAG_X_SIGN,
     .paletteTag = ANIM_TAG_X_SIGN,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRedX,
+};
+
+const struct SpriteTemplate gTrozeiTimeTemplate =
+{
+    .tileTag = ANIM_TAG_TROZEI_TIME,
+    .paletteTag = ANIM_TAG_TROZEI_TIME,
+    .oam = &gOamData_AffineOff_ObjNormal_64x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -827,6 +850,22 @@ static void AnimQuestionMark(struct Sprite *sprite)
         x = -x;
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2) + x;
     sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET) + y;
+    if (sprite->y < 16)
+        sprite->y = 16;
+    StoreSpriteCallbackInData6(sprite, AnimQuestionMark_Step1);
+    sprite->callback = RunStoredCallbackWhenAnimEnds;
+}
+
+// Used by Amnesia
+static void AnimTargetQuestionMark(struct Sprite *sprite)
+{
+    s16 x = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_WIDTH) /  2;
+    s16 y = GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / -2;
+
+    if (GetBattlerSide(gBattleAnimTarget) == B_SIDE_OPPONENT)
+        x = -x;
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2) + x;
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + y;
     if (sprite->y < 16)
         sprite->y = 16;
     StoreSpriteCallbackInData6(sprite, AnimQuestionMark_Step1);

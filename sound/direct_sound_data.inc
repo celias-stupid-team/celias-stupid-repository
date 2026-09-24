@@ -570,6 +570,62 @@ DirectSoundWaveData_AssBlaster::
 	.incbin "sound/direct_sound_samples/ass_blaster.bin"
 
 	.align 2
+DirectSoundWaveData_TcgHeal::
+	.incbin "sound/direct_sound_samples/tcg_heal.bin"
+
+	.align 2
+DirectSoundWaveData_TcgDrain::
+	.incbin "sound/direct_sound_samples/tcg_drain.bin"
+
+	.align 2
+DirectSoundWaveData_SuddenDeath::
+	.incbin "sound/direct_sound_samples/SUDDEN_DEATH.bin"
+
+	.align 2
+DirectSoundWaveData_RaichuEcho::
+	.incbin "sound/direct_sound_samples/raichu_echo.bin"
+
+	.align 2
+DirectSoundWaveData_OnDaScene::
+	.incbin "sound/direct_sound_samples/on_da_scene.bin"
+
+	.align 2
+DirectSoundWaveData_OhNo::
+	.incbin "sound/direct_sound_samples/OH_NO.bin"
+
+	.align 2
+DirectSoundWaveData_Mmhmm::
+	.incbin "sound/direct_sound_samples/mmhmm.bin"
+
+	.align 2
+DirectSoundWaveData_MarioLava::
+	.incbin "sound/direct_sound_samples/mario_lava.bin"
+
+	.align 2
+DirectSoundWaveData_ISee::
+	.incbin "sound/direct_sound_samples/i_see.bin"
+
+	.align 2
+DirectSoundWaveData_Fuck::
+	.incbin "sound/direct_sound_samples/fuck.bin"
+
+	.align 2
+DirectSoundWaveData_Bobomb::
+	.incbin "sound/direct_sound_samples/bobomb.bin"
+
+	.align 2
+DirectSoundWaveData_Azumarill::
+	.incbin "sound/direct_sound_samples/azumarill.bin"
+
+	.align 2
+DirectSoundWaveData_Azu::
+	.incbin "sound/direct_sound_samples/azu.bin"
+
+	.align 2
+DirectSoundWaveData_AndThereYouHaveIt::
+	.incbin "sound/direct_sound_samples/and_there_you_have_it.bin"
+
+	.align 2
 Cry_Bulbasaur::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 

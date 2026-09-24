@@ -414,6 +414,17 @@ const struct SpriteTemplate gWurmpleBeamPurpleHeadSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+const struct SpriteTemplate gSighBeamSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PINK_CLOUD,
+    .paletteTag = ANIM_TAG_PINK_CLOUD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 static const union AffineAnimCmd sAffineAnim_PickleBeam[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, 96, 1),

@@ -27,6 +27,7 @@ static void AnimSparkElectricityFlashing_Step(struct Sprite *sprite);
 static void AnimTask_ElectricBolt_Step(u8 taskId);
 static void AnimThunderWave_Step(struct Sprite *sprite);
 static void AnimTask_ElectricChargingParticles_Step(u8 taskId);
+static void AnimTask_WetChargingParticles_Step(u8 taskId);
 static void AnimElectricChargingParticles(struct Sprite *sprite);
 static void AnimTask_SoulDewChargingParticles_Step(u8 taskId);
 static void AnimSoulDewChargingParticles(struct Sprite *sprite);
@@ -305,6 +306,17 @@ static const struct SpriteTemplate gElectricChargingParticlesSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+static const struct SpriteTemplate gWetChargingParticlesSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ELECTRIC_ORBS,
+    .paletteTag = ANIM_TAG_WATER_ORB,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = sAnims_ElectricChargingParticles,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 static const union AnimCmd sAnim_SoulDewChargingParticles_0[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -375,6 +387,17 @@ const struct SpriteTemplate gGrowingChargeOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
     .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_GrowingElectricOrb,
+    .callback = AnimGrowingChargeOrb,
+};
+
+const struct SpriteTemplate gParasolicChargeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PARASOL,
+    .paletteTag = ANIM_TAG_PARASOL,
     .oam = &gOamData_AffineNormal_ObjBlend_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -961,6 +984,79 @@ static void AnimTask_ElectricChargingParticles_Step(u8 taskId)
 
             task->data[12] = 0;
             spriteId = CreateSprite(&gElectricChargingParticlesSpriteTemplate, task->data[14], task->data[15], 2);
+            if (spriteId != MAX_SPRITES)
+            {
+                struct Sprite *sprite = &gSprites[spriteId];
+
+                sprite->x += sElectricChargingParticleCoordOffsets[task->data[9]][0];
+                sprite->y += sElectricChargingParticleCoordOffsets[task->data[9]][1];
+                sprite->data[0] = 40 - task->data[8] * 5;
+                sprite->data[1] = sprite->x;
+                sprite->data[2] = task->data[14];
+                sprite->data[3] = sprite->y;
+                sprite->data[4] = task->data[15];
+                sprite->data[5] = taskId;
+                InitAnimLinearTranslation(sprite);
+                StoreSpriteCallbackInData6(sprite, AnimElectricChargingParticles);
+                sprite->callback = RunStoredCallbackWhenAnimEnds;
+                if (++task->data[9] > 15)
+                    task->data[9] = 0;
+                if (++task->data[10] >= task->data[11])
+                {
+                    task->data[10] = 0;
+                    if (task->data[8] <= 5)
+                        ++task->data[8];
+                }
+                ++task->data[7];
+                --task->data[6];
+            }
+        }
+    }
+    else if(task->data[7] == 0)
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+
+// Animates small electric orbs moving from around the battler inward. For Charge/Shock Wave
+void AnimTask_WetChargingParticles(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    if (!gBattleAnimArgs[0])
+    {
+        task->data[14] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+        task->data[15] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    }
+    else
+    {
+        task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+        task->data[15] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    }
+    task->data[6] = gBattleAnimArgs[1];
+    task->data[7] = 0;
+    task->data[8] = 0;
+    task->data[9] = 0;
+    task->data[10] = 0;
+    task->data[11] = gBattleAnimArgs[3];
+    task->data[12] = 0;
+    task->data[13] = gBattleAnimArgs[2];
+    task->func = AnimTask_WetChargingParticles_Step;
+}
+
+static void AnimTask_WetChargingParticles_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    if (task->data[6])
+    {
+        if (++task->data[12] > task->data[13])
+        {
+            u8 spriteId;
+
+            task->data[12] = 0;
+            spriteId = CreateSprite(&gWetChargingParticlesSpriteTemplate, task->data[14], task->data[15], 2);
             if (spriteId != MAX_SPRITES)
             {
                 struct Sprite *sprite = &gSprites[spriteId];

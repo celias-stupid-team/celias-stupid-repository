@@ -124,6 +124,12 @@ $(BTLANMSPRGFXDIR)/ice_cube.4bpp: $(BTLANMSPRGFXDIR)/ice_cube_0.4bpp \
 						  $(BTLANMSPRGFXDIR)/ice_cube_3.4bpp
 	@cat $^ >$@
 
+$(BTLANMSPRGFXDIR)/sheer_gold.4bpp: $(BTLANMSPRGFXDIR)/sheer_gold_0.4bpp \
+						  $(BTLANMSPRGFXDIR)/sheer_gold_1.4bpp \
+						  $(BTLANMSPRGFXDIR)/sheer_gold_2.4bpp \
+						  $(BTLANMSPRGFXDIR)/sheer_gold_3.4bpp
+	@cat $^ >$@
+
 $(BTLANMSPRGFXDIR)/summoning_circle.4bpp: $(BTLANMSPRGFXDIR)/summoning_circle_0.4bpp \
 						  $(BTLANMSPRGFXDIR)/summoning_circle_1.4bpp \
 						  $(BTLANMSPRGFXDIR)/summoning_circle_2.4bpp \

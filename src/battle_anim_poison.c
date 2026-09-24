@@ -221,6 +221,17 @@ const struct SpriteTemplate gPoisonBubbleSpriteTemplate =
     .callback = AnimBubbleEffect,
 };
 
+const struct SpriteTemplate gBoxicSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BOX,
+    .paletteTag = ANIM_TAG_BOX,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bubble,
+    .callback = AnimBubbleEffect,
+};
+
 static const union AnimCmd sAnim_LossBubbleOne[] =
 {
     ANIMCMD_FRAME(0, 1),

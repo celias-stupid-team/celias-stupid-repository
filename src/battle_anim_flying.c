@@ -702,6 +702,17 @@ const struct SpriteTemplate gSkyAttackBirdSpriteTemplate =
     .callback = AnimSkyAttackBird,
 };
 
+const struct SpriteTemplate gMicrophoneThrowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MICROPHONE,
+    .paletteTag = ANIM_TAG_MICROPHONE,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
+
 const struct SpriteTemplate gSkyAttackCrabSpriteTemplate =
 {
     .tileTag = ANIM_TAG_CSR_CRAB,

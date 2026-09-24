@@ -259,6 +259,29 @@ const struct SpriteTemplate gSwirlingDirtSpriteTemplate =
     .callback = AnimParticleInVortex,
 };
 
+static const union AnimCmd sAnim_SwirlingSpearow[] =
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnims_SwirlingSpearow[] =
+{
+    sAnim_SwirlingSpearow,
+};
+
+const struct SpriteTemplate gSwirlingSpearowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPARROW,
+    .paletteTag = ANIM_TAG_SPARROW,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_SwirlingSpearow,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex,
+};
+
 const struct SpriteTemplate gSandWombSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FEMALE,
@@ -367,6 +390,17 @@ const struct SpriteTemplate gFlyingKrabbyCrescentSpriteTemplate =
 {
     .tileTag = ANIM_TAG_KRABBY_HEY,
     .paletteTag = ANIM_TAG_KRABBY_HEY,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFlyingSandCrescent_64,
+};
+
+const struct SpriteTemplate gFlyingRapidashCrescentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RAPIDASH,
+    .paletteTag = ANIM_TAG_RAPIDASH,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -507,6 +541,50 @@ const struct SpriteTemplate gRockTombRockSpriteTemplate =
     .paletteTag = ANIM_TAG_ROCKS,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_BasicRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockTomb,
+};
+
+const struct SpriteTemplate gTrozeiHboxSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TROZEI_HBOX,
+    .paletteTag = ANIM_TAG_TROZEI_HBOX,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockTomb,
+};
+
+const struct SpriteTemplate gTrozeiRaichuSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TROZEI_RAICHU,
+    .paletteTag = ANIM_TAG_TROZEI_RAICHU,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockTomb,
+};
+
+const struct SpriteTemplate gTrozeiDadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TROZEI_DAD,
+    .paletteTag = ANIM_TAG_TROZEI_DAD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockTomb,
+};
+
+const struct SpriteTemplate gTrozeiDiglettsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TROZEI_DIGLETTS,
+    .paletteTag = ANIM_TAG_TROZEI_DIGLETTS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimRockTomb,

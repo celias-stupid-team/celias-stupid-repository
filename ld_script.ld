@@ -1129,6 +1129,20 @@ SECTIONS {
         sound/songs/midi/mus_bw_rival.o(.rodata);
         sound/songs/midi/mus_tiny_lass.o(.rodata);
         sound/songs/midi/mus_encounter_rival_high.o(.rodata);
+        sound/songs/midi/se_tcg_heal.o(.rodata);
+        sound/songs/midi/se_tcg_drain.o(.rodata);
+        sound/songs/midi/se_sudden_death.o(.rodata);
+        sound/songs/midi/se_raichu_echo.o(.rodata);
+        sound/songs/midi/se_on_da_scene.o(.rodata);
+        sound/songs/midi/se_oh_no.o(.rodata);
+        sound/songs/midi/se_mmhmm.o(.rodata);
+        sound/songs/midi/se_mario_lava.o(.rodata);
+        sound/songs/midi/se_i_see.o(.rodata);
+        sound/songs/midi/se_fuck.o(.rodata);
+        sound/songs/midi/se_bobomb.o(.rodata);
+        sound/songs/midi/se_azumarill.o(.rodata);
+        sound/songs/midi/se_azu.o(.rodata);
+        sound/songs/midi/se_and_there_you_have_it.o(.rodata);
 
     } > ROM =0
 

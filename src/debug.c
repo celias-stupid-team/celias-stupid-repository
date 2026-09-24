@@ -3903,6 +3903,20 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_BW_RIVAL) \
     X(MUS_TINY_LASS) \
     X(MUS_ENCOUNTER_RIVAL_HIGH)      \
+    X(SE_TCG_HEAL) \
+    X(SE_TCG_DRAIN) \
+    X(SE_SUDDEN_DEATH) \
+    X(SE_RAICHU_ECHO) \
+    X(SE_ON_DA_SCENE) \
+    X(SE_OH_NO) \
+    X(SE_MMHHM) \
+    X(SE_MARIO_LAVA) \
+    X(SE_I_SEE) \
+    X(SE_FUCK) \
+    X(SE_BOBOMB) \
+    X(SE_AZUMARILL) \
+    X(SE_AZU) \
+    X(SE_AND_THERE_YOU_HAVE_IT) \
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

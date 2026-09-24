@@ -13736,6 +13736,16 @@ void BS_SetBattleAnimTarget(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_Fishure(void)
+{
+    NATIVE_ARGS();
+    gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
+    gCurrentMove = MOVE_BITE;
+    gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+    BattleScriptPush(gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect]);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_TrySetEncoreBoth(void)
 {
     NATIVE_ARGS(const u8 *failInstr);
