@@ -10633,16 +10633,30 @@ static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_SWAMPERT,
-        .moves = {MOVE_SOFT_LOCK, MOVE_MOONLIGHT_YEAR, MOVE_LANDS_MATH, MOVE_EARTH_POWER}
+        .moves = {MOVE_SOFT_LOCK, MOVE_MOONLIGHT_YEAR, MOVE_TILE_COLLISION, MOVE_EARTH_POWER}
     },
     {
         .iv = 0,
         .lvl = 50,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_FOCUS_SASH,
+        .species = SPECIES_LEAFEON,
+        .moves = {MOVE_MORTAL_SPIN, MOVE_MAP_WEATHER, MOVE_GRASSYTERRAIN, MOVE_GAMING_TOOLBARS}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_FOCUS_SASH,
+        .species = SPECIES_CHARIZARD,
+        .moves = {MOVE_MACHBATICS, MOVE_QUIVER_DANCE, MOVE_TORNADUS_KICK, MOVE_CONFUSION_PSYDUCK}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_GARDEVOIR,
-        .moves = {MOVE_FAIRY_FANG, MOVE_SECRET_SWORD, MOVE_DOUBLE_JUMP, MOVE_BOTTOM_SURGERY}
+        .moves = {MOVE_FAIRY_FANG, MOVE_STORE_OF_TIME, MOVE_DOUBLE_JUMP, MOVE_BOTTOM_SURGERY}
     },
 };
 
