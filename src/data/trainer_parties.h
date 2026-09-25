@@ -10648,13 +10648,6 @@ static const struct TrainerMonItemCustomMoves sParty_Starlight[] = {
         .iv = 0,
         .lvl = 50,
         .heldItem = ITEM_FOCUS_SASH,
-        .species = SPECIES_CHARIZARD,
-        .moves = {MOVE_MACHBATICS, MOVE_QUIVER_DANCE, MOVE_TORNADUS_KICK, MOVE_CONFUSION_PSYDUCK}
-    },
-    {
-        .iv = 0,
-        .lvl = 50,
-        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_GARDEVOIR,
         .moves = {MOVE_FAIRY_FANG, MOVE_STORE_OF_TIME, MOVE_DOUBLE_JUMP, MOVE_BOTTOM_SURGERY}
     },
