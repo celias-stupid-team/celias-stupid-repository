@@ -9010,7 +9010,7 @@ static u8 ObjectEventCheckForReflectiveSurface(struct ObjectEvent *objEvent)
 
 static u8 GetReflectionTypeByMetatileBehavior(u32 behavior)
 {
-    if (MetatileBehavior_IsIce(behavior))
+    if (MetatileBehavior_IsIce(behavior) || behavior == MB_REFLECTIVE_FLOOR)
         return 1;
     else if (MetatileBehavior_IsReflective(behavior))
         return 2;

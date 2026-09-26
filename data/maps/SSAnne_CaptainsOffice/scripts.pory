@@ -97,32 +97,60 @@ script SSAnne_CaptainLog {
 script SSAnne_CaptainsOffice_EventScript_Captain {
 	lock
 	goto_if_set(FLAG_GOT_HM01, SSAnne_CaptainsOffice_EventScript_AlreadyGotCut)
-	msgbox(
-	"CAPTAIN: urrp…\p"
+	if(flag(FLAG_TEMP_B)) {
+		msgbox(
+			"CAPTAIN: Hrrm…\n"
+		)
+		waitmessage
+		fadenewbgm(MUS_NONE)
+		delay(50)
+		closemessage
+		applymovement(LOCALID_SS_ANNE_CAPTAIN, Common_Movement_FacePlayer)
+		waitmovement(0)
+		delay(60)
+		msgbox(
+		"…{PAUSE 30}No, that doesn't seem right.\n"
+		"Are you sure about that?\p"
+		
+		"I feel like there's someone here."
+		"", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			setvar(VAR_RESULT, FALSE)
+		} else {
+			setvar(VAR_RESULT, TRUE)
 
-	"My first day on the job and I\n"
-	"messed up this badly…?\p"
+		}
 
-	"How am I ever going to show my\n"
-	"face to the crew again?", MSGBOX_DEFAULT)
-	textcolor(NPC_TEXT_COLOR_NEUTRAL)
-	message(SSAnne_CaptainsOffice_Text_RubbedCaptainsBack)
-	waitmessage
-	fadenewbgm(MUS_NONE)
-	playfanfare(MUS_HEAL)
-	waitfanfare
-	call(EventScript_RestorePrevTextColor)
-	delay(50)
-	closemessage
-	applymovement(LOCALID_SS_ANNE_CAPTAIN, Common_Movement_FacePlayer)
-	waitmovement(0)
-	delay(60)
-	msgbox(
-	"…{PAUSE 30}Hello?\p"
+	} else {
+		msgbox(
+		"CAPTAIN: urrp…\p"
 
-	"Is there someone there?\n"
-	"", MSGBOX_YESNO)
+		"My first day on the job and I\n"
+		"messed up this badly…?\p"
+
+		"How am I ever going to show my\n"
+		"face to the crew again?", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		message(SSAnne_CaptainsOffice_Text_RubbedCaptainsBack)
+		waitmessage
+		fadenewbgm(MUS_NONE)
+		playfanfare(MUS_HEAL)
+		waitfanfare
+		call(EventScript_RestorePrevTextColor)
+		delay(50)
+		closemessage
+		applymovement(LOCALID_SS_ANNE_CAPTAIN, Common_Movement_FacePlayer)
+		waitmovement(0)
+		delay(60)
+		msgbox(
+		"…{PAUSE 30}Hello?\p"
+
+		"Is there someone there?\n"
+		"", MSGBOX_YESNO)
+		
+	}
 	if(!var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_B)
 		msgbox(
 		"Oh, okay.\p"
 

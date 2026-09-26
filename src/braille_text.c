@@ -197,16 +197,22 @@ static void DecompressGlyph_Braille(u16 glyph)
 {
     const u16 *glyphs;
 
+    //DebugPrintf("glyphID = %d", glyph);
     glyphs = sBrailleGlyphs + 0x100 * (glyph / 8) + 0x10 * (glyph % 8);
     DecompressGlyphTile(glyphs, (u16 *)gGlyphInfo.pixels);
     DecompressGlyphTile(glyphs + 0x8, (u16 *)(gGlyphInfo.pixels + 0x20));
     DecompressGlyphTile(glyphs + 0x80, (u16 *)(gGlyphInfo.pixels + 0x40));
     DecompressGlyphTile(glyphs + 0x88, (u16 *)(gGlyphInfo.pixels + 0x60));
-    gGlyphInfo.width = 16;
+    if (glyph == 0)
+            gGlyphInfo.width = 10;
+    else 
+        gGlyphInfo.width = 16;
     gGlyphInfo.height = 16;
 }
 
-s32 GetGlyphWidth_Braille(u16 font_type, bool32 isJapanese)
+s32 GetGlyphWidth_Braille(u16 glyphId, bool32 isJapanese)
 {
-    return 16;
+    //DebugPrintf("glyphID = %d", glyphId);
+    
+        return 16;
 }

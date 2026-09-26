@@ -5677,8 +5677,6 @@ BattleScript_EffectShadowShield::
 	setshadowshield
 	attackanimation
 	waitanimation
-	printfromtable gProtectLikeUsedStringIds
-	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
 BattleScript_TrainerSlideAfterDefeat::
@@ -5786,8 +5784,7 @@ BattleScript_10000VoltsSetUp::
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 1
 	playanimation BS_ATTACKER, B_ANIM_CHARGE_TURN
-	printstring STRINGID_PKMNISCHARGINGENERGY
-	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_SHORT
 	end2
 
 BattleScript_Effect10kVolts::
