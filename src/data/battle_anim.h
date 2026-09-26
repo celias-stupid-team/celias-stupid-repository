@@ -2515,5 +2515,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_SKY_TOWER]           = {gBattleAnimBgImage_SkyTower,   gBattleAnimBgPalette_SkyTower,   gBattleAnimBgTilemap_SkyTower},
     [BG_UNITE_HUD]           = {gBattleAnimBgImage_UniteHud,   gBattleAnimBgPalette_UniteHud,   gBattleAnimBgTilemap_UniteHud},
     [BG_CATASTROPHE]         = {gBattleAnimBgImage_Catastrophe, gBattleAnimBgPalette_Catastrophe, gBattleAnimBgTilemap_Catastrophe},
-    [BG_GOLD]                = {gBattleAnimBgImage_Gold,       gBattleAnimBgPalette_Gold,       gBattleAnimBgTilemap_Gold},
+    [BG_GOLD]                = {gBattleAnimBgImage_Gold,       gBattleAnimBgPalette_Gold,       gBattleAnimBgTilemap_Gold}, // Temporarily breaking this so I can build
 };

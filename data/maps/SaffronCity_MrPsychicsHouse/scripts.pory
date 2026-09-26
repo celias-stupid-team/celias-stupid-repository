@@ -14,6 +14,11 @@ SaffronCity_MrPsychicsHouse_EventScript_AlreadyGotTM29::
 mapscripts SaffronCity_MrPsychicsHouse_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_1)
+		
+		if(flag(FLAG_CAUGHT_MR_ICE_BEAM) && !(checkitem(ITEM_MASTER_BALL) || checkmoncaught(SPECIES_MR_MIME))) {
+			setobjectxyperm(LOCALID_MISTER_BALL, 7, 4)
+			clearflag(FLAG_TEMP_1)
+		}
 	}
 }
 

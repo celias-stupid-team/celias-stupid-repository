@@ -4,6 +4,13 @@ mapscripts SecretTunnel_MapScripts {
     }
     MAP_SCRIPT_ON_FRAME_TABLE  [
         VAR_TEMP_0, 0 {
+            GetPlayerXY(VAR_RESULT, VAR_TEMP_A)
+            if(var(VAR_TEMP_A) > 30) {
+                 setvar(VAR_TEMP_0, 1)
+                clearflag(FLAG_CSR_SPEEDRUN_CAVE)
+                release
+                end
+            }
             setvar(VAR_TEMP_0, 1)
             if(flag(FLAG_CSR_SPEEDRUN_CAVE)) {
                 applymovement(LOCALID_PLAYER, PlayerZoomsOut)

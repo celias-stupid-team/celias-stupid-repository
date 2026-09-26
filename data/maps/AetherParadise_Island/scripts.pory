@@ -5,6 +5,10 @@ mapscripts AetherParadise_Island_MapScripts {
             setflag(FLAG_CSR_MAP_AETHER_PARADISE)
 
         }
+        if(!flag(FLAG_READ_THE_GUORL)) {
+            setflag(FLAG_TEMP_6)
+        }
+
         if(flag(FLAG_POST_GAME) && flag(FLAG_HIDE_BONUS_STARLIGHTS)) {
         setflag(FLAG_TEMP_1A)
         }
@@ -34,6 +38,13 @@ mapscripts AetherParadise_Island_MapScripts {
 				19) // y2
         }
     }
+}
+
+script AetherParadise_AngryNerd {
+    lock
+    msgbox("Forced diversity…")
+    release
+    end
 }
 
 script AetherParadise_LargeOak {

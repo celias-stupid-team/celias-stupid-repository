@@ -2933,6 +2933,7 @@ static void FieldMoveFunc_Cut(void)
 
 static bool32 SetupFunc_Fly(void)
 {
+    FlagClear(FLAG_CSR_SPEEDRUN_CAVE);
     if (!FlagGet(FLAG_BADGE04_GET))
     {
         sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NO_BADGE;

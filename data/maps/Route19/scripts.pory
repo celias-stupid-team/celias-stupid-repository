@@ -1193,6 +1193,7 @@ script GreatSea_Buoy_AetherRight {
 }
 script GreatSea_Buoy_AetherTop {
 	lock
+	setflag(FLAG_READ_THE_GUORL)
 	msgbox(
 	"It's a guorl…\n"
 	"", MSGBOX_DEFAULT)
