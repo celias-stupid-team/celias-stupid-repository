@@ -1483,32 +1483,34 @@ script Starlight_House_Trophy {
 	if(flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"A decorative table, where something\n"
+	"A large pedestal for something\n"
 	"{COLOR LIGHT_RED}special{COLOR DARK_GRAY} awaits to be stored.\p"
 
-	"Defeat the maker who shaped the land\n"
-	"that you have explored.\p"
+	"Defeat the maker who shaped the\n"
+	"acres, that you have explored.\p"
 
-	"Seek the 10 Stars from the charts\n"
-	"above,\p"
+	"Then gaze upon the Stars across the\n"
+	"Sea with the charts above,\p"
 
-	"And here you’ll find your {COLOR LIGHT_RED}special\n"
-	"reward{COLOR DARK_GRAY}.", MSGBOX_SIGN)
+	"And then you'll find your\n"
+	"{COLOR LIGHT_RED}golden prize{COLOR DARK_GRAY} and claim your\l"
+	"{COLOR LIGHT_RED}special reward{COLOR DARK_GRAY}.", MSGBOX_SIGN)
 	}
 	if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"A decorative table, where something\n"
+	"A large pedestal for something\n"
 	"{COLOR LIGHT_RED}special{COLOR DARK_GRAY} awaits to be stored.\p"
 
-	"Defeat the maker who shaped the land\n"
-	"that you have explored.\p"
+	"Defeat the maker who shaped the\n"
+	"acres, that you have explored.\p"
 
-	"Seek the 10 Stars from the charts\n"
-	"above,\p"
+	"Then gaze upon the Stars across the\n"
+	"Sea with the charts above,\p"
 
-	"And here you’ll find your {COLOR LIGHT_RED}special\n"
-	"reward{COLOR DARK_GRAY}.", MSGBOX_SIGN)
+	"And then you'll find your\n"
+	"{COLOR LIGHT_RED}golden prize{COLOR DARK_GRAY} and claim your\l"
+	"{COLOR LIGHT_RED}special reward{COLOR DARK_GRAY}.", MSGBOX_SIGN)
 	}
 	//}
 }
