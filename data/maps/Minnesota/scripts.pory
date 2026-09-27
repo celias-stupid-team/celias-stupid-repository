@@ -629,6 +629,7 @@ script Minnesota_Bliz {
 }
 
 script Minnesota_Battle {
+		setrespawn(HEAL_LOCATION_MINNESOTA)
 		msgbox(
 		"BLIZ: Alright then, let's get into\n"
 		"it!\p"

@@ -5322,7 +5322,13 @@ static void ItemUseCB_RareCandyStep(u8 taskId, TaskFunc func)
     level = GetMonData(mon, MON_DATA_LEVEL);
     ConvertIntToDecimalStringN(gStringVar2, level, STR_CONV_MODE_LEFT_ALIGN, 3);
     ScheduleBgCopyTilemapToVram(2);
-    StringExpandPlaceholders(gStringVar4, gText_PkmnElevatedToLvVar2);
+    if(level == 69) {
+        StringExpandPlaceholders(gStringVar4, gText_PkmnElevatedToLvVar269);
+
+    } else {
+        StringExpandPlaceholders(gStringVar4, gText_PkmnElevatedToLvVar2);
+
+    }
     DisplayPartyMenuMessage(gStringVar4, TRUE);
     gTasks[taskId].func = Task_WaitRareCandyMessage; 
 }
