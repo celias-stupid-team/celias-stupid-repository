@@ -109,7 +109,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET) || flag(FLAG_WORLD_MAP_PEWTER_CITY)) {
 		setobtainable(SPECIES_NIDORAN_M) // 29
 	}
-	if(checkmoncaught(SPECIES_NIDORINA) || (flag(FLAG_WORLD_MAP_CERULEAN_CITY) && checkmoncaught(SPECIES_NIDORAN_M))) {
+	if(checkmoncaught(SPECIES_NIDORINA) || (flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_NIDORAN_M))) {
 		setobtainable(SPECIES_NIDORINA) // 30
 	}
 	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_NIDORINA)) {
@@ -118,7 +118,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET) || flag(FLAG_WORLD_MAP_PEWTER_CITY)) {
 		setobtainable(SPECIES_NIDORAN_F) // 32
 	}
-	if(checkmoncaught(SPECIES_NIDORINO) || (flag(FLAG_WORLD_MAP_CERULEAN_CITY) && checkmoncaught(SPECIES_NIDORAN_F))) {
+	if(checkmoncaught(SPECIES_NIDORINO) || (flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_NIDORAN_F))) {
 		setobtainable(SPECIES_NIDORINO) // 33
 	}
 	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_NIDORINO)) { 

@@ -191,7 +191,7 @@ script PowerPlant_MagnemiteMan {
 				"A wild MAGNEMITE!\p"
 
 				"Looks like there were still some\n"
-				"here after all!", MSGBOX_DEFAULT)
+				"left here!", MSGBOX_DEFAULT)
 				closemessage
 				faceplayer
 				msgbox("Looks like I didn't need any help\nafter all.\lSorry!\pHope you're able to find someone\nelse someday!", MSGBOX_DEFAULT)

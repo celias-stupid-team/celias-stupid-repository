@@ -171,7 +171,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_WEEDLE] =
     {
-        .categoryName = _("HAIRY BUG"),
+        .categoryName = _("BOOM"),
         .height = 3,
         .weight = 32,
         .description = gWeedlePokedexText,

@@ -1098,7 +1098,7 @@ script GreatSea_Buoy_OneIsland {
 	signmsg
 	msgbox(
 	"{DOWN_ARROW} SEAFOAM ISLANDS\n"
-	"{RIGHT_ARROW} ROUTE 19", MSGBOX_DEFAULT)
+	"{RIGHT_ARROW} FUSHCIA CITY", MSGBOX_DEFAULT)
 	normalmsg
 	release
 }

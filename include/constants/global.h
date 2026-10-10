@@ -86,7 +86,7 @@
 
 #define MALE   0
 #define FEMALE 1
-#define GENDER_COUNT 2
+#define GENDER_COUNT 2 // Damn
 
 #define BARD_SONG_LENGTH       6
 #define NUM_STORYTELLER_TALES  4

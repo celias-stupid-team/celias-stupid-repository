@@ -23,7 +23,7 @@ script LostTower_Gravestone {
 
 
 	} else {
-		msgbox("It appears to have been built\nlast Tuesday…", MSGBOX_SIGN)
+		msgbox("A small tower sits inside the\nbigger tower.", MSGBOX_SIGN)
 	}
 	end
 }

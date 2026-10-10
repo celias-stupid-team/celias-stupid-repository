@@ -1339,7 +1339,7 @@
 #define FLAG_SHINY_NIDOTRAN_SPAWNS               0x4D6
 #define FLAG_GOT_SHINY_ZUBAT               0x4D7
 #define FLAG_READ_THE_GUORL               0x4D8
-#define FLAG_0x4D9               0x4D9
+#define FLAG_TRIED_QUESTIONNAIRE               0x4D9
 #define FLAG_0x4DA               0x4DA
 #define FLAG_0x4DB               0x4DB
 #define FLAG_0x4DC               0x4DC

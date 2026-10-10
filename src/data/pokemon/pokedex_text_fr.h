@@ -706,7 +706,7 @@ const u8 gKangaskhanPokedexText[] = _(
 const u8 gKangaskhanPokedexTextUnused[] = _("");
 
 const u8 gHorseaPokedexText[] = _(
-	"I'd like one Seahorse, hold the Sea.");
+	"Evil and intimidating horsea");
 
 const u8 gHorseaPokedexTextUnused[] = _("");
 

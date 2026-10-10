@@ -29,7 +29,7 @@ script Route2_EventScript_NorthGirl {
 
 script ViridianForest_IsThatOak {
 	lock
-	textcolor(NPC_TEXT_COLOR_TREE)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	if(flag(FLAG_PT_NPC_SIGN_LADY)) {
 		faceplayer
 		

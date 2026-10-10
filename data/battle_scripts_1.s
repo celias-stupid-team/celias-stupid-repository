@@ -5288,7 +5288,6 @@ BattleScript_EffectDoNothing::
 BattleScript_SetLatiasPokedexFlags::
 	setpokedexflag SPECIES_LATIAS, FLAG_SET_SEEN
 	setpokedexflag SPECIES_LATIAS, FLAG_SET_CAUGHT
-	setpokedexflag SPECIES_LATIAS, FLAG_SET_OBTAINABLE
 	goto BattleScript_MoveEnd
 
 BattleScript_CreateTM07::

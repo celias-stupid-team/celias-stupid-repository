@@ -3,7 +3,7 @@ CeruleanCity_Text_RivalIntro::
     .string "You're still struggling along back\n"
     .string "here?\p"
     .string "I'm doing great! I caught a bunch\n"
-    .string "of strong and smart POKéMON!\p"
+    .string "of strong and cool POKéMON!\p"
     .string "Here, let me see what you caught,\n"
     .string "{PLAYER}!$"
 

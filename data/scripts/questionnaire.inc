@@ -20,10 +20,3 @@ EventScript_EnableMysteryGift::
 EventScript_DeclineQuestionnaire::
 	releaseall
 	end
-
-EventScript_TookQuestionnaire::
-	applymovement VAR_0x8008, Common_Movement_FaceDown
-	waitmovement 0
-	msgbox Text_QuestionnaireThankYou
-	releaseall
-	end

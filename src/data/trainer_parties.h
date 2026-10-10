@@ -732,13 +732,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassJulia[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_LassKay[] = {
     {
         .iv = 0,
-        .lvl = 19,
+        .lvl = 17,
         .species = SPECIES_MEOWTH,
         .moves = {MOVE_NUZZLE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
-        .lvl = 19,
+        .lvl = 17,
         .species = SPECIES_SYLVEON,
         .moves = {MOVE_HYPER_VOICE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
@@ -10342,7 +10342,7 @@ static const struct TrainerMonItemCustomMoves sParty_HyperDrill[] = {
         .lvl = 14,
         .heldItem = ITEM_NONE,
         .species = SPECIES_DUDUNSPARCE,
-        .moves = {MOVE_BODY_SLAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_ROUNDEN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
@@ -10356,7 +10356,7 @@ static const struct TrainerMonItemCustomMoves sParty_HyperDrill[] = {
         .lvl = 14,
         .heldItem = ITEM_NONE,
         .species = SPECIES_PORYGON22,
-        .moves = {MOVE_ROUNDEN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_IRON_TAILS, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 static const struct TrainerMonItemCustomMoves sParty_BerriedAlive[] = {

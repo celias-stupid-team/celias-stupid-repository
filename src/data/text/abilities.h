@@ -237,6 +237,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_MATTRESS_TAG] = COMPOUND_STRING("Allows the foe to sleep if it wants."),
     [ABILITY_FLUFFY] = COMPOUND_STRING("Objectively the most huggable POKéMON"),
     [ABILITY_SPIKY] = COMPOUND_STRING("Objectively the least huggable POKéMON"),
+    [ABILITY_ROUNDPROOF] = COMPOUND_STRING("Immune to round-based moves."),
 
     
 };
@@ -392,6 +393,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_MATTRESS_TAG] = _("{FONT_SMALL}MATTRESS TAG"),
     [ABILITY_FLUFFY] = _("FLUFFY"),
     [ABILITY_SPIKY] = _("SPIKY"),
+    [ABILITY_ROUNDPROOF] = _("ROUNDPROOF"),
 
     
 };

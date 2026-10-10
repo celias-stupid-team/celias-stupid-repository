@@ -33,10 +33,8 @@ PewterCity_Gym_Text_ReceivedTM39FromBrock::
 PewterCity_Gym_Text_ExplainTM39::
     .string "A TM, TRADEMARK, contains a\n"
     .string "copyrighted attack.\p"
-    .string "Using a TM teaches the move it\n"
-    .string "contains to a POKéMON.\p"
     .string "A TM can't be copied, so you can\n"
-    .string "only use it once!\p"
+    .string "only use it once!\l"
     .string "Otherwise you might get a strike.\p"
     .string "Anyways…\n"
     .string "TM34 contains BIDE.\p"

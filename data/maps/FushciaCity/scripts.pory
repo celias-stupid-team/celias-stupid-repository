@@ -712,6 +712,7 @@ script FushciaCity_OldChuckster {
 	closemessage
 	setflag(FLAG_TEMP_5)
 	setvar(VAR_TEMP_4, 1)
+	copyobjectxytoperm(VAR_LAST_TALKED)
 	release
 }
 

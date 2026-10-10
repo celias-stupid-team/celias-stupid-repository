@@ -9001,7 +9001,7 @@ static const struct LevelUpMove sIron_BundleLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sIron_HandsLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_MEGA_PUNCH),
 	LEVEL_UP_END
 };
 

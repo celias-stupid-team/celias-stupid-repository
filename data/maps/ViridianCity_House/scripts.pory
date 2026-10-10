@@ -1921,6 +1921,7 @@ script CeliaSecret_NewGamePlus {
 			setflag(FLAG_CELIA_SECRETS_FINISHED)
 			clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
 			additem(ITEM_CANDY_DISPENSER)
+			additem(ITEM_ITEMFINDER)
 			msgbox(
 			"Awesome!\n"
 			"Have fun!", MSGBOX_DEFAULT)

@@ -6381,7 +6381,7 @@
     {
       "english": "GRASS ENERGY",
       "itemId": "ITEM_GRASS_ENERGY",
-      "price": 4000,
+      "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "Raises the ATTACK stat of POKéMON\\nin battle. Wears off if the POKéMON\\nis withdrawn.",
