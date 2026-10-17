@@ -4,6 +4,7 @@ mapscripts Silph_CallCenter_MapScripts {
 			setflag(FLAG_TEMP_1)
 		}
 		setvar(VAR_TEMP_5, 22)
+		setbench(BENCH_OFFBRAND)
 	}
 }
 
@@ -306,53 +307,53 @@ script Silph_LookGirl {
 		removeobject(VAR_LAST_TALKED)
 		
 	}
-	if(var(VAR_TEMP_5) == 24) {
-		delay(20)
-		applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
-			walk_in_place_right * 2
-		))
-		waitmovement(0)
-		delay(10)
-		textcolor(NPC_TEXT_COLOR_BLUE)
-		msgbox(
-		"I will thorw!\n"
-		"", MSGBOX_DEFAULT)
-		closemessage
-		delay(30)
-		applymovement(VAR_LAST_TALKED, moves(
-			face_up
-			lock_facing_direction
-			walk_slow_down
-			delay_16 * 2
-			walk_fast_up * 2
-			jump_2_up
-			delay_16
-			unlock_facing_direction
-			face_down
-		))
-		applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
-			face_up
-			lock_facing_direction
-			walk_slow_down
-			delay_16 * 2
-			walk_fast_up * 2
-			face_up
-		))
-		waitmovement(LOCALID_SILPH_LOOK_CHUCKSTER)
-		playse(SE_LEDGE)
-		waitmovement(VAR_LAST_TALKED)
-		applymovement(LOCALID_PLAYER, moves(
-			face_up
-		))
-		applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
-			unlock_facing_direction
-			walk_down
-			face_right
-		))
-		waitmovement(LOCALID_SILPH_LOOK_CHUCKSTER)
-		setvar(VAR_TEMP_5, 21)
+	// if(var(VAR_TEMP_5) == 24) {
+	// 	delay(20)
+	// 	applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
+	// 		walk_in_place_right * 2
+	// 	))
+	// 	waitmovement(0)
+	// 	delay(10)
+	// 	textcolor(NPC_TEXT_COLOR_BLUE)
+	// 	msgbox(
+	// 	"I will thorw!\n"
+	// 	"", MSGBOX_DEFAULT)
+	// 	closemessage
+	// 	delay(30)
+	// 	applymovement(VAR_LAST_TALKED, moves(
+	// 		face_up
+	// 		lock_facing_direction
+	// 		walk_slow_down
+	// 		delay_16 * 2
+	// 		walk_fast_up * 2
+	// 		jump_2_up
+	// 		delay_16
+	// 		unlock_facing_direction
+	// 		face_down
+	// 	))
+	// 	applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
+	// 		face_up
+	// 		lock_facing_direction
+	// 		walk_slow_down
+	// 		delay_16 * 2
+	// 		walk_fast_up * 2
+	// 		face_up
+	// 	))
+	// 	waitmovement(LOCALID_SILPH_LOOK_CHUCKSTER)
+	// 	playse(SE_LEDGE)
+	// 	waitmovement(VAR_LAST_TALKED)
+	// 	applymovement(LOCALID_PLAYER, moves(
+	// 		face_up
+	// 	))
+	// 	applymovement(LOCALID_SILPH_LOOK_CHUCKSTER, moves(
+	// 		unlock_facing_direction
+	// 		walk_down
+	// 		face_right
+	// 	))
+	// 	waitmovement(LOCALID_SILPH_LOOK_CHUCKSTER)
+	// 	setvar(VAR_TEMP_5, 21)
 
-	}
+	// }
     copyobjectxytoperm(VAR_LAST_TALKED)
 	release
 }
@@ -759,6 +760,62 @@ script Silph_YesNoDad {
 			}
 		}
 	}
+	release
+	end
+}
+
+
+script Silph_DisciplinaryMeeting {
+	msgbox(
+	"DISCIPLINARY MEETING\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Silph_CheeseFridge {
+	lock
+	if(var(VAR_TEMP_1) == 2) {
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} found half of a CHEESE!\n"
+		"", MSGBOX_DEFAULT)
+		waitfanfare
+		msgbox(
+		"{PLAYER} put the HALF CHEESE in the\n"
+		"SANDWICH CASE.", MSGBOX_DEFAULT)
+		addvar(VAR_TEMP_1, 1)
+		release
+		end
+
+	}
+	if(var(VAR_TEMP_1) == 3) {
+		msgbox(
+		"There is no more cheese.\p"
+
+		"There also aren't any dead bodies.\p"
+
+		"This fridge sucks.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+
+	}
+	playfanfare(MUS_LEVEL_UP)
+	msgbox(
+	"{PLAYER} found the CHEESE!\n"
+	"", MSGBOX_DEFAULT)
+	waitfanfare
+	msgbox(
+	"{PLAYER} put the CHEESE in the\n"
+	"SANDWICH CASE.", MSGBOX_DEFAULT)
+	addvar(VAR_TEMP_1, 1)
+	release
+}
+
+script Silph_LawSchool {
+	lock
+	playmoncry(SPECIES_SIZZLIPEDE,CRY_MODE_DEFAULT)
+	waitmoncry
 	release
 	end
 }

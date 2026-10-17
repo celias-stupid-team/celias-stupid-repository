@@ -132,7 +132,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
       "x": 36,
-      "y": 22,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -145,8 +145,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NURSE_DUCK_BUT_IM_LAZY",
-      "x": 32,
-      "y": 22,
+      "x": 36,
+      "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -259,8 +259,8 @@
       "local_id": "LOCALID_SILPH_LOOK_CHUCKSTER",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 35,
-      "y": 24,
+      "x": 36,
+      "y": 35,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -301,8 +301,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 35,
-      "y": 22,
+      "x": 20,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -329,8 +329,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN",
-      "x": 32,
-      "y": 23,
+      "x": 36,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -343,8 +343,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 32,
-      "y": 20,
+      "x": 31,
+      "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -386,7 +386,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 38,
-      "y": 23,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -400,7 +400,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HONEDGE",
       "x": 41,
-      "y": 25,
+      "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -414,7 +414,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VULPIX",
       "x": 39,
-      "y": 25,
+      "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -428,7 +428,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
       "x": 34,
-      "y": 23,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -441,8 +441,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SKITTY",
-      "x": 39,
-      "y": 21,
+      "x": 32,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -451,6 +451,34 @@
       "trainer_sight_or_berry_tree_id": "ITEM_FLUFFY_TAIL",
       "script": "EventScript_FindItem",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_JIGGLYPUFF",
+      "x": 33,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Silph_LawSchool",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 24,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_ODD_CANDY",
+      "script": "EventScript_FindItem",
+      "flag": "FLAG_SILPH_CO_CANDY"
     }
   ],
   "warp_events": [
@@ -485,6 +513,13 @@
       "elevation": 0,
       "dest_map": "MAP_SILPH_BALL_SHOP",
       "dest_warp_id": "WARP_ID_SILPH_BALLS_CALLCENTER"
+    },
+    {
+      "x": 21,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CALL_CENTER",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [
@@ -571,7 +606,7 @@
     {
       "type": "sign",
       "x": 41,
-      "y": 22,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Silph_Television"
@@ -746,8 +781,8 @@
     },
     {
       "type": "sign",
-      "x": 33,
-      "y": 25,
+      "x": 31,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Silph_Smartphone"
@@ -775,6 +810,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Silph_NoSitting"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_DisciplinaryMeeting"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Silph_CheeseFridge"
     }
   ]
 }

@@ -139,12 +139,12 @@
       "dest_warp_id": "2"
     },
     {
-      "warp_id": "WARP_ID_SABRINA_SILPH_HUB",
+      "warp_id": "WARP_ID_SILPH_CANDY_IN",
       "x": 25,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_SILPH_CO_2F",
-      "dest_warp_id": "7"
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND"
     },
     {
       "warp_id": "WARP_ID_SAFFRON_GYM_SILPH",

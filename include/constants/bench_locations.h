@@ -38,5 +38,6 @@
 #define BENCH_SAFFRON               35
 #define BENCH_ONE_ISLAND               36
 #define BENCH_STARLIGHTHOUSE      37
+#define BENCH_OFFBRAND      38
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS
