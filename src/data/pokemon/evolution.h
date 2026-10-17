@@ -18,7 +18,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_KAKUNA]     = {{EVO_LEVEL, 10, SPECIES_COMBEE}},
     
     [SPECIES_COMBEE]     = {{EVO_LEVEL, 55, SPECIES_KRABBY},
-                            {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_MEOWTH},                 
+                            {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_MEOWTH}},                 
 
     [SPECIES_PIDGEY]     = {{EVO_LEVEL, 18, SPECIES_PIDGEOTTO}},
     [SPECIES_PIDGEOTTO]  = {{EVO_LEVEL, 20, SPECIES_PIDGEOT}},

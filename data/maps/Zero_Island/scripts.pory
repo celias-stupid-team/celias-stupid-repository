@@ -118,6 +118,7 @@ script ZeroIsland_TryOpenDoor {
         playse(SE_UNLOCK)
         //setmetatile
         fadeinbgm(1)
+        delay(60)
         release
 
 }
