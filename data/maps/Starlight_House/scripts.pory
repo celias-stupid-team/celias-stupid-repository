@@ -1483,14 +1483,26 @@ script Starlight_House_Trophy {
 	if(flag(FLAG_TEMP_1) && !flag(FLAG_TEMP_6)) {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-		"A decorative table for something\n"
-		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
+	"A table for a {COLOR LIGHT_RED}Special Trophy{COLOR DARK_GRAY}.\p"
+
+	"As a bonus quest, fight the Dev,\n"
+	"then find her around the Great Sea\l"
+	"using the table upstairs.\p"
+
+	"Good luck!\n"
+	"", MSGBOX_SIGN)
 	}
 	if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_6)) {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-		"A decorative table for something\n"
-		"{COLOR LIGHT_RED}special{COLOR DARK_GRAY}.", MSGBOX_SIGN)
+	"A table for a {COLOR LIGHT_RED}Special Trophy{COLOR DARK_GRAY}.\p"
+
+	"As a bonus quest, fight the Dev,\n"
+	"then find her around the Great Sea\l"
+	"using the table upstairs.\p"
+
+	"Good luck!\n"
+	"", MSGBOX_SIGN)
 	}
 	//}
 }
