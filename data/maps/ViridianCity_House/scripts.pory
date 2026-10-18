@@ -2542,22 +2542,20 @@ script CeliaSecret_Palestine {
 
 script CeliaSecret_SilphShortKid {
 	msgbox(
-	"There was gonna be a rehash of\n"
-	"the short kid bit here, but I\l"
-	"left it as placeholder up until\l"
-	"release oops.\p"
+	"I was watching The Office while\n"
+	"mapping Silph Co, decided to\l"
+	"design it off the show's layout.\p"
 
-	"I've now killed him.\n"
-	"", MSGBOX_NPC)
+	"It was modified a bit so it's not\n"
+	"100% accurate but it's still\l"
+	"somewhat familiar to the show.", MSGBOX_NPC)
 }
 
 script CeliaSecret_TheOffice {
 	msgbox(
-	"Starlight wanted to make this map\n"
-	"look like The Office.\p"
-
-	"I've never seen The Office, so I\n"
-	"cannot say whether she did well.", MSGBOX_NPC)
+	"There's a hole in the wall here, so\n"
+	"if a CHUCKSTER throws you into it,\l"
+	"you won't be softlocked.", MSGBOX_NPC)
 }
 
 script CeliaSecret_LarryFight2 {

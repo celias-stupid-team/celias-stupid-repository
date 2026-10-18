@@ -300,11 +300,11 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 20,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
+      "x": 34,
+      "y": 20,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -315,8 +315,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 39,
-      "y": 14,
+      "x": 50,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -352,7 +352,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Silph_OakSilly",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
       "type": "object",
@@ -442,7 +442,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SKITTY",
       "x": 32,
-      "y": 23,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -479,6 +479,20 @@
       "trainer_sight_or_berry_tree_id": "ITEM_ODD_CANDY",
       "script": "EventScript_FindItem",
       "flag": "FLAG_SILPH_CO_CANDY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WRENCH",
+      "x": 25,
+      "y": 31,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Silph_Wrench",
+      "flag": "0"
     }
   ],
   "warp_events": [

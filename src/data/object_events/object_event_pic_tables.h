@@ -6833,3 +6833,14 @@ const struct SpriteFrameImage gObjectEventPicTable_CIRCUMCISION[] = {
     overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 2),
     overworld_frame(gObjectEventPic_CIRCUMCISION, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_WRENCH[] = {
+    overworld_frame(gObjectEventPic_WRENCH, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WRENCH, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WRENCH, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WRENCH, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WRENCH, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WRENCH, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WRENCH, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WRENCH, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WRENCH, 2, 2, 2),
+};

@@ -6,6 +6,9 @@ mapscripts InsideOfTruck_MapScripts {
 
 script InsideOfTruck_OnResume {
     special(CreateMail)
+    if(flag(FLAG_TM25_GOT)) {
+        additem(ITEM_TM25)   
+    }
 }
 
 

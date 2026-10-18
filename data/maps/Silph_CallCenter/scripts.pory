@@ -3,7 +3,7 @@ mapscripts Silph_CallCenter_MapScripts {
 		if(!flag(FLAG_FINANCIAL_REPORT_TOSSED)) {
 			setflag(FLAG_TEMP_1)
 		}
-		setvar(VAR_TEMP_5, 22)
+		setvar(VAR_TEMP_5, 23)
 		setbench(BENCH_OFFBRAND)
 	}
 }
@@ -818,4 +818,11 @@ script Silph_LawSchool {
 	waitmoncry
 	release
 	end
+}
+
+
+script Silph_Wrench {
+	msgbox(
+	"This is such a dumb bit.\n"
+	"", MSGBOX_NPC)
 }

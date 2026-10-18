@@ -114,6 +114,7 @@ void NewGameInitData(void)
     u8 rivalName[PLAYER_NAME_LENGTH + 1];
     bool8 celiaBonusFlagSet;
     bool8 letterYFlag;
+    bool8 HakariBliz;
     
     // keep these flags in between new runs
     if (FlagGet(FLAG_CSR_CELIA_BONUS))
@@ -125,6 +126,10 @@ void NewGameInitData(void)
         letterYFlag = TRUE;
     else
         letterYFlag = FALSE;
+    
+    if (FlagGet(FLAG_TM25_GOT))
+        HakariBliz = TRUE;
+
 
     StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
     gDifferentSaveFile = TRUE;
@@ -179,6 +184,14 @@ void NewGameInitData(void)
             FlagClear(FLAG_FOUND_Y);
         else
             FlagSet(FLAG_FOUND_Y);
+        
+        if (HakariBliz) {
+            FlagSet(FLAG_TM25_GOT);
+            FlagSet(FLAG_TALKED_TO_HAKARI);
+            FlagSet(FLAG_TALKED_TO_BLIZ);
+            FlagSet(FLAG_REUNITED_HAKARI_AND_BLIZ);
+
+        }
     }    
         
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
