@@ -525,3 +525,11 @@ script CeladonCity_GameCorner_CeliaMachine {
 	msgbox("CELIA: Welcome!\pI'd just like to draw your\nattention to this machine, which\lI have literally never seen\lanybody use in my life.", MSGBOX_NPC)
 	end
 }
+
+
+script GameCorner_NotOak {
+	msgbox(
+	"99% of players stop right before\n"
+	"it's OAK!", MSGBOX_SIGN)
+
+}

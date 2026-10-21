@@ -778,7 +778,7 @@ PokedexRating_Text_HintHorsea::
 PokedexRating_Text_HintDragonite::
 	.string "The more you pay attention to your\n"
 	.string "POKéDEX, the more you'll be able\l"
-	.string "to gleam from it.\p"
+	.string "to glean from it.\p"
 	.string "Look past your immediate objective\n"
 	.string "and try to see the bigger picture.\l"
 	.string "You can learn more than you think.$"

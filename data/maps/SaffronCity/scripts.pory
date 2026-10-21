@@ -610,6 +610,7 @@ script SaffronCity_TrainSign {
 		"patch of tiles.\l"
 		"There isn't anything here.", MSGBOX_DEFAULT)
 		release
+		end
 	}
 	msgbox(
 	"MAGNET TRAIN\n"

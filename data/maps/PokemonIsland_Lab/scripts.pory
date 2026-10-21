@@ -99,6 +99,7 @@ script PokemonIslandLab_Ivy {
     }
     if(flag(FLAG_TALKED_TO_IVY)) {
         if(checkitem(ITEM_GS_BALL)) {
+            removeitem(ITEM_GS_BALL)
             goto(PokemonIslandLab_GSBallCutscene)
         }
         msgbox(
