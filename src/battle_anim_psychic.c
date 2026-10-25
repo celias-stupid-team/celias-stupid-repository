@@ -1402,8 +1402,8 @@ static void AnimTask_Flattened_Step(u8 taskId)
                 offset = 0;
 
             // Subtract to move visually right (GBA HOFS behaviour)
-            gScanlineEffectRegBuffers[0][i] = baseX - offset;
-            gScanlineEffectRegBuffers[1][i] = baseX - offset;
+            gScanlineEffectRegBuffers[0][i] = baseX + offset;
+            gScanlineEffectRegBuffers[1][i] = baseX + offset;
         }
 
         if (++task->data[1] >= task->data[2])

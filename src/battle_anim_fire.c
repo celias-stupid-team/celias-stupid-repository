@@ -42,7 +42,6 @@ static void AnimEruptionFallingRock_Step(struct Sprite *sprite);
 static void AnimWillOWispOrb_Step(struct Sprite *sprite);
 static void AnimTask_MoveHeatWaveTargets_Step(u8 taskId);
 static void AnimRainbowRay(struct Sprite *sprite);
-static void AnimRainbowRay_Step(struct Sprite *sprite);
 
 static const union AnimCmd sAnim_FireSpiralSpread_0[] =
 {
@@ -1896,17 +1895,4 @@ static void AnimRainbowRay(struct Sprite *sprite)
     sprite->data[4] = 80;
     sprite->callback = StartAnimLinearTranslation;
     StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
-}
-
-static void AnimRainbowRay_Step(struct Sprite *sprite)
-{
-    sprite->x += sprite->data[5];
-    sprite->data[0] = 192;
-    sprite->data[1] = sprite->data[5];
-    sprite->data[2] = 4;
-    sprite->data[3] = 32;
-    sprite->data[4] = -24;
-    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
-    sprite->callback = TranslateSpriteInEllipse;
-    sprite->callback(sprite);
 }

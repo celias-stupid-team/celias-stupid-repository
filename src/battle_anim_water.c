@@ -1589,10 +1589,9 @@ void AnimTask_SoakRain(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
 
-    // Always maximum intensity
+    // Always max intensity
     task->data[1] = 5;
 
-    // Spawn rain over attacker instead of target
     if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
     {
         task->data[4] = 16;
@@ -1627,46 +1626,33 @@ static void AnimTask_SoakRain_Step(u8 taskId)
             CreateWaterSpoutRainDroplet(task, taskId);
         }
 
-        // Begin shake once droplets start landing
         if (task->data[10] != 0 && task->data[13] == 0)
         {
-            // Shake USER instead of TARGET
             gBattleAnimArgs[0] = ANIM_ATTACKER;
             gBattleAnimArgs[1] = 0;
             gBattleAnimArgs[2] = 30;
-
             taskId2 = CreateTask(AnimTask_HorizontalShake, 80);
-
             if (taskId2 != 0xFF)
             {
                 gTasks[taskId2].func(taskId2);
                 gAnimVisualTaskCount++;
             }
-
-            // Optional partner shake for doubles
             gBattleAnimArgs[0] = ANIM_ATK_PARTNER;
-
             taskId2 = CreateTask(AnimTask_HorizontalShake, 80);
-
             if (taskId2 != 0xFF)
             {
                 gTasks[taskId2].func(taskId2);
                 gAnimVisualTaskCount++;
             }
-
             task->data[13] = 1;
         }
-
         if (task->data[11] >= task->data[12])
             task->data[0]++;
-
         break;
 
     case 1:
-
         if (task->data[9] == 0)
             DestroyAnimVisualTask(taskId);
-
         break;
     }
 }

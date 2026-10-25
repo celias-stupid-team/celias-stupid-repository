@@ -669,6 +669,17 @@ const struct SpriteTemplate gSprayWaterDropletSpriteTemplate =
     .callback = AnimSprayWaterDroplet,
 };
 
+const struct SpriteTemplate gPumpkinDropletSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PUMPKIN_BEAD,
+    .paletteTag = ANIM_TAG_PUMPKIN_BEAD,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprayWaterDroplet,
+};
+
 const struct SpriteTemplate gBlukJuiceSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BLUK_JUICE,
@@ -1620,42 +1631,6 @@ static void AnimSteamrollerLand(struct Sprite *sprite)
             DestroyAnimSprite(sprite);
         break;
     }
-}
-
-static void SetHealthboxGroupInvisible(u8 battlerId, bool8 invisible)
-{
-    u8 hbId;
-    u8 i;
-
-    if (battlerId >= MAX_BATTLERS_COUNT)
-        return;
-
-    hbId = gHealthboxSpriteIds[battlerId];
-    if (hbId == SPRITE_NONE)
-        return;
-
-    // Hide the main healthbox sprite.
-    gSprites[hbId].invisible = invisible;
-
-    // FRLG healthbox uses extra sprites stored in the healthbox sprite's data[].
-    // Some entries may be 0xFF / SPRITE_NONE depending on context.
-    for (i = 0; i < ARRAY_COUNT(gSprites[hbId].data); i++)
-    {
-        u8 linkedId = (u8)gSprites[hbId].data[i];
-        if (linkedId != SPRITE_NONE && linkedId < MAX_SPRITES)
-            gSprites[linkedId].invisible = invisible;
-    }
-}
-
-void AnimTask_SetHealthboxesInvisible(u8 taskId)
-{
-    u8 i;
-    bool8 visible = (gBattleAnimArgs[0] != 0);
-
-    for (i = 0; i < gBattlersCount; i++)
-        SetHealthboxGroupInvisible(i, !visible);
-
-    DestroyAnimVisualTask(taskId);
 }
 
 static void AnimBusDrive(struct Sprite *sprite)

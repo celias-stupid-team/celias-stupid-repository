@@ -13746,6 +13746,72 @@ void BS_Fishure(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+void BS_jumpifnotgendercondition(void)
+{
+    CMD_ARGS(u8 battler, u32 gender, bool8 jumpIfTrue, const u8 *jumpInstr);
+    u16 species;
+    u32 personality;
+
+    struct Pokemon *mon;
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
+    else
+        mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
+
+    species = GetMonData(mon, MON_DATA_SPECIES);
+    personality = GetMonData(mon, MON_DATA_PERSONALITY);
+
+    if (cmd->jumpIfTrue)
+    {
+        if (GetGenderFromSpeciesAndPersonality(species, personality) != cmd->gender)
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        else
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+    }
+    else
+    {
+        if (GetGenderFromSpeciesAndPersonality(species, personality) != cmd->gender)
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+void BS_WhiteWomanDamageCalculation(void)
+{
+    s32 magnitude = Random() % 100;
+    DebugPrintf("Jumpscare Factor: %d", magnitude);
+    if (magnitude < 89)
+    {
+        gDynamicBasePower = 60;
+        magnitude = 4;
+    }
+    else if (magnitude < 98)
+    {
+        gDynamicBasePower = 120;
+        magnitude = 5;
+    }
+    else
+    {
+        DebugPrintf("CODE RED - WHITEST WOMAN DETECTED");
+        gDynamicBasePower = 240;
+        magnitude = 10;
+    }
+    PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff1, 2, magnitude)
+
+    for (gBattlerTarget = 0; gBattlerTarget < gBattlersCount; gBattlerTarget++)
+    {
+        if (gBattlerTarget == gBattlerAttacker)
+            continue;
+        if (!(gAbsentBattlerFlags & gBitTable[gBattlerTarget])) // a valid target was found
+            break;
+    }
+
+    gBattlescriptCurrInstr++;
+}
+
 void BS_TrySetEncoreBoth(void)
 {
     NATIVE_ARGS(const u8 *failInstr);

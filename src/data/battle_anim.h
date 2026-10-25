@@ -1778,6 +1778,29 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Cup, 0x0200, ANIM_TAG_CUP},
     {gBattleAnimSpriteGfx_Medium, 0x0200, ANIM_TAG_MEDIUM},
     {gBattleAnimSpriteGfx_Cynthia, 0x0600, ANIM_TAG_CYNTHIA},
+
+    {gBattleAnimSpriteGfx_FakeSpheres, 0x0600, ANIM_TAG_FAKE_SPHERES},
+    {gBattleAnimSpriteGfx_JynxKickLeft, 0x2000, ANIM_TAG_JYNX_KICK_LEFT},
+    {gBattleAnimSpriteGfx_JynxKickRight, 0x2000, ANIM_TAG_JYNX_KICK_RIGHT},
+    {gBattleAnimSpriteGfx_Pillow, 0x0800, ANIM_TAG_PILLOW},
+    {gBattleAnimSpriteGfx_JynxKiss, 0x0400, ANIM_TAG_JYNX_KISS},
+
+    {gBattleAnimSpriteGfx_ExplosionGif, 0x1000, ANIM_TAG_EXPLOSION_GIF},
+    {gBattleAnimSpriteGfx_PowerFem, 0x0800, ANIM_TAG_POWER_FEM},
+    {gBattleAnimSpriteGfx_PumpkinBead, 0x0020, ANIM_TAG_PUMPKIN_BEAD},
+    {gBattleAnimSpriteGfx_CeliaHead, 0x0200, ANIM_TAG_CELIA_HEAD},
+    {gBattleAnimSpriteGfx_Celia, 0x0600, ANIM_TAG_CELIA},
+    {gBattleAnimSpriteGfx_LassWalk, 0x0600, ANIM_TAG_LASS_WALK},
+    {gBattleAnimSpriteGfx_JigglypuffAbove, 0x0800, ANIM_TAG_JIGGLYPUFF_ABOVE},
+    {gBattleAnimSpriteGfx_Progesterone, 0x0800, ANIM_TAG_PROGESTERONE},
+    {gBattleAnimSpriteGfx_Spiro, 0x0600, ANIM_TAG_SPIRO},
+    {gBattleAnimSpriteGfx_Male, 0x0200, ANIM_TAG_MALE},
+    {gBattleAnimSpriteGfx_Magikarp, 0x0600, ANIM_TAG_MAGIKARP},
+    {gBattleAnimSpriteGfx_Boulder, 0x0800, ANIM_TAG_BOULDER},
+    {gBattleAnimSpriteGfx_SpotlightTwo, 0x0400, ANIM_TAG_SPOTLIGHT_TWO},
+    {gBattleAnimSpriteGfx_Starbucks, 0x0800, ANIM_TAG_STARBUCKS},
+    {gBattleAnimSpriteGfx_Barge, 0x0800, ANIM_TAG_BARGE},
+
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -2464,6 +2487,28 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Cup, ANIM_TAG_CUP},
     {gBattleAnimSpritePal_Medium, ANIM_TAG_MEDIUM},
     {gBattleAnimSpritePal_Cynthia, ANIM_TAG_CYNTHIA},
+    
+    {gBattleAnimSpritePal_FakeSpheres, ANIM_TAG_FAKE_SPHERES},
+    {gBattleAnimSpritePal_JynxKickLeft, ANIM_TAG_JYNX_KICK_LEFT},
+    {gBattleAnimSpritePal_JynxKickRight, ANIM_TAG_JYNX_KICK_RIGHT},
+    {gBattleAnimSpritePal_Pillow, ANIM_TAG_PILLOW},
+    {gBattleAnimSpritePal_JynxKiss, ANIM_TAG_JYNX_KISS},
+
+    {gBattleAnimSpritePal_ExplosionGif, ANIM_TAG_EXPLOSION_GIF},
+    {gBattleAnimSpritePal_PowerFem, ANIM_TAG_POWER_FEM},
+    {gBattleAnimSpritePal_PumpkinBead, ANIM_TAG_PUMPKIN_BEAD},
+    {gBattleAnimSpritePal_CeliaHead, ANIM_TAG_CELIA_HEAD},
+    {gBattleAnimSpritePal_Celia, ANIM_TAG_CELIA},
+    {gBattleAnimSpritePal_LassWalk, ANIM_TAG_LASS_WALK},
+    {gBattleAnimSpritePal_JigglypuffAbove, ANIM_TAG_JIGGLYPUFF_ABOVE},
+    {gBattleAnimSpritePal_Progesterone, ANIM_TAG_PROGESTERONE},
+    {gBattleAnimSpritePal_Spiro, ANIM_TAG_SPIRO},
+    {gBattleAnimSpritePal_Male, ANIM_TAG_MALE},
+    {gBattleAnimSpritePal_Magikarp, ANIM_TAG_MAGIKARP},
+    {gBattleAnimSpritePal_Boulder, ANIM_TAG_BOULDER},
+    {gBattleAnimSpritePal_SpotlightTwo, ANIM_TAG_SPOTLIGHT_TWO},
+    {gBattleAnimSpritePal_Starbucks, ANIM_TAG_STARBUCKS},
+    {gBattleAnimSpritePal_Barge, ANIM_TAG_BARGE},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -2516,4 +2561,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_UNITE_HUD]           = {gBattleAnimBgImage_UniteHud,   gBattleAnimBgPalette_UniteHud,   gBattleAnimBgTilemap_UniteHud},
     [BG_CATASTROPHE]         = {gBattleAnimBgImage_Catastrophe, gBattleAnimBgPalette_Catastrophe, gBattleAnimBgTilemap_Catastrophe},
     [BG_GOLD]                = {gBattleAnimBgImage_Gold,       gBattleAnimBgPalette_Gold,       gBattleAnimBgTilemap_Gold},
+    [BG_CRASH]               = {gBattleAnimBgImage_Crash,       gBattleAnimBgPalette_Crash,       gBattleAnimBgTilemap_Crash},
 };

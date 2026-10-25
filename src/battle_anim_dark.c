@@ -150,6 +150,65 @@ const struct SpriteTemplate gTearDropSpriteTemplate =
     .callback = AnimTearDrop,
 };
 
+static const union AnimCmd sAnim_FakeTriangle[] =
+{
+    ANIMCMD_FRAME(0,  4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FakeSquare[] =
+{
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FakeHeart[] =
+{
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_END,
+};
+
+
+static const union AnimCmd *const sAnims_FakeSpheres[] =
+{
+    sAnim_FakeTriangle,
+    sAnim_FakeSquare,
+    sAnim_FakeHeart,
+};
+
+const struct SpriteTemplate gFakeSpheresOneSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FAKE_SPHERES,
+    .paletteTag = ANIM_TAG_FAKE_SPHERES,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sAnims_FakeSpheres[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTearDrop,
+};
+
+const struct SpriteTemplate gFakeSpheresTwoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FAKE_SPHERES,
+    .paletteTag = ANIM_TAG_FAKE_SPHERES,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sAnims_FakeSpheres[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTearDrop,
+};
+
+const struct SpriteTemplate gFakeSpheresThreeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FAKE_SPHERES,
+    .paletteTag = ANIM_TAG_FAKE_SPHERES,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sAnims_FakeSpheres[2],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTearDrop,
+};
+
 static const union AnimCmd sAnim_ClawSlash_0[] =
 {
     ANIMCMD_FRAME(0, 4),

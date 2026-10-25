@@ -685,6 +685,26 @@
 #define ANIM_TAG_CUP                        (ANIM_SPRITES_START + 675)
 #define ANIM_TAG_MEDIUM                     (ANIM_SPRITES_START + 676)
 #define ANIM_TAG_CYNTHIA                    (ANIM_SPRITES_START + 677)
+#define ANIM_TAG_FAKE_SPHERES               (ANIM_SPRITES_START + 678)
+#define ANIM_TAG_JYNX_KICK_LEFT             (ANIM_SPRITES_START + 679)
+#define ANIM_TAG_JYNX_KICK_RIGHT            (ANIM_SPRITES_START + 680)
+#define ANIM_TAG_PILLOW                     (ANIM_SPRITES_START + 681)
+#define ANIM_TAG_JYNX_KISS                  (ANIM_SPRITES_START + 682)
+#define ANIM_TAG_EXPLOSION_GIF              (ANIM_SPRITES_START + 683)
+#define ANIM_TAG_POWER_FEM                  (ANIM_SPRITES_START + 684)
+#define ANIM_TAG_PUMPKIN_BEAD               (ANIM_SPRITES_START + 685)
+#define ANIM_TAG_CELIA_HEAD                 (ANIM_SPRITES_START + 686)
+#define ANIM_TAG_CELIA                      (ANIM_SPRITES_START + 687)
+#define ANIM_TAG_LASS_WALK                  (ANIM_SPRITES_START + 688)
+#define ANIM_TAG_JIGGLYPUFF_ABOVE           (ANIM_SPRITES_START + 689)
+#define ANIM_TAG_PROGESTERONE               (ANIM_SPRITES_START + 690)
+#define ANIM_TAG_SPIRO                      (ANIM_SPRITES_START + 691)
+#define ANIM_TAG_MALE                       (ANIM_SPRITES_START + 692)
+#define ANIM_TAG_MAGIKARP                   (ANIM_SPRITES_START + 693)
+#define ANIM_TAG_BOULDER                    (ANIM_SPRITES_START + 694)
+#define ANIM_TAG_SPOTLIGHT_TWO              (ANIM_SPRITES_START + 695)
+#define ANIM_TAG_STARBUCKS                  (ANIM_SPRITES_START + 696)
+#define ANIM_TAG_BARGE                      (ANIM_SPRITES_START + 697)
 
 // battlers
 #define ANIM_ATTACKER       0
@@ -760,6 +780,7 @@
 #define BG_UNITE_HUD 46
 #define BG_CATASTROPHE 47
 #define BG_GOLD 48
+#define BG_CRASH 49
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

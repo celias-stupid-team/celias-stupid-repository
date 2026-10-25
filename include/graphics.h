@@ -8692,6 +8692,8 @@ extern const u32 gBattleAnim_CherryFaceGfx[];
 extern const u32 gBattleAnim_CherryFacePal[];
 extern const u32 gBattleAnim_MissileFaceGfx[];
 extern const u32 gBattleAnim_MissileFacePal[];
+extern const u32 gBattleAnim_ScaryGraceGfx[];
+extern const u32 gBattleAnim_ScaryGracePal[];
 extern const u32 gBattleAnimBgTilemap_ScaryFacePlayer[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceOpponent[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceContest[];
@@ -9081,6 +9083,26 @@ extern const u32 gBattleAnimSpriteGfx_iPhone[];
 extern const u32 gBattleAnimSpriteGfx_Cup[];
 extern const u32 gBattleAnimSpriteGfx_Medium[];
 extern const u32 gBattleAnimSpriteGfx_Cynthia[];
+extern const u32 gBattleAnimSpriteGfx_FakeSpheres[];
+extern const u32 gBattleAnimSpriteGfx_JynxKickLeft[];
+extern const u32 gBattleAnimSpriteGfx_JynxKickRight[];
+extern const u32 gBattleAnimSpriteGfx_Pillow[];
+extern const u32 gBattleAnimSpriteGfx_JynxKiss[];
+extern const u32 gBattleAnimSpriteGfx_ExplosionGif[];
+extern const u32 gBattleAnimSpriteGfx_PowerFem[];
+extern const u32 gBattleAnimSpriteGfx_PumpkinBead[];
+extern const u32 gBattleAnimSpriteGfx_CeliaHead[];
+extern const u32 gBattleAnimSpriteGfx_Celia[];
+extern const u32 gBattleAnimSpriteGfx_LassWalk[];
+extern const u32 gBattleAnimSpriteGfx_JigglypuffAbove[];
+extern const u32 gBattleAnimSpriteGfx_Progesterone[];
+extern const u32 gBattleAnimSpriteGfx_Spiro[];
+extern const u32 gBattleAnimSpriteGfx_Male[];
+extern const u32 gBattleAnimSpriteGfx_Magikarp[];
+extern const u32 gBattleAnimSpriteGfx_Boulder[];
+extern const u32 gBattleAnimSpriteGfx_SpotlightTwo[];
+extern const u32 gBattleAnimSpriteGfx_Starbucks[];
+extern const u32 gBattleAnimSpriteGfx_Barge[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -9710,6 +9732,26 @@ extern const u32 gBattleAnimSpritePal_iPhone[];
 extern const u32 gBattleAnimSpritePal_Cup[];
 extern const u32 gBattleAnimSpritePal_Medium[];
 extern const u32 gBattleAnimSpritePal_Cynthia[];
+extern const u32 gBattleAnimSpritePal_FakeSpheres[];
+extern const u32 gBattleAnimSpritePal_JynxKickLeft[];
+extern const u32 gBattleAnimSpritePal_JynxKickRight[];
+extern const u32 gBattleAnimSpritePal_Pillow[];
+extern const u32 gBattleAnimSpritePal_JynxKiss[];
+extern const u32 gBattleAnimSpritePal_ExplosionGif[];
+extern const u32 gBattleAnimSpritePal_PowerFem[];
+extern const u32 gBattleAnimSpritePal_PumpkinBead[];
+extern const u32 gBattleAnimSpritePal_CeliaHead[];
+extern const u32 gBattleAnimSpritePal_Celia[];
+extern const u32 gBattleAnimSpritePal_LassWalk[];
+extern const u32 gBattleAnimSpritePal_JigglypuffAbove[];
+extern const u32 gBattleAnimSpritePal_Progesterone[];
+extern const u32 gBattleAnimSpritePal_Spiro[];
+extern const u32 gBattleAnimSpritePal_Male[];
+extern const u32 gBattleAnimSpritePal_Magikarp[];
+extern const u32 gBattleAnimSpritePal_Boulder[];
+extern const u32 gBattleAnimSpritePal_SpotlightTwo[];
+extern const u32 gBattleAnimSpritePal_Starbucks[];
+extern const u32 gBattleAnimSpritePal_Barge[];
 //CSR Moves
 
 extern const u32 gBattleAnimSpriteGfx_Crab[];
@@ -9773,6 +9815,7 @@ extern const u32 gBattleAnimBgImage_SkyTower[];
 extern const u32 gBattleAnimBgImage_UniteHud[];
 extern const u32 gBattleAnimBgImage_Catastrophe[];
 extern const u32 gBattleAnimBgImage_Gold[];
+extern const u32 gBattleAnimBgImage_Crash[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9819,6 +9862,7 @@ extern const u32 gBattleAnimBgPalette_SkyTower[];
 extern const u32 gBattleAnimBgPalette_UniteHud[];
 extern const u32 gBattleAnimBgPalette_Catastrophe[];
 extern const u32 gBattleAnimBgPalette_Gold[];
+extern const u32 gBattleAnimBgPalette_Crash[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9864,6 +9908,7 @@ extern const u32 gBattleAnimBgTilemap_SkyTower[];
 extern const u32 gBattleAnimBgTilemap_UniteHud[];
 extern const u32 gBattleAnimBgTilemap_Catastrophe[];
 extern const u32 gBattleAnimBgTilemap_Gold[];
+extern const u32 gBattleAnimBgTilemap_Crash[];
 
 // dark
 extern const u32 gMetalShineGfx[];

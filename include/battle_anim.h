@@ -184,7 +184,7 @@ extern const union AffineAnimCmd *const gAffineAnims_Bite[];
 extern const union AffineAnimCmd *const gAffineAnims_Droplet[];
 extern const union AffineAnimCmd *const gGrowingRingAffineAnimTable[];
 extern const union AffineAnimCmd *const gGuardRingAffineAnimTable[];
-extern const union AffineAnimCmd *const gAffineAnims_SpinningBone[];
+extern const union AffineAnimCmd *const sAffineAnims_SpinningBone[];
 extern const union AffineAnimCmd *const gAffineAnims_LusterPurgeCircle[];
 extern const union AffineAnimCmd *const gPowerAbsorptionOrbAffineAnimTable[];
 extern const union AffineAnimCmd *const gThinRingShrinkingAffineAnimTable[];

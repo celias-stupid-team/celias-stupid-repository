@@ -318,6 +318,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectImakuni                @ EFFECT_IMAKUNI
 	.4byte BattleScript_EffectHitMessage             @ EFFECT_HIT_MESSAGE
 	.4byte BattleScript_EffectFishure				 @ EFFECT_FISHURE
+	.4byte BattleScript_EffectWhiteWoman			 @ EFFECT_WHITEWOMAN
 	
 
 BattleScript_End::
@@ -2587,6 +2588,14 @@ BattleScript_EffectFishure::
 	printstring STRINGID_FISHURE
 	waitmessage B_WAIT_TIME_LONG
 	return
+
+BattleScript_EffectWhiteWoman::
+	attackcanceler
+	attackstring
+	ppreduce
+	selectfirstvalidtarget
+	callwhitewoman
+	goto BattleScript_HitsAllWithUndergroundBonusLoop
 
 BattleScript_EffectCharge::
 	attackcanceler

@@ -6,6 +6,7 @@
 #include "trig.h"
 #include "constants/songs.h"
 
+
 static void AnimFallingRock(struct Sprite *sprite);
 static void AnimRockFragment(struct Sprite *sprite);
 static void AnimRockFragmentSelf(struct Sprite *sprite);
@@ -30,6 +31,7 @@ static void AnimStealthRockStep2(struct Sprite *sprite);
 static void AnimStealthRockStep(struct Sprite *sprite);
 static void AnimStealthRock(struct Sprite *sprite);
 static void AnimFallingBark(struct Sprite *sprite);
+static void AnimTask_RotatingCharizard_Step(u8 taskId);
 
 static const union AnimCmd sAnim_FlyingRock_0[] =
 {
@@ -172,6 +174,17 @@ const struct SpriteTemplate gFallingBarkSpriteTemplate =
     .tileTag = ANIM_TAG_SEED,
     .paletteTag = ANIM_TAG_SEED,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingBark,
+};
+
+const struct SpriteTemplate gFallingMediumSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MEDIUM,
+    .paletteTag = ANIM_TAG_MEDIUM,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -334,6 +347,31 @@ const struct SpriteTemplate gFireSpinSpriteTemplate =
     .paletteTag = ANIM_TAG_SMALL_EMBER,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gAnims_BasicFire,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex,
+};
+
+static const union AnimCmd sAnim_CoffeeOrb[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(4, 1),
+    ANIMCMD_FRAME(8, 1),
+    ANIMCMD_FRAME(12, 1),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd *const gAnims_CoffeeOrb[] =
+{
+    sAnim_CoffeeOrb,
+};
+
+const struct SpriteTemplate gCoffeeSpinSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BROWN_ORB,
+    .paletteTag = ANIM_TAG_BROWN_ORB,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gAnims_CoffeeOrb,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimParticleInVortex,
@@ -506,6 +544,17 @@ const struct SpriteTemplate gAncientPowerRockSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROCKS,
     .paletteTag = ANIM_TAG_ROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_BasicRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRaiseSprite,
+};
+
+const struct SpriteTemplate gPowerFemSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FEMALE,
+    .paletteTag = ANIM_TAG_FEMALE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_BasicRock,
     .images = NULL,
@@ -709,6 +758,17 @@ const struct SpriteTemplate gWeatherBallRockDownSpriteTemplate =
     .images = NULL,
     .affineAnims = sAffineAnims_BasicRock,
     .callback = AnimWeatherBallDown,
+};
+
+static const struct SpriteTemplate sRotatingCharizardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CHARIZARD,
+    .paletteTag = ANIM_TAG_CHARIZARD,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
 };
 
 static void AnimFallingRock(struct Sprite *sprite)
@@ -1428,3 +1488,95 @@ void AnimTask_SeismicTossBgAccelerateDownAtEnd(u8 taskId)
     }
 }
 
+#define tSpriteId       data[0]
+#define tTimer          data[1]
+#define tDuration       data[2]
+#define tAngle          data[3]
+#define tRotationSpeed  data[4]
+#define tAcceleration   data[5]
+
+void AnimTask_RotatingCharizard(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 battler;
+    u8 spriteId;
+    s16 x;
+    s16 y;
+
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+    {
+        battler = gBattleAnimAttacker;
+
+        x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+        y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+        x += gBattleAnimArgs[1];
+        y += gBattleAnimArgs[2];
+    }
+    else if (gBattleAnimArgs[0] == ANIM_TARGET)
+    {
+        battler = gBattleAnimTarget;
+
+        x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2);
+        y = GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET);
+
+        x += gBattleAnimArgs[1];
+        y += gBattleAnimArgs[2];
+    }
+    else
+    {
+        // Screen-relative coordinates.
+        x = gBattleAnimArgs[1];
+        y = gBattleAnimArgs[2];
+    }
+
+    spriteId = CreateSprite(
+        &sRotatingCharizardSpriteTemplate,
+        x,
+        y,
+        2
+    );
+
+    if (spriteId == MAX_SPRITES)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+
+    task->tSpriteId = spriteId;
+    task->tTimer = 0;
+    task->tDuration = gBattleAnimArgs[3];
+    task->tAngle = 0;
+    task->tRotationSpeed = gBattleAnimArgs[4];
+    task->tAcceleration = gBattleAnimArgs[5];
+
+    PrepareBattlerSpriteForRotScale(spriteId, ST_OAM_OBJ_NORMAL);
+
+    task->func = AnimTask_RotatingCharizard_Step;
+}
+
+static void AnimTask_RotatingCharizard_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 spriteId = task->tSpriteId;
+
+    // Apply the current rotation speed.
+    task->tAngle += task->tRotationSpeed;
+
+    SetSpriteRotScale(
+        spriteId,
+        0x100,
+        0x100,
+        task->tAngle
+    );
+
+    // Apply acceleration for the next frame.
+    task->tRotationSpeed += task->tAcceleration;
+
+    if (++task->tTimer >= task->tDuration)
+    {
+        ResetSpriteRotScale(spriteId);
+        DestroySprite(&gSprites[spriteId]);
+        DestroyAnimVisualTask(taskId);
+    }
+}

@@ -124,6 +124,7 @@ static u8 CreateGlitchQuadrantSprite(u8 battlerSpriteId, s16 x, s16 y, u8 subpri
 static void AnimTask_MingVaseThrow_Step(u8 taskId);
 static void AnimSpellingSalts(struct Sprite *sprite);
 static void AnimTask_TranslateMonAndReturn_Step(u8 taskId);
+static void AnimTask_ViolentlyShakeMon_Step(u8 taskId);
 static void AnimTask_MortalSpin_Step(u8 taskId);
 static void AnimCrabGrip(struct Sprite *sprite);
 static void AnimTask_WPatternDash_Step(u8 taskId);
@@ -684,6 +685,47 @@ const struct SpriteTemplate gSwallowBlueOrbSpriteTemplate =
     .callback = AnimSwallowBlueOrb,
 };
 
+static const union AnimCmd sSwallowSpiroLeftAnimCmds[] =    
+{
+    ANIMCMD_FRAME(16, 6),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sSwallowSpiroRightAnimCmds[] =    
+{
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd *const sSwallowSpiroAnimTable[] =    
+{
+    sSwallowSpiroLeftAnimCmds,
+    sSwallowSpiroRightAnimCmds,
+};
+
+const struct SpriteTemplate gSwallowSpiroLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPIRO,
+    .paletteTag = ANIM_TAG_SPIRO,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sSwallowSpiroAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSwallowBlueOrb,
+};
+
+const struct SpriteTemplate gSwallowSpiroRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPIRO,
+    .paletteTag = ANIM_TAG_SPIRO,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sSwallowSpiroAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSwallowBlueOrb,
+};
+
 static const union AffineAnimCmd sSwallowDeformMonAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(0, 6, 0, 20),
@@ -1133,6 +1175,17 @@ const struct SpriteTemplate gBarrageBallSpriteTemplate =
     .tileTag = ANIM_TAG_RED_BALL,
     .paletteTag = ANIM_TAG_RED_BALL,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sBarrageBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+const struct SpriteTemplate gBargeBallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BARGE,
+    .paletteTag = ANIM_TAG_BARGE,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = sBarrageBallAffineAnimTable,
@@ -5192,6 +5245,35 @@ void AnimTask_RageBall(u8 taskId)
 
 // Moves a ball in an arc twoards the target, and rotates the ball while arcing.
 // No args.
+void AnimTask_BargeBall(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+    task->data[15] = CreateSprite(&gBargeBallSpriteTemplate, task->data[11], task->data[12], GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+    if (task->data[15] != MAX_SPRITES)
+    {
+        gSprites[task->data[15]].data[0] = 16;
+        gSprites[task->data[15]].data[2] = task->data[13];
+        gSprites[task->data[15]].data[4] = task->data[14];
+        gSprites[task->data[15]].data[5] = -32;
+        InitAnimArcTranslation(&gSprites[task->data[15]]);
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(&gSprites[task->data[15]], 1);
+
+        task->func = AnimTask_BarrageBall_Step;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+// Moves a ball in an arc twoards the target, and rotates the ball while arcing.
+// No args.
 void AnimTask_BarrageBall(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
@@ -7286,6 +7368,63 @@ static void AnimTask_TranslateMonAndReturn_Step(u8 taskId)
         sprite->y2 -= task->data[8];
 
         // Clean exit
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+
+void AnimTask_ViolentlyShakeMon(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    u8 battler = gBattleAnimArgs[0];
+    u8 spriteId = GetAnimBattlerSpriteId(battler);
+
+    task->data[0] = 0; // state
+
+    task->data[1] = 0; // frame counter
+    task->data[2] = gBattleAnimArgs[1]; // magnitude
+    task->data[3] = gBattleAnimArgs[2]; // duration
+
+    task->data[4] = gSprites[spriteId].x2;
+    task->data[5] = gSprites[spriteId].y2;
+
+    task->data[6] = spriteId;
+
+    task->func = AnimTask_ViolentlyShakeMon_Step;
+}
+
+static void AnimTask_ViolentlyShakeMon_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Sprite *sprite = &gSprites[task->data[6]];
+    s16 mod, x, y;
+    
+    switch (task->data[0])
+    {
+    case 0:
+        //Set the sprite to a random x and y position
+        x = Random() % task->data[2];
+        y = Random() % task->data[2];
+
+        if (Random() & 1) x *= -1;
+        if (Random() & 1) y *= -1;
+
+        sprite->x2 = task->data[4] + x;
+        sprite->y2 = task->data[5] + y;
+
+        if (++task->data[1] >= task->data[3])
+        {
+            task->data[1] = 0;
+            task->data[0] = 1;
+        }
+        break;
+
+    case 1:
+        sprite->x2 = task->data[4];
+        sprite->y2 = task->data[5];
+
         DestroyAnimVisualTask(taskId);
         break;
     }

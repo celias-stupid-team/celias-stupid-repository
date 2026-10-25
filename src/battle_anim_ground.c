@@ -55,7 +55,7 @@ static const union AffineAnimCmd *const sAffineAnims_Onemerang[] =
     sAffineAnim_Onemerang,
 };
 
-const union AffineAnimCmd *const gAffineAnims_SpinningBone[] =
+const union AffineAnimCmd *const sAffineAnims_SpinningBone[] =
 {
     sAffineAnim_SpinningBone,
 };
@@ -172,6 +172,17 @@ const struct SpriteTemplate gOnemerangSpriteTemplate =
     .callback = AnimBonemerangProjectile,
 };
 
+const struct SpriteTemplate gProgesteronemerangSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PROGESTERONE,
+    .paletteTag = ANIM_TAG_PROGESTERONE,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_Bonemerang,
+    .callback = AnimBonemerangProjectile,
+};
+
 const struct SpriteTemplate gFryingPanSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FRYING_PAN,
@@ -190,7 +201,7 @@ const struct SpriteTemplate gSpinningBoneSpriteTemplate =
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gAffineAnims_SpinningBone,
+    .affineAnims = sAffineAnims_SpinningBone,
     .callback = AnimBoneHitProjectile,
 };
 
@@ -201,7 +212,7 @@ const struct SpriteTemplate gSpinningTongueSpriteTemplate =
     .oam = &gOamData_AffineNormal_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gAffineAnims_SpinningBone,
+    .affineAnims = sAffineAnims_SpinningBone,
     .callback = AnimBoneHitProjectile,
 };
 
@@ -212,7 +223,7 @@ const struct SpriteTemplate gSpinningCrabSpriteTemplate =
     .oam = &gOamData_AffineNormal_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gAffineAnims_SpinningBone,
+    .affineAnims = sAffineAnims_SpinningBone,
     .callback = AnimBoneHitProjectile,
 };
 
@@ -223,7 +234,7 @@ const struct SpriteTemplate gSpinningVineSpriteTemplate =
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gAffineAnims_SpinningBone,
+    .affineAnims = sAffineAnims_SpinningBone,
     .callback = AnimBoneHitProjectile,
 };
 
@@ -1094,6 +1105,18 @@ static void SetBattlersXOffsetForShake(struct Task *task)
 void AnimTask_IsPowerOver99(u8 taskId)
 {
     gBattleAnimArgs[15] = gAnimMovePower > 99;
+    DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_IsPowerOver69(u8 taskId)
+{
+    gBattleAnimArgs[15] = gAnimMovePower > 69;
+    DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_IsPowerOver129(u8 taskId)
+{
+    gBattleAnimArgs[15] = gAnimMovePower > 129;
     DestroyAnimVisualTask(taskId);
 }
 

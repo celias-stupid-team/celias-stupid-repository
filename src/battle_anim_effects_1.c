@@ -424,6 +424,17 @@ const struct SpriteTemplate gStockpileAbsorptionOrbSpriteTemplate =
     .callback = AnimPowerAbsorptionOrb,
 };
 
+const struct SpriteTemplate gStocksmileAbsorptionOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOOTH,
+    .paletteTag = ANIM_TAG_TOOTH,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sStockpileAbsorptionOrbAffineAnimTable,
+    .callback = AnimPowerAbsorptionOrb,
+};
+
 static const union AffineAnimCmd sAbsorptionOrbAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(-5, -5, 0, 1),
@@ -3386,6 +3397,17 @@ const struct SpriteTemplate gMetronomeFingerSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FINGER,
     .paletteTag = ANIM_TAG_FINGER,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sMetronomeFingerAffineAnimTable,
+    .callback = AnimMetronomeFinger,
+};
+
+const struct SpriteTemplate gPumpkinDrinkSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CUP,
+    .paletteTag = ANIM_TAG_CUP,
     .oam = &gOamData_AffineDouble_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

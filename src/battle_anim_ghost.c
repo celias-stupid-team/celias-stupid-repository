@@ -105,7 +105,7 @@ const struct SpriteTemplate gDarkPulseSpriteTemplate =
     .oam = &gOamData_AffineDouble_ObjNormal_16x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gAffineAnims_SpinningBone,
+    .affineAnims = sAffineAnims_SpinningBone,
     .callback = AnimShadowBall,
 };
 

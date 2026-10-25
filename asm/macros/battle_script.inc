@@ -1339,6 +1339,14 @@
 	jumpifnotspeciescondition \battler, \species, FALSE, \jumpptr
 	.endm
 
+	.macro jumpifgender battler:req, gender:req, jumpptr:req
+	jumpifnotgendercondition \battler, \gender, TRUE, \jumpptr
+	.endm
+
+	.macro jumpifnotgender battler:req, gender:req, jumpptr:req
+	jumpifnotgendercondition \battler, \gender, FALSE, \jumpptr
+	.endm
+
 	.macro jumpifhelditem battler:req, item:req, jumpInstr:req
 	.byte 0xff
 	.byte \battler
@@ -1976,6 +1984,18 @@
 
 	.macro callbiteattack
 	callnative BS_Fishure
+	.endm
+
+	.macro callwhitewoman
+	callnative BS_WhiteWomanDamageCalculation
+	.endm
+	
+	.macro jumpifnotgendercondition battler:req, gender:req, jumpIfTrue:req, jumpInstr:req
+	callnative BS_jumpifnotgendercondition
+	.byte \battler
+	.4byte \gender
+	.byte \jumpIfTrue
+	.4byte \jumpInstr
 	.endm
 	
 	.macro setbattleanimtarget battler:req
