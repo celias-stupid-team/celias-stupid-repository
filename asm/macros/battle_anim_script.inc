@@ -375,3 +375,10 @@
 	.2byte \species
 	.4byte \ptr
 	.endm
+
+	.macro jumpifgender battler:req, gender:req, ptr:req
+	.byte 0x38
+	.byte \battler
+	.2byte \gender
+	.4byte \ptr
+	.endm

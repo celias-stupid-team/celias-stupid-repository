@@ -112,6 +112,7 @@ static void Cmd_clearflag(void);
 static void Cmd_debugprintf(void);
 static void Cmd_addletter(void);
 static void Cmd_jumpifspecies(void);
+static void Cmd_jumpifgender(void);
 
 #include "data/battle_anim.h"
 
@@ -173,6 +174,7 @@ static void (*const sScriptCmdTable[])(void) =
     Cmd_debugprintf,          // 0x35
     Cmd_addletter,            // 0x36
     Cmd_jumpifspecies,        // 0x37
+    Cmd_jumpifgender,         // 0x38
 };
 
 static const u8 sScriptConditionTable[6][3] =
@@ -1922,6 +1924,52 @@ static void Cmd_jumpifspecies(void)
     }
 
     if (gAnimBattlerSpecies[battlerId] == species)
+        sBattleAnimScriptPtr = T2_READ_PTR(sBattleAnimScriptPtr);
+    else
+        sBattleAnimScriptPtr += 4;
+}
+
+static void Cmd_jumpifgender(void)
+{
+    u8 animBattler;
+    u16 gender;
+    u8 battlerId;
+    u16 species;
+    u32 personality;
+    struct Pokemon *mon;
+
+    sBattleAnimScriptPtr++;
+    animBattler = sBattleAnimScriptPtr[0];
+    sBattleAnimScriptPtr++;
+    species = T1_READ_16(sBattleAnimScriptPtr);
+    sBattleAnimScriptPtr += 2;
+
+    switch (animBattler)
+    {
+    default:
+    case ANIM_ATTACKER:
+        battlerId = gBattleAnimAttacker;
+        break;
+    case ANIM_TARGET:
+        battlerId = gBattleAnimTarget;
+        break;
+    case ANIM_ATK_PARTNER:
+        battlerId = BATTLE_PARTNER(gBattleAnimAttacker);
+        break;
+    case ANIM_DEF_PARTNER:
+        battlerId = BATTLE_PARTNER(gBattleAnimTarget);
+        break;
+    }    
+    
+    if (GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
+        mon = &gEnemyParty[gBattlerPartyIndexes[battlerId]];
+    else
+        mon = &gPlayerParty[gBattlerPartyIndexes[battlerId]];
+    
+    species = GetMonData(mon, MON_DATA_SPECIES);
+    personality = GetMonData(mon, MON_DATA_PERSONALITY);
+
+    if (GetGenderFromSpeciesAndPersonality(species, personality) == gender)
         sBattleAnimScriptPtr = T2_READ_PTR(sBattleAnimScriptPtr);
     else
         sBattleAnimScriptPtr += 4;

@@ -37778,9 +37778,10 @@ Move_METEOR_MASC:
 Nice:
 
 Move_EX_CISSOR:
-	jumpifgender ANIM_ATTACKER, 0x00, MaleAttack
-	jumpifgender ANIM_ATTACKER, 0xFE, FemaleAttack
-	jumpifgender ANIM_ATTACKER, 0xFF, GenderlessAttack
+	jumpifgender ANIM_TARGET, 0x00, MaleAttack
+	jumpifgender ANIM_TARGET, 0xFE, FemaleAttack
+	jumpifgender ANIM_TARGET, 0xFF, GenderlessAttack
+	goto Move_CURSE
 	end
 Move_BARGE:
 	loadspritegfx ANIM_TAG_BARGE
@@ -37850,8 +37851,11 @@ CoffeeSpinEffect:
 	goto Move_TACKLE
 Cut:
 GenderlessAttack:
+	goto Move_TACKLE
 MaleAttack:
+	goto Move_VINE_WHIP
 FemaleAttack:
+	goto MOVE_CLAMP
 Move_IPHOTON_GEYSER:
 	loadspritegfx ANIM_TAG_RAINBOW
 	monbg ANIM_ATK_PARTNER
