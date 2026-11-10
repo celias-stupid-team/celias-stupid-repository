@@ -176,6 +176,7 @@ extern const struct CompressedSpritePalette gBattleAnimPaletteTable[];
 extern const struct SpriteTemplate gFlashingHitSplatSpriteTemplate;
 extern const struct SpriteTemplate gBasicHitSplatSpriteTemplate;
 extern const struct SpriteTemplate gWaterHitSplatSpriteTemplate;
+extern const struct SpriteTemplate gCoffeeHitSplatSpriteTemplate;
 extern const struct SpriteTemplate gWishStarSpriteTemplate;
 extern const struct SpriteTemplate gMiniTwinklingStarSpriteTemplate;
 extern const struct SpriteTemplate gThoughtBubbleSpriteTemplate;

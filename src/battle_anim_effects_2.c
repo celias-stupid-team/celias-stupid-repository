@@ -1858,6 +1858,47 @@ const struct SpriteTemplate gStarbucksSpriteTemplate =
     .callback = AnimSprite_MoveThenWait,
 };
 
+static const union AnimCmd sMagikarpFallAnimCmds[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sMagikarpRiseAnimCmds[] =
+{
+    ANIMCMD_FRAME(16, 3),
+    ANIMCMD_FRAME(32, 3),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sMagikarpAnimTable[] =
+{
+    sMagikarpFallAnimCmds,
+    sMagikarpRiseAnimCmds,
+};
+
+const struct SpriteTemplate gMagikarpFallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MAGIKARP,
+    .paletteTag = ANIM_TAG_MAGIKARP,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMagikarpAnimTable[0],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
+const struct SpriteTemplate gMagikarpRiseSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MAGIKARP,
+    .paletteTag = ANIM_TAG_MAGIKARP,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = &sMagikarpAnimTable[1],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSprite_MoveThenWait,
+};
+
 static const union AnimCmd sCeliaHeadAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 8),

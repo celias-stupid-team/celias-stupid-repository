@@ -626,6 +626,46 @@ DirectSoundWaveData_AndThereYouHaveIt::
 	.incbin "sound/direct_sound_samples/and_there_you_have_it.bin"
 
 	.align 2
+DirectSoundWaveData_Aww::
+	.incbin "sound/direct_sound_samples/aww.bin"
+
+	.align 2
+DirectSoundWaveData_Drumroll::
+	.incbin "sound/direct_sound_samples/drumroll.bin"
+
+	.align 2
+DirectSoundWaveData_KarpOne::
+	.incbin "sound/direct_sound_samples/karp_1.bin"
+
+	.align 2
+DirectSoundWaveData_KarpTwo::
+	.incbin "sound/direct_sound_samples/karp_2.bin"
+
+	.align 2
+DirectSoundWaveData_KarpThree::
+	.incbin "sound/direct_sound_samples/karp_3.bin"
+
+	.align 2
+DirectSoundWaveData_SourceCollision::
+	.incbin "sound/direct_sound_samples/source_collision.bin"
+
+	.align 2
+DirectSoundWaveData_StockExplosion::
+	.incbin "sound/direct_sound_samples/stock_explosion.bin"
+
+	.align 2
+DirectSoundWaveData_SwitchError::
+	.incbin "sound/direct_sound_samples/switch_error.bin"
+
+	.align 2
+DirectSoundWaveData_YoureOut::
+	.incbin "sound/direct_sound_samples/youre_out.bin"
+
+	.align 2
+DirectSoundWaveData_Barge::
+	.incbin "sound/direct_sound_samples/barge.bin"
+
+	.align 2
 Cry_Bulbasaur::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 

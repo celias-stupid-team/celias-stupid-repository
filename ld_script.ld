@@ -1143,6 +1143,16 @@ SECTIONS {
         sound/songs/midi/se_azumarill.o(.rodata);
         sound/songs/midi/se_azu.o(.rodata);
         sound/songs/midi/se_and_there_you_have_it.o(.rodata);
+        sound/songs/midi/se_aww.o(.rodata);
+        sound/songs/midi/se_drumroll.o(.rodata);
+        sound/songs/midi/se_karp_one.o(.rodata);
+        sound/songs/midi/se_karp_two.o(.rodata);
+        sound/songs/midi/se_karp_three.o(.rodata);
+        sound/songs/midi/se_source_collision.o(.rodata);
+        sound/songs/midi/se_stock_explosion.o(.rodata);
+        sound/songs/midi/se_switch_error.o(.rodata);
+        sound/songs/midi/se_youre_out.o(.rodata);
+        sound/songs/midi/se_barge.o(.rodata);
 
     } > ROM =0
 

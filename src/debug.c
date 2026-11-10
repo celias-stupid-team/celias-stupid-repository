@@ -3917,6 +3917,16 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(SE_AZUMARILL) \
     X(SE_AZU) \
     X(SE_AND_THERE_YOU_HAVE_IT) \
+    X(SE_AWW) \
+    X(SE_DRUMROLL) \
+    X(SE_KARP_ONE) \
+    X(SE_KARP_TWO) \
+    X(SE_KARP_THREE) \
+    X(SE_SOURCE_COLLISION) \
+    X(SE_STOCK_EXPLOSION) \
+    X(SE_SWITCH_ERROR) \
+    X(SE_YOURE_OUT) \
+    X(SE_BARGE) \
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

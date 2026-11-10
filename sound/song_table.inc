@@ -519,6 +519,16 @@ gSongTable::
 	song se_azumarill, 1, 1
 	song se_azu, 1, 1
 	song se_and_there_you_have_it, 1, 1
+	song se_aww, 1, 1
+	song se_drumroll, 1, 1
+	song se_karp_one, 1, 1
+	song se_karp_two, 1, 1
+	song se_karp_three, 1, 1
+	song se_source_collision, 1, 1
+	song se_stock_explosion, 1, 1
+	song se_switch_error, 1, 1
+	song se_youre_out, 1, 1
+	song se_barge, 1, 1
 
 
 dummy_song_header:

@@ -1181,6 +1181,25 @@ const struct SpriteTemplate gBarrageBallSpriteTemplate =
     .callback = SpriteCallbackDummy,
 };
 
+static const union AffineAnimCmd sBargeBallAffineAnimCmds1[] =
+{
+    AFFINEANIMCMD_FRAME(0, 0, -3, 24),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sBargeBallAffineAnimCmds2[] =
+{
+    AFFINEANIMCMD_FRAME(0x100, 0x100, -64, 0),
+    AFFINEANIMCMD_FRAME(0, 0, 3, 24),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sBargeBallAffineAnimTable[] =
+{
+    sBargeBallAffineAnimCmds1,
+    sBargeBallAffineAnimCmds2,
+};
+
 const struct SpriteTemplate gBargeBallSpriteTemplate =
 {
     .tileTag = ANIM_TAG_BARGE,
@@ -1188,7 +1207,7 @@ const struct SpriteTemplate gBargeBallSpriteTemplate =
     .oam = &gOamData_AffineNormal_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sBarrageBallAffineAnimTable,
+    .affineAnims = sBargeBallAffineAnimTable,
     .callback = SpriteCallbackDummy,
 };
 

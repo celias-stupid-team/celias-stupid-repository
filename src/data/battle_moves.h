@@ -1358,7 +1358,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TELEPORT] =
     {
-        .effect = EFFECT_EXPLOSION,
+        .effect = EFFECT_SHROOMBURST,
         .power = 255,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -16352,8 +16352,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ROC_SMOLISH] =
     {
         .effect = EFFECT_HIT,
-        .power = 50,
-        .type = TYPE_NORMAL,
+        .power = 10,
+        .type = TYPE_SMALL,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -16364,7 +16364,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ROC_MEDIUMISH] =
     {
         .effect = EFFECT_HIT,
-        .power = 50,
+        .power = 55,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -16376,8 +16376,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_ROC_BIGGISH] =
     {
         .effect = EFFECT_HIT,
-        .power = 50,
-        .type = TYPE_NORMAL,
+        .power = 110,
+        .type = TYPE_LARGE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -16459,9 +16459,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     [MOVE_MAX_STARBUCKS] =
     {
-        .effect = EFFECT_HIT,
-        .power = 50,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_RECHARGE,
+        .power = 150,
+        .type = TYPE_CHOCOLATE,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,

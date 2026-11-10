@@ -33,6 +33,8 @@ static void AnimSmallDriftingBubbles_Step(struct Sprite *);
 static void AnimSmallWaterOrb(struct Sprite *);
 static void AnimWaterSpoutRain(struct Sprite *);
 static void AnimWaterSpoutRainHit(struct Sprite *);
+static void AnimCoffeeSpoutRain(struct Sprite *);
+static void AnimCoffeeSpoutRainHit(struct Sprite *);
 static void AnimWaterSportDroplet(struct Sprite *);
 static void AnimWaterSportDroplet_Step(struct Sprite *);
 static void AnimWaterPulseBubble(struct Sprite *);
@@ -46,10 +48,12 @@ static void AnimTask_CreateSurfWave_Step2(u8);
 static void AnimTask_SurfWaveScanlineEffect(u8);
 static void AnimTask_WaterSpoutLaunch_Step(u8);
 static void AnimTask_WaterSpoutRain_Step(u8);
+static void AnimTask_CoffeeSpoutRain_Step(u8);
 static void AnimTask_SoakRain_Step(u8);
 static u8 GetWaterSpoutPowerForAnim(void);
 static void CreateWaterSpoutLaunchDroplets(struct Task *, u8);
 static void CreateWaterSpoutRainDroplet(struct Task *, u8);
+static void CreateCoffeeSpoutRainDroplet(struct Task *, u8);
 static void AnimTask_WaterSport_Step(u8);
 static void CreateWaterSportDroplet(struct Task *);
 static void CreateDroplet(struct Task *task);
@@ -695,6 +699,17 @@ const struct SpriteTemplate gSmallWaterOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GLOWY_BLUE_ORB,
     .paletteTag = ANIM_TAG_GLOWY_BLUE_ORB,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSmallWaterOrb,
+};
+
+const struct SpriteTemplate gSmallCoffeeOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GLOWY_BLUE_ORB,
+    .paletteTag = ANIM_TAG_BROWN_ORB,
     .oam = &gOamData_AffineOff_ObjNormal_8x8,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -1859,6 +1874,111 @@ static void AnimWaterSpoutRainHit(struct Sprite *sprite)
         {
             gTasks[sprite->data[6]].data[sprite->data[7]]--;
             FreeOamMatrix(sprite->oam.matrixNum);
+            DestroySprite(sprite);
+        }
+    }
+}
+
+
+void AnimTask_CoffeeSpoutRain(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    //Max intensity
+    task->data[1] = 5;
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+    {
+        task->data[4] = 136;
+        task->data[6] = 40;
+    }
+    else
+    {
+        task->data[4] = 16;
+        task->data[6] = 80;
+    }
+    task->data[5] = 98;
+    task->data[7] = task->data[4] + 49;
+    task->data[12] = task->data[1] * 5 + 5;
+    task->func = AnimTask_CoffeeSpoutRain_Step;
+}
+
+static void AnimTask_CoffeeSpoutRain_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    u8 taskId2;
+
+    switch (task->data[0])
+    {
+    case 0:
+        if (++task->data[2] > 2)
+        {
+            task->data[2] = 0;
+            CreateCoffeeSpoutRainDroplet(task, taskId);
+        }
+        if (task->data[10] != 0 && task->data[13] == 0)
+        {
+            gBattleAnimArgs[0] = ANIM_TARGET;
+            gBattleAnimArgs[1] = 0;
+            gBattleAnimArgs[2] = 12;
+            taskId2 = CreateTask(AnimTask_HorizontalShake, 80);
+            if (taskId2 != 0xFF)
+            {
+                gTasks[taskId2].func(taskId2);
+                gAnimVisualTaskCount++;
+            }
+            gBattleAnimArgs[0] = ANIM_DEF_PARTNER;
+            taskId2 = CreateTask(AnimTask_HorizontalShake, 80);
+            if (taskId2 != 0xFF)
+            {
+                gTasks[taskId2].func(taskId2);
+                gAnimVisualTaskCount++;
+            }
+            task->data[13] = 1;
+        }
+        if (task->data[11] >= task->data[12])
+            task->data[0]++;
+        break;
+    case 1:
+        if (task->data[9] == 0)
+            DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+static void CreateCoffeeSpoutRainDroplet(struct Task *task, u8 taskId)
+{
+    u16 yPosArg = ((gSineTable[task->data[8]] + 3) >> 4) + task->data[6];
+    u8 spriteId = CreateSprite(&gSmallCoffeeOrbSpriteTemplate, task->data[7], 0, 0);
+
+    if (spriteId != MAX_SPRITES)
+    {
+        gSprites[spriteId].callback = AnimCoffeeSpoutRain;
+        gSprites[spriteId].data[5] = yPosArg;
+        gSprites[spriteId].data[6] = taskId;
+        gSprites[spriteId].data[7] = 9;
+        task->data[9]++;
+    }
+    task->data[11]++;
+    task->data[8] = (task->data[8] + 39) & 0xFF;
+    task->data[7] = (ISO_RANDOMIZE2(task->data[7]) % task->data[5]) + task->data[4];
+}
+
+static void AnimCoffeeSpoutRain(struct Sprite *sprite)
+{
+    if (sprite->data[0] == 0)
+    {
+        sprite->y += 8;
+        if (sprite->y >= sprite->data[5])
+        {
+            gTasks[sprite->data[6]].data[10] = 1;
+            sprite->data[1] = CreateSprite(&gCoffeeHitSplatSpriteTemplate, sprite->x, sprite->y, 1);
+            if (sprite->data[1] != MAX_SPRITES)
+            {
+                StartSpriteAffineAnim(&gSprites[sprite->data[1]], 3);
+                gSprites[sprite->data[1]].data[6] = sprite->data[6];
+                gSprites[sprite->data[1]].data[7] = sprite->data[7];
+                gSprites[sprite->data[1]].callback = AnimWaterSpoutRainHit;
+            }
             DestroySprite(sprite);
         }
     }
