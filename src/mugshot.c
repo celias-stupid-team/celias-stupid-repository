@@ -86,6 +86,11 @@ static const u32 sMugshotImg_Chapter7_2[] = INCBIN_U32("graphics/mugshots/Chapte
 static const u16 sMugshotPal_BikeShiny[] = INCBIN_U16("graphics/mugshots/bike_frame4.gbapal");
 
 
+static const u32 sMugshotImg_TownMap[] = INCBIN_U32("graphics/mugshots/town_map.4bpp.lz");
+static const u16 sMugshotPal_TownMap[] = INCBIN_U16("graphics/mugshots/town_map.gbapal");
+
+
+
 static const struct Mugshot sMugshots[] = {
     //ADD YOUR MUGSHOTS HERE
     [MUGSHOT_CHAPTER1] = {.x = 0, .y = 0, .width = 176, .height = 96, .image = sMugshotImg_Chapter1, .palette = sMugshotPal_Chapter1},
@@ -115,6 +120,10 @@ static const struct Mugshot sMugshots[] = {
     [MUGSHOT_BIKE_FRAME_2_SHINY] = {.x = 2, .y = 2, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame2, .palette = sMugshotPal_BikeShiny},
     [MUGSHOT_BIKE_FRAME_3_SHINY] = {.x = 2, .y = 2, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame3, .palette = sMugshotPal_BikeShiny},
     [MUGSHOT_BIKE_FRAME_4_SHINY] = {.x = 2, .y = 2, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame4, .palette = sMugshotPal_BikeShiny},
+
+    [MUGSHOT_TOWN_MAP] = {.x = 2, .y = 1, .width = 224, .height = 152, .image = sMugshotImg_TownMap, .palette = sMugshotPal_TownMap},
+
+    
 };
 
 

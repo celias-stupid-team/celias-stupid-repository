@@ -8112,6 +8112,18 @@
       "secondary_tileset": "gTileset_Starlight_Interior",
       "border_filepath": "data/layouts/Starlight_House2_Fixed/border.bin",
       "blockdata_filepath": "data/layouts/Starlight_House2_Fixed/map.bin"
+    },
+    {
+      "id": "LAYOUT_SILPH_HUB_ROOM_LAYOUT_2",
+      "name": "Silph_HubRoom_Layout_2",
+      "width": 24,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/Silph_HubRoom_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/Silph_HubRoom_Layout_2/map.bin"
     }
   ]
 }

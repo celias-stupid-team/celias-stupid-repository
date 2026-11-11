@@ -128,9 +128,6 @@ PalletTown_RivalsHouse_EventScript_ExplainTownMap::
 	release
 	end
 
-PalletTown_RivalsHouse_EventScript_TownMap::
-	msgbox PalletTown_RivalsHouse_Text_ItsBigMapOfKanto, MSGBOX_NPC
-	end
 
 PalletTown_RivalsHouse_EventScript_Bookshelf::
 	msgbox PalletTown_RivalsHouse_Text_ShelvesCrammedFullOfBooks, MSGBOX_SIGN
@@ -138,6 +135,29 @@ PalletTown_RivalsHouse_EventScript_Bookshelf::
 
 
 `
+
+script PalletTown_RivalsHouse_EventScript_TownMap
+{
+	lock
+	if(flag(FLAG_CUT_DAISY)) {
+		msgbox(
+		"A TOWN MAP!\n"
+		"Let's see…", MSGBOX_DEFAULT)
+		closemessage
+		setvar(VAR_0x8000, MUGSHOT_TOWN_MAP)
+		callnative(DrawMugshot)
+		waitbuttonpress
+		callnative(ClearMugshot)
+
+		
+	} else {
+		msgbox(PalletTown_RivalsHouse_Text_ItsBigMapOfKanto, MSGBOX_DEFAULT)
+
+	}
+	release
+	end
+}
+
 
 script PalletTown_RivalsHouse_EventScript_Daisy {
 	lock

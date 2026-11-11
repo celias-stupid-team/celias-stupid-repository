@@ -2257,7 +2257,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_THIEF,
         .power = 40,
-        .type = TYPE_DARK,
+        .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 100,
@@ -3611,7 +3611,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ROLE_PLAY,
         .power = 0,
-        .type = TYPE_PSYCHIC,
+        .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 1,
         .secondaryEffectChance = 0,
@@ -4538,7 +4538,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_THIEF,
         .power = 40,
-        .type = TYPE_NORMAL,
+        .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 40,
         .secondaryEffectChance = 100,
@@ -6724,7 +6724,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_MIEF] =    {
         .effect = EFFECT_THIEF,
         .power = 40,
-        .type = TYPE_DARK,
+        .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
@@ -10379,7 +10379,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FURRY_ATTACK_2] =
     {
         .effect = EFFECT_HIT,
-        .power = 35,
+        .power = 18,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,

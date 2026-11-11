@@ -2685,7 +2685,9 @@ const u8 gDittoMewPokedexText[] = _(
 	"haha gottem");
 
 const u8 gAlcremiePokedexText[] = _(
-	"Ooh, this one's got a chocolate shell!");
+	"When ALCREMIE is content, the cream it\n"
+	"secretes becomes sweeter and richer.\n"
+	"(That's the vanilla entry)");
 
 const u8 gYoshiPokedexText[] = _(
     "Yoshi!\n"

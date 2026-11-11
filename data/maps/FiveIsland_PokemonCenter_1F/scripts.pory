@@ -108,9 +108,22 @@ script Yes_Fisher {
 
 		}
 	} else {
-		msgbox(
-		"That's exactly it!\n"
-		"Thank you.", MSGBOX_DEFAULT)
+		if(flag(FLAG_TEMP_8)) {
+			msgbox(
+			"That's exactly it!\n"
+			"Thank you.\p"
+			
+			"I wish I'd kept it. Someone there\n"
+			"wanted it, so we traded.\l"
+			"I guess they're long gone now.", MSGBOX_DEFAULT)
+
+		} else {
+			setflag(FLAG_TEMP_8)
+			msgbox(
+			"That's exactly it!\n"
+			"Thank you.", MSGBOX_DEFAULT)
+
+		}
 	}
 	release
 	end

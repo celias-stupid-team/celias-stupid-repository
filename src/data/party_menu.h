@@ -1175,7 +1175,7 @@ static const u16 sFieldMoves[] =
     MOVE_SURF,
     MOVE_ROCK_SMASH,
     MOVE_WATERFALL,
-    MOVE_TELEPORT,
+    MOVE_CONFUSE_RAY,
     MOVE_DIG,
     MOVE_MILK_DRINK,
     MOVE_SOFT_BOILED,

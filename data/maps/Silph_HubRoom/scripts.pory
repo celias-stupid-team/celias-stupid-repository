@@ -19,6 +19,12 @@ mapscripts Silph_HubRoom_MapScripts {
         
         
     }
+    MAP_SCRIPT_ON_TRANSITION {
+        
+        if(!flag(FLAG_CHAPTER_7_CHAPTER_2)) {
+            setmaplayoutindex(LAYOUT_SILPH_HUB_ROOM_LAYOUT_2)
+        }
+    }
 }
 
 script SilphCo_Activate_Warp_Callcenter {

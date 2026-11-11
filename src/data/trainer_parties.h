@@ -5262,12 +5262,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderKoga[] = {
         .species = SPECIES_MR_MIME,
         .moves = {MOVE_REFLECT_2, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
-    {
-        .iv = 0,
-        .lvl = 55,
-        .species = SPECIES_WEEZING_ALOLA,
-        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-    },
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderBlaine[] = {
@@ -10527,7 +10521,7 @@ static const struct TrainerMonItemCustomMoves sParty_YamaskGuy[] = {
         .lvl = 30, // required for higher HP
         .heldItem = ITEM_NONE,
         .species = SPECIES_YAMASK,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_DOUBLE_EDGE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 

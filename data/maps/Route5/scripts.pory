@@ -31,6 +31,7 @@ script Route5_TransitionScripts {
 }
 
 script Route5_SummonThePit3{
+	setvar(VAR_TEMP_0, 1)
 	setlayouttiles(
 		LAYOUT_ROUTE5_LAYOUT_THE_PIT, 
 		0,	// startingX
@@ -43,6 +44,7 @@ script Route5_SummonThePit3{
 }
 
 script Route5_EscapeThePit3{
+	setvar(VAR_TEMP_0, 0)
 	setlayouttiles(
 		LAYOUT_ROUTE5, 
 		0,	// startingX

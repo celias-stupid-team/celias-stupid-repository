@@ -186,7 +186,7 @@ script Silph_WhisMan {
 	msgbox(
 	"…\p"
 
-	"I spend my entire life savings\n"
+	"I spent my entire life savings\n"
 	"to purchase a MASTER BALL.\p"
 
 	"It…{PAUSE 30} didn't work out.\n"

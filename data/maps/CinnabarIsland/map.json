@@ -630,7 +630,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_FISHER",
       "x": 20,
       "y": 28,
       "elevation": 0,

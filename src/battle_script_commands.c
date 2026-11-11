@@ -5000,6 +5000,7 @@ static void Cmd_playstatchangeanimation(void)
                 else if (!gSideTimers[GET_BATTLER_SIDE(gActiveBattler)].mistTimer
                         && gBattleMons[gActiveBattler].ability != ABILITY_CLEAR_BODY
                         && gBattleMons[gActiveBattler].ability != ABILITY_WHITE_SMOKE
+                        && gBattleMons[gActiveBattler].ability != ABILITY_RECHARGE
                         && gBattleMons[gActiveBattler].ability != ABILITY_FREE_SHINY
 
                         && !(gBattleMons[gActiveBattler].ability == ABILITY_KEEN_EYE && currStat == STAT_ACC)
@@ -8254,7 +8255,9 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             return STAT_CHANGE_DIDNT_WORK;
         }
         else if ((gBattleMons[gActiveBattler].ability == ABILITY_CLEAR_BODY
-                  || gBattleMons[gActiveBattler].ability == ABILITY_WHITE_SMOKE || gBattleMons[gActiveBattler].ability == ABILITY_FREE_SHINY)
+                  || gBattleMons[gActiveBattler].ability == ABILITY_WHITE_SMOKE 
+                  || gBattleMons[gActiveBattler].ability == ABILITY_RECHARGE 
+                  || gBattleMons[gActiveBattler].ability == ABILITY_FREE_SHINY)
                  && !certain && gCurrentMove != MOVE_CURSE)
         {
             if (flags == STAT_CHANGE_ALLOW_PTR)
@@ -8933,12 +8936,14 @@ static void Cmd_weatherdamage(void)
         }
         if (gBattleWeather & B_WEATHER_SHADOW_SKY)
         {
-            if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_SHADOW) && !gSpeciesInfo[gBattleMons[gBattlerAttacker].species].isShadowType)
+            if (!(gBattleMons[gBattlerAttacker].species == SPECIES_CASTFORM) && !gSpeciesInfo[gBattleMons[gBattlerAttacker].species].isShadowType)
             {
                 gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP;
             }
             else
             {
+                //DebugPrintf("Species %d", gBattleMons[gBattlerAttacker].species);
+                //DebugPrintf("Castform %d", SPECIES_CASTFORM);
                 gBattleMoveDamage = 0;
             }
         }

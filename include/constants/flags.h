@@ -45,7 +45,7 @@
 
 #define FLAG_LASS_MAZE               0x020
 #define FLAG_READY_TO_TRIGGER_GLITCH_CITY               0x021
-#define FLAG_0x022               0x022
+#define FLAG_CUT_DAISY               0x022
 #define FLAG_0x023               0x023
 #define FLAG_0x024               0x024
 #define FLAG_0x025               0x025

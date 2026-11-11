@@ -760,8 +760,8 @@ static const u16 sDexCategory_FinalBadgePkmn_Page8[] = {
 static const u16 sDexCategory_FinalBadgePkmn_Page9[] = {
     SPECIES_AMPHAROS_MEGA,
     SPECIES_AMPHAROS,
-    SPECIES_ETERNATUS,
-    SPECIES_CASTFORM
+    SPECIES_ETERNATUS
+    //SPECIES_CASTFORM
 };
 
 /*
